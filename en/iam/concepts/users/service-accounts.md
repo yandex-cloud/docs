@@ -32,6 +32,14 @@ By using service accounts you can flexibly configure access rights to resources 
     * You do not need to edit the program code to make it run on a new VM or function. The IAM token for authentication in the {{ yandex-cloud }} API is already available from inside the virtual machine.
     * To enable or disable operations in {{ yandex-cloud }} for all running program instances, you can assign or revoke roles for a single service account.
 
+## Suspending a service account {#sa-suspend}
+
+You can [suspend](../../operations/sa/suspend-reactivate.md#suspend) a service account to pause its activity for some time without deleting it. This may be useful during maintenance or security incidents.
+
+When [creating](../../operations/sa/create.md#add-expires-at) or [updating](../../operations/sa/update.md#update-expires-at) a service account, you can also use the `--expires-at` setting to define its lifetime. After this period, the system will automatically suspend the account.
+
+You cannot use a suspended service account to work with {{ yandex-cloud }}. Suspended accounts retain their roles, which are restored after [reactivation](../../operations/sa/suspend-reactivate.md#reactivate).
+
 ## Service account keys {#sa-key}
 
 The following keys are used for service account authentication in the {{ yandex-cloud }} API:
@@ -57,4 +65,5 @@ Generated keys belong to the service account and permissions to manage them are 
 
 * [{#T}](../../quickstart-sa.md)
 * [{#T}](../../operations/sa/list-get.md)
+* [{#T}](../../operations/sa/suspend-reactivate.md)
 * [Authenticating as a service account](../authorization/index.md#sa)

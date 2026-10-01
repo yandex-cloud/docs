@@ -1,6 +1,7 @@
 # Migrating data from {{ ES }} to {{ mos-full-name }} using {{ data-transfer-full-name }}
 
 
+
 You can set up data transfer from {{ ES }} to {{ mos-name }} indexes using {{ data-transfer-name }}. Proceed as follows:
 
 1. [Configure the source cluster](#configure-source).
@@ -50,7 +51,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             * `mos_version`: {{ OS }} version.
             * `mos_admin_password`: {{ mos-name }} admin password.
-            * `transfer_enabled`: Set to `0` to prevent transfer creation until you [create endpoints manually](#prepare-transfer).
+            * `transfer_enabled`: Set to `0` not to create a transfer until [endpoints are created manually](#prepare-transfer).
 
         1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use its resources and data sources.
         1. Validate your {{ TF }} configuration files using this command:
@@ -228,7 +229,7 @@ To minimize resource consumption, delete the resources you no longer need:
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source and target endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the rest of the resources depending on how you created them:
+1. Delete the other resources depending on how you created them:
 
     {% list tabs group=instructions %}
 

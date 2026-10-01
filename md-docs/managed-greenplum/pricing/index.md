@@ -2,22 +2,48 @@
 
 # Правила тарификации для Yandex MPP Analytics for PostgreSQL
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 12
+      md: 6
+    indent:
+      top: '0'
+      bottom: '0'
+    children:
+      - type: basic-card
+        title: Калькулятор цен
+        text: Рассчитайте стоимость использования сервиса, исходя из ваших потребностей
+        gravityIcon: Calculator
+        iconPosition: left
+        urlTitle: Калькулятор цен
+        url: https://yandex.cloud/ru/prices?state=c55f805e6ef5#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Прайс-лист
+        text: Актуальные тарифы на все наши услуги
+        gravityIcon: CircleRuble
+        iconPosition: left
+        urlTitle: Прайс-лист
+        url: https://yandex.cloud/ru/price-list?services=dn2l7rvq9j43kk6ips5i
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
+
+
 В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса Yandex MPP Analytics for PostgreSQL, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
 
-
-{% note tip %}
-
-
-Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=c55f805e6ef5#calculator) на сайте Yandex Cloud или ознакомьтесь с тарифами в этом разделе.
-
-
-
-
-{% endnote %}
-
-
-
-Цены на продукты сервиса также доступны в [Прайс-листе](https://yandex.cloud/ru/price-list).
 
 
 Все цены в рублях и тенге указаны с НДС, все цены в долларах — без НДС.
@@ -81,7 +107,7 @@
 
   * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров с двумя хостами-мастерами, с шагом 93 ГБ.
 
-  Чтобы сэкономить, вы можете [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера Yandex MPP Analytics for PostgreSQL в холодное хранилище Yandex Object Storage. Данные будут храниться в служебном бакете в сжатом и зашифрованном виде, так хранить данные дешевле. Стоимость хранения рассчитывается по [правилам тарификации Object Storage](../../storage/pricing.md).
+  Чтобы сэкономить, вы можете [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера Yandex MPP Analytics for PostgreSQL в гибридное хранилище Yandex Object Storage. Данные будут храниться в служебном бакете в сжатом и зашифрованном виде, так хранить данные дешевле. Стоимость хранения рассчитывается по [правилам тарификации Object Storage](../../storage/pricing.md).
 
 * Объем, занимаемый резервными копиями баз данных сверх заданного хранилища для кластера.
 
@@ -315,6 +341,32 @@
 
 
 
+### Тарификация гибридного хранилища {#prices-hybrid-storage}
+
+
+{% list tabs %}
+
+- Цены в рублях {#prices-rub}
+
+  | Услуга | Цена     | Ед. тарификации | Действует с     | Действует до |
+  |---|----------|---|-----------------|------------|
+  | MPP Analytics for PostgreSQL. Гибридное хранилище | 0,0032 ₽ | ГБ × час | 8 сентября 2026 | - |
+
+- Цены в тенге {#prices-kzt}
+
+  | Услуга | Цена     | Ед. тарификации | Действует с     | Действует до |
+  |---|----------|---|-----------------|------------|
+  | MPP Analytics for PostgreSQL. Гибридное хранилище | 0,0160 ₸ | ГБ × час | 8 сентября 2026 | - |
+
+- Цены в долларах {#prices-usd}
+
+  | Услуга | Цена | Ед. тарификации | Действует с     | Действует до |
+  |---|-----|---|-----------------|------------|
+  | MPP Analytics for PostgreSQL. Гибридное хранилище | $0,00002623 | ГБ × час | 8 сентября 2026 | - |
+
+{% endlist %}
+
+
 
 ### Исходящий трафик {#prices-traffic}
 
@@ -322,7 +374,7 @@
 
 Каждый месяц не тарифицируются первые 100 ГБ исходящего трафика.
 
-Минимальная единица тарификации — 1 МБ.
+Минимальная единица тарификации — 1 байт.
 
 
 | Услуга                                                    | Цена              | Ед. тарификации | Действует с    | Действует до |

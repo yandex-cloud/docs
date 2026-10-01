@@ -17,10 +17,10 @@ To select a version from the list, click it. The version number will be displaye
 
 All versions fall into the following types:
 
-1. **Current**: Most recently saved dataset version. It is displayed for all users that open the dataset for viewing in the workbook or from the navigation panel. A dataset can only have one current version.
+1. **Actual**: Most recently saved dataset version. It is displayed for all users that open the dataset for viewing in the workbook or from the navigation panel. A dataset can only have one current version.
 
 
-1. **Draft**: Version containing unsaved dataset changes. Common users see none of the changes made to the draft. This allows you to hide dataset edits until you actualize your version. A dataset can only have one draft. 
+1. **Draft**: Version containing unsaved dataset changes. Common users do not see the changes made to the draft. This allows you to hide dataset edits until you actualize your version. A dataset can only have one draft. 
    When you open a draft, you see a panel at the top informing you that it is the draft version of the dataset. There are buttons in the right-hand panel:
 
    * **Make actual**: Turns the draft into the current version. The version current at the time will become outdated.
@@ -36,9 +36,9 @@ All versions fall into the following types:
 
 
 1. **Outdated**: Version that is no longer current.  
-   When you open an outdated version, a panel appears at the top indicating the version type, creation date and time, and login of the version author. There are buttons in the right-hand panel:
+   When you open an outdated version, you see a panel at the top stating the version type, creation date and time, and the version author's login. There are buttons in the right-hand panel:
 
-   * **Make actual**: Turns an outdated version into the current one. The version current at the time will become outdated.
+   * **Make actual**: Turns an outdated version into the current one. The version actual at the time will become outdated.
    * **Open actual**: Opens the current version.
 
    {% cut "Outdated version" %}
@@ -106,7 +106,7 @@ To edit an outdated version, select it from the list of versions. To save edits 
 ## Limits {#restrictions}
 
 * You can only switch to versions created on or after December 1, 2024. Therefore, if your dataset was created before this date, editing it now and saving your changes will permanently delete the previous version.
-* Change history is only available for the last three months.
+* You can only get the change history for the last three months.
 * The change history only contains a list of dataset versions and indicates the version type, save date and time, and user who made the change.
 * Dataset versions do not include:
 
@@ -114,4 +114,4 @@ To edit an outdated version, select it from the list of versions. To save edits 
   * Changes to connection settings made using the interface for editing connection parameters.
   * Changes to the source data (rows added, updated, or deleted in the data source).
 
-* Versions do not display a list of changes. You can only view the saved status of the dataset configuration.
+* Versions do not display the list of changes. You can only view the saved status of the dataset configuration.

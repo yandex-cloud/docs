@@ -1,5 +1,5 @@
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+%%{init: {"flowchart": {'defaultRenderer': 'elk', 'padding': 4}} }%%
 flowchart BT
 
     dl-visitor["datalens.visitor"] --> dl-creator["datalens.creator"] --> dl-admin["datalens.admin"]

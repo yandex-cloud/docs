@@ -16,6 +16,14 @@ yc components update
 ```
 
 
+## Required paid resources {#paid-resources}
+
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Public IP addresses for the {{ managed-k8s-name }} cluster's master and nodes with public access enabled (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+
+
+
 ## Migrate the node group and pod workload to a different availability zone {#transfer-a-node-group}
 
 [Set up the node group](#prepare) and proceed with migration using one of the following methods:
@@ -42,9 +50,9 @@ yc components update
 
       1. In the [management console]({{ link-console-main }}), select the folder with your {{ managed-k8s-name }} cluster.
       1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-      1. Open the cluster page and navigate to **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
-      1. On the **{{ ui-key.yacloud.k8s.workloads.label_pods }}** tab, open the pod page.
-      1. Navigate to the **{{ ui-key.yacloud.k8s.workloads.label_tab-yaml }}** tab.
+      1. Select the {{ managed-k8s-name }} cluster.
+      1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** tab, then to **{{ ui-key.yacloud.k8s.workloads.label_pods }}**.
+      1. Select the pod and navigate to the **{{ ui-key.yacloud.k8s.workloads.label_tab-yaml }}** tab.
       1. Check if the pod manifest contains the following parameters and {{ k8s }} labels in them:
 
          * Parameters:
@@ -288,8 +296,11 @@ The migration is based on scaling the `StatefulSet` controller. To migrate state
 
           1. In the [management console]({{ link-console-main }}), select the folder with your {{ managed-k8s-name }} cluster.
           1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-          1. Open the cluster page, then navigate to **{{ ui-key.yacloud.k8s.cluster.switch_storage }}**.
-          1. On the **{{ ui-key.yacloud.k8s.storage.label_pv }}** tab, find the `new-pv-test-<number>` object and check the **{{ ui-key.yacloud.k8s.pv.overview.label_zone }}** field value. It should specify an availability zone. A dash means there is no assignment to an availability zone.
+          1. Select the {{ managed-k8s-name }} cluster.
+          1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_storage }}** tab, and then to **{{ ui-key.yacloud.k8s.storage.label_pv }}**.
+          1. Find the `new-pv-test-<number>` object.
+
+              View the **{{ ui-key.yacloud.k8s.pv.overview.label_zone }}** field value of the object. It should specify an availability zone. A dash means there is no assignment to an availability zone.
 
        {% endlist %}
 

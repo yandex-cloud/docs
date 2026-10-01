@@ -60,6 +60,7 @@ Name of the S3 bucket to use as the Exchange Manager spool destination. ||
 || `--retry-policy-exchange-manager-additional-properties` | `key=value[,key=value...]`
 
 Map entries for ExchangeManagerConfig.additional_properties. ||
+|| `--event-listener-data-catalog-enabled` | Enable the Data Catalog event listener. ||
 || `--access-control-from-file` | `string`
 
 YAML file with access control rules. ||
@@ -72,6 +73,9 @@ Trusted CA-certificates files. Each file should contain single self-signed CA-ce
 || `--query-properties` | `key=value[,key=value...]`
 
 Query properties as key-value pairs for resource management configuration. ||
+|| `--additional-properties` | `key=value[,key=value...]`
+
+Additional Trino configuration properties as key-value pairs. ||
 || `--subnet-ids` | `value[,value]`
 
 List of IDs of VPC network subnets where instances of the cluster are attached. ||

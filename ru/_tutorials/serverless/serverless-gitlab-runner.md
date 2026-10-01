@@ -190,7 +190,7 @@
       1. Откройте [консоль управления]({{ link-console-main }}).
       1. [Перейдите]({{ link-console-main }}/link/lockbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
       1. Выберите секрет `gitlab-runner-token`.
-      1. На панели слева выберите ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+      1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
       1. Нажмите **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
       1. Найдите и выберите сервисный аккаунт `gitlab-runner-lockbox-payload-viewer`.
       1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и выберите роль `{{ roles-lockbox-payloadviewer }}`.

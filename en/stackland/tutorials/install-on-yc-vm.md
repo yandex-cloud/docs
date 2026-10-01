@@ -31,7 +31,7 @@ Links to release artifacts use the `$VERSION` variable. Replace it with current 
 The CLI examples below use variables. Before you run the commands, set them to the following:
 
 ```bash
-export VERSION=26.1.5
+export VERSION={{ version }}
 export ZONE=ru-central1-d
 export NETWORK_NAME=stackland-network
 export SUBNET_NAME=stackland-subnet
@@ -150,7 +150,7 @@ sudo apt update
 sudo apt install unzip jq curl wget -y
 ```
 
-Install `kubectl` to be able to check cluster health status after installation. For example:
+Install `kubectl` to be able to check cluster health status after installation. Here is an example:
 
 ```bash
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -495,7 +495,7 @@ Make sure that system endpoints are available:
 
 If the `*.sys.$baseDomain` wildcard record does not point at the {{ network-load-balancer-name }} address yet, get the address of the load balancer you created and update the DNS record.
 
-For example:
+Here is an example:
 
 ```bash
 INGRESS_IP=$(kubectl get svc -n stackland-ingress ingress-controller -o jsonpath='{.status.loadBalancer.ingress[0].ip}')

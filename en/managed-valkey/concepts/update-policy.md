@@ -26,12 +26,12 @@ The upgrades will run automatically during maintenance [windows](./maintenance.m
 
 For every {{ VLK }} version that has a [compatible](./index.md#compatibility-warranty) version in the {{ yandex-cloud }} implementation, the service maintains its support for no less than the support duration of the latest compatible version as per the official {{ VLK }} lifecycle.
 
-Version stage | Description and key [actions](#actions-available) | Period
---- | --- | ---
-Full support (`Supported`) | The version is fully supported. **Recommended for new projects.** | Lasts until the support for the latest compatible version is discontinued, but no less than the official {{ VLK }} support for this version.
-`Deprecated` | Support for the version will be discontinued soon. **Creating new clusters is unavailable. The existing clusters operate normally.** | Six months
-`Legacy` | Support for the version was officially discontinued. **Clusters operate normally, but are billed at an increased rate. Technical support is limited.** | Six months
-End of life (`EOL`) | Discontinued version. **Technical support is not provided. Clusters operate normally, but are billed at an increased rate.** | N/A
+| Version stage                    | Description and key [actions](#actions-available) | Period | Current value |
+|:------------------------------------|:-------------|:----------------------------|:------------------------------------------------|
+| Full support (`Supported`)      | The version is fully supported. **Recommended for new projects.** | Lasts until the support for the latest compatible version is discontinued, but no less than the official {{ VLK }} support for this version. | {{ mdb-versions.valkey-version.supported }} |
+| `Deprecated`         | Support for the version will be discontinued soon. **Creating new clusters is unavailable. The existing clusters operate normally.** | Six months | N/A |
+| Legacy (`Legacy`)               | Support for the version was officially discontinued. **Clusters operate normally, but are billed at an increased rate. Technical support is limited.** | Six months | N/A |
+|  End of Life (`EOL`) | Discontinued version. **Technical support is not provided. Clusters operate normally, but are billed at an increased rate.** | N/A |
 
 ### Features for each version stage {#actions-available}
 

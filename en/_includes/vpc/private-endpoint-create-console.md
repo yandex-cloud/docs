@@ -26,7 +26,7 @@
          * Specify a name and description for the IP address.
          * Select a [subnet](../../vpc/concepts/network.md#subnet).
          * Assign an internal IPv4 address, e.g., `172.16.0.3`.
-         * Enable **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection }}** for the address to be immune from deletion until you disable protection.
+         * Enable **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection_jVSCP }}** for the address to be immune from deletion until you disable protection.
          * Add labels.
          * Click **{{ ui-key.yacloud.common.create }}**.
          * Repeat these steps to reserve additional IP addresses.

@@ -27,6 +27,7 @@
 
 * [Управление базами данных в Yandex MPP Analytics for PostgreSQL](databases.md)
 * [Запросы в Yandex WebSQL](web-sql-query.md)
+* [Работа с политиками распределения данных](distribution-policy-management.md)
 
 ## Пользователи и сессии {#users-and-sessions}
 
@@ -49,6 +50,7 @@
 ## Работа с утилитой `gpfdist` {#gpfdist}
 
 * [Подключение к внешнему файловому серверу](gpfdist/connect.md)
+* [Доступ из Trino](gpfdist/trino-access.md)
 
 ## Расширения {#extensions}
 

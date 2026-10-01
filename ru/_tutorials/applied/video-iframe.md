@@ -21,7 +21,7 @@
   1. Выберите канал.
   1. На вкладке ![image](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** выберите видео.
   1. Задайте [настройки видео](../../video/operations/video/update.md).
-  1. В разделе **{{ ui-key.yacloud_video.videos.title_past-code }}** на вкладке **html** скопируйте код вставки iframe.
+  1. В разделе **{{ ui-key.yacloud_video.videos.title_past-code }}** на вкладке `html` скопируйте код вставки iframe.
   1. Добавьте в код вашей HTML-страницы скопированный код вставки iframe.
   1. Чтобы передать видео в виде URL, на вкладке **link** скопируйте содержимое ссылки с настройками.
 

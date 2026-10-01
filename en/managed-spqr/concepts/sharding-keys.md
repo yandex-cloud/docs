@@ -13,7 +13,7 @@ Sharding is a horizontal scaling method for distributed databases that splits th
 
 You can find more information about sharding in {{ mspqr-name }} [here](sharding.md).
 
-The _sharding key_ is one or more table columns the system uses to determine which shard will store a row. A key that includes more than one column is called a [composite key](#composite_keys).
+The _sharding key_ is one or more table columns the system uses to determine which shard will store a row. A key that includes more than one column is called a [composite key](#composite-keys).
 
 Key columns may have the following data types:
 

@@ -1,22 +1,22 @@
 ---
-title: Transferring data from an AWS CloudTrail source endpoint
-description: Follow this guide to set up a data transfer from an AWS CloudTrail source endpoint.
+title: Transferring data from an AWS CloudTrail endpoint
+description: In this tutorial, you will learn how to set up data transfer from an AWS CloudTrail endpoint.
 ---
 
-# Transferring data from an AWS CloudTrail source endpoint
+# Transferring data from an AWS CloudTrail endpoint
 
-{{ data-transfer-full-name }} enables you to upload audit logs the AWS CloudTrail database to {{ yandex-cloud }} managed databases and implement various data processing and transformation scenarios. To implement a transfer:
+{{ data-transfer-full-name }} enables you to export audit logs from AWS CloudTrail to {{ yandex-cloud }} managed databases and implement various data processing and transformation scenarios. To set up a transfer:
 
-1. [Explore possible data transfer scenarios](#scenarios).
-1. [Prepare the AWS CloudTrail database](#prepare) for the transfer.
+1. [Review the available data transfer scenarios](#scenarios).
+1. [Prepare your AWS CloudTrail database](#prepare) for the transfer.
 1. [Set up a source endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Set up one of the supported data targets](#supported-targets).
-1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. In case of any issues, [use ready-made solutions](../../../../data-transfer/troubleshooting/index.md) to resolve them.
+1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
+1. If you run into any problems, [check the available solutions](../../../../data-transfer/troubleshooting/index.md) for troubleshooting.
 
-## Scenarios for transferring data from AWS CloudTrail {#scenarios}
+## AWS CloudTrail transfer scenarios {#scenarios}
 
-You can upload logs to various databases for further storage in the cloud, processing and loading into data marts for further visualization.
+You can export logs to various databases for cloud storage, processing, and further loading into data marts for visualization.
 
 For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
 
@@ -26,15 +26,15 @@ For a detailed description of possible {{ data-transfer-full-name }} scenarios, 
 
 ## Configuring an AWS CloudTrail source endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, configure access to AWS. For more information, see [this {{ AB }} guide](https://docs.airbyte.com/integrations/sources/aws-cloudtrail).
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, make sure to configure AWS access. For more information, see [this {{ AB }} guide](https://docs.airbyte.com/integrations/sources/aws-cloudtrail).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.aws_cloud_trail_source.endpoint.airbyte.aws_cloud_trail_source.AWSCloudTrailSource.aws_key_id.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.aws_cloud_trail_source.endpoint.airbyte.aws_cloud_trail_source.AWSCloudTrailSource.aws_secret_key.title }}**: Specify the [AWS key ID and contents](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html).
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.aws_cloud_trail_source.endpoint.airbyte.aws_cloud_trail_source.AWSCloudTrailSource.aws_region_name.title }}**: Enter the AWS [region](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) name.
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.aws_cloud_trail_source.endpoint.airbyte.aws_cloud_trail_source.AWSCloudTrailSource.start_date.title }}**: Specify the date in `YYYY-MM-DD` format. Log entries for this and future dates will be transferred to the target. If no value is specified, log entries are copied for the maximum period of 90 days.
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.aws_cloud_trail_source.endpoint.airbyte.aws_cloud_trail_source.AWSCloudTrailSource.aws_key_id.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.aws_cloud_trail_source.endpoint.airbyte.aws_cloud_trail_source.AWSCloudTrailSource.aws_secret_key.title }}**: Specify the [AWS key ID and secret key](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html).
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.aws_cloud_trail_source.endpoint.airbyte.aws_cloud_trail_source.AWSCloudTrailSource.aws_region_name.title }}**: Specify the AWS [region](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html).
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.aws_cloud_trail_source.endpoint.airbyte.aws_cloud_trail_source.AWSCloudTrailSource.start_date.title }}**: Specify the date in `YYYY-MM-DD` format. Log entries from this date onward will be transferred to the target. If left blank, the system will copy log entries for the maximum period of 90 days.
 
 {% endlist %}
 
@@ -55,6 +55,6 @@ For a complete list of supported sources and targets in {{ data-transfer-full-na
 
 {% include [Internet access](../../../../_includes/data-transfer/notes/internet-access.md) %}
 
-After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).
 
 {% include [airbyte-trademark](../../../../_includes/data-transfer/airbyte-trademark.md) %}

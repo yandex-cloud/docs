@@ -103,11 +103,14 @@ _Профиль безопасности_ — основной элемент {{
   1. Посмотрите информацию на графиках:
      * **Denied by Security Profile RPS** — количество входящих запросов в секунду, которые были проверены и заблокированы профилем безопасности.
      * **Redirected to SmartCaptcha RPS** — количество входящих запросов в секунду, направленных в {{ captcha-name }} для дополнительной верификации.
+     * **Redirected to JS challenge RPS** — количество входящих запросов в секунду, направленных на [проверку выполнения JavaScript](../../smartwebsecurity/concepts/rules.md#client-checks) на стороне клиента.
+     * **Redirected to Cookie challenge RPS** — количество входящих запросов в секунду, направленных на [проверку поддержки cookie](../../smartwebsecurity/concepts/rules.md#client-checks) у клиента.
      * **Denied by ARL Profile RPS** — количество входящих запросов в секунду, превысивших лимит профиля ARL и заблокированных.
+     * **Redirected to SmartCaptcha by ARL Profile RPS** — количество входящих запросов в секунду, направленных профилем ARL в {{ captcha-name }} для дополнительной верификации.
 
 {% endlist %}
 
-Подробное описание графиков смотрите в разделе [{#T}](../../smartwebsecurity/operations/monitoring.md).
+Описание графиков, метрик и меток приведено в разделе [{#T}](../../smartwebsecurity/operations/monitoring.md).
 
 ### Логирование {#logs}
 
@@ -118,7 +121,7 @@ _Профиль безопасности_ — основной элемент {{
   1. Убедитесь, что для L7-балансировщика настроено [логирование](../../smartwebsecurity/operations/configure-logging.md).
   1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Выберите балансировщик, к которому привязан профиль безопасности.
-  1. Выберите раздел ![receipt](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.logs }}**.
   1. Выберите период показа логов одним из способов, например **Последний час**.
   1. В строке **Запрос** укажите запрос на [языке фильтрующих выражений](../../logging/concepts/filter.md) и нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
 

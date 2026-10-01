@@ -628,10 +628,12 @@
   1. Посмотрите информацию на графиках:
      * **Denied by Security Profile RPS** — количество входящих запросов в секунду, которые были проверены и заблокированы профилем безопасности.
      * **Redirected to SmartCaptcha RPS** — количество входящих запросов в секунду, направленных в SmartCaptcha для дополнительной верификации.
+     * **Redirected to JS challenge RPS** — количество входящих запросов в секунду, направленных на [проверку выполнения JavaScript](../../smartwebsecurity/concepts/rules.md#client-checks) на стороне клиента.
+     * **Redirected to Cookie challenge RPS** — количество входящих запросов в секунду, направленных на [проверку поддержки cookie](../../smartwebsecurity/concepts/rules.md#client-checks) у клиента.
 
 {% endlist %}
 
-Подробное описание графиков смотрите в разделе [Мониторинг в Smart Web Security](../../smartwebsecurity/operations/monitoring.md).
+Описание графиков, метрик и меток приведено в разделе [Мониторинг в Smart Web Security](../../smartwebsecurity/operations/monitoring.md).
 
 ## Настройте ограничение нагрузки {#rate-limiter}
 
@@ -744,8 +746,11 @@
   1. Посмотрите информацию на графиках:
      * **Allowed by ARL Profile RPS** — количество входящих запросов в секунду, которое не превышает лимит в профиле ARL.
      * **Denied by ARL Profile RPS** — количество входящих запросов в секунду, превысивших лимит профиля ARL и заблокированных.
+     * **Redirected to SmartCaptcha by ARL Profile RPS** — количество входящих запросов в секунду, направленных профилем ARL в SmartCaptcha для дополнительной верификации.
 
 {% endlist %}
+
+Описание графиков, метрик и меток приведено в разделе [Описание дашбордов для мониторинга Smart Web Security](../../smartwebsecurity/operations/monitoring.md#monitoring-dashboards).
 
 ## Настройте Web Application Firewall {#firewall}
 
@@ -767,7 +772,7 @@ Web Application Firewall (WAF) защищает от эксплуатации р
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится профиль безопасности.
   1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
-  1. Перейдите на вкладку ![image](../../_assets/smartwebsecurity/waf.svg) **Профили WAF** и нажмите **Создать профиль WAF**.
+  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/waf.svg) **Профили WAF** и нажмите **Создать профиль WAF**.
   1. Введите имя профиля, например `waf-site-protection`.
   1. Включите наборы правил, например ML WAF и Yandex Ruleset. Чтобы посмотреть правила в наборе, нажмите на строку с его описанием.
   1. Нажмите **Создать**.

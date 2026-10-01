@@ -31,7 +31,7 @@ items:
             href: operations/hide-user-info.md
           - name: Deleting an organization
             href: operations/delete-org.md
-          - name: Connecting a controlled organization
+          - name: Creating a controlled organization
             href: operations/add-region.md
           - name: Configuring branding
             href: operations/manage-branding.md
@@ -69,6 +69,8 @@ items:
             href: operations/user-account/first-login.md
           - name: Managing an account on the My account portal
             href: operations/manage-account.md
+          - name: Reset user password
+            href: operations/user-account/reset-password.md
           - name: Troubleshooting
             href: operations/user-account/troubleshooting.md
       - name: Managing user groups
@@ -149,7 +151,7 @@ items:
                 href: operations/applications/saml-update.md
               - name: Setting up access to the application
                 href: operations/applications/saml-set-access-bindings.md
-              - name: Getting app information
+              - name: Getting the app info
                 href: operations/applications/saml-get.md
               - name: Deactivating and deleting an app
                 href: operations/applications/saml-deactivate-remove.md
@@ -163,7 +165,7 @@ items:
                 href: operations/applications/oidc-set-access-bindings.md
               - name: Getting a list of apps
                 href: operations/applications/oidc-list.md
-              - name: Getting app information
+              - name: Getting the app info
                 href: operations/applications/oidc-get.md
               - name: Deactivating and deleting an app
                 href: operations/applications/oidc-deactivate-remove.md
@@ -179,6 +181,8 @@ items:
               Enabling the two-factor authentication requirement for Yandex
               accounts
             href: operations/enable-2fa-access.md
+          - name: Configuring self-service password reset (SSPR)
+            href: operations/manage-sspr.md
           - name: Managing MFA
             items:
               - name: Creating an MFA policy
@@ -227,8 +231,10 @@ items:
             href: operations/view-subject-access-bindings.md
           - name: Revoking a user's role
             href: operations/revoke-role.md
-      - name: Syncing users and groups with {{ microsoft-idp.ad-short }}
-        href: operations/sync-ad.md
+      - name: Syncing users and groups with external directory services
+        items:
+          - name: '{{ microsoft-idp.ad-short }}'
+            href: operations/sync-ad.md
       - name: Billing management in {{ org-full-name }}
         href: operations/manage-billing.md
   - name: Tutorials
@@ -289,6 +295,18 @@ items:
                 href: tutorials/single-sign-on/jenkins/saml-jenkins.md
               - name: OpenID Connect
                 href: tutorials/single-sign-on/jenkins/oidc-jenkins.md
+          - name: LibreChat
+            items:
+              - name: SAML
+                href: tutorials/single-sign-on/librechat/saml-librechat.md
+              - name: OpenID Connect
+                href: tutorials/single-sign-on/librechat/oidc-librechat.md
+          - name: Loop
+            items:
+              - name: SAML
+                href: tutorials/single-sign-on/loop/saml-loop.md
+              - name: OpenID Connect
+                href: tutorials/single-sign-on/loop/oidc-loop.md
           - name: '{{ mgl-name }}'
             href: tutorials/single-sign-on/saml-managed-gitlab.md
           - name: '{{ mos-name }}'
@@ -299,22 +317,28 @@ items:
             href: tutorials/single-sign-on/oidc-netbird.md
           - name: '{{ OS }}'
             href: tutorials/single-sign-on/saml-opensearch-self-managed.md
-          - name: Selectel
-            href: tutorials/single-sign-on/saml-selectel.md
-          - name: Sentry
-            href: tutorials/single-sign-on/saml-sentry.md
-          - name: SonarQube
-            href: tutorials/single-sign-on/saml-sonarqube.md
           - name: OpenVPN
             items:
               - name: OpenVPN Access Server
                 href: tutorials/single-sign-on/saml-ovpn.md
               - name: OpenVPN Community Edition
                 href: tutorials/single-sign-on/oidc-ovpn.md
-          - name: VK Cloud
+          - name: Open WebUI
+            href: tutorials/single-sign-on/oidc-open-webui.md
+          - name: Selectel
+            href: tutorials/single-sign-on/saml-selectel.md
+          - name: Sentry
+            href: tutorials/single-sign-on/saml-sentry.md
+          - name: SonarQube
+            href: tutorials/single-sign-on/saml-sonarqube.md
+          - name: Time
             items:
               - name: SAML
-                href: tutorials/single-sign-on/vk-cloud/saml-vk-cloud.md
+                href: tutorials/single-sign-on/time/saml-time.md
+              - name: OpenID Connect
+                href: tutorials/single-sign-on/time/oidc-time.md
+          - name: VK Cloud
+            href: tutorials/single-sign-on/saml-vk-cloud.md
           - name: Zabbix
             href: tutorials/single-sign-on/saml-zabbix.md
           - name: Passwork
@@ -361,12 +385,18 @@ items:
         href: concepts/branding.md
       - name: My account portal
         href: concepts/my-account.md
+      - name: Self-service password reset (SSPR)
+        href: concepts/sspr.md
       - name: Audit logs and login logs
         href: concepts/logs.md
       - name: Sessions
         href: concepts/sessions.md
-      - name: Syncing with {{ microsoft-idp.ad-short }}
-        href: concepts/ad-sync.md
+      - name: Syncing with external directory services
+        items:
+          - name: Overview
+            href: concepts/ad-sync/index.md
+          - name: '{{ ad-sync-agent }}'
+            href: concepts/ad-sync/sync-agent.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Error diagnostics
@@ -1714,6 +1744,36 @@ items:
                       - name: Delete
                         href: >-
                           idp/application/saml/api-ref/grpc/SignatureCertificate/delete.md
+          - name: Organization Policy API
+            items:
+              - name: Overview
+                href: policy/api-ref/grpc/index.md
+              - name: AuthenticationPolicyRule
+                items:
+                  - name: Overview
+                    href: policy/api-ref/grpc/AuthenticationPolicyRule/index.md
+                  - name: Get
+                    href: policy/api-ref/grpc/AuthenticationPolicyRule/get.md
+                  - name: List
+                    href: policy/api-ref/grpc/AuthenticationPolicyRule/list.md
+                  - name: Create
+                    href: policy/api-ref/grpc/AuthenticationPolicyRule/create.md
+                  - name: Update
+                    href: policy/api-ref/grpc/AuthenticationPolicyRule/update.md
+                  - name: Delete
+                    href: policy/api-ref/grpc/AuthenticationPolicyRule/delete.md
+                  - name: Activate
+                    href: policy/api-ref/grpc/AuthenticationPolicyRule/activate.md
+                  - name: Deactivate
+                    href: policy/api-ref/grpc/AuthenticationPolicyRule/deactivate.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: policy/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: policy/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: policy/api-ref/grpc/Operation/cancel.md
           - name: SAML Federation API
             items:
               - name: Overview
@@ -2166,6 +2226,36 @@ items:
                       - name: Delete
                         href: >-
                           idp/application/saml/api-ref/SignatureCertificate/delete.md
+          - name: Organization Policy API
+            items:
+              - name: Overview
+                href: policy/api-ref/index.md
+              - name: AuthenticationPolicyRule
+                items:
+                  - name: Overview
+                    href: policy/api-ref/AuthenticationPolicyRule/index.md
+                  - name: Get
+                    href: policy/api-ref/AuthenticationPolicyRule/get.md
+                  - name: List
+                    href: policy/api-ref/AuthenticationPolicyRule/list.md
+                  - name: Create
+                    href: policy/api-ref/AuthenticationPolicyRule/create.md
+                  - name: Update
+                    href: policy/api-ref/AuthenticationPolicyRule/update.md
+                  - name: Delete
+                    href: policy/api-ref/AuthenticationPolicyRule/delete.md
+                  - name: Activate
+                    href: policy/api-ref/AuthenticationPolicyRule/activate.md
+                  - name: Deactivate
+                    href: policy/api-ref/AuthenticationPolicyRule/deactivate.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: policy/api-ref/Operation/index.md
+                  - name: Get
+                    href: policy/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: policy/api-ref/Operation/cancel.md
           - name: SAML Federation API
             items:
               - name: Overview

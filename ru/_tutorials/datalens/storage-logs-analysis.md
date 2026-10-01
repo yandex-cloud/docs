@@ -25,10 +25,9 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость входят:
-
-* плата за хранение данных в {{ objstorage-short-name }}, операции с ними и исходящий трафик ([тарифы {{ objstorage-short-name }}](../../storage/pricing.md));
-* плата за постоянно запущенный кластер {{ mch-name }} ([тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-short-name }}](../../storage/pricing.md)).
+* Кластер {{ mch-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 
 ## Создайте бакет для хранения логов {#create-bucket}
@@ -107,8 +106,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите бакет, логи которого хотите записывать.
-  1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Откройте вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.  
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.  
   1. Включите опцию **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_server-logs_mfGpj }}**.
   1. Выберите **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_target-bucket_jEJ5E }}**.
   1. В поле **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_prefix_4JTZG }}** укажите префикс `s3-logs/`.
@@ -189,7 +187,7 @@
 ### Создайте кластер {{ CH }} {#create-ch-cluster}
 
 
-Для создания кластера {{ mch-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mch.editor }} или выше](../../managed-clickhouse/security.md#roles-list). О том, как назначить роль, смотрите в [документации {{ iam-name }}](../../iam/operations/roles/grant.md).
+Для создания кластера {{ mch-name }} нужна роль [{{ roles-vpc-user }}]({{ link-docs }}/vpc/security/#vpc-user) и роль [{{ roles.mch.editor }} или выше](../../managed-clickhouse/security.md#roles-list). О том, как назначить роль, смотрите в [документации {{ iam-name }}]({{ link-docs }}/iam/operations/roles/grant).
 
 
 {% list tabs group=instructions %}
@@ -368,7 +366,7 @@
 - Консоль управления {#console}
 
   1. Выберите кластер `s3-logs`.
-  1. Перейдите на вкладку **SQL**.
+  1. Перейдите на вкладку **WebSQL** и нажмите **{{ ui-key.yacloud.mdb.cluster.websql-connections.action_go-to-websql }}**.
   1. В поле **Пароль** введите пароль.
   1. Нажмите кнопку **Подключиться**.
   1. В окне справа напишите SQL-запрос:

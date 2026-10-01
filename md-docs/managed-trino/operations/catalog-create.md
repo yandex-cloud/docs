@@ -96,6 +96,7 @@
            Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
         
         1. Если вас устраивают планируемые изменения, внесите их:
+        
            1. Выполните команду:
         
               ```bash
@@ -1157,7 +1158,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
 
 {% note warning %}
 
-Данные, передающиеся по протоколу GPFDIST между кластерами Managed Service for Trino и Yandex MPP Analytics for PostgreSQL, не шифруются. Чтобы обеспечить безопасное подключение, [настройте группы безопасности кластеров](connect.md#security-groups-for-greenplum).
+Для безопасного подключения по GPFDIST обязательно [включите доступ из Trino](../../managed-greenplum/operations/gpfdist/trino-access.md) в настройках кластера Yandex MPP Analytics for PostgreSQL. Данные между сегментами Greenplum® и воркерами Trino передаются с шифрованием. Также [настройте группы безопасности кластеров](connect.md#security-groups-for-greenplum).
 
 {% endnote %}
 

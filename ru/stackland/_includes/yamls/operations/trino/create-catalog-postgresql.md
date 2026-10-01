@@ -14,7 +14,6 @@ metadata:
   name: postgresql-test-trino-full
 spec:
   cluster: trino-full
-  type: postgresql
   name: postgresql-test
   postgres:
     url: postgres.example.svc.cluster.local:5432/database

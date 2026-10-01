@@ -193,7 +193,7 @@ In addition to regular expressions, you can combine conditions using lists of st
       }
     ]'
   ```
-   
+
   If you are using a rules file, update the field names and condition values in it.
 
   Learn more about the [security-profile create](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/create.md) and [security-profile update](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/update.md) commands in the CLI reference.
@@ -286,7 +286,7 @@ In addition to regular expressions, you can combine conditions using lists of st
     }
   }
   ```
-  
+
   For more on the properties of the `yandex_sws_security_profile` resource, see [this provider guide]({{ tf-provider-resources-link }}/sws_security_profile).
 
 - API {#api}
@@ -398,7 +398,7 @@ In addition to regular expressions, you can combine conditions using lists of st
       ]
     }'
   ```
-  
+
   For more on methods, see the REST API reference: [SecurityProfile.Create](../api-ref/SecurityProfile/create.md) and [SecurityProfile.Update](../api-ref/SecurityProfile/update.md) for the [SecurityProfile](../api-ref/SecurityProfile/) resource.
 
 {% endlist %}

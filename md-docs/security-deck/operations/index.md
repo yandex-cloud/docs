@@ -13,12 +13,15 @@
 
 ## Алерты {#alerts}
 
-* [Посмотреть алерты](alerts/view.md)
-* [Работа с алертами](alerts/work.md)
+* [Просмотр алертов](alerts/view.md)
+* [Работать с алертами](alerts/work.md)
+* [Скачать алерты](alerts/download.md)
+* [Управлять тегами алертов](alerts/tags.md)
+* [Управлять подпиской](alerts/notification.md)
 
 ## Модуль контроля данных (DSPM) {#dspm}
 
-* [Управление анализом данных DSPM](dspm/discovery-mode.md)
+* [Управлять анализом данных DSPM](dspm/discovery-mode.md)
 * [Подготовить данные для сканирования в DSPM](dspm/create-data-source.md)
 * [Создать сканирование DSPM](dspm/create-scan.md)
 * [Управлять результатами регулярного сканирования в DSPM](dspm/work-with-results.md)
@@ -35,6 +38,10 @@
 ## Модуль контроля конфигурации (CSPM) {#cspm}
 
 * [Посмотреть правила контроля безопасности модуля CSPM и их нарушения](cspm/view-rules.md)
+* [Создать пользовательское правило](cspm/create-custom-rule.md)
+* [Редактировать пользовательское правило](cspm/edit-custom-rule.md)
+* [Удалить пользовательское правило](cspm/delete-custom-rule.md)
+* [Проверить окружение на соответствие правилам контроля](cspm/check-environment.md)
 * [Проверить соответствие инфраструктуры стандартам безопасности](cspm/check-compliance.md)
 * [Управлять исключениями из правил контроля безопасности модуля CSPM](cspm/manage-exceptions.md)
 
@@ -51,4 +58,16 @@
 ## Модуль Управление уязвимостями {#vulnerability-management}
 
 * [Активировать модуль Управление уязвимостями (VM)](vulnerability-management/enable-vulnerability-management.md)
+* [Создать расписание сканирований конечных точек в модуле Управление уязвимостями (VM)](vulnerability-management/create-scan-job.md)
+* [Управлять расписанием сканирований конечных точек в модуле Управление уязвимостями (VM)](vulnerability-management/manage-scan-job.md)
+* [Запустить сканирование конечных точек в модуле Управление уязвимостями (VM)](vulnerability-management/run-scan-job.md)
+* [Посмотреть результаты сканирования конечных точек в модуле Управление уязвимостями (VM)](vulnerability-management/view-scan-results.md)
 * [Работать с дашбордом модуля Управление уязвимостями (VM)](vulnerability-management/use-vulnerability-management.md)
+
+## Пользовательские наборы правил {#custom-rules-sets}
+
+* [Посмотреть список пользовательских наборов правил](custom-rules-sets/view-set.md)
+* [Создать пользовательский набор правил](custom-rules-sets/create-set.md)
+* [Изменить пользовательский набор правил](custom-rules-sets/update-set.md)
+* [Включить или выключить проверку по пользовательскому набору правил](custom-rules-sets/enable-disable-set.md)
+* [Удалить пользовательский набор правил](custom-rules-sets/delete-set.md)

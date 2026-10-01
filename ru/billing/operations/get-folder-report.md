@@ -2,6 +2,8 @@
 
 Вы можете получать CSV-файл с общей или поресурсной детализацией расходов. Файл можно [скачать](#single-time-download) разово или [настроить](#regular-download) получение на постоянной основе.
 
+{% include [final-payment-info](../../_includes/billing/final-payment-info.md) %}
+
 ## Разовый экспорт {#single-time-download}
 
 {% list tabs group=instructions %}

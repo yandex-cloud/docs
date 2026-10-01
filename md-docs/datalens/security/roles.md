@@ -13,7 +13,7 @@
 Чтобы предоставить пользователю доступ к DataLens, [назначьте](../../organization/security/index.md#add-role) ему одну из ролей. Роли можно назначить аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным](../../iam/concepts/users/accounts.md#saml-federation) или [локальным](../../iam/concepts/users/accounts.md#local) пользователям, [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md).
 
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+%%{init: {"flowchart": {'defaultRenderer': 'elk', 'padding': 4}} }%%
 flowchart BT
 
     dl-visitor["datalens.visitor"] --> dl-creator["datalens.creator"] --> dl-admin["datalens.admin"]
@@ -28,11 +28,11 @@ flowchart BT
 
   #### datalens.visitor {#datalens-visitor}
 
-  Роль `datalens.visitor` предоставляет доступ к сервису DataLens. Просмотр или редактирование [воркбуков и коллекций](../workbooks-collections/index.md) возможны при наличии соответствующих [ролей](#workbooks-collections-roles) для доступа к этим воркбукам и коллекциям.
+  Роль `datalens.visitor` предоставляет доступ к сервису DataLens. Просмотр или редактирование [воркбуков и коллекций](../workbooks-collections/index.md) возможны при наличии соответствующих [ролей](roles.md#workbooks-collections-roles) для доступа к этим воркбукам и коллекциям.
 
   #### datalens.creator {#datalens-creator}
 
-  Роль `datalens.creator` предоставляет доступ к сервису DataLens с правами на создание [воркбуков и коллекций](../workbooks-collections/index.md) в корне DataLens. Просмотр или редактирование воркбуков и коллекций, созданных другими пользователями, возможны только при наличии [прав доступа](#workbooks-collections-roles) к этим воркбукам и коллекциям.
+  Роль `datalens.creator` предоставляет доступ к сервису DataLens с правами на создание [воркбуков и коллекций](../workbooks-collections/index.md) в корне DataLens. Просмотр или редактирование воркбуков и коллекций, созданных другими пользователями, возможны только при наличии [прав доступа](roles.md#workbooks-collections-roles) к этим воркбукам и коллекциям.
   
   Включает разрешения, предоставляемые ролью `datalens.visitor`.
 
@@ -97,7 +97,7 @@ flowchart BT
 Эти роли действуют для пользователей, которые перешли на новый подход к организации объектов DataLens — в [воркбуках и коллекциях](../workbooks-collections/index.md). Роли позволяют определить уровень доступа для пользователя или группы пользователей к каждому воркбуку, коллекции или общему объекту.
 
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+%%{init: {"flowchart": {'defaultRenderer': 'elk', 'padding': 4}} }%%
 flowchart BT
 
     subgraph sharedEntries["Общие объекты"]

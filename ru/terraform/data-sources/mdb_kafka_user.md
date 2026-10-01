@@ -27,10 +27,10 @@ output "username" {
 - `cluster_id` (**Required**)(String). The ID of the Kafka cluster.
 - `id` (String). 
 - `name` (**Required**)(String). The resource name.
-- `password` (**Required**)(String). The password of the user.
-- `permission` [Block]. Set of permissions granted to the user.
-  - `allow_hosts` (Set Of String). Set of hosts, to which this permission grants access to. Only ip-addresses allowed as value of single host.
-  - `role` (**Required**)(String). The role type to grant to the topic.
-  - `topic_name` (**Required**)(String). The name of the topic that the permission grants access to.
+- `password` (*Read-Only*) (String). The password of the user.
+- `permission` (*Read-Only*) (Set Of Object). Set of permissions granted to the user.
+  - `allow_hosts` . 
+  - `role` . 
+  - `topic_name` .
 
 

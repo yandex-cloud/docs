@@ -6,14 +6,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Перед началом работы с модулем KSPM убедитесь, что кластеры, которые вы планируете включить в область действия модуля, соответствуют техническим требованиям:
-
-* Kubernetes версии 1.30 и выше.
-* В кластере Kubernetes отсутствует [Admission Control](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/) на базе [Kyverno](https://yandex.cloud/ru/marketplace/products/yc/kyverno). Если Kyverno был развернут ранее, его необходимо удалить вместе со всеми созданными им ресурсами [CustomResourceDefinition](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/).
-* Между узлами кластера Kubernetes и [сервисом Yandex Container Registry](../../../managed-kubernetes/tutorials/container-registry.md) настроено сетевое взаимодействие.
-* Открыт сетевой доступ от пода, в котором запущен сенсор контроля безопасности среды выполнения, до подов кластера через порт `54321`.
-* Открыт доступ от кластера к API KSPM (`kspm.api.cloud.yandex.net`) через порт `443` по протоколу TCP.
-* С помощью [групп безопасности](../../../managed-kubernetes/operations/connect/security-groups.md#rules-nodes) настроен доступ от мастера кластера к компонентам KSPM, запущенным на узлах кластера.
+Перед началом работы с модулем KSPM убедитесь, что кластеры, которые вы планируете включить в область действия модуля, соответствуют [системным и техническим требованиям](requirements.md).
 
 ## Активировать модуль {#kspm-activate}
 
@@ -47,6 +40,11 @@
       * ![cspm-standard-k8s-baseline](../../../_assets/security-deck/cspm-standard-k8s-baseline.svg) Kubernetes Pod Security Standards (Baseline) — стандарт содержит элементы управления безопасностью на основе базового профиля стандартов безопасности [Kubernetes Pod Security Standards (PSS) Baseline profile](https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline). Базовый профиль разработан для легкого внедрения и предоставляет общие лучшие практики безопасности контейнеров. Он предотвращает наиболее распространенные проблемы безопасности контейнеров, сохраняя совместимость с большинством приложений. Базовый профиль является хорошей отправной точкой для организаций, которые только начинают работать с безопасностью контейнеров.
       * ![cspm-standard-k8s-ms](../../../_assets/security-deck/cspm-standard-k8s-ms.svg) Microsoft Threat Matrix for Kubernetes — стандарт содержит элементы управления безопасностью на основе [Microsoft Threat Matrix for Kubernetes](https://www.microsoft.com/en-us/security/blog/2020/04/02/attack-matrix-kubernetes/) — фреймворка, который помогает командам безопасности понимать и защищаться от угроз, специфичных для сред Kubernetes. Он предоставляет комплексный взгляд на техники атак и оборонительные стратегии, адаптированные для платформ оркестрации контейнеров.
       * ![cspm-cis-k8s-standard](../../../_assets/security-deck/cspm-cis-k8s-standard.svg) CIS Kubernetes Benchmark — стандарт содержит рекомендации [CIS Kubernetes Benchmark](https://www.cisecurity.org/benchmark/kubernetes) для безопасной настройки компонентов на рабочих узлах Kubernetes. Включает только автоматические проверки из раздела `4 Worker Nodes`.
+      * Аудит процессов и приложений: 
+         * ![kspm-standard-k8s-inventory](../../../_assets/security-deck/kspm-standard-k8s-inventory.svg) Инвентаризация уровня операционной системы рабочих узлов Kubernetes — набор правил содержит элементы управления безопасностью на основе [Osquery](https://osquery.io/). Правила помогают выполнить инвентаризацию и аудит множества параметров и компонентов с уровня операционной системы рабочих узлов Kubernetes.
+         * ![kspm-standard-k8s-logging](../../../_assets/security-deck/kspm-standard-k8s-logging.svg) Логирование событий процессов на рабочих узлах Kubernetes (eBPF) — набор правил содержит элементы управления безопасностью на основе [Tetragon](https://tetragon.io/). Правила помогают выполнить инвентаризацию и аудит запуска процессов Kubernetes (eBPF).
+      
+         Чтобы начать работать с набором правил, включите их и настройте сбор [событий для Security Deck](../../at-ref.md) в Yandex Audit Trails с последующим экспортом в системы SIEM/SOC для анализа результатов проверок.
 
       Вы можете выбрать одновременно несколько стандартов. При этом в блоке **Модули контроля** будут отображаться модули Security Deck, которые будут активированы в создаваемом окружении для проверки ресурсов на соответствие выбранным стандартам и нормативным актам.
 1. Завершите настройку KSPM:
@@ -71,3 +69,7 @@
 Чтобы удалить кластеры из области контроля и прекратить отслеживать их безопасность, [удалите](../workspaces/delete.md) окружение Security Deck или отключите стандарты безопасности, относящиеся к Kubernetes.
 
 {% endnote %}
+
+### Полезные ссылки {#see-also}
+
+[Контроль Kubernetes® (KSPM)](../../concepts/kspm.md)

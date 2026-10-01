@@ -1,0 +1,1 @@
+**{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbOnPremiseConnectionSettings.ca_certificate.title }}**: Upload the file with an X.509 CA PEM certificate used to authenticate connections to the YDB database. If entered, connections are established over TLS.

@@ -179,8 +179,7 @@
      
      * (Опционально) Отредактируйте настройки хоста.
      * Нажмите **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
-     * В поле **{{ ui-key.yacloud.mdb.forms.host_column_zone }}** выберите зону доступности, выберите **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}** и включите опцию **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}**.
-  
+     * В поле **{{ ui-key.yacloud.mdb.forms.host_column_zone }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), выберите **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}** и включите опцию **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create-shard }}**.
 
 - CLI {#cli}

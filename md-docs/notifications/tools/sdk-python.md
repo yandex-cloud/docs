@@ -3,7 +3,7 @@
 # Как начать работать с AWS SDK для Python (boto3) в Yandex Cloud Notification Service
 
 
-[boto3](https://github.com/boto/boto3) — это комплект средств разработки (SDK) для языка программирования Python 3.x. SDK предназначен для работы с сервисами, совместимыми с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html).
+[boto3](https://github.com/boto/boto3) — это комплект средств разработки (SDK) для языка программирования Python 3.x. SDK предназначен для работы с сервисами, совместимыми с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/Welcome.html).
 
 Чтобы начать работу с AWS SDK для Python (boto3):
 1. [Подготовьте облако к работе](#before-you-begin).

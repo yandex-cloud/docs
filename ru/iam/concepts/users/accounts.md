@@ -54,3 +54,7 @@ _Локальные пользователи_ привязаны только к
 ### Примеры использования {#examples-sa}
 
 * [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md)
+
+#### Полезные ссылки {#see-also}
+
+* [{#T}](../subject-details.md)

@@ -122,7 +122,6 @@ To create security groups:
         `Egress` | `any` | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
         `Ingress` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
         `Ingress` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-        `Ingress` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | —
 
         1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
         1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
@@ -132,7 +131,6 @@ To create security groups:
 
            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDRs and masks of subnets traffic will move to/from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`: Rule will apply to the current or selected security group VMs.
-           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule allowing a load balancer to health-check VMs.
 
         1. Click **{{ ui-key.yacloud.common.save }}**. Repeat these steps to create all rules from the table.
 
@@ -155,7 +153,6 @@ To create security groups:
     --rule "direction=egress,port=any,protocol=any,v4-cidrs=[0.0.0.0/0]" \
     --rule "direction=ingress,port=80,protocol=tcp,v4-cidrs=[0.0.0.0/0]" \
     --rule "direction=ingress,port=443,protocol=tcp,v4-cidrs=[0.0.0.0/0]" \
-    --rule "direction=ingress,port=30080,protocol=tcp,predefined=loadbalancer_healthchecks" \
     --network-name ddos-network
   ```
 
@@ -188,7 +185,8 @@ To create an instance group:
 
   1. Open the [management console]({{ link-console-main }}).
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
+  1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
 
      * Enter the instance group **{{ ui-key.yacloud.compute.groups.create.field_name }}**: `ddos-group`.
@@ -391,7 +389,8 @@ To create a backend group:
 
   1. Open the [management console]({{ link-console-main }}).
   1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**. Click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+  1. Click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
   1. Enter the backend group **{{ ui-key.yacloud.common.name }}**: `ddos-backend-group`.
   1. Under **{{ ui-key.yacloud.alb.label_backends }}**, click **{{ ui-key.yacloud.common.add }}**.
   1. Enter the backend **{{ ui-key.yacloud.common.name }}**: `backend-1`.
@@ -491,7 +490,8 @@ To create an HTTP router and add a route to it:
 
   1. Open the [management console]({{ link-console-main }}).
   1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
+  1. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
   1. Specify the HTTP router **{{ ui-key.yacloud.common.name }}**: `ddos-router`.
   1. Click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
   1. Specify the virtual host **{{ ui-key.yacloud.common.name }}**: `ddos-host`.

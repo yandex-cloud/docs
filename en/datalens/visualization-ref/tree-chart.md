@@ -7,7 +7,7 @@ description: In this tutorial, you will learn how to create and customize the tr
 
 A tree chart displays hierarchy data as a set of nested rectangles. 
 
-* Each hierarchy level corresponds to a dimension and is shown as a colored rectangle with nested rectangles.
+* Each hierarchy level corresponds to a dimension and is shown as a colored rectangle with nested rectangles. 
 
 * The size of the rectangle directly depends on the value of the measure. A chart does not take up much space on a dashboard, even if it contains a lot of data.
 
@@ -41,18 +41,16 @@ Sales with a breakdown by product category and subcategory.
 
 Wizard<br/> section| Description
 ----- | ----
-Dimensions | Dimensions. Determines the hierarchy tree of nested rectangles. For `String` type fields, you can configure using basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
+Dimensions | Dimensions. Determines the hierarchy tree of nested rectangles. For `String` type fields, you can configure using the basic [Markdown](../dashboard/markdown.md) syntax by clicking the icon before the field name and enabling **Markdown**.
 Size | Measure. One measure that determines the area of a rectangle.
 Colors | Dimension or measure. Affects the shading of rectangles in a chart.
-Filters | Dimension or measure. Used as a filter.
+Filters | Dimension or measure. It is used as a filter.
 
 ## Creating a tree chart {#create-diagram}
 
 To create a tree chart:
 
-
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
-
 
 1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
 1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}

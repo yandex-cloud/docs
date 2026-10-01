@@ -9,17 +9,17 @@ The `security-deck.admin` role enables managing subscriptions to events of acces
 * View info on {{ dspm-name }} profiles and use them.
 * View info on {{ dspm-name }} [data sources](../../security-deck/concepts/dspm.md#data-source) and their scan areas, as well as create, modify, use, and delete such sources.
 * Use {{ yandex-cloud }} resources in {{ dspm-name }} data sources.
-* View info on {{ dspm-name }} data types and [categories](../../security-deck/concepts/dspm.md#data-categories).
-* View info on {{ dspm-name }} [data analysis](../../security-deck/concepts/dspm#discovery-mode) results.
 * View info on {{ dspm-name }} sensitive data [scan](../../security-deck/concepts/dspm.md#scanning) jobs, as well as create, run, suspend, resume, modify, and delete such jobs.
 * View info on sensitive data scans, as well as create, suspend, resume, modify, and delete them.
-* View the lists of results and scan errors when scanning for sensitive data.
-* View the results of {{ dspm-name }} scan jobs and info on detected threats, which includes viewing masked and unprocessed data in the scan results.
+* View info on results of and errors relating to [continuous update scans](../../security-deck/concepts/dspm.md#change-scaning) and [regular sensitive data scans](../../security-deck/concepts/dspm.md#scanning) in {{ dspm-name }}, including masked and unprocessed data.
+* Download and export sensitive data scan results in {{ dspm-name }}, including masked and unprocessed data.
+* View info on {{ dspm-name }} data types and [categories](../../security-deck/concepts/dspm.md#data-categories).
+* Estimate the cost of using {{ dspm-name }} (drawing on {{ objstorage-full-name }} bucket metadata in data sources).
 * View [bucket](../../storage/concepts/bucket.md) metadata.
 * View info on {{ sd-name }} [workspaces](../../security-deck/concepts/workspace.md) and resources managed in them, as well as create, modify, and delete {{ sd-name }} workspaces.
 * View info on [access permissions](../../iam/concepts/access-control/index.md) granted for {{ sd-name }} workspaces and modify such permissions.
 * View info on [connectors](../../security-deck/concepts/workspace.md#connectors), as well as create, use, modify, and delete them.
-* View info on cloud infrastructure checks for compliance with [security standards](../../security-deck/concepts/cspm.md#standards) configured in the [{{ cspm-name }} settings](../../security-deck/concepts/cspm.md), as well as delete checks.
+* View info on cloud infrastructure checks for compliance with [security standards](../../security-deck/concepts/cspm.md#standards) configured in the [{{ cspm-name }} settings](../../security-deck/concepts/cspm.md), as well as delete such checks.
 * View info on {{ cspm-name }} check jobs.
 * Manually run checks for compliance with {{ cspm-name }} security standards.
 * View {{ cspm-name }} check results.
@@ -41,3 +41,5 @@ The `security-deck.admin` role enables managing subscriptions to events of acces
 {% endcut %}
 
 This role includes the `access-transparency.admin`, `dspm.admin`, `cspm.admin`, `kspm.admin`, `security-deck.alertSinks.admin`, `vulnerability-manager.admin`, and `threat-detector.admin` permissions.
+
+To export sensitive data scan results in {{ dspm-name }}, you also need the `storage.uploader` role for the bucket to save the results in and the `kms.keys.encrypter` role for the encryption key if the bucket is encrypted.

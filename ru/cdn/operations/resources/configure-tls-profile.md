@@ -11,6 +11,22 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
+  1. [Перейдите]({{ link-console-main }}/link/cdn) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Нажмите на имя необходимого ресурса.
+  1. Перейдите на вкладку ![image](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.cdn.label_resource-security }}**.
+  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. В поле **{{ ui-key.yacloud.cdn.label_tls-profile }}** выберите необходимый профиль:
+
+      * `{{ ui-key.yacloud.cdn.value_tls-profile-compatible }}`.
+      * `{{ ui-key.yacloud.cdn.value_tls-profile-legacy }}`.
+      * `{{ ui-key.yacloud.cdn.value_tls-profile-secure }}`.
+      * `{{ ui-key.yacloud.cdn.value_tls-profile-strict }}`.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
 - REST API {#rest-api}
 
   Чтобы включить опцию, добавьте в спецификацию CDN-ресурса в теле запроса блок `tls` при использовании метода [create](../../api-ref/Resource/create.md) или [update](../../api-ref/Resource/update.md) для ресурса [Resource](../../api-ref/Resource/index.md):
@@ -131,8 +147,11 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
+{% include [after-changes-tip](../../../_includes/cdn/after-changes-tip.md) %}
+
 #### Полезные ссылки {#see-also}
 
 * [{#T}](../../concepts/clients-to-servers-tls.md#tls-profiles)
+* [{#T}](create-resource.md)
 * [{#T}](../../api-ref/authentication.md)
 * [{#T}](../../../glossary/tls.md)

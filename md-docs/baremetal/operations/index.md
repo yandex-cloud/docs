@@ -25,10 +25,17 @@
 * [Восстановить загрузчик ОС](servers/restore-grub.md)
 * [Проанализировать состояние сервера BareMetal с помощью утилиты HWCheck](servers/use-hwatcher.md)
 
+## BareMetal Extend {#extend}
+
+* [Подключить Extend: Virtualization](extend/virtualization.md)
+* [Создать кластер Extend: Yandex Cloud Stackland](extend/stackland.md)
+* [Создать группу узлов BareMetal для Extend: Managed Service for Kubernetes®](extend/managed-kubernetes.md)
+
 ## Сеть {#network}
 
 * [Создать VRF](network-create.md)
 * [Создать приватную подсеть](subnet-create.md)
+* [Настроить DNS в приватной подсети](configure-dns.md)
 * [Заказать выделенную публичную подсеть](reserve-public-subnet.md)
 * [Удалить выделенную публичную подсеть](delete-public-subnet.md)
 * [Создать приватное соединение с облачными сетями](create-vpc-connection.md)

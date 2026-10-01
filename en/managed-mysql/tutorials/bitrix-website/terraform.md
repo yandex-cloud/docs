@@ -6,10 +6,11 @@ canonical: '{{ link-docs }}/tutorials/web/bitrix-website/terraform'
 
 # Creating a 1C-Bitrix website using {{ TF }}
 
+
 To create an infrastructure for your [1C-Bitrix website](index.md) through {{ TF }}:
 
 {% include [bitrix-website-terraform](../../../_tutorials/applied/bitrix-website-terraform.md) %}
 
 #### Useful links {#see-also}
 
-* [{#T}](console.md)
+[{#T}](console.md)

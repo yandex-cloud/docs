@@ -6,7 +6,7 @@ description: Follow this guide to learn how to use the AWS SDK for Python (boto3
 # Getting started with the AWS SDK for Python (boto3) in {{ cns-full-name }}
 
 
-[boto3](https://github.com/boto/boto3) is a software development kit (SDK) for the Python 3.x programming language. The SDK is designed for working with services compatible with the [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html).
+[boto3](https://github.com/boto/boto3) is a software development kit (SDK) for the Python 3.x programming language. The SDK is designed for working with services compatible with the [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/Welcome.html).
 
 To get started with the AWS SDK for Python (boto3):
 1. [Get your cloud ready](#before-you-begin).

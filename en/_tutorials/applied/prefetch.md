@@ -53,7 +53,7 @@ Create two buckets: one will store files and the other, request logs for the fir
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Create a bucket for files:
      1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
@@ -221,7 +221,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket with files.
   1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
@@ -295,7 +295,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/cdn) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. In the ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** tab, click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
   1. Configure the basic CDN resource settings:
@@ -303,6 +303,9 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
         * Enable **{{ ui-key.yacloud.cdn.label_access }}**.
         * In the **{{ ui-key.yacloud.cdn.label_content-query-type }}** field, select `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
         * In the **{{ ui-key.yacloud.cdn.label_source-type }}** field, select `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`.
+
+          {% include [bucket-website-hosting-tip](../../_includes/cdn/bucket-website-hosting-tip.md) %}
+
         * In the **{{ ui-key.yacloud.cdn.label_bucket }}** field, select `<bucket_name_with_files>`.
         * In the **{{ ui-key.yacloud.cdn.label_protocol }}** field, select `{{ ui-key.yacloud.common.label_https }}`.
         * In the **{{ ui-key.yacloud.cdn.label_personal-domain }}** field, enter the primary domain name you will use to publish patches, e.g., `cdn.ycprojectblue.example`.
@@ -355,6 +358,9 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
      ```
 
      For more information about the `yc cdn resource create` command, see the [CLI reference](../../cli/cli-ref/cdn/cli-ref/resource/create.md).
+
+     {% include [bucket-website-hosting-tip](../../_includes/cdn/bucket-website-hosting-tip.md) %}
+
   1. Enable client redirects for the resource:
 
      ```bash
@@ -391,6 +397,9 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
      ```
 
      For more information, see the descriptions of the [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource) resources in the {{ TF }} provider guides.
+
+     {% include [bucket-website-hosting-tip](../../_includes/cdn/bucket-website-hosting-tip.md) %}
+
   1. Make sure the configuration files are correct.
      1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
@@ -450,7 +459,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select a folder.
+     1. In the [management console]({{ link-console-main }}), select the folder.
      1. [Navigate]({{ link-console-main }}/link/cdn) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Select the CDN resource you created (the list of resources will contain its primary domain name: `cdn.ycprojectblue.example`).
      1. In the **{{ ui-key.yacloud.common.overview }}** tab, under **{{ ui-key.yacloud.cdn.label_dns-settings_title }}**, copy the generated domain name in `{{ cname-example-yc }}` format.
@@ -474,7 +483,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select a folder.
+     1. In the [management console]({{ link-console-main }}), select the folder.
      1. [Navigate]({{ link-console-main }}/link/dns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
      1. If you do not have a public DNS zone, create one:
         1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
@@ -561,11 +570,11 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/cdn) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Select the CDN resource you created (the list of resources will contain its primary domain name: `cdn.ycprojectblue.example`).
   1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
+  1. Click **{{ ui-key.yacloud.shared.layout.PageContentActions.button_more_axqoH }}** and select ![image](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
   1. In the **{{ ui-key.yacloud.cdn.label_resource-content-prefetch-cache-paths }}** field, specify the path to the file stored in the origin while omitting the domain name:
 
      ```text
@@ -610,7 +619,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select a folder.
+     1. In the [management console]({{ link-console-main }}), select the folder.
      1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Select the bucket with the logs.
      1. Click the name of the object matching the download time for `ycgame-update-v1.1.exe`.

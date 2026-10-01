@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Анализ производительности и оптимизация Managed Service for PostgreSQL
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > PostgreSQL > Анализ производительности и оптимизация Managed Service for PostgreSQL
 
 # Анализ производительности и оптимизация Managed Service for PostgreSQL
 

@@ -26,8 +26,8 @@ Parameter | Type | Required parameter | Description
 
 Field | Type | Description
 ----- | ----- | -----
-`MD5OfMessageAttributes` | **string** | An MD5 digest of a message attribute string.
-`MD5OfMessageBody` | **string** | The MD5 digest of the message body.
+`MD5OfMessageAttributes` | **string** | MD5 hash of the attribute string.
+`MD5OfMessageBody` | **string** | MD5 hash of the message body.
 `MessageId` | **string** | ID of the message sent.
 `SequenceNumber` | **string** | Message number specific to FIFO queues within a group of messages with the same `MessageGroupId`. The number length is 128 bits; `SequenceNumber` continues to increase within a group with the same `MessageGroupId`.
 

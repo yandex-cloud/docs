@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Отправка запросов к API Yandex Cloud через Yandex Cloud Python SDK
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Apache Airflow™ > Отправка запросов к API Yandex Cloud через Yandex Cloud Python SDK
 
 # Отправка запросов к API Yandex Cloud через Yandex Cloud Python SDK
 
@@ -16,7 +16,7 @@
 
 Чтобы использовать Yandex Cloud Python SDK для отправки запросов к API Yandex Cloud:
 
-1. [Подготовьте инфраструктуру](#create-infrastracture).
+1. [Подготовьте инфраструктуру](#create-infrastructure).
 1. [Подготовьте DAG-файл и запустите граф](#dag).
 1. [Проверьте результат](#check-result).
 

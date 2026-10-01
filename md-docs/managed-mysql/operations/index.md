@@ -11,9 +11,11 @@
 * [Остановка и запуск кластера](cluster-stop.md)
 * [Управление хостами кластера](hosts.md)
 * [Управление алиасами хостов](hosts-aliases.md)
+* [Управление балансировщиком нагрузки DB Proxy](load-balancer.md)
 * [Миграция хостов кластера в другую зону доступности](host-migration.md)
 * [Управление резервными копиями](cluster-backups.md)
 * [Управление доступом к кластеру](cluster-access.md)
+* [Техническое обслуживание](cluster-maintenance.md)
 * [Обновление версии MySQL®](cluster-version-update.md)
 * [Удаление кластера](cluster-delete.md)
 

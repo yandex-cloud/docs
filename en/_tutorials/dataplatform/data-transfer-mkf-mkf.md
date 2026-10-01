@@ -4,7 +4,7 @@
 You can transfer your data from {{ KF }} topics between one {{ KF }} cluster and another in real time. Among others, the following migration types are supported:
 
 * Between different {{ KF }} versions, e.g., you can migrate topics from version 2.8 to version 3.1.
-* Between different availability zones: you can [migrate a cluster with a single host](../../managed-kafka/operations/host-migration.md#one-host) from one zone to another.
+* Between different [availability zones](../../overview/concepts/geo-scope.md): you can [migrate a cluster with a single host](../../managed-kafka/operations/host-migration.md#one-host) from one zone to another.
 
 {{ KF }} cluster mirroring allows you to:
 
@@ -28,7 +28,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mkf-name }} clusters: computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mkf-name }} clusters: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
@@ -65,7 +65,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
            * [Network](../../vpc/concepts/network.md#network).
            * [Subnet](../../vpc/concepts/network.md#subnet).
-           * [Security group](../../vpc/concepts/security-groups.md) and the rule required for connecting to the {{ mkf-name }} cluster.
+           * [Security group](../../vpc/concepts/security-groups.md) and rule required for connection to the {{ mkf-name }} cluster.
            * {{ mkf-name }} source cluster with public access from the internet.
            * {{ KF }} topic for the source cluster.
            * {{ KF }} user for the source cluster.
@@ -79,10 +79,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
            * `source_kf_version`: {{ KF }} version in the source cluster.
            * `source_user_name`: Username for connection to the {{ KF }} topic.
-           * `source_user_password`: Password.
+           * `source_user_password`: User password.
            * `target_kf_version`: {{ KF }} version in the target cluster.
            * `target_user_name`: Username for connection to the {{ KF }} topic.
-           * `target_user_password`: Password.
+           * `target_user_password`: User password.
            * `transfer_enabled = 0`: Disables the creation of endpoints and transfers. They will be created during the [preparation of the transfer](#prepare-transfer).
 
        1. Validate your {{ TF }} configuration files using this command:
@@ -246,7 +246,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
            -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
         ```
 
-        The data is sent on behalf of the [created user](#prepare-source). To learn more about setting up an SSL certificate and using `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
+        The data is sent on behalf of the [created user](#before-you-begin). To learn more about setting up an SSL certificate and using `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
 
     1. Use `kafkacat` to make sure that the data has been moved from the source cluster to the target {{ mkf-name }} cluster:
 

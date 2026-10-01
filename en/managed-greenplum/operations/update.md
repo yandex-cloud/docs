@@ -5,7 +5,6 @@ description: Follow this guide to update {{ mgp-full-name }} cluster settings.
 
 # Updating {{ mgp-name }} cluster settings
 
-
 After creating a cluster, you can:
 
 * [Change the cluster name and description](#change-name-and-description).
@@ -1101,7 +1100,8 @@ We recommend changing the host class only when the cluster is idle.
       {{ yc-mdb-gp }} cluster update --help
       ```
 
-  1. Request a list of available classes (the `ZONE IDS` column lists the availability zones where you can select the appropriate class):
+  1. Get the list of available classes (the `ZONE IDS` column lists the [availability zones](../../overview/concepts/geo-scope.md) where you can select the appropriate class):
+  
      * For master hosts:
 
         ```bash
@@ -1655,7 +1655,7 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
         * `--log-command-center-enabled`: Transferring [Command Center](../concepts/command-center.md) logs.
         * `--log-greenplum-enabled`: Transferring DBMS logs.
         * `--log-pooler-enabled`: Transferring [connection pooler](../concepts/pooling.md) logs.
-        * `--log-folder-id`: Specify the ID of the folder whose log group you want to use.
+        * `--log-folder-id`: ID of the folder whose log group you want to use.
         * `--log-group-id`: ID of the log group to write logs to.
 
             Specify either `--log-folder-id` or `--log-group-id`.
@@ -1689,7 +1689,7 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
         * `command_center_enabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
         * `greenplum_enabled`: Transferring DBMS logs, `true` or `false`.
         * `pooler_enabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.
-        * `folder_id`: Specify the ID of the folder whose log group you want to use.
+        * `folder_id`: ID of the folder whose log group you want to use.
         * `log_group_id`: ID of the log group to write logs to.
 
             Specify either `folder_id` or `log_group_id`.
@@ -1742,7 +1742,7 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
             * `commandCenterEnabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
             * `greenplumEnabled`: Transferring DBMS logs, `true` or `false`.
             * `poolerEnabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.
-            * `folderId`: Specify the ID of the folder whose log group you want to use.
+            * `folderId`: ID of the folder whose log group you want to use.
             * `logGroupId`: ID of the log group to write logs to.
 
                 Specify either `folderId` or `logGroupId`.
@@ -1802,7 +1802,7 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
             * `command_center_enabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
             * `greenplum_enabled`: Transferring DBMS logs, `true` or `false`.
             * `pooler_enabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.
-            * `folder_id`: Specify the ID of the folder whose log group you want to use.
+            * `folder_id`: ID of the folder whose log group you want to use.
             * `log_group_id`: ID of the log group to write logs to.
 
                 Specify either `folder_id` or `log_group_id`.

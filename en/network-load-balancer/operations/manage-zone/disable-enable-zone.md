@@ -6,6 +6,7 @@ description: Follow this guide to disable/enable availability zones for a networ
 
 # Enabling and disabling availability zones
 
+
 {% include [about-zone-disable](../../../_includes/network-load-balancer/about-zone-disable.md) %}
 
 You can enable and disable availability zones one by one or as a comma-separated list.

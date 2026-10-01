@@ -51,3 +51,4 @@
 
 * [Интеграция генеративных моделей в Visual Studio Code](ai-model-ide-integration.md)
 * [Интеграция AI Studio с сервисом Yandex Data Catalog](data-catalog-integration.md)
+* [Использование Yandex Managed Service for Valkey™ с модулем Search и моделей Yandex AI Studio для векторного поиска в RAG-системе](../dataplatform/valkey-rag-search.md)

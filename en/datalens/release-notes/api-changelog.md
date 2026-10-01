@@ -6,7 +6,52 @@ description: Public API versioning in {{ datalens-full-name }} ensures compatibi
 
 This section contains the {{ datalens-name }} Public API release notes. For more on versioning, see [this guide](../operations/api-versioning.md).
 
-## Version 2{#version-2}
+
+## Version 3 {#version-3}
+
+
+### September 8, 2026: Upgrading to version 3 {#08092026}
+
+
+1. Revised the argument/response schemas in methods for working with wizard charts:
+
+   * [getWizardChart]({{ api-host-datalens }}/#/HtmlPages/post_rpc_getWizardChart)
+   * [createWizardChart]({{ api-host-datalens }}/#/HtmlPages/post_rpc_createWizardChart)
+   * [updateWizardChart]({{ api-host-datalens }}/#/HtmlPages/post_rpc_updateWizardChart)
+   
+1. Updated methods for working with dashboards and reports:
+
+   * Added v2 versions of methods for getting, creating, and updating dashboards and reports:
+     
+     * [getDashboardV2]({{ api-host-datalens }}/#/HtmlPages/post_rpc_getDashboardV2)
+     * [createDashboardV2]({{ api-host-datalens }}/#/HtmlPages/post_rpc_createDashboardV2)
+     * [updateDashboardV2]({{ api-host-datalens }}/#/HtmlPages/post_rpc_updateDashboardV2)
+     * [getPresentationV2]({{ api-host-datalens }}/#/HtmlPages/post_rpc_getPresentationV2)
+     * [createPresentationV2]({{ api-host-datalens }}/#/HtmlPages/post_rpc_createPresentationV2)
+     * [updatePresentationV2]({{ api-host-datalens }}/#/HtmlPages/post_rpc_updatePresentationV2)
+     
+   * Removed these fields from the schemas:
+     
+     * `schemeVersion`: Service version field for dashboards.
+     * `data.version`: Service version field for reports.
+     * `data.description`: Replaced with `annotation.description`.
+     * `background`: Deprecated UI customization field.
+     * `textColor`: Deprecated UI customization field.
+     * `widgetTabId`: Deprecated field for dashboard insights.
+
+   * For dataset selectors, `fieldType` now only accepts values from the dataset's data types, e.g., `string`, `integer`, `date`, and `genericdatetime`. For manual selectors, the `fieldType` field is preserved only for date selectors.
+   * Added a requirement that dashboards must have at least one tab in `data.tabs`.
+
+1. Migrations (when obtained via the [getDashboardV2]({{ api-host-datalens }}/#/HtmlPages/post_rpc_getDashboardV2) method or when saved in the v1 entity interface):
+
+   * Migrated dashboard description from `data.description` to `annotation.description`.
+   * Migrated background colors of all widgets from the deprecated `background` to `backgroundSettings.color: {light, dark}`, and the header text color, from `textColor` to `textSettings.color: {light, dark}`. The final color format is `HEX`.
+   *  If there is no existing current `widgetTabIds` during migration, `widgetTabId` migrates as an array containing a single item (`widgetTabIds`).
+
+
+## Version 2 {#version-2}
+
+
 
 ### 28.07.2026 {#28072026}
 
@@ -60,3 +105,4 @@ Introduced breaking changes to the `getEntries` method for retrieving {{ datalen
 ### 22.01.2026 {#22012026}
 
 January 22, 2026: the {{ datalens-name }} Public API version 1 is out.
+

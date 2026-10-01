@@ -91,6 +91,10 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 
 {% include [billing.accounts.partnerAdmin](../_roles/billing/accounts/partnerAdmin.md) %}
 
+#### billing.usagerecords.admin {#billing-usagerecords-admin}
+
+{% include [billing.usagerecords.admin](../_roles/billing/usagerecords/admin.md) %}
+
 For more information, see [Managing access in the {{ yandex-cloud }} partner program](../partner/security/index.md).
 
 
@@ -1906,6 +1910,10 @@ For more information, see [{#T}](../managed-spark/security.md).
 
 ## {{ mch-full-name }} {#managed-clickhouse-roles}
 
+#### managed-clickhouse.clusters.connector {#managed-clickhouse-clusters-connector}
+
+{% include [managed-clickhouse.clusters.connector](../_roles/managed-clickhouse/clusters/connector.md) %}
+
 #### managed-clickhouse.auditor {#managed-clickhouse-auditor}
 
 {% include [managed-clickhouse.auditor](../_roles/managed-clickhouse/auditor.md) %}
@@ -2882,7 +2890,7 @@ Learn more in [Access management in {{ er-name }}](../serverless-integrations/se
 
 {% include [serverless.workflows.admin](../_roles/serverless/workflows/admin.md) %}
 
-Learn more in [Access management in {{ sw-name }}](../serverless-integrations/security/workflows.md).
+Learn more in [Access management in {{ sw-name }}]({{ link-docs-ai }}ai-studio/security/index#workflows-roles).
 
 
 ## {{ yandex-siem-full-name }} {#yandex-siem-roles}

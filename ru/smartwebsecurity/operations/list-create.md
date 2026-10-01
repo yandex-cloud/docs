@@ -40,21 +40,41 @@ description: Следуя данной инструкции, вы сможете
           1.10
           ```
 
-      * `{{ ui-key.yacloud.smart-web-security.MatchListForm.item-type_regexp_eLHPr }}` — [регулярные выражения](../concepts/conditions.md#regular-expressions), например для анализа заголовка `User-Agent`. Примеры:
+      * `{{ ui-key.yacloud.smart-web-security.MatchListForm.item-type_regexp_eLHPr }}` — [регулярные выражения](../concepts/conditions.md#regular-expressions), например для анализа заголовка `User-Agent` или для объединения нескольких путей запроса через `|`. Примеры:
 
           ```text
           User-Agent:\s*
           \\[\'\"\.\;]
           a{100,}
           --.*
+          /api/v[12]/users
+          /promo/(sale|discount)/?
+          /assets/.*\.(css|js)
           ```
 
-      * `{{ ui-key.yacloud.smart-web-security.MatchListForm.item-type_string_hGRJK }}` — текстовые строки, например идентификаторы. Примеры:
+          Где:
+
+          - `/api/v[12]/users` — пути `/api/v1/users` и `/api/v2/users`.
+          - `/promo/(sale|discount)/?` — страницы `/promo/sale` и `/promo/discount` с необязательной завершающей косой чертой.
+          - `/assets/.*\.(css|js)` — пути к CSS- и JS-файлам в каталоге `/assets/`.
+
+          В регулярном выражении можно объединять несколько вариантов (разные пути запроса, версии API или значения заголовка) с помощью оператора `|`. Специальные символы необходимо экранировать. Например, точка в имени файла записывается как `\.`.
+
+          В списках регулярных выражений проверяется совпадение всей строки. Не добавляйте якоря `^` и `$`.
+
+      * `{{ ui-key.yacloud.smart-web-security.MatchListForm.item-type_string_hGRJK }}` — текстовые строки, например идентификаторы или пути запроса. Примеры:
 
           ```text
           fev4ct8l9infabcd1234
           id345678
+          /api/v1/users
+          /promo/sale
+          /assets/logo.svg
           ```
+
+      Для фильтрации по пути запроса подключите список к условию `Request URI`. В списке указывайте пути без схемы, домена и query-параметров.
+
+      Чтобы фильтровать запросы к статическим файлам на домене `static.example.com`, подключите к условию `Request URI` список с регулярным выражением `/assets/.*\.(css|js)`. Добавьте отдельное условие `Host = static.example.com` и объедините оба условия логическим оператором «И».
 
   1. Введите имя и описание списка.
   1. При необходимости добавьте метку.

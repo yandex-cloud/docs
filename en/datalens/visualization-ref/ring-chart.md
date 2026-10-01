@@ -45,16 +45,14 @@ Categories | Dimension. You can specify only one field here. Your data will be g
 Color | Dimension. You can specify only one field here. Your charts segments will be colored according to it.
 Measures | Affects the size of ring segments. You can only specify one field here. The total value of a measure is displayed in the center of a ring. Calculations using [LOD expressions](../concepts/lod-aggregation.md), [window functions](../function-ref/window-functions.md), and [time series functions](../function-ref/time-series-functions.md) are not presented in the total value.
 Sorting | Measure or dimension from the **Color** section. Affects segment sorting. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.
-Labels | Measure. Displays measure values on the chart. To add callouts with category names to the chart, drag the [Measure Names](../concepts/chart/measure-values.md) dimension to this section. [Markup functions](../function-ref/markup-functions.md) are supported. For `String` type fields, you can configure using basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
-Filters | Dimension or measure. Used as a filter.
+Labels | Measure. Displays measure values on the chart. To add callouts with category names to the chart, drag the [Measure Names](../concepts/chart/measure-values.md) dimension to this section. [Markup functions](../function-ref/markup-functions.md) are supported. For `String` type fields, you can configure using the basic [Markdown](../dashboard/markdown.md) syntax by clicking the icon before the field name and enabling **Markdown**.
+Filters | Dimension or measure. It is used as a filter.
 
 ## Creating a donut chart {#create-diagram}
 
 To create a donut chart:
 
-
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
-
 
 1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
 1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}

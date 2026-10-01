@@ -5,7 +5,7 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/cus
 
 # yc smartwebsecurity custom-page
 
-
+Manage custom response pages
 
 #### Command Usage
 
@@ -15,7 +15,7 @@ Syntax:
 
 #### Command Tree
 
-- [yc smartwebsecurity custom-page custom-page](custom-page/index.md) — A set of methods for managing CustomPage resources.
+- [yc smartwebsecurity custom-page custom-page](custom-page/index.md) — Manage custom response pages
 
   - [yc smartwebsecurity custom-page custom-page create](custom-page/create.md) — Creates a CustomPage resource in the specified folder.
 
@@ -37,6 +37,15 @@ Set the custom profile. ||
 || `--region` | `string`
 
 Set the region. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||

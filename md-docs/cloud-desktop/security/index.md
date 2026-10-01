@@ -24,13 +24,13 @@
 ## Какие роли действуют в сервисе {#roles-list}
 
 ```mermaid
+%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
 flowchart BT
     vdi.desktopGroups.maintainer --> vdi.admin
     vdi.editor --> vdi.admin
     vdi.viewer --> vdi.editor
     vdi.desktopGroups.user --> vdi.editor
     vdi.desktopGroups.user --> vdi.desktopGroups.maintainer
-    vdi.auditor --> vdi.viewer
 ```
 
 ### Сервисные роли {#service-roles}
@@ -139,6 +139,7 @@ flowchart BT
 Роль `admin` позволяет назначать любые роли, кроме `resource-manager.clouds.owner` и `organization-manager.organizations.owner`, а также предоставляет разрешения на управление любыми [ресурсами](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud, кроме передачи прав владения [организацией](../../organization/concepts/organization.md) и ее удаления.
 
 Прежде чем назначить роль `admin` на организацию, [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [платежный аккаунт](../../billing/concepts/billing-account.md), ознакомьтесь с информацией о защите [привилегированных аккаунтов](../../security/standard/all.md#privileged-users).
+
 
 Включает разрешения, предоставляемые ролью `editor`.
 

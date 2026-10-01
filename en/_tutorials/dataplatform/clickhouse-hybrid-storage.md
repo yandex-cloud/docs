@@ -117,9 +117,7 @@ This table will use the `default` [storage policy](../../managed-clickhouse/conc
 
 {% endnote %}
 
-{#ttl}
-
-The `TTL ...` expression defines the policy for managing aging data:
+The `TTL ...` expression defines the policy for managing aging data: {#ttl}
 1. TTL sets the lifetime of a table row. In our example, it is the number of days from the current date to March 20, 2014. 
 1. The system manages table data based on the `EventDate` value:
    * Records where the elapsed time, in days, since `EventDate` is less than the TTL value are retained on the network disk storage.

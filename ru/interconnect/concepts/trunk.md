@@ -95,8 +95,8 @@ description: Из статьи вы узнаете, какими функция�
 
 {% note info "Инструкция" %}
 
-* Для организации **приватного соединения** в транковом подключении через партнера необходимо следовать [инструкции](../tutorials/partner-trunk-priv-add.md).
-* Для организации **публичного соединения** в транковом подключении через партнера необходимо следовать [инструкции](../tutorials/partner-trunk-pub-add.md).
+* Для организации **приватного соединения** в транковом подключении через партнера воспользуйтесь [инструкцией](../operations/priv-con-create.md).
+* Для организации **публичного соединения** в транковом подключении через партнера воспользуйтесь [инструкцией](../operations/pub-con-create.md).
 
 {% endnote %}
 
@@ -189,9 +189,6 @@ description: Из статьи вы узнаете, какими функция�
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/trunk-priv-add.md)
-* [{#T}](../tutorials/trunk-pub-add.md)
-* [{#T}](../tutorials/partner-trunk-priv-add.md)
-* [{#T}](../tutorials/partner-trunk-pub-add.md)
-* [{#T}](../tutorials/trunk-capacity-change.md)
-* [{#T}](../tutorials/trunk-del.md)
+* [{#T}](../operations/trunk-create.md)
+* [{#T}](../operations/trunk-update.md)
+* [{#T}](../operations/trunk-delete.md)

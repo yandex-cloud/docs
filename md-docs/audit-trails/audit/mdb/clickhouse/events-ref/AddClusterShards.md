@@ -109,6 +109,8 @@
                   "backgroundMessageBrokerSchedulePoolSize": "string",
                   "backgroundCommonPoolSize": "string",
                   "dictionariesLazyLoad": "boolean",
+                  "shutdownWaitUnfinishedQueries": "boolean",
+                  "shutdownWaitUnfinished": "string",
                   "logLevel": "string",
                   "queryLogRetentionSize": "string",
                   "queryLogRetentionTime": "string",
@@ -435,6 +437,8 @@
                     "port": "string"
                   },
                   "mysqlProtocol": "boolean",
+                  "grpcProtocol": "boolean",
+                  "arrowflightProtocol": "boolean",
                   "customMacros": [
                     {
                       "name": "string",
@@ -459,6 +463,8 @@
                   "backgroundMessageBrokerSchedulePoolSize": "string",
                   "backgroundCommonPoolSize": "string",
                   "dictionariesLazyLoad": "boolean",
+                  "shutdownWaitUnfinishedQueries": "boolean",
+                  "shutdownWaitUnfinished": "string",
                   "logLevel": "string",
                   "queryLogRetentionSize": "string",
                   "queryLogRetentionTime": "string",
@@ -785,6 +791,8 @@
                     "port": "string"
                   },
                   "mysqlProtocol": "boolean",
+                  "grpcProtocol": "boolean",
+                  "arrowflightProtocol": "boolean",
                   "customMacros": [
                     {
                       "name": "string",
@@ -809,6 +817,8 @@
                   "backgroundMessageBrokerSchedulePoolSize": "string",
                   "backgroundCommonPoolSize": "string",
                   "dictionariesLazyLoad": "boolean",
+                  "shutdownWaitUnfinishedQueries": "boolean",
+                  "shutdownWaitUnfinished": "string",
                   "logLevel": "string",
                   "queryLogRetentionSize": "string",
                   "queryLogRetentionTime": "string",
@@ -1135,6 +1145,8 @@
                     "port": "string"
                   },
                   "mysqlProtocol": "boolean",
+                  "grpcProtocol": "boolean",
+                  "arrowflightProtocol": "boolean",
                   "customMacros": [
                     {
                       "name": "string",
@@ -1161,7 +1173,8 @@
                 "diskSizeLimit": "string"
               }
             }
-          }
+          },
+          "isHa": "boolean"
         }
       ]
     },
@@ -1356,6 +1369,7 @@ A list of messages that carry the error details. ||
 || name | **string** ||
 || clusterId | **string** ||
 || config | **[ShardConfig](#yandex.cloud.mdb.clickhouse.v1.ShardConfig)** ||
+|| isHa | **boolean** ||
 |#
 
 ## ShardConfig {#yandex.cloud.mdb.clickhouse.v1.ShardConfig}
@@ -1398,6 +1412,8 @@ A list of messages that carry the error details. ||
 || backgroundMessageBrokerSchedulePoolSize | **string** (int64) ||
 || backgroundCommonPoolSize | **string** (int64) ||
 || dictionariesLazyLoad | **boolean** ||
+|| shutdownWaitUnfinishedQueries | **boolean** ||
+|| shutdownWaitUnfinished | **string** (int64) ||
 || logLevel | **enum** (LogLevel)
 
 - `TRACE`
@@ -1486,6 +1502,8 @@ A list of messages that carry the error details. ||
 || queryCache | **[QueryCache](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.QueryCache)** ||
 || jdbcBridge | **[JdbcBridge](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.JdbcBridge)** ||
 || mysqlProtocol | **boolean** ||
+|| grpcProtocol | **boolean** ||
+|| arrowflightProtocol | **boolean** ||
 || customMacros[] | **[Macro](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Macro)** ||
 || tls | **[Tls](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Tls)** ||
 || builtinDictionariesReloadInterval | **string** (int64) ||

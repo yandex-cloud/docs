@@ -12,6 +12,36 @@ This page provides a complete list of security rules used in {{ sd-name }}.
 
 Rules for checking cloud resource configuration.
 
+{% include [ai.api-key-rotation](../../_security-deck-rules/rules/cspm/ai.api-key-rotation.md) %}
+
+{% include [ai.api-key-scopes](../../_security-deck-rules/rules/cspm/ai.api-key-scopes.md) %}
+
+{% include [ai.datasphere-sa-privileges](../../_security-deck-rules/rules/cspm/ai.datasphere-sa-privileges.md) %}
+
+{% include [ai.mcp-sa-duplicate](../../_security-deck-rules/rules/cspm/ai.mcp-sa-duplicate.md) %}
+
+{% include [ai.mcp-sa-privileges](../../_security-deck-rules/rules/cspm/ai.mcp-sa-privileges.md) %}
+
+{% include [ai.public-mcp-tools](../../_security-deck-rules/rules/cspm/ai.public-mcp-tools.md) %}
+
+{% include [ai.public-mcp](../../_security-deck-rules/rules/cspm/ai.public-mcp.md) %}
+
+{% include [ai.system-groups](../../_security-deck-rules/rules/cspm/ai.system-groups.md) %}
+
+{% include [ai.tool-secrets](../../_security-deck-rules/rules/cspm/ai.tool-secrets.md) %}
+
+{% include [access.password-policy.pci-dss](../../_security-deck-rules/rules/cspm/access.password-policy.pci-dss.md) %}
+
+{% include [crypto.leaked-secrets-detection](../../_security-deck-rules/rules/cspm/crypto.leaked-secrets-detection.md) %}
+
+{% include [k8s.cis](../../_security-deck-rules/rules/cspm/k8s.cis.md) %}
+
+{% include [k8s.disallow-k8s-not-regional](../../_security-deck-rules/rules/cspm/k8s.disallow-k8s-not-regional.md) %}
+
+{% include [network.check-outgoing-internet-connection](../../_security-deck-rules/rules/cspm/network.check-outgoing-internet-connection.md) %}
+
+{% include [o11y.audit-trails-reactions](../../_security-deck-rules/rules/cspm/o11y.audit-trails-reactions.md) %}
+
 {% include [access.userpool-mfa](../../_security-deck-rules/rules/cspm/access.userpool-mfa.md) %}
 
 {% include [iam.sa-key-rotation](../../_security-deck-rules/rules/cspm/iam.sa-key-rotation.md) %}
@@ -53,7 +83,6 @@ Rules for checking cloud resource configuration.
 {% include [access.user-groups-mapping.en](../../_security-deck-rules/rules/cspm/access.user-groups-mapping.en.md) %}
 
 {% include [access.privileged-sa-access.en](../../_security-deck-rules/rules/cspm/access.privileged-sa-access.en.md) %}
-
 
 {% include [access.acl-container-registry](../../_security-deck-rules/rules/cspm/access.acl-container-registry.md) %}
 
@@ -178,4 +207,32 @@ Rules for checking Kubernetes cluster configuration.
 {% include [host-security.make-iptables-util-chains-true](../../_security-deck-rules/rules/kspm/host-security.make-iptables-util-chains-true.md) %}
 
 {% include [host-security.rotate-certs-not-false](../../_security-deck-rules/rules/kspm/host-security.rotate-certs-not-false.md) %}
+
+Rules for collecting Kubernetes node inventory data.
+
+{% include [inventory.apparmor](../../_security-deck-rules/rules/kspm/inventory.apparmor.md) %}
+
+{% include [inventory.apps](../../_security-deck-rules/rules/kspm/inventory.apps.md) %}
+
+{% include [inventory.apt-sources](../../_security-deck-rules/rules/kspm/inventory.apt-sources.md) %}
+
+{% include [inventory.general](../../_security-deck-rules/rules/kspm/inventory.general.md) %}
+
+{% include [inventory.kernel](../../_security-deck-rules/rules/kspm/inventory.kernel.md) %}
+
+{% include [inventory.logins](../../_security-deck-rules/rules/kspm/inventory.logins.md) %}
+
+{% include [inventory.network](../../_security-deck-rules/rules/kspm/inventory.network.md) %}
+
+{% include [inventory.processes](../../_security-deck-rules/rules/kspm/inventory.processes.md) %}
+
+{% include [inventory.seccomp](../../_security-deck-rules/rules/kspm/inventory.seccomp.md) %}
+
+{% include [inventory.selfmon](../../_security-deck-rules/rules/kspm/inventory.selfmon.md) %}
+
+{% include [inventory.shared-memory](../../_security-deck-rules/rules/kspm/inventory.shared-memory.md) %}
+
+{% include [inventory.sysctl](../../_security-deck-rules/rules/kspm/inventory.sysctl.md) %}
+
+{% include [inventory.users](../../_security-deck-rules/rules/kspm/inventory.users.md) %}
 

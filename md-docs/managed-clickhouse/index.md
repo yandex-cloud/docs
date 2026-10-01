@@ -56,6 +56,8 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
 
  - [Управление хостами ClickHouse® Keeper](operations/ck-hosts.md)
 
+ - [Изменение сервиса координации](operations/ck-hosts-upgrade.md)
+
  - [Миграция хостов в другую зону доступности](operations/host-migration.md)
 
  - [Управление резервными копиями](operations/cluster-backups.md)
@@ -258,6 +260,20 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
 
  - [list](cli-ref/backup/list.md)
 
+### change-freeze
+
+ - [Overview](cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/change-freeze/terminate.md)
+
 ### cluster
 
  - [Overview](cli-ref/cluster/index.md)
@@ -301,6 +317,8 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
  - [list-logs](cli-ref/cluster/list-logs.md)
 
  - [list-operations](cli-ref/cluster/list-operations.md)
+
+ - [migrate-to-keeper](cli-ref/cluster/migrate-to-keeper.md)
 
  - [move](cli-ref/cluster/move.md)
 
@@ -385,6 +403,16 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
  - [restart](cli-ref/hosts/restart.md)
 
  - [update](cli-ref/hosts/update.md)
+
+### maintenance
+
+ - [Overview](cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/maintenance/reschedule.md)
 
 ### ml-model
 
@@ -476,6 +504,20 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
 
  - [list](cli-ref/v0/backup/list.md)
 
+#### change-freeze
+
+ - [Overview](cli-ref/v0/change-freeze/index.md)
+
+ - [create](cli-ref/v0/change-freeze/create.md)
+
+ - [get](cli-ref/v0/change-freeze/get.md)
+
+ - [get-limits](cli-ref/v0/change-freeze/get-limits.md)
+
+ - [list](cli-ref/v0/change-freeze/list.md)
+
+ - [terminate](cli-ref/v0/change-freeze/terminate.md)
+
 #### cluster
 
  - [Overview](cli-ref/v0/cluster/index.md)
@@ -519,6 +561,8 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
  - [list-logs](cli-ref/v0/cluster/list-logs.md)
 
  - [list-operations](cli-ref/v0/cluster/list-operations.md)
+
+ - [migrate-to-keeper](cli-ref/v0/cluster/migrate-to-keeper.md)
 
  - [move](cli-ref/v0/cluster/move.md)
 
@@ -603,6 +647,16 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
  - [restart](cli-ref/v0/hosts/restart.md)
 
  - [update](cli-ref/v0/hosts/update.md)
+
+#### maintenance
+
+ - [Overview](cli-ref/v0/maintenance/index.md)
+
+ - [get](cli-ref/v0/maintenance/get.md)
+
+ - [list](cli-ref/v0/maintenance/list.md)
+
+ - [reschedule](cli-ref/v0/maintenance/reschedule.md)
 
 #### ml-model
 
@@ -692,7 +746,13 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
 
  - [list](cli-ref/version/list.md)
 
- - [Справочник Terraform](tf-ref.md)
+## Справочник Terraform
+
+ - [Обзор](tf-ref.md)
+
+ - [Изменения в кластере v2](concepts/migration-v1-v2.md)
+
+ - [Миграция кластера с v1 на v2](operations/migration-v1-v2.md)
 
 ## Справочник API
 
@@ -711,6 +771,20 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
  - [List](api-ref/grpc/Backup/list.md)
 
  - [Delete](api-ref/grpc/Backup/delete.md)
+
+#### ChangeFreeze
+
+ - [Overview](api-ref/grpc/ChangeFreeze/index.md)
+
+ - [Create](api-ref/grpc/ChangeFreeze/create.md)
+
+ - [Get](api-ref/grpc/ChangeFreeze/get.md)
+
+ - [List](api-ref/grpc/ChangeFreeze/list.md)
+
+ - [Terminate](api-ref/grpc/ChangeFreeze/terminate.md)
+
+ - [GetLimits](api-ref/grpc/ChangeFreeze/getLimits.md)
 
 #### ClusterExtension
 
@@ -743,6 +817,8 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
  - [Delete](api-ref/grpc/Cluster/delete.md)
 
  - [AddZookeeper](api-ref/grpc/Cluster/addZookeeper.md)
+
+ - [MigrateToKeeper](api-ref/grpc/Cluster/migrateToKeeper.md)
 
  - [Start](api-ref/grpc/Cluster/start.md)
 
@@ -924,6 +1000,20 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
 
  - [Delete](api-ref/Backup/delete.md)
 
+#### ChangeFreeze
+
+ - [Overview](api-ref/ChangeFreeze/index.md)
+
+ - [Create](api-ref/ChangeFreeze/create.md)
+
+ - [Get](api-ref/ChangeFreeze/get.md)
+
+ - [List](api-ref/ChangeFreeze/list.md)
+
+ - [Terminate](api-ref/ChangeFreeze/terminate.md)
+
+ - [GetLimits](api-ref/ChangeFreeze/getLimits.md)
+
 #### ClusterExtension
 
  - [Overview](api-ref/ClusterExtension/index.md)
@@ -955,6 +1045,8 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
  - [Delete](api-ref/Cluster/delete.md)
 
  - [AddZookeeper](api-ref/Cluster/addZookeeper.md)
+
+ - [MigrateToKeeper](api-ref/Cluster/migrateToKeeper.md)
 
  - [Start](api-ref/Cluster/start.md)
 

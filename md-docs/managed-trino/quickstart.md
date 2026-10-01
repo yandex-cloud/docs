@@ -29,7 +29,7 @@
    
    1. (Опционально) Введите описание каталога.
    1. Выберите опцию **Создать сеть по умолчанию**. Будет создана [сеть](../vpc/concepts/network.md#network) с подсетями в каждой [зоне доступности](../overview/concepts/geo-scope.md). Также в этой сети будет создана [группа безопасности по умолчанию](../vpc/concepts/security-groups.md#default-security-group), которая разрешает подключение к ресурсам по `SSH` и `RDP`, входящий трафик по `ICMP`, а также любой исходящий трафик.
-   1. Нажмите кнопку **Создать**.
+   1. Нажмите **Создать**.
    
       ![create-folder2](../_assets/resource-manager/create-folder-2.png)
 
@@ -110,7 +110,7 @@
    export TRINO_PASSWORD=$(yc iam create-token)
    ```
 
-   IAM-токен, хранящийся в переменной `TRINO_PASSWORD`, служит паролем для подключения к кластеру Managed Service for Trino. Чтобы использовать его, укажите при подключении флаг `--password`.
+   IAM-токен, хранящийся в переменной `TRINO_PASSWORD`, служит паролем для подключения к кластеру Managed Service for Trino. Чтобы использовать его, укажите при подключении параметр `--password`.
 
 1. Подключитесь к кластеру Managed Service for Trino:
 

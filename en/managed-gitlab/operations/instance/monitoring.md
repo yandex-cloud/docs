@@ -42,7 +42,7 @@ You will see the following charts:
 
       To remove the redundant query, click ![options](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud_monitoring.actions.common.delete }}** in the query row.
 
-      You can learn more about the query language in [this {{ monitoring-name }} article](../../../monitoring/concepts/querying.md).
+      Learn more about the query language in [this {{ monitoring-name }} guide](../../../monitoring/concepts/querying.md).
 
    1. Set the [alert trigger conditions](../../../monitoring/concepts/alerting/alert.md#condition):
 
@@ -87,16 +87,16 @@ The following statuses are possible:
 || **STOPPED** | The instance is stopped. | Start the instance to get it running again. ||
 || **STARTING** | Starting the instance that was stopped earlier | After a while, the instance status will change to `RUNNING`. Wait a while and get started. ||
 || **UPDATING** | Updating the instance | After the update is complete, the cluster status will switch to `RUNNING`. Wait a while and get started. ||
-|| **ERROR** | An error occurred that does not allow the instance to continue working. | Run the initial diagnostics:
+|| **ERROR** | An error occurred that does not allow the instance to continue working. | Do the initial diagnostics:
 
 * Review instance [monitoring charts](#view-graphs).
-* On the instance page, under ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**, check the operations performed in the instance.
+* On the instance page, look up the operations performed in the instance on the **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
 If you cannot find the cause of the error yourself, [contact support]({{ link-console-support }}). ||
-|| **STATUS_UNKNOWN** | The instance is unable to determine its status. | Run the initial diagnostics:
+|| **STATUS_UNKNOWN** | The instance is unable to determine its status. | Do the initial diagnostics:
 
 * Review instance [monitoring charts](#view-graphs).
-* On the instance page, under ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**, check the operations performed in the instance.
+* On the instance page, look up the operations performed in the instance on the **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
 If you cannot find the cause of the error yourself, contact support. ||
 || **DELETING** | Deleting the instance | Once deleted, the instance will be removed from the **{{ ui-key.yacloud.gitlab.label_instances-title }}** page and will no longer be accessible. No action is required.

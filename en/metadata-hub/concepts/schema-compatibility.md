@@ -1,5 +1,6 @@
 # Schema compatibility
 
+
 _Schema compatibility_ defines whether applications with a newer schema can read data written with an older schema, and vice versa.
 
 {{ schema-registry-name }} uses the Confluent Schema Registry standard, which supports these compatibility types:

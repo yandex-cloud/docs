@@ -5,11 +5,7 @@
 Resolves the latest published Image for each available family within the specified folder.
 Returns one Image per family - the most recently published one.
 
-https://google.aip.dev/130 --)
 
-https://google.aip.dev/130 --)
-
-https://google.aip.dev/130 --)
 
 ## gRPC request
 
@@ -109,8 +105,11 @@ Family of the image ||
 
 State of the image.
 
+- `IMPORTING`: Image is being imported.
+- `IMPORTED`: Image has been imported and is awaiting moderation.
 - `PUBLISHED`: Image is published and available to users.
-- `DISABLED`: Image is disabled for new installations but preserved for existing servers. ||
+- `DISABLED`: Image is disabled for new installations but preserved for existing servers.
+- `ERROR`: Image encountered an error during import. ||
 || publish_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp when the image was published. ||

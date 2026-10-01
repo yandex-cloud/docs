@@ -25,7 +25,7 @@ To delete a [Let's Encrypt certificate](../../concepts/managed-certificate.md):
   1. View the command description:
 
      ```bash
-     yc certificate-manager certificates delete --help
+     yc certificate-manager certificate delete --help
      ```
 
   1. View the list of certificates:
@@ -47,7 +47,7 @@ To delete a [Let's Encrypt certificate](../../concepts/managed-certificate.md):
   1. Run this command:
 
      ```bash
-     yc certificate-manager certificates delete \
+     yc certificate-manager certificate delete \
        --id fpq6gvvm6piu********
      ```
 
@@ -83,7 +83,7 @@ To delete a [Let's Encrypt certificate](../../concepts/managed-certificate.md):
        domains     = ["my-domain.ru"]
 
        managed {
-       challenge_type = "DNS_CNAME"
+         challenge_type = "DNS_CNAME"
        }
      }
      ...

@@ -11,7 +11,7 @@ Monitoring allows you to track the rate of requests to a protected resource: all
 
 You can view the dashboards using one of the following options:
 
-* On the {{ sws-name }} page, select **{{ ui-key.yacloud.common.monitoring }}**.
+* On the {{ sws-name }} page, select ![display-pulse](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
 * Under **{{ ui-key.yacloud.common.monitoring }}**, click **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** at the top right.
 * On the {{ alb-name }} page:
   1. Select the load balancer with an associated security profile.

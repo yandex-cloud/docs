@@ -15,7 +15,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
   1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Click the name of your cluster and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}** in the top-right corner of the page.
   
   
@@ -159,7 +159,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
       
       * `name`: Username.
         
-      * `passwords`: Password. It must be from 8 to 128 characters long.
+      * `passwords`: User password. It must be from 8 to 128 characters long.
           
         You can specify only one password.
 
@@ -191,7 +191,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -237,7 +237,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
       
       * `name`: Username.
 
-      * `passwords`: Password. It must be from 8 to 128 characters long.
+      * `passwords`: User password. It must be from 8 to 128 characters long.
       
         You can specify only one password.
       
@@ -316,7 +316,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
       
         * `name`: Username.
         
-        * `passwords`: Password. It must be from 8 to 128 characters long.
+        * `passwords`: User password. It must be from 8 to 128 characters long.
           
           You can specify only one password.
       

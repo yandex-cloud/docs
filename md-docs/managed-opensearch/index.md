@@ -48,6 +48,8 @@
 
  - [Настройка доступа к Object Storage](operations/s3-access.md)
 
+ - [Техническое обслуживание](operations/cluster-maintenance.md)
+
  - [Удаление кластера](operations/cluster-delete.md)
 
 ### Подключение
@@ -166,6 +168,20 @@
 
  - [list](cli-ref/backup/list.md)
 
+### change-freeze
+
+ - [Overview](cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/change-freeze/terminate.md)
+
 ### cluster
 
  - [Overview](cli-ref/cluster/index.md)
@@ -185,6 +201,8 @@
  - [list-access-bindings](cli-ref/cluster/list-access-bindings.md)
 
  - [list-backups](cli-ref/cluster/list-backups.md)
+
+ - [move](cli-ref/cluster/move.md)
 
  - [remove-access-binding](cli-ref/cluster/remove-access-binding.md)
 
@@ -215,6 +233,16 @@
  - [list](cli-ref/extension/list.md)
 
  - [update](cli-ref/extension/update.md)
+
+### maintenance
+
+ - [Overview](cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/maintenance/reschedule.md)
 
 ### node-group
 
@@ -254,6 +282,20 @@
 
  - [list](cli-ref/v0/backup/list.md)
 
+#### change-freeze
+
+ - [Overview](cli-ref/v0/change-freeze/index.md)
+
+ - [create](cli-ref/v0/change-freeze/create.md)
+
+ - [get](cli-ref/v0/change-freeze/get.md)
+
+ - [get-limits](cli-ref/v0/change-freeze/get-limits.md)
+
+ - [list](cli-ref/v0/change-freeze/list.md)
+
+ - [terminate](cli-ref/v0/change-freeze/terminate.md)
+
 #### cluster
 
  - [Overview](cli-ref/v0/cluster/index.md)
@@ -273,6 +315,8 @@
  - [list-access-bindings](cli-ref/v0/cluster/list-access-bindings.md)
 
  - [list-backups](cli-ref/v0/cluster/list-backups.md)
+
+ - [move](cli-ref/v0/cluster/move.md)
 
  - [remove-access-binding](cli-ref/v0/cluster/remove-access-binding.md)
 
@@ -303,6 +347,16 @@
  - [list](cli-ref/v0/extension/list.md)
 
  - [update](cli-ref/v0/extension/update.md)
+
+#### maintenance
+
+ - [Overview](cli-ref/v0/maintenance/index.md)
+
+ - [get](cli-ref/v0/maintenance/get.md)
+
+ - [list](cli-ref/v0/maintenance/list.md)
+
+ - [reschedule](cli-ref/v0/maintenance/reschedule.md)
 
 #### node-group
 
@@ -339,6 +393,20 @@
  - [Get](api-ref/grpc/Backup/get.md)
 
  - [List](api-ref/grpc/Backup/list.md)
+
+#### ChangeFreeze
+
+ - [Overview](api-ref/grpc/ChangeFreeze/index.md)
+
+ - [Create](api-ref/grpc/ChangeFreeze/create.md)
+
+ - [Get](api-ref/grpc/ChangeFreeze/get.md)
+
+ - [List](api-ref/grpc/ChangeFreeze/list.md)
+
+ - [Terminate](api-ref/grpc/ChangeFreeze/terminate.md)
+
+ - [GetLimits](api-ref/grpc/ChangeFreeze/getLimits.md)
 
 #### Cluster
 
@@ -444,6 +512,14 @@
 
  - [List](api-ref/grpc/ResourcePreset/list.md)
 
+#### User
+
+ - [Overview](api-ref/grpc/User/index.md)
+
+ - [Get](api-ref/grpc/User/get.md)
+
+ - [List](api-ref/grpc/User/list.md)
+
 #### Versions
 
  - [Overview](api-ref/grpc/Versions/index.md)
@@ -461,6 +537,20 @@
  - [Get](api-ref/Backup/get.md)
 
  - [List](api-ref/Backup/list.md)
+
+#### ChangeFreeze
+
+ - [Overview](api-ref/ChangeFreeze/index.md)
+
+ - [Create](api-ref/ChangeFreeze/create.md)
+
+ - [Get](api-ref/ChangeFreeze/get.md)
+
+ - [List](api-ref/ChangeFreeze/list.md)
+
+ - [Terminate](api-ref/ChangeFreeze/terminate.md)
+
+ - [GetLimits](api-ref/ChangeFreeze/getLimits.md)
 
 #### Cluster
 
@@ -565,6 +655,14 @@
  - [Get](api-ref/ResourcePreset/get.md)
 
  - [List](api-ref/ResourcePreset/list.md)
+
+#### User
+
+ - [Overview](api-ref/User/index.md)
+
+ - [Get](api-ref/User/get.md)
+
+ - [List](api-ref/User/list.md)
 
 #### Versions
 

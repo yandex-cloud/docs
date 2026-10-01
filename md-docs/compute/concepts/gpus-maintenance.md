@@ -49,3 +49,4 @@ Compute Cloud периодически выполняет техническое
 #### Полезные ссылки {#see-also}
 
 * [Управлять техническим обслуживанием виртуальных машин с GPU](../operations/vm-control/gpus-maintenance.md)
+* [Обслуживание узлов Managed Service for Kubernetes без потери ресурсов](../../managed-kubernetes/operations/node-group/node-group-gpu-maintenance.md)

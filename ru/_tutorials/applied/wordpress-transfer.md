@@ -77,7 +77,7 @@
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) или создайте новый.
 1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-   Создание ВМ может занять несколько минут. Когда ВМ перейдет в [статус](../../compute/concepts/vm-statuses.md) `RUNNING`, вы можете [загрузить на нее файлы сайта](#upload-files).
+   Создание ВМ может занять несколько минут. Когда ВМ перейдет в [статус](../../compute/concepts/vm-statuses.md) `RUNNING`, вы можете [загрузить на нее файлы сайта](#transfer-files).
 
 ## Подключитесь к ВМ {#connect-vm}
 

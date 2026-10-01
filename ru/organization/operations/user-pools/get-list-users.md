@@ -39,3 +39,7 @@ description: Следуя данной инструкции, вы сможете
   Воспользуйтесь методом REST API [User.List](../../idp/api-ref/User/list.md) для ресурса [User](../../idp/api-ref/User/index.md) или вызовом gRPC API [UserService/List](../../idp/api-ref/grpc/User/list.md).
 
 {% endlist %}
+
+#### Полезные ссылки {#see-also}
+
+* [{#T}](../../../iam/concepts/subject-details.md)

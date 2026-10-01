@@ -62,7 +62,6 @@
         `Исходящий` | `any` | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
         `Входящий` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
         `Входящий` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-        `Входящий` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | —
 
         1. Выберите вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}**.
         1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
@@ -71,7 +70,6 @@
         1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** или **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** выберите назначение правила:
            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` — правило будет применено к диапазону IP-адресов. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` — правило будет применено к ВМ из текущей группы или из выбранной группы безопасности.
-           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` — правило, которое позволяет балансировщику проверять состояние ВМ.
         1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**. Таким образом создайте все правила из таблицы.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
   1. Аналогично создайте группу безопасности для группы ВМ с именем `alb-vm-sg`, той же сетью и следующими правилами:
@@ -95,7 +93,7 @@
 
   1. Откройте [консоль управления]({{ link-console-main }}).
   1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Откройте вкладку **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}** и нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}** и нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
      * Введите имя группы ВМ, например `website-vm-group`.
      * Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) из списка или создайте новый. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) `editor`. По умолчанию все операции с группами безопасности выполняются от имени сервисного аккаунта.
@@ -131,6 +129,10 @@
 
 ## Загрузите файлы сайта {#upload-files}
 
+Чтобы проверить работу веб-сервера, необходимо загрузить файлы сайта на каждую ВМ. Для примера вы можете использовать файл `index.html` из [архива](https://{{ s3-storage-host }}/doc-files/index.html.zip).
+
+Для каждой ВМ в [созданной группе](#create-vms) выполните следующее:
+
 {% include [upload-files](../../_tutorials/_tutorials_includes/alb-website/upload-files.md) %}
 
 ## Создайте группу бэкендов {#create-backend-group}
@@ -147,7 +149,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
   1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. Откройте вкладку **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
   1. Введите имя группы бэкендов, например `website-bg`.
   1. В блоке **{{ ui-key.yacloud.alb.label_backends }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
@@ -171,7 +173,7 @@
 
 - Консоль управления {#console}
 
-  1. Откройте вкладку **{{ ui-key.yacloud.alb.label_http-routers }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
   1. Введите имя роутера, например `website-router`.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
@@ -192,7 +194,7 @@
 
 - Консоль управления {#console}
 
-  1. Откройте вкладку **{{ ui-key.yacloud.alb.label_load-balancers }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/branches-down.svg) **{{ ui-key.yacloud.alb.label_load-balancers }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
   1. Введите имя балансировщика, например `website-alb`.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите сеть, к которой подключена группа ВМ, и [созданную ранее](#create-security-groups) группу безопасности `alb-sg`.

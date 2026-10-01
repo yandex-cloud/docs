@@ -2,7 +2,6 @@
 
 # Метрики Yandex MPP Analytics for PostgreSQL
 
-
 В этом разделе описаны метрики сервиса [Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/index.md), поставляемые в Monitoring.
 
 Имя метрики пишется в метку `name`.

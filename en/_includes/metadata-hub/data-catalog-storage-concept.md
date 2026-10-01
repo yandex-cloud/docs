@@ -1,0 +1,3 @@
+Creating a data source automatically creates a data storage for its metadata. If a folder has multiple sources created for the same managed database cluster or the same custom database installation, their metadata is consolidated in a single storage.
+
+For each storage, you can get information on ingestions, sources, exported data, and links between database or service objects. Storage metadata supports [metadata markup](#metadata-markup) and search.

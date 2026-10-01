@@ -3071,7 +3071,12 @@ editable: false
                   "maxSizePercent": "string",
                   "minRetentionHours": "number"
                 },
-                "chainingAllowed": "boolean"
+                "chainingAllowed": "boolean",
+                "changeStreamOptions": {
+                  "preAndPostImages": {
+                    "expireAfterSeconds": "string"
+                  }
+                }
               },
               "userConfig": {
                 "storage": {
@@ -3140,7 +3145,12 @@ editable: false
                   "maxSizePercent": "string",
                   "minRetentionHours": "number"
                 },
-                "chainingAllowed": "boolean"
+                "chainingAllowed": "boolean",
+                "changeStreamOptions": {
+                  "preAndPostImages": {
+                    "expireAfterSeconds": "string"
+                  }
+                }
               },
               "defaultConfig": {
                 "storage": {
@@ -3209,7 +3219,12 @@ editable: false
                   "maxSizePercent": "string",
                   "minRetentionHours": "number"
                 },
-                "chainingAllowed": "boolean"
+                "chainingAllowed": "boolean",
+                "changeStreamOptions": {
+                  "preAndPostImages": {
+                    "expireAfterSeconds": "string"
+                  }
+                }
               }
             },
             "resources": {
@@ -3681,7 +3696,8 @@ editable: false
         "string"
       ],
       "deletionProtection": "boolean",
-      "diskEncryptionKeyId": "string"
+      "diskEncryptionKeyId": "string",
+      "isHa": "boolean"
     },
     "hosts": [
       {
@@ -3734,10 +3750,14 @@ editable: false
             ]
           }
         ],
+        "connectionManager": {
+          "connectionId": "string"
+        },
         "authType": "string",
         "deletionProtection": "boolean"
       }
-    ]
+    ],
+    "clusterName": "string"
   },
   "requestParameters": "object",
   "response": "object"
@@ -3913,6 +3933,7 @@ A list of messages that carry the error details. ||
 || hosts[] | **[HostDetails](#yandex.cloud.audit.mdb.mongodb.HostDetails)** ||
 || databases[] | **[Database](#yandex.cloud.mdb.mongodb.v1.Database)** ||
 || users[] | **[User](#yandex.cloud.mdb.mongodb.v1.User)** ||
+|| clusterName | **string** ||
 |#
 
 ## Cluster {#yandex.cloud.mdb.mongodb.v1.Cluster}
@@ -3961,6 +3982,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || securityGroupIds[] | **string** ||
 || deletionProtection | **boolean** ||
 || diskEncryptionKeyId | **string** ||
+|| isHa | **boolean** ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.mongodb.v1.Monitoring}
@@ -6512,6 +6534,7 @@ The number of elements must be in the range 1-3.
 || setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter)** ||
 || oplog | **[Oplog](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Oplog)** ||
 || chainingAllowed | **boolean** ||
+|| changeStreamOptions | **[ChangeStreamOptions](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.ChangeStreamOptions)** ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage}
@@ -6682,6 +6705,22 @@ The minimum value is 0. ||
 ||Field | Description ||
 || maxSizePercent | **string** (int64) ||
 || minRetentionHours | **number** (double) ||
+|#
+
+## ChangeStreamOptions {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.ChangeStreamOptions}
+
+#|
+||Field | Description ||
+|| preAndPostImages | **[PreAndPostImages](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.ChangeStreamOptions.PreAndPostImages)** ||
+|#
+
+## PreAndPostImages {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.ChangeStreamOptions.PreAndPostImages}
+
+#|
+||Field | Description ||
+|| expireAfterSeconds | **string** (int64)
+
+The minimum value is 0. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.Mongodb.MongoCfg}
@@ -7015,6 +7054,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || name | **string** ||
 || clusterId | **string** ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)** ||
+|| connectionManager | **[ConnectionManager](#yandex.cloud.mdb.mongodb.v1.ConnectionManager)** ||
 || authType | **enum** (AuthType)
 
 - `AUTH_TYPE_PASSWORD`
@@ -7028,4 +7068,11 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 ||Field | Description ||
 || databaseName | **string** ||
 || roles[] | **string** ||
+|#
+
+## ConnectionManager {#yandex.cloud.mdb.mongodb.v1.ConnectionManager}
+
+#|
+||Field | Description ||
+|| connectionId | **string** ||
 |#

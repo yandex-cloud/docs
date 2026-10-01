@@ -26,6 +26,9 @@
 - API-ключ {#api-key}
 
   1. [Создайте](../../iam/operations/authentication/manage-api-keys.md#create-api-key) API-ключ для [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), от имени которого вы будете выполнять аутентификацию.
+
+      {% include [api-key-scopes](api-key-scopes.md) %}
+
   1. Создайте переменные окружения `REGISTRY_USERNAME` и `REGISTRY_PASSWORD`:
 
       ```bash

@@ -23,11 +23,24 @@ When using {{ video-name }}, you are charged for the following:
 * Original files storage: Fee for storing the original video files uploaded to {{ video-name }}.
 * Broadcast video storage: Fee for storage of broadcast videos.
 
+Incoming traffic from the internet is not charged. There is no separate fee for uploading source files or receiving the incoming [broadcast](concepts/streams.md) stream.
+
 The video content is stored in {{ objstorage-name }}. The data amount is measured in GBs per month. The size of video content per month is calculated as the average value based on granular per-second data. The minimum billing unit is 1 hour of storing 1 MB of data.
+
+Storage is provided by {{ video-name }} itself. You do not have to connect your own {{ objstorage-name }} bucket, and no separate fee is charged under the {{ objstorage-name }} pricing policy.
 
 The minimum billing unit of outgoing traffic is 1 GB.
 
-{% include [free-neuro](../_includes/video/free-neuro.md) %}
+### What is already included in the price {#included}
+
+There is no additional charge for:
+
+* [Player](../video/concepts/player.md): Embedded adaptive quality player for websites and applications.
+* Automatic generation of subtitles.
+* Neural translation of subtitles and audio tracks.
+* Summarization and automatic chaptering of your videos.
+
+Learn more about the neural network functions in [AI features](../video/concepts/videos.md#ai-capabilities).
 
 ## Prices for the Russia region {#prices}
 
@@ -42,7 +55,6 @@ The minimum billing unit of outgoing traffic is 1 GB.
     currency="USD"
   />
 </MDX>
-
 
 
 ## Calculation examples {#price-example}

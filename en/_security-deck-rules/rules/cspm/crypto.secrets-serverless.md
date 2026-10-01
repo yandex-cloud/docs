@@ -15,8 +15,11 @@ We recommend using Serverless integration with Lockbox for that. You can use a s
 
 Make sure that the secrets are used as described above.
 
+**Risks if the rule is not followed:** Secrets stored in environment variables are visible to any cloud user with permissions to view the function or container configuration. They may also appear in audit logs, deployment pipelines, or infrastructure-as-code repositories. Using Lockbox ensures secrets are stored encrypted, access-controlled, and auditable separately from the function configuration.
+
 #### Instructions and solutions
 
 Delete secret data from `env` and use the Lockbox integration functionality:
 
-* [Transmitting Yandex Lockbox secrets to a container](https://yandex.cloud/en/docs/serverless-containers/operations/lockbox-secret-transmit). * [Transmitting Yandex Lockbox secrets to a function](https://yandex.cloud/en/docs/functions/operations/function/lockbox-secret-transmit).
+* [Transmitting Yandex Lockbox secrets to a container](https://yandex.cloud/en/docs/serverless-containers/operations/lockbox-secret-transmit).
+* [Transmitting Yandex Lockbox secrets to a function](https://yandex.cloud/en/docs/functions/operations/function/lockbox-secret-transmit).

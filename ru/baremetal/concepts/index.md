@@ -20,7 +20,13 @@
 
   [Подробнее о конфигурации по запросу](server-individual-configurations.md)
 
-[Серверы](servers.md) можно арендовать на срок от одного дня до года. При заказе сервера можно установить операционную систему из готовых [образов](images.md) Marketplace или для установки использовать собственный дистрибутив, [загрузив](../operations/image-upload.md) его в [{{ objstorage-full-name }}](../../storage/index.yaml), настроить публичную и приватную IP-адресацию, SSH-доступ, политики резервного копирования сервера через сервис [{{ backup-full-name }}](../../backup/index.yaml).
+[Серверы](servers.md) можно арендовать на срок от одного дня до года. При заказе сервера можно установить операционную систему из готовых [образов](images.md) {{ marketplace-short-name }} или для установки использовать собственный дистрибутив, [загрузив](../operations/image-upload.md) его в [{{ objstorage-full-name }}](../../storage/index.yaml), настроить публичную и приватную IP-адресацию, SSH-доступ, политики резервного копирования сервера через сервис [{{ backup-full-name }}](../../backup/index.yaml).
+
+### BareMetal Extend {#baremetal-extend}
+
+*BareMetal Extend* дополняет аренду отдельных серверов готовыми инфраструктурными продуктами. С его помощью можно развернуть приватную платформу виртуализации, платформу контейнеризации {{ stackland-name }} или группы рабочих узлов {{ managed-k8s-name }} на выделенных физических серверах. BareMetal Extend автоматизирует подготовку серверов и установку программных платформ.
+
+[Подробнее о BareMetal Extend](./extend.md)
 
 ## Сеть {#network}
 
@@ -52,6 +58,8 @@
 * [{#T}](./network.md)
 * [{#T}](./dhcp.md)
 * [{#T}](./network-restrictions.md)
+* [Свое или чужое: сколько на самом деле стоит серверная и где скрыта выгода bare metal](https://yandex.cloud/ru/blog/baremetal-vs-on-premises)
+* [Гибридная инфраструктура: гайд по выбору и оптимизации затрат](https://yandex.cloud/ru/blog/hybrid-infrastructure)
 * [Bare metal: полный контроль и высокая производительность](https://yandex.cloud/ru/blog/bare-metal-guide)
 * [{{ baremetal-full-name }} получил сертификат высшего уровня защиты персональных данных](https://yandex.cloud/ru/blog/yandex-baremetal-certificate)
 * [Как не нужно работать с выделенными серверами](https://yandex.cloud/ru/blog/how-to-bare-metal)

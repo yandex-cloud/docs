@@ -8,7 +8,7 @@ description: This page describes best practices for using {{ network-load-balanc
 
 ### Use different availability zones {#place-resources-in-different-zones}
 
-Create cloud resources in multiple availability zones. This way you can maintain the availability of your applications in case one of the zones becomes unavailable.
+Create cloud resources in multiple [availability zones](../../overview/concepts/geo-scope.md). This way you can maintain the availability of your applications in case one of the zones becomes unavailable.
 
 ### Allocate resources across zones uniformly {#distribute-resources}
 

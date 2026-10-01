@@ -4,8 +4,8 @@ editable: false
 
 # BareMetal API, gRPC: ImageService.Get
 
-Returns the specific Image resource.
-To get the list of available Image resources, make a [List](/docs/baremetal/api-ref/grpc/Image/list#List) request.
+Returns the specific BootImage resource.
+To get the list of available BootImage resources, make a [List](/docs/baremetal/api-ref/grpc/Image/list#List) request.
 
 ## gRPC request
 
@@ -23,8 +23,8 @@ To get the list of available Image resources, make a [List](/docs/baremetal/api-
 ||Field | Description ||
 || image_id | **string**
 
-ID of the Image resource to return.
-To get the image ID, use a [ImageService.List](/docs/baremetal/api-ref/grpc/Image/list#List) request.
+ID of the BootImage resource to return.
+To get the BootImage ID, use a [ImageService.List](/docs/baremetal/api-ref/grpc/Image/list#List) request.
 
 Value must match the regular expression ` [a-z][a-z0-9]* `. ||
 |#

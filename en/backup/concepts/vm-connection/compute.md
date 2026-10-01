@@ -73,7 +73,7 @@ You can manually install the {{ backup-name }} agent on a VM. For more informati
 * [Guide for Linux](../../operations/connect-vm-linux.md)
 * [Guide for Windows](../../operations/connect-vm-windows.md)
 
-For a complete list of supported operating systems, see the [backup provider documentation](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/21.06/user/#supported-operating-systems-and-environments.html).
+For a complete list of supported operating systems, see the [backup provider documentation](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/{{ backup-provider-docs-version }}/user/supported-operating-systems-and-environments.html).
 
 If you have issues installing the {{ backup-name }} agent, [contact]({{ link-console-support }}) support.
 
@@ -91,7 +91,7 @@ For information on how to upgrade the Linux kernel header version, see [{#T}](..
 
 {% endnote %}
 
-A [service account](../../../iam/concepts/users/service-accounts.md) is a special account the {{ backup-name }} agent uses to get registered with the Cyberprotect [provider](../index.md#providers).
+[Service account](../../../iam/concepts/users/service-accounts.md) is a special account the {{ backup-name }} agent uses to get registered with the Cyberprotect [provider](../index.md#providers).
 
 When creating a {{ compute-name }} VM you want to configure backups for in {{ backup-name }}, you need to link to it a service account with the `backup.user` [role](../../security/index.md#backup-user) or higher.
 
@@ -126,8 +126,7 @@ For the {{ backup-name }} agent to be able to exchange data with the backup pro
 
 {% endlist %}
 
-To provide network access:
-{#provide-access}
+To provide network access: {#provide-access}
 
 [Assign](../../../compute/operations/vm-control/vm-attach-public-ip.md) the VM a public IP or use a [route table](../../../vpc/concepts/routing.md#rt-vm) that allows internet access via a [NAT gateway](../../../vpc/concepts/gateways.md) or a custom router.
 

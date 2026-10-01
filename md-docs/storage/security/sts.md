@@ -51,7 +51,7 @@ _Security Token Service_ — компонент сервиса Identity and Acce
 
 Для работы с Security Token Service предусмотрен отдельный [эндпоинт API](../../api-design-guide/concepts/endpoints.md): `https://sts.yandexcloud.net`.
 
-Подробнее смотрите [Создать временный ключ доступа с помощью Security Token Service](../../iam/operations/sa/create-sts-key.md).
+Подробнее смотрите в разделе [Создать временный ключ доступа с помощью Security Token Service](../../iam/operations/sa/create-sts-key.md).
 
 {% note warning %}
 

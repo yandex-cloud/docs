@@ -5,7 +5,6 @@
 Returns the specific BootImage resource.
 To get the list of available Image resources, make a [List] request.
 
-https://google.aip.dev/130 --)
 
 ## gRPC request
 

@@ -49,7 +49,7 @@ Set up your infrastructure:
 
 1. [Create a cloud network](../../../vpc/operations/network-create.md) named `integration-network`.
 
-    This will automatically create three subnets in different availability zones.
+    This will automatically create three subnets in different [availability zones](../../../overview/concepts/geo-scope.md).
 
 1. For the {{ msp-full-name }} cluster, [create a security group](../../../vpc/operations/security-group-create.md) named `spark-sg` in `integration-network`. Add the following rule to it:
 
@@ -104,7 +104,7 @@ For a PySpark job, we will use a Python script that:
 
 Prepare a script file:
 
-1. Create the `ice_min_demo.py` file and paste the following code to it:
+1. Create the `ice_min_demo.py` file and paste the following code into it:
 
    {% cut "ice_min_demo.py" %}
 
@@ -154,9 +154,9 @@ Prepare a script file:
 
 1. In the source code bucket, create a folder named `scripts` and [upload](../../../storage/operations/objects/upload.md#simple) the `ice_min_demo.py` file to this folder.
 1. [Create a job](../../../managed-spark/operations/jobs-pyspark.md) with the following settings:
-    * **Job type**: **PySpark**.
-    * **Main python file**: `s3a://<source_code_bucket>/scripts/ice_min_demo.py`.
-    * **Arguments**: `spark.sql.warehouse.dir` – `s3a://<output_data_bucket>/warehouse/`.
+    * **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}**: `PySpark`.
+    * **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}**: `s3a://<source_code_bucket>/scripts/ice_min_demo.py`.
+    * **{{ ui-key.yacloud.dataproc.jobs.field_properties }}**: `spark.sql.warehouse.dir` — `s3a://<output_data_bucket>/warehouse/`.
 
 ## Check the result {#check-out}
 

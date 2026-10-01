@@ -10,7 +10,7 @@ After creating a cluster, you can:
 * [Change the service account settings](#change-service-account).
 * [Change the host class](#change-resource-preset).
 * [Change the disk type and expand the storage capacity](#change-disk-size).
-* [Enable the coordination service](#coordination).
+* [Set up a coordination service](#coordination).
 * [Enable user and database management via SQL](#SQL-management).
 * [Change additional cluster settings](#change-additional-settings).
 * [Move the cluster](#move-cluster) to another folder.
@@ -153,7 +153,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of cor
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -339,7 +339,7 @@ You can also [change the disk type and storage size for an individual shard](sha
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
   1. If you have changed the disk type for {{ CH }} hosts:
       1. In the window that opens, view the number of non-replicated tables in the **Non-replicated MergeTree tables** chart and their size in **Size of non-replicated MergeTree tables**. The data in the non-replicated tables will be lost. If you need to keep it, [convert]({{ ch.docs }}{{ lang }}/sql-reference/statements/attach#attach-mergetree-table-as-replicatedmergetree) the non-replicated tables to replicated ones before you change the disk type.
-      1. Confirm updating the resources.
+      1. Confirm resource changes.
 
 - CLI {#cli}
 
@@ -413,7 +413,7 @@ You can also [change the disk type and storage size for an individual shard](sha
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -554,9 +554,9 @@ You can also [change the disk type and storage size for an individual shard](sha
 
 {% endlist %}
 
-## Enabling the coordination service {#coordination}
+## Setting up a coordination service {#coordination}
 
-You can turn on the {{ CK }} or {{ ZK }} [coordination service](#enable-coordination) if it has not been set. You can [change the settings](#change-coordination) of the active coordination service.
+You can choose to activate the {{ CK }} or {{ ZK }} [coordination service](#enable-coordination) on individual hosts if it had not been set. If the cluster uses the built-in {{ CK }}, you can only enable {{ CK }} on individual hosts. You can [change the settings](#change-coordination) of the active coordination service.
 
 ### Turning on the coordination service {#enable-coordination}
 
@@ -713,7 +713,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -830,6 +830,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
 ## Configuring advanced cluster settings {#change-additional-settings}
 
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -899,7 +900,7 @@ You cannot disable settings for user or database management via SQL once they ar
     * `--datalens-access`: Enables access from {{ datalens-name }}. The default value is `false`. For more information about setting up a connection, see [Connecting from {{ datalens-name }}](datalens-connect.md).
 
     
-    * `--metrika-access`: Enables [data import from AppMetrica to your cluster](https://appmetrica.yandex.com/docs/common/cloud/about.html). The default value is `false`.
+    * `--metrika-access`: Enables [data import from AppMetrica to your cluster](https://yandex.ru/support/metrica/{{ lang }}/uploading-data/cloud). The default value is `false`.
 
     * `--serverless-access`: Enables access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more information on configuring access, see [{{ sf-name }} guides](../../functions/operations/database-connection.md).
 
@@ -984,7 +985,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1292,7 +1293,7 @@ The following resources will be created for each database user:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1411,7 +1412,7 @@ The following resources will be created for each database user:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -50,6 +50,7 @@
 
 Прежде чем назначить роль `admin` на организацию, [облако](../resource-manager/concepts/resources-hierarchy.md#cloud) или [платежный аккаунт](../billing/concepts/billing-account.md), ознакомьтесь с информацией о защите [привилегированных аккаунтов](../security/standard/all.md#privileged-users).
 
+
 Включает разрешения, предоставляемые ролью `editor`.
 
 Вместо примитивных ролей мы рекомендуем использовать роли сервисов. Такой подход позволит более гранулярно управлять доступом и обеспечить соблюдение [принципа минимальных привилегий](../security/standard/all.md#min-privileges).
@@ -70,13 +71,15 @@
 
 #### ai.auditor {#ai-auditor}
 
-Роль `ai.auditor` позволяет просматривать информацию о квотах сервисов [Yandex Translate](https://aistudio.yandex.ru/docs/ru/translate/concepts/limits#translate-quotas), [Yandex Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/concepts/limits#vision-quotas), [Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/concepts/limits#speechkit-quotas) и [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas), о загруженных [файлах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore#file-uploading), [поисковых индексах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore) Vector Store, [датасетах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/resources/dataset) и [моделях генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models) Yandex AI Studio, просматривать метаданные [правил модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) ответов моделей, а также информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+Роль `ai.auditor` позволяет просматривать информацию о квотах сервисов [Yandex Translate](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas), [Yandex Vision OCR](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas), [Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/concepts/limits#speechkit-quotas) и [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas), о загруженных [файлах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore#file-uploading), [поисковых индексах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore) Vector Store, [датасетах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/resources/dataset) и [моделях генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models) Yandex AI Studio, просматривать метаданные [правил модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) ответов моделей, а также информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
 
 Включает разрешения, предоставляемые ролями `ai.assistants.auditor`, `ai.datasets.auditor`, `ai.models.auditor` и `ai.guardrails.auditor`.
 
 #### ai.viewer {#ai-viewer}
 
-Роль `ai.viewer` позволяет просматривать информацию о квотах сервисов [Yandex Translate](https://aistudio.yandex.ru/docs/ru/translate/concepts/limits#translate-quotas), [Yandex Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/concepts/limits#vision-quotas), [Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/concepts/limits#speechkit-quotas) и [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas), о [моделях генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models), о [правилах модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) ответов моделей, о [датасетах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/resources/dataset), загруженных [файлах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore#file-uploading) и [поисковых индексах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore) Vector Store в Yandex AI Studio, выполнять чтение таких файлов и поиск по таким индексам, а также просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+Роль `ai.viewer` позволяет просматривать информацию о квотах сервисов [Yandex Translate](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas), [Yandex Vision OCR](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas), [Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/concepts/limits#speechkit-quotas) и [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas), о [моделях генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models), о [правилах модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) ответов моделей, о [датасетах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/resources/dataset), загруженных [файлах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore#file-uploading) и [поисковых индексах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore) Vector Store в Yandex AI Studio, выполнять чтение таких файлов и поиск по таким индексам, а также просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
 
 Включает разрешения, предоставляемые ролями `ai.auditor`, `ai.assistants.viewer`, `ai.datasets.viewer`, `ai.models.viewer` и `ai.guardrails.viewer`.
 
@@ -85,7 +88,9 @@
 Роль `ai.editor` позволяет использовать сервисы Yandex Translate, Yandex Vision OCR, Yandex SpeechKit и Yandex AI Studio.
 
 Пользователи с этой ролью могут:
-* использовать сервис Yandex Translate для [перевода текста](https://aistudio.yandex.ru/docs/ru/translate/quickstart);
+
+
+* использовать сервис Yandex Translate для [перевода текста](https://aistudio.yandex.ru/docs/ru/translate/concepts/);
 * использовать сервис Yandex Vision OCR для [анализа изображений](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/);
 * использовать сервис Yandex SpeechKit для [распознавания](https://aistudio.yandex.ru/docs/ru/speechkit/stt/) и [синтеза](https://aistudio.yandex.ru/docs/ru/speechkit/tts/) речи;
 * просматривать информацию о [моделях генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models) Yandex AI Studio;
@@ -96,7 +101,8 @@
 * [дообучать](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/tuning/#fm-tuning) модели Yandex AI Studio, а также создавать, изменять и удалять дообученные модели;
 * просматривать информацию о [датасетах](https://aistudio.yandex.ru/docs/ru/ai-studio/dataset/api-ref/grpc/), использовать их для дообучения моделей, а также создавать, изменять и удалять датасеты;
 * просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder);
-* просматривать информацию о квотах сервисов [Yandex Translate](https://aistudio.yandex.ru/docs/ru/translate/concepts/limits#translate-quotas), [Yandex Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/concepts/limits#vision-quotas), [Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/concepts/limits#speechkit-quotas) и [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas).
+* просматривать информацию о квотах сервисов [Yandex Translate](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas), [Yandex Vision OCR](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas), [Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/concepts/limits#speechkit-quotas) и [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas).
+
 
 Включает разрешения, предоставляемые ролями `ai.viewer`, `ai.translate.user`, `ai.vision.user`, `ai.speechkit-stt.user`, `ai.speechkit-tts.user`, `ai.languageModels.user`, `ai.imageGeneration.user`, `ai.assistants.editor`, `ai.datasets.editor`, `ai.models.editor` и `ai.guardrails.editor`.
 
@@ -105,7 +111,9 @@
 Роль `ai.admin` позволяет использовать сервисы Yandex Translate, Yandex Vision OCR, Yandex SpeechKit и Yandex AI Studio.
 
 Пользователи с этой ролью могут:
-* использовать сервис Yandex Translate для [перевода текста](https://aistudio.yandex.ru/docs/ru/translate/quickstart);
+
+
+* использовать сервис Yandex Translate для [перевода текста](https://aistudio.yandex.ru/docs/ru/translate/concepts);
 * использовать сервис Yandex Vision OCR для [анализа изображений](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/);
 * использовать сервис Yandex SpeechKit для [распознавания](https://aistudio.yandex.ru/docs/ru/speechkit/stt/) и [синтеза](https://aistudio.yandex.ru/docs/ru/speechkit/tts/) речи;
 * просматривать информацию о [моделях генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models) Yandex AI Studio;
@@ -116,7 +124,8 @@
 * [дообучать](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/tuning/#fm-tuning) модели Yandex AI Studio, а также создавать, изменять и удалять дообученные модели;
 * просматривать информацию о [датасетах](https://aistudio.yandex.ru/docs/ru/ai-studio/dataset/api-ref/grpc/), использовать их для дообучения моделей, а также создавать, изменять и удалять датасеты;
 * просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder);
-* просматривать информацию о квотах сервисов [Yandex Translate](https://aistudio.yandex.ru/docs/ru/translate/concepts/limits#translate-quotas), [Yandex Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/concepts/limits#vision-quotas), [Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/concepts/limits#speechkit-quotas) и [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas).
+* просматривать информацию о квотах сервисов [Yandex Translate](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas), [Yandex Vision OCR](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas), [Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/concepts/limits#speechkit-quotas) и [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas).
+
 
 Включает разрешения, предоставляемые ролями `ai.editor`, `ai.assistants.admin`, `ai.datasets.admin`, `ai.models.admin` и `ai.guardrails.admin`.
 
@@ -140,6 +149,7 @@
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
 * [просматривать детализацию](../billing/operations/check-charges.md);
+* [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../billing/concepts/budget.md);
 * [резервировать потребление ресурсов](../billing/concepts/cvos.md);
@@ -198,7 +208,8 @@
 * просматривать и скачивать сгенерированные акты сверки;
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
-* [просматривать детализацию](../billing/operations/check-charges.md).
+* [просматривать детализацию](../billing/operations/check-charges.md);
+* [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов.
 
 {% endcut %}
 
@@ -226,6 +237,7 @@
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
 * [просматривать детализацию](../billing/operations/check-charges.md);
+* [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * пополнять [лицевой счет](../billing/concepts/personal-account.md) с помощью расчетного счета.
 
 {% endcut %}
@@ -258,6 +270,7 @@
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
 * [просматривать детализацию](../billing/operations/check-charges.md);
+* [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../billing/concepts/budget.md);
 * [резервировать потребление ресурсов](../billing/concepts/cvos.md);
@@ -300,6 +313,7 @@
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
 * [просматривать детализацию](../billing/operations/check-charges.md);
+* [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../billing/concepts/budget.md);
 * [резервировать потребление ресурсов](../billing/concepts/cvos.md);
@@ -350,6 +364,7 @@
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
 * [просматривать детализацию](../billing/operations/check-charges.md);
+* [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../billing/concepts/budget.md);
 * [резервировать потребление ресурсов](../billing/concepts/cvos.md);
@@ -412,6 +427,8 @@
 * просматривать список контактов и информацию о них, в т.ч. персональные данные;
 * просматривать список [партнерских сделок](../partner/terms.md#deal-reg) и информацию о них, в т.ч. персональные данные.
 
+В сервисе Yandex Cloud Billing пользователи с этой ролью могут [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов.
+
 Включает разрешения, предоставляемые ролью `billing.accounts.partnerViewer`.
 
 #### billing.accounts.partnerEditor {#billing-accounts-partnerEditor}
@@ -445,6 +462,8 @@
 * просматривать список контактов и информацию о них, в т.ч. персональные данные;
 * просматривать список [партнерских сделок](../partner/terms.md#deal-reg) и информацию о них, в т.ч. персональные данные.
 
+В сервисе Yandex Cloud Billing пользователи с этой ролью могут [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов.
+
 Включает разрешения, предоставляемые ролью `billing.accounts.piiPartnerViewer`.
 
 #### billing.accounts.partnerAdmin {#billing-accounts-partnerAdmin}
@@ -465,6 +484,10 @@
 * просматривать страницу с [инструментами партнера](../partner/program/var-tools.md).
 
 Включает разрешения, предоставляемые ролями `billing.accounts.partnerEditor` и `billing.accounts.piiPartnerEditor`.
+
+#### billing.usagerecords.admin {#billing-usagerecords-admin}
+
+Роль `billing.usagerecords.admin` назначается на [организацию](../organization/concepts/organization.md), [облако](../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталог](../resource-manager/concepts/resources-hierarchy.md#folder). Позволяет просматривать детализацию потребления ресурсов без доступа к [платежному аккаунту](../billing/concepts/billing-account.md).
 
 Подробнее в [Управление доступом в партнерской программе Yandex Cloud](../partner/security/index.md).
 
@@ -556,7 +579,7 @@
 
 #### ai.playground.user {#ai-playground-user}
 
-Роль `ai.playground.user` позволяет создавать эксперименты, получать список всех доступных моделей и использовать их в Playground в интерфейсе AI Studio. Для работы с поисковыми индексами в консоли управления дополнительно необходима роль `ai.assistants.editor`.
+Роль `ai.playground.user` позволяет создавать эксперименты, получать список всех доступных моделей и использовать их в AI Playground в консоли управления Yandex Cloud. Для работы с поисковыми индексами в консоли управления дополнительно необходима роль `ai.assistants.editor`.
 
 #### ai.languageModels.user {#languageModels-user}
 
@@ -575,11 +598,14 @@
 Роль `ai.assistants.viewer` позволяет просматривать информацию о файлах и поисковых индексах Vector Store, а также выполнять поиск по таким индексам.
 
 Пользователи с этой ролью могут:
+
+
 * просматривать информацию о загруженных [файлах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore#file-uploading) и содержимое таких файлов;
 * просматривать информацию о [поисковых индексах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore) Vector Store, а также выполнять поиск по таким индексам;
 * просматривать информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas) сервиса Yandex AI Studio;
 * просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
 
 Включает разрешения, предоставляемые ролью `ai.assistants.auditor`.
 
@@ -588,12 +614,15 @@
 Роль `ai.assistants.editor` позволяет использовать AI-агентов, а также управлять файлами и поисковыми индексами Vector Store.
 
 Пользователи с этой ролью могут:
+
+
 * использовать [AI-агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/);
 * просматривать информацию о загруженных [файлах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore#file-uploading), а также загружать, изменять, просматривать и удалять такие файлы;
 * просматривать информацию о [поисковых индексах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore) Vector Store, создавать, изменять и удалять поисковые индексы, а также выполнять поиск по ним;
 * просматривать информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas) сервиса Yandex AI Studio;
 * просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
 
 Включает разрешения, предоставляемые ролью `ai.assistants.viewer`.
 
@@ -602,6 +631,8 @@
 Роль `ai.assistants.admin` позволяет использовать AI-агентов, а также управлять файлами и поисковыми индексами Vector Store.
 
 Пользователи с этой ролью могут:
+
+
 * использовать [AI-агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/);
 * просматривать информацию о загруженных [файлах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore#file-uploading), а также загружать, изменять, просматривать и удалять такие файлы;
 * просматривать информацию о [поисковых индексах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore) Vector Store, создавать, изменять и удалять поисковые индексы, а также выполнять поиск по ним;
@@ -609,7 +640,105 @@
 * просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
 
+
 Включает разрешения, предоставляемые ролью `ai.assistants.editor`.
+
+#### ai.canvasAgents.auditor {#ai-canvasagents-auditor}
+
+Роль `ai.canvasAgents.auditor` позволяет просматривать метаданные [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents).
+
+Пользователи с этой ролью могут:
+* просматривать информацию о текстовых агентах и их версиях, а также список текстовых агентов в каталоге;
+* просматривать список асинхронных операций с текстовыми агентами;
+* просматривать права доступа, назначенные на текстовых агентов;
+* просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+#### ai.canvasAgents.viewer {#ai-canvasagents-viewer}
+
+Роль `ai.canvasAgents.viewer` позволяет просматривать [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents).
+
+Пользователи с этой ролью могут:
+* просматривать информацию о текстовых агентах и их версиях, а также список текстовых агентов в каталоге;
+* просматривать список асинхронных операций с текстовыми агентами;
+* просматривать права доступа, назначенные на текстовых агентов;
+* просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+Включает разрешения, предоставляемые ролью `ai.canvasAgents.auditor`.
+
+#### ai.canvasAgents.editor {#ai-canvasagents-editor}
+
+Роль `ai.canvasAgents.editor` позволяет создавать [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents), управлять ими и тестировать их в интерфейсе тестирования.
+
+Пользователи с этой ролью могут:
+* создавать, изменять и удалять текстовых агентов;
+* создавать версии текстовых агентов;
+* тестировать в интерфейсе тестирования любую версию текстового агента, в том числе не опубликованную в канале: отправлять агенту сообщения и просматривать события выполнения;
+* просматривать информацию о текстовых агентах, их версиях и операциях с ними;
+* просматривать права доступа, назначенные на текстовых агентов;
+* просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+Включает разрешения, предоставляемые ролью `ai.canvasAgents.viewer`.
+
+#### ai.canvasAgents.admin {#ai-canvasagents-admin}
+
+Роль `ai.canvasAgents.admin` позволяет создавать [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents), управлять ими и назначать права доступа к ним.
+
+Пользователи с этой ролью могут:
+* создавать, изменять и удалять текстовых агентов;
+* создавать версии текстовых агентов;
+* тестировать в интерфейсе тестирования любую версию текстового агента, в том числе не опубликованную в канале;
+* назначать и отзывать права доступа к текстовым агентам;
+* просматривать информацию о текстовых агентах, их версиях и операциях с ними;
+* просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+Включает разрешения, предоставляемые ролью `ai.canvasAgents.editor`.
+
+#### ai.agentChannels.auditor {#ai-agentchannels-auditor}
+
+Роль `ai.agentChannels.auditor` позволяет просматривать метаданные [каналов публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels).
+
+Пользователи с этой ролью могут:
+* просматривать информацию о каналах публикации текстовых агентов, а также список каналов в каталоге;
+* просматривать права доступа, назначенные на каналы публикации текстовых агентов;
+* просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+#### ai.agentChannels.viewer {#ai-agentchannels-viewer}
+
+Роль `ai.agentChannels.viewer` позволяет просматривать [каналы публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels).
+
+Пользователи с этой ролью могут:
+* просматривать информацию о каналах публикации текстовых агентов, а также список каналов в каталоге;
+* просматривать права доступа, назначенные на каналы публикации текстовых агентов;
+* просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+Включает разрешения, предоставляемые ролью `ai.agentChannels.auditor`.
+
+#### ai.agentChannels.editor {#ai-agentchannels-editor}
+
+Роль `ai.agentChannels.editor` позволяет создавать [каналы публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels) и публиковать в них версии агентов.
+
+Пользователи с этой ролью могут:
+* создавать, изменять и удалять каналы публикации текстовых агентов;
+* приостанавливать и возобновлять работу каналов публикации текстовых агентов;
+* публиковать версии текстовых агентов в каналах;
+* просматривать информацию о каналах публикации текстовых агентов и назначенных на них правах доступа;
+* просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+Включает разрешения, предоставляемые ролью `ai.agentChannels.viewer`.
+
+#### ai.agentChannels.admin {#ai-agentchannels-admin}
+
+Роль `ai.agentChannels.admin` позволяет управлять [каналами публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels) и назначать права доступа к ним.
+
+Пользователи с этой ролью могут:
+* создавать, изменять и удалять каналы публикации текстовых агентов;
+* приостанавливать и возобновлять работу каналов публикации текстовых агентов;
+* публиковать версии текстовых агентов в каналах;
+* назначать и отзывать права доступа к каналам публикации текстовых агентов;
+* просматривать информацию о каналах публикации текстовых агентов;
+* просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+Включает разрешения, предоставляемые ролью `ai.agentChannels.editor`.
 
 #### ai.datasets.auditor {#ai-datasets-auditor}
 
@@ -654,11 +783,14 @@
 Роль `ai.models.user` позволяет использовать AI-агентов и модели генерации текста и изображений, векторного представления текста и классификаторов в Yandex AI Studio, а также использовать сервисы Yandex Translate, Yandex Vision OCR и Yandex SpeechKit.
 
 Пользователи с этой ролью могут:
+
+
 * просматривать информацию о [моделях генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models) Yandex AI Studio;
 * использовать [AI-агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/), а также модели генерации текста и изображений, модели [векторного представления текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/embeddings#yandexgpt-embeddings) и [классификаторов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/classifier/models) в сервисе Yandex AI Studio;
-* использовать сервис Yandex Translate для [перевода текста](https://aistudio.yandex.ru/docs/ru/translate/quickstart);
+* использовать сервис Yandex Translate для [перевода текста](https://aistudio.yandex.ru/docs/ru/translate/concepts/);
 * использовать сервис Yandex Vision OCR для [анализа изображений](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/);
 * использовать сервис Yandex SpeechKit для [распознавания](https://aistudio.yandex.ru/docs/ru/speechkit/stt/) и [синтеза](https://aistudio.yandex.ru/docs/ru/speechkit/tts/) речи.
+
 
 Включает разрешения, предоставляемые ролью `ai.models.viewer`.
 
@@ -667,12 +799,15 @@
 Роль `ai.models.editor` позволяет управлять дообучением моделей Yandex AI Studio, а также использовать сервисы Yandex Translate, Yandex Vision OCR, Yandex SpeechKit и Yandex AI Studio.
 
 Пользователи с этой ролью могут:
+
+
 * просматривать информацию о [моделях генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models) Yandex AI Studio;
 * [дообучать](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/tuning/#fm-tuning) модели Yandex AI Studio, а также создавать, изменять и удалять дообученные модели;
 * использовать [AI-агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/), а также модели генерации текста и изображений, модели [векторного представления текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/embeddings#yandexgpt-embeddings) и [классификаторов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/classifier/models) в сервисе Yandex AI Studio;
-* использовать сервис Yandex Translate для [перевода текста](https://aistudio.yandex.ru/docs/ru/translate/quickstart);
+* использовать сервис Yandex Translate для [перевода текста](https://aistudio.yandex.ru/docs/ru/translate/concepts/);
 * использовать сервис Yandex Vision OCR для [анализа изображений](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/);
 * использовать сервис Yandex SpeechKit для [распознавания](https://aistudio.yandex.ru/docs/ru/speechkit/stt/) и [синтеза](https://aistudio.yandex.ru/docs/ru/speechkit/tts/) речи.
+
 
 Включает разрешения, предоставляемые ролью `ai.models.user`.
 
@@ -681,12 +816,15 @@
 Роль `ai.models.admin` позволяет управлять дообучением моделей Yandex AI Studio, а также использовать сервисы Yandex Translate, Yandex Vision OCR, Yandex SpeechKit и Yandex AI Studio.
 
 Пользователи с этой ролью могут:
+
+
 * просматривать информацию о [моделях генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models) Yandex AI Studio;
 * [дообучать](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/tuning/#fm-tuning) модели Yandex AI Studio, а также создавать, изменять и удалять дообученные модели;
 * использовать [AI-агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/), а также модели генерации текста и изображений, модели [векторного представления текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/embeddings#yandexgpt-embeddings) и [классификаторов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/classifier/models) в сервисе Yandex AI Studio;
-* использовать сервис Yandex Translate для [перевода текста](https://aistudio.yandex.ru/docs/ru/translate/quickstart);
+* использовать сервис Yandex Translate для [перевода текста](https://aistudio.yandex.ru/docs/ru//translate/concepts/);
 * использовать сервис Yandex Vision OCR для [анализа изображений](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/);
 * использовать сервис Yandex SpeechKit для [распознавания](https://aistudio.yandex.ru/docs/ru/speechkit/stt/) и [синтеза](https://aistudio.yandex.ru/docs/ru/speechkit/tts/) речи.
+
 
 Включает разрешения, предоставляемые ролью `ai.models.editor`.
 
@@ -745,9 +883,12 @@
 Роль `serverless.mcpGateways.admin` позволяет управлять MCP-серверами и доступом к ним.
 
 Пользователи с этой ролью могут:
+
+
 * просматривать информацию об [MCP-серверах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/mcp-hub/#servers), а также создавать, изменять и удалять их;
 * просматривать информацию о назначенных [правах доступа](concepts/access-control/roles.md) к MCP-серверам, а также изменять такие права доступа;
 * обращаться через MCP Hub к MCP-серверам, в том числе внешним.
+
 
 Включает разрешения, предоставляемые ролями `serverless.mcpGateways.editor`, `serverless.mcpGateways.invoker` и `serverless.mcpGateways.anonymousInvoker`.
 
@@ -1273,6 +1414,7 @@
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
 * [просматривать детализацию](../billing/operations/check-charges.md);
+* [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../billing/concepts/budget.md);
 * [резервировать потребление ресурсов](../billing/concepts/cvos.md);
@@ -1331,7 +1473,8 @@
 * просматривать и скачивать сгенерированные акты сверки;
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
-* [просматривать детализацию](../billing/operations/check-charges.md).
+* [просматривать детализацию](../billing/operations/check-charges.md);
+* [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов.
 
 {% endcut %}
 
@@ -1359,6 +1502,7 @@
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
 * [просматривать детализацию](../billing/operations/check-charges.md);
+* [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * пополнять [лицевой счет](../billing/concepts/personal-account.md) с помощью расчетного счета.
 
 {% endcut %}
@@ -1391,6 +1535,7 @@
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
 * [просматривать детализацию](../billing/operations/check-charges.md);
+* [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../billing/concepts/budget.md);
 * [резервировать потребление ресурсов](../billing/concepts/cvos.md);
@@ -1435,6 +1580,7 @@
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
 * [просматривать детализацию](../billing/operations/check-charges.md);
+* [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../billing/concepts/budget.md);
 * [резервировать потребление ресурсов](../billing/concepts/cvos.md);
@@ -1486,6 +1632,7 @@
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
 * [просматривать детализацию](../billing/operations/check-charges.md);
+* [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../billing/concepts/budget.md);
 * [резервировать потребление ресурсов](../billing/concepts/cvos.md);
@@ -2256,7 +2403,7 @@
 Роль `postbox.auditor` позволяет просматривать информацию об адресах Yandex Cloud Postbox.
 
 Пользователи с этой ролью могут:
-* просматривать информацию об [адресах](../postbox/concepts/glossary.md#adress) и их [конфигурациях](../postbox/concepts/glossary.md#configuration);
+* просматривать информацию об [адресах](../postbox/concepts/glossary.md#address) и их [конфигурациях](../postbox/concepts/glossary.md#configuration);
 * получать списки адресов и их конфигураций.
 
 #### postbox.viewer {#postbox-viewer}
@@ -2264,7 +2411,7 @@
 Роль `postbox.viewer` позволяет просматривать информацию об адресах Yandex Cloud Postbox.
 
 Пользователи с этой ролью могут:
-* просматривать информацию об [адресах](../postbox/concepts/glossary.md#adress) и их [конфигурациях](../postbox/concepts/glossary.md#configuration);
+* просматривать информацию об [адресах](../postbox/concepts/glossary.md#address) и их [конфигурациях](../postbox/concepts/glossary.md#configuration);
 * получать списки адресов и их конфигураций.
 
 Включает разрешения, предоставляемые ролью `postbox.auditor`.
@@ -2274,7 +2421,7 @@
 Роль `postbox.editor` позволяет управлять адресами Yandex Cloud Postbox и отправлять письма.
 
 Пользователи с этой ролью могут:
-* создавать, изменять и удалять [адреса](../postbox/concepts/glossary.md#adress) и их [конфигурации](../postbox/concepts/glossary.md#configuration);
+* создавать, изменять и удалять [адреса](../postbox/concepts/glossary.md#address) и их [конфигурации](../postbox/concepts/glossary.md#configuration);
 * просматривать информацию об адресах и их конфигурациях;
 * получать список адресов и их конфигураций;
 * отправлять письма.
@@ -2294,7 +2441,7 @@
 Роль `postbox.admin` позволяет управлять адресами Yandex Cloud Postbox, отправлять письма, а также просматривать информацию об отправленных письмах и статистику по ним.
 
 Пользователи с этой ролью могут:
-* создавать, изменять и удалять [адреса](../postbox/concepts/glossary.md#adress) и их [конфигурации](../postbox/concepts/glossary.md#configuration);
+* создавать, изменять и удалять [адреса](../postbox/concepts/glossary.md#address) и их [конфигурации](../postbox/concepts/glossary.md#configuration);
 * просматривать информацию об адресах и их конфигурациях;
 * получать список адресов и их конфигураций;
 * отправлять письма;
@@ -2419,7 +2566,7 @@
 Роль `cloud-router.auditor` позволяет просматривать информацию о ресурсах сервиса Cloud Router.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о [виртуальных маршрутизаторах](../cloud-router/concepts/routing-instance.md);
+* просматривать информацию о [Routing Instance](../cloud-router/concepts/routing-instance.md);
 * просматривать информацию о квотах сервиса Cloud Router;
 * просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
@@ -2429,7 +2576,7 @@
 Роль `cloud-router.viewer` позволяет просматривать информацию о ресурсах сервиса Cloud Router.
 
 "Пользователи с этой ролью могут:
-* просматривать информацию о [виртуальных маршрутизаторах](../cloud-router/concepts/routing-instance.md);
+* просматривать информацию о [Routing Instance](../cloud-router/concepts/routing-instance.md);
 * просматривать информацию о квотах сервиса Cloud Router;
 * просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
@@ -2438,11 +2585,11 @@
 
 #### cloud-router.prefixEditor {#cloudrouter-prefixEditor}
 
-Роль `cloud-router.prefixEditor` позволяет управлять IP-префиксами облачных подсетей в виртуальных маршрутизаторах, а также просматривать информацию о ресурсах сервиса Cloud Router.
+Роль `cloud-router.prefixEditor` позволяет управлять IP-префиксами облачных подсетей в Routing Instance, а также просматривать информацию о ресурсах сервиса Cloud Router.
 
 "Пользователи с этой ролью могут:
-* просматривать информацию о [виртуальных маршрутизаторах](../cloud-router/concepts/routing-instance.md);
-* добавлять, изменять и удалять [IP-префиксы](../cloud-router/concepts/announces.md) облачных [подсетей](../vpc/concepts/network.md#subnet) в виртуальных маршрутизаторах;
+* просматривать информацию о [Routing Instance](../cloud-router/concepts/routing-instance.md);
+* добавлять, изменять и удалять [IP-префиксы](../cloud-router/concepts/announces.md) облачных [подсетей](../vpc/concepts/network.md#subnet) в Routing Instance;
 * просматривать информацию о квотах сервиса Cloud Router;
 * просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
@@ -2451,11 +2598,11 @@
 
 #### cloud-router.editor {#cloudrouter-editor}
 
-Роль `cloud-router.editor` позволяет управлять виртуальными маршрутизаторами, а также просматривать информацию о ресурсах сервиса Cloud Router.
+Роль `cloud-router.editor` позволяет управлять Routing Instance, а также просматривать информацию о ресурсах сервиса Cloud Router.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о [виртуальных маршрутизаторах](../cloud-router/concepts/routing-instance.md), а также создавать, изменять и удалять их;
-* добавлять, изменять и удалять [IP-префиксы](../cloud-router/concepts/announces.md) облачных [подсетей](../vpc/concepts/network.md#subnet) в виртуальных маршрутизаторах;
+* просматривать информацию о [Routing Instance](../cloud-router/concepts/routing-instance.md), а также создавать, изменять и удалять их;
+* добавлять, изменять и удалять [IP-префиксы](../cloud-router/concepts/announces.md) облачных [подсетей](../vpc/concepts/network.md#subnet) в Routing Instance;
 * просматривать информацию о квотах сервиса Cloud Router;
 * просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
@@ -2467,8 +2614,8 @@
 Роль `cloud-router.admin` позволяет управлять ресурсами сервиса Cloud Router.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о [виртуальных маршрутизаторах](../cloud-router/concepts/routing-instance.md), а также создавать, изменять и удалять их;
-* добавлять, изменять и удалять [IP-префиксы](../cloud-router/concepts/announces.md) облачных [подсетей](../vpc/concepts/network.md#subnet) в виртуальных маршрутизаторах;
+* просматривать информацию о [Routing Instance](../cloud-router/concepts/routing-instance.md), а также создавать, изменять и удалять их;
+* добавлять, изменять и удалять [IP-префиксы](../cloud-router/concepts/announces.md) облачных [подсетей](../vpc/concepts/network.md#subnet) в Routing Instance;
 * просматривать информацию о квотах сервиса Cloud Router;
 * просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
@@ -3421,11 +3568,11 @@
 
 #### datalens.visitor {#datalens-visitor}
 
-Роль `datalens.visitor` предоставляет доступ к сервису DataLens. Просмотр или редактирование [воркбуков и коллекций](../datalens/workbooks-collections/index.md) возможны при наличии соответствующих [ролей](#workbooks-collections-roles) для доступа к этим воркбукам и коллекциям.
+Роль `datalens.visitor` предоставляет доступ к сервису DataLens. Просмотр или редактирование [воркбуков и коллекций](../datalens/workbooks-collections/index.md) возможны при наличии соответствующих [ролей](../datalens/security/roles.md#workbooks-collections-roles) для доступа к этим воркбукам и коллекциям.
 
 #### datalens.creator {#datalens-creator}
 
-Роль `datalens.creator` предоставляет доступ к сервису DataLens с правами на создание [воркбуков и коллекций](../datalens/workbooks-collections/index.md) в корне DataLens. Просмотр или редактирование воркбуков и коллекций, созданных другими пользователями, возможны только при наличии [прав доступа](#workbooks-collections-roles) к этим воркбукам и коллекциям.
+Роль `datalens.creator` предоставляет доступ к сервису DataLens с правами на создание [воркбуков и коллекций](../datalens/workbooks-collections/index.md) в корне DataLens. Просмотр или редактирование воркбуков и коллекций, созданных другими пользователями, возможны только при наличии [прав доступа](../datalens/security/roles.md#workbooks-collections-roles) к этим воркбукам и коллекциям.
 
 Включает разрешения, предоставляемые ролью `datalens.visitor`.
 
@@ -5254,6 +5401,10 @@
 
 ## Yandex Managed Service for ClickHouse® {#managed-clickhouse-roles}
 
+#### managed-clickhouse.clusters.connector {#managed-clickhouse-clusters-connector}
+
+Роль `managed-clickhouse.clusters.connector` позволяет [пользователям](concepts/users/accounts.md) Yandex Cloud подключаться к базам данных в [кластерах ClickHouse®](../managed-clickhouse/concepts/index.md) с помощью механизмов сервиса [Yandex Identity and Access Management](index.md).
+
 #### managed-clickhouse.auditor {#managed-clickhouse-auditor}
 
 Роль `managed-clickhouse.auditor` позволяет просматривать информацию о [кластерах ClickHouse®](../managed-clickhouse/concepts/index.md) и назначенных [правах доступа](concepts/access-control/index.md) к ним, а также о [квотах](../managed-clickhouse/concepts/limits.md#mch-quotas) и операциях с ресурсами сервиса Managed Service for ClickHouse®.
@@ -6474,10 +6625,10 @@
 
 #### managed-mongodb.switcher {#managed-mongodb-switcher}
 
-Роль `managed-mongodb.switcher` позволяет переназначать первичную реплику в кластерах Yandex StoreDoc, просматривать информацию о кластерах, хостах, шардах, базах данных и пользователях Yandex StoreDoc, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервиса.
+Роль `managed-mongodb.switcher` позволяет переназначать хост-мастер в кластерах Yandex StoreDoc, просматривать информацию о кластерах, хостах, шардах, базах данных и пользователях Yandex StoreDoc, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервиса.
 
 Пользователи с этой ролью могут:
-* переназначать первичную реплику в [кластерах Yandex StoreDoc](../storedoc/concepts/index.md);
+* переназначать хост-мастер в [кластерах Yandex StoreDoc](../storedoc/concepts/index.md);
 * просматривать информацию о кластерах Yandex StoreDoc и назначенных [правах доступа](concepts/access-control/index.md) к ним;
 * просматривать информацию о заданиях на [техническое обслуживание](../storedoc/concepts/maintenance.md) кластеров Yandex StoreDoc;
 * просматривать информацию о [хостах](../storedoc/concepts/instance-types.md) кластеров Yandex StoreDoc;
@@ -6502,7 +6653,7 @@
 * просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к кластерам Yandex StoreDoc;
 * просматривать информацию о заданиях на [техническое обслуживание](../storedoc/concepts/maintenance.md) кластеров Yandex StoreDoc и изменять такие задания;
 * создавать, изменять и удалять [хосты](../storedoc/concepts/instance-types.md) кластеров Yandex StoreDoc и просматривать информацию о них;
-* переназначать первичную реплику в кластерах Yandex StoreDoc;
+* переназначать хост-мастер в кластерах Yandex StoreDoc;
 * создавать и удалять [шарды](../storedoc/concepts/sharding.md) кластеров Yandex StoreDoc и просматривать информацию о них;
 * создавать и удалять базы данных Yandex StoreDoc и просматривать информацию о них;
 * создавать, изменять и удалять [пользователей](../storedoc/concepts/users-and-roles.md) Yandex StoreDoc и просматривать информацию о них;
@@ -6526,7 +6677,7 @@
 * создавать, использовать, изменять, удалять, запускать и останавливать кластеры Yandex StoreDoc и просматривать информацию о них;
 * просматривать информацию о заданиях на [техническое обслуживание](../storedoc/concepts/maintenance.md) кластеров Yandex StoreDoc и изменять такие задания;
 * создавать, изменять и удалять [хосты](../storedoc/concepts/instance-types.md) кластеров Yandex StoreDoc и просматривать информацию о них;
-* переназначать первичную реплику в кластерах Yandex StoreDoc;
+* переназначать хост-мастер в кластерах Yandex StoreDoc;
 * создавать и удалять [шарды](../storedoc/concepts/sharding.md) кластеров Yandex StoreDoc и просматривать информацию о них;
 * создавать и удалять базы данных Yandex StoreDoc и просматривать информацию о них;
 * создавать, изменять и удалять [пользователей](../storedoc/concepts/users-and-roles.md) Yandex StoreDoc и просматривать информацию о них;
@@ -7126,8 +7277,8 @@
 * просматривать информацию о заданиях [сканирования](../security-deck/concepts/dspm.md#scanning) на наличие чувствительной информации в модуле DSPM;
 * просматривать информацию о типах и [категориях](../security-deck/concepts/dspm.md#data-categories) данных;
 * просматривать информацию о сканированиях на наличие чувствительной информации в модуле DSPM;
-* просматривать списки результатов и ошибок сканирований;
-* просматривать результаты сканирования DSPM и информацию об обнаруженных угрозах безопасности;
+* просматривать информацию о результатах и ошибках сканирований на наличие чувствительной информации в модуле DSPM (только незамаскированные данные);
+* скачивать и экспортировать результаты сканирований на наличие чувствительной информации в модуле DSPM (только незамаскированные данные);
 * просматривать информацию о результатах [анализа данных](../security-deck/concepts/dspm.md#discovery-mode) модуля DSPM;
 * просматривать информацию об [окружениях](../security-deck/concepts/workspace.md) Security Deck и контролируемых в них ресурсах, а также о назначенных [правах доступа](concepts/access-control/index.md) к ним;
 * просматривать информацию о [коннекторах](../security-deck/concepts/workspace.md#connectors);
@@ -7138,6 +7289,8 @@
 * просматривать информацию о правилах контроля безопасности [модуля TD](../security-deck/concepts/threat-detector.md) и назначенных правах доступа к нему.
 
 Включает разрешения, предоставляемые ролями `dspm.auditor`, `cspm.auditor`, `kspm.auditor`, `security-deck.alertSinks.auditor`, `vulnerability-manager.auditor` и `threat-detector.auditor`.
+
+Для экспорта результатов сканирований на наличие чувствительной информации в модуле DSPM дополнительно необходимы роли `storage.uploader` на бакет, в котором будут сохранены результаты, и `kms.keys.encrypter` на ключ шифрования, если бакет зашифрован.
 
 #### security-deck.viewer {#security-deck-viewer}
 
@@ -7152,9 +7305,9 @@
 * просматривать информацию о заданиях [сканирования](../security-deck/concepts/dspm.md#scanning) на наличие чувствительной информации в модуле DSPM;
 * просматривать информацию о типах и [категориях](../security-deck/concepts/dspm.md#data-categories) данных;
 * просматривать информацию о сканированиях на наличие чувствительной информации в модуле DSPM;
-* просматривать списки результатов и ошибок сканирований;
-* просматривать результаты сканирования DSPM и информацию об обнаруженных угрозах безопасности;
-* просматривать информацию о результатах [анализа данных](../security-deck/concepts/dspm.md#discovery-mode) модуля DSPM;
+* просматривать информацию о результатах и ошибках [непрерывных сканирований изменений](../security-deck/concepts/dspm.md#change-scaning) и [регулярных сканирований](../security-deck/concepts/dspm.md#scanning) на наличие чувствительной информации в модуле DSPM (только незамаскированные данные);
+* скачивать и экспортировать результаты сканирований на наличие чувствительной информации в модуле DSPM (только незамаскированные данные);
+* рассчитывать примерную стоимость использования модуля DSPM (на основании метаданных бакетов Yandex Object Storage в источниках данных);
 * просматривать информацию об [окружениях](../security-deck/concepts/workspace.md) Security Deck и контролируемых в них ресурсах, а также о назначенных [правах доступа](concepts/access-control/index.md) к ним;
 * просматривать информацию о [коннекторах](../security-deck/concepts/workspace.md#connectors);
 * просматривать информацию о проверках инфраструктуры на соответствие [стандартам безопасности](../security-deck/concepts/cspm.md#standards) и их результатах, а также о заданиях таких проверок и [исключениях](../security-deck/concepts/cspm.md#exceptions) из правил проверок, указанных в настройках [модуля CSPM](../security-deck/concepts/cspm.md);
@@ -7168,6 +7321,8 @@
 {% endcut %}
 
 Включает разрешения, предоставляемые ролями `access-transparency.viewer`, `dspm.viewer`, `cspm.viewer`, `kspm.viewer`, `security-deck.alertSinks.viewer`, `vulnerability-manager.viewer` и `threat-detector.viewer`.
+
+Для экспорта результатов сканирований на наличие чувствительной информации в модуле DSPM дополнительно необходимы роли `storage.uploader` на бакет, в котором будут сохранены результаты, и `kms.keys.encrypter` на ключ шифрования, если бакет зашифрован.
 
 #### security-deck.editor {#security-deck-editor}
 
@@ -7183,10 +7338,10 @@
 * просматривать информацию об [источниках данных](../security-deck/concepts/dspm.md#data-source) DSPM и их областях сканирований, а также создавать, изменять, использовать и удалять такие источники;
 * просматривать информацию о заданиях [сканирования](../security-deck/concepts/dspm.md#scanning) DSPM на наличие чувствительной информации, а также создавать, запускать, приостанавливать, возобновлять, изменять и удалять такие задания;
 * просматривать информацию о сканированиях на наличие чувствительной информации, а также создавать, приостанавливать, возобновлять, изменять и удалять их;
-* просматривать списки результатов и ошибок сканирований на наличие чувствительной информации;
-* просматривать результаты сканирования DSPM на наличие чувствительной информации и информацию об обнаруженных угрозах;
+* просматривать информацию о результатах и ошибках [непрерывных сканирований изменений](../security-deck/concepts/dspm.md#change-scaning) и [регулярных сканирований](../security-deck/concepts/dspm.md#scanning) на наличие чувствительной информации в модуле DSPM (только незамаскированные данные);
+* скачивать и экспортировать результаты сканирований на наличие чувствительной информации в модуле DSPM (только незамаскированные данные);
 * просматривать информацию о типах и [категориях](../security-deck/concepts/dspm.md#data-categories) данных DSPM;
-* просматривать информацию о результатах [анализа данных](../security-deck/concepts/dspm.md#discovery-mode) модуля DSPM;
+* рассчитывать примерную стоимость использования модуля DSPM (на основании метаданных бакетов Yandex Object Storage в источниках данных);
 * просматривать метаданные [бакетов](../storage/concepts/bucket.md);
 * просматривать информацию об [окружениях](../security-deck/concepts/workspace.md) Security Deck и контролируемых в них ресурсах, а также о назначенных [правах доступа](concepts/access-control/index.md) к ним;
 * создавать, изменять и удалять окружения Security Deck;
@@ -7214,6 +7369,8 @@
 
 Включает разрешения, предоставляемые ролями `access-transparency.editor`, `dspm.editor`, `cspm.editor`, `kspm.editor`, `security-deck.alertSinks.editor`, `vulnerability-manager.editor` и `threat-detector.editor`.
 
+Для экспорта результатов сканирований на наличие чувствительной информации в модуле DSPM дополнительно необходимы роли `storage.uploader` на бакет, в котором будут сохранены результаты, и `kms.keys.encrypter` на ключ шифрования, если бакет зашифрован.
+
 #### security-deck.admin {#security-deck-admin}
 
 Роль `security-deck.admin` позволяет управлять подписками на события доступа к ресурсам организации со стороны сотрудников Yandex Cloud, управлять окружениями, алертами и приемниками алертов, а также ресурсами модулей DSPM, CSPM, KSPM, VM и TD. Роль позволяет просматривать замаскированные и необработанные данные в результатах сканирования.
@@ -7227,12 +7384,12 @@
 * просматривать информацию о профилях DSPM и использовать их;
 * просматривать информацию об [источниках данных](../security-deck/concepts/dspm.md#data-source) DSPM и их областях сканирований, а также создавать, изменять, использовать и удалять такие источники;
 * использовать ресурсы Yandex Cloud в источниках данных DSPM;
-* просматривать информацию о типах и [категориях](../security-deck/concepts/dspm.md#data-categories) данных DSPM;
-* просматривать информацию о результатах [анализа данных](../security-deck/concepts/dspm.md#discovery-mode) модуля DSPM;
 * просматривать информацию о заданиях [сканирования](../security-deck/concepts/dspm.md#scanning) DSPM на наличие чувствительной информации, а также создавать, запускать, приостанавливать, возобновлять, изменять и удалять такие задания;
 * просматривать информацию о сканированиях на наличие чувствительной информации, а также создавать, приостанавливать, возобновлять, изменять и удалять их;
-* просматривать списки результатов и ошибок сканирований на наличие чувствительной информации;
-* просматривать результаты заданий сканирования DSPM и информацию об обнаруженных угрозах, в том числе просматривать замаскированные и необработанные данные в результатах сканирования;
+* просматривать информацию о результатах и ошибках [непрерывных сканирований изменений](../security-deck/concepts/dspm.md#change-scaning) и [регулярных сканирований](../security-deck/concepts/dspm.md#scanning) на наличие чувствительной информации в модуле DSPM, в том числе замаскированные и необработанные данные;
+* скачивать и экспортировать результаты сканирований на наличие чувствительной информации в модуле DSPM, в том числе замаскированные и необработанные данные;
+* просматривать информацию о типах и [категориях](../security-deck/concepts/dspm.md#data-categories) данных DSPM;
+* рассчитывать примерную стоимость использования модуля DSPM (на основании метаданных бакетов Yandex Object Storage в источниках данных);
 * просматривать метаданные [бакетов](../storage/concepts/bucket.md);
 * просматривать информацию об [окружениях](../security-deck/concepts/workspace.md) Security Deck и контролируемых в них ресурсах, а также создавать, изменять и удалять окружения Security Deck;
 * просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к окружениям Security Deck и изменять такие права доступа;
@@ -7259,6 +7416,8 @@
 {% endcut %}
 
 Включает разрешения, предоставляемые ролями `access-transparency.admin`, `dspm.admin`, `cspm.admin`, `kspm.admin`, `security-deck.alertSinks.admin`, `vulnerability-manager.admin` и `threat-detector.admin`.
+
+Для экспорта результатов сканирований на наличие чувствительной информации в модуле DSPM дополнительно необходимы роли `storage.uploader` на бакет, в котором будут сохранены результаты, и `kms.keys.encrypter` на ключ шифрования, если бакет зашифрован.
 
 Подробнее в [Общие роли Yandex Security Deck](../security-deck/security/index.md).
 
@@ -7290,12 +7449,15 @@
 
 Пользователи с этой ролью могут:
 * просматривать информацию о профилях DSPM;
+* просматривать информацию о результатах [анализа данных](../security-deck/concepts/dspm.md#discovery-mode) модуля DSPM;
 * просматривать информацию об [источниках данных](../security-deck/concepts/dspm.md#data-source) DSPM и их областях сканирований;
-* просматривать информацию о [категориях данных](../security-deck/concepts/dspm.md#data-categories) DSPM;
+* просматривать информацию о типах и [категориях данных](../security-deck/concepts/dspm.md#data-categories) DSPM;
 * просматривать информацию о заданиях [сканирования](../security-deck/concepts/dspm.md#scanning) на наличие чувствительной информации;
 * просматривать информацию о сканированиях на наличие чувствительной информации;
-* просматривать списки результатов и ошибок сканирований;
-* просматривать информацию о результатах [анализа данных](../security-deck/concepts/dspm.md#discovery-mode) модуля DSPM.
+* просматривать информацию о результатах и ошибках сканирований на наличие чувствительной информации (только незамаскированные данные);
+* скачивать и экспортировать результаты сканирований на наличие чувствительной информации (только незамаскированные данные).
+
+Для экспорта результатов сканирований дополнительно необходимы роли `storage.uploader` на бакет, в котором будут сохранены результаты, и `kms.keys.encrypter` на ключ шифрования, если бакет зашифрован.
 
 #### dspm.viewer {#dspm-viewer}
 
@@ -7304,13 +7466,16 @@
 Пользователи с этой ролью могут:
 * просматривать информацию о профилях DSPM;
 * просматривать информацию об [источниках данных](../security-deck/concepts/dspm.md#data-source) DSPM и их областях сканирований;
-* просматривать информацию о [категориях данных](../security-deck/concepts/dspm.md#data-categories) DSPM;
+* просматривать информацию о типах и [категориях данных](../security-deck/concepts/dspm.md#data-categories) DSPM;
 * просматривать информацию о заданиях [сканирования](../security-deck/concepts/dspm.md#scanning) на наличие чувствительной информации;
 * просматривать информацию о сканированиях на наличие чувствительной информации;
-* просматривать списки результатов и ошибок сканирований на наличие чувствительной информации;
-* просматривать информацию о результатах [анализа данных](../security-deck/concepts/dspm.md#discovery-mode) модуля DSPM.
+* просматривать информацию о результатах и ошибках [непрерывных сканирований изменений](../security-deck/concepts/dspm.md#change-scaning) и [регулярных сканирований](../security-deck/concepts/dspm.md#scanning) на наличие чувствительной информации (только незамаскированные данные);
+* скачивать и экспортировать результаты сканирований на наличие чувствительной информации (только незамаскированные данные);
+* рассчитывать примерную стоимость использования модуля DSPM (на основании метаданных бакетов Yandex Object Storage в источниках данных).
 
 Включает разрешения, предоставляемые ролью `dspm.auditor`.
+
+Для экспорта результатов сканирований дополнительно необходимы роли `storage.uploader` на бакет, в котором будут сохранены результаты, и `kms.keys.encrypter` на ключ шифрования, если бакет зашифрован.
 
 #### dspm.editor {#dspm-editor}
 
@@ -7319,13 +7484,16 @@
 Пользователи с этой ролью могут:
 * просматривать информацию о профилях DSPM и использовать их;
 * просматривать информацию об [источниках данных](../security-deck/concepts/dspm.md#data-source) DSPM и их областях сканирований, а также создавать, изменять, использовать и удалять такие источники;
-* просматривать информацию о [категориях данных](../security-deck/concepts/dspm.md#data-categories) DSPM;
+* просматривать информацию о типах и [категориях данных](../security-deck/concepts/dspm.md#data-categories) DSPM;
 * просматривать информацию о заданиях [сканирования](../security-deck/concepts/dspm.md#scanning) на наличие чувствительной информации, а также создавать, запускать, приостанавливать, возобновлять, изменять и удалять такие задания;
 * просматривать информацию о сканированиях на наличие чувствительной информации, а также создавать, приостанавливать, возобновлять, изменять и удалять их;
-* просматривать списки результатов и ошибок сканирований на наличие чувствительной информации;
-* просматривать информацию о результатах [анализа данных](../security-deck/concepts/dspm.md#discovery-mode) модуля DSPM.
+* просматривать информацию о результатах и ошибках [непрерывных сканирований изменений](../security-deck/concepts/dspm.md#change-scaning) и [регулярных сканирований](../security-deck/concepts/dspm.md#scanning) на наличие чувствительной информации (только незамаскированные данные);
+* скачивать и экспортировать результаты сканирований на наличие чувствительной информации (только незамаскированные данные);
+* рассчитывать примерную стоимость использования модуля DSPM (на основании метаданных бакетов Yandex Object Storage в источниках данных).
 
 Включает разрешения, предоставляемые ролью `dspm.viewer`.
+
+Для экспорта результатов сканирований дополнительно необходимы роли `storage.uploader` на бакет, в котором будут сохранены результаты, и `kms.keys.encrypter` на ключ шифрования, если бакет зашифрован.
 
 #### dspm.admin {#dspm-admin}
 
@@ -7335,14 +7503,16 @@
 * просматривать информацию о профилях DSPM и использовать их;
 * просматривать информацию об [источниках данных](../security-deck/concepts/dspm.md#data-source) DSPM и их областях сканирований, а также создавать, изменять, использовать и удалять такие источники;
 * использовать ресурсы Yandex Cloud в источниках данных DSPM;
-* просматривать информацию о [категориях данных](../security-deck/concepts/dspm.md#data-categories) DSPM;
+* просматривать информацию о типах и [категориях данных](../security-deck/concepts/dspm.md#data-categories) DSPM;
 * просматривать информацию о заданиях [сканирования](../security-deck/concepts/dspm.md#scanning) на наличие чувствительной информации, а также создавать, запускать, приостанавливать, возобновлять, изменять и удалять такие задания;
 * просматривать информацию о сканированиях на наличие чувствительной информации, а также создавать, приостанавливать, возобновлять, изменять и удалять их;
-* просматривать списки результатов и ошибок сканирований на наличие чувствительной информации;
-* просматривать информацию о результатах [анализа данных](../security-deck/concepts/dspm.md#discovery-mode) модуля DSPM;
-* запускать задания сканирования и просматривать их результаты и информацию об обнаруженных угрозах, в том числе просматривать замаскированные и необработанные данные в результатах сканирования.
+* просматривать информацию о результатах и ошибках [непрерывных сканирований изменений](../security-deck/concepts/dspm.md#change-scaning) и [регулярных сканирований](../security-deck/concepts/dspm.md#scanning) на наличие чувствительной информации, в том числе замаскированные и необработанные данные;
+* скачивать и экспортировать результаты сканирований на наличие чувствительной информации, в том числе замаскированные и необработанные данные;
+* рассчитывать примерную стоимость использования модуля DSPM (на основании метаданных бакетов Yandex Object Storage в источниках данных).
 
 Включает разрешения, предоставляемые ролью `dspm.editor`.
+
+Для экспорта результатов сканирований дополнительно необходимы роли `storage.uploader` на бакет, в котором будут сохранены результаты, и `kms.keys.encrypter` на ключ шифрования, если бакет зашифрован.
 
 Подробнее в [Управление доступом в DSPM](../security-deck/security/dspm-roles.md).
 
@@ -7726,6 +7896,7 @@
 
 Роль `serverless.workflows.viewer` позволяет просматривать информацию о [рабочих процессах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) и назначенных [правах доступа](concepts/access-control/index.md) к ним, просматривать историю [запусков](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/execution) рабочих процессов, а также информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) Yandex Workflows.
 
+
 Включает разрешения, предоставляемые ролью `serverless.workflows.auditor`.
 
 #### serverless.workflows.executor {#serverless-workflows-executor}
@@ -7737,11 +7908,14 @@
 Роль `serverless.workflows.editor` позволяет управлять рабочими процессами.
 
 Пользователи с этой ролью могут:
+
+
 * просматривать информацию о [рабочих процессах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) и назначенных [правах доступа](concepts/access-control/index.md) к ним;
 * создавать, изменять и удалять рабочие процессы;
 * запускать, приостанавливать, возобновлять и останавливать рабочие процессы;
 * просматривать историю [запусков](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/execution) рабочих процессов;
 * просматривать информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) Yandex Workflows.
+
 
 Включает разрешения, предоставляемые ролями `serverless.workflows.viewer` и `serverless.workflows.executor`.
 
@@ -7750,11 +7924,14 @@
 Роль `serverless.workflows.admin` позволяет управлять рабочими процессами.
 
 Пользователи с этой ролью могут:
+
+
 * просматривать информацию о [рабочих процессах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow), а также создавать, изменять и удалять их;
 * просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к рабочим процессам, а также изменять такие права доступа;
 * запускать, приостанавливать, возобновлять и останавливать рабочие процессы;
 * просматривать историю [запусков](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/execution) рабочих процессов;
 * просматривать информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) Yandex Workflows.
+
 
 Включает разрешения, предоставляемые ролью `serverless.workflows.editor`.
 
@@ -7995,7 +8172,7 @@
 
 #### ai.translate.user {#translate-user}
 
-Роль `ai.translate.user` позволяет использовать сервис Yandex Translate для [перевода текста](https://aistudio.yandex.ru/docs/ru/translate/quickstart), а также просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](https://aistudio.yandex.ru/docs/ru/translate/concepts/limits#translate-quotas) сервиса.
+Роль `ai.translate.user` позволяет использовать сервис Yandex Translate для [перевода текста](https://aistudio.yandex.ru/docs/ru/translate/concepts/), а также просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) сервиса.
 
 Подробнее в [Управление доступом в Translate](https://aistudio.yandex.ru/docs/ru/translate/security/index).
 
@@ -8269,7 +8446,7 @@
 
 #### ai.vision.user {#vision-user}
 
-Роль `ai.vision.user` позволяет использовать сервис Yandex Vision OCR для [анализа изображений](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/), а также просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](https://aistudio.yandex.ru/docs/ru/vision/concepts/limits#vision-quotas) сервиса.
+Роль `ai.vision.user` позволяет использовать сервис Yandex Vision OCR для [анализа изображений](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/), а также просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) сервиса.
 
 Подробнее в [Управление доступом в Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/security/index).
 

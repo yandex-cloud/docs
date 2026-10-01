@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Запуск PySpark-задания с помощью Yandex Managed Service for Apache Airflow™
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Yandex Managed Service for Apache Airflow™ > Запуск PySpark-задания с помощью Yandex Managed Service for Apache Airflow™
 
 # Запуск PySpark-задания с помощью Yandex Managed Service for Apache Airflow™
 
@@ -83,7 +83,7 @@
    * **Зона доступности** — `ru-central1-a`.
    * **Сеть** — `datalake-network`.
    * **Подсеть** — `datalake-network-ru-central1-a`.
-   * **Группа безопасности** — группа по умолчанию в сети `datalake-network`.
+   * **Группы безопасности** — группа по умолчанию в сети `datalake-network`.
    * **Имя бакета** — имя созданного ранее бакета.
 
 ## Подготовьте PySpark-задание {#prepare-a-job}

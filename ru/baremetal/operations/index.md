@@ -28,10 +28,17 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./servers/restore-grub.md)
 * [{#T}](./servers/use-hwatcher.md)
 
+## BareMetal Extend {#extend}
+
+* [{#T}](./extend/virtualization.md)
+* [{#T}](./extend/stackland.md)
+* [{#T}](./extend/managed-kubernetes.md)
+
 ## Сеть {#network}
 
 * [{#T}](./network-create.md)
 * [{#T}](./subnet-create.md)
+* [{#T}](./configure-dns.md)
 * [{#T}](./reserve-public-subnet.md)
 * [{#T}](./delete-public-subnet.md)
 * [{#T}](./create-vpc-connection.md)

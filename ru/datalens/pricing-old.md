@@ -8,6 +8,8 @@ editable: false
 
 
 
+
+
 {% note info %}
 
 1 декабря 2025 года в {{ datalens-name }} изменились правила тарификации. Подробности изменений описаны в [статье](./pricing-changes.md), актуальные правила тарификации доступны по [ссылке](./pricing.md).
@@ -52,7 +54,9 @@ editable: false
 
 Чтобы включить пробный период тарифа Business, измените свой тарифный план на Business [по инструкции](./settings/service-plan.md#change-service-plan). По окончании пробного периода цена за второй месяц использования будет пропорциональна оставшемуся числу дней.
 
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
 
 
 {% list tabs group=pricing %}

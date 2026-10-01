@@ -14,6 +14,7 @@ Object Storage поддерживает некоторые методы HTTP API
 
 * [Cyberduck](cyberduck.md)
 * [WinSCP](winscp.md)
+* [Obsidian](obsidian.md)
 
 ## SDK {#sdk}
 

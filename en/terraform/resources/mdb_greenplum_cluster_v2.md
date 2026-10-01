@@ -20,11 +20,11 @@ resource "yandex_mdb_greenplum_cluster_v2" "my_cluster" {
   environment = "PRESTABLE"
 
   segment_host_count = 2
-  segment_in_host   = 1
+  segment_in_host    = 1
 
-  user_name = "test-user"
+  user_name     = "test-user"
   user_password = "test-user-password"
-  network_id = yandex_vpc_network.foo.id
+  network_id    = yandex_vpc_network.foo.id
 
   cluster_config = {
     assign_public_ip = true
@@ -36,6 +36,9 @@ resource "yandex_mdb_greenplum_cluster_v2" "my_cluster" {
 
   config = {
     zone_id = "ru-central1-a"
+    access = {
+      trino = true
+    }
   }
 
   master_config = {
@@ -215,6 +218,7 @@ filename: yandex/cloud/mdb/greenplum/v1/cluster.proto
   - `access` [Block]. Access policy for external services.
     - `data_lens` (Bool). Allows data export from the cluster to DataLens.
     - `data_transfer` (Bool). Allows access for DataTransfer.
+    - `trino` (Bool). Allows access from Managed Trino.
     - `web_sql` (Bool). Allows SQL queries to the cluster databases from the management console.
     - `yandex_query` (Bool). Allow access for YandexQuery.
   - `assign_public_ip` (Bool). Determines whether the cluster has a public IP address.
@@ -229,6 +233,7 @@ filename: yandex/cloud/mdb/greenplum/v1/cluster.proto
 - `created_at` (*Read-Only*) (String). Time when the cluster was created.
 - `deletion_protection` (Bool). Determines whether the cluster is protected from being deleted.
 - `description` (String). Description of the Greenplum® cluster.
+- `disk_encryption_key_id` (String). ID of the KMS key used for cluster disk encryption. Encryption can`t be disabled for an existing cluster. If the source cluster is encrypted and you leave this field empty when restoring, the restored cluster will be created without encryption. This parameter only works when both master and segment hosts use `local-ssd` disks. Changing this value requires recreating the cluster. The key is preserved in Terraform state but cannot currently be read from the API, including during import.
 - `environment` (**Required**)(String). Deployment environment of the Greenplum® cluster.
 - `folder_id` (String). ID of the folder that the Greenplum® cluster belongs to.
 - `host_group_ids` (Set Of String). Host groups hosting VMs of the cluster.

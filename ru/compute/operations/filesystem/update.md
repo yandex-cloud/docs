@@ -1,5 +1,7 @@
 # Изменить файловое хранилище
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 После создания [файлового хранилища](../../concepts/filesystem.md) вы можете изменить его имя, описание и размер.
 
 {% note info %}

@@ -64,7 +64,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
 
    {% note info %}
 
-   Please note that [{{ k8s }} storage classes](manage-storage-class.md) and [{{ compute-full-name }} disk types](../../../compute/concepts/disk.md#disks_types) are different concepts.
+   Please note that [{{ k8s }} storage classes](manage-storage-class.md) and [{{ compute-full-name }} disk types](../../../compute/concepts/disk.md#disks-types) are different concepts.
 
    {% endnote %}
 
@@ -244,7 +244,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
      Normal  SuccessfulAttachVolume  20m   attachdetach-controller  AttachVolume.Attach succeeded for volume "<PersistentVolume_name>"
    ```
 
-In the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** management console under **{{ ui-key.yacloud.compute.disks_ddfdb }}**, the word **{{ ui-key.yacloud.compute.disks.label_disk-used }}** will appear next to your disk.
+In the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** management console under **{{ ui-key.yacloud.compute.storage_uisyT }}**, the word **{{ ui-key.yacloud.compute.disks.label_disk-used }}** will appear next to your disk.
 
 ## How to delete a volume {#delete-volume}
 

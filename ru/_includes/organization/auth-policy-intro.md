@@ -6,4 +6,4 @@
 
 [*user_accounts]: В {{ yandex-cloud }} используются аккаунты пользователей на Яндексе, а также федеративные и локальные пользовательские аккаунты. Подробнее читайте в разделе [{#T}](../../iam/concepts/users/accounts.md).
 
-[*organization]: Организация — это высший ресурс в иерархии ресурсной модели {{ yandex-cloud }}, который объединяет ресурсы всех остальных сервисов, а также используется для управления пользователями и параметрами их аутентификации и авторизации. Подробнее читайте в разделе [{#T}](../../organization/concepts/organization.md).
+[*organization]: {% include [organization-definition](../../_popups/identity-hub/organization-definition.md) %}

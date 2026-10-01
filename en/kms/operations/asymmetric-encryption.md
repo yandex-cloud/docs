@@ -1,6 +1,6 @@
 ---
 title: How to encrypt and decrypt data in {{ kms-short-name }} using asymmetric encryption
-description: This guide describes how you can encrypt and decrypt data using asymmetric encryption.
+description: Follow this guide to encrypt and decrypt data using asymmetric encryption.
 ---
 
 # Asymmetric data encryption
@@ -15,7 +15,7 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
 
 ## Encrypt data {#encryption}
 
-1. If you do not have an encryption key pair, [create](./asymmetric-encryption-key.md#create) one.
+1. If you do not have an encryption key pair yet, [create](./asymmetric-encryption-key.md#create) one.
 
 1. Get a public encryption key and save it:
 
@@ -23,12 +23,12 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
 
     - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the appropriate key pair.
+      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the key pair.
       1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
-      1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
+      1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
       1. Navigate to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_encryption }}** tab.
-      1. In the line with the key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
-      1. In the window that opens, click **{{ ui-key.yacloud.kms.asymmetric-keys.button_download }}** to download a public encryption key.
+      1. In the key pair row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![shield-keyhole](../../_assets/console-icons/shield-keyhole.svg) **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
+      1. In the window that opens, click ![floppy-disk](../../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud.kms.asymmetric-keys.button_download }}** to download the public encryption key.
 
     - CLI {#cli}
 
@@ -36,17 +36,17 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      1. See the description of the CLI command to get a public encryption key:
+      1. See the description of the CLI command for getting a public encryption key:
 
           ```bash
           yc kms asymmetric-encryption-crypto get-public-key --help
           ```
 
-      1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder where the encryption key pair is saved.
+      1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder containing the encryption key pair.
 
       1. {% include [get-signature-key](../../_includes/kms/get-a-encryption-key.md) %}
 
-      1. Get a public encryption key by specifying the previously obtained key pair ID:
+      1. Get the public encryption key, specifying the previously obtained key pair ID:
 
           ```bash
           yc kms asymmetric-encryption-crypto get-public-key \
@@ -97,9 +97,9 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
 
       * `-in`: Path to the file with the message to encrypt.
       * `-inkey`: Path to the file with the public encryption key.
-      * `<ciphertext_file_path>`: Path to the file the encrypted message will be saved to.
+      * `<ciphertext_file_path>`: Path to the file to save the encrypted message to.
 
-      As a result, the encrypted message will be saved to the specified file in the `base64` encoding.
+      This command will save the encrypted message to the specified file in the `base64` encoding.
 
     - Java {#java}
 
@@ -271,13 +271,13 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to decrypt data with a private encryption key:
+  1. See the description of the CLI command for decrypting data with a private encryption key:
 
       ```bash
       yc kms asymmetric-encryption-crypto decrypt --help
       ```
 
-  1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder where the encryption key pair is saved.
+  1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder containing the encryption key pair.
 
   1. {% include [get-signature-key](../../_includes/kms/get-a-encryption-key.md) %}
 
@@ -293,7 +293,7 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
 
       Where:
 
-      * `--id`: Encryption key pair ID you obtained previously.
+      * `--id`: Encryption key pair ID you obtained earlier.
       * `--ciphertext-file`: Path to the file with the `base64`-encoded ciphertext.
       * `--plaintext-file`: Path to the file to save the decrypted message to.
 
@@ -304,7 +304,7 @@ This guide uses [OpenSSL](https://www.openssl.org/) for encrypting data through 
       plaintext: 0KHQv...QuSE=
       ```
 
-      As a result of executing the command, the encrypted message will be decrypted with the private encryption key in {{ kms-short-name }} and the decrypted text will be saved to the specified file.
+      This command will decrypt the encrypted message with the private encryption key in {{ kms-short-name }} and save the decrypted text to the specified file.
 
 - API {#api}
 

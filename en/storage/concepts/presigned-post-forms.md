@@ -145,22 +145,22 @@ Description of form fields:
 Field | Description | Required
 -----|----------|--------------
 `acl` | ACL for the object. You can set one of the [predefined ACLs](acl.md#predefined-acls). For example, if you want to make an object public, use `public-read`. | No
-`Cache-Control` | Directives for caching data according to [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9). | No
-`Content-​Disposition` | Name under which {{ objstorage-name }} will suggest to save the object as a file when downloaded, which is compliant with [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1). | No
-`Content-Encoding` | Defines the content encoding according to [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11). | No
-`Content-Type` | MIME type of the uploaded file. If you do not specify `Content-Type`, {{ objstorage-name }} will save the object as `application/octet-stream`. This can affect end user applications because they will not identify the file format, e.g., a browser will be unable to render an image. | No
-`Expires` | Response expiration date, which is compliant with [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21). | No
+`Cache-Control` | Directives for caching data according to [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9). | None
+`Content-​Disposition` | Name under which {{ objstorage-name }} will suggest to save the object as a file when downloaded, which is compliant with [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1). | None
+`Content-Encoding` | Defines the content encoding according to [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11). | None
+`Content-Type` | MIME type of the uploaded file. If you do not specify `Content-Type`, {{ objstorage-name }} will save the object as `application/octet-stream`. This can affect end user applications because they will not identify the file format, e.g., a browser will be unable to render an image. | None
+`Expires` | Response expiration date, which is compliant with [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21). | None
 `key` | [Object key](object.md#key).<br/><br/>You can enter the whole key or a template in `prefix/${filename}` format, i.e., if you upload a file named `some_file.jpg`, the final object key will be `prefix/some_file.jpg`. | Yes
 `policy` | [Security policy](#policy) defining request permissions. Requests without a policy are treated as anonymous and are only processed for buckets with public write access. | Conditional
 `X-Amz-Signature` | Signature of the policy that has to be generated using the secret key.<br/><br/>It is required if the form has a security policy. | Conditional
-`success_action_redirect` | URL the user is redirected to when the file is successfully uploaded. If the value is not set, {{ objstorage-name }} returns the response specified in the `success_action_status` field. | No
-`success_action_status` | Response status after a successful upload.<br/><br/>If `success_action_redirect` is not specified, {{ objstorage-name }} returns `success_action_status`. The response body is empty.<br/><br/>Acceptable values: 200, 204 (default). | No
+`success_action_redirect` | URL the user is redirected to when the file is successfully uploaded. If the value is not set, {{ objstorage-name }} returns the response specified in the `success_action_status` field. | None
+`success_action_status` | Response status after a successful upload.<br/><br/>If `success_action_redirect` is not specified, {{ objstorage-name }} returns `success_action_status`. The response body is empty.<br/><br/>Acceptable values: 200, 204 (default). | None
 `X-Amz-Algorithm` | Security policy signature algorithm. The value is `AWS4-HMAC-SHA256`.<br/><br/>This field is required if the form has a security policy. | Conditional
 `X-Amz-Credential` | Signature ID.<br/><br/>This is a string in `<access-key-id>/<date>/{{ region-id }}/s3/aws4_request` format, where `<date>` must match the `X-Amz-Date` field value and the date used to sign the policy.<br/><br/>This field is required if the form has a security policy. | Conditional
 `X-Amz-Date` | Date in ISO8601 format, e.g., `20180719T000000Z`. It must match the date in the `X-Amz-Credential` field (by value rather than by format) and the date used to sign the policy.<br/><br/>This field is required if the form has a security policy. | Conditional
-`X-Amz-Storage-Class` | [Storage class](storage-class.md) for the object. With an HTML form, you can only put an object in a standard storage. | No
-`X-Amz-Meta-*` | User-defined object metadata.<br/><br/>{{ objstorage-name }} considers all headers starting with `X-Amz-Meta-` as user-defined and does not process them. Instead, it saves them in their original format.<br/><br/>The total size of user-defined headers must not exceed 2 KB. The size of user-defined data is determined as the length of the UTF-8 encoded string. The size includes header names and their values. | No
-`X-Amz-Website-` `redirect-location` | If the bucket is configured as a [website](hosting.md), this field sets a redirect from the specified object to any other object in the bucket or any URL on the web. The redirect is stored in the object metadata. | No
+`X-Amz-Storage-Class` | [Storage class](storage-class.md) for the object. With an HTML form, you can only put an object in a standard storage. | None
+`X-Amz-Meta-*` | User-defined object metadata.<br/><br/>{{ objstorage-name }} considers all headers starting with `X-Amz-Meta-` as user-defined and does not process them. Instead, it saves them in their original format.<br/><br/>The total size of user-defined headers must not exceed 2 KB. The size of user-defined data is determined as the length of the UTF-8 encoded string. The size includes header names and their values. | None
+`X-Amz-Website-` `redirect-location` | If the bucket is configured as a [website](hosting.md), this field sets a redirect from the specified object to any other object in the bucket or any URL on the web. The redirect is stored in the object metadata. | None
 `file` | Input field that allows the user to select a file to upload. This field must be the last field in the form. All fields after `file` are ignored. You cannot upload more than one file in a single request. | Yes
 
 

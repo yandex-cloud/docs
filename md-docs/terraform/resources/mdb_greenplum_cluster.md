@@ -41,6 +41,7 @@ resource "yandex_mdb_greenplum_cluster" "my_cluster" {
 
   access {
     web_sql = true
+    trino   = true
   }
 
   greenplum_config = {
@@ -97,6 +98,7 @@ resource "yandex_vpc_security_group" "test-sg-x" {
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
 - `deletion_protection` (Bool). The `true` value means that resource is protected from accidental deletion.
 - `description` (String). The resource description.
+- `disk_encryption_key_id` (String). ID of the KMS key used for cluster disk encryption. Encryption can`t be disabled for an existing cluster. If the source cluster is encrypted and you leave this field empty when restoring, the restored cluster will be created without encryption. This parameter only works when both master and segment hosts use `local-ssd` disks. Changing this value requires recreating the cluster. The key is preserved in Terraform state but cannot currently be read from the API, including during import.
 - `environment` (**Required**)(String). Deployment environment of the Greenplum cluster. (PRODUCTION, PRESTABLE)
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `greenplum_config` (Map Of String). Greenplum cluster config. Detail info in `Greenplum cluster settings` block.
@@ -128,6 +130,7 @@ resource "yandex_vpc_security_group" "test-sg-x" {
 - `access` [Block]. Access policy to the Greenplum cluster.
   - `data_lens` (Bool). Allow access for [Yandex DataLens](https://yandex.cloud/services/datalens).
   - `data_transfer` (Bool). Allow access for [DataTransfer](https://yandex.cloud/services/data-transfer)
+  - `trino` (Bool). Allow access from [Managed Trino](https://yandex.cloud/services/managed-trino).
   - `web_sql` (Bool). Allows access for [SQL queries in the management console](../../managed-mysql/operations/web-sql-query.md).
   - `yandex_query` (Bool). Allow access for [Yandex Query](https://yandex.cloud/services/query)
 - `background_activities` [Block]. Background activities settings.

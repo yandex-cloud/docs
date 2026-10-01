@@ -1,5 +1,381 @@
 [Документация Yandex Cloud](../index.md) > [Terraform в Yandex Cloud](index.md) > Справочник Terraform > История изменений (англ.)
 
+## 0.232.0 (September 30, 2026)
+
+##### ENHANCEMENTS:
+* mdb_clickhouse: add new user settings to yandex_mdb_clickhouse_user and default_user_settings in yandex_mdb_clickhouse_cluster_v2; add MergeTree settings for asynchronous insert deduplication and whole-partition optimization
+
+
+
+## 0.231.0 (September 29, 2026)
+
+##### ENHANCEMENTS:
+* triggers: add `source.yandex_forms` to `yandex_serverless_triggers` resource
+* triggers: add `source.yandex_forms.survey_id` to `yandex_serverless_triggers` resource
+* triggers: add `source.yandex_forms.survey_id` to `yandex_serverless_triggers` data source
+* triggers: add `source.yandex_forms.cloud_organization_id` to `yandex_serverless_triggers` data source
+* triggers: add `source.yandex_forms.oauth_token` to `yandex_serverless_triggers` data source
+* triggers: add `source.yandex_forms.cloud_organization_id` to `yandex_serverless_triggers` resource
+* triggers: add `source.yandex_forms.organization_id` to `yandex_serverless_triggers` data source
+* triggers: add `source.yandex_forms.organization_id` to `yandex_serverless_triggers` resource
+* triggers: add `source.yandex_forms` to `yandex_serverless_triggers` data source
+* triggers: add `source.yandex_forms.oauth_token` to `yandex_serverless_triggers` resource
+* postgresql: support multiple maintenance slots through maintenance_windows in mdb_postgresql_cluster and mdb_postgresql_cluster_v2, preserving legacy maintenance_window configuration and state while using the new API field.
+
+
+
+## 0.230.0 (September 25, 2026)
+
+##### FEATURES:
+* mdb_greenplum: add Trino access management to cluster resources and data sources
+
+##### ENHANCEMENTS:
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.schema_registry_url` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic.user` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode.enabled.ca_certificate` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.is_generate_updates` to `yandex_datatransfer_endpoint` data source
+* iam: add `post_logout_redirect_uris` to `yandex_iam_oauth_client` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode.disabled` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.table_name_policy.derived` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode.enabled` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.table_name_policy.derived.json` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic.password` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.table_name_policy.manual.table_name` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode.enabled.ca_certificate` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.is_generate_updates` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.table_name_policy.manual` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.no_auth` to `yandex_datatransfer_endpoint` resource
+* triggers: add `source.max_message.update_types` to `yandex_serverless_triggers` data source
+* triggers: add `source.max_message.update_types` to `yandex_serverless_triggers` resource
+* triggers: add `source.max_message` to `yandex_serverless_triggers` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.no_auth` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.table_name_policy.manual.table_name` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.schema_registry_url` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode.enabled` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode.enabled.ca_certificate` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode` to `yandex_datatransfer_endpoint` resource
+* triggers: add `source.max_message.force` to `yandex_serverless_triggers` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.table_name_policy.derived` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser` to `yandex_datatransfer_endpoint` resource
+* triggers: add `source.max_message` to `yandex_serverless_triggers` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.table_name_policy.manual` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.table_name_policy.manual` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.table_name_policy.derived.json` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.table_name_policy.manual.table_name` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.table_name_policy.manual.table_name` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.table_name_policy.derived.protobuf` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.schema_registry_url` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.table_name_policy.manual` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.table_name_policy` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic.user` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.table_name_policy.derived` to `yandex_datatransfer_endpoint` data source
+* triggers: add `source.max_message.bot_token` to `yandex_serverless_triggers` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode.enabled` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.is_generate_updates` to `yandex_datatransfer_endpoint` data source
+* triggers: add `source.max_message.bot_token` to `yandex_serverless_triggers` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.table_name_policy` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.table_name_policy.derived.protobuf` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.table_name_policy.derived.json` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode.enabled` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.table_name_policy.derived.protobuf` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.no_auth` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic.password.raw` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode.enabled.ca_certificate` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.table_name_policy` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic.password` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic.password.raw` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic.user` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.schema_registry_url` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.table_name_policy.derived.json` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic.password` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic.user` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.no_auth` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic.password.raw` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic.password.raw` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode.disabled` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode.disabled` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic.password` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.is_generate_updates` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.table_name_policy` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.table_name_policy.derived` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.auth.basic` to `yandex_datatransfer_endpoint` data source
+* iam: add `post_logout_redirect_uris` to `yandex_iam_oauth_client` data source
+* datatransfer: add `settings.kafka_source.parser.confluent_schema_registry_parser.table_name_policy.derived.protobuf` to `yandex_datatransfer_endpoint` resource
+* triggers: add `source.max_message.force` to `yandex_serverless_triggers` data source
+* datatransfer: add `settings.yds_source.parser.confluent_schema_registry_parser.confluent_schema_registry_connection.tls_mode.disabled` to `yandex_datatransfer_endpoint` resource
+
+
+
+## 0.229.0 (September 22, 2026)
+
+##### FEATURES:
+* trino: add event_listeners.data_catalog support to the cluster resource and data source
+* alb: added `client_certificate` field to the `resource_yandex_alb_backend_group` resource
+* mdb: add ChangeFreeze resources for managed database and data processing services
+* cloudrouter: add the `yandex_cloudrouter_routing_instance` resource and data source
+
+##### BUG FIXES:
+* opensearch: preserve explicitly configured access blocks with disabled flags in yandex_mdb_opensearch_cluster, fixing inconsistent state after apply
+* mdb_clickhouse: do not plan the ClickHouse settings absent from the configuration from state when the version of `yandex_mdb_clickhouse_cluster_v2` changes, since the API answers with the defaults of the new version
+* mdb_clickhouse: update `service_account_id` in `yandex_mdb_clickhouse_cluster_v2`
+
+##### ENHANCEMENTS:
+* mdb_greenplum: support disk_encryption_key_id when creating and restoring yandex_mdb_greenplum_cluster and yandex_mdb_greenplum_cluster_v2; the parameter only works when both master and segment hosts use `local-ssd` disks
+
+##### WARNING:
+* compute: change `subnets` in `yandex_compute_gpu_cluster` resource from computed to optional+computed
+
+
+
+## 0.228.0 (September 14, 2026)
+
+##### FEATURES:
+* mdb_clickhouse: support Connection Manager folders — `connection_manager` in `yandex_mdb_clickhouse_cluster_v2` and `user_connection_manager` in `yandex_mdb_clickhouse_user`
+
+##### BUG FIXES:
+* postgresql: allow statements_sampling_interval values from 1 to 86400 seconds in yandex_mdb_postgresql_cluster_v2, matching the API and yandex_mdb_postgresql_cluster resource
+
+
+
+## 0.227.0 (September 10, 2026)
+
+##### FEATURES:
+* postgresql: add pg 19 support
+* airflow: gitsync configuration support username+password authentication for airflow dags source
+
+##### ENHANCEMENTS:
+* mongodb: add write-only password attributes to `yandex_mdb_mongodb_user`
+
+
+
+## 0.226.0 (September 7, 2026)
+
+##### FEATURES:
+* mongodb: add `operation_profiling` block with `slow_op_threshold` and `slow_op_sample_rate` attributes to `mongos` section of `yandex_mdb_mongodb_cluster`
+* opensearch: add yandex_mdb_opensearch_user data source with Connection Manager connection ID
+* mysql: add optional `restore.source_cluster_id` parameter
+
+##### BUG FIXES:
+* mysql: `restore.time` no longer defaults to the current time.
+* mysql: add runtime validation that `restore.backup_id` is not empty.
+* postgresql: yandex_mdb_postgresql_cluster_v2 subnet_id optional + computed, blank string validator
+* cdn: allow reading resources when shielding API is unavailable
+
+##### ENHANCEMENTS:
+* organizationmanager: add `group_claims_settings.group_attribute_value` to `yandex_organizationmanager_idp_application_saml_application` data source
+* organizationmanager: add `group_claims_settings.group_claim_value` to `yandex_organizationmanager_idp_application_oauth_application` resource
+* organizationmanager: add `group_claims_settings.group_attribute_value` to `yandex_organizationmanager_idp_application_saml_application` resource
+* organizationmanager: add `group_claims_settings.group_claim_value` to `yandex_organizationmanager_idp_application_oauth_application` data source
+* smartwebsecurity: add `solid_waf_settings.web_app_id` to `yandex_sws_domain` data source
+* smartwebsecurity: add `solid_waf_settings.web_app_id` to `yandex_sws_domain` resource
+* kafka: add write-only password attributes to `yandex_mdb_kafka_user` and MirrorMaker SASL password settings in `yandex_mdb_kafka_connector`.
+
+##### WARNING:
+* smartwebsecurity: change `load_balancer_id` in `yandex_sws_domain` data source from optional+computed to required
+* smartwebsecurity: change `name` in `yandex_sws_domain` data source from optional+computed to required
+* mdb_postgresql: `connection_manager.enabled = false` is now rejected when creating a `yandex_mdb_postgresql_cluster_v2` resource, as it already was when updating one: creating a cluster without the Connection Manager integration is not supported through Terraform
+
+
+
+## 0.225.0 (August 31, 2026)
+
+##### ENHANCEMENTS:
+* organizationmanager: add `password_change_required` to `yandex_organizationmanager_idp_user` resource
+* audittrails: add `include_rule` and `exclude_rule` field filters to the `yandex_audit_trails_trail` resource and data source
+
+
+
+## 0.224.0 (August 27, 2026)
+
+##### BUG FIXES:
+* mdb: fixed Value Conversion Error in yandex_mdb_redis_cluster_v2 when only a part of the valkey modules is listed in the configuration
+* postgresql: changes of `owner` and `extension` in `database` block of `yandex_mdb_postgresql_cluster` are no longer lost when other databases are added, removed or reordered
+
+##### ENHANCEMENTS:
+* triggers: add `source.yandex_messenger.bot_id` to `yandex_serverless_triggers` data source
+* triggers: add `source.yandex_messenger` to `yandex_serverless_triggers` resource
+* triggers: add `source.yandex_messenger.bot_login` to `yandex_serverless_triggers` resource
+* triggers: add `source.yandex_messenger.bot_login` to `yandex_serverless_triggers` data source
+* triggers: add `source.yandex_messenger.oauth_token` to `yandex_serverless_triggers` resource
+* triggers: add `source.yandex_messenger.force` to `yandex_serverless_triggers` resource
+* triggers: add `source.yandex_messenger` to `yandex_serverless_triggers` data source
+* triggers: add `source.yandex_messenger.bot_id` to `yandex_serverless_triggers` resource
+* triggers: add `source.yandex_messenger.oauth_token` to `yandex_serverless_triggers` data source
+* triggers: add `source.yandex_messenger.bot_display_name` to `yandex_serverless_triggers` resource
+* triggers: add `source.yandex_messenger.force` to `yandex_serverless_triggers` data source
+* triggers: add `source.yandex_messenger.bot_display_name` to `yandex_serverless_triggers` data source
+* mdb_clickhouse: enabling `sql_user_management` and `sql_database_management` no longer recreates `yandex_mdb_clickhouse_cluster_v2`, the cluster is updated in place
+* postgresql: `owner` of `yandex_mdb_postgresql_database` can now be changed without recreating the database
+
+
+
+## 0.223.0 (August 24, 2026)
+
+##### FEATURES:
+* smartwebsecurity: add `yandex_sws_domain` data source
+* smartwebsecurity: add `yandex_sws_load_balancer` resource
+* smartwebsecurity: add `yandex_sws_load_balancer` data source
+* smartwebsecurity: add `yandex_sws_domain` resource
+* spark: add preemptible attribute for executor resource pool
+* smartwebsecurity: add ARL and WAF profile attachment resources for safe Security Profile detachment
+* clickhouse: support migration from ZooKeeper to ClickHouse Keeper in yandex_mdb_clickhouse_cluster_v2
+* alb: added `accept_untrusted` and `allow_expired` fields to `resource_yandex_alb_load_balancer` resource
+
+##### BUG FIXES:
+* smartwebsecurity: remove the obsolete duplicate Advanced Rate Limiter profile resource class
+
+##### ENHANCEMENTS:
+* redis: add `cron.hour` to `yandex_mdb_redis_backup_retention_policy` data source
+* datatransfer: add `settings.ydb_target.ydb_connection.on_premise` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.ydb_connection` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_target.ydb_connection.on_premise.tls_mode.disabled` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.ydb_source.ydb_connection.on_premise.tls_mode.disabled` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.ydb_source.authentication.service_account.service_account_id` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.ydb_source.ydb_connection.on_premise.tls_mode` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.ydb_target.ydb_connection.on_premise.tls_mode.enabled.ca_certificate` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_target.ydb_connection.on_premise.database` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.ydb_source.ydb_connection.on_premise` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_target.ydb_connection.on_premise` to `yandex_datatransfer_endpoint` resource
+* mysql: add `cron.hour` to `yandex_mdb_mysql_backup_retention_policy` resource
+* datatransfer: add `settings.ydb_target.ydb_connection.on_premise.tls_mode` to `yandex_datatransfer_endpoint` data source
+* organizationmanager: add `password_created_at` to `yandex_organizationmanager_idp_user` resource
+* datatransfer: add `settings.yds_target.ydb_connection` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_target.ydb_connection.on_premise.tls_mode.enabled.ca_certificate` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.ydb_source.ydb_connection.on_premise.tls_mode` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.authentication.service_account_id` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.ydb_target.authentication` to `yandex_datatransfer_endpoint` resource
+* mysql: add `cron.hour` to `yandex_mdb_mysql_backup_retention_policy` data source
+* datatransfer: add `settings.yds_source.ydb_connection.on_premise.tls_mode` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.ydb_source.ydb_connection.on_premise.tls_mode.enabled` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.ydb_connection.on_premise` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.ydb_connection.on_premise.tls_mode.disabled` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.authentication` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_target.authentication.service_account_id` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.authentication.service_account_id` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.ydb_target.ydb_connection` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.ydb_source.ydb_connection.on_premise` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_target.authentication.service_account_id` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.ydb_connection.on_premise.database` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.ydb_source.ydb_connection.database_id` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_target.ydb_connection` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_target.ydb_connection.managed_yds` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_target.ydb_connection.on_premise.database` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.ydb_source.ydb_connection.on_premise.instance` to `yandex_datatransfer_endpoint` data source
+* redis: add `cron.minute` to `yandex_mdb_redis_backup_retention_policy` data source
+* datatransfer: add `settings.ydb_target.ydb_connection.on_premise.database` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_target.ydb_connection.on_premise.tls_mode.enabled` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.ydb_source.authentication` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.ydb_target.ydb_connection.database_id` to `yandex_datatransfer_endpoint` resource
+* mongodb: add `cron.minute` to `yandex_mdb_mongodb_backup_retention_policy` data source
+* mysql: add `cron.minute` to `yandex_mdb_mysql_backup_retention_policy` resource
+* datatransfer: add `settings.yds_target.ydb_connection.on_premise` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.ydb_target.ydb_connection.on_premise.tls_mode.disabled` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_target.authentication` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.ydb_connection.on_premise.tls_mode.enabled.ca_certificate` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.ydb_source.ydb_connection.on_premise.tls_mode.enabled.ca_certificate` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.ydb_target.ydb_connection` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.ydb_connection.on_premise.database` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.ydb_target.ydb_connection.on_premise.subnet_id` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.ydb_source.ydb_connection.on_premise.instance` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.ydb_target.ydb_connection.database_id` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.ydb_target.ydb_connection.on_premise.database` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.ydb_source.ydb_connection.on_premise.tls_mode.disabled` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.ydb_connection.managed_yds` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_target.ydb_connection.on_premise.tls_mode.enabled` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.ydb_source.authentication.service_account` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.ydb_connection.on_premise.subnet_id` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_target.ydb_connection.on_premise.subnet_id` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.ydb_connection.managed_yds.database_id` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_target.ydb_connection.managed_yds` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.ydb_source.ydb_connection.on_premise.subnet_id` to `yandex_datatransfer_endpoint` data source
+* postgresql: add `cron.minute` to `yandex_mdb_postgresql_backup_retention_policy` resource
+* datatransfer: add `settings.ydb_target.authentication.service_account` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.ydb_target.ydb_connection.on_premise.tls_mode.enabled` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.ydb_connection.on_premise.stream` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.ydb_target.authentication.service_account.service_account_id` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_target.ydb_connection.managed_yds.database_id` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.ydb_source.authentication` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_target.ydb_connection.on_premise.stream` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.ydb_source.ydb_connection.on_premise.tls_mode.enabled.ca_certificate` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_target.ydb_connection.on_premise.tls_mode.disabled` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.ydb_connection.on_premise.tls_mode` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.ydb_target.authentication` to `yandex_datatransfer_endpoint` data source
+* redis: add `cron.minute` to `yandex_mdb_redis_backup_retention_policy` resource
+* datatransfer: add `settings.yds_target.ydb_connection.managed_yds.stream` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.ydb_target.authentication.service_account.service_account_id` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.ydb_source.ydb_connection.on_premise.tls_mode.enabled` to `yandex_datatransfer_endpoint` resource
+* organizationmanager: add `password_created_at` to `yandex_organizationmanager_idp_user` data source
+* datatransfer: add `settings.yds_target.ydb_connection.on_premise.tls_mode` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.ydb_target.ydb_connection.on_premise.tls_mode.enabled.ca_certificate` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_target.ydb_connection.on_premise.stream` to `yandex_datatransfer_endpoint` data source
+* postgresql: add `cron.hour` to `yandex_mdb_postgresql_backup_retention_policy` resource
+* datatransfer: add `settings.ydb_target.ydb_connection.on_premise.instance` to `yandex_datatransfer_endpoint` data source
+* redis: add `cron.hour` to `yandex_mdb_redis_backup_retention_policy` resource
+* datatransfer: add `settings.yds_target.authentication` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.ydb_connection` to `yandex_datatransfer_endpoint` data source
+* postgresql: add `cron.minute` to `yandex_mdb_postgresql_backup_retention_policy` data source
+* mongodb: add `cron.hour` to `yandex_mdb_mongodb_backup_retention_policy` resource
+* datatransfer: add `settings.ydb_target.ydb_connection.on_premise.instance` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.ydb_connection.managed_yds.database_id` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.ydb_target.ydb_connection.on_premise.tls_mode.enabled` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.ydb_target.ydb_connection.on_premise.subnet_id` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.ydb_connection.on_premise.instance` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.ydb_target.ydb_connection.on_premise.tls_mode` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.ydb_target.ydb_connection.on_premise.tls_mode.disabled` to `yandex_datatransfer_endpoint` resource
+* postgresql: add `cron.hour` to `yandex_mdb_postgresql_backup_retention_policy` data source
+* organizationmanager: add `password_hash.created_at` to `yandex_organizationmanager_idp_user` resource
+* datatransfer: add `settings.yds_source.ydb_connection.managed_yds.stream` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_target.ydb_connection.on_premise.instance` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.ydb_connection.on_premise.tls_mode.enabled` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.ydb_target.authentication.service_account` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.ydb_source.authentication.service_account` to `yandex_datatransfer_endpoint` resource
+* mongodb: add `cron.minute` to `yandex_mdb_mongodb_backup_retention_policy` resource
+* datatransfer: add `settings.yds_target.ydb_connection.on_premise.tls_mode.enabled.ca_certificate` to `yandex_datatransfer_endpoint` data source
+* mongodb: add `cron.hour` to `yandex_mdb_mongodb_backup_retention_policy` data source
+* datatransfer: add `settings.ydb_source.authentication.service_account.service_account_id` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.ydb_source.ydb_connection` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.authentication` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.ydb_connection.on_premise.instance` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.ydb_source.ydb_connection.on_premise.database` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.ydb_connection.on_premise.tls_mode.disabled` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.ydb_connection.on_premise.subnet_id` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.ydb_source.ydb_connection.database_id` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.ydb_connection.managed_yds.stream` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_target.ydb_connection.on_premise.tls_mode` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_target.ydb_connection.managed_yds.database_id` to `yandex_datatransfer_endpoint` resource
+* mysql: add `cron.minute` to `yandex_mdb_mysql_backup_retention_policy` data source
+* datatransfer: add `settings.ydb_source.ydb_connection` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_target.ydb_connection.on_premise.subnet_id` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_target.ydb_connection.on_premise.instance` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.ydb_source.ydb_connection.on_premise.database` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.ydb_connection.on_premise` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.ydb_connection.on_premise.stream` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.ydb_source.ydb_connection.on_premise.subnet_id` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.ydb_connection.on_premise.tls_mode.enabled.ca_certificate` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.ydb_target.ydb_connection.on_premise` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_target.ydb_connection.managed_yds.stream` to `yandex_datatransfer_endpoint` resource
+* datatransfer: add `settings.yds_source.ydb_connection.managed_yds` to `yandex_datatransfer_endpoint` data source
+* datatransfer: add `settings.yds_source.ydb_connection.on_premise.tls_mode.enabled` to `yandex_datatransfer_endpoint` data source
+
+
+
 ## 0.222.0 (August 17, 2026)
 
 ##### FEATURES:

@@ -68,6 +68,8 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
 
  - [Запросы в Yandex WebSQL](operations/web-sql-query.md)
 
+ - [Работа с политиками распределения данных](operations/distribution-policy-management.md)
+
 ### Пользователи и сессии
 
  - [Управление ролями и пользователями](operations/roles-and-users.md)
@@ -99,6 +101,8 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
  - [Изменение настроек PXF](operations/pxf/settings.md)
 
  - [Подключение к внешнему файловому серверу (gpfdist)](operations/gpfdist/connect.md)
+
+ - [Доступ из Trino](operations/gpfdist/trino-access.md)
 
 ### Расширения
 
@@ -152,7 +156,7 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
 
  - [Миграция базы данных из MySQL® в Greenplum®](tutorials/mmy-to-mgp.md)
 
- - [Выгрузка данных Greenplum® в холодное хранилище Object Storage](tutorials/yezzey.md)
+ - [Выгрузка данных Greenplum® в гибридное хранилище Object Storage](tutorials/yezzey.md)
 
  - [Загрузка данных из Object Storage в Yandex MPP Analytics for PostgreSQL с помощью Data Transfer](tutorials/object-storage-to-greenplum.md)
 
@@ -190,7 +194,7 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
 
  - [Ресурсные группы](concepts/resource-groups.md)
 
- - [Шардирование](concepts/sharding.md)
+ - [Распределение данных](concepts/sharding.md)
 
  - [Пользователи и роли](concepts/cluster-users.md)
 
@@ -237,6 +241,20 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
  - [get](cli-ref/backup/get.md)
 
  - [list](cli-ref/backup/list.md)
+
+### change-freeze
+
+ - [Overview](cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/change-freeze/terminate.md)
 
 ### cluster
 
@@ -292,6 +310,8 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
 
  - [Overview](cli-ref/hba-rules/index.md)
 
+ - [batch-update](cli-ref/hba-rules/batch-update.md)
+
  - [create](cli-ref/hba-rules/create.md)
 
  - [delete](cli-ref/hba-rules/delete.md)
@@ -313,6 +333,16 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
  - [master](cli-ref/hosts/list/master.md)
 
  - [segment](cli-ref/hosts/list/segment.md)
+
+### maintenance
+
+ - [Overview](cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/maintenance/reschedule.md)
 
 ### pxf-datasource
 
@@ -402,6 +432,20 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
 
  - [list](cli-ref/v0/backup/list.md)
 
+#### change-freeze
+
+ - [Overview](cli-ref/v0/change-freeze/index.md)
+
+ - [create](cli-ref/v0/change-freeze/create.md)
+
+ - [get](cli-ref/v0/change-freeze/get.md)
+
+ - [get-limits](cli-ref/v0/change-freeze/get-limits.md)
+
+ - [list](cli-ref/v0/change-freeze/list.md)
+
+ - [terminate](cli-ref/v0/change-freeze/terminate.md)
+
 #### cluster
 
  - [Overview](cli-ref/v0/cluster/index.md)
@@ -456,6 +500,8 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
 
  - [Overview](cli-ref/v0/hba-rules/index.md)
 
+ - [batch-update](cli-ref/v0/hba-rules/batch-update.md)
+
  - [create](cli-ref/v0/hba-rules/create.md)
 
  - [delete](cli-ref/v0/hba-rules/delete.md)
@@ -477,6 +523,16 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
  - [master](cli-ref/v0/hosts/list/master.md)
 
  - [segment](cli-ref/v0/hosts/list/segment.md)
+
+#### maintenance
+
+ - [Overview](cli-ref/v0/maintenance/index.md)
+
+ - [get](cli-ref/v0/maintenance/get.md)
+
+ - [list](cli-ref/v0/maintenance/list.md)
+
+ - [reschedule](cli-ref/v0/maintenance/reschedule.md)
 
 #### pxf-datasource
 
@@ -571,6 +627,20 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
  - [List](api-ref/grpc/Backup/list.md)
 
  - [Delete](api-ref/grpc/Backup/delete.md)
+
+#### ChangeFreeze
+
+ - [Overview](api-ref/grpc/ChangeFreeze/index.md)
+
+ - [Create](api-ref/grpc/ChangeFreeze/create.md)
+
+ - [Get](api-ref/grpc/ChangeFreeze/get.md)
+
+ - [List](api-ref/grpc/ChangeFreeze/list.md)
+
+ - [Terminate](api-ref/grpc/ChangeFreeze/terminate.md)
+
+ - [GetLimits](api-ref/grpc/ChangeFreeze/getLimits.md)
 
 #### Cluster
 
@@ -717,6 +787,20 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
  - [List](api-ref/Backup/list.md)
 
  - [Delete](api-ref/Backup/delete.md)
+
+#### ChangeFreeze
+
+ - [Overview](api-ref/ChangeFreeze/index.md)
+
+ - [Create](api-ref/ChangeFreeze/create.md)
+
+ - [Get](api-ref/ChangeFreeze/get.md)
+
+ - [List](api-ref/ChangeFreeze/list.md)
+
+ - [Terminate](api-ref/ChangeFreeze/terminate.md)
+
+ - [GetLimits](api-ref/ChangeFreeze/getLimits.md)
 
 #### Cluster
 

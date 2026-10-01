@@ -49,9 +49,11 @@
         "s3", endpoint_url=ENDPOINT)
     ```
 
-1. Введите имя бакета и получите список объектов в нем:
+1. Получите список объектов в бакете:
 
     ```python
-    for key in s3.list_objects(Bucket='<имя_бакета>')['Contents']:
-        print(key['Key'])
+    paginator = s3.get_paginator('list_objects_v2')
+    for page in paginator.paginate(Bucket='<имя_бакета>'):
+        for key in page.get('Contents', []):
+            print(key['Key'])
     ```

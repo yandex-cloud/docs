@@ -23,11 +23,9 @@ The certificate manager with the ACME webhook for {{ dns-full-name }} supports [
 
 ### Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for a public IP address for cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: Use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Public IP addresses for the {{ managed-k8s-name }} cluster master and nodes (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Set up your environment {#prepare-environment}
@@ -127,8 +125,7 @@ The support cost for this solution includes:
   1. In the [management console]({{ link-console-main }}), select the folder where you created the required {{ managed-k8s-name }} cluster.
   1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Select the `kubernetes-cluster-wh` cluster.
-  1. On the cluster page, navigate to the ![nodes-management.svg](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
-  1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
+  1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab and click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
   1. Enter a name and description for the {{ managed-k8s-name }} node group.
   1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field, select the {{ k8s }} version for the {{ managed-k8s-name }} nodes.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_scale }}**, select its type:
@@ -146,7 +143,7 @@ The support cost for this solution includes:
        * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}`: Network drive with enhanced performance achieved by eliminating redundancy. You can only change the size of this disk type in 93 GB increments.
        * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-io-m3 }}`: Network drive with the same performance specifications as `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}`, plus redundancy. You can only change the size of this disk type in 93 GB increments.
 
-       For more information about disk types, see [this {{ compute-full-name }} guide](../../compute/concepts/disk.md#disks_types).
+       For more information about disk types, see [this {{ compute-full-name }} guide](../../compute/concepts/disk.md#disks-types).
      * Specify the disk size for the {{ managed-k8s-name }} group nodes.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
      * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, select an IP address assignment method:

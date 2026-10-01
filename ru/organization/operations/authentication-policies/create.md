@@ -35,6 +35,10 @@ description: Следуя данной инструкции, вы сможете
       1. {% include [auth-policy-create-action](../../../_includes/organization/auth-policy-create-action.md) %}
       1. Нажмите кнопку **{{ ui-key.yacloud_org.form.auth-policy.create.action.create }}**.
 
+- API {#api}
+
+    Воспользуйтесь методом REST API [create](../../policy/api-ref/AuthenticationPolicyRule/create.md) для ресурса [AuthenticationPolicyRule](../../policy/api-ref/AuthenticationPolicyRule/index.md) или вызовом gRPC API [AuthenticationPolicyRuleService/Create](../../policy/api-ref/grpc/AuthenticationPolicyRule/create.md).
+
 {% endlist %}
 
 #### Полезные ссылки {#see-also}
@@ -51,3 +55,5 @@ description: Следуя данной инструкции, вы сможете
 * первый символ — буква, последний — не дефис.
 
 [*labels]: Метки — это пары `ключ:значение`, которые можно использовать для разделения ресурсов на логические группы. Подробнее читайте в разделе [{#T}](../../../resource-manager/concepts/labels.md).
+
+[*mfa]: {% include notitle [hostname](../../../_popups/identity-hub/mfa.md) %}

@@ -91,7 +91,7 @@ spec:
   # ...
 ```
 
-The following restrictions apply:
+Limitations:
 
 * {{ stackland-name }} will block creating resources if the `host` value in the `Ingress` resource and the `dns.stackland.yandex.cloud/hostname` annotation value in the `Service` resource are subdomains of `sys.{{ cluster-domain }}` and `svc.{{ cluster-domain }}`.
 * {{ stackland-name }} prevents the creation of an `Ingress` or `Service` resource if another resource already uses the same domain name.

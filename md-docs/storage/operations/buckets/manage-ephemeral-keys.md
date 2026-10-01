@@ -1,6 +1,6 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Бакеты > Доступ в бакет с помощью эфемерного ключа доступа
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Бакеты > Получить доступ в бакет с помощью эфемерного ключа доступа
 
-# Доступ к бакету с помощью эфемерного ключа доступа
+# Получить доступ к бакету с помощью эфемерного ключа доступа
 
 [Эфемерные ключи доступа](../../../iam/concepts/authorization/ephemeral-keys.md) — это временные ключи с ограниченным сроком действия, которые предоставляют безопасный способ доступа к ресурсам [Yandex Object Storage](../../index.md) без необходимости хранить [статические ключи](../../../iam/concepts/authorization/access-key.md). В этом руководстве вы научитесь создавать эфемерные ключи с помощью скрипта и использовать их для создания [бакетов](../../concepts/bucket.md) и загрузки [объектов](../../concepts/object.md) с помощью [AWS CLI](https://aws.amazon.com/ru/cli/).
 
@@ -210,7 +210,7 @@
   make_bucket: my-bucket
   ```
 
-  Подробности в документе [Создание бакета](create.md).
+  Подробности в документе [Создать бакет](create.md).
 
 {% endlist %}
 
@@ -272,5 +272,5 @@
 #### Полезные ссылки {#see-also}
 
 * [Обзор способов управления доступом в Object Storage](../../security/overview.md)
-* [Доступ в бакет с помощью Security Token Service](create-sts-key.md)
+* [Получить доступ в бакет с помощью Security Token Service](create-sts-key.md)
 * [Управление эфемерными ключами доступа](../../../iam/operations/authentication/manage-ephemeral-keys.md)

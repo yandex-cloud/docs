@@ -7,14 +7,17 @@
 
 #### Description
 
-When creating a new [registry](https://yandex.cloud/en/docs/container-registry/concepts/registry), use the default options to make sure it meets the Yandex Cloud security standard:
+Yandex Container Registry can scan Docker images for vulnerabilities both when an image is pushed and on a schedule. By default, both options are enabled, and rescanning happens every 7 days, with the option to switch to daily.
 
-* Docker images are automatically scanned as they are uploaded to the registry. * Docker images in the registry are regularly re-scanned, i.e., every 7 days with an option to switch to daily scanning in the settings.
+Without scheduled rescans, an image that passed scanning on push can become vulnerable later — when a new CVE is discovered in one of its layers — and the cluster will keep running it. Default settings are calibrated to catch this; turning them off requires a deliberate reason.
+
+**Risks if the rule is not followed:** Without scheduled rescanning, images that were clean at push time can silently become vulnerable as new CVEs are published, and the cluster will continue running them — leaving known vulnerabilities undetected and unpatched in production.
 
 #### Instructions and solutions
 
-1. In the [management console](https://console.yandex.cloud/), select the folder where you want to create a registry. 2. In the list of services, select **Container Registry**. 3. Click **Create registry**. 4. In the **Name** field, enter a name for the registry. The naming requirements are as follows:
+Make sure that on every registry the following options are enabled (Container Registry → Registry → **Settings** → **Automatic scanning**):
 
-* It must be from 2 to 63 characters long. * It can only contain lowercase Latin letters, numbers, and hyphens. * It must start with a letter and cannot end with a hyphen. 5. Under **Automatic scanning**:
+* **Scan Docker images on push** — scans every image at upload.
+* **Scan all Docker images in the registry** — periodically rescans existing images. The frequency should be at least weekly; switch to daily for production registries.
 
-* Keep **Scan Docker images on push** enabled to scan Docker images at their upload to the repository. * Keep **Scan all Docker images in the registry** enabled. Adjust the scanning frequency if you need to. 6. Click **Create registry**.
+Read more in [Vulnerability scanner](https://yandex.cloud/en/docs/container-registry/concepts/vulnerability-scanner) and [Scanning Docker images](https://yandex.cloud/en/docs/container-registry/operations/scanning-docker-image) in the Container Registry documentation.

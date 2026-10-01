@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Отправка оповещений по электронной почте в Managed Service for OpenSearch
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > OpenSearch > Отправка оповещений по электронной почте в Managed Service for OpenSearch
 
 # Отправка оповещений по электронной почте в Yandex Managed Service for OpenSearch
 

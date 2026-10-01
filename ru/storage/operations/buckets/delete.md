@@ -1,9 +1,9 @@
 ---
-title: Удаление бакета в {{ objstorage-full-name }}
+title: Удалить бакет в {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете удалить бакет в {{ objstorage-name }}.
 ---
 
-# Удаление бакета
+# Удалить бакет
 
 {% note warning %}
 
@@ -19,8 +19,8 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Выберите нужный бакет и нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
-  1. В открывшемся окне нажмите **{{ ui-key.yacloud.common.delete }}**.
+  1. В строке с нужным бакетом нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+  1. В открывшемся окне подтвердите удаление.
 
   {% include [work-with-multiple-buckets](../../../_includes/storage/work-with-multiple-buckets.md) %}
 

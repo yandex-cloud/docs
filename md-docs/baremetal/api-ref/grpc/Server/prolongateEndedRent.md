@@ -4,7 +4,6 @@
 
 Enable prolongation after rental period end
 
-Required for backward compatibility with old clients. --)
 
 ## gRPC request
 

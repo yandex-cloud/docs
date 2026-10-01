@@ -17,8 +17,9 @@ You can create `ConfigMap` and `Secret` resources in the management console in t
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the cluster name and select ![Configuration](../../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud.k8s.cluster.switch_configuration }}** in the left-hand panel.
-  1. In the top-right corner, click **{{ ui-key.yacloud.common.create }}** and select the resource type.
+  1. Select the {{ managed-k8s-name }} cluster and open the **{{ ui-key.yacloud.k8s.cluster.switch_configuration }}** tab.
+  1. Navigate to the tab with the resource type you want to create: **{{ ui-key.yacloud.k8s.configuration.label_config-maps }}** or **{{ ui-key.yacloud.k8s.configuration.label_secrets }}**.
+  1. Click the create button for the selected resource type.
   1. In the drop-down list, select the **{{ ui-key.yacloud.k8s.cluster.field_namespace }}** to create the resource in.
   1. Fill out the manifest file according to these {{ k8s }} guides: [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/), [Secret](https://kubernetes.io/docs/concepts/configuration/secret/).
   1. Click **{{ ui-key.yacloud.k8s.cluster.button_create-resource }}**.
@@ -37,9 +38,9 @@ The list of editable fields depends on the object type and is available in [this
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the cluster name and select ![Configuration](../../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud.k8s.cluster.switch_configuration }}** in the left-hand panel.
-  1. Select the tab with the resource type you want to edit.
-  1. In the row of the resource, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Select the cluster and open the **{{ ui-key.yacloud.k8s.cluster.switch_configuration }}** tab.
+  1. Navigate to the tab with the resource type you want to edit: **{{ ui-key.yacloud.k8s.configuration.label_config-maps }}** or **{{ ui-key.yacloud.k8s.configuration.label_secrets }}**.
+  1. In the row of the resource in question, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the manifest file on the right side of the screen. Your changes will be highlighted with color.
   1. In the top-right corner, click **{{ ui-key.yacloud.common.save }}**.
 
@@ -59,9 +60,9 @@ To delete a `ConfigMap` or `Secret` resource, do the following:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the cluster name and select ![Configuration](../../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud.k8s.cluster.switch_configuration }}** in the left-hand panel.
-  1. Select the tab containing the resource type to delete.
-  1. In the row of the resource, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
-  1. Confirm the action.
+  1. Select the cluster and open the **{{ ui-key.yacloud.k8s.cluster.switch_configuration }}** tab.
+  1. Navigate to the tab with the resource type you want to delete: **{{ ui-key.yacloud.k8s.configuration.label_config-maps }}** or **{{ ui-key.yacloud.k8s.configuration.label_secrets }}**.
+  1. In the row with the resource in question, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+  1. In the window that opens, confirm the operation.
 
 {% endlist %}

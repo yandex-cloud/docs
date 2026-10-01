@@ -5,11 +5,13 @@ description: This page provides reference information on the {{ TF }} provider r
 
 # {{ TF }} reference for {{ si-full-name }}
 
+{% include [sunset-note](../_includes/serverless-integrations/sunset-note.md) %}
+
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ si-full-name }}:
+{{ si-full-name }} supports the following {{ TF }} provider resources:
 
 | **{{ TF }}** resource | **{{ yandex-cloud }}** resource |
 | --- | --- |

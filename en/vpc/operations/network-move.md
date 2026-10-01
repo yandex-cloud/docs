@@ -1,3 +1,8 @@
+---
+title: Moving a cloud network to a different folder
+description: Follow this guide to move a cloud network to a different folder.
+---
+
 # Moving a cloud network to a different folder
 
 You can move cloud resources between folders within a single [cloud](../../resource-manager/concepts/resources-hierarchy.md).
@@ -30,42 +35,45 @@ You can move cloud resources between folders within a single [cloud](../../resou
 
   1. View the description of the CLI move cloud network command:
 
-      ```bash
-      yc vpc network move --help
-      ```
+     ```bash
+     yc vpc network move --help
+     ```
 
   1. Get the name or ID of the cloud network to move:
 
-      ```bash
-      yc vpc network list
-      ```
-      Result:
-      ```text
-      +----------------------+-----------+
-      |          ID          |   NAME    |
-      +----------------------+-----------+
-      | encb4ubvmief******** | default   |
-      | enc39op1vq9m******** | network-1 |
-      | enc772aa2rgq******** | network-2 |
-      +----------------------+-----------+
-      ```
+     ```bash
+     yc vpc network list
+     ```
+
+     Result:
+
+     ```text
+     +----------------------+-----------+
+     |          ID          |   NAME    |
+     +----------------------+-----------+
+     | encb4ubvmief******** | default   |
+     | enc39op1vq9m******** | network-1 |
+     | enc772aa2rgq******** | network-2 |
+     +----------------------+-----------+
+     ```
 
   1. Get a list of available folders:
 
-      ```bash
-      yc resource-manager folder list
-      ```
+     ```bash
+     yc resource-manager folder list
+     ```
 
-      Result:
-      ```text
-      +----------------------+------------------------+--------+--------+
-      |          ID          |          NAME          | LABELS | STATUS |
-      +----------------------+------------------------+--------+--------+
-      | b1cs8ie21pk1******** | default                |        | ACTIVE |
-      | b1chgf288nvg******** | my-folder-1            |        | ACTIVE |
-      | b1cu6g9ielh6******** | my-folder-2            |        | ACTIVE |
-      +----------------------+------------------------+--------+--------+
-      ```
+     Result:
+
+     ```text
+     +----------------------+------------------------+--------+--------+
+     |          ID          |          NAME          | LABELS | STATUS |
+     +----------------------+------------------------+--------+--------+
+     | b1cs8ie21pk1******** | default                |        | ACTIVE |
+     | b1chgf288nvg******** | my-folder-1            |        | ACTIVE |
+     | b1cu6g9ielh6******** | my-folder-2            |        | ACTIVE |
+     +----------------------+------------------------+--------+--------+
+     ```
 
   1. Move the network by specifying the name or ID of the network and destination folder:
 
@@ -74,6 +82,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
        --destination-folder-name <destination_folder_name> \
        --destination-folder-id <destination_folder_ID>
      ```
+
      Use either `--destination-folder-name` or `--destination-folder-id`.
 
      If the network is not in the current folder (default folder), specify the source folder using `--folder-name` or `--folder-id`.
@@ -82,10 +91,10 @@ You can move cloud resources between folders within a single [cloud](../../resou
 
      ```text
      id: enc39op1vq9m********
-      folder_id: b1chgf288nvg********
-      created_at: "2022-10-06T14:54:48Z"
-      name: network-1
-      default_security_group_id: enc2ta63h3q2********
+     folder_id: b1chgf288nvg********
+     created_at: "2022-10-06T14:54:48Z"
+     name: network-1
+     default_security_group_id: enc2ta63h3q2********
      ```
 
      For more information about the `yc vpc network move` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/network/move.md).

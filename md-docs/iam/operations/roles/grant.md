@@ -37,6 +37,12 @@
    1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите необходимые роли.
    1. Нажмите кнопку **Сохранить**.
 
+   {% note info %}
+
+   Чтобы предоставить права доступа сразу всем пользователям в организации, назначьте роль [системной группе](../../concepts/access-control/system-group.md#allOrganizationUsers) `All users in organization X`.
+
+   {% endnote %}
+
 - CLI {#cli}
 
    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
@@ -131,14 +137,14 @@
       resource "yandex_resourcemanager_cloud_iam_member" "cloud_member" {
         cloud_id = "<идентификатор_облака>"
         role     = "<роль>"
-        member   = "<субъект>"
+        member   = "<тип_субъекта>:<идентификатор_субъекта>"
       }
 
       // Назначение роли на каталог
       resource "yandex_resourcemanager_folder_iam_member" "folder_member" {
         folder_id = "<идентификатор_каталога>"
         role      = "<роль>"
-        member    = "<субъект>"
+        member    = "<тип_субъекта>:<идентификатор_субъекта>"
       }
       ```
 
@@ -374,7 +380,7 @@
       resource "yandex_organizationmanager_organization_iam_binding" "<название_ресурса>" {
         organization_id = "<идентификатор_организации>"
         role            = "<роль>"
-        member          = "<субъект>"
+        member          = "<тип_субъекта>:<идентификатор_субъекта>"
       }
       ```
 
@@ -608,7 +614,7 @@
       resource "yandex_resourcemanager_folder_iam_member" "admin-account-iam" {
         folder_id   = "<идентификатор_каталога>"
         role        = "<роль>"
-        member      = "<субъект>"
+        member      = "<тип_субъекта>:<идентификатор_субъекта>"
       }
       ```
 
@@ -846,13 +852,19 @@
       resource "yandex_resourcemanager_cloud_iam_member" "cloud_member_1" {
         cloud_id = "<идентификатор_облака>"
         role     = "<роль_1>"
-        members  = ["<субъект_1>","<субъект_2>,...,<субъект_n>"]
+        members  = ["<тип_субъекта_1>:<идентификатор_субъекта_1>",
+                    "<тип_субъекта_2>:<идентификатор_субъекта_2>",
+                    ...,
+                    "<тип_субъекта_n>:<идентификатор_субъекта_n>"]
       }
 
       resource "yandex_resourcemanager_cloud_iam_member" "cloud_member_2" {
         cloud_id  = "<идентификатор_облака>"
         role      = "<роль_2>"
-        members   = ["<субъект_1>","<субъект_2>,...,<субъект_n>"]
+        members   = ["<тип_субъекта_1>:<идентификатор_субъекта_1>",
+                    "<тип_субъекта_2>:<идентификатор_субъекта_2>",
+                    ...,
+                    "<тип_субъекта_n>:<идентификатор_субъекта_n>"]
       }
       ```
 
@@ -936,8 +948,8 @@
    Чтобы назначить несколько ролей на ресурс, воспользуйтесь методом REST API или вызовом gRPC API `setAccessBindings` для нужного ресурса. Передайте в запросе массив из объектов, каждый из которых соответствует отдельной роли и содержит следующие данные:
 
    * Роль в параметре `accessBindings[].roleId`.
-   * Идентификатор [субъекта](../../concepts/access-control/index.md#subject), на кого назначаются роли, в параметре `accessBindings[].subject.id`.
-   * Тип субъекта, на кого назначаются роли, в параметре `accessBindings[].subject.type`.
+   * Идентификатор [субъекта](../../concepts/access-control/index.md#subject), которому назначаются роли, в параметре `accessBindings[].subject.id`.
+   * Тип субъекта, которому назначаются роли, в параметре `accessBindings[].subject.type`.
 
         {% cut "Обозначения субъектов" %}
 

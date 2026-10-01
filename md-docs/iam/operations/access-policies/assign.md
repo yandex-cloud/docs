@@ -46,6 +46,62 @@
       * `--access-policy-template-id` — идентификатор шаблона, на основе которого вы хотите создать политику авторизации для указанного каталога.
   1. [Убедитесь](../../../resource-manager/operations/folder/manage-access-policies.md#view-assigned), что политика была создана.
 
+- Terraform {#tf}
+
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  
+  Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+
+  1. [Получите](list.md) идентификатор шаблона политики авторизации без параметров.
+  1. Добавьте в конфигурацию ресурс `yandex_resource_manager_folder_iam_policy_binding`:
+
+      ```hcl
+      resource "yandex_resource_manager_folder_iam_policy_binding" "policy" {
+        folder_id = "<идентификатор_каталога>"
+        access_policy_template_id = "<идентификатор_шаблона_политики>"
+      }
+      ```
+
+      Где `folder_id` — идентификатор каталога, а `access_policy_template_id` — идентификатор шаблона политики авторизации. Этот ресурс создает привязку шаблона политики, а не назначает роль субъекту.
+
+      Подробнее см. в [документации провайдера](../../../terraform/resources/resource_manager_folder_iam_policy_binding.md).
+  1. Примените конфигурацию:
+
+      1. В терминале перейдите в директорию с конфигурационным файлом.
+      1. Проверьте корректность конфигурации с помощью команды:
+      
+         ```bash
+         terraform validate
+         ```
+      
+         Если конфигурация является корректной, появится сообщение:
+      
+         ```bash
+         Success! The configuration is valid.
+         ```
+      
+      1. Выполните команду:
+      
+         ```bash
+         terraform plan
+         ```
+      
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+      1. Примените изменения конфигурации:
+      
+         ```bash
+         terraform apply
+         ```
+      
+      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+
 - API {#api}
 
   Воспользуйтесь методом REST API [bindAccessPolicy](../../../resource-manager/api-ref/Folder/bindAccessPolicy.md) для ресурса [Folder](../../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/BindAccessPolicy](../../../resource-manager/api-ref/grpc/Folder/bindAccessPolicy.md).
@@ -79,6 +135,62 @@
       * `--access-policy-template-id` — идентификатор шаблона, на основе которого вы хотите создать политику авторизации для указанного облака.
   1. [Убедитесь](../../../resource-manager/operations/cloud/manage-access-policies.md#view-assigned), что политика была создана.
 
+- Terraform {#tf}
+
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  
+  Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+
+  1. [Получите](list.md) идентификатор шаблона политики авторизации без параметров.
+  1. Добавьте в конфигурацию ресурс `yandex_resource_manager_cloud_iam_policy_binding`:
+
+      ```hcl
+      resource "yandex_resource_manager_cloud_iam_policy_binding" "policy" {
+        cloud_id = "<идентификатор_облака>"
+        access_policy_template_id = "<идентификатор_шаблона_политики>"
+      }
+      ```
+
+      Где `cloud_id` — идентификатор облака, а `access_policy_template_id` — идентификатор шаблона политики авторизации. Этот ресурс создает привязку шаблона политики, а не назначает роль субъекту.
+
+      Подробнее см. в [документации провайдера](../../../terraform/resources/resource_manager_cloud_iam_policy_binding.md).
+  1. Примените конфигурацию:
+
+      1. В терминале перейдите в директорию с конфигурационным файлом.
+      1. Проверьте корректность конфигурации с помощью команды:
+      
+         ```bash
+         terraform validate
+         ```
+      
+         Если конфигурация является корректной, появится сообщение:
+      
+         ```bash
+         Success! The configuration is valid.
+         ```
+      
+      1. Выполните команду:
+      
+         ```bash
+         terraform plan
+         ```
+      
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+      1. Примените изменения конфигурации:
+      
+         ```bash
+         terraform apply
+         ```
+      
+      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+
 - API {#api}
 
   Воспользуйтесь методом REST API [bindAccessPolicy](../../../resource-manager/api-ref/Cloud/bindAccessPolicy.md) для ресурса [Cloud](../../../resource-manager/api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/BindAccessPolicy](../../../resource-manager/api-ref/grpc/Cloud/bindAccessPolicy.md).
@@ -111,6 +223,62 @@
       * `--name` — имя организации, для которой вы хотите создать политику. Вместо имени организации вы можете указать ее [идентификатор](../../../organization/operations/organization-get-id.md) в параметре `--id`.
       * `--access-policy-template-id` — идентификатор шаблона, на основе которого вы хотите создать политику авторизации для указанной организации.
   1. [Убедитесь](../../../organization/operations/manage-access-policies.md#view-assigned), что политика была создана.
+
+- Terraform {#tf}
+
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  
+  Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+
+  1. [Получите](list.md) идентификатор шаблона политики авторизации без параметров.
+  1. Добавьте в конфигурацию ресурс `yandex_organization_manager_organization_iam_policy_binding`:
+
+      ```hcl
+      resource "yandex_organization_manager_organization_iam_policy_binding" "policy" {
+        organization_id = "<идентификатор_организации>"
+        access_policy_template_id = "<идентификатор_шаблона_политики>"
+      }
+      ```
+
+      Где `organization_id` — идентификатор организации, а `access_policy_template_id` — идентификатор шаблона политики авторизации. Этот ресурс создает привязку шаблона политики, а не назначает роль субъекту.
+
+      Подробнее см. в [документации провайдера](../../../terraform/resources/organization_manager_organization_iam_policy_binding.md).
+  1. Примените конфигурацию:
+
+      1. В терминале перейдите в директорию с конфигурационным файлом.
+      1. Проверьте корректность конфигурации с помощью команды:
+      
+         ```bash
+         terraform validate
+         ```
+      
+         Если конфигурация является корректной, появится сообщение:
+      
+         ```bash
+         Success! The configuration is valid.
+         ```
+      
+      1. Выполните команду:
+      
+         ```bash
+         terraform plan
+         ```
+      
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+      1. Примените изменения конфигурации:
+      
+         ```bash
+         terraform apply
+         ```
+      
+      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
 - API {#api}
 

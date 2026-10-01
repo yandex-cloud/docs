@@ -1,5 +1,6 @@
 # Compatibility policies
 
+
 A _compatibility policy_ consists of rules {{ schema-registry-full-name }} uses to check the compatibility of the new schema with earlier versions at the [namespace](schema-registry.md#namespace) level.
 
 You can select a compatibility policy when [creating](../operations/create-name-space.md) or [updating](../operations/update-name-space.md) the namespace. Compatibility policies are available for [Protobuf](https://protobuf.dev/) and [JSON Schema](https://json-schema.org/).

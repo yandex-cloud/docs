@@ -15,7 +15,7 @@ You can [permanently delete](../vm-control/vm-delete.md) the removed VM or [add 
   1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. Navigate to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}** tab.
   1. Select the placement group you want to remove the VM from.
-  1. Go to the **{{ ui-key.yacloud.compute.placement-group.switch_instances }}** panel.
+  1. Navigate to the **{{ ui-key.yacloud.compute.placement-group.switch_instances }}** tab.
   1. In the line with the VM, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.compute.placement-group.instances.button_action-delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.placement-group.instances.popup-confirm_button_delete }}**.
 
@@ -124,7 +124,7 @@ You can [permanently delete](../vm-control/vm-delete.md) the removed VM or [add 
      terraform plan
      ```
 
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
   1. Apply the configuration changes:
 
      ```bash

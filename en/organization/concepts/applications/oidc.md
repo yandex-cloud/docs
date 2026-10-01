@@ -72,7 +72,7 @@ The [Redirect URI](#oidc-redirect-uri) of `{{ ui-key.yacloud_org.organization.ap
 
 ### {{ ui-key.yacloud_org.organization.apps.native-title_1VrmN }} apps {#oidc-native}
 
-OIDC apps of the [{{ ui-key.yacloud_org.organization.apps.native-title_1VrmN }}](../../concepts/applications/oidc.md#oidc-native) type are optimized for user authentication to external mobile or desktop applications installed on their devices.
+OIDC apps of the `{{ ui-key.yacloud_org.organization.apps.native-title_1VrmN }}` type are a good fit for user authentication to external mobile or desktop applications installed on their devices.
 
 `{{ ui-key.yacloud_org.organization.apps.native-title_1VrmN }}` apps do not support the use of the application secret.
 
@@ -154,3 +154,4 @@ In addition to the above-mentioned parameters, you have to specify an [applicati
 * [{#T}](../../operations/applications/oidc-deactivate-remove.md)
 * [{#T}](../../../security/domains/iam-checklist.md)
 * [{#T}](./saml.md)
+

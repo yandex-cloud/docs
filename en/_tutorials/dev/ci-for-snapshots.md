@@ -272,10 +272,9 @@ Create a VM disk snapshot to transfer your web server configuration and test app
 1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), select the folder where you created your VM.
 1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Find the `ci-tutorial-test-app` VM and select it.
-1. Click **{{ ui-key.yacloud.common.stop }}**.
-1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
-1. Once the VM gets stopped, select the **{{ ui-key.yacloud.compute.disks_ddfdb }}** tab.
-1. Next to the disk you need, click ![vertical-ellipsis](../../_assets/console-icons/ellipsis-vertical.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.
+1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg), select ![stop](../../_assets/console-icons/stop.svg) **{{ ui-key.yacloud.common.stop }}** and confirm stopping the VM in the window that opens.
+1. Once the VM gets stopped, select the **{{ ui-key.yacloud.compute.storage_uisyT }}** tab and then the **{{ ui-key.yacloud.compute.disks_ddfdb }}** tab.
+1. In the line with the disk, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.
 1. In the window that opens, specify the snapshot name: `test-app-snap`.
 1. Click **{{ ui-key.yacloud.common.create }}**.
 

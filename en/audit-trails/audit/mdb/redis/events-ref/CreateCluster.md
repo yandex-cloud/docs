@@ -542,7 +542,8 @@ editable: false
       "persistenceMode": "string",
       "announceHostnames": "boolean",
       "authSentinel": "boolean",
-      "diskEncryptionKeyId": "string"
+      "diskEncryptionKeyId": "string",
+      "isHa": "boolean"
     },
     "hosts": [
       {
@@ -583,9 +584,14 @@ editable: false
           "databases": "string"
         },
         "enabled": "boolean",
-        "aclOptions": "string"
+        "aclOptions": "string",
+        "connectionManager": {
+          "connectionId": "string"
+        },
+        "authType": "string"
       }
-    ]
+    ],
+    "clusterName": "string"
   },
   "requestParameters": "object",
   "response": "object"
@@ -760,6 +766,7 @@ A list of messages that carry the error details. ||
 || cluster | **[Cluster](#yandex.cloud.mdb.redis.v1.Cluster)** ||
 || hosts[] | **[HostDetails](#yandex.cloud.audit.mdb.redis.HostDetails)** ||
 || users[] | **[User](#yandex.cloud.mdb.redis.v1.User)** ||
+|| clusterName | **string** ||
 |#
 
 ## Cluster {#yandex.cloud.mdb.redis.v1.Cluster}
@@ -816,6 +823,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || announceHostnames | **boolean** ||
 || authSentinel | **boolean** ||
 || diskEncryptionKeyId | **string** ||
+|| isHa | **boolean** ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.redis.v1.Monitoring}
@@ -1152,20 +1160,22 @@ The minimum value is 0. ||
 - `ALLKEYS_RANDOM`
 - `VOLATILE_TTL`
 - `NOEVICTION` ||
-|| timeout | **string** (int64)
+|| timeout | **string** (int64) ||
+|| password | **string**
 
-The minimum value is 0. ||
-|| password | **string** ||
+Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_%-]{0,128} `. ||
 || databases | **string** (int64)
 
-Acceptable values are 1 to 1024, inclusive. ||
+Acceptable values are 1 to 2147483647, inclusive. ||
 || slowlogLogSlowerThan | **string** (int64)
 
 The minimum value is 10. ||
 || slowlogMaxLen | **string** (int64)
 
 The minimum value is 0. ||
-|| notifyKeyspaceEvents | **string** ||
+|| notifyKeyspaceEvents | **string**
+
+Value must match the regular expression ` [KEg$lshzxeAtmdn]{0,15} `. ||
 || clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)** ||
 || clientOutputBufferLimitNormal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)** ||
 || maxmemoryPercent | **string** (int64)
@@ -1389,6 +1399,11 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || permissions | **[Permissions](#yandex.cloud.mdb.redis.v1.Permissions)** ||
 || enabled | **boolean** ||
 || aclOptions | **string** ||
+|| connectionManager | **[ConnectionManager](#yandex.cloud.mdb.redis.v1.ConnectionManager)** ||
+|| authType | **enum** (AuthType)
+
+- `AUTH_TYPE_PASSWORD`
+- `AUTH_TYPE_IAM` ||
 |#
 
 ## Permissions {#yandex.cloud.mdb.redis.v1.Permissions}
@@ -1401,4 +1416,11 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || commands | **string** ||
 || sanitizePayload | **string** ||
 || databases | **string** ||
+|#
+
+## ConnectionManager {#yandex.cloud.mdb.redis.v1.ConnectionManager}
+
+#|
+||Field | Description ||
+|| connectionId | **string** ||
 |#

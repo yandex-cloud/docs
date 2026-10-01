@@ -403,7 +403,7 @@ items:
                 href: api-ref/grpc/SymmetricKey/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/grpc/SymmetricKey/updateAccessBindings.md
-          - name: Key Management Service API
+          - name: Asymmetric encryption API
             items:
               - name: Overview
                 href: asymmetricencryption/api-ref/grpc/index.md
@@ -458,7 +458,7 @@ items:
                     href: asymmetricencryption/api-ref/grpc/Operation/get.md
                   - name: Cancel
                     href: asymmetricencryption/api-ref/grpc/Operation/cancel.md
-          - name: Key Management Service API
+          - name: Asymmetric signature API
             items:
               - name: Overview
                 href: asymmetricsignature/api-ref/grpc/index.md
@@ -572,7 +572,7 @@ items:
                 href: api-ref/SymmetricKey/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/SymmetricKey/updateAccessBindings.md
-          - name: Key Management Service API
+          - name: Asymmetric encryption API
             items:
               - name: Overview
                 href: asymmetricencryption/api-ref/index.md
@@ -627,7 +627,7 @@ items:
                     href: asymmetricencryption/api-ref/Operation/get.md
                   - name: Cancel
                     href: asymmetricencryption/api-ref/Operation/cancel.md
-          - name: Key Management Service API
+          - name: Asymmetric signature API
             items:
               - name: Overview
                 href: asymmetricsignature/api-ref/index.md

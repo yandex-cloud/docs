@@ -77,7 +77,7 @@ ACL передается в виде XML-документа. Описание с
 
 * [Список управления доступом (ACL)](../../../concepts/acl.md)
 
-* [Редактирование ACL бакета](../../../operations/buckets/edit-acl.md)
+* [Редактировать ACL бакета](../../../operations/buckets/edit-acl.md)
 
 #### Полезные ссылки {#see-also}
 

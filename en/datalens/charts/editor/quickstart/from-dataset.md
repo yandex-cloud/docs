@@ -33,11 +33,11 @@ Follow this guide to build a table in Editor based on a dataset. For convenience
 
 
 
-## Create a chart in Editor {#create-chart}
+## Create an Editor chart {#create-chart}
 
 
 
-1. In the workbook, click **Create** → **Chart in Editor** in the top-right corner. On the page that opens, select the **Table** visualization type.
+1. In the workbook, click **Create** → **Editor chart** in the top-right corner. On the page that opens, select the **Table** visualization type.
 
 1. Link the chart with the dataset by navigating to the **Meta** tab and adding the connection ID to `links`:
 
@@ -84,8 +84,12 @@ Follow this guide to build a table in Editor based on a dataset. For convenience
 
 1. Clear the contents of the **Params** and **Config** tabs: they contain a template that is not relevant to our example.
 
-1. On the **Prepare** tab, create a table:
-
+1. Use the **Prepare** tab to create a table. You can preprocess the incoming data by applying different grouping and detail levels, formatting, and visualization. Here is an example:
+   
+   * With charts: Data with rows grouped by the **Payment type** field and columns grouped by the **Order year** field, with a monthly sales chart.
+   * Without charts: Data with rows grouped by the **Payment type** field and columns grouped by the **Order year** field, without any additional visualization.
+   * Simple table: Aggregated data in simple table form.
+  
    {% note info %}
 
    In this example, the `const Dataset = require('libs/dataset/v2')` service module is used for more convenient operations with datasets. The `Dataset.getDatasetRows()` method extracts data from the source specified in the `datasetName` parameter and provides the data in a convenient compact form.
@@ -94,167 +98,348 @@ Follow this guide to build a table in Editor based on a dataset. For convenience
 
    {% endnote %}
 
-   ```javascript
-   const Dataset = require('libs/dataset/v2');
+   {% list tabs group=difficulty %}
 
-   // Getting data from the dataset in a convenient format using the service module
-   // datasetName: Dataset name on the Sources tab
-   const data = Dataset.getDatasetRows({datasetName: 'salesSourceData'});
-   
-   // Helper function to group data by a specified dataset field name 
-   function groupBy(arr, field) {
-       return arr.reduce((acc, item) => {
-           const key = item[field];
-           if (!acc[key]) {
-               acc[key] = [];
-           }
-           acc[key].push(item);
-           
-           return acc;
-       }, {});
-   }
-   
-   // Array containing unique values of the "Order year" field, sorted in ascending numerical order
-   const years = Array.from(new Set(data.map(d => String(d['Order year'])))).sort();
-   
-   // Common styles for table header cells
-   const headStyles = {background: 'var(--g-color-base-misc-light)', verticalAlign: 'middle'};
-   
-   // Table header cell configuration
-   const head = [
-       {
-           name: 'Payment type',
-           formattedName: Editor.generateHtml({
-               tag: 'span',
-               content: [
-                   {tag: 'span', content: 'Payment type'},
-   				// tooltip for a cell header
-                   {
-                       tag: 'dl-tooltip',
-                       content: ' ℹ',
-                       style: {
-                           display: 'inline-block',
-                           margin: '0px 0px 0px 4px',
-                           'line-height': '12px',
-                           'text-align': 'center',
-                           width: '16px',
-                           height: '16px',
-                           border: '1px solid #ccc',
-                           'border-radius': '50%',
-                       },
-                       attributes : {
-                           'data-tooltip-content': {
-                               tag: 'i',
-                               content: 'Tooltip content',
-                           },
-                       },
-                   }
-               ],
-           }),
-           css: headStyles,
-           pinned: true,
-       },
-       // Creating columns based on the array of values from the "Order year" field obtained earlier
-       ...years.map(year => ({
-           name: year,
-           css: headStyles,
-       })),
-       {
-           name: 'Sales, all years',
-           css: headStyles,
-       },
-   ];
-   
-   // Helper function to render a chart line
-   function createChart(chartData) {
-       const chartWidth = 80;
-       const chartHeight = 40;
-   
-       // Calculating the minimum and maximum coordinate values
-       const minX = Math.min(...chartData.map(d => d.x));
-       const maxX = Math.max(...chartData.map(d => d.x));
-       const minY = Math.min(...chartData.map(d => d.y));
-       const maxY = Math.max(...chartData.map(d => d.y));
-   
-       // Calculating coordinates based on the chart container dimensions (chartWidth, chartHeight)
-       const coords = chartData.sort((d1, d2) => d1.x - d2.x).map(d => ([
-           (d.x - minX) / (maxX - minX) * chartWidth, 
-           (d.y - minY) / (maxY - minY) * chartHeight,
-       ]));
-       // Creating a path for the SVG line using the coordinates generated above
-       let d = "";
-       coords.forEach((_, x) => {
-           d += d === "" ? "M" : " L";
-           d += `${coords[x][0]} ${coords[x][1]}`;
-       });
-       // Creating an SVG with var(--g-color-base-brand) for line color and thickness of 2px
-       return `
-           <svg width="${chartWidth}" height="${chartHeight}">
-               <path 
-                   d="${d}" 
-                   style="fill: none; stroke: var(--g-color-base-brand); stroke-width: 2;"
-               />
-           </svg>`;
-   }
-   
-   const rows = [];
-   
-   // Helper function for number formatting
-   const formatSalesValue = new Intl.NumberFormat('ru-RU').format;
-   const postfix = ', ₽';
-   
-   // Rows grouped by the "Payment type" field
-   const groupedData = groupBy(data, 'Payment type');
-   // Generating and populating table rows for each grouped payment type
-   Object.entries(groupedData).forEach(([key, items]) => {
-       // Rows grouped by the "Order year" field
-       const salesByYears = groupBy(items, 'Order year');
-       // Calculating the sum for the "Sale, ₽" field across all years 
-       const totalSales = items.reduce((sum, d) => sum + d['Sale, ₽'], 0);
-       rows.push({
-           cells: [
-               {
-                   value: key,
-               },
-               // Creating columns based on previously prepared "Order year" values
-               ...years.map(year => {
-                   const salesByYear = salesByYears[year] ?? [];
-                   const yearSales = salesByYear.map(d => ({
-                       x: new Date(d['Order month']).getTime(), 
-                       y: d['Sale, ₽'],
-                   }));
-                   const maxSales = Math.max(...salesByYear.map(d => d['Sale, ₽']));
-                   const minSales = Math.min(...salesByYear.map(d => d['Sale, ₽']));
-   
-                   return {
-                       value: maxSales, 
-                       formattedValue: Editor.generateHtml(`
-                           <div>
-                               ${createChart(yearSales)}
-                               <div style="margin-top: 8px;">Min: <b>${formatSalesValue(minSales)}${postfix}<b></div>
-                               <div>Max: <b>${formatSalesValue(maxSales)}${postfix}</b></div>
-                           </div>
-                       `),   
-                   };
-               }),
-               {
-                   value: totalSales,
-                   formattedValue: formatSalesValue(totalSales) + postfix,
-                   css: {
-                       verticalAlign: 'middle',
-                       textAlign: 'center',
-                       fontSize: '16px',
-                   },
-               },
-           ],
-       });
-   });
-   
-   module.exports = {head, rows};
-   ```
+   - With charts {#visualization}
 
-1. At the top of the chart, click **Execute**. The preview will show the dataset as a table with rows grouped by the **Payment type** field and columns grouped by the **Order year** field, along with a monthly sales chart:
+     ```javascript
+     const Dataset = require('libs/dataset/v2');
+     const loadedData = Editor.getLoadedData();
 
-   ![image.png](../../../../_assets/datalens/editor/quick-start-1.png)
+     // Getting data from the dataset in a convenient format using the service module
+     // datasetName: Dataset name on the Sources tab
+     const data = Dataset.getDatasetRows({datasetName: 'salesSourceData'});
+     
+     // Helper function to group data by a specified dataset field name 
+     function groupBy(arr, field) {
+         return arr.reduce((acc, item) => {
+             const key = item[field];
+             if (!acc[key]) {
+                 acc[key] = [];
+             }
+             acc[key].push(item);
+             
+             return acc;
+         }, {});
+     }
+     
+     // Array containing unique values of the "Order year" field, sorted in ascending numerical order
+     const years = Array.from(new Set(data.map(d => String(d['Order year'])))).sort();
+     
+     // Common styles for table header cells
+     const headStyles = {background: 'var(--g-color-base-misc-light)', verticalAlign: 'middle'};
+     
+     // Table header cell configuration
+     const head = [
+         {
+             name: 'Payment type',
+             formattedName: Editor.generateHtml({
+                 tag: 'span',
+                 content: [
+                     {tag: 'span', content: 'Payment type'},
+     				// tooltip for a cell header
+                     {
+                         tag: 'dl-tooltip',
+                         content: ' ℹ',
+                         style: {
+                             display: 'inline-block',
+                             margin: '0px 0px 0px 4px',
+                             'line-height': '12px',
+                             'text-align': 'center',
+                             width: '16px',
+                             height: '16px',
+                             border: '1px solid #ccc',
+                             'border-radius': '50%',
+                         },
+                         attributes : {
+                             'data-tooltip-content': {
+                                 tag: 'i',
+                                 content: 'Tooltip content',
+                             },
+                         },
+                     }
+                 ],
+             }),
+             css: headStyles,
+             pinned: true,
+         },
+         // Creating columns based on the array of values from the "Order year" field obtained earlier
+         ...years.map(year => ({
+             name: year,
+             css: headStyles,
+         })),
+         {
+             name: 'Sales, all years',
+             css: headStyles,
+         },
+     ];
+     
+     // Helper function to render a chart line
+     function createChart(chartData) {
+         const chartWidth = 80;
+         const chartHeight = 40;
+     
+         // Calculating the minimum and maximum coordinate values
+         const minX = Math.min(...chartData.map(d => d.x));
+         const maxX = Math.max(...chartData.map(d => d.x));
+         const minY = Math.min(...chartData.map(d => d.y));
+         const maxY = Math.max(...chartData.map(d => d.y));
+     
+         // Calculating coordinates based on the chart container dimensions (chartWidth, chartHeight)
+         const coords = chartData.sort((d1, d2) => d1.x - d2.x).map(d => ([
+             (d.x - minX) / (maxX - minX) * chartWidth, 
+             (d.y - minY) / (maxY - minY) * chartHeight,
+         ]));
+         // Creating a path for the SVG line using the coordinates generated above
+         let d = "";
+         coords.forEach((_, x) => {
+             d += d === "" ? "M" : " L";
+             d += `${coords[x][0]} ${coords[x][1]}`;
+         });
+         // Creating an SVG with var(--g-color-base-brand) for line color and thickness of 2px
+         return `
+             <svg width="${chartWidth}" height="${chartHeight}">
+                 <path 
+                     d="${d}" 
+                     style="fill: none; stroke: var(--g-color-base-brand); stroke-width: 2;"
+                 />
+             </svg>`;
+     }
+     
+     const rows = [];
+     
+     // Helper function for number formatting
+     const formatSalesValue = new Intl.NumberFormat('ru-RU').format;
+     const postfix = ', ₽';
+     
+     // Rows grouped by the "Payment type" field
+     const groupedData = groupBy(data, 'Payment type');
+     // Generating and populating table rows for each grouped payment type
+     Object.entries(groupedData).forEach(([key, items]) => {
+         // Rows grouped by the "Order year" field
+         const salesByYears = groupBy(items, 'Order year');
+         // Calculating the sum for the "Sale, ₽" field across all years 
+         const totalSales = items.reduce((sum, d) => sum + d['Sale, ₽'], 0);
+         rows.push({
+             cells: [
+                 {
+                     value: key,
+                 },
+                 // Creating columns based on previously prepared "Order year" values
+                 ...years.map(year => {
+                     const salesByYear = salesByYears[year] ?? [];
+                     const yearSales = salesByYear.map(d => ({
+                         x: new Date(d['Order month']).getTime(), 
+                         y: d['Sale, ₽'],
+                     }));
+                     const maxSales = Math.max(...salesByYear.map(d => d['Sale, ₽']));
+                     const minSales = Math.min(...salesByYear.map(d => d['Sale, ₽']));
+     
+                     return {
+                         value: maxSales, 
+                         formattedValue: Editor.generateHtml(`
+                             <div>
+                                 ${createChart(yearSales)}
+                                 <div style="margin-top: 8px;">Min: <b>${formatSalesValue(minSales)}${postfix}<b></div>
+                                 <div>Max: <b>${formatSalesValue(maxSales)}${postfix}</b></div>
+                             </div>
+                         `),   
+                     };
+                 }),
+                 {
+                     value: totalSales,
+                     formattedValue: formatSalesValue(totalSales) + postfix,
+                     css: {
+                         verticalAlign: 'middle',
+                         textAlign: 'center',
+                         fontSize: '16px',
+                     },
+                 },
+             ],
+         });
+     });
+     
+     module.exports = {head, rows};
+     ```
 
-1. To save the chart, click **Save** in the top-right corner and enter a name for the chart.
+   - Without charts {#formatting}
+
+     ```javascript
+     const Dataset = require('libs/dataset/v2');
+     const loadedData = Editor.getLoadedData();
+     
+     // Getting data from the dataset in a convenient format using the service module
+     // datasetName: Dataset name on the Sources tab
+     const data = Dataset.getDatasetRows({datasetName: 'salesSourceData'});
+     
+     // Helper function to group data by a specified dataset field name 
+     function groupBy(arr, field) {
+         return arr.reduce((acc, item) => {
+             const key = item[field];
+             if (!acc[key]) {
+                 acc[key] = [];
+             }
+             acc[key].push(item);
+             
+             return acc;
+         }, {});
+     }
+     
+     // Array containing unique values of the "Order year" field, sorted in ascending numerical order
+     const years = Array.from(new Set(data.map(d => String(d['Order year'])))).sort();
+     
+     // Common styles for table header cells
+     const headStyles = {background: 'var(--g-color-base-misc-light)', verticalAlign: 'middle'};
+     
+     // Table header cell configuration
+     const head = [
+         {
+             name: 'Payment type',
+             formattedName: Editor.generateHtml({
+                 tag: 'span',
+                 content: [
+                     {tag: 'span', content: 'Payment type'},
+                 ],
+             }),
+             css: headStyles,
+             pinned: true,
+         },
+         // Creating columns based on the array of values from the "Order year" field obtained earlier
+         ...years.map(year => ({
+             name: year,
+             css: headStyles,
+         })),
+         {
+             name: 'Sales, all years',
+             css: headStyles,
+         },
+     ];
+     
+     
+     const rows = [];
+     
+     // Helper function for number formatting
+     const formatSalesValue = new Intl.NumberFormat('ru-RU').format;
+     const postfix = ', ₽';
+     
+     // Rows grouped by the "Payment type" field
+     const groupedData = groupBy(data, 'Payment type');
+     // Generating and populating table rows for each grouped payment type
+     Object.entries(groupedData).forEach(([key, items]) => {
+              // Rows grouped by the "Order year" field
+              const salesByYears = groupBy(items, 'Order year');
+              // Calculating the sum for the "Sale, ₽" field across all years 
+              const totalSales = items.reduce((sum, d) => sum + d['Sale, ₽'], 0);
+              rows.push({
+                  cells: [
+                      {
+                          value: key,
+                      },
+                      // Creating columns based on previously prepared "Order year" values
+                      ...years.map(year => {
+                          const salesByYear = salesByYears[year] ?? [];
+                          const yearSales = salesByYear.map(d => ({
+                              x: new Date(d['Order month']).getTime(), 
+                              y: d['Sale, ₽'],
+                          }));
+                          const maxSales = Math.max(...salesByYear.map(d => d['Sale, ₽']));
+                          const minSales = Math.min(...salesByYear.map(d => d['Sale, ₽']));
+                          
+                          return {
+                              value: maxSales, 
+                              formattedValue: Editor.generateHtml(`
+                                  <div>
+                                      <div style="margin-top: 8px;">Min: <b>${formatSalesValue(minSales)}${postfix}<b></div>
+                                      <div>Max: <b>${formatSalesValue(maxSales)}${postfix}</b></div>
+                                  </div>
+                              `),   
+                          };
+                      }),
+                      {
+                     value: totalSales,
+                     formattedValue: formatSalesValue(totalSales) + postfix,
+                     css: {
+                         verticalAlign: 'middle',
+                         textAlign: 'center',
+                         fontSize: '16px',
+                     },
+                 },
+             ],
+         });
+     });
+     
+     module.exports = {head, rows};
+     ```
+   
+   - Simple table {#table}
+
+     ```javascript     
+     const Dataset = require('libs/dataset/v2');
+
+     // Getting data from the dataset in a convenient format using the service module
+     // datasetName: Dataset name on the Sources tab
+     const data = Dataset.getDatasetRows({datasetName: 'salesSourceData'});
+
+     // Table header cell configuration
+     const head = [
+         {
+             name: 'Payment type',
+             type: 'text',
+         },
+         {
+             name: 'Order year',
+             type: 'text',
+         },
+         {
+             name: 'Sales, ₽',
+             type: 'number',
+         },
+     ];
+
+     const rows = [];
+     data.forEach(dataItem => {
+         rows.push({
+             cells: [
+                 {
+                     value: dataItem['Payment type'],
+                 },
+                 {
+                     value: dataItem['Order year'],
+                 },
+                 {
+                     value: dataItem['Sales, ₽'],
+                 },
+             ],
+         });
+     });
+
+     module.exports = {head, rows};
+     ```
+
+   {% endlist %}
+
+1. At the top of the chart, click **Execute**. The preview area will display a table with grouped dataset data:
+
+   {% list tabs group=difficulty %}
+
+   - With charts {#visualization}
+
+     Table with rows grouped by the **Payment type** field and columns grouped by the **Order year** field, with a monthly sales chart.
+
+     ![image.png](../../../../_assets/datalens/editor/quick-start-1.png)
+
+   - Without charts {#formatting}
+
+     Table with rows grouped by the **Payment type** field and columns grouped by the **Order year** field.
+     
+     ![image.png](../../../../_assets/datalens/editor/quick-start-1-formatting.png)
+   
+   - Simple table {#table}
+
+     Simple table with columns grouped by the **Payment type** and **Order year** fields.
+     
+     ![image.png](../../../../_assets/datalens/editor/quick-start-1-table.png)
+
+   {% endlist %}
+
+1. To save a chart, click **Save** in the top-right corner and enter a name for the chart.

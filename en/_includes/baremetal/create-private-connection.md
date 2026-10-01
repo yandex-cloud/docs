@@ -7,7 +7,7 @@
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}** and then select the virtual network segment you need.
   1. Under **{{ ui-key.yacloud.baremetal.title_vrf-interconnect-section }}**, click **{{ ui-key.yacloud.baremetal.action_add-vrf-interconnect }}**, and in the window that opens:
 
-      1. In the **{{ ui-key.yacloud.baremetal.label_vrf-interconnect-select-type }}** field, select `{{ ui-key.yacloud.baremetal.field_interconnect-direct-id }}` and paste the `Routing Instance` private connection ID to the **{{ ui-key.yacloud.baremetal.label_vrf-interconnect-direct-type }}** field.
+      1. In the **{{ ui-key.yacloud.baremetal.label_vrf-interconnect-select-type }}** field, select `{{ ui-key.yacloud.baremetal.field_interconnect-direct-id }}` and paste the `Routing Instance` virtual router ID into the **{{ ui-key.yacloud.baremetal.label_vrf-interconnect-direct-type }}** field.
 
           You can also select the `{{ ui-key.yacloud.baremetal.field_interconnect-from-folder }}` option. In this case, select the `Routing Instance` you need from the list that opens.
 
@@ -20,7 +20,7 @@
 
 - API {#api}
 
-  To create a private connection with cloud networks, use the [PrivateCloudConnection.Create](../../baremetal/api-ref/PrivateCloudConnection/create.md) REST API method or the [PrivateCloudConnectionService/Create](../../baremetal/api-ref/grpc/PrivateCloudConnection/create.md) gRPC API call.
+  To create a private connection with a virtual router, use the [PrivateCloudConnection.Create](../../baremetal/api-ref/PrivateCloudConnection/create.md) REST API method or the [PrivateCloudConnectionService/Create](../../baremetal/api-ref/grpc/PrivateCloudConnection/create.md) gRPC API call.
 
   Run this query:
 

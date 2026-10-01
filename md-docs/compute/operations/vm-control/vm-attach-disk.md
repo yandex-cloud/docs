@@ -26,9 +26,9 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
   1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски**.
-  1. Выберите неподключенный диск или [создайте](../disk-create/empty.md) новый.
-  1. Напротив диска, который вы хотите подключить, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Присоединить**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски и хранилища**.
+  1. (Опционально) Если у вас нет подходящего диска, [создайте](../disk-create/empty.md) новый.
+  1. В строке с диском, который вы хотите подключить, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Присоединить**.
   1. В открывшемся окне:
      * В поле **ВМ** выберите виртуальную машину, к которой нужно подключить диск.
      * Если в хотите подключить [зашифрованный](../../concepts/encryption.md) диск, выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) c [ролью](../../../kms/security/index.md#kms-keys-encrypterDecrypter) `kms.keys.encrypterDecrypter` на [ключ KMS](../../../kms/concepts/key.md), которым зашифрован диск.

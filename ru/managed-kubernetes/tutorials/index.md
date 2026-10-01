@@ -77,3 +77,8 @@ C помощью {{ managed-k8s-name }} вы можете работать с [�
 * [{#T}](marketplace/thumbor.md)
 * [{#T}](marketplace/istio.md)
 * [{#T}](marketplace/hashicorp-vault.md)
+
+## Миграция в {{ managed-k8s-name }} {#migration}
+
+* [{#T}](migration/index.md)
+* [{#T}](migration/migration-from-cloud.md)

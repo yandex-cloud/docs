@@ -29,7 +29,6 @@ apiPlayground:
 # Managed Service for OpenSearch API, REST: Cluster.RestartOpenSearch
 
 
-Required for backward compatibility with old clients. --)
 Restarts OpenSearch on specified host.
 
 ## HTTP request

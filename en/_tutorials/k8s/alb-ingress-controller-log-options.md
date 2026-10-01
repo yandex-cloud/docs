@@ -22,14 +22,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* DNS zone and DNS query fee (see [{{ dns-name }} pricing](../../dns/pricing.md)).
-* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for using the computing resources of each L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
-* Fee for public IP addresses for cluster nodes and L7 load balancers (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* {{ cloud-logging-name }} fee: data logging and storage (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
+* Public DNS requests and DNS zones (see [{{ dns-full-name }} pricing](../../dns/pricing.md)).
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: Use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Each active L7 load balancer: use of computing resources (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* Public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* {{ cloud-logging-full-name }}: amount of written data and its retention time (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
 
 
 ## Getting started {#before-begin}

@@ -13,4 +13,4 @@ To configure an [autoscaling instance group](index.md):
 
 #### Useful links {#see-also}
 
-* [{#T}](terraform.md)
+[{#T}](terraform.md)

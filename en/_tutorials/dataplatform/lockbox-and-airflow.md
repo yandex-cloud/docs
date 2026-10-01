@@ -1,5 +1,6 @@
 # Storing {{ AF }} connections and variables in {{ lockbox-full-name }}
 
+
 When working with {{ maf-full-name }}, you can use [{{ lockbox-full-name }}](../../lockbox/index.yaml) to store artifacts that can be used in DAG files: connections, variables, and configuration data. {{ lockbox-name }} integrates into {{ maf-short-name }} via the [{{ lockbox-name }} Secret Backend](https://airflow.apache.org/docs/apache-airflow-providers-yandex/stable/secrets-backends/yandex-cloud-lockbox-secret-backend.html) provider. As a result, access to the secret storage is configured automatically.
 
 Below, we consider a [directed acyclic graph (DAG)](../../managed-airflow/concepts/index.md#about-the-service) running the `SELECT 1;` SQL query to a database in a {{ mpg-full-name }} cluster. Data for connecting to the DB is stored in {{ lockbox-name }} and automatically inserted into the graph.
@@ -32,7 +33,7 @@ The support cost for this solution includes:
    * `{{ roles.maf.integrationProvider }}`
    * `lockbox.payloadViewer`
 
-   {% note info }
+   {% note info %}
 
    There is no need to assign the `lockbox.payloadViewer` role for the whole folder. It is enough to [assign it for a specific {{ lockbox-name }} secret](../../lockbox/operations/secret-access.md) once you [create it](#create-lockbox-secret).
 

@@ -40,7 +40,7 @@ Within a single zone, high availability of {{ compute-name }} and its associated
 
 In addition, there are tools for increasing the availability of computing resources within a single availability zone. For example, [placement groups](../../../compute/concepts/placement-groups.md) allow you to distribute VMs in such a way that each of them would be reliably placed on a separate server rack in one of the availability zones. If one rack fails, the others will continue to run normally.
 
-VM disks are created and operate in the Network Block Storage (NBS) subsystem that maintains operation of a distributed storage system within an availability zone. NBS is based on the Yandex Database ({{ ydb-short-name }}) technology that allows you to store metadata of client load blocks for all users. This distributed transactional DBMS ensures the performance required for NBS. Disks NBS currently provides come close to corporate storage systems in terms of performance. For more information about available disk types and their performance, see the relevant [documentation](../../../compute/concepts/limits#compute-limits-vm-disks.md). ||
+VM disks are created and operate in the Network Block Storage (NBS) subsystem that maintains operation of a distributed storage system within an availability zone. NBS is based on the Yandex Database ({{ ydb-short-name }}) technology that allows you to store metadata of client load blocks for all users. This distributed transactional DBMS ensures the performance required for NBS. Disks NBS currently provides come close to corporate storage systems in terms of performance. For more information about available disk types and their performance, see the relevant [documentation](../../../compute/concepts/limits.md#compute-limits-vm-disks). ||
 |#
 
 ### Disaster recovery {#disaster-recovery}
@@ -123,7 +123,7 @@ Available technologies for higher reliability and storage optimization depend on
 
 * Disk encryption.
 
-vCloud Director users can select a required storage level mapped to a preset datastore configuration. Storage system manufacturers each have their own methods to limit the impact of _noisy neighbors_. These methods are usually hidden from the platform users.
+Within vCloud Director, users can choose storage tiers mapped to predefined datastore configurations. Storage system manufacturers each have their own methods to limit the impact of _noisy neighbors_. These methods are usually hidden from the platform users.
 
 The noisy neighbor effect is usually addressed through various tools implementing minimum performance guarantees for individual datastores, such as Storage QoS. If a VMware Cloud client intensely utilizes the disk subsystem, their disks with data can be transferred to a separate datastore provided by a dedicated controller and storage system disks.
 

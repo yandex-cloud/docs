@@ -23,6 +23,8 @@ items:
         href: tutorials/install-on-yc-vm.md
       - name: Настройка внешнего доступа к поду в кластере
         href: tutorials/expose-app-domain.md
+      - name: Проверка подписи собственных образов
+        href: tutorials/verify-own-image-signatures.md
   - name: Пошаговые инструкции
     expanded: true
     items:
@@ -38,7 +40,11 @@ items:
             href: operations/iam/connect-saml-federation.md
           - name: Назначить права доступа
             href: operations/iam/assign-role.md
-      - name: Базы данных
+          - name: Создать резервную копию YDB
+            href: operations/iam/ydb-backup.md
+          - name: Восстановить YDB из резервной копии
+            href: operations/iam/ydb-restore.md
+      - name: Базы данных и аналитика
         items:
           - name: Managed Service for PostgreSQL
             items:
@@ -102,9 +108,9 @@ items:
                 href: operations/rest-catalog/create-catalog.md
               - name: Изменить каталог
                 href: operations/rest-catalog/edit-catalog.md
-              - name: Создать пользователя каталога
+              - name: Назначить права на каталог
                 href: operations/rest-catalog/create-principal.md
-              - name: Удалить пользователя каталога
+              - name: Отозвать права на каталог
                 href: operations/rest-catalog/delete-principal.md
               - name: Удалить каталог
                 href: operations/rest-catalog/delete-catalog.md
@@ -136,6 +142,28 @@ items:
                 href: operations/ytsaurus/connect-api.md
               - name: Отключить {{ yt-name }}
                 href: operations/ytsaurus/disable.md
+      - name: Оркестрация данных
+        items:
+          - name: '{{ maf-name }}'
+            items:
+              - name: Включить {{ maf-name }}
+                href: operations/airflow/enable.md
+              - name: Создать кластер {{ AF }}
+                href: operations/airflow/create-cluster.md
+              - name: Изменить настройки кластера {{ AF }}
+                href: operations/airflow/edit-cluster.md
+              - name: Получить учетные данные администратора {{ AF }}
+                href: operations/airflow/get-admin-credentials.md
+              - name: Открыть веб-интерфейс {{ AF }}
+                href: operations/airflow/connect-ui.md
+              - name: Приостановить или возобновить кластер {{ AF }}
+                href: operations/airflow/pause-resume.md
+              - name: Удалить кластер {{ AF }}
+                href: operations/airflow/delete-cluster.md
+              - name: Устранение неполадок {{ AF }}
+                href: operations/airflow/troubleshooting.md
+              - name: Отключить {{ maf-name }}
+                href: operations/airflow/disable.md
       - name: Бакеты
         items:
           - name: Создать бакет
@@ -198,6 +226,8 @@ items:
             href: operations/policy-manager/apply-mute.md
           - name: Удалить пресет с политиками
             href: operations/policy-manager/delete-preset.md
+          - name: Посмотреть отчеты об уязвимостях
+            href: operations/policy-manager/view-vulnerability-reports.md
       - name: Проекты
         items:
           - name: Все инструкции
@@ -228,6 +258,14 @@ items:
             href: operations/secrets-store/inject-secrets-configmap.md
           - name: Диагностика Secrets Store
             href: operations/secrets-store/troubleshooting.md
+      - name: AI Studio
+        items:
+          - name: Загрузить образы
+            href: operations/ai-studio/install-images.md
+          - name: Включить AI Studio
+            href: operations/ai-studio/configure.md
+          - name: Отключить AI Studio
+            href: operations/ai-studio/disable.md
       - name: Дисковая подсистема
         items:
           - name: Диагностика дисковой подсистемы
@@ -267,6 +305,8 @@ items:
             href: concepts/components/kafka.md
           - name: Managed Service for PostgreSQL
             href: concepts/components/postgresql.md
+          - name: '{{ maf-name }}'
+            href: concepts/components/airflow.md
           - name: Managed Service for ClickHouse®
             href: concepts/components/clickhouse.md
           - name: '{{ rest-catalog-name }}'
@@ -291,6 +331,8 @@ items:
             href: concepts/components/secrets-store.md
           - name: SpeechSense
             href: concepts/components/speechsense.md
+          - name: AI Studio
+            href: concepts/components/ai-studio.md
       - name: Мониторинг кластера
         items:
           - name: Мониторинг ClickHouse

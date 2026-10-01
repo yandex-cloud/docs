@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Изменить метку шины
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}

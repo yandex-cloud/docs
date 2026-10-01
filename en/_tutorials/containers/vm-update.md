@@ -9,7 +9,7 @@ Change the Docker container settings on the VM created from a [{{ coi }}](../../
   1. In the [management console]({{ link-console-main }}), select the folder containing the VM.
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Click the row with the VM you want to update.
-  1. In the top panel, click **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**
+  1. Click ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Modify the **{{ ui-key.yacloud.compute.instances.create.section_coi }}** section as required.
   1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 

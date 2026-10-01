@@ -13,7 +13,7 @@ description: Follow this guide to get information about a log sink.
   1. [Navigate]({{ link-console-main }}/link/logging) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-arrow-down.svg) **{{ ui-key.yacloud.logging.label_sinks }}**.
   1. Select the log sink.
-  1. The **{{ ui-key.yacloud.common.overview }}** page will show the log sink details.
+  1. The page that opens will show the log sink details.
 
 - CLI {#cli}
 

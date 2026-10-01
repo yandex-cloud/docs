@@ -14,13 +14,19 @@ You can only link [resources](../../concepts/index.md#protected-resources) to a 
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to link a resource to a backup policy.
   1. [Navigate]({{ link-console-main }}/link/backup) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-  1. Navigate to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud_billing.backup.label_policies }}** tab.
+  1. In the left-hand panel, select ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud_billing.backup.label_policies }}**.
   1. Select the policy you want to link the VM or server to.
   1. Under **{{ ui-key.yacloud.backup.title_linked-recourses }}**, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}**, and in the window that opens:
 
-      1. Depending on the resource you want to link to the backup policy, select the **{{ ui-key.yacloud.backup.value_vm-recourses }}** or **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab and select the VM or server from the list.
+      1. Depending on the resource you want to link to the backup policy, in the **{{ ui-key.yacloud.backup.field_add-resource_resource-type }}** field, select one of the following:
 
-          If the VM or server you want to link to the backup policy is not listed, make sure it is connected to {{ backup-name }}.
+          * `{{ ui-key.yacloud.backup.value_vm-recourses }}`: For {{ compute-name }} VMs.
+          * `{{ ui-key.yacloud.backup.value_bms-recourses }}`: For {{ baremetal-name }} servers.
+          * `{{ ui-key.yacloud.backup.label_external-vm-instances }}`: For external VMs.
+          * `{{ ui-key.yacloud.backup.label_external-server-instances }}`: For external servers.
+      1. In the field below, select the resource of the previously selected type.
+
+          If the resource you want to link to the backup policy is not listed, make sure it is connected to {{ backup-name }}.
       1. Click **{{ ui-key.yacloud_billing.backup.button_attach-instance-submit }}**.
 
 - CLI {#cli}
@@ -50,7 +56,7 @@ You can only link [resources](../../concepts/index.md#protected-resources) to a 
         --instance-ids <resource_IDs>
       ```
 
-      Where `--instance-ids` are the IDs of the [{{ compute-name }} VMs](../../concepts/vm-connection/compute.md), [{{ baremetal-name }} servers](../../concepts/vm-connection/baremetal.md), or [external resources](../../concepts/vm-connection/external-resources.md) connected to {{ backup-name }} which you need to link to the backup policy. Multiple IDs should be comma-separated.
+      Where `--instance-ids` are the IDs of the [{{ compute-name }} VMs](../../concepts/vm-connection/compute.md), [{{ baremetal-name }}servers](../../concepts/vm-connection/baremetal.md), or [external resources](../../concepts/vm-connection/external-resources.md) connected to {{ backup-name }} which need be to linked to the backup policy. Multiple IDs should be comma-separated.
 
   For more information about this command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/apply.md).
 

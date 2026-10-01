@@ -1183,7 +1183,7 @@ Duration of the temporary ban, in seconds.
     name = string,
     priority = integer,
     rule-specifier = dynamic-quota={
-      action = DENY,
+      action = DENY|CAPTCHA,
       ban-period = integer,
       characteristics = [
         {
@@ -1492,7 +1492,7 @@ Duration of the temporary ban, in seconds.
       limit = integer,
       period = integer
     } | static-quota={
-      action = DENY,
+      action = DENY|CAPTCHA,
       condition = {
         authority = {
           authorities = [
@@ -1806,7 +1806,7 @@ Duration of the temporary ban, in seconds.
     "priority": "integer",
     "rule-specifier": {
       "dynamic-quota": {
-        "action": "DENY",
+        "action": "DENY|CAPTCHA",
         "ban-period": "integer",
         "characteristics": [
           {
@@ -2356,7 +2356,7 @@ Duration of the temporary ban, in seconds.
         "period": "integer"
       },
       "static-quota": {
-        "action": "DENY",
+        "action": "DENY|CAPTCHA",
         "condition": {
           "authority": {
             "authorities": [
@@ -2930,6 +2930,15 @@ Set the custom profile. ||
 || `--region` | `string`
 
 Set the region. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||

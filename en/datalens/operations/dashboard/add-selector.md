@@ -36,9 +36,9 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
      * **Show in tabs**: Select how to display the selector on the dashboard:
 
        * `Current tab <tab_name>`: Display the selector on the selected tab. This is the default option for a single selector.
-       * `Selected tabs`: Select one or more tabs to display the selector on. By default, the current tab is selected.
+       * `Selected tabs`: Select one or multiple tabs to display the selector on. By default, the current tab is selected.
        * `All tabs`: Display on all tabs. This option is available for a single selector.
-       * `Based on <group_value>` settings: Display the selector based on the advanced settings of the widget with a group of selectors. This option is only available for a selector in a group of selectors.
+       * `Based on <group_value>` settings: Display the selector based on the advanced settings of the widget with a group of selectors. This option is only available for a group selector.
 
      * ![image](../../../_assets/console-icons/magnifier.svg) button: Displayed to the right of the **Show in tabs** setting if the **Field** is specified. It allows you to find and group selectors with the same field or parameter in other tabs. To group the current selector with the one you find, click **Group** next to the relevant selector in the list. After grouping, the current selector’s **Show in tabs** setting may get updated automatically, for example:
 
@@ -77,7 +77,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
      * **Header**: To choose the selector for linking with other widgets. By default, when you add a selector, the header text is substituted from the field title in the [dataset](../../dataset/index.md). This is a required field.
        
-       Select the header location below: `Left` (default), `Top`, or `Hidden` to hide it from the dashboard. It is not available for the **Checkbox** selector type.
+       Select a header position below: `Left` (default), `Top`, or `Hidden` to hide it from the dashboard. It is not available for the **Checkbox** selector type.
 
      * **Inner title**: Allows specifying text inside a selector. For example, you can use it to display an operation inside a selector. It is not available for the **Checkbox** selector type.
      * **Coloring**: Allows you to highlight important selectors. It is not available for the **Checkbox** selector type.
@@ -87,7 +87,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
    - Manual input
 
-     * **Field or parameter**: Field name you can use to link the selector with other widgets in the [alias](../../dashboard/link.md#alias) configuration window. This is a required field.
+     * **Field or parameter**: Field name you can use to link the selector with other widgets in the [alias](../../dashboard/link.md#alias) setup window. This is a required field.
 
 
 
@@ -95,9 +95,9 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
      * **Show in tabs**: Select how to display the selector on the dashboard:
 
        * `Current tab <tab_name>`: Display the selector on the selected tab. This is the default option for a single selector.
-       * `Selected tabs`: Select one or more tabs to display the selector on. By default, the current tab is selected.
+       * `Selected tabs`: Select one or multiple tabs to display the selector on. By default, the current tab is selected.
        * `All tabs`: Display on all tabs. This option is available for a single selector.
-       * `Based on <group_value>` settings: Display the selector based on the advanced settings of the widget with a group of selectors. This option is only available for a selector in a group of selectors.
+       * `Based on <group_value>` settings: Display the selector based on the advanced settings of the widget with a group of selectors. This option is only available for a group selector.
 
      * ![image](../../../_assets/console-icons/magnifier.svg) button: Displayed to the right of the **Show in tabs** setting if the **Field or parameter** is specified. It allows you to find and group selectors with the same field or parameter in other tabs. To group the current selector with the one you find, click **Group** next to the relevant selector in the list. After grouping, the current selector’s **Show in tabs** setting may get updated automatically, for example:
 
@@ -138,7 +138,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
      * **Header**: To choose the selector for linking with other widgets. This is a required field.
        
-       Select the header location below: `Left` (default), `Top`, or `Hidden` to hide it from the dashboard. It is not available for the **Checkbox** selector type.
+       Select a header position below: `Left` (default), `Top`, or `Hidden` to hide it from the dashboard. It is not available for the **Checkbox** selector type.
 
      * **Inner title**: Allows specifying text inside a selector. For example, you can use it to display an operation inside a selector. It is not available for the **Checkbox** selector type.
      * **Coloring**: Allows you to highlight important selectors. It is not available for the **Checkbox** selector type.
@@ -157,21 +157,21 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
 1. Optionally, go to the **Group settings** tab and specify the widget settings:
 
-   * **Apply button**: Adds a widget button which applies the values of all selectors in the widget. The selector values are not applied until you click the button.
-   * **Reset button**: Adds a widget button which resets the values of all the widget selectors to their defaults.
+   * **Apply button**: Adds a widget button that applies the values of all selectors in the widget. The selector values are not applied until you click the button.
+   * **Reset button**: Adds a widget button that resets the values of all the widget selectors to their defaults.
 
    
    * **Background**: Sets the widget background color and opacity for the light and dark theme individually.
    * **Rounding**: Widget corner rounding.
 
 
-   * **Auto height**: Automatic widget height on the dashboard. It is available for widgets with multiple selectors.
+   * **Auto height**: Automatic height for a widget on the dashboard. It is available for widgets with multiple selectors.
 
    
    * Optionally, for a widget with multiple selectors, use the **Show in tabs** field to configure how to display the selector on the dashboard:
 
      * `Current tab <tab_name>`: Display on the selected tab. This is the default option.
-     * `Selected tabs`: Select one or more tabs to display the selector on. By default, the current tab is selected.
+     * `Selected tabs`: Select one or multiple tabs to display the selector on. By default, the current tab is selected.
      * `All tabs`: Display on all tabs.
      
      This setting becomes available when you add a second selector to your widget:

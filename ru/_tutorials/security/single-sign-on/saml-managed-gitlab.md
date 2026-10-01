@@ -18,13 +18,10 @@
 
 - Консоль управления {#console}
 
-   1. В консоли управления выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать [инстанс {{ GL }}](../../../managed-gitlab/concepts/index.md#instance).
+   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать [инстанс {{ GL }}](../../../managed-gitlab/concepts/index.md#instance).
    1. [Перейдите]({{ link-console-main }}/link/managed-gitlab) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.gitlab.button_create-instance }}**.
-   1. В верхней части страницы:
-
-      1. Введите имя инстанса. Оно должно быть уникальным в рамках {{ yandex-cloud }}.
-
+   1. В верхней части страницы введите имя инстанса. Оно должно быть уникальным в рамках {{ yandex-cloud }}.
    1. В блоке **{{ ui-key.yacloud.gitlab.label_configuration-section }}**:
 
       1. Выберите [тип инстанса](../../../managed-gitlab/concepts/index.md#config). После создания инстанса можно [изменить его тип](../../../managed-gitlab/operations/instance/instance-update.md) на более производительный.
@@ -57,7 +54,7 @@
 
    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-   1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
+   1. Нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
       1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.saml-title_kyofk }}**.
       1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения: `managed-gitlab-app`.
 
@@ -78,26 +75,32 @@
 
 Чтобы интегрировать провайдер аутентификации для {{ GL }} через OmniAuth, добавьте провайдер аутентификации:
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. [Перейдите]({{ link-console-main }}/link/managed-gitlab) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
-1. Нажмите на созданный инстанс и выберите вкладку **{{ ui-key.yacloud.gitlab.title_omniauth }}**.
-1. Нажмите кнопку **{{ ui-key.yacloud.gitlab.button_setup-omniauth }}**.
-1. Чтобы добавить провайдера аутентификации, нажмите кнопку **Add**.
-1. Выберите тип `SAML` и укажите параметры провайдера аутентификации:
+{% list tabs group=instructions %}
 
-   * **Label** — название провайдера аутентификации. Может быть любым, например `Identity Hub`.
-   * **Assertion consumer service URL** — HTTPS-эндпоинт инстанса {{ GL }}. Чтобы сформировать этот URL, добавьте `/users/auth/saml/callback` к адресу вашего инстанса {{ GL }}, например `https://example.gitlab.yandexcloud.net/users/auth/saml/callback`.
-   * **IDP certificate fingerprint** — SHA1-отпечаток открытого ключа сертификата. Используйте значение из поля **{{ ui-key.yacloud_org.application.overview.field_cert-fingerprin }}**, полученное при создании приложения в {{ org-full-name }}.
-   * **IDP SSO target URL** — URL провайдера идентификации. Используйте значение из поля **{{ ui-key.yacloud_org.application.overview.saml_field_login }}**.
-   * **Issuer** — уникальный идентификатор приложения, в котором будет происходить аутентификация пользователя, например `https://example.gitlab.yandexcloud.net`.
-   * **Name identifier format** — формат идентификатора имени, выберите значение `Persistent`.
-   * **Allow single sign on** — разрешить использование SSO. Установите значение `true`. Если установить `false`, аутентифицироваться смогут только пользователи, уже созданные на стороне {{ GL }}.
-   * **Auto link users by email** — установить соответствие между именем пользователя в OmniAuth и в {{ GL }}, если к ним привязан один адрес электронной почты. Установите значение `true`.
-   * **Block auto-created users** — переводить автоматически созданные учетные записи в состояние [Pending approval]({{ gl.docs }}/ee/administration/moderate_users.html#users-pending-approval) до их одобрения администратором. Установите значение `false`.
-   * **External provider** — установить для провайдера свойство _внешний_. Пользователи, аутентифицированные через данный провайдер, будут считаться [внешними]({{ gl.docs }}/ee/user/admin_area/external_users.html) и не будут иметь доступа к [внутренним проектам]({{ gl.docs }}/ee/user/public_access.html#internal-projects-and-groups). Установите значение `false`.
-   * **Auto link LDAP user** — создавать LDAP-сущность для автоматически созданных учетных записей. Применимо только для инстансов, к которым подключен LDAP-провайдер. Установите значение `false`.
+- Консоль управления {#console}
 
-1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите]({{ link-console-main }}/link/managed-gitlab) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. Нажмите на созданный инстанс и выберите вкладку **{{ ui-key.yacloud.gitlab.title_omniauth }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.gitlab.button_setup-omniauth }}**.
+  1. Чтобы добавить провайдера аутентификации, нажмите кнопку **Add**.
+  1. Выберите тип `SAML` и укажите параметры провайдера аутентификации:
+  
+     * **Label** — название провайдера аутентификации. Может быть любым, например `Identity Hub`.
+     * **Assertion consumer service URL** — HTTPS-эндпоинт инстанса {{ GL }}. Чтобы сформировать этот URL, добавьте `/users/auth/saml/callback` к адресу вашего инстанса {{ GL }}, например `https://example.gitlab.yandexcloud.net/users/auth/saml/callback`.
+     * **IDP certificate fingerprint** — SHA1-отпечаток открытого ключа сертификата. Используйте значение из поля **{{ ui-key.yacloud_org.application.overview.field_cert-fingerprin }}**, полученное при создании приложения в {{ org-full-name }}.
+     * **IDP SSO target URL** — URL провайдера идентификации. Используйте значение из поля **{{ ui-key.yacloud_org.application.overview.saml_field_login }}**.
+     * **Issuer** — уникальный идентификатор приложения, в котором будет происходить аутентификация пользователя, например `https://example.gitlab.yandexcloud.net`.
+     * **Name identifier format** — формат идентификатора имени, выберите значение `Persistent`.
+     * **Allow single sign on** — разрешить использование SSO. Установите значение `true`. Если установить `false`, аутентифицироваться смогут только пользователи, уже созданные на стороне {{ GL }}.
+     * **Auto link users by email** — установить соответствие между именем пользователя в OmniAuth и в {{ GL }}, если к ним привязан один адрес электронной почты. Установите значение `true`.
+     * **Block auto-created users** — переводить автоматически созданные учетные записи в состояние [Pending approval]({{ gl.docs }}/ee/administration/moderate_users.html#users-pending-approval) до их одобрения администратором. Установите значение `false`.
+     * **External provider** — установить для провайдера свойство _внешний_. Пользователи, аутентифицированные через данный провайдер, будут считаться [внешними]({{ gl.docs }}/ee/user/admin_area/external_users.html) и не будут иметь доступа к [внутренним проектам]({{ gl.docs }}/ee/user/public_access.html#internal-projects-and-groups). Установите значение `false`.
+     * **Auto link LDAP user** — создавать LDAP-сущность для автоматически созданных учетных записей. Применимо только для инстансов, к которым подключен LDAP-провайдер. Установите значение `false`.
+  
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+{% endlist %}
 
 ### Настройте SAML-приложение на стороне {{ org-full-name }} {#setup-idp}
 

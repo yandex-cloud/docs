@@ -132,7 +132,10 @@
         resource "yandex_resourcemanager_cloud_iam_binding" "admin" {
             cloud_id    = "<идентификатор_облака>"
             role        = "<роль>"
-            members     = ["<субъект_1>","<субъект_2>,...,<субъект_n>"]
+            members     = ["<тип_субъекта_1>:<идентификатор_субъекта_1>",
+                           "<тип_субъекта_2>:<идентификатор_субъекта_2>",
+                           ...,
+                           "<тип_субъекта_n>:<идентификатор_субъекта_n>"]
         }
         ```
 
@@ -243,6 +246,40 @@
             ]
         }
         ```
+
+        Где:
+
+        * `roleId` — назначаемая роль.
+        * `subject` — [субъект](../../concepts/access-control/index.md#subject), которому назначается роль.
+
+            {% cut "Обозначения субъектов" %}
+
+            Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+            
+            #|
+            || **subject.type** | **subject.id** ||
+            || `userAccount`    | `<идентификатор_пользователя>` ||
+            || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+            || `federatedUser`  | `<идентификатор_пользователя>` ||
+            || `group`          | `<идентификатор_группы>` ||
+            || `system`         | `allAuthenticatedUsers`
+            
+            (группа `All authenticated users`) ||
+            || ^                | `allUsers`
+            
+            (группа `All users`) ||
+            || ^                | `group:organization:<идентификатор_организации>:users`
+            
+            (группа `All users in organization X`) ||
+            || ^                | `group:federation:<идентификатор_федерации>:users`
+            
+            (группа `All users in federation N`) ||
+            || ^                | `group:userpool:<идентификатор_пула>:users`
+            
+            (группа `All users in userpool P`) ||
+            |#
+
+            {% endcut %}
 
     1. Отзовите роль, удалив назначенные права доступа:
 

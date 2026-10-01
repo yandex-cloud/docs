@@ -1,3 +1,8 @@
+---
+title: How to add a Let's Encrypt® certificate in {{ certificate-manager-full-name }}
+description: Follow this guide to add a Let's Encrypt® certificate and view its issuance status.
+---
+
 # Adding a Let's Encrypt® certificate
 
 You can only use a [certificate](../../concepts/managed-certificate.md) from {{ certificate-manager-name }} in the [specific](../../concepts/services.md) {{ yandex-cloud }} services.
@@ -43,8 +48,8 @@ You can only use a [certificate](../../concepts/managed-certificate.md) from {{ 
 
      Where:
      
-     * `--name`: Certificate name
-     * `--domains`: Certificate domains
+     * `--name`: Certificate name.
+     * `--domains`: Domains that need a certificate.
 
      Result:
 
@@ -70,7 +75,7 @@ You can only use a [certificate](../../concepts/managed-certificate.md) from {{ 
        domains = ["<domain>"]
 
        managed {
-       challenge_type = "<check_type>"
+         challenge_type = "<check_type>"
        }
      }
      ```
@@ -102,7 +107,7 @@ You can only use a [certificate](../../concepts/managed-certificate.md) from {{ 
 
 {% endlist %}
 
-A new certificate with the `Validating` status will appear in the certificate list. This status means that a request for issuing a Let's Encrypt® certificate has been created. You need to [pass your domain rights checks](cert-validate.md) for the request to be processed.
+A new certificate with the `Validating` status will appear in the certificate list. This status means that a request for issuing a Let's Encrypt® certificate has been created. For the request to be processed, [pass ownership verification](cert-validate.md) .
 
 {% note info %}
 

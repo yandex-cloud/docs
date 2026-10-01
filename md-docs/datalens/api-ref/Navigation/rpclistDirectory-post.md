@@ -39,9 +39,9 @@ _x-dl-api-version_{.json-schema-reset .json-schema-property .json-schema-require
 
 API version header.
 
-_Const:_{.json-schema-reset .json-schema-value} `2`
+_Const:_{.json-schema-reset .json-schema-value} `3`
 
-_Example:_{.json-schema-reset .json-schema-example} `2`
+_Example:_{.json-schema-reset .json-schema-example} `3`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -55,6 +55,7 @@ _Example:_{.json-schema-reset .json-schema-example} `2`
 ```json translate=no
 {
   "path": "example",
+  "scope": "dash",
   "createdBy": "example",
   "orderBy": {
     "field": "createdAt",
@@ -222,7 +223,50 @@ Directory path to list entries from.
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
+||
+
+_scope_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+{% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
+
+- **Type**: [EntryScope](#entity-EntryScope)
+
+  Type of the entry, e.g. `dash` — dashboard, `widget` — chart, etc.
+
+  _Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`, `sql_query`
+
+- **Type**: [EntryScope](#entity-EntryScope)[]
+
+  {% cut "**Example**" %}{.json-schema-example}
+
+  ```json translate=no
+  [
+    "dash"
+  ]
+  ```
+
+  {% endcut %}
+
+{% endcut %}
+
+Entry scope or scopes to filter by.
+
+_Example:_{.json-schema-reset .json-schema-example} `dash`
+{.table-cell}
+||
 |#{.json-schema-properties}
+
+</div>
+
+<div class="openapi-entity">
+
+### EntryScope {#entity-EntryScope}
+
+Type of the entry, e.g. `dash` — dashboard, `widget` — chart, etc.
+
+**Type**: string
+
+_Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`, `sql_query`
 
 </div>
 
@@ -517,18 +561,6 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 <div class="openapi-entity">
 
-### EntryScope {#entity-EntryScope}
-
-Type of the entry, e.g. `dash` — dashboard, `widget` — chart, etc.
-
-**Type**: string
-
-_Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`
-
-</div>
-
-<div class="openapi-entity">
-
 ### ListDirectoryEntry {#entity-ListDirectoryEntry}
 
 #|
@@ -673,7 +705,7 @@ _scope_{.json-schema-reset .json-schema-property .json-schema-required}
 
 Type of the entry, e.g. `dash` — dashboard, `widget` — chart, etc.
 
-_Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`
+_Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`, `sql_query`
 {.table-cell}
 ||
 ||

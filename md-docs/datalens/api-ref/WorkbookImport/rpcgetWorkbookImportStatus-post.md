@@ -39,9 +39,9 @@ _x-dl-api-version_{.json-schema-reset .json-schema-property .json-schema-require
 
 API version header.
 
-_Const:_{.json-schema-reset .json-schema-value} `2`
+_Const:_{.json-schema-reset .json-schema-value} `3`
 
-_Example:_{.json-schema-reset .json-schema-example} `2`
+_Example:_{.json-schema-reset .json-schema-example} `3`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -206,7 +206,7 @@ Type of the entry, e.g. `dash` — dashboard, `widget` — chart, etc.
 
 **Type**: string
 
-_Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`
+_Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`, `sql_query`
 
 </div>
 
@@ -291,7 +291,7 @@ _scope_{.json-schema-reset .json-schema-property}
 
 Type of the entry, e.g. `dash` — dashboard, `widget` — chart, etc.
 
-_Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`
+_Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`, `sql_query`
 {.table-cell}
 ||
 |#{.json-schema-properties}

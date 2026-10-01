@@ -242,39 +242,39 @@ Yandex Application Load Balancer служит для распределения 
 
 #### Конфигурация ресурсов (англ.)
 
- - [DirectResponse](gwin-ref/directresponse.md)
-
  - [BackendTLSPolicy](gwin-ref/backendtlspolicy.md)
 
- - [Gateway](gwin-ref/gateway.md)
-
- - [GatewayPolicy](gwin-ref/gatewaypolicy.md)
+ - [DirectResponse](gwin-ref/directresponse.md)
 
  - [GRPCRoute](gwin-ref/grpcroute.md)
 
  - [HTTPRoute](gwin-ref/httproute.md)
 
- - [IngressBackendGroup](gwin-ref/ingressbackendgroup.md)
+ - [Gateway](gwin-ref/gateway.md)
 
  - [Ingress](gwin-ref/ingress.md)
 
- - [ListenerSetPolicy](gwin-ref/listenersetpolicy.md)
-
  - [IngressPolicy](gwin-ref/ingresspolicy.md)
 
+ - [IngressBackendGroup](gwin-ref/ingressbackendgroup.md)
+
+ - [ListenerSet](gwin-ref/listenerset.md)
+
  - [RoutePolicy](gwin-ref/routepolicy.md)
+
+ - [ListenerSetPolicy](gwin-ref/listenersetpolicy.md)
 
  - [Service](gwin-ref/service.md)
 
  - [ServicePolicy](gwin-ref/servicepolicy.md)
 
- - [YCCertificate](gwin-ref/yccertificate.md)
-
  - [TLSRoute](gwin-ref/tlsroute.md)
+
+ - [YCCertificate](gwin-ref/yccertificate.md)
 
  - [YCStorageBucket](gwin-ref/ycstoragebucket.md)
 
- - [ListenerSet](gwin-ref/listenerset.md)
+ - [GatewayPolicy](gwin-ref/gatewaypolicy.md)
 
 ### Ingress-контроллер
 

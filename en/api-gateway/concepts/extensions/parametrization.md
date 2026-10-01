@@ -8,7 +8,7 @@ The `x-yc-apigateway:variables` extension allows you to declare variables that a
 
 ### VariableObject
 
-`VariableObject` is a set of OpenAPI specification parameters that define a variable and its possible values.
+`VariableObject` contains OpenAPI specification parameters that define a variable and its possible values.
 
 #### Parameters
 
@@ -17,8 +17,8 @@ The table below lists the `VariableObject` parameters.
 Parameter   | Type                                     | Required   | Description
 -----------|-----------------------------------------|-----------------------|---------
 `default`    | `string`, `int`, `double`, `boolean`         |Yes                     | Default variable value. It is used if the `enum` parameter is not specified.
-`enum`      | `string[]`, `int[]`, `double[]`, `boolean[]` |No                    | List of acceptable variable values. If it is not specified, the variable may take any value.
-`description` | `string`                                  |No                    | Text description of the variable.
+`enum`      | `string[]`, `int[]`, `double[]`, `boolean[]` |None                    | List of acceptable variable values. If it is not specified, the variable may take any value.
+`description` | `string`                                  |None                    | Text description of the variable.
 
 ### Usage
 

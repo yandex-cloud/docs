@@ -5,7 +5,7 @@ description: Follow this guide to revoke an IAM token you got earlier.
 
 # Revoking an IAM token
 
-You can revoke an [IAM token](../../concepts/authorization/iam-token.md) you got earlier. You may need to do this, for example, if the token is [compromised](../compromised-credentials.md) or if you are getting a new one.
+You can revoke an [IAM token](../../concepts/authorization/iam-token.md) you got earlier. For example, you may need to do so if your token is [compromised](../compromised-credentials.md) or when getting a new IAM token.
 
 To revoke an IAM token:
 
@@ -17,7 +17,7 @@ To revoke an IAM token:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Check out the description of the IAM token revocation command:
+  1. View the description of the command for revoking an IAM token:
 
       ```bash
       yc iam revoke-token --help
@@ -38,7 +38,7 @@ To revoke an IAM token:
 
 - API {#api}
 
-  Run an http request specifying the IAM token to revoke:
+  Run the following HTTP request, specifying the IAM token to revoke:
 
   ```bash
   curl \

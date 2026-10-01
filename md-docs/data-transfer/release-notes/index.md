@@ -4,7 +4,33 @@
 
 {% changelog %}
 ```
-date: 2025-06
+date: 2026-08
+index: 5
+```
+
+### Новые возможности эндпоинтов
+
+* Наведите порядок в приёмнике Object Storage — подключайте политику очистки данных, чтобы автоматически удалять устаревшие, ненужные или избыточные данные из таблиц.
+* Подключайте эндпоинты Managed Service for YDB и Data Streams вручную.
+* Сделайте Apache Iceberg™ приёмником для CDC и отслеживайте, фиксируйте и передавайте изменения данных.
+
+{% endchangelog %}
+
+{% changelog %}
+```
+date: 2026-07
+index: 4
+```
+
+### Больше возможностей поставки данных из очередей
+
+Настраивайте репликацию из [Apache Kafka®](../operations/endpoint/source/kafka.md) и [YDS](../operations/endpoint/source/data-streams.md) в [Apache Iceberg™](../operations/endpoint/target/iceberg.md) с помощью консоли управления или API.
+
+{% endchangelog %}
+
+{% changelog %}
+```
+date: 2026-06
 index: 3
 ```
 
@@ -52,6 +78,14 @@ index: 1
 # История изменений Data Transfer
 
 ## 2026 год {#2026}
+
+### Август {#august2026}
+
+* Поддержана политика очистки данных в приемнике [Object Storage](../operations/endpoint/target/object-storage.md).
+* Добавлены настройки для подключения вручную эндпоинтов Managed Service for YDB и Data Streams.
+* Теперь [Apache Iceberg™](../operations/endpoint/target/iceberg.md) можно настроить в качестве приемника для [захвата изменений данных](../concepts/cdc.md).
+* Исправлены ошибки в поведении приемников данных ClickHouse®.
+* Переработан раздел [Начало работы с Data Transfer](../quickstart.md).
 
 ### Июль {#july2026}
 

@@ -117,6 +117,8 @@ items:
             href: metrics-ref/index.md
           - name: '{{ ai-studio-name }}'
             href: metrics-ref/ai-studio-ref.md
+          - name: '{{ metastore-name }}'
+            href: metrics-ref/managed-metastore-ref.md
           - name: '{{ api-gw-name }}'
             href: metrics-ref/api-gateway-ref.md
           - name: '{{ alb-name }}'
@@ -143,6 +145,8 @@ items:
             href: metrics-ref/compute-ref.md
           - name: '{{ container-registry-name }}'
             href: metrics-ref/container-registry-ref.md
+          - name: '{{ cloud-registry-name }}'
+            href: metrics-ref/cloud-registry-ref.md
           - name: '{{ dataproc-name }}'
             href: metrics-ref/data-processing-ref.md
           - name: '{{ data-transfer-name }}'
@@ -309,6 +313,10 @@ items:
         href: concepts/visualization/dashboard.md
       - name: Виджеты
         href: concepts/visualization/widget.md
+      - name: Блокноты
+        href: concepts/visualization/notebooks.md
+      - name: Контекстные ссылки
+        href: concepts/visualization/context-links.md
       - name: Работа с дашбордами
         items:
           - name: Создание и управление дашбордом
@@ -333,6 +341,10 @@ items:
         items:
           - name: Создание алерта
             href: operations/alert/create-alert.md
+          - name: Создание композитного алерта
+            href: operations/alert/create-composite-alert.md
+          - name: Создание алерта SLO
+            href: operations/alert/create-slo-alert.md
           - name: Создание канала уведомлений с получателем
             href: operations/alert/create-channel.md
           - name: Создание канала уведомлений с вызовом функции
@@ -368,6 +380,10 @@ items:
         href: slo/management.md
       - name: Добавление виджета SLO на дашборд
         href: slo/visualisation.md
+  - name: Практические руководства
+    items:
+      - name: SLO-мониторинг веб-сервиса
+        href: slo/slo-blackbox-exporter.md
   - name: '{{ managed-prometheus-name }}'
     items:
       - name: Обзор

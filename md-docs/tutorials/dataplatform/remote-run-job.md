@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Работа с заданиями Yandex Data Processing > Запуск заданий с удаленного хоста
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Yandex Data Processing > Работа с заданиями Yandex Data Processing > Продвинутые примеры работы с заданиями Yandex Data Processing > Запуск заданий с удаленного хоста
 
 # Запуск заданий с удаленных хостов, не входящих в кластер Yandex Data Processing
 

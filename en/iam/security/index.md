@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ iam-full-name }} ({{ iam-short-name }})
-description: Access management in {{ iam-full-name }} ({{ iam-short-name }}), an identity and access management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+description: Access management in {{ iam-full-name }} ({{ iam-short-name }}), an identity and access management service. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
 ---
 
 # Access management in {{ iam-name }}
@@ -22,7 +22,7 @@ To assign a role for a resource, you need the `iam.admin` role or one of the fol
 
 {% endnote %}
 
-## Resources supporting role assignment {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -172,7 +172,7 @@ Viewing information about a folder or cloud | `get`, `list` | `iam.auditor` for 
 Viewing information about any resource | `get`, `list` | `viewer` for the resource
 **Managing resources** | |
 [Creating](../operations/sa/create.md) service accounts in the folder | `create` | `iam.serviceAccounts.admin` for the folder
-[Updating](../operations/sa/update.md) and [deleting](../operations/sa/delete.md) service accounts | `update`, `delete` | `editor` for the service account
+[Modifying](../operations/sa/update.md), [deleting](../operations/sa/delete.md), [suspending and reactivating](../operations/sa/suspend-reactivate.md) service accounts | `update`, `delete`, `suspend`, `reactivate` | `editor` for the service account or `iam.serviceAccounts.admin` for the folder
 Creating and deleting keys for a service account | `create`, `delete` | `iam.serviceAccounts.accessKeyAdmin`, `iam.serviceAccounts.apiKeyAdmin`, `iam.serviceAccounts.authorizedKeyAdmin`, `iam.serviceAccounts.keyAdmin`<br/> for the service account
 **Managing resource access** | |
 [Making a new user the owner of the cloud](../operations/roles/grant.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` role for the cloud

@@ -110,8 +110,7 @@ You can configure public access to hosts only for clusters created with TLS enab
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
   1. Specify the following host settings:
-     
-     * Availability zone.
+     * [Availability zone](../../overview/concepts/geo-scope.md).
 
      
      * Subnet (if the required subnet is not on the list, [create it](../../vpc/operations/subnet-create.md)).
@@ -232,7 +231,7 @@ You can configure public access to hosts only for clusters created with TLS enab
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -347,7 +346,7 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

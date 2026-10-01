@@ -4,74 +4,67 @@
 
 ## Порядок действий {#order}
 
-При создании сетевых топологий гибридного облака рекомендуется работать с ресурсами сервисов [Cloud Interconnect](../../interconnect/concepts/index.md) и [Cloud Router](../concepts/index.md) в следующем порядке:
-1. Создать [транковое подключение](../../interconnect/concepts/trunk.md) для организации физической связности между инфраструктурой On-Prem и облаком. Создается в указанном облачном каталоге.
-1. Создать [приватное соединение](../../interconnect/concepts/priv-con.md) в транковом подключении для организации IP- и BGP-связности между инфраструктурой On-Prem и облаком. Создается в том же каталоге, что и транковое подключение.
-1. Создать [виртуальный маршрутизатор](../concepts/routing-instance.md) в указанном каталоге для организации необходимой сетевой топологии, в которую обычно входят [виртуальные сети (VPC)](../../vpc/concepts/network.md) и приватные соединения.
-1. Добавить приватное соединение в Routing Instance.
-1. Добавить список определенных IP-префиксов подсетей из виртуальных сетей (VPC) в Routing Instance.
-1. *Опционально*. Добавить список определенных статических маршрутов к приватному соединению для формирования сетевой топологии `VPC Stitching`. 
+Для создания сетевой топологии гибридного облака:
 
-В настоящее время действия над ресурсами в сервисах [Cloud Interconnect](../../interconnect/concepts/index.md) и [Cloud Router](../concepts/index.md) могут быть выполнены следующими способами:
-* Через обращение в службу [технической поддержки](https://center.yandex.cloud/support).
-* С помощью [консоли управления](https://console.yandex.cloud/link/interconnect/trunk-connections), [YC CLI](../../interconnect/cli-ref/index.md) или [API вызовов](../../interconnect/api-ref/authentication.md). В настоящее время доступность этих инструментов ограничена.
+1. [Создайте транковое подключение](../../interconnect/operations/trunk-create.md), чтобы организовать физическую связность между вашей инфраструктурой и Yandex Cloud.
+1. Создайте в транковом подключении [приватное](../../interconnect/operations/priv-con-create.md) или [публичное](../../interconnect/operations/pub-con-create.md) соединение.
+1. Для приватного соединения [создайте виртуальный маршрутизатор](ri-create.md).
+1. [Добавьте приватное соединение](ri-priv-con-add.md) в виртуальный маршрутизатор.
+1. [Добавьте облачные сети и IP-префиксы](ri-prefixes-upsert.md), которые должны анонсироваться в вашу инфраструктуру.
+1. При необходимости [добавьте статические маршруты](../../interconnect/operations/priv-con-update.md) в приватное соединение для топологии VPC Stitching.
 
-Ниже приведен перечень операций, которые могут быть выполнены с ресурсами в сервисах [Cloud Interconnect](../../interconnect/concepts/index.md) и [Cloud Router](../concepts/index.md) со ссылками на инструкции по выполнению этих операций. Сами инструкции можно найти в разделах `Пошаговые инструкции` и `Практические руководства` соответствующего сервиса.
-
+Большинство операций с ресурсами Cloud Interconnect и Cloud Router вы можете выполнять самостоятельно с помощью консоли управления, CLI и API. Для создания, изменения и удаления публичных соединений, изменения емкости транкового подключения, уведомления партнера и организации физической кроссировки прямого подключения вам по-прежнему нужно обращаться в поддержку.
 
 ## Транковое подключение {#trunk}
 
-Действие | Через поддержку | Через YC CLI
+Действие | Самостоятельно | Через поддержку
 --- | --- | ---
-Получить информацию о транковом подключении | — | [Описание](../../interconnect/operations/trunk-get-info.md)
-Получить список операций транкового подключения | — | [Описание](../../interconnect/operations/trunk-operations.md)
-Создать прямое транковое подключение | [Описание](../../interconnect/tutorials/trunk-priv-add.md) | [Описание](../../interconnect/operations/trunk-create.md#direct)
-Создать транковое подключение через партнера | [Описание](../../interconnect/tutorials/partner-trunk-priv-add.md) | [Описание](../../interconnect/operations/trunk-create.md#partner)
-Изменить параметры транкового подключения | Да | [Описание](../../interconnect/operations/trunk-update.md)
-Изменить емкость транкового подключения | [Описание](../../interconnect/tutorials/trunk-capacity-change.md) | Не поддерживается
-Переместить транковое подключение в другой каталог | — | [Описание](../../interconnect/operations/trunk-move.md)
-Удалить транковое подключение | [Описание](../../interconnect/tutorials/trunk-del.md) | [Описание](../../interconnect/operations/trunk-delete.md)
-
+Получить информацию | [Инструкция](../../interconnect/operations/trunk-get-info.md) | —
+Получить список операций | [Инструкция](../../interconnect/operations/trunk-operations.md) | —
+Создать прямое подключение | [Инструкция](../../interconnect/operations/trunk-create.md#direct) | Согласительное письмо и физическое подключение описаны в инструкции
+Создать подключение через партнера | [Инструкция](../../interconnect/operations/trunk-create.md#partner) | Уведомление партнера описано в инструкции
+Изменить основные параметры | [Инструкция](../../interconnect/operations/trunk-update.md#update) | —
+Изменить емкость | — | [Инструкция](../../interconnect/operations/trunk-update.md#capacity)
+Переместить в другой каталог | [Инструкция](../../interconnect/operations/trunk-move.md) | —
+Удалить | [Инструкция](../../interconnect/operations/trunk-delete.md) | —
 
 ## Приватное соединение {#prc}
 
-Действие | Через поддержку | Через YC CLI
+Действие | Самостоятельно | Через поддержку
 --- | --- | ---
-Получить информацию о приватном соединении | — | [Описание](../../interconnect/operations/priv-con-get-info.md)
-Получить список операций приватного соединения | — | [Описание](../../interconnect/operations/priv-con-operations.md)
-Создать приватное соединение | [Описание](../../interconnect/tutorials/trunk-priv-add.md#priv-create) | [Описание](../../interconnect/operations/priv-con-create.md)
-Изменить параметры приватного соединения | Да | [Описание](../../interconnect/operations/priv-con-update.md)
-Переместить приватное соединение в другой каталог | — | [Описание](../../interconnect/operations/priv-con-move.md)
-Удалить приватное соединение | [Описание](../../interconnect/tutorials/priv-del.md) | [Описание](../../interconnect/operations/priv-con-delete.md)
-**Добавить статические маршруты в приватное соединение** (VPC Stitching) | **Да** | [Описание](../../interconnect/operations/priv-con-update.md)
-**Удалить статические маршруты из приватного соединения** (VPC Stitching) | **Да** | [Описание](../../interconnect/operations/priv-con-update.md)
+Получить информацию | [Инструкция](../../interconnect/operations/priv-con-get-info.md) | —
+Получить список операций | [Инструкция](../../interconnect/operations/priv-con-operations.md) | —
+Создать | [Инструкция](../../interconnect/operations/priv-con-create.md) | —
+Изменить параметры | [Инструкция](../../interconnect/operations/priv-con-update.md) | —
+Переместить в другой каталог | [Инструкция](../../interconnect/operations/priv-con-move.md) | —
+Удалить | [Инструкция](../../interconnect/operations/priv-con-delete.md) | —
+Добавить или удалить статические маршруты | [Инструкция](../../interconnect/operations/priv-con-update.md) | —
 
+## Виртуальный маршрутизатор {#ri}
 
-## Routing Instance {#ri}
-
-Действие | Через поддержку | Через YC CLI
+Действие | Самостоятельно | Через поддержку
 --- | --- | ---
-Получить информацию о Routing Instance | — | [Описание](ri-get-info.md)
-Получить список операций Routing Instance | — | [Описание](ri-operations.md)
-Создать Routing Instance | Да | [Описание](ri-create.md)
-Изменить параметры Routing Instance | Да | [Описание](ri-update.md)
-Изменить список IP-префиксов в Routing Instance | [Описание](../tutorials/ri-prefixes-upsert.md) | [Описание](ri-prefixes-upsert.md)
-Удалить IP-префиксы из Routing Instance | Да | [Описание](ri-prefixes-upsert.md#remove-prefixes)
-Добавить приватное соединение в Routing Instance | Да | [Описание](ri-priv-con-add.md)
-Удалить приватное соединение из Routing Instance | Да | [Описание](ri-priv-con-del.md)
-Удалить Routing Instance | Да | [Описание](ri-delete.md)
-
+Получить информацию | [Инструкция](ri-get-info.md) | —
+Получить список операций | [Инструкция](ri-operations.md) | —
+Создать | [Инструкция](ri-create.md) | —
+Изменить основные параметры | [Инструкция](ri-update.md) | —
+Изменить сети и IP-префиксы | [Инструкция](ri-prefixes-upsert.md) | —
+Добавить приватное соединение | [Инструкция](ri-priv-con-add.md) | —
+Удалить приватное соединение | [Инструкция](ri-priv-con-del.md) | —
+Удалить | [Инструкция](ri-delete.md) | —
 
 ## Публичное соединение {#pbc}
 
-Действие | Через поддержку | Через YC CLI
+Действие | Самостоятельно | Через поддержку
 --- | --- | ---
-Получить информацию о публичном соединении | — | [Описание](../../interconnect/operations/pub-con-get-info.md)
-
+Получить информацию | [Инструкция](../../interconnect/operations/pub-con-get-info.md) | —
+Создать | — | [Инструкция](../../interconnect/operations/pub-con-create.md)
+Изменить | — | [Обратиться в поддержку](https://center.yandex.cloud/support)
+Удалить | — | [Инструкция](../../interconnect/operations/pub-con-delete.md)
 
 ## Прочее {#other}
 
-Действие | Через поддержку | Через YC CLI
- --- | --- | ---
-Получить информацию о партнерах CIC | — | [Описание](../../interconnect/operations/partner-get-info.md)
-Получить информацию о точках присутствия | — | [Описание](../../interconnect/operations/pop-get-info.md)
+Действие | Самостоятельно
+--- | ---
+Получить информацию о партнерах Cloud Interconnect | [Инструкция](../../interconnect/operations/partner-get-info.md)
+Получить информацию о точках присутствия | [Инструкция](../../interconnect/operations/pop-get-info.md)

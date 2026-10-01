@@ -34,6 +34,18 @@ Aliases:
 
   - [yc managed-greenplum backup list](backup/list.md) — List available backups
 
+- [yc managed-greenplum change-freeze](change-freeze/index.md) — Manage change freezes.
+
+  - [yc managed-greenplum change-freeze create](change-freeze/create.md) — Create a change freeze for the specified resource.
+
+  - [yc managed-greenplum change-freeze get](change-freeze/get.md) — Show the specified change freeze.
+
+  - [yc managed-greenplum change-freeze get-limits](change-freeze/get-limits.md) — Show change freeze limits for the specified resource.
+
+  - [yc managed-greenplum change-freeze list](change-freeze/list.md) — List change freezes.
+
+  - [yc managed-greenplum change-freeze terminate](change-freeze/terminate.md) — Terminate the specified change freeze.
+
 - [yc managed-greenplum cluster](cluster/index.md) — Manage Greenplum and Cloudberry clusters
 
   - [yc managed-greenplum cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified Greenplum cluster
@@ -82,6 +94,8 @@ Aliases:
 
 - [yc managed-greenplum hba-rules](hba-rules/index.md) — Manage Greenplum hba rules
 
+  - [yc managed-greenplum hba-rules batch-update](hba-rules/batch-update.md) — Replace all hba-rules for specified Greenplum cluster
+
   - [yc managed-greenplum hba-rules create](hba-rules/create.md) — Create hba-rule for specified Greenplum cluster
 
   - [yc managed-greenplum hba-rules delete](hba-rules/delete.md) — Delete hba-rule for specified Greenplum cluster
@@ -95,6 +109,14 @@ Aliases:
 - [yc managed-greenplum hosts](hosts/index.md) — Manage Greenplum cluster hosts.
 
 
+
+- [yc managed-greenplum maintenance](maintenance/index.md) — Manage maintenances.
+
+  - [yc managed-greenplum maintenance get](maintenance/get.md) — Show the specified maintenance.
+
+  - [yc managed-greenplum maintenance list](maintenance/list.md) — List maintenances.
+
+  - [yc managed-greenplum maintenance reschedule](maintenance/reschedule.md) — Reschedule the specified maintenance.
 
 - [yc managed-greenplum pxf-datasource](pxf-datasource/index.md) — Manage Greenplum pxf datasources
 

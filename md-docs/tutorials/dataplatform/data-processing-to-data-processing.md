@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Совместная работа с таблицами Yandex Data Processing с использованием Apache Hive™ Metastore
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Yandex Data Processing > Совместная работа с таблицами Yandex Data Processing с использованием Apache Hive™ Metastore
 
 # Совместная работа с таблицами Yandex Data Processing с использованием Apache Hive™ Metastore
 
@@ -119,6 +119,7 @@
            Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
         
         1. Если вас устраивают планируемые изменения, внесите их:
+        
            1. Выполните команду:
         
               ```bash

@@ -77,7 +77,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
     1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-    1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+    1. На панели сверху нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
     1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите `canary-network`.
     1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -249,7 +249,7 @@
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Создайте «синий» бакет для стабильной версии бэкенда:
 
-     1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+     1. На панели сверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
      1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета.
      1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** выберите `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
      1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
@@ -384,7 +384,7 @@
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Выберите «синий» бакет.
-     1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}** и выберите для загрузки файл `index.html` версии 1.
+     1. На панели сверху нажмите кнопку ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** и выберите для загрузки файл `index.html` версии 1.
      1. Таким же образом загрузите в «зеленый» бакет файл `index.html` версии 2.
 
    - AWS CLI {#cli}
@@ -476,7 +476,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+  1. На панели сверху нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** укажите `canary-sg`.
   1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите `canary-network`.
   1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}** создайте правила по инструкции под таблицей:
@@ -486,7 +486,6 @@
       | `Исходящий` | `any` | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
       | `Входящий` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
       | `Входящий` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | `Входящий` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — |
 
      1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
@@ -495,7 +494,6 @@
      1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** или **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** выберите назначение правила:
 
         * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` — правило будет применено к диапазону IP-адресов. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
-        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` — правило, которое позволяет балансировщику проверять состояние ВМ.
 
      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**. Таким образом создайте все правила из таблицы.
 
@@ -510,8 +508,7 @@
     --network-name canary-network \
     --rule direction=egress,port=any,protocol=any,v4-cidrs=[0.0.0.0/0] \
     --rule direction=ingress,port=80,protocol=tcp,v4-cidrs=[0.0.0.0/0] \
-    --rule direction=ingress,port=443,protocol=tcp,v4-cidrs=[0.0.0.0/0] \
-    --rule direction=ingress,port=30080,protocol=tcp,predefined=loadbalancer_healthchecks
+    --rule direction=ingress,port=443,protocol=tcp,v4-cidrs=[0.0.0.0/0]
   ```
 
   Результат:
@@ -551,14 +548,6 @@
     cidr_blocks:
       v4_cidr_blocks:
       - 0.0.0.0/0
-  - id: enpmorcimu65********
-    direction: INGRESS
-    ports:
-      from_port: "30080"
-      to_port: "30080"
-    protocol_name: TCP
-    protocol_number: "6"
-    predefined_target: loadbalancer_healthchecks
   ```
 
   Подробнее о команде `yc vpc security-group create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
@@ -590,11 +579,6 @@
          v4_cidr_blocks = ["0.0.0.0/0"]
        }
 
-       ingress {
-         protocol          = "TCP"
-         port              = 30080
-         predefined_target = "loadbalancer_healthchecks"
-       }
      }
      ```
 
@@ -625,8 +609,6 @@
 
   Используйте вызов gRPC API [SecurityGroupService/Create](../../vpc/api-ref/grpc/SecurityGroup/create.md) или метод REST API [create](../../vpc/api-ref/SecurityGroup/create.md).
 
-  Чтобы добавить правило для проверок состояния балансировщика, используйте параметр `loadbalancer_healthchecks` в поле [SecurityGroupRuleSpec.target.predefined_target](../../vpc/api-ref/grpc/SecurityGroup/create.md#yandex.cloud.vpc.v1.SecurityGroupRuleSpec) для gRPC API или в поле [predefinedTarget](../../vpc/api-ref/SecurityGroup/create.md#yandex.cloud.vpc.v1.CreateSecurityGroupRequest) для REST API.
-
 {% endlist %}
 
 ## Создайте группы бэкендов в {{ alb-name }} {#create-l7backend}
@@ -640,7 +622,7 @@
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
      1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
-     1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
+     1. На панели сверху нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
      1. В поле **{{ ui-key.yacloud.common.name }}** укажите `canary-bg-production`.
      1. Создайте бэкенд `canary-backend-blue`:
          1. В блоке **{{ ui-key.yacloud.alb.label_backends }}** нажмите **{{ ui-key.yacloud.common.add }}**.
@@ -675,7 +657,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
+  1. На панели сверху нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите `canary-router`.
   1. Создайте виртуальный хост `canary-vh-production`:
 
@@ -890,7 +872,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите `canary-balancer`.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
 

@@ -15,17 +15,19 @@ Embedding private objects works only in the new {{ datalens-short-name }} object
 
 To configure the features and appearance of embedded objects, you can use special parameters which you provide in the link:
 
-* `_autoupdate`: Sets the [auto-update](../dashboard/settings.md#auto-update) time for dashboards and charts in seconds. By default, these are not updated automatically. The feature only works for the active browser tab. Objects due for auto-update on inactive tabs will be auto-updated when the tab becomes active again. The minimum values are:
+* `_autoupdate`: Sets the [auto-update](../dashboard/settings.md#auto-update) time for dashboards and charts in seconds. By default, these are not updated automatically. The feature only works for the active browser tab. Objects due for auto-update on inactive tabs will be auto-updated when the tab becomes active again. The minimum values are as follows:
 
   * 30 seconds for dashboards.
   * 15 seconds for charts.
 
 * `_reload_on_session_expire`: Enables automatic page reload after the session lifetime expires. To activate the parameter, set it to `1`.
-* `_theme`: Specifies the object's appearance. The possible values are:
+* `_theme`: Sets the object's appearance. The possible values are as follows:
 
   * `light`: Light theme.
   * `dark`: Dark theme.
 
+* `_bg_color`: Sets the chart and dashboard background in hexadecimal format, e.g., `_bg_color=D7F7F7`.
+* `_widgets_bg_color`: Sets the background of widgets on the dashboard in hexadecimal format, e.g., `_widgets_bg_color=B7F7F7`.
 * `_lang`: In charts, sets the language of the menu that opens when you click ![image](../../_assets/console-icons/ellipsis.svg). The possible values are `ru` or `en`.
 * `_no_tabs `: Hides dashboard tabs. To activate the parameter, set it to `1`.
 * `_no_table_of_content`: Hides dashboard content. To activate the parameter, set it to `1`.
@@ -467,7 +469,7 @@ Signed parameters ensure more secure data access: users with access to embedded 
 When embedding private objects, follow these guidelines:
 
 * Default values should be provided in the link parameters.
-* Note that any parameter in the link will override any signed parameter of the same name.
+* Note that any signed parameter will override external parameters with the same name (e.g., a parameter in a link).
 * To make it uneditable, add the [signed parameter](#signed-parameters) to a token.
 
 ## Things to consider when embedding dashboards {#dash-embed-specialties}

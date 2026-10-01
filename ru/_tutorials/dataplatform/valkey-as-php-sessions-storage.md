@@ -237,9 +237,9 @@
 
 - Вручную {#manual}
 
-    * [Удалите кластер {{ mrd-full-name }}](../../managed-valkey/operations/cluster-delete.md).
-    * [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
-    * Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
+    1. [Удалите кластер {{ mrd-full-name }}](../../managed-valkey/operations/cluster-delete.md).
+    1. [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
+    1. Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
 
 - {{ TF }} {#tf}
 

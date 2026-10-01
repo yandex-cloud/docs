@@ -38,11 +38,7 @@ The trigger must be in the same [cloud](../../resource-manager/concepts/resource
   
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}**, specify the registry, device, and MQTT topic to create a trigger for. When creating a trigger for a registry topic, you do not need to specify a device or an MQTT topic. If no MQTT topic is set, the trigger will fire for all registry or device topics.
   
-  1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
-
-     {% include [batch-settings](batch-settings.md) %}
-
-     {% include [batch-messages](batch-messages.md) %}
+  1. {% include [batch-settings](batch-settings.md) %}
   
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
 
@@ -69,8 +65,8 @@ The trigger must be in the same [cloud](../../resource-manager/concepts/resource
     --registry-id <registry_ID> \
     --device-id <device_ID> \
     --mqtt-topic '<MQTT_topic>' \
-    --batch-size <message_batch_size> \
-    --batch-cutoff <maximum_wait_time> \
+    --batch-size <message_group_size> \
+    --batch-cutoff <maximum_timeout> \
     --invoke-function-id <function_ID> \
     --invoke-function-service-account-id <service_account_ID> \
     --retry-attempts <number_of_retry_attempts> \
@@ -158,7 +154,7 @@ The trigger must be in the same [cloud](../../resource-manager/concepts/resource
         * `registry-id`: [Registry ID](../../iot-core/operations/registry/registry-list.md).
         * `device-id`: [Device ID](../../iot-core/operations/device/device-list.md). If you are creating a trigger for a registry topic, you can skip this setting.
         * `topic`: MQTT topic you want to create a trigger for. This is an optional setting. If you skip it, the trigger will fire for all registry or device topics.
-        * `batch_cutoff`: Maximum wait time. This is an optional setting. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The number of messages cannot exceed `batch-size`.
+        * `batch_cutoff`: Maximum wait time. This is an optional setting. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages within the `batch-cutoff` period and sends them to the function. The number of messages cannot exceed `batch-size`.
         * `batch_size`: Size of the message batch from MQTT topics. This is an optional setting. The values may range from 1 to 10. The default value is 1.
 
      {% include [tf-dlq-params](../serverless-containers/tf-dlq-params.md) %}

@@ -5,11 +5,6 @@ description: Follow this guide to use {{ cdn-full-name }} to create and set up a
 
 # Creating a CDN resource with an {{ objstorage-full-name }} origin bucket
 
-
-
-{% include [pricing-change-short-warning](../../_includes/cdn/pricing-change-short-warning.md) %}
-
-
 {% include [create-other-resources](../../_includes/cdn/create-other-resources-note.md) %}
 
 Set up content distribution over a CDN with an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) as the origin:
@@ -35,7 +30,9 @@ Set up content distribution over a CDN with an {{ objstorage-name }} [bucket](..
    1. [Create a bucket](../../storage/operations/buckets/create.md).
    1. [Enable public access](../../storage/operations/buckets/bucket-availability.md) to the objects in the bucket and the object list.
    1. [Upload your content](../../storage/operations/objects/upload.md) to the bucket.
-      
+
+   {% include [bucket-website-hosting-tip](../../_includes/cdn/bucket-website-hosting-tip.md) %}
+
 ## Create a CDN resource {#create-cdn-resource}
 
 1. [Navigate]({{ link-console-main }}/link/cdn) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.

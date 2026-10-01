@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > [Настройка хостинга статического сайта в бакете Yandex Object Storage с доступом через Yandex Cloud CDN](index.md) > Terraform
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > Хостинг сайтов и веб-приложений > [Настройка хостинга статического сайта в бакете Yandex Object Storage с доступом через Yandex Cloud CDN](index.md) > Terraform
 
 # Настройка хостинга статического сайта в бакете Yandex Object Storage с доступом через Yandex Cloud CDN с помощью Terraform
 
@@ -14,7 +14,7 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Подготовьте облако к работе {#before-begin}
+## Подготовьте облако к работе {#before-you-begin}
 
 Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
 1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.

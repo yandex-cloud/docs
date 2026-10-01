@@ -21,9 +21,7 @@ description: Следуя данной инструкции, вы сможете
 * [Сервисные аккаунты](../../../iam/operations/sa/create.md).
 * [Конфигурацию ресурсов](../../concepts/index.md#master-resources) для мастера.
 * [Версию {{ k8s }}](../../concepts/release-channels-and-updates.md).
-* Политику [обновлений](../../concepts/release-channels-and-updates.md#updates).
 * Список [групп безопасности](../connect/security-groups.md).
-* Настройки отправки логов в [{{ cloud-logging-full-name }}](../../../logging/).
 
   {% note alert %}
 
@@ -31,7 +29,8 @@ description: Следуя данной инструкции, вы сможете
 
   {% endnote %}
 
-* Маску [подсети](../../../vpc/concepts/network.md#subnet) [узлов {{ managed-k8s-name }}](../../concepts/index.md#node-group).
+* Политику [обновлений](../../concepts/release-channels-and-updates.md#updates).
+* Сетевые настройки кластера.
 
   {% note warning %}
 
@@ -39,6 +38,10 @@ description: Следуя данной инструкции, вы сможете
   * После изменения маски подсети необходимо пересоздать группы узлов кластера.
 
   {% endnote %}
+
+  {% include [cluster-multi-cidr-note](../../../_includes/managed-kubernetes/cluster-multi-cidr-note.md) %}
+
+* Настройки отправки логов в [{{ cloud-logging-full-name }}](../../../logging/).
 
 Инструкция по изменению [зоны доступности](../../../overview/concepts/geo-scope.md) кластера приведена в разделе [{#T}](../../tutorials/migration-to-an-availability-zone.md).
 

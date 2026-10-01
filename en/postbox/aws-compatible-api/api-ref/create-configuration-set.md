@@ -17,6 +17,9 @@ POST /v2/email/configuration-sets HTTP/2
 ```json
 {
   "ConfigurationSetName": "<configuration_name>",
+  "SuppressionOptions": {
+    "SuppressedReasons": ["BOUNCE", "COMPLAINT"]
+  },
   "Tags": [
     {
       "Key": "<label_key>",
@@ -31,6 +34,14 @@ POST /v2/email/configuration-sets HTTP/2
 || `ConfigurationSetName` | **Type**: String.
 
 Configuration name.  ||
+|| `SuppressionOptions` | **Type**: Object.
+
+[Suppression list](../../concepts/suppression-list.md) settings for your configuration. Contains the `SuppressedReasons` array. ||
+|| `SuppressedReasons` | **Type**: Array.
+
+[Reasons](../../concepts/suppression-list.md#reasons) why the address from the suppression list blocks the send. Possible array item values: `BOUNCE` and `COMPLAINT`.
+
+If there is a `COMPLAINT` value in the array, the addresses are automatically added to the suppression list due to complaints from recipients. ||
 || `Tags` | **Type**: Array.
 
 Array of labels for the configuration.
@@ -58,14 +69,14 @@ The label value may be from 0 (no value) to 256 characters long. ||
 
 {% include [api-errors](../../../_includes/postbox/api-errors.md) %}
 
-Possible errors:
+The possible errors include:
 
 #|
 || **Error code** | **Description** ||
 || `400 BadRequestException` | The request contains invalid headers or parameters. ||
 || `404 NotFoundException` | The requested resource was not found. ||
-|| `409 AlreadyExistsException` | A configuration with this name already exists. Specify a different name. ||
+|| `409 AlreadyExistsException` | A configuration of this name already exists. Choose a different one. ||
 || `409 ConcurrentModificationException` | There are conflicting operations. Wait for the previous operation to complete and repeat your request. ||
-|| `429 TooManyRequestsException` | The request exceeded the [quota](../../concepts/limits.md#postbox-quotas). ||
-|| `429 LimitExceededException` | The request exceeded the [limit](../../concepts/limits.md). ||
+|| `429 TooManyRequestsException` | The request [quota](../../concepts/limits.md#postbox-quotas) was exceeded. ||
+|| `429 LimitExceededException` | The request [limit](../../concepts/limits.md) was exceeded. ||
 |#

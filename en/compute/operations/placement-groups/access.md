@@ -17,7 +17,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. On the **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}** tab, click the name of the group.
-  1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. In the window that opens, select the group, user, or service account you want to grant access to the placement group.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [role](../../security/index.md#roles-list).
@@ -41,7 +41,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      yc compute placement-group list
      ```
 
-  1. View the list of roles already assigned for the resource:
+  1. View the roles already assigned for the resource:
 
      ```bash
      yc compute placement-group list-access-bindings <placement_group_ID>
@@ -49,32 +49,22 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   1. Assign a role using this command:
 
-     * To a user:
+     ```bash
+     yc compute placement-group add-access-binding <placement_group_ID> \
+       --role <role> \
+       --subject <subject_type>:<subject_ID>
+     ```
 
-       ```bash
-       yc compute placement-group add-access-binding <placement_group_ID> \
-         --user-account-id <user_ID> \
-         --role <role>
-       ```
+     Where:
 
-       Where:
+     * `--role`: [Role](../../security/index.md#roles-list).
+     * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
 
-       * `--user-account-id`: [User ID](../../../organization/operations/users-get.md). Use the `--all-authenticated-users` flag to assign a role to all authenticated users.
-       * `--role`: [Role](../../security/index.md#roles-list).
+         {% cut "Subject designations" %}
 
-     * To a service account:
+         {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
 
-       ```bash
-       yc compute placement-group add-access-binding <placement_group_ID> \
-         --service-account-id <service_account_ID> \
-         --role <role>
-       ```
-
-       Where:
-
-       * `--service-account-id`: [Service account ID](../../../iam/operations/sa/get-id.md).
-       * `--role`: [Role](../../security/index.md#roles-list).
-
+         {% endcut %}
 
 - {{ TF }} {#tf}
 
@@ -98,9 +88,15 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
       * `placement_group_id`: VM placement group ID.
       * `role`: [Role](../../security/index.md#roles-list).
-      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Use one of these formats: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: List of designations of [subjects](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
-      For more information about `yandex_compute_placement_group_iam_binding` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_placement_group_iam_binding).
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
+
+      For more information about the properties of the `yandex_compute_placement_group_iam_binding` resource, see [this provider guide]({{ tf-provider-resources-link }}/compute_placement_group_iam_binding).
 
   1. Apply the changes:
 
@@ -115,7 +111,13 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  To assign a role, use the [updateAccessBindings](../../api-ref/PlacementGroup/updateAccessBindings.md) REST API method for the [PlacementGroup](../../api-ref/PlacementGroup/index.md) resource or the [PlacementGroupService/UpdateAccessBindings](../../api-ref/grpc/PlacementGroup/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID under `subject`.
+  To assign a role, use the [updateAccessBindings](../../api-ref/PlacementGroup/updateAccessBindings.md) REST API method for the [PlacementGroup](../../api-ref/PlacementGroup/index.md) resource or the [PlacementGroupService/UpdateAccessBindings](../../api-ref/grpc/PlacementGroup/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the [subject](../../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+
+  {% cut "Subject designations" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}
 
@@ -129,7 +131,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. On the **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}** tab, click the name of the group.
-  1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. In the window that opens, select the group, user, or service account you want to grant access to the placement group.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [role](../../security/index.md#roles-list).
@@ -166,19 +168,23 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        --access-binding role=<role>,subject=<subject_type>:<subject_ID>
      ```
 
-     Where:
+     Where `--access-binding` contains access permission settings:
 
-     * `--access-binding`: Parameters for setting access permissions:
+     * `role`: [Role](../../security/index.md#roles-list).
+     * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
 
-       * `role`: [Role](../../security/index.md#roles-list).
-       * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+         {% cut "Indicating a subject" %}
 
-     For example, this command will assign roles to multiple users and a single service account:
+         {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+         {% endcut %}
+
+     For example, assign roles to several users and one service account:
 
      ```bash
      yc compute placement-group set-access-bindings my-group \
-       --access-binding role=editor,subject=userAccount:gfei8n54hmfh********
-       --access-binding role=viewer,subject=userAccount:helj89sfj80a********
+       --access-binding role=editor,subject=userAccount:gfei8n54hmfh******** \
+       --access-binding role=viewer,subject=userAccount:helj89sfj80a******** \
        --access-binding role=editor,subject=serviceAccount:ajel6l0jcb9s********
      ```
 
@@ -211,9 +217,15 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
       * `placement_group_id`: VM placement group ID.
       * `role`: [Role](../../security/index.md#roles-list).
-      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Use one of these formats: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: List of designations of [subjects](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
-      For more information about `yandex_compute_placement_group_iam_binding` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_placement_group_iam_binding).
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
+
+      For more information about the properties of the `yandex_compute_placement_group_iam_binding` resource, see [this provider guide]({{ tf-provider-resources-link }}/compute_placement_group_iam_binding).
 
   1. Apply the changes:
 
@@ -227,7 +239,13 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  To assign roles for a placement group, use the [setAccessBindings](../../api-ref/PlacementGroup/setAccessBindings.md) REST API method for the [PlacementGroup](../../api-ref/PlacementGroup/index.md) resource or the [PlacementGroupService/SetAccessBindings](../../api-ref/grpc/PlacementGroup/setAccessBindings.md) gRPC API call.
+  To assign roles for a placement group, use the [setAccessBindings](../../api-ref/PlacementGroup/setAccessBindings.md) REST API method for the [PlacementGroup](../../api-ref/PlacementGroup/index.md) resource or the [PlacementGroupService/SetAccessBindings](../../api-ref/grpc/PlacementGroup/setAccessBindings.md) gRPC API call. In the request body, specify the [subject](../../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+
+  {% cut "Subject designations" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
   {% note alert %}
 
@@ -247,7 +265,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. On the **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}** tab, click the name of the group.
-  1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. In the line with the user in question, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
   1. Next to the role, click ![image](../../../_assets/cross.svg).
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -275,13 +293,19 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      ```bash
      yc compute placement-group remove-access-binding <placement_group_ID> \
        --role=<role> \
-       --subject=<subject_type>:<subject_ID> \
+       --subject=<subject_type>:<subject_ID>
      ```
 
      Where:
 
      * `--role`: ID of the role you need to revoke.
-     * `--subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) you want to revoke the role from.
+     * `--subject`: Designation of the [subject](../../../iam/concepts/access-control/index.md#subject) you want to revoke the role from.
+
+         {% cut "Subject designations" %}
+
+         {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+         {% endcut %}
 
      For example, this command revokes the `{{ roles-viewer }}` role for the placement group from a user with the `ajel6l0jcb9s********` ID:
 
@@ -321,6 +345,12 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  To revoke a role, use the [updateAccessBindings](../../api-ref/PlacementGroup/updateAccessBindings.md) REST API method for the [PlacementGroup](../../api-ref/PlacementGroup/index.md) resource or the [PlacementGroupService/UpdateAccessBindings](../../api-ref/grpc/PlacementGroup/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID under `subject`.
+  To revoke a role, use the [updateAccessBindings](../../api-ref/PlacementGroup/updateAccessBindings.md) REST API method for the [PlacementGroup](../../api-ref/PlacementGroup/index.md) resource or the [PlacementGroupService/UpdateAccessBindings](../../api-ref/grpc/PlacementGroup/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the [subject](../../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+
+  {% cut "Subject designations" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}

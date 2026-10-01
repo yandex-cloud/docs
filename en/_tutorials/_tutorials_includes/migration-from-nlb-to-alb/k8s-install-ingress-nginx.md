@@ -23,7 +23,7 @@
         kubectl apply -f <IngressClass_resource_file>
         ```
 
-1. Create an `Ingress` resource:
+1. Create the `Ingress` resource:
 
     1. Read the descriptions of the [`Ingress`](../../../managed-kubernetes/alb-ref/ingress.md) resource fields and annotations and see [the example](../../../managed-kubernetes/tutorials/alb-ingress-controller.md#create-ingress-and-apps).
 
@@ -31,7 +31,7 @@
 
         1. Complete the [annotations](../../../managed-kubernetes/alb-ref/ingress.md#annotations) section for the L7 load balancer settings:
 
-            * `ingress.alb.yc.io/subnets`: IDs of the subnets in the three availability zones for the L7 load balancer nodes. Specify the IDs separated by commas with no spaces.
+            * `ingress.alb.yc.io/subnets`: IDs of the subnets in the three [availability zones](../../../overview/concepts/geo-scope.md) for the L7 load balancer nodes. Specify the IDs separated by commas with no spaces.
             * `ingress.alb.yc.io/security-groups`: ID of one or more security groups for the L7 load balancer. For multiple groups, specify their IDs separated by commas with no spaces.
             * `ingress.alb.yc.io/external-ipv4-address`: Previously reserved static public IP address.
             * `ingress.alb.yc.io/group-name`: Name of the `Ingress` resource group. `Ingress` resources are grouped together, each group served by a separate {{ alb-name }} instance with a dedicated public IP address.
@@ -76,9 +76,9 @@
 
                 * `resource`: Reference to the `HttpBackendGroup` group of backends to process the requests. A backend group can route traffic to either {{ managed-k8s-name }} services or [{{ objstorage-full-name }} buckets](../../../storage/concepts/bucket.md). When using a backend group, advanced {{ alb-name }} functionality is available. You can also specify relative backend weights to allocate traffic to them in proportion.
 
-                    * `kind`: `HttpBackendGroup`
-                    * `name`: Backend group name. The name must match the value specified in the `metadata.name` field of the `HttpBackendGroup` resource. The `HttpBackendGroup` resource this field refers to must be described in line with [this configuration](../../../application-load-balancer/k8s-ref/http-backend-group.md).
-                    * `apiGroup`: `alb.yc.io`
+                    * `kind`: `HttpBackendGroup`.
+                    * `name`: Backend group name The name must match the value specified in the `metadata.name` field of the `HttpBackendGroup` resource. The `HttpBackendGroup` resource this field refers to must be described in line with [this configuration](../../../application-load-balancer/k8s-ref/http-backend-group.md).
+                    * `apiGroup`: `alb.yc.io`.
 
         `Ingress` resource example:
 

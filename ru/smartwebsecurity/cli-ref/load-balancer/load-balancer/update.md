@@ -130,6 +130,8 @@ Cookie name.
 If not set, session cookie will be used (not persisted between browser restarts).
 >>>>> - path (string)\
 Optional cookie path.
+>> - web-app-id (string)\
+ID of the Solid WAF web app.
 > - rate-limit (structure)\
 Optional rate limit settings.
 >> - all-requests-per-second (integer)\
@@ -195,7 +197,8 @@ Rate limit for individual IP addresses. Defaults: - with SolidWaf enabled: 1000 
           header-name = string
         }
       },
-      solid-waf-profile-id = string
+      solid-waf-profile-id = string,
+      web-app-id = string
     },
     tls-listener = {
       certificate-id = string,
@@ -273,7 +276,8 @@ Rate limit for individual IP addresses. Defaults: - with SolidWaf enabled: 1000 
           }
         }
       },
-      "solid-waf-profile-id": "string"
+      "solid-waf-profile-id": "string",
+      "web-app-id": "string"
     },
     "tls-listener": {
       "certificate-id": "string",
@@ -477,6 +481,15 @@ Set the custom profile. ||
 || `--region` | `string`
 
 Set the region. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||

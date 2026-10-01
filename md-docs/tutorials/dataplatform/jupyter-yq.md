@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Анализ данных с помощью Jupyter
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Yandex Query > Анализ данных с помощью Jupyter
 
 # Анализ данных с помощью Jupyter
 
@@ -414,7 +414,7 @@ output2 << SELECT 'Two' as column2, 3 as column3
 output
 ```
 
-По умолчанию результатом выполнения команд `%yq` и `%%yq` является [Pandas DataFrame](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html) с колонками, совпадающими с названиями колонок из SQL-запроса и со строками, содержащими результаты запроса. Конвертацию в `Pandas DataFrame` можно отключить с помощью [аргумента --raw-results](#usage).
+По умолчанию результатом выполнения команд `%yq` и `%%yq` является [Pandas DataFrame](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html) с колонками, совпадающими с названиями колонок из SQL-запроса и со строками, содержащими результаты запроса. Конвертацию в `Pandas DataFrame` можно отключить с помощью [аргумента --raw-results](../../query/tutorials/yq.md#check-installation).
 
 В примере выше переменная `output` будет обладать следующей структурой:
 

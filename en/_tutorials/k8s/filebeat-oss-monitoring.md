@@ -13,9 +13,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Required paid resources {#paid-resources}
 
 * {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* {{ managed-k8s-name }} cluster nodes: Use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * {{ mos-name }} cluster: use of computing resources, storage and backup size (see [{{ mos-name }} pricing](../../managed-opensearch/pricing.md)).
-* Public IP addresses for {{ mos-name }} cluster hosts and {{ managed-k8s-name }} cluster nodes with public access enabled (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Public IP addresses for the {{ mos-name }} cluster's hosts and {{ managed-k8s-name }} cluster's master and nodes with public access enabled (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 ## Getting started {#before-you-begin}
 
@@ -32,7 +32,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-     1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with any suitable configuration. When creating, specify the preconfigured security groups.
+     1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) of any suitable configuration. When creating, specify the preconfigured security groups.
 
    - {{ TF }} {#tf}
 

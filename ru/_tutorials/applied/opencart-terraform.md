@@ -4,7 +4,6 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-
 ## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}

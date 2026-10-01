@@ -98,7 +98,9 @@
           "subjectName": "string"
         }
       }
-    ]
+    ],
+    "artifactId": "string",
+    "artifactName": "string"
   },
   "requestParameters": "object",
   "response": "object"
@@ -272,6 +274,8 @@ A list of messages that carry the error details. ||
 || registryId | **string** ||
 || registryName | **string** ||
 || accessBindingDeltas[] | **[AccessBindingDelta](#yandex.cloud.audit.AccessBindingDelta)** ||
+|| artifactId | **string** ||
+|| artifactName | **string** ||
 |#
 
 ## AccessBindingDelta {#yandex.cloud.audit.AccessBindingDelta}

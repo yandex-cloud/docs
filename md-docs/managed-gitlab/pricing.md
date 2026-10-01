@@ -4,18 +4,28 @@
 
 
 
+{% note warning %}
+
+Начиная с 11 сентября 2026 года [хранение данных GitLab в Yandex Object Storage](concepts/s3-integration.md) тарифицируется.
+
+{% endnote %}
+
 ::: page-constructor
 blocks:
   - type: card-layout-block
     animated: false
     colSizes:
       all: 12
-      sm: 4
+      md: 4
+    indent:
+      top: '0'
+      bottom: '0'
     children:
       - type: basic-card
         title: Калькулятор цен
         text: Рассчитайте стоимость использования сервиса, исходя из ваших потребностей
-        icon: _assets/icons/calculator.svg
+        gravityIcon: Calculator
+        iconPosition: left
         urlTitle: Калькулятор цен
         url: https://yandex.cloud/ru/prices?state=2f44fbe92c5f#calculator
         size: s
@@ -27,7 +37,8 @@ blocks:
       - type: basic-card
         title: Прайс-лист
         text: Актуальные тарифы на все наши услуги
-        icon: _assets/icons/circle-ruble.svg
+        gravityIcon: CircleRuble
+        iconPosition: left
         urlTitle: Прайс-лист
         url: https://yandex.cloud/ru/price-list?services=dn2g45ennmllm0knk0gi
         size: s
@@ -39,7 +50,8 @@ blocks:
       - type: basic-card
         title: Акции и free tier
         text: Гранты, специальные условия и программы поддержки
-        icon: _assets/icons/flame.svg
+        gravityIcon: Flame
+        iconPosition: left
         urlTitle: Акции и free tier
         url: https://yandex.cloud/ru/all-offers
         size: s
@@ -191,16 +203,17 @@ blocks:
 Цена вычислительных ресурсов зависит от выбранной конфигурации [правил ревью кода](concepts/approval-rules.md).
 
 
-| Услуга                                                                                   | Цена      | Ед. тарификации | Действует с    | Действует до |
-| ---------------------------------------------------------------------------------------- | --------- | --------------- | -------------- | ------------ |
-| Managed Service for GitLab. Базовая конфигурация/правила ревью кода отключены, 100% vCPU | 1,99 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for GitLab. Базовая конфигурация/правила ревью кода отключены, RAM       | 0,5336 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for GitLab. Продвинутая конфигурация, 100% vCPU                          | 3,98 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for GitLab. Продвинутая конфигурация, RAM                                | 1,0672 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for GitLab. Стандартная конфигурация, 100% vCPU                          | 2,78 ₽    | vCPU × час      | 30 апреля 2026 | —            |
-| Managed Service for GitLab. Стандартная конфигурация, RAM                                | 0,747 ₽   | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for GitLab. Хранение данных на SSD-дисках                                | 0,0214 ₽  | ГБ × час        | 30 апреля 2026 | —            |
-| Managed Service for GitLab. Хранение резервных копий в Yandex Object Storage             | 0,00316 ₽ | ГБ × час        | 30 апреля 2026 | —            |
+| Услуга                                                                                   | Цена      | Ед. тарификации | Действует с      | Действует до |
+| ---------------------------------------------------------------------------------------- | --------- | --------------- | ---------------- | ------------ |
+| Managed Gitlab. Хранение данных в Object Storage                                         | 0,0038 ₽  | ГБ × час        | 10 сентября 2026 | —            |
+| Managed Service for GitLab. Базовая конфигурация/правила ревью кода отключены, 100% vCPU | 1,99 ₽    | vCPU × час      | 30 апреля 2026   | —            |
+| Managed Service for GitLab. Базовая конфигурация/правила ревью кода отключены, RAM       | 0,5336 ₽  | ГБ × час        | 30 апреля 2026   | —            |
+| Managed Service for GitLab. Продвинутая конфигурация, 100% vCPU                          | 3,98 ₽    | vCPU × час      | 30 апреля 2026   | —            |
+| Managed Service for GitLab. Продвинутая конфигурация, RAM                                | 1,0672 ₽  | ГБ × час        | 30 апреля 2026   | —            |
+| Managed Service for GitLab. Стандартная конфигурация, 100% vCPU                          | 2,78 ₽    | vCPU × час      | 30 апреля 2026   | —            |
+| Managed Service for GitLab. Стандартная конфигурация, RAM                                | 0,747 ₽   | ГБ × час        | 30 апреля 2026   | —            |
+| Managed Service for GitLab. Хранение данных на SSD-дисках                                | 0,0214 ₽  | ГБ × час        | 30 апреля 2026   | —            |
+| Managed Service for GitLab. Хранение резервных копий в Yandex Object Storage             | 0,00316 ₽ | ГБ × час        | 30 апреля 2026   | —            |
 
 
 
@@ -210,7 +223,7 @@ blocks:
 
 Каждый месяц не тарифицируются первые 100 ГБ исходящего трафика.
 
-Минимальная единица тарификации — 1 МБ.
+Минимальная единица тарификации — 1 байт.
 
 
 | Услуга                                                    | Цена              | Ед. тарификации | Действует с    | Действует до |

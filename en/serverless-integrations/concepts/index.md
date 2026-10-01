@@ -10,15 +10,15 @@ keywords:
   - Workflow
   - YaWL specification
   - Glue
-  - integrations
-  - API Gateway
-  - API gateway
+  - integration options
   - bus
   - connector
   - rule
 ---
 
 # {{ si-name }} overview
+
+{% include [sunset-note](../../_includes/serverless-integrations/sunset-note.md) %}
 
 {{ si-full-name }} is a service used to configure and manage integrations using serverless technologies in {{ yandex-cloud }}.
 
@@ -30,12 +30,6 @@ keywords:
 * Develop event-driven serverless applications based on orchestration and choreography to coordinate and manage events.
 
 ## Available features {#instruments}
-
-### {{ sw-name }} {#workflows}
-
-{% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
-
-Build and automate workflows using the Yandex Workflows Language (YaWL).
 
 ### {{ er-name }} {#eventrouter}
 

@@ -4,7 +4,6 @@
 
 Retrieves the list of HardwarePool resources.
 
-https://google.aip.dev/130 --)
 
 ## gRPC request
 

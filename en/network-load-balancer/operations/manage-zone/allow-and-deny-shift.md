@@ -6,6 +6,7 @@ description: Follow this guide to allow or deny zonal shift for a network load b
 
 # Allowing or denying zonal shift
 
+
 {% include [about-zone-shift](../../../_includes/network-load-balancer/about-zone-shift.md) %}
 
 You can also manually enable or disable specific availability zones and [test zonal shift](disable-enable-zone.md) from any of them. After the test, you can allow zonal shift only for specific load balancers.
@@ -144,4 +145,4 @@ By default, zonal shift is not allowed.
 
 #### What's next {whats-next}
 
-* [{#T}](disable-enable-zone.md)
+[{#T}](disable-enable-zone.md)

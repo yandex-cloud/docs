@@ -28,7 +28,7 @@ Redis cluster name. ||
 The maximum number of items to list. Default is 1000 items ||
 || `--service-type` | `string`
 
-Type of the service to request logs about. Values: 'redis' ||
+Type of the service to request logs about. Values: 'redis', 'valkey-audit' ||
 || `--columns` | `value[,value]`
 
 Columns from logs table to request ||

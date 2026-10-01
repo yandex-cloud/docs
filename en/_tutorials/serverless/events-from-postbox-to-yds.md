@@ -79,31 +79,31 @@ You can use any DBMS suitable for analytical tasks as an event storage. In this 
 - Management console {#console}
 
   1. On the **{{ ui-key.yacloud.ydb.databases.label_title }}** page, select the new `postbox-events-ydb` database.
-  1. To open the database root directory, navigate to the ![image](../../_assets/console-icons/folder.svg) **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+  1. To open the database root directory, navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
   1. To query your database, click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** in the top-right corner.
   1. In the **{{ ui-key.yacloud.ydb.sql.label_query }}** box that opens, enter the following:
 
       ```sql
       CREATE TABLE postbox_events
       (
-          saved_datetime Datetime NOT NULL,
-          eventid String NOT NULL,
-          eventtype String,
-          mail_timestamp Timestamp,
-          mail_messageid String,
-          mail_ch_from String,
-          mail_ch_to String, 
-          mail_ch_messageid String,
-          mail_ch_subject String,
+          saved_datetime Datetime,
+          eventid Utf8 NOT NULL,
+          eventtype Utf8,
+          mail_timestamp Timestamp NOT NULL,
+          mail_messageid Utf8,
+          mail_ch_from Utf8,
+          mail_ch_to Utf8,
+          mail_ch_messageid Utf8,
+          mail_ch_subject Utf8,
           delivery_timestamp Timestamp,
           delivery_time_ms Uint64,
-          delivery_recipients String,
-          bounce_bounceType String,
-          bounce_bounceSubType String,
-          bounce_bouncedRecipients String,
+          delivery_recipients Utf8,
+          bounce_bounceType Utf8,
+          bounce_bounceSubType Utf8,
+          bounce_bouncedRecipients Utf8,
           bounce_timestamp Timestamp,
           -- message Json,
-          PRIMARY KEY (saved_datetime, eventid)
+          PRIMARY KEY (mail_timestamp, eventid)
       )
       ```
 
@@ -134,9 +134,24 @@ You can use any DBMS suitable for analytical tasks as an event storage. In this 
 {% include [create-pb-resources-address](../_tutorials_includes/events-from-postbox-to-yds/create-pb-resources-address.md) %}
 
 
-### Verify your domain ownership {#domain}
+### Pass domain ownership verification {#domain}
 
-{% include [check-domain](../../_includes/postbox/check-domain.md) %}
+To pass the verification, create a TXT record in your account with the DNS provider your domain is delegated to:
+
+* Record name: Name portion generated when creating the address, omitting the domain in `<selector>._domainkey` format, e.g., `postbox._domainkey`.
+* Value: Content of the **{{ ui-key.yacloud.postbox.label_dns-record-value }}** field from the **{{ ui-key.yacloud.postbox.section_dkim }}** section on the address page in {{ postbox-name }}.
+
+If you have delegated your domain to {{ dns-full-name }}:
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  {% include [check-domain-advanced](../../_includes/postbox/check-domain-advanced.md) %}
+
+{% endlist %}
+
+DNS server responses are cached, so you may experience delays when updating the resource record. If the verification status does not change within 24 hours, click **{{ ui-key.yacloud.postbox.button_run-verification }}**.
 
 
 ## Set up {{ sf-name }} resources {#serverless-functions}
@@ -150,7 +165,10 @@ Create a [function](../../functions/concepts/function.md) to send data from the 
 
 - Archive
 
-  [Download](https://github.com/yandex-cloud-examples/yc-postbox-events/raw/main/build/postbox-events.zip) the `postbox-events.zip` archive to your computer. This archive contains the `index.py` and `requirements.txt` files with the function code.
+  [Download](https://github.com/yandex-cloud-examples/yc-postbox-events/raw/main/build/postbox-events.zip) the `postbox-events.zip` archive to your computer. This archive contains the following files:
+
+  * `index.py`: Function code.
+  * `requirements.txt`: Dependencies.
 
 - Repository
 
@@ -159,10 +177,13 @@ Create a [function](../../functions/concepts/function.md) to send data from the 
   1. Clone the [repository](https://github.com/yandex-cloud-examples/yc-postbox-events/tree/main) with the function code:
 
       ```bash
-      git clone https://github.com/yandex-cloud-examples/yc-postbox-events/blob/main/build/postbox-events.git
+      git clone https://github.com/yandex-cloud-examples/yc-postbox-events.git
       ```
 
-      Navigate to the repository directory. Make sure it contains the `index.py` and `requirements.txt` files with the function code.
+      Navigate to the repository directory. It should now contain the following files:
+
+      * `index.py`: Function code.
+      * `requirements.txt`: Dependencies.
 
   1. Create an archive named `postbox-events.zip` and add `index.py` and `requirements.txt` to it.
 
@@ -181,11 +202,11 @@ Create a [function](../../functions/concepts/function.md) to send data from the 
 
       * The database endpoint is specified under **{{ ui-key.yacloud.ydb.overview.section_connection }}** in the first part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (preceding `/?database=`):
 
-          >For example, the endpoint of a serverless database is `{{ ydb.ep-serverless }}`.
+          > For example, the endpoint of a serverless database is `{{ ydb.ep-serverless }}`.
 
       * The database path is specified under **{{ ui-key.yacloud.ydb.overview.section_connection }}** in the second part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`).
 
-          >Here is an example of a database path: `{{ ydb.path-serverless }}`.
+          > Here is an example of a database path: `{{ ydb.path-serverless }}`.
 
 {% endlist %}
 
@@ -225,7 +246,7 @@ To create a function, you will need the function code and database connection cr
               Key | Description | Value (example)
               :--- | :--- | :---
               `YDB_DATABASE` | Database path     | `/{{ region-id }}/b1go123e9vjq********/etnu15kr22********`
-              `YDB_ENDPOINT` | Database endpoint | `grpcs://ydb.serverless.yandexcloud.net:2135`
+              `YDB_ENDPOINT` | Database endpoint | `{{ ydb.ep-serverless }}`
               `YDB_TABLE`    | Table name | `postbox_events`
 
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
@@ -271,10 +292,12 @@ To create a function, you will need the function code and database connection cr
           1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
           1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
           1. Select the `postbox-events-ydb` database.
-          1. Go to the ![image](../../_assets/console-icons/folder.svg) **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+          1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
           1. Select the `postbox_events` table.
 
               The table should show new entries. Some columns may have the `NULL` value: this depends on the [type of notification](../../postbox/concepts/notification.md#types) received from {{ postbox-name }}.
+
+      * [View](../../functions/operations/function/function-logs.md) the function logs.
 
     {% endlist %}
 
@@ -314,7 +337,7 @@ To monitor the emails you send, set up a [connection](../../datalens/concepts/co
 
 - {{ datalens-short-name }} UI {#console}
 
-  1. Go to the {{ datalens-short-name }} [main page]({{ link-datalens-main-promo }}).
+  1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-promo }}).
   1. Click **Start in cloud**.
   1. In the left-hand panel, select ![circles-intersection](../../_assets/console-icons/circles-intersection.svg) **Datasets** and click **Create dataset**.
   1. In the window that opens, select the workbook with your new connection and click **Create**.
@@ -337,7 +360,7 @@ In this tutorial, we will create the [Events by day](#events-by-days) and [Event
 
 - {{ datalens-short-name }} UI {#console}
 
-  1. Go to the {{ datalens-short-name }} [main page]({{ link-datalens-main-skip-promo }}).
+  1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
   1. In the left-hand panel, select ![chart-column](../../_assets/console-icons/chart-column.svg) **Charts**. Click **Create chart** and select **Chart in Wizard**.
   1. In the window that opens, select the workbook with your new connection and click **Create**.
   1. In the left-hand section, click ![circles-intersection](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and select `postbox-events-dataset`.
@@ -360,7 +383,7 @@ In this tutorial, we will create the [Events by day](#events-by-days) and [Event
 
 - {{ datalens-short-name }} UI {#console}
 
-  1. Go to the {{ datalens-short-name }} [main page]({{ link-datalens-main-skip-promo }}).
+  1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
   1. In the left-hand panel, select ![chart-column](../../_assets/console-icons/chart-column.svg) **Charts**. Click **Create chart** and select **Chart in Wizard**.
   1. In the window that opens, select the workbook with your new connection and click **Create**.
   1. In the left-hand section, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and select `postbox-events-dataset`.
@@ -378,7 +401,7 @@ In this tutorial, we will create the [Events by day](#events-by-days) and [Event
 
   1. Drag the `delivery_timestamp` dimension to the **Sorting** section to sort the table by delivery time.
   1. Click **Save**.
-  1. In the window that opens, enter `Event list` as the chart name, and click **Save**.
+  1. In the window that opens, enter `Event list` as the chart name and click **Save**.
 
 {% endlist %}
 
@@ -389,7 +412,7 @@ In this tutorial, we will create the [Events by day](#events-by-days) and [Event
 
 - {{ datalens-short-name }} UI {#console}
 
-  1. Go to the {{ datalens-short-name }} [main page]({{ link-datalens-main-skip-promo }}).
+  1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
   1. In the left-hand panel, select ![layout-cells-large](../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and click **Create dashboard**.
   1. In the window that opens, select the workbook with your new connection and click **Create**.
   1. Add `Events by day`, `Event list`, and other charts you created earlier to your dashboard:

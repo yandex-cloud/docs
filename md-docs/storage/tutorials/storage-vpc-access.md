@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Подключение к Object Storage из VPC
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Безопасность и управление доступом > Подключение к Object Storage из VPC
 
 # Подключение к Object Storage из Virtual Private Cloud
 
@@ -217,7 +217,7 @@ warp get \
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором ранее были созданы ресурсы.
 1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
 1. В списке виртуальных машин выберите ВМ `test-s3-vm`.
-1. Перейдите на вкладку ![image](../../_assets/console-icons/terminal.svg) **Серийная консоль**.
+1. Перейдите на вкладку **Серийная консоль**.
 1. Нажмите кнопку **Подключиться**.
 1. Введите логин `admin` и пароль из вывода команды `terraform output test_vm_password` (укажите значение без кавычек).
 

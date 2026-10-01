@@ -33,13 +33,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support cost includes:
-* Fee for computing resources and disks for {{ managed-k8s-name }} cluster [nodes](../../managed-kubernetes/concepts/index.md#node-group) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using the {{ managed-k8s-name }} [master](../../managed-kubernetes/concepts/index.md#master) and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for the {{ managed-k8s-name }} cluster's [public IP addresses](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* Fee for storing the [secret](../../lockbox/concepts/secret.md) and requests to it (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: Use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Public IP addresses for the {{ managed-k8s-name }} cluster's master and nodes with public access enabled (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* {{ lockbox-name }} secret: number of stored secret versions and requests to them (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
 
-## Set up a {{ managed-k8s-name }} cluster {#prepare-cluster}
+## Configure your {{ managed-k8s-name }} cluster {#prepare-cluster}
 
 {% include [wlif-mk8s-cluster-setup](../../_includes/managed-kubernetes/wlif-mk8s-cluster-setup.md) %}
 
@@ -94,7 +93,7 @@ The infrastructure support cost includes:
 
 - {{ TF }} {#tf}
 
-  1. In the {{ TF }} configuration file, define the parameters of the federation you want to create:
+  1. In the {{ TF }} configuration file, specify the properties of the federation you want to create:
 
       ```hcl
       resource "yandex_iam_workload_identity_oidc_federation" "wlif" {
@@ -125,8 +124,6 @@ The infrastructure support cost includes:
 - API {#api}
 
   To create a workload identity federation, use the [create](../../iam/workload/oidc/workload-identity/api-ref/Federation/create.md) REST API method for the [Federation](../../iam/workload/oidc/workload-identity/api-ref/Federation/index.md) resource or the [FederationService/Create](../../iam/workload/oidc/workload-identity/api-ref/grpc/Federation/create.md) gRPC API call.
-
-{% endlist %}
 
 {% endlist %}
 
@@ -208,7 +205,7 @@ The infrastructure support cost includes:
       1. In the window that opens, select **{{ ui-key.yacloud_components.acl.label.service-accounts }}**.
       1. Select the service account you created earlier.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `{{ roles-lockbox-payloadviewer }}` [role](../../lockbox/security/index.md#lockbox-payloadViewer).
-      1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+      1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
     - CLI {#cli}
 
@@ -334,7 +331,7 @@ The infrastructure support cost includes:
 
 - {{ TF }} {#tf}
 
-  1. In the {{ TF }} configuration file, define the parameters of the federated credentials you want to create:
+  1. In the {{ TF }} configuration file, specify the properties of the federated credentials you want to create:
 
       ```hcl
       resource "yandex_iam_workload_identity_federated_credential" "fc" {

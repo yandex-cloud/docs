@@ -32,12 +32,16 @@ Unsaved changes in the current version are reset:
 
 All versions fall into the following types:
 
-1. **Current**: This is the most recently saved version of a chart.
+1. **Actual**: This is the most recently saved version of a chart.
 
    The version is displayed:
    
    * To all users on dashboards.
+   
+   
    * When navigating to a chart.
+
+   
    * When opening a chart in a workbook.
    * When using the dashboard context menu to open a chart for editing.
    
@@ -54,7 +58,7 @@ All versions fall into the following types:
 1. **Draft**: This is a version with unsaved chart changes. Common users do not see changes being made to a draft. This enables you to hide chart edits until you release a new version. A chart can only have one draft. 
    When you open a draft, a panel appears at the top indicating the version type, creation date and time, and login of the version author. There are buttons in the right-hand panel:
 
-   * **Make current**: Turns the draft into the current version. The version current at the time will become outdated.
+   * **Make actual**: Turns the draft into the current version. The version current at the time will become outdated.
    * **Open current**: Opens the current version.
 
    {% cut "Draft" %}
@@ -65,15 +69,15 @@ All versions fall into the following types:
 
    To create a draft after editing a chart, click the down arrow in the top-right corner and select **Save as draft**.
 
-   If there is a draft version of the chart, you can open it right away if you add the `unreleased=1` parameter to the URL.
+   If there is a draft version of the chart, you can open it right away by adding `unreleased=1` to the URL.
 
    You can display a draft version of your chart on the dashboard. To do this, [add](../../operations/chart/add-parameters.md) the `unreleased` parameter set to `1` to the widget parameters on the dashboard for this chart.
 
 1. **Outdated**: This is a version that is neither current nor a draft.  
-   When you open an outdated version, a panel appears at the top indicating the version type, creation date and time, and login of the version author. There are buttons in the right-hand panel:
+   When you open an outdated version, you see a panel at the top stating the version type, creation date and time, and the version author's login. There are buttons in the right-hand panel:
 
-   * **Make current**: Turns the currently outdated version into the current one. The current version and the draft (if any) will become outdated.
-   * **Open current**: Opens the current version.
+   * **Make actual**: Turns an outdated version into the current one. The current version and the draft (if any) will become outdated.
+   * **Open actual**: Opens the current version.
 
    {% cut "Outdated version" %}
 
@@ -107,7 +111,7 @@ A new version is automatically created:
 
 * In the current chart version edit mode, after you click **Save** (which creates a new current version) or ![chevron-down](../../../_assets/console-icons/chevron-down.svg) → **Save as draft** (which creates a new draft version).
 * In the draft edit mode or non-current chart version edit mode, after you click **Save as draft** (which creates a new draft version) or ![chevron-down](../../../_assets/console-icons/chevron-down.svg) → **Save and make current** (which creates a new current version).
-* In draft or non-current chart version view mode, after you click **Make current**.
+* In draft or outdated chart version view mode, after you click **Make actual**.
 
 Chart configuration changes that, after saving, create a new version:
 
@@ -136,7 +140,7 @@ To edit a draft, select it in the version list. To save your draft edits, at the
 
 * **Save as draft**: New draft will be created. The current draft will become an outdated version.
 * Click ![image](../../../_assets/console-icons/chevron-down.svg) → **Save as copy** to create a new chart.
-* ![image](../../../_assets/console-icons/chevron-down.svg) → **Save and make current** to create a new current version and make all other versions outdated.
+* ![image](../../../_assets/console-icons/chevron-down.svg) → **Save and make actual** to create a new current version and make all other versions outdated.
 
 ### Editing an outdated version {#current-version-edit}
 
@@ -144,12 +148,12 @@ To edit an outdated version, select it from the list of versions. To save edits 
 
 * **Save as draft**: Draft will be created from the edited version. The current draft will become an outdated version.
 * ![image](../../../_assets/console-icons/chevron-down.svg) → **Save as copy** to create a new chart.
-* ![image](../../../_assets/console-icons/chevron-down.svg) → **Save and make current** to create a new current version and make all other versions, including the draft, outdated.
+* ![image](../../../_assets/console-icons/chevron-down.svg) → **Save and make actual** to create a new current version and make all other versions, including the draft, outdated.
 
 ## Limits {#restrictions}
 
-* You can only get change history for the last three months.
+* You can only get the change history for the last three months.
 * The change history only contains a list of chart versions and includes the version type, save date and time, and the author of the edits.
 * Chart versions do not include changes to access permissions; this operation is performed separately from chart edits.
-* Versions do not display a list of changes. You can only view the saved status of the chart configuration.
+* Versions do not display the list of changes. You can only view the saved status of the chart configuration.
 

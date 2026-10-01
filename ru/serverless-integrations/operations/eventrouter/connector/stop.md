@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Остановить коннектор
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 Когда [коннектор](../../../concepts/eventrouter/connector.md) остановлен, он перестает отправлять сообщения в [шину](../../../concepts/eventrouter/bus.md).
 
 {% list tabs group=instructions %}

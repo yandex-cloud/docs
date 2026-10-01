@@ -15,8 +15,8 @@
     1. Включите опцию **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** (по умолчанию отключена).
     1. Настройте **{{ ui-key.yacloud.mdb.forms.field_diagnostics-sessions-interval }}** и **{{ ui-key.yacloud.mdb.forms.field_diagnostics-statements-interval }}**. Допустимые значения:
         
-        * для сессий — от `5` до `86400` секунд;
-        * для запросов — от `60` до `86400` секунд.
+        * для сессий — от `1` до `86400` секунд;
+        * для запросов — от `1` до `86400` секунд.
 
 * CLI {#cli}
 
@@ -37,8 +37,9 @@
 
     Допустимые значения параметров:
 
-    - `sessions-sampling-interval` — от `5` до `86400` секунд.
-    - `statements-sampling-interval` — от `60` до `86400` секунд.
+    - `sessions-sampling-interval` — от `1` до `86400` секунд.
+    - `statements-sampling-interval` — от `1` до `86400` секунд.
+
 
 * {{ TF }} {#tf}
 
@@ -59,6 +60,7 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
         {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 * REST API {#api}
 
@@ -92,8 +94,8 @@
         Где `configSpec.performanceDiagnostics` — настройки сбора статистики:
 
         * `enabled` — активация сбора статистики: `true` или `false`.
-        * `sessionsSamplingInterval` — интервал сбора сессий. Допустимые значения — от `5` до `86400` секунд.
-        * `statementsSamplingInterval` — интервал сбора запросов. Допустимые значения — от `60` до `86400` секунд.
+        * `sessionsSamplingInterval` — интервал сбора сессий. Допустимые значения — от `1` до `86400` секунд.
+        * `statementsSamplingInterval` — интервал сбора запросов. Допустимые значения — от `1` до `86400` секунд.
 
      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
 
@@ -124,8 +126,8 @@
         Где `configSpec.performanceDiagnostics` — настройки сбора статистики:
 
         * `enabled` — активация сбора статистики: `true` или `false`.
-        * `sessionsSamplingInterval` — интервал сбора сессий. Допустимые значения — от `5` до `86400` секунд.
-        * `statementsSamplingInterval` — интервал сбора запросов. Допустимые значения — от `60` до `86400` секунд.
+        * `sessionsSamplingInterval` — интервал сбора сессий. Допустимые значения — от `1` до `86400` секунд.
+        * `statementsSamplingInterval` — интервал сбора запросов. Допустимые значения — от `1` до `86400` секунд.
 
      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
@@ -165,8 +167,8 @@
         Где `config_spec.performance_diagnostics` — настройки сбора статистики:
 
         * `enabled` — активация сбора статистики: `true` или `false`.
-        * `sessions_sampling_interval` — интервал сбора сессий. Допустимые значения — от `5` до `86400` секунд.
-        * `statements_sampling_interval` — интервал сбора запросов. Допустимые значения — от `60` до `86400` секунд.
+        * `sessions_sampling_interval` — интервал сбора сессий. Допустимые значения — от `1` до `86400` секунд.
+        * `statements_sampling_interval` — интервал сбора запросов. Допустимые значения — от `1` до `86400` секунд.
 
      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
 
@@ -205,8 +207,8 @@
         Где `config_spec.performance_diagnostics` — настройки сбора статистики:
 
         * `enabled` — активация сбора статистики: `true` или `false`.
-        * `sessions_sampling_interval` — интервал сбора сессий. Допустимые значения — от `5` до `86400` секунд.
-        * `statements_sampling_interval` — интервал сбора запросов. Допустимые значения — от `60` до `86400` секунд.
+        * `sessions_sampling_interval` — интервал сбора сессий. Допустимые значения — от `1` до `86400` секунд.
+        * `statements_sampling_interval` — интервал сбора запросов. Допустимые значения — от `1` до `86400` секунд.
 
      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 

@@ -1,6 +1,6 @@
 ---
 title: '{{ mspqr-name }} API authentication'
-description: To perform operations via the API in {{ mspqr-name }}, a service for managing {{ SPQR }} databases, get an IAM token for your account.
+description: To perform API operations in the {{ mspqr-name }} {{ SPQR }} database management service, you need to obtain an IAM token for your account.
 ---
 
 # {{ mspqr-name }} API authentication

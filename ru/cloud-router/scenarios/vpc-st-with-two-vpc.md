@@ -1,5 +1,6 @@
 # Организация сетевой связности между двумя и более облачными сетями (VPC Stitching)
 
+
 {% include [cic-only-warning](../../_includes/interconnect/cic-only-warning.md) %}
 
 ![ri-topology-6](../../_assets/cloud-router/ri-topology-6.svg)
@@ -19,4 +20,3 @@
 Использовать в качестве склеивающих анонсов собственные префиксы подсетей виртуальных сетей не допускается.
 
 {% endnote %}
-

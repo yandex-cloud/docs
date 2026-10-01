@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Регулярное распознавание изображений и PDF-документов из бакета Object Storage
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Машинное обучение и искусственный интеллект > Регулярное распознавание изображений и PDF-документов из бакета Object Storage
 
 # Регулярное распознавание изображений и PDF-документов из бакета Object Storage
 
@@ -24,7 +24,7 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Подготовьте облако к работе {#before-begin}
+## Подготовьте облако к работе {#before-you-begin}
 
 Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
 1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.

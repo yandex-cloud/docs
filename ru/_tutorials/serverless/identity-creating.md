@@ -1,6 +1,6 @@
 
 
-В этом руководстве вы с помощью {{ TF }} создадите [адрес](../../postbox/concepts/glossary.md#adress) в [{{ postbox-full-name }}](../../postbox/), а также добавите в [DNS-зону](../../dns/concepts/dns-zone.md) вашего домена необходимые [ресурсные записи](../../dns/concepts/resource-record.md#txt) для подтверждения владения доменом и отправки писем.
+В этом руководстве вы с помощью {{ TF }} создадите [адрес](../../postbox/concepts/glossary.md#address) в [{{ postbox-full-name }}](../../postbox/), а также добавите в [DNS-зону](../../dns/concepts/dns-zone.md) вашего домена необходимые [ресурсные записи](../../dns/concepts/resource-record.md#txt) для подтверждения владения доменом и отправки писем.
 
 Ресурсную запись для подтверждения владения доменом можно добавить в [{{ dns-full-name }}](../../dns/), если вы [делегировали](#delegate) домен, или у вашего регистратора домена.
 
@@ -15,7 +15,7 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Подготовьте облако к работе {#before-begin}
+## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 

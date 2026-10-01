@@ -1,4 +1,4 @@
-Get a list of API keys for a specific service account by entering the service account name:
+Get a list of API keys for a specific service account by providing the service account name:
 
 ```bash
 yc iam api-key list \
@@ -19,4 +19,4 @@ Result:
 
 The `MASKED KEY` field shows the last six characters of the key’s secret part to help you [identify the key](../../iam/concepts/authorization/api-key.md#identify-key).
 
-The folder specified in the CLI profile is used by default to search for the service account. You can specify a different folder using the `--folder-name` or `--folder-id` parameter.
+The folder specified in the CLI profile is used by default to search for the service account. You can specify a different folder using `--folder-name` or `--folder-id`.

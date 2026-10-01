@@ -28,7 +28,7 @@ This component is responsible for resolving all names used in the {{ stackland-n
 
 ### Ingress {#ingress}
 
-This is a reverse proxy used as an L7 load balancer on pods that implement the backend of applications deployed in Kubernetes. It also terminates incoming HTTPS connections (see [Certificate Manager](#certificate-manager) for details). The {{ stackland-name }} implementation uses [ingress-nginx](https://kubernetes.github.io/ingress-nginx/), well-known and reliable Ingress controller for the NGINX web server.
+This is a reverse proxy used as an L7 load balancer on pods that implement the backend of applications deployed in Kubernetes. It also terminates incoming HTTPS connections (see [Certificate Manager](#certificate-manager) for details).
 
 ### {{ certificate-manager-name }} {#certificate-manager}
 
@@ -101,3 +101,11 @@ While {{ stackland-name }} provides ready-to-use dashboards and alerts, you can 
 ### {{ speechsense-name }} {#speechsense}
 
 [{{ speechsense-name }}](speechsense.md) is a speech analytics module for analyzing call recordings and text conversations. The component does not come with the basic package and requires a separate license.
+
+### {{ model-gallery-name }} {#model-gallery}
+
+{{ model-gallery-name }} is a module for hosting and inferencing large language models and embedding models. It includes a model registry, weight storage, inference queue, and a gRPC server for generative models from the YandexGPT family. Also, this module acts as a single point of access to foundation models for other platform modules. The component does not come with the basic package and requires a separate license.
+
+### {{ agent-atelier-name }} {#agent-atelier}
+
+{{ agent-atelier-name }} is a module for creating and starting AI agents and assistants. It helps you build workflow-based scenarios, connect tools via the MCP gateway, prepare datasets, and fine-tune models. The module employs {{ model-gallery-name }} as a model source and {{ iam-name }} for access control. The component does not come with the basic package and requires a separate license.

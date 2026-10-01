@@ -15,6 +15,18 @@ Syntax:
 
 #### Command Tree
 
+- [yc managed-kafka v0 change-freeze](change-freeze/index.md) — Manage change freezes.
+
+  - [yc managed-kafka v0 change-freeze create](change-freeze/create.md) — Create a change freeze for the specified resource.
+
+  - [yc managed-kafka v0 change-freeze get](change-freeze/get.md) — Show the specified change freeze.
+
+  - [yc managed-kafka v0 change-freeze get-limits](change-freeze/get-limits.md) — Show change freeze limits for the specified resource.
+
+  - [yc managed-kafka v0 change-freeze list](change-freeze/list.md) — List change freezes.
+
+  - [yc managed-kafka v0 change-freeze terminate](change-freeze/terminate.md) — Terminate the specified change freeze.
+
 - [yc managed-kafka v0 cluster](cluster/index.md) — Manage Kafka clusters.
 
   - [yc managed-kafka v0 cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified Kafka cluster
@@ -78,6 +90,14 @@ Syntax:
   - [yc managed-kafka v0 connector-s3-sink create](connector-s3-sink/create.md) — Create a Kafka S3-Sink connector.
 
   - [yc managed-kafka v0 connector-s3-sink update](connector-s3-sink/update.md) — Modify attributes of a Kafka S3-Sink connector.
+
+- [yc managed-kafka v0 maintenance](maintenance/index.md) — Manage maintenances.
+
+  - [yc managed-kafka v0 maintenance get](maintenance/get.md) — Show the specified maintenance.
+
+  - [yc managed-kafka v0 maintenance list](maintenance/list.md) — List maintenances.
+
+  - [yc managed-kafka v0 maintenance reschedule](maintenance/reschedule.md) — Reschedule the specified maintenance.
 
 - [yc managed-kafka v0 topic](topic/index.md) — Manage Kafka topics.
 

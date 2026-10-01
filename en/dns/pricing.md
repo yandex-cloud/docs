@@ -33,7 +33,6 @@ editable: false
 </MDX>
 
 
-
 You will be billed for:
 * [Public](concepts/dns-zone.md#public-zones) or [private](concepts/dns-zone.md#private-zones) DNS zones you create.
 
@@ -68,5 +67,4 @@ For example, the cost of 50,000 authoritative requests to your public DNS zone p
 
 
 {% include [usd-calculations](../_pricing_examples/dns/usd-calculations.md) %}
-
 

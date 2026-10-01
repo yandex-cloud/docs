@@ -2,7 +2,7 @@
 
 # Yandex StoreDoc
 
-Сервис помогает разворачивать и поддерживать кластеры серверов Yandex StoreDoc 6.0 и 7.0 в инфраструктуре Yandex Cloud. Yandex StoreDoc — это совместимая с MongoDB высокопроизводительная NoSQL СУБД с открытым исходным кодом.
+Сервис помогает разворачивать и поддерживать кластеры серверов Yandex StoreDoc 6.0 и 7.0 в инфраструктуре Yandex Cloud. Yandex StoreDoc — это совместимая с MongoDB высокопроизводительная NoSQL СУБД.
 
 Сервис Yandex StoreDoc позволяет: <ul> <li>Не указывая схему формата данных, создавать системы, в которых требуется обработка и хранение большого объема полуструктурированных и неструктурированных данных.</li> <li>Поддерживать системы/работать с системами, которым нужна масштабируемость по вертикали и горизонтали.</li> <li>Анализировать данные, в том числе большие (big data), в реальном времени.</li> <li>Обрабатывать транзакции в реальном времени <a href="../glossary/oltp.md">(OLTP)</a>.</li> <li>Обрабатывать аналитические запросы в режиме онлайн <a href="../glossary/olap.md">(OLAP)</a>.</li> <li>Использовать полнотекстовый поиск.</li> </ul>
 
@@ -74,7 +74,7 @@
 
  - [Управление шардами](operations/shards.md)
 
- - [Переключение первичной реплики](operations/stepdown.md)
+ - [Переключение мастера](operations/stepdown.md)
 
 ### Логи и мониторинг
 
@@ -174,6 +174,20 @@
 
  - [list](cli-ref/backup-retention-policy/list.md)
 
+### change-freeze
+
+ - [Overview](cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/change-freeze/terminate.md)
+
 ### cluster
 
  - [Overview](cli-ref/cluster/index.md)
@@ -254,6 +268,16 @@
 
  - [update](cli-ref/hosts/update.md)
 
+### maintenance
+
+ - [Overview](cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/maintenance/reschedule.md)
+
 ### resource-preset
 
  - [Overview](cli-ref/resource-preset/index.md)
@@ -315,6 +339,20 @@
  - [delete](cli-ref/v0/backup-retention-policy/delete.md)
 
  - [list](cli-ref/v0/backup-retention-policy/list.md)
+
+#### change-freeze
+
+ - [Overview](cli-ref/v0/change-freeze/index.md)
+
+ - [create](cli-ref/v0/change-freeze/create.md)
+
+ - [get](cli-ref/v0/change-freeze/get.md)
+
+ - [get-limits](cli-ref/v0/change-freeze/get-limits.md)
+
+ - [list](cli-ref/v0/change-freeze/list.md)
+
+ - [terminate](cli-ref/v0/change-freeze/terminate.md)
 
 #### cluster
 
@@ -396,6 +434,16 @@
 
  - [update](cli-ref/v0/hosts/update.md)
 
+#### maintenance
+
+ - [Overview](cli-ref/v0/maintenance/index.md)
+
+ - [get](cli-ref/v0/maintenance/get.md)
+
+ - [list](cli-ref/v0/maintenance/list.md)
+
+ - [reschedule](cli-ref/v0/maintenance/reschedule.md)
+
 #### resource-preset
 
  - [Overview](cli-ref/v0/resource-preset/index.md)
@@ -467,6 +515,20 @@
  - [List](api-ref/grpc/Backup/list.md)
 
  - [Delete](api-ref/grpc/Backup/delete.md)
+
+#### ChangeFreeze
+
+ - [Overview](api-ref/grpc/ChangeFreeze/index.md)
+
+ - [Create](api-ref/grpc/ChangeFreeze/create.md)
+
+ - [Get](api-ref/grpc/ChangeFreeze/get.md)
+
+ - [List](api-ref/grpc/ChangeFreeze/list.md)
+
+ - [Terminate](api-ref/grpc/ChangeFreeze/terminate.md)
+
+ - [GetLimits](api-ref/grpc/ChangeFreeze/getLimits.md)
 
 #### Cluster
 
@@ -623,6 +685,20 @@
  - [List](api-ref/Backup/list.md)
 
  - [Delete](api-ref/Backup/delete.md)
+
+#### ChangeFreeze
+
+ - [Overview](api-ref/ChangeFreeze/index.md)
+
+ - [Create](api-ref/ChangeFreeze/create.md)
+
+ - [Get](api-ref/ChangeFreeze/get.md)
+
+ - [List](api-ref/ChangeFreeze/list.md)
+
+ - [Terminate](api-ref/ChangeFreeze/terminate.md)
+
+ - [GetLimits](api-ref/ChangeFreeze/getLimits.md)
 
 #### Cluster
 

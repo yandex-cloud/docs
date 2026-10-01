@@ -67,7 +67,8 @@ The maximum string length in characters is 50. ||
       "dataLens": "boolean",
       "webSql": "boolean",
       "dataTransfer": "boolean",
-      "yandexQuery": "boolean"
+      "yandexQuery": "boolean",
+      "trino": "boolean"
     },
     "zoneId": "string",
     "subnetId": "string",
@@ -161,7 +162,8 @@ The maximum string length in characters is 50. ||
         "gpMaxPlanSize": "string",
         "gpAutostatsMode": "string",
         "gpAutostatsOnChangeThreshold": "string",
-        "gpResourceGroupMemoryLimit": "number"
+        "gpResourceGroupMemoryLimit": "number",
+        "trackActivityQuerySize": "string"
       },
       "userConfig": {
         "maxConnections": "string",
@@ -196,7 +198,8 @@ The maximum string length in characters is 50. ||
         "gpMaxPlanSize": "string",
         "gpAutostatsMode": "string",
         "gpAutostatsOnChangeThreshold": "string",
-        "gpResourceGroupMemoryLimit": "number"
+        "gpResourceGroupMemoryLimit": "number",
+        "trackActivityQuerySize": "string"
       },
       "defaultConfig": {
         "maxConnections": "string",
@@ -231,7 +234,8 @@ The maximum string length in characters is 50. ||
         "gpMaxPlanSize": "string",
         "gpAutostatsMode": "string",
         "gpAutostatsOnChangeThreshold": "string",
-        "gpResourceGroupMemoryLimit": "number"
+        "gpResourceGroupMemoryLimit": "number",
+        "trackActivityQuerySize": "string"
       }
     },
     // end of the list of possible fields
@@ -269,7 +273,8 @@ The maximum string length in characters is 50. ||
         "gpAutostatsMode": "string",
         "gpAutostatsOnChangeThreshold": "string",
         "gpResourceGroupMemoryLimit": "number",
-        "gpAddColumnInheritsTableSetting": "boolean"
+        "gpAddColumnInheritsTableSetting": "boolean",
+        "trackActivityQuerySize": "string"
       },
       "userConfig": {
         "maxConnections": "string",
@@ -304,7 +309,8 @@ The maximum string length in characters is 50. ||
         "gpAutostatsMode": "string",
         "gpAutostatsOnChangeThreshold": "string",
         "gpResourceGroupMemoryLimit": "number",
-        "gpAddColumnInheritsTableSetting": "boolean"
+        "gpAddColumnInheritsTableSetting": "boolean",
+        "trackActivityQuerySize": "string"
       },
       "defaultConfig": {
         "maxConnections": "string",
@@ -339,7 +345,8 @@ The maximum string length in characters is 50. ||
         "gpAutostatsMode": "string",
         "gpAutostatsOnChangeThreshold": "string",
         "gpResourceGroupMemoryLimit": "number",
-        "gpAddColumnInheritsTableSetting": "boolean"
+        "gpAddColumnInheritsTableSetting": "boolean",
+        "trackActivityQuerySize": "string"
       }
     },
     "pool": {
@@ -668,6 +675,9 @@ Allows access for DataTransfer. ||
 || yandexQuery | **boolean**
 
 Allow access for YandexQuery. ||
+|| trino | **boolean**
+
+Allow safety access for trino ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.greenplum.v1.Monitoring}
@@ -1063,6 +1073,12 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 
 Identifies the maximum percentage of system memory resources to allocate to resource groups on each Greenplum Database segment node.
 https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_resource_group_memory_limit ||
+|| trackActivityQuerySize | **string** (int64)
+
+Sets the number of bytes reserved to store the text of the currently executing command.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#track_activity_query_size
+
+Acceptable values are 100 to 102400, inclusive. ||
 |#
 
 ## DBMSConfigSet {#yandex.cloud.mdb.greenplum.v1.DBMSConfigSet}
@@ -1321,6 +1337,12 @@ https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/
 || gpAddColumnInheritsTableSetting | **boolean**
 
 https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting ||
+|| trackActivityQuerySize | **string** (int64)
+
+Sets the number of bytes reserved to store the text of the currently executing command.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#track_activity_query_size
+
+Acceptable values are 100 to 102400, inclusive. ||
 |#
 
 ## ConnectionPoolerConfigSet {#yandex.cloud.mdb.greenplum.v1.ConnectionPoolerConfigSet}

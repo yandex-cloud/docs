@@ -3,11 +3,7 @@ title: Как начать работать с push-уведомлениями �
 description: 'С помощью {{ cns-name }} вы можете отправлять push-уведомления в приложения, зарегистрированные в следующих сервисах: Apple Push Notification service (APNs), Firebase Cloud Messaging (FCM), Huawei Mobile Services (HMS).'
 ---
 
-
 # Как начать работать с push-уведомлениями в {{ cns-full-name }}
-
-
-{% include [ask-for-turning-on](../_includes/notifications/ask-for-turning-on.md) %}
 
 {% include [about-service](../_includes/notifications/about-service.md) %}
 
@@ -73,8 +69,7 @@ description: 'С помощью {{ cns-name }} вы можете отправл�
 - Консоль управления {#console}
 
   1. Выберите эндпоинт, созданный ранее.
-  1. В блоке **{{ ui-key.yacloud.cns.section_message-sending }}** выберите формат уведомления: `{{ ui-key.yacloud.cns.label_editor-text }}` или `{{ ui-key.yacloud.cns.label_editor-json }}`.
-  1. Введите текст уведомления или JSON-объект, содержащий данные уведомления.
+  1. В окне отправки уведомления введите сообщение в формате JSON в соответствии с API платформы уведомлений. Ссылка на API приведена над редактором.
   1. Нажмите кнопку **{{ ui-key.yacloud.cns.action_send-msg }}**.
   
   Каждому отправленному уведомлению присваивается уникальный идентификатор. Чтобы сохранить его, нажмите кнопку **{{ ui-key.yacloud.cns.action_copy-msg-id }}**.

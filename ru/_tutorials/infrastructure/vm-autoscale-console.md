@@ -1,4 +1,4 @@
-1. [Подготовьте облако к работе](#before-begin).
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Подготовьте окружение](#prepare).
 1. [Создайте группу ВМ с автоматическим масштабированием и сетевым балансировщиком нагрузки](#create-vm-group).
 1. [Подключите сетевой балансировщик нагрузки с целевой группой](#connect-balancer).
@@ -72,7 +72,7 @@
 
    {% endlist %}
 
-1. Создайте [сеть](../../vpc/concepts/network.md#network) с именем `yc-auto-network` и [подсети](../../vpc/concepts/network.md#subnet) в двух зонах доступности:
+1. Создайте [сеть](../../vpc/concepts/network.md#network) с именем `yc-auto-network` и [подсети](../../vpc/concepts/network.md#subnet) в двух [зонах доступности](../../overview/concepts/geo-scope.md):
 
    {% list tabs group=instructions %}
 
@@ -163,7 +163,7 @@
 
      1. Откройте [консоль управления]({{ link-console-main }}).
      1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-     1. Откройте вкладку **Группы безопасности**.
+     1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
      1. Создайте группу безопасности для балансировщика:
         1. Нажмите кнопку **Создать группу**.
         1. Укажите **Имя** группы: `sg-autoscale`.

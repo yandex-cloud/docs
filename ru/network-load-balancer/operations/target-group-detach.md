@@ -76,8 +76,8 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы отключить целевую группу от сетевого балансировщика, воспользуйтесь методом REST API [detachTargetGroup](../api-ref/NetworkLoadBalancer/detachTargetGroup.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/DetachTargetGroup](../api-ref/grpc/NetworkLoadBalancer/detachTargetGroup.md) и передайте в запросе:
 
-  * Идентификатор балансировщика в параметре `networkLoadBalancerId`.
-  * Идентификатор целевой группы в параметре `targetGroupId`.
+  * Идентификатор балансировщика в параметре `networkLoadBalancerId` (REST API) или `network_load_balancer_id` (gRPC API).
+  * Идентификатор целевой группы в параметре `targetGroupId` (REST API) или `target_group_id` (gRPC API).
 
   Идентификатор балансировщика и идентификаторы подключенных целевых групп можно получить со [списком сетевых балансировщиков в каталоге](load-balancer-list.md#list).
 

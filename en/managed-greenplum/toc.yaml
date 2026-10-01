@@ -47,6 +47,8 @@ items:
             href: operations/databases.md
           - name: Queries in {{ websql-full-name }}
             href: operations/web-sql-query.md
+          - name: Working with data distribution policies
+            href: operations/distribution-policy-management.md
       - name: Users and sessions
         items:
           - name: Role and user management
@@ -177,7 +179,7 @@ items:
         href: concepts/backup.md
       - name: Resource groups
         href: concepts/resource-groups.md
-      - name: Sharding
+      - name: Data distribution
         href: concepts/sharding.md
       - name: Users and roles
         href: concepts/cluster-users.md
@@ -207,6 +209,8 @@ items:
             href: concepts/cloudberry-vs-greenplum/breaking-changes.md
   - name: Access management
     href: security/index.md
+  - name: Inspections and recommendations
+    href: advisor.md
   - name: Pricing policy
     href: pricing/index.md
   - name: CLI reference
@@ -223,6 +227,20 @@ items:
             href: cli-ref/backup/get.md
           - name: list
             href: cli-ref/backup/list.md
+      - name: change-freeze
+        items:
+          - name: Overview
+            href: cli-ref/change-freeze/index.md
+          - name: create
+            href: cli-ref/change-freeze/create.md
+          - name: get
+            href: cli-ref/change-freeze/get.md
+          - name: get-limits
+            href: cli-ref/change-freeze/get-limits.md
+          - name: list
+            href: cli-ref/change-freeze/list.md
+          - name: terminate
+            href: cli-ref/change-freeze/terminate.md
       - name: cluster
         items:
           - name: Overview
@@ -277,6 +295,8 @@ items:
         items:
           - name: Overview
             href: cli-ref/hba-rules/index.md
+          - name: batch-update
+            href: cli-ref/hba-rules/batch-update.md
           - name: create
             href: cli-ref/hba-rules/create.md
           - name: delete
@@ -299,6 +319,16 @@ items:
                 href: cli-ref/hosts/list/master.md
               - name: segment
                 href: cli-ref/hosts/list/segment.md
+      - name: maintenance
+        items:
+          - name: Overview
+            href: cli-ref/maintenance/index.md
+          - name: get
+            href: cli-ref/maintenance/get.md
+          - name: list
+            href: cli-ref/maintenance/list.md
+          - name: reschedule
+            href: cli-ref/maintenance/reschedule.md
       - name: pxf-datasource
         items:
           - name: Overview
@@ -387,6 +417,20 @@ items:
                 href: cli-ref/v0/backup/get.md
               - name: list
                 href: cli-ref/v0/backup/list.md
+          - name: change-freeze
+            items:
+              - name: Overview
+                href: cli-ref/v0/change-freeze/index.md
+              - name: create
+                href: cli-ref/v0/change-freeze/create.md
+              - name: get
+                href: cli-ref/v0/change-freeze/get.md
+              - name: get-limits
+                href: cli-ref/v0/change-freeze/get-limits.md
+              - name: list
+                href: cli-ref/v0/change-freeze/list.md
+              - name: terminate
+                href: cli-ref/v0/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -441,6 +485,8 @@ items:
             items:
               - name: Overview
                 href: cli-ref/v0/hba-rules/index.md
+              - name: batch-update
+                href: cli-ref/v0/hba-rules/batch-update.md
               - name: create
                 href: cli-ref/v0/hba-rules/create.md
               - name: delete
@@ -463,6 +509,16 @@ items:
                     href: cli-ref/v0/hosts/list/master.md
                   - name: segment
                     href: cli-ref/v0/hosts/list/segment.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/v0/maintenance/index.md
+              - name: get
+                href: cli-ref/v0/maintenance/get.md
+              - name: list
+                href: cli-ref/v0/maintenance/list.md
+              - name: reschedule
+                href: cli-ref/v0/maintenance/reschedule.md
           - name: pxf-datasource
             items:
               - name: Overview
@@ -557,6 +613,20 @@ items:
                 href: api-ref/grpc/Backup/list.md
               - name: Delete
                 href: api-ref/grpc/Backup/delete.md
+          - name: ChangeFreeze
+            items:
+              - name: Overview
+                href: api-ref/grpc/ChangeFreeze/index.md
+              - name: Create
+                href: api-ref/grpc/ChangeFreeze/create.md
+              - name: Get
+                href: api-ref/grpc/ChangeFreeze/get.md
+              - name: List
+                href: api-ref/grpc/ChangeFreeze/list.md
+              - name: Terminate
+                href: api-ref/grpc/ChangeFreeze/terminate.md
+              - name: GetLimits
+                href: api-ref/grpc/ChangeFreeze/getLimits.md
           - name: Cluster
             items:
               - name: Overview
@@ -703,6 +773,20 @@ items:
                 href: api-ref/Backup/list.md
               - name: Delete
                 href: api-ref/Backup/delete.md
+          - name: ChangeFreeze
+            items:
+              - name: Overview
+                href: api-ref/ChangeFreeze/index.md
+              - name: Create
+                href: api-ref/ChangeFreeze/create.md
+              - name: Get
+                href: api-ref/ChangeFreeze/get.md
+              - name: List
+                href: api-ref/ChangeFreeze/list.md
+              - name: Terminate
+                href: api-ref/ChangeFreeze/terminate.md
+              - name: GetLimits
+                href: api-ref/ChangeFreeze/getLimits.md
           - name: Cluster
             items:
               - name: Overview

@@ -21,7 +21,7 @@ Your changes will apply within five minutes.
   1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Select the trigger whose settings you want to update.
-  1. In the top-right corner of the page, click **{{ ui-key.yacloud.common.edit }}**.
+  1. In the top panel, click ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the trigger settings and click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_update-trigger }}**.
 
 - CLI {#cli}

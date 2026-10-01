@@ -27,8 +27,10 @@
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Введите имя и описание триггера.
+
+        * {% include [triggers-labels-step](../../../_includes/functions/triggers-labels-step.md) %}
+
         * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container-registry }}`.
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_gateway-broadcast }}`.
 
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_container-registry }}**:
 
@@ -37,14 +39,17 @@
         * (Опционально) В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_image-name }}** введите имя образа для [фильтрации](../../concepts/trigger/cr-trigger.md#filter). Чтобы узнать имя Docker-образа, [получите список Docker-образов в реестре](../../../container-registry/operations/docker-image/docker-image-list.md).
         * (Опционально) В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_tag }}** введите тег образа для фильтрации.
 
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
+    1. {% include [batch-settings](../../../_includes/functions/batch-settings.md) %}
 
-        * размер группы событий. Допустимые значения от 1 до 1000, значение по умолчанию — 1.
-        * максимальное время ожидания. Допустимые значения от 1 до 60 секунд, значение по умолчанию — 1 секунда.
+    1. В блоке **Приёмники**:
 
-       Триггер группирует события не дольше указанного времени ожидания и отправляет их в WebSocket-соединения. Число событий при этом не превышает указанный размер группы.
+        1. В поле **Тип приёмника** выберите `API-шлюз`.
 
-    1. {% include [api-gateway-settings](../../../_includes/api-gateway/api-gateway-settings.md) %}
+        1. {% include [api-gateway-settings](../../../_includes/api-gateway/api-gateway-settings.md) %}
+
+        1. {% include [trigger-console-filter](../../../_includes/functions/trigger-console-filter.md) %}
+
+        1. {% include [trigger-console-template](../../../_includes/functions/trigger-console-template.md) %}
 
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 

@@ -1,19 +1,10 @@
 title: '{{ si-full-name }}'
 description:
+  - We are sunsetting {{ si-full-name }}.
   - >-
-    {{ si-full-name }} is a service used to configure and manage integrations
-    using serverless technologies in {{ yandex-cloud }}.
-  - >-
-    {{ si-name }} allows you to:<ul><li>Develop microservice architectures
-    without having to configure virtual machines.</li> <li>Create and automate
-    workflows for security incident response.</li> <li>Automate business
-    operations.</li> <li>Set up CI/CD pipelines.</li> <li>Develop event-driven
-    serverless applications based on orchestration and choreography to
-    coordinate and manage  events.</li></ul>
-  - >-
-    {{ er-name }} are at the <a
-    href="https://yandex.cloud/ru/docs/overview/concepts/launch-stages">Preview</a>
-    stage.
+    For more information on the timing and procedure, see <a
+    href="https://yandex.cloud/en/docs/serverless-integrations/sunset">Service
+    shutdown</a>.
 meta:
   title: '{{ si-full-name }}'
   description: '{{ si-full-name }} enables integrating multiple {{ yandex-cloud }} services.'
@@ -40,8 +31,8 @@ links:
     description: Technical and organizational limitations
     href: concepts/limits
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Prices and cost calculation rules
     href: pricing
   - title: '{{ er-name }} API reference'
-    description: '{{ er-name }} HTTP API method descriptions'
+    description: '{{ er-name }} HTTP API method description'
     href: eventrouter/api-ref/

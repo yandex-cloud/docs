@@ -1,6 +1,6 @@
-# Viewing operations with {{ kms-name }} resources
+# Viewing {{ kms-name }} resource operations
 
-The system logs all actions with {{ kms-name }} resources as a list of operations. Each operation gets an ID.
+The system logs all actions with {{ kms-name }} resources as a list of operations. Each operation gets a unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -10,11 +10,11 @@ The system logs all actions with {{ kms-name }} resources as a list of operation
 
   Below, you can learn how to get a list of operations for a symmetric key. The same steps apply to other resources.
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing the symmetric key.
+  1. In the [management console]({{ link-console-main }}), select the folder with your symmetric key.
   1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
-  1. Select the key you need.
-  1. Go to the ![image](../../_assets/console-icons/list-check.svg) **Operations** panel for the selected key.
+  1. Select the key.
+  1. Navigate to the **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected key.
 
      You will see a list of operations with the selected symmetric key.
 
@@ -24,7 +24,7 @@ The system logs all actions with {{ kms-name }} resources as a list of operation
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get the list of operations for the {{ kms-name }} resource, run this command:
+  To get a list of operations for the {{ kms-name }} resource, run this command:
 
   ```bash
   yc kms <resource_type> list-operations <resource_name_or_ID>
@@ -32,7 +32,7 @@ The system logs all actions with {{ kms-name }} resources as a list of operation
 
   **Example**
 
-  Getting a list of operations for the symmetric key:
+  Getting a list of operations for a symmetric key:
 
   ```bash
   yc kms symmetric-key list-operations epdplu8jn7sr********
@@ -89,7 +89,7 @@ The system logs all actions with {{ kms-name }} resources as a list of operation
 
   Use the `listOperations` REST API method for the relevant resource or the `<service>/ListOperations` gRPC API call.
 
-  For example, to obtain a list of operations for a symmetric key, use either the REST API [listOperations](../api-ref/SymmetricKey/listOperations.md) for the [SymmetricKey](../api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/ListOperations](../api-ref/grpc/SymmetricKey/listOperations.md) gRPC API call.
+  For example, for a symmetric key, use the [listOperations](../api-ref/SymmetricKey/listOperations.md) REST API method for the [SymmetricKey](../api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/ListOperations](../api-ref/grpc/SymmetricKey/listOperations.md) gRPC API call.
 
 {% endlist %}
 

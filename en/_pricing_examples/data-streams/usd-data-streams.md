@@ -3,7 +3,7 @@
 Where:
 
 * 50: Size of one message in KB.
-* 40: [Size of a unit](#event) of written data, in KB.
+* 40: [Size of a unit](../../data-streams/pricing.md) of written data, in KB.
 * 2: Number of units of written data per message.
 
 While calculating the cost, the number of units of written data is rounded up to an integer. In this example, the number is rounded to 2.

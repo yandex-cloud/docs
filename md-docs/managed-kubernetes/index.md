@@ -24,6 +24,8 @@
 
  - [Обновление Kubernetes](operations/update-kubernetes.md)
 
+ - [Настройка маскарадинга в кластерах с несколькими диапазонами IP-адресов подов](operations/network/manage-ip-masq-agent.md)
+
  - [Настройка автомасштабирования](operations/autoscale.md)
 
  - [Подключение Terraform-провайдера Kubernetes](operations/apply-tf-provider.md)
@@ -106,6 +108,8 @@
 
  - [Обеспечение доступа к приложению, запущенному в кластере Kubernetes](operations/create-load-balancer.md)
 
+ - [Настройка режима управления целевыми группами сетевых балансировщиков](operations/configure-load-balancer-target-groups.md)
+
  - [Настройка контроллера сетевых политик Calico](operations/calico.md)
 
  - [Настройка контроллера сетевых политик Cilium](operations/cilium.md)
@@ -164,6 +168,8 @@
 
  - [Изменение группы узлов](operations/node-group/node-group-update.md)
 
+ - [Техническое обслуживание узлов без потери ресурсов](operations/node-group/node-group-gpu-maintenance.md)
+
  - [Управление Kubernetes-метками узлов](operations/node-group/node-label-management.md)
 
  - [Удаление группы узлов](operations/node-group/node-group-delete.md)
@@ -177,6 +183,14 @@
  - [Настройка IPSec-шлюзов для подключения внешних узлов к кластеру](operations/external-nodes-connect-ipsec.md)
 
  - [Подключение сервера BareMetal как внешнего узла](operations/bms-server-connect.md)
+
+### Работа с группой узлов BareMetal
+
+ - [Создание группы узлов](operations/baremetal-group/create-baremetal.md)
+
+ - [Изменение группы узлов](operations/baremetal-group/update-baremetal.md)
+
+ - [Удаление группы узлов](operations/baremetal-group/delete-baremetal.md)
 
 ### Работа с объектами Kubernetes из консоли управления
 
@@ -306,9 +320,17 @@
 
  - [Использование HashiCorp Vault для хранения секретов](tutorials/marketplace/hashicorp-vault.md)
 
+### Миграция в Managed Service for Kubernetes
+
+ - [Обзор](tutorials/migration/index.md)
+
+ - [Миграция из облачного провайдера](tutorials/migration/migration-from-cloud.md)
+
 ## Концепции
 
  - [Взаимосвязь ресурсов сервиса](concepts/index.md)
+
+ - [Большие кластеры](concepts/large-clusters.md)
 
  - [Релизные каналы и обновления](concepts/release-channels-and-updates.md)
 
@@ -344,7 +366,13 @@
 
  - [Сеть в Managed Service for Kubernetes](concepts/network.md)
 
+ - [Кластеры с несколькими диапазонами IP-адресов подов](concepts/cluster-multi-cidr.md)
+
+ - [Целевые группы сетевых балансировщиков](concepts/load-balancer-target-groups.md)
+
  - [Сетевые настройки и политики кластера](concepts/network-policy.md)
+
+ - [Кластеры без предустановленного CNI](concepts/cluster-without-cni.md)
 
  - [Автоматическое масштабирование](concepts/autoscale.md)
 
@@ -796,39 +824,39 @@
 
 #### Конфигурация ресурсов (англ.)
 
- - [DirectResponse](gwin-ref/directresponse.md)
-
  - [BackendTLSPolicy](gwin-ref/backendtlspolicy.md)
 
- - [Gateway](gwin-ref/gateway.md)
-
- - [GatewayPolicy](gwin-ref/gatewaypolicy.md)
+ - [DirectResponse](gwin-ref/directresponse.md)
 
  - [GRPCRoute](gwin-ref/grpcroute.md)
 
  - [HTTPRoute](gwin-ref/httproute.md)
 
- - [IngressBackendGroup](gwin-ref/ingressbackendgroup.md)
+ - [Gateway](gwin-ref/gateway.md)
 
  - [Ingress](gwin-ref/ingress.md)
 
- - [ListenerSetPolicy](gwin-ref/listenersetpolicy.md)
-
  - [IngressPolicy](gwin-ref/ingresspolicy.md)
 
+ - [IngressBackendGroup](gwin-ref/ingressbackendgroup.md)
+
+ - [ListenerSet](gwin-ref/listenerset.md)
+
  - [RoutePolicy](gwin-ref/routepolicy.md)
+
+ - [ListenerSetPolicy](gwin-ref/listenersetpolicy.md)
 
  - [Service](gwin-ref/service.md)
 
  - [ServicePolicy](gwin-ref/servicepolicy.md)
 
- - [YCCertificate](gwin-ref/yccertificate.md)
-
  - [TLSRoute](gwin-ref/tlsroute.md)
+
+ - [YCCertificate](gwin-ref/yccertificate.md)
 
  - [YCStorageBucket](gwin-ref/ycstoragebucket.md)
 
- - [ListenerSet](gwin-ref/listenerset.md)
+ - [GatewayPolicy](gwin-ref/gatewaypolicy.md)
 
 ### Ingress-контроллер
 

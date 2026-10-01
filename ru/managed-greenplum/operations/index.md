@@ -30,6 +30,7 @@ description: На странице представлен список поша�
 
 * [{#T}](databases.md)
 * [{#T}](web-sql-query.md)
+* [Работа с политиками распределения данных](distribution-policy-management.md)
 
 ## Пользователи и сессии {#users-and-sessions}
 
@@ -52,6 +53,7 @@ description: На странице представлен список поша�
 ## Работа с утилитой `gpfdist` {#gpfdist}
 
 * [{#T}](gpfdist/connect.md)
+* [{#T}](gpfdist/trino-access.md)
 
 ## Расширения {#extensions}
 

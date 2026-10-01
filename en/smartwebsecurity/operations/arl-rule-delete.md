@@ -5,7 +5,7 @@ description: Follow this guide to delete a rule from an ARL profile.
 
 # Deleting a rule from an ARL profile
 
-Basic rules, as well as Smart Protection and WAF rules, are [deleted from a security profile](rule-delete.md). 
+Basic rules, as well as Smart Protection and WAF rules, are [deleted from a security profile](rule-delete.md).
 
 {% list tabs group=instructions %}
 
@@ -15,7 +15,7 @@ Basic rules, as well as Smart Protection and WAF rules, are [deleted from a secu
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
   1. Select the profile to delete a rule from.
-  1. Under **{{ ui-key.yacloud.smart-web-security.arl.section_rules }}**, next the rule in question, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+  1. Under **{{ ui-key.yacloud.smart-web-security.arl.section_rules }}**, click ![options](../../_assets/console-icons/ellipsis.svg) → ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}** next to the rule.
   1. Confirm the deletion.
 
 - {{ TF }} {#tf}
@@ -29,7 +29,7 @@ Basic rules, as well as Smart Protection and WAF rules, are [deleted from a secu
   1. Open the {{ TF }} configuration file and remove the `advanced_rate_limiter_rule` section from the `yandex_sws_advanced_rate_limiter_profile` description.
 
       {% cut "Example of an ARL profile description in the {{ TF }} configuration" %}
-      
+
       ```hcl
       # ARL profile
 
@@ -45,7 +45,7 @@ Basic rules, as well as Smart Protection and WAF rules, are [deleted from a secu
           priority    = <rule_priority>
           description = "<rule_description>"
           dry_run     = true
-  
+
           static_quota {
             action = "DENY"
             limit  = <rule_limit>

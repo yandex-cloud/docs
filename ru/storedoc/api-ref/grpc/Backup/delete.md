@@ -4,7 +4,7 @@ editable: false
 
 # Managed Service for MongoDB API, gRPC: BackupService.Delete
 
-Returns the list of available backups for the specified MongoDB cluster.
+Deletes the specified MongoDB backup.
 
 ## gRPC request
 
@@ -22,7 +22,7 @@ Returns the list of available backups for the specified MongoDB cluster.
 ||Field | Description ||
 || backup_id | **string**
 
-Required field. Required. ID of the backup to delete. ||
+Required field. ID of the backup to delete. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

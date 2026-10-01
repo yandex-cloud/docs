@@ -31,6 +31,18 @@ Aliases:
 
   - [yc managed-sharded-postgresql backup list](backup/list.md) — List available backups
 
+- [yc managed-sharded-postgresql change-freeze](change-freeze/index.md) — Manage change freezes.
+
+  - [yc managed-sharded-postgresql change-freeze create](change-freeze/create.md) — Create a change freeze for the specified resource.
+
+  - [yc managed-sharded-postgresql change-freeze get](change-freeze/get.md) — Show the specified change freeze.
+
+  - [yc managed-sharded-postgresql change-freeze get-limits](change-freeze/get-limits.md) — Show change freeze limits for the specified resource.
+
+  - [yc managed-sharded-postgresql change-freeze list](change-freeze/list.md) — List change freezes.
+
+  - [yc managed-sharded-postgresql change-freeze terminate](change-freeze/terminate.md) — Terminate the specified change freeze.
+
 - [yc managed-sharded-postgresql cluster](cluster/index.md) — Manage Sharded PostgreSQL clusters
 
   - [yc managed-sharded-postgresql cluster add-labels](cluster/add-labels.md) — Add labels to Sharded PostgreSQL cluster
@@ -82,6 +94,14 @@ Aliases:
   - [yc managed-sharded-postgresql hosts list](hosts/list.md) — List hosts for the specified Sharded PostgreSQL cluster
 
   - [yc managed-sharded-postgresql hosts update](hosts/update.md) — Update the specified hosts
+
+- [yc managed-sharded-postgresql maintenance](maintenance/index.md) — Manage maintenances.
+
+  - [yc managed-sharded-postgresql maintenance get](maintenance/get.md) — Show the specified maintenance.
+
+  - [yc managed-sharded-postgresql maintenance list](maintenance/list.md) — List maintenances.
+
+  - [yc managed-sharded-postgresql maintenance reschedule](maintenance/reschedule.md) — Reschedule the specified maintenance.
 
 - [yc managed-sharded-postgresql user](user/index.md) — Manage Sharded PostgreSQL users
 

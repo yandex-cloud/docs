@@ -91,6 +91,9 @@
 * Jenkins
     * [Создать SAML-приложение в Yandex Identity Hub для интеграции с Jenkins](single-sign-on/jenkins/saml-jenkins.md)
     * [Создать OIDC-приложение в Yandex Identity Hub для интеграции с Jenkins](single-sign-on/jenkins/oidc-jenkins.md)
+* LibreChat
+    * [SAML](single-sign-on/librechat/saml-librechat.md)
+    * [OpenID Connect](single-sign-on/librechat/oidc-librechat.md)
 * Loop
     * [Создать SAML-приложение в Yandex Identity Hub для интеграции с Loop](single-sign-on/loop/saml-loop.md)
     * [Создать OIDC-приложение в Yandex Identity Hub для интеграции с Loop](single-sign-on/loop/oidc-loop.md)
@@ -101,6 +104,7 @@
 * OpenVPN
     * [OpenVPN Access Server](single-sign-on/saml-ovpn.md)
     * [OpenVPN Community Edition](single-sign-on/oidc-ovpn.md)
+* [Open WebUI](single-sign-on/oidc-open-webui.md)
 * [Selectel](single-sign-on/saml-selectel.md)
 * [Sentry](single-sign-on/saml-sentry.md)
 * [SonarQube](single-sign-on/saml-sonarqube.md)

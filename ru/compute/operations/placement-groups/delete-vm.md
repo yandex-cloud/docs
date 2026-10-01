@@ -15,7 +15,7 @@
   1. На панели слева выберите ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}**.
   1. Выберите группу размещения, из которой вы хотите исключить ВМ.
-  1. Перейдите на панель **{{ ui-key.yacloud.compute.placement-group.switch_instances }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.compute.placement-group.switch_instances }}**.
   1. В строке с нужной ВМ нажмите значок ![image](../../../_assets/options.svg) и выберите **{{ ui-key.yacloud.compute.placement-group.instances.button_action-delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.placement-group.instances.popup-confirm_button_delete }}**.
 

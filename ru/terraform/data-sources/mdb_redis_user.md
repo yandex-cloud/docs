@@ -26,17 +26,17 @@ output "permissions" {
 
 - `acl_options` (*Read-Only*) (String). Raw ACL string which has been inserted into the Redis
 - `cluster_id` (**Required**)(String). The ID of the cluster to which user belongs to.
-- `enabled` (Bool). Is redis user enabled.
+- `enabled` (*Read-Only*) (Bool). Is redis user enabled.
 - `id` (*Read-Only*) (String). The resource identifier.
 - `name` (**Required**)(String). The name of the user.
-- `passwords` (Set Of String). Set of user passwords
+- `passwords` (*Read-Only*) (Set Of String). Set of user passwords
 - `permissions` [Block]. Set of permissions granted to the user.
-  - `categories` (String). Command categories user has permissions to.
-  - `commands` (String). Commands user can execute.
-  - `databases` (String). Databases user has access to. Accepts "alldbs", "resetdbs", or comma-separated list of database numbers (e.g. "0,1,5").
-  - `patterns` (String). Keys patterns user has permission to.
-  - `pub_sub_channels` (String). Channel patterns user has permissions to.
-  - `sanitize_payload` (String). Deprecated. This parameter no longer affects user permissions.
+  - `categories` (*Read-Only*) (String). Command categories user has permissions to.
+  - `commands` (*Read-Only*) (String). Commands user can execute.
+  - `databases` (*Read-Only*) (String). Databases user has access to.
+  - `patterns` (*Read-Only*) (String). Keys patterns user has permission to.
+  - `pub_sub_channels` (*Read-Only*) (String). Channel patterns user has permissions to.
+  - `sanitize_payload` (*Read-Only*) (String). Deprecated. This parameter no longer affects user permissions.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
   - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.

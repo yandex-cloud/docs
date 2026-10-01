@@ -58,7 +58,9 @@ resource "yandex_mdb_kafka_cluster" "my_cluster" {
 - `cluster_id` (**Required**)(String). The ID of the Kafka cluster.
 - `id` (String). 
 - `name` (**Required**)(String). The resource name.
-- `password` (**Required**)(String). The password of the user.
+- `password` (String). The password of the user.
+- `password_wo` (String). The password of the user. This attribute is write-only and is not stored in state. Requires `password_wo_version` to trigger updates. Write-only arguments are only supported in Terraform v1.11 or higher.
+- `password_wo_version` (Number). A version number for the write-only password. Increment this to trigger a password update.
 - `permission` [Block]. Set of permissions granted to the user.
   - `allow_hosts` (Set Of String). Set of hosts, to which this permission grants access to. Only ip-addresses allowed as value of single host.
   - `role` (**Required**)(String). The role type to grant to the topic.

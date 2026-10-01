@@ -7,7 +7,7 @@ Managed Service for Trino — это управляемый сервис для 
 С помощью Managed Service for Trino можно:
 
 * создавать кластеры с помощью кастомного ресурса `TrinoCluster`;
-* подключать к кластеру внешние источники данных с помощью кастомного ресурса `TrinoCatalog`;
+* подключать к кластеру источники данных с помощью кастомного ресурса `TrinoCatalog`;
 * настраивать правила доступа к каталогам, схемам, таблицам, функциям, процедурам и запросам;
 * управлять версиями образов Trino с помощью кастомного ресурса `TrinoImageCatalog`.
 
@@ -30,7 +30,7 @@ kind: TrinoCluster
 metadata:
   name: trino-min
 spec:
-  version: "480"
+  version: "483"
   coordinator:
     resources:
       requests:
@@ -82,33 +82,77 @@ spec:
 
 ## Каталоги {#catalogs}
 
-Каталог в Trino — это конфигурация подключения к внешнему источнику данных. Managed Service for Trino управляет каталогами через кастомный ресурс `TrinoCatalog`. Один ресурс описывает один каталог и привязан к конкретному кластеру через поле `spec.cluster`.
+Каталог в Trino — это конфигурация подключения к источнику данных. Managed Service for Trino управляет каталогами через кастомный ресурс `TrinoCatalog`. Один ресурс описывает один каталог и привязан к конкретному кластеру через поле `spec.cluster`.
 
 Поддерживаемые типы коннекторов:
 
-* `postgresql` — подключение к PostgreSQL.
-* `clickhouse` — подключение к ClickHouse®.
-* `iceberg` — подключение к Apache Iceberg™ через REST catalog.
+* PostgreSQL — параметры подключения задаются в `spec.postgres`.
+* ClickHouse® — параметры подключения задаются в `spec.clickhouse`.
+* Apache Iceberg™ — подключение к [Iceberg REST Catalog](rest-catalog.md) в Stackland задается в `spec.stacklandRestCatalog`.
 
-Учетные данные и сертификаты каталога хранятся в Kubernetes Secrets, на которые ссылаются поля `credentialsSecretRef` и `certificateSecretRef`.
+В манифесте укажите один блок с настройками коннектора. Отдельный параметр `spec.type` не используется.
+
+Для PostgreSQL и ClickHouse® учетные данные и сертификаты хранятся в Kubernetes Secrets, на которые ссылаются поля `credentialsSecretRef` и `certificateSecretRef`.
+
+Для Apache Iceberg™ укажите имя существующего ресурса `StacklandRestCatalog` в параметре `spec.stacklandRestCatalog.catalogRef`. Каталог должен находиться в том же пространстве имен, что и `TrinoCatalog` и кластер Trino. Параметры подключения и доступа к хранилищу настраиваются автоматически. Пример приведен в инструкции [Создать каталог Managed Service for Trino](../../operations/trino/create-catalog.md).
 
 При изменении любого каталога Managed Service for Trino пересоздает кластер. На время применения новой конфигурации кластер переходит в состояние `Updating`, активные запросы прерываются. Подробнее см. в разделе [Обновление кластера](#cluster-update).
 
 ### Хранилище данных для Iceberg {#iceberg-storage}
 
-Каталог Iceberg использует объектное хранилище для файлов данных. Поддерживаются два режима:
+Файлы данных Apache Iceberg™ хранятся в [Object Storage](storage.md). Бакет создается автоматически вместе с каталогом Iceberg REST Catalog. При подключении каталога к Trino указывать бакет, адрес хранилища и ключи доступа не требуется.
 
-* `s3` — произвольное S3-совместимое хранилище. Параметры подключения и учетные данные задаются в `spec.iceberg.s3`.
-* `stackland-storage` — управляемое объектное хранилище Stackland. Параметры подключения и учетные данные оператор получает и обслуживает автоматически на основе ссылки на бакет в `spec.iceberg.stacklandStorage.bucketRef`. Режим доступен, только если в кластере включен компонент [Object Storage](storage.md).
+### Аутентификация в REST Catalog {#iceberg-auth}
 
-### Аутентификация REST catalog {#iceberg-auth}
+При работе с каталогом используются права пользователя или сервисного аккаунта, от имени которого выполняются запросы в Trino. [Назначьте ему роль](../../operations/rest-catalog/create-principal.md) на каталог или нужные ресурсы каталога. Также должны быть разрешены соответствующие операции в [правилах доступа Trino](#access-control).
 
-REST catalog поддерживает аутентификацию OAuth2 в двух вариантах:
+Токен IAM передается в Trino через auth-proxy в дополнительном параметре `iam-token` и используется при обращении к REST Catalog. Создавать отдельного пользователя каталога и указывать учетные данные OAuth2 в `TrinoCatalog` не требуется.
 
-* Статический токен — токен хранится в Secret, на который ссылается `spec.iceberg.rest.oauth2.accessTokenSecretRef`.
-* Client credentials — оператор обменивает идентификатор и секрет клиента на токен через сервер авторизации. Параметры задаются в `spec.iceberg.rest.oauth2.clientCredentials`.
+Для сервисного аккаунта в `spec.accessControl` указывайте имя ресурса `ServiceAccount` в Kubernetes, а не идентификатор субъекта IAM.
 
-Можно использовать только один способ аутентификации в одном каталоге.
+### Дополнительные настройки Iceberg {#iceberg-settings}
+
+В блоке `spec.stacklandRestCatalog.additionalProperties` ресурса `TrinoCatalog` можно настроить хранение данных и выполнение запросов для каталога Apache Iceberg™. Все параметры этого блока необязательны.
+
+#|
+|| Задача | Параметры ||
+|| Выбрать формат и сжатие данных | `iceberg.file-format` — формат файлов по умолчанию для новых таблиц: `PARQUET`, `ORC` или `AVRO`. `iceberg.compression-codec` — способ сжатия по умолчанию при записи: `NONE`, `SNAPPY`, `LZ4`, `ZSTD` или `GZIP`. ||
+|| Настроить размер файлов | `iceberg.target-max-file-size` — целевой максимальный размер записываемых файлов, например `512MB`. Фактический размер может быть больше. ||
+|| Требовать фильтр по партициям | `iceberg.query-partition-filter-required: true` требует фильтр по ключам партиционирования в запросах к партиционированным таблицам. В `iceberg.query-partition-filter-required-schemas` укажите SQL-схемы, для которых действует требование, одной строкой через запятую, например `reports,events`. ||
+|| Использовать статистику таблиц | `iceberg.table-statistics-enabled` — использование статистики для выбора плана запроса. `iceberg.extended-statistics.collect-on-write` — сбор расширенной статистики при записи данных. ||
+|| Кешировать метаданные | `iceberg.metadata-cache.enabled` — кеширование метаданных таблиц, которое сокращает количество повторных обращений к хранилищу. ||
+|| Ограничить очистку таблиц | `iceberg.expire-snapshots.min-retention` и `iceberg.remove-orphan-files.min-retention` — минимально допустимые значения `retention_threshold` для команд `expire_snapshots` и `remove_orphan_files` соответственно, например `7d`. Команды удаляют старые снимки таблиц и неиспользуемые файлы. Очистку нужно запускать отдельно. ||
+|| Ограничить число соединений с хранилищем | `s3.max-connections` — максимальное число соединений с Object Storage, целое число не меньше `1`. ||
+|| Настроить тайм-ауты хранилища | `s3.socket-connect-timeout` — время ожидания установки соединения; `s3.socket-timeout` — время ожидания операции чтения или записи. Например, `10s` и `30s` соответственно. ||
+|| Настроить повторные попытки | `s3.max-error-retries` — максимальное число повторных попыток при ошибках обращения к хранилищу, целое число не меньше `1`. ||
+|| Работать с представлениями | `iceberg.rest-catalog.view-endpoints-enabled: true` включает в REST Catalog поддержку создания и чтения представлений Iceberg. Без этого параметра создание представлений завершится ошибкой. Подробнее — в разделе [Представления Iceberg](#iceberg-views). ||
+|#
+
+### Представления Iceberg {#iceberg-views}
+
+Для создания и чтения представлений Iceberg через Iceberg REST Catalog выполните два условия:
+
+1. В `spec.stacklandRestCatalog.additionalProperties` укажите `iceberg.rest-catalog.view-endpoints-enabled: true`.
+1. В команде `CREATE VIEW` добавьте `SECURITY INVOKER`.
+
+При работе с Iceberg REST Catalog права проверяются для пользователя или сервисного аккаунта, от имени которого выполняется запрос. С `SECURITY INVOKER` при чтении представления Trino обращается к базовым таблицам с IAM-токеном вызывающего пользователя. Если `SECURITY INVOKER` не указан, используется режим `SECURITY DEFINER`: проверка прав выполняется от имени владельца представления, что несовместимо с моделью доступа Iceberg REST Catalog.
+
+Пример:
+
+```sql
+CREATE VIEW analytics.events_summary
+SECURITY INVOKER
+AS
+SELECT id, name FROM analytics.events;
+```
+
+Поведение параметров описано в документации Trino: [настройки Iceberg](https://trino.io/docs/current/connector/iceberg.html#general-configuration) и [работа с S3](https://trino.io/docs/current/object-storage/file-system-s3.html#general-configuration).
+
+Указывайте имена параметров целиком, включая точки. Логические значения `true` и `false` и числа записывайте без кавычек. Размеры и интервалы времени задавайте строками с единицей измерения: например, `"512MB"`, `"30s"` или `"7d"`.
+
+Названия параметров и допустимые значения проверяются для выбранной версии Trino. Если параметр не поддерживается или значение имеет неверный тип, создать или изменить каталог не получится.
+
+Пример манифеста с дополнительными настройками приведен в инструкции [Создать каталог Managed Service for Trino](../../operations/trino/create-catalog.md#cli).
 
 ## Управление доступом {#access-control}
 
@@ -122,6 +166,8 @@ REST catalog поддерживает аутентификацию OAuth2 в д�
 * `queries` — управление запросами. Привилегии: `execute`, `view`, `kill`. Если задано поле `queryOwner`, привилегию `execute` использовать нельзя.
 
 Поля сопоставления (`user`, `catalog`, `schema`, `table`, `function`, `procedure`, `queryOwner`) задаются как регулярные выражения. Если поле не задано, Trino подставляет `.*` (правило распространяется на все значения).
+
+Для запросов от сервисного аккаунта в поле `user` указывайте имя ресурса `ServiceAccount` в Kubernetes, а не идентификатор субъекта IAM.
 
 ## Сетевой доступ к кластеру {#network-access}
 
@@ -150,7 +196,7 @@ kubectl get trinocluster <имя_кластера> -n <пространство_
 
 ## Состояния кластера {#states}
 
-Текущее состояние кластера отображается в поле `status.state` ресурса `TrinoCluster`. Допустимые значения:
+Текущее состояние кластера отображается в поле `status.phase` ресурса `TrinoCluster`. Допустимые значения:
 
 * `Running` — кластер работает, все узлы готовы.
 * `Updating` — оператор применяет новую конфигурацию (изменены воркеры, координатор или каталоги).

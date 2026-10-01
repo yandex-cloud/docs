@@ -28,7 +28,7 @@ To create an API Connector connection, follow these steps:
        * `Accept-Language`: List of supported natural languages.
        * `Prefer`: HTTP status code to send in the response.
        * `X-Org-ID`: {{ ya-360 }} organization ID.
-       * `X-Cloud-Org-ID`: [Cloud organization](../../../organization/concepts/organization.md) ID.
+       * `X-Cloud-Org-ID`: [Cloud organization]({{ link-docs }}/organization/concepts/organization) ID.
      
      * **Private request headers** are used for sensitive data. Their values are encrypted; you cannot view them in the connection settings, but you can replace them with new values. The following private headers are available:
 
@@ -42,6 +42,8 @@ To create an API Connector connection, follow these steps:
 1. Click **Create connection**.
 1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
 1. Enter a name for the connection and click **Create**.
+
+{% include [connection-api-response](../../../_includes/datalens/connection-api-response.md) %}
 
 
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

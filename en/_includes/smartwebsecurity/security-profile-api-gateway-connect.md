@@ -6,4 +6,4 @@
   1. Set a value in the **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.ApiGatewayItem.label_api-gateway_5Nttt }}** field.
   1. Click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
 
-      You will see the connected API gateways under ![cubes-3-overlap](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.common.connected_resources }}**.
+      You will see the connected API gateways under **{{ ui-key.yacloud.common.connected_resources }}**.

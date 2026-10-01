@@ -25,17 +25,17 @@ data "yandex_container_repository_lifecycle_policy" "my_lifecycle_policy_by_id" 
 ## Arguments & Attributes Reference
 
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
-- `description` (String). The resource description.
+- `description` (*Read-Only*) (String). The resource description.
 - `id` (String). 
 - `lifecycle_policy_id` (String). The ID of a specific Lifecycle Policy.
 - `name` (String). The resource name.
-- `repository_id` (**Required**)(String). The ID of the repository that the resource belongs to.
-- `rule` [Block]. Repository rules.
-  - `description` (String). Description of the lifecycle policy.
-  - `expire_period` (String). The period of time that must pass after creating a image for it to suit the automatic deletion criteria. It must be a multiple of 24 hours.
-  - `retained_top` (Number). The number of images to be retained even if the `expire_period` already expired.
-  - `tag_regexp` (String). Tag to specify a filter as a regular expression. For example `.*` - all images with tags.
-  - `untagged` (Bool). If enabled, rules apply to untagged Docker images.
-- `status` (**Required**)(String). The status of lifecycle policy. Must be `active` or `disabled`.
+- `repository_id` (String). The ID of the repository that the resource belongs to.
+- `rule` (*Read-Only*) (List Of Object). 
+  - `description` . 
+  - `expire_period` . 
+  - `retained_top` . 
+  - `tag_regexp` . 
+  - `untagged` . 
+- `status` (*Read-Only*) (String). The status of lifecycle policy. Must be `active` or `disabled`.
 - `timeouts` [Block]. 
   - `default` (String).

@@ -12,14 +12,17 @@ blocks:
   - type: card-layout-block
     animated: false
     colSizes:
-      all: 4
-      sm: 4
-      md: 4
+      all: 12
+      md: 6
+    indent:
+      top: '0'
+      bottom: '0'
     children:
       - type: basic-card
         title: Калькулятор цен
         text: Рассчитайте стоимость использования сервиса, исходя из ваших потребностей
-        icon: _assets/icons/calculator.svg
+        gravityIcon: Calculator
+        iconPosition: left
         urlTitle: Калькулятор цен
         url: https://yandex.cloud/ru/prices?state=ed8afa6f565c#calculator
         size: s
@@ -31,21 +34,10 @@ blocks:
       - type: basic-card
         title: Прайс-лист
         text: Актуальные тарифы на все наши услуги
-        icon: _assets/icons/circle-ruble.svg
+        gravityIcon: CircleRuble
+        iconPosition: left
         urlTitle: Прайс-лист
         url: https://yandex.cloud/ru/price-list?services=dn2hmdmghr9j2odlvssi
-        size: s
-        border: shadow
-        centered: true
-        indent:
-          top: '0'
-          bottom: '0'
-      - type: basic-card
-        title: Акции и free tier
-        text: Гранты, специальные условия и программы поддержки
-        icon: _assets/icons/flame.svg
-        urlTitle: Акции и free tier
-        url: https://yandex.cloud/ru/all-offers
         size: s
         border: shadow
         centered: true
@@ -90,7 +82,7 @@ blocks:
     
     * Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров с тремя хостами и более:
 
-        * для платформ Intel Broadwell и Intel Cascade Lake — с шагом 100 ГБ;
+        * для платформы Intel Cascade Lake — с шагом 100 ГБ;
         * для платформ Intel Ice Lake и AMD Zen 4 — с шагом {{ local-ssd-v3-step }}.
 
 

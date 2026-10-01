@@ -177,7 +177,7 @@ description: Вы можете запросить детальную инфор�
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-spqr) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.postgresql.switch_list_9AfbP }}**.
-  1. Выберите нужный кластер и перейдите на вкладку ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.postgresql.switch_operations_9JzwJ }}**.
+  1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.postgresql.switch_operations_9JzwJ }}**.
 
      В открывшемся списке отображаются операции с выбранным кластером.
 

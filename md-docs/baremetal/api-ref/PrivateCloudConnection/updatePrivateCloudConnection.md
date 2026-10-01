@@ -4,7 +4,6 @@
 
 Updates the routing_instance_id in a private cloud connection.
 
-https://google.aip.dev/130 --)
 
 ## HTTP request
 

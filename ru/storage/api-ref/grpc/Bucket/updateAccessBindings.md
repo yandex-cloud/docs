@@ -6,7 +6,6 @@ editable: false
 
 Updates access bindings for the specified bucket.
 
-for compatibility with old format --)
 
 ## gRPC request
 

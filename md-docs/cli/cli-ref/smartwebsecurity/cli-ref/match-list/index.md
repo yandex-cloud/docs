@@ -2,7 +2,7 @@
 
 # yc smartwebsecurity match-list
 
-
+Manage match lists
 
 #### Command Usage
 
@@ -12,7 +12,7 @@ Syntax:
 
 #### Command Tree
 
-- [yc smartwebsecurity match-list match-list](match-list/index.md) — A set of methods for managing MatchList resources.
+- [yc smartwebsecurity match-list match-list](match-list/index.md) — Manage match lists
 
   - [yc smartwebsecurity match-list match-list create](match-list/create.md) — Creates a MatchList resource in the specified folder.
 
@@ -34,6 +34,15 @@ Set the custom profile. ||
 || `--region` | `string`
 
 Set the region. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||

@@ -2,6 +2,12 @@
 
 # Квоты и лимиты в Serverless Integrations
 
+{% note warning %}
+
+Сервис Yandex Serverless Integrations прекращает работу 8 октября 2026 года. Подробнее о сроках и порядке закрытия читайте на странице [Закрытие сервиса Yandex Serverless Integrations](../sunset.md).
+
+{% endnote %}
+
 В сервисе Serverless Integrations действуют следующие ограничения:
 
 * [_Квоты_](https://console.yandex.cloud/cloud?section=quotas) — организационные ограничения, которые можно изменить по запросу в техническую поддержку.

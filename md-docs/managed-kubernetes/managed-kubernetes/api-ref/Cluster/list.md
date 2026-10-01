@@ -165,7 +165,13 @@ The maximum string length in characters is 1000. ||
         "nodeIpv4CidrMaskSize": "string",
         "serviceIpv4CidrBlock": "string",
         "clusterIpv6CidrBlock": "string",
-        "serviceIpv6CidrBlock": "string"
+        "serviceIpv6CidrBlock": "string",
+        "clusterIpv4CidrBlocks": [
+          "string"
+        ],
+        "clusterIpv6CidrBlocks": [
+          "string"
+        ]
       },
       // Includes only one of the fields `gatewayIpv4Address`
       "gatewayIpv4Address": "string",
@@ -663,7 +669,8 @@ ID of computing resources preset to be used as lower boundary for scaling. ||
 
 CIDR block. IP range for allocating pod addresses.
 It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be
-set up for this CIDR blocks in node subnets. ||
+set up for this CIDR blocks in node subnets.
+Deprecated: use cluster_ipv4_cidr_blocks instead. ||
 || nodeIpv4CidrMaskSize | **string** (int64)
 
 Size of the masks that are assigned for each node in the cluster.
@@ -674,10 +681,19 @@ CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be 
 It should not overlap with any subnet in the network the Kubernetes cluster located in. ||
 || clusterIpv6CidrBlock | **string**
 
-IPv6 range for allocating pod IP addresses. ||
+IPv6 range for allocating pod IP addresses.
+Deprecated: use cluster_ipv6_cidr_blocks instead. ||
 || serviceIpv6CidrBlock | **string**
 
 IPv6 range for allocating Kubernetes service IP addresses ||
+|| clusterIpv4CidrBlocks[] | **string**
+
+IP ranges for allocating pod addresses (multiple CIDRs for dual-stack or extended address space).
+If set, takes precedence over cluster_ipv4_cidr_block. ||
+|| clusterIpv6CidrBlocks[] | **string**
+
+IPv6 ranges for allocating pod addresses (multiple CIDRs).
+If set, takes precedence over cluster_ipv6_cidr_block. ||
 |#
 
 ## NetworkPolicy {#yandex.cloud.k8s.v1.NetworkPolicy}

@@ -29,10 +29,10 @@
 
 - API {#api}
 
-  Воспользуйтесь методом API [getTargetStates](../api-ref/NetworkLoadBalancer/getTargetStates.md) и передайте в запросе:
+  Воспользуйтесь методом REST API [getTargetStates](../api-ref/NetworkLoadBalancer/getTargetStates.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/GetTargetStates](../api-ref/grpc/NetworkLoadBalancer/getTargetStates.md) и передайте в запросе:
 
-  * Идентификатор балансировщика в параметре `networkLoadBalancerId`.
-  * Идентификатор целевой группы в параметре `targetGroupId`.
+  * Идентификатор балансировщика в параметре `networkLoadBalancerId` (REST API) или `network_load_balancer_id` (gRPC API).
+  * Идентификатор целевой группы в параметре `targetGroupId` (REST API) или `target_group_id` (gRPC API).
 
   Идентификатор балансировщика и идентификаторы подключенных целевых групп можно получить со [списком сетевых балансировщиков в каталоге](load-balancer-list.md#list).
 

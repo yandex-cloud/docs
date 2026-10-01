@@ -13,7 +13,7 @@ _Multialert_ is an alert that creates a separate test instance for every unique 
 
 An alert can have one of the following statuses:
 
-Color | Stage | Description
+Color | Status | Description
 ----- | ----- | -----
 🟢 | `{{ ui-key.yacloud_monitoring.alert.status_ok }}` | The metric value is within the specified normal threshold.
 🟡 | `{{ ui-key.yacloud_monitoring.alert.status_warn }}` | The metric value has reached the `Warning` threshold.
@@ -45,6 +45,17 @@ When drawing data from the evaluation history, the alert status is re-evaluated 
 {% endnote %}
 
 ## Alert settings {#alert-parameters}
+
+### Alert level {#severity}
+
+Alert severity level. This setting helps prioritize response: the severity level shows which alerts require immediate action and which are informational. You can use levels to filter and route notifications.
+
+Level | Description
+----- | -----
+`Unspecified` | No level assigned.
+`Disaster` | Critical failure that requires immediate response.
+`Critical` | Serious issue that affects service operation.
+`Info` | Informational notification. This is a default value.
 
 ### Queries {#queries}
 

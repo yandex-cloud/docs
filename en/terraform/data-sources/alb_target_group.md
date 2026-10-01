@@ -28,17 +28,17 @@ data "yandex_alb_target_group" "foo" {
 
 ## Arguments & Attributes Reference
 
-- `created_at` (*Read-Only*) (String). The resource name.
+- `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
 - `description` (String). The resource description.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `id` (String). 
-- `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
+- `labels` (*Read-Only*) (Map Of String). A set of key/value label pairs which assigned to resource.
 - `name` (String). The resource name.
-- `target` [Block]. A Target resource.
-  - `external_address` (Bool). External address of the target.
-  - `ip_address` (**Required**)(String). IP address of the target.
-  - `private_ipv4_address` (Bool). Private IPv4 address of the target.
-  - `subnet_id` (String). ID of the subnet that targets are connected to. All targets in the target group must be connected to the same subnet within a single availability zone.
+- `target` (*Read-Only*) (List Of Object). Targets of the target group.
+  - `external_address` . 
+  - `ip_address` . 
+  - `private_ipv4_address` . 
+  - `subnet_id` . 
 - `target_group_id` (String). Target Group ID.
 
 

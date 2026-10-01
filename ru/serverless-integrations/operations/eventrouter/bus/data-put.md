@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Отправить события в шину напрямую
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% note info %}
 
 Отправлять события в шину напрямую можно только, если к ней привязано хотя бы одно [правило](../../../concepts/eventrouter/rule.md).

@@ -36,7 +36,7 @@ To create a {{ MY }} connection:
      * **Host type**: Select the host type:
 
        * **Regular** (default): Allows you to select regular hosts to connect to.
-       * **Special FQDNs**: Enables you to select [special FQDNs](../../../managed-mysql/operations/connect/index.md#special-fqdns) for connection, which always point to the current master host or to its closest replica in the {{ MY }} cluster.
+       * **Special FQDNs**: Enables you to select [special FQDNs]({{ link-docs }}/managed-mysql/operations/connect/#special-fqdns) for connection, which always point to the current master host or to its closest replica in the {{ MY }} cluster.
 
      * **Host name**: Select the host name from the list of hosts available in the {{ MY }} cluster. You can select multiple hosts. If you fail to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
      * **Port**: Specify the {{ MY }} connection port. The default port is 3306.
@@ -47,9 +47,9 @@ To create a {{ MY }} connection:
      
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
-       Click **Check connection** to make sure the parameters are correct.
+     ![image](../../../_assets/datalens/operations/connection/connection-mysql-org.png)
 
- 
+       Click **Check connection** to make sure the parameters are correct.
 
    - Specify manually {#manual}
 
@@ -57,16 +57,18 @@ To create a {{ MY }} connection:
 
      {% include [datalens-db-connection-parameters-mysql](../../../_includes/datalens/datalens-db-connection-parameters-mysql.md) %}
 
+     ![image](../../../_assets/datalens/operations/connection/connection-mysql-manual.png)
+
      Click **Check connection** to make sure the parameters are correct.
 
    - {{ connection-manager-name }} {#conn-man}
 
      {% include [datalens-conn-man-role](../../../_includes/datalens/datalens-conn-man-role.md) %}
 
-     Select the [connection](../../../metadata-hub/concepts/connection-manager.md) to a {{ MY }} managed database cluster created in {{ connection-manager-full-name }}:
+     Select the [connection]({{ link-docs }}/metadata-hub/concepts/connection-manager) to a {{ MY }} managed database cluster created in {{ connection-manager-full-name }}:
 
      * **Cloud and folder**: Select the folder where you created the connection to the cluster.
-     * **Connection ID**: Select an available connection in {{ connection-manager-name }} or [create a new one](../../../metadata-hub/operations/create-connection.md).
+     * **Connection ID**: Select an available connection in {{ connection-manager-name }} or [create a new one]({{ link-docs }}/metadata-hub/operations/create-connection).
      * **Host**: Select the host from the list of available hosts in the {{ MY }} cluster.
      * **Port**: It is set automatically depending on the selected host.
      * **Database**: Specify the name of the database to connect.
@@ -75,15 +77,14 @@ To create a {{ MY }} connection:
      
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
+     ![image](../../../_assets/datalens/operations/connection/connection-mysql-manager.png)
+
    {% endlist %}
 
 
 1. Click **Create connection**.
 
-
 1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
-
-
 1. Enter a name for the connection and click **Create**.
 
 

@@ -12,14 +12,17 @@ blocks:
   - type: card-layout-block
     animated: false
     colSizes:
-      all: 4
-      sm: 4
-      md: 4
+      all: 12
+      md: 6
+    indent:
+      top: '0'
+      bottom: '0'
     children:
       - type: basic-card
         title: Price calculator
         text: Calculate the cost of the service based on your needs
-        icon: _assets/icons/calculator.svg
+        gravityIcon: Calculator
+        iconPosition: left
         urlTitle: Price calculator
         url: https://yandex.cloud/en/prices?state=850e64f52876#calculator
         size: s
@@ -31,7 +34,8 @@ blocks:
       - type: basic-card
         title: Price list
         text: Current prices of all our services
-        icon: _assets/icons/circle-ruble.svg
+        gravityIcon: CircleRuble
+        iconPosition: left
         urlTitle: Price list
         url: https://yandex.cloud/en/price-list?services=dn2hmdmghr9j2odlvssi
         size: s
@@ -67,19 +71,19 @@ The {{ mpg-name }} usage cost includes:
 
 The host operation cost is charged per hour based on the host class. For detailed class specifications, see [Host classes](concepts/instance-types.md).
 
-The minimum billing unit is one minute, e.g., you will be charged for 2 hours when using a host for 90 minutes (1.5 hours). You will not be charged for the time when the {{ PG }} host is unavailable for basic operations.
+The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as two minutes). You will not be charged for the time when the {{ PG }} host is unavailable for basic operations.
 
 
 ### Disk space usage {#rules-storage}
 
-You are billed for the following:
+You pay for the following:
 
 * Storage allocated for database clusters.
 
     
-    * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
+    * You can order local SSD storage (`local-ssd`) only for clusters with three or more hosts:
 
-        * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
+        * For Intel Cascade Lake: In increments of 100 GB.
         * For Intel Ice Lake and AMD Zen 4: In {{ local-ssd-v3-step }} increments.
 
 
@@ -90,7 +94,7 @@ You are billed for the following:
 
 For more information, see [Backups in {{ mpg-name }}](concepts/backup.md).
 
-The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
+The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as 2 minutes).
 
 ### Cluster cost calculation example {#example}
 

@@ -11,6 +11,8 @@ Limiting the validity period of cookies is a key security measure for web applic
 
 In addition, automatic session termination after a predetermined period (e.g., 6 hours) prevents unauthorized access if a user forgets to log out of their account on a foreign device or if their device has been compromised.
 
+**Risks if the rule is not followed:** Long-lived session cookies give attackers an extended window to use stolen credentials — a compromised cookie from an XSS or MITM attack can be used for hours or days, enabling prolonged unauthorized access to cloud resources.
+
 #### Instructions and solutions
 
 In your [identity federation](https://yandex.cloud/en/docs/organization/concepts/add-federation) settings make sure the **Cookie lifetime** value is less or equal to 6 hours. This would help minimize the risk of compromising cloud users' workstations.

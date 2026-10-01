@@ -254,6 +254,18 @@ items:
                 href: security/single-sign-on/jenkins/saml-jenkins.md
               - name: OpenID Connect
                 href: security/single-sign-on/jenkins/oidc-jenkins.md
+          - name: LibreChat
+            items:
+              - name: SAML
+                href: security/single-sign-on/librechat/saml-librechat.md
+              - name: OpenID Connect
+                href: security/single-sign-on/librechat/oidc-librechat.md
+          - name: Loop
+            items:
+              - name: SAML
+                href: security/single-sign-on/loop/saml-loop.md
+              - name: OpenID Connect
+                href: security/single-sign-on/loop/oidc-loop.md
           - name: '{{ mgl-name }}'
             href: security/single-sign-on/saml-managed-gitlab.md
           - name: '{{ mos-name }}'
@@ -270,16 +282,22 @@ items:
                 href: security/single-sign-on/saml-ovpn.md
               - name: OpenVPN Community Edition
                 href: security/single-sign-on/oidc-ovpn.md
+          - name: Open WebUI
+            href: security/single-sign-on/oidc-open-webui.md
           - name: Selectel
             href: security/single-sign-on/saml-selectel.md
           - name: Sentry
             href: security/single-sign-on/saml-sentry.md
           - name: SonarQube
             href: security/single-sign-on/saml-sonarqube.md
-          - name: VK Cloud
+          - name: Time
             items:
               - name: SAML
-                href: security/single-sign-on/vk-cloud/saml-vk-cloud.md
+                href: security/single-sign-on/time/saml-time.md
+              - name: OpenID Connect
+                href: security/single-sign-on/time/oidc-time.md
+          - name: VK Cloud
+            href: security/single-sign-on/saml-vk-cloud.md
           - name: Zabbix
             href: security/single-sign-on/saml-zabbix.md
           - name: Passwork
@@ -531,6 +549,8 @@ items:
               Running the DeepSeek-R1 language model in a {{ compute-name }} GPU
               cluster
             href: infrastructure/gpu-cluster-deepseek.md
+          - name: Web service SLO monitoring
+            href: infrastructure-management/slo-blackbox-exporter.md
       - name: Network
         items:
           - name: Configuring time synchronization using NTP
@@ -831,6 +851,8 @@ items:
             href: web/user-agent-statistics.md
           - name: Formatting {{ video-name }} content in IFrame
             href: web/video-iframe.md
+          - name: Managing video content for Moodle courses
+            href: web/video-moodle-plugin.md
       - name: 1C
         items:
           - name: 1C-Bitrix online store
@@ -851,7 +873,7 @@ items:
         items:
           - name: Working with Mosquitto
             items:
-              - name: Sending messages
+              - name: Sending a message
                 href: iot/mosquitto/mosquitto-publish.md
               - name: Subscribing a device or registry to receive messages
                 href: iot/mosquitto/mosquitto-subscribe.md
@@ -1071,6 +1093,10 @@ items:
       - name: '{{ mch-full-name }} integration with Oracle via {{ CH }} JDBC Bridge'
         href: dataplatform/jdbc-ch-to-oracle-integration.md
       - name: >-
+          Executing analytical queries in {{ mpg-name }} with processing in {{
+          mch-name }}
+        href: dataplatform/mpg-pg-clickhouse-extension.md
+      - name: >-
           Configuring {{ dns-name }} to access a {{ mch-name }} cluster from
           other cloud networks
         href: dataplatform/clickhouse-dns-peering.md
@@ -1275,6 +1301,10 @@ items:
           Configuring permissions for access to a secret created by {{
           connection-manager-name }} for a {{ mpg-name }} user
         href: dataplatform/conn-man-secret-access.md
+      - name: >-
+          Executing analytical queries in {{ mpg-name }} with processing in {{
+          mch-name }}
+        href: dataplatform/mpg-pg-clickhouse-extension.md
       - name: Migrating a database from {{ GP }} to {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md
       - name: Migrating a database from {{ GP }} to {{ PG }}
@@ -1363,6 +1393,10 @@ items:
           Creating a schema registry to deliver data in Debezium CDC format from
           {{ KF }}
         href: dataplatform/schema-registry-cdc-debezium-kafka.md
+      - name: >-
+          Executing analytical queries in {{ mpg-name }} with processing in {{
+          mch-name }}
+        href: dataplatform/mpg-pg-clickhouse-extension.md
       - name: Automating operations using {{ maf-full-name }}
         href: dataplatform/airflow-and-spark.md
       - name: Working with an {{ objstorage-name }} table from a PySpark job
@@ -1385,7 +1419,7 @@ items:
     items:
       - name: All tutorials
         href: windows/index.md
-      - name: Secure password transmission to an initialization script
+      - name: Securely providing a password to an initialization script
         items:
           - name: Overview
             href: windows/secure-password-script/index.md
@@ -1473,30 +1507,14 @@ items:
       - name: '{{ interconnect-name }}'
         items:
           - name: >-
+              Setting up network connectivity between multiple virtual networks
+              using VPC Stitching
+            href: routing/vpc-stitching.md
+          - name: >-
               Configuring {{ interconnect-name }} access to cloud networks
               behind NGFWs
             href: routing/cic-with-ngfw.md
-          - name: Creating a direct trunk and a private connection in it
-            href: routing/trunk-priv-add.md
-          - name: Creating a direct trunk and a public connection in it
-            href: routing/trunk-pub-add.md
-          - name: Creating a new partner trunk and a private connection in it
-            href: routing/partner-trunk-priv-add.md
-          - name: Creating a new partner trunk and a public connection in it
-            href: routing/partner-trunk-pub-add.md
-          - name: Adding a private connection to a direct or partner trunk
-            href: routing/priv-add.md
-          - name: Adding a public connection to a direct or partner trunk
-            href: routing/pub-add.md
-          - name: Updating trunk capacity
-            href: routing/trunk-capacity-change.md
-          - name: Deleting a private connection
-            href: routing/priv-del.md
-          - name: Deleting a public connection
-            href: routing/pub-del.md
-          - name: Deleting a trunk
-            href: routing/trunk-del.md
-      - name: Configuring network resources and their interactions
+      - name: Configuring network resources and interaction between them
         items:
           - name: Setting up networking between resources from different folders
             href: routing/multi-folder-vpc.md

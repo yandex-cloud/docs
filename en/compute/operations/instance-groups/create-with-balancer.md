@@ -43,7 +43,7 @@ To create an instance group with a network load balancer:
      * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a description for the [template](../../concepts/instance-groups/instance-template.md).
      * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the system to deploy on the VM instance boot [disk](../../concepts/disk.md).
      * Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
-       * Select the [disk type](../../../compute/concepts/disk.md#disks_types).
+       * Select the [disk type](../../../compute/concepts/disk.md#disks-types).
        * Specify the disk size.
        * To add more disks, click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
      * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
@@ -206,7 +206,7 @@ To create an instance group with a network load balancer:
        ```
 
        Where:
-       * `target_group_spec`: Specification of the {{ network-load-balancer-name }} target group linked with the instance group.
+       * `target_group_spec`: Specification of the {{ network-load-balancer-name }} target group linked to the instance group.
        * `name`: Name for the {{ network-load-balancer-name }} target group. The name must be unique within the folder. It can only contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may be up to 63 characters long.
  
        For more information about target group settings, see [{#T}](../../concepts/instance-groups/balancers.md#settings-nlb).

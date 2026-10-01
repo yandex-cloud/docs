@@ -45,7 +45,8 @@ If no columns are specified, entire log records are returned. ||
 
 Type of the service to request logs about.
 
-- `REDIS`: Logs of Redis activity. ||
+- `REDIS`: Logs of Redis activity.
+- `VALKEY_AUDIT`: Valkey audit logs ||
 || from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||

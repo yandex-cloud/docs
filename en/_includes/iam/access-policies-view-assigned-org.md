@@ -1,4 +1,4 @@
-To view the list of [organization](../../organization/concepts/organization.md) access policies:
+To view a list of access policies created for an [organization](../../organization/concepts/organization.md):
 
 {% list tabs group=instructions %}
 
@@ -6,7 +6,7 @@ To view the list of [organization](../../organization/concepts/organization.md) 
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  Run the command, specifying the name or [ID](../../organization/operations/organization-get-id.md) of the organization for which you want to view the created policies:
+  Run the following command, specifying the name or [ID](../../organization/operations/organization-get-id.md) of the organization for which you want to view the created policies:
 
   ```bash
   yc organization-manager organization list-access-policy-bindings <organization_name_or_ID>

@@ -131,7 +131,7 @@ Check the list of returned encrypted disks. If the list matches your threat mode
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the disk.
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}** and find the disk you want to encrypt in the list.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.storage_uisyT }}** and find the disk you want to encrypt in the list.
 
       If the disk is attached to a VM and the VM is on, it is recommended to turn it off.
   1. [Create](../../../compute/operations/disk-control/create-snapshot.md) a snapshot of the disk.
@@ -183,7 +183,7 @@ To protect critical data in {{ objstorage-full-name }}, we recommend using bucke
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Configure bucket encryption using the [guide](../../../storage/operations/buckets/encrypt.md).
 
@@ -241,7 +241,7 @@ When using [{{ objstorage-name }}](../../../storage/), make sure that support fo
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 [Enable](../../../storage/operations/hosting/certificate.md) access over HTTPS if the bucket is used to host a static website.
 
@@ -316,7 +316,7 @@ When using [{{ objstorage-name }}](../../../storage/), make sure that support fo
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Enable an HTTPS listener using [this guide](../../../application-load-balancer/tutorials/tls-termination/index.md).
 
@@ -362,7 +362,7 @@ Enable an HTTPS listener using [this guide](../../../application-load-balancer/t
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 1. In the management console, select the cloud or folder to enable domains and certificates in.
 1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ api-gw-name }} → Gateway settings → Domains**.
@@ -412,7 +412,7 @@ Enable an HTTPS listener using [this guide](../../../application-load-balancer/t
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 [Enable](../../../cdn/operations/resources/configure-basics.md) a certificate and HTTPS using the instructions.
 
@@ -473,7 +473,7 @@ You can encrypt the following types of disks:
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 [Encrypt](../../../compute/operations/disk-control/disk-encrypt.md) the disk of your {{ compute-full-name }} VM.
 
@@ -528,7 +528,7 @@ We recommend using HSMs for {{ kms-short-name }} keys to enhance the security le
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 [Set](../../../kms/operations/symmetric-encryption.md) the encryption algorithm for {{ kms-short-name }} keys to AES-256 HSM.
 
@@ -615,7 +615,7 @@ To check the {{ kms-short-name }} key access permissions, check who has access p
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Check out who is granted access to {{ kms-short-name }} keys.
 
@@ -676,7 +676,7 @@ For more information about key rotation, see [Key version](../../../kms/concepts
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Set the key rotation period.
 
@@ -721,7 +721,7 @@ Deleting a {{ kms-short-name }} key always means destroying data. Therefore, mak
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Enable deletion protection.
 
@@ -779,7 +779,7 @@ When working in {{ TF }}, we recommend using a script to [fill in]({{ tf-provide
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Keep secrets in {{ lockbox-short-name }}.
 
@@ -826,7 +826,7 @@ Make sure that the secrets are used as described above.
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Delete secret data from env and use the {{ lockbox-short-name }} integration functionality:
 * [{#T}](../../../serverless-containers/operations/lockbox-secret-transmit.md).
@@ -840,7 +840,7 @@ Delete secret data from env and use the {{ lockbox-short-name }} integration fun
 | --- | --- |
 | CRYPT15 | High |
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 [Encrypting secrets in {{ TF }} to transfer them to a VM from a {{ coi }}](https://github.com/yandex-cloud-examples/yc-encrypt-coi-secrets).
 
@@ -866,7 +866,7 @@ The service automatically notifies a customer of any found secrets belonging to 
 | --- | --- |
 | CRYPT16 | Informational |
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Make sure that:
 

@@ -33,6 +33,8 @@ Creates a ClickHouse cluster in the specified folder.
         "background_message_broker_schedule_pool_size": "google.protobuf.Int64Value",
         "background_common_pool_size": "google.protobuf.Int64Value",
         "dictionaries_lazy_load": "google.protobuf.BoolValue",
+        "shutdown_wait_unfinished_queries": "google.protobuf.BoolValue",
+        "shutdown_wait_unfinished": "google.protobuf.Int64Value",
         "log_level": "LogLevel",
         "query_log_retention_size": "google.protobuf.Int64Value",
         "query_log_retention_time": "google.protobuf.Int64Value",
@@ -376,6 +378,9 @@ Creates a ClickHouse cluster in the specified folder.
         "readonly": "google.protobuf.Int64Value",
         "allow_ddl": "google.protobuf.BoolValue",
         "allow_introspection_functions": "google.protobuf.BoolValue",
+        "allow_reorder_prewhere_conditions": "google.protobuf.BoolValue",
+        "async_socket_for_remote": "google.protobuf.BoolValue",
+        "async_query_sending_for_remote": "google.protobuf.BoolValue",
         "connect_timeout": "google.protobuf.Int64Value",
         "connect_timeout_with_failover": "google.protobuf.Int64Value",
         "connect_timeout_with_failover_secure": "google.protobuf.Int64Value",
@@ -389,6 +394,7 @@ Creates a ClickHouse cluster in the specified folder.
         "insert_quorum_parallel": "google.protobuf.BoolValue",
         "select_sequential_consistency": "google.protobuf.BoolValue",
         "replication_alter_partitions_sync": "google.protobuf.Int64Value",
+        "lightweight_deletes_sync": "google.protobuf.Int64Value",
         "max_replica_delay_for_distributed_queries": "google.protobuf.Int64Value",
         "fallback_to_stale_replicas_for_distributed_queries": "google.protobuf.BoolValue",
         "distributed_product_mode": "DistributedProductMode",
@@ -433,6 +439,8 @@ Creates a ClickHouse cluster in the specified folder.
         "max_network_bandwidth": "google.protobuf.Int64Value",
         "max_network_bandwidth_for_user": "google.protobuf.Int64Value",
         "max_network_bytes": "google.protobuf.Int64Value",
+        "max_remote_read_network_bandwidth": "google.protobuf.Int64Value",
+        "max_remote_write_network_bandwidth": "google.protobuf.Int64Value",
         "max_temporary_data_on_disk_size_for_query": "google.protobuf.Int64Value",
         "max_temporary_data_on_disk_size_for_user": "google.protobuf.Int64Value",
         "max_concurrent_queries_for_user": "google.protobuf.Int64Value",
@@ -540,6 +548,7 @@ Creates a ClickHouse cluster in the specified folder.
         "max_final_threads": "google.protobuf.Int64Value",
         "max_read_buffer_size": "google.protobuf.Int64Value",
         "insert_keeper_max_retries": "google.protobuf.Int64Value",
+        "database_atomic_wait_for_drop_and_detach_synchronously": "google.protobuf.BoolValue",
         "do_not_merge_across_partitions_select_final": "google.protobuf.BoolValue",
         "ignore_materialized_views_with_dropped_target_table": "google.protobuf.BoolValue",
         "enable_analyzer": "google.protobuf.BoolValue",
@@ -601,6 +610,11 @@ Creates a ClickHouse cluster in the specified folder.
     "performance_diagnostics": {
       "enabled": "google.protobuf.BoolValue",
       "processes_refresh_interval": "google.protobuf.Duration"
+    },
+    "connection_manager": {
+      "enabled": "google.protobuf.BoolValue",
+      "connections_folder_id": "string",
+      "secrets_folder_id": "string"
     }
   },
   "database_specs": [
@@ -623,6 +637,9 @@ Creates a ClickHouse cluster in the specified folder.
         "readonly": "google.protobuf.Int64Value",
         "allow_ddl": "google.protobuf.BoolValue",
         "allow_introspection_functions": "google.protobuf.BoolValue",
+        "allow_reorder_prewhere_conditions": "google.protobuf.BoolValue",
+        "async_socket_for_remote": "google.protobuf.BoolValue",
+        "async_query_sending_for_remote": "google.protobuf.BoolValue",
         "connect_timeout": "google.protobuf.Int64Value",
         "connect_timeout_with_failover": "google.protobuf.Int64Value",
         "connect_timeout_with_failover_secure": "google.protobuf.Int64Value",
@@ -636,6 +653,7 @@ Creates a ClickHouse cluster in the specified folder.
         "insert_quorum_parallel": "google.protobuf.BoolValue",
         "select_sequential_consistency": "google.protobuf.BoolValue",
         "replication_alter_partitions_sync": "google.protobuf.Int64Value",
+        "lightweight_deletes_sync": "google.protobuf.Int64Value",
         "max_replica_delay_for_distributed_queries": "google.protobuf.Int64Value",
         "fallback_to_stale_replicas_for_distributed_queries": "google.protobuf.BoolValue",
         "distributed_product_mode": "DistributedProductMode",
@@ -680,6 +698,8 @@ Creates a ClickHouse cluster in the specified folder.
         "max_network_bandwidth": "google.protobuf.Int64Value",
         "max_network_bandwidth_for_user": "google.protobuf.Int64Value",
         "max_network_bytes": "google.protobuf.Int64Value",
+        "max_remote_read_network_bandwidth": "google.protobuf.Int64Value",
+        "max_remote_write_network_bandwidth": "google.protobuf.Int64Value",
         "max_temporary_data_on_disk_size_for_query": "google.protobuf.Int64Value",
         "max_temporary_data_on_disk_size_for_user": "google.protobuf.Int64Value",
         "max_concurrent_queries_for_user": "google.protobuf.Int64Value",
@@ -787,6 +807,7 @@ Creates a ClickHouse cluster in the specified folder.
         "max_final_threads": "google.protobuf.Int64Value",
         "max_read_buffer_size": "google.protobuf.Int64Value",
         "insert_keeper_max_retries": "google.protobuf.Int64Value",
+        "database_atomic_wait_for_drop_and_detach_synchronously": "google.protobuf.BoolValue",
         "do_not_merge_across_partitions_select_final": "google.protobuf.BoolValue",
         "ignore_materialized_views_with_dropped_target_table": "google.protobuf.BoolValue",
         "enable_analyzer": "google.protobuf.BoolValue",
@@ -811,7 +832,12 @@ Creates a ClickHouse cluster in the specified folder.
           "execution_time": "google.protobuf.Int64Value"
         }
       ],
-      "auth_method": "AuthMethod"
+      "auth_method": "AuthMethod",
+      "user_connection_manager": {
+        "connection_id": "string",
+        "connection_folder_id": "string",
+        "secret_folder_id": "string"
+      }
     }
   ],
   "host_specs": [
@@ -855,6 +881,8 @@ Creates a ClickHouse cluster in the specified folder.
             "background_message_broker_schedule_pool_size": "google.protobuf.Int64Value",
             "background_common_pool_size": "google.protobuf.Int64Value",
             "dictionaries_lazy_load": "google.protobuf.BoolValue",
+            "shutdown_wait_unfinished_queries": "google.protobuf.BoolValue",
+            "shutdown_wait_unfinished": "google.protobuf.Int64Value",
             "log_level": "LogLevel",
             "query_log_retention_size": "google.protobuf.Int64Value",
             "query_log_retention_time": "google.protobuf.Int64Value",
@@ -1332,6 +1360,9 @@ Retain period of automatically created backup in days ||
 || performance_diagnostics | **[PerformanceDiagnostics](#yandex.cloud.mdb.clickhouse.v1.PerformanceDiagnostics)**
 
 Configuration performance diagnostics ||
+|| connection_manager | **[ClusterConnectionManager](#yandex.cloud.mdb.v1.ClusterConnectionManager)**
+
+Cluster-wide Connection Manager integration configuration ||
 |#
 
 ## Clickhouse {#yandex.cloud.mdb.clickhouse.v1.ConfigSpec.Clickhouse}
@@ -1453,6 +1484,22 @@ Default value: **true** for versions 25.1 and higher, **false** for versions 24.
 Change of the setting is applied with restart.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#dictionaries_lazy_load). ||
+|| shutdown_wait_unfinished_queries | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables or disables wait for running queries finish before shutdown.
+
+Default value: **false**.
+
+Change of the setting is applied with restart.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#shutdown_wait_unfinished_queries). ||
+|| shutdown_wait_unfinished | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Delay in seconds to wait for unfinished queries before shutdown.
+
+Default value: **60** (1 minute).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#shutdown_wait_unfinished). ||
 || log_level | enum **LogLevel**
 
 Logging level.
@@ -1991,7 +2038,7 @@ Change of the settings of **jdbc_bridge** is applied with restart.
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/integrations/jdbc/jdbc-with-clickhouse). ||
 || mysql_protocol | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Enables or disables MySQL interface on ClickHouse server
+Enables or disables MySQL interface on ClickHouse server.
 
 Default value: **false**.
 
@@ -3167,6 +3214,27 @@ Enables or disables introspection functions for query profiling.
 Default value: **false**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#allow_introspection_functions). ||
+|| allow_reorder_prewhere_conditions | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+When moving conditions from WHERE to PREWHERE, allow reordering them to optimize filtering
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/allow#allow_reorder_prewhere_conditions). ||
+|| async_socket_for_remote | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables asynchronous read from socket while executing remote query.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/async#async_socket_for_remote). ||
+|| async_query_sending_for_remote | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables asynchronous connection creation and query sending while executing remote query.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/async#async_query_sending_for_remote). ||
 || connect_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Connection timeout in milliseconds.
@@ -3278,6 +3346,16 @@ Wait mode for asynchronous actions in **ALTER** queries on replicated tables.
 Default value: **1**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#alter_sync). ||
+|| lightweight_deletes_sync | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Wait mode for lightweight **DELETE** queries on replicated tables.
+* **0** - do not wait for replicas.
+* **1** - only wait for own execution.
+* **2** - wait for all replicas.
+
+Default value: **2**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#lightweight_deletes_sync). ||
 || max_replica_delay_for_distributed_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Max replica delay in milliseconds. If a replica lags more than the set value, this replica is not used and becomes a stale one.
@@ -3704,6 +3782,20 @@ This setting applies to every individual query.
 Default value: **0**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bytes). ||
+|| max_remote_read_network_bandwidth | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum speed of data exchange over the network in bytes per second for read.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_remote_read_network_bandwidth). ||
+|| max_remote_write_network_bandwidth | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum speed of data exchange over the network in bytes per second for write.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_remote_write_network_bandwidth). ||
 || max_temporary_data_on_disk_size_for_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running queries. **0** means unlimited.
@@ -4568,6 +4660,13 @@ Only Keeper requests which failed due to network error, Keeper session timeout o
 Default value: **20**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#insert_keeper_max_retries). ||
+|| database_atomic_wait_for_drop_and_detach_synchronously | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+When executing DROP or DETACH TABLE in Atomic database, wait for table data to be finally dropped or detached.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#database_atomic_wait_for_drop_and_detach_synchronously). ||
 || do_not_merge_across_partitions_select_final | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enable or disable independent processing of partitions for **SELECT** queries with **FINAL**.
@@ -4767,6 +4866,28 @@ Whether to use Performance Diagnostics service in cluster. ||
 Time interval to collect data from system.processes table. ||
 |#
 
+## ClusterConnectionManager {#yandex.cloud.mdb.v1.ClusterConnectionManager}
+
+A message representing the Connection Manager integration status and settings for a cluster.
+
+#|
+||Field | Description ||
+|| enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+True if the integration for the cluster is enabled.
+Set to true to enable the integration.
+Disabling the integration is not supported. ||
+|| connections_folder_id | **string**
+
+ID of the folder where connections for the cluster are created.
+Optional. Defaults to the cluster's folder if not specified. ||
+|| secrets_folder_id | **string**
+
+A Connection Manager setting for connections created by MDB integration.
+ID of the folder where connection secrets are created.
+Optional. Defaults to the cluster's folder if not specified. ||
+|#
+
 ## DatabaseSpec {#yandex.cloud.mdb.clickhouse.v1.DatabaseSpec}
 
 #|
@@ -4818,6 +4939,9 @@ User authentication method.
 
 - `AUTH_METHOD_PASSWORD`: Authentication using a password stored in the cluster.
 - `AUTH_METHOD_IAM`: Authentication using an IAM token via the IAM authentication proxy. ||
+|| user_connection_manager | **[UserConnectionManager](#yandex.cloud.mdb.v1.UserConnectionManager)**
+
+Connection Manager connection and settings associated with the user. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.clickhouse.v1.Permission}
@@ -4855,6 +4979,29 @@ The total number of source rows read from tables for running the query, on all r
 || execution_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The total query execution time, in milliseconds (wall time). **0** means unlimited. ||
+|#
+
+## UserConnectionManager {#yandex.cloud.mdb.v1.UserConnectionManager}
+
+A message representing Connection Manager integration details and settings for a user in a cluster.
+
+#|
+||Field | Description ||
+|| connection_id | **string**
+
+ID of the Connection Manager connection corresponding to the user.
+Ignored if specified in update requests. ||
+|| connection_folder_id | **string**
+
+ID of the folder where connection for the user is created.
+Optional. Defaults to the cluster's ClusterConnectionManager.connections_folder_id if not specified,
+or the cluster's folder if ClusterConnectionManager.connections_folder_id is not specified. ||
+|| secret_folder_id | **string**
+
+A Connection Manager setting for a user's connection created by MDB integration.
+ID of the folder where secret for the user's connection is created.
+Optional. Defaults to the cluster's ClusterConnectionManager.secrets_folder_id if not specified,
+or the cluster's ClusterConnectionManager.connections_folder_id, or the cluster's folder. ||
 |#
 
 ## HostSpec {#yandex.cloud.mdb.clickhouse.v1.HostSpec}

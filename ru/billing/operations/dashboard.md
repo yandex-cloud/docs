@@ -33,6 +33,8 @@ description: Следуя данной инструкции, вы сможете
 
   В результате отобразится стоимость использования ресурсов за заданный период времени.
 
+  {% include [final-payment-info](../../_includes/billing/final-payment-info.md) %}
+
 {% endlist %}
 
 ## Откройте дашборд {#open-dashboard}

@@ -23,7 +23,7 @@
 
     1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
     1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения**.
-    1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
+    1. Нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
         1. Выберите метод единого входа **OIDC (OpenID Connect)**.
         1. В поле **Тип приложения** выберите тип [Web Application](*web_app_type).
            
@@ -171,20 +171,20 @@
         * `ClientID` — уникальный идентификатор приложения.
         * `OpenID Configuration` — URL с конфигурацией всех необходимых для настройки интеграции параметров.
 
-  1. Создайте секрет приложения (действие доступно только для приложений [типа](../../../organization/concepts/applications/oidc.md#oidc-application-types) `Web Application`):
+  1. Создайте секрет приложения (действие доступно только для приложений [типа](../../../organization/concepts/applications/oidc.md#oidc-application-types) `Web Application`).
      
-     1. В блоке **Секреты приложения** нажмите кнопку **Добавить секрет** и в открывшемся окне:
+     Для этого в блоке **Секреты приложения** нажмите кнопку **Добавить секрет** и в открывшемся окне:
      
-         1. (Опционально) Добавьте произвольное описание создаваемого секрета.
-         1. Нажмите **Создать**.
+     1. (Опционально) Добавьте произвольное описание создаваемого секрета.
+     1. Нажмите **Создать**.
      
-     В окне отобразится сгенерированный [секрет приложения](../../../organization/concepts/applications/oidc.md#oidc-secret). Сохраните полученное значение.
+         В окне отобразится сгенерированный [секрет приложения](../../../organization/concepts/applications/oidc.md#oidc-secret). Сохраните полученное значение.
      
-     {% note warning %}
+         {% note warning %}
      
-     После обновления или закрытия страницы с информацией о приложении посмотреть секрет будет невозможно.
+         После обновления или закрытия страницы с информацией о приложении посмотреть секрет будет невозможно.
      
-     {% endnote %}
+         {% endnote %}
      
      Если вы закрыли или обновили страницу, не сохранив сгенерированный секрет, используйте кнопку **Добавить секрет**, чтобы создать новый.
      
@@ -396,7 +396,7 @@
 
 {% note info %}
 
-Управлять пользователями и группами, добавленными в OIDC-приложение, может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-oidcApplications-userAdmin) `organization-manager.oidcApplications.userAdmin` или выше.
+Управлять пользователями и группами, добавленными в OIDC-приложение, может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-oauthApplications-userAdmin) `organization-manager.oauthApplications.userAdmin` или выше.
 
 {% endnote %}
 

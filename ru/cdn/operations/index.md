@@ -26,6 +26,7 @@ description: На странице представлен список поша�
 * [{#T}](resources/setup-follow-redirects.md)
 * [{#T}](resources/hiding-headers.md)
 * [{#T}](resources/enable-secure-token.md)
+* [{#T}](resources/configure-geo-acl.md)
 * [{#T}](resources/location-rules.md)
 * [{#T}](resources/configure-server-name.md)
 * [{#T}](resources/disable-resource.md)

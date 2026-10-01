@@ -98,6 +98,7 @@
            Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
         
         1. Если вас устраивают планируемые изменения, внесите их:
+        
            1. Выполните команду:
         
               ```bash
@@ -109,12 +110,12 @@
 
 - API {#api}
 
-    Воспользуйтесь методом API [update](../api-ref/NetworkLoadBalancer/update.md) и передайте в запросе:
+    Воспользуйтесь методом REST API [update](../api-ref/NetworkLoadBalancer/update.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Update](../api-ref/grpc/NetworkLoadBalancer/update.md) и передайте в запросе:
 
-    * Идентификатор балансировщика в параметре `networkLoadBalancerId`. Чтобы узнать идентификатор, [получите список сетевых балансировщиков в каталоге](load-balancer-list.md#list).
+    * Идентификатор балансировщика в параметре `networkLoadBalancerId` (REST API) или `network_load_balancer_id` (gRPC API). Чтобы узнать идентификатор, [получите список сетевых балансировщиков в каталоге](load-balancer-list.md#list).
     * Новое имя в параметре `name`.
     * Новое описание в параметре `description`.
-    * Список изменяемых полей конфигурации кластера в параметре `updateMask` (в данном случае — `name`, `description`).
+    * Список изменяемых полей конфигурации кластера в параметре `updateMask` (REST API) или `update_mask` (gRPC API) (в данном случае — `name`, `description`).
 
     {% note warning %}
     
@@ -209,6 +210,7 @@
            Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
         
         1. Если вас устраивают планируемые изменения, внесите их:
+        
            1. Выполните команду:
         
               ```bash
@@ -220,11 +222,11 @@
 
 - API {#api}
 
-    Воспользуйтесь методом API [update](../api-ref/NetworkLoadBalancer/update.md) и передайте в запросе:
+    Воспользуйтесь методом REST API [update](../api-ref/NetworkLoadBalancer/update.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Update](../api-ref/grpc/NetworkLoadBalancer/update.md) и передайте в запросе:
 
-    * Идентификатор балансировщика в параметре `networkLoadBalancerId`. Чтобы узнать идентификатор, [получите список сетевых балансировщиков в каталоге](load-balancer-list.md#list).
+    * Идентификатор балансировщика в параметре `networkLoadBalancerId` (REST API) или `network_load_balancer_id` (gRPC API). Чтобы узнать идентификатор, [получите список сетевых балансировщиков в каталоге](load-balancer-list.md#list).
     * Новые значения меток в параметре `labels`.
-    * Список изменяемых полей конфигурации кластера в параметре `updateMask` (в данном случае — `labels`).
+    * Список изменяемых полей конфигурации кластера в параметре `updateMask` (REST API) или `update_mask` (gRPC API) (в данном случае — `labels`).
 
     {% note warning %}
     
@@ -366,6 +368,7 @@
            Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
         
         1. Если вас устраивают планируемые изменения, внесите их:
+        
            1. Выполните команду:
         
               ```bash
@@ -377,7 +380,7 @@
 
 - API {#api}
 
-    Воспользуйтесь методом API [update](../api-ref/NetworkLoadBalancer/update.md) и передайте в запросе:
+    Воспользуйтесь методом REST API [update](../api-ref/NetworkLoadBalancer/update.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Update](../api-ref/grpc/NetworkLoadBalancer/update.md) и передайте в запросе:
 
     * Идентификатор балансировщика в параметре `networkLoadBalancerId`. Чтобы узнать идентификатор, [получите список сетевых балансировщиков в каталоге](load-balancer-list.md#list).
     * Идентификатор целевой группы и настройки проверки ее состояния в параметре `attachedTargetGroups`.
@@ -385,6 +388,8 @@
       Чтобы узнать идентификатор, [получите](target-group-list.md#list) список целевых групп в каталоге.
 
     * Список изменяемых полей конфигурации кластера в параметре `updateMask` (в данном случае — `attachedTargetGroups`).
+
+    В gRPC API имена полей записываются в [snake_case](https://ru.wikipedia.org/wiki/Snake_case): `network_load_balancer_id`, `attached_target_groups`, `update_mask`.
 
     {% note warning %}
     

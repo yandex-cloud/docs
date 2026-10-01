@@ -7,16 +7,18 @@
 
 #### Description
 
-The lack of control over new Docker images leads to risks associated with the following factors:
+Without automatic vulnerability scanning, every new Docker image pushed to the registry is added to the inventory unchecked: vulnerable base layers and components, accidentally introduced malicious code, and outdated dependencies all reach the cluster as if nothing happened.
 
-* use of vulnerable containers; * introduction of malicious code; * slower response to threats.
+Container Registry can scan images automatically at push and surface the results in the [scan report](https://yandex.cloud/en/docs/container-registry/operations/scanning-docker-image#scan-results) — this is the fastest way to learn about a problem before the image is deployed.
 
-Automatic vulnerability scanning when new images are added to the Container Registry will help reduce these risks.
+**Risks if the rule is not followed:** Without automatic scanning on push, vulnerable images, malicious code, and outdated dependencies can silently reach production clusters — where they may be exploited before anyone notices.
 
 #### Instructions and solutions
 
-1. In the [management console](https://console.yandex.cloud/), select the folder where you want to create a registry. 2. Go to Container Registry. 3. Click **Create registry**. 4. Specify a name for the registry. Follow these naming requirements:
+Enable scanning on push for every registry:
 
-* Length: between 3 and 63 characters. * It can only contain lowercase Latin letters, numbers, and hyphens. * It must start with a letter and cannot end with a hyphen. 5. Under **Automatic scanning**:
+1. In the [management console](https://console.yandex.cloud/) open the registry settings (Container Registry → registry → **Settings**).
+2. Under **Automatic scanning**, enable **Scan Docker images on push**.
+3. Review [scan results](https://yandex.cloud/en/docs/container-registry/operations/scanning-docker-image#scan-results) for the latest images and address any vulnerabilities found before deploying them.
 
-* Keep the **Scan Docker images on push** option enabled to scan Docker images at their upload to the repository. * Keep the **Scan all Docker images in the registry** option enabled, and set scanning frequency if necessary. 6. Click **Create registry**.
+For new registries, this option is enabled by default — keep it that way.

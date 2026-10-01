@@ -22,10 +22,12 @@ To create a {{ TR }} connection:
       1. {% include [datalens-db-select](../../../_includes/datalens/datalens-db-select-2.md) %}
 
           * **Cloud and folder**: Select the folder where your service account will be located.
-          * **Service account**: Select an existing service account or [create a new one](../../../iam/operations/sa/create.md).
-          * **Cluster**. Specify the cluster from the list of available {{ TR }} clusters or [create](../../../managed-trino/operations/cluster-create.md) a new one.
+          * **Service account**: Select an existing service account or [create a new one]({{ link-docs }}/iam/operations/sa/create).
+          * **Cluster**. Specify the cluster from the list of available {{ TR }} clusters or [create]({{ link-docs }}/managed-trino/operations/cluster-create) a new one.
 
           {% include [datalens-db-sql-level-2](../../../_includes/datalens/datalens-db-connection-sql-level-2.md) %}
+
+          ![image](../../../_assets/datalens/operations/connection/connection-trino-yc.png)
 
       1. {% include [connection-trino-cache](../../../_includes/datalens/connection-trino-cache.md) %}
       1. {% include [connection-trino-advanced](../../../_includes/datalens/connection-trino-advanced.md) %}
@@ -38,6 +40,9 @@ To create a {{ TR }} connection:
           * `JWT`
 
       1. {% include [connection-trino-manual](../../../_includes/datalens/connection-trino-manual.md) %}
+
+         ![image](../../../_assets/datalens/operations/connection/connection-trino-yc-free.png)
+
       1. {% include [connection-trino-cache](../../../_includes/datalens/connection-trino-cache.md) %}
       1. {% include [connection-trino-advanced](../../../_includes/datalens/connection-trino-advanced.md) %}
       1. Optionally, test the connection by clicking **Check connection**.

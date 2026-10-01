@@ -124,6 +124,8 @@ Monium платформа для сбора, хранения и анализа 
 
  - [AI Studio](metrics-ref/ai-studio-ref.md)
 
+ - [Apache Hive™ Metastore](metrics-ref/managed-metastore-ref.md)
+
  - [API Gateway](metrics-ref/api-gateway-ref.md)
 
  - [Application Load Balancer](metrics-ref/alb-ref.md)
@@ -149,6 +151,8 @@ Monium платформа для сбора, хранения и анализа 
  - [Compute Cloud](metrics-ref/compute-ref.md)
 
  - [Container Registry](metrics-ref/container-registry-ref.md)
+
+ - [Cloud Registry](metrics-ref/cloud-registry-ref.md)
 
  - [Yandex Data Processing](metrics-ref/data-processing-ref.md)
 
@@ -316,6 +320,10 @@ Monium платформа для сбора, хранения и анализа 
 
  - [Виджеты](concepts/visualization/widget.md)
 
+ - [Блокноты](concepts/visualization/notebooks.md)
+
+ - [Контекстные ссылки](concepts/visualization/context-links.md)
+
 ### Работа с дашбордами
 
  - [Создание и управление дашбордом](operations/dashboard/create.md)
@@ -339,6 +347,10 @@ Monium платформа для сбора, хранения и анализа 
 ### Пошаговые инструкции
 
  - [Создание алерта](operations/alert/create-alert.md)
+
+ - [Создание композитного алерта](operations/alert/create-composite-alert.md)
+
+ - [Создание алерта SLO](operations/alert/create-slo-alert.md)
 
  - [Создание канала уведомлений с получателем](operations/alert/create-channel.md)
 
@@ -373,6 +385,10 @@ Monium платформа для сбора, хранения и анализа 
  - [Управление SLO](slo/management.md)
 
  - [Добавление виджета SLO на дашборд](slo/visualisation.md)
+
+## Практические руководства
+
+ - [SLO-мониторинг веб-сервиса](slo/slo-blackbox-exporter.md)
 
 ## Yandex Managed Service for Prometheus®
 

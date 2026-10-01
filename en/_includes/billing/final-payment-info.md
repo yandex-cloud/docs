@@ -1,0 +1,1 @@
+The final amount is calculated within seven days after the end of the [reporting period](../../billing/concepts/reporting-period.md). The stated amounts are preliminary and may be adjusted. The final amount due will be stated in the [reporting documents](../../billing/payment/documents.md).

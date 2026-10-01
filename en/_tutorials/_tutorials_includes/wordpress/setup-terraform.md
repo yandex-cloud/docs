@@ -1,4 +1,4 @@
-1. [Get your cloud ready](#before-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create the infrastructure](#deploy).
 1. [Get credentials for authentication in the web interface](#get-auth-data).
 1. [Connect to the WordPress web interface](#connect-wordpress-interface).

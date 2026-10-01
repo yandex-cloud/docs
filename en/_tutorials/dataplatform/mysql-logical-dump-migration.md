@@ -1,5 +1,7 @@
 # Transferring data by creating and restoring a logical dump
 
+
+
 To move data to a {{ mmy-name }} cluster, create a logical dump of the desired database and restore it to the target cluster. There are two ways to do this:
 
 * Use the `mydumper` and `myloader` [utilities](https://github.com/mydumper/mydumper). A database dump is created as a collection of files in a separate folder.

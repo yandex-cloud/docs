@@ -5,7 +5,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать [трансфер](../../data-transfer/concepts/index.md#transfer).
-  1. [Перейдите]({{ link-console-main }}/link/data-transfer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer_ru }}**.
+  1. [Перейдите]({{ link-console-main }}/link/data-transfer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
   1. Создайте [эндпоинт](../../data-transfer/concepts/index.md#endpoint)-источник:
      1. На панели слева выберите ![endpoint](../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.

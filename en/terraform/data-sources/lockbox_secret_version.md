@@ -47,17 +47,9 @@ output "my_secret_entries" {
 
 ## Arguments & Attributes Reference
 
-- `entries` [Block]. List of entries in the Yandex Cloud Lockbox secret version. Must be omitted for secrets with a payload specification.
-
-{% note warning %}
-
-One either `text_value` or `command` is required.
-
-{% endnote %}
-
-
-  - `key` (**Required**)(String). The key of the entry.
-  - `text_value` (String). The text value of the entry.
+- `entries` (*Read-Only*) (List Of Object). 
+  - `key` . 
+  - `text_value` . 
 - `id` (String). 
 - `secret_id` (**Required**)(String). The Yandex Cloud Lockbox secret ID where to add the version.
 - `version_id` (String). The Yandex Cloud Lockbox secret version ID.

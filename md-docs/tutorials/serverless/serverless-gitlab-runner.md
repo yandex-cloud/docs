@@ -200,7 +200,7 @@
       1. Откройте [консоль управления](https://console.yandex.cloud).
       1. [Перейдите](https://console.yandex.cloud/link/lockbox) в сервис **Lockbox**.
       1. Выберите секрет `gitlab-runner-token`.
-      1. На панели слева выберите ![image](../../_assets/console-icons/persons.svg) **Права доступа**.
+      1. Перейдите на вкладку **Права доступа**.
       1. Нажмите **Назначить роли**.
       1. Найдите и выберите сервисный аккаунт `gitlab-runner-lockbox-payload-viewer`.
       1. Нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `lockbox.payloadViewer`.

@@ -13,7 +13,7 @@ title: Как получить информацию о расписании, п�
   1. На панели слева выберите ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**.
   1. Выберите нужное расписание.
-  1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о расписании снимков дисков.
+  1. На вкладке **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о расписании снимков дисков.
 
 - CLI
 

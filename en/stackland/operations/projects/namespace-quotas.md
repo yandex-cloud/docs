@@ -13,7 +13,7 @@ Make sure that:
 
 You can set the following quotas at the namespace level:
 
-* `requests.cpu`: Total requested CPU for pods in the namespace.
+* `requests.cpu`: Total requested CPUs for pods in the namespace.
 * `requests.memory`: Total requested memory for pods in the namespace.
 * `limits.cpu`: Total CPU limit for pods in the namespace.
 * `limits.memory`: Total memory limit for pods in the namespace.
@@ -237,5 +237,5 @@ spec:
 
 ## What's next {#what-is-next}
 
-* [Configuring roles in a project](project-roles.md)
+* [Configuring project roles](project-roles.md)
 * [Managing namespaces in a project](manage-namespaces.md)

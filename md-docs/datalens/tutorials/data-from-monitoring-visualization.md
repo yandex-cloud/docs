@@ -31,7 +31,7 @@
       
       {% note info %}
 
-      Для активации экземпляра DataLens пользователю нужна роль `admin` или `owner`. Подробнее про роли смотрите в разделе [Управление доступом в Yandex Identity Hub](../../organization/security/index.md).
+      Для активации экземпляра DataLens пользователю нужна роль `admin` или `owner`. Подробнее про роли смотрите в разделе [{#T}](../../organization/security/index.md).
 
       {% endnote %}
 

@@ -60,7 +60,7 @@ description: Вы можете запросить детальную инфор�
               }' \
            {{ api-host-spark }}:{{ port-https }} \
            yandex.cloud.spark.v1.ClusterService.List
-           ```
+       ```
        
        Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
        
@@ -137,10 +137,9 @@ description: Вы можете запросить детальную инфор�
     1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится кластер.
     1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
     1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
-    1. Выберите нужный кластер.
-    1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** для выбранного кластера.
+    1. Нажмите на имя нужного кластера и перейдите в раздел **{{ ui-key.yacloud.common.operations-key-value }}**.
 
-        В открывшемся списке отображаются операции с выбранным кластером.
+    В открывшемся списке отображаются операции с выбранным кластером.
 
 - CLI {#cli}
 

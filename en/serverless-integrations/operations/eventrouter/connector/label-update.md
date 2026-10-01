@@ -5,6 +5,8 @@ description: Follow this guide to update a connector label.
 
 # Updating a connector label
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}

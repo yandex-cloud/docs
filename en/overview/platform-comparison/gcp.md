@@ -35,7 +35,7 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 | Cloud Router | [{{ cr-full-name }}](../../cloud-router/) |
 | Cloud Run | [{{ cos-full-name }}](../../cos/)<br/>[{{ serverless-containers-full-name }}](../../serverless-containers/) |
 | Cloud SDK | [{{ yandex-cloud }} CLI](../../cli/) |
-| Cloud Search | [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/concepts) |
+| Cloud Search | [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/concepts/) |
 | Cloud Security Command Center | [{{ sd-full-name }}](../../security-deck/) |
 | Cloud Spanner | [{{ ydb-full-name }}](../../ydb/) |
 | Cloud Speech-to-Text,<br/>Cloud Text-to-Speech | [{{ speechkit-full-name }}]({{ link-docs-ai }}speechkit/overview) |
@@ -64,5 +64,5 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 | Secret Manager | [{{ lockbox-name }}](../../lockbox/) |
 | Vertex AI Platform | [{{ ml-platform-full-name }}](../../datasphere/) |
 | Virtual Private Cloud | [{{ vpc-full-name }}](../../vpc/) |
-| Workflows | [{{ si-full-name }}: {{ sw-name }}](../../serverless-integrations/quickstart/workflows.md) |
+| Workflows | [{{ ai-studio-full-name }}: {{ sw-name }}]({{ link-docs-ai }}ai-studio/quickstart/workflows) |
 | GitLab images for VMs in Google Cloud Marketplace and Google Cloud Developer Tools | [{{ mgl-full-name }}](../../managed-gitlab/) |

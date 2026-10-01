@@ -22,7 +22,7 @@
 Список настроек, зависящих от класса хостов:
 
 * [Net → Max incoming connections](#setting-max-incoming-connections).
-* [Engine config → Cache size gb](#setting-engine-cache-size).
+* [Engine config → Cache size gb](#setting-engine-cache-size-gb).
 
 ## Настройки СУБД уровня кластера {#dbms-cluster-settings}
 

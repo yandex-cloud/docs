@@ -15,14 +15,14 @@ The certificate is configured when creating a resource. You can change it afterw
 
 {% include [tls-profiles-list](../../_includes/cdn/tls-profiles-list.md) %}
 
-You can customize this setting via the API when [creating](../operations/resources/create-resource.md) or [updating](../operations/resources/configure-basics.md) a CDN resource. For more information, see [{#T}](../operations/resources/configure-tls-profile.md).
+You can perform the setup via the management console and API when [creating](../operations/resources/create-resource.md) or [updating](../operations/resources/configure-tls-profile.md) a CDN resource.
 
 
 ## Domain ownership verification {#domain-name-challenge}
 
-If you [issued a Let's Encrypt certificate in {{ certificate-manager-name }}](../../certificate-manager/concepts/managed-certificate.md) and use it in a CDN resource, you need to pass the [domain ownership verification](../../certificate-manager/concepts/challenges.md) procedure. {{ cdn-name }} supports only the `DNS` type verification with the help of a `TXT` or `CNAME` DNS record. The CDN load balancer will return the `404` status code in response to file requests over paths formatted as `/.well-known/acme-challenge/<file_name>` that are used for `HTTP` domain rights checks.
+If you [issued a Let's Encrypt certificate in {{ certificate-manager-name }}](../../certificate-manager/concepts/managed-certificate.md) and use it in a CDN resource, you need to pass [domain ownership verification](../../certificate-manager/concepts/challenges.md). For a CDN resource, you can use the `HTTP` and `DNS` verification types. During `HTTP` verification, a CDN load balancer receives HTTP and HTTPS file requests at paths like `/.well-known/acme-challenge/<file_name>` and forwards them to the origin. Make sure the origin returns a verification file with status code `200`.
 
-If you use a certificate of your own uploaded to {{ certificate-manager-name }} in a CDN resource, no domain rights check is required.
+If you use your own certificate uploaded to {{ certificate-manager-name }} in a CDN resource, no domain ownership verification is required.
 
 
 ## Use cases {#examples}

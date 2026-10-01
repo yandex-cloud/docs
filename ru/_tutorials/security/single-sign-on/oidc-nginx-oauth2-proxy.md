@@ -26,7 +26,7 @@
 
   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-  1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
+  1. Нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
 
       1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}**.
       1. {% include [org-oidc-app-select-web-type-step](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-step.md) %}
@@ -40,9 +40,7 @@
           1. Нажмите **Enter**.
       1. Нажмите **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
   1. В открывшемся окне на вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** скопируйте и сохраните значение параметра `{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}` с уникальным идентификатором OAuth-клиента. Это значение понадобится позднее при настройке утилиты `OAuth2 Proxy`.
-  1. Создайте [секрет приложения](../../../organization/concepts/applications/oidc.md#oidc-secret):
-  
-      {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
+  1. {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
 
 - CLI {#cli}
 
@@ -213,7 +211,7 @@
 
 {% note info %}
 
-Управлять пользователями и группами, добавленными в OIDC-приложение, может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-oidcApplications-userAdmin) `organization-manager.oidcApplications.userAdmin` или выше.
+Управлять пользователями и группами, добавленными в OIDC-приложение, может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-oauthApplications-userAdmin) `organization-manager.oauthApplications.userAdmin` или выше.
 
 {% endnote %}
 

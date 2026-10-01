@@ -2,6 +2,12 @@
 
 # Изменить диск
 
+{% note warning %}
+
+С 12 октября 2026 года девять квот на ресурсы Compute Cloud будут действовать не в рамках региона, а отдельно по каждой зоне доступности. Список квот и описание изменений — в разделе [Изменение квотирования ресурсов Compute Cloud](../../concepts/quota-zones.md).
+
+{% endnote %}
+
 
 После создания [диска](../../concepts/disk.md) вы можете:
 * [Изменить имя и описание диска](#change-disk-name).
@@ -17,7 +23,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет изменен диск.
   1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски и хранилища**.
   1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) напротив нужного диска и выберите **Редактировать**.
   1. Измените имя и описание диска.
   1. Нажмите **Сохранить изменения**.
@@ -90,7 +96,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится диск.
   1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски и хранилища**.
   1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) напротив нужного диска и выберите **Редактировать**.
   1. Увеличьте размер диска.
   1. Нажмите **Сохранить изменения**.

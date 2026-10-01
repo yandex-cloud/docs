@@ -11,12 +11,14 @@ blocks:
   - type: card-layout-block
     animated: false
     colSizes:
-      all: 6
+      all: 12
+      md: 6
     children:
       - type: basic-card
         title: Price calculator
         text: Calculate the cost of the service based on your needs
-        icon: ../_assets/console-icons/calculator.svg
+        gravityIcon: Calculator
+        iconPosition: left
         urlTitle: Price calculator
         url: https://yandex.cloud/en/prices?state=2e61e2b05731#calculator
         size: s
@@ -28,7 +30,8 @@ blocks:
       - type: basic-card
         title: Price list
         text: Current prices of all our services
-        icon: ../_assets/console-icons/circle-ruble.svg
+        gravityIcon: CircleRuble
+        iconPosition: left
         urlTitle: Price list
         url: https://yandex.cloud/en/price-list?services=dn2o8879r181fgps5lb3
         size: s
@@ -55,7 +58,7 @@ When using {{ maf-name }}, you pay for:
 * Computing resources of cluster components.
 * Outgoing traffic volume.
 
-Cluster operation cost is charged per minute. The minimum billing unit is one minute, e.g., 1.5 minutes of cluster usage is billed as 2 minutes.
+Cluster operation cost is charged per minute. The minimum billing unit is one minute (for example, 1.5 minutes of cluster operation cost the same as two minutes).
 
 Using {{ objstorage-full-name }} for [storing DAG files](operations/upload-dags.md) is charged according to the [{{ objstorage-name }} pricing policy](../storage/pricing.md).
 

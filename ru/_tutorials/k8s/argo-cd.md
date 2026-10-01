@@ -18,17 +18,16 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
+* Мастер {{ managed-k8s-name }} ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Сервис {{ container-registry-full-name }}: хранение созданных Docker-образов и использование сканера уязвимостей ([тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
+* Инстанс {{ GL }}. Стоимость зависит от способа создания инстанса:
 
-* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Плата за публичные IP-адреса, если они назначены узлам кластера ([тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
-* Плата за NAT-шлюз, если он используется вместо публичных IP-адресов для узлов кластера ([тарифы {{ vpc-name }}](../../vpc/pricing.md#nat-gateways)).
-* Плата за [использование хранилища](../../container-registry/pricing) {{ container-registry-name }}.
-* Плата за инстанс {{ GL }}. Она зависит от способа создания инстанса:
+   * {{ mgl-name }} — оплачиваются вычислительные ресурсы ВМ, объем хранимых данных и резервных копий, объем исходящего трафика ([тарифы {{ mgl-name }}](../../managed-gitlab/pricing.md)).
+   * ВМ с образом {{ GL }} — оплачиваются вычислительные ресурсы ВМ и образ {{ GL }} ([тарифы {{ compute-name }}](../../compute/pricing.md)).
 
-   * {{ mgl-name }}: оплачиваются ресурсы ВМ, хранение данных и резервных копий, объем исходящего трафика ([тарифы {{ mgl-name }}](../../managed-gitlab/pricing)).
-   * ВМ с образом {{ GL }}: оплачиваются ресурсы ВМ, образ {{ GL }}, публичный IP-адрес для ВМ ([тарифы {{ compute-name }}](../../compute/pricing.md) и [{{ vpc-name }}](../../vpc/pricing.md#nat-gateways)).
+* Публичные IP-адреса для мастера и узлов кластера {{ managed-k8s-name }}, а также для ВМ с образом {{ GL }}, если для них включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
+* NAT-шлюз, если он используется вместо публичных IP-адресов для узлов кластера: почасовое использование шлюза и исходящий через него трафик ([тарифы {{ vpc-name }}](../../vpc/pricing.md#nat-gateways)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -57,7 +56,7 @@
 
   1. [Создайте группу безопасности](../../managed-gitlab/operations/configure-security-group.md) для работы [инстанса {{ mgl-name }}](../../managed-gitlab/concepts/index.md#instance).
   1. [Создайте кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md). При создании кластера {{ managed-k8s-name }} укажите ранее созданные сервисные аккаунты для ресурсов и узлов и группы безопасности для кластера.
-  1. [Создайте реестр {{ container-registry-full-name }}](../../container-registry/operations/registry/registry-create.md).
+  1. [Создайте реестр {{ container-registry-name }}](../../container-registry/operations/registry/registry-create.md).
   1. [Сохраните идентификатор созданного реестра](../../container-registry/operations/registry/registry-list.md#registry-get) — он понадобится для следующих шагов.
 
 - {{ TF }} {#tf}

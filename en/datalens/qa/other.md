@@ -20,7 +20,7 @@ You can get {{ yandex-cloud }} service logs on your own by connecting to [{{ dat
 * {{ datalens-full-name }} as a cloud service. Please, note:
 
   * {{ datalens-full-name }} is a {{ yandex-cloud }} service compliant with Federal Law No. 152 and industry security standards. For more information, see [{{ yandex-cloud }} security](/security).
-  * For {{ datalens-full-name }}, you can [set up an identity federation](../../organization/quickstart.md).
+  * For {{ datalens-full-name }}, you can [set up an identity federation]({{ link-docs }}/organization/quickstart).
 
 * [{{ datalens-short-name }} Open Source]({{ link-datalens-main }}/opensource/) can be deployed locally for trial use with limited functionality.
 
@@ -34,7 +34,7 @@ Your cloud may be blocked in the following cases:
 
 When a cloud is suspended, your {{ datalens-short-name }} instance will be unavailable. You won't be able to use {{ datalens-short-name }} until access to the cloud is restored.
 
-Learn more in [Automatic cloud suspension](../../overview/concepts/data-deletion.md#block).
+Learn more in [Automatic cloud suspension]({{ link-docs }}/overview/concepts/data-deletion#block).
 
 {% include [object-id](../../_qa/datalens/object-id.md) %}
 

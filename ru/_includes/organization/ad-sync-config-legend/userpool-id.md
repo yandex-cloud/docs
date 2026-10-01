@@ -1,0 +1,1 @@
+* `userpool_id` — идентификатор [пула пользователей](../../../organization/concepts/user-pools.md) в {{ org-full-name }}.

@@ -123,6 +123,7 @@ description: При заполнении хранилища более чем н
             --disk-size <размер_хранилища_ГБ>
         ```
 
+
 - {{ TF }} {#tf}
 
     Чтобы изменить тип диска и увеличить размер хранилища для кластера:
@@ -157,6 +158,7 @@ description: При заполнении хранилища более чем н
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
         {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -311,6 +313,7 @@ description: При заполнении хранилища более чем н
         Если настроено увеличение хранилища в окно обслуживания, [настройте расписание окна обслуживания](cluster-maintenance.md#set-maintenance-window).
 
         Подробнее об условиях для увеличения хранилища в [соответствующем разделе](../concepts/storage.md#auto-rescale).
+
         
 - {{ TF }} {#tf}
 
@@ -341,6 +344,7 @@ description: При заполнении хранилища более чем н
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
         {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

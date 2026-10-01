@@ -1,14 +1,14 @@
 ---
 title: '{{ datalens-full-name }} data types'
-description: '{{ datalens-full-name }} uses multiple data sources whose fields may take different data types. To streamline data operations, {{ datalens-name }} converts source field data types into types of its own. This optimizes data operations. You can change the field data type both in the dataset interface and in the wizard.'
+description: '{{ datalens-full-name }} uses various data sources whose fields may have different data types. To streamline data operations, {{ datalens-name }} converts source data types to its native ones. This optimizes data operations. You can change the field data type both in the dataset interface and in the wizard.'
 ---
 
 # {{ datalens-full-name }} data types
 
-{{ datalens-short-name }} uses multiple data sources whose fields may take different data types.
+{{ datalens-short-name }} uses various data sources whose fields may have different data types.
 
-To streamline the data operations, {{ datalens-short-name }} converts the source data types to its native ones.
-This optimizes data operations. Learn more in [{#T}](../dataset/types-lookup-table.md).
+To streamline data operations, {{ datalens-short-name }} converts source data types to its native ones.
+This optimizes data operations. For more information, see [{#T}](../dataset/types-lookup-table.md).
 
 You can change the field data type both in the dataset interface and in the wizard.
 
@@ -16,7 +16,7 @@ You can change the field data type both in the dataset interface and in the wiza
 {% note warning %}
 
 When you upload a CSV file as a [data source](../operations/connection/create-file.md), {{ datalens-short-name }} will try to automatically detect the types of data in its fields.
-If DataLens is unable to identify the data type, it will set the `String` type for the field.
+If DataLens fails to identify the data type, it will set the `String` type for the field.
 
 You can use the dataset interface or the wizard to change the field data type.
 
@@ -27,7 +27,7 @@ You can use the dataset interface or the wizard to change the field data type.
 
 A _geopoint_ is a coordinate point defined by latitude and longitude. In {{ datalens-short-name }}, you can set it using the [GEOPOINT](../function-ref/GEOPOINT.md) function.
 
-At input, the function accepts the `String` and `Geopoint` data types, or two values of the `Fractional number` or `String` type.
+At input, the function accepts the `String` and `Geopoint` data types, or two values of the `Float` or `String` type.
 If a single string is input, it must contain a list of two numbers in JSON format.
 
 If the source data comes as a string in `[55.75222,37.61556]` format, you can use the dataset interface or wizard to change the field data type without using any formula.
@@ -54,10 +54,10 @@ GEOPOINT(55.7912, 37.6872)
 
 ## Geopolygon {#geopolygon}
 
-These are multiple coordinate points defining the polygon on the map. In {{ datalens-short-name }}, you create a geopolygon using the [GEOPOLYGON](../function-ref/GEOPOLYGON.md) function.
+A geopolygon is a set of coordinate points defining a polygon on a map. In {{ datalens-short-name }}, you can set it using the [GEOPOLYGON](../function-ref/GEOPOLYGON.md) function.
 {{ datalens-name }} fills the polygon using the [Even-Odd](https://en.wikipedia.org/wiki/Even–odd_rule) algorithm. This allows creating polygons with cutouts.
 
-At input, the function accepts a string in `[[[v1,v1], [v2,v2]], ..., [[vN-1,vN-1], [vN,vN]]]` format. If the source data is in this format, you can use the dataset interface or wizard to change the field data type without any formula.
+At input, the function accepts a string in `[[[v1,v1], [v2,v2]], ..., [[vN-1,vN-1], [vN,vN]]]` format. If the source data is in this format, you can use the dataset interface or wizard to change the field data type without using any formula.
 
 {% note info %}
 
@@ -65,7 +65,7 @@ At input, the function accepts a string in `[[[v1,v1], [v2,v2]], ..., [[vN-1,vN-
 
 {% endnote %}
 
-#### Example notation {#geopolygon-example}
+#### Examples {#geopolygon-example}
 
 ```sql
 /* Polygon without a cutout */
@@ -84,7 +84,7 @@ In formulas, use `#` (hash) for date, e.g., `DATETRUNC(#2018-07-12#, "year", 5)`
 
 You can convert the source data type to `Date` using the [DATE](../function-ref/DATE.md) and [DATE_PARSE](../function-ref/DATE_PARSE.md) functions.
 
-#### Example notation {#date-example}
+#### Examples {#date-example}
 
 ```sql
 #2018-01-18#
@@ -102,7 +102,7 @@ In formulas, use `#` (hash) for date and time, e.g., `DATEADD(#2018-01-12 01:02:
 
 You can convert the source data type to `Date and time (deprecated)` using the [DATETIME](../function-ref/DATETIME.md) and [DATETIME_PARSE](../function-ref/DATETIME_PARSE.md) functions.
 
-#### Example notation {#datetime-old-example}
+#### Examples {#datetime-old-example}
 
 ```sql
 #2018-01-12 01:08:03#
@@ -115,7 +115,7 @@ DATETRUNC(#2018-07-12 11:07:13#, "month", 4)
 
 * Starting September 6, 2022, you can use the new [Date and time](#datetime) type, without conversion to UTC.
 
-* October 12, 2022:
+* On October 12, 2022:
 
   * In all datasets, the fields of the `Date and time (deprecated)` type will be replaced with fields of the `Date and time` type.
   * Using `#` will no longer convert constant values to UTC.
@@ -128,15 +128,15 @@ Date with time specified (without converting time to [UTC](https://en.wikipedia.
 
 {% note info %}
 
-Field selectors with this type are always in line with the time zone of the data source regardless of the field time zone.
+Field selectors of this type are always in line with the time zone of the data source regardless of the field time zone.
 
 {% endnote %}
 
-In formulas, use `##` (double hash) for date and time, e.g., `DATEADD(##2018-01-12 01:02:03##, "second", 6)`.
+In formulas, use `##` (double hash) for date and time, e.g., `DATEADD(#2018-01-12 01:02:03#, "second", 6)`.
 
 You can convert the source data type to `Date and time` using the [DATETIME](../function-ref/DATETIME.md) and [DATETIME_PARSE](../function-ref/DATETIME_PARSE.md) functions.
 
-#### Example notation {#datetime-example-tmp}
+#### Examples {#datetime-example-tmp}
 
 ```sql
 ##2018-01-12 01:08:03##
@@ -149,15 +149,15 @@ DATETRUNC(##2018-07-12 11:07:13##, "month", 4)
 
 This is a decimal number, with a period as a separator.
 
-You can convert the source data type to `Floating-point number` using the [FLOAT](../function-ref/FLOAT.md) function.
+You can convert the source data type to `Float` using the [FLOAT](../function-ref/FLOAT.md) function.
 
 {% note warning %}
 
-When you convert the `decimal` type to a `Fractional number`, you may lose accuracy.
+When you convert the `decimal` type to `Float`, you may lose accuracy.
 
 {% endnote %}
 
-#### Example notation {#float-example}
+#### Examples {#float-example}
 
 ```sql
 1.47113
@@ -171,7 +171,7 @@ The boolean type can take one of two possible values: `TRUE` or `FALSE`.
 
 You can convert the source data type to `Boolean` using the [BOOL](../function-ref/BOOL.md) function.
 
-#### Example notation {#boolean-example}
+#### Examples {#boolean-example}
 
 ```sql
 FALSE
@@ -183,7 +183,7 @@ This is a string containing text, enclosed in single or double quotes.
 If you enclose your string in one type of quotes, you can use the second quote type inside the string without escaping.
 For example, `'Double quoted "example" and one " double quote.'`
 
-You can use the following characters inside strings:
+You can use the following characters in strings:
 
 * `\n`: Line feed (LF)
 * `\r`: Carriage return (CR)
@@ -192,9 +192,9 @@ You can use the following characters inside strings:
 * `\'`: Single quote
 * `\\`: Backslash
 
-You can convert the source data type to `String` by using the [STR](../function-ref/STR.md) function.
+You can convert the source data type to `String` using the [STR](../function-ref/STR.md) function.
 
-#### Example notation {#string-example}
+#### Examples {#string-example}
 
 ```sql
 "String"
@@ -203,13 +203,13 @@ You can convert the source data type to `String` by using the [STR](../function-
 
 ## Integer {#integer}
 
-This is a number without any fractional part.
+This is a number without a fraction.
 
-You can convert the source data type to `Integer` by using the [INT](../function-ref/INT.md) function.
+You can convert the source data type to `Integer` using the [INT](../function-ref/INT.md) function.
 
 In {{ datalens-short-name }}, the maximum size of the `Integer` type is limited by the maximum integer for the [Number JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_range_for_number) type: 2^53^ == 9,007,199,254,740,991.
 
-#### Example notation {#integer-example}
+#### Examples {#integer-example}
 
 ```sql
 42
@@ -218,17 +218,17 @@ In {{ datalens-short-name }}, the maximum size of the `Integer` type is limited 
 
 ## Array {#array}
 
-An array is a structure made up of a series of elements of the same type.
+This is a structure made up of a series of elements of the same type.
 
 {{ datalens-short-name }} supports processing columns in one-dimensional arrays for {{ CH }} and {{ PG }}. Array elements can have the following types:
 
 * `Integer`
-* `Fractional number`
+* `Float`
 * `String`
 
 You can define an array in {{ datalens-short-name }} using the [ARRAY](../../datalens/function-ref/ARRAY.md) function.
 
-#### Example notation {#array-example}
+#### Examples {#array-example}
 
 ```sql
 [1, 2, 3]
@@ -238,11 +238,11 @@ You can define an array in {{ datalens-short-name }} using the [ARRAY](../../dat
 
 ## Tree of strings {#tree-hierarchy}
 
-{{ datalens-short-name }} allows you to create tree hierarchies. To do this, use the **Tree of strings** field type. The data is stored as an [array](#array) with a full path for each node. The sequence of array values determines the order the tree is expanded.
+{{ datalens-short-name }} allows you to create tree hierarchies. To do this, use the **Tree of strings** field type. Data is stored as an [array](#array) with a full path for each node. The sequence of array values determines the order the tree is expanded.
 
 {% note info %}
 
-A tree can only be used in a **Table** chart.
+You can only use a tree in a **Table** chart.
 
 {% endnote %}
 
@@ -250,7 +250,7 @@ A tree can only be used in a **Table** chart.
 
 To create a tree, [add a calculated field](../dataset/create-dataset.md#create-fields) at the dataset or chart level using the `TREE(ARRAY([lev_1],[lev_2],[lev_3],[lev_n]))` formula, where `[lev_1]`, `[lev_2]`, `[lev_3]`, and `[lev_n]` are dataset fields defining the tree hierarchy.
 
-{% cut "Example of creating a tree for a source DB containing no data array" %}
+{% cut "Example of creating a tree for a source database containing no data array" %}
 
 1. Prepare data in the source:
 
@@ -271,7 +271,7 @@ To create a tree, [add a calculated field](../dataset/create-dataset.md#create-f
 
    1. Add data with a full path for each tree node to the table.
 
-      {% cut "Example of adding data to {{ PG }}" %}
+      {% cut "Example of adding data in {{ PG }}" %}
 
       ```sql
       INSERT INTO table_without_tree (country, region, city)
@@ -293,13 +293,13 @@ To create a tree, [add a calculated field](../dataset/create-dataset.md#create-f
 
      {% note tip %}
 
-     You can combine array and tree of strings in the same field with the `TREE(ARRAY([country], [region], [city]))` formula.
+     You can combine creating an array and tree of strings in the same field with the `TREE(ARRAY([country], [region], [city]))` formula.
 
      {% endnote %}
 
 {% endcut %}
 
-{% cut "Example of creating a tree for a source DB that contains an array of data" %}
+{% cut "Example of creating a tree for a source database containing an array of data" %}
 
 1. Prepare data in the source:
 
@@ -318,7 +318,7 @@ To create a tree, [add a calculated field](../dataset/create-dataset.md#create-f
 
    1. Add data as an array with a full path for each tree node to the table.
 
-      {% cut "Example of adding data to {{ PG }}" %}
+      {% cut "Example of adding data in {{ PG }}" %}
 
       ```sql
       INSERT INTO table_with_tree (position)
@@ -333,7 +333,7 @@ To create a tree, [add a calculated field](../dataset/create-dataset.md#create-f
 
       {% endcut %}
 
-1. In a dataset, create a **Tree of strings** type calculated field, e.g., the `hierarchy` field with the `TREE([position])` formula, where `position` is an **Array of strings** type field describing the tree.
+1. In the dataset, create a **Tree of strings** type calculated field, e.g., the `hierarchy` field with the `TREE([position])` formula, where `position` is an **Array of strings** type field describing the tree.
 
 {% endcut %}
 
@@ -358,7 +358,7 @@ You can use the prepared source data to create a tree in a **Table** chart:
 
 Currently, tree hierarchies have the following limitations:
 
-* You can use one tree or hierarchy per chart.
+* You can use a single tree or hierarchy per chart.
 * You cannot use the **Pagination** option and **Total** row in a tree table.
 * The tree expansion state is not remembered.
 * Selectors do not support trees.

@@ -18,6 +18,7 @@
 
           * **{{ ui-key.yacloud.serverless-containers.label_working-directory }}**: Allows you to change the working directory of the container. It matches the `WORKDIR` instruction in the Dockerfile. We recommend setting absolute paths to directories.
 
+  1. Under **{{ ui-key.yacloud.serverless-containers.section_parameters }}**, select a service account authorized to download the Docker image.
   1. Click **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**.
 
 - CLI {#cli}

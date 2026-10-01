@@ -8,7 +8,7 @@
 
 1. [Создайте проект {{ GL }}](#create-gitlab-project).
 1. [Подготовьте облако к работе](#prepare-cloud).
-1. [Настройте сценарий {{ GL }} CI/CD](#gitlab-actions-workflow).
+1. [Настройте сценарий {{ GL }} CI/CD](#gitlab-ci-workflow).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 

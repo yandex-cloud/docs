@@ -1,7 +1,7 @@
 # Интеграция {{ GL }} с {{ tracker-full-name }}
 
 
-В [задачах {{ tracker-name }}]({{ link-tracker-cloudless }}about-tracker#zadacha) можно автоматически добавлять ссылки на [мерж-реквесты]({{ gl.docs }}/ee/user/project/merge_requests/) из {{ GL }}, указывая [ключ]({{ link-tracker-cloudless }}glossary#key) нужной задачи в названии или описании нового мерж-реквеста. Ссылки будут размещаться в разделе [Связи с внешними приложениями]({{ link-tracker-cloudless }}external-links).
+В [задачах {{ tracker-name }}](https://yandex.ru/support/tracker/{{ lang }}/working-with-issues) можно автоматически добавлять ссылки на [мерж-реквесты]({{ gl.docs }}/ee/user/project/merge_requests/) из {{ GL }}, указывая [ключ]({{ link-tracker-cloudless }}quick-start/glossary#rus-k) нужной задачи в названии или описании нового мерж-реквеста. Ссылки будут размещаться в разделе [Связи с внешними приложениями](https://yandex.ru/support/tracker/{{ lang }}/external-links).
 
 Дополнительно можно включить автоматическое создание комментариев в задаче с информацией о мерж-реквестах. Автоматическое комментирование доступно только для [{{ mgl-name }}](../../managed-gitlab/).
 
@@ -25,12 +25,12 @@
 В стоимость поддержки инфраструктуры входит:
 
 * Плата за [диск](../../compute/concepts/disk.md) и постоянно запущенную ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за количество пользователей {{ tracker-name }} с полным доступом, если их более 5 ([тарифы {{ tracker-name }}]({{ link-tracker-cloudless }}cloud/pricing)).
+* Плата за количество пользователей {{ tracker-name }} с полным доступом, если их более 5 ([тарифы {{ tracker-name }}](https://yandex.ru/support/tracker/{{ lang }}/pricing)).
 * Плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 ## Подключите {{ tracker-full-name }} {#enable-tracker}
 
-[Подключите {{ tracker-name }}]({{ link-tracker-cloudless }}enable-tracker) к вашей [организации {{ yandex-cloud }}](../../organization/concepts/organization.md).
+[Подключите {{ tracker-name }}](https://yandex.ru/support/tracker/{{ lang }}/enable-tracker) к вашей [организации {{ yandex-cloud }}](../../organization/concepts/organization.md).
 
 ## Создайте инстанс {{ GL }} {#create-gitlab}
 
@@ -104,9 +104,9 @@
 
 ## Проверьте результат {#check-result}
 
-1. [Создайте задачу]({{ link-tracker-cloudless }}user/create-ticket#create-task) в {{ tracker-name }}.
-1. [Создайте мерж-реквест]({{ gl.docs }}/ee/user/project/merge_requests/creating_merge_requests.html) в {{ GL }} и укажите в его названии или описании [ключ задачи]({{ link-tracker-cloudless }}glossary#key).
-1. Убедитесь, что в задаче {{ tracker-name }} в разделе [Связи с внешними приложениями]({{ link-tracker-cloudless }}external-links) появилась ссылка на мерж-реквест из {{ GL }}.
+1. [Создайте задачу](https://yandex.ru/support/tracker/{{ lang }}/user/create-ticket#create-task) в {{ tracker-name }}.
+1. [Создайте мерж-реквест]({{ gl.docs }}/ee/user/project/merge_requests/creating_merge_requests.html) в {{ GL }} и укажите в его названии или описании [ключ задачи]({{ link-tracker-cloudless }}quick-start/glossary#rus-k).
+1. Убедитесь, что в задаче {{ tracker-name }} в разделе [Связи с внешними приложениями](https://yandex.ru/support/tracker/{{ lang }}/external-links) появилась ссылка на мерж-реквест из {{ GL }}.
 
     Если вы использовали {{ mgl-name }} и включили автоматическое комментирование при [создании хука](#create-hook), то в задаче появится комментарий со ссылкой на мерж-реквест и информацией о нем.
 

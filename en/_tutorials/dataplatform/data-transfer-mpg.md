@@ -1,10 +1,11 @@
 # Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }} using {{ data-transfer-full-name }}
 
-You can track data changes in a {{ mpg-name }} _source cluster_ and send them to a {{ mkf-name }} _target cluster_ using change data capture (CDC).
 
-To set up CDC using {{ data-transfer-name }}:
+You can track data changes in a {{ mpg-full-name }} _source cluster_ and send them to a {{ mkf-full-name }} _target cluster_ using change data capture (CDC).
 
-1. [Set up your infrastructure](#infra).
+To set up CDC using {{ data-transfer-full-name }}:
+
+1. [Set up your infrastructure](#prepare-infrastructure).
 1. [Prepare the source cluster](#prepare-source).
 1. [Set up the target cluster](#prepare-target).
 1. [Prepare and activate your transfer](#prepare-transfer).
@@ -17,16 +18,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
-* {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
-* {{ mkf-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
-* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ mpg-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* {{ mkf-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
-## Set up your infrastructure {#infra}
+
+## Set up your infrastructure {#prepare-infrastructure}
 
 
 {% include [public-access](../../_includes/mdb/note-public-access.md) %}
@@ -36,7 +37,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Manually {#manual}
 
-  1. [Create a {{ mpg-name }} source cluster](../../managed-postgresql/operations/cluster-create.md) with any suitable configuration, using the following settings:
+  1. [Create a {{ mpg-name }} source cluster](../../managed-postgresql/operations/cluster-create.md) of any suitable configuration with the following settings:
 
       * Database: `db1`.
     
@@ -46,7 +47,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 
   
-  1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) in any suitable configuration with publicly accessible hosts.
+  1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) of any suitable configuration with publicly accessible hosts.
 
   1. If using security groups, configure them to allow internet access to your clusters:
 
@@ -94,7 +95,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * `transfer_name`: Transfer name.
       * `transfer_enabled = 0`: Disables the creation of endpoints and transfers. They will be created during the [preparation of the transfer](#prepare-transfer).
 
-  1. Make sure the {{ TF }} configuration files are correct using this command:
+  1. Validate your {{ TF }} configuration files using this command:
 
       ```bash
       terraform validate
@@ -175,7 +176,7 @@ The target cluster's setup will vary depending on the [topic management method](
 
     1. In addition to the `ACCESS_ROLE_ADMIN` role, assign the admin user the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for topics whose names begin with the `cdc` prefix.
 
-        The system will automatically create the required topics when the first change occurs in the monitored tables of the source cluster. While this approach can be convenient for tracking changes across multiple tables, it requires reserving free storage space in your cluster. For more information, see [{#T}](../../managed-kafka/concepts/storage.md).
+        The system will automatically create the required topics when the first change occurs in the monitored tables of the source cluster. This solution can help you track changes in multiple tables but it requires extra free space in the cluster storage. For more information, see [{#T}](../../managed-kafka/concepts/storage.md).
 
 {% endlist %}
 
@@ -229,7 +230,7 @@ The target cluster's setup will vary depending on the [topic management method](
 
   1. Specify `transfer_enabled = 1` in the `cdc-mpg-mkf.tf` file.
 
-  1. Make sure the {{ TF }} configuration files are correct using this command:
+  1. Validate your {{ TF }} configuration files using this command:
 
       ```bash
       terraform validate

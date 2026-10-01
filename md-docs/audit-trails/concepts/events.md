@@ -10,7 +10,13 @@
 yandex.cloud.audit.<имя_сервиса>.<имя_события>
 ```
 
-Подробная JSON-структура записи события приведена в справочнике аудитных логов. События в нем отсортированы по алфавиту без разделения на уровни и содержат все возможные поля. В реальных логах набор полей зависит от параметров события и конкретного объекта.
+Подробная JSON-структура записи события приведена в [справочнике аудитных логов](../events-ref/index.md). События в нем отсортированы по алфавиту без разделения на уровни и содержат все возможные поля. В реальных логах набор полей зависит от параметров события и конкретного объекта.
+
+{% note info %}
+
+В справочнике перечислены события, которые поддерживает Audit Trails. За их отправку отвечает сервис-источник. Недавно добавленные в Audit Trails события могут не поступать, если сервис-источник еще не поддерживает их отправку или необходимые ресурсы пока не созданы.
+
+{% endnote %}
 
 Ниже описаны события для сервисов:
 
@@ -493,6 +499,8 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `application.linked.UpdateApplicationAssignments` | Изменение списка пользователей связанного приложения
 `idp.AddUserBlock` | Добавление блока пользователя
 `idp.AddUserpoolDomain` | Привязка домена к пулу пользователей
+`idp.application.CreateAsset` | Загрузка логотипа приложения
+`idp.application.DeleteAsset` | Удаление логотипа приложения
 `idp.branding.CreateAsset` | Загрузка ресурса для [брендирования](../../organization/concepts/branding.md)
 `idp.branding.CreateBranding` | Создание брендирования
 `idp.branding.DeleteAsset` | Удаление ресурса для брендирования
@@ -531,9 +539,12 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `policy.CreateAuthenticationPolicyRule` | Создание правила политики аутентификации
 `policy.DeactivateAuthenticationPolicyRule` | Деактивация правила политики аутентификации
 `policy.DeleteAuthenticationPolicyRule` | Удаление правила политики аутентификации
+`policy.DeleteRefreshTokenPolicy` | Удаление политики обновления токена
 `policy.UpdateAuthenticationPolicyRule` | Изменение правила политики аутентификации
+`policy.UpdateRefreshTokenPolicy` | Изменение политики обновления токена
 `RejectInvitation` | Отказ от приглашения
 `ResendInvitation` | Повторная отправка приглашения
+`SetTwoFactorAuthenticationPassportRequired` | Установка требования двухфакторной аутентификации для аккаунтов на Яндексе
 `saml.AddFederatedUserAccounts` | Добавление пользователя в федерацию
 `saml.AddFederationDomain` | Привязка [домена](../../organization/concepts/domains.md) к федерации
 `saml.CreateApplication` | Создание [SAML](../../organization/concepts/add-federation.md)-приложения
@@ -617,6 +628,40 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `UpdateScanPolicy` | Изменение политики сканирования
 `UpdateRegistryAccessBindings` | Изменение прав доступа на реестр
 `UpdateRegistryFolderAccessBindings` | Изменение прав доступа к каталогу реестра
+
+## SourceCraft {#sourcecraft}
+
+Имя сервиса — `sourcecraft`.
+
+Имя события | Описание
+--- | ---
+`AddPersonalEmail` | Добавление личного адреса электронной почты
+`AddPersonalPublicGpgKey` | Добавление личного открытого ключа GPG
+`AddPersonalPublicSshKey` | Добавление личного [открытого SSH-ключа](https://sourcecraft.dev/portal/docs/ru/sourcecraft/security/ssh)
+`CreatePersonalAccessToken` | Создание [персонального токена (PAT)](https://sourcecraft.dev/portal/docs/ru/sourcecraft/security/pat)
+`CreateRepository` | Создание [репозитория](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/#repos)
+`CreateSecret` | Создание [секрета](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/secrets)
+`CreateServiceConnection` | Создание [сервисного подключения](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/service-connections)
+`DeleteAllSecrets` | Удаление всех секретов
+`DeletePersonalAccessToken` | Удаление персонального токена (PAT)
+`DeleteRepository` | Удаление репозитория
+`DeleteSecret` | Удаление секрета
+`DeleteServiceConnection` | Удаление сервисного подключения
+`OffboardCloudRegistry` | Отключение реестра pkg.sourcecraft.tech
+`OffboardOrganization` | Отключение организации
+`OnboardCloudRegistry` | Подключение реестра pkg.sourcecraft.tech
+`OnboardOrganization` | Подключение организации
+`RemovePersonalEmail` | Удаление личного адреса электронной почты
+`RemovePersonalPublicGpgKey` | Удаление личного открытого ключа GPG
+`RemovePersonalPublicSshKey` | Удаление личного открытого ключа SSH
+`UpdateAppsecSettings` | Изменение настроек [SourceCraft Security](https://sourcecraft.dev/portal/docs/ru/sourcecraft/security/security-overview)
+`UpdateOrganization` | Изменение организации
+`UpdatePersonalAccessToken` | Изменение персонального токена (PAT)
+`UpdateRepository` | Изменение репозитория
+`UpdateRepositoryAccessBindings` | Изменение прав доступа к репозиторию
+`UpdateSecret` | Изменение секрета
+`UpdateServiceConnection` | Изменение сервисного подключения
+`VerifyPersonalEmail` | Подтверждение личного адреса электронной почты
 
 ## Yandex Cloud Video {#video}
 
@@ -1066,6 +1111,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 --- | ---
 `AddVersion` | Добавление версии секрета
 `ActivateSecret` | Активация секрета
+`CancelDeleteSecret` | Отмена удаления секрета
 `CancelVersionDestruction` | Отмена ранее запланированного удаления версии секрета
 `CreateSecret` | Создание секрета
 `DeactivateSecret` | Деактивация секрета
@@ -1224,6 +1270,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `DeleteStoppedCluster` | Удаление остановленного кластера
 `marketplace.v1.InstallHelmRelease` | Установка приложения из Cloud Marketplace с помощью Helm-чарта
 `marketplace.v1.UninstallHelmRelease` | Удаление приложения, установленного из Cloud Marketplace с помощью Helm-чарта
+`marketplace.v1.UpdateClusterSettings` | Изменение настроек [сбора статистики](../../managed-kubernetes/operations/applications/marketplace.md#statics) использования приложений в кластере
 `marketplace.v1.UpdateHelmRelease` | Обновление приложения, установленного из Cloud Marketplace с помощью Helm-чарта
 `ScaleMaster` | Масштабирование основного узла
 `SetClusterAccessBindings` | Назначение прав доступа к кластеру
@@ -1256,7 +1303,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `RestoreCluster` | Создание нового кластера из резервной копии
 `SetClusterAccessBindings` | Назначение прав доступа к кластеру
 `StartCluster` | Запуск кластера
-`StepdownHosts` | Смена первичной реплики
+`StepdownHosts` | Смена мастера
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
 `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
@@ -1474,7 +1521,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `DeleteNetworkLoadBalancer` | Удаление сетевого балансировщика
 `DeleteTargetGroup` | Удаление целевой группы
 `DetachNetworkLoadBalancerTargetGroup` | Отсоединение целевой группы от сетевого балансировщика
-`DisableNetworkLoadBalancerZones` | Отключение зоны доступности 
+`DisableNetworkLoadBalancerZones` | Отключение [зоны доступности](../../overview/concepts/geo-scope.md) 
 `EnableNetworkLoadBalancerZones` | Включение зоны доступности
 `RemoveNetworkLoadBalancerListener` | Удаление обработчика из сетевого балансировщика
 `RemoveTargetGroupTargets` | Удаление ВМ из целевой группы

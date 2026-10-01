@@ -8,7 +8,7 @@ description: Следуя данной инструкции, вы сможете
 {% note info %}
 
 
-Для создания подключения вам потребуется [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с [ролью](../../../iam/operations/sa/assign-role-for-sa.md) **ydb.viewer** (или **viewer**).
+Для создания подключения вам потребуется [сервисный аккаунт]({{ link-docs }}/iam/concepts/users/service-accounts) с [ролью]({{ link-docs }}/iam/operations/sa/assign-role-for-sa) **ydb.viewer** (или **viewer**).
 
 
 Для написания подзапросов в датасетах и запросов в QL-чартах используйте [синтаксис YQL]({{ ydb.docs }}/yql/reference/syntax/).
@@ -51,12 +51,12 @@ description: Следуя данной инструкции, вы сможете
 
 {% cut "Ошибка RESOURCE_EXHAUSTED" %}
 
-При превышении [квот и лимитов](../../../ydb/concepts/limits.md) {{ ydb-name }} может появиться сообщение об ошибке [`RESOURCE_EXHAUSTED`](../../../ydb/faq.md#resource-exhausted). Чтобы избежать появления ошибки, придерживайтесь следующих рекомендаций:
+При превышении [квот и лимитов]({{ link-docs }}/ydb/concepts/limits) {{ ydb-name }} может появиться сообщение об ошибке [`RESOURCE_EXHAUSTED`]({{ link-docs }}/ydb/faq#resource-exhausted). Чтобы избежать появления ошибки, придерживайтесь следующих рекомендаций:
 
 * Снизьте интенсивность запросов. Например, используйте фильтры, указывайте в чартах только необходимые поля для ограничения количества получаемых данных.
 * Выполните [рекомендации по оптимизации](../../concepts/optimization_recommendations.md) запросов к базе данных.
 * Проанализируйте время загрузки и объем данных с помощью [инспектора чартов](../../concepts/chart/inspector.md) в {{ datalens-short-name }}.
-* Проверьте графики мониторинга {{ ydb-name }} на предмет превышения квот и лимитов. При необходимости немного [увеличьте](../../../ydb/operations/manage-databases.md#update-db-serverless) только [пропускную способность](../../../ydb/concepts/serverless-and-dedicated.md#capacity) (Request Units) в блоке **{{ ui-key.yacloud.ydb.overview.label_serverless-limits }}**.
+* Проверьте графики мониторинга {{ ydb-name }} на предмет превышения квот и лимитов. При необходимости немного [увеличьте]({{ link-docs }}/ydb/operations/manage-databases#update-db-serverless) только [пропускную способность]({{ link-docs }}/ydb/concepts/serverless-and-dedicated#capacity) (Request Units) в блоке **{{ ui-key.yacloud.ydb.overview.label_serverless-limits }}**.
 
 {% note info %}
 

@@ -380,6 +380,64 @@ description: Из статьи вы узнаете, как задать наст
 
 {% include [work with db](../../../../_includes/data-transfer/endpoints/sources/pg-work-with-db.md) %}
 
+## Соответствие типов поддерживаемых данных в СУБД и эндпоинте {#type-mapping}
+
+#|
+|| **Тип {{ PG }}** | **Тип эндпоинта** ||
+|| BIGINT | int64 ||
+|| INTEGER | int32 ||
+|| SMALLINT | int16 ||
+|| — | int8 ||
+|| — | uint64 ||
+|| — | uint32 ||
+|| — | uint16 ||
+|| — | uint8 ||
+|| — | float ||
+|| DOUBLE PRECISION
+NUMERIC
+REAL | double ||
+|| BIT
+BIT VARYING
+BIT VARYING(N)
+BIT(N)
+BYTEA | string ||
+|| ABSTIME
+CHAR
+CHARACTER VARYING
+DATA
+INTERVAL
+MONEY
+NAME
+TEXT
+TIME WITH TIME ZONE
+TIME WITHOUT TIME ZONE
+UUID | utf8 ||
+|| BOOLEAN | boolean ||
+|| DATE | date ||
+|| — | datetime ||
+|| TIMESTAMP WITH TIME ZONE
+TIMESTAMP WITHOUT TIME ZONE | timestamp ||
+|| ARRAY
+CHARACTER(N)
+CIDR
+CITEXT
+DATERANGE
+HSTORE
+INET
+INT4RANGE
+INT8RANGE
+JSON
+JSONB
+MACADDR
+NUMRANGE
+OID
+POINT
+REST...
+TSRANGE
+TSTZRANGE
+XML | any ||
+|#
+
 ## Решение проблем, возникающих при переносе данных {#troubleshooting}
 
 Известные проблемы, связанные с использованием эндпоинта {{ PG }}:

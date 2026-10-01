@@ -7,6 +7,12 @@ The service supports nodes with the `control-plane`, `worker`, and `combined` ro
 ## Getting started {#before-you-begin}
 
 1. Make sure you have admin access to the cluster.
+1. Make sure the license does not prohibit adding a new node. You can look up the current license status in `PlatformConfig.status.licensing` and in the `LicenseSynced` condition. For more information, see [{#T}](../../concepts/licensing.md).
+
+    ```bash
+    kubectl get platformconfig default -o jsonpath='{.status.licensing.state}'
+    ```
+
 1. If the cluster is being updated to a new version, scaling will begin automatically once the update is complete. Check what phase the update is currently in if you need to:
 
     ```bash

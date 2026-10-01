@@ -11,42 +11,32 @@ description: Следуя данной инструкции, вы сможете
 
   Выполните команду, чтобы отозвать [роль](../security/index.md) на контейнер:
 
-    * у пользователя:
-        ```
-        yc serverless container remove-access-binding \
-          --name <имя_контейнера> \
-          --user-account-id <идентификатор_пользователя> \
-          --role <роль>
-        ```
-        Результат:
-        ```
-        done (1s)
-        ```
-    * у [сервисного аккаунта](../../iam/concepts/users/service-accounts.md):
-        ```
-        yc serverless container remove-access-binding \
-          --name <имя_контейнера> \
-          --service-account-id <идентификатор_сервисного_аккаунта> \
-          --role <роль>
-        ```
-        Результат:
-        ```
-        done (1s)
-        ```
-    * у всех авторизованных пользователей ([публичная группа](../../iam/concepts/access-control/public-group.md) `All authenticated users`):
-        ```
-        yc serverless container remove-access-binding \
-          --name <имя_контейнера> \
-          --all-authenticated-users \
-          --role <роль>
-        ```
-        Результат:
-        ```
-        done (1s)
-        ```
+  ```bash
+  yc serverless container remove-access-binding \
+    --name <имя_контейнера> \
+    --role <идентификатор_роли> \
+    --subject <тип_субъекта>:<идентификатор_субъекта>
+  ```
+
+  Где:
+
+  * `--role` — идентификатор роли, которую надо отозвать.
+  * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
+
+      {% cut "Обозначения субъектов" %}
+
+      {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
+
+      {% endcut %}
 
 - API {#api}
 
-  Чтобы отозвать роли, назначенные на контейнер, воспользуйтесь методом REST API [updateAccessBindings](../containers/api-ref/Container/updateAccessBindings.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/UpdateAccessBindings](../containers/api-ref/grpc/Container/updateAccessBindings.md).
+  Чтобы отозвать роли, назначенные на контейнер, воспользуйтесь методом REST API [updateAccessBindings](../containers/api-ref/Container/updateAccessBindings.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/UpdateAccessBindings](../containers/api-ref/grpc/Container/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}

@@ -1,4 +1,4 @@
-# {{ compute-name }} resources you can assign roles for using {{ TF }}
+# {{ compute-name }} resources for which you can assign roles using {{ TF }}
 
 * [VM instance](../../../compute/operations/vm-control/vm-access.md)
 * [VM placement group](../../../compute/operations/placement-groups/access.md)

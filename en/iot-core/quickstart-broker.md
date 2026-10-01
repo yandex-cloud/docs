@@ -1,6 +1,6 @@
 ---
 title: Getting started with {{ iot-full-name }} brokers
-description: To get started with {{ iot-name }}, create an X.509 certificate and a broker. Then, set up message exchange.
+description: To get started with {{ iot-name }}, create an X.509 certificate and a broker. Next, set up message exchange.
 ---
 
 # Getting started with {{ iot-name }} brokers
@@ -21,7 +21,7 @@ To get started with {{ iot-name }}:
 
 ## Create a broker certificate {#create-ca}
 
-If you have a certificate, add it to the broker after [creation](#create-broker). If you do not have a certificate, create it using the [OpenSSL](https://www.openssl.org) program:
+If you already have a certificate, add it to the broker after [creating](#create-broker) it. If you do not have a certificate, create one using [OpenSSL](https://www.openssl.org):
 
    ```bash
    openssl req -x509 \
@@ -35,13 +35,13 @@ If you have a certificate, add it to the broker after [creation](#create-broker)
 
    Where:
 
-   * `-x509`: Certificate type: X.509.
+   * `-x509`: Certificate type, X.509.
    * `-newkey`: Encryption algorithm.
    * `-keyout`: File with the certificate's private key.
    * `-out`: File with the certificate's public key.
-   * `-nodes`: This flag is set when no public key encryption is required.
-   * `-days`: Certificate validity period in days.
-   * `-subj`: Request object.
+   * `-nodes`: Flag to use when you do not need to encrypt the public key.
+   * `-days`: Certificate validity period, in days.
+   * `-subj`: Request subject.
 
 ## Create a broker {#create-broker}
 
@@ -49,24 +49,26 @@ If you have a certificate, add it to the broker after [creation](#create-broker)
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a broker.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your broker.
    1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
+   1. In the left-hand panel, select ![image](../_assets/console-icons/gear-branches.svg) **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Click **{{ ui-key.yacloud.iot.button_create-broker }}**.
-   1. Under **{{ ui-key.yacloud.common.section-base }}**, specify the broker name: `my-broker`.
+   1. Under **{{ ui-key.yacloud.common.section-base }}**, specify `my-broker` as the **{{ ui-key.yacloud.common.name }}** broker.
    1. Add a certificate:
 
       * To add a file:
 
+         1. Click **{{ ui-key.yacloud.iot.button_add-certificate }}**.
          1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
-         1. Click **Attach file**.
-         1. Select the file with the public key of the certificate and click **Open**.
+         1. Click **{{ ui-key.yacloud_components.fileinput.button_attach-file }}**.
+         1. Select the certificate’s public key file and click **Open**.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
       * To add text:
 
+         1. Click **{{ ui-key.yacloud.iot.button_add-certificate }}**.
          1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
-         1. Paste the certificate's public key to the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
+         1. Paste the certificate’s public key into the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -122,8 +124,8 @@ If you have a certificate, add it to the broker after [creation](#create-broker)
 
 ## Set up message exchange {#exchange}
 
-1. [Subscribe to receive messages in a broker](operations/subscribe.md#broker).
-1. [Send a message in a broker](operations/publish.md#broker).
+1. [Subscribe to receive messages using the broker](operations/subscribe.md#broker).
+1. [Send a message using the broker](operations/publish.md#broker).
 
 ## What's next {#what-is-next}
 

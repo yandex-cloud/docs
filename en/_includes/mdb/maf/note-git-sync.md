@@ -6,6 +6,6 @@ The `RSA`, `DSA`, `ECDSA`, and `Ed25519` private keys in `PKCS#1`, `PKCS#8`, `Op
 
 * The private key must not be password-protected.
 
-* To use a Git repository, [configure internet access through a NAT gateway](../../../vpc/operations/create-nat-gateway.md) from the {{ maf-name }} cluster network. When configuring it, link a NAT gateway route table to all the cluster subnets.
+* To use a Git repository, [configure internet access through a NAT gateway](../../../managed-airflow/operations/cluster-create.md#nat-routing) from the {{ maf-name }} cluster network. When configuring it, link a NAT gateway route table to all the cluster subnets.
 
 {% endnote %}

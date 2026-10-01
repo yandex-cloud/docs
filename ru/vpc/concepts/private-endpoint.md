@@ -29,7 +29,7 @@ keywords:
 
 Точка доступа является IP-адресом подключения в {{ vpc-short-name }} из диапазонов CIDR подсетей в сети, для которой создается сервисное подключение. После создания сервисного подключения все облачные ресурсы сети с этим подключением получат IP-связность с целевым сервисом.
 
-В момент создания точки доступа для нее всегда создается **PE-запись** — DNS-запись A-типа со специальным FQDN сервисного подключения. Например, для сервиса [{{ objstorage-short-name }}](../../storage/) PE-запись будет иметь вид `storage.pe.yandexcloud.net`.
+В момент создания точки доступа для нее всегда создается **PE-запись** — DNS-запись A-типа со специальным FQDN сервисного подключения. Например, для сервиса [{{ objstorage-short-name }}](../../storage/) PE-запись будет иметь вид `{{ s3-storage-host-pe }}`.
 
 При необходимости можно создать дополнительную **Primary-запись** — DNS-запись A-типа для публичного FQDN сервиса. В ней также будет указан внутренний IP-адрес, выделенный для сервисного подключения. Создание Primary-записи определяется параметром `private-dns-records-enabled`. Например, для сервиса [{{ objstorage-short-name }}](../../storage/) Primary-запись будет иметь вид `storage.yandexcloud.net`.
 
@@ -43,9 +43,10 @@ DNS-записи A-типа создаются в [сервисной зоне i
 
 | **Название сервиса** | **Тип сервиса** | **Политика доступа** | **Способ создания** | **PE-запись** | **Primary-запись** |
 | --- | --- | --- | --- | --- | --- |
-| [{{ objstorage-short-name }}](../../storage/) | yandex.cloud.storage | [Есть](#s3-policy) | [Консоль управления, CLI, {{ TF }}](../operations/private-endpoint-create.md) | `storage.pe.yandexcloud.net` | `storage.yandexcloud.net` |
+| [{{ objstorage-short-name }}](../../storage/) | yandex.cloud.storage | [Есть](#s3-policy) | [Консоль управления, CLI, {{ TF }}](../operations/private-endpoint-create.md) | `{{ s3-storage-host-pe }}` | `storage.yandexcloud.net` |
 | [{{ cloud-registry-name }}](../../cloud-registry) | yandex.cloud.registry | Нет | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `registry.pe.yandexcloud.net` | `registry.yandexcloud.net` |
-| [{{ ai-studio-name }}](../../ai-studio/concepts/) | yandex.cloud.ai-studio | Нет | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `ai.pe.api.cloud.yandex.net` | `ai.api.cloud.yandex.net` |
+| [{{ ai-studio-name }}]({{ link-docs-ai }}ai-studio/concepts/) | yandex.cloud.ai-studio | Нет | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `ai.pe.api.cloud.yandex.net` | `ai.api.cloud.yandex.net` |
+| [{{ ai-studio-name }} Apps]({{ link-docs-ai }}ai-studio/concepts/) | yandex.cloud.ai-studio.apps | Нет | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `apps.ai.pe.api.cloud.yandex.net` | `apps.ai.api.cloud.yandex.net` |
 | [AI Studio MCP Gateway](https://aistudio.yandex.ru/docs/ai-studio/mcp-gateway/api-ref/) | yandex.cloud.mcp-gateway | Нет | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `*.mcpgw.serverless.pe.yandexcloud.net` | `*.mcpgw.serverless.yandexcloud.net` |
 | [{{ mtr-name }}](../../managed-trino) | yandex.cloud.managed-trino | Нет | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `trino.pe.yandexcloud.net`, `*.trino.pe.yandexcloud.net` | - |
 | [{{ serverless-containers-name }}](../../serverless-containers) | yandex.cloud.serverless-containers | Нет | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `*.containers.pe.yandexcloud.net` | `*.containers.yandexcloud.net` |

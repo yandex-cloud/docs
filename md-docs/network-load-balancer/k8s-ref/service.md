@@ -51,6 +51,7 @@ spec:
 name: <string>
 annotations:
   yandex.cloud/load-balancer-type: <string>
+  yandex.cloud/controller-reconcile-mode: <string>
   yandex.cloud/subnet-id: <string>
   yandex.cloud/load-balancer-healthcheck-healthy-threshold: <string>
   yandex.cloud/load-balancer-healthcheck-interval: <string>
@@ -78,6 +79,20 @@ annotations:
   [Тип балансировщика](../concepts/nlb-types.md) (по умолчанию — с внешним IP-адресом).
 
   Значение для балансировщика с внутренним IP-адресом — `internal`.
+* **yandex.cloud/controller-reconcile-mode**
+
+  Режим управления [целевыми группами](../../managed-kubernetes/concepts/load-balancer-target-groups.md) сетевого балансировщика.
+
+  Значение `legacy` для группы, включающей все узлы кластера, и `v2` для группы из узлов, на которых размещены поды приложения.
+
+  {% note warning %}
+  
+  Режим `v2` доступен в [релизном канале](../../managed-kubernetes/concepts/release-channels-and-updates.md) `RAPID` и требует предварительного подключения на стороне Yandex Cloud. Для подключения обратитесь в [техническую поддержку](../../support/overview.md) — укажите [идентификатор облака](../../resource-manager/operations/cloud/get-id.md) и [идентификатор кластера](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md#list).
+  
+  После подключения настройте режим `v2` по [инструкции](../../managed-kubernetes/operations/configure-load-balancer-target-groups.md).
+  
+  {% endnote %}
+  
 * **yandex.cloud/subnet-id**
 
   Идентификатор подсети, в которой необходимо выделить IP-адрес для внутреннего сетевого балансировщика нагрузки.

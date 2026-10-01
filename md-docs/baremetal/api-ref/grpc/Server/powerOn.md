@@ -3,7 +3,6 @@
 # BareMetal API, gRPC: ServerService.PowerOn
 
 
-Required for backward compatibility with old clients. --)
 Powers on the specified server.
 
 ## gRPC request

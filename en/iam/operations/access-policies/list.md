@@ -1,6 +1,6 @@
 ---
 title: Getting a list of available access policy templates
-description: In this tutorial, you will learn how to get a list of {{ iam-full-name }} access policy templates you can assign for {{ yandex-cloud }} resources.
+description: In this guide, you will learn how to get a list of {{ iam-full-name }} access policy templates you can assign for {{ yandex-cloud }} resources.
 ---
 
 # Getting a list of supported access policy templates

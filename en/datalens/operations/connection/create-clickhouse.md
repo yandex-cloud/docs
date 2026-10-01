@@ -36,7 +36,7 @@ To create a {{ CH }} connection:
      * **Host type**: Select the host type:
 
        * **Regular** (default): Allows you to select regular hosts to connect to.
-       * **Special FQDNs**: Allows you to select a [special FQDN](../../../managed-clickhouse/operations/connect/fqdn.md#auto) to connect to an available {{ CH }} cluster host.
+       * **Special FQDNs**: Allows you to select a [special FQDN]({{ link-docs }}/managed-clickhouse/operations/connect/fqdn#auto) to connect to an available {{ CH }} cluster host.
 
      * **Host name**: Select the host name from the list of hosts available in the {{ CH }} cluster. You can select multiple hosts. If you fail to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
      * **HTTP interface port**: Specify the {{ CH }} connection port. The default port is 8443.
@@ -49,9 +49,9 @@ To create a {{ CH }} connection:
 
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
-       Click **Check connection** to make sure the parameters are correct.
+     ![image](../../../_assets/datalens/operations/connection/connection-clickhouse-org.png)
 
-  
+     Click **Check connection** to make sure the parameters are correct.
 
    - Specify manually {#manual}
 
@@ -59,6 +59,7 @@ To create a {{ CH }} connection:
 
      {% include [datalens-db-connection-parameters](../../../_includes/datalens/datalens-db-connection-parameters.md) %}
      
+     ![image](../../../_assets/datalens/operations/connection/connection-clickhouse.png)
 
      Click **Check connection** to make sure the parameters are correct.
 
@@ -66,26 +67,27 @@ To create a {{ CH }} connection:
 
      {% include [datalens-conn-man-role](../../../_includes/datalens/datalens-conn-man-role.md) %}
 
-     Select the [connection](../../../metadata-hub/concepts/connection-manager.md) to a {{ CH }} managed database cluster created in {{ connection-manager-full-name }}:
+     Select the [connection]({{ link-docs }}/metadata-hub/concepts/connection-manager) to a {{ CH }} managed database cluster created in {{ connection-manager-full-name }}:
 
      * **Cloud and folder**: Select the folder where you created the connection to the cluster.
-     * **Connection ID**: Select an available connection in {{ connection-manager-name }} or [create a new one](../../../metadata-hub/operations/create-connection.md).
+     * **Connection ID**: Select an available connection in {{ connection-manager-name }} or [create a new one]({{ link-docs }}/metadata-hub/operations/create-connection).
      * **Host**: Select the host from the list of available hosts in the {{ CH }} cluster.
      * **Port**: It is set automatically depending on the selected host.
      * **Username**: It is set automatically from the selected connection data.
+
+       {% include [datalens-db-note](../../../_includes/datalens/datalens-db-note.md) %}
+
      * **Cache TTL in seconds**: Specify cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
+
+     {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level-3.md) %}
      
-     {% include [datalens-db-connection-parameters](../../../_includes/datalens/datalens-db-connection-parameters.md) %}
+     ![image](../../../_assets/datalens/operations/connection/connection-clickhouse-manager.png)
 
    {% endlist %}
 
 
 1. Click **Create connection**.
-
-
 1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
-
-
 1. Enter a name for the connection and click **Create**.
 
 
@@ -126,8 +128,6 @@ You should also enable this option for raw-sql subqueries that are used as a dat
 
 To avoid errors when using views with the JOIN section in {{ datalens-short-name }}, re-create all views and set `join_use_nulls = 1`. This fills in empty cells with `NULL` values and converts the type of the relevant fields to [Nullable]({{ ch.docs }}{{ lang }}/sql-reference/data-types/nullable#data_type-nullable).
 
-{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}
-
 
 ## Use cases {#examples}
 
@@ -135,3 +135,6 @@ To avoid errors when using views with the JOIN section in {{ datalens-short-name
 * [{#T}](../../tutorials/data-from-ch-visualization.md)
 * [{#T}](../../tutorials/data-from-ch-geocoder.md)
 * [{#T}](../../tutorials/data-from-ch-to-sql-chart.md)
+
+
+{% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

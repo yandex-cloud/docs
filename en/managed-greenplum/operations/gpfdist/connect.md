@@ -1,6 +1,6 @@
 # Connecting to an external file server
 
-[{{ GP }} Parallel File Server]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-gpfdist.html) (`gpfdist`) is a utility used to read and write data from files located on remote servers. It is installed on each segment host of a {{ mgp-name }} cluster and ensures parallel data loading by distributing it across segments either evenly or according to the set [distribution key](../../concepts/sharding.md#distribution-key). This improves performance when handling large amounts of external data.
+[{{ GP }} Parallel File Server]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-gpfdist.html) (`gpfdist`) is a utility used to read and write data from files located on remote servers. Installed on each segment host of a {{ mgp-name }} cluster, it ensures parallel data loading by distributing data across segments either evenly or according to a specified [distribution key](../../concepts/sharding.md#distribution-key). This improves performance when handling large amounts of external data.
 
 {{ mgp-name }} clusters running {{ CB }} use their own `gpfdist` utility. For more information, see [this {{ CB }} guide]({{ gp.docs.cloudberry }}/sys-utilities/gpfdist).
 

@@ -29,7 +29,7 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
       yc dns zone list
       ```
 
-  1. View the roles already assigned for the resource:
+  1. View the list of roles already assigned for the resource:
 
       ```bash
       yc dns zone list-access-bindings <zone_ID>
@@ -37,31 +37,22 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
 
   1. Assign a role using this command:
 
-      * To a user:
+      ```bash
+      yc dns zone add-access-binding <zone_ID> \
+        --role <role> \
+        --subject <subject_type>:<subject_ID>
+      ```
 
-        ```bash
-        yc dns zone add-access-binding <zone_ID> \
-          --user-account-id <user_ID> \
-          --role <role>
-        ```
+      Where:
 
-        Where:
+      * `--role`: [Role](../security/index.md#roles-list).
+      * `--subject`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
 
-        * `--user-account-id`: [User ID](../../organization/operations/users-get.md). Use the `--all-authenticated-users` flag to assign a role to all authenticated users.
-        * `--role`: [Role](../security/index.md#roles-list) to assign.
+          {% cut "Subject designations" %}
 
-      * To a service account:
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
 
-        ```bash
-        yc dns zone add-access-binding <zone_ID> \
-          --service-account-id <service_account_ID> \
-          --role <role>
-        ```
-
-        Where:
-
-        * `--service-account-id`: [Service account ID](../../iam/operations/sa/get-id.md).
-        * `--role`: [Role](../security/index.md#roles-list) to assign.
+          {% endcut %}
 
 - {{ TF }} {#tf}
 
@@ -84,8 +75,14 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
       Where:
 
       * `dns_zone_id`: DNS zone ID.
-      * `role`: [Role](../security/index.md#roles-list) to assign.
-      * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `role`: [Role](../security/index.md#roles-list).
+      * `members`: List of designations of [subjects](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
        For more on the properties of the `yandex_dns_zone_iam_binding` resource, see [this provider guide]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
 
@@ -101,7 +98,13 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
 
 - API {#api}
 
-  To assign a role, use the [updateAccessBindings](../api-ref/DnsZone/updateAccessBindings.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateAccessBindings](../api-ref/grpc/DnsZone/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID under `subject`.
+  To assign a role, use the [updateAccessBindings](../api-ref/DnsZone/updateAccessBindings.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateAccessBindings](../api-ref/grpc/DnsZone/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the [subject](../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+
+  {% cut "Subject designations" %}
+
+  {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}
 
@@ -119,7 +122,7 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
 
   {% note alert %}
 
-  The `set-access-binding` command completely overwrites access permissions for the resource! All roles previously assigned for this resource will be deleted.
+  The `set-access-binding` command completely overwrites access permissions for the resource. All roles previously assigned for this resource will be deleted.
 
   {% endnote %}
 
@@ -135,7 +138,7 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
      yc dns zone set-access-bindings --help
      ```
 
-  1. Assign roles:
+  1. Assign the roles:
 
      ```bash
      yc dns zone set-access-bindings <zone_ID> \
@@ -143,11 +146,16 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
        --access-binding role=<role>,subject=<subject_type>:<subject_ID>
      ```
 
-     Where:
+     Where `--access-binding` contains access permission settings:
 
-     * `--access-binding`: Access permission settings:
-         * `role`: [Role](../security/index.md#roles-list) to assign.
-         * `subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+     * `role`: [Role](../security/index.md#roles-list).
+     * `subject`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
+
+         {% cut "Subject designations" %}
+
+         {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
+
+         {% endcut %}
 
      For example, you can assign the `dns.editor` role to multiple users and a service account:
 
@@ -184,8 +192,14 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
       Where:
 
       * `dns_zone_id`: DNS zone ID.
-      * `role`: [Role](../security/index.md#roles-list) to assign.
-      * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `role`: [Role](../security/index.md#roles-list).
+      * `members`: List of designations of [subjects](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+
+          {% cut "Subject designations" %}
+
+          {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
       For more on the properties of the `yandex_dns_zone_iam_binding` resource, see [this provider guide]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
 
@@ -201,7 +215,13 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
 
 - API {#api}
 
-  To assign roles for a resource, use the [setAccessBindings](../api-ref/DnsZone/setAccessBindings.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/SetAccessBindings](../api-ref/grpc/DnsZone/setAccessBindings.md) gRPC API call.
+  To assign roles for a resource, use the [setAccessBindings](../api-ref/DnsZone/setAccessBindings.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/SetAccessBindings](../api-ref/grpc/DnsZone/setAccessBindings.md) gRPC API call. In the request body, specify the [subject](../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+
+  {% cut "Subject designations" %}
+
+  {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
   {% note alert %}
 
@@ -224,10 +244,10 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
   1. See the description of the CLI command for revoking DNS zone roles:
 
       ```bash
-      yc dns zone add-access-binding --help
+      yc dns zone remove-access-binding --help
       ```
 
-  1. View the roles already assigned for the resource:
+  1. View the list of roles already assigned for the resource:
 
       ```bash
       yc dns zone list-access-bindings <zone_ID>
@@ -238,13 +258,19 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
      ```bash
      yc dns zone remove-access-binding <zone_ID> \
        --role=<role> \
-       --subject=<subject_type>:<subject_ID> \
+       --subject=<subject_type>:<subject_ID>
      ```
 
      Where:
 
-     * `--role`: ID of the role you want to revoke.
-     * `--subject`: Type and ID of the target [entity](../../iam/concepts/access-control/index.md#subject) for role revocation.
+     * `--role`: ID of the role you need to revoke.
+     * `--subject`: [Subject](../../iam/concepts/access-control/index.md#subject) to revoke the role from.
+
+         {% cut "Subject designations" %}
+
+         {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
+
+         {% endcut %}
 
      For example, run the following command to revoke the `dns.editor` role from a user with the `ajel6l0jcb9s********` ID:
 
@@ -284,6 +310,12 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
 
 - API {#api}
 
-  To revoke a role, use the [updateAccessBindings](../api-ref/DnsZone/updateAccessBindings.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateAccessBindings](../api-ref/grpc/DnsZone/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID under `subject`.
+  To revoke a role, use the [updateAccessBindings](../api-ref/DnsZone/updateAccessBindings.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateAccessBindings](../api-ref/grpc/DnsZone/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the [subject](../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+
+  {% cut "Subject designations" %}
+
+  {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}

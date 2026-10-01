@@ -13,4 +13,4 @@ canonical: '{{ link-docs }}/tutorials/infrastructure-management/vm-autoscale/ter
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](console.md)
+[{#T}](console.md)

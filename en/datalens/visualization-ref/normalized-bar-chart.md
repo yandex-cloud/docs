@@ -103,28 +103,26 @@ A normalized bar chart shows the contribution, as a percentage, of multiple meas
 Wizard<br/> section| Description
 ----- | ----
 Y | Dimensions. You can specify one or two dimensions. For the `Date` and `Date and time` types, you can set grouping by time: minutes, hours, weeks, and so on.
-X | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md). You can move [Measure Names](../concepts/chart/measure-values.md) to the Y axis.
-Colors | [Measure Names](../concepts/chart/measure-values.md) dimension or field. Affects the color of lines. To remove [Measure Names](../concepts/chart/measure-values.md), delete measures from the Y axis.
+X | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain the [Measure Names](../concepts/chart/measure-values.md) dimension. You can move [Measure Names](../concepts/chart/measure-values.md) to the Y axis.
+Colors | [Measure Names](../concepts/chart/measure-values.md) dimension or field that affects the color of lines. To remove [Measure Names](../concepts/chart/measure-values.md), delete measures from the Y axis.
 Sorting | Dimension or measure. Affects the column sorting. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.
-Labels | Measure. Displays measure values on the chart. If multiple measures are added to the **Y** section, drag [Measure Values](../concepts/chart/measure-values.md) to this section. [Markup functions](../function-ref/markup-functions.md) are supported. For `String` type fields, you can configure using basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
-Filters | Dimension or measure. Used as a filter.
+Labels | Measure. Displays measure values on the chart. If you added multiple measures to the **Y** section, drag [Measure Values](../concepts/chart/measure-values.md) to this section. [Markup functions](../function-ref/markup-functions.md) are supported. For `String` type fields, you can configure using the basic [Markdown](../dashboard/markdown.md) syntax by clicking the icon before the field name and enabling **Markdown**.
+Filters | Dimension or measure. It is used as a filter.
 
 ## Creating a normalized bar chart {#create-diagram}
 
 To create a normalized bar chart:
 
-
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
-
 
 1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
 1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}
 1. {% include [create-3](../../_includes/datalens/visualization-ref/create-3.md) %}
 1. {% include [create-4](../../_includes/datalens/visualization-ref/create-4.md) %}
 1. Select **Normalized bar chart** as the chart type.
-1. Drag one or more dimensions from the dataset to the **Y** section. The values will be displayed on the Y axis.
-1. Drag one or more measures from the dataset to the **X** section.
-1. Drag a dimension from the dataset or the [Measure Names](../concepts/chart/measure-values.md) field to the **Color** section.
+1. Drag one or multiple dimensions from the dataset to the **Y** section. Their values will appear on the Y axis.
+1. Drag one or multiple measures from the dataset to the **X** section.
+1. Drag a dimension from the dataset or the [Measure Names](../concepts/chart/measure-values.md) field to the **Colors** section. 
 
 ## Recommendations {#recomendations}
 

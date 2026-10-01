@@ -76,7 +76,7 @@ We recommend changing the host class only when the cluster is idle.
       {{ yc-mdb-pg }} cluster update --help
       ```
 
-  1. Request a list of available host classes. The `ZONE IDS` column lists the availability zones where the relevant class can be selected:
+  1. Get the list of available host classes (the `ZONE IDS` column lists the [availability zones](../../overview/concepts/geo-scope.md) you can select each class in):
 
      
      ```bash
@@ -265,7 +265,7 @@ You can change the DBMS settings for the hosts in your cluster.
 
   1. Set the parameter values as needed:
 
-      All supported arguments are listed in the `postgresqlConfig_<{{ PG }}_version>` field of the [ `update` method’s request format](../api-ref/Cluster/update.md). To specify an argument name in the CLI call, convert its name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, the `maxPreparedTransactions` argument from the API request becomes `max_prepared_transactions` for the CLI command:
+      All supported arguments are listed in the `postgresqlConfig_<{{ PG }}_version>` field of the [`update` method’s request format](../api-ref/Cluster/update.md). To specify an argument name in the CLI call, convert its name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, the `maxPreparedTransactions` argument from the API request becomes `max_prepared_transactions` for the CLI command:
 
       ```bash
       {{ yc-mdb-pg }} cluster update-config <cluster_name_or_ID> \
@@ -346,7 +346,7 @@ You can change the DBMS settings for the hosts in your cluster.
 
      * `configSpec.postgresqlConfig_<{{ PG }}_version>`: {{ PG }} settings. Enter each setting on a new line, separated by commas.
 
-       See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.postgresql.v1.UpdateClusterRequest) for the list of {{ PG }} versions available for this parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for the descriptions and possible values of the settings.
+       See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.postgresql.v1.UpdateClusterRequest) for the list of {{ PG }} versions supporting this option. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for descriptions and possible values of the settings.
 
      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -502,7 +502,7 @@ Changing additional settings will restart the cluster. The only exceptions are t
 
         * `enabled`: The value of `true` enables statistics collection. The default value is `false`.
         * `sessions-sampling-interval`: Session sampling interval in seconds. The valid values range from `1` to `86400`.
-        * `statements-sampling-interval`: Statement sampling interval in seconds. The valid values range from `60` to `86400`.
+        * `statements-sampling-interval`: Statement sampling interval in seconds. The valid values range from `1` to `86400`.
 
 
     You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -691,7 +691,7 @@ Changing additional settings will restart the cluster. The only exceptions are t
 
          * `enabled`: Enables statistics collection, `true` or `false`.
          * `sessionsSamplingInterval`: Session sampling interval. The values range from `1` to `86400` seconds.
-         * `statementsSamplingInterval`: Statement sampling interval. The values range from `60` to `86400` seconds.
+         * `statementsSamplingInterval`: Statement sampling interval. The values range from `1` to `86400` seconds.
 
 
      * `maintenanceWindow`: [Maintenance](../concepts/maintenance.md) window settings, applying to both running and stopped clusters. Provide one of these two parameters:
@@ -797,7 +797,7 @@ Changing additional settings will restart the cluster. The only exceptions are t
 
        * `pooler_config`: Connection pooler settings:
 
-         * `pooling_mode`: Connection pooler's operation mode. Possible values: `SESSION`, `TRANSACTION`, and `STATEMENT`. To learn more about each mode, see [{#T}](../concepts/pooling.md).
+         * `pooling_mode`: Connection pooler's operation mode. The possible values are `SESSION`, `TRANSACTION`, and `STATEMENT`. To learn more about each mode, see [{#T}](../concepts/pooling.md).
          * `pool_discard`: Defines whether clients should discard their state after each transaction, `true` or `false`. Corresponds to the [server_reset_query_always](https://www.pgbouncer.org/config.html) option for the [PgBouncer](https://www.pgbouncer.org/usage) connection pooler.
 
        * `backup_window_start`: [Backup](../concepts/backup.md) window settings.
@@ -828,7 +828,7 @@ Changing additional settings will restart the cluster. The only exceptions are t
 
          * `enabled`: Enables statistics collection, `true` or `false`.
          * `sessions_sampling_interval`: Session sampling interval. The values range from `1` to `86400` seconds.
-         * `statements_sampling_interval`: Statement sampling interval. The values range from `60` to `86400` seconds.
+         * `statements_sampling_interval`: Statement sampling interval. The values range from `1` to `86400` seconds.
 
 
      * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Provide one of these two parameters:
@@ -910,7 +910,7 @@ To perform a master failover:
 - Management console {#console}
 
   1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Click the name of your cluster and select the ![icon-hosts.svg](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
   1. Click ![icon-autofailover.svg](../../_assets/console-icons/shuffle.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.button_manual-failover }}**.
       * To switch the master to one of the quorum replicas, leave the **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_auto }}** option enabled.
       * To switch the master to a specific replica, disable the **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_auto }}** option and select the required replica from the drop-down list.
@@ -1071,7 +1071,7 @@ To perform a master failover:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

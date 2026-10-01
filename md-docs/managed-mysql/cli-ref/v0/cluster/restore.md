@@ -128,6 +128,15 @@ Possible property names:
 - `planned-usage-threshold`: Planned usage threshold
 
 - `emergency-usage-threshold`: Emergency usage threshold ||
+|| `--connection-manager` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Connection Manager cluster integration settings
+
+Possible property names:
+
+- `connections-folder-id`: ID of the folder where connections for the cluster are created
+
+- `secrets-folder-id`: ID of the folder where connection secrets are created. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

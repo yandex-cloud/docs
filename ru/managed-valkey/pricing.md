@@ -6,20 +6,47 @@ editable: false
 
 # Правила тарификации для {{ mrd-name }}
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 12
+      md: 6
+    indent:
+      top: '0'
+      bottom: '0'
+    children:
+      - type: basic-card
+        title: Калькулятор цен
+        text: Рассчитайте стоимость использования сервиса, исходя из ваших потребностей
+        gravityIcon: Calculator
+        iconPosition: left
+        urlTitle: Калькулятор цен
+        url: https://yandex.cloud/ru/prices?state=d70441e9b1eb#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Прайс-лист
+        text: Актуальные тарифы на все наши услуги
+        gravityIcon: CircleRuble
+        iconPosition: left
+        urlTitle: Прайс-лист
+        url: https://yandex.cloud/ru/price-list?services=dn2hb3vlkb6qfih0pgv6
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
+
+
 В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ mrd-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
-
-{% note tip %}
-
-
-Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=26441efb181e#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
-
-
-
-
-
-{% endnote %}
-
-{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 
 {% include [vat](../_includes/vat.md) %}
@@ -53,7 +80,7 @@ editable: false
     * Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров с тремя хостами и более:
 
       
-        * для платформ **Intel Broadwell** и **Intel Cascade Lake** — с шагом 100 ГБ;
+        * для платформы **Intel Cascade Lake** — с шагом 100 ГБ;
 
 
         * для платформ **Intel Ice Lake** и **AMD Zen 4** — с шагом {{ local-ssd-v3-step }}.

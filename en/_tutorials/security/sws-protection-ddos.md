@@ -21,7 +21,7 @@ To stop a DDoS attack, you need to connect [{{ sws-name }}](../../smartwebsecuri
 
 1. [Create a security profile](#setup-security-profile).
 1. [Associate the security profile](#connect-profile) with a virtual host.
-   
+
    If you have an existing security profile associated with a host, [check the profile settings](#setup-existing-profile).
 
 1. [Test the security profile](#check-the-result).
@@ -47,8 +47,8 @@ To create a security profile:
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the protected resources.
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
+  1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
+  1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select `{{ ui-key.yacloud.smart-web-security.title_default-template }}`.
   1. Enter a name for the profile, e.g., `anti-ddos`.
   1. In the **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** field, select `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}`.
   1. In the **{{ ui-key.yacloud.smart-web-security.form.label_smartcaptcha }}** list, leave the `{{ ui-key.yacloud.smart-web-security.label_default-smartcaptcha-name }}` value.
@@ -87,7 +87,7 @@ If you have an existing security profile, check and adjust its parameters:
    * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}**: `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}`.
    * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**: `{{ ui-key.yacloud.component.condition-column.condition_full-trafic }}`.
    * **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}**: `1000000`.
-   
+
 ## Test the security profile {#check-the-result}
 
 To test your security profile, use information from monitoring charts and logs.
@@ -99,7 +99,7 @@ To test your security profile, use information from monitoring charts and logs.
 - Management console {#console}
 
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Select **{{ ui-key.yacloud.common.monitoring }}**.
+  1. Select the ![display-pulse](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** section.
   1. Examine the data displayed on the charts:
      * **Denied by Security Profile RPS**: Number of incoming requests per second the security profile has checked and blocked.
      * **Redirected to SmartCaptcha RPS**: Number of incoming requests per second routed to {{ captcha-name }} for additional verification.
@@ -118,9 +118,9 @@ For a detailed description of charts, see [{#T}](../../smartwebsecurity/operatio
   1. Make sure you have configured [logging](../../smartwebsecurity/operations/configure-logging.md) for the L7 load balancer.
   1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Select the load balancer with an associated security profile.
-  1. Select **{{ ui-key.yacloud.common.logs }}**.
-  1. Select the number of messages per page and the period, e.g., `1 hour`.
-  1. In the **Query** field, specify you query using the [filter expression language](../../logging/concepts/filter.md) and click **Run**.
+  1. Select the ![receipt](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}** section.
+  1. Select a log display period using one of the available methods, e.g., **Last hour**.
+  1. In the **Query** row, specify your query using the [filter expression language](../../logging/concepts/filter.md) and click **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
 
       Request examples:
 
@@ -153,13 +153,13 @@ To protect your service against load bursts, set a request limit in the [ARL (Ad
   1. Click **{{ ui-key.yacloud.smart-web-security.arl.label_create-profile }}**.
   1. Enter a name for the profile, e.g., `anti-ddos-arl`.
   1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}** and specify:
-        
+
      {% include [arl-rule-properties](../_tutorials_includes/sws-protection-ddos/arl-rule-properties.md) %}
 
   1. Click **{{ ui-key.yacloud.smart-web-security.arl.label_save-rule }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
-  1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. Click ![options](../../_assets/console-icons/ellipsis.svg) next to the `anti-ddos` profile and select **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
+  1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
+  1. Next to `anti-ddos`, click ![options](../../_assets/console-icons/ellipsis.svg) → ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
   1. From the list of ARL profiles, select `anti-ddos-arl`.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -174,10 +174,10 @@ To protect your service against load bursts, set a request limit in the [ARL (Ad
 - Management console {#console}
 
    1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
+   1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
    1. Select the `anti-ddos` security profile.
    1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
-   1. Enter the **{{ ui-key.yacloud_billing.common.name }}**, e.g., `block-by-list`.
+   1. Enter the **{{ ui-key.yacloud.common.name }}**, e.g., `block-by-list`.
    1. Specify the rule settings:
       * **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}**: Higher than that of `sp-rule-1`, e.g., `1000`.
       * **{{ ui-key.yacloud.smart-web-security.overview.column_type }}**: `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`.
@@ -188,8 +188,8 @@ To protect your service against load bursts, set a request limit in the [ARL (Ad
       * Select the address lists. Requests from these addresses will be blocked.
          * `is_ddoser`: List of IP addresses used in DDoS attacks.
          * Click **+ or** and select `is_tor`: IP addresses of the Tor network used for traffic anonymization.
-         * Click **+ or** and select `is_anonimous`: IP addresses of anonymous networks frequently used to hide one’s identity.
-    1. Click **{{ ui-key.yacloud_billing.common.add }}**.
+         * Click **+ or** and select `is_anonymous`: IP addresses of anonymous networks frequently used to hide one’s identity.
+    1. Click **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
 
@@ -203,7 +203,7 @@ To protect your service against load bursts, set a request limit in the [ARL (Ad
 
    1. Select the `anti-ddos` security profile.
    1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
-   1. Enter the **{{ ui-key.yacloud_billing.common.name }}**, e.g., `block-by-geo`.
+   1. Enter the **{{ ui-key.yacloud.common.name }}**, e.g., `block-by-geo`.
    1. Specify the rule settings:
       * **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}**: Higher than that of `sp-rule-1` but lower than that of `block-by-list`, e.g., `2000`.
       * **{{ ui-key.yacloud.smart-web-security.overview.column_type }}**: `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`.
@@ -211,8 +211,8 @@ To protect your service against load bursts, set a request limit in the [ARL (Ad
       * **Traffic**: `On condition`.
       * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**: `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`.
       * **Conditions for IP**: `IP belongs to the region`.
-      * Select the region the attack is coming from, e.g., `CN`, `US`, or `IN`.
-  
+      * Select the region the attack is coming from, e.g., `CN`, `US`, `IN`.
+
          To add another region, click **+ or**.
 
       {% note tip %}
@@ -223,7 +223,7 @@ To protect your service against load bursts, set a request limit in the [ARL (Ad
 
       {% endnote %}
 
-   1. Click **{{ ui-key.yacloud_billing.common.add }}**.
+   1. Click **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
 

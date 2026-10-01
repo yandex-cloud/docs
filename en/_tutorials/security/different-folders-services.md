@@ -111,7 +111,7 @@ The chart below shows the L7 load balancer resources you will create and configu
   1. Select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
   1. Enter `sws-ddos` as the profile name.
   1. In the **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** field, select `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
-  1. Under **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}**, next to `sp-rule-1`, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Under **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}**, click ![image](../../_assets/console-icons/ellipsis.svg) → ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** next to `sp-rule-1`.
   1. Enable **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)**.
 
      This option is used for profile testing. In logging mode, traffic will not get blocked, and users will not be disconnected from your service because of a misconfigured profile. Review profile performance and customize the [rules](../../smartwebsecurity/concepts/rules.md) to meet your service's requirements.
@@ -263,11 +263,11 @@ For other ways to create an L7 load balancer and more configuration options, see
   1. In the [management console]({{ link-console-main }}), select the IS folder.
   1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Select the L7 load balancer you created.
-  1. Select **{{ ui-key.yacloud.alb.label_healthchecks }}** on the left. 
-   
+  1. Navigate to the **{{ ui-key.yacloud.alb.label_healthchecks }}** tab.
+
      Make sure you get `HEALTHY` for all health checks of your backend group’s L7 load balancer.
 
-  1. Select **{{ ui-key.yacloud.alb.label_map }}** on the left.
+  1. Navigate to the **{{ ui-key.yacloud.alb.label_map }}** tab.
    
      Check the configuration for each resourse in this order: **Listener** > **HTTP router** > **Backend group** > **Target group**.
 

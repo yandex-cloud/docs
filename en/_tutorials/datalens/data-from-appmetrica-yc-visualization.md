@@ -175,7 +175,7 @@ To set up the connection and export data from your app, see the guide in [Export
 ### 4.1. Connect to {{ datalens-short-name }} {#datalens-connection}
 
 1. In the [management console]({{ link-console-main }}), open the page of the new {{ CH }} cluster.
-1. On the left side of the window, select ![datalens](../../_assets/console-icons/chart-column.svg) **{{ datalens-short-name }}**.
+1. Navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
 1. Click **Create connection**.
 
 ### 4.2. Create a connection to {{ CH }} in {{ datalens-short-name }} {#creation-datalens-connection-to-ch}

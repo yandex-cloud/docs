@@ -38,17 +38,13 @@ You can create connections of the following types:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
   1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+  1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-  1. Specify the connection name.
-  1. Optionally, add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
+  1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
+  1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
   1. Select **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
   1. Under **Connection to {{ PG }}**, select **{{ mpg-short-name }}** cluster as the connection type and specify the cluster you need.
-  1. Under **Authentication**:
-      1. Specify the **Username** you will use to connect to the cluster.
-      1. Select the password setting method:
-          * **Enter manually**: You set the password manually.
-          * **Generate**: Password will be generated automatically. You can configure [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password generation rules or leave the default ones.
+  1. {% include [console-auth-cluster](../../_includes/metadata-hub/connection-create-console-auth-cluster.md) %}
   1. Optionally, list the databases whose connections you want to manage. You can connect only to the databases that exist in the cluster. You must have [access to them configured](../../managed-postgresql/security/index.md).
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -201,17 +197,13 @@ You can create connections of the following types:
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
     1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+    1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-    1. Specify the connection name.
-    1. Optionally, add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
+    1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
+    1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
     1. Select **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
     1. Under **Connection to {{ CH }}**, select **{{ mch-short-name }}** cluster as the connection type and specify the cluster you need.
-    1. Under **Authentication**:
-        1. Specify the **Username** you will use to connect to the cluster.
-        1. Select the password setting method:
-            * **Enter manually**: You set the password manually.
-            * **Generate**: Password will be generated automatically. You can configure [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password generation rules or leave the default ones.
+    1. {% include [console-auth-cluster](../../_includes/metadata-hub/connection-create-console-auth-cluster.md) %}
     1. Optionally, list the databases whose connections you want to manage. You must have access to them configured.
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -318,7 +310,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.clickhouse`: Parameters for connecting to the {{ mch-name }} cluster:
 
@@ -364,17 +356,13 @@ You can create connections of the following types:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
    1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-   1. Specify the connection name.
-   1. Optionally, add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
+   1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
+   1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
    1. Select **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
    1. Under **Connection to {{ MY }}**, select **{{ mmy-short-name }}** cluster as the connection type and specify the cluster you need.
-   1. Under **Authentication**:
-        1. Specify the **Username** you will use to connect to the cluster.
-        1. Select the password setting method:
-            * **Enter manually**: You set the password manually.
-            * **Generate**: Password will be generated automatically. You can configure [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password generation rules or leave the default ones.
+   1. {% include [console-auth-cluster](../../_includes/metadata-hub/connection-create-console-auth-cluster.md) %}
    1. Optionally, list the databases whose connections you want to manage. You can connect only to the databases that exist in the cluster. You must have [access to them configured](../../managed-mysql/security/index.md).
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -480,7 +468,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.mysql`: Parameters for connecting to the {{ mmy-name }} cluster:
 
@@ -526,13 +514,13 @@ You can create connections of the following types:
     
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
     1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+    1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-    1. Specify the connection name.
-    1. Optionally, add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
+    1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
+    1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
     1. From the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** list, select **{{ VLK }}**.
     1. Under **Connection to {{ VLK }}**, select **{{ mrd-short-name }}** cluster as the connection type and specify the cluster you need.
-    1. Under **Authentication**, select how to set the password:
+    1. Under **Authentication**, select **Password type**:
          * **Enter manually**: Enter the password manually.
          * **Generate**: Specify the options to generate a [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password automatically.
     1. Optionally, list the databases whose connections you want to manage. You must have access to them configured.
@@ -640,7 +628,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.valkey`: Parameters for connecting to the {{ mrd-name }} cluster:
 
@@ -686,17 +674,13 @@ You can create connections of the following types:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
    1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-   1. Specify the connection name.
-   1. Optionally, add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
+   1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
+   1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
    1. Select **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
    1. Under **Connection to {{ OS }}**, select **{{ mos-short-name }}** cluster as the connection type and specify the cluster you need.
-   1. Under **Authentication**:
-        1. Specify the **Username** you will use to connect to the cluster.
-        1. Select the password setting method:
-            * **Enter manually**: You set the password manually.
-            * **Generate**: Password will be generated automatically. You can configure [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password generation rules or leave the default ones.
+   1. {% include [console-auth-cluster](../../_includes/metadata-hub/connection-create-console-auth-cluster.md) %}
    1. Optionally, list the databases whose connections you want to manage. You can connect only to the databases that exist in the cluster. You must have [access to them configured](../../managed-opensearch/security/index.md).
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -792,7 +776,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.opensearch`: Parameters for connecting to the {{ mos-name }} cluster:
 
@@ -836,17 +820,13 @@ You can create connections of the following types:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
    1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-   1. Specify the connection name.
-   1. Optionally, add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
+   1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
+   1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
    1. Select **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
    1. Under **Connection to {{ MG }}**, select **{{ mmg-short-name }}** cluster as the connection type and specify the cluster you need.
-   1. Under **Authentication**:
-        1. Specify the **Username** you will use to connect to the cluster.
-        1. Select the password setting method:
-            * **Enter manually**: You set the password manually.
-            * **Generate**: Password will be generated automatically. You can configure [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password generation rules or leave the default ones.
+   1. {% include [console-auth-cluster](../../_includes/metadata-hub/connection-create-console-auth-cluster.md) %}
    1. Optionally, list the databases whose connections you want to manage. You can connect only to the databases that exist in the cluster. You must have [access to them configured](../../storedoc/security/index.md).
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -952,7 +932,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.mongodb`: Parameters for connecting to the {{ mmg-name }} cluster:
 
@@ -998,16 +978,16 @@ You can create connections of the following types:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
    1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-   1. Specify the connection name.
-   1. Optionally, add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
+   1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
+   1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
    1. Select **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
    1. Under **Connection to {{ KF }}**, select **Managed Service for Kafka cluster** as the connection type and specify the cluster you need.
    1. When using authentication:
 
-       * Specify the **Username** for the connection.
-       * Set a password in one of the following ways:
+       * In the **User** field, specify a username for the connection.
+       * Select the **Password type**:
          
          * **Enter manually**: Enter the password in the input field.
          * **Generate**: Password will be generated automatically. You can configure [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password generation rules or leave the default ones.
@@ -1056,7 +1036,7 @@ You can create connections of the following types:
 
       * `--description`: Connection description.
 
-      * `--supported-mechanisms`: List of authentication mechanisms. The possible values are:
+      * `--supported-mechanisms`: List of authentication mechanisms. The possible values are as follows:
         
         * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
         * `SCRAM_SHA256`: Authentication with SHA-256 hashing.
@@ -1124,7 +1104,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.kafka`: Parameters for connecting to the {{ mkf-name }} cluster:
 
@@ -1138,7 +1118,7 @@ You can create connections of the following types:
             
             * `user`: Username to connect to the cluster.
             * `password.raw`: Password.
-            * `supported_mechanisms`: List of authentication mechanisms. The possible values are:
+            * `supported_mechanisms`: List of authentication mechanisms. The possible values are as follows:
               
               * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
               * `SCRAM_SHA256`: Authentication with SHA-256 hashing.
@@ -1179,17 +1159,13 @@ You can create connections of the following types:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
   1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+  1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-  1. Specify the connection name.
-  1. Optionally, add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
+  1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
+  1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
   1. Select **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
   1. Under **Connection to Greenplum**, select **Yandex MPP Analytics for PostgreSQL cluster** as the connection type and specify the cluster you need.
-  1. Under **Authentication**:
-      1. Specify the **Username** for the connection.
-      1. Select the password setting method:
-          * **Enter manually**: Enter the password in the input field.
-          * **Generate**: Password will be generated automatically. You can configure [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password generation rules or leave the default ones.
+  1. {% include [console-auth-cluster](../../_includes/metadata-hub/connection-create-console-auth-cluster.md) %}
   1. List the databases whose connections you want to manage. You can connect only to the databases that exist in the cluster. Make sure the user has the [required access permissions](../../managed-greenplum/security/index.md).
   
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -1296,7 +1272,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.greenplum`: Parameters for connecting to the {{ mgp-name }} cluster:
 
@@ -1344,25 +1320,20 @@ You can create connections of the following types:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
   1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+  1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-  1. Specify the connection name.
-  1. Optionally, add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
+  1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
+  1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
   1. Select **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
   1. Under **Connection to {{ PG }}**, specify the connection parameters:
-      1. In the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** field, select **Custom installation**.
+      1. In the **Connection type** field, select **User installation**.
       1. In the **Hosts** field, specify the database host address and port number for the connection.
 
           When creating a connection to a custom database installation intended for [{{ datalens-full-name }}](../../datalens/concepts/index.md), specify the host's external address.
 
       1. Optionally, enable TLS.
           If your company has a certification authority (CA), the certificate issued by that CA will be used by default. If the company has no CA, upload the server's TLS certificate.
-          
-  1. Under **Authentication**:
-      1. Specify the **Username** you will use to connect to the database.
-      1. Select the password setting method:
-          * **Enter manually**: You set the password manually.
-          * **Generate**: Password will be generated automatically. You can configure [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password generation rules or leave the default ones.
+  1. {% include [console-auth-db](../../_includes/metadata-hub/connection-create-console-auth-db.md) %}
   1. Optionally, list the databases whose connections you want to manage. You must have access to them configured.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -1477,7 +1448,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.postgresql`: Parameters for connecting to the custom {{ PG }} installation:
         
@@ -1526,24 +1497,20 @@ You can create connections of the following types:
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
     1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+    1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-    1. Specify the connection name.
-    1. Optionally, add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
+    1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
+    1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
     1. Select **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
     1. Under **Connection to {{ CH }}**, specify the connection parameters:
-        1. In the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** field, select **Custom installation**.
+        1. In the **Connection type** field, select **User installation**.
         1. In the **Hosts** field, specify the [FQDNs](../../managed-clickhouse/operations/connect/fqdn.md) or IP addresses of the hosts in the shard, HTTP or TCP port for connection, and the [shard](../../managed-clickhouse/operations/shards.md#list-shards) name.
 
             When creating a connection to a custom database installation intended for [{{ datalens-full-name }}](../../datalens/concepts/index.md), specify the hosts’ external IP addresses.
 
         1. Optionally, enable TLS.
             If your company has a certification authority (CA), the certificate issued by that CA will be used by default. If the company has no CA, upload the server's TLS certificate.
-    1. Under **Authentication**:
-        1. Specify the **Username** you will use to connect to the database.
-        1. Select the password setting method:
-            * **Enter manually**: You set the password manually.
-            * **Generate**: Password will be generated automatically. You can configure [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password generation rules or leave the default ones.
+    1. {% include [console-auth-db](../../_includes/metadata-hub/connection-create-console-auth-db.md) %}
     1. Optionally, list the databases whose connections you want to manage. You must have access to them configured.
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -1682,7 +1649,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.clickhouse`: Parameters for connecting to the custom {{ CH }} installation:
         
@@ -1731,13 +1698,13 @@ You can create connections of the following types:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
    1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-   1. Specify the connection name.
-   1. Optionally, add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
+   1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
+   1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
    1. Select **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
    1. Under **Connection to {{ MY }}**, specify the connection parameters:
-       1. In the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** field, select **Custom installation**.
+       1. In the **Connection type** field, select **User installation**.
        1. In the **Hosts** field, specify the database host address and port number for the connection.
 
            When creating a connection to a custom database installation intended for [{{ datalens-full-name }}](../../datalens/concepts/index.md), specify the host's external address.
@@ -1745,11 +1712,7 @@ You can create connections of the following types:
        1. Optionally, enable TLS.
            If your company has a certification authority (CA), the certificate issued by that CA will be used by default. If the company has no CA, upload the server's TLS certificate.
            
-   1. Under **Authentication**:
-       1. Specify the **Username** you will use to connect to the database.
-       1. Select the password setting method:
-           * **Enter manually**: You set the password manually.
-           * **Generate**: Password will be generated automatically. You can configure [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password generation rules or leave the default ones.
+   1. {% include [console-auth-db](../../_includes/metadata-hub/connection-create-console-auth-db.md) %}
    1. Optionally, list the databases whose connections you want to manage. You must have access to them configured.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -1864,7 +1827,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.mysql`: Parameters for connecting to the custom {{ MY }} installation:
         
@@ -1913,18 +1876,16 @@ You can create connections of the following types:
     
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
     1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+    1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-    1. Specify the connection name.
-    1. Optionally, add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
+    1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
+    1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
     1. From the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** list, select **{{ RD }}**.
     1. Under **Connection to {{ RD }}**, specify the connection parameters:
-       1. In the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** field, select **Custom installation**.
+       1. In the **Connection type** field, select **User installation**.
        1. In the **Hosts** field, specify the [FQDNs](../../managed-valkey/operations/connect/index.md#fqdn) or IP addresses of the hosts in the shard, HTTP or TCP port for connection, and the shard name.
        1. Optionally, enable TLS.
-    1. Under **Authentication**, specify a username and select how you want to set the password: 
-        * **Enter manually**: Enter the password manually.
-        * **Generate**: Specify the options to generate a [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password automatically.
+    1. {% include [console-auth-db](../../_includes/metadata-hub/connection-create-console-auth-db.md) %}
     1. Optionally, list the databases whose connections you want to manage. You must have access to them configured.
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -2060,7 +2021,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.redis`: Parameters for connecting to the custom {{ RD }} installation:
         
@@ -2109,19 +2070,19 @@ You can create connections of the following types:
     
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
     1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+    1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-    1. Specify the connection name.
-    1. Optionally, add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
+    1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
+    1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
     1. From the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** list, select **{{ VLK }}**.
     1. Under **Connection to {{ VLK }}**, specify the connection parameters:
-       1. In the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** field, select **Custom installation**.
+       1. In the **Connection type** field, select **User installation**.
        1. In the **Hosts** field, specify the [FQDNs](../../managed-valkey/operations/connect/index.md#fqdn) or IP addresses of the hosts in the shard, HTTP or TCP port for connection, and the [shard](../../managed-valkey/operations/connect/sharded-code-examples.md) name.
 
            When creating a connection to a custom database installation intended for [{{ datalens-full-name }}](../../datalens/concepts/index.md), specify the hosts’ external IP addresses.
 
        1. Optionally, enable TLS.
-    1. Under **Authentication**, specify a username and select how you want to set the password: 
+    1. Under **Authentication**, specify a username and select the **Password type**: 
         * **Enter manually**: Enter the password manually.
         * **Generate**: Specify the options to generate a [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password automatically.
     1. Optionally, list the databases whose connections you want to manage. You must have access to them configured.
@@ -2238,7 +2199,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.valkey`: Parameters for connecting to the custom {{ VLK }} installation:
         
@@ -2287,20 +2248,16 @@ You can create connections of the following types:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
   1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+  1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-  1. Specify the connection name.
-  1. Optionally, add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
+  1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
+  1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
   1. Select **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
   1. Under **Connection to {{ TR }}**, specify the connection parameters:
       1. In the **Coordinator** field, specify the [coordinator](https://trino.io/docs/current/overview/concepts.html#coordinator) host address and port number for the connection. 
       1. Optionally, enable TLS.
           If your company has a certification authority (CA), the certificate issued by that CA will be used by default. If the company has no CA, upload the server's TLS certificate.
-  1. Under **Authentication**:
-      1. Specify the **Username** you will use to connect to the database.
-      1. Select the password setting method:
-          * **Enter manually**: You set the password manually.
-          * **Generate**: Password will be generated automatically. You can configure [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password generation rules or leave the default ones.
+  1. {% include [console-auth-db](../../_includes/metadata-hub/connection-create-console-auth-db.md) %}
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -2409,7 +2366,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.trino`: Parameters for connecting to the custom {{ TR }} installation:
         
@@ -2456,21 +2413,17 @@ You can create connections of the following types:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
    1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-   1. Specify the connection name.
-   1. Optionally, add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
+   1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
+   1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
    1. Select **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
    1. Under **Connection to {{ OS }}**, specify the connection parameters:
-       1. In the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** field, select **Custom installation**.
+       1. In the **Connection type** field, select **User installation**.
        1. In the **Hosts** field, specify the database host address and port number for the connection.
        1. Optionally, enable TLS.
            If your company has a certification authority (CA), the certificate issued by that CA will be used by default. If the company has no CA, upload the server's TLS certificate.
-   1. Under **Authentication**:
-       1. Specify the **Username** you will use to connect to the database.
-       1. Select the password setting method:
-           * **Enter manually**: You set the password manually.
-           * **Generate**: Password will be generated automatically. You can configure [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password generation rules or leave the default ones.
+   1. {% include [console-auth-db](../../_includes/metadata-hub/connection-create-console-auth-db.md) %}
    1. Optionally, list the databases whose connections you want to manage. You must have access to them configured.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -2591,7 +2544,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.opensearch`: Parameters for connecting to the custom {{ OS }} installation:
         
@@ -2638,21 +2591,17 @@ You can create connections of the following types:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
    1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-   1. Specify the connection name.
-   1. Optionally, add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
+   1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
+   1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
    1. Select **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
    1. Under **Connection to {{ MG }}**, specify the connection parameters:
-       1. In the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** field, select **Custom installation**.
+       1. In the **Connection type** field, select **User installation**.
        1. In the **Hosts** field, specify the database host address and port number for the connection.
        1. Optionally, enable TLS. 
            If your company has a certification authority (CA), the certificate issued by that CA will be used by default. If the company has no CA, upload the server's TLS certificate.
-   1. Under **Authentication**:
-       1. Specify the **Username** you will use to connect to the database.
-       1. Select the password setting method:
-           * **Enter manually**: You set the password manually.
-           * **Generate**: Password will be generated automatically. You can configure [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password generation rules or leave the default ones.
+   1. {% include [console-auth-db](../../_includes/metadata-hub/connection-create-console-auth-db.md) %}
    1. Optionally, list the databases whose connections you want to manage. You must have access to them configured.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -2767,7 +2716,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.mongodb`: Parameters for connecting to the custom {{ MG }} installation:
         
@@ -2816,14 +2765,14 @@ You can create connections of the following types:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
    1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-   1. Specify the connection name.
-   1. Optionally, add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
+   1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
+   1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
    1. Select **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
    1. Under **Connection to {{ KF }}**, specify the connection parameters:
        
-       * In the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** list, select **Custom installation**.
+       * In the **Connection type** list, select **Custom installation**.
        * In the **Hosts** field, specify the host address and port for the connection.
        * Optionally, enable TLS.
            
@@ -2831,8 +2780,8 @@ You can create connections of the following types:
    
    1. When using authentication:
 
-       * Specify the **Username** for the connection.
-       * Set a password in one of the following ways:
+       * In the **User** field, specify a username for the connection.
+       * Select the **Password type**:
          
          * **Enter manually**: Enter the password in the input field.
          * **Generate**: Password will be generated automatically. You can configure [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password generation rules or leave the default ones.
@@ -2882,7 +2831,7 @@ You can create connections of the following types:
 
       * `--description`: Connection description.
 
-      * `--supported-mechanisms`: List of authentication mechanisms. The possible values are:
+      * `--supported-mechanisms`: List of authentication mechanisms. The possible values are as follows:
         
         * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
         * `SCRAM_SHA256`: Authentication with SHA-256 hashing.
@@ -2974,7 +2923,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.kafka`: Parameters for connecting to the custom {{ KF }} installation:
         
@@ -2991,7 +2940,7 @@ You can create connections of the following types:
             
             * `user`: Username to connect to the cluster.
             * `password.raw`: Password.
-            * `supported_mechanisms`: List of authentication mechanisms. The possible values are:
+            * `supported_mechanisms`: List of authentication mechanisms. The possible values are as follows:
               
               * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
               * `SCRAM_SHA256`: Authentication with SHA-256 hashing.
@@ -3032,13 +2981,13 @@ You can create connections of the following types:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
   1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+  1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
-  1. Specify the connection name.
-  1. Optionally, add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
+  1. Specify the connection **{{ ui-key.yacloud.common.name }}**.
+  1. Optionally, add the connection **{{ ui-key.yacloud.common.description }}** and [labels](../../resource-manager/concepts/labels.md).
   1. Select **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
   1. Under **Connection to Greenplum**, specify the connection parameters:
-      1. In the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** field, select **Custom installation**.
+      1. In the **Connection type** field, select **User installation**.
       1. In the **Hosts** field, specify the database host address and port number for the connection.
 
           When creating a connection to a custom database installation intended for [{{ datalens-full-name }}](../../datalens/concepts/index.md), specify the host's external address.
@@ -3047,11 +2996,7 @@ You can create connections of the following types:
           
           If your company has a certification authority (CA), the certificate issued by that CA will be used by default. If the company has no CA, upload the server's TLS certificate.
           
-  1. Under **Authentication**:
-      1. Specify the **Username** for the connection.
-      1. Select the password setting method:
-          * **Enter manually**: Enter the password in the input field.
-          * **Generate**: Password will be generated automatically. You can configure [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password generation rules or leave the default ones.
+  1. {% include [console-auth-db](../../_includes/metadata-hub/connection-create-console-auth-db.md) %}
   1. List the databases whose connections you want to manage. Make sure the user has the required access permissions.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -3166,7 +3111,7 @@ You can create connections of the following types:
 
       * `description`: Connection description.
 
-      * `--labels`: Labels in `"<key>" = "<value>"` format.
+      * `labels`: Labels in `"<key>" = "<value>"` format.
 
       * `params.greenplum`: Parameters for connecting to the custom {{ GP }} installation:
         

@@ -1,6 +1,6 @@
 [Документация Yandex Cloud](../../../index.md) > [Yandex Security Deck](../../index.md) > [Пошаговые инструкции](../index.md) > Алерты > Работа с алертами
 
-# Работа с алертами
+# Работать с алертами
 
 {% note tip %}
 
@@ -19,6 +19,10 @@
   1. В верхней части окна выберите [окружение](../../concepts/workspace.md).
   1. Нажмите на строку таблицы с именем [алерта](../../concepts/alerts.md).
   1. В открывшемся окне в левом верхнем углу выберите статус.
+
+- API {#api}
+
+  Чтобы изменить статус [алерта](../../concepts/alerts.md), воспользуйтесь методом REST API [Alert.Update](../../api-ref/Alert/update.md) для ресурса [Alert](../../api-ref/Alert/index.md) или вызовом gRPC API [AlertService/Update](../../api-ref/grpc/Alert/update.md).
 
 {% endlist %}
 

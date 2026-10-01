@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys/{keyId}:sign
+  - url: https://{{ api-host-kms-symcrypto }}/kms/v1/asymmetricSignatureKeys/{keyId}:sign
     method: post
     path:
       type: object
@@ -40,7 +40,7 @@ Signs data specified KMS key.
 ## HTTP request
 
 ```
-POST https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys/{keyId}:sign
+POST https://{{ api-host-kms-symcrypto }}/kms/v1/asymmetricSignatureKeys/{keyId}:sign
 ```
 
 ## Path parameters

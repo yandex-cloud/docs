@@ -8,6 +8,36 @@ editable: false
 
 Rules for checking cloud resource configuration.
 
+{% include [o11y.audit-trails-reactions](../../_security-deck-rules/rules/cspm/o11y.audit-trails-reactions.md) %}
+
+{% include [ai.api-key-rotation](../../_security-deck-rules/rules/cspm/ai.api-key-rotation.md) %}
+
+{% include [ai.api-key-scopes](../../_security-deck-rules/rules/cspm/ai.api-key-scopes.md) %}
+
+{% include [ai.datasphere-sa-privileges](../../_security-deck-rules/rules/cspm/ai.datasphere-sa-privileges.md) %}
+
+{% include [ai.mcp-sa-duplicate](../../_security-deck-rules/rules/cspm/ai.mcp-sa-duplicate.md) %}
+
+{% include [ai.mcp-sa-privileges](../../_security-deck-rules/rules/cspm/ai.mcp-sa-privileges.md) %}
+
+{% include [ai.public-mcp-tools](../../_security-deck-rules/rules/cspm/ai.public-mcp-tools.md) %}
+
+{% include [ai.public-mcp](../../_security-deck-rules/rules/cspm/ai.public-mcp.md) %}
+
+{% include [ai.system-groups](../../_security-deck-rules/rules/cspm/ai.system-groups.md) %}
+
+{% include [ai.tool-secrets](../../_security-deck-rules/rules/cspm/ai.tool-secrets.md) %}
+
+{% include [access.password-policy.pci-dss](../../_security-deck-rules/rules/cspm/access.password-policy.pci-dss.md) %}
+
+{% include [crypto.leaked-secrets-detection](../../_security-deck-rules/rules/cspm/crypto.leaked-secrets-detection.md) %}
+
+{% include [k8s.cis](../../_security-deck-rules/rules/cspm/k8s.cis.md) %}
+
+{% include [k8s.disallow-k8s-not-regional](../../_security-deck-rules/rules/cspm/k8s.disallow-k8s-not-regional.md) %}
+
+{% include [network.check-outgoing-internet-connection](../../_security-deck-rules/rules/cspm/network.check-outgoing-internet-connection.md) %}
+
 {% include [access.userpool-mfa](../../_security-deck-rules/rules/cspm/access.userpool-mfa.md) %}
 
 {% include [iam.sa-key-rotation](../../_security-deck-rules/rules/cspm/iam.sa-key-rotation.md) %}

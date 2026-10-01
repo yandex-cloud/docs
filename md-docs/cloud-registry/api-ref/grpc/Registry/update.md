@@ -17,7 +17,15 @@ Updates the specified registry.
   "name": "string",
   "labels": "map<string, string>",
   "description": "string",
-  "properties": "map<string, string>"
+  "properties": "map<string, string>",
+  "pattern_filter": {
+    "include_patterns": [
+      "string"
+    ],
+    "exclude_patterns": [
+      "string"
+    ]
+  }
 }
 ```
 
@@ -54,6 +62,27 @@ The maximum string length in characters is 1024. ||
 Property names and values.
 
 The maximum string length in characters for each value is 255. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-zA-Z]+ `. Each value must match the regular expression ` [-_.~!*'();/?:@&=+$,%#0-9a-zA-Z]+ `. No more than 64 per resource. ||
+|| pattern_filter | **[PatternFilter](#yandex.cloud.cloudregistry.v1.PatternFilter)**
+
+Pattern filter for artifacts in the registry. ||
+|#
+
+## PatternFilter {#yandex.cloud.cloudregistry.v1.PatternFilter}
+
+Default filter includes all artifacts ("**") and excludes none.
+
+#|
+||Field | Description ||
+|| include_patterns[] | **string**
+
+List of patterns for artifacts to include.
+
+Each value must match the regular expression ` [A-Za-z0-9._~:@!$PATTERN+\-?*/]+ `. ||
+|| exclude_patterns[] | **string**
+
+List of patterns for artifacts to exclude.
+
+Each value must match the regular expression ` [A-Za-z0-9._~:@!$PATTERN+\-?*/]+ `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

@@ -18,6 +18,8 @@ Syntax:
 
 - [yc baremetal](baremetal/cli-ref/index.md) — Manage Baremetal resources
 
+- [yc billing](billing/cli-ref/index.md) — Manage Billing resources
+
 - [yc cdn](cdn/cli-ref/index.md) — Manage CDN resources
 
 - [yc certificate-manager](certificate-manager/cli-ref/index.md) — Manage Certificate Manager resources
@@ -40,9 +42,9 @@ Syntax:
 
 - [yc datatransfer](datatransfer/cli-ref/index.md) — Manage Data Transfer endpoints and transfers
 
-- [yc desktops](desktops/cli-ref/index.md) — [PREVIEW] Manage Desktop resources
+- [yc desktops](desktops/cli-ref/index.md) — Manage Desktop resources
 
-- [yc dns](dns/cli-ref/index.md) — Manage Yandex DNS resources
+- [yc dns](dns/cli-ref/index.md) — Manage DNS resources
 
 - [yc help](help.md) — Help provides help for any command in the application.
 
@@ -50,7 +52,7 @@ Syntax:
 
 - [yc init](init.md) — CLI initialization
 
-- [yc iot](iot/cli-ref/index.md) — Manage Yandex IoT Core resources
+- [yc iot](iot/cli-ref/index.md) — Manage IoT Core resources
 
 - [yc kms](kms/cli-ref/index.md) — Manage Yandex Key Management Service resources
 
@@ -100,11 +102,11 @@ Syntax:
 
 - [yc operation](operation/cli-ref/index.md) — Manage operations
 
-- [yc organization-manager](organization-manager/cli-ref/index.md) — Manage Yandex Organization Manager resources
+- [yc organization-manager](organization-manager/cli-ref/index.md) — Manage Yandex Cloud Organization Manager resources
 
 - [yc quota-manager](quota-manager/cli-ref/index.md) — Manage Yandex Quota Manager resources
 
-- [yc resource-manager](resource-manager/cli-ref/index.md) — Manage Yandex Resource Manager resources
+- [yc resource-manager](resource-manager/cli-ref/index.md) — Manage Yandex Cloud Resource Manager resources
 
 - [yc serverless](serverless/cli-ref/index.md) — Manage Serverless resources.
 
@@ -118,4 +120,4 @@ Syntax:
 
 - [yc vpc](vpc/cli-ref/index.md) — Manage Yandex Virtual Private Cloud resources
 
-- [yc ydb](ydb/cli-ref/index.md) — Manage YDB databases.
+- [yc ydb](ydb/cli-ref/index.md) — Manage YDB databases

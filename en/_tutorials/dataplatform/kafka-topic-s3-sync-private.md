@@ -1,8 +1,17 @@
 # Syncing data from {{ KF }} topics to a {{ objstorage-full-name }} bucket without using the internet
 
 
-You can synchronize data from {{ KF }} topics to a {{ objstorage-full-name }} bucket without using the internet via a service connection in the user network hosting the {{ mkf-name }} cluster. Proceed as follows:
 
+{% note info %}
+
+The VPC Private Endpoints feature in {{ vpc-full-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage. To get access to the feature, contact your account manager.
+
+{% endnote %}
+
+
+You can synchronize data from {{ KF }} topics to a {{ objstorage-full-name }} bucket without using the internet via a service connection in the user network hosting the {{ mkf-full-name }} cluster. Follow these steps:
+
+1. [Set up your infrastructure](#prepare-infrastructure).
 1. [Send data to the topic](#send-data).
 1. [Make sure the bucket is not accessible from the external network](#check-bucket-access).
 1. [Check if there is data in the bucket](#check-bucket-data).
@@ -10,16 +19,19 @@ You can synchronize data from {{ KF }} topics to a {{ objstorage-full-name }} bu
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-## Required paid resources {#paid-resources}
-
-The support cost for this solution includes:
-
-* {{ objstorage-name }} bucket fee: data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* {{ mkf-name }} cluster fee: use of computing resources allocated to hosts and disk space (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
-* Fee for the use of public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-
-
 ## Getting started {#before-you-begin}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+### Required paid resources {#paid-resources}
+
+* {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ mkf-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+
+
+## Set up your infrastructure {#prepare-infrastructure}
 
 
 1. Set up your infrastructure:
@@ -29,7 +41,7 @@ The support cost for this solution includes:
     - Manually {#manual}
 
         1. [Create a network](../../vpc/operations/network-create.md) named `my-private-network`. Disable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** when creating it.
-        1. [Create a subnet](../../vpc/operations/subnet-create.md) in any availability zone.
+        1. [Create a subnet](../../vpc/operations/subnet-create.md) in any [availability zone](../../overview/concepts/geo-scope.md).
         1. [Create a service connection to {{ objstorage-name }}](../../vpc/operations/private-endpoint-create.md) in `my-private-network` and write down its ID.
         1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `storage-pe-admin` with the `storage.admin` role. The {{ mkf-name }} cluster will use it to access the bucket.
         1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the `storage-pe-admin` service account.
@@ -101,7 +113,7 @@ The support cost for this solution includes:
             * `vm_image_id`: ID of the public VM [image](../../compute/operations/images-with-pre-installed-software/get-list.md).
             * `vm_username` and `vm_ssh_key`: Username and absolute path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), for access to the VM.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate

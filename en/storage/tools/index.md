@@ -17,6 +17,7 @@ description: List of supported tools for working with {{ objstorage-name }}.
 
 * [Cyberduck](cyberduck.md)
 * [WinSCP](winscp.md)
+* [Obsidian](obsidian.md)
 
 ## SDK {#sdk}
 

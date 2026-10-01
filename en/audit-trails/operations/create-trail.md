@@ -106,8 +106,6 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
   1. In the [management console]({{ link-console-main }}), select the folder to host the trail.
   1. [Navigate]({{ link-console-main }}/link/audit-trails) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
-  1. Enter a trail name. It must be unique within the folder.
-  1. (Optional) Enter a description for your trail.
   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, select one of the destination objects and specify its settings:
 
       * **{{ ui-key.yacloud.audit-trails.label_objectStorage }}**: Uploading audit logs to an {{ objstorage-name }} bucket. Recommended for long-term data storage. Configure log storage settings:
@@ -123,53 +121,14 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
       * **{{ ui-key.yacloud.audit-trails.label_dataStream }}**: Data stream you [created earlier](#before-you-begin). Audit logs will be uploaded into this stream. Recommended for streaming logs to other services or systems.
       * **{{ ui-key.yacloud.audit-trails.label_eventRouter }}**: {{ er-name }} bus connector. Recommended for detailed analysis of logs and their subsequent sending to various handlers and systems depending on the conditions specified in the bus.
 
-          In the **Connector** field, select the {{ er-name }} bus [connector](../../serverless-integrations/concepts/eventrouter/connector.md) with the `{{ at-name }}` source type or click **{{ ui-key.yacloud.common.create }}** to create a new connector in the bus.
+          In the **Connector** field, select the relevant {{ er-name }} bus [connector](../../serverless-integrations/concepts/eventrouter/connector.md) with the `{{ at-name }}` source type or click **{{ ui-key.yacloud.common.create }}** to create a new connector in the bus.
 
+  1. {% include [control-plane-on-console](../../_includes/audit-trails/control-plane-on-console.md) %}
+  1. {% include [data-plane-on-console](../../_includes/audit-trails/data-plane-on-console.md) %}
   1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the [previously created](#before-you-begin) service account the trail will operate under.
-
-  1. Enable and configure event collection from one or two levels. Such events will end up in the audit logs.
-
-      To configure **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**:
-
-      1. Select the [log collection scope](../concepts/trail.md): `Organization`, `Cloud`, or `Folder`. The logged events will be collected in the scope you specify.
-
-          The permissions of the service account you [created earlier](#before-you-begin) must allow collecting logs from the specified scope.
-
-      1. Depending on the log collection scope, select the clouds or folders to collect events from:
-
-          * For the `Organization` collection scope, from the **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}** drop-down list, select one or more clouds to collect events from.
-
-              Keep the default value (`{{ ui-key.yacloud.common.all }}`) to collect events from all clouds in the organization.
-
-          * For the `Cloud` collection scope, select from the **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** drop-down list one or more folders to collect events from.
-
-              Keep the default value (`{{ ui-key.yacloud.common.all }}`) to collect events from all folders in the cloud.
-
-      To configure **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**:
-
-      {% include [events-by-default](../../_includes/audit-trails/events-by-default.md) %}
-
-      1. Select one or more services to collect events from.
-
-      1. For each such service, select the [log collection scope](../concepts/trail.md): `Organization`, `Cloud`, or `Folder`. The logged events will be collected in the scope you specify.
-
-          The permissions of the service account you [created earlier](#before-you-begin) must allow collecting logs from the specified scope.
-
-      1. Depending on the log collection scope, select the clouds or folders to collect events from:
-
-          * For the `Organization` collection scope, from the **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}** drop-down list, select one or more clouds to collect events from.
-
-              Keep the default value (`{{ ui-key.yacloud.common.all }}`) to collect events from all clouds in the organization.
-
-          * For the `Cloud` collection scope, select from the **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** drop-down list one or more folders to collect events from.
-
-              Keep the default value (`{{ ui-key.yacloud.common.all }}`) to collect events from all folders in the cloud.
-
-      1. For each such service, select one of the following filters by [events](../concepts/events-data-plane.md#dns):
-
-          * `Receive all`: To collect all events within the service.
-          * `Selected`: To collect only the selected events. Then proceed to select the events.
-          * `Exclude`: To collect all events except for the selected ones. Then proceed to select the events.
+  1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the trail. It must be unique within the folder.
+  1. Optionally, enter a description for the trail.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 

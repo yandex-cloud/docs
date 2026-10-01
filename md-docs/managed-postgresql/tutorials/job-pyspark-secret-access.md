@@ -65,14 +65,14 @@
 
     * **Сервисный аккаунт** — `spark-agent`.
     * **Сеть** — `spark-network`.
-    * **Группа безопасности** — `spark-sg`.
+    * **Группы безопасности** — `spark-sg`.
 
 1. [Настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для подсети, в которой создан кластер Yandex Managed Service for Apache Spark™. NAT-шлюз нужен для скачивания JDBC-драйвера PostgreSQL из Maven-репозитория.
 
 1. [Создайте кластер Managed Service for PostgreSQL](../operations/cluster-create.md) со следующими настройками:
 
     * **Сеть** — `spark-network`.
-    * **Группа безопасности** — `pg-sg`.
+    * **Группы безопасности** — `pg-sg`.
 
 ## Настройте права доступа к секрету пользователя Managed Service for PostgreSQL {#set-up-roles}
 
@@ -91,10 +91,10 @@
 
       Откроется страница секрета Yandex Lockbox, который хранит пароль пользователя PostgreSQL.
 
-  1. Перейдите на вкладку **Права доступа** и нажмите кнопку **Назначить роли**.
+  1. Перейдите в раздел **Права доступа** и нажмите **Назначить роли**.
   1. Выберите сервисный аккаунт `spark-agent`, которому будет предоставлен доступ к секрету.
-  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите `lockbox.payloadViewer`.
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите `lockbox.payloadViewer`.
+  1. Нажмите **Сохранить**.
 
 - CLI {#cli}
 
@@ -197,7 +197,7 @@
   1. [Загрузите в бакет](../../storage/operations/objects/upload.md#simple) файл `job-mpg-connection-with-secret.py`.
   1. В кластере Yandex Managed Service for Apache Spark™ [создайте задание](../../managed-spark/operations/jobs-pyspark.md) со следующими параметрами:
       
-      * **Тип задания** — **PySpark**.
+      * **Тип задания** — `PySpark`.
       * **Main python файл** – `s3a://<имя_бакета>/job-mpg-connection-with-secret.py`.
       * **Пакеты** — `org.postgresql:postgresql:42.7.3`.
 

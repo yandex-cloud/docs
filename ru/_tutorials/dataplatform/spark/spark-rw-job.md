@@ -154,9 +154,9 @@
 
 1. В бакете для исходного кода создайте папку `scripts` и [загрузите](../../../storage/operations/objects/upload.md#simple) в нее файл `ice_min_demo.py`.
 1. [Создайте задание](../../../managed-spark/operations/jobs-pyspark.md) с параметрами:
-    * **Тип задания**: **PySpark**.
-    * **Main python файл**: `s3a://<бакет_для_исходного_кода>/scripts/ice_min_demo.py`.
-    * **Настройки**: `spark.sql.warehouse.dir` – `s3a://<бакет_для_выходных_данных>/warehouse/`.
+    * **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}** — `PySpark`.
+    * **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** — `s3a://<бакет_для_исходного_кода>/scripts/ice_min_demo.py`.
+    * **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** — `spark.sql.warehouse.dir` — `s3a://<бакет_для_выходных_данных>/warehouse/`.
 
 ## Проверьте результат {#check-out}
 

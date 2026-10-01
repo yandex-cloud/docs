@@ -17,7 +17,7 @@ subcluster_name | Subcluster name
 
 ## CPU metrics {#managed-spqr-cpu-metrics}
 
-These metrics show the processor core workload.
+CPU core workload.
 
 The `cpu` label contains the vCPU ID.
 

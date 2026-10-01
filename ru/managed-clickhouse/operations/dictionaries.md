@@ -797,27 +797,49 @@
 
   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_access-to-key-from-attributes }}** — позволяет получать имя составного ключа с помощью функции `dictGetString`. Используется для способа `ip_trie`. Включение этой настройки увеличивает нагрузку на оперативную память.
   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-id }}** — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `flat`, `hashed`, `range_hashed`, `cache`, `sparse_hashed`, `direct`, `ssd_cache`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/attributes#numeric-key).
-  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-attributes }}** — описание составного ключа словаря. Составной ключ может состоять из одного или более элементов. Используется для способов `complex_key_*` и `ip_trie`:
+
+  * Настройки хранения данных на SSD для способов `ssd_cache` и `complex_key_ssd_cache`:
+
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_block-size }}** — размер блока чтения в байтах. Значение по умолчанию — `4096` (4 КБ).
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_file-size }}** — максимальный размер файла кеша в байтах. Значение по умолчанию — `4294967296` (4 ГБ).
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_read-buffer-size }}** — размер буфера в оперативной памяти для чтения данных с SSD в байтах. Значение по умолчанию — `65536` (64 КБ).
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_write-buffer-size }}** — размер буфера в оперативной памяти для записи данных на SSD в байтах. Значение по умолчанию — `4096` (4 КБ).
+
+    Подробнее о настройках для способов `*_ssd_cache` читайте в [документации {{ CH }}](https://clickhouse.com/docs/ru/reference/statements/create/dictionary/layouts/ssd-cache).
+
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.label_range-min }}** — столбец с данными, который соответствует началу диапазона. Используется для способов `range_hashed` и `complex_key_range_hashed`. Укажите:
+
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_range-min-name }}** — имя столбца.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_range-min-type }}** — тип данных столбца.
+
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.label_range-max }}** — столбец с данными, который соответствует концу диапазона. Используется для способов `range_hashed` и `complex_key_range_hashed`. Укажите:
+
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_range-max-name }}** — имя столбца.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_range-max-type }}** — тип данных столбца.
+
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-key }}** — столбцы, образующие составной ключ словаря. Используется для способов `complex_key_*` и `ip_trie`:
+    * Способ `ip_trie` поддерживает составные ключи, состоящие только из одного элемента. Для этого способа укажите только имя столбца.
+    * Способы `complex_key_*` поддерживают составные ключи из одного или нескольких элементов. Для каждого элемента укажите имя и тип данных столбца.
+
+    Подробнее о параметрах составного ключа читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/attributes#composite-key).
+
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-attributes }}** — описание столбцов в таблице-источнике, которые содержат данные для словаря. Используется для способов `flat`, `hashed`, `range_hashed`, `cache`, `sparse_hashed`, `direct`, `complex_key_*`, `ip_trie` и `ssd_cache`. Для каждого элемента укажите:
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-name }}** — имя столбца.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-type }}** — тип данных столбца.
     * (Опционально) **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-nullValue }}** — значение по умолчанию для пустого элемента. При загрузке словаря все пустые элементы будут заменены на это значение. Нельзя указать значение `NULL`.
     * (Опционально) **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-expression }}** — [выражение]({{ ch.docs }}{{ lang }}/sql-reference/syntax#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-hierarchical }}** — признак поддержки иерархии.
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-injective }}** — признак инъективности отображения `id` → `attribute`.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-injective }}** — признак инъективности отображения `id` → `attribute`.    
 
-    Подробнее о параметрах составного ключа читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/attributes#composite-key).
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.section_lifetime }}** — периодичность обновления словаря. Выберите тип периода обновления и его настройки:
 
-  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_layout-type }}** — настройки частоты обновления словаря:
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.label_fixed-lifetime }}** — фиксированный период между обновлениями словаря:
+      * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_fixed-lifetime }}** — период обновления данных словаря в секундах.
 
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_update-interval }}** — периодичность обновления словаря. Выберите тип периода обновления и его настройки:
-
-      * **{{ ui-key.yacloud.mdb.cluster.dictionaries.label_fixed-lifetime }}** — фиксированный период между обновлениями словаря:
-        * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_fixed-lifetime }}** — период обновления данных словаря в секундах.
-
-      * **{{ ui-key.yacloud.mdb.cluster.dictionaries.label_range-lifetime }}** — диапазон, внутри которого {{ CH }} случайно выберет время для обновления. Это поможет распределить нагрузку на источник словаря при обновлении на большом количестве серверов:
-        * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_range-lifetime-min }}** — минимальное значение периода между обновлениями словаря в секундах.
-        * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_range-lifetime-max }}** — максимальное значение периода между обновлениями словаря в секундах.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.label_range-lifetime }}** — диапазон, внутри которого {{ CH }} случайно выберет время для обновления. Это поможет распределить нагрузку на источник словаря при обновлении на большом количестве серверов:
+      * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_range-lifetime-min }}** — минимальное значение периода между обновлениями словаря в секундах.
+      * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_range-lifetime-max }}** — максимальное значение периода между обновлениями словаря в секундах.
 
     Подробнее об обновлении словарей читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/lifetime).
 

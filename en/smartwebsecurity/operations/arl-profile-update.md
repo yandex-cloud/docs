@@ -12,14 +12,14 @@ description: Follow this guide to edit basic ARL profile settings.
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the [ARL profile](../concepts/arl.md).
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
-  1. In the row with the profile you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
+  1. In the row with the profile, click ![options](../../_assets/console-icons/ellipsis.svg) → ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
   1. In the window that opens, edit the following parameters:
-      
+
       * **{{ ui-key.yacloud.common.name }}**.
       * **{{ ui-key.yacloud.common.description }}**.
-      * [**{{ ui-key.yacloud.component.label-set.label_labels }}**](../../resource-manager/concepts/labels.md). To add a label, click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+      * [**{{ ui-key.yacloud.component.label-set.label_labels }}**](../../resource-manager/concepts/labels.md). To add a new label, click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
       * {% include [choose-or-create-template](../../_includes/smartwebsecurity/choose-or-create-template.md) %}
-  
+
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - {{ TF }} {#tf}

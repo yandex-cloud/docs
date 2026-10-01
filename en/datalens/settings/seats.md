@@ -46,7 +46,7 @@ The **Total seats** section displays the total number of seats in an instance, a
 
 {% note info %}
 
-* If you [delete a user from the organization](../../organization/operations/edit-account.md) or [revoke](#revoke) their seat, the number of seats does not decrease automatically. The seat revoked from the user becomes free and available for assignment to another user.
+* If you [delete a user from the organization]({{ link-docs }}/organization/operations/edit-account) or [revoke](#revoke) their seat, the number of seats does not decrease automatically. The seat revoked from the user becomes free and available for assignment to another user.
 * To reduce the number of seats, change the seat count in the service settings.
 * If you revoke a seat from a user, the service will save their [roles and access permissions](../security/roles.md). So if you give the seat back to this user, they will get the same access to objects as before.
 
@@ -80,7 +80,7 @@ The following limits apply: 2,000 queries from private embedded charts per seat 
 
    > 2,000 queries x Number of seats
 
-Only successfully completed queries for chart rendering data are counted. If multiple queries are required to render a single chart, they are counted as one query. Read more in [Pricing policy](../pricing.md#packet-queries).
+Only successfully completed queries for chart rendering data are counted. If multiple queries are required to render a single chart, they are counted as one query. For more information, see the [pricing policy](../pricing.md#packet-queries).
 
 You can [estimate the number of queries from private embedded charts](#embedded-queries-count) by enabling [Usage Analytics](../operations/connection/create-usage-tracking.md).
 
@@ -119,7 +119,7 @@ To open a seat’s settings, click ![image](../../_assets/console-icons/ellipsis
 
 ## Reassigning a seat between users {#reassign}
 
-You can reassign a seat from a user with a seat to someone who does not have one. Proceed as follows:
+You can reassign a seat from a user with a seat to someone who does not have one. Follow these steps:
 
 1. Find the user in the **Seats** list and in the row with their name, click ![image](../../_assets/console-icons/ellipsis.svg) → **Reassign seat**. You will see a list of organization users without a seat in {{ datalens-short-name }}.
 1. Select the user you want to reassign the seat to. For convenience, use the search by name or email.

@@ -4,7 +4,7 @@
 
 {% note warning %}
 
-Запросы с настройкой `writeConcern: 1` могут приводить к отставанию данных на вторичных репликах. Это повышает риск таймаутов при операциях записи и потери данных при выходе из строя первичной реплики, поэтому для таких кластеров не гарантируются [SLA](https://yandex.ru/legal/cloud_sla_mdb/) и [высокая доступность](../../concepts/high-availability.md). Подробнее о [влиянии настройки](../../concepts/high-availability.md#connect) `writeConcern` на высокую доступность.
+Запросы с настройкой `writeConcern: 1` могут приводить к отставанию данных на вторичных репликах. Это повышает риск таймаутов при операциях записи и потери данных при выходе из строя мастера, поэтому для таких кластеров не гарантируются [SLA](https://yandex.ru/legal/cloud_sla_mdb/) и [высокая доступность](../../concepts/high-availability.md). Подробнее о [влиянии настройки](../../concepts/high-availability.md#connect) `writeConcern` на высокую доступность.
 
 {% endnote %}
 
@@ -525,7 +525,7 @@ sudo apt update && sudo apt install --yes python3 python3-pip && \
 pip3 install pyMongo
 ```
 
-Чтобы узнать имя набора реплик, подключитесь к базе данных через [MongoDB Shell](#bash) и выполните команду:
+Чтобы узнать имя набора реплик, подключитесь к базе данных через [MongoDB Shell](clients.md#bash) и выполните команду:
 
 ```bash
 rs.status().set

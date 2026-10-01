@@ -2,6 +2,7 @@
 
 # Метрики Yandex Cloud Postbox
 
+
 В этом разделе описаны метрики сервиса [Yandex Cloud Postbox](../../postbox/index.md), поставляемые в Monium Metrics.
 
 Имя метрики пишется в метку `name`.
@@ -10,7 +11,7 @@
 
 Метка | Значение
 ----|----
-identity | Идентификатор [адреса](../../postbox/concepts/glossary.md#adress) отправителя.
+identity | Идентификатор [адреса](../../postbox/concepts/glossary.md#address) отправителя.
 service | Метка сервиса, значение всегда `postbox`.
 
 ## Метрики приема писем {#inbound-metrics}

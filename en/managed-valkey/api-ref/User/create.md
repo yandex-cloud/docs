@@ -53,7 +53,8 @@ apiPlayground:
           sanitizePayload:
             description: |-
               **string**
-              SanitizePayload parameter.
+              Deprecated. This parameter is ignored.
+            deprecated: true
             type: string
           databases:
             description: |-
@@ -74,7 +75,8 @@ apiPlayground:
             description: |-
               **string**
               Password of the Redis user.
-              The maximum number of elements is 1.
+              Each value must match the regular expression ` ^[a-zA-Z0-9@=+?*.,!&#$^<>_-]*$ `. The maximum number of elements is 1.
+            pattern: ^[a-zA-Z0-9@=+?*.,!&#$^<>_-]*$
             uniqueItems: true
             type: array
             items:
@@ -89,6 +91,22 @@ apiPlayground:
               **boolean**
               Is Redis user enabled
             type: boolean
+          generatePassword:
+            description: |-
+              **boolean**
+              Generate password using Connection Manager
+            type: boolean
+          authType:
+            description: |-
+              **enum** (AuthType)
+              Authentication type for the user
+              - `AUTH_TYPE_PASSWORD`: Password-based authentication
+              - `AUTH_TYPE_IAM`: IAM-based authentication
+            type: string
+            enum:
+              - AUTH_TYPE_UNSPECIFIED
+              - AUTH_TYPE_PASSWORD
+              - AUTH_TYPE_IAM
         required:
           - name
 ---
@@ -132,7 +150,9 @@ The maximum string length in characters is 50. ||
       "sanitizePayload": "string",
       "databases": "string"
     },
-    "enabled": "boolean"
+    "enabled": "boolean",
+    "generatePassword": "boolean",
+    "authType": "string"
   }
 }
 ```
@@ -157,13 +177,22 @@ The maximum string length in characters is 32. Value must match the regular expr
 
 Password of the Redis user.
 
-The maximum number of elements is 1. ||
+Each value must match the regular expression ` ^[a-zA-Z0-9@=+?*.,!&#$^<>_-]*$ `. The maximum number of elements is 1. ||
 || permissions | **[Permissions](#yandex.cloud.mdb.redis.v1.Permissions)**
 
 Set of permissions to grant to the user. ||
 || enabled | **boolean**
 
 Is Redis user enabled ||
+|| generatePassword | **boolean**
+
+Generate password using Connection Manager ||
+|| authType | **enum** (AuthType)
+
+Authentication type for the user
+
+- `AUTH_TYPE_PASSWORD`: Password-based authentication
+- `AUTH_TYPE_IAM`: IAM-based authentication ||
 |#
 
 ## Permissions {#yandex.cloud.mdb.redis.v1.Permissions}
@@ -184,7 +213,7 @@ Command categories user has permissions to. ||
 Commands user can execute. ||
 || sanitizePayload | **string**
 
-SanitizePayload parameter. ||
+Deprecated. This parameter is ignored. ||
 || databases | **string**
 
 Databases parameter. ||

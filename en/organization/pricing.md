@@ -10,7 +10,11 @@ blocks:
   - type: card-layout-block
     animated: false
     colSizes:
-      all: 6
+      all: 12
+      md: 6
+    indent:
+      top: '0'
+      bottom: '0'
     children: []
 :::
 

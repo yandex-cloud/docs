@@ -1,11 +1,15 @@
 ---
 title: Triggers in {{ sf-name }}. Overview
-description: A trigger is a criterion that automatically starts a function when met. With triggers, you can automate your work with other {{ yandex-cloud }} services, e.g., Yandex Object Storage, Yandex Message Queue, and Yandex IoT Core.
+description: A trigger is a condition which, when met, automatically starts a function. With triggers, you can automate your work with other {{ yandex-cloud }} services, e.g., Yandex Object Storage, Yandex Message Queue, and Yandex IoT Core.
 ---
 
 # Triggers in {{ sf-name }}. Overview
 
-_Triggers_ are criteria that automatically start a {{ sf-name }} [function](../function.md) when met. Triggers allow you to automate your work with other {{ yandex-cloud }} services, such as {{ objstorage-full-name }}, {{ message-queue-full-name }}, and {{ container-registry-full-name }}. 
+A _trigger_ is a condition which, when met, automatically invokes a {{ sf-name }} [function](../function.md).
+
+A single trigger can invoke several {{ sf-name }} functions and {{ serverless-containers-name }} containers at the same time and send messages to WebSocket connections of one or more {{ api-gw-full-name }} API gateways.
+
+Triggers allow you to automate your work with other {{ yandex-cloud }} services, such as {{ objstorage-full-name }}, {{ message-queue-full-name }}, and {{ container-registry-full-name }}.
 
 {% include [trigger-time](../../../_includes/functions/trigger-time.md) %}
 
@@ -19,6 +23,7 @@ The following types of triggers are available in {{ sf-name }}:
 * [Trigger for budgets](budget-trigger.md)
 * [Trigger for {{ yds-name }}](data-streams-trigger.md)
 * [Email trigger](mail-trigger.md)
+* [Trigger for Telegram](telegram-trigger.md)
 
 {% include [trigger-intro-note](../../../_includes/functions/trigger-intro-note.md) %}
 
@@ -27,29 +32,16 @@ The following types of triggers are available in {{ sf-name }}:
 Triggers call functions based on preset [quotas and limits](../../../functions/concepts/limits.md).
 
 When a function is called by a trigger, the following specifics apply:
-- Functions are always called by triggers with the `?integration=raw` query string parameter. To learn more about function calls, see [this guide](../function-invoke.md).
-- Before the trigger delivers messages to a function, it changes their format. Each trigger type uses a message format of its own. Read more about this in the relevant trigger description.
-- The service account used to invoke the function needs the `{{ roles-functions-invoker }}` role. Other roles required for the trigger to operate correctly depend on trigger type. Read more about this in the relevant trigger description.
+- Functions are always called by triggers with the `?integration=raw` query string parameter. For more on function calls, see [{#T}](../function-invoke.md).
+- Before the trigger delivers messages to a function, it changes their format. Each trigger type uses a message format of its own. For more details, see the relevant trigger description.
+- The service account used to invoke the function needs the `{{ roles-functions-invoker }}` role. Other roles required for the trigger to operate correctly depend on trigger type. For more details, see the relevant trigger description.
 - If the trigger is suspended and then restarted by the user, it will not process any events that occurred during its idle time.
 
-## Message batching {#batch-messages}
+{% include [trigger-filter-messages](../../../_includes/functions/trigger-filter-messages.md) %}
 
-You can configure the following triggers to batch messages before calling a function:
+{% include [trigger-transform-messages](../../../_includes/functions/trigger-transform-messages.md) %}
 
-* Trigger for {{ message-queue-name }}
-* Trigger for {{ cloud-logging-name }}
-* Trigger for {{ objstorage-name }}
-* Trigger for {{ container-registry-name }}
-* Trigger for {{ iot-name }}
-* Trigger for {{ yds-name }}
-* Email trigger
-
-This way you can call a function for a whole batch of messages rather than each message separately. Specify the following in the trigger parameters:
-
-* **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cutoff }}**: Message batching time. The number of messages cannot exceed the specified batch size.
-* **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}**: Number of messages for batching.
-
-For more information about message batching, see the guides for creating the relevant trigger.
+{% include [batching-events](../../../_includes/functions/batching-events.md) %}
 
 ## Function invocation retries {#invoke-retry}
 

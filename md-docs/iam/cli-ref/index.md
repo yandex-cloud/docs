@@ -140,6 +140,12 @@ Syntax:
 
   - [yc iam service-control list](service-control/list.md) — List service states
 
+- [yc iam subject-details](subject-details/index.md) — Show subject details
+
+  - [yc iam subject-details get](subject-details/get.md) — Show details of subjects specified by positional IDs or --subject-ids
+
+  - [yc iam subject-details list](subject-details/list.md) — List members of the specified organization
+
 - [yc iam user-account](user-account/index.md) — Manage user accounts
 
   - [yc iam user-account get](user-account/get.md) — Show information about the specified user account

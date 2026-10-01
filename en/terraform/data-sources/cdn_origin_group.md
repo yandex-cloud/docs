@@ -32,14 +32,14 @@ output "origin_group_name" {
 
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `id` (String). 
-- `name` (**Required**)(String). The resource name.
-- `origin` [Block]. A set of available origins, an origins group must contain at least one enabled origin with fields below.
-  - `backup` (Bool). Specifies whether the origin is used in its origin group as backup. A backup origin is used when one of active origins becomes unavailable.
-  - `enabled` (Bool). The origin is enabled and used as a source for the CDN. Default `enabled`.
-  - `origin_group_id` (*Read-Only*) (String). The ID of a specific origin group.
-  - `source` (**Required**)(String). IP address or Domain name of your origin and the port.
+- `name` (String). The resource name.
+- `origin` (*Read-Only*) (Set Of Object). A set of available origins.
+  - `backup` . 
+  - `enabled` . 
+  - `origin_group_id` . 
+  - `source` . 
 - `origin_group_id` (String). The ID of a specific origin group.
-- `provider_type` (String). CDN provider is a content delivery service provider. Possible values: "ourcdn" (default) or "gcore"
-- `use_next` (Bool). If the option is active (has true value), in case the origin responds with 4XX or 5XX codes, use the next origin from the list.
+- `provider_type` (*Read-Only*) (String). CDN provider is a content delivery service provider
+- `use_next` (*Read-Only*) (Bool). If the option is active (has true value), in case the origin responds with 4XX or 5XX codes, use the next origin from the list.
 
 

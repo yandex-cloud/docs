@@ -67,7 +67,8 @@ The maximum string length in characters is 1000. ||
           "data_lens": "bool",
           "web_sql": "bool",
           "data_transfer": "bool",
-          "yandex_query": "bool"
+          "yandex_query": "bool",
+          "trino": "bool"
         },
         "zone_id": "string",
         "subnet_id": "string",
@@ -161,7 +162,8 @@ The maximum string length in characters is 1000. ||
             "gp_max_plan_size": "google.protobuf.Int64Value",
             "gp_autostats_mode": "GPAutostatsMode",
             "gp_autostats_on_change_threshold": "google.protobuf.Int64Value",
-            "gp_resource_group_memory_limit": "google.protobuf.DoubleValue"
+            "gp_resource_group_memory_limit": "google.protobuf.DoubleValue",
+            "track_activity_query_size": "google.protobuf.Int64Value"
           },
           "user_config": {
             "max_connections": "google.protobuf.Int64Value",
@@ -196,7 +198,8 @@ The maximum string length in characters is 1000. ||
             "gp_max_plan_size": "google.protobuf.Int64Value",
             "gp_autostats_mode": "GPAutostatsMode",
             "gp_autostats_on_change_threshold": "google.protobuf.Int64Value",
-            "gp_resource_group_memory_limit": "google.protobuf.DoubleValue"
+            "gp_resource_group_memory_limit": "google.protobuf.DoubleValue",
+            "track_activity_query_size": "google.protobuf.Int64Value"
           },
           "default_config": {
             "max_connections": "google.protobuf.Int64Value",
@@ -231,7 +234,8 @@ The maximum string length in characters is 1000. ||
             "gp_max_plan_size": "google.protobuf.Int64Value",
             "gp_autostats_mode": "GPAutostatsMode",
             "gp_autostats_on_change_threshold": "google.protobuf.Int64Value",
-            "gp_resource_group_memory_limit": "google.protobuf.DoubleValue"
+            "gp_resource_group_memory_limit": "google.protobuf.DoubleValue",
+            "track_activity_query_size": "google.protobuf.Int64Value"
           }
         },
         // end of the list of possible fields
@@ -269,7 +273,8 @@ The maximum string length in characters is 1000. ||
             "gp_autostats_mode": "GPAutostatsMode",
             "gp_autostats_on_change_threshold": "google.protobuf.Int64Value",
             "gp_resource_group_memory_limit": "google.protobuf.DoubleValue",
-            "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue"
+            "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue",
+            "track_activity_query_size": "google.protobuf.Int64Value"
           },
           "user_config": {
             "max_connections": "google.protobuf.Int64Value",
@@ -304,7 +309,8 @@ The maximum string length in characters is 1000. ||
             "gp_autostats_mode": "GPAutostatsMode",
             "gp_autostats_on_change_threshold": "google.protobuf.Int64Value",
             "gp_resource_group_memory_limit": "google.protobuf.DoubleValue",
-            "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue"
+            "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue",
+            "track_activity_query_size": "google.protobuf.Int64Value"
           },
           "default_config": {
             "max_connections": "google.protobuf.Int64Value",
@@ -339,7 +345,8 @@ The maximum string length in characters is 1000. ||
             "gp_autostats_mode": "GPAutostatsMode",
             "gp_autostats_on_change_threshold": "google.protobuf.Int64Value",
             "gp_resource_group_memory_limit": "google.protobuf.DoubleValue",
-            "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue"
+            "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue",
+            "track_activity_query_size": "google.protobuf.Int64Value"
           }
         },
         "pool": {
@@ -654,6 +661,9 @@ Allows access for DataTransfer. ||
 || yandex_query | **bool**
 
 Allow access for YandexQuery. ||
+|| trino | **bool**
+
+Allow safety access for trino ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.greenplum.v1.Monitoring}
@@ -1051,6 +1061,12 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 
 Identifies the maximum percentage of system memory resources to allocate to resource groups on each Greenplum Database segment node.
 https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_resource_group_memory_limit ||
+|| track_activity_query_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Sets the number of bytes reserved to store the text of the currently executing command.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#track_activity_query_size
+
+Acceptable values are 100 to 102400, inclusive. ||
 |#
 
 ## DBMSConfigSet {#yandex.cloud.mdb.greenplum.v1.DBMSConfigSet}
@@ -1309,6 +1325,12 @@ https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/
 || gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting ||
+|| track_activity_query_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Sets the number of bytes reserved to store the text of the currently executing command.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#track_activity_query_size
+
+Acceptable values are 100 to 102400, inclusive. ||
 |#
 
 ## ConnectionPoolerConfigSet {#yandex.cloud.mdb.greenplum.v1.ConnectionPoolerConfigSet}

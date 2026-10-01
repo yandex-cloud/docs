@@ -20,7 +20,7 @@ For more information about connecting various types of resources to {{ backup-na
 
 Automatic installation of the {{ backup-name }} agent is available only for {{ compute-full-name }} VMs and {{ baremetal-full-name }} servers with particular operating systems. For more information, see [Connecting a {{ compute-name }} VM](./compute.md) and [Connecting a {{ baremetal-name }} server](./baremetal.md).
 
-You can install the {{ backup-name }} agent manually on all supported types of resources. For a complete list of operating systems supporting agent installation, see the [backup provider guides](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/21.06/user/#supported-operating-systems-and-environments.html).
+You can install the {{ backup-name }} agent manually on all supported types of resources. For a complete list of operating systems supporting agent installation, see the [backup provider guides](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/{{ backup-provider-docs-version }}/user/supported-operating-systems-and-environments.html).
 
 ## Technical requirements for resources to back up {#requirements}
 

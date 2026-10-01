@@ -17,7 +17,7 @@
 1. [Подготовьте инфраструктуру для Managed Service for Kubernetes](#infra).
 1. [Подготовьте виртуальную машину](#vm).
 1. [Проверьте доступность кластера](#check).
-1. (Опционально) [Настройте подключение к NTP-серверам](#ntp).
+1. (Опционально) [Настройте синхронизацию времени кластера Managed Service for Kubernetes с собственным NTP-сервером](#ntp).
 1. (Опционально) [Подключите приватный реестр Docker-образов](#cert).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
@@ -25,12 +25,10 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер Managed Service for Kubernetes: использование мастера ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера и ВМ: использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за публичный IP-адрес для ВМ, которая используется для подключения к кластеру ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Плата за сервис Key Management Service: количество активных версий ключа (в статусах `Active` и `Scheduled For Destruction`) и выполненных криптографических операций ([тарифы Key Management Service](../../kms/pricing.md)).
+* Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы Compute Cloud](../../compute/pricing.md)).
+* Сервис Yandex Key Management Service: количество активных версий ключа и выполненных криптографических операций ([тарифы Key Management Service](../../kms/pricing.md)).
 
 
 ## Подготовьте инфраструктуру для Managed Service for Kubernetes {#infra}
@@ -133,6 +131,7 @@
          Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
       
       1. Если вас устраивают планируемые изменения, внесите их:
+      
          1. Выполните команду:
       
             ```bash
@@ -214,6 +213,7 @@
             Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
          
          1. Если вас устраивают планируемые изменения, внесите их:
+         
             1. Выполните команду:
          
                ```bash
@@ -431,7 +431,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
                        update-ca-certificates 
 
                        echo "Restarting containerd"
-                       ps -x -o pid= -o comm= | awk '$2 ~ "^(containerd|dockerd)$" { print $1 }' | xargs kill
+                       { pgrep -x containerd; pgrep -x dockerd; } | xargs -r kill
                        #systemd will get them back less than a minute
                    else
                      echo "Doing Nothing as no certs has not been changed"

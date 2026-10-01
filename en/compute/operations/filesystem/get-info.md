@@ -14,7 +14,7 @@ You can get the file storage size, availability zone, and other file storage inf
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}**.
   1. Select the file storage.
-  1. The **{{ ui-key.yacloud.common.overview }}** page will show the file storage details.
+  1. The **{{ ui-key.yacloud.common.overview }}** tab will display detailed information about the file storage.
 
 - CLI {#cli}
 
@@ -75,7 +75,7 @@ You can get the file storage size, availability zone, and other file storage inf
       * `output "filesystem"`: Output variable that contains information about the file storage size:
          * `value`: Return value.
 
-     You can replace `size` with another variable to get the information you need. For more information about the `yandex_compute_filesystem` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_filesystem).
+     You can replace `size` with any other attribute to get the information you need. For more information about the `yandex_compute_filesystem` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_filesystem).
 
   1. Create the resources:
 

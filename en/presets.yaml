@@ -69,7 +69,11 @@ default:
   auth-main-host: auth.yandex.cloud
   backup-full-name: Yandex Cloud Backup
   backup-name: Cloud Backup
+  backup-provider-docs-version: '26.07'
   backup-short-name: Cloud Backup
+  baremetal-extend-managed-k8s-name: 'Extend: Managed Service for Kubernetes®'
+  baremetal-extend-stackland-name: 'Extend: Yandex Cloud Stackland'
+  baremetal-extend-virtualization-name: 'Extend: Virtualization'
   baremetal-full-name: Yandex BareMetal
   baremetal-name: BareMetal
   bash-cli-ver: bash-2204
@@ -99,9 +103,6 @@ default:
   ch:
     docs: https://clickhouse.com/docs/en
   cic-bgp-asn: 200350
-  cic-pbc-subnet: 178.210.118.46/31
-  cic-pbc-subnet-client: 178.210.118.46
-  cic-pbc-subnet-cloud: 178.210.118.47
   cic-pbc-svc1-ip: 213.180.193.243/32
   ciem-full-name: Cloud Infrastructure Entitlement Management
   ciem-name: CIEM
@@ -120,6 +121,8 @@ default:
   cloud-registry: registry.yandexcloud.net
   cloud-registry-full-name: Yandex Cloud Registry
   cloud-registry-name: Cloud Registry
+  cloud-router-full-name: Yandex Cloud Router
+  cloud-router-name: Cloud Router
   cloud-shell-full-name: Yandex Cloud Shell
   cloud-shell-name: Cloud Shell
   cluster-id: cat0adul1fj0********
@@ -336,8 +339,6 @@ default:
   link-my-account: https://myaccount.yandex.cloud/
   link-org-cloud-center: https://center.yandex.cloud/organization
   link-org-federations: https://org.yandex.cloud/federations
-  link-org-main: https://org.yandex.cloud/
-  link-org-users: https://org.yandex.cloud/users
   link-oslogin-configs: https://storage.yandexcloud.net/oslogin-configs
   link-passport: https://passport.yandex.com/
   link-passport-login: https://passport.yandex.com/auth
@@ -351,11 +352,10 @@ default:
   link-src-main: https://sourcecraft.dev
   link-support-mail: support@yandex.cloud
   link-tracker: https://tracker.yandex.com/
-  link-tracker-cloudless: https://yandex.ru/support/tracker/ru
+  link-tracker-cloudless: https://yandex.ru/support/tracker/en/
   link-video-main: https://video.yandex.cloud/
   link-wiki: https://wiki.yandex.com/
   link-wiki-cloudless: https://yandex.ru/support/wiki/ru
-  link-yadisk-doc: https://yandex.ru/dev/disk-api/doc/en/
   link-yandex: https://yandex.com
   links:
     es:
@@ -389,6 +389,18 @@ default:
   mch-short-name: Managed Service for ClickHouse®
   mcp-hub-name: MCP Hub
   mdb-lb: DB Proxy
+  mdb-versions:
+    mysql-version:
+      actual: '8.4'
+      supported: 5.7, 8.0
+    postgresql-version:
+      deprecated: 14, 14-1c
+      new: 18, 18-1c
+      supported: 15, 15-1c, 16, 16-1c, 17, 17-1c
+    storedoc-version:
+      supported: '7.0'
+    valkey-version:
+      supported: 7.2-valkey, 8.0-valkey, 8.1-valkey, 9.0-valkey
   mes-full-name: Yandex Managed Service for Elasticsearch
   mes-name: Managed Service for Elasticsearch
   mes-short-name: Managed Service for Elasticsearch
@@ -446,15 +458,15 @@ default:
         nginx:
           repository:
             name: >-
-              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1775660129087745327177484940704164668665505295409
-            tag: 1.28.3-v1
+              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1789566872190363361228058870643905000661686010862
+            tag: 1.30.4-v1
         php:
           repository:
             name: >-
-              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1775660129087745327177484940704164668665505295409
+              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1789566872190363361228058870643905000661686010862
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/chart/bitrix-env
-        tag: 1.0.6
+        tag: 1.0.7
     yc_cert-manager-webhook-yandex:
       helmChart:
         name: >-
@@ -466,8 +478,8 @@ default:
         tag: 2.8.0
     yc_crossplane:
       helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: v1.20.6
+        name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/charts/crossplane
+        tag: 2.3.4+yc0.15.0
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
@@ -511,7 +523,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/charts/gwin-chart
-        tag: v1.9.1
+        tag: v1.11.0
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio
@@ -528,7 +540,7 @@ default:
     yc_kyverno:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/kyverno/charts/kyverno
-        tag: 3.8.1
+        tag: 3.8.2
     yc_loki:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/grafana/loki/chart/loki
@@ -551,7 +563,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/prometheus/charts/kube-prometheus-stack
-        tag: 86.2.3-1
+        tag: 88.5.2-1
     yc_thumbor:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor
@@ -577,6 +589,7 @@ default:
   mmy-full-name: Yandex Managed Service for MySQL®
   mmy-name: Managed Service for MySQL®
   mmy-short-name: Managed Service for MySQL®
+  model-gallery-name: Model Gallery
   monitoring-doc-links: ../monitoring/concepts/index.md
   monitoring-full-name: Yandex Monitoring
   monitoring-name: Monitoring
@@ -1211,6 +1224,7 @@ default:
   roles-auditor: auditor
   roles-cloud-member: resource-manager.clouds.member
   roles-cloud-owner: resource-manager.clouds.owner
+  roles-connection-manager-editor: connection-manager.editor
   roles-connection-manager-user: connection-manager.user
   roles-connection-manager-viewer: connection-manager.viewer
   roles-cr-images-scanner: container-registry.images.scanner
@@ -1529,6 +1543,7 @@ default:
       local-nvme:
         greenplum|month|number: 0.1168524403
         greenplum|month|string: $0.1168524403
+        opensearch|month|string: $0.1168524403
       mongodb:
         v3:
           cpu:
@@ -1552,6 +1567,7 @@ default:
         kafka|month|string: $0.0306885197
         mysql|month|number: 0.0306885197
         mysql|month|string: $0.0306885197
+        opensearch|month|string: $0.0306885197
         pg|month|number: 0.0306885197
         pg|month|string: $0.0306885197
       network-nvme:
@@ -1559,14 +1575,50 @@ default:
         ch|month|string: $0.1286557171
         kafka|month|number: 0.1286557171
         kafka|month|string: $0.1286557171
+        opensearch|month|string: $0.1286557171
         redis|month|number: 0.1286557171
         redis|month|string: $0.1286557171
+      network-ssd-io-m3:
+        opensearch|month|string: $0.2154098016
+      network-ssd-nonreplicated:
+        opensearch|month|string: $0.0867540845
       opensearch:
+        backup|month|string: $0.0181180299
+        highfreq-v3:
+          cpu:
+            c100|month|string: $18.29507904
+            c100|string: $0.025409832
+          ram|month|string: $5.488523712
+          ram|string: $0.0076229496
+        highfreq-v4a:
+          cpu:
+            c100|month|string: $22.190160384
+            c100|string: $0.0308196672
+          ram|month|string: $6.668851392
+          ram|string: $0.0092622936
+        v2:
+          cpu:
+            c100|month|string: $11.390162112
+            c100|string: $0.0158196696
+            c50|month|string: $6.635802217
+            c50|string: $0.009216392
+          ram|month|string: $4.7626221888
+          ram|string: $0.006614753
         v3:
           cpu:
+            c100|month|string: $11.390162112
             c100|number: 0.0158196696
             c100|string: $0.0158196696
+            c50|month|string: $6.635802217
+            c50|string: $0.009216392
+          ram|month|string: $4.7626221888
           ram|number: 0.006614753
+          ram|string: $0.006614753
+        v4a:
+          cpu:
+            c100|month|string: $11.390162112
+            c100|string: $0.0158196696
+          ram|month|string: $4.7626221888
           ram|string: $0.006614753
       pg:
         v3:
@@ -1638,6 +1690,17 @@ default:
         text:
           v1|number: 3.8399993856
           v1|string: $3.8399993856
+    vm:
+      registry:
+        asset:
+          v1|number: 0.99999984
+          v1|string: $0.99999984
+        scan:
+          v1:
+            rescan|number: 0.06557376
+            rescan|string: $0.06557376
+            scan|number: 0.1229508
+            scan|string: $0.1229508
   sku|USD|serverless:
     containers:
       compute:
@@ -1699,13 +1762,9 @@ default:
         cold|month|number: 0.0103868836
         ice|month|number: 0.0051934418
         ice|month|string: $0.0051934418
-        ice|number: 0.0000072131
-        ice|string: $0.0000072131
         standard|pricingRate:
           720|month|number: 0.0194754067
           720|month|string: $0.0194754067
-          720|number: 0.0000270492
-          720|string: $0.0000270492
   sku|USD|support:
     organization:
       business:
@@ -1750,6 +1809,37 @@ default:
         vcpu:
           v1|number: 0.0169672104
           v1|string: $0.0169672104
+  sku|USD|v1:
+    commitment:
+      selfcheckout:
+        m6:
+          mdb:
+            opensearch:
+              cpu:
+                c100:
+                  v3|month|string: $9.678686976
+                  v3|string: $0.0134426208
+                  v4a|month|string: $9.678686976
+                  v4a|string: $0.0134426208
+              ram:
+                v3|month|string: $4.0479337786
+                v3|string: $0.0056221302
+                v4a|month|string: $4.0479337786
+                v4a|string: $0.0056221302
+        y1:
+          mdb:
+            opensearch:
+              cpu:
+                c100:
+                  v3|month|string: $8.911473984
+                  v3|string: $0.0123770472
+                  v4a|month|string: $8.911473984
+                  v4a|string: $0.0123770472
+              ram:
+                v3|month|string: $3.714491209
+                v3|string: $0.0051590156
+                v4a|month|string: $3.7150813728
+                v4a|string: $0.0051598352
   sku|USD|video:
     cdn:
       traffic:
@@ -1766,6 +1856,12 @@ default:
       live:
         v1|number: 0.0000251557
         v1|string: $0.0000251557
+      original_video:
+        v1|number: 0.0000066393
+        v1|string: $0.0000066393
+      vod:
+        v1|number: 0.000025082
+        v1|string: $0.000025082
   sku|USD|ydb:
     v1:
       serverless:
@@ -1831,6 +1927,7 @@ default:
   SR: StarRocks
   src-full-name: SourceCraft
   src-name: SourceCraft
+  src-registry-endpoint: pkg.sourcecraft.tech
   stackland-full-name: Yandex Cloud Stackland
   stackland-name: Stackland
   storage-aws-cli-alias: ycs3
@@ -1904,7 +2001,6 @@ default:
   tracker-short-name: Tracker
   translate-full-name: Yandex Translate
   translate-name: Translate
-  translate-short-name: Translate
   trino-service-address: 10.248.0.0/13
   tts-v3-count: 250 characters
   tts-v3-time: 24 seconds
@@ -2248,10 +2344,8 @@ default:
         label_service: Yandex Cloud Billing
         title_accounts: Billing accounts
       common:
-        add: Add
         button_cron-1min: Every minute
         monitoring: Monitoring
-        name: Name
         resource-acl:
           button_assign-binding: Edit roles
         units:
@@ -2270,7 +2364,6 @@ default:
         cloud:
           create:
             popup-create-cloud_button_add: Create
-          label_acl: Access bindings
           quotas:
             label_quota-name-iam:
               serviceAccounts:
@@ -2286,8 +2379,10 @@ default:
         placeholder:
           account-type-filter: Account type
       acl:
+        AclEditDialogNew:
+          action_apply: Save
+          label_title: Edit access bindings
         action:
-          apply: Save
           assign-roles: Assign roles
           edit-roles: Edit roles
           revoke-access: Revoke access
@@ -2297,7 +2392,6 @@ default:
           search-subject-placeholder_6nqFf: "User name or\_e-mail"
           service-accounts: Service accounts
           subject: "Who to\_grant access to"
-          title: Granting access
           user-accounts: User accounts
         resource-acl:
           label_bindings: Roles
@@ -2308,7 +2402,7 @@ default:
         amount: Number
         assemblyDiscountLabel: Cheaper with assembly
         cpuTitle: CPU
-        CustomConfiguration: Custom configuration
+        CustomConfiguration: Configure your own
         disks: Disks
         goToAssembly: "Go\_to\_assembly"
         networkLabel: Network
@@ -2316,17 +2410,11 @@ default:
         prefillWithTemplate: Prefill with template
         ramLabel: RAM
         size: Size
-        StockConfigurations: Stock configurations
+        StockConfigurations: Choose from stock
         type: Type
         withReserve: Enable
-      cloud:
-        button_delete: Delete
-        button_save: Save
-        label_delete-now: Delete now
       fileinput:
         button_attach-file: Attach file
-      forms:
-        label_value: Value
       helpfeedbackdialog:
         button_close: Close request
       labelset:
@@ -2337,6 +2425,7 @@ default:
         product-pricing-type_free: Free
         product-pricing-type_license: Subscription
         product-pricing-type_payg: PAYG
+        related-products_row_vm: "VM\_Image"
       notify-subs:
         label_inherited-subscribers: Default subscribers
         label_subscribers-dialog-header: Adding users
@@ -2355,13 +2444,18 @@ default:
         dspm:
           action_button_apply: Download file
           action_button_export_without_validation: Export without validation
+          action_export: Export
           action_export_with_validation: Validate and export
           card_field_title: Data for search
           card_title_image: "On\_images"
           card_title_text: "In\_text"
           column_name: Name
           dialog_select-service-account_create-new-action: "Create a\_new one"
+          field_file_name: File name
+          field_service_account: Service account
           header_scan_result_sensitive_data: Display sensitive data
+          label_field_bucket: Bucket
+          tab_issues_title: Parameter validation
       services:
         service_compute: Compute Cloud
       settings:
@@ -2385,8 +2479,6 @@ default:
         label_title_communications: Notifications
         label_title_region: Language and region
         label_yandexMessenger-link: Go to bot
-        section_email: Email settings
-        section_phone: Phone number settings
         section_settings: Categories
         section_transports: Channels
         value_theme-system: System
@@ -2423,6 +2515,8 @@ default:
           no-data-key-value: No data
           ok: Ok
           warn: Warn
+        section:
+          type-settings: Alert settings
         threshold-status:
           alarm: Alarm
           warn: Warning
@@ -2438,8 +2532,6 @@ default:
         label_evaluation-window: Evaluation window
         label_trigger-condition: Condition
         label_warning: Warning
-        method_email: Email
-        method_sms: SMS
         section_alert-conditions: Alert parameters
         section_metrics: Metrics
         section_notifications: Notification channels
@@ -2524,6 +2616,7 @@ default:
           dash-picker:
             new-dashboard: New dashboard
         entities-list:
+          action_edit: Edit
           common-filter-placeholder: Search by entry
         juggler-modal:
           form:
@@ -2550,7 +2643,6 @@ default:
         dash:
           create-alert: Create alert
           edit: Edit
-          open-in-monitoring: Open in Monitoring
           save: Save
           setup: Edit
         settings:
@@ -2589,6 +2681,7 @@ default:
       homepage:
         button_alerts-action: Create alert
         button_dashboards-action: Create dashboard
+        title_alerts: Alerts
         title_service-dashboards: Service dashboards
         title_service-features: Features
       logs-metrics:
@@ -2644,7 +2737,6 @@ default:
           annotations: Annotations
           evaluation-window-key-value: Evaluation window
           main-info: Basic information
-          metrics: Metrics
           no-data: No data policy
           notification-channels: Notifications
           time-shift: Evaluation delay
@@ -2691,6 +2783,9 @@ default:
           apply-and-parse: Execute
         hint:
           search-hotkey: 'Search hotkey: Cmd/Ctrl + Enter'
+        tokens:
+          placeholder:
+            service: Enter value of the service label
       quicklinks:
         action:
           add-link: Add a link
@@ -2698,8 +2793,6 @@ default:
         field:
           function: Aggregation function
       services:
-        label_custom: Custom Metrics
-        label_logging: Cloud Logging
         label_managed-kafka: Managed Service for Kafka
         label_mysql: Managed Service for MySQL
         label_postgresql: Managed Service for PostgreSQL
@@ -2758,8 +2851,6 @@ default:
         vis:
           chart-type: Chart type
           color-scheme: Color scheme
-          downsampling:
-            none: No downsampling
           interpolate-key-value: Interpolation
           normalize: Normalize
           scheme-auto: Auto
@@ -2810,11 +2901,14 @@ default:
           oauth_idp_section_title: Identity provider (IdP) configuration
           oauth_security_section_title: OAuth/OIDC security
           oauth_service_section_title: Service provider (SP) configuration
+          saml_field_encrypt_response_data_algo: Data encryption algorithm
+          saml_field_encrypt_response_key_algo: Key encryption algorithm
           saml_field_issuer: Issuer / IdP EntityID
           saml_field_login: Login URL
           saml_field_logout: Logout URL
           saml_field_metadata: Metadata URL
           saml_field_request_signing_enabled: Only accept signed requests
+          saml_field_security_mode: Signature mode
           saml_field_sp_entity: SP EntityID
           secret_section_add_new_secret_action: Add secret
           secret_section_title: App secrets
@@ -2889,10 +2983,12 @@ default:
           column_id: Identifier
         confirm: Confirm
         create: Create
+        delete: Delete
         more: More
         operations: Operations
         overview: Overview
         resource-acl:
+          label_groups_mQQ4T: Groups
           label_invitee-accounts: Invitee accounts
         save: Save
         section-base: General information
@@ -2982,9 +3078,9 @@ default:
             cookieMaxAge: Cookie lifetime
             encryptedAssertions: Sign authentication requests
             forceAuthn: Mandatory re-authentication (ForceAuthn) in IdP
-            issuer: IdP Issuer
-            ssoBinding: Single Sign-On method
-            ssoUrl: Link to the IdP login page
+            issuer: Issuer / IdP EntityID
+            ssoBinding: SSO method
+            ssoUrl: Login URL
         group:
           action_add-member: Add member
           action_create: Create group
@@ -3026,9 +3122,8 @@ default:
         federation:
           action:
             create: Create federation
-          create:
-            action:
-              create: Create federation
+          note:
+            tab-domains: Domains
         group-mapping:
           create:
             add: Add group
@@ -3154,11 +3249,14 @@ default:
           AttributeTransformationsSection:
             action_add_transformation_bc8Cd: Add transformation
             field_if_empty_value_1K7py: Value
+            field_replace_pattern_hM0Yc: Find
+            field_replace_replacement_pFtQ8: Replace with
             field_substring_siBpY: Substring
             type_constant_tvJWi: Constant
             type_extract_after_q4x8n: ExtractAfter
             type_extract_before_ju2PE: ExtractBefore
             type_if_empty_e5unh: IfEmpty
+            type_replace_kQ2vN: Replace
             type_to_lowercase_vRG6c: ToLowercase
             type_trim_3SF6q: Trim
           field_group_all_uY9US: All groups
@@ -3185,6 +3283,8 @@ default:
           SamlAppAcsUrlsField:
             add-acs-url_eMunC: Add URL
           SamlAppEditForm:
+            encrypt-key-algo-sha1: RSA-OAEP-SHA1
+            encrypt-key-algo-sha256: RSA-OAEP-SHA256 (recommended)
             EncryptResponseSection:
               add-cert-action: Add certificate
               field-encode-data-algo: Data encryption algorithm
@@ -3198,7 +3298,9 @@ default:
             field-sp-entity-id_snAsX: 'SP EntityID '
             field-sp-logout-url_sLuRl: SP Logout URL
             RequestSigningSection:
+              add-cert-action: Add certificate
               field-request-signing: Only accept signed requests
+            section-service-provider_83p1J: Service provider (SP) configuration
             signature-mode-assertions_thJgN: Assertions
             signature-mode-response_x7SKD: Response
             signature-mode-response-and-assertions_u2j6T: Assertions and Response
@@ -3243,6 +3345,9 @@ default:
             backgroundName: Background image
             faviconName: Favicon
             logoName: Logo
+        federations:
+          action:
+            add_domain: Add domain
         idp:
           PasswordDialog:
             action_save-password_gaB2s: Save password
@@ -3259,9 +3364,16 @@ default:
             action-deactivate: Deactivate
           AuthPolicyForm:
             section_title_scope_b9vbe: Conditions
+          i18n:
+            ts:
+              sspr_two-any_16pJs: Sequential entry of any two authenticators
           mfa-overview-action-activate: Activate
           mfa-overview-action-suspend: Suspend
           mfa-policies-create-policy-action: Create policy
+          MfaPolicyForm:
+            caption_sspr_enabled_dXFne: Allow password reset
+            caption_sspr_methods_7Xw6F: Reset method
+            sspr-section_4HP7w: Self-reset password
           MfaPolicyPageLayout:
             policies_title: MFA policies
             tab_exclusions: Exclusions
@@ -3279,6 +3391,15 @@ default:
               their details
             title_users-list-visibility_ftTaP: Confidentiality
           PolicyResultCard:
+            effect_allow: Allow
+            effect_deny: Deny
+            field_access: Access
+            field_factor-type: Factor type
+            field_login-requirements: Login requirements
+            field_require-once: Request once on first login
+            field_ttl: Duration
+            login-requirement_skip-mfa: Skip MFA
+            login-requirement_step-up: Enforce step-up verification
             section_title: Result
           ScopeCardBlock:
             exclude_label_4Mn7B: Exclude
@@ -3386,6 +3507,7 @@ default:
       security-center:
         alert:
           action_alert_analysis: Alert analysis
+          alert_severity-info: Remark
         alerts:
           sink:
             action_create: Create sink
@@ -3404,7 +3526,6 @@ default:
         kspm:
           title_clusters: Clusters
           title_dashboard: Dashboard
-        label_acl-diagnostics: CIEM
         label_alerts: Alerts
         label_comp: Compliance
         label_dspm: DSPM
@@ -3470,8 +3591,7 @@ default:
             controlRule_kr2Bv: Control rule
             module_63uuk: Module of control
             standards_iv6a5: Rule sets
-            verificationMethod_dS9B2: |
-              Rule type
+            verificationMethod_dS9B2: Check type
             violations_q7AcU: Violations
           RuleExceptions:
             placeholder_action_t5zxy: Create exception
@@ -3490,13 +3610,24 @@ default:
             field_scope_kCG8J: Resource
             field_type_exclude_cigcD: No check required
             field_type_manual_mbKxp: Manually scanned
+        cspm:
+          PageActions:
+            action_title_check_environment_jovUa: Check environment
+            action_title_configure_control_oGGv5: Configure CSPM
+            action_title_download_report_pP1y8: Download report
+          PageHeader:
+            page_tab_title_about_fEPiv: About the service
+            page_tab_title_errors_g7fT6: Notifications
+            page_tab_title_history_4o4Hr: Check history
+            page_tab_title_overview_hvqrW: Dashboard
+          TopAlertsWidget:
+            card_heading_alerts_8fZB8: Top alerts
         discovery:
           action_include-in-scan_2wT6B: Add to the scan
           AnalyticsDashboard:
             details_button_1ZfAk: Details
           header_resource_kDJFW: Resource
         dspm:
-          action_button-export_pMSM8: Export
           AnalyticsPage:
             buckets_jwots: Buckets
             label_download-analytics_8mgG8: Download results by file
@@ -3530,16 +3661,12 @@ default:
             title_discovery_kkTCM: v2.0
             title_dspm_xm8pa: v1.0
             title_prefix_iWUEX: 'Interface: '
-          field_bucket-path_5qRqM: Path to bucket
-          field_file-name_kWRPK: File name
-          field_service-account_rTeXv: Service account
           infoTypes:
             value_financial-data_kTC5e: Financial data
             value_medical-data-images_7EQ2X: Medical data
             value_other_wUrAZ: Other
             value_personal-data_w5gVm: Personal data
             value_secrets_4CdGy: Secrets
-          label_field-bucket_3mM6u: Bucket
           label_include_in_scan_discovery_4wwj7: Buckets
           label_resources_9BVEB: Resources
           ScanForm:
@@ -3548,7 +3675,6 @@ default:
           search-categories_section_title_cPyLn: Data categories for search
           section_settings_title_igA6u: Scope parameters
           selected_resources_fbUsF: Selected
-          tab_issues_title_hLQN2: Parameter validation
           Yandex360DataSourceForm:
             action_add_resources_2qrRH: Add resources
             action_configure-connection_v6Gjm: Configure connection
@@ -3641,9 +3767,6 @@ default:
           title_security-requirements_8r7hd: Sets of requirements
           TriggeredRunsCheckEnvironmentDialog:
             action_start-check_w0jM2: Run check
-          TriggeredRunsControl:
-            action_check-environment_k3mP9: Check environment for compliance with control rules
-            action_download-check-report_q7nR2: Download check report
           workload-labels-checkbox_Wl4Cb: Workload labels
           workload-names-checkbox_Wn4Cb: Workload names
           workload-types-checkbox_Wt4Cb: Workload types
@@ -3709,12 +3832,6 @@ default:
           query-placeholder_auE1D: Enter a query using KQL syntax, or select a template query
           YcdrPageLayout:
             investigations_wYxSe: Investigations
-      shared:
-        components:
-          severity_high_cahHH: High severity
-          severity_info_biSRh: Remark
-          severity_low_tqf9A: Low severity
-          severity_medium_8LZ4w: Medium severity
       siem:
         SearchActionButtonBlock:
           save: Save
@@ -3726,6 +3843,9 @@ default:
           label_search-placeholder: Describe issue or ask a question
           table:
             label_column_ticket_type: Ticket type
+      ui:
+        label_access-analyzer_4bfVo: Access Analyzer
+        label_cspm_amGv8: CSPM
       user:
         title_groups: Groups
         title_oslogin-profiles: OS Login Profiles
@@ -3794,6 +3914,23 @@ default:
         support: Support
     yacloud_quotas:
       quotas:
+        iam:
+          accessBindings:
+            count: >-
+              Total number of access right
+              [bindings](https://yandex.cloud/en/docs/iam/concepts/access-control/#access-bindings)
+          accessKeys:
+            count: Number of access keys
+          apiKeys:
+            count: Number of API keys
+          authorizedKeys:
+            count: Number of authorized keys
+          oidcWLIFederations:
+            count: Number of service account federations
+          saFederatedCredentials:
+            count: Number of service accounts linked to the federation
+          serviceAccounts:
+            count: Number of service accounts
         vdi:
           desktopCores:
             count: Number of vCPU desktops
@@ -3863,9 +4000,9 @@ default:
       channels:
         action_add-domain: Add domain
         action_create-channel: Create a channel
-        label_advertisement: Advertisement
+        label_advertisement: Monetization
         label_allowed-domains: Permitted domains
-        label_category: Category
+        label_category: Content category
         label_description: Description
         label_domains-status: Check status
         label_page-id: PageID
@@ -3904,9 +4041,11 @@ default:
         field_logo-enabled: Show logo
         field_logo-redirect-on-click-url: Logo redirect link
         field_logo-show-with-controls: Hide with player interface
+        field_persist-playback-progress: Save playback progress
         label_style-preset: Player preset
         label_title: Template name
         section_logo-settings: Logo settings
+        section_playback-settings: Playback settings
         section_styles-settings: Style setup
         section_wigets-settings: Widget settings
         title_presets: Player template
@@ -3920,15 +4059,14 @@ default:
         action_add-stream-episode: Add an episode
         action_copy-code: Copy
         action_create-stream: Create a broadcast
-        action_start-stream: Start
-        action_stop-stream: Finish
         field_segment-duration: Delay mode
         label_auto-publish-streams: Auto-start broadcast
+        label_enable-broadcast: Accept signal
         label_episode-autoplay: Auto play video
         label_episode-hidden: Hide controls in player
         label_episode-mute: Play video without sound by default
         label_episode-type: Episode type
-        label_episode-type-broadcast: Broadcast
+        label_episode-type-broadcast: Recorded broadcast
         label_episode-type-live: Live
         label_player-template: Player template
         label_rewind-buffer: Rewind buffer (sec)
@@ -3938,12 +4076,13 @@ default:
         label_stream-episode-start: Episode start
         option_segment-duration-low: Low
         option_segment-duration-standart: Standard
-        status_finished: Finished
         status_offline: Offline
         status_on-air: On air
         status_preparing: Preparing
         status_ready: Ready
         title_stream-episodes: Episodes
+        title_stream-event-journal-tab: Journal and metrics
+        title_stream-view-statistics-tab: View statistics
         title_streams: Broadcasts
       thumbnails:
         label_thumbnail: Thumbnail
@@ -3958,7 +4097,7 @@ default:
         label_accessRights: Access
         label_allow-access: Grant access
         label_description: Description
-        label_enable-ad: Enable ads
+        label_enable-ad: Monetization
         label_neuro-translation: Neural translation
         label_subtitles: Subtitles
         label_title: Name
@@ -3980,6 +4119,16 @@ default:
         cluster:
           overview:
             title_resource-webserver: Web server
+        ClusterForm:
+          StorageSection:
+            source_git_pgAeB: Git
+            source_s3_t1FCM: S3
+            storage_git_branch_5sU67: Branch
+            storage_git_repo_pKzRo: Repository address
+            storage_git_ssh_key_ewdAh: SSH key
+            storage_git_subpath_rbaX6: Path to DAG files
+            storage_source_type_7Jvgw: Data source type
+        field_connector-bucket-name: Bucket
         field_lockbox: Use Lockbox Secret Backend
         section_accesses: Access settings
         section_airflow-configuration: Airflow configuration
@@ -4144,30 +4293,39 @@ default:
         label_bucket: Bucket
         label_cloudLogging: Cloud Logging
         label_collecting-logs: Collecting events
+        label_control-plane-collection-new: Control plane log collection
+        label_data-plane-collection-new: Data plane log collection
         label_dataStream: Data Streams
         label_destination: Destination
         label_event-filter-section: Collecting data events
         label_eventRouter: EventRouter
         label_log-group: Log group
+        label_log-receiver: Log destination
         label_object-prefix: Object prefix
         label_objectStorage: Object Storage
         label_organization-manager:
           organization: Organization
         label_path-filter-section: Collecting management events
+        label_resource-manager_events-filter_all: Get all
+        label_resource-manager_events-filter_exclude: Exclude
+        label_resource-manager_events-filter_include: Selected
         label_resource-manager:
           cloud: Cloud
           folder: Folder
         label_resource-type: Resource
         label_service-account: Service account
+        label_smartwebsecurity: Smart Web Security
         label_stream-name: Data stream
         label_trail: Trail
         label_trails: Trails
         logs: Diagnostic log
+        section_general-info: General information
         title_kms-key: Encryption key
       backup:
         action_add-to-recovery-list: Add to list of files to be recovered
         action_bms-recovery: Recover BareMetal server
         action_detach-baremetal-instance: Detach server from policy
+        action_detach-external-resource: Detach resource
         action_detach-vm-instance: Detach VM from policy
         action_recovery: Restore VM
         action_recovery-start: Restore
@@ -4176,15 +4334,15 @@ default:
         button_attach-instance: Attach a VM
         button_connect-external-resource: Connect external resource
         button_create-policy: Create policy
-        column_baremetal-instance-status: Server status
+        column_operation-status: Operation status
         context_current-bms: current
         context_current-vm: current
         dialog_connect-external-resource_title: Connect external resource
+        field_add-resource_resource-type: Resource type
         field_connect-external-resource_policies: Backup policies
         field_connect-external-resource_resource-type: Resource type
         field_delete-old-vm: Delete the outdated VM
         field_recover-to-resource: Target resource
-        field_vm-instances: Cloud Backup
         files-recovery:
           value_location-custom: Custom
           value_location-original: Original
@@ -4272,6 +4430,17 @@ default:
         action_stop-prolongation-server-dialog: Disable
         actions_add-partition: Add partition
         addAdditionalSubnet: Add additional subnet
+        extend:
+          RequestClusterDialog:
+            actionSubmit: Send request
+            fieldRam: RAM amount
+            fieldStorage: Storage
+            fieldTask: Describe your technical task
+            fieldVcpu: vCPU cores
+          StacklandListPage:
+            leaveRequest: Submit a request
+          VirtualizationListPage:
+            leaveRequest: Submit a request
         field_choose-marketplace-os: Marketplace
         field_choose-no-os: No OS
         field_CIDR_rwYMi: CIDR
@@ -4304,6 +4473,9 @@ default:
         label_create-public-subnet-full: Order a public subnet
         label_create-server: Lease server
         label_create-subnetwork: Create subnet
+        label_extend: BareMetal Extend
+        label_extend-stackland: 'Extend: Yandex Cloud Stackland'
+        label_extend-virtualization: 'Extend: Virtualization'
         label_images_duoXD: Boot images
         label_kvm-console_37Kma: KVM console
         label_load-image: Upload image
@@ -4455,6 +4627,7 @@ default:
         label_source-type: Origin type
         label_status-active: Active
         label_status-backup: Backup
+        label_tls-profile: TLS security profile
         label_use-bucket-site: Use bucket site
         md_value_certificate-le: Let's Encrypt^®^
         resources:
@@ -4493,6 +4666,10 @@ default:
         value_source-type-url: Server
         value_stepper-additional: Additional
         value_stepper-main-settings: Main settings
+        value_tls-profile-compatible: Compatible (TLSv1.2+)
+        value_tls-profile-legacy: Legacy (TLSv1.0+)
+        value_tls-profile-secure: Secure (TLSv1.2+ with PFS and AEAD support)
+        value_tls-profile-strict: Strict (TLSv1.3)
       certificate-manager:
         action_import: User certificate
         action_request: Let's Encrypt certificate
@@ -4510,6 +4687,7 @@ default:
           field_chain: Intermediate certificate chain
           field_privateKey: Private key
         metadata:
+          field_description: ' Description'
           field_name: Name
         overview:
           action_edit-meta: Edit
@@ -4608,9 +4786,28 @@ default:
         label_marketplace: Marketplace
       cloud-registry:
         action_registry-create: Create registry
+        action_scan-artifacts-modal-add: Add
+        label_vulnerability-severity-tooltip-critical: Maximum severity
+        label_vulnerability-severity-tooltip-high: High severity
+        label_vulnerability-severity-tooltip-low: Low severity
+        label_vulnerability-severity-tooltip-medium: Medium severity
+        menu_scanner: Vulnerability scanner
         registries:
           button_update-ip-permissions-full: Configure access
           registry-kind_docker: Docker
+        scan-history-empty_button: Open Security Deck
+        scan-history-placeholder_action_new-scan: New scan
+        scan-policy-form-card:
+          button_add_artifacts: Add artifacts
+          label_artifacts-to-scan_all: All artifacts
+          label_artifacts-to-scan_selected: Only selected
+        scan-policy-settings-form:
+          row_scan-lang-packages: Scan language packages
+          section_on-push-title: Scanning artifacts when adding to the registry
+          section_scheduled-title: Periodic artifact scanning
+        scanner-settings:
+          action_configure-scanner: Configure scanner
+          label_scanning-language-packages: Language package scanning
         title_ip-permissions: Access for IP addresses
         title_registries: Registries
         title_registry-artifacts: Artifacts
@@ -4659,8 +4856,6 @@ default:
         field_vapid: Public VAPID key
         field_web-push-endpoint_params: Endpoint parameters in JSON
         label_channels: Notification channels
-        label_editor-json: JSON
-        label_editor-text: Text
         label_endpoints: Endpoints
         label_phone-numbers: Test numbers
         local:
@@ -4704,6 +4899,7 @@ default:
         button_cron-15min: Every 15 minutes
         button_cron-1min: Every minute
         button_cron-day: Every day
+        button_refresh: Refresh
         button_update: Update
         button_upload: Upload
         cancel: Cancel
@@ -4752,6 +4948,7 @@ default:
         move: Move
         name: Name
         not-selected: Not selected
+        objects: Objects
         open: Open
         operations-key-value: Operations
         operations:
@@ -4783,6 +4980,7 @@ default:
           label_megabyte: MB
           label_time-min_many: minutes
           label_time-min_zero: minutes
+          label_time-sec: second
           label_time-sec_many: seconds
         update: Update
         updated-at: Date modified
@@ -4798,6 +4996,7 @@ default:
             button_select-subject: Select subject
         certificates:
           button_empty-add: Add certificate
+          popup-confirm_button_delete: Delete
         compute:
           network-select:
             field_address: IP address
@@ -4868,13 +5067,14 @@ default:
         internal-v4-address-field:
           button_internal-address-reserve: Reserve
           field_internal-ipv4-address: Internal IPv4 address
-          label_internal-address-title: IP-address
         key-values-input:
           label_key: Key
           label_value: Value
         label-set:
           button_add-label: Add label
+          label_enter-keyboard-key: Enter
           label_labels: Labels
+          label_labels_1qrKA: Labels
         maintenance-alert:
           button_reschedule: Reschedule
           value_next-available-window: Next window
@@ -4914,8 +5114,6 @@ default:
           button_create-key: Create key
           button_create-key-new: Create
           label_no-symmetric-key: Not selected
-        vpc-security-group-select:
-          label_add-security-group: Add security group
         vpc:
           network-select:
             button_create-network: Create network
@@ -4964,6 +5162,8 @@ default:
             cloudBackup_title_aB1c2: Cloud Backup
           BackupSection:
             section_backup_1MXwy: Backup
+          BasicSection:
+            field_instance-name_n8rSv: VM name
           CloudBackupFooter:
             button_create-policy_cBf1a: Create policy
             placeholder_select-policy_cBf3c: Select policy
@@ -5020,10 +5220,8 @@ default:
           edit:
             label_title: Changing an instance group
           overview:
-            label_authority: Authority
             label_host: Host
             label_instance-address: Public IP address
-            label_service-name: Service name
             section_instances-state: Virtual machines
           switch_instances: Virtual machines
         groups:
@@ -5126,8 +5324,9 @@ default:
             button_update: Save changes
           overview:
             backup-overview:
+              cloud-backup-card:
+                label_connection-status: Connection status
               title_backup-section: Backup
-            button_action-edit: Edit VM
             button_action-ssh: Connect in Cloud Shell
             button_add-network-interface: Add network interface
             button_add-public-ip: Add public IP address
@@ -5317,7 +5516,6 @@ default:
           section_overview: Overview of Docker image
         overview:
           button_create: Create registry
-          popup-confirm_button_delete: Delete
           popup-create_button_create: Create registry
           popup-create_field_auto_scan: Automatic scanning
           popup-create_field_name: Name
@@ -5394,7 +5592,7 @@ default:
         label_add-terms: Edit terms
         label_ai-label: AI
         label_asset-lineage-depth: Depth
-        label_asset-lineage-weak: Display additional connections
+        label_asset-lineage-weak: Additional connections
         label_connected-terms: Linked terms
         label_create-catalog: Creating a catalog
         label_create-classification-action: Create classification
@@ -5404,7 +5602,6 @@ default:
         label_create-source-button: Create data source
         label_create-tag-action: Create tag
         label_create-term-action: Create term
-        label_data-store: Data store
         label_domains: Domains
         label_empty-ingestion-count-short: No ingestion
         label_ingestion-count: Number of ingestions
@@ -5419,14 +5616,18 @@ default:
         label_search-placeholder: Data search
         label_source-data-tab: Uploaded data
         label_source-database-type: Data source type
-        label_sources: Data sources
+        label_source-queries-tab: Queries
         label_subterms: Child terms
         label_tag-mutual-exclusion: Mutually exclusive
         label_tags-and-classification: Tags and classifications
         label_term-synonyms: Synonyms
         label_term-synonyms-add: Add
         label_terms-and-glossaries: Terms and glossaries
-        title_search-data: Metadata search
+        layout:
+          label:
+            search-new-layout_Y7pK2: Search
+            sources-new-layout_N6vT1: Sources
+            storage-new-layout_L4xQ8: Storage
       data-streams:
         button_connect: Connect
         button_create-stream: Create stream
@@ -5443,8 +5644,6 @@ default:
         label_data-storage-time-limit: Time Limit
         label_data-stream: Data stream
         label_database: Database
-        label_meter-mode: Pricing Mode
-        label_request-units: Actual usage
         label_shards: Shards
       data-transfer:
         button_create-endpoint: Create endpoint
@@ -5481,6 +5680,7 @@ default:
           field_main-jar: Main jar
           field_main-python-file: Main python file
           field_mapreduce-job-type: Mapreduce
+          field_packages: Packages
           field_properties: Properties
           field_pyspark-job-type: PySpark
           field_query-file-uri: Query file uri
@@ -5509,7 +5709,6 @@ default:
         label_records: Data
         label_ttl: TTL
         label_zone: Zone
-        label_zone-record-sets: Records
         label_zones-list: Zones
       entity:
         ipAddress: IP address
@@ -5519,19 +5718,30 @@ default:
         label_service-account-select: Service account
       gitlab:
         action_create-backup: Create backup
-        button_configure-data-types: Configure data storage in Object Storage
+        action_create-instance-from-backup: Create instance from backup
+        action_delete-backup: Delete backup
+        action_get-backup-link: Get link
+        action_restore-backup: Restore instance
+        button_configure-data-types: Configure storage
         button_create-instance: Create instance
         button_finish-migration: Complete migration
         button_rollback-migration: Cancel migration
         button_runners_empty-create: Create Runner
         button_setup-omniauth: Configure
         button_start-migration: Move instance
+        components:
+          DownloadBackupModal:
+            button_generate: Get link
+            label_backup-link: Backup
+            label_lifetime: Lifetime
+            label_secrets-link: GitLab Secrets
         field_admin-email: Email
         field_admin-login: Login
         field_approval-rules: Approval rules
         field_approval-rules-token: Gitlab token
         field_capacity-per-instance: Number of parallel tasks per worker
-        field_delete-untagged: Delete untagged images during maintenance
+        field_copy-object-storage: Transfer data from Object Storage
+        field_copy-omniauth-config: Transfer OmniAuth settings
         field_domain: Domain
         field_idle-time-minutes: Maximum worker downtime, in minutes
         field_max-use-count: Maximum number of jobs per worker
@@ -5542,6 +5752,7 @@ default:
         label_autoscale-section: Autoscale settings
         label_configuration-section: Configuration
         label_instances-title: Instances list
+        label_restore-section: Restore settings
         runners_popup-confirm_button_delete: Delete
         switch_instances: Instances
         title_backups: Backups
@@ -5869,6 +6080,7 @@ default:
             label_message-queue: Message Queue
             label_metadata-hub: Yandex MetaData Hub
             label_monitoring: Monitoring
+            label_monium: Monium
             label_postbox: Cloud Postbox
             label_schema-registry: Schema Registry
             label_serverless-containers: Serverless Containers
@@ -5880,6 +6092,7 @@ default:
             label_storage: Object Storage
             label_vdi: Cloud Desktop
             label_vpc: Virtual Private Cloud
+            label_websql: WebSQL
             label_ydb: Managed Service for&nbsp;YDB
             label_ymq: Message Queue
             label_yq_ru: Yandex Query
@@ -5906,6 +6119,7 @@ default:
               column_key_last-used-at: Date of last use
               column_key_masked-secret: API key
               column_key_scope: Scope
+              field_key-algorithm: Encryption algorithm
               field_key-description: Description
               field_key-expires-at: Expires at
               field_key-scope: Scope
@@ -5955,17 +6169,14 @@ default:
         public-connection:
           public-connections_7xYcV: Public connections
         trunk-connection:
-          connection-capacity_tkrnE: Connection capacity
-          connection-type_23Twp: Connection type
-          connection-type-single-port-direct_1QHVe: Direct
           point-of-presence_265QN: Point of presence
-          transceiver-type_2WtM8: Transceiver type
           trunk-connections_kBGNL: Trunk connections
           TrunkConnectionListScreen:
             create-trunk-connection_oUuYo: Create trunk connection
         vlan-id_2wghK: VLAN ID
       iot:
         button_add-alias: Add alias
+        button_add-certificate: Add certificate
         button_add-device: Add device
         button_add-password: Add password
         button_add-yds-export: Add export
@@ -5981,10 +6192,23 @@ default:
         label_yds-exports: Export to Data Streams
       k8s:
         access:
-          button_create-sa: Service accounts
+          button_filter-create-sa: Create service account
+          label_service-accounts: ServiceAccounts
           label_title: Access management
           popup-add-sa_field_name: Name
           popup-add-sa_field_namespace: Namespace
+        baremetal-node-groups:
+          create:
+            field_node-count: Nodes per group
+            settings:
+              action_create-node-group: Create a node group
+              field_k8s-version: Kubernetes version
+              field_max-unavailable: Maximum unavailable nodes
+              field_private-subnet: Private subnet
+              label_internet-access: Internet access
+              section_network-interfaces: Network interfaces
+            step_configuration: BareMetal server configuration
+            step_settings: Node group setup
         cluster:
           button_create-resource: Create
           field_namespace: Namespace
@@ -5994,8 +6218,9 @@ default:
             section_releases: Installed applications
           node-groups:
             button_create: Create a node group
+            button_create-baremetal-ng: BareMetal
+            label_type-baremetal: BareMetal
             label_type-custom: External
-            popup-confirm_button_delete: Delete
           overview:
             label_health: State
             label_master-title: Master
@@ -6051,7 +6276,9 @@ default:
             value_maintenance-daily: Daily
             value_maintenance-disabled: Disable
             value_maintenance-weekly: Custom
-          popup-confirm_button_delete: Delete
+        configuration:
+          label_config-maps: ConfigMaps
+          label_secrets: Secrets
         custom-resources:
           label_tab-resources: Resources
         IAMService:
@@ -6062,10 +6289,11 @@ default:
         MaintenanceSection:
           maintenance-window-field-with-none-option_tx5Wn: Maintenance frequency / Disable
         namespaces:
-          button_create: Create
+          button_filter-create: Create namespace
           popup-add_field_name: Name
         network:
           label_ingress: Ingresses
+          label_services: Services
         node-group:
           access-method:
             field_os-login-access-method: Access by OS Login
@@ -6120,7 +6348,6 @@ default:
             label_labels: Labels
             label_monitoring: Monitoring
         nodes:
-          button_action-cordon: Cordon
           button_action-uncordon: Uncordon
           label_node-groups: Node group
           label_nodes: Nodes
@@ -6131,15 +6358,22 @@ default:
           button_action-add-default: Use as default
           button_action-remove-default: Don't use as default
           label_pv: PersistentVolumes
+          label_pvc: PersistentVolumeClaims
           label_storage-classes: StorageClasses
         switch_operations: Operations
         workloads:
           label_cron-jobs: CronJobs
+          label_daemon-sets: DaemonSets
+          label_deployments: Deployments
+          label_hpa: HPA
+          label_jobs: Jobs
           label_pods: Pods
+          label_stateful-sets: StatefulSets
           label_tab-logs: Logs
+          label_tab-monitoring: Monitoring
           label_tab-yaml: YAML
         WorkloadsActions:
-          pod-exec_jwJ3R: Terminal
+          pod-exec_jwJ3R: Connect
       kafka:
         button_add-topic: Add topic
         button_create-connector: Create connector
@@ -6263,14 +6497,13 @@ default:
             field_listener-name: Name
             field_listener-port: Port
             field_listener-protocol: Protocol
-            field_listener-subnet-id: Subnet
             field_listener-target-port: Target port
             field_network-load-balancer-type: Type
             label_add-listener: Add listener
             label_add-target-group: Add target group
             label_address-type: Public address
-            label_advanced: Advanced
             label_edit-health-check: Configure
+            label_external: External
             label_internal: Internal
             label_target-group-id: Target group
             section_listeners: Listeners
@@ -6344,6 +6577,7 @@ default:
         field_logging: Write logs
         label_destination: Destination
         label_export: Export logs
+        label_filter-levels: Level
         label_filter-query: Query
         label_group: Group
         label_groups: Groups
@@ -6374,18 +6608,27 @@ default:
         action_goto-partner-url: Link to service
         action_move: Move
         action_purchase-license: Purchase a subscription
+        action_send-msg: Send
         action_specify-vm: Link virtual machine
         action_to-pay-license: Pay
         button_continue: Continue
-        button_disallow-analytics-scanning: Prohibit Marketplace from collecting statistics
+        button_disallow-analytics-scanning: Forbid statistics collection
         button_k8s-product-use: Go to install
+        button_request-access: Request access
+        button_request-access-from-publisher: Request access from publisher
+        button_request-access-to-product: Send request
         button_use: Use
         label_available-products: Application available for installation
         label_licenses: Subscriptions
+        label_product-access-request: Access requests
+        label_product-access-request-status-approved: Approved
         label_product-filter-search-placeholder: Product search
+        label_request-access-billing-account: Billing account
         label_service-name: Marketplace
         label_tariff-type: Pricing type
         section_tariff-section: Pricing method
+        title_product-request-messages: Message about request
+        title_request-access-to-product-dialog: Request for product access
       mdb:
         AuthMethodColumn:
           value_iam_boWet: IAM
@@ -6429,8 +6672,10 @@ default:
             column_attributes-type: Data type
             field_access-to-key-from-attributes: Access to key from attributes
             field_allow-read-expired-keys: Allow read expired keys
+            field_block-size: Block size
             field_collection: Collection
             field_db: Database
+            field_file-size: Cache file size
             field_fixed-lifetime: Period duration
             field_host: Host
             field_hosts: Hosts
@@ -6449,23 +6694,32 @@ default:
             field_query-wait-timeout-milliseconds: Query wait timeout
             field_range-lifetime-max: Maximum
             field_range-lifetime-min: Minimum
+            field_range-max-name: Name
+            field_range-max-type: Type
+            field_range-min-name: Name
+            field_range-min-type: Type
+            field_read-buffer-size: Read buffer size
             field_replicas: Replicas
             field_size-in-cells: Cache size
             field_source: Source
             field_structure-attributes: Data column
             field_structure-id: Numeric key
+            field_structure-key: Composite key
             field_table: Table
-            field_update-interval: Period
             field_update-queue-push-timeout-milliseconds: Update queue push timeout
             field_user: User
             field_where: Selection condition
+            field_write-buffer-size: Write buffer size
             label_fixed-lifetime: fixed
             label_range-lifetime: variable
+            label_range-max: 'End of range column:'
+            label_range-min: 'Start of range column:'
             label_source-clickhouse: ClickHouse
             label_source-http: HTTP(s)
             label_source-mongodb: StoreDoc
             label_source-mysql: MySQL
             label_source-postgresql: PostgreSQL
+            section_lifetime: Update rate
           field_diskSizeLimit: Maximum storage size
           field_emergencyUsageThreshold: Immediately when full at more than
           field_plannedUsageThreshold: In the maintenance window when full at more than
@@ -6473,7 +6727,10 @@ default:
           field_thresholds: Increase size
           hosts:
             action_add-host: Create host
+            action_create-alias: Create alias
+            action_delete-alias: Delete alias
             action_delete-host: Delete
+            action_move-cluster-alias: Move alias
             action_restart-host: Restart
             button_add-clickhouse-keeper: Create ClickHouse Keeper host
             button_add-zookeeper: Create ZooKeeper host
@@ -6481,12 +6738,14 @@ default:
             button_manual-failover: Switch master
             button_rebalance-cluster: Rebalance cluster
             button_rebalance-cluster-short: Rebalance
+            field_host_alias: Host alias
             host_column_name: Host FQDN
             host_column_public-ip: Public access
             host_column_role: Role
             host_column_zone: Availability zone
             label_title: Hosts
             popup-confirm_button: Confirm
+            section_cname-alias: CNAME alias
             switch_monitoring: Monitoring
             switch_overview: Overview
           label_mdb: Cluster
@@ -6501,7 +6760,6 @@ default:
             button_action-edit: Edit
             label_access-datalens: DataLens access
             label_access-websql-service: WebSQL access
-            label_advanced-settings: DBMS settings
             label_bucket: Bucket name
             label_hdd: Storage
             label_health: State
@@ -6534,6 +6792,7 @@ default:
           switch_jobs: Jobs
           switch_monitoring: Monitoring
           switch_network: Network
+          switch_recommendations: Recommendations
           switch_shards: Shards
           switch_subclusters: Subclusters
           switch_users: Users
@@ -6666,6 +6925,7 @@ default:
           label_master-subcluster: Master
           label_max-size-units: GB
           label_network: Network
+          label_subnetwork: Subnet
           maintenance-window-type: Maintenance
           network_field_form-type: Network ID format
           network_field_subnetwork: Subnet
@@ -6680,6 +6940,7 @@ default:
           section_dependencies: Dependencies
           section_disk: Storage size
           section_host: Hosts
+          section_host-resources: Host compute resources
           section_network: Network settings
           section_network-settings: Network settings
           section_pooler: Connection pooler
@@ -6725,6 +6986,7 @@ default:
           AssetProfiling:
             ProfileHeader:
               title_profile-parameters_26kSu: Profiling settings
+        label_manage-metadata: Manage metadata
       metastore:
         action_export: Export
         action_import: Import
@@ -6761,6 +7023,7 @@ default:
             section_mongod-resources_ncXUZ: Mongod Resources
             section_mongoinfra-resources_13TPT: Mongoinfra Resources
             section_mongos-resources_wBGnr: Mongos Resources
+            section_resources_5RLrK: Resources
           sections:
             option_sharding-type-disabled_3ErMk: Disabled
             option_sharding-type-extended_9NHmb: Advanced
@@ -6791,6 +7054,9 @@ default:
           switch_users: Users
         field_backup_priority: Backup priority
         field_priority: Master priority
+        hosts:
+          dialog:
+            button_choose: Save
         switch_list: Clusters
         switch_operations: Operations
       opensearch:
@@ -6816,7 +7082,6 @@ default:
             title_virtual-node-group: Virtual node group
       page:
         welcome:
-          button_create: Create
           field_cloud-name: Cloud name
           field_organization: Organization
       postbox:
@@ -6824,7 +7089,10 @@ default:
         button_create-configuration-set: Create configuration
         button_create-identity: Create address
         button_run-verification: Run verification
+        field_engagement-metrics: Engagement statistics
         field_secure-connection: Deliver emails only via secure connection
+        field_suppression-list-check: Check the list
+        field_suppression-reason-type: Suppression type
         label_address: Domain
         label_allowed-senders: Allowed senders
         label_configuration-set: Configuration
@@ -6841,6 +7109,7 @@ default:
         label_private-key: Private key
         label_restrict-senders: Restrict sender list
         label_selector: Selector
+        label_signing-type-external: Advanced
         label_signing-type-internal: Simple
         label_statistics: Statistics
         label_statistics_bounced-event: Not delivered
@@ -6853,7 +7122,14 @@ default:
         label_statistics_opens-event: Openings
         label_statistics_sent-event: Sent
         label_statistics_unsubscribes-event: Unsubscribes
+        label_suppressed-destinations: Suppression list
+        label_suppression-options: Suppression settings
+        Postbox:
+          SuppressedDestinations:
+            email-address_h3moC: Email address
+            reason_wp4hJ: Reason
         section_dkim: Email signature configuration (DKIM)
+        section_tracking-options: Statistics collection settings
       postgresql:
         cluster:
           additional-field-pooling_mode: Pooling mode
@@ -6881,7 +7157,13 @@ default:
           switch_monitoring: Monitoring
           switch_shards: Shards
         field_announce-hostnames: Use FQDN instead of IP addresses
+        field_audit-log: Log audit events
         field_tls-support: TLS support
+        hosts:
+          dialog:
+            button_choose: Save
+        label_log-type-valkey: Valkey logs
+        label_log-type-valkey-audit: Authorization and connections
         local:
           valkey_modules_aQacT: Modules
           valkey_search_vfqdy: Search
@@ -6930,6 +7212,7 @@ default:
         section_async: Asynchronous call
         section_general: General information
         section_image: Image settings
+        section_metadata-options: Metadata service parameters
         section_parameters: Settings
         section_resources: Resources
         section-revisions: Revisions
@@ -7089,7 +7372,6 @@ default:
             field_retry-interval: Interval
             field_service-account: Service account
             field_size: Batch size
-            field_stream-size: Batch size, B
             field_suffix: Object key suffix
             field_tag: Docker image tag
             field_type: Type
@@ -7134,58 +7416,26 @@ default:
           button_create: Create connection
       serverless-workflows:
         button_create-workflow: Create workflow
-        edit-switch-choice_default-field: Default condition
         label_additional-parameters: Additional parameters
-        label_create-workflow-title: Create workflow
-        label_edit-workflow-title: Edit workflow
         label_execution-url: Start URL
         label_input_data: Input data
-        label_input-data: Input data
-        label_network: Network
-        label_output_data: Output data
-        label_output-data: Output data
         label_public-access: Public workflow
         label_run-workflow: Execute
         label_service: Workflows
         label_service-account: Service account
-        label_stop-workflow: Stop
-        label_terminate-workflow: Terminate
         label_timeline: Timeline
         label_workflow-executions: Executions
-        label_workflows: Workflows
         spec-editor-type_label_text-editor: YaML specification
-        spec-editor-type_label_visual-editor: Constructor
-        workflow-editor_backoff-rate-field: Backoff rate
-        workflow-editor_catch-rule-error-list-label: Errors
-        workflow-editor_catch-rule-error-list-mode-label: Error selection mode
-        workflow-editor_catch-rule-label: Transition rule for errors
-        workflow-editor_catch-rule-output-field: Error template
-        workflow-editor_error-list-field: Errors
-        workflow-editor_error-list-mode-field: Error selection mode
-        workflow-editor_foreach-step-concurrency-field: Number of input data elements processed concurrently
-        workflow-editor_initial-delay-field: Initial delay, ms
-        workflow-editor_main-settings-label: Main settings
-        workflow-editor_max-delay-field: Maximum delay, ms
-        workflow-editor_parallel-step-concurrency-field: Number of branches executing concurrently
-        workflow-editor_retry-count-field: Maximum number of retries
-        workflow-editor_step-name-label: Step name
-        workflow-editor_wait-step-duration-field: Waiting time, s
-        workflow-editor_wait-step-jq-expression-field: Template
-        workflow-editor_wait-step-type-field: Waiting
-        workflow-editor_wait-step-type-field-duration-label: Time interval
-        workflow-editor_wait-step-type-field-until-label: Timestamp
-        workflow-editor_wait-step-until-field: Timestamp
-        workflow-editor_wait-step-use-jq-expression-field: Use templating
-        workflow-editor_while-step-condition-field: Execution condition template
-        workflow-editor_while-step-max-iterations-field: Maximum number of iterations
-        workflow-viewer_error-message-label: Error text
-        workflow-viewer_node-input-label: Input
-        workflow-viewer_node-output-label: Output
-        workflow-viewer_node-settings-label: Settings
-        workflow-viewer_trigger-settings-label: Start
       shared:
         iam:
           action_assign-roles_8vkmR: Assign roles
+        layout:
+          PageActions:
+            button_more_sGEBS: More
+          PageContentActions:
+            button_more_axqoH: More
+          PageTabs:
+            button_other_hnYwF: Other
       smart-web-security:
         action_empty: Create profile
         advanced_waf:
@@ -7194,7 +7444,6 @@ default:
         arl:
           column_rule-conditions: Conditions for traffic
           column_rule-priority: Priority
-          label_add-rule: Add rule
           label_connected-security-profiles: Connecting a security profile
           label_create-profile: Create ARL profile
           label_profiles: ARL profiles
@@ -7202,6 +7451,8 @@ default:
           label_rule-without-grouping: No grouping
           label_save-rule: Save rule
           section_rules: Rules
+        ArlRuleAction:
+          label_rule-action-ban-period_2bxZV: Temporarily block all requests for
         arlTitle_e3MD8: Advanced Rate Limiter
         attach-dialog:
           action_connect: Connect
@@ -7219,8 +7470,26 @@ default:
             label_domain_1hgsY: Domain
             label_proxy-server_w9BGG: Proxy server
         baseRulesTitle_xcJEe: Base rules
+        createCustomPage_t4SuU: Create template
         CreateDomain:
           createDomain_b2Ykj: Add domain
+        custom-pages:
+          context_name: Page name
+          label_body: Response body
+          label_content_type: Content-Type
+          label_format: Response format
+          label_status_code: Response code
+        CustomPageForm:
+          add_header_8Zgm9: Add response header
+          field_description_vtia9: Description
+          preset_client_ip_m4Np5: IP address
+          preset_request_time_k9Lx1: Request time
+          preset_unique_key_j7Rw2: Request ID
+        customPages_rriaz: Response templates
+        CustomPagesActions:
+          label_view_tJsLT: View
+        CustomPageSelectField:
+          field_custom-page_3Yccb: Response page template
         Domain:
           Overview:
             howToActivateProtection_dK3yy: How do I activate protection?
@@ -7261,6 +7530,7 @@ default:
         MatchListActions:
           button_download_bdcBp: Download list
           button_edit-list-items_2JFvu: Edit list
+          button_rename_r3ma9: Rename
         MatchListForm:
           item-type_asn_oyhKw: ASN numbers
           item-type_ip_7TYwL: IP addresses
@@ -7322,14 +7592,16 @@ default:
           label_paranoia-level: Paranoia level
           label_paranoia-option-1: Only 1
           label_profiles: WAF profiles
-          label_request-condition_33CzA: Scope
           label_save-settings: Save settings
           title_exclusion-rule-condition-section: Traffic conditions
           title_exclusion-rules: Exclusion rules
           value_exclude-all-no: Selected rules
           value_exclude-all-yes: All rules
+          verdict-all: Verdict DENY returned in each selected rule set
+          verdict-at-least-one: Verdict DENY returned in at least one selected rule set
         WafProfileExclusionRuleForm:
           RulesSection:
+            field_exclude-all_gKv9U: WAF rules
             title_exclusion-rule-rules-section_cdWEW: Excluded checks
       smartcaptcha:
         button_captcha-settings-create: Create captcha
@@ -7359,14 +7631,38 @@ default:
         value_pre-check-checkbox: Checkbox
         value_pre-check-slider: Slider
       spark:
+        ClusterForm:
+          DependenciesSection:
+            title_dependencies-type_wJq6n: Software configuration method
+            title_software-configuration-type-environment_wJq6n: Environment
+            title_software-configuration-type-packages_wJq6n: Packages manually
+        EnvironmentActions:
+          button_action-copy_dFws4: Create a copy of the environment
+          button_action-delete_kqb63: Delete
+          popup-action_label_delete-msg_4d5Cr: Delete
+        EnvironmentForm:
+          EnvironmentFormContent:
+            field_deb-packages_htNFj: Deb packages
+            field_pip-packages_rnW6Y: Pip packages
+            section_base-environment_tkR1g: Base environment
+            section_general_fDK9S: General information
+            section_packages_oct8m: Packages
+        EnvironmentSelect:
+          base_environments_fq7iF: Base environments
+          field_environment_cluster_sP4vs: As in the cluster
+          user_environments_fwNXU: User environments
         jobs:
           create_action: Create job
           popup-action_label_cancel-msg: Cancel job
         label_connect-url: Connection URL
         label_history-server: History Server
         label_metastore: Metastore
+        label_title-environments: Environments
         section_driver: Driver configuration
         section_executor: Executor configuration
+        Spark:
+          EnvironmentsList:
+            button_create_sqDYH: Create environment
       spqr:
         cluster:
           switch_databases: Databases
@@ -7378,6 +7674,20 @@ default:
         section_sharding-type-advanced: Advanced
         section_sharding-type-standard: Standard
       storage:
+        Bucket:
+          BucketSecurityScanForm:
+            button_submit: Create scan
+            title_file-filter: Include files into the scope
+            title_profiles: Sensitive data search
+          BucketSecuritySensitiveDataTab:
+            button_download_hR9sN: Download results
+            button_export_gQ8rM: Export to bucket
+            button_repeat_scan_fN7pL: Repeat scan
+            button_run_scan_af4cy: New scan
+            sub_tab_issues: Messages and errors
+            sub_tab_results: Results
+          NewerNoncurrentVersionsField:
+            field_newer_noncurrent_versions_ezq3T: Versions to store
         bucket:
           button_action-permissions: Object ACL
           button_create: Create folder
@@ -7442,6 +7752,7 @@ default:
             field_resource: Resource
             field_user: User
             field_value: Value
+            label_all-actions: All actions
             label_if-exists: Apply if the field exists
             label_select-users: Select users
           popup-create-folder_button_create: Create
@@ -7467,6 +7778,7 @@ default:
           switch_object-lock: Object locks
           switch_policy: Access policy
           switch_security: Security
+          switch_sensitive-data-search: Sensitive data search
           switch_server-logs: Logging
           switch_settings: Settings
           switch_versioning: Versioning
@@ -7492,9 +7804,6 @@ default:
             switch_redirect: Redirect
             title_connected-domains: Domains in Cloud DNS
             title_redirect: Redirect
-        Bucket:
-          NewerNoncurrentVersionsField:
-            field_newer_noncurrent_versions_ezq3T: Versions to store
         buckets:
           button_create: Create bucket
           button_open-multipart-uploads: Show uploads
@@ -7528,7 +7837,6 @@ default:
             label_server-logs_mfGpj: Write logs
             label_target-bucket_jEJ5E: Bucket for log storage
           BucketSettingsFormSection:
-            field_description-strict-mode_9cpMe: Available only via VPC service connections
             field_force-cloud-console-access_5bS8y: Access from console
             field_label-strict-mode_2ttnd: Strict mode
           BucketVersioningFormSection:
@@ -7580,6 +7888,9 @@ default:
           label_cpu-quota-period_tD5vD: CPU quota period
           RBACView:
             label_rbac-settings_o2F64: Access settings
+        field_retry-storage-properties: Storage properties
+        field_retry-storage-s3-bucket: Bucket name
+        field_retry-storage-type: Storage type
         label_private-access: Private access
         label_rbac-add-rule: Add rule
         label_rbac-catalog: Catalogs
@@ -7668,7 +7979,7 @@ default:
           popup-confirm_button_static: Change
           popup-create_button_create: ' Reserve'
           popup-create_field_advanced: Advanced
-          popup-create_field_deletion-protection: Deletion protection
+          popup-create_field_deletion-protection_jVSCP: Deletion protection
           popup-create_field_internal-v4-address: Internal IPv4 address
           popup-create_field_zone: Availability zone
         gateways:
@@ -7683,6 +7994,7 @@ default:
           overview:
             button_create_route-table: Create routing table
             button_create_subnetwork: Create subnet
+            column_route-table_network: Network
             column_subnetwork_route-table-id: Routing table
             section_subnetworks: Subnets
           security-groups:
@@ -7692,6 +8004,8 @@ default:
             column_sg-rules-ports: Ports
             column_sg-rules-protocol: Protocol
             column_sg-rules-source: Source
+            content-section:
+              button_add-rule: Add rule
             forms:
               button_select-all-port-range: Select all
               field_sg-name: Name
@@ -7699,6 +8013,7 @@ default:
               field_sg-rule-cidr-blocks: IPv4 CIDR
               field_sg-rule-description: Description
               field_sg-rule-destination: Destination name
+              field_sg-rule-direction: Traffic direction
               field_sg-rule-port-range: Port range
               field_sg-rule-protocol: Protocol
               field_sg-rule-sg-type: Security group
@@ -7714,6 +8029,8 @@ default:
             label_destination-type-security-group: Security group
             label_egress: Egress
             label_ingress: Ingress
+            label_rules-egress: Outgoing traffic rules
+            label_rules-ingress: Incoming traffic rules
             label_section-rules: Rules
             label_title: Security groups
           switch_overview: Overview
@@ -7750,6 +8067,10 @@ default:
             button_create: Create routing table
           edit:
             button_edit: Save
+        route-tables:
+          column_static-routes: Static routes
+        subnet-used-addresses:
+          label_resource-type-vpc_virtualGateway: Gateway
         subnet:
           add-route-table:
             button_add: Link
@@ -7780,7 +8101,6 @@ default:
             button_update: Save changes
         switch_addresses: Public IP addresses
         switch_gateways: Gateways
-        switch_list: Cloud networks
         switch_networks: Subnets
         switch_private-endpoints: Service connections
         switch_route-tables: Routing tables
@@ -8665,6 +8985,9 @@ default:
                         column_compression_codec:
                           title: Compression codec for columns
                       title: Data format
+                    ObjectStorageV1Target:
+                      cleanup_policy:
+                        title: Cleanup policy
                     ObjectStorageV1WriterSettings:
                       ReplicationWriter:
                         title: Replication writer
@@ -8868,6 +9191,12 @@ default:
                     YdbConnectionSettings:
                       database:
                         title: Database
+                      instance:
+                        title: YDB endpoint
+                      managed_connection:
+                        title: Managed Service for YDB database
+                      on_premise_connection:
+                        title: Manual Configuration
                       security_groups:
                         title: Security groups
                       service_account_id:
@@ -8877,6 +9206,11 @@ default:
                         title: Name of pre-created consumer
                       changefeed_custom_name:
                         title: Name of pre-created changefeed
+                    YdbOnPremiseConnectionSettings:
+                      ca_certificate:
+                        title: CA certificate
+                      subnet_id:
+                        title: Subnet ID
                     YdbPartitionPolicy:
                       keep_part_count:
                         title: Number of tables
@@ -8927,8 +9261,6 @@ default:
                     YDSConnection:
                       database:
                         title: Database
-                      security_groups:
-                        title: Security groups
                       service_account_id:
                         title: Service account
                       stream:
@@ -9156,225 +9488,6 @@ default:
         path_name: Path
         serverless_containers_properties_container_id_view_spec_layout_title: Container
         service_account_id_name: Service account
-    yc-serverless-workflows:
-      dynamic-forms:
-        ai_studio_agent_properties_message_view_spec_layout_title: Message
-        ai_studio_agent_properties_prompt_template_id_view_spec_layout_title: Agent ID
-        ai_studio_agent_properties_variables_view_spec_item_label: Add variable
-        ai_studio_agent_properties_variables_view_spec_layout_title: Prompt variables
-        ai_studio_agent_title: AI Studio agent
-        common_retry_policy_view_spec_layout_title: Retry policy
-        common_timeout_view_spec_layout_title: Timeout, ms
-        containers_integration_properties_body_view_spec_layout_title: Request body
-        containers_integration_properties_headers_view_spec_item_label: Add header
-        containers_integration_properties_headers_view_spec_layout_title: Request headers
-        containers_integration_properties_http_method_view_spec_layout_title: Request method
-        containers_integration_properties_path_view_spec_layout_title: Request path
-        containers_integration_properties_query_view_spec_item_label: Add parameter
-        containers_integration_properties_query_view_spec_layout_title: Request query parameters
-        containers_integration_properties_serverless_container_view_spec_layout_title: Container
-        disk_integration_title: Yandex Disk
-        disk_properties_action_description_download: Download from disk
-        disk_properties_action_description_upload: Upload to disk
-        disk_properties_action_properties_download_properties_view_spec_layout_title: Content type
-        disk_properties_action_properties_upload_properties_content_view_spec_layout_title: File content
-        disk_properties_oauth_token_description_lockbox: Lockbox
-        disk_properties_oauth_token_description_plain: Text
-        disk_properties_oauth_token_properties_lockbox_properties_name_view_spec_layout_title: Secret
-        disk_properties_oauth_token_properties_plain_properties_token_view_spec_layout_title: Value
-        disk_properties_oauth_token_view_spec_layout_title: OAuth token
-        disk_properties_path_view_spec_layout_title: Path
-        foundation_models_properties_action_description_classify: Fine-tuned classification
-        foundation_models_properties_action_description_few_shot_classify: Classifcation by prompt
-        foundation_models_properties_action_description_generate: Text generation
-        foundation_models_properties_action_description_vision: Working with images
-        foundation_models_properties_action_properties_few_shot_classify_properties_labels_description_labels_array: List
-        foundation_models_properties_action_properties_few_shot_classify_properties_labels_description_labels_json: JSON
-        foundation_models_properties_action_properties_few_shot_classify_properties_labels_properties_labels_json_view_spec_title: JSON object
-        foundation_models_properties_action_properties_few_shot_classify_properties_labels_view_spec_layout_title: Labels
-        foundation_models_properties_action_properties_few_shot_classify_properties_samples_description_samples_array: List
-        foundation_models_properties_action_properties_few_shot_classify_properties_samples_description_samples_json: JSON
-        foundation_models_properties_action_properties_few_shot_classify_properties_samples_properties_samples_json_view_spec_title: JSON object
-        foundation_models_properties_action_properties_few_shot_classify_properties_samples_view_spec_layout_title: Sample queries
-        foundation_models_properties_action_properties_few_shot_classify_properties_task_description_view_spec_layout_title: Task
-        foundation_models_properties_action_properties_few_shot_classify_properties_text_view_spec_layout_title: Text
-        foundation_models_properties_action_properties_generate_properties_context_description_json: JSON string
-        foundation_models_properties_action_properties_generate_properties_context_description_messages: Messages
-        foundation_models_properties_action_properties_generate_properties_context_view_spec_layout_title: Context
-        foundation_models_properties_action_properties_generate_properties_max_tokens_view_spec_layout_title: Number of tokens
-        foundation_models_properties_action_properties_generate_properties_model_description_base_model: Base model
-        foundation_models_properties_action_properties_generate_properties_model_description_custom: Fine-tuned model
-        foundation_models_properties_action_properties_generate_properties_reasoning_mode_description_disabled: Disabled
-        foundation_models_properties_action_properties_generate_properties_reasoning_mode_description_enabled_hidden: Enabled
-        foundation_models_properties_action_properties_generate_properties_reasoning_mode_description_reasoning_mode_unspecified: Unspecified
-        foundation_models_properties_action_properties_generate_properties_reasoning_mode_view_spec_layout_title: Reasoning mode
-        foundation_models_properties_action_properties_generate_properties_structured_output_description_json_object: JSON object
-        foundation_models_properties_action_properties_generate_properties_structured_output_description_json_schema: JSON schema
-        foundation_models_properties_action_properties_generate_properties_structured_output_description_none: None
-        foundation_models_properties_action_properties_generate_properties_structured_output_properties_json_schema_view_spec_layout_title: JSON schema
-        foundation_models_properties_action_properties_generate_properties_structured_output_view_spec_layout_title: Structured output
-        foundation_models_properties_action_properties_generate_properties_temperature_view_spec_layout_title: Temperature
-        foundation_models_properties_action_properties_vision_properties_context_properties_json_view_spec_layout_title: JSON string
-        foundation_models_properties_action_properties_vision_properties_context_properties_messages_items_properties_images_items_properties_base64_view_spec_layout_title: Base64
-        foundation_models_properties_action_properties_vision_properties_context_properties_messages_items_properties_images_items_properties_file_view_spec_layout_title: Image source
-        foundation_models_properties_action_properties_vision_properties_context_properties_messages_items_properties_images_view_spec_item_label: Add image
-        foundation_models_properties_action_properties_vision_properties_context_properties_messages_view_spec_item_label: Add message
-        foundation_models_properties_action_properties_vision_properties_context_properties_messages_view_spec_layout_title: Messages
-        foundation_models_properties_action_properties_vision_properties_context_view_spec_layout_title: Context
-        foundation_models_properties_action_properties_vision_properties_max_tokens_view_spec_layout_title: Number of tokens
-        foundation_models_properties_action_properties_vision_properties_temperature_view_spec_layout_title: Temperature
-        foundation_models_properties_model_properties_custom_view_spec_layout_title: Model URI
-        foundation_models_properties_model_properties_yagpt_latest_view_spec_layout_title: Folder ID
-        functions_integration_properties_serverless_function_view_spec_layout_title: Function
-        grpc_integration_title: gRPC
-        grpc_properties_body_view_spec_layout_title: Request body
-        grpc_properties_endpoint_view_spec_layout_title: Endpoint
-        grpc_properties_headers_view_spec_item_label: Add header
-        grpc_properties_headers_view_spec_layout_title: Request headers
-        grpc_properties_method_view_spec_layout_title: Method
-        grpc_properties_use_service_account_view_spec_layout_title: Use service account
-        http_properties_body_view_spec_layout_title: Request body
-        http_properties_headers_view_spec_item_label: Add header
-        http_properties_headers_view_spec_layout_title: Request headers
-        http_properties_http_method_view_spec_layout_title: Method
-        http_properties_query_view_spec_item_label: Add parameter
-        http_properties_query_view_spec_layout_title: Request query parameters
-        http_properties_url_view_spec_layout_title: URL
-        http_properties_use_service_account_view_spec_layout_title: Use service account
-        object_storage_properties_action_description_get: Get object
-        object_storage_properties_action_description_put: Add object
-        object_storage_properties_action_properties_get_properties_content_type_view_spec_layout_title: Content type
-        object_storage_properties_action_properties_put_properties_content_view_spec_layout_title: Object content
-        object_storage_properties_action_view_spec_layout_title: Action
-        object_storage_properties_bucket_view_spec_layout_title: Bucket
-        object_storage_properties_object_view_spec_layout_title: Object name
-        postbox_properties_cc_to_addresses_properties_address_array_view_spec_item_label: Add BCC
-        postbox_properties_cc_to_addresses_properties_address_array_view_spec_layout_title: Address array
-        postbox_properties_cc_to_addresses_properties_raw_string_view_spec_layout_title: Raw string
-        postbox_properties_cc_to_addresses_view_spec_layout_title: BCC addresses
-        postbox_properties_from_address_view_spec_layout_title: From address
-        postbox_properties_message_properties_raw_view_spec_layout_title: Template
-        postbox_properties_message_properties_simple_properties_body_html_view_spec_layout_title: HTML content
-        postbox_properties_message_properties_simple_properties_body_text_view_spec_layout_title: Text
-        postbox_properties_message_properties_simple_properties_charset_view_spec_layout_title: Encoding
-        postbox_properties_message_properties_simple_properties_subject_view_spec_layout_title: Subject
-        postbox_properties_message_properties_simple_view_spec_layout_title: Text
-        postbox_properties_message_view_spec_layout_title: Message
-        postbox_properties_to_addresses_properties_address_array_view_spec_item_label: Add address
-        postbox_properties_to_addresses_properties_address_array_view_spec_layout_title: Address array
-        postbox_properties_to_addresses_properties_raw_string_view_spec_layout_title: Raw string
-        postbox_properties_to_addresses_view_spec_layout_title: To addresses
-        shared_disk_properties_disk_type_description_private: Personal
-        shared_disk_properties_disk_type_description_shared: Shared
-        shared_disk_properties_disk_type_view_spec_layout_title: Disk type
-        tracker_properties_action_description_create_comment: Add comment
-        tracker_properties_action_description_create_issue: Create issue
-        tracker_properties_action_description_get_issue: Get issue
-        tracker_properties_action_description_link_issues: Link issue
-        tracker_properties_action_description_list_comments: Get comment
-        tracker_properties_action_description_list_issues: Find issue
-        tracker_properties_action_description_update_comment: Update comment
-        tracker_properties_action_description_update_issue: Update issue
-        tracker_properties_action_description_update_issue_status: Update issue status
-        tracker_properties_action_properties_create_comment_properties_key_view_spec_layout_title: Issue key
-        tracker_properties_action_properties_create_comment_properties_mentions_description_array: List
-        tracker_properties_action_properties_create_comment_properties_mentions_description_none: Do not invite
-        tracker_properties_action_properties_create_comment_properties_mentions_description_simple: JSON
-        tracker_properties_action_properties_create_comment_properties_mentions_view_spec_layout_title: Invite users
-        tracker_properties_action_properties_create_comment_properties_text_view_spec_layout_title: Text
-        tracker_properties_action_properties_create_issue_properties_additional_properties_view_spec_layout_title: Additional fields
-        tracker_properties_action_properties_create_issue_properties_assignee_view_spec_layout_title: Assignee
-        tracker_properties_action_properties_create_issue_properties_author_view_spec_layout_title: Author
-        tracker_properties_action_properties_create_issue_properties_description_view_spec_layout_title: Description
-        tracker_properties_action_properties_create_issue_properties_followers_view_spec_layout_title: Add followers
-        tracker_properties_action_properties_create_issue_properties_parent_view_spec_layout_title: Parent issue
-        tracker_properties_action_properties_create_issue_properties_priority_view_spec_layout_title: Priority
-        tracker_properties_action_properties_create_issue_properties_queue_view_spec_layout_title: Queue
-        tracker_properties_action_properties_create_issue_properties_sprints_description_array: List
-        tracker_properties_action_properties_create_issue_properties_sprints_description_none: Do not add
-        tracker_properties_action_properties_create_issue_properties_sprints_description_simple: JSON
-        tracker_properties_action_properties_create_issue_properties_sprints_view_spec_layout_title: Add to sprints
-        tracker_properties_action_properties_create_issue_properties_title_view_spec_layout_title: Name
-        tracker_properties_action_properties_create_issue_properties_type_view_spec_layout_title: Type
-        tracker_properties_action_properties_get_issue_properties_key_view_spec_layout_title: Issue key
-        tracker_properties_action_properties_link_issues_properties_key_view_spec_layout_title: Key of first issue
-        tracker_properties_action_properties_link_issues_properties_link_key_view_spec_layout_title: Key of the second issue
-        tracker_properties_action_properties_link_issues_properties_relationship_view_spec_layout_title: Link type
-        tracker_properties_action_properties_list_comments_properties_page_size_view_spec_layout_title: Number of comments
-        tracker_properties_action_properties_list_issues_properties_page_number_view_spec_layout_title: Page name
-        tracker_properties_action_properties_list_issues_properties_page_size_view_spec_layout_title: Page size
-        tracker_properties_action_properties_list_issues_properties_search_options_description_filter: Issue filtering parameters
-        tracker_properties_action_properties_list_issues_properties_search_options_description_keys: Issue key list
-        tracker_properties_action_properties_list_issues_properties_search_options_description_query: Query language filter
-        tracker_properties_action_properties_list_issues_properties_search_options_description_queue: Queue
-        tracker_properties_action_properties_list_issues_properties_search_options_properties_filter_properties_issue_properties_view_spec_layout_title: Filtering fields
-        tracker_properties_action_properties_list_issues_properties_search_options_properties_filter_properties_sort_description_on: Enabled
-        tracker_properties_action_properties_list_issues_properties_search_options_properties_filter_properties_sort_properties_on_properties_order_view_spec_layout_title: Descending
-        tracker_properties_action_properties_list_issues_properties_search_options_properties_filter_properties_sort_view_spec_layout_title: Sort by
-        tracker_properties_action_properties_list_issues_properties_search_options_properties_keys_view_spec_layout_title: Issue keys
-        tracker_properties_action_properties_list_issues_properties_search_options_properties_queue_view_spec_layout_title: Queue name
-        tracker_properties_action_properties_list_issues_properties_search_options_view_spec_layout_title: Search parameters
-        tracker_properties_action_properties_update_comment_properties_id_view_spec_layout_title: Comment ID
-        tracker_properties_action_properties_update_comment_properties_issue_key_view_spec_layout_title: Issue key
-        tracker_properties_action_properties_update_comment_properties_text_view_spec_layout_title: Text
-        tracker_properties_action_properties_update_issue_properties_additional_properties_items_properties_action_description_add: Add value
-        tracker_properties_action_properties_update_issue_properties_additional_properties_items_properties_action_description_remove: Delete value
-        tracker_properties_action_properties_update_issue_properties_additional_properties_items_properties_action_description_replace: Update value
-        tracker_properties_action_properties_update_issue_properties_additional_properties_items_properties_action_description_set: Replace value
-        tracker_properties_action_properties_update_issue_properties_additional_properties_items_properties_action_properties_add_view_spec_layout_title: Value
-        tracker_properties_action_properties_update_issue_properties_additional_properties_items_properties_action_properties_replace_description_key_value: Dictionary
-        tracker_properties_action_properties_update_issue_properties_additional_properties_items_properties_action_view_spec_layout_title: Change field
-        tracker_properties_action_properties_update_issue_properties_additional_properties_items_properties_key_view_spec_placeholder: Field name
-        tracker_properties_action_properties_update_issue_properties_followers_description_add: Add follower
-        tracker_properties_action_properties_update_issue_properties_followers_description_none: Do not change
-        tracker_properties_action_properties_update_issue_properties_followers_description_remove: Delete follower
-        tracker_properties_action_properties_update_issue_properties_followers_description_replace: Update follower
-        tracker_properties_action_properties_update_issue_properties_followers_description_set: Replace followers
-        tracker_properties_action_properties_update_issue_properties_followers_properties_add_view_spec_layout_title: Follower
-        tracker_properties_action_properties_update_issue_properties_followers_properties_replace_description_key_value: Dictionary
-        tracker_properties_action_properties_update_issue_properties_followers_view_spec_layout_title: Change followers
-        tracker_properties_action_properties_update_issue_properties_sprints_description_add: Add sprint
-        tracker_properties_action_properties_update_issue_properties_sprints_description_none: Do not change
-        tracker_properties_action_properties_update_issue_properties_sprints_description_remove: Delete sprint
-        tracker_properties_action_properties_update_issue_properties_sprints_description_replace: Update sprint
-        tracker_properties_action_properties_update_issue_properties_sprints_description_set: Replace sprints
-        tracker_properties_action_properties_update_issue_properties_sprints_properties_add_description_array: List
-        tracker_properties_action_properties_update_issue_properties_sprints_properties_add_description_simple: JSON
-        tracker_properties_action_properties_update_issue_properties_sprints_properties_add_view_spec_layout_title: Sprint
-        tracker_properties_action_properties_update_issue_properties_sprints_properties_replace_description_key_value: Dictionary
-        tracker_properties_action_properties_update_issue_properties_sprints_properties_replace_description_plain: JSON
-        tracker_properties_action_properties_update_issue_properties_sprints_view_spec_layout_title: Change sprints
-        tracker_properties_action_properties_update_issue_status_properties_key_view_spec_layout_title: Issue key
-        tracker_properties_action_properties_update_issue_status_properties_transition_view_spec_layout_title: Transition
-        tracker_properties_action_view_spec_layout_title: Action
-        tracker_properties_endpoint_view_spec_layout_title: Endpoint
-        tracker_properties_oauth_token_description_lockbox: Lockbox
-        tracker_properties_oauth_token_description_plain: Text
-        tracker_properties_oauth_token_properties_lockbox_properties_name_view_spec_layout_title: Secret
-        tracker_properties_oauth_token_properties_plain_properties_token_view_spec_layout_title: Value
-        tracker_properties_oauth_token_view_spec_layout_title: OAuth token
-        tracker_properties_organization_description_cloud: Yandex Cloud Organization
-        tracker_properties_organization_description_none: Not specified
-        tracker_properties_organization_description_yandex: Yandex 360
-        tracker_properties_organization_properties_cloud_view_spec_layout_title: Organization ID
-        tracker_properties_organization_view_spec_layout_title: Organization
-        workflow_properties_serverless_workflow_view_spec_layout_title: Workflow ID
-        workflow_properties_workflow_input_view_spec_layout_title: Input data
-        ydb_document_properties_action_properties_get_properties_key_view_spec_layout_title: Key
-        ydb_document_properties_action_properties_put_properties_item_view_spec_layout_title: Attributes
-        ydb_document_properties_action_properties_scan_properties_exclusive_start_key_view_spec_layout_title: Key
-        ydb_document_properties_action_properties_scan_properties_limit_view_spec_layout_title: Limit
-        ydb_document_properties_action_properties_update_properties_expression_attribute_values_view_spec_layout_title: Attribute values
-        ydb_document_properties_action_properties_update_properties_expression_view_spec_layout_title: Expression for update
-        ydb_document_properties_action_properties_update_properties_key_view_spec_layout_title: Key
-        ydb_document_properties_action_view_spec_layout_title: Action
-        ydb_document_properties_ydb_database_view_spec_layout_title: Database
-        ydb_document_properties_ydb_table_view_spec_layout_title: Path to table
-        yds_integration_title: Data Streams
-        yds_properties_database_view_spec_layout_title: Database
-        yds_properties_topic_view_spec_layout_title: Topic
-        ymq_integration_title: Message Queue
-        ymq_properties_queue_arn_view_spec_layout_title: ARN of the queue
     yc-ui-ai-studio:
       components:
         LabelSet:
@@ -9867,6 +9980,7 @@ default:
   unified-agent-short-name: Unified Agent
   v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
+  vc-name: VibeCraft
   vector-store-name: Vector Store
   video-full-name: Yandex Cloud Video
   video-name: Cloud Video

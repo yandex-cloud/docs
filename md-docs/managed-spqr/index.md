@@ -66,6 +66,8 @@ SPQR (Stateless Postgres Query Router) — это система горизон�
 
  - [Квоты и лимиты](concepts/limits.md)
 
+ - [Техническое обслуживание](concepts/maintenance.md)
+
  - [Настройки Sharded PostgreSQL](concepts/settings-list.md)
 
  - [Политика поддержки версий Sharded PostgreSQL](concepts/update-policy.md)
@@ -89,6 +91,20 @@ SPQR (Stateless Postgres Query Router) — это система горизон�
  - [get](cli-ref/backup/get.md)
 
  - [list](cli-ref/backup/list.md)
+
+### change-freeze
+
+ - [Overview](cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/change-freeze/terminate.md)
 
 ### cluster
 
@@ -148,6 +164,16 @@ SPQR (Stateless Postgres Query Router) — это система горизон�
 
  - [update](cli-ref/hosts/update.md)
 
+### maintenance
+
+ - [Overview](cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/maintenance/reschedule.md)
+
  - [resource-preset](cli-ref/resource-preset.md)
 
 ### user
@@ -177,6 +203,20 @@ SPQR (Stateless Postgres Query Router) — это система горизон�
  - [get](cli-ref/v0/backup/get.md)
 
  - [list](cli-ref/v0/backup/list.md)
+
+#### change-freeze
+
+ - [Overview](cli-ref/v0/change-freeze/index.md)
+
+ - [create](cli-ref/v0/change-freeze/create.md)
+
+ - [get](cli-ref/v0/change-freeze/get.md)
+
+ - [get-limits](cli-ref/v0/change-freeze/get-limits.md)
+
+ - [list](cli-ref/v0/change-freeze/list.md)
+
+ - [terminate](cli-ref/v0/change-freeze/terminate.md)
 
 #### cluster
 
@@ -236,6 +276,16 @@ SPQR (Stateless Postgres Query Router) — это система горизон�
 
  - [update](cli-ref/v0/hosts/update.md)
 
+#### maintenance
+
+ - [Overview](cli-ref/v0/maintenance/index.md)
+
+ - [get](cli-ref/v0/maintenance/get.md)
+
+ - [list](cli-ref/v0/maintenance/list.md)
+
+ - [reschedule](cli-ref/v0/maintenance/reschedule.md)
+
  - [resource-preset](cli-ref/v0/resource-preset.md)
 
 #### user
@@ -271,6 +321,20 @@ SPQR (Stateless Postgres Query Router) — это система горизон�
  - [List](api-ref/grpc/Backup/list.md)
 
  - [Delete](api-ref/grpc/Backup/delete.md)
+
+#### ChangeFreeze
+
+ - [Overview](api-ref/grpc/ChangeFreeze/index.md)
+
+ - [Create](api-ref/grpc/ChangeFreeze/create.md)
+
+ - [Get](api-ref/grpc/ChangeFreeze/get.md)
+
+ - [List](api-ref/grpc/ChangeFreeze/list.md)
+
+ - [Terminate](api-ref/grpc/ChangeFreeze/terminate.md)
+
+ - [GetLimits](api-ref/grpc/ChangeFreeze/getLimits.md)
 
 #### Cluster
 
@@ -397,6 +461,20 @@ SPQR (Stateless Postgres Query Router) — это система горизон�
  - [List](api-ref/Backup/list.md)
 
  - [Delete](api-ref/Backup/delete.md)
+
+#### ChangeFreeze
+
+ - [Overview](api-ref/ChangeFreeze/index.md)
+
+ - [Create](api-ref/ChangeFreeze/create.md)
+
+ - [Get](api-ref/ChangeFreeze/get.md)
+
+ - [List](api-ref/ChangeFreeze/list.md)
+
+ - [Terminate](api-ref/ChangeFreeze/terminate.md)
+
+ - [GetLimits](api-ref/ChangeFreeze/getLimits.md)
 
 #### Cluster
 

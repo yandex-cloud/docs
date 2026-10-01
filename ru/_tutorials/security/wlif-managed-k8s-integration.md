@@ -33,11 +33,10 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входят:
-* Плата за вычислительные ресурсы и диски [узлов](../../managed-kubernetes/concepts/index.md#node-group) кластера {{ managed-k8s-name }} ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за использование [мастера](../../managed-kubernetes/concepts/index.md#master) {{ managed-k8s-name }} и исходящий трафик ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses) кластера {{ managed-k8s-name }} ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-* Плата за хранение [секрета](../../lockbox/concepts/secret.md) и запросы к нему ([тарифы {{ lockbox-name }}](../../lockbox/pricing.md)).
+* Мастер {{ managed-k8s-name }} ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Публичные IP-адреса для мастера и узлов кластера {{ managed-k8s-name }}, если для них включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Секрет {{ lockbox-name }}: количество хранимых версий секрета и запросы к ним ([тарифы {{ lockbox-name }}](../../lockbox/pricing.md)).
 
 ## Настройте кластер {{ managed-k8s-name }} {#prepare-cluster}
 
@@ -206,7 +205,7 @@
       1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.service-accounts }}**.
       1. Выберите сервисный аккаунт, созданный ранее.
       1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `{{ roles-lockbox-payloadviewer }}`.
-      1. Нажмите **{{ ui-key.yacloud_components.acl.action.apply }}**.
+      1. Нажмите **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
     - CLI {#cli}
 

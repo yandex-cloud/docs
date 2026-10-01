@@ -19,7 +19,7 @@
 - Консоль управления {#console}
 
   1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку ![image-users](../../_assets/console-icons/persons.svg) **Пользователи**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку **Пользователи**.
 
 - CLI {#cli}
 
@@ -31,7 +31,7 @@
 
   Чтобы получить список пользователей кластера, выполните команду:
 
-  ```
+  ```bash
   yc managed-mysql user list --cluster-name=<имя_кластера>
   ```
 
@@ -45,7 +45,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [User.list](../api-ref/User/list.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [User.list](../api-ref/User/list.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
@@ -73,7 +73,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [UserService/List](../api-ref/grpc/User/list.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [UserService/List](../api-ref/grpc/User/list.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -134,7 +134,7 @@
 - Консоль управления {#console}
 
   1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image-users](../../_assets/console-icons/persons.svg) **Пользователи**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Пользователи**.
   1. Нажмите кнопку **Создать пользователя**.
 
   
@@ -171,6 +171,13 @@
       1. Выберите привилегию, которую вы хотите добавить пользователю из выпадающего списка.
       1. Повторите два предыдущих шага, пока не будут добавлены все требуемые привилегии.
   1. Чтобы отозвать привилегию, выданную по ошибке, нажмите значок ![image](../../_assets/console-icons/xmark.svg) справа от ее имени.
+  1. Выберите тип защиты от удаления. Возможные значения:
+     - **Как у кластера**.
+     - **Включена**.
+     - **Выключена**.
+
+     Защита от удаления действует только на уровне конкретного пользователя. При удалении кластера будут удалены все пользователи, в том числе защищенные от удаления.
+
   1. (Опционально) В блоке **Дополнительные настройки**: 
       * Задайте [настройки MySQL®](../concepts/settings-list.md#dbms-user-settings) для пользователя.
       * В поле **Global permissions** задайте [административные привилегии пользователя](../concepts/settings-list.md#setting-administrative-privileges) на уровне кластера.
@@ -190,7 +197,8 @@
   yc managed-mysql user create <имя_пользователя> \
     --cluster-name=<имя_кластера> \
     --password=<пароль_пользователя> \
-    --permissions=<список_БД>
+    --deletion-protection=<защита_от_удаления> \
+    --permissions database=<имя_БД>,role=<привилегия_1>,role=<привилегия_2>,...,role=<привилегия_N>
   ```
 
   Где:
@@ -205,7 +213,13 @@
     Чтобы увидеть пароль, в [консоли управления](https://console.yandex.cloud) выберите нужный кластер, перейдите на вкладку **Пользователи** и нажмите **Посмотреть пароль** в строке нового пользователя. Откроется страница секрета Yandex Lockbox, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
 
-  * `permissions` — список БД, к которым пользователь должен иметь доступ.
+  * `deletion-protection` — защита пользователя от непреднамеренного удаления: `enabled`, `disabled` или `inherited` (наследует значение от кластера). Значение по умолчанию — `disabled`.
+
+    Защита от удаления действует только на уровне конкретного пользователя. При удалении кластера будут удалены все пользователи, в том числе защищенные от удаления.
+
+  * `permissions` — БД, к которой пользователь получает доступ, и привилегии пользователя для этой БД. Список доступных привилегий приведен в разделе [Привилегии пользователей на уровне БД в Managed Service for MySQL®](../concepts/user-rights.md#db-privileges).
+
+    Для каждой базы данных, к которой пользователю нужен доступ, добавьте отдельный параметр `permissions`.
 
   Имя пользователя может содержать латинские буквы, цифры, дефис и подчеркивание, но должно начинаться с буквы, цифры или подчеркивания. Длина от 1 до 32 символов.
 
@@ -217,13 +231,14 @@
 
       Как создать такой файл описано в разделе [Создание кластера](cluster-create.md).
 
-  1. Добавьте ресурс `yandex_mdb_mysql_user`:
+  1. Добавьте ресурс `yandex_mdb_mysql_user_v2`:
 
       ```hcl
-      resource "yandex_mdb_mysql_user" "<имя_пользователя>" {
-        cluster_id = "<идентификатор_кластера>"
-        name       = "<имя_пользователя>"
-        password   = "<пароль>"
+      resource "yandex_mdb_mysql_user_v2" "<имя_пользователя>" {
+        cluster_id               = "<идентификатор_кластера>"
+        name                     = "<имя_пользователя>"
+        password                 = "<пароль>"
+        deletion_protection_mode = "<защита_от_удаления>"
         permission {
           database_name = "<имя_БД>"
           roles         = [<список_привилегий>]
@@ -235,6 +250,12 @@
       Где:
 
       * `database_name` — имя БД, к которой пользователь должен иметь доступ.
+      * `deletion_protection_mode` — защита пользователя от непреднамеренного удаления:
+
+         * `DELETION_PROTECTION_MODE_ENABLED` — включена;
+         * `DELETION_PROTECTION_MODE_DISABLED` (по умолчанию) — выключена;
+         * `DELETION_PROTECTION_MODE_INHERITED` — наследует значение от кластера.
+
       * `roles` — список привилегий пользователя по отношению к БД.
 
       Имя пользователя может содержать латинские буквы, цифры, дефис и подчеркивание, но должно начинаться с буквы, цифры или подчеркивания. Длина от 1 до 32 символов.
@@ -269,6 +290,7 @@
          Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
       
       1. Если вас устраивают планируемые изменения, внесите их:
+      
          1. Выполните команду:
       
             ```bash
@@ -278,7 +300,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-  Подробнее о параметрах ресурса `yandex_mdb_mysql_user` смотрите в [документации провайдера](../../terraform/resources/mdb_mysql_user.md).
+  Подробнее о параметрах ресурса `yandex_mdb_mysql_user_v2` смотрите в [документации провайдера](../../terraform/resources/mdb_mysql_user_v2.md).
 
 - REST API {#api}
 
@@ -295,6 +317,7 @@
           "userSpec": {
               "name": "<имя_пользователя>",
               "password": "<пароль_пользователя>",
+              "deletionProtectionMode": "<защита_от_удаления>",
               "permissions": [
                   {
                       "databaseName": "<имя_БД>",
@@ -321,6 +344,14 @@
           Чтобы увидеть пароль, в [консоли управления](https://console.yandex.cloud) выберите созданный кластер, перейдите на вкладку **Пользователи** и нажмите **Посмотреть пароль** в строке нужного пользователя. Откроется страница секрета Yandex Lockbox, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
 
+      * `deletionProtectionMode` — защита пользователя от непреднамеренного удаления:
+
+         * `DELETION_PROTECTION_MODE_ENABLED` — включена;
+         * `DELETION_PROTECTION_MODE_DISABLED` (по умолчанию) — выключена;
+         * `DELETION_PROTECTION_MODE_INHERITED` — наследует значение от кластера.
+
+         Защита от удаления действует только на уровне конкретного пользователя. При удалении кластера будут удалены все пользователи, в том числе защищенные от удаления.
+
       * `permissions` — настройки разрешений пользователя:
 
           * `databaseName` — имя базы данных, к которой пользователь получает доступ.
@@ -328,7 +359,7 @@
 
           Для каждой базы данных добавьте отдельный элемент с настройками разрешений в массив `permissions`.
 
-  1. Воспользуйтесь методом [User.create](../api-ref/User/create.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [User.create](../api-ref/User/create.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
@@ -366,6 +397,7 @@
           "user_spec": {
               "name": "<имя_пользователя>",
               "password": "<пароль_пользователя>",
+              "deletion_protection_mode": "<защита_от_удаления>",
               "permissions": [
                   {
                       "database_name": "<имя_БД>",
@@ -392,6 +424,14 @@
         Чтобы увидеть пароль, в [консоли управления](https://console.yandex.cloud) выберите созданный кластер, перейдите на вкладку **Пользователи** и нажмите **Посмотреть пароль** в строке нужного пользователя. Откроется страница секрета Yandex Lockbox, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
 
+      * `deletion_protection_mode` — защита пользователя от непреднамеренного удаления:
+
+         * `DELETION_PROTECTION_MODE_ENABLED` — включена;
+         * `DELETION_PROTECTION_MODE_DISABLED` (по умолчанию) — выключена;
+         * `DELETION_PROTECTION_MODE_INHERITED` — наследует значение от кластера.
+
+         Защита от удаления действует только на уровне конкретного пользователя. При удалении кластера будут удалены все пользователи, в том числе защищенные от удаления.
+
       * `permissions` — настройки разрешений пользователя:
 
           * `database_name` — имя базы данных, к которой пользователь получает доступ.
@@ -401,7 +441,7 @@
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Воспользуйтесь вызовом [UserService/Create](../api-ref/grpc/User/create.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [UserService/Create](../api-ref/grpc/User/create.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -427,7 +467,7 @@
 - Консоль управления {#console}
 
   1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image-users](../../_assets/console-icons/persons.svg) **Пользователи**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Пользователи**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Изменить пароль**.
 
   
@@ -529,6 +569,7 @@
          Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
       
       1. Если вас устраивают планируемые изменения, внесите их:
+      
          1. Выполните команду:
       
             ```bash
@@ -538,7 +579,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-  Подробнее о параметрах ресурса `yandex_mdb_mysql_user` смотрите в [документации провайдера](../../terraform/resources/mdb_mysql_user.md).
+  Подробнее о параметрах ресурса `yandex_mdb_mysql_user_v2` смотрите в [документации провайдера](../../terraform/resources/mdb_mysql_user_v2.md).
 
 - REST API {#api}
 
@@ -548,7 +589,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [User.update](../api-ref/User/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [User.update](../api-ref/User/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
       {% note warning %}
       
@@ -610,7 +651,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [UserService/Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [UserService/Update](../api-ref/grpc/User/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       {% note warning %}
       
@@ -702,8 +743,9 @@
 - Консоль управления {#console}
 
   1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image-users](../../_assets/console-icons/persons.svg) **Пользователи**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Пользователи**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Настроить**.
+  1. Настройте защиту пользователя от непреднамеренного удаления. Для этого выберите нужное значение в поле **Защита от удаления**.
   1. Задайте [настройки MySQL®](../concepts/settings-list.md#dbms-user-settings) для пользователя.
   1. Нажмите кнопку **Сохранить**.
 
@@ -717,9 +759,10 @@
 
   Чтобы задать [настройки MySQL®](../concepts/settings-list.md#dbms-user-settings) для пользователя, выполните команду:
 
-  ```
+  ```bash
   yc managed-mysql user update <имя_пользователя> \
     --cluster-name=<имя_кластера> \
+    --deletion-protection=<защита_от_удаления> \
     --global-permissions=<список_привилегий> \
     --authentication-plugin=<плагин_аутентификации> \
     --max-questions-per-hour=<максимум_запросов> \
@@ -730,6 +773,7 @@
 
   Где:
 
+  * `deletion-protection` — защита пользователя от непреднамеренного удаления: `enabled`, `disabled` или `inherited` (наследует значение от кластера).
   * `global-permissions` — список административных привилегий через запятую.
   * `max-questions-per-hour` — максимальное количество запросов в час.
   * `max-updates-per-hour` — максимальное количество запросов `UPDATE` в час.
@@ -744,12 +788,12 @@
 
       Как создать такой файл описано в разделе [Создание кластера](cluster-create.md).
 
-  1. Найдите ресурс `yandex_mdb_mysql_user` нужного пользователя.
+  1. Найдите ресурс `yandex_mdb_mysql_user_v2` нужного пользователя.
 
   1. Чтобы задать ограничения по количеству соединений и запросов, добавьте блок `connection_limits` к его описанию:
 
       ```hcl
-      resource "yandex_mdb_mysql_user" "<имя_пользователя>" {
+      resource "yandex_mdb_mysql_user_v2" "<имя_пользователя>" {
         ...
         connection_limits {
           max_questions_per_hour   = <максимум_запросов>
@@ -768,12 +812,25 @@
       * `max-connections-per-hour` — максимальное количество соединений в час.
       * `max-user-connections` — максимальное количество одновременных соединений.
 
-  1. Чтобы настроить плагин аутентификации пользователя, добавьте блок `authentication_plugin` к его описанию:
+  1. Чтобы настроить плагин аутентификации пользователя, добавьте параметр `authentication_plugin` к его описанию:
 
       ```hcl
-      resource "yandex_mdb_mysql_user" "<имя_пользователя>" {
+      resource "yandex_mdb_mysql_user_v2" "<имя_пользователя>" {
         ...
         authentication_plugin = "<плагин_аутентификации>"
+      }
+      ```
+
+  1. Чтобы настроить защиту от непреднамеренного удаления пользователя, добавьте параметр `deletion_protection_mode` к его описанию. Возможные значения:
+
+      * `DELETION_PROTECTION_MODE_ENABLED` — включена;
+      * `DELETION_PROTECTION_MODE_DISABLED` (по умолчанию) — выключена;
+      * `DELETION_PROTECTION_MODE_INHERITED` — наследует значение от кластера.
+
+      ```hcl
+      resource "yandex_mdb_mysql_user_v2" "<имя_пользователя>" {
+        ...
+        deletion_protection_mode = "<защита_от_удаления>"
       }
       ```
 
@@ -799,6 +856,7 @@
          Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
       
       1. Если вас устраивают планируемые изменения, внесите их:
+      
          1. Выполните команду:
       
             ```bash
@@ -808,7 +866,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-  Подробнее о параметрах ресурса `yandex_mdb_mysql_user` смотрите в [документации провайдера](../../terraform/resources/mdb_mysql_user.md).
+  Подробнее о параметрах ресурса `yandex_mdb_mysql_user_v2` смотрите в [документации провайдера](../../terraform/resources/mdb_mysql_user_v2.md).
 
 - REST API {#api}
 
@@ -818,7 +876,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [User.update](../api-ref/User/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [User.update](../api-ref/User/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
       {% note warning %}
       
@@ -833,7 +891,7 @@
           --header "Content-Type: application/json" \
           --url 'https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
           --data '{
-                    "updateMask": "globalPermissions,connectionLimits,authenticationPlugin",
+                    "updateMask": "globalPermissions,connectionLimits,authenticationPlugin,deletionProtectionMode",
                     "globalPermissions": [
                       "<административная_привилегия_1>",
                       "<административная_привилегия_2>",
@@ -846,7 +904,8 @@
                       "maxConnectionsPerHour": "<максимум_соединений>",
                       "maxUserConnections": "<максимум_одновременных_соединений>"
                     },
-                    "authenticationPlugin": "<плагин_аутентификации>"
+                    "authenticationPlugin": "<плагин_аутентификации>",
+                    "deletionProtectionMode": "<защита_от_удаления>"
                   }'
       ```
 
@@ -864,6 +923,10 @@
           Минимальное значение для каждой настройки подключений — `0`.
 
       * `authenticationPlugin` — плагин аутентификации пользователя. Список доступных плагинов приведен в [описании метода](../api-ref/User/update.md#yandex.cloud.mdb.mysql.v1.UpdateUserRequest).
+      * `deletionProtectionMode` — защита пользователя от непреднамеренного удаления:
+         * `DELETION_PROTECTION_MODE_ENABLED` — включена;
+         * `DELETION_PROTECTION_MODE_DISABLED` (по умолчанию) — выключена;
+         * `DELETION_PROTECTION_MODE_INHERITED` — наследует значение от кластера.
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
 
@@ -884,7 +947,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [UserService/Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [UserService/Update](../api-ref/grpc/User/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       {% note warning %}
       
@@ -921,7 +984,8 @@
                   "paths": [
                     "global_permissions",
                     "connection_limits",
-                    "authentication_plugin"
+                    "authentication_plugin",
+                    "deletion_protection_mode"
                   ]
                 },
                 "global_permissions": [
@@ -936,7 +1000,8 @@
                   "max_connections_per_hour": "<максимум_соединений>",
                   "max_user_connections": "<максимум_одновременных_соединений>"
                 },
-                "authentication_plugin": "<плагин_аутентификации>"
+                "authentication_plugin": "<плагин_аутентификации>",
+                "deletion_protection_mode": "<защита_от_удаления>"
               }' \
           mdb.api.cloud.yandex.net:443 \
           yandex.cloud.mdb.mysql.v1.UserService.Update
@@ -956,6 +1021,10 @@
           Минимальное значение для каждой настройки подключений — `0`.
 
       * `authentication_plugin` — плагин аутентификации пользователя. Список доступных плагинов приведен в [описании метода](../api-ref/grpc/User/update.md#yandex.cloud.mdb.mysql.v1.UpdateUserRequest).
+      * `deletion_protection_mode` — защита пользователя от непреднамеренного удаления:
+         * `DELETION_PROTECTION_MODE_ENABLED` — включена;
+         * `DELETION_PROTECTION_MODE_DISABLED` (по умолчанию) — выключена;
+         * `DELETION_PROTECTION_MODE_INHERITED` — наследует значение от кластера.
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
 
@@ -965,12 +1034,18 @@
 
 ## Удалить пользователя {#removeuser}
 
+{% note info %}
+
+Перед удалением пользователя [отключите его защиту от удаления](#update-settings).
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image-users](../../_assets/console-icons/persons.svg) **Пользователи**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Пользователи**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Удалить**.
 
 - CLI {#cli}
@@ -983,7 +1058,7 @@
 
   Чтобы удалить пользователя, выполните команду:
 
-  ```
+  ```bash
   yc managed-mysql user delete <имя_пользователя> --cluster-name=<имя_кластера>
   ```
 
@@ -995,7 +1070,7 @@
 
       Как создать такой файл описано в разделе [Создание кластера](cluster-create.md).
 
-  1. Удалите ресурс `yandex_mdb_mysql_user` с описанием нужного пользователя.
+  1. Удалите ресурс `yandex_mdb_mysql_user_v2` с описанием нужного пользователя.
 
   1. Проверьте корректность настроек.
 
@@ -1019,6 +1094,7 @@
          Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
       
       1. Если вас устраивают планируемые изменения, внесите их:
+      
          1. Выполните команду:
       
             ```bash
@@ -1028,7 +1104,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-  Подробнее о параметрах ресурса `yandex_mdb_mysql_user` смотрите в [документации провайдера](../../terraform/resources/mdb_mysql_user.md).
+  Подробнее о параметрах ресурса `yandex_mdb_mysql_user_v2` смотрите в [документации провайдера](../../terraform/resources/mdb_mysql_user_v2.md).
 
 - REST API {#api}
 
@@ -1038,7 +1114,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [User.delete](../api-ref/User/delete.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [User.delete](../api-ref/User/delete.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
@@ -1066,7 +1142,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [UserService/Delete](../api-ref/grpc/User/delete.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [UserService/Delete](../api-ref/grpc/User/delete.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -1093,7 +1169,7 @@
 
 ### Создать пользователя с правами только на чтение {#user-read-only}
 
-Чтобы в существующем кластере `cluster1` создать нового пользователя `user2` с паролем `SecretPassword` и доступом к базе данных `db1` только для чтения:
+Чтобы в существующем кластере `cluster1` создать нового пользователя `user2` с паролем `SecretPassword`, защитой от удаления и доступом к базе данных `db1` только для чтения:
 
 {% list tabs group=instructions %}
 
@@ -1103,25 +1179,19 @@
 
   1. Добавьте базу `db1` в список баз данных.
   1. Добавьте роль `SELECT` для базы `db1`.
+  1. Включите защиту от удаления.
 
 - CLI {#cli}
 
-  1. Создайте пользователя `user2`:
+  Создайте пользователя `user2` с нужными привилегиями:
 
-      ```bash
-      yc managed-mysql user create "user2" \
-        --cluster-name "cluster1" \
-        --password "SecretPassword"
-      ```
-
-  1. Добавьте роль `SELECT` для базы `db1`:
-
-      ```bash
-      yc managed-mysql users grant-permission "user2" \
-        --cluster-name "cluster1" \
-        --database "db1" \
-        --permissions "SELECT"
-      ```
+  ```bash
+  yc managed-mysql user create "user2" \
+    --cluster-name "cluster1" \
+    --password "SecretPassword" \
+    --permissions database=db1,role=SELECT \
+    --deletion-protection enabled
+  ```
 
 - Terraform {#tf}
 
@@ -1129,13 +1199,14 @@
 
       Как создать такой файл, описано в разделе [Создание кластера MySQL®](cluster-create.md).
 
-  1. Добавьте ресурс `yandex_mdb_mysql_user`:
+  1. Добавьте ресурс `yandex_mdb_mysql_user_v2`:
 
       ```hcl
-      resource "yandex_mdb_mysql_user" "user2" {
-        cluster_id = yandex_mdb_mysql_cluster.cluster1.id
-        name       = "user2"
-        password   = "SecretPassword"
+      resource "yandex_mdb_mysql_user_v2" "user2" {
+        cluster_id               = yandex_mdb_mysql_cluster.cluster1.id
+        name                     = "user2"
+        password                 = "SecretPassword"
+        deletion_protection_mode = "DELETION_PROTECTION_MODE_ENABLED"
         permission {
           database_name = "db1"
           roles         = ["SELECT"]
@@ -1166,6 +1237,7 @@
          Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
       
       1. Если вас устраивают планируемые изменения, внесите их:
+      
          1. Выполните команду:
       
             ```bash

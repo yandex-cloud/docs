@@ -82,6 +82,6 @@ If the delete command is executed successfully, no text is output to the termina
 
   1. In the [management console]({{ link-console-main }}), select the folder where you created the message queue.
   1. [Navigate]({{ link-console-main }}/link/message-queue) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
-  1. The current number of enqueued messages is specified in the **Messages in queue** field.
+  1. The current number of enqueued messages is specified in the **{{ ui-key.yacloud.ymq.queue.overview.label_msg-count }}** column.
 
 {% endlist %}

@@ -13,6 +13,7 @@
 * получать и просматривать уведомления о потреблении;
 * проверять расходы;
 * [просматривать детализацию](../../../billing/operations/check-charges.md);
+* [выполнять API-запросы](../../../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../../../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../../../billing/concepts/budget.md);
 * [резервировать потребление ресурсов](../../../billing/concepts/cvos.md);

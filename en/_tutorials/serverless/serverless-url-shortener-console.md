@@ -98,7 +98,7 @@ To create a database in {{ ydb-name }} and configure it to store URLs:
   1. Click the database name.
 
      Save the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value, as you will need it later.
-  1. In the left-hand panel, select the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
   1. Select **{{ ui-key.yacloud.ydb.browse.button_create }}** → **{{ ui-key.yacloud.ydb.browse.menu_table }}** on the right side of the page.
   1. Configure the table:
      * **{{ ui-key.yacloud.ydb.table.form.field_name }}** tables: `links`.

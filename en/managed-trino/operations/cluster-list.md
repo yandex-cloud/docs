@@ -163,7 +163,7 @@ You can get detailed information about each {{ mtr-name }} cluster you created.
 
 ## Viewing operations with clusters {#list-operations}
 
-All actions with {{ mtr-name }} clusters are logged as a list of operations. Each operation gets an ID.
+All actions with {{ mtr-name }} clusters are logged as a list of operations. Each operation gets a unique ID.
 
 ### Getting a list of operations {#get-operations}
 
@@ -177,7 +177,7 @@ All actions with {{ mtr-name }} clusters are logged as a list of operations. Eac
     1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
     1. Select the cluster.
-    1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the cluster you selected.
+    1. Navigate to the **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
         This will open the list of operations with the cluster.
 

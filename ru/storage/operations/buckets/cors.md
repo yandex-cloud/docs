@@ -1,9 +1,9 @@
 ---
-title: Настройка кросс-доменных запросов (CORS) к объектам в бакете {{ objstorage-full-name }}
+title: Настроить кросс-доменные запросы (CORS) к объектам в бакете {{ objstorage-full-name }}
 description: Следуя данной инструкции, вы сможете настроить кросс-доменные запросы (CORS) к объектам в бакете {{ objstorage-name }}.
 ---
 
-# Настройка CORS
+# Настроить CORS
 
 {{ objstorage-name }} позволяет управлять [конфигурацией CORS](../../concepts/cors.md) в бакете.
 
@@ -15,8 +15,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет, для которого хотите настроить CORS.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
-  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_cors }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_cors }}**.
   1. Нажмите **{{ ui-key.yacloud.storage.bucket.cors.button_action-edit }}**.
   1. Заполните открывшуюся форму. Вы можете добавлять, удалять и редактировать правила конфигурации.
      

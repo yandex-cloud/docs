@@ -1,0 +1,1 @@
+Сервис {{ cloud-logging-full-name }} предназначен для чтения и записи логов сервисов и пользовательских приложений в [лог-группы](../../logging/concepts/log-group.md). Подробнее читайте в [документации {{ cloud-logging-name }}](../../logging/index.yaml).

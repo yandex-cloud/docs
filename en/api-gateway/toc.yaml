@@ -39,7 +39,9 @@ items:
                 href: operations/api-gw-logs-write.md
           - name: Removing a domain
             href: operations/api-gw-domain-detach.md
-          - name: Migration to the {{ region-id }}-d availability zone
+          - name: Stopping and starting an API gateway
+            href: operations/api-gw-stop-resume.md
+          - name: Migrating to the {{ region-id }}-d availability zone
             href: operations/api-gw-migration.md
           - name: Deleting an API gateway
             href: operations/api-gw-delete.md
@@ -73,6 +75,8 @@ items:
             href: operations/trigger/data-streams-trigger-create.md
           - name: Creating an email trigger
             href: operations/trigger/mail-trigger-create.md
+          - name: Creating a Telegram trigger
+            href: operations/trigger/telegram-trigger-create.md
       - name: Managing a trigger
         items:
           - name: Updating a trigger
@@ -261,6 +265,8 @@ items:
             href: concepts/trigger/data-streams-trigger.md
           - name: Email trigger
             href: concepts/trigger/mail-trigger.md
+          - name: Telegram Trigger
+            href: concepts/trigger/telegram-trigger.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

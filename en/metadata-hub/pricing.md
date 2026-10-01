@@ -11,12 +11,14 @@ blocks:
   - type: card-layout-block
     animated: false
     colSizes:
-      all: 6
+      all: 12
+      md: 6
     children:
       - type: basic-card
         title: Price calculator
         text: Calculate the cost of the service based on your needs
-        icon: ../_assets/console-icons/calculator.svg
+        gravityIcon: Calculator
+        iconPosition: left
         urlTitle: Price calculator
         url: https://yandex.cloud/en/prices?state=ac5d0e6cef3b#calculator
         size: s
@@ -28,7 +30,8 @@ blocks:
       - type: basic-card
         title: Price list
         text: Current prices of all our services
-        icon: ../_assets/console-icons/circle-ruble.svg
+        gravityIcon: CircleRuble
+        iconPosition: left
         urlTitle: Price list
         url: https://yandex.cloud/en/price-list?services=dn2rnt6lkfbauucwnfby
         size: s
@@ -54,7 +57,7 @@ These prices apply starting September 22, 2025.
 
 {% endnote %}
 
-When using {{ metastore-full-name }}, you pay for the computing resources of your cluster. Cluster operation cost is charged per minute. The minimum billing unit is one minute, e.g., 1.5 minutes of cluster usage is billed as 2 minutes.
+When using {{ metastore-full-name }}, you pay for the computing resources of your cluster. Cluster operation cost is charged per minute. The minimum billing unit is one minute (for example, 1.5 minutes of cluster operation cost the same as 2 minutes).
 
 A `Stopped` cluster is not charged.
 

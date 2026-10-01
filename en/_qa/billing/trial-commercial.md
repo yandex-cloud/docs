@@ -6,7 +6,7 @@ Yes. For more information, see [Trial period](../../getting-started/free-trial/c
 
 #### Who can use the trial period? {#who-can-use-trial}
 
-All new {{ yandex-cloud }} customers who are legal entities.
+New {{ yandex-cloud }} business customers that selected **Wire transfer** as the payment method when creating the billing account.
 
 #### Can I upgrade to the paid version if the trial period has not expired yet? {#activate-commercial}
 
@@ -18,7 +18,7 @@ All your resources will be blocked. For more information, see [Trial period](../
 
 #### Is there a free non-commercial version? {#commercial-nonpaid}
 
-No. However, you can use the trial period if you have a business account in {{ yandex-cloud }}.
+No. However, a trial period is available to businesses that selected the **Wire transfer** payment method.
 
 {% include [trial-activation](../../billing/_includes/trial-activation.md) %}
 

@@ -32,6 +32,17 @@ Start timestamp for the request. Format: RFC-3339, HH:MM:SS, or a moment of time
 || `--to-time` | `timestamp`
 
 End timestamp for the request. Format: RFC-3339, HH:MM:SS, or a moment of time relative to the current time. ||
+|| `--extended-filter` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Filter session states by a field, value, and comparison operator. Can be specified multiple times; filters are combined using AND.
+
+Possible property names:
+
+- `field-name`: Session field to compare. Values: 'session-time', 'session-host', 'session-pid', 'session-database', 'session-user', 'session-application-name', 'session-backend-start', 'session-xact-start', 'session-query-start', 'session-state-change', 'session-wait-event-type', 'session-wait-event', 'session-state', 'session-query', 'session-backend-type', 'session-client-addr', 'session-client-hostname', 'session-client-port', 'session-backend-xid', 'session-backend-xmin', 'session-query-id', 'session-blocking-pids', 'session-role', 'session-blocked-by-modes', 'session-wait-locktype', 'session-wait-mode', 'session-wait-relation', 'session-transaction-age'
+
+- `value`: Value to compare the session field with. For 'in' and 'not-in', enclose a comma-separated list in brackets.
+
+- `operator`: Comparison operator. If unspecified, equality is used. Values: 'equal', 'not-equal', 'greather-then', 'greather-then-or-equal', 'less-then', 'less-then-or-equal', 'in', 'not-in', 'like' ||
 |#
 
 #### Global Flags

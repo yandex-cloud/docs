@@ -12,7 +12,7 @@
 
 * В поле **{{ ui-key.yacloud.mdb.cluster.field_diskSizeLimit }}** укажите максимальный размер хранилища, который может быть установлен при автоматическом увеличении размера хранилища.
 
-
-{% include [warn-storage-resize](warn-storage-resize.md) %}
+  
+  {% include [warn-storage-resize](warn-storage-resize.md) %}
 
 

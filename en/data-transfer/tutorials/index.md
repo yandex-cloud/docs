@@ -47,7 +47,7 @@ Migration with data storage type changed.
 ## Change data capture {#cdc}
 
 [Change Data Capture](../concepts/cdc.md) (CDC) is a process of tracking changes in a database and delivering them to consumers with public serialization format supported when writing data to a Debezium queue.
-CDC is used for creating apps that are sensitive to real-time data changes, exchanging data between different services, including those with different levels of availability, and collecting and delivering data from the production environment to internal data storage for processing and analysis.
+CDC is used for creating apps that are sensitive to real-time data changes, exchanging data between different services, including those with different availability levels, and collecting and delivering data from the production environment to internal data storage for processing and analysis.
 
 ![cdc](../../_assets/data-transfer/tutorials/cdc.svg)
 
@@ -93,6 +93,7 @@ Loading data to data marts is a process of transferring prepared data to storage
 * [{{ MY }} to {{ CH }}](mysql-to-clickhouse.md)
 * [{{ metrika }} to {{ CH }}](metrika-to-clickhouse.md)
 * [{{ PG }} to {{ CH }}](rdbms-to-clickhouse.md)
+* [Executing analytical queries in {{ mpg-name }} with processing in {{ mch-name }} using pg_clickhouse and {{ data-transfer-name }}](mpg-pg-clickhouse-extension.md)
 * [{{ GP }} to {{ PG }}](greenplum-to-postgresql.md)
 * [{{ yandex-direct }} to {{ CH }}](direct-to-mch.md)
 * [{{ objstorage-name }} to {{ PG }}](object-storage-to-postgresql.md)

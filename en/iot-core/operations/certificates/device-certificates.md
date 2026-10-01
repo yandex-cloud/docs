@@ -2,7 +2,7 @@
 
 {% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
 
-For devices and registries to begin exchanging data and commands, you need to [log in](../../concepts/authorization.md). This section describes how to manage device certificates for the relevant authentication method.
+To start exchanging data and commands between devices and registries, you need to [authenticate](../../concepts/authorization.md). This section describes how to manage device certificates for the relevant authentication method.
 
 {% include [pass-priority-note](../../../_includes/iot-core/pass-priority-note.md) %}
 
@@ -10,7 +10,7 @@ For devices and registries to begin exchanging data and commands, you need to [l
 * [Adding a certificate to a device](device-certificates.md#add-cert)
 * [Deleting a device certificate](device-certificates.md#delete-cert)
 
-To access a [device](../../concepts/index.md#device), use its unique ID or name. For information about how to get its unique ID or name, see [{#T}](../device/device-list.md)
+To access a [device](../../concepts/index.md#device), use its unique ID or name. For information on how to get the unique ID or name of a device, see [{#T}](../device/device-list.md)
 
 ## Getting a list of certificates {#device-certificates-list}
 
@@ -24,24 +24,22 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
    To add a device certificate:
 
-   1. In the [management console]({{ link-console-main }}), select the folder to add the device certificate to.
-   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. Click the name of the registry.
-   1. Navigate to **{{ ui-key.yacloud.iot.label_devices }}**.
-   1. Select the device from the list.
-   1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_certificates }}** section and click **{{ ui-key.yacloud.component.certificates.button_empty-add }}**.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to add a device certificate.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}** and select the registry of interest.
+   1. Navigate to the **{{ ui-key.yacloud.iot.label_devices }}** tab and select the device.
+   1. On the **{{ ui-key.yacloud.common.overview }}** tab, navigate to the **{{ ui-key.yacloud.iot.label_certificates }}** section and click **{{ ui-key.yacloud.component.certificates.button_empty-add }}**.
 
       * To add a file:
 
          1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
-         1. Click **Attach file**.
+         1. Click **{{ ui-key.yacloud_components.fileinput.button_attach-file }}**.
          1. Specify the certificate file on your computer and click **Open**.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
       * To add text:
 
          1. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
-         1. Insert the certificate body in the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
+         1. Paste the certificate body into the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
 - CLI {#cli}
@@ -74,16 +72,16 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
   
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  To add a certificate to a device created using {{ TF }}:
+  To add a certificate to a device created with {{ TF }}:
   
   1. In the configuration file, specify the properties of the resources you want to create:
 
      * `yandex_iot_core_device`: Device properties:
-
-       * `registry_id`: [ID of the registry](../registry/registry-list.md#registry-list) where the device will be created.
+     
+       * `registry_id`: [ID of the registry](../registry/registry-list.md#registry-list) where you are creating your device.
        * `name`: [Device name](../device/device-list.md#device-list).
        * `description`: Device description.
-       * `certificates`: List of certificates for authentication with [certificates](../../concepts/authorization.md#certs).
+       * `certificates`: List of certificates for [certificate](../../concepts/authorization.md#certs)-based authentication.
 
       Here is an example of a device description in the {{ TF }} configuration:
 
@@ -120,7 +118,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       terraform plan
       ```
 
-      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
   1. Apply the configuration changes:
 
       ```bash
@@ -129,7 +127,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify device certificates in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+      You can check device certificates using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc iot device certificate list --device-name <device_name>
@@ -149,14 +147,12 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
    To delete a device certificate:
 
-   1. In the [management console]({{ link-console-main }}), select the folder to delete the device certificate from.
-   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. Click the name of the registry.
-   1. Navigate to **{{ ui-key.yacloud.iot.label_devices }}**.
-   1. Select the device from the list.
-   1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_certificates }}** section.
-   1. In the line with the certificate, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
-   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a device certificate.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}** and select the registry of interest.
+   1. Navigate to the **{{ ui-key.yacloud.iot.label_devices }}** tab and select the device.
+   1. On the **{{ ui-key.yacloud.common.overview }}** tab, go to **{{ ui-key.yacloud.iot.label_certificates }}**.
+   1. To the right of the certificate you want to delete, click ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.common.delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.component.certificates.popup-confirm_button_delete }}**.
 
 - CLI {#cli}
 
@@ -168,7 +164,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       yc iot device certificate delete --device-name my-device --fingerprint 65...
       ```
 
-  1. Make sure the certificate was deleted:
+  1. Make sure the certificate has been deleted:
 
       ```bash
       yc iot device certificate list --device-name my-device
@@ -189,9 +185,9 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
   
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  To delete the certificate of a device created using {{ TF }}:
+  To delete a certificate of a device created with {{ TF }}:
   
-  1. Open the {{ TF }} configuration file and delete the certificate value in the `certificates` section, in the device description fragment. To remove all certificates, delete the entire `certificates` section.
+  1. Open the {{ TF }} configuration file and delete the certificate value from the `certificates` section in the device description. To remove all certificates, delete the entire `certificates` section.
 
       Here is an example of a device description in the {{ TF }} configuration:
 
@@ -228,7 +224,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       terraform plan
       ```
 
-      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
   1. Apply the configuration changes:
 
       ```bash
@@ -237,7 +233,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify device certificates in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+      You can check device certificates using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc iot device certificate list --device-name <device_name>

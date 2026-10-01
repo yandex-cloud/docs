@@ -60,6 +60,20 @@
 
   1. Сохраните идентификатор ключа `access_key_id`, секретный ключ `secret` и токен сессии `session_token`. Повторно получить эти значения будет невозможно.
 
+  Чтобы сразу сохранить ключ в профиль AWS вместо вывода в терминал, добавьте параметры:
+
+  ```bash
+  yc iam access-key issue-ephemeral \
+    --session-name <имя_сессии> \
+    --aws-profile <имя_профиля> \
+    --aws-credentials-file <путь_к_файлу_учетных_данных>
+  ```
+
+  * `--aws-profile` — имя профиля AWS. Если указан только `--aws-credentials-file`, используется профиль `default`.
+  * `--aws-credentials-file` — путь к файлу учетных данных. Необязательный параметр: по умолчанию используется значение переменной окружения `AWS_SHARED_CREDENTIALS_FILE`, а если она не задана — `~/.aws/credentials`.
+
+  При необходимости передайте также `--subject-id`, `--policy` и `--duration`, как в примере выше. Сохраненный профиль можно использовать в AWS CLI с параметром `--profile <имя_профиля>`.
+
 - API {#api}
 
     Воспользуйтесь методом REST API [createEphemeral](../../awscompatibility/api-ref/TemporaryAccessKey/createEphemeral.md) для ресурса [TemporaryAccessKey](../../awscompatibility/api-ref/TemporaryAccessKey/index.md) или вызовом gRPC API [TemporaryAccessKeyService/CreateEphemeral](../../awscompatibility/api-ref/grpc/TemporaryAccessKey/createEphemeral.md).
@@ -114,4 +128,4 @@
 
 * [Обзор способов управления доступом в Object Storage](../../../storage/security/overview.md)
 * [Создать временный ключ доступа с помощью Security Token Service](../sa/create-sts-key.md)
-* [Доступ к бакету с помощью эфемерного ключа доступа](../../../storage/operations/buckets/manage-ephemeral-keys.md)
+* [Получить доступ к бакету с помощью эфемерного ключа доступа](../../../storage/operations/buckets/manage-ephemeral-keys.md)

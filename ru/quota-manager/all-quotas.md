@@ -69,6 +69,12 @@ description: Во многих сервисах {{ yandex-cloud }} действ�
 
 {% include notitle [functions-quotas](../_includes/functions-limits.md#functions-quotas) %}
 
+## {{ interconnect-full-name }} {#interconnect}
+
+Сервис — `interconnect`, тип ресурса — `organization-manager.organization`.
+
+{% include notitle [interconnect-quotas](../_includes/interconnect-limits.md#interconnect-quotas) %}
+
 ## {{ cloud-logging-full-name }} {#logging}
 
 Сервис — `logging`, тип ресурса — `resource-manager.cloud`.
@@ -82,6 +88,18 @@ description: Во многих сервисах {{ yandex-cloud }} действ�
 
 {% include notitle [postbox-quotas](../_includes/postbox/postbox-limits.md#postbox-quotas) %}
 
+## {{ cloud-router-full-name }} {#cloud-router}
+
+Сервис — `cloud-router`, тип ресурса — `organization-manager.organization`.
+
+{% include notitle [cloud-router-quotas](../_includes/cloud-router-limits.md#cloud-router-quotas) %}
+
+## {{ video-full-name }} {#video}
+
+Сервис — `video`, тип ресурса — `organization-manager.organization`.
+
+{% include notitle [video-limits](../_includes/video-limits.md#quotas) %}
+
 ## {{ compute-full-name }} {#compute}
 
 Сервис — `compute`, тип ресурса — `resource-manager.cloud`.
@@ -94,11 +112,9 @@ description: Во многих сервисах {{ yandex-cloud }} действ�
 
 {% include notitle [container-registry-quotas](../_includes/container-registry-limits.md#container-registry-quotas) %}
 
-
 ## {{ dataproc-full-name }} {#dataproc}
 
 {% include notitle [data-processing-quotas](../_includes/data-processing/data-processing-limits.md#dataproc-quotas) %}
-
 
 ## {{ data-transfer-full-name }} {#data-transfer}
 

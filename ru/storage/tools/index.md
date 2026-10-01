@@ -17,6 +17,7 @@ description: Перечень поддерживаемых инструмент�
 
 * [Cyberduck](cyberduck.md)
 * [WinSCP](winscp.md)
+* [Obsidian](obsidian.md)
 
 ## SDK {#sdk}
 

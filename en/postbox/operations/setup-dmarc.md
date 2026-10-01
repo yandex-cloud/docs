@@ -3,7 +3,6 @@ title: Setting up a DMARC policy
 description: Follow this guide to set up a DMARC policy.
 ---
 
-
 # Setting up a DMARC policy
 
 To protect your domain from sender email spoofing and increase the security of your email communications, you need to set up a [DMARC policy](https://{{ lang }}.wikipedia.org/wiki/DMARC). Make sure your domain zone settings include the `_dmarc.<domain>.` TXT record. You can add a record with your registrar or in [{{ dns-full-name }}](../../dns/) if you have delegated your domain.

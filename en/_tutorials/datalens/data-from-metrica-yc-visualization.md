@@ -32,7 +32,7 @@ We will use Yandex Metrica data as the source.
     1. [{{ ml-platform-short-name }}. Build funnels](#calculating-funnels-datasphere).
     1. [{{ datalens-short-name }}. Funnels by browser. Create a dataset](#calculating-browser-funnels-dataset).
     1. [{{ datalens-short-name }}. Funnels by browser. Create a chart](#calculating-browser-funnels-chart).
-    1. [{{ datalens-short-name }}. Funnels by browser. Add a chart to the dashboard](#add-browser-funnels-chart-on-dashboard}).
+    1. [{{ datalens-short-name }}. Funnels by browser. Add a chart to the dashboard](#add-browser-funnels-chart-on-dashboard).
     1. [{{ datalens-short-name }}. Funnels by browser. Set up the dashboard](#setting-browser-funnels-chart-on-dashboard).
 1. [Perform cohort analysis](#cohorts):
     1. [{{ ml-platform-short-name }}. Perform cohort analysis](#cohort-analysis).
@@ -184,7 +184,7 @@ Skip this section if you are using your own tag data.
 ### 3.1. Connect to {{ datalens-short-name }} {#datalens-connection}
 
 1. In the [management console]({{ link-console-main }}), open the page of the new {{ CH }} cluster.
-1. On the left side of the window, select ![datalens](../../_assets/console-icons/chart-column.svg) **{{ datalens-short-name }}**.
+1. Navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
 1. Click **Create connection**.
 
 ### 3.2. Create a connection to {{ CH }} in {{ datalens-short-name }} {#creation-datalens-connection-to-ch}
@@ -217,7 +217,7 @@ Skip this section if you are using your own tag data.
     * `EventDate`, to **X**.
     * `Browser`, to **Colors**.
     * `Hits`, to **Y**.
-1. Change the chart type from **Column chart** to **Area chart**. 
+1. Change the chart type from **Column chart** to **Area chart**.
 1. Click **Save**. 
 1. In the window that opens, enter `ch_metrica_data_hits_area` as the chart name and click **Save**.
 

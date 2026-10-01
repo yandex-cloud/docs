@@ -2,6 +2,12 @@
 
 # Перенести группу виртуальных машин с L7-балансировщиком в другую зону доступности
 
+{% note warning %}
+
+С 12 октября 2026 года девять квот на ресурсы Compute Cloud будут действовать не в рамках региона, а отдельно по каждой зоне доступности. Список квот и описание изменений — в разделе [Изменение квотирования ресурсов Compute Cloud](../../concepts/quota-zones.md).
+
+{% endnote %}
+
 
 Чтобы перенести [группу ВМ](../../concepts/instance-groups/index.md) с [L7-балансировщиком](../../../application-load-balancer/concepts/application-load-balancer.md) [Yandex Application Load Balancer](../../../application-load-balancer/index.md):
 
@@ -165,7 +171,7 @@
      1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
      1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
      1. Выберите группу ВМ, которую хотите изменить.
-     1. В правом верхнем углу нажмите ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.
+     1. Нажмите кнопку ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать**.
      1. В блоке **Распределение** добавьте [зону доступности](../../../overview/concepts/geo-scope.md), в которую вы хотите перенести группу ВМ. 
      1. Если у вас группа ВМ с [ручным масштабированием](../../concepts/instance-groups/scale.md#fixed-scale), в блоке **Масштабирование** укажите размер группы, достаточный для размещения во всех выбранных зонах доступности.
    
@@ -351,7 +357,7 @@
      1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
      1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
      1. Выберите группу ВМ, которую хотите изменить.
-     1. В правом верхнем углу нажмите ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.
+     1. Нажмите кнопку ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать**.
      1. В блоке **Распределение** отключите старую [зону доступности](../../../overview/concepts/geo-scope.md).
      1. Нажмите **Сохранить**.
    

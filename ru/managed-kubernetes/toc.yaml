@@ -15,6 +15,10 @@ items:
         href: operations/node-connect-oslogin.md
       - name: Обновление {{ k8s }}
         href: operations/update-kubernetes.md
+      - name: >-
+          Настройка маскарадинга в кластерах с несколькими диапазонами
+          IP-адресов подов
+        href: operations/network/manage-ip-masq-agent.md
       - name: Настройка автомасштабирования
         href: operations/autoscale.md
       - name: Подключение {{ TF }}-провайдера {{ k8s }}
@@ -97,6 +101,10 @@ items:
         items:
           - name: Обеспечение доступа к приложению, запущенному в кластере {{ k8s }}
             href: operations/create-load-balancer.md
+          - name: >-
+              Настройка режима управления целевыми группами сетевых
+              балансировщиков
+            href: operations/configure-load-balancer-target-groups.md
           - name: Настройка контроллера сетевых политик Calico
             href: operations/calico.md
           - name: Настройка контроллера сетевых политик Cilium
@@ -161,6 +169,8 @@ items:
             href: operations/autoscale.md
           - name: Изменение группы узлов
             href: operations/node-group/node-group-update.md
+          - name: Техническое обслуживание узлов без потери ресурсов
+            href: operations/node-group/node-group-gpu-maintenance.md
           - name: Управление {{ k8s }}-метками узлов
             href: operations/node-group/node-label-management.md
           - name: Удаление группы узлов
@@ -177,6 +187,14 @@ items:
             href: operations/external-nodes-connect-ipsec.md
           - name: Подключение сервера {{ baremetal-name }} как внешнего узла
             href: operations/bms-server-connect.md
+      - name: Работа с группой узлов {{ baremetal-name }}
+        items:
+          - name: Создание группы узлов
+            href: operations/baremetal-group/create-baremetal.md
+          - name: Изменение группы узлов
+            href: operations/baremetal-group/update-baremetal.md
+          - name: Удаление группы узлов
+            href: operations/baremetal-group/delete-baremetal.md
       - name: Работа с объектами {{ k8s }} из консоли управления
         items:
           - name: Подключение к терминалу запущенного контейнера
@@ -328,10 +346,18 @@ items:
             href: tutorials/marketplace/istio.md
           - name: Использование HashiCorp Vault для хранения секретов
             href: tutorials/marketplace/hashicorp-vault.md
+      - name: Миграция в {{ managed-k8s-name }}
+        items:
+          - name: Обзор
+            href: tutorials/migration/index.md
+          - name: Миграция из облачного провайдера
+            href: tutorials/migration/migration-from-cloud.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
+      - name: Большие кластеры
+        href: concepts/large-clusters.md
       - name: Релизные каналы и обновления
         href: concepts/release-channels-and-updates.md
       - name: Поддержка версий {{ k8s }}
@@ -366,8 +392,14 @@ items:
             href: concepts/node-group/variables-in-the-template.md
       - name: Сеть в {{ managed-k8s-name }}
         href: concepts/network.md
+      - name: Кластеры с несколькими диапазонами IP-адресов подов
+        href: concepts/cluster-multi-cidr.md
+      - name: Целевые группы сетевых балансировщиков
+        href: concepts/load-balancer-target-groups.md
       - name: Сетевые настройки и политики кластера
         href: concepts/network-policy.md
+      - name: Кластеры без предустановленного CNI
+        href: concepts/cluster-without-cni.md
       - name: Автоматическое масштабирование
         href: concepts/autoscale.md
       - name: Политика аудита
@@ -820,40 +852,40 @@ items:
             href: alb-ref/gwin-alb-attachment.md
           - name: Конфигурация ресурсов (англ.)
             items:
-              - name: DirectResponse
-                href: gwin-ref/directresponse.md
               - name: BackendTLSPolicy
                 href: gwin-ref/backendtlspolicy.md
-              - name: Gateway
-                href: gwin-ref/gateway.md
-              - name: GatewayPolicy
-                href: gwin-ref/gatewaypolicy.md
+              - name: DirectResponse
+                href: gwin-ref/directresponse.md
               - name: GRPCRoute
                 href: gwin-ref/grpcroute.md
               - name: HTTPRoute
                 href: gwin-ref/httproute.md
-              - name: IngressBackendGroup
-                href: gwin-ref/ingressbackendgroup.md
+              - name: Gateway
+                href: gwin-ref/gateway.md
               - name: Ingress
                 href: gwin-ref/ingress.md
-              - name: ListenerSetPolicy
-                href: gwin-ref/listenersetpolicy.md
               - name: IngressPolicy
                 href: gwin-ref/ingresspolicy.md
+              - name: IngressBackendGroup
+                href: gwin-ref/ingressbackendgroup.md
+              - name: ListenerSet
+                href: gwin-ref/listenerset.md
               - name: RoutePolicy
                 href: gwin-ref/routepolicy.md
+              - name: ListenerSetPolicy
+                href: gwin-ref/listenersetpolicy.md
               - name: Service
                 href: gwin-ref/service.md
               - name: ServicePolicy
                 href: gwin-ref/servicepolicy.md
-              - name: YCCertificate
-                href: gwin-ref/yccertificate.md
               - name: TLSRoute
                 href: gwin-ref/tlsroute.md
+              - name: YCCertificate
+                href: gwin-ref/yccertificate.md
               - name: YCStorageBucket
                 href: gwin-ref/ycstoragebucket.md
-              - name: ListenerSet
-                href: gwin-ref/listenerset.md
+              - name: GatewayPolicy
+                href: gwin-ref/gatewaypolicy.md
       - name: Ingress-контроллер
         items:
           - name: Обзор

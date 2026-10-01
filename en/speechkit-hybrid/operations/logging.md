@@ -6,7 +6,7 @@ Supported logging levels:
 
 * `DEBUG`
 * `NOTICE`
-* `INFO` (default)
+* `INFO` (default value)
 * `WARNING`
 * `ERROR`
 * `EMERG`
@@ -25,7 +25,7 @@ docker run --network=host-e LOGGING_LEVEL=DEBUG -e LICENSE_MODE=billing_agent <l
 
 If you use Docker Compose to run your {{ sk-hybrid-name }} containers, you can set the logging level for each container in the configuration file.
 
-For example, the following configuration will set the logging levels: `INFO` for the `billing_agent` container, `NOTICE` for the license server, and `WARNING` for the `envoy` container.
+For example, the following configuration will set logging levels as follows: `INFO` for the `billing_agent` container, `NOTICE` for the license server, and `WARNING` for the `envoy` container.
 
 ```text
 version: '3'

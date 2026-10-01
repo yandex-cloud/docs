@@ -28,7 +28,8 @@ Updates the specified Redis user.
     "sanitize_payload": "google.protobuf.StringValue",
     "databases": "google.protobuf.StringValue"
   },
-  "enabled": "bool"
+  "enabled": "bool",
+  "generate_password": "google.protobuf.BoolValue"
 }
 ```
 
@@ -50,7 +51,7 @@ The maximum string length in characters is 32. Value must match the regular expr
 Field mask that specifies which fields of the Redis User resource should be updated. ||
 || passwords[] | **string**
 
-New passwords the Redis user.
+New password of the Redis user, 8-128 characters long.
 
 The maximum number of elements is 1. ||
 || permissions | **[Permissions](#yandex.cloud.mdb.redis.v1.Permissions)**
@@ -59,6 +60,9 @@ New set of permissions to grant to the user. ||
 || enabled | **bool**
 
 Is Redis user enabled ||
+|| generate_password | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Generate password using Connection Manager ||
 |#
 
 ## Permissions {#yandex.cloud.mdb.redis.v1.Permissions}
@@ -79,7 +83,7 @@ Command categories user has permissions to. ||
 Commands user can execute. ||
 || sanitize_payload | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
-SanitizePayload parameter. ||
+Deprecated. This parameter is ignored. ||
 || databases | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
 Databases parameter. ||

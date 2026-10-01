@@ -41,13 +41,17 @@
   1. Выполните команду:
 
      ```bash
-     yc organization-manager group list-effective --subject_id <идентификатор_пользователя>
+     yc organization-manager group list-effective --subject-id <идентификатор_пользователя>
      ```
 
-     Где `--subject_id` — идентификатор нужного пользователя, полученный на предыдущем шаге.
+     Где `--subject-id` — идентификатор пользователя, полученный на предыдущем шаге.
 
 - API {#api}
 
   Воспользуйтесь методом REST API [Group.ListEffective](../api-ref/Group/listEffective.md) для ресурса [Group](../api-ref/Group/index.md) или вызовом gRPC API [GroupService/ListEffective](../api-ref/grpc/Group/listEffective.md).
 
 {% endlist %}
+
+#### Полезные ссылки {#see-also}
+
+* [Получение информации о субъектах в системе управления доступом Yandex Cloud](../../iam/concepts/subject-details.md)

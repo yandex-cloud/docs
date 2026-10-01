@@ -12,3 +12,7 @@ description: На странице представлены вопросы и о
 ## Вход в систему и доступ к ресурсам {#log-in-and-access}
 
 {% include notitle [access](../../_qa/iam/access.md) %}
+
+## Решение проблем {#troubleshooting}
+
+{% include notitle [troubleshooting](../../_qa/iam/troubleshooting.md) %}

@@ -8,114 +8,114 @@ Catalog for Managed Trino cluster.
 ## Arguments & Attributes Reference
 
 - `clickhouse` [Block]. Configuration for Clickhouse connector.
-  - `additional_properties` (Map Of String). Additional properties.
+  - `additional_properties` (*Read-Only*) (Map Of String). Additional properties.
   - `connection_manager` [Block]. Configuration for connection manager connection.
-    - `connection_id` (**Required**)(String). Connection ID.
-    - `connection_properties` (Map Of String). Additional connection properties.
-    - `database` (**Required**)(String). Database.
+    - `connection_id` (*Read-Only*) (String). Connection ID.
+    - `connection_properties` (*Read-Only*) (Map Of String). Additional connection properties.
+    - `database` (*Read-Only*) (String). Database.
   - `on_premise` [Block]. Configuration for on-premise connection.
-    - `connection_url` (**Required**)(String). Connection to the clickhouse.
-    - `password` (**Required**)(String). Password of the clickhouse user.
-    - `user_name` (**Required**)(String). Name of the clickhouse user.
-- `cluster_id` (**Required**)(String). ID of the Trino cluster. Provided by the client when the Catalog is created.
-- `delta_lake` [Block]. Configuration for DeltaLake connector.
-  - `additional_properties` (Map Of String). Additional properties.
+    - `connection_url` (*Read-Only*) (String). Connection URL.
+    - `password` (*Read-Only*) (String). Password of the user.
+    - `user_name` (*Read-Only*) (String). Name of the user.
+- `cluster_id` (**Required**)(String). ID of the Trino cluster.
+- `delta_lake` [Block]. Configuration for Delta Lake connector.
+  - `additional_properties` (*Read-Only*) (Map Of String). Additional properties.
   - `file_system` [Block]. File system configuration.
     - `external_s3` [Block]. Describes External S3 compatible file system.
-      - `aws_access_key` (**Required**)(String). AWS access key ID for S3 authentication.
-      - `aws_endpoint` (**Required**)(String). AWS S3 compatible endpoint URL.
-      - `aws_region` (**Required**)(String). AWS region for S3 storage.
-      - `aws_secret_key` (**Required**)(String). AWS secret access key for S3 authentication.
+      - `aws_access_key` (*Read-Only*) (String). AWS access key ID for S3 authentication.
+      - `aws_endpoint` (*Read-Only*) (String). AWS S3 compatible endpoint URL.
+      - `aws_region` (*Read-Only*) (String). AWS region for S3 storage.
+      - `aws_secret_key` (*Read-Only*) (String). AWS secret access key for S3 authentication.
     - `s3` [Block]. Describes YandexCloud native S3 file system.
   - `metastore` [Block]. Metastore configuration.
-    - `managed_cluster_id` (String). ID of the Managed Hive Metastore cluster.
-    - `uri` (String). URI of the Hive Metastore.
-- `description` (String). The resource description.
+    - `managed_cluster_id` (*Read-Only*) (String). ID of the Managed Hive Metastore cluster.
+    - `uri` (*Read-Only*) (String). URI of the Hive Metastore.
+- `description` (*Read-Only*) (String). The resource description.
 - `greenplum` [Block]. Configuration for Greenplum/Cloudberry connector.
-  - `additional_properties` (Map Of String). Additional properties.
+  - `additional_properties` (*Read-Only*) (Map Of String). Additional properties.
   - `connection_manager` [Block]. Configuration for connection manager connection.
-    - `connection_id` (**Required**)(String). Connection ID.
-    - `connection_properties` (Map Of String). Additional connection properties.
-    - `database` (**Required**)(String). Database.
+    - `connection_id` (*Read-Only*) (String). Connection ID.
+    - `connection_properties` (*Read-Only*) (Map Of String). Additional connection properties.
+    - `database` (*Read-Only*) (String). Database.
   - `on_premise` [Block]. Configuration for on-premise connection.
-    - `connection_url` (**Required**)(String). Connection to the clickhouse.
-    - `password` (**Required**)(String). Password of the clickhouse user.
-    - `user_name` (**Required**)(String). Name of the clickhouse user.
+    - `connection_url` (*Read-Only*) (String). Connection URL.
+    - `password` (*Read-Only*) (String). Password of the user.
+    - `user_name` (*Read-Only*) (String). Name of the user.
 - `hive` [Block]. Configuration for Hive connector.
-  - `additional_properties` (Map Of String). Additional properties.
+  - `additional_properties` (*Read-Only*) (Map Of String). Additional properties.
   - `file_system` [Block]. File system configuration.
     - `external_s3` [Block]. Describes External S3 compatible file system.
-      - `aws_access_key` (**Required**)(String). AWS access key ID for S3 authentication.
-      - `aws_endpoint` (**Required**)(String). AWS S3 compatible endpoint URL.
-      - `aws_region` (**Required**)(String). AWS region for S3 storage.
-      - `aws_secret_key` (**Required**)(String). AWS secret access key for S3 authentication.
+      - `aws_access_key` (*Read-Only*) (String). AWS access key ID for S3 authentication.
+      - `aws_endpoint` (*Read-Only*) (String). AWS S3 compatible endpoint URL.
+      - `aws_region` (*Read-Only*) (String). AWS region for S3 storage.
+      - `aws_secret_key` (*Read-Only*) (String). AWS secret access key for S3 authentication.
     - `s3` [Block]. Describes YandexCloud native S3 file system.
   - `metastore` [Block]. Metastore configuration.
-    - `managed_cluster_id` (String). ID of the Managed Hive Metastore cluster.
-    - `uri` (String). URI of the Hive Metastore.
+    - `managed_cluster_id` (*Read-Only*) (String). ID of the Managed Hive Metastore cluster.
+    - `uri` (*Read-Only*) (String). URI of the Hive Metastore.
 - `hudi` [Block]. Configuration for Hudi connector.
-  - `additional_properties` (Map Of String). Additional properties.
+  - `additional_properties` (*Read-Only*) (Map Of String). Additional properties.
   - `file_system` [Block]. File system configuration.
     - `external_s3` [Block]. Describes External S3 compatible file system.
-      - `aws_access_key` (**Required**)(String). AWS access key ID for S3 authentication.
-      - `aws_endpoint` (**Required**)(String). AWS S3 compatible endpoint URL.
-      - `aws_region` (**Required**)(String). AWS region for S3 storage.
-      - `aws_secret_key` (**Required**)(String). AWS secret access key for S3 authentication.
+      - `aws_access_key` (*Read-Only*) (String). AWS access key ID for S3 authentication.
+      - `aws_endpoint` (*Read-Only*) (String). AWS S3 compatible endpoint URL.
+      - `aws_region` (*Read-Only*) (String). AWS region for S3 storage.
+      - `aws_secret_key` (*Read-Only*) (String). AWS secret access key for S3 authentication.
     - `s3` [Block]. Describes YandexCloud native S3 file system.
   - `metastore` [Block]. Metastore configuration.
-    - `managed_cluster_id` (String). ID of the Managed Hive Metastore cluster.
-    - `uri` (String). URI of the Hive Metastore.
+    - `managed_cluster_id` (*Read-Only*) (String). ID of the Managed Hive Metastore cluster.
+    - `uri` (*Read-Only*) (String). URI of the Hive Metastore.
 - `iceberg` [Block]. Configuration for Iceberg connector.
-  - `additional_properties` (Map Of String). Additional properties.
+  - `additional_properties` (*Read-Only*) (Map Of String). Additional properties.
   - `file_system` [Block]. File system configuration.
     - `external_s3` [Block]. Describes External S3 compatible file system.
-      - `aws_access_key` (**Required**)(String). AWS access key ID for S3 authentication.
-      - `aws_endpoint` (**Required**)(String). AWS S3 compatible endpoint URL.
-      - `aws_region` (**Required**)(String). AWS region for S3 storage.
-      - `aws_secret_key` (**Required**)(String). AWS secret access key for S3 authentication.
+      - `aws_access_key` (*Read-Only*) (String). AWS access key ID for S3 authentication.
+      - `aws_endpoint` (*Read-Only*) (String). AWS S3 compatible endpoint URL.
+      - `aws_region` (*Read-Only*) (String). AWS region for S3 storage.
+      - `aws_secret_key` (*Read-Only*) (String). AWS secret access key for S3 authentication.
     - `s3` [Block]. Describes YandexCloud native S3 file system.
   - `metastore` [Block]. Metastore configuration.
-    - `managed_cluster_id` (String). ID of the Managed Hive Metastore cluster.
-    - `protocol` (String). Protocol for connecting to the Hive Metastore: thrift or rest (Iceberg REST).
-    - `rest_uri` (String). URI of the Iceberg REST Catalog metastore.
-    - `uri` (String). URI of the Hive Metastore.
-- `id` (*Read-Only*) (String). The resource identifier.
-- `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
+    - `managed_cluster_id` (*Read-Only*) (String). ID of the Managed Hive Metastore cluster.
+    - `protocol` (*Read-Only*) (String). Protocol for connecting to the Hive Metastore: thrift or rest (Iceberg REST).
+    - `rest_uri` (*Read-Only*) (String). URI of the Iceberg REST Catalog metastore.
+    - `uri` (*Read-Only*) (String). URI of the Hive Metastore.
+- `id` (String). The resource identifier.
+- `labels` (*Read-Only*) (Map Of String). A set of key/value label pairs which assigned to resource.
 - `mysql` [Block]. Configuration for MySQL connector.
-  - `additional_properties` (Map Of String). Additional properties.
+  - `additional_properties` (*Read-Only*) (Map Of String). Additional properties.
   - `connection_manager` [Block]. Configuration for MySQL connection manager connection.
-    - `connection_id` (**Required**)(String). Connection ID.
-    - `connection_properties` (Map Of String). Additional connection properties.
+    - `connection_id` (*Read-Only*) (String). Connection ID.
+    - `connection_properties` (*Read-Only*) (Map Of String). Additional connection properties.
   - `on_premise` [Block]. Configuration for on-premise connection.
-    - `connection_url` (**Required**)(String). Connection to the clickhouse.
-    - `password` (**Required**)(String). Password of the clickhouse user.
-    - `user_name` (**Required**)(String). Name of the clickhouse user.
-- `name` (**Required**)(String). The resource name.
+    - `connection_url` (*Read-Only*) (String). Connection URL.
+    - `password` (*Read-Only*) (String). Password of the user.
+    - `user_name` (*Read-Only*) (String). Name of the user.
+- `name` (String). The resource name.
 - `oracle` [Block]. Configuration for Oracle connector.
-  - `additional_properties` (Map Of String). Additional properties.
+  - `additional_properties` (*Read-Only*) (Map Of String). Additional properties.
   - `on_premise` [Block]. Configuration for on-premise connection.
-    - `connection_url` (**Required**)(String). Connection to the clickhouse.
-    - `password` (**Required**)(String). Password of the clickhouse user.
-    - `user_name` (**Required**)(String). Name of the clickhouse user.
+    - `connection_url` (*Read-Only*) (String). Connection URL.
+    - `password` (*Read-Only*) (String). Password of the user.
+    - `user_name` (*Read-Only*) (String). Name of the user.
 - `postgresql` [Block]. Configuration for Postgresql connector.
-  - `additional_properties` (Map Of String). Additional properties.
+  - `additional_properties` (*Read-Only*) (Map Of String). Additional properties.
   - `connection_manager` [Block]. Configuration for connection manager connection.
-    - `connection_id` (**Required**)(String). Connection ID.
-    - `connection_properties` (Map Of String). Additional connection properties.
-    - `database` (**Required**)(String). Database.
+    - `connection_id` (*Read-Only*) (String). Connection ID.
+    - `connection_properties` (*Read-Only*) (Map Of String). Additional connection properties.
+    - `database` (*Read-Only*) (String). Database.
   - `on_premise` [Block]. Configuration for on-premise connection.
-    - `connection_url` (**Required**)(String). Connection to the clickhouse.
-    - `password` (**Required**)(String). Password of the clickhouse user.
-    - `user_name` (**Required**)(String). Name of the clickhouse user.
+    - `connection_url` (*Read-Only*) (String). Connection URL.
+    - `password` (*Read-Only*) (String). Password of the user.
+    - `user_name` (*Read-Only*) (String). Name of the user.
 - `sqlserver` [Block]. Configuration for SQLServer connector.
-  - `additional_properties` (Map Of String). Additional properties.
+  - `additional_properties` (*Read-Only*) (Map Of String). Additional properties.
   - `on_premise` [Block]. Configuration for on-premise connection.
-    - `connection_url` (**Required**)(String). Connection to the clickhouse.
-    - `password` (**Required**)(String). Password of the clickhouse user.
-    - `user_name` (**Required**)(String). Name of the clickhouse user.
+    - `connection_url` (*Read-Only*) (String). Connection URL.
+    - `password` (*Read-Only*) (String). Password of the user.
+    - `user_name` (*Read-Only*) (String). Name of the user.
 - `tpcds` [Block]. Configuration for TPCDS connector.
-  - `additional_properties` (Map Of String). Additional properties.
+  - `additional_properties` (*Read-Only*) (Map Of String). Additional properties.
 - `tpch` [Block]. Configuration for TPCH connector.
-  - `additional_properties` (Map Of String). Additional properties.
+  - `additional_properties` (*Read-Only*) (Map Of String). Additional properties.
 - `timeouts` [Block]. 
   - `read` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.

@@ -10,3 +10,7 @@ Event name | Description
 `searchindex.DeleteSearchIndex` | Deleting a search index
 `searchindex.UploadFilesToSearchIndex` | Uploading files to a search index
 `responses.GetResponse` | Getting a response
+`executionFinished` | Completing a workflow execution
+`startExecution` | Workflow execution
+`stopExecution` | Stopping a workflow execution
+`terminateExecution` | Terminating a workflow execution

@@ -5,7 +5,7 @@ description: Follow this guide to get an IAM token for an account.
 
 {% note info %}
 
-These methods of getting an [IAM token](../../concepts/authorization/iam-token.md) are intended for requests by a [Yandex user account](../../concepts/users/accounts.md#passport) and are not recommended for automated solutions. If you want to automate your work with the {{ yandex-cloud }} API and get IAM tokens in software, see [{#T}](create-for-sa.md).
+These methods of getting an [IAM token](../../concepts/authorization/iam-token.md) are intended for requests sent by a [Yandex user account](../../concepts/users/accounts.md#passport) and are not recommended for automated solutions. If you want to automate your work with the {{ yandex-cloud }} API and get IAM tokens in software, see [{#T}](create-for-sa.md).
 
 {% endnote %}
 
@@ -28,7 +28,7 @@ You can get an IAM token for your Yandex account [using the CLI](#via-cli). You 
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  1. [Authenticate in the CLI as a user](../../../cli/operations/authentication/user.md).
+  1. [Authenticate to the CLI as a user](../../../cli/operations/authentication/user.md).
   1. Get an IAM token:
 
       ```bash
@@ -41,7 +41,7 @@ You can get an IAM token for your Yandex account [using the CLI](#via-cli). You 
       t1.9euelZrLop7Uz8up********
       ```
 
-      The value you get is an IAM token. You can copy it, save it to a file, or write it into a variable:
+      The returned value is an IAM token. You can copy and save it to a file or store it in a variable:
 
       ```bash
       export IAM_TOKEN=`<IAM_token>`
@@ -52,7 +52,7 @@ You can get an IAM token for your Yandex account [using the CLI](#via-cli). You 
 {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 
 
-## Example of using an IAM token obtained through the CLI {#use-cli}
+## Example of using an IAM token obtained via the CLI {#use-cli}
 
 {% include [token-examples](../../../_includes/iam/iam-token-usage-examples.md) %}
 

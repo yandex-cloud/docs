@@ -40,20 +40,34 @@ You can only manage [custom lists](../concepts/lists.md#user-rules). [Preset {{ 
           1.10
           ```
 
-      * `{{ ui-key.yacloud.smart-web-security.MatchListForm.item-type_regexp_eLHPr }}`: [Regular expressions](../concepts/conditions.md#regular-expressions), e.g., for analyzing the `User-Agent` header. Here are some examples:
+      * `{{ ui-key.yacloud.smart-web-security.MatchListForm.item-type_regexp_eLHPr }}`: [Regular expressions](../concepts/conditions.md#regular-expressions), e.g., for analyzing the `User-Agent` header or grouping multiple URLs with `|`. Here are some examples:
 
           ```text
           User-Agent:\s*
           \\[\'\"\.\;]
           a{100,}
           --.*
+          ^/api/v[12]/users$
+          ^/promo/(sale|discount)/?$
+          ^static\.example\.com/assets/.*\.(css|js)$
           ```
 
-      * `{{ ui-key.yacloud.smart-web-security.MatchListForm.item-type_string_hGRJK }}`: Text strings, e.g., IDs. Here are some examples:
+          Where:
+
+          - `^/api/v[12]/users$`: `/api/v1/users` and `/api/v2/users` paths.
+          - `^/promo/(sale|discount)/?$`: `/promo/sale` and `/promo/discount` pages, with an optional trailing slash.
+          - `^static\.example\.com/assets/.*\.(css|js)$`: CSS and JS files in the `/assets/` folder at the `static.example.com` domain.
+
+          In a regular expression, you can group multiple alternative values, e.g., different URLs, API versions, or header values, using the `|` operator. Special characters must be escaped, e.g., a dot in a domain name or URL must be entered as `\.`.
+
+      * `{{ ui-key.yacloud.smart-web-security.MatchListForm.item-type_string_hGRJK }}`: Text strings, e.g., IDs or URLs. Here are some examples:
 
           ```text
           fev4ct8l9infabcd1234
           id345678
+          /api/v1/users
+          /promo/sale
+          /assets/logo.svg
           ```
 
   1. Enter a name and description for the list.
@@ -91,7 +105,7 @@ Now you will be able to select this list when adding a rule to a [security](rule
   1. Click the row with the list you need.
   1. Navigate to the **{{ ui-key.yacloud.smart-web-security.label_match-list_ip_qG1ho }}** tab.
   1. Click ![image](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.smart-web-security.MatchListActions.button_download_bdcBp }}**.
-      
+
       The list will be saved in CSV format.
 
 {% endlist %}
@@ -106,7 +120,7 @@ Now you will be able to select this list when adding a rule to a [security](rule
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/files.svg) **{{ ui-key.yacloud.smart-web-security.match-lists.label_match-lists }}**.
-  1. Next to the list, click ![options](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Next to the list, click ![options](../../_assets/console-icons/ellipsis.svg) and select ![pencil-to-line](../../_assets/console-icons/pencil-to-line.svg) **{{ ui-key.yacloud.smart-web-security.MatchListActions.button_rename_r3ma9 }}**.
   1. Update the name and/or description for the list, add or delete labels as needed.
   1. Click **{{ ui-key.yacloud.common.save-changes }}**.
 
@@ -124,11 +138,11 @@ Now you will be able to select this list when adding a rule to a [security](rule
   1. Click the row with the list you need.
   1. Navigate to the **{{ ui-key.yacloud.smart-web-security.label_match-list_ip_qG1ho }}** tab.
 
-      * To update the description for one or more values, select them and click ![image](../../_assets/console-icons/pencil-to-line.svg) **{{ ui-key.yacloud.smart-web-security.match-lists.label_action-edit-description }}**.
+      * To update the description for one or more values, select them and click ![image](../../_assets/console-icons/pencil-to-line.svg) **{{ ui-key.yacloud.smart-web-security.match-lists.label_action-edit-description }}** on the panel below.
       * To delete one or more values, select them and click ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
       * To edit the list as text or upload a new list file:
 
-          1. Click **{{ ui-key.yacloud.smart-web-security.MatchListActions.button_edit-list-items_2JFvu }}**.
+          1. Click ![pencil-to-square](../../_assets/console-icons/pencil-to-square.svg) **{{ ui-key.yacloud.smart-web-security.MatchListActions.button_edit-list-items_2JFvu }}**.
           1. Edit the list or upload a new file.
           1. Click **{{ ui-key.yacloud.common.save-changes }}**.
 

@@ -9,7 +9,7 @@ description: Follow this guide to create a proxy server to process incoming requ
 
 {% list tabs group=instructions %}
 
-A [proxy server](../concepts/domain-protect.md#proxy) accepts requests from users to your website or web application and forwards them for validation. 
+A [proxy server](../concepts/domain-protect.md#proxy) accepts requests from users to your website or web application and forwards them for validation.
 
 You can add multiple proxy servers, for example, to separate the application's stable version from a version under development.
 
@@ -32,7 +32,7 @@ You can add multiple proxy servers, for example, to separate the application's s
           1. Select **HTTP codes** and, optionally, **HTTP code classes** to discard logs for.
           1. Specify what percentage of logs to discard.
           1. Add more rules to use different discard percentages for different HTTP codes.
-  
+
   1. Click **{{ ui-key.yacloud.smart-web-security.ProxyServerFormCreate.createServer_sycVk }}**.
 
 {% include [after-proxy-create](../../_includes/smartwebsecurity/after-proxy-create.md) %}

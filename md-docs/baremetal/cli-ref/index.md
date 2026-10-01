@@ -16,19 +16,19 @@ Syntax:
 
 #### Command Tree
 
-- [yc baremetal boot-image](boot-image/index.md) — A set of methods for managing Image resources.
+- [yc baremetal boot-image](boot-image/index.md) — A set of methods for managing BootImage resources.
 
-  - [yc baremetal boot-image create](boot-image/create.md) — Creates an image in the specified folder.
+  - [yc baremetal boot-image create](boot-image/create.md) — Creates a BootImage in the specified folder.
 
-  - [yc baremetal boot-image delete](boot-image/delete.md) — Deletes the specified image.
+  - [yc baremetal boot-image delete](boot-image/delete.md) — Deletes the specified BootImage.
 
-  - [yc baremetal boot-image get](boot-image/get.md) — Returns the specific Image resource.
+  - [yc baremetal boot-image get](boot-image/get.md) — Returns the specific BootImage resource.
 
-  - [yc baremetal boot-image list](boot-image/list.md) — Retrieves the list of Image resources in the specified folder.
+  - [yc baremetal boot-image list](boot-image/list.md) — Retrieves the list of BootImage resources in the specified folder.
 
-  - [yc baremetal boot-image list-operations](boot-image/list-operations.md) — Lists operations for the specified image.
+  - [yc baremetal boot-image list-operations](boot-image/list-operations.md) — Lists operations for the specified BootImage.
 
-  - [yc baremetal boot-image update](boot-image/update.md) — Updates the specified image.
+  - [yc baremetal boot-image update](boot-image/update.md) — Updates the specified BootImage.
 
 - [yc baremetal configuration](configuration/index.md) — A set of methods to retrieve information about Configuration resources.
 
@@ -146,7 +146,7 @@ Syntax:
 
   - [yc baremetal storage get-default](storage/get-default.md) — Returns the default storage for the specified configuration.
 
-- [yc baremetal v0](v0/index.md) — (legacy command tree) Manage Baremetal resources
+- [yc baremetal v0](v0/index.md) — Manage Baremetal resources
 
 
 
@@ -154,7 +154,7 @@ Syntax:
 
 
 
-- [yc baremetal v2](v2/index.md) — Manage Baremetal resources
+- [yc baremetal v2](v2/index.md) — (preview) V2 Manage Baremetal resources
 
 
 
@@ -188,6 +188,15 @@ Set the custom profile. ||
 || `--region` | `string`
 
 Set the region. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||

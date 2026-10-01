@@ -11,12 +11,12 @@
 
 Чтобы дать доступ пользователям вашей организации в OpenVPN Access Server:
 
-1. [Подготовьте OpenVPN Access Server](#prepare-ovpn).
+1. [Подготовьте OpenVPN Access Server](#create-vpn-server).
 1. [Создайте приложение в Yandex Identity Hub](#create-app).
 1. [Настройте интеграцию](#setup-integration).
 1. [Убедитесь в корректной работе приложения](#validate).
 
-## Подготовьте OpenVPN Access Server {#prepare-ovpn}
+## Подготовьте OpenVPN Access Server {#create-vpn-server}
 
 Вы можете использовать собственную установку OpenVPN Access Server, SaaS-версию или создать виртуальную машину с OpenVPN Access Server в Yandex Cloud.
 
@@ -86,7 +86,7 @@ To login please use the "openvpn" account with <пароль> password.
 
    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения**.
-   1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
+   1. Нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
       1. Выберите метод единого входа **SAML (Security Assertion Markup Language)**.
       1. В поле **Имя** задайте имя создаваемого приложения: `ovpn-app`.
 

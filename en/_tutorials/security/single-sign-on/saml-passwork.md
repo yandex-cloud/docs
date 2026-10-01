@@ -1,5 +1,6 @@
 # Creating a SAML app in {{ org-full-name }} for integration with Passwork
 
+
 Passwork is a corporate platform designed for secure and reliable storage of secrets (passwords, keys, tokens, etc.), secret management, and automation of employee access to secrets within an organization. Passwork supports SAML authentication for secure SSO for the users of your organization.
 
 For the users of your [organization](../../../organization/concepts/organization.md) to authenticate to Passwork via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications/saml.md) in {{ org-full-name }} and configure it both on the {{ org-full-name }} and Passwork side.

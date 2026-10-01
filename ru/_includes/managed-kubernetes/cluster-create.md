@@ -62,6 +62,9 @@
      {% include [security-groups-alert](security-groups-alert.md) %}
 
 1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_maintenance }}**:
+
+   {% include [kz-auto-upgrade-warning](kz-auto-upgrade-warning.md) %}
+
    * В поле **{{ ui-key.yacloud.k8s.MaintenanceSection.maintenance-window-field-with-none-option_tx5Wn }}** настройте окно для обновлений:
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}` — отключение автоматических обновлений.
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}` — обновления разрешены в любое время.
@@ -78,6 +81,9 @@
      * **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**, чтобы задействовать Cilium.
 
    * Укажите **{{ ui-key.yacloud.k8s.clusters.create.field_cluster-cidr }}** — диапазон IP-адресов, из которого будут выделяться IP-адреса для [подов](../../managed-kubernetes/concepts/index.md#pod).
+
+     {% include [cluster-multi-cidr-note](cluster-multi-cidr-note.md) %}
+
    * Укажите **{{ ui-key.yacloud.k8s.clusters.create.field_service-cidr }}** — диапазон IP-адресов, из которого будут выделяться IP-адреса для [сервисов](../../managed-kubernetes/concepts/index.md#service).
    * Задайте маску подсети узлов {{ managed-k8s-name }} и максимальное количество подов в узле.
 1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.

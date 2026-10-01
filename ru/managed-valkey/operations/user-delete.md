@@ -11,7 +11,7 @@ description: Вы можете удалить пользователя {{ VLK }}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужный кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mdb.cluster.switch_users }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_users }}**.
   1. В строке пользователя, которого вы хотите удалить, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. Подтвердите удаление пользователя.
 

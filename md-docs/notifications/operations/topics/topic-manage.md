@@ -16,6 +16,7 @@
   1. Измените имя топика. Имя топика должно быть уникальным в Cloud Notification Service.
   1. В разделе **Логирование** включите или отключите **Запись логов**.
   1. Измените лог-группу или создайте новую.
+  1. Включите или отключите опцию **Yandex Message Queue**.
   1. Нажмите **Сохранить изменения**.
 
 - AWS CLI {#aws-cli}
@@ -27,6 +28,14 @@
      ```bash
      aws sns set-topic-attributes \
       --topic-arn <ARN_топика> <атрибуты>
+     ```
+
+     Чтобы отвязать сервисный аккаунт от топика и запретить отправку сообщений в очереди Message Queue, передайте в `--attribute-value` пустую строку:
+
+     ```bash
+     aws sns set-topic-attributes \
+      --topic-arn <ARN_топика> \
+      --attribute-value ""
      ```
   1. Посмотрите новые параметры топика:
 
@@ -44,12 +53,24 @@
 
      ```python
      try:
-       response = client.set_topic_attributes(
-          TopicArn = "<ARN_топика>",
-          AttributeName='<имя_атрибута>',
-          AttributeValue='<значение_атрибута>'
-       )
-     print("Response metadata:", response['ResponseMetadata'])
+         response = client.set_topic_attributes(
+             TopicArn="<ARN_топика>",
+             AttributeName="<имя_атрибута>",
+             AttributeValue="<значение_атрибута>",
+         )
+         print("Response metadata:", response['ResponseMetadata'])
+     except botocore.exceptions.ClientError as error:
+         print(f"Error: {error}")
+     ```
+
+     Чтобы отвязать сервисный аккаунт от топика и запретить отправку сообщений в очереди Message Queue, передайте в `AttributeValue` пустую строку:
+
+     ```python
+     response = client.set_topic_attributes(
+         TopicArn="<ARN_топика>",
+         AttributeName="SQSServiceAccountId",
+         AttributeValue="",
+     )
      ```
 
 {% endlist %}

@@ -1,0 +1,1 @@
+Если для [аутентификации](../../organization/concepts/ad-sync/sync-agent.md#agent-ad-auth) на стороне {{ microsoft-idp.ad-short }} вы планируете использовать протокол [Kerberos](https://ru.wikipedia.org/wiki/Kerberos), самостоятельно установите на сервер компоненты, необходимые для работы этого протокола, и создайте файл `keytab` с ключами шифрования.

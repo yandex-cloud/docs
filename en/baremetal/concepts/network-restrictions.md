@@ -13,9 +13,9 @@ The limit on the number of MAC addresses is set separately for each server’s n
 {% cut "Request template" %}
 
 ```text
-Subject: [BareMetal] Changing limits on the number of MAC addresses
+Subject: [BareMetal]: Changing limits on the number of MAC addresses
 
-Request text:
+Text of request:
 Please change the limits on the number of MAC addresses for the following servers.
 
 servers:
@@ -74,6 +74,20 @@ Type of limit | Value,</br>packets per second (pps)
 Broadcast | 100
 UnknownUnicast | 100
 Multicast | 100
+
+## BPDU protection {#bpdu-protection}
+
+{{ baremetal-name }} network switches have _BPDU Protection_ enabled. 
+
+{% note warning %}
+
+Sending BPDU packets from {{ baremetal-name }} server UIs blocks the network port.
+
+For example, this may be due to creating virtual switches with active STP on the {{ baremetal-name }} server.
+
+{% endnote %}
+
+If the port was blocked, disable the source of the BPDU packets and wait for the port to recover automatically. This usually happens within 5 minutes.
 
 ## Blocked network ports {#blocked-ports}
 

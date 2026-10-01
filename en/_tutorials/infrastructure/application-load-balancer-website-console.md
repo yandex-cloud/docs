@@ -62,7 +62,6 @@ To create security groups for the load balancer and an [instance group](../../co
         `Egress` | `any` | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
         `Ingress` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
         `Ingress` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-        `Ingress` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | —
 
         1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
         1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
@@ -71,7 +70,6 @@ To create security groups for the load balancer and an [instance group](../../co
         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the rule purpose:
            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDRs and masks of subnets traffic will move to/from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`: Rule will apply to the current or selected security group VMs.
-           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule allowing a load balancer to health-check VMs.
         1. Click **{{ ui-key.yacloud.common.save }}**. Repeat these steps to create all rules from the table.
      1. Click **{{ ui-key.yacloud.common.save }}**.
   1. Similarly, create a security group named `alb-vm-sg` for an instance group, with the same network and the following rules:
@@ -130,6 +128,10 @@ To create an instance group with the minimum configuration:
 It may take a few minutes to create an instance group. As soon as all VMs change their [status](../../compute/concepts/vm-statuses.md) to `RUNNING`, you can [upload the website files to them](#upload-files).
 
 ## Upload the website files {#upload-files}
+
+To test the web server, upload the website files to each VM. You can use the `index.html` file from [this archive](https://{{ s3-storage-host }}/doc-files/index.html.zip) as an example.
+
+For each VM in the [created group](#create-vms), do the following:
 
 {% include [upload-files](../../_tutorials/_tutorials_includes/alb-website/upload-files.md) %}
 

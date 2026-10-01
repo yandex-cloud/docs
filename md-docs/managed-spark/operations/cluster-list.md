@@ -67,7 +67,7 @@
               }' \
            spark.api.cloud.yandex.net:443 \
            yandex.cloud.spark.v1.ClusterService.List
-           ```
+       ```
        
        Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
        
@@ -154,10 +154,9 @@
     1. В [консоли управления](https://console.yandex.cloud) откройте каталог, в котором находится кластер.
     1. [Перейдите](https://console.yandex.cloud/link/managed-spark) в сервис **Managed Service for Apache Spark**.
     1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3.svg) **Кластеры**.
-    1. Выберите нужный кластер.
-    1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **Операции** для выбранного кластера.
+    1. Нажмите на имя нужного кластера и перейдите в раздел **Операции**.
 
-        В открывшемся списке отображаются операции с выбранным кластером.
+    В открывшемся списке отображаются операции с выбранным кластером.
 
 - CLI {#cli}
 

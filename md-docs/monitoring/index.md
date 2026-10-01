@@ -222,6 +222,8 @@ Yandex Monitoring позволяет собирать и хранить метр
 
  - [AI Studio](metrics-ref/ai-studio-ref.md)
 
+ - [Apache Hive™ Metastore](metrics-ref/managed-metastore-ref.md)
+
  - [API Gateway](metrics-ref/api-gateway-ref.md)
 
  - [Application Load Balancer](metrics-ref/alb-ref.md)
@@ -247,6 +249,8 @@ Yandex Monitoring позволяет собирать и хранить метр
  - [Compute Cloud](metrics-ref/compute-ref.md)
 
  - [Container Registry](metrics-ref/container-registry-ref.md)
+
+ - [Cloud Registry](metrics-ref/cloud-registry-ref.md)
 
  - [Yandex Data Processing](metrics-ref/data-processing-ref.md)
 

@@ -196,29 +196,13 @@ items:
       - name: '{{ interconnect-name }}'
         items:
           - name: >-
+              Setting up network connectivity between multiple virtual networks
+              using VPC Stitching
+            href: tutorials/vpc-stitching.md
+          - name: >-
               Configuring {{ interconnect-name }} access to cloud networks
               behind NGFWs
             href: tutorials/cic-with-ngfw.md
-          - name: Creating a direct trunk and a private connection in it
-            href: tutorials/trunk-priv-add.md
-          - name: Creating a direct trunk and a public connection in it
-            href: tutorials/trunk-pub-add.md
-          - name: Creating a new partner trunk and a private connection in it
-            href: tutorials/partner-trunk-priv-add.md
-          - name: Creating a new partner trunk and a public connection in it
-            href: tutorials/partner-trunk-pub-add.md
-          - name: Adding a private connection to a direct or partner trunk
-            href: tutorials/priv-add.md
-          - name: Adding a public connection to a direct or partner trunk
-            href: tutorials/pub-add.md
-          - name: Changing trunk capacity
-            href: tutorials/trunk-capacity-change.md
-          - name: Deleting a private connection
-            href: tutorials/priv-del.md
-          - name: Deleting a public connection
-            href: tutorials/pub-del.md
-          - name: Deleting a trunk connection
-            href: tutorials/trunk-del.md
       - name: Configuring network resources and interaction between them
         items:
           - name: Architecture and protection of a basic web service
@@ -997,7 +981,7 @@ items:
                     href: privatelink/api-ref/grpc/PrivateEndpoint/delete.md
                   - name: ListOperations
                     href: privatelink/api-ref/grpc/PrivateEndpoint/listOperations.md
-  - name: Metrics {{ monitoring-name }}
+  - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md

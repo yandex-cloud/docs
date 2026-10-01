@@ -4,7 +4,6 @@
 
 Creates a boot image in the specified folder.
 
-https://google.aip.dev/130 --)
 
 ## gRPC request
 

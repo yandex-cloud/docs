@@ -623,7 +623,7 @@ Terraform распространяется под лицензией [Business S
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится функция `ffmpeg-api`.
-  1. Выберите сервис **Cloud Functions**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**
   1. Выберите функцию `ffmpeg-api`.
   1. Перейдите на вкладку **Тестирование**.
   1. В поле **Входные данные** введите:
@@ -652,7 +652,7 @@ Terraform распространяется под лицензией [Business S
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится очередь `converter-queue`.
-  1. Выберите сервис **Message Queue**.
+  1. [Перейдите](https://console.yandex.cloud/link/message-queue) в сервис **Message Queue**.
   1. Выберите очередь `converter-queue`.
   1. В блоке **Общая информация** отображается количество сообщений в очереди и в обработке.
   1. Перейдите на вкладку **Мониторинг**. Посмотрите графики **Overall queue stats**.
@@ -668,7 +668,7 @@ Terraform распространяется под лицензией [Business S
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится функция `ffmpeg-converter`.
-  1. Выберите сервис **Cloud Functions**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. Выберите функцию `ffmpeg-converter`.
   1. Перейдите на вкладку **Логи** и укажите период, за который хотите посмотреть логи.
 
@@ -681,7 +681,7 @@ Terraform распространяется под лицензией [Business S
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится функция `ffmpeg-api`.
-  1. Выберите сервис **Cloud Functions**.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. Выберите функцию `ffmpeg-api`.
   1. Перейдите на вкладку **Тестирование**.
   1. В поле **Входные данные** введите запрос:

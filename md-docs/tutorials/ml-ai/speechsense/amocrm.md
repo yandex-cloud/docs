@@ -50,9 +50,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором был создан сервисный аккаунт.
-  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
-  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
-  1. Выберите сервисный аккаунт `speechsense`.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management** и выберите сервисный аккаунт `speechsense`.
   1. На панели сверху нажмите ![image](../../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите **Создать API-ключ**.
   1. В открывшемся окне в поле **Область действия** выберите [область действия](../../../iam/concepts/authorization/api-key.md#scoped-api-keys) `yc.speech-sense.use`.
   1. Нажмите **Создать**.
@@ -189,7 +187,7 @@
   1. Настройте подключение:
      
      1. **Язык** — выберите язык для распознавания.
-     1. **ID подключения SpeechSense** — укажите идентификатор подключения, которое вы создали [ранее](#create-audio-connection).
+     1. **ID подключения SpeechSense** — укажите идентификатор подключения, которое вы создали [ранее](#create-connection).
      1. **API-ключ** — укажите секретную часть API-ключа, который вы создали [ранее](#create-key).
      1. Нажмите **Проверить подключение**.
      
@@ -222,7 +220,7 @@
       * Настройте соответствие полей amoCRM и SpeechSense:
 
           1. В столбце **amoCRM** выберите ключ поля в amoCRM.
-          1. В столбце **SpeechSense** введите ключ поля, доступного в подключении SpeechSense, которое вы создали [ранее](#create-audio-connection).
+          1. В столбце **SpeechSense** введите ключ поля, доступного в подключении SpeechSense, которое вы создали [ранее](#create-connection).
 
           Чтобы добавить новое соответствие, нажмите ![image](../../../_assets/console-icons/plus.svg) **Добавить**.
 

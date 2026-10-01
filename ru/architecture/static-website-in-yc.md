@@ -37,7 +37,7 @@ keywords:
 * настройка сервиса {{ postbox-name }} для отправки транзакционных писем;
 * внедрение на сайт [функции](../functions/concepts/function.md) {{ sf-name }} для отправки писем и пример такой функции для среды [Node.js](https://nodejs.org/en/docs/).
 
-Дополнительные материалы к руководству доступны в репозитории [![image](../_assets/overview/solution-library-icon.svg) **yc-object-storage-cdn-static-site**](https://github.com/yandex-cloud-examples/yc-object-storage-cdn-static-site) на GitHub.
+Дополнительные материалы к руководству доступны в репозитории ![![image](../_assets/overview/solution-library-icon.svg) **yc-object-storage-cdn-static-site**](https://github.com/yandex-cloud-examples/yc-object-storage-cdn-static-site) на GitHub.
 
 ## Обзор вариантов решений {#solutions}
 
@@ -314,7 +314,7 @@ CDN-ресурс кеширует запросы конечных пользов
 
       Список подсетей {{ cdn-name }} может изменяться, поэтому при использовании этого способа ограничения доступа к бакету отслеживайте такие изменения и своевременно вносите изменения в разрешающие правила доступа.
 
-      Подробнее читайте в разделе [{#T}](../troubleshooting/storage/how-to/permit-bucket-access-only-to-cdn-networks.md).
+      Подробнее читайте в разделе [Как разрешить чтение объектов только из сетей {{ cdn-name }}](../storage/qa.md#cdn-only-access).
 
       {% endnote %}
 
@@ -573,7 +573,7 @@ L7-балансировщик {{ alb-name }} обладает рядом осо�
 
     Подробнее о том, как создать CDN-ресурс, читайте в разделе [{#T}](../cdn/operations/resources/create-resource.md).
 
-* Так как для бакета с выключенным публичным доступом или с доступом через сервисное подключение нельзя включить режим {{ ui-key.yacloud.storage.bucket.website.switch_hosting }}, на стороне балансировщика настройте обработку запросов к корневой странице `/` так, чтобы в ответ на такой запрос пользователю возвращалось содержимое главной страницы сайта (чаще всего это файл `index.html`).
+* Так как для бакета с выключенным публичным доступом или с доступом через сервисное подключение нельзя включить режим `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`, на стороне балансировщика настройте обработку запросов к корневой странице `/` так, чтобы в ответ на такой запрос пользователю возвращалось содержимое главной страницы сайта (чаще всего это файл `index.html`).
 
     Подробнее о том, как настроить обработку запросов в балансировщике, читайте в разделе [{#T}](../application-load-balancer/operations/http-router-update.md).
 * L7-балансировщик не создает дополнительных (служебных) доменов.

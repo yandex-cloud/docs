@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../../index.md) > [Yandex Key Management Service](../../../../index.md) > Справочник API > gRPC (англ.) > [Key Management Service API](../index.md) > Operation > Overview
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Key Management Service](../../../../index.md) > Справочник API > gRPC (англ.) > [Asymmetric encryption API](../index.md) > Operation > Overview
 
 # Key Management Service API, gRPC: OperationService
 

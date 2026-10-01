@@ -12,8 +12,8 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}**.
-    1. Укажите **Уровень** логов и период времени, за который нужно отобразить лог.
+    1. Нажмите на имя нужного кластера и перейдите в раздел **{{ ui-key.yacloud.common.logs }}**.
+    1. Укажите **{{ ui-key.yacloud.logging.label_filter-levels }}** логов и период времени, за который нужно отобразить лог.
 
 - CLI {#cli}
 
@@ -29,6 +29,6 @@
         yc logging read --group-name <имя_лог-группы> --follow
         ```
 
-        Вы можете посмотреть имя лог-группы на вкладке **{{ ui-key.yacloud.common.overview }}** кластера {{ SPRK }}.
+        Вы можете посмотреть имя лог-группы в разделе **{{ ui-key.yacloud.common.overview }}** кластера {{ SPRK }}.
 
 {% endlist %}

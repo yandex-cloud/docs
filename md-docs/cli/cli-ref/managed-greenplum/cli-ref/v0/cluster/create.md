@@ -92,10 +92,14 @@ Possible property names:
 || `--service-account` | `string`
 
 ID of the service account used for access Yandex Cloud resources. ||
+|| `--disk-encryption-key-id` | `string`
+
+ID of the KMS key for cluster disk encryption. ||
 || `--datalens-access` | Allow access for DataLens. ||
 || `--websql-access` | Allow access for Web SQL. ||
 || `--datatransfer-access` | Allow access for DataTransfer. ||
 || `--yandexquery-access` | Allow access for Yandex Query. ||
+|| `--trino-access` | Allow access for Trino (including TLS for gpfdist). ||
 || `--version` | `string`
 
 Version of Greenplum or Cloudberry used in the cluster. Values specific version or "default" ||

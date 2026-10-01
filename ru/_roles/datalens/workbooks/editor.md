@@ -3,6 +3,6 @@
 Пользователи с этой ролью могут:
 * редактировать [воркбук](../../../datalens/workbooks-collections/index.md) и создавать его копии;
 * просматривать все вложенные в воркбук [объекты](../../../datalens/concepts/index.md#component-interrelation) и редактировать их;
-* просматривать информацию о назначенных [правах доступа](../../../iam/concepts/access-control/index.md) к воркбуку.
+* просматривать информацию о назначенных [правах доступа]({{ link-docs }}/iam/concepts/access-control/) к воркбуку.
 
 Включает разрешения, предоставляемые ролью `datalens.workbooks.viewer`.

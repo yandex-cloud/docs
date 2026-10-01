@@ -15,57 +15,21 @@ links:
   - title: '{{ billing-name }}'
     description: Решения для {{ billing-name }}
     href: billing/
-  - title: '{{ cdn-name }}'
-    description: Решения для {{ cdn-name }}
-    href: cdn/
-  - title: '{{ certificate-manager-name }}'
-    description: Решения для {{ certificate-manager-name }}
-    href: certificate-manager/
-  - title: '{{ mch-name }}'
-    description: Решения для {{ mch-name }}
-    href: clickhouse/
   - title: '{{ dns-name }}'
     description: Решения для {{ dns-name }}
     href: dns/
-  - title: '{{ sf-name }}'
-    description: Решения для {{ sf-name }}
-    href: functions/
-  - title: '{{ cloud-logging-name }}'
-    description: Решения для {{ cloud-logging-name }}
-    href: cloud-logging/
   - title: '{{ compute-name }}'
     description: Решения для {{ compute-name }}
     href: compute/
-  - title: '{{ container-registry-name }}'
-    description: Решения для {{ container-registry-name }}
-    href: container-registry/
   - title: '{{ console-name }}'
     description: Решения для {{ console-name }}
     href: console/
   - title: '{{ datalens-name }}'
     description: Решения для {{ datalens-name }}
     href: datalens/
-  - title: '{{ dataproc-name }}'
-    description: Решения для {{ dataproc-name }}
-    href: data-processing/
-  - title: '{{ ml-platform-name }}'
-    description: Решения для {{ ml-platform-name }}
-    href: datasphere/
-  - title: '{{ data-transfer-name }}'
-    description: Решения для {{ data-transfer-name }}
-    href: data-transfer/
-  - title: '{{ iam-name }}'
-    description: Решения для {{ iam-short-name }}
-    href: iam/
-  - title: '{{ kms-name }}'
-    description: Решения для {{ kms-short-name }}
-    href: kms/
   - title: Legal
     description: Решения для Legal
     href: legal/
-  - title: '{{ mgl-name }}'
-    description: Решения для {{ mgl-name }}
-    href: managed-gitlab/
   - title: '{{ managed-k8s-name }}'
     description: Решения для {{ managed-k8s-name }}
     href: managed-kubernetes/
@@ -75,15 +39,6 @@ links:
   - title: '{{ mpg-name }}'
     description: Решения для {{ mpg-name }}
     href: managed-postgresql/
-  - title: '{{ mkf-name }}'
-    description: Решения для {{ mkf-name }}
-    href: managed-kafka/
-  - title: '{{ ydb-name }}'
-    description: Решения для {{ ydb-name }}
-    href: managed-ydb/
-  - title: '{{ monitoring-name }}'
-    description: Решения для {{ monitoring-name }}
-    href: monitoring/
   - title: '{{ network-load-balancer-name }}'
     description: Решения для {{ network-load-balancer-name }}
     href: network-load-balancer/
@@ -93,15 +48,9 @@ links:
   - title: Partner
     description: Решения для Partner
     href: partner/
-  - title: '{{ serverless-containers-name }}'
-    description: Решения для {{ serverless-containers-name }}
-    href: serverless-containers/
   - title: '{{ captcha-name }}'
     description: Решения для {{ captcha-name }}
     href: smartcaptcha/
-  - title: '{{ speechkit-name }}'
-    description: Решения для {{ speechkit-name }}
-    href: speechkit/
   - title: '{{ TF }}-провайдер {{ yandex-cloud }}'
     description: Решения для {{ TF }}-провайдера {{ yandex-cloud }}
     href: terraform/

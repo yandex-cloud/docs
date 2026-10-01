@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Миграция данных в Managed Service for ClickHouse® при помощи Data Transfer
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > ClickHouse® > Миграция данных в Managed Service for ClickHouse® при помощи Data Transfer
 
 # Миграция данных в Yandex Managed Service for ClickHouse® при помощи Yandex Data Transfer
 
@@ -129,6 +129,7 @@
                Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
             
             1. Если вас устраивают планируемые изменения, внесите их:
+            
                1. Выполните команду:
             
                   ```bash

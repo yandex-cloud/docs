@@ -2,7 +2,7 @@
 
 # yc baremetal v2
 
-Manage Baremetal resources
+(preview) V2 Manage Baremetal resources
 
 #### Command Usage
 
@@ -47,6 +47,8 @@ Syntax:
   - [yc baremetal v2 image get](image/get.md) — Returns the specific Image resource.
 
   - [yc baremetal v2 image list](image/list.md) — Retrieves the list of Image resources.
+
+  - [yc baremetal v2 image list-compatible](image/list-compatible.md) — Lists images available for installation on the selected configuration.
 
   - [yc baremetal v2 image resolve](image/resolve.md) — Resolves the latest published Image for each available family within the specified folder.
 
@@ -158,6 +160,15 @@ Set the custom profile. ||
 || `--region` | `string`
 
 Set the region. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||

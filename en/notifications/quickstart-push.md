@@ -56,7 +56,7 @@ To create an endpoint:
 - Management console {#console}
 
   1. Select the notification channel you previously created.
-  1. Navigate to the ![image](../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
   1. Click **{{ ui-key.yacloud.cns.action_create-endpoint }}**.
   1. Enter **{{ ui-key.yacloud.cns.field_token }}**, a unique token residing on the user device, created by the notification service for the app.
   1. Optionally, enter **{{ ui-key.yacloud.cns.field_endpoint-user-data }}**, a [UTF-8](https://en.wikipedia.org/wiki/UTF-8) encoded text up to 2,048 characters long.
@@ -73,8 +73,7 @@ To create an endpoint:
 - Management console {#console}
 
   1. Select the endpoint you previously created.
-  1. Under **{{ ui-key.yacloud.cns.section_message-sending }}**, select a notification format, `{{ ui-key.yacloud.cns.label_editor-text }}` or `{{ ui-key.yacloud.cns.label_editor-json }}`.
-  1. Enter notification text or a JSON object with notification data.
+  1. In the notification sending window, enter a message in JSON format according to the notification platform API. The API link is provided above the editor.
   1. Click **{{ ui-key.yacloud.cns.action_send-msg }}**.
   
   Each sent notification is assigned a unique ID. To save it, click **{{ ui-key.yacloud.cns.action_copy-msg-id }}**.

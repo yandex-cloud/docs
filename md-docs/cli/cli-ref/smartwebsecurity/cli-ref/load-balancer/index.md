@@ -2,7 +2,7 @@
 
 # yc smartwebsecurity load-balancer
 
-
+Manage SmartWebSecurity load balancers
 
 #### Command Usage
 
@@ -24,7 +24,7 @@ Syntax:
 
   - [yc smartwebsecurity load-balancer domain update](domain/update.md) — Updates the specified domain.
 
-- [yc smartwebsecurity load-balancer load-balancer](load-balancer/index.md) — A set of methods for managing Smart Web Security load balancers.
+- [yc smartwebsecurity load-balancer load-balancer](load-balancer/index.md) — Manage SmartWebSecurity load balancers
 
   - [yc smartwebsecurity load-balancer load-balancer create](load-balancer/create.md) — Creates a load balancer in the specified folder.
 
@@ -50,6 +50,15 @@ Set the custom profile. ||
 || `--region` | `string`
 
 Set the region. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||

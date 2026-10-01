@@ -248,6 +248,35 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
     - `parser` [Block]. Data parsing parameters. If not set, the source messages are read in raw
       - `audit_trails_v1_parser` [Block]. Parse Audit Trails data. Empty struct
       - `cloud_logging_parser` [Block]. Parse Cloud Logging data. Empty struct
+      - `confluent_schema_registry_parser` [Block]. Parse messages in Confluent wire format using schemas from a schema registry
+        - `is_generate_updates` (Bool). Produce update events instead of inserts
+        - `confluent_schema_registry_connection` [Block]. Connection to a Confluent-compatible schema registry
+          - `schema_registry_url` (String). Schema Registry api url
+          - `auth` [Block]. Schema Registry authentication config. Empty credentials mean no authentication
+            - `basic` [Block]. Authenticate with a user name and a password
+              - `user` (String). User
+              - `password` [Block]. Password for user. Write-only: it is never returned, and an empty value on
+ update keeps the stored one
+                - `raw` (String). Raw secret value
+            - `no_auth` [Block]. Connect to the schema registry without authentication
+          - `tls_mode` [Block]. CA certificate of the Schema Registry server.
+ TLS is turned on by the https scheme in schema_registry_url, not by this field.
+ Without a certificate here the server certificate is not verified
+            - `disabled` [Block]. Empty block designating that the connection is not secured, i.e. plaintext
+ connection
+            - `enabled` [Block]. TLS is used for the server connection
+              - `ca_certificate` (String). CA certificate
+ X.509 certificate of the certificate authority which issued the server's
+ certificate, in PEM format. When CA certificate is specified, TLS is used to
+ connect to the server. If CA certificate is empty, the server's certificate must
+ be signed by a well-known CA
+        - `table_name_policy` [Block]. Target table naming. If not set, table name is derived from the schema in
+ Debezium-like manner
+          - `derived` [Block]. Derive the table name from the message schema
+            - `json` (String). Naming for messages with JSON Schema
+            - `protobuf` (String). Naming for messages with Protobuf schema
+          - `manual` [Block]. Write all messages to the single table
+            - `table_name` (String). Name of the table to write all messages to
       - `json_parser` [Block]. Parse data in json format
         - `add_rest_column` (Bool). Will add _rest column for all unknown fields
         - `null_keys_allowed` (Bool). Allow null keys, if no - null keys will be putted to unparsed data
@@ -717,6 +746,34 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
     - `service_account_id` (String). Service account ID for interaction with database
     - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
  database. If omitted, the server has to be accessible via Internet
+    - `authentication` [Block]. package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/ydb.proto
+
+      - `service_account` [Block]. package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/ydb.proto
+
+        - `service_account_id` (String). Service account ID for interaction with database
+    - `ydb_connection` [Block]. package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/ydb.proto
+
+      - `database_id` (String). Managed Service for YDB database ID
+      - `on_premise` [Block]. package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/ydb.proto
+
+        - `database` (String). Database path in YDB where tables are stored.
+ Example: `/ru/transfer_manager/prod/data-transfer`
+        - `instance` (String). Instance of YDB. example: ydb-ru-prestable.yandex.net:2135.
+        - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database.
+ If omitted, the server has to be accessible via Internet
+        - `tls_mode` [Block]. TLS settings for server connection. Disabled by default.
+          - `disabled` [Block]. Empty block designating that the connection is not secured, i.e. plaintext
+ connection
+          - `enabled` [Block]. TLS is used for the server connection
+            - `ca_certificate` (String). CA certificate
+ X.509 certificate of the certificate authority which issued the server's
+ certificate, in PEM format. When CA certificate is specified, TLS is used to
+ connect to the server. If CA certificate is empty, the server's certificate must
+ be signed by a well-known CA
   - `ydb_target` [Block]. package: yandex.cloud.datatransfer.v1
 filename: yandex/cloud/datatransfer/v1/endpoint.proto
 
@@ -740,6 +797,34 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
     - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
  database.
  If omitted, the server has to be accessible via Internet
+    - `authentication` [Block]. package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/ydb.proto
+
+      - `service_account` [Block]. package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/ydb.proto
+
+        - `service_account_id` (String). Service account ID for interaction with database
+    - `ydb_connection` [Block]. package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/ydb.proto
+
+      - `database_id` (String). Managed Service for YDB database ID
+      - `on_premise` [Block]. package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/ydb.proto
+
+        - `database` (String). Database path in YDB where tables are stored.
+ Example: `/ru/transfer_manager/prod/data-transfer`
+        - `instance` (String). Instance of YDB. example: ydb-ru-prestable.yandex.net:2135.
+        - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database.
+ If omitted, the server has to be accessible via Internet
+        - `tls_mode` [Block]. TLS settings for server connection. Disabled by default.
+          - `disabled` [Block]. Empty block designating that the connection is not secured, i.e. plaintext
+ connection
+          - `enabled` [Block]. TLS is used for the server connection
+            - `ca_certificate` (String). CA certificate
+ X.509 certificate of the certificate authority which issued the server's
+ certificate, in PEM format. When CA certificate is specified, TLS is used to
+ connect to the server. If CA certificate is empty, the server's certificate must
+ be signed by a well-known CA
   - `yds_source` [Block]. package: yandex.cloud.datatransfer.v1
 filename: yandex/cloud/datatransfer/v1/endpoint.proto
 
@@ -759,9 +844,40 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
     - `supported_codecs` (List Of String). List of supported compression codecs
  Options: YDS_COMPRESSION_CODEC_RAW, YDS_COMPRESSION_CODEC_ZSTD,
  YDS_COMPRESSION_CODEC_GZIP
+    - `authentication` [Block]. Choose one of authentication methods, right now only service account is avaiable
+      - `service_account_id` (String). Service account ID for interaction with database
     - `parser` [Block]. Data parsing rules
       - `audit_trails_v1_parser` [Block]. Parse Audit Trails data. Empty struct
       - `cloud_logging_parser` [Block]. Parse Cloud Logging data. Empty struct
+      - `confluent_schema_registry_parser` [Block]. Parse messages in Confluent wire format using schemas from a schema registry
+        - `is_generate_updates` (Bool). Produce update events instead of inserts
+        - `confluent_schema_registry_connection` [Block]. Connection to a Confluent-compatible schema registry
+          - `schema_registry_url` (String). Schema Registry api url
+          - `auth` [Block]. Schema Registry authentication config. Empty credentials mean no authentication
+            - `basic` [Block]. Authenticate with a user name and a password
+              - `user` (String). User
+              - `password` [Block]. Password for user. Write-only: it is never returned, and an empty value on
+ update keeps the stored one
+                - `raw` (String). Raw secret value
+            - `no_auth` [Block]. Connect to the schema registry without authentication
+          - `tls_mode` [Block]. CA certificate of the Schema Registry server.
+ TLS is turned on by the https scheme in schema_registry_url, not by this field.
+ Without a certificate here the server certificate is not verified
+            - `disabled` [Block]. Empty block designating that the connection is not secured, i.e. plaintext
+ connection
+            - `enabled` [Block]. TLS is used for the server connection
+              - `ca_certificate` (String). CA certificate
+ X.509 certificate of the certificate authority which issued the server's
+ certificate, in PEM format. When CA certificate is specified, TLS is used to
+ connect to the server. If CA certificate is empty, the server's certificate must
+ be signed by a well-known CA
+        - `table_name_policy` [Block]. Target table naming. If not set, table name is derived from the schema in
+ Debezium-like manner
+          - `derived` [Block]. Derive the table name from the message schema
+            - `json` (String). Naming for messages with JSON Schema
+            - `protobuf` (String). Naming for messages with Protobuf schema
+          - `manual` [Block]. Write all messages to the single table
+            - `table_name` (String). Name of the table to write all messages to
       - `json_parser` [Block]. Parse data in json format
         - `add_rest_column` (Bool). Will add _rest column for all unknown fields
         - `null_keys_allowed` (Bool). Allow null keys, if no - null keys will be putted to unparsed data
@@ -792,6 +908,30 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
               - `required` (Bool). Mark field as required
               - `type` (String). Field type, one of: `INT64`, `INT32`, `INT16`, `INT8`, `UINT64`, `UINT32`,
  `UINT16`, `UINT8`, `DOUBLE`, `BOOLEAN`, `STRING`, `UTF8`, `ANY`, `DATETIME`.
+    - `ydb_connection` [Block]. Connection settings for managed YDB or for on premise
+      - `managed_yds` [Block]. package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/yds.proto
+
+        - `database_id` (String). Managed Service for YDB database ID
+        - `stream` (String). Stream to read
+      - `on_premise` [Block]. package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/yds.proto
+
+        - `database` (String). Database path in YDB where tables are stored.
+ Example: `/ru/transfer_manager/prod/data-transfer`
+        - `instance` (String). Instance of YDB. example: ydb-ru-prestable.yandex.net:2135.
+        - `stream` (String). Stream to read
+        - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database.
+ If omitted, the server has to be accessible via Internet
+        - `tls_mode` [Block]. TLS settings for server connection. Disabled by default.
+          - `disabled` [Block]. Empty block designating that the connection is not secured, i.e. plaintext
+ connection
+          - `enabled` [Block]. TLS is used for the server connection
+            - `ca_certificate` (String). CA certificate
+ X.509 certificate of the certificate authority which issued the server's
+ certificate, in PEM format. When CA certificate is specified, TLS is used to
+ connect to the server. If CA certificate is empty, the server's certificate must
+ be signed by a well-known CA
   - `yds_target` [Block]. package: yandex.cloud.datatransfer.v1
 filename: yandex/cloud/datatransfer/v1/endpoint.proto
 
@@ -811,6 +951,8 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
     - `stream` (String). Stream to write to
     - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
  database. If omitted, the server has to be accessible via Internet
+    - `authentication` [Block]. Choose one of authentication methods, right now only service account is avaiable
+      - `service_account_id` (String). Service account ID for interaction with database
     - `serializer` [Block]. Data serialization format
       - `serializer_auto` [Block]. Empty block. Select the serialization format automatically
       - `serializer_debezium` [Block]. Serialize data in debezium json format
@@ -819,6 +961,30 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
           - `key` (String). Name of the serializer parameter
           - `value` (String). Value of the serializer parameter
       - `serializer_json` [Block]. Empty block. Serialize data in json format
+    - `ydb_connection` [Block]. Connection settings for managed YDB or for on premise
+      - `managed_yds` [Block]. package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/yds.proto
+
+        - `database_id` (String). Managed Service for YDB database ID
+        - `stream` (String). Stream to read
+      - `on_premise` [Block]. package: yandex.cloud.datatransfer.v1.endpoint
+filename: yandex/cloud/datatransfer/v1/endpoint/yds.proto
+
+        - `database` (String). Database path in YDB where tables are stored.
+ Example: `/ru/transfer_manager/prod/data-transfer`
+        - `instance` (String). Instance of YDB. example: ydb-ru-prestable.yandex.net:2135.
+        - `stream` (String). Stream to read
+        - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database.
+ If omitted, the server has to be accessible via Internet
+        - `tls_mode` [Block]. TLS settings for server connection. Disabled by default.
+          - `disabled` [Block]. Empty block designating that the connection is not secured, i.e. plaintext
+ connection
+          - `enabled` [Block]. TLS is used for the server connection
+            - `ca_certificate` (String). CA certificate
+ X.509 certificate of the certificate authority which issued the server's
+ certificate, in PEM format. When CA certificate is specified, TLS is used to
+ connect to the server. If CA certificate is empty, the server's certificate must
+ be signed by a well-known CA
 
 ## Import
 

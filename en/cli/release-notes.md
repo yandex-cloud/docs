@@ -7,6 +7,217 @@ description: This page presents CLI releases and their updates.
 
 ## Current version {#latest-release}
 
+### Version 1.32.0 (03/09/26) {#v-1-32-0}
+
+#### {{ alb-name }} {#v-1-32-0-alb-name}
+
+Added the `--tls-client-certificate-id`, `--tls-sni`, and `--tls-trusted-ca-from-file` parameters for using a client certificate in backend groups to the following commands:
+* `yc application-load-balancer backend-group add-http-backend`
+* `yc application-load-balancer backend-group add-grpc-backend`
+* `yc application-load-balancer backend-group add-stream-backend`
+* `yc application-load-balancer backend-group update-http-backend`
+* `yc application-load-balancer backend-group update-grpc-backend`
+* `yc application-load-balancer backend-group update-stream-backend`
+
+#### {{ baremetal-name }} {#v-1-32-0-baremetal-name}
+
+The following commands no longer require a minimum number of private subnets when renting servers or updating server parameters:
+* `yc baremetal server create`
+* `yc baremetal server update`
+
+#### {{ mch-name }} {#v-1-32-0-mch-name}
+
+Added an option to select folders for {{ connection-manager-name }} connections and secrets:
+* The following commands uses the `--connection-manager` parameter:
+  * `yc managed-clickhouse cluster create`
+  * `yc managed-clickhouse cluster update`
+  * `yc managed-clickhouse cluster restore`
+* The `yc managed-clickhouse user create` command uses the `--connection-folder-id` and `--secret-folder-id` parameters.
+
+#### {{ mgp-name }} {#v-1-32-0-mgp-name}
+
+Added the `yc managed-greenplum hba-rules batch-update` command for completely replacing HBA rules with those specified in a YAML or JSON file or clear the list of rules.
+
+#### {{ mos-name }} {#v-1-32-0-mos-name}
+
+Added the `yc managed-greenplum cluster move` command for moving a cluster to a different folder.
+
+#### Managed database services {##v-1-32-0-mdb}
+
+The `yc managed-zonalshift config update` command now supports comma-separated `--cluster-id` values.
+
+## Previous releases {#previous-release}
+
+### Version 1.31.0 (31/08/26) {#v-1-31-0}
+
+#### {{ mgp-name }} {#v-1-31-0-mgp-name}
+
+* Added a parameter to manage TLS for `gpfdist` to the commands for creating and updating a cluster:
+  * `yc managed-greenplum cluster create`
+  * `yc managed-greenplum cluster update`
+  * `yc managed-greenplum cluster restore`
+* Added the display of the WAL size and total backup storage size for {{ GP }} and {{ CB }}:
+  * `yc managed-greenplum backup get`
+  * `yc managed-greenplum backup list`
+  * `yc managed-greenplum cluster list-backups`
+
+#### {{ sf-name }} {#v-1-31-0-sf-name}
+
+* Added commands for creating and updating triggers for Yandex Messenger:
+  * `yc serverless trigger v2 create yandex-messenger`
+  * `yc serverless trigger v2 update yandex-messenger`
+
+### Version 1.30.0 (27/08/26) {#v-1-30-0}
+
+#### {{ mgp-name }} {#v-1-30-0-mgp-name}
+
+* Fixed abnormal CLI termination on invoking HBA rule management commands without specifying a rule priority:
+  * `yc managed-greenplum hba-rules create`
+  * `yc managed-greenplum hba-rules delete`
+  * `yc managed-greenplum hba-rules get`
+  * `yc managed-greenplum hba-rules update`
+
+#### {{ sws-name }} {#v-1-30-0-sws-name}
+
+* Fixed the documentation display for `yc smartwebsecurity` commands by hiding a duplicate `v1` subtree and adding group descriptions.
+
+## Previous releases {#previous-release}
+
+### Version 1.29.0 (24/08/26) {#v-1-29-0}
+
+#### {{ sf-name }} {#v-1-29-0-sf-name}
+
+* Added the `yc serverless trigger v2` command group for managing version 2 triggers:
+
+#### {{ cloud-registry-name }} {#v-1-29-0-cloud-registry-name}
+
+* Added the following commands to initiate folder migration and view migration status:
+  * `yc cloud-registry migration start-folder`
+  * `yc cloud-registry migration get-cloud-migration-status-dashboard`
+
+#### {{ container-registry-name }} {#v-1-29-0-container-registry-name}
+
+* Added the `yc container registry force-delete` command.
+
+#### {{ mch-name }} {#v-1-29-0-mch-name}
+
+* Added the `--external-shard` parameter for external shard management within a shard group:
+  * `yc managed-clickhouse shard-groups create`
+  * `yc managed-clickhouse shard-group update`
+
+#### {{ mpg-name }} {#v-1-29-0-mpg-name}
+
+* Added the `--extended-filter` parameter to the `yc managed-postgresql performance-diagnostics list-raw-sessions` command for session filtering.
+
+### Version 1.28.0 (20/08/26) {#v-1-28-0}
+
+#### {{ baremetal-name }} {#v-1-28-0-baremetal-name}
+
+* Now you can order a Stackland cluster with public network access. You can also assemble a cluster from existing servers.
+
+### Version 1.27.0 (17/08/26) {#v-1-27-0}
+
+#### {{ mgp-name }} {#v-1-27-0-mgp-name}
+
+* Fixed the `yc managed-greenplum users update` command behavior: now it only modifies fields explicitly provided as parameters.
+
+#### {{ mrd-name }} {#v-1-27-0-mrd-name}
+
+* Added the `--shard-autoscaling` parameter for setting up Valkey shard autoscaling to the following commands:
+  * `yc managed-redis cluster create`
+  * `yc managed-redis cluster update`
+
+### Version 1.25.0 (10/08/26) {#v-1-25-0}
+
+#### {{ mch-name }} {#v-1-25-0-mch-name}
+
+* Added the `engine` property to the `--database` parameter of the `yc managed-clickhouse cluster create` command to enable selecting the database engine, `atomic` or `replicated`.
+* Added the `--default-user-settings` flag for managing settings applied to all users of a ClickHouse cluster by default:
+  * `yc managed-clickhouse cluster create`
+  * `yc managed-clickhouse cluster update`
+  * `yc managed-clickhouse cluster restore`
+* Added the authentication method to the `yc managed-clickhouse user list` command output.
+* Updated the `yc managed-clickhouse cluster connect` command to support cluster connections both through a separate `clickhouse-client` executable and via the `clickhouse client` command.
+* Updated the `yc managed-clickhouse hosts add` command to support the `keeper` value for the `type` property of the `--host` parameter to enable adding ClickHouse Keeper hosts.
+
+#### {{ mpg-name }} {#v-1-25-0-mpg-name}
+
+* Added the `--owner` parameter to the `yc managed-postgresql database update` command to change the database owner.
+
+#### {{ sws-name }} {#v-1-25-0-sws-name}
+
+* Added command groups to manage Smart Web Security load balancers and their domains in v2:
+  * `yc smartwebsecurity load-balancer load-balancer`
+  * `yc smartwebsecurity load-balancer domain`
+
+### Version 1.24.0 (06/08/26) {#v-1-24-0}
+
+#### {{ baremetal-name }} {#v-1-24-0-baremetal-name}
+
+* Added the `yc baremetal v2 server skip-quarantine` to terminate quarantine early.
+* Added new command groups `boot-image`, `image`, and `private-cloud-connection` to `v2`:
+  * `yc baremetal v2 image`
+  * `yc baremetal v2 boot-image`
+  * `yc baremetal v2 private-cloud-connection`
+
+#### {{ msp-name }} {#v-1-24-0-msp-name}
+
+Added the `--executor-preemptible` parameter to launch executor nodes on preemptible VMs:
+  * `yc managed-spark cluster create`
+  * `yc managed-spark cluster update`
+
+#### {{ org-full-name }} {#v-1-24-0-org-name}
+
+Fixed the `yc organization-manager idp synchronization-settings list-supported-attributes` output format when using `--format text`: now it returns tables.
+
+### Version 1.23.0 (03/08/26) {#v-1-23-0}
+
+#### {{ alb-name }} {#v-1-23-0-alb-name}
+
+Added support for client certificate verification parameters to {{ alb-name }} commands:
+  * `yc application-load-balancer add-listener`
+  * `yc application-load-balancer add-http-listener`
+  * `yc application-load-balancer add-stream-listener`
+  * `yc application-load-balancer update-listener`
+  * `yc application-load-balancer update-http-listener`
+  * `yc application-load-balancer update-stream-listener`
+  * `yc application-load-balancer add-sni`
+  * `yc application-load-balancer add-http-sni`
+  * `yc application-load-balancer add-stream-sni`
+  * `yc application-load-balancer update-sni`
+  * `yc application-load-balancer update-http-sni`
+  * `yc application-load-balancer update-stream-sni`
+
+#### {{ mpg-name }} {#v-1-23-0-mpg-name}
+
+When creating and updating a cluster, you can now specify parameters for managing performance diagnostics:
+  * `yc managed-postgresql cluster create`
+  * `yc managed-postgresql cluster update`
+
+#### {{ org-full-name }} {#v-1-23-0-org-name}
+
+* Added the `yc organization-manager idp synchronization-session` command group to view synchronization sessions:
+  * `yc organization-manager idp synchronization-session get`
+  * `yc organization-manager idp synchronization-session list`
+
+* Added the `yc managed-mongodb backup-retention-policy` command group to manage LDAP/AD synchronization settings:
+  * `yc organization-manager idp synchronization-settings get`
+  * `yc organization-manager idp synchronization-settings create`
+  * `yc organization-manager idp synchronization-settings update`
+  * `yc organization-manager idp synchronization-settings delete`
+  * `yc organization-manager idp synchronization-settings reset-replication-token`
+  * `yc organization-manager idp synchronization-settings list-supported-attributes`
+
+#### {{ sws-name }} {#v-1-23-0-sws-name}
+
+* Added the CAPTCHA action to security profile rules:
+  * `yc smartwebsecurity security-profile create`
+  * `yc smartwebsecurity security-profile update`
+
+* Added the ability to specify the duration of temporary blocking to Advanced Rate Limiter dynamic quotas:
+  * `yc smartwebsecurity advanced-rate-limiter-profile create`
+  * `yc smartwebsecurity advanced-rate-limiter-profile update`
+
 ### Version 1.22.0 (30/07/26) {#v-1-22-0}
 
 #### {{ compute-name }} {#v-1-22-0-compute-name}
@@ -15,8 +226,6 @@ description: This page presents CLI releases and their updates.
   * `yc compute image create`
   * `yc compute disk create`
   * `yc compute snapshot create`
-
-## Previous releases {#previous-release}
 
 ### Version 1.21.0 (29/07/26) {#v-1-21-0}
 
@@ -77,7 +286,7 @@ description: This page presents CLI releases and their updates.
 
 #### Changes to the CLI system commands {#v-1-20-0-yc}
 
-* Added signing of macOS binaries with the entitlement `com.apple.security.smartcard`.
+* Added signing of macOS binaries with the `com.apple.security.smartcard` entitlement.
 
 ### Version 1.19.0 (21/07/26) {#v-1-19-0}
 
@@ -601,7 +810,7 @@ Added the `MASKED KEY` field to the output of the `yc iam api-key list` command,
 
 #### Changes to the CLI system commands {#v-1-5-0-yc}
 
-CLI commands now support versioning. It is implemented on a per-service basis as a tree of child commands with a version number, e.g., `yc compute v0`.
+* CLI commands now support versioning. It is implemented on a per-service basis as a tree of child commands with a version number, e.g., `yc compute v0`.
 
 #### {{ interconnect-name }} {#v-1-5-0-cic-name}
 
@@ -762,7 +971,7 @@ Added the `idle_session_timeout` configuration parameter.
 
 #### Changes to the CLI system commands {#yc-1.0.0}
 
-Disabled gRPC Service Discovery to speed up CLI performance for users with a large number of search domains in {{ dns-name }}.
+* Disabled gRPC Service Discovery to speed up CLI performance for users with a large number of search domains in {{ dns-name }}.
 
 #### Changes to {{ yandex-cloud }} services {#services-1.0.0}
 
@@ -3213,7 +3422,7 @@ Added the `--execution-timeout` parameter to the `yc serverless api-gateway crea
 * Added the following parameters to the `yc loadtesting test create` command to manage the export of agent artifacts to {{ objstorage-name }}:
   * `--artifacts-output-bucket`: To specify the name of the bucket to export the artifacts to.
   * `--artifacts-make-archive`: To specify whether to export the artifacts as a single archive or separately.
-  * `--artifacts`: To list specific files for export.
+  * `--artifacts`: To list specific files to export.
 
 ##### {{ mos-name }} {#mos}
 
@@ -5014,7 +5223,7 @@ Added support for {{ cloud-logging-full-name }}.
 
 * `yc managed-redis cluster create\update` commands.
 
-  Added the `--slowlog-log-slower-than`, `--slowlog-max-len`, `--databases`, and `--notify-keyspace-events` parameters (see the description in redis.conf).
+  Added the `--slowlog-log-slower-than`, `--slowlog-max-len`, `--databases`, and `--notify-keyspace-events` parameters (see redis.conf for the description).
 
 ### Version 0.76.0 (19/05/21) {#version0.76.0}
 

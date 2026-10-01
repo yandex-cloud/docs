@@ -325,7 +325,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) and add your chart:
 
 1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks** and go to the `Charts in Editor` workbook.
 1. In the top-right corner, click **Create** → ![image](../../_assets/console-icons/layout-cells-large.svg) **Dashboard**.
-1. In the panel at the bottom of the page, click ![image](../../_assets/console-icons/chart-column.svg) **Chart** and drag it where you want it to be.
+1. In the panel at the bottom of the page, click ![image](../../_assets/console-icons/chart-column.svg) **Chart** and drag it to a desired location.
 1. In the window that opens, click **Select**.
 1. Select `Simple chart in Editor`.
 1. Click **Add**.
@@ -816,7 +816,7 @@ Create a chart in Editor with more flexible processing of dashboard filters and 
    ```javascript
    module.exports = {
       title: {
-         text: 'Table of sales by category'
+         text: 'Table of sales by category',
          style: {
                'text-align': 'center',
                'font-size': '16px',
@@ -894,7 +894,7 @@ Create a chart in Editor with more flexible processing of dashboard filters and 
 1. In the top-right corner, click **Create** → ![image](../../_assets/console-icons/layout-cells-large.svg) **Dashboard**.
 1. Add the selector chart to the dashboard:
 
-   1. In the panel at the bottom of the page, click ![image](../../_assets/console-icons/chart-column.svg) **Chart** and drag it where you want it to be.
+   1. In the panel at the bottom of the page, click ![image](../../_assets/console-icons/chart-column.svg) **Chart** and drag it to a desired location.
    1. In the window that opens, click **Select**.
    1. Select `Chart with parameter processing in Editor`.
    1. Click **Add**.

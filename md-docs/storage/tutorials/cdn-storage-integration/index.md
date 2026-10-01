@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > Интеграция L7-балансировщика с CDN и Object Storage > Обзор
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > Хостинг сайтов и веб-приложений > Интеграция L7-балансировщика с CDN и Object Storage > Обзор
 
 # Интеграция L7-балансировщика с Cloud CDN и Object Storage
 

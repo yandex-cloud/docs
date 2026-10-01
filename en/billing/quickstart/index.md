@@ -14,9 +14,12 @@ To work with most {{ yandex-cloud }} services, you need a billing account. The a
 
 After the billing account is created, the [_initial grant_](../concepts/bonus-account.md#start) is issued to individuals and businesses alike.
 
-New customers registered as a business are eligible for a [_trial period_](../concepts/trial-period.md). New individual customers start using {{ yandex-cloud }} under the consumption-based model. There is no trial period available for them.
+New individual customers start using {{ yandex-cloud }} on a paid basis. There is no trial period available for them.
 
-The trial period allows you to discover the features of the cloud infrastructure for free with some limitations. To continue using the resources after your trial period ends, upgrade to the paid version.
+For new customers who are legal entities, the terms and conditions depend on the payment method:
+
+* **Credit/debit card**: Billing account is created on a paid basis right away. There is no trial period.
+* **Wire transfer**: There is a [_trial period_](../concepts/trial-period.md) allowing you to discover the features of the cloud infrastructure for free with some limitations. To continue using the resources after your trial period ends, upgrade to the paid version.
 
 {% include [non-residents-limitations](../../_includes/billing/non-residents-limitations.md) %}
 
@@ -36,7 +39,7 @@ The trial period allows you to discover the features of the cloud infrastructure
 
 {% include [account-roles](../_includes/account-roles.md) %}
 
-### Learn more
+### Learn more {#see-also}
 
 - [Billing account](../concepts/billing-account.md)
 - [Trial period](../../getting-started/free-trial/concepts/quickstart.md)

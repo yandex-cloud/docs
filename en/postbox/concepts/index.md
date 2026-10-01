@@ -5,7 +5,7 @@ description: '{{ postbox-full-name }} is a cloud service for simplified and cost
 
 # {{ postbox-full-name }} overview
 
-{{ postbox-full-name }} is an email service that provides a simple and cost-effective way to send emails from user [addresses](glossary.md#adress) and allows you to flexibly set up delivery [notifications](notification.md).
+{{ postbox-full-name }} is an email service that provides a simple and cost-effective way to send emails from user [addresses](glossary.md#address) and allows you to flexibly set up delivery [notifications](notification.md).
 
 {{ postbox-name }} is optimized for sending transactional emails, notifications, informational and marketing newsletters, and other types of correspondence. You may choose to unsubscribe from newsletters and forward emails that got answered by users.
 

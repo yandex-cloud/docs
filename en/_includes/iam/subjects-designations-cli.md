@@ -1,4 +1,4 @@
-To indicate a subject, use the `--subject` parameter in `<subject_type>:<ID>` format. For some subject types, the [{{ yandex-cloud }} CLI](../../cli/index.yaml) provides separate parameters instead of `--subject`, where you only need to specify the subject name or ID without the type. Possible subject designations and the corresponding CLI parameters:
+To indicate a subject, use the `--subject` parameter in `<subject_type>:<ID>` format. For some subject types, the [{{ yandex-cloud }} CLI](../../cli/index.yaml) provides separate parameters instead of `--subject`, where you only need to specify the subject name or ID without the type. Possible subject designations and matching CLI parameters:
 
 #|
 || **Subject type** | **Subject designation** | **{{ yandex-cloud }} CLI parameter** ||

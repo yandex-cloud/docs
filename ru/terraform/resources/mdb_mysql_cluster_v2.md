@@ -122,9 +122,10 @@ resource "yandex_vpc_security_group" "test-sgroup" {
   - `enabled` (Bool). Enable performance diagnostics
   - `sessions_sampling_interval` (**Required**)(Number). Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
   - `statements_sampling_interval` (**Required**)(Number). Interval (in seconds) for pg_stat_statements sampling Acceptable values are 60 to 86400, inclusive.
-- `restore` [Block]. The cluster will be created from the specified backup.
-  - `backup_id` (**Required**)(String). Backup ID. The cluster will be created from the specified backup. [How to get a list of MySQL backups](https://yandex.cloud/docs/managed-mysql/operations/cluster-backups).
-  - `time` (String). Timestamp of the moment to which the MySQL cluster should be restored. (Format: `2006-01-02T15:04:05` - UTC). When not set, current time is used.
+- `restore` [Block]. The cluster will be created from the specified backup or source cluster.
+  - `backup_id` (String). Backup ID. The cluster will be created from the specified backup. [How to get a list of MySQL backups](https://yandex.cloud/docs/managed-mysql/operations/cluster-backups). Should not be used together with `source_cluster_id`.
+  - `source_cluster_id` (String). ID of the source cluster to restore from. The latest backup suitable for `time` will be used for the restore. `time` is required. Should not be used together with `backup_id`.
+  - `time` (String). Timestamp of the moment to which the MySQL cluster should be restored. (Format: `2006-01-02T15:04:05` - UTC). Required when `source_cluster_id` is used.
 - `security_group_ids` (Set Of String). The list of security groups applied to resource or their components.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).

@@ -5,6 +5,7 @@ description: You can use {{ data-transfer-full-name }} to easily transfer data b
 
 # Resource relationships in {{ data-transfer-name }}
 
+
 {{ data-transfer-full-name }} helps transfer data between DBMS, object storages, and message brokers. This way you can reduce the migration period and minimize downtime when switching to a new database.
 
 {{ data-transfer-full-name }} is configurable via {{ yandex-cloud }} standard interfaces.
@@ -17,7 +18,7 @@ An _endpoint_ is a configuration used to connect to a service: _datasource_ or _
 
 The following can be the data source or target:
 
-| Service                                                                                                                                |                                Source                                |               Target               |
+| Service                                                                                                                                |                                Origin                                |               Target               |
 |---------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------:|:------------------------------------:|
 | {{ KF }} topic: Your own or as part of [{{ mkf-short-name }}](../../managed-kafka/)                                       |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
 | AWS CloudTrail message stream                                                                                                        |                  ![yes](../../_assets/common/yes.svg)                  |  ![no](../../_assets/common/no.svg)  |

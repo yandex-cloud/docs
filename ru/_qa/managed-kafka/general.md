@@ -88,6 +88,25 @@ SASL authentication error: Authentication failed during authentication due to in
 
 Ошибка возникает при попытке подключиться через `kafkacat` к кластеру с версией {{ KF }} 4.0 и выше. Утилита `kafkacat` устарела и не работает с новыми версиями. Если ваш кластер с версией {{ KF }} 4.0 или выше, используйте утилиту [kafkactl](../../managed-kafka/operations/connect/clients.md#kafkactl).
 
+#### Как устранить ошибку `Failed authentication with /`? {#failed-authentication}
+
+В журналах работы кластера {{ mkf-full-name }} появляются ошибки:
+
+```
+{
+ hostname: "[rc1c-sjg**************.mdb.yandexcloud.net](http://rc1c-sjg**************.mdb.yandexcloud.net/)",
+ message: "\[SocketServer listenerType=ZK_BROKER, nodeId=1\]
+ Failed authentication with /10..X.X (channelId=10.X.X.X:9091-10.X.X.Y:43598-3694)
+ (SSL handshake failed) (org.apache.kafka.common.network.Selector)",
+ origin: "kafka_server",
+ severity: "INFO"
+ }
+```
+
+Наблюдаемые ошибки указывают на проблемы подключения со стороны приложения. Проверьте параметры и логи приложения, запущенного на хосте `10.Х.Х.Х`, на наличие ошибок.
+
+Наиболее популярные причины проблемы могут быть в неправильно указанном протоколе, сертификате или секретах для авторизации в кластере {{ KF }}. Например, ошибка `SSL handshake failed` указывает на проблемы с сертификатами SSL или TLS.
+
 #### Будет ли доступен Karapace во время технического обслуживания? {#karapace-maintenance}
 
 {% include [karapace-maintenance](../../_includes/mdb/mkf/karapace-maintenance.md) %}
@@ -99,6 +118,43 @@ SASL authentication error: Authentication failed during authentication due to in
 #### Какую часть работы по управлению и сопровождению баз данных берет на себя {{ mkf-short-name }}? {#services}
 
 {% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
+
+#### Как отслеживать процесс чтения топиков? {#process-read-topic}
+
+Если потребители читают сообщения медленнее, чем производители записывают их в топик, накапливается отставание. Для каждого раздела оно рассчитывается как разница между текущим смещением раздела топика и смещением группы потребителей.
+
+* Если отставание увеличивается, то скорость чтения сообщений ниже скорости их записи. Это может указывать на проблемы с производительностью потребителей.
+* Если в топик поступают новые сообщения, но отставание не уменьшается и зафиксированное смещение не изменяется, потребители могут быть неработоспособны.
+
+Если непрочитанные сообщения будут удалены из топика в соответствии с настройками хранения, потребители не смогут их получить.
+
+Отслеживать процесс чтения можно несколькими способами:
+
+* Создайте в {{ monitoring-full-name }} график [метрики](../../managed-kafka/metrics.md) `kafka_group_topic_partition_lag`.
+* Используйте инструмент командной строки `kafka-consumer-groups.sh`, который поставляется вместе с дистрибутивом {{ KF }}. Предварительно [настройте подключение](../../managed-kafka/operations/connect/clients.md#with-ssl) к кластеру.
+
+  Чтобы получить список групп потребителей, выполните команду:
+
+  ```bash
+  <путь_к_директории_Apache_Kafka>/bin/kafka-consumer-groups.sh \
+    --command-config <путь_к_файлу_с_параметрами_подключения> \
+    --bootstrap-server <FQDN_брокера>:9091 \
+    --list
+  ```
+
+  Чтобы посмотреть сведения о группе потребителей, выполните команду:
+
+  ```bash
+  <путь_к_директории_Apache_Kafka>/bin/kafka-consumer-groups.sh \
+    --command-config <путь_к_файлу_с_параметрами_подключения> \
+    --bootstrap-server <FQDN_брокера>:9091 \
+    --group <имя_группы_потребителей> \
+    --describe
+  ```
+
+  Отставание для каждого раздела топика отображается в поле `LAG`.
+
+* Используйте встроенный веб-интерфейс {{ kafka-ui }}, который позволяет отслеживать состояние групп потребителей. Подробнее о его возможностях в разделе [{#T}](../../managed-kafka/concepts/kafka-ui.md).
 
 #### Как отследить потерю сообщений в топике {{ KF }}? {#lost-messages}
 

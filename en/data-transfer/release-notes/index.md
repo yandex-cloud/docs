@@ -8,7 +8,33 @@ description: This section contains the {{ data-transfer-name }} release notes.
 
 {% changelog %}
 ```
-date: 2025-06
+date: 2026-08
+index: 5
+```
+
+### New endpoint features
+
+* Clean up your {{ objstorage-name }} target: add data cleanup policies to automatically remove stale, unwanted, or redundant data from your tables.
+* Manually connect the {{ ydb-name }} and {{ yds-name }} endpoints.
+* Use {{ IBRG }} as a target for CDC to track, capture, and stream data modifications.
+
+{% endchangelog %}
+
+{% changelog %}
+```
+date: 2026-07
+index: 4
+```
+
+### More options for delivering data from queues
+
+Set up replication from [{{ KF }}](../operations/endpoint/source/kafka.md) and [{{ DS }}](../operations/endpoint/source/data-streams.md) to [{{ IBRG }}](../operations/endpoint/target/iceberg.md) using the management console or API.
+
+{% endchangelog %}
+
+{% changelog %}
+```
+date: 2026-06
 index: 3
 ```
 
@@ -56,6 +82,25 @@ Use a new combination of endpoints to transfer data from {{ ydb-name }} to {{ PG
 # {{ data-transfer-name }} release notes
 
 ## 2026 {#2026}
+
+### August {#august2026}
+
+* Supported data cleanup policy in the [{{ objstorage-name }}](../operations/endpoint/target/object-storage.md) target.
+* Added settings for manually connecting {{ ydb-name }} and {{ yds-name }} endpoints.
+* Now you can configure [{{ IBRG }}](../operations/endpoint/target/iceberg.md) as a target for [capturing data changes](../concepts/cdc.md).
+* Fixed errors related to the {{ CH }} data target behavior.
+* Revised the [Getting started with {{ data-transfer-name }}](../quickstart.md) section.
+
+### July {#july2026}
+
+
+* Supported replication from [{{ KF }}](../operations/endpoint/source/kafka.md) and [{{ DS }}](../operations/endpoint/source/data-streams.md) to [{{ IBRG }}](../operations/endpoint/target/iceberg.md) in the management console and API.
+
+
+* Implemented cleanup policies for the [{{ objstorage-name }}](../operations/endpoint/target/object-storage.md) target: 
+
+    * `Cleanup policy Drop` for copying: Automatically deletes stale bucket files upon successful copy completion.
+    * `Cleanup policy Replace`: Enforces atomic data replacement by removing legacy files only after new ones are fully uploaded.
 
 ### June {#june2026}
 

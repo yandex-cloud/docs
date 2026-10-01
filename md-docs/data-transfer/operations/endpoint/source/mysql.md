@@ -581,7 +581,7 @@
 
 * Данные с типом `TIME` переносятся как строки, часовые пояса источника и приемника не учитываются.
 * При переносе данных с типом `TIMESTAMP` применяется часовой пояс, указанный в настройках источника MySQL® или в [дополнительных настройках эндпоинта](#additional-settings). Подробнее в [документации MySQL®](https://dev.mysql.com/doc/refman/8.0/en/datetime.html).
-* Эндпоинт-источник присваивает данным с типом `DATETIME` часовой пояс UTC+0.
+* Эндпоинт-источник присваивает данным с типом `DATETIME` часовой пояс, указанный в настройке **Часовой пояс для подключения к базе данных**.
 
 Для трансфера из MySQL® в базу данных другого вида не поддерживается перенос полей с типом `DECIMAL`, чтобы избежать потери точности данных. Для трансфера из MySQL® в MySQL® такого ограничения нет.
 
@@ -609,6 +609,60 @@
 * Для трансферов в статусе **Копируется** любые изменения схемы данных (`ALTER`) на источнике или приемнике прервут трансфер.
 
 * Для трансферов в статусе **Реплицируется** схему данных на источнике можно изменять. Все операции `ALTER`, попавшие в бинарный лог (binlog) на источнике, автоматически применятся на приемнике. Этот процесс занимает некоторое время, поэтому трансфер может замедлиться.
+
+## Соответствие типов поддерживаемых данных в СУБД и эндпоинте {#type-mapping}
+
+#|
+|| **Тип MySQL®** | **Тип эндпоинта** ||
+|| BIGINT | int64 ||
+|| INT
+MEDIUMINT | int32 ||
+|| SMALLINT | int16 ||
+|| TINYINT | int8 ||
+|| BIGINT UNSIGNED | uint64 ||
+|| INT UNSIGNED
+MEDIUMINT UNSIGNED | uint32 ||
+|| SMALLINT UNSIGNED | uint16 ||
+|| TINYINT UNSIGNED | uint8 ||
+|| — | float ||
+|| DECIMAL
+DECIMAL UNSIGNED
+DOUBLE
+FLOAT
+FLOAT UNSIGNED | double ||
+|| BINARY
+BIT
+BLOB
+GEOMCOLLECTION
+GEOMETRY
+LINESTRING
+LONGBLOB
+MEDIUMBLOB
+MULTILINESTRING
+MULTIPOINT
+MULTIPOLYGON
+POINT
+POLYGON
+REST...
+TINYBLOB
+VARBINARY | string ||
+|| CHAR
+ENUM
+LONGTEXT
+MEDIUMTEXT
+SET
+TEXT
+TIME
+TINYTEXT
+VARCHAR
+YEAR | utf8 ||
+|| — | boolean ||
+|| DATE | date ||
+|| — | datetime ||
+|| DATETIME
+TIMESTAMP | timestamp ||
+|| JSON | any ||
+|#
 
 ## Решение проблем, возникающих при переносе данных {#troubleshooting}
 

@@ -24,6 +24,26 @@ Before deleting a cluster, disable its deletion protection if it is enabled.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster in question and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
     1. In the window that opens, confirm the deletion and click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To delete a cluster, run this command:
+
+  ```bash
+  yc managed-sharded-postgresql cluster delete <cluster_name_or_ID>
+  ```
+
+  You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
+
+  {% include [Terraform timeouts](../../_includes/mdb/mspqr/terraform/timeouts.md) %}
+
 - REST API {#api}
 
   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:

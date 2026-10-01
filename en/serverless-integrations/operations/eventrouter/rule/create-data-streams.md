@@ -5,6 +5,8 @@ description: Follow this guide to create a rule with a {{ yds-full-name }} targe
 
 # Creating a rule with a {{ yds-full-name }} target
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -123,7 +125,7 @@ description: Follow this guide to create a rule with a {{ yds-full-name }} targe
 
   To create a [rule](../../../concepts/eventrouter/rule.md) with a {{ yds-full-name }} target:
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
       ```hcl
       resource "yandex_serverless_eventrouter_rule" "example_rule" {
@@ -166,7 +168,7 @@ description: Follow this guide to create a rule with a {{ yds-full-name }} targe
 
       {% include [terraform-validate-plan-apply](../../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../../cli/) command:
 
       ```bash
       yc serverless eventrouter rule list

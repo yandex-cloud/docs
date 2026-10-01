@@ -19,6 +19,8 @@ Syntax:
 
 - [yc baremetal v2 image list](list.md) — Retrieves the list of Image resources.
 
+- [yc baremetal v2 image list-compatible](list-compatible.md) — Lists images available for installation on the selected configuration.
+
 - [yc baremetal v2 image resolve](resolve.md) — Resolves the latest published Image for each available family within the specified folder.
 
 #### Global Flags
@@ -31,6 +33,15 @@ Set the custom profile. ||
 || `--region` | `string`
 
 Set the region. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||

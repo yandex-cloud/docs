@@ -19,4 +19,4 @@ To enable showing the table of contents in a dashboard:
 
 To disable showing the table of contents in a dashboard, disable **Table of contents** in the dashboard settings.
 
-In view mode, you can also show or hide the table of contents via the menu. Do it by clicking ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/list-ul.svg) **Table of contents** at the top of the dashboard. After you refresh the page, the table of contents is one again displayed as per the **Table of contents** option in the settings.
+In view mode, you can also display or hide the table of contents using the menu. Do it by clicking ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/list-ul.svg) **Table of contents** at the top of the dashboard. After updating the page, the table of contents is displayed in accordance with the **Table of contents** option in the settings.

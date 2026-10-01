@@ -15,14 +15,14 @@ All {{ dns-name }} zone activities are logged as a list of operations. Each oper
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your DNS zone.
   1. [Navigate]({{ link-console-main }}/link/dns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
-  1. Select the zone you need.
-  1. Navigate to the ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected zone.
+  1. Click the zone of interest.
+  1. Navigate to the **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
       You will see a list of operations performed on the selected zone and its DNS records.
 
 - CLI {#cli}
 
-  {% include [include](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
@@ -62,7 +62,7 @@ All {{ dns-name }} zone activities are logged as a list of operations. Each oper
 
 - API {#api}
 
-  To get a DNS zone operation list, use the [listOperations](../api-ref/DnsZone/listOperations.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/ListOperations](../api-ref/grpc/DnsZone/listOperations.md) gRPC API call.
+  To get a list of DNS zone operations, use the [listOperations](../api-ref/DnsZone/listOperations.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/ListOperations](../api-ref/grpc/DnsZone/listOperations.md) gRPC API call.
 
 {% endlist %}
 

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Интеграция Yandex Managed Service for Apache Spark™ и DataSphere
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Yandex Managed Service for Apache Airflow™ > Интеграция Yandex Managed Service for Apache Spark™ и DataSphere
 
 # Использование сервиса Yandex Managed Service for Apache Spark™ в Yandex DataSphere
 
@@ -57,8 +57,8 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `data-folder`, [созданный ранее](#create-folder).
-  1. В списке сервисов выберите **Virtual Private Cloud**.
-  1. В правом верхнем углу нажмите **Создать сеть**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
+  1. Нажмите **Создать сеть**.
   1. В поле **Имя** укажите имя сети `data-network`.
 
       Вместе с ней автоматически будут созданы три подсети в разных зонах доступности.
@@ -73,7 +73,7 @@
 
 - Консоль управления {#console}
 
-   1. В каталоге `data-folder` выберите сервис **Virtual Private Cloud**.
+   1. В каталоге `data-folder` [перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
    1. На панели слева выберите ![image](../../_assets/console-icons/arrows-opposite-to-dots.svg) **Шлюзы**.
    1. Нажмите **Создать** и задайте настройки шлюза:
       1. Введите имя шлюза, например `nat-for-cluster`.
@@ -91,7 +91,7 @@
    1. Привяжите таблицу маршрутизации к одной из подсетей, чтобы направить трафик из нее через NAT-шлюз:
       1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **Подсети**.
       1. В строке нужной подсети нажмите ![image](../../_assets/console-icons/ellipsis.svg).
-      1. В открывшемся меню выберите пункт **Привязать таблицу маршрутизации**.
+      1. В открывшемся меню выберите **Привязать таблицу маршрутизации**.
       1. В открывшемся окне выберите созданную таблицу в списке.
       1. Нажмите **Привязать**.
 
@@ -104,7 +104,7 @@
 - Консоль управления {#console}
 
    1. Перейдите в каталог `data-folder`.
-   1. В списке сервисов выберите **Identity and Access Management**.
+   1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
    1. Нажмите кнопку **Создать сервисный аккаунт**.
    1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `sa-for-spark`.
    1. Нажмите **Добавить роль** и назначьте сервисному аккаунту [роли](../../iam/concepts/access-control/roles.md):

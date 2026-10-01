@@ -9,8 +9,8 @@
 
    {% include [sa-uniq-name](sa-uniq-name.md) %}
 
-1. To assign the service account a [role](../../iam/concepts/access-control/roles.md) for the current folder, click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select a role, e.g., `editor`.
+1. To assign the service account a [role](../../iam/concepts/access-control/roles.md) for the current folder, click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the role, e.g., `editor`.
 
-   To assign a role for another resource, use the CLI or API following this [{#T}](../../iam/operations/sa/assign-role-for-sa.md) guide.
+   To assign a role for another resource, use the CLI or API by following [this guide](../../iam/operations/sa/assign-role-for-sa.md).
 
 1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.

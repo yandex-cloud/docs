@@ -22,7 +22,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.trino.title_catalogs }}**.
+  1. Navigate to the **{{ ui-key.yacloud.trino.title_catalogs }}** tab.
   1. Click **{{ ui-key.yacloud.trino.catalogs.create_action }}**.
   1. In the **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}** field, enter the catalog name, {{ TR }}.
   1. In the **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}** field, select the [connector](../concepts/index.md#connector) type.
@@ -780,7 +780,7 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<{{ TR }}>_cluster_ID/catalogs' \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<{{ TR }}_cluster_ID>/catalogs' \
         --data '{
                   "catalog": {
                     "name": "<{{ TR }}_catalog_name>",
@@ -1032,6 +1032,14 @@ To learn more, see [{{ GP }}/Cloudberry connector](../concepts/greenplum-connect
 {% endlist %}
 
 ### Hive connector {#hive}
+
+{% note info %}
+
+In catalogs with a Hive connector, {{ mtr-name }} overrides the default value of the [`hive.hive-views.run-as-invoker`]({{ tr.docs }}/connector/hive.html#hive-views) parameter from `false` to `true`. With this value, accessing Hive `VIEW` objects implies authorization under the user executing the query, not the one who created the view. Thus, [access control](../concepts/access-control.md) rules apply correctly and factor in the IAM groups of the user executing the query.
+
+Where the `hive.hive-views.run-as-invoker` parameter value is explicitly specified in the catalog's additional settings, this value remains as is.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 

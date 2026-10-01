@@ -22,7 +22,7 @@ To set up automatic image recognition via {{ vision-name }}:
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-## Get your cloud ready {#before-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
@@ -44,7 +44,7 @@ The infrastructure support cost for scheduled image and document recognition inc
 To create your infrastructure via {{ TF }}:
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials]({{ link-docs }}/tutorials/infrastructure-management/terraform-quickstart#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
 
-1. Prepare your infrastructure description files:
+1. Set up your infrastructure description files:
 
     1. Clone the repository containing the configuration files.
 

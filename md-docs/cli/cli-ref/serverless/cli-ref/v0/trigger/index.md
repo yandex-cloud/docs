@@ -72,6 +72,44 @@ Syntax:
 
   - [yc serverless v0 trigger update yds](update/yds.md) — Update YDS trigger
 
+- [yc serverless v0 trigger v1](v1/index.md) — Manage triggers (v1 API, deprecated)
+
+  - [yc serverless v0 trigger v1 add-labels](v1/add-labels.md) — Add labels to specified trigger
+
+  - [yc serverless v0 trigger v1 delete](v1/delete.md) — Delete the specified trigger
+
+  - [yc serverless v0 trigger v1 get](v1/get.md) — Show information about the specified trigger
+
+  - [yc serverless v0 trigger v1 list](v1/list.md) — List triggers
+
+  - [yc serverless v0 trigger v1 list-operations](v1/list-operations.md) — Show history of the tag for the specified trigger
+
+  - [yc serverless v0 trigger v1 pause](v1/pause.md) — Pause the specified trigger
+
+  - [yc serverless v0 trigger v1 remove-labels](v1/remove-labels.md) — Remove labels from specified trigger
+
+  - [yc serverless v0 trigger v1 resume](v1/resume.md) — Resume the specified trigger
+
+- [yc serverless v0 trigger v2](v2/index.md) — Manage triggers (v2 API)
+
+  - [yc serverless v0 trigger v2 add-labels](v2/add-labels.md) — Add labels to specified trigger
+
+  - [yc serverless v0 trigger v2 delete](v2/delete.md) — Delete the specified trigger
+
+  - [yc serverless v0 trigger v2 get](v2/get.md) — Show information about the specified trigger
+
+  - [yc serverless v0 trigger v2 help-action](v2/help-action.md) — Describe action json format
+
+  - [yc serverless v0 trigger v2 list](v2/list.md) — List triggers
+
+  - [yc serverless v0 trigger v2 list-operations](v2/list-operations.md) — Show history of operations for the specified trigger
+
+  - [yc serverless v0 trigger v2 pause](v2/pause.md) — Pause the specified trigger
+
+  - [yc serverless v0 trigger v2 remove-labels](v2/remove-labels.md) — Remove labels from specified trigger
+
+  - [yc serverless v0 trigger v2 resume](v2/resume.md) — Resume the specified trigger
+
 #### Global Flags
 
 #|

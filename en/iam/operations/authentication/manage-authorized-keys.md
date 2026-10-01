@@ -1,6 +1,6 @@
 ---
 title: How to manage authorized keys in {{ iam-full-name }}
-description: In this tutorial, you will learn how to create and delete authorized keys in {{ iam-full-name }} via the management console, CLI, and API.
+description: In this guide, you will learn how to create and delete authorized keys in {{ iam-full-name }} via the management console, CLI, and API.
 ---
 
 # Managing authorized keys
@@ -25,9 +25,9 @@ To create a service account authorized key:
    1. In the list that opens, select the service account to create an authorized key for.
    1. In the top panel, click ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
    1. Select the encryption algorithm; if required, specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**. In the window that opens:
-       1. Copy and save both the public and private parts of the key in a secure location. The private part of the key is not stored in {{ yandex-cloud }} and you will not be able to get it again. You will not be able to view the public part of the key in the management console.
+       1. Copy and save both the public and private parts of the key to a secure location. The private part of the key is not stored in {{ yandex-cloud }} and you will not be able to get it again. You will not be able to view the public part of the key in the management console.
 
-           You can also download your keys in a single JSON file by clicking **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}**.
+           You can also download your keys as a single JSON file by clicking **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}**.
        1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_close }}**.
 
 - CLI {#cli}
@@ -69,7 +69,7 @@ To create a service account authorized key:
 
       If successful, the created authorized key will be saved to the `my-robot-key.json` file.
 
-      Key file example:
+      Here is an example of a key file:
 
       ```json
       {
@@ -82,7 +82,7 @@ To create a service account authorized key:
       }
       ```
 
-      Copy both the public and private parts of the key (`public_key` and `private_key` values) and save them in a secure location. The private part of the key is not stored in {{ yandex-cloud }} and you will not be able to get it again.
+      Copy and save both the public and private parts of the key (the `public_key` and `private_key` values) to a secure location. The private part of the key is not stored in {{ yandex-cloud }} and you will not be able to get it again.
 
 - {{ TF }} {#tf}
 
@@ -106,11 +106,11 @@ To create a service account authorized key:
        Where:
        * `service_account_id`: Service account [ID](../sa/get-id.md). This is a required setting.
        * `description`: Key description. This is an optional setting.
-       * `key_algorithm`: Key generation algorithm. This is an optional setting. The default algorithm is `RSA_2048`. For more information about the acceptable values, see [this API guide](../../api-ref/Key/index.md).
-       * `pgp_key`: Additional PGP key for encrypting a private key. This is an optional setting. Specify the public part of the key in Base64 encoding or in `keybase:keybaseusername` format.
-       * `output_to_lockbox`: Description of the {{ lockbox-full-name }} [secret](../../../lockbox/concepts/secret.md) to save the secret key value in to prevent its possible leakage through the `terraform.tfstate` file. This is an optional setting. Nested parameters:
-           * `secret_id`: ID of the {{ lockbox-full-name }} secret to save the private part of the authorized key value to. The secret must be [custom](../../../lockbox/concepts/secret.md#secret-type).
-           * `entry_for_secret_key`: Secret key to assign to the private part of the authorized key value you are saving.
+       * `key_algorithm`: Key generation algorithm. This is an optional setting. The default algorithm is `RSA_2048`. For more information about the valid values, see [this API guide](../../api-ref/Key/index.md).
+       * `pgp_key`: Additional PGP key for private key encryption. This is an optional setting. Specify the public part of the key in Base64 encoding or in `keybase:keybaseusername` format.
+       * `output_to_lockbox`: Description of the {{ lockbox-full-name }} [secret](../../../lockbox/concepts/secret.md) to save the secret key value to, in order to prevent its possible leak through the `terraform.tfstate` file. This is an optional setting. Nested parameters:
+           * `secret_id`: ID of the {{ lockbox-full-name }} secret to save the private part of the authorized key value to. The secret must be of the [user type](../../../lockbox/concepts/secret.md#secret-type).
+           * `entry_for_secret_key`: Secret key to assign to the private part of the authorized key value being saved.
 
        For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_key).
 
@@ -161,9 +161,9 @@ To create a service account authorized key:
   * `<IAM_token>`: IAM token of the user with permissions to create keys for the specified service account.
   * `<service_account_id>`: [ID](../sa/get-id.md) of the service account for which the keys are being created.
 
-  If successful, the server response will include both the public (`publicKey`) and private (`privateKey`) parts of the authorized key. Save this data. You will not be able to get the private key value again.
+  If successful, the server response will include both the public (`publicKey`) and private (`privateKey`) parts of the authorized key. Save this data, as you will not be able to get the private key value again.
 
-  Example of a server response:
+  Here is an example of a server response:
 
   ```json
   {
@@ -191,7 +191,7 @@ To delete a service account authorized key:
 
   1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to.
   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and then select the required service account.
+  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and then select the service account.
   1. Under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_keys }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the key to delete, and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, confirm the deletion.
 
@@ -201,7 +201,7 @@ To delete a service account authorized key:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Get a list of authorized keys for a service account by entering its name:
+  1. Get a list of authorized keys for your service account by specifying the service account name:
 
      ```bash
      yc iam key list \
@@ -231,7 +231,7 @@ To delete a service account authorized key:
 
   1. Open the {{ TF }} configuration file and delete the section with the authorized key description.
 
-      Example authorized key description in the {{ TF }} configuration:
+      Here is an example of an authorized key description in the {{ TF }} configuration:
 
       ```
       resource "yandex_iam_service_account_key" "sa-auth-key" {
@@ -267,9 +267,9 @@ To delete a service account authorized key:
           terraform apply
           ```
 
-      1. Confirm creating and deleting the resources by typing `yes` in the terminal and clicking **Enter**.
+      1. Confirm creating or deleting the resources by typing `yes` in the terminal and clicking **Enter**.
 
-      This will create or delete all the resources you need in the specified folder. You can check the new resources and their settings or make sure the resources were deleted using the [management console]({{ link-console-main }}) and this CLI command:
+      This will create or delete all the resources you need in the specified folder. You can check the new resources and their settings or make sure the resources have been deleted using the [management console]({{ link-console-main }}) and this CLI command:
 
       ```bash
       yc iam key list --service-account-id <service_account_ID>

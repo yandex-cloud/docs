@@ -32,23 +32,23 @@ output "network_id" {
 - `backup_retain_period_days` (Number). The period in days during which backups are stored.
 - `cluster_id` (String). The cluster identifier.
 - `copy_schema_on_new_hosts` (Bool). Whether to copy schema on new ClickHouse hosts.
-- `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
+- `created_at` (String). The creation timestamp of the resource.
 - `deletion_protection` (Bool). The `true` value means that resource is protected from accidental deletion.
 - `description` (String). The resource description.
 - `disk_encryption_key_id` (String). ID of the KMS key for cluster disk encryption.
 - `embedded_keeper` (Bool). Whether to use ClickHouse Keeper as a coordination system and place it on the same hosts with ClickHouse. If not, it's used ZooKeeper with placement on separate hosts.
-- `environment` (**Required**)(String). Deployment environment of the ClickHouse cluster. Can be either `PRESTABLE` or `PRODUCTION`.
+- `environment` (String). Deployment environment of the ClickHouse cluster. Can be either `PRESTABLE` or `PRODUCTION`.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `health` (*Read-Only*) (String). Aggregated health of the cluster. Can be `ALIVE`, `DEGRADED`, `DEAD` or `HEALTH_UNKNOWN`. For more information see `health` field of JSON representation in [the official documentation](../../managed-clickhouse/api-ref/Cluster/index.md).
+- `health` (String). Aggregated health of the cluster. Can be `ALIVE`, `DEGRADED`, `DEAD` or `HEALTH_UNKNOWN`. For more information see `health` field of JSON representation in [the official documentation](../../managed-clickhouse/api-ref/Cluster/index.md).
 - `id` (String). 
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
-- `name` (**Required**)(String). The resource name.
-- `network_id` (**Required**)(String). The `VPC Network ID` of subnets which resource attached to.
+- `name` (String). The resource name.
+- `network_id` (String). The `VPC Network ID` of subnets which resource attached to.
 - `security_group_ids` (Set Of String). The list of security groups applied to resource or their components.
 - `service_account_id` (String). [Service account](../../iam/concepts/users/service-accounts.md) which linked to the resource.
 - `sql_database_management` (Bool). Grants `admin` user database management permission.
 - `sql_user_management` (Bool). Enables `admin` user with user management permission.
-- `status` (*Read-Only*) (String). Status of the cluster. Can be `CREATING`, `STARTING`, `RUNNING`, `UPDATING`, `STOPPING`, `STOPPED`, `ERROR` or `STATUS_UNKNOWN`. For more information see `status` field of JSON representation in [the official documentation](../../managed-clickhouse/api-ref/Cluster/index.md).
+- `status` (String). Status of the cluster. Can be `CREATING`, `STARTING`, `RUNNING`, `UPDATING`, `STOPPING`, `STOPPED`, `ERROR` or `STATUS_UNKNOWN`. For more information see `status` field of JSON representation in [the official documentation](../../managed-clickhouse/api-ref/Cluster/index.md).
 - `version` (String). Version of the ClickHouse server software.
 - `access` [Block]. Access policy to the ClickHouse cluster.
   - `data_lens` (Bool). Allow access for DataLens.
@@ -122,23 +122,23 @@ output "network_id" {
     - `zookeeper_log_retention_time` (Number). The maximum time that zookeeper_log records will be retained before removal.
     - `compression` [Block]. Data compression configuration.
       - `level` (Number).  Compression level for `ZSTD` method.
-      - `method` (**Required**)(String). Compression method. Two methods are available: `LZ4` and `zstd`.
-      - `min_part_size` (**Required**)(Number). Min part size: Minimum size (in bytes) of a data part in a table. ClickHouse only applies the rule to tables with data parts greater than or equal to the Min part size value.
-      - `min_part_size_ratio` (**Required**)(Number). Min part size ratio: Minimum table part size to total table size ratio. ClickHouse only applies the rule to tables in which this ratio is greater than or equal to the Min part size ratio value.
+      - `method` (String). Compression method. Two methods are available: `LZ4` and `zstd`.
+      - `min_part_size` (Number). Min part size: Minimum size (in bytes) of a data part in a table. ClickHouse only applies the rule to tables with data parts greater than or equal to the Min part size value.
+      - `min_part_size_ratio` (Number). Min part size ratio: Minimum table part size to total table size ratio. ClickHouse only applies the rule to tables in which this ratio is greater than or equal to the Min part size ratio value.
     - `graphite_rollup` [Block]. Graphite rollup configuration.
-      - `name` (**Required**)(String). Graphite rollup configuration name.
+      - `name` (String). Graphite rollup configuration name.
       - `path_column_name` (String). The name of the column storing the metric name (Graphite sensor). Default value: Path.
       - `time_column_name` (String). The name of the column storing the time of measuring the metric. Default value: Time.
       - `value_column_name` (String). The name of the column storing the value of the metric at the time set in `time_column_name`. Default value: Value.
       - `version_column_name` (String). The name of the column storing the version of the metric. Default value: Timestamp.
       - `pattern` [Block]. Set of thinning rules.
-        - `function` (**Required**)(String). Aggregation function name.
+        - `function` (String). Aggregation function name.
         - `regexp` (String). Regular expression that the metric name must match.
         - `retention` [Block]. Retain parameters.
-          - `age` (**Required**)(Number). Minimum data age in seconds.
-          - `precision` (**Required**)(Number). Accuracy of determining the age of the data in seconds.
+          - `age` (Number). Minimum data age in seconds.
+          - `precision` (Number). Accuracy of determining the age of the data in seconds.
     - `jdbc_bridge` [Block]. JDBC bridge configuration.
-      - `host` (**Required**)(String). Host of jdbc bridge.
+      - `host` (String). Host of jdbc bridge.
       - `port` (Number). Port of jdbc bridge. Default value: 9019.
     - `kafka` [Block]. Kafka connection configuration.
       - `auto_offset_reset` (String). Action to take when there is no initial offset in offset store or the desired offset is out of range: 'smallest','earliest' - automatically reset the offset to the smallest offset, 'largest','latest' - automatically reset the offset to the largest offset, 'error' - trigger an error (ERR__AUTO_OFFSET_RESET) which is retrieved by consuming messages and checking 'message->err'.
@@ -151,7 +151,7 @@ output "network_id" {
       - `security_protocol` (String). Security protocol used to connect to kafka server.
       - `session_timeout_ms` (Number). Client group session and failure detection timeout. The consumer sends periodic heartbeats (heartbeat.interval.ms) to indicate its liveness to the broker. If no hearts are received by the broker for a group member within the session timeout, the broker will remove the consumer from the group and trigger a rebalance.
     - `kafka_topic` [Block]. Kafka topic connection configuration.
-      - `name` (**Required**)(String). Kafka topic name.
+      - `name` (String). Kafka topic name.
       - `settings` [Block]. Kafka connection settings.
         - `auto_offset_reset` (String). Action to take when there is no initial offset in offset store or the desired offset is out of range: 'smallest','earliest' - automatically reset the offset to the smallest offset, 'largest','latest' - automatically reset the offset to the largest offset, 'error' - trigger an error (ERR__AUTO_OFFSET_RESET) which is retrieved by consuming messages and checking 'message->err'.
         - `debug` (String). A comma-separated list of debug contexts to enable.
@@ -198,7 +198,7 @@ output "network_id" {
       - `max_size_in_bytes` (Number). The maximum cache size in bytes. 0 means the query cache is disabled. Default value: 1073741824 (1 GiB).
     - `query_masking_rules` [Block]. Query masking rules configuration.
       - `name` (String). Name for the rule.
-      - `regexp` (**Required**)(String). RE2 compatible regular expression.
+      - `regexp` (String). RE2 compatible regular expression.
       - `replace` (String). Substitution string for sensitive data. Default value: six asterisks.
     - `rabbitmq` [Block]. RabbitMQ connection configuration.
       - `password` (String). RabbitMQ user password.
@@ -211,32 +211,32 @@ output "network_id" {
 - `cloud_storage` [Block]. Cloud Storage settings.
   - `data_cache_enabled` (Bool). Enables temporary storage in the cluster repository of data requested from the object repository.
   - `data_cache_max_size` (Number). Defines the maximum amount of memory (in bytes) allocated in the cluster storage for temporary storage of data requested from the object storage.
-  - `enabled` (**Required**)(Bool). Whether to use Yandex Object Storage for storing ClickHouse data. Can be either `true` or `false`.
+  - `enabled` (Bool). Whether to use Yandex Object Storage for storing ClickHouse data. Can be either `true` or `false`.
   - `move_factor` (Number). Sets the minimum free space ratio in the cluster storage. If the free space is lower than this value, the data is transferred to Yandex Object Storage. Acceptable values are 0 to 1, inclusive.
   - `prefer_not_to_merge` (Bool). Disables merging of data parts in `Yandex Object Storage`.
 - `database` [Block]. A database of the ClickHouse cluster.
-  - `name` (**Required**)(String). The name of the database.
+  - `name` (String). The name of the database.
 - `format_schema` [Block]. A set of `protobuf` or `capnproto` format schemas.
-  - `name` (**Required**)(String). The name of the format schema.
-  - `type` (**Required**)(String). Type of the format schema.
-  - `uri` (**Required**)(String). Format schema file URL. You can only use format schemas stored in Yandex Object Storage.
+  - `name` (String). The name of the format schema.
+  - `type` (String). Type of the format schema.
+  - `uri` (String). Format schema file URL. You can only use format schemas stored in Yandex Object Storage.
 - `host` [Block]. A host of the ClickHouse cluster.
   - `assign_public_ip` (Bool). Sets whether the host should get a public IP address on creation. Can be either `true` or `false`.
-  - `fqdn` (*Read-Only*) (String). The fully qualified domain name of the host.
+  - `fqdn` (String). The fully qualified domain name of the host.
   - `shard_name` (String). The name of the shard to which the host belongs.
   - `subnet_id` (String). The ID of the subnet, to which the host belongs. The subnet must be a part of the network to which the cluster belongs.
-  - `type` (**Required**)(String). The type of the host to be deployed. Can be either `CLICKHOUSE` or `ZOOKEEPER`.
-  - `zone` (**Required**)(String). The [availability zone](../../overview/concepts/geo-scope.md) where resource is located. If it is not provided, the default provider zone will be used.
+  - `type` (String). The type of the host to be deployed. Can be either `CLICKHOUSE` or `ZOOKEEPER`.
+  - `zone` (String). The [availability zone](../../overview/concepts/geo-scope.md) where resource is located. If it is not provided, the default provider zone will be used.
 - `maintenance_window` [Block]. 
   - `day` (String). Day of week for maintenance window if window type is weekly. Possible values: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
   - `hour` (Number). Hour of day in UTC time zone (1-24) for maintenance window if window type is weekly.
-  - `type` (**Required**)(String). Type of maintenance window. Can be either `ANYTIME` or `WEEKLY`. A day and hour of window need to be specified with weekly window.
+  - `type` (String). Type of maintenance window. Can be either `ANYTIME` or `WEEKLY`. A day and hour of window need to be specified with weekly window.
 - `ml_model` [Block]. A group of machine learning models.
-  - `name` (**Required**)(String). The name of the ml model.
-  - `type` (**Required**)(String). Type of the model.
-  - `uri` (**Required**)(String). Model file URL. You can only use models stored in Yandex Object Storage.
+  - `name` (String). The name of the ml model.
+  - `type` (String). Type of the model.
+  - `uri` (String). Model file URL. You can only use models stored in Yandex Object Storage.
 - `shard` [Block]. A shard of the ClickHouse cluster.
-  - `name` (**Required**)(String). The name of shard.
+  - `name` (String). The name of shard.
   - `weight` (Number). The weight of shard.
   - `resources` [Block]. Resources allocated to host of the shard. The resources specified for the shard takes precedence over the resources specified for the cluster.
     - `disk_size` (Number). Volume of the storage available to a ClickHouse host, in gigabytes.
@@ -244,10 +244,10 @@ output "network_id" {
     - `resource_preset_id` (String). The ID of the preset for computational resources available to a ClickHouse host (CPU, memory etc.). For more information, see [the official documentation](../../managed-clickhouse/concepts/index.md).
 - `shard_group` [Block]. A group of clickhouse shards.
   - `description` (String). Description of the shard group.
-  - `name` (**Required**)(String). The name of the shard group, used as cluster name in Distributed tables.
-  - `shard_names` (**Required**)(List Of String). List of shards names that belong to the shard group.
+  - `name` (String). The name of the shard group, used as cluster name in Distributed tables.
+  - `shard_names` (List Of String). List of shards names that belong to the shard group.
 - `user` [Block]. A user of the ClickHouse cluster.
-  - `connection_manager` (*Read-Only*) (Map Of String). Connection Manager connection configuration. Filled in by the server automatically.
+  - `connection_manager` (Map Of String). Connection Manager connection configuration. Filled in by the server automatically.
   - `generate_password` (Bool). Generate password using Connection Manager. Allowed values: `true` or `false`. It's used only during user creation and is ignored during updating.
 
 {% note warning %}
@@ -257,14 +257,14 @@ output "network_id" {
 {% endnote %}
 
 
-  - `name` (**Required**)(String). The name of the user.
+  - `name` (String). The name of the user.
   - `password` (String). The password of the user.
   - `permission` [Block]. Set of permissions granted to the user.
-    - `database_name` (**Required**)(String). The name of the database that the permission grants access to.
+    - `database_name` (String). The name of the database that the permission grants access to.
   - `quota` [Block]. Set of user quotas.
     - `errors` (Number). The number of queries that threw exception.
     - `execution_time` (Number). The total query execution time, in milliseconds (wall time).
-    - `interval_duration` (**Required**)(Number). Duration of interval for quota in milliseconds.
+    - `interval_duration` (Number). Duration of interval for quota in milliseconds.
     - `queries` (Number). The total number of queries.
     - `read_rows` (Number). The total number of source rows read from tables for running the query, on all remote servers.
     - `result_rows` (Number). The total number of rows given as the result.

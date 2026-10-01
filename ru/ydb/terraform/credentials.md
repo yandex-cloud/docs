@@ -10,7 +10,7 @@ description: В инструкции описан процесс аутенти�
 Сервисный аккаунт можно [создать](../../iam/operations/sa/create.md) и настроить, следуя следующей инструкции:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
 1. Введите имя сервисного аккаунта:
     * Длина имени — от 3 до 63 символов;

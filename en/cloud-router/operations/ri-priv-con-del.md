@@ -29,11 +29,11 @@ You need the [cloud-router.editor](../security/index.md#cloudrouter-editor) role
       yc cloudrouter routing-instance remove-private-connection --help
       ```
 
-  1. Deleting the private connection from a virtual router:
+  1. Delete the private connection from the virtual router:
 
      ```bash
      yc cloudrouter routing-instance remove-private-connection c3l87**********1dpin \
-       --cic-prc b1gqf**********jiz2w \
+       --cic-prc cf3r5ke20fo0******** \
        --async
      ```
 
@@ -55,8 +55,7 @@ You need the [cloud-router.editor](../security/index.md#cloudrouter-editor) role
       * `id`: ID of the operation performed with the virtual router.
       * `created_by`: ID of the subject running the operation.
 
-
-  1. Checking the modified virtual router configuration:
+  1. Check the modified virtual router configuration:
 
      ```bash
      yc cloudrouter routing-instance get c3l87**********1dpin

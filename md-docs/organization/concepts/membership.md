@@ -31,3 +31,4 @@
 
 * [Разграничение прав доступа для групп пользователей с различными ролями в Yandex Identity Hub](../../tutorials/security/user-group-access-control.md)
 * [Аутентификация с помощью Keycloak](../../tutorials/security/integration-keycloak.md)
+* [Получение информации о субъектах в системе управления доступом Yandex Cloud](../../iam/concepts/subject-details.md)

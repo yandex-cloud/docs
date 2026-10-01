@@ -1,11 +1,11 @@
-1. [Get your cloud ready](#before-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create an infrastructure](#deploy).
 1. [Configure Samba and NFS](#setup-samba-nfs).
 1. [Test your file server](#test-file-server).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Getting started {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 

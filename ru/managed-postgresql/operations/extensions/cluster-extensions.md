@@ -24,7 +24,9 @@
 * `pglogical` — необходима для работы [расширения pglogical](https://github.com/2ndQuadrant/pglogical);
 * `timescaledb` — необходима для работы [расширения TimescaleDB](https://github.com/timescale/timescaledb).
 
+
 Чтобы объявить библиотеку в {{ TF }}-манифесте, укажите ее название в формате `SHARED_PRELOAD_LIBRARIES_<название_библиотеки>`. Например, `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`.
+
 
 {% note warning %}
 
@@ -135,7 +137,8 @@
      --extensions <имя_расширения>,<имя_расширения>...
   ```
 
-  При установке нескольких расширений могут возникнуть ошибки. Подробнее о возможных причинах и способах устранения ошибок в разделе [Вопросы и ответы](../../qa/errors.md#cli-extensions-error).
+  При установке нескольких расширений могут возникнуть ошибки. Подробнее о возможных причинах и способах устранения ошибок в разделе [Вопросы и ответы](../../qa/errors.md#cli-extensions-errors).
+
 
 - {{ TF }} {#tf}
 
@@ -164,6 +167,7 @@
   1. Подтвердите изменение ресурсов.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
 
 - REST API {#api}
 

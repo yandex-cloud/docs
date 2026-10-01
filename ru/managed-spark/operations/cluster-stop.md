@@ -15,8 +15,8 @@ description: 'При необходимости вы можете останов
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-    1. Найдите нужный кластер в списке, нажмите значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
-    1. В открывшемся диалоге подтвердите остановку кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}**.
+    1. Найдите нужный кластер в списке, нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
+    1. В открывшемся окне подтвердите остановку кластера и нажмите **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}**.
 
 - CLI {#cli}
 
@@ -72,8 +72,8 @@ description: 'При необходимости вы можете останов
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-    1. Найдите нужный остановленный кластер в списке, нажмите значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
-    1. В открывшемся диалоге нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}**.
+    1. Найдите нужный остановленный кластер в списке, нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
+    1. В открывшемся окне нажмите **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}**.
 
 - CLI {#cli}
 

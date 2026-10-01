@@ -1,5 +1,6 @@
 # Creating a SAML app in {{ org-full-name }} for integration with OpenVPN Access Server
 
+
 For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to OpenVPN Access Server via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications/saml.md) in {{ org-full-name }} and configure it both in {{ org-full-name }} and OpenVPN Access Server.
 
 [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) is built on and compatible with the OpenVPN [open-source version](https://github.com/OpenVPN). It provides clients for Windows, Mac, Android, and iOS. You can also use its web UI to manage connections.
@@ -8,12 +9,12 @@ For the users of your [organization](../../../organization/concepts/organization
 
 To give access to OpenVPN Access Server to the users of your organization:
 
-1. [Get OpenVPN Access Server ready](#prepare-ovpn).
+1. [Get OpenVPN Access Server ready](#create-vpn-server).
 1. [Create an app in {{ org-full-name }}](#create-app).
 1. [Set up the integration](#setup-integration).
 1. [Make sure the application works correctly](#validate).
 
-## Get OpenVPN Access Server ready {#prepare-ovpn}
+## Get OpenVPN Access Server ready {#create-vpn-server}
 
 You can use an OpenVPN Access Server installation of your own, an SaaS version, or create a VM with OpenVPN Access Server in {{ yandex-cloud }}.
 

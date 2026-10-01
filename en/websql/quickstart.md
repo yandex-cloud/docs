@@ -14,8 +14,8 @@ Once connected to a database, you will be able to view DB schemas, tables, and v
 * {{ CH }}: 23 or higher.
 * {{ RD }}/{{ VLK }} (non-sharded clusters only): 6 or higher.
 * {{ MG }}/{{ SD }}: 6 or higher.
-* [{{ mtr-full-name }}](../managed-trino/) (currently at the [Preview](../overview/concepts/launch-stages.md) stage): 454 or higher
-* {{ GP }}: 6 or higher
+* [{{ mtr-full-name }}](../managed-trino/): 454 or higher.
+* {{ GP }}: 6 or higher.
 
 In this section, you will learn how to connect to:
 
@@ -25,7 +25,7 @@ In this section, you will learn how to connect to:
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or [sign up](https://yandex.com/support/id/authorization/registration.html) if not signed up yet.
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or [sign up](https://yandex.com/support/id/authorization/registration.html) if not signed up yet.
 1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account, [create one](../billing/quickstart/index.md).
 1. Select the organization to work with {{ websql-full-name }} in or [create a new one](../organization/operations/enable-org.md).
 

@@ -11,6 +11,7 @@ To use the `billing.accounts.varWithoutDiscounts` role, you need to assign it fo
 * Get and view notifications on consumption.
 * Monitor expenses.
 * [View usage details](../../../billing/operations/check-charges.md).
+* [Execute API queries](../../../billing/operations/get-charges-via-api.md) to get usage details.
 * [Export details](../../../billing/operations/get-folder-report.md).
 * Create [budgets](../../../billing/concepts/budget.md).
 * [Reserve resource usage](../../../billing/concepts/cvos.md).
@@ -30,7 +31,6 @@ To use the `billing.accounts.varWithoutDiscounts` role, you need to assign it fo
 * Re-activate subaccounts.
 * Link [clouds](../../../resource-manager/concepts/resources-hierarchy.md#cloud) to subaccounts.
 * [Manage](../../../partner/operations/access/partners-account.md) access permissions to subaccounts.
-* [View](../../../partner/operations/get-client-stat.md) the details of how the customers use services.
 * View [rebate credit](../../../partner/terms.md#rebate) history.
 * Withdraw rebate.
 * View the history of crediting [referral program](../../../partner/program/referral.md) bonuses.
@@ -39,6 +39,7 @@ To use the `billing.accounts.varWithoutDiscounts` role, you need to assign it fo
 * Create referral links.
 * Activate referral links.
 * Modify referral links.
+* [View](../../../partner/operations/get-client-stat.md) details of how the customers use services.
 
 {% endcut %}
 

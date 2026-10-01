@@ -17,9 +17,9 @@ The profile template is displayed when this profile is blocked by any rule. If y
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the security or ARL profile.
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. In the left-hand panel, select **{{ ui-key.yacloud.smart-web-security.title_profiles }}** or **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
-  1. In the row with the profile you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
-  1. From the **Response page template** list, select an existing template or [create a new one](template-create.md).
+  1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** or ![arl](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
+  1. In the row with the profile, click ![options](../../_assets/console-icons/ellipsis.svg) → ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
+  1. From the **{{ ui-key.yacloud.smart-web-security.CustomPageSelectField.field_custom-page_3Yccb }}** list, select an existing template or [create a new one](template-create.md).
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
@@ -37,7 +37,7 @@ The profile template is displayed when this profile is blocked by any rule. If y
   1. In the left-hand panel, select **{{ ui-key.yacloud.smart-web-security.title_profiles }}** or **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
   1. Select the profile containing the rule of interest.
   1. Next to the rule, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
-  1. From the **Response page template** list, select an existing template or [create a new one](template-create.md).
+  1. From the **{{ ui-key.yacloud.smart-web-security.CustomPageSelectField.field_custom-page_3Yccb }}** list, select an existing template or [create a new one](template-create.md).
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}

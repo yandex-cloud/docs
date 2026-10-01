@@ -42,6 +42,8 @@ flowchart BT
     mdb.viewer --> mdb.admin
     mdb.viewer --> mdb.restorer
     vpc.publicAdmin
+    managed-clickhouse.clusters.connector["`managed-clickhouse.
+    clusters.connector`"]
     managed-clickhouse.admin --> mdb.admin
     managed-clickhouse.viewer --> managed-clickhouse.restorer
     managed-clickhouse.restorer["`managed-clickhouse.
@@ -66,6 +68,10 @@ flowchart BT
 ```
 
 ### Сервисные роли {#service-roles}
+
+#### managed-clickhouse.clusters.connector {#managed-clickhouse-clusters-connector}
+
+Роль `managed-clickhouse.clusters.connector` позволяет [пользователям](../iam/concepts/users/accounts.md) Yandex Cloud подключаться к базам данных в [кластерах ClickHouse®](concepts/index.md) с помощью механизмов сервиса [Yandex Identity and Access Management](../iam/index.md).
 
 #### managed-clickhouse.auditor {#managed-clickhouse-auditor}
 
@@ -269,6 +275,7 @@ flowchart BT
 Роль `admin` позволяет назначать любые роли, кроме `resource-manager.clouds.owner` и `organization-manager.organizations.owner`, а также предоставляет разрешения на управление любыми [ресурсами](../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud, кроме передачи прав владения [организацией](../organization/concepts/organization.md) и ее удаления.
 
 Прежде чем назначить роль `admin` на организацию, [облако](../resource-manager/concepts/resources-hierarchy.md#cloud) или [платежный аккаунт](../billing/concepts/billing-account.md), ознакомьтесь с информацией о защите [привилегированных аккаунтов](../security/standard/all.md#privileged-users).
+
 
 Включает разрешения, предоставляемые ролью `editor`.
 

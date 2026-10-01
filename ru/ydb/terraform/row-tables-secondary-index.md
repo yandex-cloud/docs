@@ -5,7 +5,7 @@ description: В инструкции описаны свойства ресур�
 
 # Создание вторичных индексов строковых таблиц
 
-Для работы с [индексом таблицы]({{ ydb.docs }}/concepts/secondary_indexes) используется ресурс `yandex_ydb_table_index`.
+Для работы с [индексом таблицы]({{ ydb.docs }}concepts/query_execution/secondary_indexes) используется ресурс `yandex_ydb_table_index`.
 
 {% note info %}
 

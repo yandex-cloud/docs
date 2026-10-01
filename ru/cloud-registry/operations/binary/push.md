@@ -35,3 +35,5 @@ description: Следуя данной инструкции, вы загрузи
         ```bash
         https://{{ cloud-registry }}/binaries/cn15fqbr806r********/sample-package/3.5.4/agent-installer.sh
         ```
+
+[*api-key-scope]: {% include notitle [api-key-scope](../../../_popups/iam/api-key-scope.md) %}

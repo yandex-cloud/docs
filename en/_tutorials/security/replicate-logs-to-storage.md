@@ -56,6 +56,7 @@ If you no longer want to store logs, [delete the resources allocated to them](#c
     * `AWS Access Key ID [None]:`: Service account [key ID](../../iam/concepts/authorization/access-key.md).
     * `AWS Secret Access Key [None]:`: Service account [secret key](../../iam/concepts/authorization/access-key.md).
     * `Default region name [None]:`: `{{ region-id }}`.
+    * `Default output format [None]:`: `json` data output format.
 
 {% include [create-bucket](../_tutorials_includes/create-bucket.md) %}
 
@@ -131,7 +132,8 @@ If running Fluent Bit version below 1.9, which comes with the `td-agent-bit` pa
     ```
     Where:
 
-    * `stream`: ID of the data stream in {{ yds-name }}. 
+    * `stream`: ID of the data stream in {{ yds-name }}.
+
         >For example, your stream ID will appear as `/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/logs-stream` if:
         >* `logs-stream`: Stream name.
         >* `{{ region-id }}`: Region.

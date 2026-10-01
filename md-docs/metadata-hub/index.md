@@ -128,6 +128,8 @@
 
  - [Подключение к бакету Yandex Object Storage с политикой доступа](operations/metastore/s3-policy-connect.md)
 
+ - [Мониторинг состояния кластера](operations/metastore/monitoring.md)
+
  - [Передача логов в Cloud Logging](operations/metastore/logging.md)
 
  - [Управление доступом к кластеру](operations/metastore/cluster-access.md)
@@ -166,6 +168,20 @@
 
  - [Overview](cli-ref/index.md)
 
+#### change-freeze
+
+ - [Overview](cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/change-freeze/terminate.md)
+
 #### cluster
 
  - [Overview](cli-ref/cluster/index.md)
@@ -201,6 +217,20 @@
 #### v0
 
  - [Overview](cli-ref/v0/index.md)
+
+##### change-freeze
+
+ - [Overview](cli-ref/v0/change-freeze/index.md)
+
+ - [create](cli-ref/v0/change-freeze/create.md)
+
+ - [get](cli-ref/v0/change-freeze/get.md)
+
+ - [get-limits](cli-ref/v0/change-freeze/get-limits.md)
+
+ - [list](cli-ref/v0/change-freeze/list.md)
+
+ - [terminate](cli-ref/v0/change-freeze/terminate.md)
 
 ##### cluster
 
@@ -274,6 +304,16 @@
 
  - [UpdateAccessBindings](api-ref/grpc/Cluster/updateAccessBindings.md)
 
+##### Maintenance
+
+ - [Overview](api-ref/grpc/Maintenance/index.md)
+
+ - [List](api-ref/grpc/Maintenance/list.md)
+
+ - [Get](api-ref/grpc/Maintenance/get.md)
+
+ - [Reschedule](api-ref/grpc/Maintenance/reschedule.md)
+
 ##### Operation
 
  - [Overview](api-ref/grpc/Operation/index.md)
@@ -316,6 +356,16 @@
 
  - [UpdateAccessBindings](api-ref/Cluster/updateAccessBindings.md)
 
+##### Maintenance
+
+ - [Overview](api-ref/Maintenance/index.md)
+
+ - [List](api-ref/Maintenance/list.md)
+
+ - [Get](api-ref/Maintenance/get.md)
+
+ - [Reschedule](api-ref/Maintenance/reschedule.md)
+
 ##### Operation
 
  - [Overview](api-ref/Operation/index.md)
@@ -323,6 +373,8 @@
  - [Get](api-ref/Operation/get.md)
 
  - [Cancel](api-ref/Operation/cancel.md)
+
+ - [Метрики Yandex Monitoring](metastore-metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

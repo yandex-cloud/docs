@@ -16,6 +16,7 @@ Yandex Cloud предоставляет ![](../../_assets/overview/solution-libr
 
 Если ресурсы больше вам не нужны, [удалите их](#delete-resources).
 
+
 ## Подготовьте облако к работе {#before-you-begin}
 
 Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
@@ -28,10 +29,10 @@ Yandex Cloud предоставляет ![](../../_assets/overview/solution-libr
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры, разворачиваемой через Terraform в этом руководстве, входят:
-* Плата за [высокодоступный мастер Managed Service for Kubernetes](../concepts/index.md#master) ([тарифы Managed Service for Kubernetes](../pricing.md)).
-* Плата за постоянно запущенные [виртуальные машины](../../compute/concepts/vm.md) в [группе узлов Managed Service for Kubernetes](../concepts/index.md#node-group) ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за использование динамических [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../pricing.md)).
+* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+
 
 ## Установите Terraform {#install-terraform}
 

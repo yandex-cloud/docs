@@ -1,5 +1,6 @@
 # Syncing MySQL data using {{ data-transfer-full-name }}
 
+
 In this scenario, you'll learn how to ensure periodic delivery of changes from an external database to the cloud using {{ data-transfer-name }}. To synchronize data in your cloud, you need to create intermediate staging data storage, {{ mmy-name }}, to replicate tables to. The data is synchronized almost in real time. 
 
 To set up the transfer of changes:
@@ -93,11 +94,11 @@ To replicate tables with information about online store orders, create a {{ mmy-
 1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic.
 1. Under **Hosts**, select the parameters for the DB hosts created with the cluster:
 
-   * Availability zone: `{{ region-id }}-d`.
+   * [Availability zone](../../overview/concepts/geo-scope.md): `{{ region-id }}-d`.
    * Subnet: `default-{{ region-id }}-d`.
 
 1. Click **Create cluster**.
-For more information about creating clusters, see [Getting started with {{ mmy-short-name }}](../../managed-mysql/quickstart.md#cluster-create.md).
+For more information about creating clusters, see [Getting started with {{ mmy-short-name }}](../../managed-mysql/quickstart.md#cluster-create).
 
 ## Configure the transfer parameters {#create-transfer}
 

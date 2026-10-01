@@ -5,7 +5,7 @@ description: Follow this guide to assign roles for an asymmetric digital signatu
 
 # Configuring access permissions for a digital signature key pair
 
-You can grant access to an asymmetric [digital signature key pair](../concepts/asymmetric-signature-key.md) to a user, service account, or user group. To do this, assign [roles](../../iam/concepts/access-control/roles.md)for the digital signature key pair. To choose the ones you need, [learn](../security/index.md#roles-list) about the service's roles.
+You can grant access to an asymmetric [digital signature key pair](../concepts/asymmetric-signature-key.md) to a user, service account, or user group. To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the digital signature key pair. To choose the ones you need, [learn](../security/index.md#roles-list) about the existing roles.
 
 ## Assigning a role {#add-access-binding}
 
@@ -13,14 +13,14 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select a folder containing an asymmetric encryption key pair.
+   1. In the [management console]({{ link-console-main }}), select the folder containing the asymmetric encryption key pair.
    1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
    1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
-   1. On the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab, click the name of the key pair.
-   1. Navigate to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+   1. On the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab, click the key pair name.
+   1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** section and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
    1. Select the group, user, or service account you need to grant access to the key pair.
-   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
-   1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles.
+   1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 - CLI {#cli}
 
@@ -42,44 +42,27 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
       yc kms asymmetric-signature-key list
       ```
 
-   1. Get the [ID of the user](../../organization/operations/users-get.md), [service account](../../iam/operations/sa/get-id.md), or user group you are assigning a role to.
-   1. Use one of these commands to assign a role:
+   1. Get the [ID of the user](../../organization/operations/users-get.md), [service account](../../iam/operations/sa/get-id.md), user group, organization, or identity federation to which (or to the users of which) you are assigning a role.
+   1. To assign a role, run this command:
 
-      * To a user:
+      ```bash
+      yc kms asymmetric-signature-key add-access-binding \
+        --id <key_pair_ID> \
+        --role <role> \
+        --subject <subject_type>:<subject_ID>
+      ```
 
-         ```bash
-         yc kms asymmetric-signature-key add-access-binding \
-           --id <key_pair_ID> \
-           --role <role> \
-           --user-account-id <user_ID>
-         ```
+      Where:
 
-      * To a federated user:
+      * `--id`: ID of the digital signature key pair.
+      * `--role`: [Role](../security/index.md#roles-list).
+      * `--subject`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
 
-         ```bash
-         yc kms asymmetric-signature-key add-access-binding \
-           --id <key_pair_ID> \
-           --role <role> \
-           --subject federatedUser:<user_ID>
-         ```
+          {% cut "Subject designations" %}
 
-      * To a service account:
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
 
-         ```bash
-         yc kms asymmetric-signature-key add-access-binding \
-           --id <key_pair_ID> \
-           --role <role> \
-           --service-account-id <service_account_ID>
-         ```
-
-      * To a user group:
-
-         ```bash
-         yc kms asymmetric-signature-key add-access-binding \
-           --id <key_pair_ID> \
-           --role <role> \
-           --subject group:<group_ID>
-         ```
+          {% endcut %}
 
 - {{ TF }} {#tf}
 
@@ -87,7 +70,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   To assign a role for an asymmetric digital signature key pair through {{ TF }}:
+   To assign a role for an asymmetric digital signature key pair using {{ TF }}:
 
    1. In the {{ TF }} configuration file, describe the resources you want to create:
 
@@ -102,9 +85,15 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 
        Where:
 
-       * `asymmetric_signaturen_key_id `: ID of the digital signature key pair.
-       * `role`: [Role](../security/index.md#roles-list) to assign.
-       * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+       * `asymmetric_signature_key_id`: ID of the digital signature key pair.
+       * `role`: [Role](../security/index.md#roles-list).
+       * `member`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
+
+           {% cut "Subject designations" %}
+
+           {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+           {% endcut %}
 
        For more on the properties of the `yandex_kms_asymmetric_signature_key` resource, see [this provider guide]({{ tf-provider-resources-link }}/kms_asymmetric_signature_key).
 
@@ -124,8 +113,14 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 
    * `ADD` value in the `access_binding_deltas[].action` parameter to add a role.
    * Role in the `access_binding_deltas[].access_binding.role_id` parameter.
-   * ID of the subject getting the role in the `access_binding_deltas[].access_binding.subject.id` parameter.
+   * ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role in the `access_binding_deltas[].access_binding.subject.id` parameter.
    * Type of the subject getting the role in the `access_binding_deltas[].access_binding.subject.type` parameter.
+
+       {% cut "Subject designations" %}
+
+       {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+       {% endcut %}
 
 {% endlist %}
 
@@ -135,14 +130,14 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select a folder containing an asymmetric encryption key pair.
+   1. In the [management console]({{ link-console-main }}), select the folder containing the asymmetric encryption key pair.
    1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
    1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
-   1. On the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab, click the name of the key pair.
-   1. Navigate to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+   1. On the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab, click the key pair name.
+   1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** section and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
    1. Select the group, user, or service account you need to grant access to the key pair.
-   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
-   1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles.
+   1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 - CLI {#cli}
 
@@ -173,49 +168,34 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
       yc kms asymmetric-signature-key list
       ```
 
-   1. Get the [ID of the user](../../organization/operations/users-get.md), [service account](../../iam/operations/sa/get-id.md), or user group you are assigning roles to.
-   1. Use one of the commands below to assign roles:
+   1. Get the [ID of the user](../../organization/operations/users-get.md), [service account](../../iam/operations/sa/get-id.md), user group, organization, or identity federation to which (or to the users of which) you are assigning roles.
+   1. To assign roles, run this command:
 
-      * To a Yandex account user or local user:
+      ```bash
+      yc kms asymmetric-signature-key set-access-bindings \
+        --id <key_pair_ID> \
+        --access-binding role=<role>,subject=<subject_type>:<subject_ID>
+      ```
 
-         ```bash
-         yc kms asymmetric-signature-key set-access-bindings \
-           --id <key_pair_ID> \
-           --access-binding role=<role>,user-account-id=<user_ID>
-         ```
+      Where:
 
-      * To a federated user:
+      * `--id`: ID of the digital signature key pair.
+      * Where `--access-binding` is the [role](../security/index.md#roles-list) and the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
-         ```bash
-         yc kms asymmetric-signature-key set-access-bindings \
-           --id <key_pair_ID> \
-           --access-binding role=<role>,subject=federatedUser:<user_ID>
-         ```
+          {% cut "Subject designations" %}
 
-      * To a service account:
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
 
-         ```bash
-         yc kms asymmetric-signature-key set-access-bindings \
-           --id <key_pair_ID> \
-           --access-binding role=<role>,service-account-id=<service_account_ID>
-         ```
-
-      * To a user group:
-
-         ```bash
-         yc kms asymmetric-signature-key set-access-bindings \
-           --id <key_pair_ID> \
-           --access-binding role=<role>,subject=group:<group_ID>
-         ```
+          {% endcut %}
 
       Provide a separate `--access-binding` parameter for each role. Here is an example:
 
       ```bash
       yc kms asymmetric-signature-key set-access-bindings \
         --id <key_pair_ID> \
-        --access-binding role=<role1>,service-account-id=<service_account_ID> \
-        --access-binding role=<role2>,service-account-id=<service_account_ID> \
-        --access-binding role=<role3>,service-account-id=<service_account_ID>
+        --access-binding role=<role1>,subject=<subject_type>:<subject_ID> \
+        --access-binding role=<role2>,subject=<subject_type>:<subject_ID> \
+        --access-binding role=<role3>,subject=<subject_type>:<subject_ID>
       ```
 
 - {{ TF }} {#tf}
@@ -224,7 +204,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   To assign multiple roles for an asymmetric digital signature key pair through {{ TF }}:
+   To assign multiple roles for an asymmetric digital signature key pair using {{ TF }}:
 
    1. In the {{ TF }} configuration file, describe the resources you want to create:
 
@@ -249,8 +229,14 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
        Where:
 
        * `asymmetric_signature_key_id`: ID of the digital signature key pair.
-       * `role`: [Role](../security/index.md#roles-list) to assign.
-       * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+       * `role`: [Role](../security/index.md#roles-list).
+       * `member`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
+
+           {% cut "Subject designations" %}
+
+           {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+           {% endcut %}
 
        For more on the properties of the `yandex_kms_asymmetric_signature_key` resource, see [this provider guide]({{ tf-provider-resources-link }}/kms_asymmetric_signature_key).
 
@@ -271,7 +257,13 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
    Use the [SetAccessBindings](../asymmetricsignature/api-ref/AsymmetricSignatureKey/setAccessBindings.md) method for the [AsymmetricSignatureKey](../asymmetricsignature/api-ref/AsymmetricSignatureKey/index.md) resource or the [AsymmetricSignatureKeyService/SetAccessBindings](../asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/setAccessBindings.md) gRPC API call. In your request, provide an array of objects, each one matching a particular role and containing the following data:
 
    * Role in the `access_bindings[].role_id` parameter.
-   * ID of the subject getting the roles in the `access_bindings[].subject.id` parameter.
+   * ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the roles in the `access_bindings[].subject.id` parameter.
    * Type of the subject getting the roles in the `access_bindings[].subject.type` parameter.
+
+       {% cut "Subject designations" %}
+
+       {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+       {% endcut %}
 
 {% endlist %}

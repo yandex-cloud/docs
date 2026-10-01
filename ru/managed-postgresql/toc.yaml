@@ -23,6 +23,8 @@ items:
             href: operations/hosts.md
           - name: Управление алиасами хостов
             href: operations/hosts-aliases.md
+          - name: Управление балансировщиком нагрузки DB Proxy
+            href: operations/load-balancer.md
           - name: Миграция хостов в другую зону доступности
             href: operations/host-migration.md
           - name: Управление слотами репликации
@@ -287,6 +289,20 @@ items:
             href: cli-ref/backup-retention-policy/delete.md
           - name: list
             href: cli-ref/backup-retention-policy/list.md
+      - name: change-freeze
+        items:
+          - name: Overview
+            href: cli-ref/change-freeze/index.md
+          - name: create
+            href: cli-ref/change-freeze/create.md
+          - name: get
+            href: cli-ref/change-freeze/get.md
+          - name: get-limits
+            href: cli-ref/change-freeze/get-limits.md
+          - name: list
+            href: cli-ref/change-freeze/list.md
+          - name: terminate
+            href: cli-ref/change-freeze/terminate.md
       - name: cluster
         items:
           - name: Overview
@@ -367,6 +383,16 @@ items:
             href: cli-ref/hosts/update.md
           - name: update-config
             href: cli-ref/hosts/update-config.md
+      - name: maintenance
+        items:
+          - name: Overview
+            href: cli-ref/maintenance/index.md
+          - name: get
+            href: cli-ref/maintenance/get.md
+          - name: list
+            href: cli-ref/maintenance/list.md
+          - name: reschedule
+            href: cli-ref/maintenance/reschedule.md
       - name: performance-diagnostics
         items:
           - name: Overview
@@ -435,6 +461,20 @@ items:
                 href: cli-ref/v0/backup-retention-policy/delete.md
               - name: list
                 href: cli-ref/v0/backup-retention-policy/list.md
+          - name: change-freeze
+            items:
+              - name: Overview
+                href: cli-ref/v0/change-freeze/index.md
+              - name: create
+                href: cli-ref/v0/change-freeze/create.md
+              - name: get
+                href: cli-ref/v0/change-freeze/get.md
+              - name: get-limits
+                href: cli-ref/v0/change-freeze/get-limits.md
+              - name: list
+                href: cli-ref/v0/change-freeze/list.md
+              - name: terminate
+                href: cli-ref/v0/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -515,6 +555,16 @@ items:
                 href: cli-ref/v0/hosts/update.md
               - name: update-config
                 href: cli-ref/v0/hosts/update-config.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/v0/maintenance/index.md
+              - name: get
+                href: cli-ref/v0/maintenance/get.md
+              - name: list
+                href: cli-ref/v0/maintenance/list.md
+              - name: reschedule
+                href: cli-ref/v0/maintenance/reschedule.md
           - name: performance-diagnostics
             items:
               - name: Overview
@@ -591,6 +641,20 @@ items:
                 href: api-ref/grpc/Backup/list.md
               - name: Delete
                 href: api-ref/grpc/Backup/delete.md
+          - name: ChangeFreeze
+            items:
+              - name: Overview
+                href: api-ref/grpc/ChangeFreeze/index.md
+              - name: Create
+                href: api-ref/grpc/ChangeFreeze/create.md
+              - name: Get
+                href: api-ref/grpc/ChangeFreeze/get.md
+              - name: List
+                href: api-ref/grpc/ChangeFreeze/list.md
+              - name: Terminate
+                href: api-ref/grpc/ChangeFreeze/terminate.md
+              - name: GetLimits
+                href: api-ref/grpc/ChangeFreeze/getLimits.md
           - name: Cluster
             items:
               - name: Overview
@@ -749,6 +813,20 @@ items:
                 href: api-ref/Backup/list.md
               - name: Delete
                 href: api-ref/Backup/delete.md
+          - name: ChangeFreeze
+            items:
+              - name: Overview
+                href: api-ref/ChangeFreeze/index.md
+              - name: Create
+                href: api-ref/ChangeFreeze/create.md
+              - name: Get
+                href: api-ref/ChangeFreeze/get.md
+              - name: List
+                href: api-ref/ChangeFreeze/list.md
+              - name: Terminate
+                href: api-ref/ChangeFreeze/terminate.md
+              - name: GetLimits
+                href: api-ref/ChangeFreeze/getLimits.md
           - name: Cluster
             items:
               - name: Overview

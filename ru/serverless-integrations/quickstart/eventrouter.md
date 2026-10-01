@@ -11,6 +11,8 @@ keywords:
 
 # Начало работы с {{ er-name }}
 
+{% include [sunset-note](../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% include [event-router-preview-note](../../_includes/serverless-integrations/event-router-preview-note.md) %}
 
 С помощью этой инструкции вы, используя [шину](../concepts/eventrouter/bus.md) {{ er-name }}, перенаправите сообщение из очереди [{{ message-queue-name }}](../../message-queue/) в [рабочий процесс]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) {{ sw-name }}.

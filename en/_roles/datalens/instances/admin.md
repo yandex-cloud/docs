@@ -1,4 +1,4 @@
-The `datalens.instances.admin` role allows you to access {{ datalens-name }} as a {{ datalens-name }} instance administrator. Administrators have full access to all [objects](../../../datalens/concepts/index.md#component-interrelation) and folders in {{ datalens-name }}, as well as to {{ datalens-name }} settings. The role also allows you to view information on organization [folders](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+The `datalens.instances.admin` role allows you to access {{ datalens-name }} as a {{ datalens-name }} instance administrator. Administrators have full access to all [objects](../../../datalens/concepts/index.md#component-interrelation) and folders in {{ datalens-name }}, as well as to {{ datalens-name }} settings. The role also allows you to view information on organization [folders]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#folder).
 
 This role includes the `datalens.instances.user` permissions.
 

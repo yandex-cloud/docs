@@ -6,20 +6,47 @@ editable: false
 
 # {{ mos-name }} pricing policy
 
-In this section, you can find the {{ mos-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 12
+      md: 6
+    indent:
+      top: '0'
+      bottom: '0'
+    children:
+      - type: basic-card
+        title: Price calculator
+        text: Calculate the cost of the service based on your needs
+        gravityIcon: Calculator
+        iconPosition: left
+        urlTitle: Price calculator
+        url: https://yandex.cloud/en/prices?state=6045f728368e#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Price list
+        text: Current prices of all our services
+        gravityIcon: CircleRuble
+        iconPosition: left
+        urlTitle: Price list
+        url: https://yandex.cloud/en/price-list?services=dn2hjd8fhbb14l7vkp2c
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
 
-{% note tip %}
 
-
-
-
-For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=6045f728368e#calculator) on our website or check out the pricing below.
-
-
-
-{% endnote %}
-
-{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+This section describes the {{ mos-name }} pricing [policy](#rules) and [current prices](#prices) for its resources.
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -27,7 +54,7 @@ For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=
 
 ## Cluster status {#running-stopped}
 
-Pricing applies differently depending on cluster status:
+Pricing applies differently depending on the cluster status:
 
 * For a `Running` cluster, you pay for both the computing resources and storage size.
 * For a `Stopped` cluster, you only pay for your storage size.
@@ -52,7 +79,7 @@ The host operation cost depends on what resources you allocate for it. You can f
 
 You can select a host class both for hosts with the `DATA` role and hosts with the `MANAGER` and `DASHBOARDS` roles.
 
-The host operation cost is charged per hour. The minimum billing unit is one minute, e.g., 1.5 minutes of host operation cost the same as two minutes. You will not be charged for the time when the {{ OS }} host is unavailable for basic operations.
+The host operation cost is charged per hour. The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as two minutes). You will not be charged for the time when the {{ OS }} host is unavailable for basic operations.
 
 ### Disk space usage {#rules-storage}
 
@@ -64,7 +91,7 @@ You pay for the following:
 
 For more information, see [Backups in {{ mos-name }}](concepts/backup.md).
 
-The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
+The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as 2 minutes).
 
 ### Cluster cost calculation example {#example}
 
@@ -132,6 +159,10 @@ A CVoS discount is only available for certain resource types. For unsupported re
   />
 </MDX>
 
+
+
+
+{% include [usd-hosts-and-storage.md](../_pricing/managed-opensearch/usd-hosts-and-storage.md) %}
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

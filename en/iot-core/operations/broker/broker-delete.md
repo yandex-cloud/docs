@@ -1,6 +1,6 @@
 ---
 title: How to delete a broker in {{ iot-full-name }}
-description: In this tutorial, you will learn how to delete a broker in {{ iot-full-name }}.
+description: In this guide, you will learn how to delete a broker in {{ iot-full-name }}.
 ---
 
 # Deleting a broker
@@ -9,16 +9,16 @@ description: In this tutorial, you will learn how to delete a broker in {{ iot-f
 
 {% include [note-pp](../../../_includes/iot-core/note-pp.md) %}
 
-To access a [broker](../../concepts/index.md#broker), use its unique ID or name. For info on how to get the unique broker ID or name, see [{#T}](broker-list.md).
+To access a [broker](../../concepts/index.md#broker), use its unique ID or name. For info on how to get a unique broker ID or name, see [{#T}](broker-list.md).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder to delete the broker from.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a broker.
     1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
-    1. To the right of the name of the broker to delete, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
+    1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-branches.svg) **{{ ui-key.yacloud.iot.label_brokers }}**.
+    1. Next to the name of the broker you want to delete, click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
     1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
@@ -33,13 +33,14 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
         yc iot broker delete my-broker
         ```
 
-    1. Make sure the broker was deleted:
+    1. Make sure the broker has been deleted:
 
         ```
         yc iot broker list
         ```
 
         Result:
+        
         ```
         +----+------+
         | ID | NAME |
@@ -53,9 +54,9 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
     {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-    To delete a broker created using {{ TF }}:
+    To delete a broker created with {{ TF }}:
 
-    1. Open the {{ TF }} configuration file and delete the fragment with the broker description.
+    1. Open the {{ TF }} configuration file and delete the section with the broker description.
 
         Here is an example of a broker description in the {{ TF }} configuration:
 
@@ -88,7 +89,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
         terraform plan
         ```
     
-        You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+        You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
     1. Apply the configuration changes:
 
         ```bash

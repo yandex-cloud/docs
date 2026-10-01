@@ -35,6 +35,10 @@ items:
                 href: operations/registry/create-access-policy.md
               - name: Delete access policy
                 href: operations/registry/remove-access-policy.md
+          - name: Lifecycle policy
+            href: operations/lifecycle-policy/create.md
+          - name: Scanning a registry
+            href: operations/registry/scanning.md
       - name: Managing artifacts
         items:
           - name: Docker image
@@ -107,8 +111,6 @@ items:
                 href: operations/debian/pull.md
           - name: Deleting an artifact from a registry
             href: operations/artifacts/delete.md
-      - name: Creating a lifecycle policy
-        href: operations/lifecycle-policy/create.md
   - name: Tutorials
     items:
       - name: Running a Docker image on a VM using {{ cloud-registry-name }}
@@ -199,8 +201,20 @@ items:
         items:
           - name: Overview
             href: cli-ref/migration/index.md
+          - name: get-cloud-migration-status-dashboard
+            href: cli-ref/migration/get-cloud-migration-status-dashboard.md
+          - name: get-folder-migration-status-dashboard
+            href: cli-ref/migration/get-folder-migration-status-dashboard.md
           - name: start-cloud
             href: cli-ref/migration/start-cloud.md
+          - name: start-folder
+            href: cli-ref/migration/start-folder.md
+          - name: toggle-cloud-redirects
+            href: cli-ref/migration/toggle-cloud-redirects.md
+          - name: toggle-folder-redirects
+            href: cli-ref/migration/toggle-folder-redirects.md
+          - name: toggle-registry-redirects
+            href: cli-ref/migration/toggle-registry-redirects.md
       - name: registry
         items:
           - name: Overview
@@ -449,8 +463,20 @@ items:
             items:
               - name: Overview
                 href: cli-ref/v1/migration/index.md
+              - name: get-cloud-migration-status-dashboard
+                href: cli-ref/v1/migration/get-cloud-migration-status-dashboard.md
+              - name: get-folder-migration-status-dashboard
+                href: cli-ref/v1/migration/get-folder-migration-status-dashboard.md
               - name: start-cloud
                 href: cli-ref/v1/migration/start-cloud.md
+              - name: start-folder
+                href: cli-ref/v1/migration/start-folder.md
+              - name: toggle-cloud-redirects
+                href: cli-ref/v1/migration/toggle-cloud-redirects.md
+              - name: toggle-folder-redirects
+                href: cli-ref/v1/migration/toggle-folder-redirects.md
+              - name: toggle-registry-redirects
+                href: cli-ref/v1/migration/toggle-registry-redirects.md
           - name: registry
             items:
               - name: Overview
@@ -583,12 +609,22 @@ items:
                 href: api-ref/grpc/LifecyclePolicy/changeState.md
               - name: DryRun
                 href: api-ref/grpc/LifecyclePolicy/dryRun.md
+              - name: GetDryRunResult
+                href: api-ref/grpc/LifecyclePolicy/getDryRunResult.md
+              - name: ListDryRunResults
+                href: api-ref/grpc/LifecyclePolicy/listDryRunResults.md
+              - name: ListDryRunArtifacts
+                href: api-ref/grpc/LifecyclePolicy/listDryRunArtifacts.md
           - name: Migration
             items:
               - name: Overview
                 href: api-ref/grpc/Migration/index.md
               - name: StartCloud
                 href: api-ref/grpc/Migration/startCloud.md
+              - name: StartFolder
+                href: api-ref/grpc/Migration/startFolder.md
+              - name: GetCloudMigrationStatusDashboard
+                href: api-ref/grpc/Migration/getCloudMigrationStatusDashboard.md
           - name: Operation
             items:
               - name: Overview
@@ -715,6 +751,12 @@ items:
                 href: api-ref/LifecyclePolicy/changeState.md
               - name: DryRun
                 href: api-ref/LifecyclePolicy/dryRun.md
+              - name: GetDryRunResult
+                href: api-ref/LifecyclePolicy/getDryRunResult.md
+              - name: ListDryRunResults
+                href: api-ref/LifecyclePolicy/listDryRunResults.md
+              - name: ListDryRunArtifacts
+                href: api-ref/LifecyclePolicy/listDryRunArtifacts.md
           - name: Operation
             items:
               - name: Overview
@@ -785,6 +827,8 @@ items:
                     href: domain/api-ref/Operation/get.md
                   - name: Cancel
                     href: domain/api-ref/Operation/cancel.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
 path: en/cloud-registry/toc.yaml

@@ -5,6 +5,7 @@ description: In this article, you will learn about cluster host replication in {
 
 # Replication in {{ mpg-name }}
 
+A cluster's high availability is ensured by {{ PG }}'s standard streaming replication and a native orchestrator. Standard {{ PG }} does not support seamless master failover, as the context of active transactions and connections cannot migrate between hosts. However, the orchestrator ensures data consistency and prevents your cluster from occasionally having two master hosts.
 {{ mpg-name }} clusters use _quorum-based synchronous replication_:
 
 1. Master host is selected from among cluster hosts, while all other hosts become replicas.

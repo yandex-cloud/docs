@@ -46,6 +46,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
       yc vpc gateway list
       ```
       Result:
+
       ```text
       +----------------------+----------+-------------+
       |          ID          |   NAME   | DESCRIPTION |
@@ -61,6 +62,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
       ```
 
       Result:
+
       ```text
       +----------------------+------------------------+--------+--------+
       |          ID          |          NAME          | LABELS | STATUS |
@@ -83,6 +85,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
      If the gateway is not in the current folder (default folder), specify the source folder using `--folder-name` or `--folder-id`.
 
      Result:
+
      ```text
      id: enckq19qqsr5********
      folder_id: b1chgf288nvg********
@@ -90,7 +93,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
      name: router-1
      shared_egress_gateway: {}
      ```
-     For more information about the `yc vpc address move` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/gateway/move.md).
+     For more information about the `yc vpc gateway move` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/gateway/move.md).
 
 - API {#api}
 

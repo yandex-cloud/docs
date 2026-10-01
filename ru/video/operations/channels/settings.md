@@ -1,9 +1,9 @@
 ---
 title: Как настроить канал в {{ video-full-name }}
-description: Следуя данной инструкции, вы сможете настроить канал {{ video-full-name }} и управлять рекламой.
+description: Следуя данной инструкции, вы сможете настроить канал {{ video-full-name }} и управлять монетизацией.
 ---
 
-# Настроить канал и рекламу
+# Настроить канал и монетизацию
 
 ## Настроить канал {#channel-settings}
 
@@ -15,13 +15,15 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите канал.
   1. На панели справа выберите **{{ ui-key.yacloud_video.channels.title_settings }}**.
   1. Включите опцию **{{ ui-key.yacloud_video.channels.label_show-source-file-before-transcoding }}**, чтобы плеер начинал воспроизведение сразу после загрузки видео, не дожидаясь завершения обработки. Видео и метаданные в этом случае берутся из исходного файла без транскодирования. Функция работает только в браузерах, которые поддерживают формат исходного файла.
-  1. В разделе **{{ ui-key.yacloud_video.channels.label_advertisement }}** укажите настройки для показа рекламы всех видео на канале.
-  1. В разделе **{{ ui-key.yacloud_video.channels.label_allowed-domains }}** добавьте адреса сайтов, на которых можно показывать видео с этого канала. На других сайтах видео не будут показываться.
+  1. В разделе **Монетизация** укажите настройки для показа рекламы всех видео на канале.
+  1. В разделе **Защита от встраивания** добавьте адреса сайтов, на которых можно показывать видео с этого канала. На других сайтах видео не будут показываться.
+     
      1. Включите **{{ ui-key.yacloud_video.channels.label_domains-status }}**.
      1. Нажмите кнопку ![plus-sign](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_video.channels.action_add-domain }}**.
      1. Введите адрес сайта или группы сайтов.
      1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_create }}**.
      1. При необходимости добавьте другие домены.
+  
   1. Чтобы показывать видео на всех сайтах, отключите **{{ ui-key.yacloud_video.channels.label_domains-status }}**. Добавленные домены сохранятся.
   1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.
 
@@ -31,11 +33,11 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## Настроить показ рекламы {#ad-settings}
+## Настроить монетизацию {#ad-settings}
 
 Вы можете монетизировать свой видеоконтент с помощью рекламной сети Яндекса.
 
-Чтобы настроить показ рекламы:
+Чтобы настроить монетизацию:
 
 1. Ознакомьтесь с [требованиями к размещению видеоблоков](https://yandex.ru/support2/partner/ru/yan-rules/video).
 1. [Зарегистрируйтесь](http://partner.yandex.ru/form/) в рекламной сети Яндекса (РСЯ).
@@ -48,7 +50,7 @@ description: Следуя данной инструкции, вы сможете
 1. [Добавьте](#add-page-id) `Page ID` в настройки канала {{ video-name }}.
 1. Дождитесь прохождения модерации, когда статус видеоресурса в РСЯ изменится на **Работает. Нет статистики**.
 1. [Настройте](https://yandex.ru/support2/partner/ru/video/create-instream) показ рекламных блоков для ваших видео.
-1. [Включите](../video/update.md) рекламу отдельно для каждого видео.
+1. [Включите](../video/update.md) монетизацию отдельно для каждого видео.
 1. [Посмотрите статистику](https://yandex.ru/support2/partner/ru/statistics/working-with-reports) по рекламе и ознакомьтесь с [технологиями повышения эффективности](https://yandex.ru/support2/partner/ru/efficiency/site-quality) рекламы.
 
 ### Добавление Page ID {#add-page-id}
@@ -58,17 +60,19 @@ description: Следуя данной инструкции, вы сможете
 - Интерфейс {{ video-name }} {#console}
 
   1. Откройте **{{ ui-key.yacloud_video.channels.title_settings }}**.
-  1. В разделе **{{ ui-key.yacloud_video.channels.label_advertisement }}** укажите:
+  1. В разделе **Монетизация** укажите:
+     
      * **{{ ui-key.yacloud_video.channels.label_provider-type }}** — `Yandex Direct`.
      * **{{ ui-key.yacloud_video.channels.label_page-id }}**, полученный после создания видеоресурса.
      * **{{ ui-key.yacloud_video.channels.label_category }}** (тематика) видео на вашем канале.
+  
   1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.
 
 - API {#api}
 
   Воспользуйтесь методами REST API [create](../../api-ref/Channel/create.md) или [update](../../api-ref/Channel/update.md) для ресурса [Channel](../../api-ref/Channel/index.md), вызовом gRPC API [ChannelService/Create](../../api-ref/grpc/Channel/create.md) или [ChannelService/Update](../../api-ref/grpc/Channel/update.md).
   
-  Настройки рекламы задаются с помощью параметра `settings` > `advertisement`.
+  Настройки монетизации задаются с помощью параметра `settings` > `advertisement`.
 
 {% endlist %}
 

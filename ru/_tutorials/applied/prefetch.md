@@ -224,7 +224,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет с файлами.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
+  1. На панели сверху нажмите кнопку ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
   1. В появившемся окне выберите файл с патчем `ycgame-update-v1.1.exe` и нажмите кнопку **{{ ui-key.yacloud.common.open }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.button_upload }}**.
 
@@ -297,12 +297,15 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/cdn) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** и нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
   1. Задайте основные настройки CDN-ресурса:
       * В блоке **{{ ui-key.yacloud.cdn.label_section-content }}**:
         * Включите **{{ ui-key.yacloud.cdn.label_access }}**.
         * В поле **{{ ui-key.yacloud.cdn.label_content-query-type }}** выберите `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
         * В поле **{{ ui-key.yacloud.cdn.label_source-type }}** выберите `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`.
+
+          {% include [bucket-website-hosting-tip](../../_includes/cdn/bucket-website-hosting-tip.md) %}
+
         * В поле **{{ ui-key.yacloud.cdn.label_bucket }}** выберите `<имя_бакета_с_файлами>`.
         * В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите `{{ ui-key.yacloud.common.label_https }}`.
         * В поле **{{ ui-key.yacloud.cdn.label_personal-domain }}** укажите основное доменное имя, которое вы будете использовать для публикации патчей, например `cdn.ycprojectblue.example`.
@@ -355,6 +358,9 @@
      ```
 
      Подробнее о команде `yc cdn resource create` смотрите в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/resource/create.md).
+
+     {% include [bucket-website-hosting-tip](../../_includes/cdn/bucket-website-hosting-tip.md) %}
+
   1. Включите переадресацию клиентов для ресурса:
 
      ```bash
@@ -391,6 +397,9 @@
      ```
 
      Подробнее в описаниях ресурсов [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group) и [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource) в документации провайдера {{ TF }}.
+
+     {% include [bucket-website-hosting-tip](../../_includes/cdn/bucket-website-hosting-tip.md) %}
+
   1. Проверьте корректность конфигурационных файлов.
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:
@@ -613,8 +622,7 @@
      1. В [консоли управления]({{ link-console-main }}) выберите каталог.
      1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Выберите бакет с логами.
-     1. Нажмите на имя объекта, соответствующего времени скачивания файла `ycgame-update-v1.1.exe`.
-     1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) →  **{{ ui-key.yacloud.storage.bucket.button_download }}**.
+     1. В строке с объектом, соответствующим времени скачивания файла `ycgame-update-v1.1.exe`, нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![arrow-down-to-line](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.storage.bucket.button_download }}**.
 
    - AWS CLI {#cli}
 

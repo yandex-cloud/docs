@@ -120,6 +120,8 @@ editable: false
               "backgroundMessageBrokerSchedulePoolSize": "string",
               "backgroundCommonPoolSize": "string",
               "dictionariesLazyLoad": "boolean",
+              "shutdownWaitUnfinishedQueries": "boolean",
+              "shutdownWaitUnfinished": "string",
               "logLevel": "string",
               "queryLogRetentionSize": "string",
               "queryLogRetentionTime": "string",
@@ -446,6 +448,8 @@ editable: false
                 "port": "string"
               },
               "mysqlProtocol": "boolean",
+              "grpcProtocol": "boolean",
+              "arrowflightProtocol": "boolean",
               "customMacros": [
                 {
                   "name": "string",
@@ -470,6 +474,8 @@ editable: false
               "backgroundMessageBrokerSchedulePoolSize": "string",
               "backgroundCommonPoolSize": "string",
               "dictionariesLazyLoad": "boolean",
+              "shutdownWaitUnfinishedQueries": "boolean",
+              "shutdownWaitUnfinished": "string",
               "logLevel": "string",
               "queryLogRetentionSize": "string",
               "queryLogRetentionTime": "string",
@@ -796,6 +802,8 @@ editable: false
                 "port": "string"
               },
               "mysqlProtocol": "boolean",
+              "grpcProtocol": "boolean",
+              "arrowflightProtocol": "boolean",
               "customMacros": [
                 {
                   "name": "string",
@@ -820,6 +828,8 @@ editable: false
               "backgroundMessageBrokerSchedulePoolSize": "string",
               "backgroundCommonPoolSize": "string",
               "dictionariesLazyLoad": "boolean",
+              "shutdownWaitUnfinishedQueries": "boolean",
+              "shutdownWaitUnfinished": "string",
               "logLevel": "string",
               "queryLogRetentionSize": "string",
               "queryLogRetentionTime": "string",
@@ -1146,6 +1156,8 @@ editable: false
                 "port": "string"
               },
               "mysqlProtocol": "boolean",
+              "grpcProtocol": "boolean",
+              "arrowflightProtocol": "boolean",
               "customMacros": [
                 {
                   "name": "string",
@@ -1164,6 +1176,9 @@ editable: false
             "readonly": "string",
             "allowDdl": "boolean",
             "allowIntrospectionFunctions": "boolean",
+            "allowReorderPrewhereConditions": "boolean",
+            "asyncSocketForRemote": "boolean",
+            "asyncQuerySendingForRemote": "boolean",
             "connectTimeout": "string",
             "connectTimeoutWithFailover": "string",
             "connectTimeoutWithFailoverSecure": "string",
@@ -1222,6 +1237,8 @@ editable: false
             "maxNetworkBandwidth": "string",
             "maxNetworkBandwidthForUser": "string",
             "maxNetworkBytes": "string",
+            "maxRemoteReadNetworkBandwidth": "string",
+            "maxRemoteWriteNetworkBandwidth": "string",
             "maxTemporaryDataOnDiskSizeForQuery": "string",
             "maxTemporaryDataOnDiskSizeForUser": "string",
             "maxConcurrentQueriesForUser": "string",
@@ -1262,6 +1279,9 @@ editable: false
             "maxParserDepth": "string",
             "minExecutionSpeed": "string",
             "minExecutionSpeedBytes": "string",
+            "useStatistics": "boolean",
+            "useStatisticsForPartPruning": "boolean",
+            "refreshStatisticsInterval": "string",
             "inputFormatValuesInterpretExpressions": "boolean",
             "inputFormatDefaultsForOmittedFields": "boolean",
             "inputFormatNullAsDefault": "boolean",
@@ -1329,6 +1349,7 @@ editable: false
             "maxFinalThreads": "string",
             "maxReadBufferSize": "string",
             "insertKeeperMaxRetries": "string",
+            "databaseAtomicWaitForDropAndDetachSynchronously": "boolean",
             "doNotMergeAcrossPartitionsSelectFinal": "boolean",
             "ignoreMaterializedViewsWithDroppedTargetTable": "boolean",
             "enableAnalyzer": "boolean",
@@ -1395,7 +1416,12 @@ editable: false
           "enabled": "boolean",
           "processesRefreshInterval": "string"
         },
-        "fullVersion": "string"
+        "fullVersion": "string",
+        "connectionManager": {
+          "enabled": "boolean",
+          "connectionsFolderId": "string",
+          "secretsFolderId": "string"
+        }
       },
       "networkId": "string",
       "health": "string",
@@ -1418,7 +1444,8 @@ editable: false
         "string"
       ],
       "deletionProtection": "boolean",
-      "diskEncryptionKeyId": "string"
+      "diskEncryptionKeyId": "string",
+      "isHa": "boolean"
     }
   },
   "requestParameters": "object",
@@ -1641,6 +1668,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || securityGroupIds[] | **string** ||
 || deletionProtection | **boolean** ||
 || diskEncryptionKeyId | **string** ||
+|| isHa | **boolean** ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.clickhouse.v1.Monitoring}
@@ -1668,6 +1696,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || backupRetainPeriodDays | **string** (int64) ||
 || performanceDiagnostics | **[PerformanceDiagnostics](#yandex.cloud.mdb.clickhouse.v1.PerformanceDiagnostics)** ||
 || fullVersion | **string** ||
+|| connectionManager | **[ClusterConnectionManager](#yandex.cloud.mdb.v1.ClusterConnectionManager)** ||
 |#
 
 ## Clickhouse {#yandex.cloud.mdb.clickhouse.v1.ClusterConfig.Clickhouse}
@@ -1703,6 +1732,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || backgroundMessageBrokerSchedulePoolSize | **string** (int64) ||
 || backgroundCommonPoolSize | **string** (int64) ||
 || dictionariesLazyLoad | **boolean** ||
+|| shutdownWaitUnfinishedQueries | **boolean** ||
+|| shutdownWaitUnfinished | **string** (int64) ||
 || logLevel | **enum** (LogLevel)
 
 - `TRACE`
@@ -1791,6 +1822,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || queryCache | **[QueryCache](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.QueryCache)** ||
 || jdbcBridge | **[JdbcBridge](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.JdbcBridge)** ||
 || mysqlProtocol | **boolean** ||
+|| grpcProtocol | **boolean** ||
+|| arrowflightProtocol | **boolean** ||
 || customMacros[] | **[Macro](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Macro)** ||
 || tls | **[Tls](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Tls)** ||
 || builtinDictionariesReloadInterval | **string** (int64) ||
@@ -2241,6 +2274,9 @@ The maximum string length in characters is 63. ||
 || readonly | **string** (int64) ||
 || allowDdl | **boolean** ||
 || allowIntrospectionFunctions | **boolean** ||
+|| allowReorderPrewhereConditions | **boolean** ||
+|| asyncSocketForRemote | **boolean** ||
+|| asyncQuerySendingForRemote | **boolean** ||
 || connectTimeout | **string** (int64) ||
 || connectTimeoutWithFailover | **string** (int64) ||
 || connectTimeoutWithFailoverSecure | **string** (int64) ||
@@ -2329,6 +2365,8 @@ The maximum string length in characters is 63. ||
 || maxNetworkBandwidth | **string** (int64) ||
 || maxNetworkBandwidthForUser | **string** (int64) ||
 || maxNetworkBytes | **string** (int64) ||
+|| maxRemoteReadNetworkBandwidth | **string** (int64) ||
+|| maxRemoteWriteNetworkBandwidth | **string** (int64) ||
 || maxTemporaryDataOnDiskSizeForQuery | **string** (int64) ||
 || maxTemporaryDataOnDiskSizeForUser | **string** (int64) ||
 || maxConcurrentQueriesForUser | **string** (int64) ||
@@ -2397,6 +2435,9 @@ The maximum string length in characters is 63. ||
 || maxParserDepth | **string** (int64) ||
 || minExecutionSpeed | **string** (int64) ||
 || minExecutionSpeedBytes | **string** (int64) ||
+|| useStatistics | **boolean** ||
+|| useStatisticsForPartPruning | **boolean** ||
+|| refreshStatisticsInterval | **string** (int64) ||
 || inputFormatValuesInterpretExpressions | **boolean** ||
 || inputFormatDefaultsForOmittedFields | **boolean** ||
 || inputFormatNullAsDefault | **boolean** ||
@@ -2503,6 +2544,7 @@ The maximum string length in characters is 63. ||
 || maxFinalThreads | **string** (int64) ||
 || maxReadBufferSize | **string** (int64) ||
 || insertKeeperMaxRetries | **string** (int64) ||
+|| databaseAtomicWaitForDropAndDetachSynchronously | **boolean** ||
 || doNotMergeAcrossPartitionsSelectFinal | **boolean** ||
 || ignoreMaterializedViewsWithDroppedTargetTable | **boolean** ||
 || enableAnalyzer | **boolean** ||
@@ -2589,6 +2631,15 @@ Acceptable values are 0 to 1, inclusive. ||
 ||Field | Description ||
 || enabled | **boolean** ||
 || processesRefreshInterval | **string** (duration) ||
+|#
+
+## ClusterConnectionManager {#yandex.cloud.mdb.v1.ClusterConnectionManager}
+
+#|
+||Field | Description ||
+|| enabled | **boolean** ||
+|| connectionsFolderId | **string** ||
+|| secretsFolderId | **string** ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.clickhouse.v1.MaintenanceWindow}

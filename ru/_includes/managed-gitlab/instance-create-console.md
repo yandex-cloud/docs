@@ -37,6 +37,10 @@
 1. В блоке **{{ ui-key.yacloud.gitlab.label_admin-section }}** укажите:
    * **{{ ui-key.yacloud.gitlab.field_admin-email }}** — адрес электронной почты администратора инстанса {{ GL }}. На этот адрес придет письмо со ссылкой для создания пароля.
    * **{{ ui-key.yacloud.gitlab.field_admin-login }}** — логин администратора.
+1. (Опционально) В блоке **{{ ui-key.yacloud.gitlab.components.InstanceForm.SourceCraftIntegrationSection.section_title }}** включите опцию **{{ ui-key.yacloud.gitlab.components.InstanceForm.SourceCraftIntegrationSection.field_enable }}**, чтобы настроить [интеграцию с {{ src-name }} Security](../../managed-gitlab/concepts/sourcecraft-security.md).
+
+   {% include [sourcecraft-security-instance-note](sourcecraft-security-instance-note.md) %}
+
 1. (Опционально) В блоке **{{ ui-key.yacloud.gitlab.label_additional-section }}** включите удаление образов без тегов. Настройка влияет на свободное место на диске инстанса.
 1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 1. Дождитесь, когда инстанс будет готов к работе: его статус на панели {{ mgl-name }} сменится на **Running**. Это может занять некоторое время.

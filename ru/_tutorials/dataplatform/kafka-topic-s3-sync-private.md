@@ -1,8 +1,17 @@
 # Синхронизация данных из топиков {{ KF }} в бакет {{ objstorage-full-name }} без использования интернета
 
 
-Вы можете синхронизировать данные из топиков {{ KF }} в бакет {{ objstorage-full-name }} без использования интернета с помощью сервисного подключения в пользовательской сети, где располагается кластер {{ mkf-name }}. Для этого:
 
+{% note info %}
+
+Функциональность сервисных подключений (VPC Private Endpoints) в {{ vpc-full-name }} находится на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь к вашему аккаунт-менеджеру.
+
+{% endnote %}
+
+
+Вы можете синхронизировать данные из топиков {{ KF }} в бакет {{ objstorage-full-name }} без использования интернета с помощью сервисного подключения в пользовательской сети, где располагается кластер {{ mkf-full-name }}. Для этого:
+
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
 1. [Отправьте данные в топик](#send-data).
 1. [Убедитесь в недоступности бакета из внешней сети](#check-bucket-access).
 1. [Проверьте наличие данных в бакете](#check-bucket-data).
@@ -10,16 +19,19 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Необходимые платные ресурсы {#paid-resources}
-
-В стоимость поддержки описываемого решения входят:
-
-* Плата за бакет {{ objstorage-name }}: хранение данных и выполнение операций с ними ([тарифы {{ objstorage-name }}](../../storage/pricing.md)).
-* Плата за кластер {{ mkf-name }}: использование выделенных хостам вычислительных ресурсов и дискового пространства ([тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
-* Плата за использование публичных IP-адресов для хостов кластера ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
-
-
 ## Перед началом работы {#before-you-begin}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+### Необходимые платные ресурсы {#paid-resources}
+
+* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Кластер {{ mkf-name }}: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы {{ compute-name }}](../../compute/pricing.md)).
+
+
+## Подготовьте инфраструктуру {#prepare-infrastructure}
 
 
 1. Подготовьте инфраструктуру:
@@ -64,7 +76,7 @@
             * В поле **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-topics }}** укажите `my-private-topic`.
             * В блоке **{{ ui-key.yacloud.kafka.field_connector-s3-connection }}** укажите параметры:
                * **{{ ui-key.yacloud.kafka.field_connector-bucket-name }}** — созданный ранее бакет.
-               * **{{ ui-key.yacloud.kafka.field_connector-endpoint }}** — `storage.pe.yandexcloud.net`.
+               * **{{ ui-key.yacloud.kafka.field_connector-endpoint }}** — `{{ s3-storage-host-pe }}`.
                * **{{ ui-key.yacloud.kafka.field_connector-access-key-id }}**, **{{ ui-key.yacloud.kafka.field_connector-secret-access-key }}** — идентификатор и секретный ключ созданного ранее статического ключа доступа.
 
         1. [Создайте ВМ](../../compute/operations/vm-create/create-linux-vm.md) с публичным IP-адресом в созданной сети `my-private-network` для подключения к бакету.
@@ -117,7 +129,7 @@
 
     {% endlist %}
 
-1. Убедитесь, что в сервисе {{ dns-full-name }} появилась запись `*.storage.pe.yandexcloud.net` в [сервисной зоне](../../dns/concepts/dns-zone.md#service-zones) `.` созданной сети.
+1. Убедитесь, что в сервисе {{ dns-full-name }} появилась запись `*.{{ s3-storage-host-pe }}` в [сервисной зоне](../../dns/concepts/dns-zone.md#service-zones) `.` созданной сети.
 1. Установите утилиту [kafkacat](https://github.com/edenhill/kcat) для записи данных в топик {{ KF }}.
 
     ```bash
@@ -167,14 +179,14 @@
 
    ```bash
    aws s3 ls s3://<имя_бакета> \
-       --endpoint-url=https://storage.pe.yandexcloud.net \
+       --endpoint-url=https://{{ s3-storage-host-pe }} \
        --recursive
    ```
 
    Результат:
 
    ```text
-   Could not connect to the endpoint URL: "https://storage.pe.yandexcloud.net/<имя_бакета>?list-type=2&prefix=&encoding-type=url"
+   Could not connect to the endpoint URL: "https://{{ s3-storage-host-pe }}/<имя_бакета>?list-type=2&prefix=&encoding-type=url"
    ```
 
 ## Проверьте наличие данных в бакете по сервисному подключению {#check-bucket-data}
@@ -186,7 +198,7 @@
 
     ```bash
     aws s3 ls s3://<имя_бакета> \
-        --endpoint-url=https://storage.pe.yandexcloud.net \
+        --endpoint-url=https://{{ s3-storage-host-pe }} \
         --recursive
     ```
 

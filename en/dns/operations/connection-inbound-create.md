@@ -13,9 +13,10 @@ To create an [inbound DNS connection](../concepts/dns-connection.md#dns-inbound)
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to create an inbound DNS connection.
-  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
-  1. In the left-hand panel, select ![nodes-down](../../_assets/console-icons/nodes-down.svg) **{{ ui-key.yacloud.dns.label_inbound-endpoints }}** and click **{{ ui-key.yacloud.dns.DnsInboundEndpointsListScreen.create_button }}**. In the window that opens:
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create an inbound DNS connection.
+  1. [Navigate]({{ link-console-main }}/link/dns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. In the left-hand panel, select ![nodes-down](../../_assets/console-icons/nodes-down.svg) **{{ ui-key.yacloud.dns.label_inbound-endpoints }}**.
+  1. Click **{{ ui-key.yacloud.dns.DnsInboundEndpointsListScreen.create_button }}**. In the window that opens:
 
       1. In the **{{ ui-key.yacloud.common.name }}** field, specify a [name](*name) for the new DNS connection.
       1. Optionally, provide any description in the **{{ ui-key.yacloud.common.description }}** field.
@@ -33,7 +34,7 @@ To create an [inbound DNS connection](../concepts/dns-connection.md#dns-inbound)
           1. In the **{{ ui-key.yacloud.vpc.addresses.popup-create_field_internal-v4-address }}** field, specify the IP address to reserve.
 
               This IP address must belong to the IP address range of the subnet you selected. You cannot specify IP addresses already used by {{ yandex-cloud }} resources.
-          1. Optionally, enable **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection }}** to protect the address from accidental deletion.
+          1. Optionally, enable **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection_jVSCP }}** to protect the address from accidental deletion.
           1. Click **{{ ui-key.yacloud.common.create }}** to reserve the address.
       1. Click **{{ ui-key.yacloud.common.create }}** to create an inbound DNS connection.
 
@@ -47,7 +48,7 @@ To create an [inbound DNS connection](../concepts/dns-connection.md#dns-inbound)
 
       ```bash
       yc dns inbound-endpoint create --help
-      ```   
+      ```
   1. Reserve an IP address for the inbound DNS connection in the required subnet:
 
       ```bash
@@ -122,7 +123,7 @@ To create an [inbound DNS connection](../concepts/dns-connection.md#dns-inbound)
       For more information about the `yc dns inbound-endpoint create` command, see the [CLI reference](../../cli/cli-ref/dns/cli-ref/inbound-endpoint/create.md).
 
   1. Optionally, after you create an inbound DNS connection, test FQDN resolution through that connection. To do it, run the `dig` command by specifying the IP address of the inbound DNS connection and the FQDN of the resource in {{ yandex-cloud }}.
-  
+
       Here is an example:
 
       ```bash
@@ -212,7 +213,7 @@ To create an [inbound DNS connection](../concepts/dns-connection.md#dns-inbound)
 
 - API {#api}
 
-  To reserve a static IP address, use the [create](../../vpc/api-ref/Address/create.md) REST API method for the [Address](../../vpc/api-ref/Address/index.md) resource or the [AddressService/Create](../../vpc/api-ref/grpc/Address/create.md) gRPC API call.
+  To reserve an internal IP address, use the [create](../../vpc/api-ref/Address/create.md) REST API method for the [Address](../../vpc/api-ref/Address/index.md) resource or the [AddressService/Create](../../vpc/api-ref/grpc/Address/create.md) gRPC API call.
 
   To create an inbound DNS connection, use the [create](../api-ref/DnsInboundEndpoint/create.md) REST API method for the [DnsInboundEndpoint](../api-ref/DnsInboundEndpoint/index.md) resource or the [DnsInboundEndpointService/Create](../api-ref/grpc/DnsInboundEndpoint/create.md) gRPC API call.
 
@@ -223,4 +224,4 @@ To create an [inbound DNS connection](../concepts/dns-connection.md#dns-inbound)
 * [{#T}](../concepts/dns-connection.md)
 * [{#T}](../tutorials/dns-integration.md)
 
-[*name]: {% include [name-format](../../_includes/_popups/name-format-general.md) %}
+[*name]: {% include [name-format](../../_popups/name-format-general.md) %}

@@ -18,7 +18,7 @@ To encrypt data:
 
    {% note warning %}
 
-   With `yandex_kms_secret_ciphertext`, you can hide secrets when deploying an infrastructure, but generally speaking it is unsafe to specify `plaintext` and `aad_context` in the configuration file in plain text. Secrets can be read from configuration files or execution logs and can end up in the {{ TF }} state.
+   With `yandex_kms_secret_ciphertext`, you can hide secrets when deploying an infrastructure, but generally speaking it is unsafe to specify `plaintext` and `aad_context` in the configuration file in plain text. Secrets can be read from configuration files, end up in the {{ TF }} state, or be exposed in execution logs.
 
    {% endnote %}
 
@@ -29,9 +29,9 @@ To encrypt data:
    ```
    terraform validate
    ```
-
+  
    If the configuration is valid, you will get this message:
-
+  
    ```
    Success! The configuration is valid.
    ```
@@ -42,14 +42,14 @@ To encrypt data:
    terraform plan
    ```
 
-   You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+   You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
 
 1. Apply the configuration changes:
 
    ```
    terraform apply
    ```
-
+  
 1. Type `yes` and press **Enter** to confirm the changes.
 
    After this, you can access the ciphertext through the `ciphertext` variable, and the encrypted data, through `plaintext`.
@@ -58,7 +58,7 @@ To encrypt data:
    For verification, you can add the following code with the `decrypted_pass` output variable to the configuration file.
 
    {% note alert %}
-
+   
    This is not safe and can only be used for testing.
 
    {% endnote %}
@@ -70,17 +70,15 @@ To encrypt data:
    }
    ```
 
-   After updating the configuration, you can check the encrypted data using the command:
+   After updating the configuration, you can check the encrypted data using this command:
 
    ```hcl
    terraform output decrypted_pass
    ```
 
    Result:
-
+   
    ```
    "strong password"
    ```
-
-   {% endnote %}
 

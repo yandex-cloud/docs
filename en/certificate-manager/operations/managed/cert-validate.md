@@ -1,6 +1,6 @@
 ---
-title: How to have domain ownership verified in {{ certificate-manager-full-name }}
-description: Follow this guide to have domain ownership verified.
+title: How to verify domain ownership in {{ certificate-manager-full-name }}
+description: Follow this guide to verify domain ownership.
 ---
 
 # Verifying domain ownership
@@ -13,9 +13,9 @@ To pass [domain ownership verification](../../concepts/challenges.md):
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you added the [certificate](../../concepts/managed-certificate.md) to.
   1. [Navigate]({{ link-console-main }}/link/certificate-manager) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
-  1. Select and click the certificate you need checked.
+  1. Select and click the certificate you want verified.
   1. Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, you will see the details required to pass the domain rights check.
-  1. As soon as you successfully pass the domain ownership verification procedure, its status under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** will change to `Valid`.
+  1. As soon as you successfully pass the domain ownership verification, its status under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** will change to `Valid`.
   1. After the verification status of all domains changes to `Valid`, a certificate will be issued and its status will change to `Issued`.
 
 - CLI {#cli}
@@ -64,7 +64,7 @@ To pass [domain ownership verification](../../concepts/challenges.md):
        message: Create a file in your web server's base directory.
        http_challenge:
          url: http://example.com/.well-known/acme-challenge/3LiH-nrTC7GdMbRgVqttEvdTODeNeaD0TtX********
-            content: 3LiH-nrTC7GdMbRgVqttEvdTODeNeaD0TtXteWgtAH8.ZHCju15sJiKBwT8G5FTl7UtfmJWp1gKNYYP********
+         content: 3LiH-nrTC7GdMbRgVqttEvdTODeNeaD0TtXteWgtAH8.ZHCju15sJiKBwT8G5FTl7UtfmJWp1gKNYYP********
      ```
 
   1. You can find the information you need to pass the rights check under `http_challenge`.
@@ -185,7 +185,7 @@ To pass [domain ownership verification](../../concepts/challenges.md):
 
 - API {#api}
 
-  To get the information required to pass domain ownership verification, use the [get](../../api-ref/Certificate/get.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Get](../../api-ref/grpc/Certificate/get.md) gRPC API call with the `view=FULL` flag.
+  To get the information required to pass domain ownership verification, use the [get](../../api-ref/Certificate/get.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Get](../../api-ref/grpc/Certificate/get.md) gRPC API call with `view=FULL`.
 
 {% endlist %}
 

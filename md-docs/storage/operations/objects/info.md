@@ -8,8 +8,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
   1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
-  1. Выберите нужный бакет из списка.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **Объекты**.
+  1. Выберите нужный бакет из списка и перейдите на вкладку **Объекты**.
   1. Нажмите на имя нужного объекта.
 
 - Yandex Cloud CLI {#cli}

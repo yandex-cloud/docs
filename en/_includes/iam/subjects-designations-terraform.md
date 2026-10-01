@@ -1,4 +1,4 @@
-To indicate a subject, use a combination of its type and unique ID, i.e., `<subject_type>:<ID>`. How you can designate a subject:
+To indicate a subject, use a combination of its type and unique ID, i.e., `<subject_type>:<ID>`. Here is how you can designate a subject:
 
 #|
 || **Subject type** | **Subject designation** ||

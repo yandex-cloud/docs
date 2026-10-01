@@ -4,23 +4,25 @@ In {{ mkf-name }} clusters, you can work with [{{ mkf-msr }}](../../../managed-k
 
 To explore the REST API features for {{ mkf-msr }} and {{ KF }}:
 
+1. [Set up your infrastructure](#deploy-infrastructure).
+1. [Install the tools](#install-utilities).
 1. [Create data format schemas](#create-schemas).
 1. [Send messages to a topic](#send-messages).
 1. [Read messages from the topic](#receive-messages).
 1. [Delete the resources you created](#clear-out).
 
 
-## Required paid resources {#paid-resources}
-
-The support cost for this solution includes:
-
-* {{ mkf-name }} cluster fee: use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../../managed-kafka/pricing.md)).
-* Fee for using public IP addresses (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-
-
 ## Getting started {#before-you-begin}
 
-### Set up your infrastructure {#deploy-infrastructure}
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+### Required paid resources {#paid-resources}
+
+* {{ mkf-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+
+
+## Set up your infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -38,9 +40,11 @@ The support cost for this solution includes:
 
             The REST API for {{ KF }} will become available in the cluster.
 
+        
         * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
             {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
 
     1. [Create a topic](../../../managed-kafka/operations/cluster-topics.md#create-topic) named `messages` for exchanging messages between the producer and the consumer.
 
@@ -55,7 +59,7 @@ The support cost for this solution includes:
 
 {% endlist %}
 
-### Install utilities {#install-utilities}
+## Install utilities {#install-utilities}
 
 1. Install [cURL](https://curl.se/):
 

@@ -15,7 +15,7 @@ You can add basic [rules](../concepts/rules.md), as well as Smart Protection and
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Select the profile where you want to add a rule.
-  1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}** and in the window that opens:
+  1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}** and do the following in the window that opens:
 
       {% include [add-rule](../../_includes/smartwebsecurity/add-rule.md) %}
 
@@ -27,30 +27,30 @@ You can add basic [rules](../concepts/rules.md), as well as Smart Protection and
 
   1. To view a list of current security profiles in the default folder, run this command:
 
-     {% include [security-profile-list-command](../../_includes/smartwebsecurity/security-profile-list-command.md) %}
+      {% include [security-profile-list-command](../../_includes/smartwebsecurity/security-profile-list-command.md) %}
 
   1. Update the security profile by applying the [YAML](https://en.wikipedia.org/wiki/YAML) configuration with both the current and new security rules required for the profile:
-  
-     1. To get the YAML configuration for the current security rules in the profile, run this command specifying the security profile name or ID:
 
-         {% include [security-profile-get-command](../../_includes/smartwebsecurity/security-profile-get-command.md) %}
+      1. To get the YAML configuration for the current security rules in the profile, run this command specifying the security profile name or ID:
 
-     1. Copy the current rule configuration (the `security_rules` section contents) to any text editor and save it to a file after adding new rules to it. Here is an example:
+          {% include [security-profile-get-command](../../_includes/smartwebsecurity/security-profile-get-command.md) %}
 
-         {% include [profile-create-yaml-example](../../_includes/smartwebsecurity/profile-create-yaml-example.md) %}
+      1. Copy the current rule configuration (the `security_rules` section contents) to any text editor and save it to a file after adding new rules to it. Here is an example:
 
-         {% include [change-profile-rules-alert](../../_includes/smartwebsecurity/change-profile-rules-alert.md) %}
+          {% include [profile-create-yaml-example](../../_includes/smartwebsecurity/profile-create-yaml-example.md) %}
 
-     1. To update a security profile, run this command specifying the profile name or ID:
-    
-         ```bash
-         yc smartwebsecurity security-profile update <security_profile_name_or_ID> \
-            --security-rules-file <path_to_file_with_security_rules>
-         ```
+          {% include [change-profile-rules-alert](../../_includes/smartwebsecurity/change-profile-rules-alert.md) %}
 
-         Where `--security-rules-file` is the path to the [YAML](https://en.wikipedia.org/wiki/YAML) file with the description of security rules.
+      1. To update a security profile, run this command specifying the profile name or ID:
 
-         {% include [profile-create-yaml-result](../../_includes/smartwebsecurity/profile-create-yaml-result.md) %}
+          ```bash
+          yc smartwebsecurity security-profile update <security_profile_name_or_ID> \
+              --security-rules-file <path_to_file_with_security_rules>
+          ```
+
+          Where `--security-rules-file` is the path to the [YAML](https://en.wikipedia.org/wiki/YAML) file with the description of security rules.
+
+          {% include [profile-create-yaml-result](../../_includes/smartwebsecurity/profile-create-yaml-result.md) %}
 
   For more information about the `yc smartwebsecurity security-profile update` command, see the [CLI reference](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/update.md).
 
@@ -112,7 +112,7 @@ You can add basic [rules](../concepts/rules.md), as well as Smart Protection and
 
   1. Create the resources:
 
-       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
   You can check the resource update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 

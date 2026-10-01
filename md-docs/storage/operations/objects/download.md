@@ -25,8 +25,8 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
   1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Выберите бакет, из которого вы хотите скачать объект.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **Объекты**, найдите в списке нужный объект.
-  1. Напротив объекта, который вы хотите скачать, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **Скачать** или откройте объект и на панели сверху нажмите ![image](../../../_assets/console-icons/arrow-down-to-line.svg) **Скачать**.
+  1. Перейдите на вкладку **Объекты** и найдите в списке нужный объект.
+  1. В строке с объектом, который вы хотите скачать, нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![arrow-down-to-line](../../../_assets/console-icons/arrow-down-to-line.svg) **Скачать** или откройте объект и на панели сверху нажмите кнопку ![arrow-down-to-line](../../../_assets/console-icons/arrow-down-to-line.svg) **Скачать**.
 
   {% note info %}
 

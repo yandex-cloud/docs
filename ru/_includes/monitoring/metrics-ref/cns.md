@@ -57,4 +57,13 @@
 Метки:
 * `channel_name` — имя канала.
 * `error` — расшифровка статуса `client_error` при отправке сообщения.||
+
+|| `sqs.notifications.count`
+`IGAUGE`, штуки | Количество сообщений, отправленных за 1 минуту в очередь {{ message-queue-full-name }}.<br/>Метка `topic_name` — имя топика.||
+
+|| `sqs.notifications.errors.count`
+`IGAUGE`, штуки | Количество ошибок отправки сообщений в очередь {{ message-queue-full-name }} за 1 минуту.
+Метки:
+* `topic_name` — имя топика.
+* `error` — расшифровка статуса `client_error` при отправке сообщения.||
 |#

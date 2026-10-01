@@ -5,6 +5,8 @@ description: Follow this tutorial to delete a rule.
 
 # Deleting a rule
 
+{% include [sunset-note](../../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% note info %}
 
 You cannot delete a rule if deletion protection is enabled. Before deleting the rule, [disable](update.md) the protection.

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Добавление данных в БД ClickHouse®
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > ClickHouse® > Добавление данных в БД ClickHouse®
 
 # Добавление данных в ClickHouse®
 
@@ -148,6 +148,11 @@ _Схема формата_ данных (format schema) описывает фо
 1. [Подготовьте схемы формата данных](#prepare-format-schemas).
 1. [Подготовьте скрипты](#prepare-scripts).
 1. [Вставьте данные](#insert-data).
+
+
+### Необходимые платные ресурсы {#paid-resources}
+
+В стоимость инфраструктуры для вставки данных в базу данных входит плата за кластер Managed Service for ClickHouse®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
 
 
 ### Перед началом работы {#before-you-begin}

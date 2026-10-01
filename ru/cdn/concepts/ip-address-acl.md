@@ -30,3 +30,5 @@
 
 * [{#T}](../operations/resources/create-resource.md)
 * [{#T}](../operations/resources/configure-basics.md)
+* [{#T}](./geo-acl.md)
+* [{#T}](../operations/resources/configure-geo-acl.md)

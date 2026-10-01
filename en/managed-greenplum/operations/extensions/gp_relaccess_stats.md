@@ -35,12 +35,14 @@ For more on the extension, see the [gp_relaccess_stats guide](https://github.com
 
     This will bring up the list of extensions installed in the database.
 
+1. Contact [support]({{ link-console-support }}) to apply the extension.
+
 ## Use cases {#examples}
 
 1. Create a statistics collection table:
 
     ```sql
-    SELECT relaccess_stats_init();
+    SELECT mdb_toolkit.relaccess_stats_init();
     ```
 
     The `relaccess_stats` table will get new empty entries for each table and partition of the selected database.
@@ -48,7 +50,7 @@ For more on the extension, see the [gp_relaccess_stats guide](https://github.com
 1. Update the statistics:
 
     ```sql
-    SELECT relaccess_stats_update();
+    SELECT mdb_toolkit.relaccess_stats_update();
     ```
 
     The `relaccess_stats` table will now be populated with statistics from the cache and the `pg_stat` folder.
@@ -56,7 +58,7 @@ For more on the extension, see the [gp_relaccess_stats guide](https://github.com
 1. Check the current usage of the statistics cache:
 
     ```sql
-    SELECT relaccess.relaccess_stats_fillfactor();
+    SELECT mdb_toolkit.relaccess_stats_fillfactor();
     ```
 
     This will show the statistics cache fill percentage.
@@ -64,7 +66,7 @@ For more on the extension, see the [gp_relaccess_stats guide](https://github.com
 1. Query the `relaccess_stats` table for statistical data:
 
     ```sql
-    SELECT * FROM relaccess_stats;
+    SELECT * FROM mdb_toolkit.relaccess_stats;
     ```
 
 {% include [cloudberry-trademark](../../../_includes/mdb/mgp/trademark-cloudberry.md) %}

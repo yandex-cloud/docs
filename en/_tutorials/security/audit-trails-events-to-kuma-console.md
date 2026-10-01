@@ -230,7 +230,7 @@ Assign to the service accounts the following [roles](../../iam/concepts/access-c
 
           Repeat this step and add the `storage.uploader` [role](../../storage/security/index.md#storage-uploader).
 
-      1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+      1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
       In the same way, assign the `storage.viewer` [role](../../storage/security/index.md#storage-viewer) for the folder to the `kuma-bucket-sa` service account.
 
@@ -241,7 +241,7 @@ Assign to the service accounts the following [roles](../../iam/concepts/access-c
       1. Go to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
       1. Select the `kuma-trail-sa` service account.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select [`kms.keys.encrypterDecrypter`](../../kms/security/index.md#kms-keys-encrypterDecrypter).
-      1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+      1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
       In the same way, assign the `kms.keys.encrypterDecrypter` role for the encryption key to the `kuma-bucket-sa` service account.
 
@@ -400,28 +400,27 @@ Create a [trail](../../audit-trails/concepts/trail.md) to collect and deliver au
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. [Navigate]({{ link-console-main }}/link/audit-trails) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
-  1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}** and do the following in the window that opens:
+  1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
+  1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, configure the destination object:
 
-      1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the trail: `kuma-trail`.
-      1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, configure the destination object:
+      1. **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
+      1. **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Bucket you created earlier, e.g., `my-audit-logs-for-kuma`.
+      1. **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
 
-          * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
-          * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Bucket you created earlier, e.g., `my-audit-logs-for-kuma`.
-          * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
-
-          {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
+      {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
 
       1. Make sure the **{{ ui-key.yacloud.audit-trails.title_kms-key }}** field contains the encryption key named `kuma-key`. If the encryption key is not set, click **{{ ui-key.yacloud.audit-trails.action_add-bucket-key }}** and select this key.
 
-      1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, configure the collection of management event audit logs:
+  1. Under **{{ ui-key.yacloud.audit-trails.label_control-plane-collection-new }}**:
 
-          * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: Select `{{ ui-key.yacloud.common.enabled }}`.
-          * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
-          * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}**: Automatically populated field containing the name of the current folder.
+      1. Enable log collection.
+      1. **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
+      1. **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}**: Automatically populated field containing the name of the current folder.
 
-      1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}** above, select the `kuma-trail-sa` service account.
-      1. Under **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**, keep the `{{ ui-key.yacloud.common.disabled }}` value.
-      1. Click **{{ ui-key.yacloud.common.create }}**.
+  1. Under **{{ ui-key.yacloud.audit-trails.label_data-plane-collection-new }}**, disable log collection.
+  1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}** above, select the `kuma-trail-sa` service account.
+  1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the trail: `kuma-trail`.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 

@@ -6,20 +6,47 @@ editable: false
 
 # Правила тарификации для {{ mos-name }}
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 12
+      md: 6
+    indent:
+      top: '0'
+      bottom: '0'
+    children:
+      - type: basic-card
+        title: Калькулятор цен
+        text: Рассчитайте стоимость использования сервиса, исходя из ваших потребностей
+        gravityIcon: Calculator
+        iconPosition: left
+        urlTitle: Калькулятор цен
+        url: https://yandex.cloud/ru/prices?state=85da325d39e8#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Прайс-лист
+        text: Актуальные тарифы на все наши услуги
+        gravityIcon: CircleRuble
+        iconPosition: left
+        urlTitle: Прайс-лист
+        url: https://yandex.cloud/ru/price-list?services=dn2hjd8fhbb14l7vkp2c
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
+
+
 В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ mos-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
-
-{% note tip %}
-
-
-Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=85da325d39e8#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
-
-
-
-
-
-{% endnote %}
-
-{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 
 {% include [vat](../_includes/vat.md) %}
@@ -148,6 +175,7 @@ editable: false
     currency="RUB"
   />
 </MDX>
+
 
 
 

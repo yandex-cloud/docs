@@ -21,8 +21,10 @@ Maximum size of frame being transmitted via a web socket | 32 KB
 Maximum time-to-live of a web socket connection | 60 minutes
 Maximum time-to-live of an idle web socket connection | 10 minutes
 Maximum number of triggers per [message queue](../../message-queue/concepts/queue.md) | 1
-Maximum message size per trigger^2^ | 230 KB
+Maximum number of targets per trigger ^2^ | 5
+Maximum message size per trigger^3^ | 230 KB
 Maximum number of [domains](../../api-gateway/concepts/index.md#domains) you can connect to a single API gateway | 20
 
 ^1^ Default value: 5 minutes.
-^2^ The message may include service metadata, which will reduce the maximum message size.
+^2^ The `Maximum number of targets per trigger` limit is the same for {{ api-gw-name }}, {{ sf-name }}, and {{ serverless-containers-name }}.
+^3^ A message may include service metadata, which reduces the maximum message size.

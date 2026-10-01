@@ -73,7 +73,7 @@ GET / HTTP/2
 
 * [Бакет в Object Storage](../../../concepts/bucket.md)
 
-* [Получение списка бакетов](../../../operations/buckets/get-list.md)
+* [Получить список бакетов](../../../operations/buckets/get-list.md)
 
 #### Полезные ссылки {#see-also}
 

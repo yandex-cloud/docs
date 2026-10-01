@@ -326,7 +326,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
   1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
-  1. Справа сверху нажмите кнопку **Создать сеть**.
+  1. На панели сверху нажмите кнопку **Создать сеть**.
   1. В поле **Имя** укажите `example-network`.
   1. В поле **Дополнительно** выберите опцию `Создать подсети`.
   1. Нажмите кнопку **Создать сеть**.
@@ -447,7 +447,7 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
   1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/shield.svg) **Группы безопасности**.
-  1. Справа сверху нажмите кнопку **Создать группу безопасности**.
+  1. На панели сверху нажмите кнопку **Создать группу безопасности**.
   1. В поле **Имя** укажите `example-sg`.
   1. В поле **Сеть** выберите `example-network`.
   1. В блоке **Правила** создайте следующие правила [по инструкции](../../../vpc/operations/security-group-create.md):
@@ -457,7 +457,6 @@
       | `Исходящий` | `any` | `Весь` | `Любой` | `Диапазон адресов` | `0.0.0.0/0` |
       | `Входящий` | `ext-http` | `80` | `TCP` | `Диапазон адресов` | `0.0.0.0/0` |
       | `Входящий` | `ext-https` | `443` | `TCP` | `Диапазон адресов` | `0.0.0.0/0` |
-      | `Входящий` | `healthchecks` | `30080` | `TCP` | `Проверки состояния балансировщика` | — |
 
   1. Нажмите кнопку **Создать**.
 
@@ -470,8 +469,7 @@
     --network-name example-network \
     --rule "direction=egress,port=any,protocol=any,v4-cidrs=[0.0.0.0/0]" \
     --rule "direction=ingress,port=80,protocol=tcp,v4-cidrs=[0.0.0.0/0]" \
-    --rule "direction=ingress,port=443,protocol=tcp,v4-cidrs=[0.0.0.0/0]" \
-    --rule "direction=ingress,port=30080,protocol=tcp,predefined=loadbalancer_healthchecks"
+    --rule "direction=ingress,port=443,protocol=tcp,v4-cidrs=[0.0.0.0/0]"
   ```
   
   Результат:
@@ -511,14 +509,6 @@
       cidr_blocks:
         v4_cidr_blocks:
           - 0.0.0.0/0
-    - id: enp6j82kiu2p********
-      direction: INGRESS
-      ports:
-        from_port: "30080"
-        to_port: "30080"
-      protocol_name: TCP
-      protocol_number: "6"
-      predefined_target: loadbalancer_healthchecks
   ```
 
   Сохраните полученный идентификатор группы безопасности — он понадобится позднее при создании L7-балансировщика.
@@ -528,8 +518,6 @@
 - API {#api}
 
   Воспользуйтесь методом REST API [create](../../../vpc/api-ref/SecurityGroup/create.md) для ресурса [SecurityGroup](../../../vpc/api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Create](../../../vpc/api-ref/grpc/SecurityGroup/create.md).
-
-  Чтобы добавить правило для проверок состояния балансировщика, используйте параметр `loadbalancer_healthchecks` в поле [predefinedTarget](../../../vpc/api-ref/SecurityGroup/create.md#yandex.cloud.vpc.v1.CreateSecurityGroupRequest) для REST API или в поле [SecurityGroupRuleSpec.target.predefined_target](../../../vpc/api-ref/grpc/SecurityGroup/create.md#yandex.cloud.vpc.v1.SecurityGroupRuleSpec) для gRPC API.
 
 {% endlist %}
 
@@ -541,7 +529,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
   1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
-  1. Справа сверху нажмите кнопку **Создать бакет**.
+  1. На панели сверху нажмите кнопку **Создать бакет**.
   1. В поле **Имя** укажите уникальное [имя](../../../storage/concepts/bucket.md#naming) бакета.
   1. В полях **Чтение объектов** и **Чтение списка объектов** выберите `Для всех`.
   1. Нажмите кнопку **Создать бакет**.
@@ -645,7 +633,7 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
   1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов**.
-  1. Справа сверху нажмите кнопку **Создать группу бэкендов**.
+  1. На панели сверху нажмите кнопку **Создать группу бэкендов**.
   1. В поле **Имя** укажите `example-bg`.
   1. В поле **Тип** выберите [тип группы бэкендов](../../concepts/backend-group.md#group-types) `HTTP`.
   1. В блоке **Бэкенды** нажмите кнопку **Добавить** и задайте настройки бэкенда:
@@ -676,7 +664,7 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
   1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/route.svg) **HTTP-роутеры**.
-  1. Справа сверху нажмите кнопку **Создать HTTP-роутер**.
+  1. На панели сверху нажмите кнопку **Создать HTTP-роутер**.
   1. В поле **Имя** укажите `example-router`.
   1. Создайте виртуальный хост `example-vh`:
   
@@ -776,7 +764,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
   1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
-  1. Справа сверху нажмите кнопку **Создать L7-балансировщик** и выберите **Вручную**.
+  1. На панели сверху нажмите кнопку **Создать L7-балансировщик** и выберите **Вручную**.
   1. В поле **Имя** укажите `example-balancer`.
   1. В блоке **Сетевые настройки**:
 

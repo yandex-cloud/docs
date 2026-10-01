@@ -15,7 +15,7 @@
 || УЗП.22–УЗП.27 | [cspm.access.check-privileged-roles](../../rules-reference/cspm.md#check-privileged-roles) ||
 || УЗП.22–УЗП.25; УЗП.28 | [cspm.access.kms-keys-access](../../rules-reference/cspm.md#kms-keys-access) ||
 || УЗП.10; УЗП.17–УЗП.21 | [cspm.access.min-privileges](../../rules-reference/cspm.md#min-privileges) ||
-|| РД.14–РД.15 | [cspm.cookie-timeout.organization](../../rules-reference/cspm.md#ccookie-timeout-organization) ||
+|| РД.14–РД.15 | [cspm.cookie-timeout.organization](../../rules-reference/cspm.md#organization) ||
 || УЗП.22–УЗП.25 | [cspm.access.user-groups-access](../../rules-reference/cspm.md#user-groups-access) ||
 || РД.31; УЗП.17–УЗП.20 | [cspm.access.user-groups-mapping](../../rules-reference/cspm.md#user-groups-mapping) ||
 || **7.2.2. Подпроцесс «Идентификация, аутентификация, авторизация (разграничение доступа) при осуществлении логического доступа»** {align="center"} | > ||
@@ -54,7 +54,7 @@
 || СМЭ.16–СМЭ.19; СМЭ.21 |
 [cspm.access.public-access](../../rules-reference/cspm.md#public-access)
 [cspm.network.network-firewall-scope](../../rules-reference/cspm.md#network-firewall-scope)
-[cspm.k8s.network-firewall-scope](../../rules-reference/cspm.md#network-firewall-scope)
+[cspm.k8s.network-firewall-scope](../../rules-reference/cspm.md#k8s-network-firewall-scope)
 [cspm.trusted-ip](../../rules-reference/cspm.md#trusted-ip)
 [cspm.trusted-ip-k8s](../../rules-reference/cspm.md#trusted-ip-k8s)
 ||
@@ -69,7 +69,7 @@
 || СМЭ.19 | [cspm.access.acl-container-registry](../../rules-reference/cspm.md#acl-container-registry) ||
 || СМЭ.16–СМЭ.19; ИУ.7–ИУ.8 | [cspm.access.bucket-public-access](../../rules-reference/cspm.md#bucket-public-access) ||
 || **7.3.2. Подпроцесс «Выявление вторжений и сетевых атак»** {align="center"} | > ||
-|| ВСА.8; ВСА.9 | [cspm.appsec.ddos-protection.l3](../../rules-reference/cspm.md#appsec-ddos-protection-l3) ||
+|| ВСА.8; BCA.9 | [cspm.appsec.ddos-protection.l3](../../rules-reference/cspm.md#l3) ||
 || ВСА.1–ВСА.7; BCA.11–BCA.13 |
 [cspm.appsec.use-sws](../../rules-reference/cspm.md#use-sws)
 [cspm.appsec.use-waf](../../rules-reference/cspm.md#use-waf)
@@ -85,16 +85,23 @@
 ||
 || **7.4.2. Подпроцесс «Контроль уязвимостей»** {align="center"} | > ||
 || ЦЗИ.4–ЦЗИ.6 | [cspm.aws-token](../../rules-reference/cspm.md#aws-token) ||
-|| ЦЗИ.1–ЦЗИ.11; ЦЗИ.20–ЦЗИ.26 | [cspm.k8s.secure-configuration](../../rules-reference/cspm.md#secure-configuration) ||
+|| ЦЗИ.1–ЦЗИ.11; ЦЗИ.20–ЦЗИ.26 |
+[cspm.k8s.secure-configuration](../../rules-reference/cspm.md#secure-configuration)
+[cspm.k8s.cis](../../rules-reference/cspm.md#cis)
+||
 || ЦЗИ.1–ЦЗИ.11; ЦЗИ.20–ЦЗИ.26 | [cspm.o11y.gitlab-audited](../../rules-reference/cspm.md#gitlab-audited) ||
 || **7.4.3. Подпроцесс «Организация и контроль размещения, хранения и обновления ПО»** {align="center"} | > ||
 || ЦЗИ.16 | [cspm.db.db-deletion-protection](../../rules-reference/cspm.md#db-deletion-protection) ||
-|| ЦЗИ.1–ЦЗИ.11; ЦЗИ.20–ЦЗИ.26 | [cspm.k8s.secure-configuration](../../rules-reference/cspm.md#secure-configuration) ||
+|| ЦЗИ.1–ЦЗИ.11; ЦЗИ.20–ЦЗИ.26 |
+[cspm.k8s.secure-configuration](../../rules-reference/cspm.md#secure-configuration)
+[cspm.k8s.cis](../../rules-reference/cspm.md#cis)
+||
 || ЦЗИ.1–ЦЗИ.11; ЦЗИ.20–ЦЗИ.26 | [cspm.o11y.gitlab-audited](../../rules-reference/cspm.md#gitlab-audited) ||
 || **7.4.4. Подпроцесс «Контроль состава и целостности ПО информационной инфраструктуры»** {align="center"} | > ||
 || ЦЗИ.1–ЦЗИ.11; ЦЗИ.20–ЦЗИ.26 |
 [cspm.k8s.secure-configuration](../../rules-reference/cspm.md#secure-configuration)
 [cspm.o11y.gitlab-audited](../../rules-reference/cspm.md#gitlab-audited)
+[cspm.k8s.cis](../../rules-reference/cspm.md#cis)
 ||
 || **7.5. Процесс 4 «Защита от вредоносного кода»** {align="center"} | > ||
 || ЗВК.8–ЗВК.12 | [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry) ||
@@ -108,6 +115,11 @@
 ||
 || МАС.1–МАС.7 | [cspm.o11y.data-plane-events](../../rules-reference/cspm.md#data-plane-events) ||
 || МАС.22 | [cspm.s3.used-object-lock](../../rules-reference/cspm.md#used-object-lock) ||
+|| **7.7.2. Подпроцесс «Обнаружение инцидентов защиты информации и реагирование на них»** {align="center"} | > ||
+|| РИ.6–РИ.14 |
+[cspm.o11y.audit-trails-reactions](../../rules-reference/cspm.md#audit-trails-reactions)
+[cspm.crypto.leaked-secrets-detection](../../rules-reference/cspm.md#leaked-secrets-detection)
+||
 || **6.12. Общие положения по применению СКЗИ** {align="center"} | > ||
 || РЗИ.14 |
 [cspm.crypto.keys-hsm](../../rules-reference/cspm.md#keys-hsm)

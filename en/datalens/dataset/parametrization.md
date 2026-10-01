@@ -10,6 +10,14 @@ Parameterization of dataset sources allows you to dynamically substitute paramet
 To enable source parameterization:
 
 1. Configure **Raw SQL level** at the connection level. Activate the setting and select the **Subqueries and parameters** level.
+   
+   {% cut "Connecting with source parameterization" %}
+
+      
+   ![create-connection](../../_assets/datalens/operations/connection/create-sample-connection-parametrization.png)
+
+
+   {% endcut %}
 
 1. Create a dataset and click **Enable parameterization** in its settings ![image](../../_assets/console-icons/gear.svg).
 

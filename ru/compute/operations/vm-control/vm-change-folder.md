@@ -196,9 +196,8 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который была перемещена ВМ.
   1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Нажмите на имя нужной ВМ.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
+  1. Выберите нужную ВМ в списке.
+  1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), выберите **{{ ui-key.yacloud.common.stop }}** и в открывшемся окне подтвердите остановку ВМ.
   1. В секции **{{ ui-key.yacloud.compute.instance.overview.section_network }}** в правом верхнем углу блока нужного сетевого интерфейса нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
   1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите новую подсеть и нажмите **{{ ui-key.yacloud.common.save }}**.
       Если у ВМ несколько [сетевых интерфейсов](../../concepts/network.md), измените подсеть для каждого из них.

@@ -21,6 +21,8 @@ _MFA policies_ specify the multi-factor authentication requirements enforced on 
 
     {% include [mfa-create-policy-step6-ss1](../../_includes/organization/mfa-create-policy-step6-ss1.md) %}
 
+In addition to the specified requirements, an MFA policy also includes settings for [self-service password reset](./sspr.md) by users. By default, the self-service password reset option is disabled for MFA policies.
+
 You can [create](../operations/mfa/create-policy.md) an MFA policy in the [{{ org-full-name }}]({{ link-org-cloud-center }}) interface in {{ cloud-center }}.
 
 For an MFA policy to apply to specific user accounts, you need to [explicitly add](../operations/mfa/add-users.md) those users or the [groups](./groups.md) to which they belong to the policy's target groups. If needed, you can [exclude](../operations/mfa/excluded-audience.md) certain users or groups from the policy without deleting them from the target groups.

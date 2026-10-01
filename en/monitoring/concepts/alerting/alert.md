@@ -11,7 +11,7 @@ description: In {{ monitoring-short-name }}, an alert is a sequence of named que
 
 An alert can have one of the following statuses:
 
-Color | Stage | Description
+Color | Status | Description
 ----- | ----- | -----
 🟢 | `{{ ui-key.yacloud_monitoring.alert.status_ok }}` | The metric value is within the specified normal threshold.
 🟡 | `{{ ui-key.yacloud_monitoring.alert.status_warn }}` | The metric value has reached the `Warning` threshold.

@@ -1,9 +1,9 @@
 ---
-title: Configuring object locks in a bucket in {{ objstorage-full-name }}
+title: 'Enabling object locks in a {{ objstorage-full-name }} bucket '
 description: Follow this guide to configure object locks in a bucket in {{ objstorage-name }}.
 ---
 
-# Configuring object locks
+# Object lock
 
 With [versioning](../buckets/versioning.md) and [object lock](../buckets/configure-object-lock.md) enabled in your bucket, you can configure an object lock for a version already uploaded to the bucket.
 

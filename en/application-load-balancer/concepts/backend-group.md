@@ -102,7 +102,7 @@ In the backend settings, you can specify the mode for distributing traffic betwe
 
   1. For each endpoint, the hash function value is calculated in the range from `0` to `65536`.
   1. Based on the resulting values, a hash table of 65537 rows is fully populated so that each endpoint corresponds to the same number of rows.
-  1. For each incoming request, the load balancer calculates the value of the same hash function and finds a row with the corresponding number in the hash table. This row indicates the endpoint that will process the request. If [session affinity](#session-affinity) is enabled for a group of backends, a hash function is evaluated based on the client's IP address, the HTTP header value, or the cookie file depending on the affinity mode.
+  1. For each incoming request, the load balancer calculates the value of the same hash function and finds a row with the corresponding number in the hash table. This row indicates the endpoint that will process the request. If [session affinity](#session-affinity) is enabled for a group of backends, the hash function is calculated based on the client's IP address, the HTTP header value, or the cookie file – depending on the affinity mode.
 
   For more information about the performance and efficiency of the Maglev hashing algorithm, see [Maglev: A Fast and Reliable Software Network Load Balancer](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/44824.pdf) (Eisenbud et al., chapter 3.4).
 

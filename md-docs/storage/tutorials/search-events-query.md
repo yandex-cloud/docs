@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Поиск событий Yandex Cloud в Yandex Query
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Сбор и анализ логов > Поиск событий Yandex Cloud в Yandex Query
 
 # Поиск событий Yandex Cloud в Yandex Query
 
@@ -186,7 +186,7 @@
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
     1. [Перейдите](https://console.yandex.cloud/link/audit-trails) в сервис **Audit Trails**.
     1. Выберите трейл `logsyq`.
-    1. Нажмите **Обработать в YQ**.
+    1. Справа сверху нажмите ![cube](../../_assets/console-icons/cube.svg) **Обработать в YQ**.
     1. Создайте соединение:
         * выберите **Сервисный аккаунт** `bucket-yq-sa`;
         * для остальных параметров оставьте значения по умолчанию.
@@ -245,7 +245,7 @@
 
     1. Нажмите **Выполнить**.
 
-1. Изменение прав доступ к бакету Object Storage:
+1. Изменение прав доступа к бакету Object Storage:
 
     1. Выберите в списке запрос **11. Подозрительные действия с хранилищем логов Audit Trails (Object Storage Bucket)**.
     1. Отредактируйте запрос, указав количество отображаемых записей:

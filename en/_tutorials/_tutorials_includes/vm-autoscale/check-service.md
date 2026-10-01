@@ -38,6 +38,6 @@
      1. Select `auto-group`.
      1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab.
 
-        The load balancer sent the request to an instance in the group. In the availability zone this instance belongs to, the average CPU utilization is higher than in other zones (see the **Average CPU utilization in zone** chart).
+        The load balancer sent the request to an instance in the group. In this instance's [availability zone](../../../overview/concepts/geo-scope.md), average CPU utilization is higher than in other zones (see the **Average CPU utilization in zone** chart).
 
    {% endlist %}

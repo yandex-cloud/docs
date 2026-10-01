@@ -7,7 +7,6 @@ editable: false
 # Estimating the cost of YQL queries to {{ ydb-short-name }}
 
 
-
 To run YQL queries, the system uses server-side resources. To view the information about consumed resources, see the relevant query statistics.
 
 To evaluate the {{ ydb-short-name }} API request cost, you need to calculate the CPU and I/O cost, out of which the largest value is the final one.
@@ -38,7 +37,7 @@ Value to estimate | Cost
 :--- | :---:
 One CPU time increment | 1 RU
 One read | 1 RU
-One write | 2 RUs
+One write | 2 RU
 
 The following operations are not charged:
 * Creating, updating, and deleting table schemas.

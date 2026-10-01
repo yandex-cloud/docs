@@ -27,6 +27,18 @@ Syntax:
 
   - [yc managed-opensearch v0 backup list](backup/list.md) — List available OpenSearch backups in a folder.
 
+- [yc managed-opensearch v0 change-freeze](change-freeze/index.md) — Manage change freezes.
+
+  - [yc managed-opensearch v0 change-freeze create](change-freeze/create.md) — Create a change freeze for the specified resource.
+
+  - [yc managed-opensearch v0 change-freeze get](change-freeze/get.md) — Show the specified change freeze.
+
+  - [yc managed-opensearch v0 change-freeze get-limits](change-freeze/get-limits.md) — Show change freeze limits for the specified resource.
+
+  - [yc managed-opensearch v0 change-freeze list](change-freeze/list.md) — List change freezes.
+
+  - [yc managed-opensearch v0 change-freeze terminate](change-freeze/terminate.md) — Terminate the specified change freeze.
+
 - [yc managed-opensearch v0 cluster](cluster/index.md) — Managed OpenSearch clusters.
 
   - [yc managed-opensearch v0 cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified OpenSearch cluster
@@ -44,6 +56,8 @@ Syntax:
   - [yc managed-opensearch v0 cluster list-access-bindings](cluster/list-access-bindings.md) — List access bindings for the specified OpenSearch cluster
 
   - [yc managed-opensearch v0 cluster list-backups](cluster/list-backups.md) — List available backups for an OpenSearch cluster.
+
+  - [yc managed-opensearch v0 cluster move](cluster/move.md) — Move a managed OpenSearch cluster into a new folder
 
   - [yc managed-opensearch v0 cluster remove-access-binding](cluster/remove-access-binding.md) — Remove access binding for the specified OpenSearch cluster
 
@@ -72,6 +86,14 @@ Syntax:
   - [yc managed-opensearch v0 extension list](extension/list.md) — List extensions for a managed OpenSearch cluster.
 
   - [yc managed-opensearch v0 extension update](extension/update.md) — Update an extension in a managed OpenSearch cluster.
+
+- [yc managed-opensearch v0 maintenance](maintenance/index.md) — Manage maintenances.
+
+  - [yc managed-opensearch v0 maintenance get](maintenance/get.md) — Show the specified maintenance.
+
+  - [yc managed-opensearch v0 maintenance list](maintenance/list.md) — List maintenances.
+
+  - [yc managed-opensearch v0 maintenance reschedule](maintenance/reschedule.md) — Reschedule the specified maintenance.
 
 - [yc managed-opensearch v0 node-group](node-group/index.md) — Node groups of a managed OpenSearch cluster.
 

@@ -2,6 +2,8 @@
 
 # Удалить организацию
 
+Для удаления организации Яндекс 360 воспользуйтесь [инструкцией Яндекс 360](https://yandex.ru/support/yandex-360/business/admin/ru/organization/delete-organization).
+
 {% note info %}
 
 Удалить организацию может пользователь с ролью `organization-manager.organizations.owner`. Как назначить роль пользователю, читайте в разделе [Роли](../security/index.md#add-role).

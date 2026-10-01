@@ -515,7 +515,7 @@ sudo apt update && sudo apt install --yes python3 python3-pip && \
 pip3 install pyMongo
 ```
 
-To find out the name of a replica set, connect to the database via [MongoDB Shell](#bash) and run this command:
+To find out the name of a replica set, connect to the database via [MongoDB Shell](../../../storedoc/operations/connect/clients.md#bash) and run this command:
 
 ```bash
 rs.status().set

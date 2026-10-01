@@ -1,6 +1,6 @@
 1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
 1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-1. In the left-hand panel, select ![image](../../_assets/console-icons/layout-cells.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_schema-registry }}**.
+1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_schema-registry }}**.
 1. Click **{{ ui-key.yacloud.schema-registry.SchemaRegistry.Namespaces.label_create-namespace-action_kTxW4 }}**.
 1. In the **{{ ui-key.yacloud.common.name }}** field, set a unique name for the namespace.
 1. Optionally, add a namespace description.
@@ -15,9 +15,9 @@
         * `NONE`: Schema compatibility checks are disabled.
           For more information about schema compatibility types, see [this Confluent guide](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types).
     1. Select a [compatibility policy](../../metadata-hub/concepts/compatibility-check-policy.md) for JSON schemas:
-        * `optional-friendly`: Based on a [solution](#optional-parameters-compatibility-solution) using various content models for the producer and the consumer. It supports adding or removing optional parameters while maintaining full transitive compatibility.
+        * `optional-friendly`: Based on a [solution](../../metadata-hub/concepts/schema-registry-content-model.md#optional-parameters-compatibility-solution) using various content models for the producer and the consumer. It supports adding or removing optional parameters while maintaining full transitive compatibility.
         * `Confluent`: Follows the [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types) standards and ensures no full compatibility when adding and removing optional parameters.
     1. Select a compatibility policy for Protobuf schemas:
         * `Confluent`: Based on the [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types) standards.
-        * `buf`: Based on the Buf v1 standards.
+        * `buf`: Based on the [Buf](https://docs.bufbuild.ru/bsr/) v1 standards.
 1. Click **{{ ui-key.yacloud.common.create }}**.

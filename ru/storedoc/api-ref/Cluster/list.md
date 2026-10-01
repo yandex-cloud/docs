@@ -3084,7 +3084,12 @@ The maximum string length in characters is 1000. ||
                   "maxSizePercent": "string",
                   "minRetentionHours": "number"
                 },
-                "chainingAllowed": "boolean"
+                "chainingAllowed": "boolean",
+                "changeStreamOptions": {
+                  "preAndPostImages": {
+                    "expireAfterSeconds": "string"
+                  }
+                }
               },
               "userConfig": {
                 "storage": {
@@ -3153,7 +3158,12 @@ The maximum string length in characters is 1000. ||
                   "maxSizePercent": "string",
                   "minRetentionHours": "number"
                 },
-                "chainingAllowed": "boolean"
+                "chainingAllowed": "boolean",
+                "changeStreamOptions": {
+                  "preAndPostImages": {
+                    "expireAfterSeconds": "string"
+                  }
+                }
               },
               "defaultConfig": {
                 "storage": {
@@ -3222,7 +3232,12 @@ The maximum string length in characters is 1000. ||
                   "maxSizePercent": "string",
                   "minRetentionHours": "number"
                 },
-                "chainingAllowed": "boolean"
+                "chainingAllowed": "boolean",
+                "changeStreamOptions": {
+                  "preAndPostImages": {
+                    "expireAfterSeconds": "string"
+                  }
+                }
               }
             },
             "resources": {
@@ -3827,20 +3842,17 @@ Link to the monitoring system charts for the MongoDB cluster. ||
 ||Field | Description ||
 || version | **string**
 
-Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`, `6.0-enterprise`, `7.0`, `7.0-enterprise`. ||
+Version of MongoDB server software. Possible values: `7.0`, `8.0`. ||
 || featureCompatibilityVersion | **string**
 
 MongoDB feature compatibility version. See usage details in [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
 Possible values:
-* `3.6` - persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower.
-* `4.0` - persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower.
-* `4.2` - persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower.
-* `4.4` - persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or lower.
-* `5.0` - persist data compatibility for version 5.0. After setting this option the data will not be compatible with 5.0 or lower.
-* `6.0` - persist data compatibility for version 6.0. After setting this option the data will not be compatible with 6.0 or lower. ||
+* `7.0` - persist data compatibility for version 7.0. After setting this option the data will not be compatible with 6.0 or lower.
+* `8.0` - persist data compatibility for version 8.0. After setting this option the data will not be compatible with 7.0 or lower. ||
 || mongodb_3_6 | **[Mongodb3_6](#yandex.cloud.mdb.mongodb.v1.Mongodb3_6)**
 
 Configuration and resource allocation for a MongoDB 3.6 cluster.
+Deprecated. Use `mongodbConfig` instead.
 
 Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
 
@@ -3848,6 +3860,7 @@ Configuration for MongoDB servers in the cluster. ||
 || mongodb_4_0 | **[Mongodb4_0](#yandex.cloud.mdb.mongodb.v1.Mongodb4_0)**
 
 Configuration and resource allocation for a MongoDB 4.0 cluster.
+Deprecated. Use `mongodbConfig` instead.
 
 Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
 
@@ -3855,6 +3868,7 @@ Configuration for MongoDB servers in the cluster. ||
 || mongodb_4_2 | **[Mongodb4_2](#yandex.cloud.mdb.mongodb.v1.Mongodb4_2)**
 
 Configuration and resource allocation for a MongoDB 4.2 cluster.
+Deprecated. Use `mongodbConfig` instead.
 
 Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
 
@@ -3862,6 +3876,7 @@ Configuration for MongoDB servers in the cluster. ||
 || mongodb_4_4 | **[Mongodb4_4](#yandex.cloud.mdb.mongodb.v1.Mongodb4_4)**
 
 Configuration and resource allocation for a MongoDB 4.4 cluster.
+Deprecated. Use `mongodbConfig` instead.
 
 Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
 
@@ -3869,6 +3884,7 @@ Configuration for MongoDB servers in the cluster. ||
 || mongodb_5_0 | **[Mongodb5_0](#yandex.cloud.mdb.mongodb.v1.Mongodb5_0)**
 
 Configuration and resource allocation for a MongoDB 5.0 cluster.
+Deprecated. Use `mongodbConfig` instead.
 
 Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
 
@@ -3876,6 +3892,7 @@ Configuration for MongoDB servers in the cluster. ||
 || mongodb_6_0 | **[Mongodb6_0](#yandex.cloud.mdb.mongodb.v1.Mongodb6_0)**
 
 Configuration and resource allocation for a MongoDB 6.0 cluster.
+Deprecated. Use `mongodbConfig` instead.
 
 Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
 
@@ -3883,6 +3900,7 @@ Configuration for MongoDB servers in the cluster. ||
 || mongodb_4_4Enterprise | **[Mongodb4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.Mongodb4_4_enterprise)**
 
 Configuration and resource allocation for a MongoDB 4.4 Enterprise cluster.
+Deprecated. Use `mongodbConfig` instead.
 
 Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
 
@@ -3890,6 +3908,7 @@ Configuration for MongoDB servers in the cluster. ||
 || mongodb_5_0Enterprise | **[Mongodb5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.Mongodb5_0_enterprise)**
 
 Configuration and resource allocation for a MongoDB 5.0 Enterprise cluster.
+Deprecated. Use `mongodbConfig` instead.
 
 Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
 
@@ -3897,6 +3916,7 @@ Configuration for MongoDB servers in the cluster. ||
 || mongodb_6_0Enterprise | **[Mongodb6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.Mongodb6_0_enterprise)**
 
 Configuration and resource allocation for a MongoDB 6.0 Enterprise cluster.
+Deprecated. Use `mongodbConfig` instead.
 
 Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
 
@@ -3915,7 +3935,7 @@ Performance Diagnostic ||
 Access policy to DB ||
 || mongodbConfig | **[Mongodb](#yandex.cloud.mdb.mongodb.v1.Mongodb)**
 
-Configuration and resource allocation for a MongoDB Enterprise cluster. ||
+Configuration and resource allocation for a MongoDB cluster. ||
 || fullVersion | **string**
 
 Full version ||
@@ -7795,7 +7815,7 @@ Default mongod configuration for a MongoDB cluster. ||
 ## MongodConfig {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig}
 
 Configuration of a mongod daemon. Supported options are a limited subset of all
-options described in [MongoDB documentation](https://docs.mongodb.com/v7.0/reference/configuration-options/).
+options described in [MongoDB documentation](https://www.mongodb.com/docs/manual/reference/configuration-options/).
 
 #|
 ||Field | Description ||
@@ -7823,6 +7843,9 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v7.0/refer
 || chainingAllowed | **boolean**
 
 Chained replication setting ||
+|| changeStreamOptions | **[ChangeStreamOptions](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.ChangeStreamOptions)**
+
+Change stream settings. ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage}
@@ -7834,7 +7857,7 @@ Chained replication setting ||
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.Journal)**
 
-Configuration of the MongoDB [journal](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-journal). ||
+Configuration of the MongoDB [journal](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-journal). ||
 |#
 
 ## WiredTiger {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger}
@@ -7875,9 +7898,9 @@ The maximum size of the internal cache that WiredTiger will use for all data in 
 Default type of compression to use for collection data.
 
 - `NONE`: No compression.
-- `SNAPPY`: The [Snappy](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-snappy) compression.
-- `ZLIB`: The [zlib](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-zlib) compression.
-- `ZSTD`: The [zstd](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-zstd) compression. ||
+- `SNAPPY`: The [Snappy](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-snappy) compression.
+- `ZLIB`: The [zlib](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-zlib) compression.
+- `ZSTD`: The [zstd](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-zstd) compression. ||
 |#
 
 ## IndexConfig {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger.IndexConfig}
@@ -7955,9 +7978,9 @@ MongoDB supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
-- `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
-- `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
-- `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
+- `SNAPPY`: The [Snappy](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-snappy) compression.
+- `ZLIB`: The [zlib](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-zlib) compression.
+- `ZSTD`: The [zstd](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-zstd) compression.
 - `DISABLED`: No compression ||
 |#
 
@@ -8000,10 +8023,11 @@ KMIP Key identifier (if any) ||
 ||Field | Description ||
 || filter | **string**
 
-Audit filter ||
+Audit filter, should be valid JSON object string ||
 || runtimeConfiguration | **boolean**
 
-Allows runtime configuration of audit filter and auditAuthorizationSuccess ||
+Allows runtime configuration of audit filter and auditAuthorizationSuccess.
+Available for MongoDB Enterprise only. ||
 |#
 
 ## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter}
@@ -8012,11 +8036,12 @@ Allows runtime configuration of audit filter and auditAuthorizationSuccess ||
 ||Field | Description ||
 || auditAuthorizationSuccess | **boolean**
 
-Enables the auditing of authorization successes ||
+Enables the auditing of authorization successes.
+See the [MongoDB documentation](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess). ||
 || enableFlowControl | **boolean**
 
 Enables or disables the mechanism that controls the rate at which the primary applies its writes with the
-goal of keeping the secondary members [majority committed](https://www.mongodb.com/docs/v7.0/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime)
+goal of keeping the secondary members [majority committed](https://www.mongodb.com/docs/manual/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime)
 lag under a configurable maximum value. ||
 || minSnapshotHistoryWindowInSeconds | **string** (int64)
 
@@ -8092,6 +8117,26 @@ Oplog maxsize in percents. ||
 || minRetentionHours | **number** (double)
 
 The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. ||
+|#
+
+## ChangeStreamOptions {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.ChangeStreamOptions}
+
+#|
+||Field | Description ||
+|| preAndPostImages | **[PreAndPostImages](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.ChangeStreamOptions.PreAndPostImages)**
+
+Retention settings for pre- and post-images. ||
+|#
+
+## PreAndPostImages {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.ChangeStreamOptions.PreAndPostImages}
+
+#|
+||Field | Description ||
+|| expireAfterSeconds | **string** (int64)
+
+The number of seconds after which pre- and post-images expire.
+
+The minimum value is 0. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.Mongodb.MongoCfg}
@@ -8199,7 +8244,7 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://www.mongodb.com/docs/v7.0/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpThresholdMs).
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpThresholdMs).
 
 Value must be greater than 0. ||
 |#
@@ -8222,7 +8267,7 @@ Acceptable values are 10 to 32768, inclusive. ||
 || enableFlowControl | **boolean**
 
 Enables or disables the mechanism that controls the rate at which the primary applies its writes with the
-goal of keeping the secondary members [majority committed](https://www.mongodb.com/docs/v4.2/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime)
+goal of keeping the secondary members [majority committed](https://www.mongodb.com/docs/manual/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime)
 lag under a configurable maximum value. ||
 || auditAuthorizationSuccess | **boolean**
 
@@ -8337,9 +8382,9 @@ MongoDB supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
-- `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
-- `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
-- `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
+- `SNAPPY`: The [Snappy](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-snappy) compression.
+- `ZLIB`: The [zlib](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-zlib) compression.
+- `ZSTD`: The [zstd](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-zstd) compression.
 - `DISABLED`: No compression ||
 |#
 
@@ -8459,8 +8504,8 @@ Minimum percentage of bloat of collection to be compacted. ||
 
 Type of compaction. Either switch primary to run compaction on all hosts or ignore primary host.
 
-- `COMPACTION_TYPE_IGNORE_PRIMARY`
-- `COMPACTION_TYPE_SWITCH_PRIMARY` ||
+- `COMPACTION_TYPE_IGNORE_PRIMARY`: Run compaction on all hosts except primary.
+- `COMPACTION_TYPE_SWITCH_PRIMARY`: Switch primary to run compaction on all hosts. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.mongodb.v1.MaintenanceWindow}

@@ -32,6 +32,12 @@ items:
             href: operations/alerts/view.md
           - name: Работа с алертами
             href: operations/alerts/work.md
+          - name: Скачать алерты
+            href: operations/alerts/download.md
+          - name: Управлять тегами алертов
+            href: operations/alerts/tags.md
+          - name: Управлять подпиской
+            href: operations/alerts/notification.md
       - name: Контроль данных ({{ dspm-name }})
         items:
           - name: Обзор
@@ -48,6 +54,8 @@ items:
         items:
           - name: Обзор
             href: operations/kspm/index.md
+          - name: Системные и технические требования
+            href: operations/kspm/requirements.md
           - name: Активировать модуль {{ kspm-name }}
             href: operations/kspm/enable-kspm.md
           - name: Работать с дашбордом
@@ -60,6 +68,12 @@ items:
             href: operations/kspm/manage-exceptions.md
           - name: Управлять режимами работы правил
             href: operations/kspm/manage-rule-modes.md
+          - name: Создать пользовательское правило
+            href: operations/kspm/create-custom-rule.md
+          - name: Редактировать пользовательское правило
+            href: operations/kspm/edit-custom-rule.md
+          - name: Удалить пользовательское правило
+            href: operations/kspm/delete-custom-rule.md
       - name: Диагностика доступов ({{ ciem-name }})
         items:
           - name: Обзор
@@ -72,14 +86,24 @@ items:
         items:
           - name: Обзор
             href: operations/cspm/index.md
+          - name: Работать с дашбордом
+            href: operations/cspm/use-cspm.md
           - name: Посмотреть правила контроля и нарушения
             href: operations/cspm/view-rules.md
           - name: Запустить проверку окружения
             href: operations/cspm/check-environment.md
+          - name: Управлять результатами проверок
+            href: operations/cspm/work-with-results.md
           - name: Проверить соответствие стандартам безопасности
             href: operations/cspm/check-compliance.md
           - name: Управлять исключениями из правил контроля
             href: operations/cspm/manage-exceptions.md
+          - name: Создать пользовательское правило
+            href: operations/cspm/create-custom-rule.md
+          - name: Редактировать пользовательское правило
+            href: operations/cspm/edit-custom-rule.md
+          - name: Удалить пользовательское правило
+            href: operations/cspm/delete-custom-rule.md
       - name: '{{ td-full-name }} ({{ td-name }})'
         items:
           - name: Обзор
@@ -95,9 +119,31 @@ items:
           - name: Активировать модуль
             href: >-
               operations/vulnerability-management/enable-vulnerability-management.md
+          - name: Создать расписание сканирований конечных точек
+            href: operations/vulnerability-management/create-scan-job.md
+          - name: Управлять расписанием сканирований конечных точек
+            href: operations/vulnerability-management/manage-scan-job.md
+          - name: Запустить сканирование конечных точек
+            href: operations/vulnerability-management/run-scan-job.md
+          - name: Посмотреть результаты сканирования конечных точек
+            href: operations/vulnerability-management/view-scan-results.md
           - name: Работать с дашбордом
             href: >-
               operations/vulnerability-management/use-vulnerability-management.md
+      - name: Пользовательские наборы правил
+        items:
+          - name: Обзор
+            href: operations/custom-rules-sets/index.md
+          - name: Посмотреть список пользовательских наборов правил
+            href: operations/custom-rules-sets/view-set.md
+          - name: Создать пользовательский набор правил
+            href: operations/custom-rules-sets/create-set.md
+          - name: Изменить пользовательский набор правил
+            href: operations/custom-rules-sets/update-set.md
+          - name: Включить или выключить проверку по пользовательскому набору правил
+            href: operations/custom-rules-sets/enable-disable-set.md
+          - name: Удалить пользовательский набор правил
+            href: operations/custom-rules-sets/delete-set.md
   - name: Концепции
     items:
       - name: Обзор
@@ -126,6 +172,10 @@ items:
             href: concepts/standard-compliance/yc-pci-dss.md
           - name: Требования стандарта ГОСТ Р 57580
             href: concepts/standard-compliance/yc-gost-57580.md
+          - name: Аудит процессов и приложений
+            href: concepts/standard-compliance/inventory-k8s-rules.md
+          - name: Стандарт безопасности ИИ-систем в {{ yandex-cloud }}
+            href: concepts/standard-compliance/aispm.md
       - name: Контроль данных ({{ dspm-name }})
         href: concepts/dspm.md
       - name: Контроль {{ k8s }}® ({{ kspm-name }})
@@ -134,6 +184,8 @@ items:
         href: concepts/ciem.md
       - name: Контроль конфигурации ({{ cspm-name }})
         href: concepts/cspm.md
+      - name: Пользовательские правила
+        href: concepts/custom-rules.md
       - name: '{{ td-full-name }} ({{ td-name }})'
         href: concepts/threat-detector.md
       - name: '{{ vuln-man-name }} ({{ vuln-man-short-name }})'

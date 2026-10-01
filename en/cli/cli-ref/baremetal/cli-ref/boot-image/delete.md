@@ -5,8 +5,8 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/boot-image
 
 # yc baremetal boot-image delete
 
-Deletes the specified image.
-Deleting an image removes its data permanently and is irreversible.
+Deletes the specified BootImage.
+Deleting a BootImage removes its data permanently and is irreversible.
 
 #### Command Usage
 
@@ -20,7 +20,7 @@ Syntax:
 ||Flag | Description ||
 || `--id` | `string`
 
-ID of the image to delete. To get the image ID, use a [ImageService.List] request. ||
+ID of the BootImage to delete. To get the BootImage ID, use a [ImageService.List] request. ||
 || `--name` | `string`
 
 Resolve id by resource name within the current scope. ||
@@ -37,6 +37,15 @@ Set the custom profile. ||
 || `--region` | `string`
 
 Set the region. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||

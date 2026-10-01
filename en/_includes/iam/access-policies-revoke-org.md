@@ -18,7 +18,7 @@ To delete an access policy created for an [organization](../../organization/conc
       Where:
 
       * `--name`: Name of the organization to delete the policy for. Instead of the organization name, you can provide its [ID](../../organization/operations/organization-get-id.md) in the `--id` parameter.
-      * `--access-policy-template-id`: ID of the access policy template you want to delete from the specified organization.
+      * `--access-policy-template-id`: ID of the access policy template you want to delete for the specified organization.
   1. [Make sure](../../organization/operations/manage-access-policies.md#view-assigned) the policy was deleted.
 
 - API {#api}

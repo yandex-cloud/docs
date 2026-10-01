@@ -8,11 +8,11 @@
 - Providing fault tolerance for database clusters.
 - Database usage monitoring and statistics.
 
-#### What happens to the cluster if one of its hosts fails? {#node-out}
+#### What will happen to the cluster if one of its hosts fails? {#node-out}
 
-A database cluster with more than one replica will remain operational during a host failure.
+If the cluster has at least two hosts, it will continue to work if one of them fails.
 
-Data loss can only occur if the sole host in the cluster fails.
+Data may be lost if the cluster's only host fails.
 
 #### Can I deploy a {{ SD }} cluster in multiple availability zones? {#multiple-az}
 

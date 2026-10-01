@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > [Разработка Telegram-бота](index.md) > Terraform
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > Разработка и развертывание приложений > [Разработка Telegram-бота](index.md) > Terraform
 
 # Как создать бота в Telegram с помощью Serverless и Terraform
 
@@ -13,7 +13,7 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Подготовьте облако к работе {#before-begin}
+## Подготовьте облако к работе {#before-you-begin}
 
 Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
 1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.

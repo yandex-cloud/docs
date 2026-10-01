@@ -31,13 +31,25 @@ Total size of datasets | 300 GB
 **MCP servers** |
 Number of MCP servers per cloud | 30 
 Number of tools per server | 150
-**AI agents** |
+**Text-based agents** |
 Number of concurrent {{ code-interpreter }} launches | 3
 **Voice agents** |
 Number of concurrent sessions with Realtime models | 10
 Number of session creation queries per second | 10
 **Search indexes** |
 Number of search indexes | 150
+**Workflows** |
+Maximum number of [workflows]({{ link-docs-ai }}ai-studio/concepts/workflows/workflow) per cloud | 30
+Maximum number of active [workflow]({{ link-docs-ai }}ai-studio/concepts/workflows/execution) executions per cloud | 100
+Maximum execution duration | 48 hours
+**{{ translate-name }}** {#translate-quotas}
+Calls of one API method per second | 20
+Characters sent for translation or language detection, per hour | 1 million
+**{{ vision-name }}** {#vision-quotas} |
+Requests per second, synchronous mode | 1
+Requests per second, asynchronous mode | 10
+Requests per second, asynchronous mode (getting an operation status) | 50
+Requests per second, asynchronous mode (getting a response) | 50
 
 
 #### Limits {#yandexgpt-limits}
@@ -49,14 +61,14 @@ Storage period for results of text asynchronous requests on the server | 3 days
 Number of input tokens | 2,048
 Output vector size | {{ emb-vector }}
 **Text generation** |
-Maximum number of tokens per response in [AI Playground]({{ link-console-ai }}) | 1,000
+Maximum number of tokens per response in [Playground]({{ link-console-ai }}/link/models) | 1,000
 **Text classification** |
 Number of classes in prompt-based classifiers | 20
 Number of classes in fine-tuned classifiers | 100
 **Image generation** |
 Maximum prompt length | 500 characters
 Storage period for generated images | 12 hours
-**AI agents**|
+**Text-based agents**|
 Maximum number of agents | 1,000
 Maximum number of files to upload | 10,000
 Maximum file size | 128 MB
@@ -67,11 +79,27 @@ Maximum number of indexing operations to run | 10
 Maximum length of user chunks | 8,000 characters
 **MCP servers** |
 Number of active cloud connections per [availability zone]({{ link-docs }}/overview/concepts/geo-scope) | 500
+**Workflows** |
+Maximum step execution time | 10 minutes
+Maximum step execution time, including retry attempts | 24 hours
+Maximum number of step retry attempts | 100
+Maximum input and output data size per workflow step | 2 MB
 **Operation timeouts** ^1^ |
 Synchronous request execution timeout | 20 minutes
 Container code execution timeout | 20 minutes
 Container lifetime timeout | 20 minutes
 Background (asynchronous) request execution timeout from the start of execution ^2^ | 2 hours
+**{{ translate-name }}** {#translate-limits}
+Maximum pairs provided per glossary | 50
+Maximum number of characters per glossary | 20,000 Unicode characters
+Maximum number of characters per glossary, separately for source and translated text | 10,000 Unicode characters
+**{{ vision-name }}** {#vision-limits} |
+Retention period for recognition results on the server | 3 days
+Maximum file size for the OCR API | {{ ocr-max-filesize }}
+Maximum image size | 20 megapixels (length × width)
+Maximum number of pages in a PDF when using the OCR API in asynchronous mode | 200
 
 ^1^ As soon as a timeout is exceeded, the operation will be terminated with an error.
 ^2^ The execution of a background request may be delayed due to queuing. The maximum queue time is 24 hours.
+
+In addition to those listed above, there are limits on the number of steps and the total volume of input and output data for all steps within a workflow. If these limits are exceeded, the workflow execution will fail with an error.

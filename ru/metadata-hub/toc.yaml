@@ -133,6 +133,8 @@ items:
               Подключение к бакету {{ objstorage-full-name }} с политикой
               доступа
             href: operations/metastore/s3-policy-connect.md
+          - name: Мониторинг состояния кластера
+            href: operations/metastore/monitoring.md
           - name: Передача логов в {{ cloud-logging-name }}
             href: operations/metastore/logging.md
           - name: Управление доступом к кластеру
@@ -177,6 +179,20 @@ items:
         items:
           - name: Overview
             href: cli-ref/index.md
+          - name: change-freeze
+            items:
+              - name: Overview
+                href: cli-ref/change-freeze/index.md
+              - name: create
+                href: cli-ref/change-freeze/create.md
+              - name: get
+                href: cli-ref/change-freeze/get.md
+              - name: get-limits
+                href: cli-ref/change-freeze/get-limits.md
+              - name: list
+                href: cli-ref/change-freeze/list.md
+              - name: terminate
+                href: cli-ref/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -213,6 +229,20 @@ items:
             items:
               - name: Overview
                 href: cli-ref/v0/index.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/change-freeze/index.md
+                  - name: create
+                    href: cli-ref/v0/change-freeze/create.md
+                  - name: get
+                    href: cli-ref/v0/change-freeze/get.md
+                  - name: get-limits
+                    href: cli-ref/v0/change-freeze/get-limits.md
+                  - name: list
+                    href: cli-ref/v0/change-freeze/list.md
+                  - name: terminate
+                    href: cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -285,6 +315,16 @@ items:
                     href: api-ref/grpc/Cluster/setAccessBindings.md
                   - name: UpdateAccessBindings
                     href: api-ref/grpc/Cluster/updateAccessBindings.md
+              - name: Maintenance
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Maintenance/index.md
+                  - name: List
+                    href: api-ref/grpc/Maintenance/list.md
+                  - name: Get
+                    href: api-ref/grpc/Maintenance/get.md
+                  - name: Reschedule
+                    href: api-ref/grpc/Maintenance/reschedule.md
               - name: Operation
                 items:
                   - name: Overview
@@ -327,6 +367,16 @@ items:
                     href: api-ref/Cluster/setAccessBindings.md
                   - name: UpdateAccessBindings
                     href: api-ref/Cluster/updateAccessBindings.md
+              - name: Maintenance
+                items:
+                  - name: Overview
+                    href: api-ref/Maintenance/index.md
+                  - name: List
+                    href: api-ref/Maintenance/list.md
+                  - name: Get
+                    href: api-ref/Maintenance/get.md
+                  - name: Reschedule
+                    href: api-ref/Maintenance/reschedule.md
               - name: Operation
                 items:
                   - name: Overview
@@ -335,6 +385,8 @@ items:
                     href: api-ref/Operation/get.md
                   - name: Cancel
                     href: api-ref/Operation/cancel.md
+      - name: Метрики {{ monitoring-full-name }}
+        href: metastore-metrics.md
       - name: Аудитные логи {{ at-name }}
         href: at-ref.md
   - name: '{{ schema-registry-name }}'

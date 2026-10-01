@@ -36,6 +36,13 @@ description: In this article, you will learn how to work with {{ org-full-name }
 * [{#T}](./edit-account.md)
 * [{#T}](./leave-organization.md)
 
+## Managing a user account {#manage-user-account}
+
+* [{#T}](./user-account/first-login.md)
+* [{#T}](./manage-account.md)
+* [{#T}](./user-account/reset-password.md)
+* [{#T}](./user-account/troubleshooting.md)
+
 ## Managing user groups {#manage-groups}
 
 * [{#T}](./create-group.md)
@@ -109,6 +116,7 @@ description: In this article, you will learn how to work with {{ org-full-name }
 * [{#T}](./delete-ssh.md)
 * [{#T}](./enable-refresh-tokens.md)
 * [{#T}](./enable-2fa-access.md)
+* [{#T}](./manage-sspr.md)
 
 ## Managing authentication policies {#manage-authentication-policies}
 
@@ -131,7 +139,7 @@ description: In this article, you will learn how to work with {{ org-full-name }
 * [{#T}](./revoke-role.md)
 * [{#T}](./view-subject-access-bindings.md)
 
-## Syncing users and groups with external sources {#sync-external}
+## Syncing users and groups with external directory services {#sync-external}
 
 * [{#T}](./sync-ad.md)
 

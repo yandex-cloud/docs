@@ -609,7 +609,7 @@ For disk space usage monitoring:
 
 ## Extra resources
 
-* [Official {{ CH }} guides](https://clickhouse.com/docs/)
+* [{{ CH }} official guides](https://clickhouse.com/docs/)
 * [{{ CH }} Operator on GitHub](https://github.com/Altinity/clickhouse-operator)
 * [System Tables Reference](https://clickhouse.com/docs/en/operations/system-tables/)
 * [Server Configuration Parameters](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings)

@@ -93,7 +93,8 @@ Creates a job for Spark cluster.
     ]
   },
   // end of the list of possible fields
-  "service_account_id": "string"
+  "service_account_id": "string",
+  "environment_id": "string"
 }
 ```
 
@@ -111,16 +112,27 @@ Optional. Name of the job.
 The string length in characters must be less than 256. Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || spark_job | **[SparkJob](#yandex.cloud.spark.v1.SparkJob)**
 
+Spark job specification.
+
 Includes only one of the fields `spark_job`, `pyspark_job`, `spark_connect_job`. ||
 || pyspark_job | **[PysparkJob](#yandex.cloud.spark.v1.PysparkJob)**
 
+PySpark job specification.
+
 Includes only one of the fields `spark_job`, `pyspark_job`, `spark_connect_job`. ||
 || spark_connect_job | **[SparkConnectJob](#yandex.cloud.spark.v1.SparkConnectJob)**
+
+Spark Connect job specification.
 
 Includes only one of the fields `spark_job`, `pyspark_job`, `spark_connect_job`. ||
 || service_account_id | **string**
 
 Service account used to access Cloud resources.
+
+The maximum string length in characters is 50. ||
+|| environment_id | **string**
+
+Job Environment ID.
 
 The maximum string length in characters is 50. ||
 |#

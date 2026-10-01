@@ -36,16 +36,14 @@
             * `Автоматически` — чтобы назначить случайный IP-адрес из пула адресов Yandex Cloud. В этом случае можно включить [защиту от DDoS-атак](../../vpc/ddos-protection/index.md) при помощи опции ниже.
             * `Список` — чтобы выбрать публичный IP-адрес из списка зарезервированных заранее статических адресов. Подробнее читайте в разделе [Сделать динамический публичный IP-адрес статическим](../../vpc/operations/set-static-ip.md).
 
-  1. (Опционально) В поле **Дополнительно**:
+  1. (Опционально) В поле **Защита от DDoS-атак** включите защиту от DDoS-атак.
+  1. (Опционально) В поле **Защита от удаления** включите защиту балансировщика от удаления.
 
-      * Включите защиту от DDoS-атак.
-      * Включите защиту балансировщика от удаления.
+      {% note warning %}
 
-        {% note warning %}
+      Включенная защита от удаления не запрещает удалять обработчики и целевые группы балансировщика.
 
-        Включенная защита от удаления не запрещает удалять обработчики и целевые группы балансировщика.
-
-        {% endnote %}
+      {% endnote %}
 
   1. В блоке **Обработчики** добавьте [обработчик](../concepts/listener.md):
      
@@ -257,6 +255,7 @@
         Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
      
      1. Если вас устраивают планируемые изменения, внесите их:
+     
         1. Выполните команду:
      
            ```bash
@@ -322,6 +321,7 @@
         Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
      
      1. Если вас устраивают планируемые изменения, внесите их:
+     
         1. Выполните команду:
      
            ```bash
@@ -333,7 +333,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом API [create](../api-ref/NetworkLoadBalancer/create.md) и передайте в теле запроса:
+  Воспользуйтесь методом REST API [create](../api-ref/NetworkLoadBalancer/create.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Create](../api-ref/grpc/NetworkLoadBalancer/create.md) и передайте в теле запроса:
 
   ```api
   {
@@ -342,6 +342,8 @@
     "type": "EXTERNAL"
   }
   ```
+
+  В gRPC API имена полей записываются в [snake_case](https://ru.wikipedia.org/wiki/Snake_case): `folder_id`.
 
 {% endlist %}
 
@@ -447,6 +449,7 @@
         Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
      
      1. Если вас устраивают планируемые изменения, внесите их:
+     
         1. Выполните команду:
      
            ```bash
@@ -458,7 +461,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом API [create](../api-ref/NetworkLoadBalancer/create.md) и передайте в теле запроса:
+  Воспользуйтесь методом REST API [create](../api-ref/NetworkLoadBalancer/create.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Create](../api-ref/grpc/NetworkLoadBalancer/create.md) и передайте в теле запроса:
 
   ```api
   {
@@ -496,5 +499,7 @@
     ]
   }
   ```
+
+  В gRPC API имена полей записываются в [snake_case](https://ru.wikipedia.org/wiki/Snake_case): `folder_id`, `listener_specs`, `target_port`, `external_address_spec`, `ip_version`, `attached_target_groups`, `target_group_id`, `health_checks`, `unhealthy_threshold`, `healthy_threshold`, `http_options`.
 
 {% endlist %}

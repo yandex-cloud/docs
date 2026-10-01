@@ -155,7 +155,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+  1. На панели сверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
   1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.

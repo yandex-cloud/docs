@@ -17,8 +17,8 @@ You can manage [maintenance](../../concepts/metastore-maintenance.md) of a {{ me
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
   1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
-  1. Click the name of your cluster and select the ![image](../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
+  1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.metastore.label_metastore }}**.
+  1. Click the name of your cluster and select ![image](../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
 
       To view maintenance jobs with a specific status, select the status you want from the **{{ ui-key.yacloud.mdb.maintenance.label_task-status }}** field above the list of maintenance jobs. To find a specific maintenance job, enter its ID or task name in the field above the list of maintenance jobs.
 
@@ -33,8 +33,8 @@ You can manage [maintenance](../../concepts/metastore-maintenance.md) of a {{ me
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
   1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
-  1. Click the name of your cluster and select the ![image](../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
+  1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.metastore.label_metastore }}**.
+  1. Click the name of your cluster and select ![image](../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
   1. Select a maintenance job. The maintenance page will open.
   1. Click **{{ ui-key.yacloud.mdb.maintenance.label_task-logs }}**.
 
@@ -53,8 +53,8 @@ To reschedule maintenance for a new date and time:
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
   1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
-  1. Click the name of your cluster and select the ![image](../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
+  1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.metastore.label_metastore }}**.
+  1. Click the name of your cluster and select ![image](../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the maintenance with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}** status and select ![image](../../../_assets/console-icons/arrow-uturn-cw-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_change-task-time }}**.
   1. Select the reschedule type for the planned maintenance:
     
@@ -82,8 +82,8 @@ To run a scheduled cluster maintenance job immediately:
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
   1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
-  1. Click the name of your cluster and select the ![image](../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
+  1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.metastore.label_metastore }}**.
+  1. Click the name of your cluster and select ![image](../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
   1. In the maintenance row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_exec-task-now }}**.
 
 {% endlist %}
@@ -97,8 +97,8 @@ To run a scheduled cluster maintenance job immediately:
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
   1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
-  1. Click the name of your cluster and select the ![image](../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
+  1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.metastore.label_metastore }}**.
+  1. Click the name of your cluster and select ![image](../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
   1. Click ![image](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}** in the top-right corner of the page.
   1. Select cluster [maintenance](../../concepts/metastore-maintenance.md) time:
 

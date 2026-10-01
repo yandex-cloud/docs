@@ -13,12 +13,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for each VM ({{ managed-k8s-name }} cluster nodes, DNS server, management VMs without public access) that covers the use of computing resources, the operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for VMs' public IP addresses (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* DNS zone and DNS query fee (see [{{ dns-name }} pricing](../../dns/pricing.md)).
+* Public DNS requests and DNS zone (see [{{ dns-full-name }} pricing](../../dns/pricing.md)).
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Public IP addresses for the {{ managed-k8s-name }} cluster's master and nodes with public access enabled (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* VM instance: use of computing resources, storage, a public IP address, and the OS if the DNS server is deployed on a VM (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
 
 ## Getting started {#before-you-begin}

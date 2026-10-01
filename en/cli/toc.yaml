@@ -1341,6 +1341,9 @@ items:
                       - name: list-stackland-cluster-operations
                         href: >-
                           cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/list-stackland-cluster-operations.md
+                      - name: list-stackland-versions
+                        href: >-
+                          cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/list-stackland-versions.md
                       - name: update
                         href: >-
                           cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/update.md
@@ -1360,6 +1363,8 @@ items:
                     href: cli-ref/baremetal/cli-ref/v2/image/get.md
                   - name: list
                     href: cli-ref/baremetal/cli-ref/v2/image/list.md
+                  - name: list-compatible
+                    href: cli-ref/baremetal/cli-ref/v2/image/list-compatible.md
                   - name: resolve
                     href: cli-ref/baremetal/cli-ref/v2/image/resolve.md
               - name: private-cloud-connection
@@ -1508,6 +1513,99 @@ items:
                 href: cli-ref/baremetal/cli-ref/zone/get.md
               - name: list
                 href: cli-ref/baremetal/cli-ref/zone/list.md
+      - name: billing
+        items:
+          - name: Overview
+            href: cli-ref/billing/cli-ref/index.md
+          - name: consumption-core
+            items:
+              - name: Overview
+                href: cli-ref/billing/cli-ref/consumption-core/index.md
+              - name: get-billing-account-usage-report
+                href: >-
+                  cli-ref/billing/cli-ref/consumption-core/get-billing-account-usage-report.md
+              - name: get-cloud-usage-report
+                href: >-
+                  cli-ref/billing/cli-ref/consumption-core/get-cloud-usage-report.md
+              - name: get-folder-usage-report
+                href: >-
+                  cli-ref/billing/cli-ref/consumption-core/get-folder-usage-report.md
+              - name: get-label-key-usage-report
+                href: >-
+                  cli-ref/billing/cli-ref/consumption-core/get-label-key-usage-report.md
+              - name: get-resource-usage-report
+                href: >-
+                  cli-ref/billing/cli-ref/consumption-core/get-resource-usage-report.md
+              - name: get-service-instance-usage-report
+                href: >-
+                  cli-ref/billing/cli-ref/consumption-core/get-service-instance-usage-report.md
+              - name: get-service-usage-report
+                href: >-
+                  cli-ref/billing/cli-ref/consumption-core/get-service-usage-report.md
+              - name: get-sku-usage-report
+                href: >-
+                  cli-ref/billing/cli-ref/consumption-core/get-sku-usage-report.md
+          - name: metadata
+            items:
+              - name: Overview
+                href: cli-ref/billing/cli-ref/metadata/index.md
+              - name: get-cloud
+                href: cli-ref/billing/cli-ref/metadata/get-cloud.md
+              - name: get-label
+                href: cli-ref/billing/cli-ref/metadata/get-label.md
+              - name: get-resources
+                href: cli-ref/billing/cli-ref/metadata/get-resources.md
+              - name: get-service-instance
+                href: cli-ref/billing/cli-ref/metadata/get-service-instance.md
+              - name: get-usage
+                href: cli-ref/billing/cli-ref/metadata/get-usage.md
+          - name: v1
+            items:
+              - name: Overview
+                href: cli-ref/billing/cli-ref/v1/index.md
+              - name: consumption-core
+                items:
+                  - name: Overview
+                    href: cli-ref/billing/cli-ref/v1/consumption-core/index.md
+                  - name: get-billing-account-usage-report
+                    href: >-
+                      cli-ref/billing/cli-ref/v1/consumption-core/get-billing-account-usage-report.md
+                  - name: get-cloud-usage-report
+                    href: >-
+                      cli-ref/billing/cli-ref/v1/consumption-core/get-cloud-usage-report.md
+                  - name: get-folder-usage-report
+                    href: >-
+                      cli-ref/billing/cli-ref/v1/consumption-core/get-folder-usage-report.md
+                  - name: get-label-key-usage-report
+                    href: >-
+                      cli-ref/billing/cli-ref/v1/consumption-core/get-label-key-usage-report.md
+                  - name: get-resource-usage-report
+                    href: >-
+                      cli-ref/billing/cli-ref/v1/consumption-core/get-resource-usage-report.md
+                  - name: get-service-instance-usage-report
+                    href: >-
+                      cli-ref/billing/cli-ref/v1/consumption-core/get-service-instance-usage-report.md
+                  - name: get-service-usage-report
+                    href: >-
+                      cli-ref/billing/cli-ref/v1/consumption-core/get-service-usage-report.md
+                  - name: get-sku-usage-report
+                    href: >-
+                      cli-ref/billing/cli-ref/v1/consumption-core/get-sku-usage-report.md
+              - name: metadata
+                items:
+                  - name: Overview
+                    href: cli-ref/billing/cli-ref/v1/metadata/index.md
+                  - name: get-cloud
+                    href: cli-ref/billing/cli-ref/v1/metadata/get-cloud.md
+                  - name: get-label
+                    href: cli-ref/billing/cli-ref/v1/metadata/get-label.md
+                  - name: get-resources
+                    href: cli-ref/billing/cli-ref/v1/metadata/get-resources.md
+                  - name: get-service-instance
+                    href: >-
+                      cli-ref/billing/cli-ref/v1/metadata/get-service-instance.md
+                  - name: get-usage
+                    href: cli-ref/billing/cli-ref/v1/metadata/get-usage.md
       - name: cdn
         items:
           - name: Overview
@@ -2067,8 +2165,25 @@ items:
             items:
               - name: Overview
                 href: cli-ref/cloud-registry/cli-ref/migration/index.md
+              - name: get-cloud-migration-status-dashboard
+                href: >-
+                  cli-ref/cloud-registry/cli-ref/migration/get-cloud-migration-status-dashboard.md
+              - name: get-folder-migration-status-dashboard
+                href: >-
+                  cli-ref/cloud-registry/cli-ref/migration/get-folder-migration-status-dashboard.md
               - name: start-cloud
                 href: cli-ref/cloud-registry/cli-ref/migration/start-cloud.md
+              - name: start-folder
+                href: cli-ref/cloud-registry/cli-ref/migration/start-folder.md
+              - name: toggle-cloud-redirects
+                href: >-
+                  cli-ref/cloud-registry/cli-ref/migration/toggle-cloud-redirects.md
+              - name: toggle-folder-redirects
+                href: >-
+                  cli-ref/cloud-registry/cli-ref/migration/toggle-folder-redirects.md
+              - name: toggle-registry-redirects
+                href: >-
+                  cli-ref/cloud-registry/cli-ref/migration/toggle-registry-redirects.md
           - name: registry
             items:
               - name: Overview
@@ -2383,8 +2498,26 @@ items:
                 items:
                   - name: Overview
                     href: cli-ref/cloud-registry/cli-ref/v1/migration/index.md
+                  - name: get-cloud-migration-status-dashboard
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/v1/migration/get-cloud-migration-status-dashboard.md
+                  - name: get-folder-migration-status-dashboard
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/v1/migration/get-folder-migration-status-dashboard.md
                   - name: start-cloud
                     href: cli-ref/cloud-registry/cli-ref/v1/migration/start-cloud.md
+                  - name: start-folder
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/v1/migration/start-folder.md
+                  - name: toggle-cloud-redirects
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/v1/migration/toggle-cloud-redirects.md
+                  - name: toggle-folder-redirects
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/v1/migration/toggle-folder-redirects.md
+                  - name: toggle-registry-redirects
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/v1/migration/toggle-registry-redirects.md
               - name: registry
                 items:
                   - name: Overview
@@ -3874,6 +4007,8 @@ items:
                 href: cli-ref/container/cli-ref/registry/create.md
               - name: delete
                 href: cli-ref/container/cli-ref/registry/delete.md
+              - name: force-delete
+                href: cli-ref/container/cli-ref/registry/force-delete.md
               - name: get
                 href: cli-ref/container/cli-ref/registry/get.md
               - name: list
@@ -4059,6 +4194,8 @@ items:
                     href: cli-ref/container/cli-ref/v0/registry/create.md
                   - name: delete
                     href: cli-ref/container/cli-ref/v0/registry/delete.md
+                  - name: force-delete
+                    href: cli-ref/container/cli-ref/v0/registry/force-delete.md
                   - name: get
                     href: cli-ref/container/cli-ref/v0/registry/get.md
                   - name: list
@@ -4141,6 +4278,20 @@ items:
         items:
           - name: Overview
             href: cli-ref/dataproc/cli-ref/index.md
+          - name: change-freeze
+            items:
+              - name: Overview
+                href: cli-ref/dataproc/cli-ref/change-freeze/index.md
+              - name: create
+                href: cli-ref/dataproc/cli-ref/change-freeze/create.md
+              - name: get
+                href: cli-ref/dataproc/cli-ref/change-freeze/get.md
+              - name: get-limits
+                href: cli-ref/dataproc/cli-ref/change-freeze/get-limits.md
+              - name: list
+                href: cli-ref/dataproc/cli-ref/change-freeze/list.md
+              - name: terminate
+                href: cli-ref/dataproc/cli-ref/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -4223,6 +4374,20 @@ items:
             items:
               - name: Overview
                 href: cli-ref/dataproc/cli-ref/v0/index.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: cli-ref/dataproc/cli-ref/v0/change-freeze/index.md
+                  - name: create
+                    href: cli-ref/dataproc/cli-ref/v0/change-freeze/create.md
+                  - name: get
+                    href: cli-ref/dataproc/cli-ref/v0/change-freeze/get.md
+                  - name: get-limits
+                    href: cli-ref/dataproc/cli-ref/v0/change-freeze/get-limits.md
+                  - name: list
+                    href: cli-ref/dataproc/cli-ref/v0/change-freeze/list.md
+                  - name: terminate
+                    href: cli-ref/dataproc/cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -5021,6 +5186,14 @@ items:
                 href: cli-ref/iam/cli-ref/service-control/get.md
               - name: list
                 href: cli-ref/iam/cli-ref/service-control/list.md
+          - name: subject-details
+            items:
+              - name: Overview
+                href: cli-ref/iam/cli-ref/subject-details/index.md
+              - name: get
+                href: cli-ref/iam/cli-ref/subject-details/get.md
+              - name: list
+                href: cli-ref/iam/cli-ref/subject-details/list.md
           - name: user-account
             items:
               - name: Overview
@@ -5184,6 +5357,14 @@ items:
                     href: cli-ref/iam/cli-ref/v0/service-control/get.md
                   - name: list
                     href: cli-ref/iam/cli-ref/v0/service-control/list.md
+              - name: subject-details
+                items:
+                  - name: Overview
+                    href: cli-ref/iam/cli-ref/v0/subject-details/index.md
+                  - name: get
+                    href: cli-ref/iam/cli-ref/v0/subject-details/get.md
+                  - name: list
+                    href: cli-ref/iam/cli-ref/v0/subject-details/list.md
               - name: user-account
                 items:
                   - name: Overview
@@ -6261,6 +6442,20 @@ items:
         items:
           - name: Overview
             href: cli-ref/managed-airflow/cli-ref/index.md
+          - name: change-freeze
+            items:
+              - name: Overview
+                href: cli-ref/managed-airflow/cli-ref/change-freeze/index.md
+              - name: create
+                href: cli-ref/managed-airflow/cli-ref/change-freeze/create.md
+              - name: get
+                href: cli-ref/managed-airflow/cli-ref/change-freeze/get.md
+              - name: get-limits
+                href: cli-ref/managed-airflow/cli-ref/change-freeze/get-limits.md
+              - name: list
+                href: cli-ref/managed-airflow/cli-ref/change-freeze/list.md
+              - name: terminate
+                href: cli-ref/managed-airflow/cli-ref/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -6295,6 +6490,22 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-airflow/cli-ref/v0/index.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-airflow/cli-ref/v0/change-freeze/index.md
+                  - name: create
+                    href: cli-ref/managed-airflow/cli-ref/v0/change-freeze/create.md
+                  - name: get
+                    href: cli-ref/managed-airflow/cli-ref/v0/change-freeze/get.md
+                  - name: get-limits
+                    href: >-
+                      cli-ref/managed-airflow/cli-ref/v0/change-freeze/get-limits.md
+                  - name: list
+                    href: cli-ref/managed-airflow/cli-ref/v0/change-freeze/list.md
+                  - name: terminate
+                    href: >-
+                      cli-ref/managed-airflow/cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -6342,6 +6553,20 @@ items:
                 href: cli-ref/managed-clickhouse/cli-ref/backup/get.md
               - name: list
                 href: cli-ref/managed-clickhouse/cli-ref/backup/list.md
+          - name: change-freeze
+            items:
+              - name: Overview
+                href: cli-ref/managed-clickhouse/cli-ref/change-freeze/index.md
+              - name: create
+                href: cli-ref/managed-clickhouse/cli-ref/change-freeze/create.md
+              - name: get
+                href: cli-ref/managed-clickhouse/cli-ref/change-freeze/get.md
+              - name: get-limits
+                href: cli-ref/managed-clickhouse/cli-ref/change-freeze/get-limits.md
+              - name: list
+                href: cli-ref/managed-clickhouse/cli-ref/change-freeze/list.md
+              - name: terminate
+                href: cli-ref/managed-clickhouse/cli-ref/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -6393,6 +6618,9 @@ items:
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/list-logs.md
               - name: list-operations
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/list-operations.md
+              - name: migrate-to-keeper
+                href: >-
+                  cli-ref/managed-clickhouse/cli-ref/cluster/migrate-to-keeper.md
               - name: move
                 href: cli-ref/managed-clickhouse/cli-ref/cluster/move.md
               - name: remove-access-binding
@@ -6484,6 +6712,16 @@ items:
                 href: cli-ref/managed-clickhouse/cli-ref/hosts/restart.md
               - name: update
                 href: cli-ref/managed-clickhouse/cli-ref/hosts/update.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/managed-clickhouse/cli-ref/maintenance/index.md
+              - name: get
+                href: cli-ref/managed-clickhouse/cli-ref/maintenance/get.md
+              - name: list
+                href: cli-ref/managed-clickhouse/cli-ref/maintenance/list.md
+              - name: reschedule
+                href: cli-ref/managed-clickhouse/cli-ref/maintenance/reschedule.md
           - name: ml-model
             items:
               - name: Overview
@@ -6574,6 +6812,25 @@ items:
                     href: cli-ref/managed-clickhouse/cli-ref/v0/backup/get.md
                   - name: list
                     href: cli-ref/managed-clickhouse/cli-ref/v0/backup/list.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/managed-clickhouse/cli-ref/v0/change-freeze/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/managed-clickhouse/cli-ref/v0/change-freeze/create.md
+                  - name: get
+                    href: cli-ref/managed-clickhouse/cli-ref/v0/change-freeze/get.md
+                  - name: get-limits
+                    href: >-
+                      cli-ref/managed-clickhouse/cli-ref/v0/change-freeze/get-limits.md
+                  - name: list
+                    href: >-
+                      cli-ref/managed-clickhouse/cli-ref/v0/change-freeze/list.md
+                  - name: terminate
+                    href: >-
+                      cli-ref/managed-clickhouse/cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -6632,6 +6889,9 @@ items:
                   - name: list-operations
                     href: >-
                       cli-ref/managed-clickhouse/cli-ref/v0/cluster/list-operations.md
+                  - name: migrate-to-keeper
+                    href: >-
+                      cli-ref/managed-clickhouse/cli-ref/v0/cluster/migrate-to-keeper.md
                   - name: move
                     href: cli-ref/managed-clickhouse/cli-ref/v0/cluster/move.md
                   - name: remove-access-binding
@@ -6733,6 +6993,17 @@ items:
                     href: cli-ref/managed-clickhouse/cli-ref/v0/hosts/restart.md
                   - name: update
                     href: cli-ref/managed-clickhouse/cli-ref/v0/hosts/update.md
+              - name: maintenance
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-clickhouse/cli-ref/v0/maintenance/index.md
+                  - name: get
+                    href: cli-ref/managed-clickhouse/cli-ref/v0/maintenance/get.md
+                  - name: list
+                    href: cli-ref/managed-clickhouse/cli-ref/v0/maintenance/list.md
+                  - name: reschedule
+                    href: >-
+                      cli-ref/managed-clickhouse/cli-ref/v0/maintenance/reschedule.md
               - name: ml-model
                 items:
                   - name: Overview
@@ -6889,6 +7160,20 @@ items:
                 href: cli-ref/managed-greenplum/cli-ref/backup/get.md
               - name: list
                 href: cli-ref/managed-greenplum/cli-ref/backup/list.md
+          - name: change-freeze
+            items:
+              - name: Overview
+                href: cli-ref/managed-greenplum/cli-ref/change-freeze/index.md
+              - name: create
+                href: cli-ref/managed-greenplum/cli-ref/change-freeze/create.md
+              - name: get
+                href: cli-ref/managed-greenplum/cli-ref/change-freeze/get.md
+              - name: get-limits
+                href: cli-ref/managed-greenplum/cli-ref/change-freeze/get-limits.md
+              - name: list
+                href: cli-ref/managed-greenplum/cli-ref/change-freeze/list.md
+              - name: terminate
+                href: cli-ref/managed-greenplum/cli-ref/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -6948,6 +7233,8 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-greenplum/cli-ref/hba-rules/index.md
+              - name: batch-update
+                href: cli-ref/managed-greenplum/cli-ref/hba-rules/batch-update.md
               - name: create
                 href: cli-ref/managed-greenplum/cli-ref/hba-rules/create.md
               - name: delete
@@ -6970,6 +7257,16 @@ items:
                     href: cli-ref/managed-greenplum/cli-ref/hosts/list/master.md
                   - name: segment
                     href: cli-ref/managed-greenplum/cli-ref/hosts/list/segment.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/managed-greenplum/cli-ref/maintenance/index.md
+              - name: get
+                href: cli-ref/managed-greenplum/cli-ref/maintenance/get.md
+              - name: list
+                href: cli-ref/managed-greenplum/cli-ref/maintenance/list.md
+              - name: reschedule
+                href: cli-ref/managed-greenplum/cli-ref/maintenance/reschedule.md
           - name: pxf-datasource
             items:
               - name: Overview
@@ -7070,6 +7367,24 @@ items:
                     href: cli-ref/managed-greenplum/cli-ref/v0/backup/get.md
                   - name: list
                     href: cli-ref/managed-greenplum/cli-ref/v0/backup/list.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/managed-greenplum/cli-ref/v0/change-freeze/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/managed-greenplum/cli-ref/v0/change-freeze/create.md
+                  - name: get
+                    href: cli-ref/managed-greenplum/cli-ref/v0/change-freeze/get.md
+                  - name: get-limits
+                    href: >-
+                      cli-ref/managed-greenplum/cli-ref/v0/change-freeze/get-limits.md
+                  - name: list
+                    href: cli-ref/managed-greenplum/cli-ref/v0/change-freeze/list.md
+                  - name: terminate
+                    href: >-
+                      cli-ref/managed-greenplum/cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -7133,6 +7448,9 @@ items:
                 items:
                   - name: Overview
                     href: cli-ref/managed-greenplum/cli-ref/v0/hba-rules/index.md
+                  - name: batch-update
+                    href: >-
+                      cli-ref/managed-greenplum/cli-ref/v0/hba-rules/batch-update.md
                   - name: create
                     href: cli-ref/managed-greenplum/cli-ref/v0/hba-rules/create.md
                   - name: delete
@@ -7158,6 +7476,17 @@ items:
                       - name: segment
                         href: >-
                           cli-ref/managed-greenplum/cli-ref/v0/hosts/list/segment.md
+              - name: maintenance
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-greenplum/cli-ref/v0/maintenance/index.md
+                  - name: get
+                    href: cli-ref/managed-greenplum/cli-ref/v0/maintenance/get.md
+                  - name: list
+                    href: cli-ref/managed-greenplum/cli-ref/v0/maintenance/list.md
+                  - name: reschedule
+                    href: >-
+                      cli-ref/managed-greenplum/cli-ref/v0/maintenance/reschedule.md
               - name: pxf-datasource
                 items:
                   - name: Overview
@@ -7258,6 +7587,20 @@ items:
         items:
           - name: Overview
             href: cli-ref/managed-kafka/cli-ref/index.md
+          - name: change-freeze
+            items:
+              - name: Overview
+                href: cli-ref/managed-kafka/cli-ref/change-freeze/index.md
+              - name: create
+                href: cli-ref/managed-kafka/cli-ref/change-freeze/create.md
+              - name: get
+                href: cli-ref/managed-kafka/cli-ref/change-freeze/get.md
+              - name: get-limits
+                href: cli-ref/managed-kafka/cli-ref/change-freeze/get-limits.md
+              - name: list
+                href: cli-ref/managed-kafka/cli-ref/change-freeze/list.md
+              - name: terminate
+                href: cli-ref/managed-kafka/cli-ref/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -7333,6 +7676,16 @@ items:
                 href: cli-ref/managed-kafka/cli-ref/connector-s3-sink/create.md
               - name: update
                 href: cli-ref/managed-kafka/cli-ref/connector-s3-sink/update.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/managed-kafka/cli-ref/maintenance/index.md
+              - name: get
+                href: cli-ref/managed-kafka/cli-ref/maintenance/get.md
+              - name: list
+                href: cli-ref/managed-kafka/cli-ref/maintenance/list.md
+              - name: reschedule
+                href: cli-ref/managed-kafka/cli-ref/maintenance/reschedule.md
           - name: topic
             items:
               - name: Overview
@@ -7369,6 +7722,22 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-kafka/cli-ref/v0/index.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-kafka/cli-ref/v0/change-freeze/index.md
+                  - name: create
+                    href: cli-ref/managed-kafka/cli-ref/v0/change-freeze/create.md
+                  - name: get
+                    href: cli-ref/managed-kafka/cli-ref/v0/change-freeze/get.md
+                  - name: get-limits
+                    href: >-
+                      cli-ref/managed-kafka/cli-ref/v0/change-freeze/get-limits.md
+                  - name: list
+                    href: cli-ref/managed-kafka/cli-ref/v0/change-freeze/list.md
+                  - name: terminate
+                    href: >-
+                      cli-ref/managed-kafka/cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -7458,6 +7827,16 @@ items:
                   - name: update
                     href: >-
                       cli-ref/managed-kafka/cli-ref/v0/connector-s3-sink/update.md
+              - name: maintenance
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-kafka/cli-ref/v0/maintenance/index.md
+                  - name: get
+                    href: cli-ref/managed-kafka/cli-ref/v0/maintenance/get.md
+                  - name: list
+                    href: cli-ref/managed-kafka/cli-ref/v0/maintenance/list.md
+                  - name: reschedule
+                    href: cli-ref/managed-kafka/cli-ref/v0/maintenance/reschedule.md
               - name: topic
                 items:
                   - name: Overview
@@ -7745,6 +8124,20 @@ items:
         items:
           - name: Overview
             href: cli-ref/managed-metastore/cli-ref/index.md
+          - name: change-freeze
+            items:
+              - name: Overview
+                href: cli-ref/managed-metastore/cli-ref/change-freeze/index.md
+              - name: create
+                href: cli-ref/managed-metastore/cli-ref/change-freeze/create.md
+              - name: get
+                href: cli-ref/managed-metastore/cli-ref/change-freeze/get.md
+              - name: get-limits
+                href: cli-ref/managed-metastore/cli-ref/change-freeze/get-limits.md
+              - name: list
+                href: cli-ref/managed-metastore/cli-ref/change-freeze/list.md
+              - name: terminate
+                href: cli-ref/managed-metastore/cli-ref/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -7785,6 +8178,24 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-metastore/cli-ref/v0/index.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/managed-metastore/cli-ref/v0/change-freeze/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/managed-metastore/cli-ref/v0/change-freeze/create.md
+                  - name: get
+                    href: cli-ref/managed-metastore/cli-ref/v0/change-freeze/get.md
+                  - name: get-limits
+                    href: >-
+                      cli-ref/managed-metastore/cli-ref/v0/change-freeze/get-limits.md
+                  - name: list
+                    href: cli-ref/managed-metastore/cli-ref/v0/change-freeze/list.md
+                  - name: terminate
+                    href: >-
+                      cli-ref/managed-metastore/cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -7852,6 +8263,20 @@ items:
               - name: list
                 href: >-
                   cli-ref/managed-mongodb/cli-ref/backup-retention-policy/list.md
+          - name: change-freeze
+            items:
+              - name: Overview
+                href: cli-ref/managed-mongodb/cli-ref/change-freeze/index.md
+              - name: create
+                href: cli-ref/managed-mongodb/cli-ref/change-freeze/create.md
+              - name: get
+                href: cli-ref/managed-mongodb/cli-ref/change-freeze/get.md
+              - name: get-limits
+                href: cli-ref/managed-mongodb/cli-ref/change-freeze/get-limits.md
+              - name: list
+                href: cli-ref/managed-mongodb/cli-ref/change-freeze/list.md
+              - name: terminate
+                href: cli-ref/managed-mongodb/cli-ref/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -7935,6 +8360,16 @@ items:
                 href: cli-ref/managed-mongodb/cli-ref/hosts/stepdown.md
               - name: update
                 href: cli-ref/managed-mongodb/cli-ref/hosts/update.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/managed-mongodb/cli-ref/maintenance/index.md
+              - name: get
+                href: cli-ref/managed-mongodb/cli-ref/maintenance/get.md
+              - name: list
+                href: cli-ref/managed-mongodb/cli-ref/maintenance/list.md
+              - name: reschedule
+                href: cli-ref/managed-mongodb/cli-ref/maintenance/reschedule.md
           - name: resource-preset
             items:
               - name: Overview
@@ -8001,6 +8436,22 @@ items:
                   - name: list
                     href: >-
                       cli-ref/managed-mongodb/cli-ref/v0/backup-retention-policy/list.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-mongodb/cli-ref/v0/change-freeze/index.md
+                  - name: create
+                    href: cli-ref/managed-mongodb/cli-ref/v0/change-freeze/create.md
+                  - name: get
+                    href: cli-ref/managed-mongodb/cli-ref/v0/change-freeze/get.md
+                  - name: get-limits
+                    href: >-
+                      cli-ref/managed-mongodb/cli-ref/v0/change-freeze/get-limits.md
+                  - name: list
+                    href: cli-ref/managed-mongodb/cli-ref/v0/change-freeze/list.md
+                  - name: terminate
+                    href: >-
+                      cli-ref/managed-mongodb/cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -8090,6 +8541,17 @@ items:
                     href: cli-ref/managed-mongodb/cli-ref/v0/hosts/stepdown.md
                   - name: update
                     href: cli-ref/managed-mongodb/cli-ref/v0/hosts/update.md
+              - name: maintenance
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-mongodb/cli-ref/v0/maintenance/index.md
+                  - name: get
+                    href: cli-ref/managed-mongodb/cli-ref/v0/maintenance/get.md
+                  - name: list
+                    href: cli-ref/managed-mongodb/cli-ref/v0/maintenance/list.md
+                  - name: reschedule
+                    href: >-
+                      cli-ref/managed-mongodb/cli-ref/v0/maintenance/reschedule.md
               - name: resource-preset
                 items:
                   - name: Overview
@@ -8158,6 +8620,20 @@ items:
               - name: list-by-folder
                 href: >-
                   cli-ref/managed-mysql/cli-ref/backup-retention-policy/list-by-folder.md
+          - name: change-freeze
+            items:
+              - name: Overview
+                href: cli-ref/managed-mysql/cli-ref/change-freeze/index.md
+              - name: create
+                href: cli-ref/managed-mysql/cli-ref/change-freeze/create.md
+              - name: get
+                href: cli-ref/managed-mysql/cli-ref/change-freeze/get.md
+              - name: get-limits
+                href: cli-ref/managed-mysql/cli-ref/change-freeze/get-limits.md
+              - name: list
+                href: cli-ref/managed-mysql/cli-ref/change-freeze/list.md
+              - name: terminate
+                href: cli-ref/managed-mysql/cli-ref/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -8237,6 +8713,16 @@ items:
                 href: cli-ref/managed-mysql/cli-ref/hosts/list.md
               - name: update
                 href: cli-ref/managed-mysql/cli-ref/hosts/update.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/managed-mysql/cli-ref/maintenance/index.md
+              - name: get
+                href: cli-ref/managed-mysql/cli-ref/maintenance/get.md
+              - name: list
+                href: cli-ref/managed-mysql/cli-ref/maintenance/list.md
+              - name: reschedule
+                href: cli-ref/managed-mysql/cli-ref/maintenance/reschedule.md
           - name: resource-preset
             items:
               - name: Overview
@@ -8292,6 +8778,22 @@ items:
                   - name: list-by-folder
                     href: >-
                       cli-ref/managed-mysql/cli-ref/v0/backup-retention-policy/list-by-folder.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-mysql/cli-ref/v0/change-freeze/index.md
+                  - name: create
+                    href: cli-ref/managed-mysql/cli-ref/v0/change-freeze/create.md
+                  - name: get
+                    href: cli-ref/managed-mysql/cli-ref/v0/change-freeze/get.md
+                  - name: get-limits
+                    href: >-
+                      cli-ref/managed-mysql/cli-ref/v0/change-freeze/get-limits.md
+                  - name: list
+                    href: cli-ref/managed-mysql/cli-ref/v0/change-freeze/list.md
+                  - name: terminate
+                    href: >-
+                      cli-ref/managed-mysql/cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -8376,6 +8878,16 @@ items:
                     href: cli-ref/managed-mysql/cli-ref/v0/hosts/list.md
                   - name: update
                     href: cli-ref/managed-mysql/cli-ref/v0/hosts/update.md
+              - name: maintenance
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-mysql/cli-ref/v0/maintenance/index.md
+                  - name: get
+                    href: cli-ref/managed-mysql/cli-ref/v0/maintenance/get.md
+                  - name: list
+                    href: cli-ref/managed-mysql/cli-ref/v0/maintenance/list.md
+                  - name: reschedule
+                    href: cli-ref/managed-mysql/cli-ref/v0/maintenance/reschedule.md
               - name: resource-preset
                 items:
                   - name: Overview
@@ -8422,6 +8934,20 @@ items:
                 href: cli-ref/managed-opensearch/cli-ref/backup/get.md
               - name: list
                 href: cli-ref/managed-opensearch/cli-ref/backup/list.md
+          - name: change-freeze
+            items:
+              - name: Overview
+                href: cli-ref/managed-opensearch/cli-ref/change-freeze/index.md
+              - name: create
+                href: cli-ref/managed-opensearch/cli-ref/change-freeze/create.md
+              - name: get
+                href: cli-ref/managed-opensearch/cli-ref/change-freeze/get.md
+              - name: get-limits
+                href: cli-ref/managed-opensearch/cli-ref/change-freeze/get-limits.md
+              - name: list
+                href: cli-ref/managed-opensearch/cli-ref/change-freeze/list.md
+              - name: terminate
+                href: cli-ref/managed-opensearch/cli-ref/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -8444,6 +8970,8 @@ items:
                   cli-ref/managed-opensearch/cli-ref/cluster/list-access-bindings.md
               - name: list-backups
                 href: cli-ref/managed-opensearch/cli-ref/cluster/list-backups.md
+              - name: move
+                href: cli-ref/managed-opensearch/cli-ref/cluster/move.md
               - name: remove-access-binding
                 href: >-
                   cli-ref/managed-opensearch/cli-ref/cluster/remove-access-binding.md
@@ -8477,6 +9005,16 @@ items:
                 href: cli-ref/managed-opensearch/cli-ref/extension/list.md
               - name: update
                 href: cli-ref/managed-opensearch/cli-ref/extension/update.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/managed-opensearch/cli-ref/maintenance/index.md
+              - name: get
+                href: cli-ref/managed-opensearch/cli-ref/maintenance/get.md
+              - name: list
+                href: cli-ref/managed-opensearch/cli-ref/maintenance/list.md
+              - name: reschedule
+                href: cli-ref/managed-opensearch/cli-ref/maintenance/reschedule.md
           - name: node-group
             items:
               - name: Overview
@@ -8517,6 +9055,25 @@ items:
                     href: cli-ref/managed-opensearch/cli-ref/v0/backup/get.md
                   - name: list
                     href: cli-ref/managed-opensearch/cli-ref/v0/backup/list.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/managed-opensearch/cli-ref/v0/change-freeze/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/managed-opensearch/cli-ref/v0/change-freeze/create.md
+                  - name: get
+                    href: cli-ref/managed-opensearch/cli-ref/v0/change-freeze/get.md
+                  - name: get-limits
+                    href: >-
+                      cli-ref/managed-opensearch/cli-ref/v0/change-freeze/get-limits.md
+                  - name: list
+                    href: >-
+                      cli-ref/managed-opensearch/cli-ref/v0/change-freeze/list.md
+                  - name: terminate
+                    href: >-
+                      cli-ref/managed-opensearch/cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -8540,6 +9097,8 @@ items:
                   - name: list-backups
                     href: >-
                       cli-ref/managed-opensearch/cli-ref/v0/cluster/list-backups.md
+                  - name: move
+                    href: cli-ref/managed-opensearch/cli-ref/v0/cluster/move.md
                   - name: remove-access-binding
                     href: >-
                       cli-ref/managed-opensearch/cli-ref/v0/cluster/remove-access-binding.md
@@ -8574,6 +9133,17 @@ items:
                     href: cli-ref/managed-opensearch/cli-ref/v0/extension/list.md
                   - name: update
                     href: cli-ref/managed-opensearch/cli-ref/v0/extension/update.md
+              - name: maintenance
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-opensearch/cli-ref/v0/maintenance/index.md
+                  - name: get
+                    href: cli-ref/managed-opensearch/cli-ref/v0/maintenance/get.md
+                  - name: list
+                    href: cli-ref/managed-opensearch/cli-ref/v0/maintenance/list.md
+                  - name: reschedule
+                    href: >-
+                      cli-ref/managed-opensearch/cli-ref/v0/maintenance/reschedule.md
               - name: node-group
                 items:
                   - name: Overview
@@ -8620,6 +9190,20 @@ items:
               - name: list
                 href: >-
                   cli-ref/managed-postgresql/cli-ref/backup-retention-policy/list.md
+          - name: change-freeze
+            items:
+              - name: Overview
+                href: cli-ref/managed-postgresql/cli-ref/change-freeze/index.md
+              - name: create
+                href: cli-ref/managed-postgresql/cli-ref/change-freeze/create.md
+              - name: get
+                href: cli-ref/managed-postgresql/cli-ref/change-freeze/get.md
+              - name: get-limits
+                href: cli-ref/managed-postgresql/cli-ref/change-freeze/get-limits.md
+              - name: list
+                href: cli-ref/managed-postgresql/cli-ref/change-freeze/list.md
+              - name: terminate
+                href: cli-ref/managed-postgresql/cli-ref/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -8705,6 +9289,16 @@ items:
                 href: cli-ref/managed-postgresql/cli-ref/hosts/update.md
               - name: update-config
                 href: cli-ref/managed-postgresql/cli-ref/hosts/update-config.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/managed-postgresql/cli-ref/maintenance/index.md
+              - name: get
+                href: cli-ref/managed-postgresql/cli-ref/maintenance/get.md
+              - name: list
+                href: cli-ref/managed-postgresql/cli-ref/maintenance/list.md
+              - name: reschedule
+                href: cli-ref/managed-postgresql/cli-ref/maintenance/reschedule.md
           - name: performance-diagnostics
             items:
               - name: Overview
@@ -8780,6 +9374,25 @@ items:
                   - name: list
                     href: >-
                       cli-ref/managed-postgresql/cli-ref/v0/backup-retention-policy/list.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/managed-postgresql/cli-ref/v0/change-freeze/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/managed-postgresql/cli-ref/v0/change-freeze/create.md
+                  - name: get
+                    href: cli-ref/managed-postgresql/cli-ref/v0/change-freeze/get.md
+                  - name: get-limits
+                    href: >-
+                      cli-ref/managed-postgresql/cli-ref/v0/change-freeze/get-limits.md
+                  - name: list
+                    href: >-
+                      cli-ref/managed-postgresql/cli-ref/v0/change-freeze/list.md
+                  - name: terminate
+                    href: >-
+                      cli-ref/managed-postgresql/cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -8873,6 +9486,17 @@ items:
                   - name: update-config
                     href: >-
                       cli-ref/managed-postgresql/cli-ref/v0/hosts/update-config.md
+              - name: maintenance
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-postgresql/cli-ref/v0/maintenance/index.md
+                  - name: get
+                    href: cli-ref/managed-postgresql/cli-ref/v0/maintenance/get.md
+                  - name: list
+                    href: cli-ref/managed-postgresql/cli-ref/v0/maintenance/list.md
+                  - name: reschedule
+                    href: >-
+                      cli-ref/managed-postgresql/cli-ref/v0/maintenance/reschedule.md
               - name: performance-diagnostics
                 items:
                   - name: Overview
@@ -8952,6 +9576,20 @@ items:
                   cli-ref/managed-redis/cli-ref/backup-retention-policy/delete.md
               - name: list
                 href: cli-ref/managed-redis/cli-ref/backup-retention-policy/list.md
+          - name: change-freeze
+            items:
+              - name: Overview
+                href: cli-ref/managed-redis/cli-ref/change-freeze/index.md
+              - name: create
+                href: cli-ref/managed-redis/cli-ref/change-freeze/create.md
+              - name: get
+                href: cli-ref/managed-redis/cli-ref/change-freeze/get.md
+              - name: get-limits
+                href: cli-ref/managed-redis/cli-ref/change-freeze/get-limits.md
+              - name: list
+                href: cli-ref/managed-redis/cli-ref/change-freeze/list.md
+              - name: terminate
+                href: cli-ref/managed-redis/cli-ref/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -9017,6 +9655,16 @@ items:
                 href: cli-ref/managed-redis/cli-ref/hosts/list.md
               - name: update
                 href: cli-ref/managed-redis/cli-ref/hosts/update.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/managed-redis/cli-ref/maintenance/index.md
+              - name: get
+                href: cli-ref/managed-redis/cli-ref/maintenance/get.md
+              - name: list
+                href: cli-ref/managed-redis/cli-ref/maintenance/list.md
+              - name: reschedule
+                href: cli-ref/managed-redis/cli-ref/maintenance/reschedule.md
           - name: resource-preset
             items:
               - name: Overview
@@ -9079,6 +9727,22 @@ items:
                   - name: list
                     href: >-
                       cli-ref/managed-redis/cli-ref/v0/backup-retention-policy/list.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-redis/cli-ref/v0/change-freeze/index.md
+                  - name: create
+                    href: cli-ref/managed-redis/cli-ref/v0/change-freeze/create.md
+                  - name: get
+                    href: cli-ref/managed-redis/cli-ref/v0/change-freeze/get.md
+                  - name: get-limits
+                    href: >-
+                      cli-ref/managed-redis/cli-ref/v0/change-freeze/get-limits.md
+                  - name: list
+                    href: cli-ref/managed-redis/cli-ref/v0/change-freeze/list.md
+                  - name: terminate
+                    href: >-
+                      cli-ref/managed-redis/cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -9150,6 +9814,16 @@ items:
                     href: cli-ref/managed-redis/cli-ref/v0/hosts/list.md
                   - name: update
                     href: cli-ref/managed-redis/cli-ref/v0/hosts/update.md
+              - name: maintenance
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-redis/cli-ref/v0/maintenance/index.md
+                  - name: get
+                    href: cli-ref/managed-redis/cli-ref/v0/maintenance/get.md
+                  - name: list
+                    href: cli-ref/managed-redis/cli-ref/v0/maintenance/list.md
+                  - name: reschedule
+                    href: cli-ref/managed-redis/cli-ref/v0/maintenance/reschedule.md
               - name: resource-preset
                 items:
                   - name: Overview
@@ -9198,6 +9872,26 @@ items:
                 href: cli-ref/managed-sharded-postgresql/cli-ref/backup/get.md
               - name: list
                 href: cli-ref/managed-sharded-postgresql/cli-ref/backup/list.md
+          - name: change-freeze
+            items:
+              - name: Overview
+                href: >-
+                  cli-ref/managed-sharded-postgresql/cli-ref/change-freeze/index.md
+              - name: create
+                href: >-
+                  cli-ref/managed-sharded-postgresql/cli-ref/change-freeze/create.md
+              - name: get
+                href: >-
+                  cli-ref/managed-sharded-postgresql/cli-ref/change-freeze/get.md
+              - name: get-limits
+                href: >-
+                  cli-ref/managed-sharded-postgresql/cli-ref/change-freeze/get-limits.md
+              - name: list
+                href: >-
+                  cli-ref/managed-sharded-postgresql/cli-ref/change-freeze/list.md
+              - name: terminate
+                href: >-
+                  cli-ref/managed-sharded-postgresql/cli-ref/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -9264,6 +9958,18 @@ items:
                 href: cli-ref/managed-sharded-postgresql/cli-ref/hosts/list.md
               - name: update
                 href: cli-ref/managed-sharded-postgresql/cli-ref/hosts/update.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: >-
+                  cli-ref/managed-sharded-postgresql/cli-ref/maintenance/index.md
+              - name: get
+                href: cli-ref/managed-sharded-postgresql/cli-ref/maintenance/get.md
+              - name: list
+                href: cli-ref/managed-sharded-postgresql/cli-ref/maintenance/list.md
+              - name: reschedule
+                href: >-
+                  cli-ref/managed-sharded-postgresql/cli-ref/maintenance/reschedule.md
           - name: resource-preset
             href: cli-ref/managed-sharded-postgresql/cli-ref/resource-preset.md
           - name: user
@@ -9298,6 +10004,26 @@ items:
                   - name: list
                     href: >-
                       cli-ref/managed-sharded-postgresql/cli-ref/v0/backup/list.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/managed-sharded-postgresql/cli-ref/v0/change-freeze/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/managed-sharded-postgresql/cli-ref/v0/change-freeze/create.md
+                  - name: get
+                    href: >-
+                      cli-ref/managed-sharded-postgresql/cli-ref/v0/change-freeze/get.md
+                  - name: get-limits
+                    href: >-
+                      cli-ref/managed-sharded-postgresql/cli-ref/v0/change-freeze/get-limits.md
+                  - name: list
+                    href: >-
+                      cli-ref/managed-sharded-postgresql/cli-ref/v0/change-freeze/list.md
+                  - name: terminate
+                    href: >-
+                      cli-ref/managed-sharded-postgresql/cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -9381,6 +10107,20 @@ items:
                   - name: update
                     href: >-
                       cli-ref/managed-sharded-postgresql/cli-ref/v0/hosts/update.md
+              - name: maintenance
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/index.md
+                  - name: get
+                    href: >-
+                      cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/get.md
+                  - name: list
+                    href: >-
+                      cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/list.md
+                  - name: reschedule
+                    href: >-
+                      cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/reschedule.md
               - name: resource-preset
                 href: >-
                   cli-ref/managed-sharded-postgresql/cli-ref/v0/resource-preset.md
@@ -9406,6 +10146,20 @@ items:
         items:
           - name: Overview
             href: cli-ref/managed-spark/cli-ref/index.md
+          - name: change-freeze
+            items:
+              - name: Overview
+                href: cli-ref/managed-spark/cli-ref/change-freeze/index.md
+              - name: create
+                href: cli-ref/managed-spark/cli-ref/change-freeze/create.md
+              - name: get
+                href: cli-ref/managed-spark/cli-ref/change-freeze/get.md
+              - name: get-limits
+                href: cli-ref/managed-spark/cli-ref/change-freeze/get-limits.md
+              - name: list
+                href: cli-ref/managed-spark/cli-ref/change-freeze/list.md
+              - name: terminate
+                href: cli-ref/managed-spark/cli-ref/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -9456,6 +10210,22 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-spark/cli-ref/v0/index.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-spark/cli-ref/v0/change-freeze/index.md
+                  - name: create
+                    href: cli-ref/managed-spark/cli-ref/v0/change-freeze/create.md
+                  - name: get
+                    href: cli-ref/managed-spark/cli-ref/v0/change-freeze/get.md
+                  - name: get-limits
+                    href: >-
+                      cli-ref/managed-spark/cli-ref/v0/change-freeze/get-limits.md
+                  - name: list
+                    href: cli-ref/managed-spark/cli-ref/v0/change-freeze/list.md
+                  - name: terminate
+                    href: >-
+                      cli-ref/managed-spark/cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -9578,6 +10348,20 @@ items:
                     href: cli-ref/managed-trino/cli-ref/catalog/update/tpcds.md
                   - name: tpch
                     href: cli-ref/managed-trino/cli-ref/catalog/update/tpch.md
+          - name: change-freeze
+            items:
+              - name: Overview
+                href: cli-ref/managed-trino/cli-ref/change-freeze/index.md
+              - name: create
+                href: cli-ref/managed-trino/cli-ref/change-freeze/create.md
+              - name: get
+                href: cli-ref/managed-trino/cli-ref/change-freeze/get.md
+              - name: get-limits
+                href: cli-ref/managed-trino/cli-ref/change-freeze/get-limits.md
+              - name: list
+                href: cli-ref/managed-trino/cli-ref/change-freeze/list.md
+              - name: terminate
+                href: cli-ref/managed-trino/cli-ref/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -9715,6 +10499,22 @@ items:
                       - name: tpch
                         href: >-
                           cli-ref/managed-trino/cli-ref/v0/catalog/update/tpch.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-trino/cli-ref/v0/change-freeze/index.md
+                  - name: create
+                    href: cli-ref/managed-trino/cli-ref/v0/change-freeze/create.md
+                  - name: get
+                    href: cli-ref/managed-trino/cli-ref/v0/change-freeze/get.md
+                  - name: get-limits
+                    href: >-
+                      cli-ref/managed-trino/cli-ref/v0/change-freeze/get-limits.md
+                  - name: list
+                    href: cli-ref/managed-trino/cli-ref/v0/change-freeze/list.md
+                  - name: terminate
+                    href: >-
+                      cli-ref/managed-trino/cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -11914,6 +12714,194 @@ items:
                     href: cli-ref/serverless/cli-ref/trigger/update/timer.md
                   - name: yds
                     href: cli-ref/serverless/cli-ref/trigger/update/yds.md
+              - name: v1
+                items:
+                  - name: Overview
+                    href: cli-ref/serverless/cli-ref/trigger/v1/index.md
+                  - name: add-labels
+                    href: cli-ref/serverless/cli-ref/trigger/v1/add-labels.md
+                  - name: create
+                    items:
+                      - name: Overview
+                        href: cli-ref/serverless/cli-ref/trigger/v1/create/index.md
+                      - name: billing-budget
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/create/billing-budget.md
+                      - name: container-registry
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/create/container-registry.md
+                      - name: internet-of-things
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/create/internet-of-things.md
+                      - name: iot-broker
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/create/iot-broker.md
+                      - name: logging
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/create/logging.md
+                      - name: mail
+                        href: cli-ref/serverless/cli-ref/trigger/v1/create/mail.md
+                      - name: message-queue
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/create/message-queue.md
+                      - name: object-storage
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/create/object-storage.md
+                      - name: timer
+                        href: cli-ref/serverless/cli-ref/trigger/v1/create/timer.md
+                      - name: yds
+                        href: cli-ref/serverless/cli-ref/trigger/v1/create/yds.md
+                  - name: delete
+                    href: cli-ref/serverless/cli-ref/trigger/v1/delete.md
+                  - name: get
+                    href: cli-ref/serverless/cli-ref/trigger/v1/get.md
+                  - name: list
+                    href: cli-ref/serverless/cli-ref/trigger/v1/list.md
+                  - name: list-operations
+                    href: cli-ref/serverless/cli-ref/trigger/v1/list-operations.md
+                  - name: pause
+                    href: cli-ref/serverless/cli-ref/trigger/v1/pause.md
+                  - name: remove-labels
+                    href: cli-ref/serverless/cli-ref/trigger/v1/remove-labels.md
+                  - name: resume
+                    href: cli-ref/serverless/cli-ref/trigger/v1/resume.md
+                  - name: update
+                    items:
+                      - name: Overview
+                        href: cli-ref/serverless/cli-ref/trigger/v1/update/index.md
+                      - name: billing-budget
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/update/billing-budget.md
+                      - name: container-registry
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/update/container-registry.md
+                      - name: internet-of-things
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/update/internet-of-things.md
+                      - name: iot-broker
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/update/iot-broker.md
+                      - name: logging
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/update/logging.md
+                      - name: mail
+                        href: cli-ref/serverless/cli-ref/trigger/v1/update/mail.md
+                      - name: message-queue
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/update/message-queue.md
+                      - name: object-storage
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v1/update/object-storage.md
+                      - name: timer
+                        href: cli-ref/serverless/cli-ref/trigger/v1/update/timer.md
+                      - name: yds
+                        href: cli-ref/serverless/cli-ref/trigger/v1/update/yds.md
+              - name: v2
+                items:
+                  - name: Overview
+                    href: cli-ref/serverless/cli-ref/trigger/v2/index.md
+                  - name: add-labels
+                    href: cli-ref/serverless/cli-ref/trigger/v2/add-labels.md
+                  - name: create
+                    items:
+                      - name: Overview
+                        href: cli-ref/serverless/cli-ref/trigger/v2/create/index.md
+                      - name: billing-budget
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/create/billing-budget.md
+                      - name: container-registry
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/create/container-registry.md
+                      - name: internet-of-things
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/create/internet-of-things.md
+                      - name: iot-broker
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/create/iot-broker.md
+                      - name: logging
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/create/logging.md
+                      - name: mail
+                        href: cli-ref/serverless/cli-ref/trigger/v2/create/mail.md
+                      - name: max
+                        href: cli-ref/serverless/cli-ref/trigger/v2/create/max.md
+                      - name: message-queue
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/create/message-queue.md
+                      - name: object-storage
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/create/object-storage.md
+                      - name: telegram
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/create/telegram.md
+                      - name: timer
+                        href: cli-ref/serverless/cli-ref/trigger/v2/create/timer.md
+                      - name: yandex-messenger
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/create/yandex-messenger.md
+                      - name: yds
+                        href: cli-ref/serverless/cli-ref/trigger/v2/create/yds.md
+                  - name: delete
+                    href: cli-ref/serverless/cli-ref/trigger/v2/delete.md
+                  - name: get
+                    href: cli-ref/serverless/cli-ref/trigger/v2/get.md
+                  - name: help-action
+                    href: cli-ref/serverless/cli-ref/trigger/v2/help-action.md
+                  - name: list
+                    href: cli-ref/serverless/cli-ref/trigger/v2/list.md
+                  - name: list-operations
+                    href: cli-ref/serverless/cli-ref/trigger/v2/list-operations.md
+                  - name: pause
+                    href: cli-ref/serverless/cli-ref/trigger/v2/pause.md
+                  - name: remove-labels
+                    href: cli-ref/serverless/cli-ref/trigger/v2/remove-labels.md
+                  - name: resume
+                    href: cli-ref/serverless/cli-ref/trigger/v2/resume.md
+                  - name: update
+                    items:
+                      - name: Overview
+                        href: cli-ref/serverless/cli-ref/trigger/v2/update/index.md
+                      - name: add-actions
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/update/add-actions.md
+                      - name: billing-budget
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/update/billing-budget.md
+                      - name: container-registry
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/update/container-registry.md
+                      - name: internet-of-things
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/update/internet-of-things.md
+                      - name: iot-broker
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/update/iot-broker.md
+                      - name: logging
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/update/logging.md
+                      - name: mail
+                        href: cli-ref/serverless/cli-ref/trigger/v2/update/mail.md
+                      - name: max
+                        href: cli-ref/serverless/cli-ref/trigger/v2/update/max.md
+                      - name: message-queue
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/update/message-queue.md
+                      - name: object-storage
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/update/object-storage.md
+                      - name: replace-actions
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/update/replace-actions.md
+                      - name: telegram
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/update/telegram.md
+                      - name: timer
+                        href: cli-ref/serverless/cli-ref/trigger/v2/update/timer.md
+                      - name: yandex-messenger
+                        href: >-
+                          cli-ref/serverless/cli-ref/trigger/v2/update/yandex-messenger.md
+                      - name: yds
+                        href: cli-ref/serverless/cli-ref/trigger/v2/update/yds.md
           - name: v0
             items:
               - name: Overview
@@ -12417,6 +13405,217 @@ items:
                         href: cli-ref/serverless/cli-ref/v0/trigger/update/timer.md
                       - name: yds
                         href: cli-ref/serverless/cli-ref/v0/trigger/update/yds.md
+                  - name: v1
+                    items:
+                      - name: Overview
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v1/index.md
+                      - name: add-labels
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v1/add-labels.md
+                      - name: create
+                        items:
+                          - name: Overview
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/create/index.md
+                          - name: billing-budget
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/create/billing-budget.md
+                          - name: container-registry
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/create/container-registry.md
+                          - name: internet-of-things
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/create/internet-of-things.md
+                          - name: iot-broker
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/create/iot-broker.md
+                          - name: logging
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/create/logging.md
+                          - name: mail
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/create/mail.md
+                          - name: message-queue
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/create/message-queue.md
+                          - name: object-storage
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/create/object-storage.md
+                          - name: timer
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/create/timer.md
+                          - name: yds
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/create/yds.md
+                      - name: delete
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v1/delete.md
+                      - name: get
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v1/get.md
+                      - name: list
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v1/list.md
+                      - name: list-operations
+                        href: >-
+                          cli-ref/serverless/cli-ref/v0/trigger/v1/list-operations.md
+                      - name: pause
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v1/pause.md
+                      - name: remove-labels
+                        href: >-
+                          cli-ref/serverless/cli-ref/v0/trigger/v1/remove-labels.md
+                      - name: resume
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v1/resume.md
+                      - name: update
+                        items:
+                          - name: Overview
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/update/index.md
+                          - name: billing-budget
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/update/billing-budget.md
+                          - name: container-registry
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/update/container-registry.md
+                          - name: internet-of-things
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/update/internet-of-things.md
+                          - name: iot-broker
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/update/iot-broker.md
+                          - name: logging
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/update/logging.md
+                          - name: mail
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/update/mail.md
+                          - name: message-queue
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/update/message-queue.md
+                          - name: object-storage
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/update/object-storage.md
+                          - name: timer
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/update/timer.md
+                          - name: yds
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v1/update/yds.md
+                  - name: v2
+                    items:
+                      - name: Overview
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v2/index.md
+                      - name: add-labels
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v2/add-labels.md
+                      - name: create
+                        items:
+                          - name: Overview
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/index.md
+                          - name: billing-budget
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/billing-budget.md
+                          - name: container-registry
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/container-registry.md
+                          - name: internet-of-things
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/internet-of-things.md
+                          - name: iot-broker
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/iot-broker.md
+                          - name: logging
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/logging.md
+                          - name: mail
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/mail.md
+                          - name: max
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/max.md
+                          - name: message-queue
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/message-queue.md
+                          - name: object-storage
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/object-storage.md
+                          - name: telegram
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/telegram.md
+                          - name: timer
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/timer.md
+                          - name: yandex-messenger
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/yandex-messenger.md
+                          - name: yds
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/create/yds.md
+                      - name: delete
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v2/delete.md
+                      - name: get
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v2/get.md
+                      - name: help-action
+                        href: >-
+                          cli-ref/serverless/cli-ref/v0/trigger/v2/help-action.md
+                      - name: list
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v2/list.md
+                      - name: list-operations
+                        href: >-
+                          cli-ref/serverless/cli-ref/v0/trigger/v2/list-operations.md
+                      - name: pause
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v2/pause.md
+                      - name: remove-labels
+                        href: >-
+                          cli-ref/serverless/cli-ref/v0/trigger/v2/remove-labels.md
+                      - name: resume
+                        href: cli-ref/serverless/cli-ref/v0/trigger/v2/resume.md
+                      - name: update
+                        items:
+                          - name: Overview
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/index.md
+                          - name: add-actions
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/add-actions.md
+                          - name: billing-budget
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/billing-budget.md
+                          - name: container-registry
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/container-registry.md
+                          - name: internet-of-things
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/internet-of-things.md
+                          - name: iot-broker
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/iot-broker.md
+                          - name: logging
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/logging.md
+                          - name: mail
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/mail.md
+                          - name: max
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/max.md
+                          - name: message-queue
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/message-queue.md
+                          - name: object-storage
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/object-storage.md
+                          - name: replace-actions
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/replace-actions.md
+                          - name: telegram
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/telegram.md
+                          - name: timer
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/timer.md
+                          - name: yandex-messenger
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/yandex-messenger.md
+                          - name: yds
+                            href: >-
+                              cli-ref/serverless/cli-ref/v0/trigger/v2/update/yds.md
               - name: workflow
                 items:
                   - name: Overview
@@ -12748,185 +13947,6 @@ items:
                   - name: update
                     href: >-
                       cli-ref/smartwebsecurity/cli-ref/v0/security-profile/update.md
-          - name: v1
-            items:
-              - name: Overview
-                href: cli-ref/smartwebsecurity/cli-ref/v1/index.md
-              - name: advanced-rate-limiter
-                items:
-                  - name: Overview
-                    href: >-
-                      cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/index.md
-                  - name: advanced-rate-limiter-profile
-                    items:
-                      - name: Overview
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/index.md
-                      - name: create
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/create.md
-                      - name: delete
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/delete.md
-                      - name: get
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/get.md
-                      - name: list
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/list.md
-                      - name: update
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/update.md
-              - name: custom-page
-                items:
-                  - name: Overview
-                    href: cli-ref/smartwebsecurity/cli-ref/v1/custom-page/index.md
-                  - name: custom-page
-                    items:
-                      - name: Overview
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/custom-page/custom-page/index.md
-                      - name: create
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/custom-page/custom-page/create.md
-                      - name: delete
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/custom-page/custom-page/delete.md
-                      - name: get
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/custom-page/custom-page/get.md
-                      - name: list
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/custom-page/custom-page/list.md
-                      - name: update
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/custom-page/custom-page/update.md
-              - name: load-balancer
-                items:
-                  - name: Overview
-                    href: cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/index.md
-                  - name: domain
-                    items:
-                      - name: Overview
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/domain/index.md
-                      - name: create
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/domain/create.md
-                      - name: delete
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/domain/delete.md
-                      - name: get
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/domain/get.md
-                      - name: list
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/domain/list.md
-                      - name: update
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/domain/update.md
-                  - name: load-balancer
-                    items:
-                      - name: Overview
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/index.md
-                      - name: create
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/create.md
-                      - name: delete
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/delete.md
-                      - name: get
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/get.md
-                      - name: list
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/list.md
-                      - name: start
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/start.md
-                      - name: stop
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/stop.md
-                      - name: update
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/load-balancer/load-balancer/update.md
-              - name: match-list
-                items:
-                  - name: Overview
-                    href: cli-ref/smartwebsecurity/cli-ref/v1/match-list/index.md
-                  - name: match-list
-                    items:
-                      - name: Overview
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/match-list/match-list/index.md
-                      - name: create
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/match-list/match-list/create.md
-                      - name: delete
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/match-list/match-list/delete.md
-                      - name: get
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/match-list/match-list/get.md
-                      - name: list
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/match-list/match-list/list.md
-                      - name: update
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/match-list/match-list/update.md
-              - name: security-profile
-                items:
-                  - name: Overview
-                    href: >-
-                      cli-ref/smartwebsecurity/cli-ref/v1/security-profile/index.md
-                  - name: create
-                    href: >-
-                      cli-ref/smartwebsecurity/cli-ref/v1/security-profile/create.md
-                  - name: delete
-                    href: >-
-                      cli-ref/smartwebsecurity/cli-ref/v1/security-profile/delete.md
-                  - name: get
-                    href: >-
-                      cli-ref/smartwebsecurity/cli-ref/v1/security-profile/get.md
-                  - name: list
-                    href: >-
-                      cli-ref/smartwebsecurity/cli-ref/v1/security-profile/list.md
-                  - name: update
-                    href: >-
-                      cli-ref/smartwebsecurity/cli-ref/v1/security-profile/update.md
-              - name: waf
-                items:
-                  - name: Overview
-                    href: cli-ref/smartwebsecurity/cli-ref/v1/waf/index.md
-                  - name: rule-set-descriptor
-                    items:
-                      - name: Overview
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/waf/rule-set-descriptor/index.md
-                      - name: get
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/waf/rule-set-descriptor/get.md
-                  - name: waf-profile
-                    items:
-                      - name: Overview
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/waf/waf-profile/index.md
-                      - name: create
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/waf/waf-profile/create.md
-                      - name: delete
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/waf/waf-profile/delete.md
-                      - name: get
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/waf/waf-profile/get.md
-                      - name: list
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/waf/waf-profile/list.md
-                      - name: update
-                        href: >-
-                          cli-ref/smartwebsecurity/cli-ref/v1/waf/waf-profile/update.md
           - name: waf
             items:
               - name: Overview

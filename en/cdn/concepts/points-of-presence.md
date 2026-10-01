@@ -9,8 +9,8 @@ _Points of presence_, or PoPs, are geographically distributed physical CDN serve
 
 
 #|
-|| **Total number of points of presence** | **Total throughput** ||
-|| {{ cdn-pop-count }} {align="center"} | Exceeding {{ cdn-throughput }} Tbps {align="center"} ||
+|| **Total number of PoPs** | **Total throughput** ||
+|| {{ cdn-pop-count }} {align="center"} | Over {{ cdn-throughput }} Tbit/s {align="center"} ||
 |#
 
 
@@ -43,7 +43,7 @@ PoP server performance also shapes the overall content delivery speed. Stable de
 
 The following cities have at least one PoP:
 
-<iframe frameborder="0" src="https://datalens.yandex/f73o6nej25s4y?_embedded=1&_no_controls=1" width="100%" height="400px"></iframe>
+<iframe frameborder="0" src="https://datalens.yandex/t2rvaw171qr2d?_embedded=1&_no_controls=1" width="100%" height="400px"></iframe>
 
 #|
 || **Country** {align="center"} | **Cities** {align="center"} ||
@@ -67,11 +67,11 @@ If your city does not host a {{ cdn-full-name }} PoP, traffic will be automatica
 {% endcut %}
 
 
-{% cut "Are these resources available outside Russia, Kazakhstan, and Uzbekistan?" %}
+{% cut "Are resources available in the countries without PoPs?" %}
 
 
 
-Yes, {{ cdn-full-name }} resources are available worldwide, even though its PoPs can only be found in Russia, Kazakhstan, and Uzbekistan. Users in other countries will be receiving content from PoPs in Russia, Kazakhstan, and Uzbekistan. With high throughput and modern hardware, content delivery stays efficient even for users in other countries.
+Yes, the {{ cdn-full-name }} resources are available worldwide. If there is no PoP in the user's country, the traffic is automatically routed to an optimal available point based on the server load and communication link quality. Thanks to high throughput and modern hardware, content delivery stays efficient.
 
 {% endcut %}
 
@@ -79,17 +79,20 @@ Yes, {{ cdn-full-name }} resources are available worldwide, even though its PoPs
 
 For the current list of {{ cdn-full-name }} PoP IP addresses, see [{{ cdn-name }}](../../security/ip-list.md#cloud-cdn).
 
+
 To reduce the number of networks sending requests to the origin, [enable](../operations/resources/enable-shielding.md) origin shielding. With this option on, the origin will be getting requests only from intermediate caching servers. To get the list of the shielding servers' networks, contact [support]({{ link-console-support }}).
 
 
 {% endcut %}
 
+
+
 {% cut "Where are your shielding servers located?" %}
 
 [{{ cdn-full-name }} shielding servers](origins-shielding.md) are located in Moscow. They provide an additional caching layer between PoPs and content origins, reducing load on the origins and increasing the content delivery speed for users.
 
-
 {% endcut %}
+
 
 #### Useful links {#see-also}
 

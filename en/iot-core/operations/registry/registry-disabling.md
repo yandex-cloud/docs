@@ -11,6 +11,13 @@ You can disable or enable a [registry](../../concepts/index.md#registry). When d
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+  
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to disable a registry.
+  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}** and select a registry.
+  1. At the top, click ![image](../../../_assets/console-icons/toggle-off.svg) **{{ ui-key.yacloud.common.disable }}**.
+  1. In the window that opens, click **{{ ui-key.yacloud.common.disable }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -61,6 +68,12 @@ You can disable or enable a [registry](../../concepts/index.md#registry). When d
 ## Enabling a registry {#enable}
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+  
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to enable a registry.
+  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}** and select a registry.
+  1. At the top, click ![image](../../../_assets/console-icons/toggle-on.svg) **{{ ui-key.yacloud.common.enable }}**.
 
 - CLI {#cli}
 

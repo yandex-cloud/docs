@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > [Поиск событий в аудитных логах](index.md) > Примеры запросов для поиска событий
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > Сбор и анализ логов > [Поиск событий в аудитных логах](index.md) > Примеры запросов для поиска событий
 
 # Примеры запросов для поиска событий в аудитных логах
 
@@ -65,7 +65,7 @@
 
 #### Любые действия с виртуальной машиной {#any-actions-vm}
 
-{% list tabs group=at_logs_tools %}
+{% list tabs group=tools %}
 
 - Yandex Query {#yandex-query}
 
@@ -311,7 +311,7 @@
 
 {% list tabs group=tools %}
 
-- Yandex Query
+- Yandex Query  {#yandex-query}
 
     Выполните запрос:
 
@@ -322,7 +322,7 @@
       JSON_VALUE(data,"$.event_type") = 'yandex.cloud.audit.organizationmanager.saml.CreateFederation'
     ```
 
-- Yandex Cloud Logging
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 
@@ -336,7 +336,7 @@
 
 {% list tabs group=tools %}
 
-- Yandex Query
+- Yandex Query  {#yandex-query}
 
     Выполните запрос:
 
@@ -347,7 +347,7 @@
       JSON_VALUE(data,"$.event_type") = 'yandex.cloud.audit.organizationmanager.saml.UpdateFederation'
     ```
 
-- Yandex Cloud Logging
+- Yandex Cloud Logging {#cloud-logging}
 
     Используйте фильтр:
 

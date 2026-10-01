@@ -11,7 +11,7 @@ Update the specified YDB database.
 
 Syntax:
 
-`yc ydb database update <DATABASE-NAME>|<DATABASE-ID> [Flags...] [Global Flags...]`
+`yc ydb v0 database update <DATABASE-NAME>|<DATABASE-ID> [Flags...] [Global Flags...]`
 
 #### Flags
 
@@ -34,31 +34,25 @@ A list of label KEY=VALUE pairs to add. For example, to add two labels named 'fo
 || `--deletion-protection` | Inhibits deletion of a database. ||
 || `--network-id` | `string`
 
-Network id. ||
+ID of the network. ||
 || `--network-name` | `string`
 
-Network name. ||
-|| `--subnet-name` | `value[,value]`
+Name of the network. ||
+|| `--subnet-name` | `[]string`
 
 Adds subnet by Name for the database. ||
-|| `--subnet-id` | `value[,value]`
+|| `--subnet-id` | `[]string`
 
 Adds subnet by ID for the database. ||
-|| `--security-group-name` | `value[,value]`
+|| `--security-group-name` | `[]string`
 
 Adds security-group by Name for the database. ||
-|| `--security-group-id` | `value[,value]`
+|| `--security-group-id` | `[]string`
 
 Adds security-group by ID for the database. ||
 || `--storage` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
-YDB database storage options.
-
-Possible property names:
-
-- `type`: YDB database storage type id.
-
-- `groups`: YDB database storage group count. ||
+YDB database storage options. ||
 || `--fixed-size` | `int`
 
 Specifies fixed scale policy size. ||
@@ -85,34 +79,14 @@ Maximum size for a serverless database. Example: 10GB, 100GB. Units are in GB if
 || `--serverless` | Specifies database type - serverless. ||
 || `--backup` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
-YDB database backup config options.
-
-Possible property names:
-
-- `source`: Adds source path to backup.
-
-- `exclude`: Exclude path from backup.
-
-- `ttl`: Specify backup time to live. Example: '120m', '15m', '7200s'
-
-- `name`: Specify backup settings name.
-
-- `description`: Specify backup settings description.
-
-- `daily-execute-time`: Time of day in UTC time zone, HH:MM 24-hour clock format, when daily backup should be executed. Example: '02:30
-
-- `weekly-execute-time`: Time of day in UTC time zone, HH:MM 24-hour clock format, when weekly backup should be executed. Example: '02:30
-
-- `weekly-days`: Specify days when weekly backup should be executed.
-
-- `storage-class`: Specify backup storage class Values: 'standard', 'reduced-redundancy', 'standard-ia', 'onezone-ia', 'intelligent-tiering', 'glacier', 'deep-archive', 'outposts' ||
-|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+YDB database backup config options. ||
 || `--id` | `string`
 
 ID of the YDB database. ||
 || `--name` | `string`
 
 Name of the YDB database. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 
 #### Global Flags
@@ -121,15 +95,7 @@ Name of the YDB database. ||
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
-|| `--debug` | Debug logging. ||
-|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
-|| `--no-user-output` | Disable printing user intended output to stderr. ||
-|| `--retry` | `int`
-
-Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
-Pass 0 to disable retries. Pass any negative value for infinite retries.
-Even infinite retries are capped with 2 minutes timeout. ||
+Set the custom profile. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -139,21 +105,47 @@ Set the ID of the folder to use. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
 
-Set the Cloud API endpoint (host:port). ||
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
 || `--token` | `string`
 
 Set the OAuth token to use. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

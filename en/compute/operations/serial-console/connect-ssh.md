@@ -47,8 +47,8 @@ In the example below, you will create a new local Linux user account with passwo
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the VM instance resides in.
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![server](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** and select the VM instance from the list that opens.
-  1. In the left-hand menu, select **{{ ui-key.yacloud.compute.instance.switch_console }}**.
-  1. At the top of the screen, in the drop-down list, select the [serial port](../../concepts/serial-console.md#serial-ports) used by the serial console for VM connections.
+  1. Navigate to the **{{ ui-key.yacloud.compute.instance.switch_console }}** tab.
+  1. In the drop-down list at the top of the screen, select the [serial port](../../concepts/serial-console.md#serial-ports) used by the serial console for VM connections.
 
       {% include [serial-console-default-port-linux](../../../_includes/compute/serial-console-default-port-linux.md) %}
 

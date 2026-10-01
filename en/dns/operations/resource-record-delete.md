@@ -11,12 +11,11 @@ To delete a [resource record](../concepts/resource-record.md):
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing the DNS zone with the record you want to delete.
+  1. In the [management console]({{ link-console-main }}), select the folder with the DNS zone containing the record you want to delete.
   1. [Navigate]({{ link-console-main }}/link/dns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
-  1. Select the zone from the list.
+  1. Click the zone of interest.
   1. Find the record you want to delete and click ![image](../../_assets/console-icons/ellipsis.svg) in its row.
-  1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
-  1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
+  1. In the menu, click **{{ ui-key.yacloud.common.delete }}** and confirm deletion.
 
 - CLI {#cli}
 
@@ -54,9 +53,9 @@ To delete a [resource record](../concepts/resource-record.md):
 
   To delete a DNS resource record created with {{ TF }}, do the following:
 
-  1. Open the {{ TF }} configuration file and delete the fragment describing the DNS record.
-     
-     {% cut "{{ TF }} DNS record description example" %}
+  1. Open the {{ TF }} configuration file and delete the DNS record description fragment.
+
+     {% cut "Example of a DNS record description in the {{ TF }} configuration" %}
 
      ```hcl
      ...
@@ -73,16 +72,15 @@ To delete a [resource record](../concepts/resource-record.md):
 
      {% endcut %}
 
-
   1. In the command line, navigate to the directory with the {{ TF }} configuration file.
 
   1. Check the configuration using this command:
      ```
      terraform validate
      ```
-     
+
      If the configuration is valid, you will get this message:
-     
+
      ```
      Success! The configuration is valid.
      ```
@@ -91,24 +89,24 @@ To delete a [resource record](../concepts/resource-record.md):
      ```
      terraform plan
      ```
-  
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
 
   1. Apply the configuration changes:
      ```
      terraform apply
      ```
-     
-  1. Type `yes` and press **Enter** to confirm changes.
 
-     You can check the updates in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
+  1. Type `yes` and press **Enter** to confirm the changes.
+
+     You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
      ```
      yc dns zone list-records <zone_name>
      ```
 
 - API {#api}
-  
+
   To delete a resource record, use one of the following methods:
 
   * [upsertRecordSets](../api-ref/DnsZone/upsertRecordSets.md): The move REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpsertRecordSets](../api-ref/grpc/DnsZone/upsertRecordSets.md) gRPC API call. The method does not require an exact match of the `description` field.

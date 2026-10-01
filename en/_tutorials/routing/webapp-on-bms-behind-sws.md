@@ -116,7 +116,6 @@ Configure the infrastructure on the {{ vpc-name }} side. In this step, you will 
       | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }} |
       | --- | --- | --- | --- | --- | --- |
       | Ingress | `http`            | `80`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Ingress | `healthchecks`            | `30080`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — |
       | Egress | `any`           | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
 {% endlist %}
@@ -570,7 +569,7 @@ Once you make sure your L7 load balancer works correctly, set up a {{ sws-name }
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![arl](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}** and click **{{ ui-key.yacloud.smart-web-security.arl.label_create-profile }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the [ARL profile](../../smartwebsecurity/concepts/arl.md) name: `arl-profile-demo`.
-  1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_add-rule }}** and in the window that opens:
+  1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}** and do the following in the window that opens:
 
       1. In the **{{ ui-key.yacloud.common.name }}** field, specify the rule name: `permit-50-rps-in`.
       1. Set the **Priority** to `10`.
@@ -627,7 +626,7 @@ Once you make sure your L7 load balancer works correctly, set up a {{ sws-name }
 
           The new rule will send traffic for automatic processing by machine learning and behavioral analysis algorithms. The system will redirect suspicious requests to {{ captcha-full-name }} for additional verification.
       1. Click **{{ ui-key.yacloud.common.add }}**.
-  
+
       The rule will appear in the list of rules under **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
 

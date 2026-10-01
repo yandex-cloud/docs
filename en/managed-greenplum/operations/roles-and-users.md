@@ -9,8 +9,8 @@ description: In this tutorial, you will learn how to manage database access righ
 
 * User: Role that can log in to the database.
 * Group: Role that includes other roles.
-​
-​For more information, see [Users and roles](../concepts/cluster-users.md).
+
+For more information, see [Users and roles](../concepts/cluster-users.md).
 
 The admin user is created together with the {{ mgp-name }} cluster and automatically gets the `mdb_admin` role. [Connect to the database](connect/index.md) on its behalf to:
 

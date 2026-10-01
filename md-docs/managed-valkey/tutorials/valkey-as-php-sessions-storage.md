@@ -2,7 +2,6 @@
 
 # Использование кластера Yandex Managed Service for Valkey™ в качестве хранилища сессий PHP
 
-
 # Использование кластера Yandex Managed Service for Valkey™ в качестве хранилища сессий PHP
 
 
@@ -94,6 +93,7 @@
            Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
         
         1. Если вас устраивают планируемые изменения, внесите их:
+        
            1. Выполните команду:
         
               ```bash
@@ -258,9 +258,9 @@
 
 - Вручную {#manual}
 
-    * [Удалите кластер Yandex Managed Service for Valkey™](../operations/cluster-delete.md).
-    * [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
-    * Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
+    1. [Удалите кластер Yandex Managed Service for Valkey™](../operations/cluster-delete.md).
+    1. [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
+    1. Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
 
 - Terraform {#tf}
 

@@ -18,7 +18,7 @@ You can use one of these methods to upload an HTML page:
 - Workbook
 
   1. Go to the [page with workbooks and collections]({{ link-datalens-main }}/collections).
-  1. Open a [workbook](../workbooks-collections/index.md) you want to create an HTML page in.
+  1. Open the [workbook](../workbooks-collections/index.md) you want to create an HTML page in.
   1. In the top-right corner, click **Create** and select **HTML page**.
   1. Select an HTML page file or drag and drop it to the page.
   1. In the window that opens, enter a name for the page and click **Create**.

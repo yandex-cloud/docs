@@ -161,7 +161,7 @@ Copy a ready-to-use chart for missed event monitoring to your dashboard:
       1. [Navigate]({{ link-console-main }}/link/audit-trails) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
       1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.audit-trails.label_trails }}**.
       1. Select the trail you need.
-      1. Go to the ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** panel for the selected trail.
+      1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab for the selected trail.
       1. Click **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** at the top right.
 
           This will take you to the {{ monitoring-short-name }} interface.

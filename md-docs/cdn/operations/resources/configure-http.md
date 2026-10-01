@@ -2,13 +2,15 @@
 
 # Настройка HTTP-методов
 
-Чтобы настроить для ресурса разрешенные HTTP-методы запросов от клиентов:
-
 {% note info %}
 
 По умолчанию методы `POST`, `PUT`, `PATCH`, `DELETE` недоступны в запросах клиентов. Чтобы узнать о возможности использования этих методов, обратитесь в [техническую поддержку](https://center.yandex.cloud/support). При запросе опишите сценарий использования.
 
+В Cloud CDN запросы от клиентов с методами `GET`, `HEAD` и `OPTIONS` не должны содержать тело. Если передать тело в таком запросе, CDN вернет ошибку `413 Payload Too Large`. Подробнее о способах устранения ошибки — в [вопросах и ответах](../../troubleshooting.md#request-body-413).
+
 {% endnote %}
+
+Чтобы настроить для ресурса разрешенные HTTP-методы запросов от клиентов:
 
 {% list tabs group=instructions %}
 
@@ -174,33 +176,68 @@
 
 ## Примеры {#examples}
 
+Разрешите для CDN-ресурса HTTP-методы `GET`, `HEAD` и `OPTIONS`:
+
 {% list tabs group=instructions %}
 
-- CLI {#cli}
+- CLI {#example-cli}
 
-  Добавьте ресурсу разрешенный метод GET:
-
-    ```bash
-    yc cdn resource update s0me1dkfjq******** --allowed-http-methods GET
-    ```
+  ```bash
+  yc cdn resource update <идентификатор_ресурса> \
+    --allowed-http-methods GET,HEAD,OPTIONS
+  ```
   
   Результат:
 
-    ```text
-    id: s0me1dkfjq********
+  ```text
+  id: s0me1dkfjq********
 
-    ...
+  ...
 
-    cname: testexample.com
-    active: true
+  cname: testexample.com
+  active: true
 
-    ...
+  ...
 
-    allowed_http_methods:
+  allowed_http_methods:
     enabled: true
     value:
-    - GET
-    ```
+      - GET
+      - HEAD
+      - OPTIONS
+  ```
+
+- cURL {#example-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и запишите его в переменную:
+
+      ```bash
+      export IAM_TOKEN=`yc iam create-token`
+      ```
+
+  1. Обновите CDN-ресурс с помощью REST API:
+
+      ```bash
+      curl \
+        --request PATCH \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://cdn.api.cloud.yandex.net/cdn/v1/resources/<идентификатор_ресурса>' \
+        --data '{
+          "options": {
+            "allowedHttpMethods": {
+              "enabled": true,
+              "value": [
+                "GET",
+                "HEAD",
+                "OPTIONS"
+              ]
+            }
+          }
+        }'
+      ```
+
+      Метод REST API [update](../../api-ref/Resource/update.md) изменяет только переданные в теле запроса настройки CDN-ресурса. Параметр `updateMask` для этого метода не используется.
 
 {% endlist %}
 

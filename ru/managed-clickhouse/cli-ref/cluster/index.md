@@ -59,6 +59,8 @@ Aliases:
 
 - [yc managed-clickhouse cluster list-operations](list-operations.md) — List operations for a ClickHouse cluster.
 
+- [yc managed-clickhouse cluster migrate-to-keeper](migrate-to-keeper.md) — Migrate a ClickHouse cluster from ZooKeeper to ClickHouse Keeper.
+
 - [yc managed-clickhouse cluster move](move.md) — Move the specified ClickHouse cluster into the folder
 
 - [yc managed-clickhouse cluster remove-access-binding](remove-access-binding.md) — Remove access binding for the specified ClickHouse cluster

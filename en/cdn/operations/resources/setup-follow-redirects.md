@@ -5,6 +5,7 @@ description: Follow this guide to set up redirects for requests received from co
 
 # Setting up how to follow request redirects
 
+
 You can deactivate [request redirects](../../concepts/follow-redirects.md) via the API when [creating](create-resource.md) or [updating](configure-basics.md) a CDN resource.
 
 {% note info %}

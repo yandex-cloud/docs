@@ -32,7 +32,7 @@ You can create a row-oriented table or a [document table](../concepts/dynamodb-t
      * Column **{{ ui-key.yacloud.ydb.table.form.column_name }}** must be unique within the table.
      * Column data **{{ ui-key.yacloud.ydb.table.form.column_type }}**. Regardless of the data type, each column may contain a `NULL` value.
      * **{{ ui-key.yacloud.ydb.table.form.column_primary-key }}**. Specify whether the column is part of the primary key. Primary indexes are automatically created based on the primary key.
-  1. Set up [secondary indexes]({{ ydb.docs }}/concepts/secondary_indexes), if needed:
+  1. Set up [secondary indexes]({{ ydb.docs }}concepts/query_execution/secondary_indexes), if needed:
      * Secondary index **{{ ui-key.yacloud.ydb.table.form.column_name }}** must be unique within the table.
      * **{{ ui-key.yacloud.ydb.table.form.column_index-key }}**: One or more columns that make up a key for creating a secondary index.
   1. Configure the [partitioning]({{ ydb.docs }}/concepts/datamodel) policy:

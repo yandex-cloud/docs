@@ -1,6 +1,6 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Бакеты > Удаление бакета
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Бакеты > Удалить бакет
 
-# Удаление бакета
+# Удалить бакет
 
 {% note warning %}
 
@@ -16,8 +16,8 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
   1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
-  1. Выберите нужный бакет и нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
-  1. В открывшемся окне нажмите **Удалить**.
+  1. В строке с нужным бакетом нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
+  1. В открывшемся окне подтвердите удаление.
 
   {% note info %}
   

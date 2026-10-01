@@ -3,7 +3,6 @@
 # BareMetal API, gRPC: ServerService.Reinstall
 
 
-Required for backward compatibility with old clients. --)
 Reinstalls the specified server.
 
 ## gRPC request

@@ -5,6 +5,8 @@ description: Управление доступом в сервисе {{ si-full-
 
 # Управление доступом в {{ si-name }}
 
+{% include [sunset-note](../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
 Назначать роли на ресурс могут пользователи, у которых на этот ресурс есть одна из следующих ролей:

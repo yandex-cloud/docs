@@ -15,7 +15,7 @@ AWS S3 Sync — стандартная команда [AWS CLI](../../storage/to
 
 Чтобы настроить резервное копирование с помощью AWS S3 Sync:
 
-1. [Подготовьте облако к работе](#before-begin).
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте бакет](#create-bucket).
 1. [Создайте сервисный аккаунт](#create-sa).
 1. [Создайте статический ключ доступа](#create-static-key).
@@ -25,7 +25,7 @@ AWS S3 Sync — стандартная команда [AWS CLI](../../storage/to
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте облако к работе {#before-you-begin}
 
 Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
 1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
@@ -172,9 +172,7 @@ AWS S3 Sync — стандартная команда [AWS CLI](../../storage/to
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
-  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
-  1. Выберите сервисный аккаунт `sa-backup-to-s3`.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management** и выберите сервисный аккаунт `sa-backup-to-s3`.
   1. На панели сверху нажмите ![image](../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите **Создать статический ключ доступа**.
   1. Задайте описание ключа и нажмите **Создать**.
   1. Сохраните полученные идентификатор и секретный ключ — они понадобятся позднее при монтировании бакета.

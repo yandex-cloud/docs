@@ -1,5 +1,6 @@
 # Two separate virtual routers without on-prem redundancy
 
+
 Two separate independent network topologies. In each topology, there is a [private connection](../../interconnect/concepts/priv-con.md) on one side of the virtual router and a [virtual cloud network](../../vpc/concepts/network.md) on the other.
 
 ![ri-topology-5](../../_assets/cloud-router/ri-topology-5.svg)
@@ -25,4 +26,3 @@ These topologies do not enable network connectivity between the subnets of virtu
 If needed, the customer can establish network connectivity between `Net-1` and `Net-2` VPC subnets by setting up routing between private connections on their network hardware.
 
 {% endnote %}
-

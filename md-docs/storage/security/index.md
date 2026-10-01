@@ -264,6 +264,7 @@ flowchart BT
 
 Прежде чем назначить роль `admin` на организацию, [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [платежный аккаунт](../../billing/concepts/billing-account.md), ознакомьтесь с информацией о защите [привилегированных аккаунтов](../../security/standard/all.md#privileged-users).
 
+
 Включает разрешения, предоставляемые ролью `editor`.
 
 Вместо примитивных ролей мы рекомендуем использовать роли сервисов. Такой подход позволит более гранулярно управлять доступом и обеспечить соблюдение [принципа минимальных привилегий](../../security/standard/all.md#min-privileges).
@@ -272,4 +273,4 @@ flowchart BT
 
 ## Полезные ссылки {#see-also}
 
-* [Настройка прав доступа к бакету с помощью Identity and Access Management](../operations/buckets/iam-access.md)
+* [Настроить права доступа к бакету с помощью Identity and Access Management](../operations/buckets/iam-access.md)

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Миграция кластера Managed Service for PostgreSQL на другую версию
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > PostgreSQL > Миграция кластера Managed Service for PostgreSQL на другую версию
 
 # Миграция кластера Yandex Managed Service for PostgreSQL на другую версию c помощью Yandex Data Transfer
 
@@ -151,6 +151,7 @@
                Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
             
             1. Если вас устраивают планируемые изменения, внесите их:
+            
                1. Выполните команду:
             
                   ```bash

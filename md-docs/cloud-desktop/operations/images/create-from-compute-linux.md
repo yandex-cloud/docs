@@ -102,7 +102,7 @@
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится ВМ.
       1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
       1. Напротив вашей ВМ нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) → **Остановить**.
-      1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски**.
+      1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски и хранилища**.
       1. В строке с загрузочным диском ВМ нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) → **Создать образ**.
       1. Введите имя образа и при необходимости произвольное описание.
       1. Нажмите **Создать**.

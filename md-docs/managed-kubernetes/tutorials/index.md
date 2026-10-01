@@ -79,3 +79,8 @@ C помощью Managed Service for Kubernetes вы можете работат
 * [Редактирование изображений для сайтов с помощью приложения Thumbor](marketplace/thumbor.md)
 * [Использование Istio](marketplace/istio.md)
 * [Использование HashiCorp Vault для хранения секретов](marketplace/hashicorp-vault.md)
+
+## Миграция в Managed Service for Kubernetes {#migration}
+
+* [Миграция в Managed Service for Kubernetes](migration/index.md)
+* [Миграция из публичного облака в Managed Service for Kubernetes](migration/migration-from-cloud.md)

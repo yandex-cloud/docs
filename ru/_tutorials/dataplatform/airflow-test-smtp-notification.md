@@ -1,12 +1,17 @@
 # Настройка SMTP-сервера для отправки уведомлений по электронной почте
 
-{% include [af-restriction-version](../../_includes/mdb/maf/af-restriction-version.md) %}
+Вы можете настроить SMTP-сервер для отправки уведомлений по электронной почте с помощью [направленного ациклического графа (DAG)](../../managed-airflow/concepts/index.md#about-the-service). При этом параметры SMTP-сервера хранятся в конфигурации {{ AF }}, а учетные данные отправителя — в [секрете {{ lockbox-full-name }}](../../lockbox/concepts/secret.md#secret).
 
-Вы может настроить SMTP-сервер для отправки уведомлений по электронной почте с помощью [направленного ациклического графа (DAG)](../../managed-airflow/concepts/index.md#about-the-service). Данные для подключения к БД хранятся в {{ lockbox-full-name }} и автоматически подставляются в граф.
+В руководстве в качестве SMTP-сервера используется Яндекс Почта (`smtp.yandex.ru`). Для проверки отправки уведомлений используется DAG-файл, в котором задача намеренно завершается ошибкой. При возникновении ошибки отправляется уведомление на указанный в DAG-файле адрес электронной почты.
 
-Чтобы реализовать настройку SMTP-сервера для отправки уведомлений по электронной почте:
+Перед отправкой уведомлений подготовьте почтовый ящик отправителя:
 
-1. [Подготовьте инфраструктуру](#create-infrastracture).
+* разрешите доступ к почтовому ящику для почтовых клиентов;
+* создайте пароль для внешних приложений.
+
+Чтобы настроить SMTP-сервер для отправки уведомлений по электронной почте:
+
+1. [Подготовьте инфраструктуру](#create-infrastructure).
 1. [Создайте секрет {{ lockbox-name }}](#create-lockbox-secret).
 1. [Подготовьте DAG-файл и запустите граф](#dag).
 1. [Проверьте результат](#check-result).
@@ -25,7 +30,7 @@
 * Секрет {{ lockbox-name }}: количество хранимых версий секрета и запросы к ним ([тарифы {{ lockbox-name }}](../../lockbox/pricing.md)).
 
 
-## Подготовьте инфраструктуру {#create-infrastracture}
+## Подготовьте инфраструктуру {#create-infrastructure}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) `airflow-sa` с ролями:
    * `{{ roles.maf.integrationProvider }}`;
@@ -44,7 +49,7 @@
    * **Имя бакета** — имя созданного бакета;
    * **{{ ui-key.yacloud.airflow.field_lockbox }}** — убедитесь, что эта опция включена.
 
-   В блоке **{{ ui-key.yacloud.airflow.section_airflow-configuration }}** задайте [дополнительные свойства {{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) для настройки SMTP-сервера:
+   В блоке **{{ ui-key.yacloud.airflow.section_airflow-configuration }}** задайте дополнительные свойства {{ AF }} для настройки SMTP-сервера:
 
    | Ключ | Значение |
    | ----- | ----- |
@@ -52,23 +57,43 @@
    | `smtp.smtp_port` | `465` |
    | `smtp.smtp_starttls` | `False` |
    | `smtp.smtp_ssl` | `True` |
-   | `smtp.smtp_mail_from` | `user@yandex.ru` |
+   | `smtp.smtp_mail_from` | `<адрес_почты_отправителя>` |
 
-   Заполните поля вручную или загрузите конфигурацию из файла ([пример конфигурационного файла](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
+   Заполните поля вручную или загрузите конфигурацию из файла. Чтобы загрузить конфигурацию из файла, нажмите кнопку **{{ ui-key.yacloud.airflow.action_button-load-config-from-file }}** и выберите способ загрузки **{{ ui-key.yacloud.component.file-content-dialog.value_manual }}**. В поле **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** скопируйте следующую конфигурацию:
+   
+   {% cut "Конфигурация SMTP-сервера" %}
+
+   ```text
+   [smtp]
+   smtp_host = smtp.yandex.ru
+   smtp_port = 465
+   smtp_starttls = False
+   smtp_ssl = True
+   smtp_mail_from = <адрес_почты_отправителя>
+   ```
+
+   {% endcut %}
+
+   Подробнее о параметрах для настройки SMTP-сервера читайте в [документации {{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html#smtp).
+
+1. [Настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для подсетей кластера {{ maf-name }}.
 
 ## Создайте секрет {{ lockbox-name }} {#create-lockbox-secret}
 
-[Создайте секрет {{ lockbox-name }}](../../lockbox/operations/secret-create.md) с именем `airflow/connections/smtp_default` и содержимым `json.dumps(conn)`, где `conn` — подключение к SMTP-серверу.
+[Создайте секрет {{ lockbox-name }}](../../lockbox/operations/secret-create.md) со следующими настройками:
 
-```json
-conn = {
-         "conn_type": "smtp",
-         "login": "user@yandex.ru",
-         "password": "<пароль_для_внешних_приложений>"
-}
-```
+* **{{ ui-key.yacloud.common.name }}** — `airflow/connections/smtp_default`.
+* **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** — `Пользовательский`.
+* **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** — `conn`.
+* **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** — выберите **{{ ui-key.yacloud.lockbox.SecretVersionsInputs.value_payload-entry-value-type-text }}** и укажите следующее содержимое:
 
-В секрете `airflow/connections/smtp_default` будут сохранены данные для подключения к SMTP-серверу.
+  ```json
+  {
+    "conn_type": "smtp",
+    "login": "<адрес_почты_отправителя>",
+    "password": "<пароль_для_внешних_приложений>"
+  }
+  ```
 
 ## Подготовьте DAG-файл и запустите граф {#dag}
 
@@ -78,7 +103,7 @@ conn = {
    from airflow.decorators import dag, task
 
    default_args = {
-    "email": ["user@yandex.ru"],
+    "email": ["<адрес_почты_получателя>"],
     "email_on_failure": True,
     "email_on_retry": True
    }
@@ -104,16 +129,31 @@ conn = {
    Загрузка DAG-файла из бакета может занять несколько минут.
 
 1. Чтобы запустить граф, в строке с его именем нажмите кнопку ![image](../../_assets/managed-airflow/trigger-dag.png =18x).
+1. Дождитесь, когда задача завершится ошибкой. При этом на указанный адрес электронной почты отправится уведомление.
+
+    {% note warning %}
+
+    Если параметры SMTP-сервера, указанные в конфигурации {{ AF }}, заданы неверно, уведомления отправляться не будут.
+
+    {% endnote %}
 
 ## Проверьте результат {#check-result}
 
-Чтобы проверить результат в веб-интерфейсе {{ AF }}:
+Чтобы проверить результат в веб-интерфейсе {{ AF }} версии `2.11`:
 
 1. В разделе **DAGs** откройте граф `test_smtp_notification`.
-1. Перейдите в раздел **Graph**.
-1. Выберите задание **failing_task**.
-1. Перейдите в раздел **Logs**.
-1. Убедитесь, что в логах отсутствует строка `some test error`. Это значит, что запрос выполнен успешно.
+1. Выберите задачу `failing_task`.
+1. На диаграмме **Task Instance Duration** выберите нужный запуск задачи.
+1. Перейдите на вкладку **Logs**.
+1. Убедитесь, что в логах присутствует строка `Sent an alert email to ['<адрес_почты_получателя>']`.
+
+Чтобы проверить результат в веб-интерфейсе {{ AF }} версии `3.1`:
+
+1. В разделе **DAGs** откройте граф `test_smtp_notification`.
+1. Перейдите на вкладку **Tasks** и выберите задачу `failing_task`.
+1. Перейдите на вкладку **Task Instances** и выберите нужный запуск задачи.
+1. Перейдите на вкладку **Logs**.
+1. Убедитесь, что в логах присутствует строка `Sent an alert email to ['<адрес_почты_получателя>']`.
 
 ## Удалите созданные ресурсы {#clear-out}
 

@@ -26,7 +26,7 @@ To create a connection to {{ datalens-short-name }} Usage Analytics:
 
 {% include [datalens-usage-tracking-connection-011225-note](../../../_includes/datalens/operations/datalens-usage-tracking-connection-011225-note.md) %}
 
-1. Leave the **Automatically create dashboard, charts, and dataset on top of connection** option enabled if you need a standard dataset:
+1. Leave the **Automatically create dashboard, charts, and dataset on top of connection** option enabled if you want to get a standard dataset:
 
    {% cut "For Light connection" %}
 
@@ -45,7 +45,7 @@ To create a connection to {{ datalens-short-name }} Usage Analytics:
    {% endcut %}
 
 1. Click **Create connection**.
-1. Select the [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
+1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
 1. Enter a name for the connection and click **Create**.
 
 

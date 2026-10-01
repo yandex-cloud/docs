@@ -10,14 +10,12 @@ To delete a [node group](../../concepts/index.md#node-group), use its name or ID
 
   To delete a [node group](../../concepts/index.md#node-group):
   
-  1. Navigate to the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) you want to delete a node group from:
-     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-     1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-     1. Open the {{ k8s }} cluster you need.
-     1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
-  1. On the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab, click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the node group to delete.
-  1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
-  1. In the window that opens, click **{{ ui-key.yacloud.k8s.cluster.node-groups.popup-confirm_button_delete }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Select the {{ managed-k8s-name }} cluster.
+  1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab to also view the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+  1. In the node group row, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+  1. Confirm the deletion.
 
 - CLI {#cli}
 

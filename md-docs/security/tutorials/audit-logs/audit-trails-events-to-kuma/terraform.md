@@ -7,7 +7,7 @@
 
 Чтобы настроить доставку файлов аудитных логов в [KUMA](https://www.kaspersky.ru/enterprise-security/unified-monitoring-and-analysis-platform):
 
-1. [Подготовьте облако к работе](#before-begin).
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте инфраструктуру](#deploy).
 1. [Смонтируйте бакет на сервере](#mount-bucket).
 1. [Настройте коллектор KUMA](#setup-collector).

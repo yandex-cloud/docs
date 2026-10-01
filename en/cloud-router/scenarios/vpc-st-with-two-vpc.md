@@ -1,5 +1,6 @@
 # Establishing network connectivity between two or more cloud networks (VPC Stitching)
 
+
 {% include [cic-only-warning](../../_includes/interconnect/cic-only-warning.md) %}
 
 ![ri-topology-6](../../_assets/cloud-router/ri-topology-6.svg)
@@ -19,4 +20,3 @@ The network topology is presented on the diagram in the following configuration:
 Virtual network subnets' own prefixes cannot be used as stitching announcements.
 
 {% endnote %}
-

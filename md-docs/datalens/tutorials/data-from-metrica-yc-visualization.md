@@ -40,7 +40,7 @@
     1. [DataSphere. Постройте воронки](#calculating-funnels-datasphere).
     1. [DataLens. Воронки по браузерам. Создайте датасет](#calculating-browser-funnels-dataset).
     1. [DataLens. Воронки по браузерам. Создайте чарт](#calculating-browser-funnels-chart).
-    1. [DataLens. Воронки по браузерам. Добавьте чарт на дашборд](#add-browser-funnels-chart-on-dashboard}).
+    1. [DataLens. Воронки по браузерам. Добавьте чарт на дашборд](#add-browser-funnels-chart-on-dashboard).
     1. [DataLens. Воронки по браузерам. Настройте дашборд](#setting-browser-funnels-chart-on-dashboard).
 1. [Проведите когортный анализ](#cohorts):
     1. [DataSphere. Проведите когортный анализ](#cohort-analysis).
@@ -69,11 +69,9 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость развертывания инфраструктуры входят:
-
-* плата за вычислительные ресурсы кластера и объем хранилища ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md));
-* плата за время вычислений ([тарифы DataSphere](../../datasphere/pricing.md));
-* плата за исходящий трафик ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Кластер Managed Service for ClickHouse®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
+* Проект DataSphere: использование вычислительных ресурсов и хранилища ([тарифы DataSphere](../../datasphere/pricing.md)).
+* Yandex Virtual Private Cloud: исходящий трафик ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## 1. Подключите ClickHouse® и DataSphere {#ch-datasphere-connection}
 

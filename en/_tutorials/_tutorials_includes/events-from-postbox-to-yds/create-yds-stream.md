@@ -8,7 +8,6 @@ Create a [data stream](../../../data-streams/concepts/glossary.md#stream-concept
   1. [Navigate]({{ link-console-main }}/link/data-streams) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}** and click **{{ ui-key.yacloud.data-streams.button_create-stream }}**.
   1. In the **{{ ui-key.yacloud.data-streams.label_database }}** field, select the `postbox-events-ydb` database you created earlier.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter the stream name: `postbox-events-stream`.
-  1. In the **{{ ui-key.yacloud.data-streams.label_meter-mode }}** field, select `{{ ui-key.yacloud.data-streams.label_request-units }}`.
   1. Do not edit the other data stream settings. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}

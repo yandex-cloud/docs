@@ -26,10 +26,26 @@ Greenplum cluster name. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 || `--password` | `string`
 
-User's password ||
+User's password. ||
+|| `--password-file` | `string`
+
+File containing the password of the Greenplum user. ||
+|| `--password-from-stdin` | Read password from stdin. ||
 || `--resource-group` | `string`
 
 User's resource group ||
+|| `--pool-mode` | `string`
+
+Odyssey server pool mode. To reset the setting, specify an empty value. Values: 'session', 'transaction' ||
+|| `--pool-size` | `int`
+
+Number of server connections in the Odyssey pool. To reset the setting, specify an empty value. ||
+|| `--pool-client-idle-timeout` | `int`
+
+Odyssey client pool idle timeout in seconds. To reset the setting, specify an empty value. ||
+|| `--pool-idle-in-transaction-timeout` | `int`
+
+Odyssey client pool idle in transaction timeout in seconds. To reset the setting, specify an empty value. ||
 |#
 
 #### Global Flags

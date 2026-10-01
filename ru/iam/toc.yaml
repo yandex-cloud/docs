@@ -13,6 +13,8 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
+      - name: Получение информации о субъектах
+        href: operations/subject-details.md
       - name: Обработка секретов, попавших в открытый доступ
         href: operations/compromised-credentials.md
       - name: Пользователи
@@ -208,6 +210,8 @@ items:
         href: concepts/federations.md
       - name: Федерации сервисных аккаунтов
         href: concepts/workload-identity.md
+      - name: Получение информации о субъектах
+        href: concepts/subject-details.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Безопасное использование {{ yandex-cloud }}
@@ -370,6 +374,14 @@ items:
             href: cli-ref/service-control/get.md
           - name: list
             href: cli-ref/service-control/list.md
+      - name: subject-details
+        items:
+          - name: Overview
+            href: cli-ref/subject-details/index.md
+          - name: get
+            href: cli-ref/subject-details/get.md
+          - name: list
+            href: cli-ref/subject-details/list.md
       - name: user-account
         items:
           - name: Overview
@@ -528,6 +540,14 @@ items:
                 href: cli-ref/v0/service-control/get.md
               - name: list
                 href: cli-ref/v0/service-control/list.md
+          - name: subject-details
+            items:
+              - name: Overview
+                href: cli-ref/v0/subject-details/index.md
+              - name: get
+                href: cli-ref/v0/subject-details/get.md
+              - name: list
+                href: cli-ref/v0/subject-details/list.md
           - name: user-account
             items:
               - name: Overview
@@ -1236,6 +1256,8 @@ items:
         href: qa/access.md
       - name: Все вопросы на одной странице
         href: qa/index.md
+      - name: Решение проблем
+        href: qa/troubleshooting.md
   - name: Обучающие курсы
     href: training.md
 path: ru/iam/toc.yaml

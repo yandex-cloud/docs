@@ -1,6 +1,7 @@
 default:
   AB: Airbyte®
   AF: Apache Airflow™
+  agent-atelier-name: Agent Atelier
   ai-studio-full-name: Yandex AI Studio
   ai-studio-name: AI Studio
   alb-full-name: Yandex Application Load Balancer
@@ -21,6 +22,8 @@ default:
   cloud-logging-short-name: Cloud Logging
   cloud-registry-name: Cloud Registry
   cluster-domain: <cluster domain>
+  compute-full-name: Yandex Compute Cloud
+  compute-name: Compute Cloud
   container-registry-full-name: Yandex Container Registry
   container-registry-name: Container Registry
   container-registry-short-name: Container Registry
@@ -38,11 +41,12 @@ default:
   iam-name: Identity and Access Management
   iam-short-name: IAM
   IBRG: Apache Iceberg™
+  k8s: Kubernetes
   kafka-ui: Kafka UI
   KF: Apache Kafka®
   kraft-name: Apache Kafka® Raft
   kraft-short-name: KRaft
-  lang: en
+  lang: ru
   maf-full-name: Yandex Managed Service for Apache Airflow™
   maf-name: Managed Service for Apache Airflow™
   maf-short-name: Managed Service for Apache Airflow™
@@ -54,6 +58,7 @@ default:
   mkf-name: Managed Service for Apache Kafka®
   mkf-short-name: Managed Service for Apache Kafka®
   ml-platform-short-name: DataSphere
+  model-gallery-name: Model Gallery
   monitoring-full-name: Yandex Monitoring
   monitoring-name: Monitoring
   monitoring-short-name: Monitoring
@@ -79,7 +84,6 @@ default:
   RD: Redis
   rest-catalog-name: Iceberg REST Catalog
   RMQ: RabbitMQ
-  speechkit-slug: speechkit
   speechsense-full-name: Yandex SpeechSense
   speechsense-name: SpeechSense
   SPQR: Sharded PostgreSQL
@@ -89,7 +93,7 @@ default:
   TF: Terraform
   TF-full: HashiCorp Terraform
   TR: Trino
-  version: 0.5.0
+  version: 26.2.1
   VLK: Valkey™
   ya-360: Yandex 360 for Business
   yandex-cloud: Yandex Cloud

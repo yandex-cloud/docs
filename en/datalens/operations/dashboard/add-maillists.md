@@ -1,17 +1,19 @@
 ---
-title: Adding a mailing list
-description: Follow this guide to add a mailing list for a dashboard.
+title: Adding a mailing list for a dashboard in {{ datalens-full-name }}
+description: Follow this guide to add a mailing list for a dashboard in {{ datalens-name }}.
 ---
 
-# Mailing lists
+# Mailing lists for dashboards
 
 
-You can set up a mailing list for your dashboard. Recipients will be getting emails with links to the dashboard and chart states specified in the mailing list settings. You can set up the dashboard selector states, schedule, chart sizes, and other parameters. Mailing lists are available for the current dashboard [version](../../dashboard/versioning.md) only.
+You can set up a mailing list for a dashboard. The email will deliver links to the dashboard and chart states you specify in the mailing list settings. You can also choose to include analysis from Neuroanalyst. Use settings to configure dashboard selector states, delivery schedule, chart sizes, and other options. Mailing lists are available for the current dashboard [version](../../dashboard/versioning.md) only.
 
 {% note info %}
 
-* Mailing lists are only available for dashboards stored in [workbooks](../../../datalens/workbooks-collections/index.md).
-* A user with the `{{ roles-datalens-admin }}` role can add or update a mailing list.
+* To add or update a mailing list, you need the `Editor` [role](../../security/roles.md#datalens-workbooks-editor) or higher for the workbook.
+* Mailing lists are only available for dashboards located in [workbooks](../../workbooks-collections/index.md).
+* Mailing lists do not support [RLS](../../security/row-level-security.md).
+* Mailing lists only support [shared objects](../../security/workbooks-access-advanced.md) that are configured to allow delegated access permissions.
 
 {% endnote %}
 
@@ -44,6 +46,10 @@ To add a mailing list for your dashboard:
        
        * Height: `400` to `6000` pixels Use the `Auto` option for automatic height adjustment so that all charts from the dashboard tab fit in the screenshot.
 
+     
+     * Analysis from Neuroanalyst (optional). Enter a question for Neuroanalyst in the **Prompt** field. Its response will be included in the email.
+
+       
      * Dashboard state. By default, the state of the first dashboard tab is already included in the mailing list content. Correct it if required. You can send multiple dashboard states in a single mailing list. To add another state, click **Add**.
 
        * Specify the tab and filters for the screenshot:
@@ -64,8 +70,10 @@ To add a mailing list for your dashboard:
 
      {% cut "Mailing list email content" %}
 
-     ![maillist-content](../../../_assets/datalens/dashboard/maillist-content.png =687x436)
-   
+     
+     ![maillist-recipients](../../../_assets/datalens/dashboard/maillist-content-yc.png =687x436)
+
+
      {% endcut %}
 
    * Under **When**, specify the delivery settings:
@@ -111,17 +119,19 @@ To add a mailing list for your dashboard:
 
      * To receive the emails, a user must have an active seat.
      * If there are no recipients with an active seat, no emails will be sent.
+     * You can receive the newsletter only if you have a role for the workbook in which this newsletter is configured.
 
      {% endnote %}
 
 
+     {% include [datdatalens-maillist-add-recipients](../../../_includes/datalens/datalens-maillist-add-recipients.md) %}
+     
      After saving the mailing list, you can edit the recipients in the **Recipients** tab.
 
      {% cut "Mailing list recipients" %}
 
      
      ![maillist-recipients](../../../_assets/datalens/dashboard/maillist-recipients-yc.png =687x436)
-
 
 
      {% endcut %}
@@ -147,13 +157,16 @@ Each recipient will receive the mailing list email:
   
   * State title.
   * Dashboard screenshots.
+  * Analysis from Neuroanalist, if enabled.
   * Name of the dashboard used to create the mailing list and its link.
   * Link to unsubscribe from the mailing list.
   * Links to {{ datalens-short-name }} guides and {{ yandex-cloud }} services.
 
   {% cut "Mailing list email contents" %}
 
-  ![maillist-attachment](../../../_assets/datalens/dashboard/maillist-attachment.png =450x1378)
+  
+  ![maillist-attachment-ai](../../../_assets/datalens/dashboard/maillist-attachment-ai.png =419x2218)
+
 
   {% endcut %}
 
@@ -177,8 +190,8 @@ You can rename or delete a mailing list, change its settings, pause or resume de
 
    * Subscribe or unsubscribe:
      
-     * To subscribe to a mailing list, click ![image](../../../_assets/console-icons/bell.svg) **Subscribe** at the top below the mailing list name, or click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/bell.svg) **Subscribe**.
-     * To unsubscribe from a mailing list, click ![image](../../../_assets/console-icons/bell.svg) **Subscribed** at the top below the mailing list name, or click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/bell-slash.svg) **Unsubscribe**.
+     * If you have minimal access to the workbook where the newsletter is stored, you can subscribe to it. To subscribe to a mailing list, click ![image](../../../_assets/console-icons/bell.svg) **Subscribe** at the top below the mailing list name, or click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/bell.svg) **Subscribe**.
+     * To unsubscribe from a mailing list, click ![image](../../../_assets/console-icons/bell.svg) **Subscribed** at the top below the mailing list name, or click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/bell-slash.svg) **Unsubscribe**. You can also unsubscribe from the newsletter by clicking the appropriate link in it.
 
    * Pause or resume deliveries:
      

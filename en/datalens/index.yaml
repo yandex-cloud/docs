@@ -1,15 +1,3 @@
-title: Yandex DataLens
-description:
-  - >-
-    Yandex DataLens is a business analytics tool for visualizing your data.
-    Visualize data from various sources, build dashboards, and generate reports
-    in the form of interactive slide decks.
-  - >-
-    Track critical product and business metrics in real time, share results with
-    your team, and make informed decisions.
-  - >-
-    Use the Neuroanalyst to automatically analyze your data, get insights,
-    create and edit visualizations.
 meta:
   title: Yandex DataLens
   description: >-
@@ -27,42 +15,131 @@ meta:
     - keyword: How to connect to a data source
     - keyword: business metrics in {{ yandex-cloud }}
     - keyword: '{{ yandex-cloud }} analytics'
-links:
-  - title: Getting started
-    description: Getting started with DataLens
-    href: quickstart
-  - title: Neuroanalyst
-    description: Your data interpretation and coding assistant
-    href: concepts/neuroanalyst
-  - title: Connections
-    description: Connect various data sources
-    href: concepts/connection
-  - title: Datasets
-    description: Describe the structure of data you get from the source
-    href: dataset/
-  - title: Charts
+blocks:
+  - type: card-layout-block
+    title: "Yandex\_DataLens"
     description: >-
-      Build charts using the self-service visualization builder or use
-      JavaScript customization
-    href: concepts/chart/
-  - title: Dashboards
-    description: Keep your charts on the same page
-    href: concepts/dashboard
-  - title: Reports
-    description: Make print-ready multipage documents
-    href: reports/
-  - title: Quotas and limits
-    description: Technical and organizational limitations
-    href: concepts/limits
-  - title: Access management
-    description: Permissions required to use the service
-    href: security/
-  - title: Pricing policy
-    description: Pricing and cost calculations
-    href: pricing
-  - title: Courses
-    description: Available courses and training programs
-    href: training
-  - title: DataLens Gallery
-    description: Ready-made dashboards for inspiration and business.
-    href: concepts/gallery
+      Yandex DataLens is a business analytics tool for visualizing your data.
+      Connect to sources, build dashboards, and generate reports in the form of
+      interactive slide decks.
+
+
+      Track product and business metrics and share results with your team. Use
+      Neuroanalyst to analyze data and create visualizations.
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+      lg: 3
+    children:
+      - type: basic-card
+        title: Getting started
+        text: Getting started with DataLens
+        icon: ../_assets/console-icons/rocket.svg
+        urlTitle: Getting started
+        url: quickstart
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Neuroanalyst
+        text: Your data interpretation and coding assistant
+        icon: ../_assets/console-icons/sparkles-fill.svg
+        urlTitle: Neuroanalyst
+        url: ./concepts/neuroanalyst
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Connections
+        text: Connect various data sources
+        icon: ../_assets/console-icons/thunderbolt.svg
+        urlTitle: Connections
+        url: concepts/connection/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Datasets
+        text: Describe the structure of data you get from the source
+        icon: ../_assets/console-icons/circles-intersection.svg
+        urlTitle: Datasets
+        url: dataset/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Charts
+        text: >-
+          Build charts using the self-service visualization builder or use
+          JavaScript customization
+        icon: ../_assets/console-icons/chart-column.svg
+        urlTitle: Charts
+        url: concepts/chart/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Dashboards
+        text: Keep your charts on the same page
+        icon: ../_assets/console-icons/layout-cells-large.svg
+        urlTitle: Dashboards
+        url: ./concepts/dashboard
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Reports
+        text: Make print-ready multipage documents
+        icon: ../_assets/console-icons/display-pulse.svg
+        urlTitle: Reports
+        url: reports/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Quotas and limits
+        text: Technical and organizational limitations
+        icon: ../_assets/console-icons/sliders.svg
+        urlTitle: Quotas and limits
+        url: ./concepts/limits
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Access management
+        text: Permissions required to use the service
+        icon: ../_assets/console-icons/persons-lock.svg
+        urlTitle: Access management
+        url: security/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Pricing policy
+        text: Prices and cost calculation rules
+        icon: ../_assets/console-icons/calculator.svg
+        urlTitle: Pricing policy
+        url: pricing
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Courses
+        text: Available courses and training programs
+        icon: ../_assets/console-icons/graduation-cap.svg
+        urlTitle: Courses
+        url: training
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: DataLens Gallery
+        text: Ready-made dashboards for inspiration and business.
+        icon: ../_assets/console-icons/layers-3-diagonal.svg
+        urlTitle: DataLens Gallery
+        url: ./concepts/gallery
+        size: s
+        controlPosition: content
+        animated: false
+links: []

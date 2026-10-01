@@ -1,6 +1,6 @@
 # Viewing your payment history
 
-You can view the full history of payments to your [personal account](../concepts/personal-account.md#balance) on the **{{ ui-key.yacloud_billing.billing.account.switch_history }}** page or in [Yandex Balance](https://yandex.com/support/balance/operations/find-bill.html). The tracking method depends on your legal status ([billing account type](../concepts/billing-account.md#ba-types)).
+You can view the full history of payments to your [personal account](../concepts/personal-account.md#balance) on the **{{ ui-key.yacloud_billing.billing.account.switch_history }}** page. The tracking method depends on your legal status ([billing account type](../concepts/billing-account.md#ba-types)).
 
 {% list tabs group=customers %}
         

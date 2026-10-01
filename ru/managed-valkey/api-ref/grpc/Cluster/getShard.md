@@ -48,9 +48,9 @@ The maximum string length in characters is 63. Value must match the regular expr
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the Redis shard. The shard name is assigned by user at creation time, and cannot be changed.
+Name of the Redis shard. The shard name is assigned by user at creation time, and cannot be changed.
 1-63 characters long. ||
 || cluster_id | **string**
 
-Required field. ID of the Redis cluster the shard belongs to. The ID is assigned by MDB at creation time. ||
+ID of the Redis cluster the shard belongs to. The ID is assigned by MDB at creation time. ||
 |#

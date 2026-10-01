@@ -1,5 +1,9 @@
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     om-fed-extGroupsViewer["organization-manager.federations.extGroupsViewer"] --> om-fed-extGroupsCleaner["organization-manager.federations.extGroupsCleaner"]
     om-fed-extGroupsViewer --> om-fed-extGroupsManager["organization-manager.federations.extGroupsManager"]

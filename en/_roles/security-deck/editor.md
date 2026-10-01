@@ -10,15 +10,15 @@ The `security-deck.editor` role enables managing subscriptions to events of acce
 * View info on {{ dspm-name }} [data sources](../../security-deck/concepts/dspm.md#data-source) and their scan areas, as well as create, modify, use, and delete such sources.
 * View info on {{ dspm-name }} sensitive data [scan](../../security-deck/concepts/dspm.md#scanning) jobs, as well as create, run, suspend, resume, modify, and delete such jobs.
 * View info on sensitive data scans, as well as create, suspend, resume, modify, and delete them.
-* View the lists of results and scan errors when scanning for sensitive data.
-* View {{ dspm-name }} sensitive data scan results and info on detected threats.
+* View info on results of and errors relating to [continuous update scans](../../security-deck/concepts/dspm.md#change-scaning) and [regular sensitive data scans](../../security-deck/concepts/dspm.md#scanning) in {{ dspm-name }} (unmasked data only).
+* Download and export sensitive data scan results in {{ dspm-name }} (unmasked data only).
 * View info on {{ dspm-name }} data types and [categories](../../security-deck/concepts/dspm.md#data-categories).
-* View info on {{ dspm-name }} [data analysis](../../security-deck/concepts/dspm#discovery-mode) results.
+* Estimate the cost of using {{ dspm-name }} (drawing on {{ objstorage-full-name }} bucket metadata in data sources).
 * View [bucket](../../storage/concepts/bucket.md) metadata.
 * View info on {{ sd-name }} [workspaces](../../security-deck/concepts/workspace.md) and resources managed in them, as well as on [access permissions](../../iam/concepts/access-control/index.md) granted for them.
 * Create, modify, and delete {{ sd-name }} workspaces.
 * View info on [connectors](../../security-deck/concepts/workspace.md#connectors), as well as create, use, modify, and delete them.
-* View info on cloud infrastructure checks for compliance with [security standards](../../security-deck/concepts/cspm.md#standards) configured in the [{{ cspm-name }} settings](../../security-deck/concepts/cspm.md), as well as delete checks.
+* View info on cloud infrastructure checks for compliance with [security standards](../../security-deck/concepts/cspm.md#standards) configured in the [{{ cspm-name }} settings](../../security-deck/concepts/cspm.md), as well as delete such checks.
 * View info on {{ cspm-name }} check jobs.
 * Manually run checks for compliance with {{ cspm-name }} security standards.
 * View {{ cspm-name }} check results.
@@ -40,3 +40,5 @@ The `security-deck.editor` role enables managing subscriptions to events of acce
 {% endcut %}
 
 This role includes the `access-transparency.editor`, `dspm.editor`, `cspm.editor`, `kspm.editor`, `security-deck.alertSinks.editor`, `vulnerability-manager.editor`, and `threat-detector.editor` permissions.
+
+To export sensitive data scan results in {{ dspm-name }}, you also need the `storage.uploader` role for the bucket to save the results in and the `kms.keys.encrypter` role for the encryption key if the bucket is encrypted.

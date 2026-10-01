@@ -12,12 +12,19 @@ blocks:
     animated: false
     colSizes:
       all: 12
-      sm: 4
+      md: 4
+    children: []
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 12
+      md: 6
     children:
       - type: basic-card
         title: Price calculator
         text: Calculate the cost of services based on your needs
-        icon: ../_assets/console-icons/calculator.svg
+        gravityIcon: Calculator
+        iconPosition: left
         urlTitle: Price calculator
         url: https://yandex.cloud/en/prices
         size: s
@@ -29,7 +36,8 @@ blocks:
       - type: basic-card
         title: Price list
         text: Current prices of all our services
-        icon: ../_assets/console-icons/circle-ruble.svg
+        gravityIcon: CircleRuble
+        iconPosition: left
         urlTitle: Price list
         url: https://yandex.cloud/en/price-list
         size: s
@@ -48,6 +56,8 @@ In {{ yandex-cloud }}, you can use resources of both billable and non-billable s
 
 
 The cost of billable services is calculated based on the amount of consumed resources and the time for which they are used. Each service has its own calculation logic for consumed resources.
+
+{% include [final-payment-info](../_includes/billing/final-payment-info.md) %}
 
 * {{ preview-stage }} [{{ gost-gateway-name }}](../gost-gateway/pricing.md)
 * [{{ monium-name }}](../monium/pricing.md)
@@ -116,8 +126,9 @@ The cost of billable services is calculated based on the amount of consumed reso
 * [{{ mgp-full-name }}](../managed-greenplum/pricing/index.md)
 * [{{ objstorage-full-name }}](../storage/pricing.md)
 * [{{ yq-full-name }}](../query/pricing.md)
-* {{ preview-stage }} [{{ sd-full-name }}](../security-deck/pricing.md)
+* [{{ sd-full-name }}](../security-deck/pricing.md)
 * [{{ serverless-containers-full-name }}](../serverless-containers/pricing.md)
+* {{ preview-stage }} [{{ yandex-siem-full-name }}](../siem/pricing.md)
 * [{{ captcha-full-name }}](../smartcaptcha/pricing.md)
 * [{{ sws-full-name }}](../smartwebsecurity/pricing.md)
 * [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/pricing)
@@ -137,6 +148,7 @@ The following services are always free of charge:
 * [{{ iam-full-name }}](../iam/pricing.md)
 * [{{ resmgr-full-name }}](../resource-manager/pricing.md)
 * {{ preview-stage }} [{{ si-full-name }}](../serverless-integrations/pricing.md)
+* {{ preview-stage }} [{{ vc-name }}]({{ link-src-docs }}/vibecraft/pricing)
 * [{{ websql-full-name }}](../websql/pricing.md)
 
  Services at the [Preview](../overview/concepts/launch-stages.md) stage are labeled as {{ preview-stage }}.

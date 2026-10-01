@@ -25,7 +25,7 @@ description: HTTP API {{ cns-name }} совместим с Amazon SNS API.
 
 ## Настройте AWS CLI {#aws-cli}
 
-[AWS CLI](https://aws.amazon.com/ru/cli/) — это интерфейс командной строки для работы с сервисами AWS. HTTP API {{ cns-name }} совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html). Общий [порядок вызова команд](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html) смотрите в официальной документации Amazon.
+[AWS CLI](https://aws.amazon.com/ru/cli/) — это интерфейс командной строки для работы с сервисами AWS. HTTP API {{ cns-name }} совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/Welcome.html). Общий [порядок вызова команд](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html) смотрите в официальной документации Amazon.
 
 Чтобы настроить AWS CLI:
 1. [Установите](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) AWS CLI.

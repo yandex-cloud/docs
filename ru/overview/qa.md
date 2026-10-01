@@ -69,12 +69,13 @@ description: Из статьи вы узнаете, какими материа�
 
 * [{{ src-full-name }}]({{ link-src-docs }}/sourcecraft/qa/common)
 * [{{ ca-full-name }}]({{ link-src-docs }}/code-assistant/qa)
-* [Vibecraft]({{ link-src-docs }}/vibecraft/qa)
+* [{{ vc-name }}]({{ link-src-docs }}/vibecraft/qa)
 * [{{ cloud-logging-full-name }}](../logging/qa/index.md)
 * [{{ container-registry-full-name }}](../container-registry/qa/index.md)
 * [{{ mgl-full-name }}](../managed-gitlab/qa/index.md)
 * [{{ managed-k8s-full-name }}®](../managed-kubernetes/qa/all.md)
 * [{{ monitoring-full-name }}](../monitoring/qa/all.md)
+* [{{ monium-full-name }}](../monium/qa/general.md)
 
 
 ### Бессерверные вычисления {#serverless}

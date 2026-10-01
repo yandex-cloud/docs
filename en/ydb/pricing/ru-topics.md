@@ -7,10 +7,9 @@ editable: false
 # Estimating the cost of topic operations
 
 
-
 ## Pricing modes
 
-The pricing for data operations in [{{ ydb-short-name }} topics]({{ ydb.docs }}/concepts/topic) using {{ ydb-short-name }} request units (RUs) applies to the topics with the _on-demand pricing mode_. In this mode, topics are created by default via the {{ ydb-short-name }} CLI/SDK as well as when creating a [CDC feed]({{ ydb.docs }}/concepts/cdc).
+The pricing for data operations in [{{ ydb-short-name }} topics]({{ ydb.docs }}concepts/datamodel/topic) using {{ ydb-short-name }} request units (RUs) applies to the topics with the _on-demand pricing mode_. In this mode, topics are created by default via the {{ ydb-short-name }} CLI/SDK as well as when creating a [CDC feed]({{ ydb.docs }}/concepts/cdc).
 
 If you create a topic as a storage for a {{ yds-short-name }} [stream](../../data-streams/concepts/glossary.md#stream-concepts), [_pricing based on dedicated resources_](../../data-streams/pricing.md#rules) applies to it by default. For the topics with pricing based on dedicated resources, no {{ ydb-short-name }} RUs are charged. You pay for the resource usage on an hourly basis within {{ yds-full-name }}.
 
@@ -29,8 +28,8 @@ For topics with on-demand pricing, {{ ydb-short-name }} calculates the cost of o
 
     Type | Block size
     --- | ---
-    Reads | 8 KB
-    Writes | 4 KB
+    Reads | 8KB
+    Writes | 4KB
 
 **Calculation example**
 
@@ -50,8 +49,8 @@ The data reads are calculated in a similar way; the only difference is that the 
 
     Type | Block size
     --- | ---
-    Reads | 8 KB
-    Writes | 4 KB
+    Reads | 8KB
+    Writes | 4KB
 
 1. 1 RU is charged for each complete data block transferred.
 
@@ -63,15 +62,15 @@ The data reads are calculated in a similar way; the only difference is that the 
 
 ### KafkaAPI {#kafka-api}
 
-`KafkaAPI` does not support streaming read and write methods. To transfer each data block, you need to call a separate unary method (request-response). The cost of calling these methods in RUs is calculated as explained below:
+`KafkaAPI` does not support streaming read and write methods. To transfer each data block, you need to call a separate unary method (request-response). The cost of calling these methods in Request Units (RU) is calculated as explained below:
 
 1. Each data read or write method call to transfer or receive the next data block costs 1 RU (effective as of July 1, 2024).
 1. What is calculated here is the amount of data blocks transferred in a request to the write method or received in response to the read method call. The block sizes for read and write operations are different:
 
-    Type | Block size
+    Direction | Block size
     --- | ---
-    Reads | 8 KB
-    Writes | 4 KB
+    Reads | 8KB
+    Writes | 4KB
 
 1. 1 RU is charged for each complete data block transferred.
 
@@ -83,3 +82,35 @@ The data reads are calculated in a similar way; the only difference is that the 
 
 
 The data writes are calculated in a similar way; the only difference is that the block size is 4 KB.
+
+### SQS API {#sqs-api}
+
+`SQS API` (SQS over Topics) is used to access a topic via an Amazon SQS-compatible interface. This interface does not support streaming read and write methods. To transfer each data block, you need to call a separate unary method (request-response). The cost of calling these methods in Request Units (RU) is calculated as explained below:
+
+1. Each SQS API method call costs 2 RUs.
+1. For write (`SendMessage`, `SendMessageBatch`) and read (`ReceiveMessage`) methods, what is also calculated here is the amount of data blocks transferred in a request to the write method or received in response to the read method call. The block sizes for read and write operations are different:
+
+    Direction | Block size
+    --- | ---
+    Reads | 8KB
+    Writes | 4KB
+
+1. 1 RU is charged for each complete data block transferred.
+1. For FIFO queues, an additional 1 RU is charged for read and write methods.
+
+**Calculation examples**
+
+1. Let’s assume the `SendMessage` SQS API method is called for a standard queue:
+
+    1. A 10 KB batch of data is transferred in the request. The batch contains two complete write blocks, 4 KB each.
+    1. The cost of method call in RU is 2 RUs per call plus 2 RUs for two complete data blocks transferred, which equals 4 RUs.
+
+1. Let’s assume the `ReceiveMessage` SQS API method is called for a FIFO queue:
+
+    1. A 20 KB batch of data is received in response. The batch contains two complete read blocks, 8 KB each.
+    1. The cost of method call in RU is 2 RUs per call plus 2 RUs for two complete data blocks received plus 1 RU for FIFO, which equals 5 RUs.
+
+1. Let’s assume the `DeleteMessage` SQS API method is called:
+
+    1. The cost of method call in RU is 2 RUs.
+

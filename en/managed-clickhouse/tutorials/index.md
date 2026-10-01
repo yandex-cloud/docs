@@ -42,6 +42,7 @@ description: Various use cases for {{ mch-full-name }} in {{ yandex-cloud }}.
 * [{#T}](yq-federative-queries.md)
 * [{#T}](jdbc-ch-to-sql-server-integration.md)
 * [{#T}](jdbc-ch-to-oracle-integration.md)
+* [{#T}](mpg-pg-clickhouse-extension.md)
 
 
 To learn how to migrate {{ mch-name }} cluster hosts to a different availability zone, see [this guide](../operations/host-migration.md).

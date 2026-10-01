@@ -17,7 +17,7 @@ The solution support costs include:
 * Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
-## Set up the infrastructure {#deploy-infrastructure}
+## Set up your infrastructure {#deploy-infrastructure}
 
 1. [Create a security group](../../vpc/operations/security-group-create.md) and [configure it](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 

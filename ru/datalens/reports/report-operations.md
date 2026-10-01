@@ -104,7 +104,7 @@ description: Следуя данной инструкции, вы научите
    - Изображение {#image}
 
           
-     * Добавьте ссылку на [изображение](../dashboard/markdown.md#image), размещенное в хранилище [{{ objstorage-full-name }}](../../storage/quickstart.md).
+     * Добавьте ссылку на [изображение](../dashboard/markdown.md#image), размещенное в хранилище [{{ objstorage-full-name }}]({{ link-docs }}/storage/quickstart).
 
        {% note warning %}
 
@@ -433,6 +433,14 @@ description: Следуя данной инструкции, вы научите
   * с помощью кнопок навигации внизу экрана — на следующую, предыдущую, первую, последнюю страницу или по номеру страницы.
 
   ![report-page](../../_assets/datalens/report/preview-presentation.png)
+
+  Для чартов [Таблица](../visualization-ref/table-chart.md#additional-settings) и [Сводная таблица](../visualization-ref/pivot-table-chart.md#pagination) с включенной пагинацией отображаются кнопки навигации.
+
+  {% cut "Предпросмотр таблицы с пагинацией в формате презентации" %}
+
+  ![report-page](../../_assets/datalens/report/preview-presentation-pagination.png)
+
+  {% endcut %}
 
 Чтобы выйти из режима предпросмотра, нажмите кнопку **Закрыть** вверху экрана или **Esc** на клавиатуре.
 

@@ -177,6 +177,20 @@ items:
     items:
       - name: Overview
         href: cli-ref/index.md
+      - name: change-freeze
+        items:
+          - name: Overview
+            href: cli-ref/change-freeze/index.md
+          - name: create
+            href: cli-ref/change-freeze/create.md
+          - name: get
+            href: cli-ref/change-freeze/get.md
+          - name: get-limits
+            href: cli-ref/change-freeze/get-limits.md
+          - name: list
+            href: cli-ref/change-freeze/list.md
+          - name: terminate
+            href: cli-ref/change-freeze/terminate.md
       - name: cluster
         items:
           - name: Overview
@@ -251,6 +265,16 @@ items:
             href: cli-ref/connector-s3-sink/create.md
           - name: update
             href: cli-ref/connector-s3-sink/update.md
+      - name: maintenance
+        items:
+          - name: Overview
+            href: cli-ref/maintenance/index.md
+          - name: get
+            href: cli-ref/maintenance/get.md
+          - name: list
+            href: cli-ref/maintenance/list.md
+          - name: reschedule
+            href: cli-ref/maintenance/reschedule.md
       - name: topic
         items:
           - name: Overview
@@ -287,6 +311,20 @@ items:
         items:
           - name: Overview
             href: cli-ref/v0/index.md
+          - name: change-freeze
+            items:
+              - name: Overview
+                href: cli-ref/v0/change-freeze/index.md
+              - name: create
+                href: cli-ref/v0/change-freeze/create.md
+              - name: get
+                href: cli-ref/v0/change-freeze/get.md
+              - name: get-limits
+                href: cli-ref/v0/change-freeze/get-limits.md
+              - name: list
+                href: cli-ref/v0/change-freeze/list.md
+              - name: terminate
+                href: cli-ref/v0/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -361,6 +399,16 @@ items:
                 href: cli-ref/v0/connector-s3-sink/create.md
               - name: update
                 href: cli-ref/v0/connector-s3-sink/update.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/v0/maintenance/index.md
+              - name: get
+                href: cli-ref/v0/maintenance/get.md
+              - name: list
+                href: cli-ref/v0/maintenance/list.md
+              - name: reschedule
+                href: cli-ref/v0/maintenance/reschedule.md
           - name: topic
             items:
               - name: Overview

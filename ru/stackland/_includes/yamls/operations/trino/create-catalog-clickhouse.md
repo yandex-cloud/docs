@@ -14,7 +14,6 @@ metadata:
   name: clickhouse-test-trino-full
 spec:
   cluster: trino-full
-  type: clickhouse
   name: clickhouse-test
   clickhouse:
     url: clickhouse.example.svc.cluster.local:8123/default

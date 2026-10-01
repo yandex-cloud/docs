@@ -6,7 +6,6 @@ default:
   link-keycloak-example: http://keycloak.example.com:8080/realms/master
   link-keycloak-example-old: http://keycloak.example.com:8080/auth/realms/master
   link-org-federations: https://org.yandex.cloud/federations
-  link-org-users: https://org.yandex.cloud/users
   link-passport: https://passport.yandex.ru/
   login-example: login@yandex.ru
   saml-limit-display-name: 64 characters

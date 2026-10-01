@@ -5,16 +5,20 @@
 {% note tip %}
 
 
-Чтобы рассчитать стоимость [симметричного](https://yandex.cloud/ru/prices?state=143214c6d306#calculator), [ассиметричного](https://yandex.cloud/ru/prices?state=f4147c7925d1#calculator) шифрования и [ассиметричной подписи](https://yandex.cloud/ru/prices?state=80d5cab43182#calculator), воспользуйтесь калькулятором на сайте Yandex Cloud или ознакомьтесь с тарифами в этом разделе.
+Для точного расчета стоимости выберите нужный калькулятор:
+
+* [симметричное шифрование](https://yandex.cloud/ru/prices?state=143214c6d306#calculator),
+* [ассиметричное шифрование](https://yandex.cloud/ru/prices?state=f4147c7925d1#calculator), 
+* [ассиметричная подпись](https://yandex.cloud/ru/prices?state=80d5cab43182#calculator).
 
 
 
 
-
-{% endnote %}
 
 Цены на продукты сервиса также доступны в [Прайс-листе](https://yandex.cloud/ru/price-list).
 
+
+{% endnote %}
 
 Все цены в рублях и тенге указаны с НДС, все цены в долларах — без НДС.
 

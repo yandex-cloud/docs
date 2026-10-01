@@ -5,7 +5,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится функция `ffmpeg-api`.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**
   1. Выберите функцию `ffmpeg-api`.
   1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** введите:
@@ -34,7 +34,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится очередь `converter-queue`.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+  1. [Перейдите]({{ link-console-main }}/link/message-queue) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
   1. Выберите очередь `converter-queue`.
   1. В блоке **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** отображается количество сообщений в очереди и в обработке.
   1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**. Посмотрите графики **Overall queue stats**.
@@ -50,7 +50,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится функция `ffmpeg-converter`.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Выберите функцию `ffmpeg-converter`.
   1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** и укажите период, за который хотите посмотреть логи.
 
@@ -63,7 +63,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится функция `ffmpeg-api`.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Выберите функцию `ffmpeg-api`.
   1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** введите запрос:

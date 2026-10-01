@@ -11,7 +11,7 @@
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер {{ managed-k8s-name }}.
     1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Выберите нужный кластер.
-    1. Слева выберите ![image](../../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.k8s.cluster.switch_network }}**, а в правой части — вкладку **{{ ui-key.yacloud.k8s.network.label_ingress }}**. Для вашего `Ingress`-ресурса в столбце **Балансировщик** перейдите по ссылке на L7-балансировщик.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_network }}** и выберите **{{ ui-key.yacloud.k8s.network.label_ingress }}**. Для вашего `Ingress`-ресурса в столбце **Балансировщик** перейдите по ссылке на L7-балансировщик.
     1. Наблюдайте за пользовательской нагрузкой, поступающей на L7-балансировщик, на графиках [статистики работы балансировщика](../../../application-load-balancer/operations/application-load-balancer-get-stats.md).
 
 1. Наблюдайте за снижением нагрузки на сетевой балансировщик с помощью [метрик балансировщика](../../../monitoring/metrics-ref/network-load-balancer-ref.md) `processed_bytes` и `processed_packets`. Для визуализации этих метрик можно [создать дашборд](../../../monitoring/operations/dashboard/create.md). Если нагрузка на сетевом балансировщике долгое время отсутствует, то перенос на L7-балансировщик завершен.

@@ -157,7 +157,7 @@
     - Консоль управления {#console}
 
       1. На [стартовой странице](https://console.yandex.cloud) консоли управления выберите облако.
-      1. Перейдите на вкладку ![image](../../_assets/console-icons/persons.svg) **Права доступа**.
+      1. Перейдите на вкладку **Права доступа**.
       1. Найдите аккаунт `sa-live-debug` в списке и нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).
       1. Выберите ![image](../../_assets/console-icons/pencil.svg) **Изменить роли**.
       1. В открывшемся окне нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `admin`.

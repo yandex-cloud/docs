@@ -2,13 +2,13 @@
 
 # yc baremetal v0 server create
 
-Create an server
+Create a server
 
 #### Command Usage
 
 Syntax:
 
-`yc baremetal server create <SERVER-NAME> [Flags...] [Global Flags...]`
+`yc baremetal v0 server create <SERVER-NAME> [Flags...] [Global Flags...]`
 
 #### Flags
 
@@ -29,63 +29,21 @@ Specifies a textual rental period id of the server. ||
 || `--labels` | `key=value[,key=value...]`
 
 A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. ||
-|| `--network-interfaces` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+|| `--network-interfaces` | `key=value[,key=value...]`
 
-Adds a network interface spec to the server.
-
-Possible property names:
-
-- `id`: Specifies the ID of the network interface. Should not be specified when creating a server.
-
-- `configuration-network-interface-id`: Specifies the ID of the configuration network interface that determines the network interface configuration. If not specified, the configuration will be chosen automatically on the server side based on availability. It is recommended to specify this field for deterministic behavior.
-
-- `private-subnet-id`: Specifies the ID of the private subnet that the interface will be part of.
-
-- `public-subnet-id`: Specifies the ID of the public subnet that the interface will be part of.
-
-- `private-subnet-name`: Specifies the name of the private subnet that the interface will be part of.
-
-- `public-subnet-name`: Specifies the name of the public subnet that the interface will be part of.
-
-- `ephemeral-public-subnet`: Creates an ephemeral public subnet for the interface.
-
-- `tagged-subnet-ids`: Specifies the IDs of the additional private subnets to be assigned as VLAN-tagged subinterfaces.
-
-- `tagged-subnet-names`: Specifies the names of the additional private subnets to be assigned as VLAN-tagged subinterfaces. ||
+Adds a network interface spec to the server. ||
 || `--configuration-id` | `string`
 
 Specifies a textual configuration id of the server. ||
 || `--configuration-name` | `string`
 
 Specifies a textual configuration name of the server. ||
-|| `--os-settings` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+|| `--os-settings` | `key=value[,key=value...]`
 
-Specifies the image id of the server. Image id or image name is necessary if you want to specify a OsSettingsSpec
+Specifies the image id of the server. ||
+|| `--storage` | `key=value[,key=value...]`
 
-Possible property names:
-
-- `image-id`: Specifies the image id of the server. Image id or image name is necessary if you want to specify a OsSettingsSpec
-
-- `image-name`: Specifies the image name of the server. Image id or image name is necessary if you want to specify a OsSettingsSpec
-
-- `ssh-key-public`: Specifies the ssh key public of the server.
-
-- `ssh-key-user-id`: Specifies the ssh key user id of the server.
-
-- `password-plain-text`: Specifies the password plain text of the server.
-
-- `password-lockbox-secret`: Specifies the lockbox secret password of the server. ||
-|| `--storage` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
-
-Specifies  storages to the server.
-
-Possible property names:
-
-- `partition`: Specifies partitions of the storage
-
-- `disk`: Specifies disks of the storage. if you want to specify the disk type, specify only 1 disk and do not specify the raid type.
-
-- `raid-type`: Specifies the type of the storage raid type Values: 'raid0', 'raid1', 'raid10' ||
+Specifies storages to the server. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 
@@ -95,15 +53,10 @@ Possible property names:
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
-|| `--debug` | Debug logging. ||
-|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
-|| `--no-user-output` | Disable printing user intended output to stderr. ||
-|| `--retry` | `int`
+Set the custom profile. ||
+|| `--region` | `string`
 
-Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
-Pass 0 to disable retries. Pass any negative value for infinite retries.
-Even infinite retries are capped with 2 minutes timeout. ||
+Set the region. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -113,21 +66,47 @@ Set the ID of the folder to use. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
 
-Set the Cloud API endpoint (host:port). ||
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
 || `--token` | `string`
 
 Set the OAuth token to use. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

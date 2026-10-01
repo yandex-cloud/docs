@@ -13,7 +13,7 @@ To create a {{ managed-k8s-name }} cluster with no internet access:
 1. [Set up the infrastructure for {{ managed-k8s-name }}](#infra).
 1. [Set up a virtual machine](#vm).
 1. [Check cluster availability](#check).
-1. Optionally, [set up a connection to NTP servers](#ntp).
+1. Optionally, [set up {{ managed-k8s-name }} cluster time synchronization with your private NTP server](#ntp).
 1. Optionally, [connect a private Docker image registry](#cert).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -21,12 +21,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* Fee for a {{ managed-k8s-name }} cluster: using a master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for cluster nodes and VMs: using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for a public IP address for a VM, which is used to connect to the cluster (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* {{ kms-name }} fee: number of active key versions (in `Active` and `Scheduled For Destruction` statuses) and completed cryptographic operations (see [{{ kms-name }} pricing](../../kms/pricing.md)).
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* {{ kms-full-name }}: number of active key versions and completed cryptographic operations (see [{{ kms-name }} pricing](../../kms/pricing.md)).
 
 
 ## Set up the infrastructure for {{ managed-k8s-name }} {#infra}
@@ -208,7 +206,7 @@ CoreDNS is running at https://<cluster_address>/api/v1/namespaces/kube-system/se
 To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 ```
 
-## Optionally, set up {{ managed-k8s-name }} cluster time synchronization with your private NTP server.
+## Optionally, set up {{ managed-k8s-name }} cluster time synchronization with your private NTP server {#ntp}
 
 To ensure the {{ managed-k8s-name }} cluster time remains synchronized with another resource (in this case, a VM), deploy a private NTP server in `my-subnet` and set up synchronization of the cluster and VM with this server.
 

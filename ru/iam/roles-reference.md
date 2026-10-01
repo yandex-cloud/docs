@@ -97,6 +97,10 @@ description: В статье приведен полный справочник 
 
 {% include [billing.accounts.partnerAdmin](../_roles/billing/accounts/partnerAdmin.md) %}
 
+#### billing.usagerecords.admin {#billing-usagerecords-admin}
+
+{% include [billing.usagerecords.admin](../_roles/billing/usagerecords/admin.md) %}
+
 Подробнее в [Управление доступом в партнерской программе {{ yandex-cloud }}](../partner/security/index.md).
 
 
@@ -162,6 +166,38 @@ description: В статье приведен полный справочник 
 #### ai.assistants.admin {#ai-assistants-admin}
 
 {% include [assistants-admin](../_roles/ai/assistants/admin.md) %}
+
+#### ai.canvasAgents.auditor {#ai-canvasagents-auditor}
+
+{% include [ai.canvasAgents.auditor](../_roles/ai/canvasAgents/auditor.md) %}
+
+#### ai.canvasAgents.viewer {#ai-canvasagents-viewer}
+
+{% include [ai.canvasAgents.viewer](../_roles/ai/canvasAgents/viewer.md) %}
+
+#### ai.canvasAgents.editor {#ai-canvasagents-editor}
+
+{% include [ai.canvasAgents.editor](../_roles/ai/canvasAgents/editor.md) %}
+
+#### ai.canvasAgents.admin {#ai-canvasagents-admin}
+
+{% include [ai.canvasAgents.admin](../_roles/ai/canvasAgents/admin.md) %}
+
+#### ai.agentChannels.auditor {#ai-agentchannels-auditor}
+
+{% include [ai.agentChannels.auditor](../_roles/ai/agentChannels/auditor.md) %}
+
+#### ai.agentChannels.viewer {#ai-agentchannels-viewer}
+
+{% include [ai.agentChannels.viewer](../_roles/ai/agentChannels/viewer.md) %}
+
+#### ai.agentChannels.editor {#ai-agentchannels-editor}
+
+{% include [ai.agentChannels.editor](../_roles/ai/agentChannels/editor.md) %}
+
+#### ai.agentChannels.admin {#ai-agentchannels-admin}
+
+{% include [ai.agentChannels.admin](../_roles/ai/agentChannels/admin.md) %}
 
 #### ai.datasets.auditor {#ai-datasets-auditor}
 
@@ -1932,6 +1968,10 @@ description: В статье приведен полный справочник 
 
 
 ## {{ mch-full-name }} {#managed-clickhouse-roles}
+
+#### managed-clickhouse.clusters.connector {#managed-clickhouse-clusters-connector}
+
+{% include [managed-clickhouse.clusters.connector](../_roles/managed-clickhouse/clusters/connector.md) %}
 
 #### managed-clickhouse.auditor {#managed-clickhouse-auditor}
 

@@ -106,7 +106,7 @@ The **Demand-to-supply ratio per city** measure shows the demand for products an
 
 1. Calculating the demand to supply ratio for the entire `city`.
 1. Calculating the demand to supply ratio for the `polygon`. If the supply value is zero, the demand value is multiplied by 2.
-1. Calculating `polygon` to `city` ratio.
+1. Calculating the `polygon` to `city` ratio.
 
 {% note info %}
 
@@ -124,11 +124,11 @@ Pay attention to the supply and demand scale in the top-right corner. The greene
 
 To allow another user to open your dashboard, configure access to {{ datalens-full-name }}:
 
-1. [Invite a user](../../organization/operations/add-account.md#send-invitation) with a Yandex account or add a [federated](../../organization/operations/add-account.md#add-user-sso) or [local](../../organization/operations/add-account.md#local) user.
+1. [Invite a user]({{ link-docs }}/organization/operations/add-account#send-invitation) with a Yandex account or add a [federated]({{ link-docs }}/organization/operations/add-account#add-user-sso) or [local]({{ link-docs }}/organization/operations/add-account#local) user.
 1. Make sure the user has access permissions for the dashboard:
 
    1. Open the dashboard.
-   1. In the **Add member** field, enter _All_ or the name of the user who needs extended permissions.
+   1. In the **Add member** field, enter **All** or the name of the user who needs extended permissions.
    1. Go to the **Current object** section and set the permissions for the dashboard:
 
       * View: Viewing only.
@@ -168,7 +168,7 @@ Data in {{ datalens-short-name }} is only available to users of a specific insta
 
 ## 5. Add a chart or dashboard to your website {#add-dashboard-chart}
 
-You can embed the published charts into a website or app using the `iframe` element. Proceed as follows:
+You can embed the published charts into a website or app using the `iframe` element. Follow these steps:
 
 1. Follow the public link to the chart.
 1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the top-right corner of the chart and select **Embed code**.

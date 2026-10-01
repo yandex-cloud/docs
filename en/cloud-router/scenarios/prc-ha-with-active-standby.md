@@ -1,9 +1,10 @@
 # Prioritizing on-prem traffic based on direction (Active-Standby)
 
+
 To prioritize traffic by direction in {{ interconnect-name }}, you can use the following methods:
 
 * [Longest Prefix Match (LPM)](#lpm1)
-* [BGP AS path prepend](#prepend1)
+* [BGP AS-Path Prepend](#prepend1)
 
 The longest prefix match method has a higher priority than BGP AS path prepending when it comes to the algorithm for selecting the best route on routers.{#lpm1} We recommend that you only choose one of the suggested methods rather than use both at the same time.
 
@@ -20,7 +21,6 @@ Another customer edge router (R1) uses the `M9` PoP to announce two long (more s
 {{ yandex-cloud }} will treat announcements via `M9` as more specific ones, i.e., of higher priority.
 
 This way, all traffic from the `172.16.1.0/24`, `172.16.2.0/24`, and `172.16.3.0/24` cloud subnets to the customer infrastructure will be routed through the private connection towards `M9`. If this connection fails, the traffic will automatically failover to the private connection to `NORD`.
-
 
 ## BGP AS path prepend {#prepend1}
 
@@ -39,4 +39,3 @@ Before announcing the prefix, the BGP routing policy on the R2 router adds the c
 This way, for the `10.0.0.0/8` traffic, {{ yandex-cloud }} will select the best route via the `M9` PoP, while the route via the `NORD` PoP will act as a failover due to its longer AS path.
 
 All traffic from the `172.16.1.0/24`, `172.16.2.0/24`, and `172.16.3.0/24` cloud subnets to the customer infrastructure will be routed through the private connection to `M9`. If this connection fails, the traffic will automatically failover to the private connection to `NORD`.
-

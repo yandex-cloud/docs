@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Импорт данных из Object Storage, обработка и экспорт в Managed Service for ClickHouse®
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Обработка и анализ данных > Импорт данных из Object Storage, обработка и экспорт в Managed Service for ClickHouse®
 
 # Импорт данных из Object Storage, обработка и экспорт в Yandex Managed Service for ClickHouse®
 
@@ -140,6 +140,7 @@
            Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
         
         1. Если вас устраивают планируемые изменения, внесите их:
+        
            1. Выполните команду:
         
               ```bash

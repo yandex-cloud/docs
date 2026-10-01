@@ -161,7 +161,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Create a connection in {{ datalens-short-name }} {#connection-create}
 
 1. Open the **{{ mch-name }}** [cluster](#database-create).
-1. On the left side of the window, select ![datalens](../../_assets/console-icons/chart-column.svg) **{{ datalens-short-name }}**.
+1. Navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
 1. Click **Create connection**.
 1. Set up your connection:
     * **Connection**: `Select in folder`.
@@ -217,7 +217,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. In the top-right corner of the dashboard, click **Save**.
    1. Enter a name for the dashboard and click **Create**.
 
-   For more information about setting up dashboards, see [this section](../../datalens/concepts/dashboard.md).
+   For more information about setting up dashboards, see [{{ datalens-full-name }} dashboard](../../datalens/concepts/dashboard.md).
 
 {% cut "Example of a dashboard based on data from the `v_tracker_issues` table" %}
 

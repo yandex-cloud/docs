@@ -1,9 +1,9 @@
 ---
-title: Управление версионированием бакета в {{ objstorage-full-name }}
-description: Следуя данной инструкции, вы научитесь управлять версионированием бакета в {{ objstorage-name }}.
+title: Включить и приостановить версионирование бакета в {{ objstorage-full-name }}
+description: Следуя данной инструкции, вы сможете включить и приостановить версионирование бакета в {{ objstorage-name }}.
 ---
 
-# Управление версионированием бакета
+# Включить и приостановить версионирование бакета
 
 [Версионирование](../../concepts/versioning.md) бакета — это возможность хранить историю объекта с помощью версий.
 
@@ -11,7 +11,7 @@ description: Следуя данной инструкции, вы научите
 
 {% include [versioning-suspend-rule](../../../_includes/storage/versioning-suspend-rule.md) %}
 
-Чтобы включить версионирование бакета:
+Чтобы включить или приостановить версионирование бакета:
 
 {% list tabs group=instructions %}
 
@@ -20,8 +20,7 @@ description: Следуя данной инструкции, вы научите
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите на имя нужного бакета.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_versioning }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_versioning }}**.
   1. Чтобы включить или приостановить версионирование, используйте опцию **{{ ui-key.yacloud.storage.form.BucketVersioningFormSection.label_versioning-disabled_ngMWc }}**.
   1. Нажмите **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
@@ -31,7 +30,7 @@ description: Следуя данной инструкции, вы научите
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды CLI для редактирования ACL бакета:
+  1. Посмотрите описание команды CLI для изменения настроек бакета:
 
      ```bash
      yc storage bucket update --help

@@ -9,8 +9,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
   1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Выберите сервисный аккаунт `forms-integration`.
-  1. Перейдите в раздел **{{ ui-key.yacloud.common.overview }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.  
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. В открывшемся окне **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_label_title }}** отобразятся **{{ ui-key.yacloud.iam.folder.service-account.overview.label_id-title }}** и **{{ ui-key.yacloud.iam.folder.service-account.overview.label_secret-key-title }}**. Сохраните их — они понадобятся в дальнейшем.
 
@@ -78,7 +77,7 @@
 
 1. Откройте запись о выполненном действии и убедитесь, что в разделе **Ответ** получен HTTP-ответ `200 — ОК`.
 
-1. Перейдите в [консоль управления]({{ link-console-main }}) и откройте [созданный ранее бакет](#create-s3-bucket). Убедитесь, что в нем появился JSON-файл с данными из заполненной формы.
+1. Перейдите в [консоль управления]({{ link-console-main }}) и откройте созданный ранее бакет. Убедитесь, что в нем появился JSON-файл с данными из заполненной формы.
 
    Название папки, в которой будет расположен файл, соответствует внутреннему идентификатору формы. Сохраните этот идентификатор — он понадобится для следующих шагов.
 

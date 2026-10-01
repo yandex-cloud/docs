@@ -26,28 +26,52 @@ items:
         href: portal.md
       - name: Step-by-step guides
         items:
-          - name: Creating a customer account
-            href: operations/create-account.md
-          - name: Adding a customer subaccount
-            href: operations/pin-client.md
-          - name: Granting access to a partner account
-            href: operations/access/partners-account.md
-          - name: Viewing usage details for subaccounts
-            href: operations/get-client-stat.md
-          - name: Exporting extended usage details
-            href: operations/get-partner-report.md
-          - name: Suspending services to customers
-            href: operations/stop-client-services.md
-          - name: Linking a cloud to a subaccount
-            href: operations/pin-cloud.md
-          - name: Adding a user to a subaccount
-            href: operations/add-user-sub-account.md
-          - name: Setting up customer quotas
-            href: operations/manage-quotas.md
-          - name: Registering a deal
-            href: operations/deal-registration.md
-          - name: Registering a project
-            href: operations/project-registration.md
+          - name: Managing customer accounts
+            items:
+              - name: Creating a customer account
+                href: operations/create-account.md
+              - name: Adding a customer subaccount
+                href: operations/pin-client.md
+              - name: Granting access to a partner account
+                href: operations/access/partners-account.md
+              - name: Suspending services to customers
+                href: operations/stop-client-services.md
+              - name: Linking a cloud to a subaccount
+                href: operations/pin-cloud.md
+              - name: Adding a user to a subaccount
+                href: operations/add-user-sub-account.md
+              - name: Setting up customer quotas
+                href: operations/manage-quotas.md
+          - name: Viewing usage details
+            items:
+              - name: Viewing usage details for subaccounts
+                href: operations/get-client-stat.md
+              - name: Exporting extended usage details
+                href: operations/get-partner-report.md
+          - name: Managing deals
+            items:
+              - name: All guides
+                href: operations/deals/index.md
+              - name: Creating a deal
+                href: operations/deals/create-deal.md
+              - name: Creating a deal as part of a scheduled procurement
+                href: operations/deals/create-tender.md
+              - name: Creating a project
+                href: operations/deals/create-project.md
+              - name: Viewing deal info
+                href: operations/deals/deal-info.md
+              - name: Editing a deal
+                href: operations/deals/edit.md
+              - name: Registering a deal
+                href: operations/deal-registration.md
+              - name: Registering a project
+                href: operations/project-registration.md
+          - name: Managing deal activities
+            items:
+              - name: Viewing activity info
+                href: operations/activity-info.md
+          - name: Filtering a list of entities
+            href: operations/filter.md
           - name: Requesting a presale
             href: operations/presale-request.md
           - name: Getting commissions

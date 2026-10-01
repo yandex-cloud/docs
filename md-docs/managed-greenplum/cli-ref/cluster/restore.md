@@ -57,6 +57,7 @@ Type of the storage environment for the segment host. ||
 || `--websql-access` | Allow access for Web SQL. ||
 || `--datatransfer-access` | Allow access for DataTransfer. ||
 || `--yandexquery-access` | Allow access for Yandex Query. ||
+|| `--trino-access` | Allow access for Trino (including TLS for gpfdist). ||
 || `--backup-window-start` | `timeofday`
 
 Start time for the daily backup in UTC timezone. Format: HH:MM:SS ||
@@ -100,6 +101,9 @@ A list of host groups for Greenplum segment subcluster. ||
 || `--service-account` | `string`
 
 ID of the service account used for access Yandex Cloud resources. ||
+|| `--disk-encryption-key-id` | `string`
+
+ID of the KMS key for cluster disk encryption. Empty input will remove the use of encryption. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

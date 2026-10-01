@@ -122,7 +122,6 @@
         `Исходящий` | `any` | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
         `Входящий` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
         `Входящий` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-        `Входящий` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | —
 
         1. Выберите вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}**.
         1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
@@ -132,7 +131,6 @@
 
            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` — правило будет применено к диапазону IP-адресов. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` — правило будет применено к ВМ из текущей группы или из выбранной группы безопасности.
-           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` — правило, которое позволяет балансировщику проверять состояние ВМ.
 
         1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**. Таким образом создайте все правила из таблицы.
 
@@ -155,7 +153,6 @@
     --rule "direction=egress,port=any,protocol=any,v4-cidrs=[0.0.0.0/0]" \
     --rule "direction=ingress,port=80,protocol=tcp,v4-cidrs=[0.0.0.0/0]" \
     --rule "direction=ingress,port=443,protocol=tcp,v4-cidrs=[0.0.0.0/0]" \
-    --rule "direction=ingress,port=30080,protocol=tcp,predefined=loadbalancer_healthchecks" \
     --network-name ddos-network
   ```
 
@@ -188,7 +185,8 @@
 
   1. Откройте [консоль управления]({{ link-console-main }}).
   1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
 
      * Введите **{{ ui-key.yacloud.compute.groups.create.field_name }}** группы ВМ: `ddos-group`.
@@ -391,7 +389,8 @@
 
   1. Откройте [консоль управления]({{ link-console-main }}).
   1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**. Нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
   1. Укажите **{{ ui-key.yacloud.common.name }}** группы бэкендов: `ddos-backend-group`.
   1. В блоке **{{ ui-key.yacloud.alb.label_backends }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
   1. Укажите **{{ ui-key.yacloud.common.name }}** бэкенда: `backend-1`.
@@ -491,7 +490,8 @@
 
   1. Откройте [консоль управления]({{ link-console-main }}).
   1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**. Нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
   1. Укажите **{{ ui-key.yacloud.common.name }}** HTTP-роутера: `ddos-router`.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
   1. Укажите **{{ ui-key.yacloud.common.name }}** виртуального хоста: `ddos-host`.
@@ -578,7 +578,6 @@
 
   1. Откройте [консоль управления]({{ link-console-main }}).
   1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. В меню слева выберите **{{ ui-key.yacloud.alb.label_load-balancers }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
   1. Введите имя балансировщика: `ddos-protect-alb`.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите сеть `ddos-network` и группу безопасности `ddos-sg-balancer`.

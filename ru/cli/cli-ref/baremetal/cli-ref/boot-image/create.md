@@ -5,7 +5,7 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/boot-image
 
 # yc baremetal boot-image create
 
-Creates an image in the specified folder.
+Creates a BootImage in the specified folder.
 
 #### Command Usage
 
@@ -19,16 +19,16 @@ Syntax:
 ||Flag | Description ||
 || `--folder-id` | `string`
 
-ID of the folder to create an image in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request. ||
+ID of the folder to create a BootImage in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request. ||
 || `--name` | `string`
 
-Name of the image. The name must be unique within the folder. ||
+Name of the BootImage. The name must be unique within the folder. ||
 || `--description` | `string`
 
-Description of the image. ||
+Description of the BootImage. ||
 || `--uri` | `string`
 
-URI of the source image to create the new image from. Currently only supports links to images that are stored in Object Storage. Currently only supports ISO formats. ||
+URI of the source image to create the new BootImage from. Currently only supports links to images that are stored in Object Storage. Currently only supports ISO formats. ||
 || `--labels` | `map<string><string>`
 
 Resource labels as 'key:value' pairs. ||
@@ -66,6 +66,12 @@ Set the custom profile. ||
 || `--region` | `string`
 
 Set the region. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||

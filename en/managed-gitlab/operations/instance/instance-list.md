@@ -129,7 +129,7 @@ Instance details include:
 
     For more information about this command, see the [CLI reference](../../cli-ref/instance/get.md).
 
-- {{ TF }}
+- {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
@@ -156,7 +156,7 @@ Instance details include:
       * `output "instance_domain"`: Output variable that contains information about the domain:
          * `value`: Return value.
 
-     You can replace `domain` with another variable to get the information you need. For more on the properties of the `gitlab_instance` data source, see [this provider guide]({{ tf-provider-datasources-link }}/gitlab_instance).
+     You can replace `domain` with any other attribute to get the information you need. For more information about the properties of the `gitlab_instance` data source, see [this provider guide]({{ tf-provider-datasources-link }}/gitlab_instance).
 
   1. Apply the configuration:
 
@@ -192,11 +192,11 @@ All actions with {{ mgl-name }} instances are logged as a list of operations. Ea
 
   To get a list of operations for a specific instance:
 
-  1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
+  1. In the [management console]({{ link-console-main }}), open the folder containing the instance.
   1. [Navigate]({{ link-console-main }}/link/managed-gitlab) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.gitlab.switch_instances }}**.
   1. Select the instance you need.
-  1. Navigate to the ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the cluster you selected.
+  1. Navigate to the **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
      This will open the list of operations with the instance.
 

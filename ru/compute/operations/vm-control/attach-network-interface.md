@@ -27,7 +27,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
   1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Выберите ВМ, которой необходимо добавить дополнительный сетевой интерфейс.
-  1. На вкладке **{{ ui-key.yacloud.common.overview }}** в блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** нажмите кнопку **{{ ui-key.yacloud.compute.instance.overview.button_add-network-interface }}**.
+  1. На вкладке **{{ ui-key.yacloud.common.overview }}** в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** нажмите кнопку **{{ ui-key.yacloud.compute.instance.overview.button_add-network-interface }}**.
   1. В открывшемся окне укажите параметры сетевого интерфейса:
 
      * **{{ ui-key.yacloud.compute.instances.field_network-interface-index }}** — отвечает за порядок подключения сетевых интерфейсов. Каждый сетевой интерфейс ВМ должен иметь уникальный номер.

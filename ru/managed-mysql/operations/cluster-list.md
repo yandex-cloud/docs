@@ -179,7 +179,7 @@ description: Вы можете запросить детальную инфор�
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-mysql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mysql.switch_list }}**.
-  1. Выберите нужный кластер и перейдите на вкладку ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.mysql.switch_operations }}**.
+  1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.mysql.switch_operations }}**.
 
      В открывшемся списке отображаются операции с выбранным кластером.
 

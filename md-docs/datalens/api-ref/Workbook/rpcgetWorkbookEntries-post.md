@@ -39,9 +39,9 @@ _x-dl-api-version_{.json-schema-reset .json-schema-property .json-schema-require
 
 API version header.
 
-_Const:_{.json-schema-reset .json-schema-value} `2`
+_Const:_{.json-schema-reset .json-schema-value} `3`
 
-_Example:_{.json-schema-reset .json-schema-example} `2`
+_Example:_{.json-schema-reset .json-schema-example} `3`
 {.table-cell}
 ||
 ||
@@ -69,6 +69,7 @@ _Example:_{.json-schema-reset .json-schema-example} ``
   "includePermissionsInfo": true,
   "page": 0.5,
   "pageSize": 0.5,
+  "onlyMy": true,
   "createdBy": "example",
   "scope": "dash",
   "orderBy": {
@@ -153,6 +154,15 @@ Include permission information in the response.
 ||
 ||
 
+_onlyMy_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: boolean
+
+Return only entries created by the current user.
+{.table-cell}
+||
+||
+
 _orderBy_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 {% cut "**Type**: object" %}
@@ -177,7 +187,7 @@ _field_{.json-schema-reset .json-schema-property .json-schema-required}
 
 Field to order workbook entries by.
 
-_Enum:_{.json-schema-reset .json-schema-value} `name`, `createdAt`
+_Enum:_{.json-schema-reset .json-schema-value} `name`, `createdAt`, `updatedAt`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -226,7 +236,7 @@ _scope_{.json-schema-reset .json-schema-property}
 
   Type of the entry, e.g. `dash` — dashboard, `widget` — chart, etc.
 
-  _Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`
+  _Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`, `sql_query`
 
 - **Type**: [EntryScope](#entity-EntryScope)[]
 
@@ -259,7 +269,7 @@ Type of the entry, e.g. `dash` — dashboard, `widget` — chart, etc.
 
 **Type**: string
 
-_Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`
+_Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`, `sql_query`
 
 </div>
 
@@ -544,7 +554,7 @@ _scope_{.json-schema-reset .json-schema-property .json-schema-required}
 
 Type of the entry, e.g. `dash` — dashboard, `widget` — chart, etc.
 
-_Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`
+_Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`, `sql_query`
 {.table-cell}
 ||
 ||

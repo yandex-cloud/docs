@@ -33,6 +33,8 @@ Aliases:
 
 - [yc container registry delete](delete.md) — Delete a registry.
 
+- [yc container registry force-delete](force-delete.md) — Force delete a registry with all its resources.
+
 - [yc container registry get](get.md) — Get information about a registry.
 
 - [yc container registry list](list.md) — List registries.

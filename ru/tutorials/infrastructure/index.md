@@ -36,6 +36,7 @@ description: Различные сценарии использования си
 * [{#T}](../infrastructure/coi-with-terraform.md)
 * [Запуск Docker-образа на виртуальной машине](../infrastructure-management/run-docker-on-vm/index.md)
 * [Передача логов через HTTP-вход {{ unified-agent-short-name }} в {{ cloud-logging-full-name }}](../infrastructure-management/ua-http-logging.md)
+* [SLO-мониторинг веб-сервиса в {{ monium-name }} с blackbox_exporter и {{ unified-agent-short-name }}](../infrastructure-management/slo-blackbox-exporter.md)
 * [{#T}](gpu-cluster-deepseek.md)
 
 ## Сеть {#routing}

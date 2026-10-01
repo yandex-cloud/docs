@@ -314,7 +314,7 @@ Therefore, if your website's content is cache-friendly, which static websites us
 
       The list of {{ cdn-name }} subnets may change. If using this method to restrict bucket access, make sure to monitor these updates and promptly make changes to the allowing access rules.
 
-      For more information, see [{#T}](../troubleshooting/storage/how-to/permit-bucket-access-only-to-cdn-networks.md).
+      For more information, see [How to allow object reads only from {{ cdn-name }} networks](../storage/qa.md#cdn-only-access).
 
       {% endnote %}
 

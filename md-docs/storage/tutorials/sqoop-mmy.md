@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Импорт данных из Yandex Managed Service for MySQL® в Yandex Data Processing с помощью Sqoop
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Обработка и анализ данных > Импорт данных из Yandex Managed Service for MySQL® в Yandex Data Processing с помощью Sqoop
 
 # Импорт данных из Yandex Managed Service for MySQL® в Yandex Data Processing с помощью Sqoop
 
@@ -54,7 +54,7 @@
 {% endnote %}
 
 1. [Создайте облачную сеть](../../vpc/operations/network-create.md).
-1. [Создайте подсеть](../../vpc/operations/subnet-create.md) в зоне доступности `ru-central1-d`.
+1. [Создайте подсеть](../../vpc/operations/subnet-create.md) в [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-d`.
 1. [Настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для созданной подсети — это обязательное условие для работы кластера Yandex Data Processing.
 
 Остальные ресурсы вы можете создать вручную или с помощью Terraform.
@@ -185,6 +185,7 @@
        Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
     
     1. Если вас устраивают планируемые изменения, внесите их:
+    
        1. Выполните команду:
     
           ```bash

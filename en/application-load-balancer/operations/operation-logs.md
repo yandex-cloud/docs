@@ -14,7 +14,7 @@ The system logs all actions with {{ alb-name }} resources as a list of operation
   1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/branches-down.svg) **{{ ui-key.yacloud.alb.label_load-balancers }}**.
   1. Select the load balancer you need.
-  1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected load balancer.
+  1. Navigate to the **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
      You will see a list of operations with the selected load balancer.
 
@@ -24,7 +24,7 @@ The system logs all actions with {{ alb-name }} resources as a list of operation
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get the list of operations for the {{ alb-name }} resource, run this command:
+  To get a list of operations for the {{ alb-name }} resource, run this command:
 
   ```bash
   yc alb <resource_type> list-operations <resource_name_or_ID>

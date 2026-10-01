@@ -22,7 +22,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
   1. [Перейдите](https://console.yandex.cloud/link/managed-spqr) в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной резервной копии и выберите пункт **Восстановить кластер**.
   1. Задайте настройки нового кластера.
       
@@ -517,7 +517,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
   1. [Перейдите](https://console.yandex.cloud/link/managed-spqr) в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
   1. В правом верхнем углу страницы нажмите кнопку **Создать резервную копию**.
   1. Подтвердите создание резервной копии.
 
@@ -615,7 +615,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
   1. [Перейдите](https://console.yandex.cloud/link/managed-spqr) в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
 
   Чтобы получить список резервных копий всех кластеров Managed Service for Sharded PostgreSQL в каталоге:
 
@@ -776,7 +776,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
   1. [Перейдите](https://console.yandex.cloud/link/managed-spqr) в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
 
   Чтобы получить информацию о резервной копии удаленного кластера:
   
@@ -1227,7 +1227,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
   1. [Перейдите](https://console.yandex.cloud/link/managed-spqr) в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
   1. В строке резервной копии, которую вы хотите удалить, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Удалить резервную копию**.
   1. Подтвердите удаление резервной копии.
 

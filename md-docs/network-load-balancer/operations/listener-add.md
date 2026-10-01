@@ -121,6 +121,7 @@
         Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
      
      1. Если вас устраивают планируемые изменения, внесите их:
+     
         1. Выполните команду:
      
            ```bash
@@ -206,6 +207,7 @@
         Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
      
      1. Если вас устраивают планируемые изменения, внесите их:
+     
         1. Выполните команду:
      
            ```bash
@@ -217,7 +219,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом API [addListener](../api-ref/NetworkLoadBalancer/addListener.md) и передайте в теле запроса:
+  Воспользуйтесь методом REST API [addListener](../api-ref/NetworkLoadBalancer/addListener.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/AddListener](../api-ref/grpc/NetworkLoadBalancer/addListener.md) и передайте в теле запроса:
 
   ```api
   {
@@ -232,5 +234,7 @@
     }
   }
   ```
+
+  В gRPC API имена полей записываются в [snake_case](https://ru.wikipedia.org/wiki/Snake_case): `listener_spec`, `target_port`, `external_address_spec`, `ip_version`.
 
 {% endlist %}

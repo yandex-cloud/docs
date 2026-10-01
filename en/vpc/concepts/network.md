@@ -27,7 +27,17 @@ Subnet size is set using the [Classless Inter-Domain Routing](https://en.wikiped
 
 The maximum CIDR size in these ranges is `/16`, the minimum is `/28`.
 
-Subnet IP address ranges cannot overlap within the same cloud network. The first two addresses from any range are allocated to the gateway (x.x.x.1) and DNS server (x.x.x.2).
+Subnet IP address ranges cannot overlap within the same cloud network. The first two addresses from any range are allocated to the gateway (x.x.x.gateway) and DNS server (x.x.x.dns).
+
+Where:
+* `gateway`: Subnet's first IP address, allocated to the gateway.
+* `dns`: Subnet's second IP address, allocated to the DNS server.
+
+> For example, a network named `network` having `192.168.1.0/24` as its address can consist of two equal subnets, e.g., `subnet-1` and `subnet-2`:
+> * `subnet-1`: `192.168.1.0/25` subnet with the `255.255.255.128` mask and address range from `192.168.1.1` to `192.168.1.126`. Within this subnet, `192.168.1.1` will be used for the gateway, and `192.168.1.2`, for the DNS server.
+> * `subnet-2`: `192.168.1.128/25` subnet with the `255.255.255.128` mask and address range from `192.168.1.129` to `192.168.1.254`. Within this subnet, `192.168.1.129` will be used for the gateway, and `192.168.1.130`, for the DNS server.
+
+To get the list of the subnet's [internal IP addresses](address.md#internal-addresses), run the `yc vpc subnet list-used-addresses` CLI command.
 
 Traffic can be transmitted between subnets of the same network, but not subnets of different networks. To transfer traffic between subnets of different networks, use public IP addresses.
 

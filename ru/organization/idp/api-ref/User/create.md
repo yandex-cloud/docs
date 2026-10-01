@@ -112,6 +112,12 @@ apiPlayground:
             In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
           type: string
           format: date-time
+        passwordChangeRequired:
+          description: |-
+            **boolean**
+            Whether the user must change their password on first login.
+            Applies only when [PasswordHash](#yandex.cloud.organizationmanager.v1.idp.PasswordHash) credentials are provided.
+          type: boolean
       required:
         - userpoolId
         - username
@@ -167,6 +173,21 @@ apiPlayground:
               - LDAP_PBKDF2_SHA256_OPENLDAP
               - LDAP_PBKDF2_SHA512
               - LDAP_PKCS5S2
+          createdAt:
+            description: |-
+              **string** (date-time)
+              Timestamp when the password was created.
+              For synchronized passwords, use the time when the password was last set in the source directory.
+              If omitted, the current time is used.
+              Used by [CreateUserRequest](#yandex.cloud.organizationmanager.v1.idp.CreateUserRequest) and [SetPasswordHashRequest](/docs/organization/idp/api-ref/User/setPasswordHash#yandex.cloud.organizationmanager.v1.idp.SetPasswordHashRequest).
+              This value is ignored if `CreateUserRequest.passwordChangeRequired` or [SetPasswordHashRequest.needChange](/docs/organization/idp/api-ref/User/setPasswordHash#yandex.cloud.organizationmanager.v1.idp.SetPasswordHashRequest) is true.
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+              `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+              To work with values in this field, use the APIs described in the
+              [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+            type: string
+            format: date-time
         required:
           - passwordHash
           - passwordHashType
@@ -200,7 +221,8 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/idp/use
   },
   "passwordHash": {
     "passwordHash": "string",
-    "passwordHashType": "string"
+    "passwordHashType": "string",
+    "createdAt": "string"
   },
   // end of the list of possible fields
   "isActive": "boolean",
@@ -209,7 +231,8 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/idp/use
   "department": "string",
   "jobTitle": "string",
   "employeeId": "string",
-  "expiresAt": "string"
+  "expiresAt": "string",
+  "passwordChangeRequired": "boolean"
 }
 ```
 
@@ -304,6 +327,10 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| passwordChangeRequired | **boolean**
+
+Whether the user must change their password on first login.
+Applies only when [PasswordHash](#yandex.cloud.organizationmanager.v1.idp.PasswordHash) credentials are provided. ||
 |#
 
 ## PasswordSpec {#yandex.cloud.organizationmanager.v1.idp.PasswordSpec}
@@ -345,6 +372,20 @@ Supported by 389 DS, FreeIPA, ALD Pro.
 - `LDAP_PBKDF2_SHA256_OPENLDAP`: OpenLDAP-compatible format `{PBKDF2-SHA256}` (hyphen). Supported by 389 DS, FreeIPA, ALD Pro.
 - `LDAP_PBKDF2_SHA512`: Supported by 389 DS, FreeIPA, ALD Pro.
 - `LDAP_PKCS5S2`: Supported by Apache Directory Server. ||
+|| createdAt | **string** (date-time)
+
+Timestamp when the password was created.
+For synchronized passwords, use the time when the password was last set in the source directory.
+If omitted, the current time is used.
+Used by [CreateUserRequest](#yandex.cloud.organizationmanager.v1.idp.CreateUserRequest) and [SetPasswordHashRequest](/docs/organization/idp/api-ref/User/setPasswordHash#yandex.cloud.organizationmanager.v1.idp.SetPasswordHashRequest).
+This value is ignored if [CreateUserRequest.passwordChangeRequired](#yandex.cloud.organizationmanager.v1.idp.CreateUserRequest) or [SetPasswordHashRequest.needChange](/docs/organization/idp/api-ref/User/setPasswordHash#yandex.cloud.organizationmanager.v1.idp.SetPasswordHashRequest) is true.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

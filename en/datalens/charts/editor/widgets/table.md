@@ -135,12 +135,12 @@ Where:
 
 * `value`: Table cell content value unless `formattedValue` is set. Required field; string, number or date value type. For `bar` type cells, this is the indicator value.
 * `formattedValue`: Table cell content value which overrides `value`. Optional field; value type: string, number, date, or a markup result set through the [Editor.generateHtml(args)](../methods.md#gen-html) function. In `bar` cells, it is used for the indicator label.
-* `type`: Overrides the `head` value for a specific cell. For more information about the field, see above.
-* `align`: Sets the indicator alignment value, if not specified in `head`. For more information about the field, see above.
-* `min`: Sets the minimum threshold value for an indicator, if not specified in `head`. For more information about the field, see above.
-* `max`: Sets the maximum threshold value for an indicator, if not specified in `head`. For more information about the field, see above.
-* `showLabel`: Sets how to display the indicator label, if not specified in `head`. For more information about the field, see above.
-* `barHeight`: Sets the CSS style for the indicator height, if not specified in `head`. For more information about the field, see above.
+* `type`: Overrides the `head` value for a specific cell. For more about this field, see above.
+* `align`: Sets the indicator alignment value, if not specified in `head`. For more about this field, see above.
+* `min`: Sets the minimum threshold value for an indicator, if not specified in `head`. For more about this field, see above.
+* `max`: Sets the maximum threshold value for an indicator, if not specified in `head`. For more about this field, see above.
+* `showLabel`: Sets how to display the indicator label, if not specified in `head`. For more about this field, see above.
+* `barHeight`: Sets the CSS style for the indicator height, if not specified in `head`. For more about this field, see above.
 * `css`: Description of CSS styles for the table cell. This is an optional field; the value type is an object from CSS properties.
 * `link`: Sets the display of the entire cell content as a link for `text` type columns. Optional field; value type is object in this format:
 
@@ -249,3 +249,4 @@ Where all the fields are optional:
 * [Table with additional formatting and special elements inserted in chart cells](https://datalens.yandex/nvkfwnekf9xy9?tab=OXk#Пример%20Таблицы%20с%20дополнительными%20форматированием%20и%20вставкой%20спец%20элементов%20в%20ячейках%20чарта)
 * [Table with a dynamic set of columns](https://datalens.yandex/nvkfwnekf9xy9?tab=OXk#Пример%20Таблицы%20с%20динамическим%20набором%20столбцов)
 * [Table with indicators in cells](https://datalens.yandex/nvkfwnekf9xy9?tab=OXk#Пример%20Таблицы%20с%20индикаторами%20в%20ячейках)
+

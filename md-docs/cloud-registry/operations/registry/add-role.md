@@ -23,41 +23,45 @@
   
   Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Выполните команду, чтобы назначить роль на реестр:
+  ```bash
+  yc cloud-registry registry add-access-binding <имя_или_идентификатор_реестра> \
+    --role <роль> \
+    --subject <тип_субъекта>:<идентификатор_субъекта>
+  ```
 
-  * пользователю:
+    Где:
 
-    ```bash
-    yc cloud-registry registry add-access-binding <имя_или_идентификатор_реестра> \
-      --role <роль> \
-      --user-account-id <идентификатор_пользователя>
-    ```
+    * `--role` — [роль](../../security/index.md#service-roles), которую необходимо назначить.
+    * `--subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-  * [сервисному аккаунту](../../../iam/concepts/users/service-accounts.md):
+        {% cut "Обозначения субъектов" %}
 
-    ```bash
-    yc cloud-registry registry add-access-binding <имя_или_идентификатор_реестра> \
-      --role <роль> \
-      --service-account-id <идентификатор_сервисного_аккаунта>
-    ```
+        Для обозначения субъекта используется параметр `--subject` со значением в формате `<тип_субъекта>:<идентификатор>`. Для некоторых типов субъектов в [Yandex Cloud CLI](../../../cli/index.md) вместо `--subject` доступны отдельные параметры, в которых достаточно указать имя или идентификатор субъекта без типа. Возможные обозначения субъектов и соответствующие параметры CLI:
+        
+        #|
+        || **Тип субъекта** | **Обозначение субъекта** | **Параметр Yandex Cloud CLI** ||
+        || `userAccount`    | `userAccount:<идентификатор_пользователя>` | `--user-account-id` или `--user-yandex-login` ||
+        || `serviceAccount` | `serviceAccount:<идентификатор_сервисного_аккаунта>` | `--service-account-id` или `--service-account-name` ||
+        || `federatedUser`  | `federatedUser:<идентификатор_пользователя>` | `--user-account-id` ||
+        || `group`          | `group:<идентификатор_группы>` | `--group-members` ||
+        || `system`         | `system:allAuthenticatedUsers`
+        
+        (группа `All authenticated users`) | `--all-authenticated-users` ||
+        || ^                | `system:allUsers`
+        
+        (группа `All users`) | — ||
+        || ^                | `system:group:organization:<идентификатор_организации>:users`
+        
+        (группа `All users in organization X`) | `--organization-users` ||
+        || ^                | `system:group:federation:<идентификатор_федерации>:users`
+        
+        (группа `All users in federation N`) | `--federation-users` ||
+        || ^                | `system:group:userpool:<идентификатор_пула>:users`
+        
+        (группа `All users in userpool P`) | — ||
+        |#
 
-  * всем авторизованным пользователям ([публичная группа](../../../iam/concepts/access-control/public-group.md#allAuthenticatedUsers) `All authenticated users`):
-
-    ```bash
-    yc cloud-registry registry add-access-binding <имя_или_идентификатор_реестра> \
-      --role <роль> \
-      --allAuthenticatedUsers
-    ```
-
-  * всем пользователям ([публичная группа](../../../iam/concepts/access-control/public-group.md#allUsers) `All users`):
-
-    ```bash
-    yc cloud-registry registry add-access-binding <имя_или_идентификатор_реестра> \
-      --role <роль> \
-      --subject system:allUsers
-    ```
-
-    Где `<роль>` — [роль](../../security/index.md#service-roles), которую необходимо назначить.
+        {% endcut %}
 
   Чтобы отозвать все роли на реестр и сразу назначить новые, используйте команду `yc cloud-registry registry set-access-bindings`.
   
@@ -76,9 +80,39 @@
   ```text
   done (4s)
   ```
+
 - API {#api}
 
-  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Registry/updateAccessBindings.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/UpdateAccessBindings](../../api-ref/grpc/Registry/updateAccessBindings.md).
+  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Registry/updateAccessBindings.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/UpdateAccessBindings](../../api-ref/grpc/Registry/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  Для обозначения субъекта используется комбинация типа и уникального идентификатора в полях запроса `subject.type` и `subject.id`. Возможные комбинации:
+  
+  #|
+  || **subject.type** | **subject.id** ||
+  || `userAccount`    | `<идентификатор_пользователя>` ||
+  || `serviceAccount` | `<идентификатор_сервисного_аккаунта>` ||
+  || `federatedUser`  | `<идентификатор_пользователя>` ||
+  || `group`          | `<идентификатор_группы>` ||
+  || `system`         | `allAuthenticatedUsers`
+  
+  (группа `All authenticated users`) ||
+  || ^                | `allUsers`
+  
+  (группа `All users`) ||
+  || ^                | `group:organization:<идентификатор_организации>:users`
+  
+  (группа `All users in organization X`) ||
+  || ^                | `group:federation:<идентификатор_федерации>:users`
+  
+  (группа `All users in federation N`) ||
+  || ^                | `group:userpool:<идентификатор_пула>:users`
+  
+  (группа `All users in userpool P`) ||
+  |#
+
+  {% endcut %}
 
 {% endlist %}
 

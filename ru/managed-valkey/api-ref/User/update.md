@@ -43,7 +43,7 @@ apiPlayground:
         passwords:
           description: |-
             **string**
-            New passwords the Redis user.
+            New password of the Redis user, 8-128 characters long.
             The maximum number of elements is 1.
           type: array
           items:
@@ -57,6 +57,11 @@ apiPlayground:
           description: |-
             **boolean**
             Is Redis user enabled
+          type: boolean
+        generatePassword:
+          description: |-
+            **boolean**
+            Generate password using Connection Manager
           type: boolean
       additionalProperties: false
     definitions:
@@ -86,7 +91,8 @@ apiPlayground:
           sanitizePayload:
             description: |-
               **string**
-              SanitizePayload parameter.
+              Deprecated. This parameter is ignored.
+            deprecated: true
             type: string
           databases:
             description: |-
@@ -138,7 +144,8 @@ The maximum string length in characters is 32. Value must match the regular expr
     "sanitizePayload": "string",
     "databases": "string"
   },
-  "enabled": "boolean"
+  "enabled": "boolean",
+  "generatePassword": "boolean"
 }
 ```
 
@@ -156,7 +163,7 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || passwords[] | **string**
 
-New passwords the Redis user.
+New password of the Redis user, 8-128 characters long.
 
 The maximum number of elements is 1. ||
 || permissions | **[Permissions](#yandex.cloud.mdb.redis.v1.Permissions)**
@@ -165,6 +172,9 @@ New set of permissions to grant to the user. ||
 || enabled | **boolean**
 
 Is Redis user enabled ||
+|| generatePassword | **boolean**
+
+Generate password using Connection Manager ||
 |#
 
 ## Permissions {#yandex.cloud.mdb.redis.v1.Permissions}
@@ -185,7 +195,7 @@ Command categories user has permissions to. ||
 Commands user can execute. ||
 || sanitizePayload | **string**
 
-SanitizePayload parameter. ||
+Deprecated. This parameter is ignored. ||
 || databases | **string**
 
 Databases parameter. ||

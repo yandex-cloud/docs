@@ -43,6 +43,12 @@ Service name: `clouddesktop`.
 
 {% include [clouddesktop-events-dp](../../_includes/audit-trails/events/clouddesktop-events-dp.md) %}
 
+## {{ cloud-registry-full-name }} {#cloud-registry}
+
+Service name: `cloudregistry`.
+
+{% include [cloudregistry-events-dp](../../_includes/audit-trails/events/cloudregistry-events-dp.md) %}
+
 ## {{ dns-full-name }} {#dns}
 
 Service name: `dns`.
@@ -57,7 +63,7 @@ Service name: `compute`.
 
 ## {{ ai-studio-full-name }} {#ai-studio}
 
-Service name: `ai`.
+Service name: `ai` for all events except {{ sw-full-name }} events. For {{ sw-full-name }} events, the service name is `serverless.workflows`.
 
 {% include [ai-studio-events-dp](../../_includes/audit-trails/events/ai-studio-events-dp.md) %}
 
@@ -66,6 +72,12 @@ Service name: `ai`.
 Service name: `organizationmanager`.
 
 {% include [org-events-dp](../../_includes/audit-trails/events/org-events-dp.md) %}
+
+## {{ src-full-name }} {#sourcecraft}
+
+Service name: `sourcecraft`.
+
+{% include [sourcecraft-events-dp](../../_includes/audit-trails/events/sourcecraft-events-dp.md) %}
 
 ## {{ iam-full-name }} {#iam}
 
@@ -227,8 +239,3 @@ Service name: `websql`.
 
 {% include [websql-events-dp](../../_includes/audit-trails/events/websql-events-dp.md) %}
 
-## {{ sw-full-name }} {#workflows}
-
-Service name: `serverless.workflows`.
-
-{% include [workflows-events-dp](../../_includes/audit-trails/events/workflows-events-dp.md) %}

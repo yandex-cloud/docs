@@ -1,12 +1,13 @@
 # Establishing network connectivity between two or more cloud networks and on-prem resources (VPC Stitching)
 
+
 {% include [cic-only-warning](../../_includes/interconnect/cic-only-warning.md) %}
 
 Reserved on-prem connection via two private Cloud Interconnect connections to one virtual router with two or more cloud networks and network connectivity between the cloud networks. This fully-connected topology is called `Full Mesh`.
 
 ![ri-topology-7](../../_assets/cloud-router/ri-topology-7.svg)
 
-The scenario uses the following components:
+The scenario features the following components:
 
 * `On-Prem` client with two local subnets: `subnet-c1` and `subnet-c2`.
 
@@ -38,4 +39,3 @@ This topology enables network connectivity between:
 In case of failure of any of the private connections above, all network traffic will be automatically switched over to the remaining private connection.
 
 {% endnote %}
-

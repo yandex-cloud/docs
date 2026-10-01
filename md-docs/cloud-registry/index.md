@@ -44,6 +44,10 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [Удалить политику доступа](operations/registry/remove-access-policy.md)
 
+ - [Политика жизненного цикла](operations/lifecycle-policy/create.md)
+
+ - [Сканирование реестра](operations/registry/scanning.md)
+
 ### Управление артефактами
 
 #### Docker-образ
@@ -115,8 +119,6 @@ Yandex Cloud Registry — сервис для безопасного хране�
  - [Скачать Debian-пакет из реестра](operations/debian/pull.md)
 
  - [Удалить артефакт из реестра](operations/artifacts/delete.md)
-
- - [Создание политики жизненного цикла](operations/lifecycle-policy/create.md)
 
 ## Практические руководства
 
@@ -208,7 +210,19 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [Overview](cli-ref/migration/index.md)
 
+ - [get-cloud-migration-status-dashboard](cli-ref/migration/get-cloud-migration-status-dashboard.md)
+
+ - [get-folder-migration-status-dashboard](cli-ref/migration/get-folder-migration-status-dashboard.md)
+
  - [start-cloud](cli-ref/migration/start-cloud.md)
+
+ - [start-folder](cli-ref/migration/start-folder.md)
+
+ - [toggle-cloud-redirects](cli-ref/migration/toggle-cloud-redirects.md)
+
+ - [toggle-folder-redirects](cli-ref/migration/toggle-folder-redirects.md)
+
+ - [toggle-registry-redirects](cli-ref/migration/toggle-registry-redirects.md)
 
 ### registry
 
@@ -458,7 +472,19 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [Overview](cli-ref/v1/migration/index.md)
 
+ - [get-cloud-migration-status-dashboard](cli-ref/v1/migration/get-cloud-migration-status-dashboard.md)
+
+ - [get-folder-migration-status-dashboard](cli-ref/v1/migration/get-folder-migration-status-dashboard.md)
+
  - [start-cloud](cli-ref/v1/migration/start-cloud.md)
+
+ - [start-folder](cli-ref/v1/migration/start-folder.md)
+
+ - [toggle-cloud-redirects](cli-ref/v1/migration/toggle-cloud-redirects.md)
+
+ - [toggle-folder-redirects](cli-ref/v1/migration/toggle-folder-redirects.md)
+
+ - [toggle-registry-redirects](cli-ref/v1/migration/toggle-registry-redirects.md)
 
 #### registry
 
@@ -590,11 +616,21 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [DryRun](api-ref/grpc/LifecyclePolicy/dryRun.md)
 
+ - [GetDryRunResult](api-ref/grpc/LifecyclePolicy/getDryRunResult.md)
+
+ - [ListDryRunResults](api-ref/grpc/LifecyclePolicy/listDryRunResults.md)
+
+ - [ListDryRunArtifacts](api-ref/grpc/LifecyclePolicy/listDryRunArtifacts.md)
+
 #### Migration
 
  - [Overview](api-ref/grpc/Migration/index.md)
 
  - [StartCloud](api-ref/grpc/Migration/startCloud.md)
+
+ - [StartFolder](api-ref/grpc/Migration/startFolder.md)
+
+ - [GetCloudMigrationStatusDashboard](api-ref/grpc/Migration/getCloudMigrationStatusDashboard.md)
 
 #### Operation
 
@@ -722,6 +758,12 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [DryRun](api-ref/LifecyclePolicy/dryRun.md)
 
+ - [GetDryRunResult](api-ref/LifecyclePolicy/getDryRunResult.md)
+
+ - [ListDryRunResults](api-ref/LifecyclePolicy/listDryRunResults.md)
+
+ - [ListDryRunArtifacts](api-ref/LifecyclePolicy/listDryRunArtifacts.md)
+
 #### Operation
 
  - [Overview](api-ref/Operation/index.md)
@@ -791,5 +833,7 @@ Yandex Cloud Registry — сервис для безопасного хране�
  - [Get](domain/api-ref/Operation/get.md)
 
  - [Cancel](domain/api-ref/Operation/cancel.md)
+
+ - [Метрики Monitoring](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)

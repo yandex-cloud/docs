@@ -1,5 +1,6 @@
 # Creating a SAML app in {{ org-full-name }} for integration with Jenkins
 
+
 [Jenkins](https://www.jenkins.io/) is an open-source Java-based software system designed to support continuous software integration.
 
 For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to Jenkins via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications/saml.md) in {{ org-full-name }} and configure it both in {{ org-full-name }} and Jenkins.

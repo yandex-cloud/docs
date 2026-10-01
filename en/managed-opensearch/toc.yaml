@@ -130,6 +130,8 @@ items:
         href: concepts/maintenance.md
   - name: Access management
     href: security/index.md
+  - name: Inspections and recommendations
+    href: advisor.md
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference
@@ -152,6 +154,20 @@ items:
             href: cli-ref/backup/get.md
           - name: list
             href: cli-ref/backup/list.md
+      - name: change-freeze
+        items:
+          - name: Overview
+            href: cli-ref/change-freeze/index.md
+          - name: create
+            href: cli-ref/change-freeze/create.md
+          - name: get
+            href: cli-ref/change-freeze/get.md
+          - name: get-limits
+            href: cli-ref/change-freeze/get-limits.md
+          - name: list
+            href: cli-ref/change-freeze/list.md
+          - name: terminate
+            href: cli-ref/change-freeze/terminate.md
       - name: cluster
         items:
           - name: Overview
@@ -172,6 +188,8 @@ items:
             href: cli-ref/cluster/list-access-bindings.md
           - name: list-backups
             href: cli-ref/cluster/list-backups.md
+          - name: move
+            href: cli-ref/cluster/move.md
           - name: remove-access-binding
             href: cli-ref/cluster/remove-access-binding.md
           - name: restart-opensearch
@@ -202,6 +220,16 @@ items:
             href: cli-ref/extension/list.md
           - name: update
             href: cli-ref/extension/update.md
+      - name: maintenance
+        items:
+          - name: Overview
+            href: cli-ref/maintenance/index.md
+          - name: get
+            href: cli-ref/maintenance/get.md
+          - name: list
+            href: cli-ref/maintenance/list.md
+          - name: reschedule
+            href: cli-ref/maintenance/reschedule.md
       - name: node-group
         items:
           - name: Overview
@@ -240,6 +268,20 @@ items:
                 href: cli-ref/v0/backup/get.md
               - name: list
                 href: cli-ref/v0/backup/list.md
+          - name: change-freeze
+            items:
+              - name: Overview
+                href: cli-ref/v0/change-freeze/index.md
+              - name: create
+                href: cli-ref/v0/change-freeze/create.md
+              - name: get
+                href: cli-ref/v0/change-freeze/get.md
+              - name: get-limits
+                href: cli-ref/v0/change-freeze/get-limits.md
+              - name: list
+                href: cli-ref/v0/change-freeze/list.md
+              - name: terminate
+                href: cli-ref/v0/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -260,6 +302,8 @@ items:
                 href: cli-ref/v0/cluster/list-access-bindings.md
               - name: list-backups
                 href: cli-ref/v0/cluster/list-backups.md
+              - name: move
+                href: cli-ref/v0/cluster/move.md
               - name: remove-access-binding
                 href: cli-ref/v0/cluster/remove-access-binding.md
               - name: restart-opensearch
@@ -290,6 +334,16 @@ items:
                 href: cli-ref/v0/extension/list.md
               - name: update
                 href: cli-ref/v0/extension/update.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/v0/maintenance/index.md
+              - name: get
+                href: cli-ref/v0/maintenance/get.md
+              - name: list
+                href: cli-ref/v0/maintenance/list.md
+              - name: reschedule
+                href: cli-ref/v0/maintenance/reschedule.md
           - name: node-group
             items:
               - name: Overview
@@ -326,6 +380,20 @@ items:
                 href: api-ref/grpc/Backup/get.md
               - name: List
                 href: api-ref/grpc/Backup/list.md
+          - name: ChangeFreeze
+            items:
+              - name: Overview
+                href: api-ref/grpc/ChangeFreeze/index.md
+              - name: Create
+                href: api-ref/grpc/ChangeFreeze/create.md
+              - name: Get
+                href: api-ref/grpc/ChangeFreeze/get.md
+              - name: List
+                href: api-ref/grpc/ChangeFreeze/list.md
+              - name: Terminate
+                href: api-ref/grpc/ChangeFreeze/terminate.md
+              - name: GetLimits
+                href: api-ref/grpc/ChangeFreeze/getLimits.md
           - name: Cluster
             items:
               - name: Overview
@@ -430,6 +498,14 @@ items:
                 href: api-ref/grpc/ResourcePreset/get.md
               - name: List
                 href: api-ref/grpc/ResourcePreset/list.md
+          - name: User
+            items:
+              - name: Overview
+                href: api-ref/grpc/User/index.md
+              - name: Get
+                href: api-ref/grpc/User/get.md
+              - name: List
+                href: api-ref/grpc/User/list.md
           - name: Versions
             items:
               - name: Overview
@@ -448,6 +524,20 @@ items:
                 href: api-ref/Backup/get.md
               - name: List
                 href: api-ref/Backup/list.md
+          - name: ChangeFreeze
+            items:
+              - name: Overview
+                href: api-ref/ChangeFreeze/index.md
+              - name: Create
+                href: api-ref/ChangeFreeze/create.md
+              - name: Get
+                href: api-ref/ChangeFreeze/get.md
+              - name: List
+                href: api-ref/ChangeFreeze/list.md
+              - name: Terminate
+                href: api-ref/ChangeFreeze/terminate.md
+              - name: GetLimits
+                href: api-ref/ChangeFreeze/getLimits.md
           - name: Cluster
             items:
               - name: Overview
@@ -552,6 +642,14 @@ items:
                 href: api-ref/ResourcePreset/get.md
               - name: List
                 href: api-ref/ResourcePreset/list.md
+          - name: User
+            items:
+              - name: Overview
+                href: api-ref/User/index.md
+              - name: Get
+                href: api-ref/User/get.md
+              - name: List
+                href: api-ref/User/list.md
           - name: Versions
             items:
               - name: Overview

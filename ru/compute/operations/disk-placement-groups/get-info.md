@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы сможете
   1. На панели слева выберите ![image](../../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}**.
   1. Выберите нужную группу размещения дисков.
-  1. На странице **{{ ui-key.yacloud.compute.placement-group.overview.label_title }}** отобразится подробная информация о группе размещения дисков.
+  1. На вкладке **{{ ui-key.yacloud.compute.placement-group.overview.label_title }}** отобразится подробная информация о группе размещения дисков.
 
 - CLI {#cli}
 

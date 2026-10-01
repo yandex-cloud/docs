@@ -57,6 +57,8 @@ sequenceDiagram
 
 В кластере Trino можно создать не больше восьми каталогов с включенными GPFDIST-серверами.
 
+Для чтения данных по GPFDIST обязательно включите **Доступ из Trino** в настройках кластера Yandex MPP Analytics for PostgreSQL. Данные между сегментами Greenplum® и воркерами Trino передаются с шифрованием. Подробнее смотрите в разделе [Доступ из Trino](../../managed-greenplum/operations/gpfdist/trino-access.md).
+
 Чтение данных напрямую с сегментов Greenplum® состоит из следующих этапов:
 
 1. Коннектор создает внешнюю таблицу с указанием адреса воркера Trino, читающего данные:
@@ -64,7 +66,7 @@ sequenceDiagram
     ```sql
     CREATE WRITABLE EXTERNAL TEMPORARY TABLE <имя_внешней_таблицы>
            ...
-           LOCATION('gpfdist://<адрес_воркера_Trino>');
+           LOCATION('gpfdists://<адрес_воркера_Trino>');
     ```
 
 1. Коннектор выполняет запрос:
@@ -86,7 +88,7 @@ sequenceDiagram
     participant s2 as Greenplum Segment 2
 
     activate w1
-    w1 ->> m : CREATE WRITABLE EXTERNAL TABLE ext_table <br>LOCATION ('gpfdist://worker1/table1')
+    w1 ->> m : CREATE WRITABLE EXTERNAL TABLE ext_table <br>LOCATION ('gpfdists://worker1/table1')
     activate m
     m -->> w1 : OK
     deactivate m

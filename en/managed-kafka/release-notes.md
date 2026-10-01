@@ -60,7 +60,7 @@ Added separate roles to view and edit maintenance tasks: [managed-kafka.maintena
 * [Built-in support for {{ kafka-ui }}](concepts/kafka-ui.md) is now available in the Kazakhstan [region](../overview/concepts/region.md).
 * Added new [user roles](concepts/account-roles.md) for managing {{ KF }} cluster resources: `ACCESS_ROLE_TOPIC_PRODUCER`, `ACCESS_ROLE_TOPIC_CONSUMER`, `ACCESS_ROLE_SCHEMA_READER`, and `ACCESS_ROLE_SCHEMA_WRITER`.
 * Added [support for migration](tutorials/zk-kraft-kafka-migration.md) from {{ ZK }} to {{ kraft-short-name }} hosts.
-* Added support for syncing data from {{ KF }} topics to an {{ objstorage-name }} bucket without using the internet.
+* Added the ability to sync data from {{ KF }} topics to an {{ objstorage-name }} bucket without using the internet
 * Changed the limit for the amount of broker data when using SSD network storage. The new limit is 32,768 GB.
 
 ## July 2025 {#july-2025}

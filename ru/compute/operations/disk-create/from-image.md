@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Восстановить диск с помощью образа
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 {% note info %}
 
 {% include [boot-disk-recover](../../../_includes/compute/boot-disk-recover.md) %}
@@ -19,7 +21,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать диск.
   1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.storage_uisyT }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
   1. Введите имя диска.
 

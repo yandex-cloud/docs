@@ -36,6 +36,8 @@ Managed Service for PostgreSQL помогает разворачивать и п
 
  - [Управление алиасами хостов](operations/hosts-aliases.md)
 
+ - [Управление балансировщиком нагрузки DB Proxy](operations/load-balancer.md)
+
  - [Миграция хостов в другую зону доступности](operations/host-migration.md)
 
  - [Управление слотами репликации](operations/replication-slots.md)
@@ -270,6 +272,20 @@ Managed Service for PostgreSQL помогает разворачивать и п
 
  - [list](cli-ref/backup-retention-policy/list.md)
 
+### change-freeze
+
+ - [Overview](cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/change-freeze/terminate.md)
+
 ### cluster
 
  - [Overview](cli-ref/cluster/index.md)
@@ -350,6 +366,16 @@ Managed Service for PostgreSQL помогает разворачивать и п
 
  - [update-config](cli-ref/hosts/update-config.md)
 
+### maintenance
+
+ - [Overview](cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/maintenance/reschedule.md)
+
 ### performance-diagnostics
 
  - [Overview](cli-ref/performance-diagnostics/index.md)
@@ -417,6 +443,20 @@ Managed Service for PostgreSQL помогает разворачивать и п
  - [delete](cli-ref/v0/backup-retention-policy/delete.md)
 
  - [list](cli-ref/v0/backup-retention-policy/list.md)
+
+#### change-freeze
+
+ - [Overview](cli-ref/v0/change-freeze/index.md)
+
+ - [create](cli-ref/v0/change-freeze/create.md)
+
+ - [get](cli-ref/v0/change-freeze/get.md)
+
+ - [get-limits](cli-ref/v0/change-freeze/get-limits.md)
+
+ - [list](cli-ref/v0/change-freeze/list.md)
+
+ - [terminate](cli-ref/v0/change-freeze/terminate.md)
 
 #### cluster
 
@@ -498,6 +538,16 @@ Managed Service for PostgreSQL помогает разворачивать и п
 
  - [update-config](cli-ref/v0/hosts/update-config.md)
 
+#### maintenance
+
+ - [Overview](cli-ref/v0/maintenance/index.md)
+
+ - [get](cli-ref/v0/maintenance/get.md)
+
+ - [list](cli-ref/v0/maintenance/list.md)
+
+ - [reschedule](cli-ref/v0/maintenance/reschedule.md)
+
 #### performance-diagnostics
 
  - [Overview](cli-ref/v0/performance-diagnostics/index.md)
@@ -573,6 +623,20 @@ Managed Service for PostgreSQL помогает разворачивать и п
  - [List](api-ref/grpc/Backup/list.md)
 
  - [Delete](api-ref/grpc/Backup/delete.md)
+
+#### ChangeFreeze
+
+ - [Overview](api-ref/grpc/ChangeFreeze/index.md)
+
+ - [Create](api-ref/grpc/ChangeFreeze/create.md)
+
+ - [Get](api-ref/grpc/ChangeFreeze/get.md)
+
+ - [List](api-ref/grpc/ChangeFreeze/list.md)
+
+ - [Terminate](api-ref/grpc/ChangeFreeze/terminate.md)
+
+ - [GetLimits](api-ref/grpc/ChangeFreeze/getLimits.md)
 
 #### Cluster
 
@@ -731,6 +795,20 @@ Managed Service for PostgreSQL помогает разворачивать и п
  - [List](api-ref/Backup/list.md)
 
  - [Delete](api-ref/Backup/delete.md)
+
+#### ChangeFreeze
+
+ - [Overview](api-ref/ChangeFreeze/index.md)
+
+ - [Create](api-ref/ChangeFreeze/create.md)
+
+ - [Get](api-ref/ChangeFreeze/get.md)
+
+ - [List](api-ref/ChangeFreeze/list.md)
+
+ - [Terminate](api-ref/ChangeFreeze/terminate.md)
+
+ - [GetLimits](api-ref/ChangeFreeze/getLimits.md)
 
 #### Cluster
 

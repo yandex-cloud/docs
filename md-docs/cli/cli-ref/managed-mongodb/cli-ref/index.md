@@ -34,6 +34,18 @@ Aliases:
 
   - [yc managed-mongodb backup-retention-policy list](backup-retention-policy/list.md) — List available backup retention policies
 
+- [yc managed-mongodb change-freeze](change-freeze/index.md) — Manage change freezes.
+
+  - [yc managed-mongodb change-freeze create](change-freeze/create.md) — Create a change freeze for the specified resource.
+
+  - [yc managed-mongodb change-freeze get](change-freeze/get.md) — Show the specified change freeze.
+
+  - [yc managed-mongodb change-freeze get-limits](change-freeze/get-limits.md) — Show change freeze limits for the specified resource.
+
+  - [yc managed-mongodb change-freeze list](change-freeze/list.md) — List change freezes.
+
+  - [yc managed-mongodb change-freeze terminate](change-freeze/terminate.md) — Terminate the specified change freeze.
+
 - [yc managed-mongodb cluster](cluster/index.md) — Manage MongoDB clusters.
 
   - [yc managed-mongodb cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified MongoDB cluster
@@ -107,6 +119,14 @@ Aliases:
   - [yc managed-mongodb hosts stepdown](hosts/stepdown.md) — Stepdown specified MongoD hosts.
 
   - [yc managed-mongodb hosts update](hosts/update.md) — Update specified hosts in the cluster.
+
+- [yc managed-mongodb maintenance](maintenance/index.md) — Manage maintenances.
+
+  - [yc managed-mongodb maintenance get](maintenance/get.md) — Show the specified maintenance.
+
+  - [yc managed-mongodb maintenance list](maintenance/list.md) — List maintenances.
+
+  - [yc managed-mongodb maintenance reschedule](maintenance/reschedule.md) — Reschedule the specified maintenance.
 
 - [yc managed-mongodb resource-preset](resource-preset/index.md) — Learn about MongoDB resource presets.
 

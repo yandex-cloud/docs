@@ -5,4 +5,4 @@
 1. Select a user from the list or use the user search option.
 1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}**.
 1. Select the `resource-manager.viewer` role. This role enables you to read cloud information, including the access rights list.
-1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.

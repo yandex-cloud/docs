@@ -86,6 +86,7 @@ Possible property names:
 || `--websql-access` | Allow access for Web SQL. ||
 || `--datatransfer-access` | Allow access for DataTransfer. ||
 || `--yandexquery-access` | Allow access for Yandex Query. ||
+|| `--trino-access` | Allow access for Trino (including TLS for gpfdist). ||
 || `--backup-window-start` | `timeofday`
 
 Start time for the daily backup in UTC timezone. Format: HH:MM:SS ||

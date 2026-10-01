@@ -117,7 +117,7 @@ If you already have an active {{ keycloak }} server, check the {{ keycloak }} se
 
       1. {% include [forceauthn-option-enable](../../_includes/organization/forceauthn-option-enable.md) %}
 
-      1. Click **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
+      1. Click **{{ ui-key.yacloud_org.form.federation.action.create }}**.
 
 {% endlist %}
 

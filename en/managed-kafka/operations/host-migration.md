@@ -6,9 +6,11 @@ description: Follow this guide to migrate {{ KF }} cluster hosts to a different 
 # Migrating {{ KF }} cluster hosts to a different availability zone
 
 
-{{ mkf-name }} cluster hosts reside in {{ yandex-cloud }} availability zones. You can move {{ KF }} hosts from one availability zone to another. The migration process is different for single-host and multi-host clusters.
+{{ mkf-name }} cluster hosts reside in {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md). You can move {{ KF }} hosts from one availability zone to another. The migration process is different for single-host and multi-host clusters.
+
 
 {% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
+
 
 If a {{ mkf-name }} cluster is an endpoint in {{ data-transfer-full-name }}, restart the transfer to make it work correctly. For more information on which transfers to restart and how to do it, see [Specifics of migration in {{ data-transfer-full-name }}](#data-transfer).
 

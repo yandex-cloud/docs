@@ -31,6 +31,9 @@ To create a [resource](../../concepts/resource.md):
             1. Specify **{{ ui-key.yacloud.cdn.field_group-name }}**.
             1. Configure **{{ ui-key.yacloud.cdn.label_section-origins-list }}**:
                 * Specify the **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`, or `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`.
+
+                  {% include [bucket-website-hosting-tip](../../../_includes/cdn/bucket-website-hosting-tip.md) %}
+
                 * Specify an origin.
                 * Select the **{{ ui-key.yacloud.cdn.field_origin-state }}**: `{{ ui-key.yacloud.cdn.label_status-active }}` or `{{ ui-key.yacloud.cdn.label_status-backup }}`.
             1. Add other origins if needed.
@@ -85,6 +88,17 @@ To create a [resource](../../concepts/resource.md):
 
         * {% include [enable-ip-policy](../../../_includes/cdn/enable-ip-policy.md) %}
 
+      * Under **{{ ui-key.yacloud.cdn.label_section-security }}**:
+
+        * In the **{{ ui-key.yacloud.cdn.label_tls-profile }}** field, select the [TLS security profile](../../concepts/clients-to-servers-tls.md#tls-profiles).
+        * Optionally, to configure a [country-based access policy](../../concepts/geo-acl.md):
+
+          1. Enable **Country-based access**.
+          1. In the **Access policy** field, select `Block specified countries` or `Allow specified countries only`.
+          1. In the **Country list** field, enter two-letter uppercase [country codes](../../concepts/geo-acl.md#country-codes) separated by commas, e.g., `RU, KZ`.
+
+          For more information, see [{#T}](configure-geo-acl.md).
+
   1. Click **{{ ui-key.yacloud.common.continue }}**.
   1. Optionally, under **{{ ui-key.yacloud.cdn.label_resource-cache }}**, do the following:
 
@@ -132,8 +146,14 @@ To create a [resource](../../concepts/resource.md):
       * Under **{{ ui-key.yacloud.cdn.label_resource-http-headers-response-headers }}**:
         * In the **{{ ui-key.yacloud.cdn.label_headers }}** field, click **{{ ui-key.yacloud.common.add }}**.
         * Enter names and values of the headers you need.
+        * To [hide origin headers](../../concepts/hiding-headers.md), in the **Hiding of origin headers** field, select `Hide all except listed`.
+        * In the **Headers to keep** field, specify those you want to provide to clients, e.g., `Content-Type`.
+
+        {% include [hiding-headers-warning](../../../_includes/cdn/hiding-headers-warning.md) %}
 
         [Learn more about configuring HTTP headers for requests and responses](configure-headers.md).
+
+        [More on setting up the hiding of origin headers](hiding-headers.md)
       * Under **{{ ui-key.yacloud.cdn.label_resource-http-headers-cors }}**:
         * In the **{{ ui-key.yacloud.cdn.label_resource-http-headers-cors-access }}** field, specify whether to add this header to responses.
         * When adding a header, select the values of the `Origin` header that allow access to the content. To grant access only to specific origins, select `{{ ui-key.yacloud.cdn.label_resource-http-headers-cors-settings-http-origin-for-source-domains }}`, specify the origin domain names and click **{{ ui-key.yacloud.cdn.button_add-domain }}**.
@@ -247,6 +267,8 @@ To create a [resource](../../concepts/resource.md):
 
      For more information about the `yc cdn resource create` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/resource/create.md).
 
+     {% include [bucket-website-hosting-tip](../../../_includes/cdn/bucket-website-hosting-tip.md) %}
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
@@ -256,6 +278,8 @@ To create a [resource](../../concepts/resource.md):
   1. In the configuration file, describe the properties of the CDN resource to create:
 
      {% include [create-resource-tf](../../../_includes/cdn/create-resource-tf.md) %}
+
+     {% include [bucket-website-hosting-tip](../../../_includes/cdn/bucket-website-hosting-tip.md) %}
 
   1. Create the resources:
 

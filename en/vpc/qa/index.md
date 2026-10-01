@@ -33,6 +33,17 @@ You can have public IP addresses assigned to cloud resources automatically or se
 
 You can convert a public IP address to [static](../operations/set-static-ip.md) using the {{ vpc-short-name }} **{{ ui-key.yacloud.vpc.switch_addresses }}** tab in the [management console]({{ link-console-main }}).
 
+#### Why did my VM or database IP address change? {#dynamic-ip-changed}
+
+More often than not, the problem is due to the fact that your IP address was a dynamic one.
+
+An IP address can be either static or dynamic. A dynamic IP address is assigned to a resource by default and may change in some cases. For example, if you restart a resource, recreate a network interface, or the resource itself. Sometimes a virtual machine or database host stops due to arrears, in which case the dynamic IP address also may change. 
+
+Dynamic IP addresses are typically used for test and temporary environments, as well as for services that do not accept incoming connections.
+
+If a dynamic IP address does not suit you, make it [static](../operations/set-static-ip.md). 
+
+
 #### Can I protect a public IP address against accidental deletion? {#deletion-protection}
 
 Yes, you can [protect a public IP address against accidental deletion](../operations/deletion-protection.md).
@@ -58,7 +69,7 @@ Get this information and send it to [our support]({{ link-console-support }}).
 
 {{ yandex-cloud }} only [blocks](../concepts/limits.md#vpc-egress-traffic-filter) traffic sent from pubic IP addresses on port 25. The only exception is the traffic sent to Yandex Mail email servers.
 
-To prevent email traffic blocks, reconfigure your email server to use ports 465 and 587. To do this, use these ports as an email gateway and [delegate your domain](https://yandex.com/support/business/delegate-domain.html) to Yandex servers with [Yandex Mail for Domains](https://habr.com/company/plesk/blog/304204/).
+To prevent email traffic blocks, reconfigure your email server to use ports 465 and 587. To do this, use these ports as an email gateway and [delegate your domain](https://yandex.com/support/yandex-360/business/admin/en/domains/register/delegate) to Yandex servers with [Yandex Mail for Domains](https://habr.com/company/plesk/blog/304204/).
 
 If you need port 25, assign your virtual machine a new IP address:
 

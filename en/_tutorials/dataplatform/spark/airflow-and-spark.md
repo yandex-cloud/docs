@@ -52,7 +52,7 @@ The example below illustrates two scenarios. Select the one you find most releva
 
 {% list tabs group=instructions %}
 
-* High security level
+- High security level
 
   Set up the infrastructure:
 
@@ -91,7 +91,7 @@ The example below illustrates two scenarios. Select the one you find most releva
 
   1. [Create a cloud network](../../../vpc/operations/network-create.md) named `datalake-network`.
 
-     This will automatically create three subnets in different availability zones.
+     This will automatically create three subnets in different [availability zones](../../../overview/concepts/geo-scope.md).
 
   1. For the {{ metastore-name }} cluster, [create a security group](../../../vpc/operations/security-group-create.md) named `metastore-sg` in `datalake-network`. Add the following rules to it:
 
@@ -128,11 +128,11 @@ The example below illustrates two scenarios. Select the one you find most releva
 
   1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) with the following parameters:
 
-     * **Service account**: `metastore-agent`
-     * **Version**: `{{ metastore.integration-version }}`
-     * **Network**: `datalake-network`
-     * **Subnet**: `datalake-network-{{ region-id }}-a`
-     * **Security group**: `metastore-sg`
+     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `metastore-agent`.
+     * **{{ ui-key.yacloud.mdb.forms.base_field_version }}**: `{{ metastore.integration-version }}`.
+     * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `datalake-network`.
+     * **{{ ui-key.yacloud.mdb.forms.label_subnetwork }}**: `datalake-network-{{ region-id }}-a`.
+     * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `metastore-sg`.
 
      {% note info %}
 
@@ -142,14 +142,14 @@ The example below illustrates two scenarios. Select the one you find most releva
 
   1. [Create a {{ maf-name }} cluster](../../../managed-airflow/operations/cluster-create.md) with the following parameters:
 
-     * **Service account**: `airflow-agent`
-     * **Availability zone**: `{{ region-id }}-a`
-     * **Network**: `datalake-network`
-     * **Subnet**: `datalake-network-{{ region-id }}-a`
-     * **Security group**: `airflow-sg`
-     * **Bucket name**: `<bucket_for_Airflow_DAG_source_code>`
+     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `airflow-agent`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_zone }}**: `{{ region-id }}-a`.
+     * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `datalake-network`.
+     * **{{ ui-key.yacloud.mdb.forms.label_subnetwork }}**: `datalake-network-{{ region-id }}-a`.
+     * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `airflow-sg`.
+     * **{{ ui-key.yacloud.airflow.field_connector-bucket-name }}**: `<bucket_for_Airflow_DAG_source_code>`.
 
-* Simplified setup
+- Simplified setup
 
   Set up your infrastructure:
 
@@ -170,14 +170,14 @@ The example below illustrates two scenarios. Select the one you find most releva
 
   1. [Create a cloud network](../../../vpc/operations/network-create.md) named `datalake-network`.
 
-      This will automatically create three subnets in different availability zones and a security group.
+      This will automatically create three subnets in different [availability zones](../../../overview/concepts/geo-scope.md) and a security group.
 
   1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) with the following parameters:
 
-     * **Service account**: `integration-agent`
-     * **Network**: `datalake-network`
-     * **Subnet**: `datalake-network-{{ region-id }}-a`
-     * **Security group**: Default group in `datalake-network`
+     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `integration-agent`.
+     * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `datalake-network`.
+     * **{{ ui-key.yacloud.mdb.forms.label_subnetwork }}**: `datalake-network-{{ region-id }}-a`.
+     * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: Default group in `datalake-network`.
 
      {% note info %}
    
@@ -187,12 +187,12 @@ The example below illustrates two scenarios. Select the one you find most releva
 
   1. [Create a {{ maf-name }} cluster](../../../managed-airflow/operations/cluster-create.md) with the following parameters:
 
-     * **Service account**: `integration-agent`
-     * **Availability zone**: `{{ region-id }}-a`
-     * **Network**: `datalake-network`
-     * **Subnet**: `datalake-network-{{ region-id }}-a`
-     * **Security group**: Default group in `datalake-network`
-     * **Bucket name**: `<bucket_for_jobs_and_data>`
+     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `integration-agent`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_zone }}**: `{{ region-id }}-a`.
+     * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `datalake-network`.
+     * **{{ ui-key.yacloud.mdb.forms.label_subnetwork }}**: `datalake-network-{{ region-id }}-a`.
+     * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: Default group in `datalake-network`.
+     * **{{ ui-key.yacloud.airflow.field_connector-bucket-name }}**: `<bucket_for_jobs_and_data>`.
 
 {% endlist %}
 
@@ -210,7 +210,7 @@ For a PySpark job, we will use a Python script that creates a table and is store
 
      {% include [pyspark](../../_tutorials_includes/spark/job-with-table-pyspark.md) %}
 
-     { % endcut %}
+     {% endcut %}
 
   1. In `<bucket_for_PySpark_job_source_code>`, create a folder named `scripts` and [upload](../../../storage/operations/objects/upload.md#simple) the `job_with_table.py` file to it.
 
@@ -222,7 +222,7 @@ For a PySpark job, we will use a Python script that creates a table and is store
 
      {% include [pyspark](../../_tutorials_includes/spark/job-with-table-pyspark.md) %}
 
-     { % endcut %}
+     {% endcut %}
 
   1. In `<bucket_for_jobs_and_data>`, create a folder named `scripts` and [upload](../../../storage/operations/objects/upload.md#simple) the `job_with_table.py` file to it.
 
@@ -508,7 +508,7 @@ To prepare a DAG:
      * `JOB_ARGS`: PySpark job arguments.
      * `JOB_PROPERTIES`: PySpark job properties.
 
-     { % endcut %}
+     {% endcut %}
 
   1. Upload the DAG to the {{ AF }} cluster: in `<bucket_for_jobs_and_data>`, create a folder named `dags` and upload the `dag.py` file to it.
   1. Open the {{ AF }} web UI.
@@ -565,4 +565,3 @@ Some resources are not free of charge. Delete the resources you no longer need t
   1. [Cloud network](../../../vpc/operations/network-delete.md).
 
 {% endlist %}
-

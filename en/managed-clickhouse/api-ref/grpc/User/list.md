@@ -60,6 +60,9 @@ The maximum string length in characters is 100. ||
         "readonly": "google.protobuf.Int64Value",
         "allow_ddl": "google.protobuf.BoolValue",
         "allow_introspection_functions": "google.protobuf.BoolValue",
+        "allow_reorder_prewhere_conditions": "google.protobuf.BoolValue",
+        "async_socket_for_remote": "google.protobuf.BoolValue",
+        "async_query_sending_for_remote": "google.protobuf.BoolValue",
         "connect_timeout": "google.protobuf.Int64Value",
         "connect_timeout_with_failover": "google.protobuf.Int64Value",
         "connect_timeout_with_failover_secure": "google.protobuf.Int64Value",
@@ -73,6 +76,7 @@ The maximum string length in characters is 100. ||
         "insert_quorum_parallel": "google.protobuf.BoolValue",
         "select_sequential_consistency": "google.protobuf.BoolValue",
         "replication_alter_partitions_sync": "google.protobuf.Int64Value",
+        "lightweight_deletes_sync": "google.protobuf.Int64Value",
         "max_replica_delay_for_distributed_queries": "google.protobuf.Int64Value",
         "fallback_to_stale_replicas_for_distributed_queries": "google.protobuf.BoolValue",
         "distributed_product_mode": "DistributedProductMode",
@@ -117,6 +121,8 @@ The maximum string length in characters is 100. ||
         "max_network_bandwidth": "google.protobuf.Int64Value",
         "max_network_bandwidth_for_user": "google.protobuf.Int64Value",
         "max_network_bytes": "google.protobuf.Int64Value",
+        "max_remote_read_network_bandwidth": "google.protobuf.Int64Value",
+        "max_remote_write_network_bandwidth": "google.protobuf.Int64Value",
         "max_temporary_data_on_disk_size_for_query": "google.protobuf.Int64Value",
         "max_temporary_data_on_disk_size_for_user": "google.protobuf.Int64Value",
         "max_concurrent_queries_for_user": "google.protobuf.Int64Value",
@@ -224,6 +230,7 @@ The maximum string length in characters is 100. ||
         "max_final_threads": "google.protobuf.Int64Value",
         "max_read_buffer_size": "google.protobuf.Int64Value",
         "insert_keeper_max_retries": "google.protobuf.Int64Value",
+        "database_atomic_wait_for_drop_and_detach_synchronously": "google.protobuf.BoolValue",
         "do_not_merge_across_partitions_select_final": "google.protobuf.BoolValue",
         "ignore_materialized_views_with_dropped_target_table": "google.protobuf.BoolValue",
         "enable_analyzer": "google.protobuf.BoolValue",
@@ -251,7 +258,12 @@ The maximum string length in characters is 100. ||
       "connection_manager": {
         "connection_id": "string"
       },
-      "auth_method": "AuthMethod"
+      "auth_method": "AuthMethod",
+      "user_connection_manager": {
+        "connection_id": "string",
+        "connection_folder_id": "string",
+        "secret_folder_id": "string"
+      }
     }
   ],
   "next_page_token": "string"
@@ -294,13 +306,17 @@ User settings. ||
 Quotas assigned to the user. ||
 || connection_manager | **[ConnectionManager](#yandex.cloud.mdb.clickhouse.v1.ConnectionManager)**
 
-Connection Manager connection configuration. ||
+Connection Manager connection configuration.
+Deprecated in favor of user_connection_manager field. ||
 || auth_method | enum **AuthMethod**
 
 User authentication method.
 
 - `AUTH_METHOD_PASSWORD`: Authentication using a password stored in the cluster.
 - `AUTH_METHOD_IAM`: Authentication using an IAM token via the IAM authentication proxy. ||
+|| user_connection_manager | **[UserConnectionManager](#yandex.cloud.mdb.v1.UserConnectionManager)**
+
+Connection Manager connection and settings associated with the user. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.clickhouse.v1.Permission}
@@ -343,6 +359,27 @@ Enables or disables introspection functions for query profiling.
 Default value: **false**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#allow_introspection_functions). ||
+|| allow_reorder_prewhere_conditions | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+When moving conditions from WHERE to PREWHERE, allow reordering them to optimize filtering
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/allow#allow_reorder_prewhere_conditions). ||
+|| async_socket_for_remote | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables asynchronous read from socket while executing remote query.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/async#async_socket_for_remote). ||
+|| async_query_sending_for_remote | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables asynchronous connection creation and query sending while executing remote query.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/async#async_query_sending_for_remote). ||
 || connect_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Connection timeout in milliseconds.
@@ -454,6 +491,16 @@ Wait mode for asynchronous actions in **ALTER** queries on replicated tables.
 Default value: **1**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#alter_sync). ||
+|| lightweight_deletes_sync | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Wait mode for lightweight **DELETE** queries on replicated tables.
+* **0** - do not wait for replicas.
+* **1** - only wait for own execution.
+* **2** - wait for all replicas.
+
+Default value: **2**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#lightweight_deletes_sync). ||
 || max_replica_delay_for_distributed_queries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Max replica delay in milliseconds. If a replica lags more than the set value, this replica is not used and becomes a stale one.
@@ -880,6 +927,20 @@ This setting applies to every individual query.
 Default value: **0**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bytes). ||
+|| max_remote_read_network_bandwidth | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum speed of data exchange over the network in bytes per second for read.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_remote_read_network_bandwidth). ||
+|| max_remote_write_network_bandwidth | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum speed of data exchange over the network in bytes per second for write.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_remote_write_network_bandwidth). ||
 || max_temporary_data_on_disk_size_for_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running queries. **0** means unlimited.
@@ -1744,6 +1805,13 @@ Only Keeper requests which failed due to network error, Keeper session timeout o
 Default value: **20**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#insert_keeper_max_retries). ||
+|| database_atomic_wait_for_drop_and_detach_synchronously | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+When executing DROP or DETACH TABLE in Atomic database, wait for table data to be finally dropped or detached.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#database_atomic_wait_for_drop_and_detach_synchronously). ||
 || do_not_merge_across_partitions_select_final | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enable or disable independent processing of partitions for **SELECT** queries with **FINAL**.
@@ -1856,10 +1924,34 @@ The total query execution time, in milliseconds (wall time). **0** means unlimit
 ## ConnectionManager {#yandex.cloud.mdb.clickhouse.v1.ConnectionManager}
 
 Connection Manager connection configuration.
+Deprecated in favor of yandex.cloud.priv.mdb.v1.UserConnectionManager message.
 
 #|
 ||Field | Description ||
 || connection_id | **string**
 
 ID of Connection Manager connection. ||
+|#
+
+## UserConnectionManager {#yandex.cloud.mdb.v1.UserConnectionManager}
+
+A message representing Connection Manager integration details and settings for a user in a cluster.
+
+#|
+||Field | Description ||
+|| connection_id | **string**
+
+ID of the Connection Manager connection corresponding to the user.
+Ignored if specified in update requests. ||
+|| connection_folder_id | **string**
+
+ID of the folder where connection for the user is created.
+Optional. Defaults to the cluster's ClusterConnectionManager.connections_folder_id if not specified,
+or the cluster's folder if ClusterConnectionManager.connections_folder_id is not specified. ||
+|| secret_folder_id | **string**
+
+A Connection Manager setting for a user's connection created by MDB integration.
+ID of the folder where secret for the user's connection is created.
+Optional. Defaults to the cluster's ClusterConnectionManager.secrets_folder_id if not specified,
+or the cluster's ClusterConnectionManager.connections_folder_id, or the cluster's folder. ||
 |#

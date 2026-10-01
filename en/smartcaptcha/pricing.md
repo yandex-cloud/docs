@@ -6,19 +6,46 @@ editable: false
 
 # {{ captcha-full-name }} pricing policy
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 12
+      md: 6
+    indent:
+      top: '0'
+      bottom: '0'
+    children:
+      - type: basic-card
+        title: Price calculator
+        text: Calculate the cost of the service based on your needs
+        gravityIcon: Calculator
+        urlTitle: Price calculator
+        url: https://yandex.cloud/en/prices?state=064c7fd1932b#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Price list
+        text: Current prices of all our services
+        gravityIcon: CircleRuble
+        urlTitle: Price list
+        url: https://yandex.cloud/en/price-list?services=dn2f26fqvaoddbr0ld1a
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
 
 
-{% note tip %}
 
 
-
-
-For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=064c7fd1932b#calculator) on our website or check out the pricing below.
-
-
-{% endnote %}
-
-{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -67,6 +94,5 @@ Examples of {{ captcha-name }} cost calculation:
 You pay for the actual number of requests.
 
 {% include [usd-smartcaptcha](../_pricing_examples/smartcaptcha/usd-smartcaptcha.md) %}
-
 
 

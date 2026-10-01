@@ -106,7 +106,7 @@ Add users to the IdP server:
 
       1. {% include [forceauthn-option-enable](../../_includes/organization/forceauthn-option-enable.md) %}
 
-      1. Click **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
+      1. Click **{{ ui-key.yacloud_org.form.federation.action.create }}**.
 
 - CLI {#cli}
 

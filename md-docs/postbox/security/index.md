@@ -8,6 +8,8 @@
 
 Подробнее о наследовании ролей читайте в разделе [Наследование прав доступа](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) документации сервиса Resource Manager.
 
+С помощью [политики авторизации](../../iam/concepts/access-control/access-policies.md#postbox-identities-restrictNetworkAccess) `postbox.identities.restrictNetworkAccess` вы можете разрешить [отправку писем](../operations/send-email.md) только с определенных, заданных явно IP-адресов. Политика авторизации создается на уровне [каталога](*folders), [облака](*clouds) или [организации](*organizations) и запрещает отправку писем с любых IP-адресов, не входящих в заданный список. Подробнее читайте в разделе [Политики авторизации](../../iam/concepts/access-control/access-policies.md).
+
 ## Какие роли действуют в сервисе {#roles-list}
 
 Для управления правами доступа в Yandex Cloud Postbox можно использовать как сервисные, так и примитивные роли.
@@ -38,7 +40,7 @@ flowchart BT
 Роль `postbox.auditor` позволяет просматривать информацию об адресах Yandex Cloud Postbox.
 
 Пользователи с этой ролью могут:
-* просматривать информацию об [адресах](../concepts/glossary.md#adress) и их [конфигурациях](../concepts/glossary.md#configuration);
+* просматривать информацию об [адресах](../concepts/glossary.md#address) и их [конфигурациях](../concepts/glossary.md#configuration);
 * получать списки адресов и их конфигураций.
 
 #### postbox.viewer {#postbox-viewer}
@@ -46,7 +48,7 @@ flowchart BT
 Роль `postbox.viewer` позволяет просматривать информацию об адресах Yandex Cloud Postbox.
 
 Пользователи с этой ролью могут:
-* просматривать информацию об [адресах](../concepts/glossary.md#adress) и их [конфигурациях](../concepts/glossary.md#configuration);
+* просматривать информацию об [адресах](../concepts/glossary.md#address) и их [конфигурациях](../concepts/glossary.md#configuration);
 * получать списки адресов и их конфигураций.
 
 Включает разрешения, предоставляемые ролью `postbox.auditor`.
@@ -56,7 +58,7 @@ flowchart BT
 Роль `postbox.editor` позволяет управлять адресами Yandex Cloud Postbox и отправлять письма.
 
 Пользователи с этой ролью могут:
-* создавать, изменять и удалять [адреса](../concepts/glossary.md#adress) и их [конфигурации](../concepts/glossary.md#configuration);
+* создавать, изменять и удалять [адреса](../concepts/glossary.md#address) и их [конфигурации](../concepts/glossary.md#configuration);
 * просматривать информацию об адресах и их конфигурациях;
 * получать список адресов и их конфигураций;
 * отправлять письма.
@@ -76,7 +78,7 @@ flowchart BT
 Роль `postbox.admin` позволяет управлять адресами Yandex Cloud Postbox, отправлять письма, а также просматривать информацию об отправленных письмах и статистику по ним.
 
 Пользователи с этой ролью могут:
-* создавать, изменять и удалять [адреса](../concepts/glossary.md#adress) и их [конфигурации](../concepts/glossary.md#configuration);
+* создавать, изменять и удалять [адреса](../concepts/glossary.md#address) и их [конфигурации](../concepts/glossary.md#configuration);
 * просматривать информацию об адресах и их конфигурациях;
 * получать список адресов и их конфигураций;
 * отправлять письма;
@@ -122,6 +124,7 @@ flowchart BT
 
 Прежде чем назначить роль `admin` на организацию, [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [платежный аккаунт](../../billing/concepts/billing-account.md), ознакомьтесь с информацией о защите [привилегированных аккаунтов](../../security/standard/all.md#privileged-users).
 
+
 Включает разрешения, предоставляемые ролью `editor`.
 
 Вместо примитивных ролей мы рекомендуем использовать роли сервисов. Такой подход позволит более гранулярно управлять доступом и обеспечить соблюдение [принципа минимальных привилегий](../../security/standard/all.md#min-privileges).
@@ -131,3 +134,9 @@ flowchart BT
 ## Полезные ссылки {#see-also}
 
 [Структура ресурсов Yandex Cloud](../../resource-manager/concepts/resources-hierarchy.md)
+
+[*folders]: Каталог — это логическое пространство, в котором создаются и группируются ресурсы Yandex Cloud. Как и каталоги в файловой системе, каталоги в Yandex Cloud упрощают управление ресурсами. Подробнее читайте в разделе [Каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+
+[*clouds]: Облако — это изолированное логическое пространство, в котором создаются каталоги и другие ресурсы Yandex Cloud. Переносить ресурсы между облаками нельзя. Подробнее читайте в разделе [Облако](../../resource-manager/concepts/resources-hierarchy.md#cloud).
+
+[*organizations]: _Организация_ — это высший ресурс в иерархии ресурсной модели Yandex Cloud, который объединяет ресурсы всех остальных сервисов, а также используется для управления пользователями и параметрами их аутентификации и авторизации. Подробнее читайте в разделе [Организация](../../organization/concepts/organization.md).

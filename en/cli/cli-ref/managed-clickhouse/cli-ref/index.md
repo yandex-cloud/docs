@@ -29,6 +29,18 @@ Aliases:
 
   - [yc managed-clickhouse backup list](backup/list.md) — List ClickHouse backups available in a folder.
 
+- [yc managed-clickhouse change-freeze](change-freeze/index.md) — Manage change freezes.
+
+  - [yc managed-clickhouse change-freeze create](change-freeze/create.md) — Create a change freeze for the specified resource.
+
+  - [yc managed-clickhouse change-freeze get](change-freeze/get.md) — Show the specified change freeze.
+
+  - [yc managed-clickhouse change-freeze get-limits](change-freeze/get-limits.md) — Show change freeze limits for the specified resource.
+
+  - [yc managed-clickhouse change-freeze list](change-freeze/list.md) — List change freezes.
+
+  - [yc managed-clickhouse change-freeze terminate](change-freeze/terminate.md) — Terminate the specified change freeze.
+
 - [yc managed-clickhouse cluster](cluster/index.md) — Manage ClickHouse clusters.
 
   - [yc managed-clickhouse cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified ClickHouse cluster
@@ -70,6 +82,8 @@ Aliases:
   - [yc managed-clickhouse cluster list-logs](cluster/list-logs.md) — Retrieve logs for a ClickHouse cluster.
 
   - [yc managed-clickhouse cluster list-operations](cluster/list-operations.md) — List operations for a ClickHouse cluster.
+
+  - [yc managed-clickhouse cluster migrate-to-keeper](cluster/migrate-to-keeper.md) — Migrate a ClickHouse cluster from ZooKeeper to ClickHouse Keeper.
 
   - [yc managed-clickhouse cluster move](cluster/move.md) — Move the specified ClickHouse cluster into the folder
 
@@ -144,6 +158,14 @@ Aliases:
   - [yc managed-clickhouse hosts restart](hosts/restart.md) — Restart specified hosts of the cluster.
 
   - [yc managed-clickhouse hosts update](hosts/update.md) — Update the specified hosts
+
+- [yc managed-clickhouse maintenance](maintenance/index.md) — Manage maintenances.
+
+  - [yc managed-clickhouse maintenance get](maintenance/get.md) — Show the specified maintenance.
+
+  - [yc managed-clickhouse maintenance list](maintenance/list.md) — List maintenances.
+
+  - [yc managed-clickhouse maintenance reschedule](maintenance/reschedule.md) — Reschedule the specified maintenance.
 
 - [yc managed-clickhouse ml-model](ml-model/index.md) — Manage ClickHouse machine learning models.
 

@@ -31,7 +31,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * `{{ roles.maf.integrationProvider }}`
    * `lockbox.payloadViewer`
 
-   {% note info }
+   {% note info %}
 
    There is no need to assign the `lockbox.payloadViewer` role for the whole folder. It is enough to [assign it for a specific {{ lockbox-name }} secret](../../lockbox/operations/secret-access.md) once you create it.
 

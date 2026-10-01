@@ -13,9 +13,11 @@ A configuration may contain the following rules:
 
 * **{{ ui-key.yacloud.postbox.label_event-destinations }}**: [Notifications about operations with emails](notification.md), e.g., sending, delivery delay, etc. This allows you to redirect notifications about operations to other services for analysis and set up automatic actions in response to selected operations.
 
-* **{{ ui-key.yacloud.postbox.label_delivery-options }}**: Mandatory TLS encryption when emails go from {{ postbox-name }} to recipient servers. Ensures extra data transmission security and protects email contents.
+* **{{ ui-key.yacloud.postbox.label_delivery-options }}**: Mandatory TLS encryption setting when sending emails from {{ postbox-name }} to recipient servers. Ensures extra data transmission security and protects email contents.
 
-* **Statistics collection settings**: Settings for collection of statistics on [email opens](mail-opened.md) and [clicks](click-tracking.md). They enable automatically collecting and analyzing the `Openings` and `Clicks` [metrics](statistics.md#metrics).
+* **{{ ui-key.yacloud.postbox.section_tracking-options }}**: Settings for collection of statistics on [email opens](mail-opened.md) and [clicks](click-tracking.md). They enable automatically collecting and analyzing the `Openings` and `Clicks` [metrics](statistics.md#metrics).
+
+* **{{ ui-key.yacloud.postbox.label_suppression-options }}**: [Custom suppression list](suppression-list.md#user) check for outgoing mail. Allows you not to send to addresses added to the suppression list for the specified reasons.
 
 ## Email delivery options with mandatory TLS encryption on {#delivery-options}
 
@@ -56,7 +58,7 @@ You can apply a configuration to an email using the following methods:
 
     The configuration must reside in the same folder as the address. If no configuration of the given name is found in the folder the address is in, you will get an error when sending your email. The configuration provided in the `X-Ses-Configuration-Set` header overrides the configuration associated with the address.
 
-* By providing the configuration name in the `ConfigurationSetName` field, if using the AWS-compatible API [`SendEmail`](../aws-compatible-api/api-ref/send-email) method.
+* By providing the configuration name in the `ConfigurationSetName` field, if using the AWS-compatible API [`SendEmail`](../aws-compatible-api/api-ref/send-email.md) method.
 
     The configuration must reside in the same folder as the address. If no configuration of the given name is found in the folder the address is in, you will get an error when sending your email. The configuration provided in the `ConfigurationSetName` field overrides the configuration associated with the address.
 

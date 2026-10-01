@@ -4,7 +4,7 @@ kind: TrinoCluster
 metadata:
   name: trino-full
 spec:
-  version: "480"
+  version: "483"
   deletionProtection: false
   coordinator:
     resources:

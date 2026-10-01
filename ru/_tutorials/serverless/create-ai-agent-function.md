@@ -13,7 +13,7 @@
 1. AI-агент запрашивает дополнительные данные о погоде в нужном городе в пользовательской функции `get_weather()`.
 1. AI-агент отправляет расширенный дополнительным контекстом запрос пользователя в модель генерации текста {{ foundation-models-name }}.
 1. [Сервисный аккаунт]({{ link-docs }}/iam/concepts/users/service-accounts) с помощью [API-ключа]({{ link-docs }}/iam/concepts/authorization/api-key) авторизует для AI-агента доступ к [Text Generation API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/index) {{ foundation-models-name }}.
-1. Сервисный аккаунт предоставляет функции {{ sf-name }} доступ к секрету [{{ lockbox-name }}]({{ link-docs }}/lockbox/index.yaml), в котором хранится API-ключ сервисного аккаунта.
+1. Сервисный аккаунт предоставляет функции {{ sf-name }} доступ к секрету [{{ lockbox-name }}]({{ link-docs }}/lockbox/index), в котором хранится API-ключ сервисного аккаунта.
 1. Функция {{ sf-name }} получает из секрета {{ lockbox-name }} API-ключ сервисного аккаунта.
 1. Модель {{ foundation-models-name }} передает AI-агенту сгенерированный ответ.
 1. AI-агент возвращает полученный ответ пользователю.
@@ -938,7 +938,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали инфраструктуру.
   1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** и выберите созданную функцию.
-  1. Откройте вкладку ![circle-play](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
+  1. Откройте вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. Нажмите ![play-fill](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}** и посмотрите результат тестирования.
 
       При успешном выполнении запроса состояние функции изменится на `Выполнена`, а ответ функции будет содержать код статуса `200` и ответ модели. Например:
@@ -953,7 +953,7 @@
 - Продвинутый AI-агент {#advanced}
 
   1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** и выберите созданную функцию.
-  1. Откройте вкладку ![circle-play](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
+  1. Откройте вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** укажите:
 
       ```json
@@ -979,7 +979,7 @@
 - Агент-переводчик {#complex}
 
   1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** и выберите созданную функцию.
-  1. Откройте вкладку ![circle-play](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
+  1. Откройте вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** укажите:
 
       ```json

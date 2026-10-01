@@ -1,5 +1,6 @@
 # Transferring logs from {{ coi }} to {{ cloud-logging-full-name }}
 
+
 The [Fluent Bit](https://fluentbit.io/) logging processor allows you to transfer logs from [VMs](../../compute/concepts/vm.md) created from a {{ coi }} to [{{ cloud-logging-full-name }}](../../logging/). To transfer logs, you will use the [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
 
 To configure log transfer from a VM created from a {{ coi }}:

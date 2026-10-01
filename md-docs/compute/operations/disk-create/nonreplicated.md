@@ -2,6 +2,12 @@
 
 # Создать нереплицируемый диск
 
+{% note warning %}
+
+С 12 октября 2026 года девять квот на ресурсы Compute Cloud будут действовать не в рамках региона, а отдельно по каждой зоне доступности. Список квот и описание изменений — в разделе [Изменение квотирования ресурсов Compute Cloud](../../concepts/quota-zones.md).
+
+{% endnote %}
+
 
 Вы можете создать отдельный [нереплицируемый диск](../../concepts/disk.md#nr-disks), либо добавить его в [группу размещения дисков](../../concepts/disk-placement-group.md).
 
@@ -15,7 +21,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать диск.
   1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски и хранилища**.
   1. Нажмите кнопку **Создать диск**.
   1. Введите имя диска. Требования к имени:
 
@@ -213,7 +219,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать диск.
   1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски и хранилища**.
   1. Нажмите кнопку **Создать диск**.
   1. Введите имя диска. Требования к имени:
 

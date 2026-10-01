@@ -1,6 +1,5 @@
 # Visualizing logs in {{ grafana-name }} using the {{ cloud-logging-full-name }} plugin
 
-
 The [{{ cloud-logging-full-name }} plugin for {{ grafana-name }}](https://github.com/yandex-cloud/grafana-logs-plugin/tree/master) is an extension for {{ grafana-name }} that allows you to add [{{ cloud-logging-name }}](https://yandex.cloud/en/services/logging) as a data source.
 
 {% note info %}
@@ -85,7 +84,7 @@ The cost of resources includes a fee for logging operations and log storage in a
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Name the service account: `grafana-plugin`.
+  1. In the window that opens, enter the service account **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}**: `grafana-plugin`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `logging.reader`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -199,11 +198,11 @@ The cost of resources includes a fee for logging operations and log storage in a
   1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
-  1. In the list that opens, select the `grafana-plugin` service account.
-  1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
+  1. Select the `grafana-plugin` service account.
+  1. In the top panel, click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
-  1. Select the encryption algorithm.
-  1. Enter a description of the key so that you can easily find it in the management console.
+  1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-algorithm }}**.
+  1. Enter a **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-description }}** of the key so that you can easily find it in the management console.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_close }}**.
@@ -239,7 +238,7 @@ The cost of resources includes a fee for logging operations and log storage in a
      * `description`: Key description. This is an optional setting.
      * `key_algorithm`: Key generation algorithm. This is an optional setting. The default algorithm is `RSA_2048`. For more information about the acceptable values, see [this API guide](../../iam/api-ref/Key/index.md).
 
-     Configuration file structure example:
+     Here is an example of the configuration file structure:
 
      ```hcl
      resource "yandex_iam_service_account_key" "sa-auth-key" {

@@ -5,6 +5,10 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать L7-балансировщик
 
+Для доступа к L7-балансировщику из интернета нужен публичный IP-адрес. Он назначается при создании балансировщика автоматически или из [заранее зарезервированных](../../vpc/operations/get-static-ip.md). Зарезервированный адрес сохраняется после удаления балансировщика.
+
+{% include [auto-address-note](../../_includes/application-load-balancer/auto-address-note.md) %}
+
 Чтобы создать [L7-балансировщик](../concepts/application-load-balancer.md):
 
 {% list tabs group=instructions %}
@@ -52,8 +56,6 @@ description: Следуя данной инструкции, вы сможете
         
         * `{{ ui-key.yacloud.alb.label_address-auto }}`.
         * `{{ ui-key.yacloud.alb.label_address-list }}` — в появившемся поле справа выберите адрес в выпадающем списке.
-
-        {% include [auto-address-note](../../_includes/application-load-balancer/auto-address-note.md) %}
 
      1. (Опционально) Включите опцию **{{ ui-key.yacloud.alb.section_internal-address-specs }}**. Укажите **{{ ui-key.yacloud.alb.label_port }}** и выберите **{{ ui-key.yacloud.common.label_subnet }}** в выпадающем списке.
      1. В блоке **{{ ui-key.yacloud.alb.section_common-address-specs }}** выберите тип обработчика: `{{ ui-key.yacloud.alb.label_listener-type-http }}` или `{{ ui-key.yacloud.alb.label_listener-type-stream }}`.
@@ -204,8 +206,6 @@ description: Следуя данной инструкции, вы сможете
             --backend-group-id=<идентификатор_группы_бэкендов> \
             --external-ipv4-endpoint port=<порт_обработчика>
           ```
-
-     {% include [auto-address-note](../../_includes/application-load-balancer/auto-address-note.md) %}
 
      Результат после добавления двух обработчиков:
  
@@ -376,8 +376,6 @@ description: Следуя данной инструкции, вы сможете
               {% include [name-format](../../_includes/name-format.md) %}
 
           * `endpoint` — описание адресов и портов обработчика. Укажите внешний IPv4-адрес и порт для приема трафика. Если параметр `external_ipv4_address` не задан, то публичный адрес будет выделен автоматически.
-
-              {% include [auto-address-note](../../_includes/application-load-balancer/auto-address-note.md) %}
 
           * `ports` — один или несколько портов. Порты обработчиков не должны совпадать.
           * `http` — описание HTTP-приемника для обработчика:

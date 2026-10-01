@@ -2,6 +2,14 @@
 
 У виртуальной машины может быть [один или несколько](./limits.md) сетевых интерфейсов. При создании виртуальной машины необходимо задать настройки как минимум одного сетевого интерфейса, подключенного к ней: выбрать [подсеть](../../vpc/concepts/network.md#subnet), к которой будет подключена виртуальная машина, настроить [внутренний](#internal-ip) и [публичный IP-адрес](#public-ip), добавить необходимые [группы безопасности](../../vpc/concepts/security-groups.md). Это позволит виртуальной машине взаимодействовать с другими сервисами во внутренней сети и в интернете.
 
+{% note info %}
+
+В [публичных образах](image.md#public) отключена схема именования [Predictable Network Interface Names](https://systemd.io/PREDICTABLE_INTERFACE_NAMES/). Сетевые интерфейсы ВМ именуются по стандартной схеме: `eth0`, `eth1`, `...`, `ethN`, где N — номер сетевого интерфейса в конфигурации ВМ, начиная с нуля. Нумерация может содержать пропуски: например, после удаления интерфейса №1 сохраняются имена `eth0` и `eth2`.
+
+При [подготовке](../operations/image-create/custom-image.md) собственного образа ВМ рекомендуется отключить эту схему на этапе сборки. После отключения схемы проверьте привязки сетевых настроек к именам интерфейсов и при необходимости обновите их. Перезагрузите ВМ и убедитесь, что все сетевые интерфейсы получают IP-адреса по DHCP.
+
+{% endnote %}
+
 После подключения сетевого интерфейса виртуальной машине будет присвоен внутренний IP-адрес в подсети. Публичный IP-адрес будет присвоен только если это было указано в настройках сетевого интерфейса.
 
 IP-адреса, FQDN и другую информацию можно узнать в консоли управления, в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице виртуальной машины. Эти данные можно использовать для подключения к виртуальной машине.
@@ -15,6 +23,12 @@ IP-адреса, FQDN и другую информацию можно узнат
 {% include [add-network-interface-hotplug-preview-note](../../_includes/compute/add-network-interface-hotplug-preview-note.md) %}
 
 Если добавленные сетевые интерфейсы неактивны или у вас пропала возможность [подключаться](../operations/vm-connect/ssh.md) к ВМ, смотрите раздел [Решение проблем](../qa/troubleshooting.md).
+
+{% note info %}
+
+Создание ВМ с несколькими сетевыми интерфейсами, а также привязка к сетевым интерфейсам публичных IP-адресов могут быть запрещены на уровне [каталога](*folders), [облака](*clouds) или [организации](*organizations) с помощью политик авторизации `compute.denySerialPortEnabling` и `compute.denyPublicIpAssigning`. Подробнее читайте в разделе [{#T}](../security/index.md#access-policies).
+
+{% endnote %}
 
 ### Рекомендации {#best-practices}
 
@@ -92,3 +106,9 @@ IP-адреса, FQDN и другую информацию можно узнат
 * [{#T}](../tutorials/backup-and-archive-to-sftp.md)
 * [{#T}](../tutorials/bind-domain-vm/index.md)
 * [{#T}](../tutorials/rds-gw.md)
+
+[*folders]: {% include [folder-definition](../../_popups/resource-manager/folder-definition.md) %}
+
+[*clouds]: {% include [cloud-definition](../../_popups/resource-manager/cloud-definition.md) %}
+
+[*organizations]: {% include [organization-definition](../../_popups/identity-hub/organization-definition.md) %}

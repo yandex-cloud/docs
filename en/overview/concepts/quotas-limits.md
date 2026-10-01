@@ -96,6 +96,11 @@ For each quota, the table provides an ID you can use to manage quotas via {{ quo
 {% include [interconnect-limits.md](../../_includes/interconnect-limits.md) %}
 
 
+### {{ cloud-router-full-name }} {#cloud-router}
+
+{% include [cloud-router-limits.md](../../_includes/cloud-router-limits.md) %}
+
+
 ### {{ cloud-logging-full-name }} {#logging}
 
 {% include [logging-limits.md](../../_includes/logging/logging-limits.md) %}
@@ -358,11 +363,21 @@ There are no limits for {{ metadata-hub-full-name }}.
 {% include [smartwebsecurity-limits](../../_includes/sws-limits.md) %}
 
 
+### {{ src-full-name }} {#scr}
+
+{% include [limits](../../_includes/sourcecraft/limits.md) %}
+
+
 ### {{ ca-full-name }} {#ca}
 
 #### Quotas {#ca-quotas}
 
 {{ ca-full-name }} quotas depend on the service plan you are on. For more information, see [{{ ca-name }} service plans]({{ link-src-docs }}/sourcecraft/pricing#ca-plans).
+
+
+### Vibecraft {#vc}
+
+{% include [limits](../../_includes/vibecraft/limits.md) %}
 
 
 ### {{ speechkit-full-name }} {#speechkit}

@@ -40,6 +40,12 @@ AMD Zen 4</br>(`standard-v4a`) | AMD EPYC™ 9654 | 288 | 2.40
 Intel Ice Lake Compute-Optimized</br>(`highfreq-v3`) | Intel® Xeon® Processor 6354 | 56 | 3.00
 AMD Zen 4 Compute-Optimized</br>(`highfreq-v4a`) | AMD EPYC™ 9374F | 80 | 3.85
 
+{% note info %}
+
+На платформе Intel Ice Lake Compute-Optimized (`highfreq-v3`) нельзя создавать [прерываемые ВМ](preemptible-vm.md).
+
+{% endnote %}
+
 ## Платформы с GPU {#gpu-platforms}
 
 Платформа | Графический</br> ускоритель | Процессор | Характеристики

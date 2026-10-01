@@ -30,6 +30,7 @@ description: This page features step-by-step guides for {{ mgp-name }}.
 
 * [{#T}](databases.md)
 * [{#T}](web-sql-query.md)
+* [Working with data distribution policies](distribution-policy-management.md)
 
 ## Users and sessions {#users-and-sessions}
 

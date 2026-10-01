@@ -27,6 +27,14 @@ items:
             href: operations/cluster-access.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
+      - name: Окружения
+        items:
+          - name: Создание окружения
+            href: operations/environment-create.md
+          - name: Изменение окружения
+            href: operations/environment-update.md
+          - name: Удаление окружения
+            href: operations/environment-delete.md
       - name: Задания (jobs)
         items:
           - name: Задания Spark
@@ -99,6 +107,20 @@ items:
     items:
       - name: Overview
         href: cli-ref/index.md
+      - name: change-freeze
+        items:
+          - name: Overview
+            href: cli-ref/change-freeze/index.md
+          - name: create
+            href: cli-ref/change-freeze/create.md
+          - name: get
+            href: cli-ref/change-freeze/get.md
+          - name: get-limits
+            href: cli-ref/change-freeze/get-limits.md
+          - name: list
+            href: cli-ref/change-freeze/list.md
+          - name: terminate
+            href: cli-ref/change-freeze/terminate.md
       - name: cluster
         items:
           - name: Overview
@@ -149,6 +171,20 @@ items:
         items:
           - name: Overview
             href: cli-ref/v0/index.md
+          - name: change-freeze
+            items:
+              - name: Overview
+                href: cli-ref/v0/change-freeze/index.md
+              - name: create
+                href: cli-ref/v0/change-freeze/create.md
+              - name: get
+                href: cli-ref/v0/change-freeze/get.md
+              - name: get-limits
+                href: cli-ref/v0/change-freeze/get-limits.md
+              - name: list
+                href: cli-ref/v0/change-freeze/list.md
+              - name: terminate
+                href: cli-ref/v0/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -263,6 +299,38 @@ items:
                 href: api-ref/grpc/Operation/get.md
               - name: Cancel
                 href: api-ref/grpc/Operation/cancel.md
+          - name: Managed Spark Environment API
+            items:
+              - name: Overview
+                href: environment/api-ref/grpc/index.md
+              - name: Environment
+                items:
+                  - name: Overview
+                    href: environment/api-ref/grpc/Environment/index.md
+                  - name: Get
+                    href: environment/api-ref/grpc/Environment/get.md
+                  - name: GetBase
+                    href: environment/api-ref/grpc/Environment/getBase.md
+                  - name: List
+                    href: environment/api-ref/grpc/Environment/list.md
+                  - name: ListBase
+                    href: environment/api-ref/grpc/Environment/listBase.md
+                  - name: Create
+                    href: environment/api-ref/grpc/Environment/create.md
+                  - name: Update
+                    href: environment/api-ref/grpc/Environment/update.md
+                  - name: Delete
+                    href: environment/api-ref/grpc/Environment/delete.md
+                  - name: ListOperations
+                    href: environment/api-ref/grpc/Environment/listOperations.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: environment/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: environment/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: environment/api-ref/grpc/Operation/cancel.md
   - name: История изменений
     href: release-notes.md
 path: ru/managed-spark/toc.yaml

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Импорт данных из Managed Service for PostgreSQL в Yandex Data Processing с помощью Sqoop
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > PostgreSQL > Импорт данных из Managed Service for PostgreSQL в Yandex Data Processing с помощью Sqoop
 
 # Импорт данных из Yandex Managed Service for PostgreSQL в Yandex Data Processing с помощью Sqoop
 
@@ -185,6 +185,7 @@
        Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
     
     1. Если вас устраивают планируемые изменения, внесите их:
+    
        1. Выполните команду:
     
           ```bash

@@ -3,5 +3,6 @@ default:
   MG: MongoDB
   objstorage-full-name: Yandex Object Storage
   objstorage-name: Object Storage
+  objstorage-onprem-name: On-premises Yandex Object Storage
   PG: PostgreSQL
   ZK: ZooKeeper

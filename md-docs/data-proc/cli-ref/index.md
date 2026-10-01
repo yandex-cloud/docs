@@ -12,6 +12,18 @@ Syntax:
 
 #### Command Tree
 
+- [yc dataproc change-freeze](change-freeze/index.md) — Manage change freezes.
+
+  - [yc dataproc change-freeze create](change-freeze/create.md) — Create a change freeze for the specified resource.
+
+  - [yc dataproc change-freeze get](change-freeze/get.md) — Show the specified change freeze.
+
+  - [yc dataproc change-freeze get-limits](change-freeze/get-limits.md) — Show change freeze limits for the specified resource.
+
+  - [yc dataproc change-freeze list](change-freeze/list.md) — List change freezes.
+
+  - [yc dataproc change-freeze terminate](change-freeze/terminate.md) — Terminate the specified change freeze.
+
 - [yc dataproc cluster](cluster/index.md) — Manage DataProc clusters.
 
   - [yc dataproc cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified cluster

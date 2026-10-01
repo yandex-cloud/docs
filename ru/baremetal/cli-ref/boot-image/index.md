@@ -5,7 +5,7 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/boot-image
 
 # yc baremetal boot-image
 
-A set of methods for managing Image resources.
+A set of methods for managing BootImage resources.
 
 #### Command Usage
 
@@ -15,17 +15,17 @@ Syntax:
 
 #### Command Tree
 
-- [yc baremetal boot-image create](create.md) — Creates an image in the specified folder.
+- [yc baremetal boot-image create](create.md) — Creates a BootImage in the specified folder.
 
-- [yc baremetal boot-image delete](delete.md) — Deletes the specified image.
+- [yc baremetal boot-image delete](delete.md) — Deletes the specified BootImage.
 
-- [yc baremetal boot-image get](get.md) — Returns the specific Image resource.
+- [yc baremetal boot-image get](get.md) — Returns the specific BootImage resource.
 
-- [yc baremetal boot-image list](list.md) — Retrieves the list of Image resources in the specified folder.
+- [yc baremetal boot-image list](list.md) — Retrieves the list of BootImage resources in the specified folder.
 
-- [yc baremetal boot-image list-operations](list-operations.md) — Lists operations for the specified image.
+- [yc baremetal boot-image list-operations](list-operations.md) — Lists operations for the specified BootImage.
 
-- [yc baremetal boot-image update](update.md) — Updates the specified image.
+- [yc baremetal boot-image update](update.md) — Updates the specified BootImage.
 
 #### Global Flags
 
@@ -37,6 +37,15 @@ Set the custom profile. ||
 || `--region` | `string`
 
 Set the region. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||

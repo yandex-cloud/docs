@@ -88,6 +88,23 @@ Learn more in [Pricing](../../billing/pricing.md).
 You can pay within 14 calendar days (not counting public holidays) after the reporting period ends. Depending on which company you contracted with, you can find detailed information in the _Legal Documents_ section for [Iron Hive doo Beograd (Serbia)](https://yandex.com/legal/cloud_customer_agreement/) or [Direct Cursus Technology L.L.C. (Dubai)](https://yandex.com/legal/cloud_customer_agreement_uae/).
  If you pay within this time period, your resources will not be blocked. Remember that it takes up to three business days for your payment to get through, so do not postpone it.
 
+#### I have paid off the arrears, but nothing works. What do I do? {#paid-not-worked}
+
+After the payment, complete the following steps:
+
+1. Check your [payment history](../../billing/operations/check-bill-history.md) to confirm the funds reached your personal account. 
+   
+   {% note info %}
+
+   Card or SBP payments clear [within 15 minutes](../../billing/operations/pay-the-bill.md#individuals). For transfers from corporate accounts, this time may vary [depending on your bank](../../billing/payment/payment-methods-business.md#limits).
+
+   {% endnote %}
+
+1. Check that your billing account is in the `ACTIVE` [status](../../billing/concepts/billing-account-statuses.md#list).
+
+1. Make sure your [{{ yandex-cloud }} resources](../../resource-manager/concepts/resources-hierarchy.md) are active. 
+   When your billing account is `SUSPENDED` due to arrears, the resources are stopped automatically. After you make the payment and your account is active, you must manually restart your resources. 
+
 #### What goes into the cost of using {{ marketplace-full-name }}? {#marketplace}
 
 The cost of using {{ marketplace-full-name }} is the total cost of using {{ marketplace-full-name }} products. For in-depth review of the items adding up the usage cost, see the [details](../../billing/operations/check-charges.md) in {{ billing-name }} with grouping by product selected.

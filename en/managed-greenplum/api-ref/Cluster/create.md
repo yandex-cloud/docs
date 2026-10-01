@@ -162,6 +162,11 @@ apiPlayground:
             **[LoggingConfig](#yandex.cloud.mdb.greenplum.v1.LoggingConfig)**
             Cloud logging configuration
           $ref: '#/definitions/LoggingConfig'
+        diskEncryptionKeyId:
+          description: |-
+            **string**
+            ID of the key to encrypt cluster disks.
+          type: string
       required:
         - folderId
         - name
@@ -222,6 +227,11 @@ apiPlayground:
             description: |-
               **boolean**
               Allow access for YandexQuery.
+            type: boolean
+          trino:
+            description: |-
+              **boolean**
+              Allow safety access for trino
             type: boolean
       GreenplumConfig:
         type: object
@@ -695,6 +705,14 @@ apiPlayground:
               https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_resource_group_memory_limit
             type: number
             format: double
+          trackActivityQuerySize:
+            description: |-
+              **string** (int64)
+              Sets the number of bytes reserved to store the text of the currently executing command.
+              https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#track_activity_query_size
+              Acceptable values are 100 to 102400, inclusive.
+            type: string
+            format: int64
       DBMSConfig:
         type: object
         properties:
@@ -1027,6 +1045,14 @@ apiPlayground:
               **boolean**
               https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting
             type: boolean
+          trackActivityQuerySize:
+            description: |-
+              **string** (int64)
+              Sets the number of bytes reserved to store the text of the currently executing command.
+              https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#track_activity_query_size
+              Acceptable values are 100 to 102400, inclusive.
+            type: string
+            format: int64
       ConnectionPoolerConfig:
         type: object
         properties:
@@ -1363,7 +1389,8 @@ POST https://{{ api-host-mdb }}/managed-greenplum/v1/clusters
       "dataLens": "boolean",
       "webSql": "boolean",
       "dataTransfer": "boolean",
-      "yandexQuery": "boolean"
+      "yandexQuery": "boolean",
+      "trino": "boolean"
     },
     "zoneId": "string",
     "subnetId": "string",
@@ -1441,7 +1468,8 @@ POST https://{{ api-host-mdb }}/managed-greenplum/v1/clusters
       "gpMaxPlanSize": "string",
       "gpAutostatsMode": "string",
       "gpAutostatsOnChangeThreshold": "string",
-      "gpResourceGroupMemoryLimit": "number"
+      "gpResourceGroupMemoryLimit": "number",
+      "trackActivityQuerySize": "string"
     },
     // end of the list of possible fields
     "dbmsConfig": {
@@ -1477,7 +1505,8 @@ POST https://{{ api-host-mdb }}/managed-greenplum/v1/clusters
       "gpAutostatsMode": "string",
       "gpAutostatsOnChangeThreshold": "string",
       "gpResourceGroupMemoryLimit": "number",
-      "gpAddColumnInheritsTableSetting": "boolean"
+      "gpAddColumnInheritsTableSetting": "boolean",
+      "trackActivityQuerySize": "string"
     },
     "pool": {
       "mode": "string",
@@ -1557,7 +1586,8 @@ POST https://{{ api-host-mdb }}/managed-greenplum/v1/clusters
     "commandCenterEnabled": "boolean",
     "greenplumEnabled": "boolean",
     "poolerEnabled": "boolean"
-  }
+  },
+  "diskEncryptionKeyId": "string"
 }
 ```
 
@@ -1653,6 +1683,9 @@ ID of the service account used for access Yandex Cloud resources. ||
 || logging | **[LoggingConfig](#yandex.cloud.mdb.greenplum.v1.LoggingConfig)**
 
 Cloud logging configuration ||
+|| diskEncryptionKeyId | **string**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## GreenplumConfig {#yandex.cloud.mdb.greenplum.v1.GreenplumConfig}
@@ -1737,6 +1770,9 @@ Allows access for DataTransfer. ||
 || yandexQuery | **boolean**
 
 Allow access for YandexQuery. ||
+|| trino | **boolean**
+
+Allow safety access for trino ||
 |#
 
 ## MasterSubclusterConfigSpec {#yandex.cloud.mdb.greenplum.v1.MasterSubclusterConfigSpec}
@@ -2079,6 +2115,12 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 
 Identifies the maximum percentage of system memory resources to allocate to resource groups on each Greenplum Database segment node.
 https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_resource_group_memory_limit ||
+|| trackActivityQuerySize | **string** (int64)
+
+Sets the number of bytes reserved to store the text of the currently executing command.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#track_activity_query_size
+
+Acceptable values are 100 to 102400, inclusive. ||
 |#
 
 ## DBMSConfig {#yandex.cloud.mdb.greenplum.v1.DBMSConfig}
@@ -2321,6 +2363,12 @@ https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/
 || gpAddColumnInheritsTableSetting | **boolean**
 
 https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting ||
+|| trackActivityQuerySize | **string** (int64)
+
+Sets the number of bytes reserved to store the text of the currently executing command.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#track_activity_query_size
+
+Acceptable values are 100 to 102400, inclusive. ||
 |#
 
 ## ConnectionPoolerConfig {#yandex.cloud.mdb.greenplum.v1.ConnectionPoolerConfig}

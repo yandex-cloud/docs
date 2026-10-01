@@ -1,6 +1,6 @@
 # Setting up service account access permissions
 
-This section describes how to assign [roles](../../concepts/access-control/roles.md) for the [service account](../../concepts/users/service-accounts.md) as a resource. To assign the service account a role for another resource, follow the instructions in [{#T}](assign-role-for-sa.md).
+This section describes how to assign [roles](../../concepts/access-control/roles.md) for a [service account](../../concepts/users/service-accounts.md) as a resource. To grant the service account a role for another resource, follow the steps in [{#T}](assign-role-for-sa.md).
 
 {% note info %}
 
@@ -17,12 +17,12 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
   1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder the service account belongs to.
   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and then select the required service account.
+  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and then select the service account.
   1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud.shared.iam.action_assign-roles_8vkmR }}**.
-  1. In the **{{ ui-key.yacloud_components.acl.label.subject }}** field of the the **{{ ui-key.yacloud_components.acl.label.title }}** window, select a subject or use the search.
+  1. In the **{{ ui-key.yacloud_components.acl.label.subject }}** field of the the **{{ ui-key.yacloud_components.acl.AclEditDialogNew.label_title }}** window, select a subject or use the search.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select a role.
-  1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+  1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 - CLI {#cli}
 
@@ -30,7 +30,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the command to assign a role for a service account as a resource:
+  1. View the description of the command for assigning a role for a service account as a resource:
 
       ```bash
       yc iam service-account add-access-binding --help
@@ -64,7 +64,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
       Where:
 
-      * `--role`: ID of the role you need to assign.
+      * `--role`: ID of the role to assign.
       * `--subject`: [Subject](../../concepts/access-control/index.md#subject) getting the role.
 
           {% cut "Subject designations" %}
@@ -79,13 +79,16 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
   1. Describe the resource with the role for the organization in the configuration file.
 
-      Here is an example of the configuration file structure:
+      Configuration file structure example:
 
       ```hcl
       resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
         service_account_id = "<service_account_ID>"
         role               = "<role>"
-        members            = ["<subject_1>","<subject_2>,...,<subject_n>"]
+        members            = ["<subject_1_type>:<subject_1_ID>",
+                              "<subject_2_type>:<subject_2_ID>",
+                              ...,
+                              "<subject_n_type>:<subject_n_ID>"]
       }
       ```
 
@@ -93,7 +96,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
       * `service_account_id`: ID of the service account to configure access for.
       * `role`: Role.
-      * `members`: Designations of [subjects](../../concepts/access-control/index.md#subject) getting the role.
+      * `members`: Designations of [subjects](../../concepts/access-control/index.md#subject) the role is assigned to.
 
           {% cut "Subject designations" %}
 
@@ -119,9 +122,9 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
 - API {#api}
 
-  Use the [updateAccessBindings](../../api-ref/ServiceAccount/updateAccessBindings.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/UpdateAccessBindings](../../api-ref/grpc/ServiceAccount/updateAccessBindings.md) gRPC API call. You will need the ID of the service account and that of the subject to whom you want to assign the role for the service account.
+  Use the [updateAccessBindings](../../api-ref/ServiceAccount/updateAccessBindings.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/UpdateAccessBindings](../../api-ref/grpc/ServiceAccount/updateAccessBindings.md) gRPC API call. You will need the ID of the service account and that of the subject getting the role for the service account.
 
-  1. Find out the service account ID using the [list](../../api-ref/ServiceAccount/list.md) REST API method:
+  1. Get the service account ID using the [list](../../api-ref/ServiceAccount/list.md) REST API method:
 
       ```bash
       curl \
@@ -145,7 +148,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
       }
       ```
 
-  1. Assign a role for a service account to the subject; in the `action` property, specify `ADD`:
+  1. Assign a role for a service account to the subject; specify `ADD` in the `action` property:
 
       ```bash
       curl \
@@ -167,7 +170,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
       Where:
 
       * `roleId`: Role.
-      * `subject`: [Subject](../../concepts/access-control/index.md#subject) to assign the role to.
+      * `subject`: [Subject](../../concepts/access-control/index.md#subject) getting the role.
 
           {% cut "Subject designations" %}
 
@@ -182,12 +185,12 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
 ## Examples {#examples}
 
-* [Configuring user access permissions for the service account](#user-access).
+* [Configuring user access permissions for a service account](#user-access).
 * [Assigning multiple roles](#multiple-roles).
-* [Setting up access of one service account to another service account](#access-to-sa).
+* [Setting up access for a service account to another service account](#access-to-sa).
 
 
-### Configuring user access permissions for the service account {#user-access}
+### Configuring user access permissions for a service account {#user-access}
 
 {% list tabs group=instructions %}
 
@@ -195,12 +198,12 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
   1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder the service account belongs to.
   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and then select the required service account.
+  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and then select the service account.
   1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud.shared.iam.action_assign-roles_8vkmR }}**.
-  1. In the **{{ ui-key.yacloud_components.acl.label.title }}** field of the **{{ ui-key.yacloud_components.acl.label.subject }}** window, select a user from the list or search by user.
+  1. In the **{{ ui-key.yacloud_components.acl.AclEditDialogNew.label_title }}** field of the **{{ ui-key.yacloud_components.acl.label.subject }}** window, select a user from the list or use the user search option.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select a role.
-  1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+  1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 - CLI {#cli}
 
@@ -220,7 +223,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
   1. Add the resource parameters to the configuration file and specify the users' role to access the service account.
 
-      Here is an example of the configuration file structure:
+      Configuration file structure example:
 
       ```hcl
       resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
@@ -234,7 +237,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
       * `service_account_id`: ID of the service account to configure access for.
       * `role`: Role.
-      * `members`: List of users getting the role. Use one of these formats: `userAccount:<user_ID>`.
+      * `members`: List of users getting the role. Use this format: `userAccount:<user_ID>`.
 
       For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
@@ -254,7 +257,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
 - API {#api}
 
-  Use the [updateAccessBindings](../../api-ref/ServiceAccount/updateAccessBindings.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/UpdateAccessBindings](../../api-ref/grpc/ServiceAccount/updateAccessBindings.md) gRPC API call. You will need the ID of the service account and that of the user to whom you want to assign the role for the service account.
+  Use the [updateAccessBindings](../../api-ref/ServiceAccount/updateAccessBindings.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/UpdateAccessBindings](../../api-ref/grpc/ServiceAccount/updateAccessBindings.md) gRPC API call. You will need the ID of the service account and that of the user getting the role for the service account.
 
   1. Find out the service account ID using the [list](../../api-ref/ServiceAccount/list.md) REST API method:
 
@@ -280,7 +283,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
       }
       ```
 
-  1. Find out the user ID by login using the [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md) REST API method:
+  1. Get the user ID by login using the [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md) REST API method:
       
       ```bash
       curl \
@@ -300,7 +303,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
       }
       ```
 
-  1. Assign the `editor` role for the `my-robot` sevice account. In the `action` property, enter `ADD` and specify the `userAccount` type and user ID under `subject`.
+  1. Assign the `editor` role for the `my-robot` service account. Enter `ADD` in the `action` property and specify the `userAccount` type and user ID under `subject`.
 
       ```bash
       curl \
@@ -333,11 +336,11 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
     {% note alert %}
 
-    The `set-access-binding` command completely overwrites access permissions for the resource! All roles previously assigned for this resource will be deleted.
+    The `set-access-binding` command completely overwrites access permissions for the resource. All roles previously assigned for this resource will be deleted.
 
     {% endnote %}
 
-    1. Make sure the resource has no important roles assigned before proceeding:
+    1. Make sure the resource has no roles assigned that you would not want to lose:
     
         ```bash
         yc iam service-account list-access-bindings my-robot
@@ -355,7 +358,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  To assign several roles to a service account created with {{ TF }}:
+  To assign multiple roles for a service account created with {{ TF }}:
 
   1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
 
@@ -368,9 +371,9 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
           {% endnote %}
 
-      * `members`: List of users or service accounts the role is being assigned to. Use one of these formats: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: List of users or service accounts getting the role. Use one of these formats: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      {% cut "Example of assigning multiple roles to a service account using {{ TF }}" %}
+      {% cut "Example of assigning multiple roles for a service account using {{ TF }}" %}
 
       ```hcl
       ...
@@ -443,7 +446,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
     {% note alert %}
 
-    The `setAccessBindings` method completely overwrites access permissions for the resource! All roles previously assigned for this resource will be deleted.
+    The `setAccessBindings` method completely overwrites access permissions for the resource. All roles previously assigned for this resource will be deleted.
 
     {% endnote %}
 
@@ -466,7 +469,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 {% endlist %}
 
 
-### Setting up access from one service account to another service account {#access-to-sa}
+### Setting up access for a service account to another service account {#access-to-sa}
 
 Allow the `test-sa` service account to manage the `my-robot` service account:
 
@@ -476,7 +479,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  1. Find out the ID of the `test-sa` service account you want to assign the role to. To do this, get a list of available service accounts:
+  1. Get the ID of the `test-sa` service account you want to assign a role to. To do this, get a list of available service accounts:
 
       ```bash
       yc iam service-account list
@@ -511,9 +514,9 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 
       * `service_account_id`: ID of the service account to configure access for.
       * `role`: Role.
-      * `members`: List of users or service accounts the role is being assigned to. Use one of these formats: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: List of users or service accounts getting the role. Use one of these formats: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      {% cut "Example of granting the `test-sa` service account permissions to manage the `my-robot` service account using {{ TF }}" %}
+      {% cut "Example of granting permissions to the `test-sa` service account to manage the `my-robot` service account using {{ TF }}" %}
 
       ```hcl
       ...
@@ -547,7 +550,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 
 - API {#api}
 
-  1. Find out the ID of the `test-sa` service account you want to assign the role to. To do this, get a list of available service accounts:
+  1. Get the ID of the `test-sa` service account you want to assign a role to. To do this, get a list of available service accounts:
 
       ```bash
       curl \

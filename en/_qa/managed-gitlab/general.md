@@ -41,7 +41,7 @@ Users with the `Guest` and `Reporter` roles cannot push changes.
 
 Learn more about roles in [this {{ GL }} guide]({{ gl.docs }}/ee/user/permissions.html).
 
-#### I get `500 Internal Server Error` when trying to open my instance. What could be the issue?
+#### I get 500 Internal Server Error when trying to open my instance. What could be the issue? {#500-error}
 
 The instance may run out of disk space. You can [increase the instance disk space](../../managed-gitlab/operations/instance/instance-update.md) on your own.
 
@@ -70,7 +70,7 @@ If backup creation fails (the `Failed` status), [set up a dedicated security gro
 
 Yes, you can upgrade your instance to a higher-performance type and increase its disk size. However, you cannot reduce instance disk size or downgrade the instance to a lower-performance type. For more information, see [{#T}](../../managed-gitlab/operations/instance/instance-update.md).
 
-#### What should I do if I cannot connect to the system hook on `localhost`? {#system-hooks-localhost}
+#### What should I do if I cannot connect to the system hook on localhost? {#system-hooks-localhost}
 
 If you cannot connect to the system hook, use the `127.0.0.1` IP address instead of `localhost`:
 

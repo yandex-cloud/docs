@@ -80,4 +80,29 @@ For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-refe
 
 To increase the maximum IOPS and bandwidth values and make throttling less likely, expand the storage when [updating your cluster](../../managed-clickhouse/operations/update.md#change-disk-size).
 
-If you are using the `network-hdd` storage, consider switching to `network-ssd` or `network-ssd-nonreplicated` by [restoring the cluster](../../managed-clickhouse/operations/cluster-backups.md#restore) from a backup.
+For storage using the `network-hdd` disk type, we recommend switching to `network-ssd` or `network-ssd-nonreplicated` via a [cluster restore](../../managed-clickhouse/operations/cluster-backups.md#restore) from backup.
+
+#### How do I learn shard numbers? {#shard-num}
+
+Shard numbers in {{ CH }} (`shard_num`) follow the lexicographical order of shard names in {{ mch-name }}, e.g., `A-shard`, `B-shard`, `shard10`, `shard100`.
+
+To get the number and name of each shard, run the following query:
+
+```sql
+SELECT DISTINCT
+    shard_num,
+    shard_name
+FROM system.clusters
+WHERE cluster = getMacro('cluster')
+```
+
+Query result example:
+
+```text
+   ┌─shard_num─┬─shard_name─┐
+1. │         1 │ A-shard    │
+2. │         2 │ B-shard    │
+3. │         3 │ shard10    │
+4. │         4 │ shard100   │
+   └───────────┴────────────┘
+```

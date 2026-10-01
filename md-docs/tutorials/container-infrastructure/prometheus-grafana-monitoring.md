@@ -21,11 +21,9 @@ Prometheus Operator с поддержкой Monitoring упрощает уста
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за мастер Managed Service for Kubernetes: ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за публичные IP-адреса для хостов кластера Managed Service for Kubernetes и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -99,7 +97,7 @@ Prometheus Operator с поддержкой Monitoring упрощает уста
 
    ```bash
    helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/prometheus/charts/kube-prometheus-stack \
-     --version 86.2.3-1 \
+     --version 88.5.2-1 \
      --untar && \
    helm install \
      --namespace <пространство_имен_для_Prometheus_Operator> \

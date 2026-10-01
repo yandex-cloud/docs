@@ -1,3 +1,8 @@
+---
+title: Поиск в консоли управления
+description: С помощью этой инструкции вы узнаете, как найти облачные ресурсы, разделы документации и получить справочную информацию.
+---
+
 # Поиск в консоли управления
 
 ## Найти ресурсы и информацию {#seek}
@@ -23,18 +28,15 @@
 
 {% endlist %}
 
-
 ## Объекты и поля поиска {#objects-and-fields}
 
 Поиск в каталогах происходит по определенным типам объектов и полям.
-
 
 ### {{ api-gw-full-name }} {#api-gw}
 
 Тип объекта | Поля
 --- | ---
 [API-шлюз](../../api-gateway/concepts/index.md) | Идентификатор, имя, метки, описание, домен
-
 
 ### {{ alb-full-name }} {#alb}
 
@@ -45,13 +47,11 @@
 [Целевая группа](../../application-load-balancer/concepts/target-group.md) | Идентификатор, имя, метки, описание
 [HTTP-роутер](../../application-load-balancer/concepts/http-router.md) | Идентификатор, имя, метки, описание
 
-
 ### {{ at-full-name }} {#at}
 
 Тип объекта | Поля
 --- | ---
 [Трейл](../../audit-trails/concepts/trail.md) | Идентификатор, имя, метки, описание
-
 
 ### {{ certificate-manager-full-name }} {#certificate-manager}
 
@@ -59,20 +59,17 @@
 --- | ---
 [Сертификат](../../certificate-manager/concepts/index.md) | Идентификатор, имя, домены, метки, описание
 
-
 ### {{ backup-full-name }} {#backup}
 
 Тип объекта | Поля
 --- | ---
 [Политика резервного копирования](../../backup/concepts/policy.md) | Идентификатор, имя
 
-
 ### {{ cdn-full-name }} {#cdn}
 
 Тип объекта | Поля
 --- | ---
 [CDN-ресурс](../../cdn/concepts/resource.md) | Идентификатор, CNAME, метки
-
 
 ### {{ dns-full-name }} {#dns}
 
@@ -82,7 +79,6 @@
 Эндпоинт | Идентификатор, имя, метки, описание
 Файрвол | Идентификатор, имя, метки, описание
 
-
 ### {{ sf-full-name }} {#functions}
 
 Тип объекта | Поля
@@ -91,7 +87,6 @@
 [Триггер](../../functions/concepts/trigger/index.md) | Идентификатор, имя, метки, описание
 [Функция](../../functions/concepts/function.md) | Идентификатор, имя, метки, описание
 
-
 ### {{ cloud-logging-full-name }} {#logging}
 
 Тип объекта | Поля
@@ -99,20 +94,17 @@
 [Лог-группа](../../logging/concepts/log-group.md) | Идентификатор, имя, метки
 [Приемник логов](../../logging/operations/create-sink.md) | Идентификатор, имя, метки
 
-
 ### {{ postbox-full-name }} {#postbox}
 
 Тип объекта | Поля
 --- | ---
-[Адрес](../../postbox/concepts/glossary.md#adress) | Идентификатор, адрес, метки, описание
-
+[Адрес](../../postbox/concepts/glossary.md#address) | Идентификатор, адрес, метки, описание
 
 ### {{ cloud-registry-full-name }} {#cloud-registry}
 
 Тип объекта | Поля
 --- | ---
 [Реестр](../../cloud-registry/concepts/registry.md) | Идентификатор, имя, метки, описание
-
 
 ### {{ compute-full-name }} {#compute}
 
@@ -131,7 +123,6 @@
 [Снимок диска](../../compute/concepts/snapshot.md) | Идентификатор, имя, метки, описание
 [Файловое хранилище](../../compute/concepts/filesystem.md) | Идентификатор, имя, метки, описание
 
-
 ### {{ container-registry-full-name }} {#registry}
 
 Тип объекта | Поля
@@ -139,13 +130,11 @@
 [Реестр](../../container-registry/concepts/registry.md) | Идентификатор, имя, метки
 [Репозиторий](../../container-registry/concepts/repository.md) | Идентификатор, имя
 
-
 ### {{ dataproc-full-name }} {#dataproc}
 
 Тип объекта | Поля
 --- | ---
 [Кластер](../../glossary/cluster.md) | Идентификатор, имя, метки, описание, хосты
-
 
 ### {{ data-transfer-full-name }} {#data-transfer}
 
@@ -154,7 +143,6 @@
 [Трансфер](../../data-transfer/concepts/index.md#transfer) | Идентификатор, имя, метки, описание
 [Эндпоинт](../../data-transfer/concepts/index.md#endpoint) | Идентификатор, имя, метки, описание
 
-
 ### {{ iam-full-name }} {#iam}
 
 Тип объекта | Поля
@@ -162,8 +150,8 @@
 [Авторизованный ключ](../../iam/concepts/authorization/key.md) | Идентификатор, описание
 [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) | Идентификатор, имя, метки, описание
 [Статический ключ доступа](../../iam/concepts/authorization/access-key.md) | Идентификатор, идентификатор ключа, описание
+[Федерации сервисных аккаунтов](../../iam/concepts/workload-identity.md) | Идентификатор, имя, метки, описание
 [API-ключ](../../iam/concepts/authorization/api-key.md) | Идентификатор, описание
-
 
 ### {{ kms-full-name }} {#kms}
 
@@ -173,13 +161,11 @@
 [Асимметричная ключевая пара шифрования](../../kms/concepts/asymmetric-encryption-key.md) | Идентификатор, имя, метки, описание
 [Симметричный ключ](../../kms/concepts/symmetric-encryption.md) | Идентификатор, имя, метки, описание
 
-
 ### {{ lockbox-full-name }} {#lockbox}
 
 Тип объекта | Поля
 --- | ---
 [Секрет](../../lockbox/concepts/secret.md) | Идентификатор, имя, метки, описание
-
 
 ### {{ maf-full-name }} {#maf}
 
@@ -187,13 +173,11 @@
 --- | ---
 [Кластер](../../glossary/cluster.md) | Идентификатор, имя, метки, описание, сервисный аккаунт, бакет S3
 
-
 ### {{ mkf-full-name }} {#mkf}
 
 Тип объекта | Поля
 --- | ---
 [Кластер](../../glossary/cluster.md) | Внутренний IP-адрес, идентификатор, имя, метки, описание, пользователи, топики, хосты
-
 
 ### {{ mch-full-name }} {#mch}
 
@@ -201,13 +185,11 @@
 --- | ---
 [Кластер](../../glossary/cluster.md) | Базы данных, внутренний IP-адрес, идентификатор, имя, метки, описание, пользователи, хосты
 
-
 ### {{ mgl-full-name }} {#gitlab}
 
 Тип объекта | Поля
 --- | ---
 [Инстанс](../../managed-gitlab/concepts/index.md) | Идентификатор, имя, метки, описание
-
 
 ### {{ managed-k8s-full-name }} {#k8s}
 
@@ -216,13 +198,11 @@
 [Группа узлов](../../managed-kubernetes/concepts/index.md#node-group) | Идентификатор, идентификатор кластера, имя, метки, описание
 [Кластер](../../glossary/cluster.md) | Идентификатор, имя, метки, описание
 
-
 ### {{ mmy-full-name }} {#mmy}
 
 Тип объекта | Поля
 --- | ---
 [Кластер](../../glossary/cluster.md) | Базы данных, внутренний IP-адрес, идентификатор, имя, метки, описание, пользователи, хосты
-
 
 ### {{ mos-full-name }} {#mos}
 
@@ -230,13 +210,11 @@
 --- | ---
 [Кластер](../../glossary/cluster.md) | Внутренний IP-адрес, идентификатор, имя, метки, описание, хосты
 
-
 ### {{ mpg-full-name }} {#mpg}
 
 Тип объекта | Поля
 --- | ---
 [Кластер](../../glossary/cluster.md) | Базы данных, внутренний IP-адрес, идентификатор, имя, метки, описание, пользователи, хосты
-
 
 ### {{ mtr-full-name }} {#mtr}
 
@@ -244,13 +222,11 @@
 --- | ---
 [Кластер](../../glossary/cluster.md) | Идентификатор, имя, метки, описание, сервисный аккаунт
 
-
 ### {{ mrd-full-name }} {#mrd}
 
 Тип объекта | Поля
 --- | ---
 [Кластер](../../glossary/cluster.md) | Внутренний IP-адрес, идентификатор, имя, метки, описание, пользователи, хосты
-
 
 ### {{ ydb-full-name }} {#ydb}
 
@@ -259,13 +235,11 @@
 [База данных](../../ydb/concepts/resources.md#database) | Идентификатор, имя, метки, описание
 [Резервная копия]({{ ydb.docs }}/devops/backup-and-recovery) | Идентификатор, имя, метки, описание
 
-
 ### {{ message-queue-full-name }} {#message-queue}
 
 Тип объекта | Поля
 --- | ---
 [Очередь сообщений](../../message-queue/concepts/queue.md) | Идентификатор, имя, метки
-
 
 ### {{ metadata-hub-full-name }} {#metadata-hub}
 
@@ -273,22 +247,11 @@
 --- | ---
 [Кластер](../../metadata-hub/concepts/metastore.md) | Идентификатор, имя, метки, описание, сервисный аккаунт
 
-
-### {{ monitoring-full-name }} {#monitoring}
-
-Тип объекта | Поля
---- | ---
-[Алерт](../../monitoring/concepts/alerting/alert.md) | Идентификатор, имя, описание
-[Дашборд](../../monitoring/concepts/visualization/dashboard.md) | Идентификатор, имя, описание
-[Канал уведомлений](../../monitoring/concepts/alerting/notification-channel.md) | Идентификатор, имя, описание
-
-
 ### {{ mgp-full-name }} {#mgp}
 
 Тип объекта | Поля
 --- | ---
 [Кластер](../../glossary/cluster.md) | Базы данных, внутренний IP-адрес, идентификатор, имя, метки, описание, пользователи, хосты
-
 
 ### {{ network-load-balancer-full-name }} {#nlb}
 
@@ -297,13 +260,11 @@
 [Сетевой балансировщик](../../network-load-balancer/concepts/index.md) | Идентификатор, имя, метки, описание, внутренний IPv4-адрес, внутренний IPv6-адрес, публичный IPv4-адрес, публичный IPv6-адрес
 [Целевая группа](../../network-load-balancer/concepts/target-resources.md) | Идентификатор, имя, метки, описание
 
-
 ### {{ objstorage-full-name }} {#storage}
 
 Тип объекта | Поля
 --- | ---
 [Бакет](../../storage/concepts/bucket.md) | Идентификатор, имя, идентификатор ресурса, теги
-
 
 ### {{ resmgr-full-name }} {#resource-manager}
 
@@ -312,13 +273,11 @@
 [Каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) | Идентификатор, имя, метки, описание
 [Облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) | Идентификатор, имя, метки, описание
 
-
 ### {{ serverless-containers-full-name }} {#containers}
 
 Тип объекта | Поля
 --- | ---
 [Контейнер](../../serverless-containers/concepts/container.md) | Идентификатор, имя, метки, описание
-
 
 ### {{ sws-full-name }} {#sws}
 
@@ -330,20 +289,17 @@
 [Профиль безопасности](../../smartwebsecurity/concepts/profiles.md) | Идентификатор, имя, метки, описание
 [Список совпадений](../../smartwebsecurity/concepts/conditions.md#match-list) | Идентификатор, имя, метки, описание
 
-
 ### {{ captcha-full-name }} {#captcha}
 
 Тип объекта | Поля
 --- | ---
 [Капча](../../smartcaptcha/concepts/validation.md) | Идентификатор, имя, метки, описание
 
-
 ### {{ mmg-full-name }} {#mmg}
 
 Тип объекта | Поля
 --- | ---
 [Кластер](../../glossary/cluster.md) | Базы данных, внутренний IP-адрес, идентификатор, имя, метки, описание, пользователи, хосты
-
 
 ### {{ vpc-full-name }} {#vpc}
 

@@ -325,33 +325,7 @@ description: Руководство помогает с нуля настрои�
 
 ### Подключите профиль безопасности к ресурсам {#profile-connect}
 
-{% list tabs group=instructions %}
-
-- L7-балансировщик {#balancer}
-
-  Если балансировщик управляется [Ingress-контроллером](../../application-load-balancer/tools/k8s-ingress-controller/index.md) {{ alb-name }}, используйте [аннотацию ресурса Ingress](../../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
-
-  {% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
-
-  Чтобы подключить виртуальный хост:
-
-  {% include [host-connect](../../_includes/smartwebsecurity/security-profile-host-connect.md) %}
-
-  {% include [disable-sp-route](../../_includes/smartwebsecurity/disable-sp-route.md) %}
-
-- API-шлюз {#api-gateway}
-
-  Чтобы подключить API-шлюз:
-
-  {% include [api-gateway-connect](../../_includes/smartwebsecurity/security-profile-api-gateway-connect.md) %}
-
-- Домен {#domain}
-
-  Чтобы подключить домен:
-
-  {% include [domain-connect](../../_includes/smartwebsecurity/security-profile-domain-connect.md) %}
-
-{% endlist %}
+{% include [sws-profile-connect](../_tutorials_includes/sws-profile-connect.md) %}
 
 ### Проверьте профиль безопасности в режиме логирования {#test-sp-rules}
 
@@ -410,10 +384,12 @@ description: Руководство помогает с нуля настрои�
   1. Посмотрите информацию на графиках:
      * **Denied by Security Profile RPS** — количество входящих запросов в секунду, которые были проверены и заблокированы профилем безопасности.
      * **Redirected to SmartCaptcha RPS** — количество входящих запросов в секунду, направленных в {{ captcha-name }} для дополнительной верификации.
+     * **Redirected to JS challenge RPS** — количество входящих запросов в секунду, направленных на [проверку выполнения JavaScript](../../smartwebsecurity/concepts/rules.md#client-checks) на стороне клиента.
+     * **Redirected to Cookie challenge RPS** — количество входящих запросов в секунду, направленных на [проверку поддержки cookie](../../smartwebsecurity/concepts/rules.md#client-checks) у клиента.
 
 {% endlist %}
 
-Подробное описание графиков смотрите в разделе [{#T}](../../smartwebsecurity/operations/monitoring.md).
+Описание графиков, метрик и меток приведено в разделе [{#T}](../../smartwebsecurity/operations/monitoring.md).
 
 ## Настройте ограничение нагрузки {#rate-limiter}
 
@@ -516,8 +492,11 @@ description: Руководство помогает с нуля настрои�
   1. Посмотрите информацию на графиках:
      * **Allowed by ARL Profile RPS** — количество входящих запросов в секунду, которое не превышает лимит в профиле ARL.
      * **Denied by ARL Profile RPS** — количество входящих запросов в секунду, превысивших лимит профиля ARL и заблокированных.
+     * **Redirected to SmartCaptcha by ARL Profile RPS** — количество входящих запросов в секунду, направленных профилем ARL в {{ captcha-name }} для дополнительной верификации.
 
 {% endlist %}
+
+Описание графиков, метрик и меток приведено в разделе [{#T}](../../smartwebsecurity/operations/monitoring.md#monitoring-dashboards).
 
 ## Настройте Web Application Firewall {#firewall}
 
@@ -539,7 +518,7 @@ Web Application Firewall (WAF) защищает от эксплуатации р
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится профиль безопасности.
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Перейдите на вкладку ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** и нажмите **{{ ui-key.yacloud.smart-web-security.waf.label_create-profile }}**.
+  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** и нажмите **{{ ui-key.yacloud.smart-web-security.waf.label_create-profile }}**.
   1. Введите имя профиля, например `waf-site-protection`.
   1. Включите наборы правил, например ML WAF и Yandex Ruleset. Чтобы посмотреть правила в наборе, нажмите на строку с его описанием.
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.

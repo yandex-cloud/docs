@@ -42,7 +42,7 @@ Before connecting, access the framework by [manually installing the framework an
     1. Modify the `configs/config_vars.yaml` configuration file. Specify the {{ PG }} cluster connection string in the `dbconnection` variable:
 
         ```url
-        postgres://<username>:<user_password>@<special_FQDN>:{{ port-mpg }}/<DB_name>?ssl=true&sslmode=verify-full
+        postgres://<username>:<user_password>@<special_FQDN>:{{ port-mpg }}/<database_name>?ssl=true&sslmode=verify-full
         ```
 
     1. Build the project and start the service:
@@ -478,7 +478,7 @@ npm install pg
 
     const config = {
         connectionString:
-            "postgres://<username>:<user_password>@<special_FQDN>:{{ port-mgp }}/<DB_name>"
+            "postgres://<username>:<user_password>@<special_FQDN>:{{ port-mgp }}/<database_name>"
     };
 
     const conn = new pg.Client(config);
@@ -504,7 +504,7 @@ npm install pg
 
     const config = {
         connectionString:
-            "postgres://<username>:<user_password>@<special_FQDN>:{{ port-mgp }}/<DB_name>",
+            "postgres://<username>:<user_password>@<special_FQDN>:{{ port-mgp }}/<database_name>",
         ssl: {
             rejectUnauthorized: true,
             ca: fs

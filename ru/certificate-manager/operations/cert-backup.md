@@ -77,6 +77,7 @@ description: Чтобы сделать резервное копирование
    {% endlist %}
 
    Поместите полученные файлы в надежное долговременное хранилище.
+
 1. Повторите процедуру для каждого сертификата, резервную копию которого необходимо создать.
 
 ## Восстановить сертификат {#restore}
@@ -96,24 +97,32 @@ description: Чтобы сделать резервное копирование
 
    - Консоль управления {#console}
 
-     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет восстановлен сертификат.
+     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет восстановлен сертификат.
      1. [Перейдите]({{ link-console-main }}/link/certificate-manager) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.button_empty-action }}**.
      1. В открывшемся меню выберите **{{ ui-key.yacloud.certificate-manager.action_import }}**.
      1. В открывшемся окне в поле **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** введите имя сертификата.
-     1. (Опционально) В поле **Описание** введите описание сертификата.
-     1. В поле **{{ ui-key.yacloud.certificate-manager.import.field_chain }}** нажмите кнопку **{{ ui-key.yacloud.certificate-manager.import.button_add-chain }}**.
-        
+     1. (Опционально) Добавьте описание сертификата.
+     1. (Опционально) Включите опцию защиты от удаления.
+     1. (Опционально) Добавьте метки.
+     1. В поле **{{ ui-key.yacloud.certificate-manager.import.field_certificate }}** нажмите кнопку **{{ ui-key.yacloud.certificate-manager.import.button_add-certificate }}**.
+
+        1. Выберите способ добавления: `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
+        1. Нажмите кнопку **Прикрепить файл** и укажите файл сертификата.
+        1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+
+     1. (Опционально) В поле **{{ ui-key.yacloud.certificate-manager.import.field_chain }}** нажмите кнопку **{{ ui-key.yacloud.certificate-manager.import.button_add-chain }}**.
+
         1. Выберите способ добавления: `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
         1. Нажмите кнопку **Прикрепить файл** и укажите файл цепочки сертификатов.
         1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
-     
+
      1. В поле **{{ ui-key.yacloud.certificate-manager.import.field_privateKey }}** нажмите кнопку **{{ ui-key.yacloud.certificate-manager.import.button_add-privateKey }}**.
-        
+
         1. Выберите способ добавления: `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` или `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}`.
         1. Нажмите кнопку **Прикрепить файл** и укажите файл приватного ключа.
         1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
-     
+
      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
    - CLI {#cli}
@@ -145,6 +154,7 @@ description: Чтобы сделать резервное копирование
    {% endlist %}
 
    Идентификатор восстановленного сертификата будет отличаться от идентификатора, который был у сертификата в момент сохранения.
+
 1. Повторите процедуру для каждого сертификата, содержимое которого надо восстановить.
 
 Сохраненный [сертификат от Let's Encrypt](../concepts/managed-certificate.md) после восстановления станет [пользовательским](../concepts/imported-certificate.md). Для [обновления](../operations/import/cert-update.md) такого сертификата необходимо загружать новую версию самостоятельно.

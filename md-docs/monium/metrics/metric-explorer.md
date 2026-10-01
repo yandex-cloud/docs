@@ -30,7 +30,7 @@
   
       * `project = folder__<идентификатор_каталога>` — идентификатор каталога, в котором находится ресурс Yandex Cloud.
       * `cluster = default`.
-      * `service = <__имя_сервиса__>`, например, `__application-load-balancer__`, `__cdn__`, `__iam__`.
+      * `service = <__имя_сервиса__>`, например `__application-load-balancer__`, `__cdn__`, `__iam__`.
       * Метки нужного ресурса. Например, для сервиса Identity and Access Management можно указать сервисный аккаунт — `service_account = <имя_сервисного_аккаунта>`.
 
       {% note info %}

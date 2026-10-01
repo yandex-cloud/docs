@@ -25,8 +25,14 @@ items:
         href: workbooks-collections/export-and-import.md
       - name: Ошибки и предупреждения при экспорте и импорте
         href: workbooks-collections/export-import-notifications.md
-  - name: Нейроаналитик DataLens
-    href: concepts/neuroanalyst.md
+  - name: AI-агенты
+    items:
+      - name: Использование {{ datalens-name }} с AI-агентами
+        href: operations/ai-agents.md
+      - name: AI-агенты в {{ datalens-name }}
+        href: concepts/ai-agents.md
+      - name: Нейроаналитик DataLens
+        href: concepts/neuroanalyst.md
   - name: Практические руководства
     items:
       - name: Обзор
@@ -966,6 +972,8 @@ items:
     items:
       - name: Обзор
         href: concepts/maillists.md
+      - name: Список рассылок
+        href: concepts/maillists-list.md
       - name: Рассылки для дашборда
         href: operations/dashboard/add-maillists.md
       - name: Рассылки для отчета
@@ -982,6 +990,8 @@ items:
         href: concepts/publishing-and-embedding.md
       - name: Публикация объектов
         href: concepts/datalens-public.md
+      - name: Публикация по временной ссылке
+        href: concepts/datalens-temporary-link.md
       - name: Публичное встраивание
         href: security/embedded-objects.md
       - name: Поделиться объектом в организации
@@ -1047,10 +1057,13 @@ items:
       - name: Архив
         items:
           - name: Изменения в правилах тарификации 1 декабря
+            hidden: true
             href: pricing-changes.md
           - name: Правила тарификации до 1 декабря 2025
+            hidden: true
             href: pricing-old.md
           - name: Тарифные планы до 1 декабря 2025
+            hidden: true
             href: concepts/service-plans-comparison.md
   - name: '{{ datalens-name }} Public API'
     items:
@@ -1222,16 +1235,6 @@ items:
                 name: Start workbook import
               - href: api-ref/WorkbookImport/rpcgetWorkbookImportStatus-post.md
                 name: Get workbook import status
-          - name: EntryLock
-            items:
-              - name: Overview
-                href: api-ref/EntryLock/index.md
-              - href: api-ref/EntryLock/rpccreateEntryLock-post.md
-                name: Create entry lock
-              - href: api-ref/EntryLock/rpcextendEntryLock-post.md
-                name: Extend entry lock
-              - href: api-ref/EntryLock/rpcdeleteEntryLock-post.md
-                name: Delete entry lock
           - name: Editor
             items:
               - name: Overview
@@ -1316,6 +1319,28 @@ items:
                 href: api-ref/SharedEntry/index.md
               - href: api-ref/SharedEntry/rpclistSharedEntryAccessBindings-post.md
                 name: List shared entry access bindings
+          - name: Licensing
+            items:
+              - name: Overview
+                href: api-ref/Licensing/index.md
+              - href: api-ref/Licensing/rpcgetLicenses-post.md
+                name: Get licenses
+              - href: api-ref/Licensing/rpcgetLicensesLimit-post.md
+                name: Get licenses limit
+              - href: api-ref/Licensing/rpcsetLicenseLimit-post.md
+                name: Set licenses limit
+              - href: api-ref/Licensing/rpcassignLicenses-post.md
+                name: Assign licenses
+          - name: EntryLock
+            items:
+              - name: Overview
+                href: api-ref/EntryLock/index.md
+              - href: api-ref/EntryLock/rpccreateEntryLock-post.md
+                name: Create entry lock
+              - href: api-ref/EntryLock/rpcextendEntryLock-post.md
+                name: Extend entry lock
+              - href: api-ref/EntryLock/rpcdeleteEntryLock-post.md
+                name: Delete entry lock
           - name: Access
             items:
               - name: Overview
@@ -1334,24 +1359,20 @@ items:
                 name: Update HTML page
               - href: api-ref/HtmlPages/rpcdeleteHtmlPage-post.md
                 name: Delete HTML page
-          - name: Licensing
+          - name: Data
             items:
               - name: Overview
-                href: api-ref/Licensing/index.md
-              - href: api-ref/Licensing/rpcgetLicenses-post.md
-                name: Get licenses
-              - href: api-ref/Licensing/rpcgetLicensesLimit-post.md
-                name: Get licenses limit
-              - href: api-ref/Licensing/rpcsetLicenseLimit-post.md
-                name: Set licenses limit
-              - href: api-ref/Licensing/rpcassignLicenses-post.md
-                name: Assign licenses
+                href: api-ref/Data/index.md
+              - href: api-ref/Data/rpcgetDatasetData-post.md
+                name: 🚧 [Experimental] Get dataset data
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: История изменений
     items:
-      - name: Июль 2026
+      - name: Август 2026
         href: release-notes/index.md
+      - name: Июль 2026
+        href: release-notes/2607.md
       - name: Июнь 2026
         href: release-notes/2606.md
       - name: Май 2026
@@ -1360,10 +1381,12 @@ items:
         href: release-notes/2604.md
       - name: Март 2026
         href: release-notes/2603.md
-      - name: Февраль 2026
-        href: release-notes/2602.md
+      - name: Обзорные видео обновлений
+        href: release-notes/videos.md
       - name: Архив
         items:
+          - name: Февраль 2026
+            href: release-notes/2602.md
           - name: Январь 2026
             href: release-notes/2601.md
           - name: Декабрь 2025
@@ -1449,6 +1472,11 @@ items:
       - name: Access denied
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-US-ACCESS_DENIED.md
+      - name: >-
+          Access to clique <название_клики> for user <логин_пользователя> was
+          denied
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-ACCESS_DENIED.md
       - name: Access to table was denied
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CHYT-TABLE_ACCESS_DENIED.md
@@ -1474,6 +1502,12 @@ items:
       - name: Cannot parse number
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-NUMBER.md
+      - name: Clique <название_клики> is not running
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-NOT_RUNNING.md
+      - name: Clique <название_клики> is suspended
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-SUSPENDED.md
       - name: Column used in join expression is not a key column
         hidden: true
         href: >-
@@ -1582,6 +1616,9 @@ items:
       - name: Requested database column does not exist
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md
+      - name: Failed to COMMIT or ROLLBACK
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-COMMIT_OR_ROLLBACK_FAILED.md
       - name: Подготовка данных еще не завершилась
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-DATA_PREPARATION_NOT_FINISHED.md
@@ -1630,9 +1667,18 @@ items:
       - name: YT table has no schema. Only schematized tables are supported
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CHYT-TABLE_HAS_NO_SCHEMA.md
+      - name: Data source database does not exist.
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-DATABASE_DOES_NOT_EXIST.md
       - name: Не удалось создать <тип_объекта>
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-DB_OPERATIONAL_ERROR.md
+      - name: 'Estimated query execution time is too long. Maximum: 14400'
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-EST_EXEC_TOO_LONG.md
+      - name: Filtration by any of indexed columns required.
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-INDEX_NOT_USED.md
       - name: Неверный формат файла
         hidden: true
         href: troubleshooting/errors/ERR-FILE-PARSE_FAILED-INVALID_EXCEL.md
@@ -1723,4 +1769,50 @@ items:
       - name: Ошибка при блокировке всплывающего окна
         hidden: true
         href: troubleshooting/errors/ERR-CLIENT-POPUP_BLOCKED.md
+      - name: Cannot convert NULL value to non-Nullable type
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-DB-CANNOT_INSERT_NULL_IN_ORDINARY_COLUMN.md
+      - name: '{{ CH }} could not parse the data in the specified source'
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CH-INCORRECT_DATA.md
+      - name: >-
+          {{ CH }} user must be correctly configured to use readonly 1 option
+          (see docs). For other readonly options user should have parameter
+          readonly set to 0 or 2
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CH-READONLY_USER.md
+      - name: Invalid sorted JOIN
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN.md
+      - name: CHYT does not support compound expressions in ON/USING clause
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-COMPOUND_EXPR_NOT_SUPPORTED.md
+      - name: Joining concatenation of multiple tables is not supported
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-CONCAT_NOT_SUPPORTED.md
+      - name: 'Cannot join: key is empty'
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-KEY_IS_EMPTY.md
+      - name: >-
+          Joined columns do not occupy same positions in key columns of joined
+          tables
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-NOT_SAME_KEY_POSITION.md
+      - name: Tables should be sorted
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-TABLE_NOT_SORTED.md
+      - name: >-
+          Reading multiple dynamic tables or dynamic table together with static
+          table is not supported in CHYT
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-MULTI_DYN_NOT_SUPPORTED.md
+      - name: CHYT Error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT.md
 path: ru/datalens/toc.yaml

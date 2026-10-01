@@ -4,7 +4,7 @@
 
 Cloud CDN предоставляет логи запросов к CDN-серверам и, если включено [экранирование источников](origins-shielding.md), к экранирующим серверам.
 
-Выгрузка логов [включается](../operations/resources/configure-logs.md#enabling) для конкретного [CDN-ресурса](resource.md). Для выгрузки логов нужен [бакет](../../storage/concepts/bucket.md) в Yandex Object Storage. 
+Выгрузка логов [включается](../operations/resources/configure-logs.md#enabling) для конкретного [CDN-ресурса](resource.md). Для выгрузки логов нужен [бакет](../../storage/concepts/bucket.md) в Yandex Object Storage.
 
 {% note info %}
 

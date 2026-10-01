@@ -39,6 +39,18 @@ Aliases:
 
   - [yc managed-postgresql backup-retention-policy list](backup-retention-policy/list.md) — List available backup retention policies
 
+- [yc managed-postgresql change-freeze](change-freeze/index.md) — Manage change freezes.
+
+  - [yc managed-postgresql change-freeze create](change-freeze/create.md) — Create a change freeze for the specified resource.
+
+  - [yc managed-postgresql change-freeze get](change-freeze/get.md) — Show the specified change freeze.
+
+  - [yc managed-postgresql change-freeze get-limits](change-freeze/get-limits.md) — Show change freeze limits for the specified resource.
+
+  - [yc managed-postgresql change-freeze list](change-freeze/list.md) — List change freezes.
+
+  - [yc managed-postgresql change-freeze terminate](change-freeze/terminate.md) — Terminate the specified change freeze.
+
 - [yc managed-postgresql cluster](cluster/index.md) — Manage PostgreSQL clusters
 
   - [yc managed-postgresql cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified PostgreSQL cluster
@@ -110,6 +122,14 @@ Aliases:
   - [yc managed-postgresql hosts update](hosts/update.md) — Update the specified hosts
 
   - [yc managed-postgresql hosts update-config](hosts/update-config.md) — Updates PostgreSQL config for the specified hosts
+
+- [yc managed-postgresql maintenance](maintenance/index.md) — Manage maintenances.
+
+  - [yc managed-postgresql maintenance get](maintenance/get.md) — Show the specified maintenance.
+
+  - [yc managed-postgresql maintenance list](maintenance/list.md) — List maintenances.
+
+  - [yc managed-postgresql maintenance reschedule](maintenance/reschedule.md) — Reschedule the specified maintenance.
 
 - [yc managed-postgresql performance-diagnostics](performance-diagnostics/index.md) — Export PostgreSQL performance diagnostics data
 

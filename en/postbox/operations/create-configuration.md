@@ -6,6 +6,9 @@ Create a [configuration](../concepts/configuration.md) to set up email processin
 * Mandatory TLS encryption.
 * Engagement statistics collection.
 * [Statistics](../concepts/statistics.md#configuration-filter) breakdown by sending scenarios.
+* [Custom suppression list](../concepts/suppression-list.md#user) check for outgoing mail.
+
+To modify the configuration, you need the `postbox.editor` [role](../security/index.md#postbox-editor).
 
 {% list tabs group=instructions %}
 
@@ -17,7 +20,7 @@ Create a [configuration](../concepts/configuration.md) to set up email processin
     1. Click **{{ ui-key.yacloud.postbox.button_create-configuration-set }}**.
     1. Enter a name and (optionally) a description of the configuration.
     1. To receive email operation notifications, click **{{ ui-key.yacloud.postbox.label_event-destinations }}** under **{{ ui-key.yacloud.common.add }}**:
-
+        
         1. Enter a name for the [subscription](../concepts/glossary.md#subscription).
         1. Select the {{ yds-full-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts) to send email operation notifications to. If you do not have a data stream, [create one](../../data-streams/operations/manage-streams.md#create-data-stream).
         1. Select the types of notifications you want to receive.
@@ -32,13 +35,15 @@ Create a [configuration](../concepts/configuration.md) to set up email processin
 
         {% endnote %}
 
-    1. To collect statistics on email opens and clicks, enable **Engagement statistics** under **Statistics collection settings**. All other [statistics](../concepts/statistics.md), other than email opens and clicks, are collected by default.
+    1. To collect statistics on email opens and clicks, enable **{{ ui-key.yacloud.postbox.section_tracking-options }}** under **{{ ui-key.yacloud.postbox.field_engagement-metrics }}**. All other [statistics](../concepts/statistics.md), other than email opens and clicks, are collected by default.
 
         {% note info %}
 
-        Enabling **Engagement statistics** will modify the email body. For more information, see [{#T}](../concepts/mail-opened.md) and [{#T}](../concepts/click-tracking.md).
+        Enabling **{{ ui-key.yacloud.postbox.field_engagement-metrics }}** will modify the email body. For more information, see [{#T}](../concepts/mail-opened.md) and [{#T}](../concepts/click-tracking.md).
 
         {% endnote %}
+
+    1. To check outgoing emails against your [custom suppression list](../concepts/suppression-list.md#user), enable **{{ ui-key.yacloud.postbox.field_suppression-list-check }}** under **Suppression list settings** and select the reasons in the **{{ ui-key.yacloud.postbox.field_suppression-reason-type }}** field. This will block sending emails to the suppression list addresses based on the reasons you select. If you do not configure suppression list settings, only the `COMPLAINT` reason will block outgoing emails. For more information, see [{#T}](../concepts/suppression-list.md#reasons).
 
     1. Click **{{ ui-key.yacloud.postbox.button_create-configuration-set }}**.
 
@@ -77,10 +82,19 @@ Create a [configuration](../concepts/configuration.md) to set up email processin
            --configuration-set-name $CONFIGSET_NAME \
            --event-destination-name <subscription_name> \
            --event-destination "{\"Enabled\":true,\"KinesisFirehoseDestination\":{\"DeliveryStreamArn\":\"arn:aws:keenesis:::$KINESIS_ENDPOINT:$TOPIC\",\"IamRoleArn\":\"arn:\"}}"
-
         ```
 
         You can add multiple subscriptions.
+
+    1. To specify the [reasons](../concepts/suppression-list.md#reasons) why the custom suppression list addresses should block an outgoing email, run this command:
+
+        ```bash
+        aws sesv2 put-configuration-set-suppression-options \
+           --endpoint-url=$ENDPOINT \
+           --profile $PROFILE \
+           --configuration-set-name $CONFIGSET_NAME \
+           --suppressed-reasons BOUNCE COMPLAINT
+        ```
 
 {% endlist %}
 

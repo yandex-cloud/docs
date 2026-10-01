@@ -17,7 +17,7 @@ Managed Service for Sharded PostgreSQL позволяет [получить фр
 - Консоль управления {#console}
 
     1. [Перейдите](https://console.yandex.cloud/link/managed-spqr) в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **Логи**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Логи**.
     1. Укажите период времени, за который нужно отобразить логи: введите его вручную или выберите в календаре, нажав на поле ввода дат.
     1. (Опционально) В строке с полем ввода дат добавьте фильтры логов:
        1. Выберите тип сервиса — `INFRA`, `ROUTER` или `COORDINATOR`.

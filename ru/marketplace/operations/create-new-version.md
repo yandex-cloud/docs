@@ -27,9 +27,6 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [product-version-k8s](../../_includes/marketplace/product-version-k8s.md) %}
 
-- {{ cloud-apps-name }} {#cloud-apps}
-
-  {% include [product-version-cloud-apps](../../_includes/marketplace/product-version-cloud-apps.md) %}
 
 {% endlist %}
 

@@ -527,12 +527,6 @@
         protocol       = "TCP"
         v4_cidr_blocks = ["0.0.0.0/0"]
       }
-      ingress {
-        description       = "Правило для проверок состояния узлов балансировщика"
-        port              = 30080
-        protocol          = "TCP"
-        predefined_target = "loadbalancer_healthchecks"
-      }
       egress {
         description    = "Правило для отправки трафика на узлы, в том числе для проверок состояния"
         from_port      = 0

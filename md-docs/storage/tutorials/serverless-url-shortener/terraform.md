@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > [Сокращатель ссылок](index.md) > Terraform
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > Разработка и развертывание приложений > [Сокращатель ссылок](index.md) > Terraform
 
 # Сокращатель ссылок с помощью Terraform
 

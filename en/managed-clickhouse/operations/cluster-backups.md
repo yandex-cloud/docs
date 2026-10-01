@@ -24,7 +24,7 @@ The system uses random replica hosts to create backups. If cluster hosts lack da
   
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
   1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
+  1. Click the cluster name and select the ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
@@ -129,8 +129,8 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
   To restore an existing cluster from a backup:
   1. In the [management console]({{ link-console-main }}), select the folder where you want to restore a cluster.
   1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+  1. Click the cluster name and select the ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) for your backup and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Update the new cluster settings, if required. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
 
   1. Optionally, to restore individual databases or tables:
@@ -541,7 +541,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
   To get a list of cluster backups:
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
   1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
+  1. Click the cluster name and select the ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
 
   To get a list of all backups in your folder:
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
@@ -692,7 +692,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
   To get backup details for an existing cluster:
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
   1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
+  1. Click the cluster name and select the ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
 
   To get backup details for a previously deleted cluster:
   1. In the [management console]({{ link-console-main }}), select the folder where the cluster used to reside.
@@ -999,7 +999,7 @@ You can only delete manual backups.
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
   1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
+  1. Click the cluster name and select the ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup in question and select **{{ ui-key.yacloud.mdb.cluster.backups.button_delete }}**.
 
 - CLI {#cli}

@@ -24,6 +24,11 @@ PostgreSQL cluster name. ||
 || `--password` | `string`
 
 Password of the PostgreSQL user. ||
+|| `--password-file` | `string`
+
+File containing the password of the PostgreSQL user. ||
+|| `--password-from-stdin` | Read password from stdin. ||
+|| `--generate-password` | Generate password using Connection Manager. ||
 || `--conn-limit` | `int`
 
 Number of connections available to the user. ||
@@ -34,7 +39,6 @@ Names of the databases that the permission grants access to. ||
 || `--grants` | `value[,value]`
 
 Roles granted to the user. ||
-|| `--generate-password` | Generate password using Connection Manager. ||
 || `--auth-method` | `string`
 
 Authentication method for the user. Values: 'auth-method-password', 'auth-method-iam' ||

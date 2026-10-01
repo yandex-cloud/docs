@@ -22,6 +22,14 @@
 * [Настроить политику доступа](registry/create-access-policy.md)
 * [Удалить политику доступа](registry/remove-access-policy.md)
 
+### Политика жизненного цикла {#lifecycle-policy}
+
+* [Создание политики жизненного цикла](lifecycle-policy/create.md)
+
+### Сканирование реестра {#scanning}
+
+* [Сканирование реестра](registry/scanning.md)
+
 
 ## Управление артефактами {#artifact}
 
@@ -81,4 +89,3 @@
 ## Другие инструкции {#other}
 
 * [Удаление артефакта из реестра](artifacts/delete.md)
-* [Создание политики жизненного цикла](lifecycle-policy/create.md)

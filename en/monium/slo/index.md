@@ -38,7 +38,7 @@ There are several approaches to calculating metrics:
     You can choose one of these SLO calculation methods:
     
     * **Good Events / Total Events**: Good events and general events, e.g., successful service responses and total received requests.
-    * **Bad Events / Total Events**: Bad events and general events, e.g., service error responses and total received requests.
+    * **Bad Events / Total Events**: Bad events and general events, e.g., service error responses and total received queries.
     * **Good Events / Bad Events**: Good events and bad events, e.g., successful service responses and service responses with errors.
     
     The system automatically calculates unspecified events for any selected method. For example, if you choose to calculate only good and bad events, the total number of events will be the sum of those two categories.
@@ -143,5 +143,9 @@ We recommend selecting a large enough window, e.g., 30 days, to eliminate the im
 When calculating *Total Events*, count only valid events (e.g., requests with correct URLs). Invalid events must not affect the SLI.
 
 {% include [ttl_warning](../../_includes/monium/ttl_warning.md) %}
+
+## Useful links {#see-also}
+
+[Web service SLO monitoring in {{ monium-name }} using blackbox_exporter and {{ unified-agent-short-name }}](../../tutorials/infrastructure-management/slo-blackbox-exporter.md)
 
 [golden-sgnals]: https://sre.google/sre-book/monitoring-distributed-systems/#xref_monitoring_golden-signals

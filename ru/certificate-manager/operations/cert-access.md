@@ -1,6 +1,6 @@
 ---
 title: Как настроить права доступа к сертификату {{ certificate-manager-full-name }}
-description: Следуя данной инструкции, вы сможете настроить права доступа к сертификату.
+description: Следуя этой инструкции, вы сможете настроить права доступа к сертификату.
 ---
 
 # Настроить права доступа к сертификату
@@ -48,31 +48,22 @@ description: Следуя данной инструкции, вы сможете
 
   1. Назначьте роль с помощью команды:
 
-      * Пользователю:
+      ```bash
+      yc certificate-manager certificate add-access-binding <идентификатор_сертификата> \
+        --role <роль> \
+        --subject <тип_субъекта>:<идентификатор_субъекта>
+      ```
 
-          ```bash
-          yc certificate-manager certificate add-access-binding <идентификатор_сертификата> \
-            --user-account-id <идентификатор_пользователя> \
-            --role <роль>
-          ```
+      Где:
 
-          Где:
+      * `--role` — назначаемая [роль](../security/index.md#roles-list).
+      * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-          * `--user-account-id` — [идентификатор пользователя](../../organization/operations/users-get.md).
-          * `--role` — назначаемая [роль](../security/index.md#roles-list).
+          {% cut "Обозначения субъектов" %}
 
-      * Сервисному аккаунту:
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
 
-          ```bash
-          yc certificate-manager certificate add-access-binding <идентификатор_сертификата> \
-            --service-account-id <идентификатор_сервисного_аккаунта> \
-            --role <роль>
-          ```
-
-          Где:
-
-          * `--service-account-id` — [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md).
-          * `--role` — назначаемая роль.
+          {% endcut %}
 
 - {{ TF }} {#tf}
 
@@ -96,9 +87,15 @@ description: Следуя данной инструкции, вы сможете
 
       * `certificate_id` — идентификатор сертификата.
       * `role` — назначаемая [роль](../security/index.md#roles-list).
-      * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+      * `member` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-       Подробнее о параметрах ресурса `yandex_cm_certificate_iam_member` в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
+
+      Подробнее о параметрах ресурса `yandex_cm_certificate_iam_member` в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
 
   1. Создайте ресурсы:
 
@@ -112,7 +109,13 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [updateAccessBindings](../api-ref/Certificate/updateAccessBindings.md) для ресурса [Certificate](../api-ref/Certificate/) или вызовом gRPC API [CertificateService/UpdateAccessBindings](../api-ref/grpc/Certificate/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Воспользуйтесь методом REST API [updateAccessBindings](../api-ref/Certificate/updateAccessBindings.md) для ресурса [Certificate](../api-ref/Certificate/) или вызовом gRPC API [CertificateService/UpdateAccessBindings](../api-ref/grpc/Certificate/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}
 
@@ -151,18 +154,23 @@ description: Следуя данной инструкции, вы сможете
         --access-binding role=<роль>,subject=<тип_субъекта>:<идентификатор_субъекта>
       ```
 
-      Где:
+      Где `--access-binding` — назначаемая роль:
 
-      * `--access-binding` — назначаемая роль:
-          * `role` — идентификатор назначаемой роли.
-          * `subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+      * `role` — идентификатор назначаемой роли.
+      * `subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
 
       Например, назначьте роли нескольким пользователям и сервисному аккаунту:
 
       ```bash
       yc certificate-manager certificate set-access-bindings my-certificate \
-        --access-binding role=editor,subject=userAccount:gfei8n54hmfh********
-        --access-binding role=viewer,subject=userAccount:helj89sfj80a********
+        --access-binding role=editor,subject=userAccount:gfei8n54hmfh******** \
+        --access-binding role=viewer,subject=userAccount:helj89sfj80a******** \
         --access-binding role=editor,subject=serviceAccount:ajel6l0jcb9s********
       ```
 
@@ -194,9 +202,15 @@ description: Следуя данной инструкции, вы сможете
 
       * `certificate_id` — идентификатор сертификата.
       * `role` — назначаемая [роль](../security/index.md#roles-list).
-      * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+      * `member` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-       Подробнее о параметрах ресурса `yandex_cm_certificate_iam_member` в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-terraform](../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
+
+      Подробнее о параметрах ресурса `yandex_cm_certificate_iam_member` в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
 
   1. Создайте ресурсы:
 
@@ -210,7 +224,13 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [setAccessBindings](../api-ref/Certificate/setAccessBindings.md) для ресурса [Certificate](../api-ref/Certificate/) или вызовом gRPC API [CertificateService/SetAccessBindings](../api-ref/grpc/Certificate/setAccessBindings.md).
+  Воспользуйтесь методом REST API [setAccessBindings](../api-ref/Certificate/setAccessBindings.md) для ресурса [Certificate](../api-ref/Certificate/) или вызовом gRPC API [CertificateService/SetAccessBindings](../api-ref/grpc/Certificate/setAccessBindings.md). В теле запроса в свойстве `subject` укажите тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}
 
@@ -247,7 +267,13 @@ description: Следуя данной инструкции, вы сможете
       Где:
 
       * `--role` — идентификатор роли, которую надо отозвать.
-      * `--subject` — [субъект](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
+      * `--subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-cli](../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
 
       Например, чтобы отозвать роль `{{ roles-viewer }}` у пользователя с идентификатором `ajel6l0jcb9s********`:
 
@@ -279,13 +305,20 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      Проверить изменения можно с помощью команды [CLI](../../cli/quickstart.md):
+      Проверить изменения можно с помощью команды [CLI](../../cli/):
+
       ```bash
       yc certificate-manager certificate list-access-bindings <идентификатор_сертификата>
-      ``
+      ```
 
 - API {#api}
 
-  Чтобы отозвать роли на сертификат, воспользуйтесь методом REST API [updateAccessBindings](../api-ref/Certificate/updateAccessBindings.md) для ресурса [Certificate](../api-ref/Certificate/) или вызовом gRPC API [CertificateService/UpdateAccessBindings](../api-ref/grpc/Certificate/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы отозвать роли на сертификат, воспользуйтесь методом REST API [updateAccessBindings](../api-ref/Certificate/updateAccessBindings.md) для ресурса [Certificate](../api-ref/Certificate/) или вызовом gRPC API [CertificateService/UpdateAccessBindings](../api-ref/grpc/Certificate/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  {% include [subjects-designations-api](../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}

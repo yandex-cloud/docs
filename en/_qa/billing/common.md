@@ -1,8 +1,6 @@
 # General questions about {{ billing-name }}
 
-#### Can I use my OS license for VM instances in {{ yandex-cloud }}? {#os-license}
-
-Yes. For more information, see [How to create a VM instance](../../compute/operations/vm-create/create-linux-vm.md) under [{{ compute-full-name }}](../../compute/).
+{% include [os-license](../../_includes/qa/os-license.md) %}
 
 #### Where can I find SLAs? {#sla}
 

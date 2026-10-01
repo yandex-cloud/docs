@@ -7,13 +7,464 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.38.0 (28.09.26) {#v-1-38-0}
+
+#### {{ cloud-registry-name }} {#v-1-38-0-cloud-registry-name}
+
+* Добавлена команда `yc cloud-registry migration get-folder-migration-status-dashboard` для получения сводного статуса миграции реестров в каталоге.
+
+#### {{ sf-name }} {#v-1-38-0-sf-name}
+
+* Добавлены команды управления триггерами для мессенджера MAX:
+  * `yc serverless trigger v2 create max`;
+  * `yc serverless trigger v2 update max`.
+
+## Предыдущие релизы {#previous-release}
+
+### Версия 1.37.0 (24.09.26) {#v-1-37-0}
+
+#### {{ baremetal-name }} {#v-1-37-0-baremetal-name}
+
+* Добавлена команда `yc baremetal image list-compatible` для получения списка образов, совместимых с конфигурацией.
+
+#### {{ cr-name }} {#v-1-37-0-cr-name}
+
+* Добавлена группа команд `yc cloudrouter v2` для управления экземплярами маршрутизации и пирингом:
+  * `yc cloudrouter v2 routing-instance`;
+  * `yc cloudrouter v2 peering`.
+
+#### {{ managed-k8s-name }} {#v-1-37-0-managed-k8s-name}
+
+* В команды создания и изменения кластера добавлены параметры `--cluster-ipv4-range-list` и `--cluster-ipv6-range-list`, которые позволяют указать списки IPv4 и IPv6 CIDR-диапазонов для кластера {{ k8s }}:
+  * `yc managed-kubernetes cluster create`;
+  * `yc managed-kubernetes cluster update`.
+
+#### {{ mmy-name }} {#v-1-37-0-mmy-name}
+
+* В следующие команды добавлены параметры для настройки каталога создания подключений и их секретов в интеграции {{ connection-manager-name }} для {{ mmy-name }}:
+  * `yc managed-mysql cluster create`;
+  * `yc managed-mysql cluster restore`;
+  * `yc managed-mysql cluster update`;
+  * `yc managed-mysql user create`.
+* В выводе следующих команд удалено устаревшее поле `connection_manager`; вместо него используется `user_connection_manager`:
+  * `yc managed-mysql user get`;
+  * `yc managed-mysql user list`;
+  * `yc managed-mysql user create`.
+
+#### {{ mpg-name }} {#v-1-37-0-mpg-name}
+
+* В команды создания, изменения и восстановления кластера добавлены параметры `--maintenance-anytime` и `--maintenance-window-slot` для настройки нескольких слотов обслуживания с временем начала, длительностью и разрешением временной недоступности:
+  * `yc managed-postgresql cluster create`;
+  * `yc managed-postgresql cluster update`;
+  * `yc managed-postgresql cluster restore`.
+
+#### {{ mtr-name }} {#v-1-37-0-mtr-name}
+
+* Добавлен параметр `--additional-properties` в команды для настройки дополнительных свойств кластера {{ TR }}:
+  * `yc managed-trino cluster create`;
+  * `yc managed-trino cluster update`.
+
+### Версия 1.36.0 (21.09.26) {#v-1-36-0}
+
+#### {{ mkf-name }} {#v-1-36-0-mkf-name}
+
+* Добавлены параметры `--password-file` и `--password-from-stdin` в команды `managed-kafka user create` и `managed-kafka user update` для указания источника пароля:
+  * `yc managed-kafka user create`;
+  * `yc managed-kafka user update`.
+
+#### {{ mmy-name }} {#v-1-36-0-mmy-name}
+
+* Добавлены параметры `--password-file` и `--password-from-stdin` в команды `managed-mysql user create` и `managed-mysql user update` для указания источника пароля:
+  * `yc managed-mysql user create`;
+  * `yc managed-mysql user update`.
+
+#### {{ mtr-name }} {#v-1-36-0-mtr-name}
+
+* Добавлен параметр `--event-listener-data-catalog-enabled` в команды для управления обработчиком событий {{ data-catalog-name }}:
+  * `yc managed-trino cluster create`;
+  * `yc managed-trino cluster update`.
+
+### Версия 1.35.1 (17.09.26) {#v-1-35-1}
+
+#### Изменения в системных командах CLI {#v-1-35-1-yc}
+
+Исправлено определение каталога при использовании глобального параметра `--folder-name`.
+
+### Версия 1.35.0 (17.09.26) {#v-1-35-0}
+
+#### {{ compute-name }} {#v-1-35-0-compute-name}
+
+В команду `yc compute gpu-cluster create` добавлен параметр `--subnets` для указания количества подсетей GPU-кластера.
+
+#### {{ iam-name }} {#v-1-35-0-iam-name}
+
+В команде `yc iam subject-details get` параметр `--subject-id` заменен на `--subject-ids` для передачи списка идентификаторов через запятую.
+
+#### {{ mch-name }} {#v-1-35-0-mch-name}
+
+* Добавлена команда `yc managed-clickhouse cluster migrate-to-keeper`.
+* Добавлена группа команд `yc managed-clickhouse maintenance` для просмотра запланированного технического обслуживания и переноса его сроков.
+* Добавлены параметры для чтения пароля из файла (`--password-file`) и стандартного ввода (`--password-from-stdin`) в командах:
+
+  * `yc managed-clickhouse user create`;
+  * `yc managed-clickhouse user update`.
+
+* Исправлено ограничение по роли при IAM-аутентификации пользовательских аккаунтов в команде `yc managed-clickhouse connect`.
+
+#### {{ mgp-name }} {#v-1-35-0-mgp-name}
+
+* Добавлена группа команд `yc managed-greenplum maintenance` для просмотра запланированного технического обслуживания и переноса его сроков.
+* Добавлены параметры для чтения пароля из файла (`--password-file`) и стандартного ввода (`--password-from-stdin`) в командах:
+
+  * `yc managed-greenplum user create`;
+  * `yc managed-greenplum user update`.
+
+#### {{ mkf-name }} {#v-1-35-0-mkf-name}
+
+Добавлена группа команд `yc managed-kafka maintenance` для просмотра запланированного технического обслуживания и переноса его сроков.
+
+#### {{ mmg-name }} {#v-1-35-0-mmg-name}
+
+* Добавлена группа команд `yc managed-mongodb maintenance` для просмотра запланированного технического обслуживания и переноса его сроков.
+* Добавлены параметры для чтения пароля из файла (`--password-file`) и стандартного ввода (`--password-from-stdin`) в командах:
+
+  * `yc managed-mongodb user create`;
+  * `yc managed-mongodb user update`.
+
+#### {{ mmy-name }} {#v-1-35-0-mmy-name}
+
+Добавлена группа команд `yc managed-mysql maintenance` для просмотра запланированного технического обслуживания и переноса его сроков.
+
+#### {{ mos-name }} {#v-1-35-0-mos-name}
+
+* Добавлена группа команд `yc managed-opensearch maintenance` для просмотра запланированного технического обслуживания и переноса его сроков.
+
+#### {{ mpg-name }} {#v-1-35-0-mpg-name}
+
+* Добавлена группа команд `yc managed-postgresql maintenance` для просмотра запланированного технического обслуживания и переноса его сроков.
+* Добавлены параметры для чтения пароля из файла (`--password-file`) и стандартного ввода (`--password-from-stdin`) в командах:
+
+  * `yc managed-postgresql user create`;
+  * `yc managed-postgresql user update`.
+
+#### {{ mrd-name }} {#v-1-35-0-mrd-name}
+
+* Добавлена группа команд `yc managed-redis maintenance` для просмотра запланированного технического обслуживания и переноса его сроков.
+* Добавлены параметры для чтения пароля из файла (`--password-file`) и стандартного ввода (`--password-from-stdin`) в командах:
+
+  * `yc managed-redis user create`;
+  * `yc managed-redis user update`.
+
+#### {{ mspqr-name }} {#v-1-35-0-mspqr-name}
+
+* Добавлена группа команд `yc managed-sharded-postgresql maintenance` для просмотра запланированного технического обслуживания и переноса его сроков.
+* Добавлены параметры для чтения пароля из файла (`--password-file`) и стандартного ввода (`--password-from-stdin`) в командах:
+
+  * `yc managed-sharded-postgresql user create`;
+  * `yc managed-sharded-postgresql user update`.
+
+### Версия 1.34.0 (10.09.26) {#v-1-34-0}
+
+#### {{ billing-name }} {#v-1-34-0-billing-name}
+
+* Добавлены группы команд `yc billing consumption-core` и `yc billing metadata` для получения детализированных отчетов о потреблении и расходах по платежным аккаунтам, облакам, каталогам, сервисам, SKU, ресурсам, меткам и экземплярам сервисов, а также метаданных для построения отчетов:
+  * `yc billing consumption-core get-billing-account-usage-report`;
+  * `yc billing consumption-core get-cloud-usage-report`;
+  * `yc billing consumption-core get-folder-usage-report`;
+  * `yc billing consumption-core get-service-usage-report`;
+  * `yc billing consumption-core get-sku-usage-report`;
+  * `yc billing consumption-core get-resource-usage-report`;
+  * `yc billing consumption-core get-label-key-usage-report`;
+  * `yc billing consumption-core get-service-instance-usage-report`;
+  * `yc billing metadata get-usage`;
+  * `yc billing metadata get-service-instance`;
+  * `yc billing metadata get-label`;
+  * `yc billing metadata get-cloud`;
+  * `yc billing metadata get-resources`.
+
+#### {{ dataproc-name }} {#v-1-34-0-dataproc-name}
+
+* Добавлена группа команд `yc dataproc change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc dataproc change-freeze create`;
+  * `yc dataproc change-freeze get`;
+  * `yc dataproc change-freeze list`;
+  * `yc dataproc change-freeze terminate`;
+  * `yc dataproc change-freeze get-limits`.
+
+#### {{ iam-name }} {#v-1-34-0-iam-name}
+
+* Команда `yc iam subject-details get` поддерживает несколько идентификаторов в позиционных аргументах и параметр `--filter`, заменяя команду `yc iam subject-details batch-get`.
+
+#### {{ maf-name }} {#v-1-34-0-maf-name}
+
+* Добавлена группа команд `yc managed-airflow change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc managed-airflow change-freeze create`;
+  * `yc managed-airflow change-freeze get`;
+  * `yc managed-airflow change-freeze list`;
+  * `yc managed-airflow change-freeze terminate`;
+  * `yc managed-airflow change-freeze get-limits`.
+* Добавлены ключи `username`, `password` и `password-path` для параметра `--gitsync`:
+  * `yc managed-airflow cluster create`;
+  * `yc managed-airflow cluster update`.
+
+#### {{ mch-name }} {#v-1-34-0-mch-name}
+
+* Добавлена группа команд `yc managed-clickhouse change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc managed-clickhouse change-freeze create`;
+  * `yc managed-clickhouse change-freeze get`;
+  * `yc managed-clickhouse change-freeze list`;
+  * `yc managed-clickhouse change-freeze terminate`;
+  * `yc managed-clickhouse change-freeze get-limits`.
+
+#### {{ metastore-name }} {#v-1-34-0-metastore-name}
+
+* Добавлена группа команд `yc managed-metastore change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc managed-metastore change-freeze create`;
+  * `yc managed-metastore change-freeze get`;
+  * `yc managed-metastore change-freeze list`;
+  * `yc managed-metastore change-freeze terminate`;
+  * `yc managed-metastore change-freeze get-limits`.
+
+#### {{ mgp-name }} {#v-1-34-0-mgp-name}
+
+* Добавлена группа команд `yc managed-greenplum change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc managed-greenplum change-freeze create`;
+  * `yc managed-greenplum change-freeze get`;
+  * `yc managed-greenplum change-freeze list`;
+  * `yc managed-greenplum change-freeze terminate`;
+  * `yc managed-greenplum change-freeze get-limits`.
+
+#### {{ mkf-name }} {#v-1-34-0-mkf-name}
+
+* Добавлена группа команд `yc managed-kafka change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc managed-kafka change-freeze create`;
+  * `yc managed-kafka change-freeze get`;
+  * `yc managed-kafka change-freeze list`;
+  * `yc managed-kafka change-freeze terminate`;
+  * `yc managed-kafka change-freeze get-limits`.
+
+#### {{ mmg-name }} {#v-1-34-0-mmg-name}
+
+* Добавлена группа команд `yc managed-mongodb change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc managed-mongodb change-freeze create`;
+  * `yc managed-mongodb change-freeze get`;
+  * `yc managed-mongodb change-freeze list`;
+  * `yc managed-mongodb change-freeze terminate`;
+  * `yc managed-mongodb change-freeze get-limits`.
+
+#### {{ mmy-name }} {#v-1-34-0-mmy-name}
+
+* Добавлена группа команд `yc managed-mysql change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc managed-mysql change-freeze create`;
+  * `yc managed-mysql change-freeze get`;
+  * `yc managed-mysql change-freeze list`;
+  * `yc managed-mysql change-freeze terminate`;
+  * `yc managed-mysql change-freeze get-limits`.
+* Исправлено подключение к кластеру от имени сервисного аккаунта через `yc managed-mysql cluster connect`.
+
+#### {{ mos-name }} {#v-1-34-0-mos-name}
+
+* Добавлена группа команд `yc managed-opensearch change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc managed-opensearch change-freeze create`;
+  * `yc managed-opensearch change-freeze get`;
+  * `yc managed-opensearch change-freeze list`;
+  * `yc managed-opensearch change-freeze terminate`;
+  * `yc managed-opensearch change-freeze get-limits`.
+* Улучшено описание параметра `roles` для групп хостов:
+  * `yc managed-opensearch node-group add`;
+  * `yc managed-opensearch node-group update`.
+
+#### {{ mpg-name }} {#v-1-34-0-mpg-name}
+
+* Добавлена группа команд `yc managed-postgresql change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc managed-postgresql change-freeze create`;
+  * `yc managed-postgresql change-freeze get`;
+  * `yc managed-postgresql change-freeze list`;
+  * `yc managed-postgresql change-freeze terminate`;
+  * `yc managed-postgresql change-freeze get-limits`.
+* Исправлено подключение к кластеру от имени сервисного аккаунта через `yc managed-postgresql cluster connect`.
+* Добавлена поддержка PostgreSQL 19:
+  * `yc managed-postgresql cluster create`;
+  * `yc managed-postgresql cluster update`;
+  * `yc managed-postgresql cluster restore`.
+
+#### {{ mrd-name }} {#v-1-34-0-mrd-name}
+
+* Добавлена группа команд `yc managed-redis change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc managed-redis change-freeze create`;
+  * `yc managed-redis change-freeze get`;
+  * `yc managed-redis change-freeze list`;
+  * `yc managed-redis change-freeze terminate`;
+  * `yc managed-redis change-freeze get-limits`.
+
+#### {{ msp-name }} {#v-1-34-0-msp-name}
+
+* Добавлена группа команд `yc managed-spark change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc managed-spark change-freeze create`;
+  * `yc managed-spark change-freeze get`;
+  * `yc managed-spark change-freeze list`;
+  * `yc managed-spark change-freeze terminate`;
+  * `yc managed-spark change-freeze get-limits`.
+
+#### {{ mspqr-name }} {#v-1-34-0-mspqr-name}
+
+* Добавлена группа команд `yc managed-sharded-postgresql change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc managed-sharded-postgresql change-freeze create`;
+  * `yc managed-sharded-postgresql change-freeze get`;
+  * `yc managed-sharded-postgresql change-freeze list`;
+  * `yc managed-sharded-postgresql change-freeze terminate`;
+  * `yc managed-sharded-postgresql change-freeze get-limits`.
+
+#### {{ mtr-name }} {#v-1-34-0-mtr-name}
+
+* Добавлена группа команд `yc managed-trino change-freeze` для управления мораториями на изменения и техническое обслуживание:
+  * `yc managed-trino change-freeze create`;
+  * `yc managed-trino change-freeze get`;
+  * `yc managed-trino change-freeze list`;
+  * `yc managed-trino change-freeze terminate`;
+  * `yc managed-trino change-freeze get-limits`.
+
+#### {{ org-full-name }} {#v-1-34-0-org-name}
+
+* Добавлен параметр `--group-attribute-value` в команды для выбора имени, ID или external ID группы, передаваемых приложению:
+  * `yc organization-manager idp application saml application create`;
+  * `yc organization-manager idp application saml application update`.
+* Добавлен параметр `--group-claim-value` в команды для выбора имени, ID или external ID группы, передаваемых приложению:
+  * `yc organization-manager idp application oauth application create`;
+  * `yc organization-manager idp application oauth application update`.
+
+#### {{ sws-name }} {#v-1-34-0-sws-name}
+
+* Добавлена поддержка действия CAPTCHA в статических и динамических квотах Advanced Rate Limiter:
+  * `yc smartwebsecurity advanced-rate-limiter profile create`;
+  * `yc smartwebsecurity advanced-rate-limiter profile update`.
+
+### Версия 1.33.0 (07.09.26) {#v-1-33-0}
+
+#### {{ baremetal-name }} {#v-1-33-0-baremetal-name}
+
+* Добавлена команда получения списка доступных версий {{ stackland-full-name }}:
+  * `yc baremetal v2 extend stackland-cluster list-stackland-versions`.
+
+#### {{ cloud-registry-name }} {#v-1-33-0-cloud-registry-name}
+
+* Разрешено отключать редиректы при миграции:
+  * `yc cloud-registry migration toggle-registry-redirects`;
+  * `yc cloud-registry migration toggle-folder-redirects`;
+  * `yc cloud-registry migration toggle-cloud-redirects`.
+
+#### {{ mgp-name }} {#v-1-33-0-mgp-name}
+
+* Добавлен параметр `--disk-encryption-key-id` для настройки шифрования дисков кластера:
+  * `yc managed-greenplum cluster create`;
+  * `yc managed-greenplum cluster restore`.
+* Добавлены параметры `--pool-mode`, `--pool-size`, `--pool-client-idle-timeout`, `--pool-idle-in-transaction-timeout` для установки настроек пользователя:
+  * `yc managed-greenplum user create`;
+  * `yc managed-greenplum user update`.
+
+### Версия 1.32.0 (03.09.26) {#v-1-32-0}
+
+#### {{ alb-name }} {#v-1-32-0-alb-name}
+
+В следующие команды добавлены параметры `--tls-client-certificate-id`, `--tls-sni` и `--tls-trusted-ca-from-file` для использования клиентского сертификата в группах бэкендов:
+* `yc application-load-balancer backend-group add-http-backend`;
+* `yc application-load-balancer backend-group add-grpc-backend`;
+* `yc application-load-balancer backend-group add-stream-backend`;
+* `yc application-load-balancer backend-group update-http-backend`;
+* `yc application-load-balancer backend-group update-grpc-backend`;
+* `yc application-load-balancer backend-group update-stream-backend`.
+
+#### {{ baremetal-name }} {#v-1-32-0-baremetal-name}
+
+В следующих командах убрано ограничение на минимальное количество приватных подсетей при аренде и изменении параметров сервера:
+* `yc baremetal server create`;
+* `yc baremetal server update`.
+
+#### {{ mch-name }} {#v-1-32-0-mch-name}
+
+Добавлена возможность выбрать каталоги для подключений и секретов {{ connection-manager-name }}:
+* Для следующих команд используется параметр `--connection-manager`:
+  * `yc managed-clickhouse cluster create`;
+  * `yc managed-clickhouse cluster update`;
+  * `yc managed-clickhouse cluster restore`.
+* Для команды `yc managed-clickhouse user create` используются параметры `--connection-folder-id` и `--secret-folder-id`.
+
+#### {{ mgp-name }} {#v-1-32-0-mgp-name}
+
+Добавлена команда `yc managed-greenplum hba-rules batch-update` для полной замены правил HBA из файла в формате YAML или JSON либо очистки списка правил.
+
+#### {{ mos-name }} {#v-1-32-0-mos-name}
+
+Добавлена команда `yc managed-opensearch cluster move` для переноса кластера в другой каталог.
+
+#### Сервисы управляемых баз данных {##v-1-32-0-mdb}
+
+В команде `yc managed-zonalshift config update` добавлена поддержка значений параметра `--cluster-id`, разделенных запятыми.
+
+### Версия 1.31.0 (31.08.26) {#v-1-31-0}
+
+#### {{ mgp-name }} {#v-1-31-0-mgp-name}
+
+* Добавлен параметр управления TLS для `gpfdist` в команды создания и обновления кластера:
+  * `yc managed-greenplum cluster create`;
+  * `yc managed-greenplum cluster update`;
+  * `yc managed-greenplum cluster restore`.
+* Добавлено отображение размеров WAL и общего хранилища для резервных копий {{ GP }} и {{ CB }}:
+  * `yc managed-greenplum backup get`;
+  * `yc managed-greenplum backup list`;
+  * `yc managed-greenplum cluster list-backups`.
+
+#### {{ sf-name }} {#v-1-31-0-sf-name}
+
+* Добавлены команды для создания и редактирования триггеров для Яндекс Мессенджера:
+  * `yc serverless trigger v2 create yandex-messenger`;
+  * `yc serverless trigger v2 update yandex-messenger`.
+
+### Версия 1.30.0 (27.08.26) {#v-1-30-0}
+
+#### {{ mgp-name }} {#v-1-30-0-mgp-name}
+
+* Исправлено аварийное завершение CLI при вызове команд управления правилами HBA без указания приоритета правила:
+  * `yc managed-greenplum hba-rules create`;
+  * `yc managed-greenplum hba-rules delete`;
+  * `yc managed-greenplum hba-rules get`;
+  * `yc managed-greenplum hba-rules update`.
+
+#### {{ sws-name }} {#v-1-30-0-sws-name}
+
+* Исправлено отображение документации команд `yc smartwebsecurity`: скрыто дублирующее поддерево `v1` и добавлены описания групп.
+
+### Версия 1.29.0 (24.08.26) {#v-1-29-0}
+
+#### {{ sf-name }} {#v-1-29-0-sf-name}
+
+* Добавлена группа команд `yc serverless trigger v2` для управления триггерами версии 2.
+
+#### {{ cloud-registry-name }} {#v-1-29-0-cloud-registry-name}
+
+* Добавлены команды для запуска миграции папки и просмотра статуса миграции:
+  * `yc cloud-registry migration start-folder`;
+  * `yc cloud-registry migration get-cloud-migration-status-dashboard`.
+
+#### {{ container-registry-name }} {#v-1-29-0-container-registry-name}
+
+* Добавлена команда `yc container registry force-delete`.
+
+#### {{ mch-name }} {#v-1-29-0-mch-name}
+
+* Добавлен параметр `--external-shard` для управления внешними шардами в группах шардов:
+  * `yc managed-clickhouse shard-groups create`;
+  * `yc managed-clickhouse shard-group update`.
+
+#### {{ mpg-name }} {#v-1-29-0-mpg-name}
+
+* Добавлен параметр `--extended-filter` в команду `yc managed-postgresql performance-diagnostics list-raw-sessions` для фильтрации сессий.
+
 ### Версия 1.28.0 (20.08.26) {#v-1-28-0}
 
 #### {{ baremetal-name }} {#v-1-28-0-baremetal-name}
 
 * Добавлена возможность заказать кластер Stackland с доступом в публичную сеть. Также добавлена возможность собрать кластер из существующих серверов.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.27.0 (17.08.26) {#v-1-27-0}
 

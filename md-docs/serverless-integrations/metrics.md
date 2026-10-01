@@ -2,6 +2,12 @@
 
 # Справочник метрик Yandex Monitoring
 
+{% note warning %}
+
+Сервис Yandex Serverless Integrations прекращает работу 8 октября 2026 года. Подробнее о сроках и порядке закрытия читайте на странице [Закрытие сервиса Yandex Serverless Integrations](sunset.md).
+
+{% endnote %}
+
 В этом разделе описаны метрики сервиса Serverless Integrations, поставляемые в [Monitoring](../monitoring/index.md).
 
 Имя метрики пишется в метку `name`.

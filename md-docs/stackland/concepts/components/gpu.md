@@ -78,6 +78,29 @@ Kubernetes автоматически разместит под на узле с
 
 ## Конфигурация {#configuration}
 
+### Включить поддержку GPU {#enable}
+
+Поддержку GPU необходимо включить на этапе развертывания кластера. По умолчанию компонент «Поддержка NVIDIA® GPU» отключен.
+
+1. При подготовке [начальной конфигурации кластера](../../quickstart.md#configuration) добавьте `gpu` в список `features` для каждого рабочего узла с GPU в ресурсе `StacklandHostsList`. Фрагмент настройки одного узла:
+
+   ```yaml
+   spec:
+     hosts:
+       - hostname: "gpu1.stackland.internal"
+         role: "worker"
+         features:
+           - gpu
+   ```
+
+1. После развертывания кластера проверьте состояние установки компонента:
+
+   ```bash
+   kubectl get componentinstallation nvidia-gpu-main
+   ```
+
+   Дождитесь значения `Ready` в поле `PHASE`, прежде чем запускать рабочие нагрузки с GPU.
+
 ### Параметры MIG Manager {#mig-settings}
 
 ```yaml

@@ -8,18 +8,28 @@ editable: false
 
 
 
+{% note warning %}
+
+Начиная с 11 сентября 2026 года [хранение данных {{ GL }} в {{ objstorage-full-name }}](./concepts/s3-integration.md) тарифицируется.
+
+{% endnote %}
+
 ::: page-constructor
 blocks:
   - type: card-layout-block
     animated: false
     colSizes:
       all: 12
-      sm: 4
+      md: 4
+    indent:
+      top: '0'
+      bottom: '0'
     children:
       - type: basic-card
         title: Калькулятор цен
         text: Рассчитайте стоимость использования сервиса, исходя из ваших потребностей
-        icon: _assets/icons/calculator.svg
+        gravityIcon: Calculator
+        iconPosition: left
         urlTitle: Калькулятор цен
         url: https://yandex.cloud/ru/prices?state=2f44fbe92c5f#calculator
         size: s
@@ -31,7 +41,8 @@ blocks:
       - type: basic-card
         title: Прайс-лист
         text: Актуальные тарифы на все наши услуги
-        icon: _assets/icons/circle-ruble.svg
+        gravityIcon: CircleRuble
+        iconPosition: left
         urlTitle: Прайс-лист
         url: https://yandex.cloud/ru/price-list?services=dn2g45ennmllm0knk0gi
         size: s
@@ -43,7 +54,8 @@ blocks:
       - type: basic-card
         title: Акции и free tier
         text: Гранты, специальные условия и программы поддержки
-        icon: _assets/icons/flame.svg
+        gravityIcon: Flame
+        iconPosition: left
         urlTitle: Акции и free tier
         url: https://yandex.cloud/ru/all-offers
         size: s
@@ -168,3 +180,4 @@ blocks:
 ## Лицензии {#license}
 
 По умолчанию {{ mgl-name }} использует Community Edition версию {{ GL }}. Если у вас есть оплаченная [лицензия](https://about.gitlab.com/pricing/) {{ GL }} (`Premium` или `Ultimate`) — обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру, чтобы воспользоваться ею в {{ mgl-name }}.
+

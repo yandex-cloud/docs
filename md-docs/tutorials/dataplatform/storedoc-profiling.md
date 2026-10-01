@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Анализ производительности и оптимизация Yandex StoreDoc
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > MongoDB/Yandex StoreDoc > Анализ производительности и оптимизация Yandex StoreDoc
 
 # Анализ производительности и оптимизация MongoDB
 
@@ -12,9 +12,9 @@
 
 Снижение производительности кластера Yandex StoreDoc чаще всего происходит по одной из следующих причин:
 
-* [высокая утилизация CPU и дискового I/O](#cpu-io-deficit),
-* [неэффективное выполнение запросов в Yandex StoreDoc](#inefficient-queries),
-* [блокировки](#locks),
+* [высокая утилизация CPU и дискового I/O](#cpu-io-deficit);
+* [неэффективное выполнение запросов в Yandex StoreDoc](#inefficient-queries);
+* [блокировки](#localize-locking-issues);
 * [недостаток дискового пространства](#disk-deficit).
 
 Ниже приводятся советы по диагностике и решению этих проблем.

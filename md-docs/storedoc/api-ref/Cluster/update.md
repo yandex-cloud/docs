@@ -1347,7 +1347,12 @@ The maximum string length in characters is 50. ||
             "maxSizePercent": "string",
             "minRetentionHours": "number"
           },
-          "chainingAllowed": "boolean"
+          "chainingAllowed": "boolean",
+          "changeStreamOptions": {
+            "preAndPostImages": {
+              "expireAfterSeconds": "string"
+            }
+          }
         },
         "resources": {
           "resourcePresetId": "string",
@@ -5106,7 +5111,7 @@ Disk size autoscaling settings ||
 ## MongodConfig {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig}
 
 Configuration of a mongod daemon. Supported options are a limited subset of all
-options described in [MongoDB documentation](https://docs.mongodb.com/v7.0/reference/configuration-options/).
+options described in [MongoDB documentation](https://www.mongodb.com/docs/manual/reference/configuration-options/).
 
 #|
 ||Field | Description ||
@@ -5134,6 +5139,9 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v7.0/refer
 || chainingAllowed | **boolean**
 
 Chained replication setting ||
+|| changeStreamOptions | **[ChangeStreamOptions](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.ChangeStreamOptions)**
+
+Change stream settings. ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage}
@@ -5145,7 +5153,7 @@ Chained replication setting ||
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.Journal)**
 
-Configuration of the MongoDB [journal](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-journal). ||
+Configuration of the MongoDB [journal](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-journal). ||
 |#
 
 ## WiredTiger {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger}
@@ -5186,9 +5194,9 @@ The maximum size of the internal cache that WiredTiger will use for all data in 
 Default type of compression to use for collection data.
 
 - `NONE`: No compression.
-- `SNAPPY`: The [Snappy](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-snappy) compression.
-- `ZLIB`: The [zlib](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-zlib) compression.
-- `ZSTD`: The [zstd](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-zstd) compression. ||
+- `SNAPPY`: The [Snappy](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-snappy) compression.
+- `ZLIB`: The [zlib](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-zlib) compression.
+- `ZSTD`: The [zstd](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-zstd) compression. ||
 |#
 
 ## IndexConfig {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger.IndexConfig}
@@ -5266,9 +5274,9 @@ MongoDB supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
-- `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
-- `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
-- `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
+- `SNAPPY`: The [Snappy](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-snappy) compression.
+- `ZLIB`: The [zlib](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-zlib) compression.
+- `ZSTD`: The [zstd](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-zstd) compression.
 - `DISABLED`: No compression ||
 |#
 
@@ -5311,10 +5319,11 @@ KMIP Key identifier (if any) ||
 ||Field | Description ||
 || filter | **string**
 
-Audit filter ||
+Audit filter, should be valid JSON object string ||
 || runtimeConfiguration | **boolean**
 
-Allows runtime configuration of audit filter and auditAuthorizationSuccess ||
+Allows runtime configuration of audit filter and auditAuthorizationSuccess.
+Available for MongoDB Enterprise only. ||
 |#
 
 ## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter}
@@ -5323,11 +5332,12 @@ Allows runtime configuration of audit filter and auditAuthorizationSuccess ||
 ||Field | Description ||
 || auditAuthorizationSuccess | **boolean**
 
-Enables the auditing of authorization successes ||
+Enables the auditing of authorization successes.
+See the [MongoDB documentation](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess). ||
 || enableFlowControl | **boolean**
 
 Enables or disables the mechanism that controls the rate at which the primary applies its writes with the
-goal of keeping the secondary members [majority committed](https://www.mongodb.com/docs/v7.0/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime)
+goal of keeping the secondary members [majority committed](https://www.mongodb.com/docs/manual/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime)
 lag under a configurable maximum value. ||
 || minSnapshotHistoryWindowInSeconds | **string** (int64)
 
@@ -5403,6 +5413,26 @@ Oplog maxsize in percents. ||
 || minRetentionHours | **number** (double)
 
 The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. ||
+|#
+
+## ChangeStreamOptions {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.ChangeStreamOptions}
+
+#|
+||Field | Description ||
+|| preAndPostImages | **[PreAndPostImages](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.ChangeStreamOptions.PreAndPostImages)**
+
+Retention settings for pre- and post-images. ||
+|#
+
+## PreAndPostImages {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.ChangeStreamOptions.PreAndPostImages}
+
+#|
+||Field | Description ||
+|| expireAfterSeconds | **string** (int64)
+
+The number of seconds after which pre- and post-images expire.
+
+The minimum value is 0. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.MongodbSpec.MongoCfg}
@@ -5494,7 +5524,7 @@ Mode which specifies operations that should be profiled.
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
-running in the SLOW_OP mode. For details see [MongoDB documentation](https://www.mongodb.com/docs/v7.0/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpThresholdMs).
+running in the SLOW_OP mode. For details see [MongoDB documentation](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpThresholdMs).
 
 Value must be greater than 0. ||
 |#
@@ -5517,7 +5547,7 @@ Acceptable values are 10 to 32768, inclusive. ||
 || enableFlowControl | **boolean**
 
 Enables or disables the mechanism that controls the rate at which the primary applies its writes with the
-goal of keeping the secondary members [majority committed](https://www.mongodb.com/docs/v4.2/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime)
+goal of keeping the secondary members [majority committed](https://www.mongodb.com/docs/manual/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime)
 lag under a configurable maximum value. ||
 || auditAuthorizationSuccess | **boolean**
 
@@ -5616,9 +5646,9 @@ MongoDB supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
-- `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
-- `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
-- `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
+- `SNAPPY`: The [Snappy](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-snappy) compression.
+- `ZLIB`: The [zlib](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-zlib) compression.
+- `ZSTD`: The [zstd](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-zstd) compression.
 - `DISABLED`: No compression ||
 |#
 
@@ -5738,8 +5768,8 @@ Minimum percentage of bloat of collection to be compacted. ||
 
 Type of compaction. Either switch primary to run compaction on all hosts or ignore primary host.
 
-- `COMPACTION_TYPE_IGNORE_PRIMARY`
-- `COMPACTION_TYPE_SWITCH_PRIMARY` ||
+- `COMPACTION_TYPE_IGNORE_PRIMARY`: Run compaction on all hosts except primary.
+- `COMPACTION_TYPE_SWITCH_PRIMARY`: Switch primary to run compaction on all hosts. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.mongodb.v1.MaintenanceWindow}

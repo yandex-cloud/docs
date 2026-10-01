@@ -26,6 +26,12 @@ For charts based on {{ prometheus-name }} metrics, see [{#T}](../operations/prom
   1. To search for {{ yandex-cloud }} resource metrics, enter the following in the query string:
   
       {% include [yc-resource-labels](../../_includes/monium/yc-resource-labels-metrics.md) %}
+
+      {% note info %}
+
+      If you delete a {{ yandex-cloud }} resource (e.g., a VM instance) and create a new one with the same name, searching by name will only show metrics for the new resource. Metrics for the earlier resource remain available until the [TTL](../concepts/common-ttl.md#ttl-metrics) expires, but only when searching by its `resource_id`.
+
+      {% endnote %}
   
   1. To view all available labels for a query you have already entered, click ![view](../../_assets/console-icons/folder-open.svg) in the query bar controls on the right. If you do not see the label in the list, it means that its values were not transferred to the system or have already been deleted due to [TTL](../concepts/common-ttl.md) expiration. You can enter a label manually, but the chart will not be displayed.
 

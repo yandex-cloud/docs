@@ -8,18 +8,28 @@ editable: false
 
 
 
+{% note warning %}
+
+Starting September 11, 2026, [{{ GL }} data storage in {{ objstorage-full-name }}](./concepts/s3-integration.md) will be billed.
+
+{% endnote %}
+
 ::: page-constructor
 blocks:
   - type: card-layout-block
     animated: false
     colSizes:
       all: 12
-      sm: 4
+      md: 4
+    indent:
+      top: '0'
+      bottom: '0'
     children:
       - type: basic-card
         title: Price calculator
         text: Calculate the cost of the service based on your needs
-        icon: _assets/icons/calculator.svg
+        gravityIcon: Calculator
+        iconPosition: left
         urlTitle: Price calculator
         url: https://yandex.cloud/en/prices?state=aeece8ec0f13#calculator
         size: s
@@ -31,7 +41,8 @@ blocks:
       - type: basic-card
         title: Price list
         text: Current prices of all our services
-        icon: _assets/icons/circle-ruble.svg
+        gravityIcon: CircleRuble
+        iconPosition: left
         urlTitle: Price list
         url: https://yandex.cloud/en/price-list?services=dn2g45ennmllm0knk0gi
         size: s
@@ -127,3 +138,4 @@ The price of computing resources depends on the selected [approval rule](concept
 ## Licenses {#license}
 
 By default, {{ mgl-name }} uses {{ GL }} Community Edition. If you have a paid {{ GL }} [license](https://about.gitlab.com/pricing/) (either `Premium` or `Ultimate`), contact [our support]({{ link-console-support }}) or your account manager to use it in {{ mgl-name }}.
+

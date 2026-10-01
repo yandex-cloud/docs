@@ -107,8 +107,7 @@ The cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the bucket you want to enable logging for.
-  1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Open the **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}** tab.  
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.  
   1. Enable **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_server-logs_mfGpj }}**.
   1. Select **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_target-bucket_jEJ5E }}**.
   1. In the **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_prefix_4JTZG }}** field, specify the `s3-logs/` prefix.
@@ -171,7 +170,7 @@ The cost includes:
         * `target_bucket`: Bucket for storing logs.
         * `target_prefix`: [Key prefix](../../storage/concepts/server-logs.md#key-prefix) for objects with logs.
 
-        For more on `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
+        For more on the properties of the `yandex_storage_bucket` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
 
         {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -189,7 +188,7 @@ The cost includes:
 ### Create a {{ CH }} cluster {#create-ch-cluster}
 
 
-To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role along with the [{{ roles.mch.editor }} role or higher](../../managed-clickhouse/security.md#roles-list). For information on assigning roles, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
+To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}]({{ link-docs }}/vpc/security/#vpc-user) role along with the [{{ roles.mch.editor }} role or higher](../../managed-clickhouse/security.md#roles-list). For information on assigning roles, see [this {{ iam-name }} guide]({{ link-docs }}/iam/operations/roles/grant).
 
 
 {% list tabs group=instructions %}
@@ -392,7 +391,7 @@ You need a static key to create a table with access to {{ objstorage-name }}. [C
         request_path String,        -- Full query path.
         request_time Int64,         -- Query processing time in milliseconds.
         scheme String,              -- Data transfer protocol type.
-                                    -- The possible values are:
+                                    -- The possible values are as follows:
                                     -- * http: Application layer protocol.
                                     -- * https: Application layer protocol with encryption support.
         ssl_protocol String,        -- Security protocol.
@@ -402,7 +401,7 @@ You need a static key to create a table with access to {{ objstorage-name }}. [C
         user_agent String,          -- Client app (user agent) that run the query.
         version_id String,          -- Object version.
         vhost String                -- Virtual host of the query.
-                                    -- The possible values are:
+                                    -- The possible values are as follows:
                                     -- * {{ s3-storage-host }}.
                                     -- * <bucket_name>.{{ s3-storage-host }}.
                                     -- * {{ s3-web-host }}.

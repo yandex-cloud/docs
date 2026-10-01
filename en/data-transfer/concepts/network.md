@@ -12,7 +12,7 @@ You can specify a subnet manually in the endpoint settings (for **Custom install
 
 If hosts are referenced by domain names in the endpoint settings, the DNS servers specified in the selected subnet DHCP settings will be used to resolve them into IP addresses. All the subnet's DNS servers must resolve the host domain name into an IP address; otherwise, the transfer may fail to start because the transfer services use an arbitrary subnet DNS server for name resolution. For more information, see [IP addresses and domain names in endpoint settings](#ip-addresses-and-domain-names).
 
-The subnets selected for both endpoints of the same transfer must belong to the same availability zone.
+The subnets selected for both endpoints of the same transfer must belong to the same [availability zone](../../overview/concepts/geo-scope.md).
 
 ## MDB cluster subnets {#managed-cluster-subnets}
 
@@ -20,7 +20,7 @@ You can only specify a subnet for **Custom installation** endpoints. If the endp
 
 {% note info %}
 
-If both endpoints of the transfer are MDB clusters, and the [availability zones](../../overview/concepts/geo-scope.md) of the source and target subnets do not intersect, you will not be able to initiate a transfer. There are two workarounds for this situation:
+In the event that both the transfer endpoints are MDB clusters and the source and target subnets' availability zones do not intersect, you will not be able to initiate a transfer. There are two workarounds for this situation:
 
 * Add a host to one of the clusters by assigning it a suitable availability zone.
 * Select the **Custom installation** type for one of the endpoints and assign it any subnet with the same availability zone as one of the zones of the other endpoint. If there is no suitable network, create a new one in a required zone and specify it in the **Custom installation** endpoint settings.

@@ -20,13 +20,10 @@
 
 - Консоль управления {#console}
 
-   1. В консоли управления выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать [инстанс GitLab](../../../managed-gitlab/concepts/index.md#instance).
+   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать [инстанс GitLab](../../../managed-gitlab/concepts/index.md#instance).
    1. [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
    1. Нажмите кнопку **Создать инстанс**.
-   1. В верхней части страницы:
-
-      1. Введите имя инстанса. Оно должно быть уникальным в рамках Yandex Cloud.
-
+   1. В верхней части страницы введите имя инстанса. Оно должно быть уникальным в рамках Yandex Cloud.
    1. В блоке **Конфигурация**:
 
       1. Выберите [тип инстанса](../../../managed-gitlab/concepts/index.md#config). После создания инстанса можно [изменить его тип](../../../managed-gitlab/operations/instance/instance-update.md) на более производительный.
@@ -59,7 +56,7 @@
 
    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения**.
-   1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
+   1. Нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
       1. Выберите метод единого входа **SAML (Security Assertion Markup Language)**.
       1. В поле **Имя** задайте имя создаваемого приложения: `managed-gitlab-app`.
 
@@ -80,26 +77,32 @@
 
 Чтобы интегрировать провайдер аутентификации для GitLab через OmniAuth, добавьте провайдер аутентификации:
 
-1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
-1. Нажмите на созданный инстанс и выберите вкладку **OmniAuth**.
-1. Нажмите кнопку **Настроить**.
-1. Чтобы добавить провайдера аутентификации, нажмите кнопку **Add**.
-1. Выберите тип `SAML` и укажите параметры провайдера аутентификации:
+{% list tabs group=instructions %}
 
-   * **Label** — название провайдера аутентификации. Может быть любым, например `Identity Hub`.
-   * **Assertion consumer service URL** — HTTPS-эндпоинт инстанса GitLab. Чтобы сформировать этот URL, добавьте `/users/auth/saml/callback` к адресу вашего инстанса GitLab, например `https://example.gitlab.yandexcloud.net/users/auth/saml/callback`.
-   * **IDP certificate fingerprint** — SHA1-отпечаток открытого ключа сертификата. Используйте значение из поля **Цифровой отпечаток (fingerprint)**, полученное при создании приложения в Yandex Identity Hub.
-   * **IDP SSO target URL** — URL провайдера идентификации. Используйте значение из поля **Login URL**.
-   * **Issuer** — уникальный идентификатор приложения, в котором будет происходить аутентификация пользователя, например `https://example.gitlab.yandexcloud.net`.
-   * **Name identifier format** — формат идентификатора имени, выберите значение `Persistent`.
-   * **Allow single sign on** — разрешить использование SSO. Установите значение `true`. Если установить `false`, аутентифицироваться смогут только пользователи, уже созданные на стороне GitLab.
-   * **Auto link users by email** — установить соответствие между именем пользователя в OmniAuth и в GitLab, если к ним привязан один адрес электронной почты. Установите значение `true`.
-   * **Block auto-created users** — переводить автоматически созданные учетные записи в состояние [Pending approval](https://docs.gitlab.com/ee/administration/moderate_users.html#users-pending-approval) до их одобрения администратором. Установите значение `false`.
-   * **External provider** — установить для провайдера свойство _внешний_. Пользователи, аутентифицированные через данный провайдер, будут считаться [внешними](https://docs.gitlab.com/ee/user/admin_area/external_users.html) и не будут иметь доступа к [внутренним проектам](https://docs.gitlab.com/ee/user/public_access.html#internal-projects-and-groups). Установите значение `false`.
-   * **Auto link LDAP user** — создавать LDAP-сущность для автоматически созданных учетных записей. Применимо только для инстансов, к которым подключен LDAP-провайдер. Установите значение `false`.
+- Консоль управления {#console}
 
-1. Нажмите кнопку **Создать**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
+  1. Нажмите на созданный инстанс и выберите вкладку **OmniAuth**.
+  1. Нажмите кнопку **Настроить**.
+  1. Чтобы добавить провайдера аутентификации, нажмите кнопку **Add**.
+  1. Выберите тип `SAML` и укажите параметры провайдера аутентификации:
+  
+     * **Label** — название провайдера аутентификации. Может быть любым, например `Identity Hub`.
+     * **Assertion consumer service URL** — HTTPS-эндпоинт инстанса GitLab. Чтобы сформировать этот URL, добавьте `/users/auth/saml/callback` к адресу вашего инстанса GitLab, например `https://example.gitlab.yandexcloud.net/users/auth/saml/callback`.
+     * **IDP certificate fingerprint** — SHA1-отпечаток открытого ключа сертификата. Используйте значение из поля **Цифровой отпечаток (fingerprint)**, полученное при создании приложения в Yandex Identity Hub.
+     * **IDP SSO target URL** — URL провайдера идентификации. Используйте значение из поля **Login URL**.
+     * **Issuer** — уникальный идентификатор приложения, в котором будет происходить аутентификация пользователя, например `https://example.gitlab.yandexcloud.net`.
+     * **Name identifier format** — формат идентификатора имени, выберите значение `Persistent`.
+     * **Allow single sign on** — разрешить использование SSO. Установите значение `true`. Если установить `false`, аутентифицироваться смогут только пользователи, уже созданные на стороне GitLab.
+     * **Auto link users by email** — установить соответствие между именем пользователя в OmniAuth и в GitLab, если к ним привязан один адрес электронной почты. Установите значение `true`.
+     * **Block auto-created users** — переводить автоматически созданные учетные записи в состояние [Pending approval](https://docs.gitlab.com/ee/administration/moderate_users.html#users-pending-approval) до их одобрения администратором. Установите значение `false`.
+     * **External provider** — установить для провайдера свойство _внешний_. Пользователи, аутентифицированные через данный провайдер, будут считаться [внешними](https://docs.gitlab.com/ee/user/admin_area/external_users.html) и не будут иметь доступа к [внутренним проектам](https://docs.gitlab.com/ee/user/public_access.html#internal-projects-and-groups). Установите значение `false`.
+     * **Auto link LDAP user** — создавать LDAP-сущность для автоматически созданных учетных записей. Применимо только для инстансов, к которым подключен LDAP-провайдер. Установите значение `false`.
+  
+  1. Нажмите кнопку **Создать**.
+
+{% endlist %}
 
 ### Настройте SAML-приложение на стороне Yandex Identity Hub {#setup-idp}
 

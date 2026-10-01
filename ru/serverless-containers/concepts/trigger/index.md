@@ -5,7 +5,9 @@ description: Триггер — условие, при выполнении ко
 
 # Триггеры в {{ serverless-containers-name }}. Обзор
 
-_Триггер_ — условие, при выполнении которого автоматически запускается [контейнер](../container.md) {{ serverless-containers-name }}. Триггеры позволяют автоматизировать работу с другими сервисами {{ yandex-cloud }}, например: {{ objstorage-full-name }}, {{ message-queue-full-name }} и {{ container-registry-full-name }}. 
+_Триггер_ — условие, при выполнении которого автоматически вызывается [контейнер](../container.md) {{ serverless-containers-name }}. Один триггер может одновременно вызывать несколько контейнеров {{ serverless-containers-name }} и функций {{ sf-name }}, а также отправлять сообщения в WebSocket-соединения одного или нескольких API-шлюзов {{ api-gw-full-name }} — типы получателей можно комбинировать.
+
+Триггеры позволяют автоматизировать работу с другими сервисами {{ yandex-cloud }}, например: {{ objstorage-full-name }}, {{ message-queue-full-name }} и {{ container-registry-full-name }}.
 
 {% include [trigger-time](../../../_includes/functions/trigger-time.md) %}
 
@@ -18,7 +20,8 @@ _Триггер_ — условие, при выполнении которог�
 * [триггер для {{ iot-name }}](iot-core-trigger.md);
 * [триггер для бюджетов](budget-trigger.md);
 * [триггер для {{ yds-name }}](data-streams-trigger.md);
-* [триггер для почты](mail-trigger.md).
+* [триггер для почты](mail-trigger.md);
+* [триггер для Telegram](telegram-trigger.md).
 
 {% include [trigger-intro-note](../../../_includes/functions/trigger-intro-note.md) %}
 
@@ -33,24 +36,11 @@ _Триггер_ — условие, при выполнении которог�
 * Сервисному аккаунту, от имени которого будет вызываться контейнер, необходима роль `{{ roles-serverless-containers-invoker }}`. Другие роли, необходимые для корректной работы триггера, зависят от его типа. Подробнее читайте в описании соответствующего триггера.
 * Если работа триггера была приостановлена пользователем, а затем снова запущена, то все события, произошедшие за время простоя, не будут обработаны.
 
-## Группирование сообщений {#batch-messages}
+{% include [trigger-filter-messages](../../../_includes/functions/trigger-filter-messages.md) %}
 
-Вы можете настроить группирование сообщений перед вызовом контейнера у следующих триггеров:
+{% include [trigger-transform-messages](../../../_includes/functions/trigger-transform-messages.md) %}
 
-* триггер для {{ message-queue-name }};
-* триггер для {{ cloud-logging-name }};
-* триггер для {{ objstorage-name }};
-* триггер для {{ container-registry-name }};
-* триггер для {{ iot-name }};
-* триггер для {{ yds-name }};
-* триггер для почты.
-
-Это позволит вызывать контейнер не для каждого отдельного сообщения, а для целой группы сообщений. Для этого в параметрах триггера задайте:
-
-* **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cutoff }}** — время, в течение которого происходит группирование сообщений. Число сообщений при этом не превышает указанный размер группы.
-* **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}** — количество сообщений для группирования.
-
-Подробнее о группировании сообщений читайте в инструкциях по созданию соответствующего триггера.
+{% include [batching-events](../../../_includes/functions/batching-events.md) %}
 
 ## Повторные вызовы контейнера {#invoke-retry}
 

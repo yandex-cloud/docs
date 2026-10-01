@@ -4,6 +4,10 @@
 
 ## Образы 2.2.x (бета) {#2-2-x}
 
+### 2.2.11 (бета) {#2-2-11}
+
+* Устранены уязвимости [CVE-2026-64564 (SCTPhantom)](../../security/security-bulletins/index.md#CVE-2026-64564) и [CVE-2026-31431 (Copy Fail)](../../security/security-bulletins/index.md#CVE-2026-31431).
+
 ### 2.2.10 (бета) {#2-2-10}
 
 * Добавлены утилиты `jq` и `yq`.
@@ -55,6 +59,10 @@
     * Spark — 3.5.0.
 
 ## Образы 2.1.x {#2-1-x}
+
+### 2.1.23 {#2-1-23}
+
+* Устранены уязвимости [CVE-2026-64564 (SCTPhantom)](../../security/security-bulletins/index.md#CVE-2026-64564) и [CVE-2026-31431 (Copy Fail)](../../security/security-bulletins/index.md#CVE-2026-31431).
 
 ### 2.1.22 {#2-1-22}
 

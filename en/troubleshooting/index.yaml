@@ -11,75 +11,33 @@ links:
   - title: '{{ billing-name }}'
     description: Solutions for {{ billing-name }}
     href: billing/
-  - title: '{{ cdn-name }}'
-    description: Solutions for {{ cdn-name }}
-    href: cdn/
-  - title: '{{ certificate-manager-name }}'
-    description: Solutions for {{ certificate-manager-name }}
-    href: certificate-manager/
-  - title: '{{ mch-name }}'
-    description: Solutions for {{ mch-name }}
-    href: clickhouse/
   - title: '{{ dns-name }}'
     description: Solutions for {{ dns-name }}
     href: dns/
-  - title: '{{ sf-name }}'
-    description: Solutions for {{ sf-name }}
-    href: functions/
-  - title: '{{ cloud-logging-name }}'
-    description: Solutions for {{ cloud-logging-name }}
-    href: cloud-logging/
   - title: '{{ compute-name }}'
     description: Solutions for {{ compute-name }}
     href: compute/
-  - title: '{{ container-registry-name }}'
-    description: Solutions for {{ container-registry-name }}
-    href: container-registry/
   - title: '{{ console-name }}'
     description: Solutions for {{ console-name }}
     href: console/
   - title: '{{ datalens-name }}'
     description: Solutions for {{ datalens-name }}
     href: datalens/
-  - title: '{{ dataproc-name }}'
-    description: Solutions for {{ dataproc-name }}
-    href: dataproc/
-  - title: '{{ ml-platform-name }}'
-    description: Solutions for {{ ml-platform-name }}
-    href: datasphere/
-  - title: '{{ data-transfer-name }}'
-    description: Solutions for {{ data-transfer-name }}
-    href: data-transfer/
   - title: '{{ iam-name }}'
     description: Solutions for {{ iam-short-name }}
-    href: iam/
-  - title: '{{ kms-name }}'
-    description: Solutions for {{ kms-short-name }}
-    href: kms/
+    href: ../iam/qa/index.md
   - title: Legal
     description: Solutions for legal
     href: legal/
-  - title: '{{ mgl-name }}'
-    description: Solutions for {{ mgl-name }}
-    href: managed-gitlab/
   - title: '{{ managed-k8s-name }}'
     description: Solutions for {{ managed-k8s-name }}
     href: managed-kubernetes/
   - title: '{{ mmy-name }}'
     description: Solutions for {{ mmy-name }}
     href: managed-mysql/
-  - title: '{{ mpg-name }}'
-    description: Solutions for {{ mpg-name }}
-    href: managed-postgresql/
   - title: '{{ mkf-name }}'
     description: Solutions for {{ mkf-name }}
     href: managed-kafka/
-  - title: '{{ ydb-name }}'
-    description: Solutions for {{ ydb-name }}
-    href: managed-ydb/
-  - title: '{{ monitoring-name }}'
-    description: Solutions for {{ monitoring-name }}
-    href: monitoring/
   - title: '{{ network-load-balancer-name }}'
     description: Solutions for {{ network-load-balancer-name }}
     href: network-load-balancer/
@@ -89,15 +47,9 @@ links:
   - title: Partner
     description: Solutions for Partner
     href: partner/
-  - title: '{{ serverless-containers-name }}'
-    description: Solutions for {{ serverless-containers-name }}
-    href: serverless-containers/
   - title: '{{ captcha-name }}'
     description: Solutions for {{ captcha-name }}
     href: smartcaptcha/
-  - title: '{{ speechkit-name }}'
-    description: Solutions for {{ speechkit-name }}
-    href: speechkit/
   - title: '{{ yandex-cloud }} {{ TF }} provider'
     description: Solutions for the {{ yandex-cloud }} {{ TF }} provider
     href: terraform/

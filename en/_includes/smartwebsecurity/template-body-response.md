@@ -1,6 +1,6 @@
 The content of the response must match the selected response format, for example:
 
-* **HTML**
+* `HTML`
 
     ```html
     <!doctype html>
@@ -10,7 +10,7 @@ The content of the response must match the selected response format, for example
     </html>
     ```
 
-* **JSON**
+* `JSON`
 
     ```json
     {
@@ -21,9 +21,9 @@ The content of the response must match the selected response format, for example
     }
     }
     ```
-     
-* **XML**
-    
+
+* `XML`
+
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <error>

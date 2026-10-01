@@ -32,7 +32,7 @@
 
  - [Удалить организацию](operations/delete-org.md)
 
- - [Подключить управляемую организацию](operations/add-region.md)
+ - [Создать управляемую организацию](operations/add-region.md)
 
  - [Настроить брендирование](operations/manage-branding.md)
 
@@ -230,7 +230,9 @@
 
  - [Отозвать роль у пользователя](operations/revoke-role.md)
 
- - [Синхронизировать пользователей и группы с Active Directory](operations/sync-ad.md)
+### Синхронизация пользователей и групп с внешними службами каталогов
+
+ - [Active Directory](operations/sync-ad.md)
 
  - [Управлять тарификацией Yandex Identity Hub](operations/manage-billing.md)
 
@@ -290,6 +292,12 @@
 
  - [OpenID Connect](tutorials/single-sign-on/jenkins/oidc-jenkins.md)
 
+#### LibreChat
+
+ - [SAML](tutorials/single-sign-on/librechat/saml-librechat.md)
+
+ - [OpenID Connect](tutorials/single-sign-on/librechat/oidc-librechat.md)
+
 #### Loop
 
  - [SAML](tutorials/single-sign-on/loop/saml-loop.md)
@@ -306,6 +314,14 @@
 
  - [OpenSearch](tutorials/single-sign-on/saml-opensearch-self-managed.md)
 
+#### OpenVPN
+
+ - [OpenVPN Access Server](tutorials/single-sign-on/saml-ovpn.md)
+
+ - [OpenVPN Community Edition](tutorials/single-sign-on/oidc-ovpn.md)
+
+ - [Open WebUI](tutorials/single-sign-on/oidc-open-webui.md)
+
  - [Selectel](tutorials/single-sign-on/saml-selectel.md)
 
  - [Sentry](tutorials/single-sign-on/saml-sentry.md)
@@ -318,13 +334,9 @@
 
  - [OpenID Connect](tutorials/single-sign-on/time/oidc-time.md)
 
-#### OpenVPN
-
- - [OpenVPN Access Server](tutorials/single-sign-on/saml-ovpn.md)
-
- - [OpenVPN Community Edition](tutorials/single-sign-on/oidc-ovpn.md)
-
  - [VK Cloud](tutorials/single-sign-on/saml-vk-cloud.md)
+
+ - [Warpgate](tutorials/single-sign-on/oidc-warpgate.md)
 
  - [Zabbix](tutorials/single-sign-on/saml-zabbix.md)
 
@@ -378,7 +390,11 @@
 
  - [Сессии](concepts/sessions.md)
 
- - [Синхронизация с Active Directory](concepts/ad-sync.md)
+### Синхронизация с внешними службами каталогов
+
+ - [Обзор](concepts/ad-sync/index.md)
+
+ - [Агент синхронизации Identity Hub AD Sync Agent](concepts/ad-sync/sync-agent.md)
 
  - [Квоты и лимиты](concepts/limits.md)
 
@@ -1620,6 +1636,36 @@
 
  - [Delete](idp/application/saml/api-ref/grpc/SignatureCertificate/delete.md)
 
+#### Organization Policy API
+
+ - [Overview](policy/api-ref/grpc/index.md)
+
+##### AuthenticationPolicyRule
+
+ - [Overview](policy/api-ref/grpc/AuthenticationPolicyRule/index.md)
+
+ - [Get](policy/api-ref/grpc/AuthenticationPolicyRule/get.md)
+
+ - [List](policy/api-ref/grpc/AuthenticationPolicyRule/list.md)
+
+ - [Create](policy/api-ref/grpc/AuthenticationPolicyRule/create.md)
+
+ - [Update](policy/api-ref/grpc/AuthenticationPolicyRule/update.md)
+
+ - [Delete](policy/api-ref/grpc/AuthenticationPolicyRule/delete.md)
+
+ - [Activate](policy/api-ref/grpc/AuthenticationPolicyRule/activate.md)
+
+ - [Deactivate](policy/api-ref/grpc/AuthenticationPolicyRule/deactivate.md)
+
+##### Operation
+
+ - [Overview](policy/api-ref/grpc/Operation/index.md)
+
+ - [Get](policy/api-ref/grpc/Operation/get.md)
+
+ - [Cancel](policy/api-ref/grpc/Operation/cancel.md)
+
 #### SAML Federation API
 
  - [Overview](saml/api-ref/grpc/index.md)
@@ -2047,6 +2093,36 @@
  - [Update](idp/application/saml/api-ref/SignatureCertificate/update.md)
 
  - [Delete](idp/application/saml/api-ref/SignatureCertificate/delete.md)
+
+#### Organization Policy API
+
+ - [Overview](policy/api-ref/index.md)
+
+##### AuthenticationPolicyRule
+
+ - [Overview](policy/api-ref/AuthenticationPolicyRule/index.md)
+
+ - [Get](policy/api-ref/AuthenticationPolicyRule/get.md)
+
+ - [List](policy/api-ref/AuthenticationPolicyRule/list.md)
+
+ - [Create](policy/api-ref/AuthenticationPolicyRule/create.md)
+
+ - [Update](policy/api-ref/AuthenticationPolicyRule/update.md)
+
+ - [Delete](policy/api-ref/AuthenticationPolicyRule/delete.md)
+
+ - [Activate](policy/api-ref/AuthenticationPolicyRule/activate.md)
+
+ - [Deactivate](policy/api-ref/AuthenticationPolicyRule/deactivate.md)
+
+##### Operation
+
+ - [Overview](policy/api-ref/Operation/index.md)
+
+ - [Get](policy/api-ref/Operation/get.md)
+
+ - [Cancel](policy/api-ref/Operation/cancel.md)
 
 #### SAML Federation API
 

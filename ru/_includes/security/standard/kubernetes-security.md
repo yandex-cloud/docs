@@ -129,10 +129,26 @@
 
 - Ручная проверка {#manual}
 
-  * С помощью инструмента [kube-bench](https://github.com/aquasecurity/kube-bench) проверьте конфигурацию группы узлов по стандарту CIS {{ k8s }} Benchmark. Инструмент официально поддерживает группы узлов {{ yandex-cloud }}.
-  * [Starboard Operator](https://blog.aquasec.com/automate-kubernetes-compliance) — это бесплатный инструмент, который позволяет автоматизировать сканирование образов на уязвимости и проверку конфигурации на соответствие CIS {{ k8s }} Benchmark. Starboard Operator поддерживает интеграцию с kube-bench и используется для его автоматического запуска.
+  {% note info %}
+
+  Проверка конфигурации и запуск инструмента сканирования применяется только при наличии хотя бы одной группы узлов {{ k8s }} в проверяемом каталоге. Если в каталоге нет запущенных кластеров {{ k8s }}, то рекомендация автоматически считается выполненной (статус `SUCCESS` или `Not Applicable`), так как поверхность атаки отсутствует.
+
+  {% endnote %}
+
+  1. Убедитесь, что в каталоге есть узлы {{ k8s }}, выполнив команду:
+
+      ```bash
+      yc managed-kubernetes node-group list
+      ```
+
+      Если список пуст, дальнейшие действия не требуются.
+
+  1. При наличии узлов с помощью инструмента [kube-bench](https://github.com/aquasecurity/kube-bench) проверьте конфигурацию группы узлов по стандарту CIS {{ k8s }} Benchmark. Инструмент официально поддерживает группы узлов {{ yandex-cloud }}.
+  1. [Starboard Operator](https://github.com/aquasecurity/starboard) — это бесплатный инструмент, который позволяет автоматизировать сканирование образов на уязвимости и проверку конфигурации на соответствие CIS {{ k8s }} Benchmark. Starboard Operator поддерживает интеграцию с kube-bench и используется для его автоматического запуска.
 
 {% endlist %}
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 7.6 Шифрование данных и управление секретами {{ managed-k8s-name }} выполняются в формате ESO as a Service {#data-encryption}
 
@@ -306,6 +322,8 @@
   * The gator CLI
 
 * Инструмент [Kubesec](https://kubesec.io/).
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 7.12 Настроен сбор аудитных логов для расследований инцидентов {#audit-logs}
 

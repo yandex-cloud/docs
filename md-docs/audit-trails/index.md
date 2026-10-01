@@ -246,6 +246,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
 ## Справочник аудитных логов (англ.)
 
+ - [Обзор](events-ref/index.md)
+
 ### accesstransparency
 
  - [ComputeNodeAccess](audit/accesstransparency/events-ref/ComputeNodeAccess.md)
@@ -351,6 +353,20 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [GetRecognition](audit/ai/ocr/events-ref/GetRecognition.md)
 
  - [RecognizeText](audit/ai/ocr/events-ref/RecognizeText.md)
+
+### ai.realtime
+
+ - [CloseSession](audit/ai/realtime/events-ref/CloseSession.md)
+
+ - [CreatePrompt](audit/ai/realtime/events-ref/CreatePrompt.md)
+
+ - [CreateSession](audit/ai/realtime/events-ref/CreateSession.md)
+
+ - [DeletePrompt](audit/ai/realtime/events-ref/DeletePrompt.md)
+
+ - [UpdatePrompt](audit/ai/realtime/events-ref/UpdatePrompt.md)
+
+ - [UpdateSession](audit/ai/realtime/events-ref/UpdateSession.md)
 
 ### ai.responses
 
@@ -597,6 +613,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [UpdateServer](audit/baremetal/events-ref/UpdateServer.md)
 
  - [UpdateVRF](audit/baremetal/events-ref/UpdateVRF.md)
+
+ - [ExternalFlow](audit/baremetal/flowlogs/events-ref/ExternalFlow.md)
 
 ### cdn
 
@@ -1102,6 +1120,32 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [UpdateWorkbookAccessBindings](audit/datalens/events-ref/UpdateWorkbookAccessBindings.md)
 
+ - [CreateAirflowCluster](audit/datalens/platform/events-ref/CreateAirflowCluster.md)
+
+ - [CreateCloudEnvironment](audit/datalens/platform/events-ref/CreateCloudEnvironment.md)
+
+ - [CreateRestCatalog](audit/datalens/platform/events-ref/CreateRestCatalog.md)
+
+ - [CreateRestCatalogNamespace](audit/datalens/platform/events-ref/CreateRestCatalogNamespace.md)
+
+ - [CreateSparkCluster](audit/datalens/platform/events-ref/CreateSparkCluster.md)
+
+ - [CreateTrinoCluster](audit/datalens/platform/events-ref/CreateTrinoCluster.md)
+
+ - [DeleteAirflowCluster](audit/datalens/platform/events-ref/DeleteAirflowCluster.md)
+
+ - [DeleteCloudEnvironment](audit/datalens/platform/events-ref/DeleteCloudEnvironment.md)
+
+ - [DeleteRestCatalog](audit/datalens/platform/events-ref/DeleteRestCatalog.md)
+
+ - [DeleteRestCatalogNamespace](audit/datalens/platform/events-ref/DeleteRestCatalogNamespace.md)
+
+ - [DeleteSparkCluster](audit/datalens/platform/events-ref/DeleteSparkCluster.md)
+
+ - [DeleteTrinoCluster](audit/datalens/platform/events-ref/DeleteTrinoCluster.md)
+
+ - [UpdateCloudEnvironment](audit/datalens/platform/events-ref/UpdateCloudEnvironment.md)
+
 ### dataproc
 
  - [CreateCluster](audit/dataproc/events-ref/CreateCluster.md)
@@ -1592,11 +1636,55 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [UpdateClusterCertificate](audit/k8s/events-ref/UpdateClusterCertificate.md)
 
+ - [UpdateClusterSettings](audit/k8s/events-ref/UpdateClusterSettings.md)
+
  - [UpdateHelmRelease](audit/k8s/events-ref/UpdateHelmRelease.md)
 
  - [UpdateHelmRelease](audit/k8s/events-ref/UpdateHelmRelease.md)
 
  - [UpdateNodeGroup](audit/k8s/events-ref/UpdateNodeGroup.md)
+
+ - [ApiServerApprove](audit/k8s/apiserver/events-ref/ApiServerApprove.md)
+
+ - [ApiServerBind](audit/k8s/apiserver/events-ref/ApiServerBind.md)
+
+ - [ApiServerCreate](audit/k8s/apiserver/events-ref/ApiServerCreate.md)
+
+ - [ApiServerDelete](audit/k8s/apiserver/events-ref/ApiServerDelete.md)
+
+ - [ApiServerDeleteCollection](audit/k8s/apiserver/events-ref/ApiServerDeleteCollection.md)
+
+ - [ApiServerEscalate](audit/k8s/apiserver/events-ref/ApiServerEscalate.md)
+
+ - [ApiServerGet](audit/k8s/apiserver/events-ref/ApiServerGet.md)
+
+ - [ApiServerHead](audit/k8s/apiserver/events-ref/ApiServerHead.md)
+
+ - [ApiServerImpersonate](audit/k8s/apiserver/events-ref/ApiServerImpersonate.md)
+
+ - [ApiServerList](audit/k8s/apiserver/events-ref/ApiServerList.md)
+
+ - [ApiServerNonstandardVerb](audit/k8s/apiserver/events-ref/ApiServerNonstandardVerb.md)
+
+ - [ApiServerOptions](audit/k8s/apiserver/events-ref/ApiServerOptions.md)
+
+ - [ApiServerPatch](audit/k8s/apiserver/events-ref/ApiServerPatch.md)
+
+ - [ApiServerPost](audit/k8s/apiserver/events-ref/ApiServerPost.md)
+
+ - [ApiServerPut](audit/k8s/apiserver/events-ref/ApiServerPut.md)
+
+ - [ApiServerUpdate](audit/k8s/apiserver/events-ref/ApiServerUpdate.md)
+
+ - [ApiServerWatch](audit/k8s/apiserver/events-ref/ApiServerWatch.md)
+
+ - [InstallHelmRelease](audit/k8s/marketplace/v1/events-ref/InstallHelmRelease.md)
+
+ - [UninstallHelmRelease](audit/k8s/marketplace/v1/events-ref/UninstallHelmRelease.md)
+
+ - [UpdateClusterSettings](audit/k8s/marketplace/v1/events-ref/UpdateClusterSettings.md)
+
+ - [UpdateHelmRelease](audit/k8s/marketplace/v1/events-ref/UpdateHelmRelease.md)
 
 ### kms
 
@@ -1737,6 +1825,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [ActivateSecret](audit/lockbox/events-ref/ActivateSecret.md)
 
  - [AddVersion](audit/lockbox/events-ref/AddVersion.md)
+
+ - [CancelDeleteSecret](audit/lockbox/events-ref/CancelDeleteSecret.md)
 
  - [CancelVersionDestruction](audit/lockbox/events-ref/CancelVersionDestruction.md)
 
@@ -2686,6 +2776,178 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [ValidateUserpoolDomain](audit/organizationmanager/events-ref/ValidateUserpoolDomain.md)
 
+ - [CreateApplication](audit/organizationmanager/application/linked/events-ref/CreateApplication.md)
+
+ - [DeleteApplication](audit/organizationmanager/application/linked/events-ref/DeleteApplication.md)
+
+ - [ReactivateApplication](audit/organizationmanager/application/linked/events-ref/ReactivateApplication.md)
+
+ - [SetApplicationAccessBindings](audit/organizationmanager/application/linked/events-ref/SetApplicationAccessBindings.md)
+
+ - [SuspendApplication](audit/organizationmanager/application/linked/events-ref/SuspendApplication.md)
+
+ - [UpdateApplication](audit/organizationmanager/application/linked/events-ref/UpdateApplication.md)
+
+ - [UpdateApplicationAccessBindings](audit/organizationmanager/application/linked/events-ref/UpdateApplicationAccessBindings.md)
+
+ - [UpdateApplicationAssignments](audit/organizationmanager/application/linked/events-ref/UpdateApplicationAssignments.md)
+
+ - [CreateApplication](audit/organizationmanager/application/oauth/events-ref/CreateApplication.md)
+
+ - [DeleteApplication](audit/organizationmanager/application/oauth/events-ref/DeleteApplication.md)
+
+ - [ReactivateApplication](audit/organizationmanager/application/oauth/events-ref/ReactivateApplication.md)
+
+ - [SetApplicationAccessBindings](audit/organizationmanager/application/oauth/events-ref/SetApplicationAccessBindings.md)
+
+ - [SuspendApplication](audit/organizationmanager/application/oauth/events-ref/SuspendApplication.md)
+
+ - [UpdateApplication](audit/organizationmanager/application/oauth/events-ref/UpdateApplication.md)
+
+ - [UpdateApplicationAccessBindings](audit/organizationmanager/application/oauth/events-ref/UpdateApplicationAccessBindings.md)
+
+ - [UpdateApplicationAssignments](audit/organizationmanager/application/oauth/events-ref/UpdateApplicationAssignments.md)
+
+ - [CreateApplication](audit/organizationmanager/application/saml/events-ref/CreateApplication.md)
+
+ - [CreateSignatureCertificate](audit/organizationmanager/application/saml/events-ref/CreateSignatureCertificate.md)
+
+ - [DeleteApplication](audit/organizationmanager/application/saml/events-ref/DeleteApplication.md)
+
+ - [DeleteSignatureCertificate](audit/organizationmanager/application/saml/events-ref/DeleteSignatureCertificate.md)
+
+ - [ReactivateApplication](audit/organizationmanager/application/saml/events-ref/ReactivateApplication.md)
+
+ - [SetApplicationAccessBindings](audit/organizationmanager/application/saml/events-ref/SetApplicationAccessBindings.md)
+
+ - [SuspendApplication](audit/organizationmanager/application/saml/events-ref/SuspendApplication.md)
+
+ - [UpdateApplication](audit/organizationmanager/application/saml/events-ref/UpdateApplication.md)
+
+ - [UpdateApplicationAccessBindings](audit/organizationmanager/application/saml/events-ref/UpdateApplicationAccessBindings.md)
+
+ - [UpdateApplicationAssignments](audit/organizationmanager/application/saml/events-ref/UpdateApplicationAssignments.md)
+
+ - [UpdateSignatureCertificate](audit/organizationmanager/application/saml/events-ref/UpdateSignatureCertificate.md)
+
+ - [UploadSignatureCertificate](audit/organizationmanager/application/saml/events-ref/UploadSignatureCertificate.md)
+
+ - [AddUserBlock](audit/organizationmanager/idp/events-ref/AddUserBlock.md)
+
+ - [AddUserpoolDomain](audit/organizationmanager/idp/events-ref/AddUserpoolDomain.md)
+
+ - [AuthenticateByPassword](audit/organizationmanager/idp/events-ref/AuthenticateByPassword.md)
+
+ - [ChangeOneTimePassword](audit/organizationmanager/idp/events-ref/ChangeOneTimePassword.md)
+
+ - [ConvertUserToExternal](audit/organizationmanager/idp/events-ref/ConvertUserToExternal.md)
+
+ - [CreateAsset](audit/organizationmanager/idp/events-ref/CreateAsset.md)
+
+ - [CreateAsset](audit/organizationmanager/idp/events-ref/CreateAsset.md)
+
+ - [CreateBranding](audit/organizationmanager/idp/events-ref/CreateBranding.md)
+
+ - [CreateUser](audit/organizationmanager/idp/events-ref/CreateUser.md)
+
+ - [CreateUserpool](audit/organizationmanager/idp/events-ref/CreateUserpool.md)
+
+ - [DeleteAsset](audit/organizationmanager/idp/events-ref/DeleteAsset.md)
+
+ - [DeleteAsset](audit/organizationmanager/idp/events-ref/DeleteAsset.md)
+
+ - [DeleteBranding](audit/organizationmanager/idp/events-ref/DeleteBranding.md)
+
+ - [DeleteUser](audit/organizationmanager/idp/events-ref/DeleteUser.md)
+
+ - [DeleteUserpool](audit/organizationmanager/idp/events-ref/DeleteUserpool.md)
+
+ - [DeleteUserpoolDomain](audit/organizationmanager/idp/events-ref/DeleteUserpoolDomain.md)
+
+ - [ReactivateUser](audit/organizationmanager/idp/events-ref/ReactivateUser.md)
+
+ - [RemoveUserBlock](audit/organizationmanager/idp/events-ref/RemoveUserBlock.md)
+
+ - [ResetOwnPassword](audit/organizationmanager/idp/events-ref/ResetOwnPassword.md)
+
+ - [SetUserPassword](audit/organizationmanager/idp/events-ref/SetUserPassword.md)
+
+ - [SetUserpoolAccessBindings](audit/organizationmanager/idp/events-ref/SetUserpoolAccessBindings.md)
+
+ - [SuspendUser](audit/organizationmanager/idp/events-ref/SuspendUser.md)
+
+ - [UpdateBranding](audit/organizationmanager/idp/events-ref/UpdateBranding.md)
+
+ - [UpdateSubscriptionLimit](audit/organizationmanager/idp/events-ref/UpdateSubscriptionLimit.md)
+
+ - [UpdateUser](audit/organizationmanager/idp/events-ref/UpdateUser.md)
+
+ - [UpdateUserpool](audit/organizationmanager/idp/events-ref/UpdateUserpool.md)
+
+ - [UpdateUserpoolAccessBindings](audit/organizationmanager/idp/events-ref/UpdateUserpoolAccessBindings.md)
+
+ - [ValidateUserpoolDomain](audit/organizationmanager/idp/events-ref/ValidateUserpoolDomain.md)
+
+ - [CreateAsset](audit/organizationmanager/idp/application/events-ref/CreateAsset.md)
+
+ - [DeleteAsset](audit/organizationmanager/idp/application/events-ref/DeleteAsset.md)
+
+ - [CreateAsset](audit/organizationmanager/idp/branding/events-ref/CreateAsset.md)
+
+ - [CreateBranding](audit/organizationmanager/idp/branding/events-ref/CreateBranding.md)
+
+ - [DeleteAsset](audit/organizationmanager/idp/branding/events-ref/DeleteAsset.md)
+
+ - [DeleteBranding](audit/organizationmanager/idp/branding/events-ref/DeleteBranding.md)
+
+ - [UpdateBranding](audit/organizationmanager/idp/branding/events-ref/UpdateBranding.md)
+
+ - [OAuthFederationPrivateTlsCreateCertificate](audit/organizationmanager/oauth/events-ref/OAuthFederationPrivateTlsCreateCertificate.md)
+
+ - [OAuthFederationPrivateTlsDeleteCertificate](audit/organizationmanager/oauth/events-ref/OAuthFederationPrivateTlsDeleteCertificate.md)
+
+ - [OAuthFederationPrivateTlsUpdateCertificate](audit/organizationmanager/oauth/events-ref/OAuthFederationPrivateTlsUpdateCertificate.md)
+
+ - [ActivateAuthenticationPolicyRule](audit/organizationmanager/policy/events-ref/ActivateAuthenticationPolicyRule.md)
+
+ - [CreateAuthenticationPolicyRule](audit/organizationmanager/policy/events-ref/CreateAuthenticationPolicyRule.md)
+
+ - [DeactivateAuthenticationPolicyRule](audit/organizationmanager/policy/events-ref/DeactivateAuthenticationPolicyRule.md)
+
+ - [DeleteAuthenticationPolicyRule](audit/organizationmanager/policy/events-ref/DeleteAuthenticationPolicyRule.md)
+
+ - [DeleteRefreshTokenPolicy](audit/organizationmanager/policy/events-ref/DeleteRefreshTokenPolicy.md)
+
+ - [UpdateAuthenticationPolicyRule](audit/organizationmanager/policy/events-ref/UpdateAuthenticationPolicyRule.md)
+
+ - [UpdateRefreshTokenPolicy](audit/organizationmanager/policy/events-ref/UpdateRefreshTokenPolicy.md)
+
+ - [AddFederatedUserAccounts](audit/organizationmanager/saml/events-ref/AddFederatedUserAccounts.md)
+
+ - [AddFederationDomain](audit/organizationmanager/saml/events-ref/AddFederationDomain.md)
+
+ - [CreateCertificate](audit/organizationmanager/saml/events-ref/CreateCertificate.md)
+
+ - [CreateFederation](audit/organizationmanager/saml/events-ref/CreateFederation.md)
+
+ - [DeleteCertificate](audit/organizationmanager/saml/events-ref/DeleteCertificate.md)
+
+ - [DeleteFederatedUserAccounts](audit/organizationmanager/saml/events-ref/DeleteFederatedUserAccounts.md)
+
+ - [DeleteFederation](audit/organizationmanager/saml/events-ref/DeleteFederation.md)
+
+ - [DeleteFederationDomain](audit/organizationmanager/saml/events-ref/DeleteFederationDomain.md)
+
+ - [ReactivateFederatedUserAccounts](audit/organizationmanager/saml/events-ref/ReactivateFederatedUserAccounts.md)
+
+ - [SuspendFederatedUserAccounts](audit/organizationmanager/saml/events-ref/SuspendFederatedUserAccounts.md)
+
+ - [UpdateCertificate](audit/organizationmanager/saml/events-ref/UpdateCertificate.md)
+
+ - [UpdateFederation](audit/organizationmanager/saml/events-ref/UpdateFederation.md)
+
+ - [ValidateFederationDomain](audit/organizationmanager/saml/events-ref/ValidateFederationDomain.md)
+
 ### postbox
 
  - [CreateConfigurationSet](audit/postbox/events-ref/CreateConfigurationSet.md)
@@ -2968,6 +3230,10 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [ArlMatchedRequest](audit/smartwebsecurity/events-ref/ArlMatchedRequest.md)
 
+ - [ChangeSecurityProfileAdaptiveProtection](audit/smartwebsecurity/events-ref/ChangeSecurityProfileAdaptiveProtection.md)
+
+ - [ChangeSecurityProfileProtectionMode](audit/smartwebsecurity/events-ref/ChangeSecurityProfileProtectionMode.md)
+
  - [CreateArlProfile](audit/smartwebsecurity/events-ref/CreateArlProfile.md)
 
  - [CreateCustomPage](audit/smartwebsecurity/events-ref/CreateCustomPage.md)
@@ -3025,6 +3291,70 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [WafMatchedExclusionRule](audit/smartwebsecurity/events-ref/WafMatchedExclusionRule.md)
 
  - [WafMatchedRule](audit/smartwebsecurity/events-ref/WafMatchedRule.md)
+
+### sourcecraft
+
+ - [AddPersonalEmail](audit/sourcecraft/events-ref/AddPersonalEmail.md)
+
+ - [AddPersonalPublicGpgKey](audit/sourcecraft/events-ref/AddPersonalPublicGpgKey.md)
+
+ - [AddPersonalPublicSshKey](audit/sourcecraft/events-ref/AddPersonalPublicSshKey.md)
+
+ - [CreatePersonalAccessToken](audit/sourcecraft/events-ref/CreatePersonalAccessToken.md)
+
+ - [CreateRepository](audit/sourcecraft/events-ref/CreateRepository.md)
+
+ - [CreateSecret](audit/sourcecraft/events-ref/CreateSecret.md)
+
+ - [CreateServiceConnection](audit/sourcecraft/events-ref/CreateServiceConnection.md)
+
+ - [DeleteAllSecrets](audit/sourcecraft/events-ref/DeleteAllSecrets.md)
+
+ - [DeletePersonalAccessToken](audit/sourcecraft/events-ref/DeletePersonalAccessToken.md)
+
+ - [DeleteRepository](audit/sourcecraft/events-ref/DeleteRepository.md)
+
+ - [DeleteSecret](audit/sourcecraft/events-ref/DeleteSecret.md)
+
+ - [DeleteServiceConnection](audit/sourcecraft/events-ref/DeleteServiceConnection.md)
+
+ - [GetSecret](audit/sourcecraft/events-ref/GetSecret.md)
+
+ - [GetSecretPayload](audit/sourcecraft/events-ref/GetSecretPayload.md)
+
+ - [ListSecrets](audit/sourcecraft/events-ref/ListSecrets.md)
+
+ - [NewAppSecDefect](audit/sourcecraft/events-ref/NewAppSecDefect.md)
+
+ - [OffboardCloudRegistry](audit/sourcecraft/events-ref/OffboardCloudRegistry.md)
+
+ - [OffboardOrganization](audit/sourcecraft/events-ref/OffboardOrganization.md)
+
+ - [OnboardCloudRegistry](audit/sourcecraft/events-ref/OnboardCloudRegistry.md)
+
+ - [OnboardOrganization](audit/sourcecraft/events-ref/OnboardOrganization.md)
+
+ - [RemovePersonalEmail](audit/sourcecraft/events-ref/RemovePersonalEmail.md)
+
+ - [RemovePersonalPublicGpgKey](audit/sourcecraft/events-ref/RemovePersonalPublicGpgKey.md)
+
+ - [RemovePersonalPublicSshKey](audit/sourcecraft/events-ref/RemovePersonalPublicSshKey.md)
+
+ - [UpdateAppsecSettings](audit/sourcecraft/events-ref/UpdateAppsecSettings.md)
+
+ - [UpdateOrganization](audit/sourcecraft/events-ref/UpdateOrganization.md)
+
+ - [UpdatePersonalAccessToken](audit/sourcecraft/events-ref/UpdatePersonalAccessToken.md)
+
+ - [UpdateRepository](audit/sourcecraft/events-ref/UpdateRepository.md)
+
+ - [UpdateRepositoryAccessBindings](audit/sourcecraft/events-ref/UpdateRepositoryAccessBindings.md)
+
+ - [UpdateSecret](audit/sourcecraft/events-ref/UpdateSecret.md)
+
+ - [UpdateServiceConnection](audit/sourcecraft/events-ref/UpdateServiceConnection.md)
+
+ - [VerifyPersonalEmail](audit/sourcecraft/events-ref/VerifyPersonalEmail.md)
 
 ### spark
 

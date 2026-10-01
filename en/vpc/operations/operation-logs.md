@@ -1,4 +1,9 @@
-# Viewing operations with {{ vpc-name }} resources
+---
+title: Viewing {{ vpc-full-name }} resource operations
+description: Follow this guide to view {{ vpc-name }} resource operations.
+---
+
+# Viewing {{ vpc-name }} resource operations
 
 The system logs all actions with {{ vpc-name }} resources as a list of operations. Each operation gets its own unique ID.
 
@@ -15,7 +20,7 @@ The system logs all actions with {{ vpc-name }} resources as a list of operation
   1. In the [management console]({{ link-console-main }}), select the folder containing your cloud network.
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Select the network you need.
-  1. Go to the ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel.
+  1. Navigate to the ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
      You will see a list of cloud network operations.
 
@@ -82,50 +87,50 @@ The system logs all actions with {{ vpc-name }} resources as a list of operation
 
 ## Getting operation details {#get-operations-info}
 
-1. [Get the list of operations](#get-operations) for the resource.
+1. [Get a list of operations](#get-operations) for the resource.
 1. Copy the operation ID.
 1. Get the operation details:
 
-    {% list tabs group=instructions %}
+   {% list tabs group=instructions %}
 
-    - CLI {#cli}
+   - CLI {#cli}
 
-      {% include [cli-install](../../_includes/cli-install.md) %}
+     {% include [cli-install](../../_includes/cli-install.md) %}
 
-      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      Run this command:
+     Run this command:
 
-      ```bash
-      yc operation get <operation_ID>
-      ```
+     ```bash
+     yc operation get <operation_ID>
+     ```
 
-      Result:
+     Result:
 
-      ```text
-      id: enp75021agjg********
-      description: Create network
-      created_at: "2024-02-01T10:16:51.955Z"
-      created_by: ajego134p5h1********
-      modified_at: "2024-02-01T10:16:53.389Z"
-      done: true
-      metadata:
-        '@type': type.googleapis.com/yandex.cloud.vpc.v1.CreateNetworkMetadata
-        network_id: enpgl5o8te3k********
-      response:
-        '@type': type.googleapis.com/yandex.cloud.vpc.v1.Network
-        id: enpgl5o8te3kke6q3psa
-        folder_id: b1gmit33ngp3********
-        created_at: "2024-02-01T10:16:51Z"
-        name: test-network
-        default_security_group_id: enp0catll8gm********
-        ```
+     ```text
+     id: enp75021agjg********
+     description: Create network
+     created_at: "2024-02-01T10:16:51.955Z"
+     created_by: ajego134p5h1********
+     modified_at: "2024-02-01T10:16:53.389Z"
+     done: true
+     metadata:
+       '@type': type.googleapis.com/yandex.cloud.vpc.v1.CreateNetworkMetadata
+       network_id: enpgl5o8te3k********
+     response:
+       '@type': type.googleapis.com/yandex.cloud.vpc.v1.Network
+       id: enpgl5o8te3kke6q3psa
+       folder_id: b1gmit33ngp3********
+       created_at: "2024-02-01T10:16:51Z"
+       name: test-network
+       default_security_group_id: enp0catll8gm********
+     ```
 
-    - API {#api}
+   - API {#api}
 
-      Use the [get](../api-ref/Operation/get.md) REST API method for the [Operation](../api-ref/Operation/index.md) resource or the [OperationService/Get](../api-ref/grpc/Operation/get.md) gRPC API call.
+     Use the [get](../api-ref/Operation/get.md) REST API method for the [Operation](../api-ref/Operation/index.md) resource or the [OperationService/Get](../api-ref/grpc/Operation/get.md) gRPC API call.
 
-    {% endlist %}
+   {% endlist %}
 
 #### Useful links {#see-also}
 

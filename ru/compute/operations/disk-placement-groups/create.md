@@ -16,7 +16,7 @@ description: Следуя данной инструкции, вы сможете
   1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}**.
-  1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.compute.placement-groups.button_create }}** → **{{ ui-key.yacloud.compute.placement-groups.button_menu-create-disk-placement-group }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.placement-groups.button_create }}** и выберите **{{ ui-key.yacloud.compute.placement-groups.button_menu-create-disk-placement-group }}**.
   1. Введите имя группы размещения дисков. Требования к имени:
 
      {% include [name-format](../../../_includes/name-format.md) %}

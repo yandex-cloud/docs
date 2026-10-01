@@ -2,6 +2,8 @@
 
 {{ cdn-full-name }} supports [cross-domain requests](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) via CORS (cross-origin resource sharing).
 
+The CORS setting of a CDN resource controls whether the CDN server adds the `Access-Control-Allow-Origin` header to its client responses and defines the specific header value. If adding the header is enabled, the CDN server will generate it regardless of whether content is served from cache or fetched from the origin. This setting only applies to the CDN server’s response to the client and does not modify the origin configuration.
+
 In the resource settings, you can:
 
 * Allow CORS requests with any origins (the `Origin` header values): Set the `Access-Control-Allow-Origin` header to `*` or to the `Origin` header’s value in the request.

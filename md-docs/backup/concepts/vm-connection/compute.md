@@ -70,7 +70,7 @@
 * [Инструкция для Linux](../../operations/connect-vm-linux.md)
 * [Инструкция для Windows](../../operations/connect-vm-windows.md)
 
-С полным списком поддерживаемых ОС можно ознакомиться в [документации провайдера резервного копирования](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/21.06/user/#supported-operating-systems-and-environments.html).
+С полным списком поддерживаемых ОС можно ознакомиться в [документации провайдера резервного копирования](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/26.07/user/supported-operating-systems-and-environments.html).
 
 При возникновении проблем с установкой агента Cloud Backup [обратитесь](https://center.yandex.cloud/support) в службу технической поддержки.
 
@@ -138,8 +138,7 @@
 
 {% endlist %}
 
-Чтобы обеспечить сетевой доступ:
-{#provide-access}
+Чтобы обеспечить сетевой доступ: {#provide-access}
 
 [Назначьте](../../../compute/operations/vm-control/vm-attach-public-ip.md) виртуальной машине публичный IP-адрес или примените [таблицу маршрутизации](../../../vpc/concepts/routing.md#rt-vm), разрешающую доступ в интернет через [NAT-шлюз](../../../vpc/concepts/gateways.md) или пользовательский маршрутизатор.
 

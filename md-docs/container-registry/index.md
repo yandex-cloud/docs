@@ -94,6 +94,8 @@ Container Registry предоставляет встроенный <a href="conc
 
  - [Все руководства](tutorials/index.md)
 
+ - [Миграция в Yandex Cloud Registry](tutorials/container-registry-migration.md)
+
 ### Запуск Docker-образа на виртуальной машине
 
  - [Обзор](tutorials/run-docker-on-vm/index.md)
@@ -272,6 +274,8 @@ Container Registry предоставляет встроенный <a href="conc
 
  - [delete](cli-ref/registry/delete.md)
 
+ - [force-delete](cli-ref/registry/force-delete.md)
+
  - [get](cli-ref/registry/get.md)
 
  - [list](cli-ref/registry/list.md)
@@ -439,6 +443,8 @@ Container Registry предоставляет встроенный <a href="conc
  - [create](cli-ref/v0/registry/create.md)
 
  - [delete](cli-ref/v0/registry/delete.md)
+
+ - [force-delete](cli-ref/v0/registry/force-delete.md)
 
  - [get](cli-ref/v0/registry/get.md)
 

@@ -10,7 +10,7 @@ You can get information about a service account, such as its name and ID, creati
   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the service account you need.
-  1. The **{{ ui-key.yacloud.iam.folder.service-account.overview.label_title }}** page will list the service account's parameters:
+  1. The **{{ ui-key.yacloud.iam.folder.service-account.overview.label_title }}** page will list the service account properties:
 
      * **{{ ui-key.yacloud.iam.folder.service-account.overview.label_id }}** of the service account as a string in `aje9sb6ffd2u********` format.
      * **{{ ui-key.yacloud.iam.folder.service-accounts.column_name }}**.
@@ -67,8 +67,8 @@ You can get information about a service account, such as its name and ID, creati
 
 - API {#api}
 
-  1. [Find out the ID of the folder](../../../resource-manager/operations/folder/get-id.md) where the service account was created.
-  1. Get information about the service accounts in the folder using the [list](../../api-ref/ServiceAccount/list.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource:
+  1. [Get the ID of the folder](../../../resource-manager/operations/folder/get-id.md) where the service account was created.
+  1. Get information about service accounts in the folder using the [list](../../api-ref/ServiceAccount/list.md) REST API method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource:
 
       ```bash
       export FOLDER_ID=b1gvmob95yys********
@@ -94,6 +94,6 @@ You can get information about a service account, such as its name and ID, creati
       }
       ```
 
-     You can also get information about the service accounts in the folder using the [ServiceAccountService/List](../../api-ref/grpc/ServiceAccount/list.md) gRPC API call.
+     You can also get information about service accounts in the folder using the [ServiceAccountService/List](../../api-ref/grpc/ServiceAccount/list.md) gRPC API call.
 
 {% endlist %}

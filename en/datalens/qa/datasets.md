@@ -26,4 +26,8 @@ description: This page covers FAQ about datasets.
 
 
 
+### Can I join multiple Yandex Documents tables into one? {#how-to-join-tables}
+
+You can join multiple [Yandex Documents](../operations/connection/create-yadocs.md) tables by configuring [links](../dataset/create-dataset.md#links) between them. You can join multiple tables into one using the `UNION` operator in an SQL query. However, SQL queries are only available for databases as data sources.
+
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

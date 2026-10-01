@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Установка Ghost CMS High Availability с помощью Cloud Apps
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Хостинг сайтов и веб-приложений > Установка Ghost CMS High Availability с помощью Cloud Apps
 
 # Установка Ghost CMS High Availability с помощью Cloud Apps
 
@@ -52,7 +52,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будете разворачивать инфраструктуру.
   1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
-  1. В правом верхнем углу нажмите **Создать сеть**.
+  1. Нажмите **Создать сеть**.
   1. В поле **Имя** укажите имя сети. Требования к имени:
 
       * длина — от 3 до 63 символов;

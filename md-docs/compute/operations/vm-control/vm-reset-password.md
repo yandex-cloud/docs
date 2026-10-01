@@ -21,7 +21,7 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит виртуальная машина.
   1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. Выберите нужную ВМ.
-  1. Справа вверху нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/key.svg) **Сбросить пароль**.
+  1. Нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![key](../../../_assets/console-icons/key.svg) **Сбросить пароль**.
   
       ![image](../../../_assets/compute/win-reset-password.png)
   

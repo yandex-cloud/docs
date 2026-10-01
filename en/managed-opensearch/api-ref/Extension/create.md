@@ -35,17 +35,20 @@ apiPlayground:
             description: |-
               **string**
               Required field. Name of the extension.
-              The maximum string length in characters is 50.
+              The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]+ `.
+            pattern: '[a-zA-Z0-9_-]+'
             type: string
           uri:
             description: |-
               **string**
               Required field. URI of the extension file
               Currently only supports links that are stored in Yandex Object Storage.
-              The maximum string length in characters is 50.
+              The maximum string length in characters is 128.
             type: string
           disabled:
-            description: '**boolean**'
+            description: |-
+              **boolean**
+              Flag indicating whether the extension is disabled.
             type: boolean
           type:
             description: |-
@@ -113,14 +116,16 @@ Required field. ||
 
 Required field. Name of the extension.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]+ `. ||
 || uri | **string**
 
 Required field. URI of the extension file
 Currently only supports links that are stored in Yandex Object Storage.
 
-The maximum string length in characters is 50. ||
-|| disabled | **boolean** ||
+The maximum string length in characters is 128. ||
+|| disabled | **boolean**
+
+Flag indicating whether the extension is disabled. ||
 || type | **enum** (ExtensionType)
 
 Required field. Extension type

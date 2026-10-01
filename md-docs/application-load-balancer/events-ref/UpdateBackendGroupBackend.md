@@ -153,6 +153,9 @@
                   "trustedCaId": "string",
                   "trustedCaBytes": "string"
                   // end of the list of possible fields
+                },
+                "clientCertificate": {
+                  "certificateId": "string"
                 }
               }
               // end of the list of possible fields
@@ -165,6 +168,9 @@
               "trustedCaId": "string",
               "trustedCaBytes": "string"
               // end of the list of possible fields
+            },
+            "clientCertificate": {
+              "certificateId": "string"
             }
           },
           "useHttp2": "boolean"
@@ -228,6 +234,9 @@
                   "trustedCaId": "string",
                   "trustedCaBytes": "string"
                   // end of the list of possible fields
+                },
+                "clientCertificate": {
+                  "certificateId": "string"
                 }
               }
               // end of the list of possible fields
@@ -240,6 +249,9 @@
               "trustedCaId": "string",
               "trustedCaBytes": "string"
               // end of the list of possible fields
+            },
+            "clientCertificate": {
+              "certificateId": "string"
             }
           }
         },
@@ -302,6 +314,9 @@
                   "trustedCaId": "string",
                   "trustedCaBytes": "string"
                   // end of the list of possible fields
+                },
+                "clientCertificate": {
+                  "certificateId": "string"
                 }
               }
               // end of the list of possible fields
@@ -314,6 +329,9 @@
               "trustedCaId": "string",
               "trustedCaBytes": "string"
               // end of the list of possible fields
+            },
+            "clientCertificate": {
+              "certificateId": "string"
             }
           },
           "enableProxyProtocol": "boolean",
@@ -649,6 +667,7 @@ Acceptable values are 100 to 599, inclusive. ||
 
 The maximum string length in characters is 255. Value must match the regular expression ` [-.a-z0-9]* `. ||
 || validationContext | **[ValidationContext](#yandex.cloud.apploadbalancer.v1.ValidationContext)** ||
+|| clientCertificate | **[ClientCertificateOptions](#yandex.cloud.apploadbalancer.v1.ClientCertificateOptions)** ||
 |#
 
 ## ValidationContext {#yandex.cloud.apploadbalancer.v1.ValidationContext}
@@ -663,6 +682,13 @@ Includes only one of the fields `trustedCaId`, `trustedCaBytes`. ||
 Includes only one of the fields `trustedCaId`, `trustedCaBytes`. ||
 |#
 
+## ClientCertificateOptions {#yandex.cloud.apploadbalancer.v1.ClientCertificateOptions}
+
+#|
+||Field | Description ||
+|| certificateId | **string** ||
+|#
+
 ## BackendTls {#yandex.cloud.apploadbalancer.v1.BackendTls}
 
 #|
@@ -671,6 +697,7 @@ Includes only one of the fields `trustedCaId`, `trustedCaBytes`. ||
 
 The maximum string length in characters is 255. Value must match the regular expression ` [-.a-z0-9]* `. ||
 || validationContext | **[ValidationContext](#yandex.cloud.apploadbalancer.v1.ValidationContext)** ||
+|| clientCertificate | **[ClientCertificateOptions](#yandex.cloud.apploadbalancer.v1.ClientCertificateOptions)** ||
 |#
 
 ## GrpcBackend {#yandex.cloud.apploadbalancer.v1.GrpcBackend}

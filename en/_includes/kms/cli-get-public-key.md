@@ -1,4 +1,4 @@
-Get a digital signature public key by specifying the previously obtained key pair ID:
+Get the digital signature public key, specifying the previously obtained key pair ID:
 
 ```bash
 yc kms asymmetric-signature-crypto get-public-key \
@@ -16,4 +16,4 @@ MIIB...
 -----END PUBLIC KEY-----
 ```
 
-Save the obtained key to a file, such as `public.key`. Make sure that lines in the file do not start with spaces.
+Save this key to a file, e.g., `public.key`. Make sure that lines in the file do not start with spaces.

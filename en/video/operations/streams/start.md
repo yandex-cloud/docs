@@ -59,7 +59,7 @@ For more information, see [{#T}](../../operations/streams/obs-config-help.md).
 
   1. Go back to the ![streams](../../../_assets/console-icons/antenna-signal.svg) **{{ ui-key.yacloud_video.streams.title_streams }}** tab in {{ video-name }}.
   1. Select the broadcast you created earlier.
-  1. Enable **Accept signal**.
+  1. Enable **{{ ui-key.yacloud_video.streams.label_enable-broadcast }}**.
   1. In OBS Studio, click **Start broadcast** in the bottom-right **Controls** panel.
   1. In the **{{ ui-key.yacloud_video.streams.label_start-broadcast }}** field, wait for the ![play](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.streams.label_start-broadcast }}** button to become active and click it. If the field is set to `{{ ui-key.yacloud_video.streams.label_start-broadcast-auto }}`, no further actions are required.
    

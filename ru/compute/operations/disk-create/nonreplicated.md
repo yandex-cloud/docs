@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать нереплицируемый диск
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 
 Вы можете создать отдельный [нереплицируемый диск](../../concepts/disk.md#nr-disks), либо добавить его в [группу размещения дисков](../../concepts/disk-placement-group.md).
 
@@ -18,7 +20,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать диск.
   1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.storage_uisyT }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
   1. Введите имя диска. Требования к имени:
 
@@ -164,7 +166,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать диск.
   1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.storage_uisyT }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
   1. Введите имя диска. Требования к имени:
 

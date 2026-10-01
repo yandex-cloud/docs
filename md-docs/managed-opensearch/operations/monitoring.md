@@ -14,7 +14,7 @@
 
 {% endnote %}
 
-Вы можете [настроить алерты](#monitoring-integration) в сервисе Yandex Monitoring для получения уведомлений о сбоях в работе кластера. В Yandex Monitoring используются два порога срабатывания алерта: `Warning` и `Alarm`. При превышении заданного порога вы получите оповещения через настроенные [каналы уведомлений](../../monitoring/concepts/alerting.md#notification-channel).
+Вы можете [настроить алерты](#monitoring-integration) в сервисе Yandex Monitoring для получения уведомлений о сбоях в работе кластера. В Yandex Monitoring используются два порога срабатывания алерта: `Warning` и `Alarm`. При превышении заданного порога вы получите оповещения через настроенные [каналы уведомлений](../../monitoring/concepts/alerting/notification-channel.md).
 
 ## Мониторинг состояния кластера {#monitoring-cluster}
 
@@ -26,7 +26,7 @@
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
     1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/display-pulse.svg) **Мониторинг**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
 
         На странице отображаются следующие графики:
 
@@ -84,7 +84,7 @@
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
 1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
-1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/cube.svg) **Хосты**.
+1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
 1. Выберите вкладку **Мониторинги**.
 1. Выберите нужный хост из выпадающего списка.
 
@@ -164,7 +164,7 @@
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
 1. [Перейдите](https://console.yandex.cloud/link/managed-opensearch) в сервис **Managed Service for&nbsp;OpenSearch**.
-1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/copy-transparent.svg) **Группы хостов**.
+1. Нажмите на имя нужного кластера и выберите вкладку **Группы хостов**.
 1. Выберите вкладку **Мониторинги**.
 1. Выберите нужную группу хостов из выпадающего списка.
 

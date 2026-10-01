@@ -1,3 +1,8 @@
+---
+title: How to delete a NAT gateway in {{ vpc-full-name }}
+description: Follow this guide to delete a NAT gateway.
+---
+
 # Deleting a NAT gateway
 
 If you no longer need the [NAT gateway](../concepts/gateways.md), you can [delete it](#delete-nat-gateway). Before deleting your NAT gateway, [disassociate it](#unlink-nat-gateway) from all route tables that use it.
@@ -11,10 +16,10 @@ If you no longer need the [NAT gateway](../concepts/gateways.md), you can [delet
   1. In the [management console]({{ link-console-main }}), select the folder containing the NAT gateway you want to dissociate.
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
-  1. In the list that opens, find the route table with the NAT gateway listed in its **Static routes** column.
-  1. In the table row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Edit**.
+  1. In the list that opens, find the route table with the NAT gateway listed in its **{{ ui-key.yacloud.vpc.route-tables.column_static-routes }}** column.
+  1. In the table row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
   1. In the window that opens, click ![image](../../_assets/console-icons/xmark.svg) in the row with the NAT gateway name.
-  1. Click **Save**.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -26,29 +31,33 @@ If you no longer need the [NAT gateway](../concepts/gateways.md), you can [delet
 
   1. View the description of the CLI command for updating a route table:
 
-      ```bash
-      yc vpc route-table update --help
-      ```
+     ```bash
+     yc vpc route-table update --help
+     ```
 
   1. Get the name or ID of the route table the NAT gateway is associated with:
 
-      ```bash
-      yc vpc route-table list
-      ```
-      Result:
-      ```text
-      +----------------------+----------------------+-------------+----------------------+
-      |          ID          |         NAME         | DESCRIPTION |      NETWORK-ID      |
-      +----------------------+----------------------+-------------+----------------------+
-      | enpcaaqahk3c******** | test-table           |             | enptgj64mv2r******** |
-      +----------------------+----------------------+-------------+----------------------+
+     ```bash
+     yc vpc route-table list
+     ```
 
-      ```
+     Result:
+
+     ```text
+     +----------------------+----------------------+-------------+----------------------+
+     |          ID          |         NAME         | DESCRIPTION |      NETWORK-ID      |
+     +----------------------+----------------------+-------------+----------------------+
+     | enpcaaqahk3c******** | test-table           |             | enptgj64mv2r******** |
+     +----------------------+----------------------+-------------+----------------------+
+     ```
+
   1. Disassociate the NAT gateway:
-      ```bash
-      yc vpc route-table update <route_table_name_or_ID> --clear-routes
-      ```
-      Use either the `--id` or `--name` parameter.
+
+     ```bash
+     yc vpc route-table update <route_table_name_or_ID> --clear-routes
+     ```
+
+     Use either the `--id` or `--name` parameter.
 
 - {{ TF }} {#tf}
 
@@ -80,54 +89,31 @@ If you no longer need the [NAT gateway](../concepts/gateways.md), you can [delet
 
   1. Delete the `static_route` object.
 
-  1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. Apply the changes:
 
-  1. Check the configuration using this command:
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     ```bash
-     terraform validate
-     ```
+  You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
-     If the configuration is valid, you will get this message:
+  ```bash
+  yc vpc route-table get <route_table_name_or_ID>
+  ```
 
-     ```text
-     Success! The configuration is valid.
-     ```
-
-  1. Run this command:
-
-     ```bash
-     terraform plan
-     ```
-
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-
-  1. Apply the configuration changes:
-
-     ```bash
-     terraform apply
-     ```
-
-  1. Type `yes` and press **Enter** to confirm changes.
-
-     You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
-
-     ```bash
-     yc vpc route-table get <route_table_name_or_ID>
-     ```
-     Use either the `--id` or `--name` parameter.
+  Use either the `--id` or `--name` parameter.
 
 - API {#api}
 
   To disassociate a NAT gateway from a route table, delete the static route with that NAT gateway from the route table. To do this, use the [update](../api-ref/RouteTable/update.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Update](../api-ref/grpc/RouteTable/update.md) gRPC API call. In your request, provide a list of static routes without the route you want to delete under:
-    * `staticRoutes`: For REST API
-    * `static_routes`: For gRPC API
+
+  * `staticRoutes`: For REST API
+  * `static_routes`: For gRPC API
 
   If the list contained a single static route, provide an empty list.
 
   To get a list of static routes, use the [get](../api-ref/RouteTable/get.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Get](../api-ref/grpc/RouteTable/get.md) gRPC API call. In your request, provide the route table ID in this parameter:
-    * `routeTableId`: For REST API
-    * `route_table_id`: For gRPC API
+
+  * `routeTableId`: For REST API
+  * `route_table_id`: For gRPC API
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -137,7 +123,7 @@ If you no longer need the [NAT gateway](../concepts/gateways.md), you can [delet
 
 {% note warning %}
 
-Before deleting a NAT gateway, [disassociate it](#unlink-route-table) from all route tables it is associated with.
+Before deleting a NAT gateway, [disassociate it](#unlink-nat-gateway) from all route tables it is associated with.
 
 {% endnote %}
 
@@ -146,11 +132,12 @@ Before deleting a NAT gateway, [disassociate it](#unlink-route-table) from all r
 - Management console {#console}
 
   To delete a NAT gateway:
+
   1. In the [management console]({{ link-console-main }}), select the folder where you need to delete a NAT gateway.
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/vpc/gateways.svg) **{{ ui-key.yacloud.vpc.switch_gateways }}**.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the NAT gateway name and select **Delete**.
-  1. In the window that opens, click **Delete**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with your NAT gateway's name and select **{{ ui-key.yacloud.common.delete }}**.
+  1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 
@@ -158,32 +145,37 @@ Before deleting a NAT gateway, [disassociate it](#unlink-route-table) from all r
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To delete a route table:
+  To delete a NAT gateway:
 
   1. View the description of the CLI command for deleting a NAT gateway:
 
-      ```bash
-      yc vpc gateway delete --help
-      ```
+     ```bash
+     yc vpc gateway delete --help
+     ```
 
   1. Get the name or ID of the NAT gateway to delete:
 
-      ```bash
-      yc vpc gateway list
-      ```
-      Result:
-      ```text
-      +----------------------+-----------+-------------+
-      |          ID          |   NAME    | DESCRIPTION |
-      +----------------------+-----------+-------------+
-      | enpkq171u4gb******** | gateway-1 |             |
-      +----------------------+-----------+-------------+
-      ```
+     ```bash
+     yc vpc gateway list
+     ```
+
+     Result:
+
+     ```text
+     +----------------------+-----------+-------------+
+     |          ID          |   NAME    | DESCRIPTION |
+     +----------------------+-----------+-------------+
+     | enpkq171u4gb******** | gateway-1 |             |
+     +----------------------+-----------+-------------+
+     ```
+
   1. Delete the NAT gateway:
-      ```bash
-      yc vpc gateway delete <gateway_name_or_ID>
-      ```
-      Use either the `--id` or `--name` parameter.
+
+     ```bash
+     yc vpc gateway delete <gateway_name_or_ID>
+     ```
+
+     Use either the `--id` or `--name` parameter.
 
 - {{ TF }} {#tf}
 
@@ -209,51 +201,26 @@ Before deleting a NAT gateway, [disassociate it](#unlink-route-table) from all r
 
      {% endcut %}
 
-  1. In the command line, navigate to the directory with the {{ TF }} configuration file.
+  1. Apply the changes:
 
-  1. Check the configuration using this command:
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     ```bash
-     terraform validate
-     ```
+  You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
-     If the configuration is valid, you will get this message:
-
-     ```text
-     Success! The configuration is valid.
-     ```
-
-  1. Run this command:
-
-     ```bash
-     terraform plan
-     ```
-
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-
-  1. Apply the configuration changes:
-
-     ```bash
-     terraform apply
-     ```
-
-  1. Type `yes` and press **Enter** to confirm changes.
-
-     You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
-
-     ```bash
-     yc vpc gateway list
-     ```
+  ```bash
+  yc vpc gateway list
+  ```
 
 - API {#api}
 
   To delete a NAT gateway, use the [delete](../api-ref/Gateway/delete.md) REST API method for the [Gateway](../api-ref/Gateway/index.md) resource or the [GatewayService/Delete](../api-ref/grpc/Gateway/delete.md) gRPC API call. In your request, provide the ID of the NAT gateway you want to delete in this parameter:
-    * `gatewayId`: For REST API
-    * `gateway_id`: For gRPC API
+
+  * `gatewayId`: For REST API
+  * `gateway_id`: For gRPC API
 
   To get the NAT gateway ID, use the [list](../api-ref/Gateway/list.md) REST API method for the [Gateway](../api-ref/Gateway/index.md) resource or the [GatewayService/List](../api-ref/grpc/Gateway/list.md) gRPC API call. In your request, provide the folder ID in this parameter:
-    * `folderId`: For REST API
-    * `folder_id`: For gRPC API
+
+  * `folderId`: For REST API
+  * `folder_id`: For gRPC API
 
 {% endlist %}
-

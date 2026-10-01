@@ -124,7 +124,7 @@ NGFW используется для защиты и сегментации об
        1. Нажмите кнопку ![image](../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
        1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.service-accounts }}** и выберите сервисный аккаунт `sa-terraform`.
        1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `admin`.
-       1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+       1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 - CLI {#cli}
 
@@ -615,7 +615,7 @@ NGFW используется для защиты и сегментации об
 
 ## Включите работу модуля route-switcher {#enable-route-switcher}
 
-После завершения настройки NGFW убедитесь, что проверка состояния FW-A и FW-B выдает значение `Healthy`. Для этого в [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} в каталоге `mgmt` [перейдите]({{ link-console-main }}/link/network-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** и выберите страницу сетевого балансировщика `route-switcher-lb-...`. Раскройте целевую группу и убедитесь, что состояния целевых ресурсов — `Healthy`. Если их состояние — `Unhealthy`, то необходимо проверить, что FW-A и FW-B запущены, функционируют и [настроены](#configure-gateways).
+После завершения настройки NGFW убедитесь, что проверка состояния FW-A и FW-B выдает значение `Healthy`. Для этого в [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} в каталоге `mgmt` [перейдите]({{ link-console-main }}/link/network-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** и выберите страницу сетевого балансировщика `route-switcher-lb-...`. Раскройте целевую группу и убедитесь, что состояния целевых ресурсов — `Healthy`. Если их состояние — `Unhealthy`, то необходимо проверить, что FW-A и FW-B запущены, функционируют и [настроены](#configure-ngfw).
 
 Когда статус FW-A и FW-B изменится на `Healthy`, в файле `route-switcher.tf` измените значение параметра `start_module` модуля `route-switcher` на `true`. Для включения работы модуля выполните команды:
 

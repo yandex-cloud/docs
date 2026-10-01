@@ -37,9 +37,9 @@ _x-dl-api-version_{.json-schema-reset .json-schema-property .json-schema-require
 
 API version header.
 
-_Const:_{.json-schema-reset .json-schema-value} `2`
+_Const:_{.json-schema-reset .json-schema-value} `3`
 
-_Example:_{.json-schema-reset .json-schema-example} `2`
+_Example:_{.json-schema-reset .json-schema-example} `3`
 {.table-cell}
 ||
 ||
@@ -139,7 +139,6 @@ Response
     "data": {
       "counter": 1,
       "salt": "example",
-      "version": 1,
       "slides": [
         {
           "id": "example"
@@ -206,7 +205,7 @@ Response
     "type": "",
     "workbookId": "example",
     "collectionId": "example",
-    "version": 1,
+    "version": 2,
     "public": false,
     "links": {}
   },
@@ -228,7 +227,7 @@ Response
 
 _entry_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
-**Type**: [ReportV1](#entity-ReportV1)
+**Type**: [ReportV2](#entity-ReportV2)
 
 {% cut "**Example**" %}{.json-schema-example}
 
@@ -246,7 +245,6 @@ _entry_{.json-schema-reset .json-schema-property .json-schema-required}
   "data": {
     "counter": 1,
     "salt": "example",
-    "version": 1,
     "slides": [
       {
         "id": "example"
@@ -317,7 +315,7 @@ _entry_{.json-schema-reset .json-schema-property .json-schema-required}
   "type": "",
   "workbookId": "example",
   "collectionId": "example",
-  "version": 1,
+  "version": 2,
   "public": false,
   "links": {}
 }
@@ -377,7 +375,7 @@ _permissions_{.json-schema-reset .json-schema-property}
 
 <div class="openapi-entity">
 
-### DashColorByTheme {#entity-DashColorByTheme}
+### DashColorByThemeV2 {#entity-DashColorByThemeV2}
 
 #|
 || **Name** | **Description** ||
@@ -420,7 +418,9 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 <div class="openapi-entity">
 
-### DashStringDefaultValue {#entity-DashStringDefaultValue}
+### DashStringDefaultValueV2 {#entity-DashStringDefaultValueV2}
+
+A dashboard parameter value represented by one or multiple strings.
 
 {% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
 
@@ -448,7 +448,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 <div class="openapi-entity">
 
-### DashControlSourceExternal {#entity-DashControlSourceExternal}
+### DashControlSourceExternalV2 {#entity-DashControlSourceExternalV2}
 
 External control source.
 
@@ -483,7 +483,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 <div class="openapi-entity">
 
-### DashControlElement {#entity-DashControlElement}
+### DashControlElementV2 {#entity-DashControlElementV2}
 
 {% cut "**One of 4 types**" %}{.json-schema-combinators data-marker=or}
 
@@ -541,17 +541,6 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
   {% endcut %}
 
   Default selected value or values.
-
-  _Example:_{.json-schema-reset .json-schema-example} `example`
-  {.table-cell}
-  ||
-  ||
-
-  _fieldType_{.json-schema-reset .json-schema-property}
-  {.table-cell}|
-  **Type**: string
-
-  Type of the field used by the control.
 
   _Example:_{.json-schema-reset .json-schema-example} `example`
   {.table-cell}
@@ -658,7 +647,6 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
     "showTitle": true,
     "hint": "example",
     "accentType": "info",
-    "fieldType": "example",
     "innerTitle": "example",
     "showInnerTitle": true,
     "operation": "IN",
@@ -717,9 +705,9 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
   {.table-cell}|
   **Type**: string
 
-  Type of the field used by the control.
+  Type of the field used by the date control.
 
-  _Example:_{.json-schema-reset .json-schema-example} `example`
+  _Enum:_{.json-schema-reset .json-schema-value} `date`, `genericdatetime`, `datetimetz`, `integer`, `uinteger`, `string`, `float`, `boolean`, `geopoint`, `geopolygon`, `markup`, `heatmap`, `array_int`, `array_float`, `array_str`, `unsupported`, `hierarchy`, `tree_str`, `tree_int`, `tree_float`
   {.table-cell}
   ||
   ||
@@ -824,13 +812,13 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
     "showTitle": true,
     "hint": "example",
     "accentType": "info",
-    "fieldType": "example",
     "innerTitle": "example",
     "showInnerTitle": true,
     "operation": "IN",
     "titlePlacement": "hide",
     "isRange": true,
     "elementType": "date",
+    "fieldType": "date",
     "defaultValue": "example"
   }
   ```
@@ -873,17 +861,6 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
   **Type**: string
 
   Default input value.
-
-  _Example:_{.json-schema-reset .json-schema-example} `example`
-  {.table-cell}
-  ||
-  ||
-
-  _fieldType_{.json-schema-reset .json-schema-property}
-  {.table-cell}|
-  **Type**: string
-
-  Type of the field used by the control.
 
   _Example:_{.json-schema-reset .json-schema-example} `example`
   {.table-cell}
@@ -981,7 +958,6 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
     "showTitle": true,
     "hint": "example",
     "accentType": "info",
-    "fieldType": "example",
     "innerTitle": "example",
     "showInnerTitle": true,
     "operation": "IN",
@@ -1035,17 +1011,6 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
   ||
   ||
 
-  _fieldType_{.json-schema-reset .json-schema-property}
-  {.table-cell}|
-  **Type**: string
-
-  Type of the field used by the control.
-
-  _Example:_{.json-schema-reset .json-schema-example} `example`
-  {.table-cell}
-  ||
-  ||
-
   _hint_{.json-schema-reset .json-schema-property}
   {.table-cell}|
   **Type**: string
@@ -1137,7 +1102,6 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
     "showTitle": true,
     "hint": "example",
     "accentType": "info",
-    "fieldType": "example",
     "innerTitle": "example",
     "showInnerTitle": true,
     "operation": "IN",
@@ -1160,7 +1124,6 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
   "showTitle": true,
   "hint": "example",
   "accentType": "info",
-  "fieldType": "example",
   "innerTitle": "example",
   "showInnerTitle": true,
   "operation": "IN",
@@ -1177,13 +1140,13 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 <div class="openapi-entity">
 
-### DashControlSourceDataset {#entity-DashControlSourceDataset}
+### DashControlSourceDatasetV2 {#entity-DashControlSourceDatasetV2}
 
 Dataset control source.
 
 {% cut "**All of 2 types**" %}{.json-schema-combinators data-marker=and}
 
-- **Type**: [DashControlElement](#entity-DashControlElement)
+- **Type**: [DashControlElementV2](#entity-DashControlElementV2)
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -1194,7 +1157,6 @@ Dataset control source.
     "showTitle": true,
     "hint": "example",
     "accentType": "info",
-    "fieldType": "example",
     "innerTitle": "example",
     "showInnerTitle": true,
     "operation": "IN",
@@ -1247,6 +1209,17 @@ Dataset control source.
   _Enum:_{.json-schema-reset .json-schema-value} `DIMENSION`, `MEASURE`, `PSEUDO`, `PARAMETER`
   {.table-cell}
   ||
+  ||
+
+  _fieldType_{.json-schema-reset .json-schema-property}
+  {.table-cell}|
+  **Type**: string
+
+  Source dataset field data type.
+
+  _Enum:_{.json-schema-reset .json-schema-value} `date`, `genericdatetime`, `datetimetz`, `integer`, `uinteger`, `string`, `float`, `boolean`, `geopoint`, `geopolygon`, `markup`, `heatmap`, `array_int`, `array_float`, `array_str`, `unsupported`, `hierarchy`, `tree_str`, `tree_int`, `tree_float`
+  {.table-cell}
+  ||
   |#{.json-schema-properties}
 
   {% endcut %}
@@ -1257,6 +1230,7 @@ Dataset control source.
   {
     "datasetId": "example",
     "datasetFieldId": "example",
+    "fieldType": "date",
     "datasetFieldType": "DIMENSION"
   }
   ```
@@ -1274,7 +1248,6 @@ Dataset control source.
   "showTitle": true,
   "hint": "example",
   "accentType": "info",
-  "fieldType": "example",
   "innerTitle": "example",
   "showInnerTitle": true,
   "operation": "IN",
@@ -1284,6 +1257,7 @@ Dataset control source.
   "defaultValue": "example",
   "datasetId": "example",
   "datasetFieldId": "example",
+  "fieldType": "date",
   "datasetFieldType": "DIMENSION"
 }
 ```
@@ -1294,13 +1268,13 @@ Dataset control source.
 
 <div class="openapi-entity">
 
-### DashControlSourceManual {#entity-DashControlSourceManual}
+### DashControlSourceManualV2 {#entity-DashControlSourceManualV2}
 
 Manual control source.
 
 {% cut "**All of 2 types**" %}{.json-schema-combinators data-marker=and}
 
-- **Type**: [DashControlElement](#entity-DashControlElement)
+- **Type**: [DashControlElementV2](#entity-DashControlElementV2)
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -1311,7 +1285,6 @@ Manual control source.
     "showTitle": true,
     "hint": "example",
     "accentType": "info",
-    "fieldType": "example",
     "innerTitle": "example",
     "showInnerTitle": true,
     "operation": "IN",
@@ -1473,7 +1446,6 @@ Manual control source.
   "showTitle": true,
   "hint": "example",
   "accentType": "info",
-  "fieldType": "example",
   "innerTitle": "example",
   "showInnerTitle": true,
   "operation": "IN",
@@ -1497,281 +1469,11 @@ Manual control source.
 
 <div class="openapi-entity">
 
-### DashLayoutItem {#entity-DashLayoutItem}
-
-#|
-|| **Name** | **Description** ||
-||
-
-_h_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: number
-
-Item height in grid units.
-{.table-cell}
-||
-||
-
-_i_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-Dashboard item identifier.
-
-_Min length:_{.json-schema-reset .json-schema-assertion} `1`
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_w_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: number
-
-Item width in grid units.
-{.table-cell}
-||
-||
-
-_x_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: number
-
-Horizontal grid position.
-{.table-cell}
-||
-||
-
-_y_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: number
-
-Vertical grid position.
-{.table-cell}
-||
-||
-
-_parent_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-Parent item identifier.
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-|#{.json-schema-properties}
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{
-  "i": "example",
-  "h": 0.5,
-  "w": 0.5,
-  "x": 0.5,
-  "y": 0.5,
-  "parent": "example"
-}
-```
-
-{% endcut %}
-
-</div>
-
-<div class="openapi-entity">
-
-### DashConnection {#entity-DashConnection}
-
-#|
-|| **Name** | **Description** ||
-||
-
-_from_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-Source widget identifier.
-
-_Min length:_{.json-schema-reset .json-schema-assertion} `1`
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_kind_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-Connection type.
-
-_Const:_{.json-schema-reset .json-schema-value} `ignore`
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_to_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-Target widget identifier.
-
-_Min length:_{.json-schema-reset .json-schema-assertion} `1`
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-|#{.json-schema-properties}
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{
-  "from": "example",
-  "to": "example",
-  "kind": "ignore"
-}
-```
-
-{% endcut %}
-
-</div>
-
-<div class="openapi-entity">
-
-### ReportData {#entity-ReportData}
-
-#|
-|| **Name** | **Description** ||
-||
-
-_counter_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: integer
-
-Counter used to generate item identifiers.
-
-_Min value:_{.json-schema-reset .json-schema-assertion} `1`
-{.table-cell}
-||
-||
-
-_salt_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-Salt used to generate item identifiers.
-
-_Min length:_{.json-schema-reset .json-schema-assertion} `1`
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_slideGroups_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-{% cut "**Type**: object[]" %}
-
-#|
-||
-
-_aliases_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-{% cut "**Type**: object" %}
-
-#|
-||
-
-_default_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string[][]
-
-Groups of field names treated as the same parameter.
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-[
-  [
-    "example",
-    "example"
-  ]
-]
-```
-
-{% endcut %}
-{.table-cell}
-||
-|#{.json-schema-properties}
-
-{% endcut %}
-
-Field aliases used in the slide group.
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{
-  "default": [
-    [
-      "example",
-      "example"
-    ]
-  ]
-}
-```
-
-{% endcut %}
-{.table-cell}
-||
-||
-
-_connections_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: [DashConnection](#entity-DashConnection)[]
-
-Connections between slide group items.
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-[
-  {
-    "from": "example",
-    "to": "example",
-    "kind": "ignore"
-  }
-]
-```
-
-{% endcut %}
-{.table-cell}
-||
-||
-
-_id_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-Slide group identifier.
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_items_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-{% cut "**Type**: array" %}
+### ReportTabItemV2 {#entity-ReportTabItemV2}
 
 {% cut "**One of 7 types**" %}{.json-schema-combinators data-marker=or}
 
-- **Type**: object
+- {% cut "**Type**: object" %}
 
   #|
   ||
@@ -1803,51 +1505,6 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
   ||
   ||
 
-  _background_{.json-schema-reset .json-schema-property}
-  {.table-cell}|
-  {% cut "**Type**: object" %}
-
-  #|
-  ||
-
-  _color_{.json-schema-reset .json-schema-property .json-schema-required}
-  {.table-cell}|
-  **Type**: string
-
-  Legacy background color.
-
-  _Example:_{.json-schema-reset .json-schema-example} `example`
-  {.table-cell}
-  ||
-  ||
-
-  _enabled_{.json-schema-reset .json-schema-property}
-  {.table-cell}|
-  **Type**: boolean
-
-  Whether the legacy background is enabled.
-  {.table-cell}
-  ||
-  |#{.json-schema-properties}
-
-  {% endcut %}
-
-  Deprecated. Use backgroundSettings instead.
-
-  {% cut "**Example**" %}{.json-schema-example}
-
-  ```json translate=no
-  {
-    "enabled": true,
-    "color": "example"
-  }
-  ```
-
-  {% endcut %}
-  {.table-cell}
-  ||
-  ||
-
   _backgroundSettings_{.json-schema-reset .json-schema-property}
   {.table-cell}|
   {% cut "**Type**: object" %}
@@ -1859,7 +1516,7 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
   {.table-cell}|
   {% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
 
-  - **Type**: [DashColorByTheme](#entity-DashColorByTheme)
+  - **Type**: [DashColorByThemeV2](#entity-DashColorByThemeV2)
 
     {% cut "**Example**" %}{.json-schema-example}
 
@@ -1925,18 +1582,12 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
 
   {% endcut %}
 
-  Text item data.
-
   {% cut "**Example**" %}{.json-schema-example}
 
   ```json translate=no
   {
     "text": "example",
     "autoHeight": true,
-    "background": {
-      "enabled": true,
-      "color": "example"
-    },
     "backgroundSettings": {
       "color": {
         "light": "example",
@@ -2009,6 +1660,8 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
   ||
   |#{.json-schema-properties}
 
+  {% endcut %}
+
   {% cut "**Example**" %}{.json-schema-example}
 
   ```json translate=no
@@ -2017,14 +1670,9 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
     "namespace": "default",
     "orderId": 0.5,
     "defaultOrderId": 0.5,
-    "type": "text",
     "data": {
       "text": "example",
       "autoHeight": true,
-      "background": {
-        "enabled": true,
-        "color": "example"
-      },
       "backgroundSettings": {
         "color": {
           "light": "example",
@@ -2032,13 +1680,14 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
         }
       },
       "borderRadius": 0.5
-    }
+    },
+    "type": "text"
   }
   ```
 
   {% endcut %}
 
-- **Type**: object
+- {% cut "**Type**: object" %}
 
   #|
   ||
@@ -2112,51 +1761,6 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
   ||
   ||
 
-  _background_{.json-schema-reset .json-schema-property}
-  {.table-cell}|
-  {% cut "**Type**: object" %}
-
-  #|
-  ||
-
-  _color_{.json-schema-reset .json-schema-property .json-schema-required}
-  {.table-cell}|
-  **Type**: string
-
-  Legacy background color.
-
-  _Example:_{.json-schema-reset .json-schema-example} `example`
-  {.table-cell}
-  ||
-  ||
-
-  _enabled_{.json-schema-reset .json-schema-property}
-  {.table-cell}|
-  **Type**: boolean
-
-  Whether the legacy background is enabled.
-  {.table-cell}
-  ||
-  |#{.json-schema-properties}
-
-  {% endcut %}
-
-  Deprecated. Use backgroundSettings.
-
-  {% cut "**Example**" %}{.json-schema-example}
-
-  ```json translate=no
-  {
-    "enabled": true,
-    "color": "example"
-  }
-  ```
-
-  {% endcut %}
-  {.table-cell}
-  ||
-  ||
-
   _backgroundSettings_{.json-schema-reset .json-schema-property}
   {.table-cell}|
   {% cut "**Type**: object" %}
@@ -2168,7 +1772,7 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
   {.table-cell}|
   {% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
 
-  - **Type**: [DashColorByTheme](#entity-DashColorByTheme)
+  - **Type**: [DashColorByThemeV2](#entity-DashColorByThemeV2)
 
     {% cut "**Example**" %}{.json-schema-example}
 
@@ -2205,7 +1809,7 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
 
   {% endcut %}
 
-  Title background settings.
+  Title item background settings.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -2277,13 +1881,11 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
   ||
   ||
 
-  _textColor_{.json-schema-reset .json-schema-property}
+  _internalMarginsEnabled_{.json-schema-reset .json-schema-property}
   {.table-cell}|
-  **Type**: string
+  **Type**: boolean
 
-  Deprecated. Use textSettings.
-
-  _Example:_{.json-schema-reset .json-schema-example} `example`
+  Whether the title includes internal margins. This experimental field may change in future API versions.
   {.table-cell}
   ||
   ||
@@ -2297,28 +1899,36 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
 
   _color_{.json-schema-reset .json-schema-property}
   {.table-cell}|
-  {% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
+  {% cut "**Type**: object" %}
 
-  - **Type**: [DashColorByTheme](#entity-DashColorByTheme)
+  #|
+  ||
 
-    {% cut "**Example**" %}{.json-schema-example}
+  _dark_{.json-schema-reset .json-schema-property}
+  {.table-cell}|
+  **Type**: string
 
-    ```json translate=no
-    {
-      "light": "example",
-      "dark": "example"
-    }
-    ```
+  Color for the dark theme.
 
-    {% endcut %}
+  _Example:_{.json-schema-reset .json-schema-example} `example`
+  {.table-cell}
+  ||
+  ||
 
-  - **Type**: string
+  _light_{.json-schema-reset .json-schema-property}
+  {.table-cell}|
+  **Type**: string
 
-    _Example:_{.json-schema-reset .json-schema-example} `example`
+  Color for the light theme.
+
+  _Example:_{.json-schema-reset .json-schema-example} `example`
+  {.table-cell}
+  ||
+  |#{.json-schema-properties}
 
   {% endcut %}
 
-  Title text color.
+  Title text color by theme in hex.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -2364,7 +1974,6 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
   {
     "text": "example",
     "size": "xl",
-    "textColor": "example",
     "textSettings": {
       "color": {
         "light": "example",
@@ -2375,14 +1984,14 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
       "enabled": true,
       "text": "example"
     },
-    "background": {
-      "enabled": true,
-      "color": "example"
-    },
+    "borderRadius": 0.5,
+    "internalMarginsEnabled": true,
     "backgroundSettings": {
-      "color": null
-    },
-    "borderRadius": 0.5
+      "color": {
+        "light": "example",
+        "dark": "example"
+      }
+    }
   }
   ```
 
@@ -2448,6 +2057,8 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
   ||
   |#{.json-schema-properties}
 
+  {% endcut %}
+
   {% cut "**Example**" %}{.json-schema-example}
 
   ```json translate=no
@@ -2456,11 +2067,9 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
     "namespace": "default",
     "orderId": 0.5,
     "defaultOrderId": 0.5,
-    "type": "title",
     "data": {
       "text": "example",
       "size": "xl",
-      "textColor": "example",
       "textSettings": {
         "color": {
           "light": "example",
@@ -2471,21 +2080,22 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
         "enabled": true,
         "text": "example"
       },
-      "background": {
-        "enabled": true,
-        "color": "example"
-      },
+      "borderRadius": 0.5,
+      "internalMarginsEnabled": true,
       "backgroundSettings": {
-        "color": null
-      },
-      "borderRadius": 0.5
-    }
+        "color": {
+          "light": "example",
+          "dark": "example"
+        }
+      }
+    },
+    "type": "title"
   }
   ```
 
   {% endcut %}
 
-- **Type**: object
+- {% cut "**Type**: object" %}
 
   #|
   ||
@@ -2548,7 +2158,9 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
 
   _[additional]_{.json-schema-reset .json-schema-additional-property}
   {.table-cell}|
-  **Type**: [DashStringDefaultValue](#entity-DashStringDefaultValue)
+  **Type**: [DashStringDefaultValueV2](#entity-DashStringDefaultValueV2)
+
+  A dashboard parameter value represented by one or multiple strings.
 
   _Example:_{.json-schema-reset .json-schema-example} `example`
   {.table-cell}
@@ -2579,51 +2191,6 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
   _Min length:_{.json-schema-reset .json-schema-assertion} `1`
 
   _Example:_{.json-schema-reset .json-schema-example} `example`
-  {.table-cell}
-  ||
-  ||
-
-  _background_{.json-schema-reset .json-schema-property}
-  {.table-cell}|
-  {% cut "**Type**: object" %}
-
-  #|
-  ||
-
-  _color_{.json-schema-reset .json-schema-property .json-schema-required}
-  {.table-cell}|
-  **Type**: string
-
-  Legacy background color.
-
-  _Example:_{.json-schema-reset .json-schema-example} `example`
-  {.table-cell}
-  ||
-  ||
-
-  _enabled_{.json-schema-reset .json-schema-property}
-  {.table-cell}|
-  **Type**: boolean
-
-  Whether the legacy background is enabled.
-  {.table-cell}
-  ||
-  |#{.json-schema-properties}
-
-  {% endcut %}
-
-  Deprecated. Use backgroundSettings in data instead.
-
-  {% cut "**Example**" %}{.json-schema-example}
-
-  ```json translate=no
-  {
-    "enabled": true,
-    "color": "example"
-  }
-  ```
-
-  {% endcut %}
   {.table-cell}
   ||
   ||
@@ -2704,11 +2271,7 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
       "chartId": "example",
       "isDefault": true,
       "params": {},
-      "enableActionParams": true,
-      "background": {
-        "enabled": true,
-        "color": "example"
-      }
+      "enableActionParams": true
     }
   ]
   ```
@@ -2729,7 +2292,7 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
   {.table-cell}|
   {% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
 
-  - **Type**: [DashColorByTheme](#entity-DashColorByTheme)
+  - **Type**: [DashColorByThemeV2](#entity-DashColorByThemeV2)
 
     {% cut "**Example**" %}{.json-schema-example}
 
@@ -2802,12 +2365,6 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
   ```json translate=no
   {
     "hideTitle": true,
-    "backgroundSettings": {
-      "color": {
-        "light": "example",
-        "dark": "example"
-      }
-    },
     "borderRadius": 0.5,
     "tabs": [
       {
@@ -2820,13 +2377,15 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
         "chartId": "example",
         "isDefault": true,
         "params": {},
-        "enableActionParams": true,
-        "background": {
-          "enabled": true,
-          "color": "example"
-        }
+        "enableActionParams": true
       }
-    ]
+    ],
+    "backgroundSettings": {
+      "color": {
+        "light": "example",
+        "dark": "example"
+      }
+    }
   }
   ```
 
@@ -2892,6 +2451,8 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
   ||
   |#{.json-schema-properties}
 
+  {% endcut %}
+
   {% cut "**Example**" %}{.json-schema-example}
 
   ```json translate=no
@@ -2900,15 +2461,8 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
     "namespace": "default",
     "orderId": 0.5,
     "defaultOrderId": 0.5,
-    "type": "widget",
     "data": {
       "hideTitle": true,
-      "backgroundSettings": {
-        "color": {
-          "light": "example",
-          "dark": "example"
-        }
-      },
       "borderRadius": 0.5,
       "tabs": [
         {
@@ -2921,20 +2475,23 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
           "chartId": "example",
           "isDefault": true,
           "params": {},
-          "enableActionParams": true,
-          "background": {
-            "enabled": true,
-            "color": "example"
-          }
+          "enableActionParams": true
         }
-      ]
-    }
+      ],
+      "backgroundSettings": {
+        "color": {
+          "light": "example",
+          "dark": "example"
+        }
+      }
+    },
+    "type": "widget"
   }
   ```
 
   {% endcut %}
 
-- **Type**: object
+- {% cut "**Type**: object" %}
 
   #|
   ||
@@ -2979,7 +2536,7 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
   {.table-cell}|
   {% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
 
-  - **Type**: [DashColorByTheme](#entity-DashColorByTheme)
+  - **Type**: [DashColorByThemeV2](#entity-DashColorByThemeV2)
 
     {% cut "**Example**" %}{.json-schema-example}
 
@@ -3135,6 +2692,8 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
   ||
   |#{.json-schema-properties}
 
+  {% endcut %}
+
   {% cut "**Example**" %}{.json-schema-example}
 
   ```json translate=no
@@ -3161,7 +2720,7 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
 
   {% endcut %}
 
-- **Type**: object
+- {% cut "**Type**: object" %}
 
   #|
   ||
@@ -3175,7 +2734,7 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
 
   _source_{.json-schema-reset .json-schema-property .json-schema-required}
   {.table-cell}|
-  **Type**: [DashControlSourceExternal](#entity-DashControlSourceExternal)
+  **Type**: [DashControlSourceExternalV2](#entity-DashControlSourceExternalV2)
 
   External control source.
 
@@ -3248,7 +2807,9 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
 
   _[additional]_{.json-schema-reset .json-schema-additional-property}
   {.table-cell}|
-  **Type**: [DashStringDefaultValue](#entity-DashStringDefaultValue)
+  **Type**: [DashStringDefaultValueV2](#entity-DashStringDefaultValueV2)
+
+  A dashboard parameter value represented by one or multiple strings.
 
   _Example:_{.json-schema-reset .json-schema-example} `example`
   {.table-cell}
@@ -3327,6 +2888,8 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
   ||
   |#{.json-schema-properties}
 
+  {% endcut %}
+
   {% cut "**Example**" %}{.json-schema-example}
 
   ```json translate=no
@@ -3349,7 +2912,7 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
 
   {% endcut %}
 
-- **Type**: object
+- {% cut "**Type**: object" %}
 
   #|
   ||
@@ -3427,7 +2990,7 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
 
     _source_{.json-schema-reset .json-schema-property .json-schema-required}
     {.table-cell}|
-    **Type**: [DashControlSourceDataset](#entity-DashControlSourceDataset)
+    **Type**: [DashControlSourceDatasetV2](#entity-DashControlSourceDatasetV2)
 
     Dataset control source.
 
@@ -3440,7 +3003,6 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
       "showTitle": true,
       "hint": "example",
       "accentType": "info",
-      "fieldType": "example",
       "innerTitle": "example",
       "showInnerTitle": true,
       "operation": "IN",
@@ -3450,6 +3012,7 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
       "defaultValue": "example",
       "datasetId": "example",
       "datasetFieldId": "example",
+      "fieldType": "date",
       "datasetFieldType": "DIMENSION"
     }
     ```
@@ -3494,7 +3057,9 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
 
     _[additional]_{.json-schema-reset .json-schema-additional-property}
     {.table-cell}|
-    **Type**: [DashStringDefaultValue](#entity-DashStringDefaultValue)
+    **Type**: [DashStringDefaultValueV2](#entity-DashStringDefaultValueV2)
+
+    A dashboard parameter value represented by one or multiple strings.
 
     _Example:_{.json-schema-reset .json-schema-example} `example`
     {.table-cell}
@@ -3555,7 +3120,6 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
         "showTitle": true,
         "hint": "example",
         "accentType": "info",
-        "fieldType": "example",
         "innerTitle": "example",
         "showInnerTitle": true,
         "operation": "IN",
@@ -3565,6 +3129,7 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
         "defaultValue": "example",
         "datasetId": "example",
         "datasetFieldId": "example",
+        "fieldType": "date",
         "datasetFieldType": "DIMENSION"
       }
     }
@@ -3605,7 +3170,7 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
 
     _source_{.json-schema-reset .json-schema-property .json-schema-required}
     {.table-cell}|
-    **Type**: [DashControlSourceManual](#entity-DashControlSourceManual)
+    **Type**: [DashControlSourceManualV2](#entity-DashControlSourceManualV2)
 
     Manual control source.
 
@@ -3618,7 +3183,6 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
       "showTitle": true,
       "hint": "example",
       "accentType": "info",
-      "fieldType": "example",
       "innerTitle": "example",
       "showInnerTitle": true,
       "operation": "IN",
@@ -3676,7 +3240,9 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
 
     _[additional]_{.json-schema-reset .json-schema-additional-property}
     {.table-cell}|
-    **Type**: [DashStringDefaultValue](#entity-DashStringDefaultValue)
+    **Type**: [DashStringDefaultValueV2](#entity-DashStringDefaultValueV2)
+
+    A dashboard parameter value represented by one or multiple strings.
 
     _Example:_{.json-schema-reset .json-schema-example} `example`
     {.table-cell}
@@ -3737,7 +3303,6 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
         "showTitle": true,
         "hint": "example",
         "accentType": "info",
-        "fieldType": "example",
         "innerTitle": "example",
         "showInnerTitle": true,
         "operation": "IN",
@@ -3776,6 +3341,7 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
       "source": {
         "datasetId": "example",
         "datasetFieldId": "example",
+        "fieldType": "date",
         "datasetFieldType": "DIMENSION"
       }
     }
@@ -3907,6 +3473,8 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
   ||
   |#{.json-schema-properties}
 
+  {% endcut %}
+
   {% cut "**Example**" %}{.json-schema-example}
 
   ```json translate=no
@@ -3941,7 +3509,7 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
 
   {% endcut %}
 
-- **Type**: object
+- {% cut "**Type**: object" %}
 
   #|
   ||
@@ -3999,7 +3567,7 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
   {.table-cell}|
   {% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
 
-  - **Type**: [DashColorByTheme](#entity-DashColorByTheme)
+  - **Type**: [DashColorByThemeV2](#entity-DashColorByThemeV2)
 
     {% cut "**Example**" %}{.json-schema-example}
 
@@ -4036,7 +3604,7 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
 
   {% endcut %}
 
-  Neuro widget background settings.
+  Insight widget background settings.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -4085,13 +3653,12 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
 
   {% endcut %}
 
-  Neuro widget item data.
+  Insight widget item data.
 
   {% cut "**Example**" %}{.json-schema-example}
 
   ```json translate=no
   {
-    "widgetTabId": "example",
     "title": "example",
     "prompt": "example",
     "hideTitle": true,
@@ -4102,7 +3669,8 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
       }
     },
     "borderRadius": 0.5,
-    "hideActions": true
+    "hideActions": true,
+    "widgetTabId": "example"
   }
   ```
 
@@ -4168,6 +3736,8 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
   ||
   |#{.json-schema-properties}
 
+  {% endcut %}
+
   {% cut "**Example**" %}{.json-schema-example}
 
   ```json translate=no
@@ -4178,7 +3748,6 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
     "defaultOrderId": 0.5,
     "type": "neuro_widget",
     "data": {
-      "widgetTabId": "example",
       "title": "example",
       "prompt": "example",
       "hideTitle": true,
@@ -4189,7 +3758,8 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
         }
       },
       "borderRadius": 0.5,
-      "hideActions": true
+      "hideActions": true,
+      "widgetTabId": "example"
     }
   }
   ```
@@ -4198,7 +3768,303 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
 
 {% endcut %}
 
+{% cut "**Example**" %}{.json-schema-example}
+
+```json translate=no
+{
+  "id": "example",
+  "namespace": "default",
+  "orderId": 0.5,
+  "defaultOrderId": 0.5,
+  "data": {
+    "text": "example",
+    "autoHeight": true,
+    "backgroundSettings": {
+      "color": {}
+    },
+    "borderRadius": 0.5
+  },
+  "type": "text"
+}
+```
+
 {% endcut %}
+
+</div>
+
+<div class="openapi-entity">
+
+### DashLayoutItemV2 {#entity-DashLayoutItemV2}
+
+#|
+|| **Name** | **Description** ||
+||
+
+_h_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: number
+
+Item height in grid units.
+{.table-cell}
+||
+||
+
+_i_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: string
+
+Dashboard item identifier.
+
+_Min length:_{.json-schema-reset .json-schema-assertion} `1`
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_w_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: number
+
+Item width in grid units.
+{.table-cell}
+||
+||
+
+_x_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: number
+
+Horizontal grid position.
+{.table-cell}
+||
+||
+
+_y_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: number
+
+Vertical grid position.
+{.table-cell}
+||
+||
+
+_parent_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+Parent item identifier.
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+|#{.json-schema-properties}
+
+{% cut "**Example**" %}{.json-schema-example}
+
+```json translate=no
+{
+  "i": "example",
+  "h": 0.5,
+  "w": 0.5,
+  "x": 0.5,
+  "y": 0.5,
+  "parent": "example"
+}
+```
+
+{% endcut %}
+
+</div>
+
+<div class="openapi-entity">
+
+### DashConnectionV2 {#entity-DashConnectionV2}
+
+#|
+|| **Name** | **Description** ||
+||
+
+_from_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: string
+
+Source widget identifier.
+
+_Min length:_{.json-schema-reset .json-schema-assertion} `1`
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_kind_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: string
+
+Connection type.
+
+_Const:_{.json-schema-reset .json-schema-value} `ignore`
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_to_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: string
+
+Target widget identifier.
+
+_Min length:_{.json-schema-reset .json-schema-assertion} `1`
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+|#{.json-schema-properties}
+
+{% cut "**Example**" %}{.json-schema-example}
+
+```json translate=no
+{
+  "from": "example",
+  "to": "example",
+  "kind": "ignore"
+}
+```
+
+{% endcut %}
+
+</div>
+
+<div class="openapi-entity">
+
+### ReportDataV2 {#entity-ReportDataV2}
+
+#|
+|| **Name** | **Description** ||
+||
+
+_counter_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: integer
+
+Counter used to generate item identifiers.
+
+_Min value:_{.json-schema-reset .json-schema-assertion} `1`
+{.table-cell}
+||
+||
+
+_salt_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: string
+
+Salt used to generate item identifiers.
+
+_Min length:_{.json-schema-reset .json-schema-assertion} `1`
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_slideGroups_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+{% cut "**Type**: object[]" %}
+
+#|
+||
+
+_aliases_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+{% cut "**Type**: object" %}
+
+#|
+||
+
+_default_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string[][]
+
+Groups of field names treated as the same parameter.
+
+{% cut "**Example**" %}{.json-schema-example}
+
+```json translate=no
+[
+  [
+    "example",
+    "example"
+  ]
+]
+```
+
+{% endcut %}
+{.table-cell}
+||
+|#{.json-schema-properties}
+
+{% endcut %}
+
+Field aliases used in the slide group.
+
+{% cut "**Example**" %}{.json-schema-example}
+
+```json translate=no
+{
+  "default": [
+    [
+      "example",
+      "example"
+    ]
+  ]
+}
+```
+
+{% endcut %}
+{.table-cell}
+||
+||
+
+_connections_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: [DashConnectionV2](#entity-DashConnectionV2)[]
+
+Connections between slide group items.
+
+{% cut "**Example**" %}{.json-schema-example}
+
+```json translate=no
+[
+  {
+    "from": "example",
+    "to": "example",
+    "kind": "ignore"
+  }
+]
+```
+
+{% endcut %}
+{.table-cell}
+||
+||
+
+_id_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: string
+
+Slide group identifier.
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_items_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: [ReportTabItemV2](#entity-ReportTabItemV2)[]
 
 Items in the slide group.
 
@@ -4211,19 +4077,15 @@ Items in the slide group.
     "namespace": "default",
     "orderId": 0.5,
     "defaultOrderId": 0.5,
-    "type": "text",
     "data": {
       "text": "example",
       "autoHeight": true,
-      "background": {
-        "enabled": true,
-        "color": "example"
-      },
       "backgroundSettings": {
         "color": null
       },
       "borderRadius": 0.5
-    }
+    },
+    "type": "text"
   }
 ]
 ```
@@ -4235,7 +4097,7 @@ Items in the slide group.
 
 _layout_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
-**Type**: [DashLayoutItem](#entity-DashLayoutItem)[]
+**Type**: [DashLayoutItemV2](#entity-DashLayoutItemV2)[]
 
 Item layout in the slide group.
 
@@ -4275,8 +4137,8 @@ Slide groups in the report.
         "namespace": "default",
         "orderId": 0.5,
         "defaultOrderId": 0.5,
-        "type": "text",
-        "data": {}
+        "data": {},
+        "type": "text"
       }
     ],
     "layout": [
@@ -4390,7 +4252,7 @@ _color_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 {% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
 
-- **Type**: [DashColorByTheme](#entity-DashColorByTheme)
+- **Type**: [DashColorByThemeV2](#entity-DashColorByThemeV2)
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -4595,7 +4457,7 @@ _internalMarginsEnabled_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: boolean
 
-Whether widgets include internal margins.
+Whether widgets include internal margins. This experimental field may change in future API versions.
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -4689,17 +4551,6 @@ Slide identifiers in display order.
 ||
 ||
 
-_version_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: number
-
-Report schema version.
-
-_Const:_{.json-schema-reset .json-schema-value} `1`
-{.table-cell}
-||
-||
-
 _visualSettings_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 {% cut "**Type**: object" %}
@@ -4729,7 +4580,7 @@ _color_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 {% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
 
-- **Type**: [DashColorByTheme](#entity-DashColorByTheme)
+- **Type**: [DashColorByThemeV2](#entity-DashColorByThemeV2)
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -4934,7 +4785,7 @@ _internalMarginsEnabled_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: boolean
 
-Whether widgets include internal margins.
+Whether widgets include internal margins. This experimental field may change in future API versions.
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -5077,7 +4928,6 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 {
   "counter": 1,
   "salt": "example",
-  "version": 1,
   "slides": [
     {
       "id": "example"
@@ -5161,7 +5011,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 <div class="openapi-entity">
 
-### DashMeta {#entity-DashMeta}
+### ReportMetaV2 {#entity-ReportMetaV2}
 
 **Type**: object | null
 
@@ -5177,7 +5027,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 <div class="openapi-entity">
 
-### ReportV1 {#entity-ReportV1}
+### ReportV2 {#entity-ReportV2}
 
 #|
 || **Name** | **Description** ||
@@ -5212,7 +5062,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 _data_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
-**Type**: [ReportData](#entity-ReportData)
+**Type**: [ReportDataV2](#entity-ReportDataV2)
 
 {% cut "**Example**" %}{.json-schema-example}
 
@@ -5220,7 +5070,6 @@ _data_{.json-schema-reset .json-schema-property .json-schema-required}
 {
   "counter": 1,
   "salt": "example",
-  "version": 1,
   "slides": [
     {
       "id": "example"
@@ -5330,7 +5179,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 _meta_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
-**Type**: [DashMeta](#entity-DashMeta)
+**Type**: [ReportMetaV2](#entity-ReportMetaV2)
 
 {% cut "**Example**" %}{.json-schema-example}
 
@@ -5432,7 +5281,7 @@ _version_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: number
 
-_Const:_{.json-schema-reset .json-schema-value} `1`
+_Const:_{.json-schema-reset .json-schema-value} `2`
 {.table-cell}
 ||
 ||
@@ -5512,7 +5361,6 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
   "data": {
     "counter": 1,
     "salt": "example",
-    "version": 1,
     "slides": [
       {
         "id": "example"
@@ -5583,7 +5431,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
   "type": "",
   "workbookId": "example",
   "collectionId": "example",
-  "version": 1,
+  "version": 2,
   "public": false,
   "links": {}
 }

@@ -127,7 +127,7 @@ Traffic from `VM-A1` to the internet via the NAT gateway will be routed as follo
 1. `NAT-GW` → Boundary network equipment of availability zone A.
 1. Availability zone A boundary network equipment → Network equipment at the point of presence where there is a connection to external networks and the internet.
 
-## Limitations {#limits}
+## Limits {#limits}
 
 1. Currently, network connectivity in the {{ yandex-cloud }} virtual network is only provided through IPv4. There is no support for IPv6.
 1. The {{ yandex-cloud }} virtual network runs on OSI Layer 3 (L3), which makes the use of the OSI Layer2 (L2) network technology very limited:
@@ -136,7 +136,7 @@ Traffic from `VM-A1` to the internet via the NAT gateway will be routed as follo
     1. Network protocols that require a single virtual IP address (VIP) across VMs, such as HSRP, VRRP, or GLBP, are not supported.
 
 
-## Extra materials {#refs}
+## Additional resources {#refs}
 
 * [Yandex Cloud network infrastructure overview (2019)](https://habr.com/ru/companies/yandex/articles/437816/)
 * [Yandex Cloud's Virtual Private Cloud overview (2020)](https://habr.com/ru/companies/yandex/articles/487694/)

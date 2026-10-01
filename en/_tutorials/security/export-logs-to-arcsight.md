@@ -82,7 +82,7 @@ You can use a VM that has access to an ArcSight instance or create a new one:
   1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and specify:
      * **{{ ui-key.yacloud.common.name }}**: `arcsight-kms`.
      * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}**: `AES-256`.
-     * Keep the default values for all other parameters.
+     * Leave the other settings at their defaults.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
@@ -141,7 +141,7 @@ You will need the key ID and secret key when mounting the bucket.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
   1. Enter a description for the key and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-  1. Save the ID and the secret key.
+  1. Save the ID and secret key.
 
       {% note alert %}
 
@@ -275,30 +275,26 @@ Assign the `storage.viewer` and `kms.keys.encrypterDecrypter` roles to the `sa-a
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
   1. [Navigate]({{ link-console-main }}/link/audit-trails) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
-  1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}** and specify:
-
-     * **{{ ui-key.yacloud.common.name }}**: Name of the trail you want to create, e.g., `arcsight-trail`.
-     * **{{ ui-key.yacloud.common.description }}**: Trail description (optional).
-
+  1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, configure the destination object:
 
-     * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
-     * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Bucket name.
-     * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
+     1. **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
+     1. **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Bucket name.
+     1. **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
   
      {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
 
-      * **{{ ui-key.yacloud.audit-trails.title_kms-key }}**: Specify the `arcsight-kms` encryption key used to [encrypt](../../storage/concepts/encryption.md) the bucket.
-  
+      1. **{{ ui-key.yacloud.audit-trails.title_kms-key }}**: Specify the `arcsight-kms` encryption key used to [encrypt](../../storage/concepts/encryption.md) the bucket.
+
+  1. Under **{{ ui-key.yacloud.audit-trails.label_control-plane-collection-new }}**:
+
+     1. Enable log collection.
+     1. **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
+     1. **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}**: Automatically populated field containing the name of the current folder.
+
+  1. Under **{{ ui-key.yacloud.audit-trails.label_data-plane-collection-new }}**, disable log collection.
   1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select `sa-arcsight`.
-
-  1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, configure the collection of management event audit logs:
-
-     * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: Select `{{ ui-key.yacloud.common.enabled }}`.
-     * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
-     * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}**: Automatically populated field containing the name of the current folder.
-
-  1. Under **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**, select `{{ ui-key.yacloud.common.disabled }}` in the **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}** field.
+  1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the trail, e.g., `arcsight-trail`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
   {% note warning %}

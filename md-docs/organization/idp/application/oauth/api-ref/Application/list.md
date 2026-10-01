@@ -57,7 +57,8 @@ The maximum string length in characters is 1000. ||
       "organizationId": "string",
       "description": "string",
       "groupClaimsSettings": {
-        "groupDistributionType": "string"
+        "groupDistributionType": "string",
+        "groupClaimValue": "string"
       },
       "clientGrant": {
         "clientId": "string",
@@ -161,6 +162,13 @@ Represents current distribution type of the groups. I.e. which groups are visibl
 - `NONE`: No groups are visible for the application users
 - `ASSIGNED_GROUPS`: Only assigned groups are visible for the application users
 - `ALL_GROUPS`: All groups are visible for the application users ||
+|| groupClaimValue | **enum** (GroupClaimValue)
+
+Source of the group value provided to the application.
+
+- `NAME`: The group name is provided to the application
+- `ID`: The group ID is provided to the application
+- `EXTERNAL_ID`: The group external ID is provided to the application ||
 |#
 
 ## ClientGrant {#yandex.cloud.organizationmanager.v1.idp.application.oauth.ClientGrant}

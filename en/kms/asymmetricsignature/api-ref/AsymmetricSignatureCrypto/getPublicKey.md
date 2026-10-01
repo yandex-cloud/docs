@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys/{keyId}/publicKey
+  - url: https://{{ api-host-kms-symcrypto }}/kms/v1/asymmetricSignatureKeys/{keyId}/publicKey
     method: get
     path:
       type: object
@@ -27,7 +27,7 @@ Gets value of public key.
 ## HTTP request
 
 ```
-GET https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys/{keyId}/publicKey
+GET https://{{ api-host-kms-symcrypto }}/kms/v1/asymmetricSignatureKeys/{keyId}/publicKey
 ```
 
 ## Path parameters

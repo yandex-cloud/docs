@@ -15,6 +15,8 @@ A _coordination service_ manages consistency across cluster nodes, provides data
 
 {% note warning %}
 
+With the coordination service disabled, you can only create a cluster consisting of a single host or multiple single-host [shards](sharding.md).
+
 After you select a coordination service, you cannot change or disable it. The hosts of both services are counted towards the used cloud [resource quota]({{ link-console-quotas }}) and the [cluster cost](../pricing.md).
 
 {% endnote %}
@@ -37,16 +39,19 @@ For more information about {{ CK }}, see [this {{ CH }} guide]({{ ch.docs }}{{ l
 In {{ mch-name }}, the {{ CK }} coordination service is now available in the following modes:
 
 * **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-embedded-clickhouse-keeper }}**: {{ CK }} runs on {{ CH }} hosts. For replication, the cluster must consist of three or more {{ CH }} hosts.
+
+   This mode is not supported for clusters with two or more hosts in a production environment.
+
 * **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-separated-clickhouse-keeper }}**: {{ CK }} runs on separate hosts. For replication, the cluster must consist of two or more {{ CH }} hosts and include three or five {{ CK }} hosts.
 
   This mode is used by default in the [management console]({{ link-console-main }}) when you create a cluster with two or more {{ CH }} hosts per shard or configure the coordination service.
 
 You can turn on the {{ CK }} coordination service:
   
-* When [creating a cluster](../operations/cluster-create.md).
-* When [updating a cluster](../operations/update.md), if created without a coordination service.
+* When [creating a cluster](../operations/cluster-create.md): Either as a built-in service or on separate hosts.
+* When [updating a cluster](../operations/update.md#enable-coordination), if created without a coordination service or with built-in {{ CK }}: Only on separate hosts.
 
-Once {{ CK }} is is turned on, you cannot turn it off.
+You cannot disable {{ CK }} after creating a cluster.
 
 ## {{ ZK }} {#zk}
 

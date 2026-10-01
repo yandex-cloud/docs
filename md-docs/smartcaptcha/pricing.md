@@ -2,19 +2,57 @@
 
 # Правила тарификации для Yandex SmartCaptcha
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 12
+      md: 4
+    indent:
+      top: '0'
+      bottom: '0'
+    children:
+      - type: basic-card
+        title: Калькулятор цен
+        text: Рассчитайте стоимость использования сервиса, исходя из ваших потребностей
+        gravityIcon: Calculator
+        urlTitle: Калькулятор цен
+        url: https://yandex.cloud/ru/prices?state=c6e16cc61f51#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Прайс-лист
+        text: Актуальные тарифы на все наши услуги
+        gravityIcon: CircleRuble
+        urlTitle: Прайс-лист
+        url: https://yandex.cloud/ru/price-list?services=dn2f26fqvaoddbr0ld1a
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Акции и free tier
+        text: Гранты, специальные условия и программы поддержки
+        gravityIcon: Flame
+        urlTitle: Акции и free tier
+        url: https://yandex.cloud/ru/all-offers
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
 
 
-{% note tip %}
 
-
-Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=c6e16cc61f51#calculator) на сайте Yandex Cloud или ознакомьтесь с тарифами в этом разделе.
-
-
-
-
-{% endnote %}
-
-Цены на продукты сервиса также доступны в [Прайс-листе](https://yandex.cloud/ru/price-list).
 
 
 Все цены в рублях и тенге указаны с НДС, все цены в долларах — без НДС.

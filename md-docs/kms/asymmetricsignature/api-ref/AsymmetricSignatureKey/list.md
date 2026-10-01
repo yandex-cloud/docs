@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > REST (англ.) > [Key Management Service API](../index.md) > [AsymmetricSignatureKey](index.md) > List
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > REST (англ.) > [Asymmetric signature API](../index.md) > [AsymmetricSignatureKey](index.md) > List
 
 # Key Management Service API, REST: AsymmetricSignatureKey.List
 
@@ -32,7 +32,7 @@ The maximum value is 1000. ||
 Page token. To get the next page of results, set `pageToken` to the
 [ListAsymmetricSignatureKeysResponse.nextPageToken](#yandex.cloud.kms.v1.asymmetricsignature.ListAsymmetricSignatureKeysResponse) returned by a previous list request.
 
-The maximum string length in characters is 100. ||
+The maximum string length in characters is 256. ||
 |#
 
 ## Response {#yandex.cloud.kms.v1.asymmetricsignature.ListAsymmetricSignatureKeysResponse}

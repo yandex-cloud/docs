@@ -37,7 +37,7 @@
         
         * В поле **Endpoint** введите адрес S3-хранилища.
             
-            По умолчанию используется Object Storage — `storage.yandexcloud.net`.
+            По умолчанию используется Object Storage — `storage.yandexcloud.net`. Для подключения через Private Endpoint используйте адрес `storage.pe.yandexcloud.net`.
 
     1. Нажмите кнопку **Создать**.
 
@@ -72,7 +72,7 @@
 
         * `cluster-id` — идентификатор кластера. Его можно получить со [списком кластеров в каталоге](../cluster-list.md#list-cluster).
         * `access-key`, `secret-key` — [идентификатор и содержимое статического ключа доступа](../../../iam/concepts/authorization/access-key.md).
-        * `endpoint` — адрес S3-хранилища. Значение для Object Storage — `storage.yandexcloud.net`. Это значение используется по умолчанию.
+        * `endpoint` — адрес S3-хранилища. Значение для Object Storage — `storage.yandexcloud.net`. Это значение используется по умолчанию. Для подключения через Private Endpoint используйте адрес `storage.pe.yandexcloud.net`.
         * `fast-upload` — быстрая загрузка больших файлов в S3-хранилище. Возможные значения:
             * `true` (по умолчанию) — PXF формирует файлы в оперативной памяти (если ее не хватает, записывает файлы на диск).
             * `false` — PXF формирует файлы на диске.
@@ -116,7 +116,7 @@
                 * `true` (по умолчанию) — PXF формирует файлы в оперативной памяти (если ее не хватает, записывает файлы на диск).
                 * `false` — PXF формирует файлы на диске.
 
-            * `endpoint` — адрес S3-хранилища. Значение для Object Storage — `storage.yandexcloud.net`. Это значение используется по умолчанию.
+            * `endpoint` — адрес S3-хранилища. Значение для Object Storage — `storage.yandexcloud.net`. Это значение используется по умолчанию. Для подключения через Private Endpoint используйте адрес `storage.pe.yandexcloud.net`.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
 
@@ -173,7 +173,7 @@
                 * `true` (по умолчанию) — PXF формирует файлы в оперативной памяти (если ее не хватает, записывает файлы на диск).
                 * `false` — PXF формирует файлы на диске.
 
-            * `endpoint` — адрес S3-хранилища. Значение для Object Storage — `storage.yandexcloud.net`. Это значение используется по умолчанию.
+            * `endpoint` — адрес S3-хранилища. Значение для Object Storage — `storage.yandexcloud.net`. Это значение используется по умолчанию. Для подключения через Private Endpoint используйте адрес `storage.pe.yandexcloud.net`.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
 

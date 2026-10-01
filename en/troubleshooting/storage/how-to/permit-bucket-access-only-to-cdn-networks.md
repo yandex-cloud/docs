@@ -1,3 +1,3 @@
 
 
-{% include [permit-bucket-access-only-to-cdn-networks](../../cdn/how-to/permit-bucket-access-only-to-cdn-networks.md) %}
+{% include [cdn-only-access](../../../_includes/storage/cdn-only-access.md) %}

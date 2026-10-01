@@ -800,6 +800,8 @@ items:
             href: visualization-ref/bar-chart.md
           - name: Normalized bar chart
             href: visualization-ref/normalized-bar-chart.md
+          - name: Funnel
+            href: visualization-ref/funnel.md
           - name: Scatter chart
             href: visualization-ref/scatter-chart.md
           - name: Pie chart
@@ -866,8 +868,6 @@ items:
         href: dashboard/chart-chart-filtration.md
       - name: Dashboard settings
         href: dashboard/settings.md
-      - name: Mailing lists
-        href: operations/dashboard/add-maillists.md
       - name: Versioning
         href: dashboard/versioning.md
       - name: Parameters
@@ -962,6 +962,14 @@ items:
         href: reports/versioning.md
       - name: Neuroanalyst in reports
         href: reports/insights.md
+  - name: Mailing lists
+    items:
+      - name: Overview
+        href: concepts/maillists.md
+      - name: Mailing lists for dashboards
+        href: operations/dashboard/add-maillists.md
+      - name: Mailing lists for reports
+        href: reports/add-report-maillists.md
   - name: HTML pages
     items:
       - name: Overview
@@ -1020,7 +1028,7 @@ items:
         href: settings/seats.md
       - name: Users
         href: security/add-new-user.md
-      - name: Service plans and payment
+      - name: Billing and payment
         href: settings/service-plan.md
       - name: Appearance
         href: settings/appearance.md
@@ -1028,7 +1036,9 @@ items:
         href: settings/restrictions.md
       - name: Navigation
         href: settings/navigation.md
-  - name: Gallery in DataLens
+      - name: Deleted objects
+        href: settings/deleted-objects.md
+  - name: DataLens Gallery
     href: concepts/gallery.md
   - name: Pricing policy
     items:
@@ -1037,10 +1047,13 @@ items:
       - name: Archive
         items:
           - name: Pricing policy updates as of December 1
+            hidden: true
             href: pricing-changes.md
           - name: Pricing policy before December 1, 2025
+            hidden: true
             href: pricing-old.md
           - name: Service plans before December 1, 2025
+            hidden: true
             href: concepts/service-plans-comparison.md
   - name: '{{ datalens-name }} Public API'
     items:
@@ -1212,16 +1225,6 @@ items:
                 name: Start workbook import
               - href: api-ref/WorkbookImport/rpcgetWorkbookImportStatus-post.md
                 name: Get workbook import status
-          - name: EntryLock
-            items:
-              - name: Overview
-                href: api-ref/EntryLock/index.md
-              - href: api-ref/EntryLock/rpccreateEntryLock-post.md
-                name: Create entry lock
-              - href: api-ref/EntryLock/rpcextendEntryLock-post.md
-                name: Extend entry lock
-              - href: api-ref/EntryLock/rpcdeleteEntryLock-post.md
-                name: Delete entry lock
           - name: Editor
             items:
               - name: Overview
@@ -1306,6 +1309,28 @@ items:
                 href: api-ref/SharedEntry/index.md
               - href: api-ref/SharedEntry/rpclistSharedEntryAccessBindings-post.md
                 name: List shared entry access bindings
+          - name: Licensing
+            items:
+              - name: Overview
+                href: api-ref/Licensing/index.md
+              - href: api-ref/Licensing/rpcgetLicenses-post.md
+                name: Get licenses
+              - href: api-ref/Licensing/rpcgetLicensesLimit-post.md
+                name: Get licenses limit
+              - href: api-ref/Licensing/rpcsetLicenseLimit-post.md
+                name: Set licenses limit
+              - href: api-ref/Licensing/rpcassignLicenses-post.md
+                name: Assign licenses
+          - name: EntryLock
+            items:
+              - name: Overview
+                href: api-ref/EntryLock/index.md
+              - href: api-ref/EntryLock/rpccreateEntryLock-post.md
+                name: Create entry lock
+              - href: api-ref/EntryLock/rpcextendEntryLock-post.md
+                name: Extend entry lock
+              - href: api-ref/EntryLock/rpcdeleteEntryLock-post.md
+                name: Delete entry lock
           - name: Access
             items:
               - name: Overview
@@ -1324,36 +1349,34 @@ items:
                 name: Update HTML page
               - href: api-ref/HtmlPages/rpcdeleteHtmlPage-post.md
                 name: Delete HTML page
-          - name: Licensing
+          - name: Data
             items:
               - name: Overview
-                href: api-ref/Licensing/index.md
-              - href: api-ref/Licensing/rpcgetLicenses-post.md
-                name: Get licenses
-              - href: api-ref/Licensing/rpcgetLicensesLimit-post.md
-                name: Get licenses limit
-              - href: api-ref/Licensing/rpcsetLicenseLimit-post.md
-                name: Set licenses limit
-              - href: api-ref/Licensing/rpcassignLicenses-post.md
-                name: Assign licenses
+                href: api-ref/Data/index.md
+              - href: api-ref/Data/rpcgetDatasetData-post.md
+                name: 🚧 [Experimental] Get dataset data
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes
     items:
-      - name: June 2026
+      - name: August 2026
         href: release-notes/index.md
+      - name: July 2026
+        href: release-notes/index.md
+      - name: June 2026
+        href: release-notes/2606.md
       - name: May 2026
         href: release-notes/2605.md
       - name: April 2026
         href: release-notes/2604.md
       - name: March 2026
         href: release-notes/2603.md
-      - name: February 2026
-        href: release-notes/2602.md
-      - name: January 2026
-        href: release-notes/2601.md
       - name: Archive
         items:
+          - name: February 2026
+            href: release-notes/2602.md
+          - name: January 2026
+            href: release-notes/2601.md
           - name: December 2025
             href: release-notes/2512.md
           - name: November 2025

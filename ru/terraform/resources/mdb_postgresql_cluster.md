@@ -220,6 +220,54 @@ resource "yandex_vpc_subnet" "foo" {
   v4_cidr_blocks = ["10.5.0.0/24"]
 }
 ```
+```terraform
+// A weekly maintenance schedule with separate write-interrupting and other slots.
+resource "yandex_mdb_postgresql_cluster" "scheduled" {
+  name        = "scheduled-postgresql"
+  environment = "PRODUCTION"
+  network_id  = yandex_vpc_network.maintenance.id
+
+  config {
+    version = 15
+    resources {
+      resource_preset_id = "s2.micro"
+      disk_type_id       = "network-ssd"
+      disk_size          = 16
+    }
+  }
+
+  host {
+    zone      = "ru-central1-a"
+    subnet_id = yandex_vpc_subnet.maintenance.id
+  }
+
+  maintenance_windows {
+    type = "WEEKLY"
+
+    slot {
+      day                            = "MON"
+      start_time                     = "02:30:00"
+      duration                       = "3h"
+      allow_temporary_unavailability = true
+    }
+
+    slot {
+      day                            = "THU"
+      start_time                     = "01:30:00"
+      duration                       = "2h"
+      allow_temporary_unavailability = false
+    }
+  }
+}
+
+resource "yandex_vpc_network" "maintenance" {}
+
+resource "yandex_vpc_subnet" "maintenance" {
+  zone           = "ru-central1-a"
+  network_id     = yandex_vpc_network.maintenance.id
+  v4_cidr_blocks = ["10.10.0.0/24"]
+}
+```
 
 ## Arguments & Attributes Reference
 
@@ -241,7 +289,7 @@ resource "yandex_vpc_subnet" "foo" {
 - `config` [Block]. Configuration of the PostgreSQL cluster.
   - `backup_retain_period_days` (Number). The period in days during which backups are stored.
   - `postgresql_config` (Map Of String). PostgreSQL cluster configuration. For detailed information specific to your PostgreSQL version, please refer to the [API proto specifications](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/mdb/postgresql/v1/config).
-  - `version` (**Required**)(String). Version of the PostgreSQL cluster. (allowed versions are: 15, 15-1c, 16, 16-1c, 17, 17-1c, 18, 18-1c).
+  - `version` (**Required**)(String). Version of the PostgreSQL cluster. (allowed versions are: 15, 15-1c, 16, 16-1c, 17, 17-1c, 18, 18-1c, 19, 19-1c).
   - `access` [Block]. Access policy to the PostgreSQL cluster.
     - `data_lens` (Bool). Allow access for [Yandex DataLens](https://yandex.cloud/services/datalens).
     - `data_transfer` (Bool). Allow access for [DataTransfer](https://yandex.cloud/services/data-transfer).
@@ -251,9 +299,9 @@ resource "yandex_vpc_subnet" "foo" {
   - `backup_window_start` [Block]. Time to start the daily backup, in the UTC timezone.
     - `hours` (Number). The hour at which backup will be started (UTC).
     - `minutes` (Number). The minute at which backup will be started.
-  - `connection_manager` [Block]. Connection Manager integration configuration for the cluster. If the block is omitted, the API enables the integration by default for newly created clusters. Disabling the integration after the cluster is created is not supported.
+  - `connection_manager` [Block]. Connection Manager integration configuration for the cluster. If the block is omitted, the API enables the integration by default for newly created clusters. Disabling the integration is not supported: `enabled = false` is rejected.
     - `connections_folder_id` (String). ID of the folder where connections for the cluster are created. Defaults to the cluster's folder if not specified.
-    - `enabled` (Bool). Indicates whether Connection Manager integration is enabled for the cluster. Set to `true` to enable the integration. If the block is omitted, the API enables the integration by default for newly created clusters. Disabling the integration after the cluster is created is not supported.
+    - `enabled` (Bool). Indicates whether Connection Manager integration is enabled for the cluster. Set to `true` to enable the integration. If the block is omitted, the API enables the integration by default for newly created clusters. Disabling the integration is not supported: `enabled = false` is rejected.
     - `secrets_folder_id` (String). ID of the folder where connection secrets are created. Defaults to the cluster's folder if not specified.
   - `disk_size_autoscaling` [Block]. Cluster disk size autoscaling settings.
     - `disk_size_limit` (**Required**)(Number). The overall maximum for disk size that limit all autoscaling iterations. See the [documentation](https://yandex.cloud/en/docs/managed-postgresql/concepts/storage#auto-rescale) for details.
@@ -287,7 +335,7 @@ resource "yandex_vpc_subnet" "foo" {
   - `lc_collate` (String). POSIX locale for string sorting order. Forbidden to change in an existing database.
   - `lc_type` (String). POSIX locale for character classification. Forbidden to change in an existing database.
   - `name` (**Required**)(String). The resource name.
-  - `owner` (**Required**)(String). Name of the user assigned as the owner of the database. Forbidden to change in an existing database.
+  - `owner` (**Required**)(String). Name of the user assigned as the owner of the database. Changing this value transfers ownership of the database to another user.
   - `template_db` (String). Name of the template database.
   - `extension` [Block]. Set of database extensions.
     - `name` (**Required**)(String). Name of the database extension. For more information on available extensions see [the official documentation](https://yandex.cloud/docs/managed-postgresql/operations/cluster-extensions).
@@ -302,10 +350,17 @@ resource "yandex_vpc_subnet" "foo" {
   - `role` (*Read-Only*) (String). Host's role (replica|primary), computed by server.
   - `subnet_id` (String). The ID of the subnet, to which the host belongs. The subnet must be a part of the network to which the cluster belongs.
   - `zone` (**Required**)(String). The [availability zone](https://yandex.cloud/docs/overview/concepts/geo-scope) where resource is located. If it is not provided, the default provider zone will be used.
-- `maintenance_window` [Block]. Maintenance policy of the PostgreSQL cluster.
+- `maintenance_window` [Block]. Legacy maintenance policy. Conflicts with maintenance_windows. Weekly hour 1 means 00:00 UTC and hour 24 means 23:00 UTC; the window lasts one hour and permits temporary write unavailability.
   - `day` (String). Day of the week (in `DDD` format). Allowed values: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`
   - `hour` (Number). Hour of the day in UTC (in `HH` format). Allowed value is between 1 and 24.
   - `type` (**Required**)(String). Type of maintenance window. Can be either `ANYTIME` or `WEEKLY`. A day and hour of window need to be specified with weekly window.
+- `maintenance_windows` [Block]. Maintenance schedule. Conflicts with maintenance_window. Times are UTC. To remove time restrictions, explicitly select ANYTIME.
+  - `type` (**Required**)(String). ANYTIME permits maintenance at any time. WEEKLY requires at least one slot.
+  - `slot` [Block]. Non-overlapping weekly slots. At least one slot must allow temporary write unavailability. Slot order is insignificant.
+    - `allow_temporary_unavailability` (Bool). Allow maintenance that may temporarily interrupt writes. Must be true for at least one weekly slot.
+    - `day` (**Required**)(String). UTC weekday: MON, TUE, WED, THU, FRI, SAT or SUN.
+    - `duration` (**Required**)(String). Duration between 1h and 24h, with minute precision, for example 3h or 90m.
+    - `start_time` (**Required**)(String). Start time in UTC, in HH:MM:00 format (minute precision).
 - `restore` [Block]. The cluster will be created from the specified backup.
   - `backup_id` (**Required**)(String). Backup ID. The cluster will be created from the specified backup. [How to get a list of PostgreSQL backups](https://yandex.cloud/docs/managed-postgresql/operations/cluster-backups).
   - `time` (String). Timestamp of the moment to which the PostgreSQL cluster should be restored. (Format: `2006-01-02T15:04:05` - UTC). When not set, current time is used.

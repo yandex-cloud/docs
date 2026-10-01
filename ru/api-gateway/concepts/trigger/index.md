@@ -7,6 +7,8 @@ description: Триггер — условие, при выполнении ко
 
 _Триггер_ — условие, при выполнении которого сообщения автоматически отправляются в [WebSocket-соединения](../extensions/websocket.md), подключенные к API-шлюзу по пути, указанному пользователем. Сам API-шлюз при этом не вызывается.
 
+Один триггер может одновременно отправлять сообщения в WebSocket-соединения нескольких API-шлюзов, а также вызывать функции {{ sf-name }} и контейнеры {{ serverless-containers-name }}.
+
 Триггеры позволяют автоматизировать работу с другими сервисами {{ yandex-cloud }}, например: {{ objstorage-full-name }}, {{ message-queue-full-name }} и {{ container-registry-full-name }}.
 
 {% include [trigger-time](../../../_includes/functions/trigger-time.md) %}
@@ -20,7 +22,8 @@ _Триггер_ — условие, при выполнении которог�
 * [триггер для {{ iot-name }}](iot-core-trigger.md);
 * [триггер для бюджетов](budget-trigger.md);
 * [триггер для {{ yds-name }}](data-streams-trigger.md);
-* [триггер для почты](mail-trigger.md).
+* [триггер для почты](mail-trigger.md);
+* [триггер для Telegram](telegram-trigger.md).
 
 {% include [trigger-intro-note](../../../_includes/functions/trigger-intro-note.md) %}
 
@@ -34,26 +37,11 @@ _Триггер_ — условие, при выполнении которог�
 * Если сообщение не удалось отправить или никто не подключен по пути, который указан в настройках триггера, сообщение теряется без возможности повторить отправку.
 * Сервисному аккаунту, от имени которого сообщения будут отправляться в WebSocket-соединения, необходима роль `api-gateway.websocketBroadcaster`. Другие роли, необходимые для корректной работы триггера, зависят от его типа. Подробнее читайте в описании соответствующего триггера.
 
+{% include [trigger-filter-messages](../../../_includes/functions/trigger-filter-messages.md) %}
 
-## Группирование сообщений {#batch-messages}
+{% include [trigger-transform-messages](../../../_includes/functions/trigger-transform-messages.md) %}
 
-Вы можете настроить группирование сообщений перед их отправкой в WebSocket-соединения у следующих триггеров:
-
-* триггер для {{ message-queue-name }};
-* триггер для {{ cloud-logging-name }};
-* триггер для {{ objstorage-name }};
-* триггер для {{ container-registry-name }};
-* триггер для {{ iot-name }};
-* триггер для {{ yds-name }};
-* триггер для почты.
-
-Это позволит отправлять сообщения не по одному, а группой. Для этого в параметрах триггера задайте:
-
-* **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cutoff }}** — время, в течение которого происходит группирование сообщений. Число сообщений при этом не превышает указанный размер группы.
-* **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}** — количество сообщений для группирования.
-
-Подробнее о группировании сообщений читайте в инструкциях по созданию соответствующего триггера.
-
+{% include [batching-events](../../../_includes/functions/batching-events.md) %}
 
 ## Полезные ссылки {#see-also}
 

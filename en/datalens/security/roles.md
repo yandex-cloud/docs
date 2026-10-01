@@ -13,7 +13,7 @@ There are two types of roles in {{ datalens-short-name }}:
 
 ## Roles required to access the service {#service-roles}
 
-To grant a user access to {{ datalens-short-name }}, [assign](../../organization/security/index.md#add-role) them a role. You can assign roles to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md).
+To grant a user access to {{ datalens-short-name }}, [assign]({{ link-docs }}/organization/security/#add-role) them a role. You can assign roles to a Yandex account, [service account]({{ link-docs }}/iam/concepts/users/service-accounts), [federated]({{ link-docs }}/iam/concepts/users/accounts#saml-federation) or [local]({{ link-docs }}/iam/concepts/users/accounts#local) users, [user group]({{ link-docs }}/organization/operations/manage-groups), [system group]({{ link-docs }}/iam/concepts/access-control/system-group), or [public group]({{ link-docs }}/iam/concepts/access-control/public-group).
 
 {% include [datalens-service-roles](../../_mermaid/roles/datalens-service.md) %}
 

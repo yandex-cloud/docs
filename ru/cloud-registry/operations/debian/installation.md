@@ -190,3 +190,5 @@ GPG-ключ требуется для реестра с подписью мет
 
 * [{#T}](push.md)
 * [{#T}](pull.md)
+
+[*api-key-scope]: {% include notitle [api-key-scope](../../../_popups/iam/api-key-scope.md) %}

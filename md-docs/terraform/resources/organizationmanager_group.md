@@ -20,13 +20,15 @@ resource "yandex_organizationmanager_group" "my_group" {
 
 ## Arguments & Attributes Reference
 
-- `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
-- `description` (*Read-Only*) (String). The resource description.
-- `group_id` (String). ID of a Group.
-- `id` (String). 
+- `created_at` (*Read-Only*) (String). Creation timestamp.
+- `description` (String). Description of the group.
+- `group_id` (String). ID of the Group resource to return.
+ To get the group ID, use a [GroupService.List] request.
+- `id` (String). ID of the Group resource to return.
+ To get the group ID, use a [GroupService.List] request.
 - `labels` (Map Of String). Resource labels as `key:value` pairs.
-- `name` (String). The resource name.
-- `organization_id` (String). Organization that the Group belongs to. If value is omitted, the default provider organization is used.
+- `name` (**Required**)(String). Name of the group.
+- `organization_id` (**Required**)(String). ID of the organization that the group belongs to.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
   - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.

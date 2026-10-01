@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Загрузка данных из Managed Service for YDB в Managed Service for PostgreSQL с помощью Data Transfer
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > PostgreSQL > Загрузка данных из Managed Service for YDB в Managed Service for PostgreSQL с помощью Data Transfer
 
 # Загрузка данных из Yandex Managed Service for YDB в Yandex Managed Service for PostgreSQL с помощью Yandex Data Transfer
 
@@ -96,6 +96,7 @@
            Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
         
         1. Если вас устраивают планируемые изменения, внесите их:
+        
            1. Выполните команду:
         
               ```bash
@@ -190,6 +191,7 @@
            Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
         
         1. Если вас устраивают планируемые изменения, внесите их:
+        
            1. Выполните команду:
         
               ```bash

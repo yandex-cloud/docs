@@ -8,12 +8,13 @@ blocks:
     animated: false
     colSizes:
       all: 12
-      sm: 4
+      md: 4
     children:
       - type: basic-card
         title: Калькулятор цен
         text: Рассчитайте стоимость использования сервисов, исходя из ваших потребностей
-        icon: ../_assets/console-icons/calculator.svg
+        gravityIcon: Calculator
+        iconPosition: left
         urlTitle: Калькулятор цен
         url: https://yandex.cloud/ru/prices
         size: s
@@ -25,7 +26,8 @@ blocks:
       - type: basic-card
         title: Прайс-лист
         text: Актуальные тарифы на все наши услуги
-        icon: ../_assets/console-icons/circle-ruble.svg
+        gravityIcon: CircleRuble
+        iconPosition: left
         urlTitle: Прайс-лист
         url: https://yandex.cloud/ru/price-list
         size: s
@@ -37,7 +39,8 @@ blocks:
       - type: basic-card
         title: Акции и free tier
         text: Гранты, специальные условия и программы поддержки
-        icon: ../_assets/console-icons/flame.svg
+        gravityIcon: Flame
+        iconPosition: left
         urlTitle: Акции и free tier
         url: https://yandex.cloud/ru/all-offers
         size: s
@@ -46,6 +49,12 @@ blocks:
         indent:
           top: '0'
           bottom: '0'
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 12
+      md: 6
+    children: []
 :::
 
 
@@ -63,6 +72,8 @@ blocks:
 
 
 Стоимость тарифицируемых сервисов рассчитывается на основе количества потребленных ресурсов и времени потребления. Каждый сервис реализует собственную логику подсчета потребленных ресурсов.
+
+Окончательная сумма рассчитывается в течение 7 дней после завершения [отчетного периода](concepts/reporting-period.md). Указанные суммы предварительные и могут быть скорректированы. Итоговая сумма к оплате будет указана в [отчетных документах](payment/documents.md).
 
 * <code><b><small>Preview</small></b></code> [GOST Gateway](../gost-gateway/pricing.md)
 * [Monium](../monium/pricing.md)
@@ -84,6 +95,7 @@ blocks:
 * [Yandex Cloud Backup](../backup/pricing.md)
 * [Yandex Cloud CDN](../cdn/pricing.md)
 * <code><b><small>Preview</small></b></code> [Yandex Cloud Desktop](../cloud-desktop/pricing.md)
+* [Yandex Cloud Detection and Response](../ycdr/pricing.md)
 * [Yandex Cloud DNS](../dns/pricing.md)
 * [Yandex Cloud Functions](../functions/pricing.md)
 * [Yandex Cloud Interconnect](../interconnect/pricing.md)
@@ -133,7 +145,7 @@ blocks:
 * [Yandex Query](../query/pricing.md)
 * [Yandex Security Deck](../security-deck/pricing.md)
 * [Yandex Serverless Containers](../serverless-containers/pricing.md)
-* [Yandex SIEM](../siem/pricing.md)
+* <code><b><small>Preview</small></b></code> [Yandex SIEM](../siem/pricing.md)
 * [Yandex SmartCaptcha](../smartcaptcha/pricing.md)
 * [Yandex Smart Web Security](../smartwebsecurity/pricing.md)
 * [Yandex SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/pricing)
@@ -153,7 +165,7 @@ blocks:
 * [Yandex Identity and Access Management](../iam/pricing.md)
 * [Yandex Resource Manager](../resource-manager/pricing.md)
 * <code><b><small>Preview</small></b></code> [Yandex Serverless Integrations](../serverless-integrations/pricing.md)
-* <code><b><small>Preview</small></b></code> [Vibecraft](https://sourcecraft.dev/portal/docs/ru/vibecraft/pricing.md)
+* <code><b><small>Preview</small></b></code> [VibeCraft](https://sourcecraft.dev/portal/docs/ru/vibecraft/pricing)
 * [Yandex WebSQL](../websql/pricing.md)
 
  Тегом <code><b><small>Preview</small></b></code> отмечены сервисы на стадии [Preview](../overview/concepts/launch-stages.md).

@@ -13,14 +13,12 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за DNS-зону и DNS-запросы ([тарифы {{ dns-name }}](../../dns/pricing.md)).
-* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Плата за сервис {{ container-registry-name }}: использование хранилища и исходящий трафик ([тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
-* Плата за использование вычислительных ресурсов L7-балансировщика ([тарифы {{ alb-name }}](../../application-load-balancer/pricing.md)).
-* Плата за публичный IP-адрес для L7-балансировщика ([тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Публичные DNS-запросы и зоны DNS ([тарифы {{ dns-full-name }}](../../dns/pricing.md)).
+* Мастер {{ managed-k8s-name }} ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Каждый активный L7-балансировщик: использование вычислительных ресурсов ([тарифы {{ alb-name }}](../../application-load-balancer/pricing.md)).
+* Сервис {{ container-registry-name }}: хранение созданных Docker-образов и использование сканера уязвимостей ([тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
+* Публичные IP-адреса ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Перед началом работы {#before-you-begin}

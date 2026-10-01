@@ -27,8 +27,10 @@ Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.m
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Enter a name and description for the trigger.
-        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_storage }}**.
-        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}**.
+
+        * {% include [triggers-labels-step](../../../_includes/functions/triggers-labels-step.md) %}
+
+        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_storage }}`.
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_storage }}**:
 
@@ -37,21 +39,25 @@ Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.m
         * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_prefix }}** field, enter a [prefix](../../concepts/trigger/os-trigger.md#filter) for filtering.
         * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_suffix }}** field, enter a [suffix](../../concepts/trigger/os-trigger.md#filter) for filtering.
 
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
+    1. {% include [batch-settings](../../../_includes/functions/batch-settings.md) %}
 
-        {% include [batch-settings](../../../_includes/functions/batch-settings.md) %}
+    1. Under **Targets**:
 
-        {% include [batch-events](../../../_includes/functions/batch-events.md) %}
+        1. In the **Target type** field, select `Function`.
 
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
+        1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
 
-        {% include [function-settings](../../../_includes/functions/function-settings.md) %}
+            {% include [function-settings](../../../_includes/functions/function-settings.md) %}
 
-    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+        1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
-        {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
+            {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a service account with write permissions for that queue.
+        1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a service account with write permissions for that queue.
+
+        1. {% include [trigger-console-filter](../../../_includes/functions/trigger-console-filter.md) %}
+
+        1. {% include [trigger-console-template](../../../_includes/functions/trigger-console-template.md) %}
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -134,6 +140,71 @@ Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.m
 
   1. In the {{ TF }} configuration file, describe the resources you want to create:
 
+     ```hcl
+     resource "yandex_serverless_triggers" "my_trigger" {
+       name        = "<trigger_name>"
+       description = "<trigger_description>"
+       source {
+         object_storage {
+           bucket_id = "<bucket_ID>"
+           prefix    = "<object_key_prefix>"
+           suffix    = "<object_key_suffix>"
+           event_type = [
+             "OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT",
+             "OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT",
+             "OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT",
+           ]
+           batch_settings {
+             max_count = "<max_number_of_events>"
+             max_bytes = "<max_group_size_in_bytes>"
+             cutoff    = "<maximum_wait_time>"
+           }
+         }
+       }
+       action {
+         invoke_function {
+           function_id        = "<function_ID>"
+           service_account_id = "<service_account_ID>"
+         }
+         retry_policy {
+           retry_attempts = "<number_of_retries>"
+           interval       = "<interval_between_retries>"
+         }
+         dead_letter {
+           dead_letter_queue {
+             queue_arn          = "<Dead_Letter_Queue_ARN>"
+             service_account_id = "<service_account_ID>"
+           }
+         }
+       }
+     }
+     ```
+
+     Where:
+
+     {% include [tf-triggers-common-params](../../../_includes/tf-triggers-common-params.md) %}
+
+     * `source`: Event source settings:
+
+       * `object_storage`: Bucket settings:
+
+         * `bucket_id`: Bucket ID.
+         * `prefix`: Bucket object key [prefix](../../concepts/trigger/os-trigger.md#filter). This is an optional parameter. It is used for filtering.
+         * `suffix`: Bucket object key [suffix](../../concepts/trigger/os-trigger.md#filter). This is an optional parameter. It is used for filtering.
+         * `event_type`: List of [events](../../concepts/trigger/os-trigger.md#event) to set off the trigger. Specify at least one value:
+
+             * `OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT`: Creating a new object in a bucket.
+             * `OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT`: Updating an object in a bucket.
+             * `OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT`: Deleting an object from a bucket.
+
+         {% include [tf-triggers-batch-settings](../../../_includes/tf-triggers-batch-settings.md) %}
+
+     {% include [tf-triggers-action-function](../../../_includes/functions/tf-triggers-action-function.md) %}
+
+     For more on the properties of the `yandex_serverless_triggers` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_triggers).
+
+     {% cut "Configuration for the yandex_function_trigger resource" %}
+
      ```
      resource "yandex_function_trigger" "my_trigger" {
        name        = "<trigger_name>"
@@ -181,6 +252,8 @@ Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.m
      {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}
 
      For more on the properties of the `yandex_function_trigger` resource, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
+
+     {% endcut %}
 
   1. Create the resources:
 

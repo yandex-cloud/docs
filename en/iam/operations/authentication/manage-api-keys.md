@@ -1,6 +1,6 @@
 ---
-title: Managing API keys in {{ iam-full-name }}
-description: In this tutorial, you will learn how to create and delete API keys in {{ iam-full-name }} using the management console, CLI, and API.
+title: How to manage API keys in {{ iam-full-name }}
+description: In this guide, you will learn how to create and delete API keys in {{ iam-full-name }} using the management console, CLI, and API.
 ---
 
 # Managing API keys
@@ -17,7 +17,7 @@ If you do not have a service account yet, [create one](../sa/create.md) and [ass
 
   1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder the service account belongs to.
   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and then select the required service account.
+  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and then select the service account.
   1. Under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_api_keys }}**, you will see a list of all available API keys.
 
 - CLI {#cli}
@@ -75,7 +75,7 @@ To create a service account API key:
       +----------------------+------------------+-------------------------------+
       ```
 
-  1. Create an API key for the required service account and save the response to the `api_key.yaml` file:
+  1. Create an API key for the service account and save the response to the `api_key.yaml` file:
 
       ```bash
       yc iam api-key create \
@@ -90,7 +90,7 @@ To create a service account API key:
       * `--service-account-name`: Service account name. This is a required setting.
       * `--scopes`: Key [scopes](../../concepts/authorization/api-key.md#scoped-api-keys). You can select one or multiple scopes. This is an optional setting.
 
-          If the scope is not specified, the API key will be assigned the following scopes by default:
+          If you do not specify this setting, the API key will be assigned the following scopes by default:
 
           {% include [default-scope-list](../../../_includes/iam/default-scope-list.md) %}
 
@@ -112,7 +112,7 @@ To create a service account API key:
       secret: AQVN3sHvAWTemWB8QxHkunfG2x4q7G3O********
       ```
 
-      Save the key value you got in a secure location. You will not be able to get it again.
+      The key value is shown only once. Make sure to securely save it, as you will not be able to retrieve it again.
 
 - {{ TF }} {#tf}
 
@@ -140,14 +140,14 @@ To create a service account API key:
       * `description`: Key description. This is an optional setting.
       * `scopes`: Key [scopes](../../concepts/authorization/api-key.md#scoped-api-keys). You can select one or multiple scopes. This is an optional setting.
 
-          If the scope is not specified, the API key will be assigned the following scopes by default:
+          If you do not specify this setting, the API key will be assigned the following scopes by default:
 
           {% include [default-scope-list](../../../_includes/iam/default-scope-list.md) %}
 
       * `expires_at`: Key expiration date and time in `YYYY-MM-DDThh:mm:ssZ` format, e.g., `2026-01-01T21:00:00Z`. This is an optional setting.
-      * `pgp_key`: Additional PGP key for encrypting a private key. Specify the public part of the key in Base64 encoding or in `keybase:keybaseusername` format. This is an optional setting.
+      * `pgp_key`: Additional PGP key for private key encryption. Specify the public part of the key in Base64 encoding or in `keybase:keybaseusername` format. This is an optional setting.
       * `output_to_lockbox`: Description of the {{ lockbox-full-name }} [secret](../../../lockbox/concepts/secret.md) to save the API key value to, in order to avoid its possible leak through the `terraform.tfstate` file. This is an optional setting. Nested parameters:
-          * `secret_id`: ID of the {{ lockbox-full-name }} secret to save the API key value to. The secret must be [custom](../../../lockbox/concepts/secret.md#secret-type).
+          * `secret_id`: ID of the {{ lockbox-full-name }} secret to save the API key value to. The secret must be of the [user type](../../../lockbox/concepts/secret.md#secret-type).
           * `entry_for_secret_key`: Secret key to assign to the API key value being saved.
 
       For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_api_key).
@@ -187,7 +187,7 @@ To create a service account API key:
   * `IAM_TOKEN`: [IAM token](../../concepts/authorization/iam-token.md). This is a required setting.
   * `scopes`: Key [scopes](../../concepts/authorization/api-key.md#scoped-api-keys). You can select one or multiple scopes. This is an optional setting.
 
-      If the scope is not specified, the API key will be assigned the following scopes by default:
+      If you do not specify this setting, the API key will be assigned the following scopes by default:
 
       {% include [default-scope-list](../../../_includes/iam/default-scope-list.md) %}
 
@@ -197,7 +197,7 @@ To create a service account API key:
 
 {% endlist %}
 
-To learn how to transmit a key in a request, read the [guides for the respective services](../../concepts/authorization/api-key.md#supported-services) supporting this authentication method.
+To learn how to provide a key in a request, see the [guides for the respective services](../../concepts/authorization/api-key.md#supported-services) supporting this authentication method.
 
 ## Viewing available scopes for an API key {#available-scopes}
 
@@ -214,7 +214,7 @@ To learn how to transmit a key in a request, read the [guides for the respective
 
 - CLI {#cli}
 
-  To view available [scopes](../../concepts/authorization/api-key.md#scoped-api-keys) of an API key, run this command:
+  To view the available [scopes](../../concepts/authorization/api-key.md#scoped-api-keys) of an API key, run this command:
 
   ```bash
   yc iam api-key list-scopes
@@ -228,7 +228,7 @@ To learn how to transmit a key in a request, read the [guides for the respective
 
 ## Adding a description when creating an API key {#add-description}
 
-To add an API key description when creating the key:
+To add a description when creating an API key:
 
 {% list tabs group=instructions %}
 
@@ -300,7 +300,7 @@ To delete a service account API key:
 
   1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder the service account belongs to.
   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and then select the required service account.
+  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and then select the service account.
   1. Under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_api_keys }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the API key to delete, and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, confirm the deletion.
 
@@ -323,7 +323,7 @@ To delete a service account API key:
 
   1. Open the {{ TF }} configuration file and delete the section with the API key description.
 
-      Example API key description in the {{ TF }} configuration:
+      Here is an example of an API key description in the {{ TF }} configuration:
 
       ```hcl
       resource "yandex_iam_service_account_api_key" "sa-api-key" {
@@ -354,9 +354,9 @@ To delete a service account API key:
           terraform apply
           ```
 
-      1. Confirm creating and deleting the resources by typing `yes` in the terminal and clicking **Enter**.
+      1. Confirm creating or deleting the resources by typing `yes` in the terminal and clicking **Enter**.
 
-      This will create or delete all the resources you need in the specified folder. You can check the new resources and their settings or make sure the resources were deleted using the [management console]({{ link-console-main }}) and this CLI command:
+      This will create or delete all the resources you need in the specified folder. You can check the new resources and their settings or make sure the resources have been deleted using the [management console]({{ link-console-main }}) and this CLI command:
 
       ```bash
       yc iam api-key list --service-account-id <service_account_ID>
@@ -375,7 +375,7 @@ To delete a service account API key:
       https://iam.{{ api-host }}/iam/v1/apiKeys/$APIKEY_ID
   ```
 
-  You can also delete the API key using the [ApiKeyService/Delete](../../api-ref/grpc/ApiKey/delete.md) gRPC API call.
+  Alternatively, you can delete an API key using the [ApiKeyService/Delete](../../api-ref/grpc/ApiKey/delete.md) gRPC API call.
 
 {% endlist %}
 

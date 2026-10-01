@@ -145,6 +145,8 @@ items:
             href: operations/data-streams-trigger-create.md
           - name: Создать триггер для почты
             href: operations/mail-trigger-create.md
+          - name: Создать триггер для Telegram
+            href: operations/telegram-trigger-create.md
       - name: Управление триггером
         items:
           - name: Изменить триггер
@@ -197,6 +199,8 @@ items:
             href: concepts/trigger/data-streams-trigger.md
           - name: Триггер для почты
             href: concepts/trigger/mail-trigger.md
+          - name: Триггер для Telegram
+            href: concepts/trigger/telegram-trigger.md
       - name: Dead Letter Queue
         href: concepts/dlq.md
       - name: Логи контейнера

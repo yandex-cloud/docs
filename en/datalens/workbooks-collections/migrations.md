@@ -5,6 +5,7 @@ description: Follow this guide to migrate objects to workbooks.
 
 # Migrating objects to workbooks from folders
 
+
 {% note info %}
 
 * If you do not see ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks** in the left-hand panel, ask the user with the `datalens.admin` role to [enable workbooks and collections](../../datalens/workbooks-collections/index.md#enable-workbooks) in your organization.
@@ -13,7 +14,9 @@ description: Follow this guide to migrate objects to workbooks.
 
 {% endnote %}
 
-You can migrate any individual folder object (i.e., a [connection](../concepts/connection/index.md), [dataset](../dataset/index.md), [chart](../concepts/chart/index.md), or [dashboard](../concepts/dashboard.md)) by either [transferring](#migration-transfer) or [copying](#migration-copy) it.
+
+
+You can migrate any individual folder object (i.e., a [connection](../concepts/connection/index.md), [dataset](../dataset/index.md), [chart](../concepts/chart/index.md), [report](../reports/index.md), or [dashboard](../concepts/dashboard.md)) by either [transferring](#migration-transfer) or [copying](#migration-copy) it.
 
 {% note info %}
 

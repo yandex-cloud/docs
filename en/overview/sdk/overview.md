@@ -20,7 +20,6 @@ For more information about integrating SDKs into your project, see [{#T}](./quic
 
 For some services, dedicated SDKs are available:
 * [{{ ml-sdk-full-name }}]({{ link-docs-ai }}ai-studio/sdk/index) for [{{ ai-studio-full-name }}](/ai-studio) services.
-* [Python SDK {{ speechkit-name }}](https://pypi.org/project/yandex-speechkit/)
 * [Video player SDK](../../video/sdk/index.md) for [{{ video-full-name }}](../../video/).
 * [YDB SDK](https://ydb.tech/docs/en/reference/ydb-sdk/) for [{{ ydb-full-name }}](../../ydb/) and [{{ yq-full-name }}](../../query/).
 
@@ -43,7 +42,7 @@ In {{ sf-name }}, you can use the {{ yandex-cloud }} SDK in [function](../../fun
 * [Kotlin](../../functions/lang/kotlin/sdk.md)
 * [.NET Core](../../functions/lang/csharp/sdk.md)
 
-## Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{{ console-full-name }}](../../console/)
 * [{{ yandex-cloud }} CLI](../../cli/)

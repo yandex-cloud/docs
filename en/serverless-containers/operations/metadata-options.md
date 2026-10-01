@@ -12,7 +12,7 @@ You can configure metadata service parameters when [creating a container revisio
   1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Select the container.
   1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
-  1. Expand the **Metadata service parameters** section.
+  1. Expand **{{ ui-key.yacloud.serverless-containers.section_metadata-options }}**.
   1. Configure metadata service parameters for the container: `{{ ui-key.yacloud.serverless-containers.label_gce_http_endpoint }}` and `{{ ui-key.yacloud.serverless-containers.label_aws_v1_http_endpoint }}`.
   1. Click **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**.
 
@@ -70,7 +70,7 @@ You can configure metadata service parameters when [creating a container revisio
 
         * `metadata_options`: Settings for the metadata service parameters, e.g., `metadata_options.0.gce_http_endpoint = "1"`. Specify the following:
             
-            * `0` if you want to keep the default value.
+            * `0` to keep the default value.
             * `1` to enable the parameter.
             * `2` to disable the parameter.
 

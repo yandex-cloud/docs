@@ -1,5 +1,6 @@
 # Processing {{ cloud-logging-full-name }} logs
 
+
 [{{ cloud-logging-full-name }}](../../logging/index.yaml) is a service for reading and writing logs of {{ yandex-cloud }} services and user applications.
 
 You can send logs to a {{ yds-full-name }} [stream](../../data-streams/concepts/glossary.md#stream-concepts) to process in real time using {{ yq-full-name }}. You can do the following with processed data:
@@ -65,8 +66,8 @@ done
 
 1. [Create a connection](../../query/operations/connection.md#create) named `cloud-logging-connection` of the `{{ ui-key.yql.yq-connection.action_datastreams }}` type.
 1. On the binding creation page:
-    * Select **{{ ui-key.yql.yq-binding-form.binding-fields-templates.button.label }} {{ cloud-logging-short-name }}**.
-    * Enter a name for the binding: `cloud-logging-binding`.
+    * Select **{{ ui-key.yql.yq-binding-form.binding-fields-templates.button.label }}** ![image](../../_assets/console-icons/chevron-down.svg) → `{{ cloud-logging-short-name }}`.
+    * Enter the binding name: `cloud-logging-binding`.
     * Specify the data stream: `cloud-logging-stream`.
     * Set the `json-list` format.
 1. Click **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**.

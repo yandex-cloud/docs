@@ -1,5 +1,6 @@
 # Using an OIDC app and OAuth2 Proxy to set up single sign-on for applications that do not support SSO
 
+
 Some applications have no built-in support for single sign-on (SSO). However, you may sometimes need to configure user authentication in such applications using {{ org-full-name }}.
 
 In this guide, you will use the [OAuth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/) utility combined with a reverse proxy to integrate a simple application with {{ org-full-name }} and restrict access to it exclusively to specified {{ org-full-name }} users via [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC)-based single sign-on.
@@ -39,9 +40,7 @@ To configure application access for your {{ org-full-name }} users, do the follo
           1. Press **Enter**.
       1. Click **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
   1. In the window that opens, on the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** tab, under **{{ ui-key.yacloud_org.application.overview.idp_section_title }}**, copy and save the `{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}` value representing the unique OAuth client ID. You will need this value later when setting up `OAuth2 Proxy`.
-  1. Create an [app secret](../../../organization/concepts/applications/oidc.md#oidc-secret):
-  
-      {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
+  1. {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
 
 - CLI {#cli}
 

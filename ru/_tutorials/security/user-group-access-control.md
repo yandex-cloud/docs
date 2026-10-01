@@ -87,7 +87,7 @@
 
           1. Убедитесь, что в поле **{{ ui-key.yacloud.page.welcome.field_organization }}** выбрана организация `Example organization`.
           1. В поле **{{ ui-key.yacloud.page.welcome.field_cloud-name }}** укажите `testing`.
-          1. Нажмите **{{ ui-key.yacloud.page.welcome.button_create }}**.
+          1. Нажмите **Создать**.
 
           В результате в организации `Example organization` будет создано первое облако `testing`, а браузер откроет каталог по умолчанию `default`, созданный внутри этого нового облака.
       1. В левой части экрана в строке с именем организации `Example organization` нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.cloud.label_create_cloud }}**. В открывшемся окне:
@@ -264,53 +264,30 @@
 
 Чтобы сотрудники вашей компании могли использовать ресурсы {{ yandex-cloud }}, добавьте их в созданную организацию {{ org-full-name }}, а затем, в зависимости от выполняемых ими обязанностей, распределите добавленных сотрудников по созданным ранее группам пользователей.
 
-1. Пригласите сотрудников в организацию:
+{% list tabs group=instructions %}
 
-    {% list tabs group=instructions %}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-    - Интерфейс {{ cloud-center }} {#cloud-center}
+    1. [Перейдите]({{ link-org-cloud-center }}) в сервис **{{ org-full-name }}**.
+    1. На панели слева выберите ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
+    1. В правом верхнем углу нажмите кнопку ![person-plus](../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.page.users.dropdown.button-text }}** и выберите ![person-planet-earth](../../_assets/console-icons/person-planet-earth.svg) **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
+    1. Через запятую введите почтовые адреса пользователей, которых вы хотите пригласить в организацию. Они будут состоять в одной группе.
 
-      1. [Перейдите]({{ link-org-cloud-center }}) в сервис **{{ org-full-name }}**.
-      1. На панели слева выберите ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
-      1. В правом верхнем углу экрана нажмите кнопку **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
-      1. Через запятую введите почтовые адреса пользователей, которых вы хотите пригласить в организацию.
+        {% include [send-invitation](../../_includes/organization/send-invitation.md) %}
+    1. Для отправки приглашений нажмите кнопку **{{ ui-key.yacloud_components.organization.action_next }}**. Откроется окно для назначения ролей и добавления пользователей в группу.
 
-          {% include [send-invitation](../../_includes/organization/send-invitation.md) %}
-      1. Нажмите кнопку **{{ ui-key.yacloud_components.organization.action_send-invitation_6LqIj }}**.
+    1. {% include [add-to-group-on-invite](../../_includes/organization/add-to-group-on-invite.md) %}
 
-    {% endlist %}
+    1. Повторите действия для всех ранее созданных групп.
 
-    Сразу после того, как пользователи примут приглашения по ссылке из письма, они станут [участниками организации](../../organization/concepts/membership.md) и будут отображаться в списке в [разделе **{{ ui-key.yacloud_org.pages.users }}**]({{ link-org-cloud-center }}/users) вашей организации.
+{% endlist %}
 
-    {% note info %}
+Сразу после того, как пользователи примут приглашения по ссылке из письма, они станут [участниками организации](../../organization/concepts/membership.md) и будут отображаться в разделе ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}** сервиса [{{ org-full-name }}]({{ link-org-cloud-center }}/users).
 
-    Для доступа к сервисам, которые подключены к организации, приглашенным пользователям достаточно войти в свой аккаунт на Яндексе.
 
-    {% endnote %}
+Для доступа к сервисам, которые подключены к организации, приглашенным пользователям достаточно войти в свой аккаунт на Яндексе.
 
-1. Распределите добавленных пользователей по созданным ранее группам:
 
-    {% list tabs group=instructions %}
-
-    - Интерфейс {{ cloud-center }} {#cloud-center}
-
-      1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-      1. На панели слева выберите ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}** и нажмите строку с названием нужной [группы](../../organization/concepts/groups.md).
-      1. Перейдите на вкладку **{{ ui-key.yacloud_org.entity.group.title_tab-members }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud_org.entity.group.action_add-member }}**. В открывшемся окне:
-
-          1. Выберите нужных пользователей. При необходимости воспользуйтесь поиском.
-          1. Нажмите **{{ ui-key.yacloud.common.save }}**.
-
-    {% endlist %}
-
-    Распределите всех пользователей по группам в соответствии с выполняемыми ими обязанностями.
-
-    {% note info %}
-
-    Пользователь может являться участником одновременно нескольких групп пользователей.
-
-    {% endnote %}
 
 ## Создайте рабочую инфраструктуру {#move-on}
 

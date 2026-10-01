@@ -5,6 +5,7 @@ description: Из статьи вы узнаете, как подключить�
 
 # Подключение к кластеру {{ CH }} из {{ datalens-name }}
 
+
 {% include [mdb-datalens-connector-intro](../../_includes/mdb/datalens-connector-intro.md) %}
 
 Чтобы использовать существующий кластер в качестве источника данных для {{ datalens-name }}:

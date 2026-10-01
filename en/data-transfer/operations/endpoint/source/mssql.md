@@ -5,14 +5,14 @@ description: Follow this guide to set up a data transfer from a Microsoft SQL Se
 
 # Transferring data from a Microsoft SQL Server source endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data from a Microsoft SQL Server database to {{ yandex-cloud }} managed databases and implement various data processing and transformation scenarios. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data from a Microsoft SQL Server database to {{ yandex-cloud }} managed databases and implement various data processing and transformation scenarios. To set up a transfer:
 
-1. [Explore possible data transfer scenarios](#scenarios).
+1. [Review possible data transfer scenarios](#scenarios).
 1. [Prepare the Microsoft SQL Server database](#prepare) for the transfer.
 1. [Set up a source endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Set up one of the supported data targets](#supported-targets).
-1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. In case of any issues, [use ready-made solutions](../../../../data-transfer/troubleshooting/index.md) to resolve them.
+1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
+1. If you run into any problems, [check the available solutions](../../../../data-transfer/troubleshooting/index.md) for troubleshooting.
 
 ## Scenarios for transferring data from Microsoft SQL Server {#scenarios}
 
@@ -40,7 +40,6 @@ When [creating](../index.md#create) an endpoint, select `MSSQL` as your database
 
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.username.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.password.title }}**: Database username and password.
   
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.replication_method.title }}**: Replication method used to retrieve data from the database. `STANDARD` replication requires no setup on the database side, but it does not show data changes. `CDC` replication allows you to capture data inserts, updates, and deletes.
   
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.ssl_method.title }}**: Encryption method used when exchanging data with the database:
       
@@ -55,7 +54,7 @@ When [creating](../index.md#create) an endpoint, select `MSSQL` as your database
 Read more about settings in [this {{ AB }} guide](https://docs.airbyte.com/integrations/sources/mssql/).
 
 
-## Configuring the data target {#supported-targets}
+## Configuring the target {#supported-targets}
 
 Configure one of the supported data targets:
 
@@ -72,7 +71,7 @@ For a complete list of supported sources and targets in {{ data-transfer-full-na
 
 {% include [Internet access](../../../../_includes/data-transfer/notes/internet-access.md) %}
 
-After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).
 
 {% include [airbyte-trademark](../../../../_includes/data-transfer/airbyte-trademark.md) %}
 

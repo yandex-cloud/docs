@@ -640,7 +640,7 @@
     "description": "string",
     // Includes only one of the fields `triggerSource`
     "triggerSource": {
-      // Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`
+      // Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`, `yandexMessenger`, `maxMessage`
       "timer": {
         "cronExpression": "string",
         "payload": "string"
@@ -750,6 +750,20 @@
       "telegramMessage": {
         "botToken": "string",
         "allowedUpdates": [
+          "string"
+        ],
+        "force": "boolean"
+      },
+      "yandexMessenger": {
+        "oauthToken": "string",
+        "force": "boolean",
+        "botId": "string",
+        "botLogin": "string",
+        "botDisplayName": "string"
+      },
+      "maxMessage": {
+        "botToken": "string",
+        "updateTypes": [
           "string"
         ],
         "force": "boolean"
@@ -1458,37 +1472,43 @@ The maximum string length in characters is 50. ||
 ||Field | Description ||
 || timer | **[Timer](#yandex.cloud.serverless.triggers.v2.Timer)**
 
-Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`. ||
+Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`, `yandexMessenger`, `maxMessage`. ||
 || ymq | **[YMQ](#yandex.cloud.serverless.triggers.v2.YMQ)**
 
-Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`. ||
+Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`, `yandexMessenger`, `maxMessage`. ||
 || yds | **[YDS](#yandex.cloud.serverless.triggers.v2.YDS)**
 
-Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`. ||
+Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`, `yandexMessenger`, `maxMessage`. ||
 || mail | **[Mail](#yandex.cloud.serverless.triggers.v2.Mail)**
 
-Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`. ||
+Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`, `yandexMessenger`, `maxMessage`. ||
 || billingBudget | **[BillingBudget](#yandex.cloud.serverless.triggers.v2.BillingBudget)**
 
-Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`. ||
+Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`, `yandexMessenger`, `maxMessage`. ||
 || logging | **[Logging](#yandex.cloud.serverless.triggers.v2.Logging)**
 
-Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`. ||
+Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`, `yandexMessenger`, `maxMessage`. ||
 || objectStorage | **[ObjectStorage](#yandex.cloud.serverless.triggers.v2.ObjectStorage)**
 
-Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`. ||
+Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`, `yandexMessenger`, `maxMessage`. ||
 || containerRegistry | **[ContainerRegistry](#yandex.cloud.serverless.triggers.v2.ContainerRegistry)**
 
-Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`. ||
+Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`, `yandexMessenger`, `maxMessage`. ||
 || iotMessage | **[IoTMessage](#yandex.cloud.serverless.triggers.v2.IoTMessage)**
 
-Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`. ||
+Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`, `yandexMessenger`, `maxMessage`. ||
 || iotBrokerMessage | **[IoTBrokerMessage](#yandex.cloud.serverless.triggers.v2.IoTBrokerMessage)**
 
-Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`. ||
+Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`, `yandexMessenger`, `maxMessage`. ||
 || telegramMessage | **[TelegramMessage](#yandex.cloud.serverless.triggers.v2.TelegramMessage)**
 
-Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`. ||
+Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`, `yandexMessenger`, `maxMessage`. ||
+|| yandexMessenger | **[YandexMessenger](#yandex.cloud.serverless.triggers.v2.YandexMessenger)**
+
+Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`, `yandexMessenger`, `maxMessage`. ||
+|| maxMessage | **[MaxMessage](#yandex.cloud.serverless.triggers.v2.MaxMessage)**
+
+Includes only one of the fields `timer`, `ymq`, `yds`, `mail`, `billingBudget`, `logging`, `objectStorage`, `containerRegistry`, `iotMessage`, `iotBrokerMessage`, `telegramMessage`, `yandexMessenger`, `maxMessage`. ||
 |#
 
 ## Timer {#yandex.cloud.serverless.triggers.v2.Timer}
@@ -1663,6 +1683,26 @@ The number of elements must be greater than 0.
 ||Field | Description ||
 || botToken | **string** ||
 || allowedUpdates[] | **string** ||
+|| force | **boolean** ||
+|#
+
+## YandexMessenger {#yandex.cloud.serverless.triggers.v2.YandexMessenger}
+
+#|
+||Field | Description ||
+|| oauthToken | **string** ||
+|| force | **boolean** ||
+|| botId | **string** ||
+|| botLogin | **string** ||
+|| botDisplayName | **string** ||
+|#
+
+## MaxMessage {#yandex.cloud.serverless.triggers.v2.MaxMessage}
+
+#|
+||Field | Description ||
+|| botToken | **string** ||
+|| updateTypes[] | **string** ||
 || force | **boolean** ||
 |#
 

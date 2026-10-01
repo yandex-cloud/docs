@@ -57,7 +57,7 @@ Yandex Cloud CDN позволяет организовать доставку к
 
  - [Включить сегментацию файлов](operations/resources/enable-segmentation.md)
 
- - [Включить экранирование источников](operations/resources/enable-shielding.md)
+ - [Включить или отключить экранирование источников](operations/resources/enable-shielding.md)
 
  - [Настроить перенаправление запросов](operations/resources/setup-http-rewrite.md)
 
@@ -66,6 +66,8 @@ Yandex Cloud CDN позволяет организовать доставку к
  - [Настроить скрытие заголовков от источника](operations/resources/hiding-headers.md)
 
  - [Настроить доступ по защищенному токену](operations/resources/enable-secure-token.md)
+
+ - [Настройка политики доступа по странам](operations/resources/configure-geo-acl.md)
 
  - [Настроить локационные правила](operations/resources/location-rules.md)
 
@@ -174,6 +176,8 @@ Yandex Cloud CDN позволяет организовать доставку к
  - [Защищенные токены](concepts/secure-tokens.md)
 
  - [Политика доступа по IP-адресам](concepts/ip-address-acl.md)
+
+ - [Политика доступа по странам](concepts/geo-acl.md)
 
  - [Выделенная IP-адресация](concepts/dedicated-ip-addressing.md)
 

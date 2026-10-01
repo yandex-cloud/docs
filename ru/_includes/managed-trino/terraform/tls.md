@@ -11,7 +11,7 @@ resource "yandex_trino_cluster" "<имя_кластера>" {
 Где:
 
 * `tls` — параметры TLS.
-  
+
     {% include notitle [tls](../cluster-settings.md#tls) %}
 
     * `trusted_certificates` — список сертификатов, разделенных запятой.

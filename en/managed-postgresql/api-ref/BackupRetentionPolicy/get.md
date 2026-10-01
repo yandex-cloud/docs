@@ -63,6 +63,8 @@ Required field. Unique identifier for the [BackupRetentionPolicy](#yandex.cloud.
   "policyName": "string",
   "createdAt": "string",
   "cron": {
+    "minute": "string",
+    "hour": "string",
     "dayOfMonth": "string",
     "month": "string",
     "dayOfWeek": "string"
@@ -114,6 +116,14 @@ Message to describe a crontab schedule.
 
 #|
 ||Field | Description ||
+|| minute | **string**
+
+Minute in cron format. Valid values: 0-59, *, ranges (0-30), steps (*/5), lists (0,15,30,45).
+Defaults to "". Support depends on the database engine. ||
+|| hour | **string**
+
+Hour in cron format. Valid values: 0-23, *, ranges (8-18), steps (*/2), lists (0,12).
+Defaults to "". Support depends on the database engine. ||
 || dayOfMonth | **string**
 
 Day of month in cron format. Valid values: 1-31, *, ranges (1-15), steps (*/2, 1-15/3), lists (1,15,28).

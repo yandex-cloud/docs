@@ -1,9 +1,9 @@
 ---
-title: Работа с механизмом логирования действий с бакетом в {{ objstorage-full-name }}
-description: Следуя данной инструкции, вы сможете работать с механизмом логирования действий с бакетом в {{ objstorage-name }}.
+title: Логировать действия с бакетом в {{ objstorage-full-name }}
+description: Следуя данной инструкции, вы сможете управлять логированием действий с бакетом в {{ objstorage-name }}.
 ---
 
-# Работа с механизмом логирования действий с бакетом
+# Логировать действия с бакетом
 
 
 Чтобы отслеживать работу с [бакетом](../../concepts/bucket.md), включите [механизм логирования](../../concepts/server-logs.md).
@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
 
 По умолчанию механизм логирования отключен. После его включения, {{ objstorage-name }} будет записывать информацию о действиях с бакетом раз в час.
 
-## Включите механизм логирования {#enable}
+## Включить логирование {#enable}
 
 Чтобы логировать обращения к бакету:
 
@@ -37,8 +37,7 @@ description: Следуя данной инструкции, вы сможете
       1. В [консоли управления]({{ link-console-main }}) выберите каталог.
       1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Выберите бакет, для которого хотите настроить логирование.
-      1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-      1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
+      1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
       1. Включите опцию **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_server-logs_mfGpj }}**.
       1. Выберите **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_target-bucket_jEJ5E }}**.
       1. В поле **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_prefix_4JTZG }}** укажите префикс, с которым будут сохраняться логи.
@@ -154,9 +153,9 @@ description: Следуя данной инструкции, вы сможете
 
 Если вы захотите удалить целевой бакет, сначала [выключите механизм логирования](#stop-logging) или выберите другой целевой бакет для хранения логов. [Удалить](delete.md) можно только пустой бакет.
 
-## Получите настройки логирования {#get-settings}
+## Получить настройки логирования {#get-settings}
 
-Чтобы получить имя целевого бакета и префикс ключа объекта с логами, выполните следующее действие:
+Чтобы получить имя целевого бакета и префикс ключа объекта с логами:
 
 {% list tabs group=instructions %}
 
@@ -165,8 +164,7 @@ description: Следуя данной инструкции, вы сможете
    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
    1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Выберите исходный бакет.
-   1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-   1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**
+   1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
    1. В списке **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_target-bucket_jEJ5E }}** содержится имя целевого бакета.
    1. В поле **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_prefix_4JTZG }}** содержится префикс, с которым сохраняются логи.
 
@@ -254,7 +252,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## Получите логи {#get-logs}
+## Получить логи {#get-logs}
 
 Чтобы получить логи, скачайте из целевого бакета объект с префиксом `logs/`:
 
@@ -284,7 +282,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## Выключить механизм логирования {#stop-logging}
+## Выключить логирование {#stop-logging}
 
 Чтобы выключить логирование, выполните следующее действие:
 
@@ -295,8 +293,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет, для которого хотите выключить логирование.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
   1. Выключите опцию **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_server-logs_mfGpj }}**.
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 

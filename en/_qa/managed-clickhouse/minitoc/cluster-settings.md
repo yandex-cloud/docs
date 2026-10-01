@@ -7,3 +7,7 @@
 * [How do I increase the maximum amount of RAM to run a query?](#max-memory-usage)
 
 * [Why must a {{ mch-name }} cluster have three or five {{ ZK }} hosts?](#zookeeper-hosts-number)
+
+* [How do I add a host to a cluster with disabled coordination service?](#add-hosts-disabled-coordination)
+
+* [How do I add a multi-host shard to a cluster with disabled coordination service?](#add-shard-disabled-coordination)

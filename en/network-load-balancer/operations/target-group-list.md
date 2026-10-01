@@ -51,7 +51,7 @@ You can request detailed information about each target group you created.
     1. [Navigate]({{ link-console-main }}/link/network-load-balancer/) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. In the left-hand panel, select ![trgroups.svg](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
     1. Click your group name.
-    1. The **Overview** page will show the target group details.
+    1. The **{{ ui-key.yacloud.common.overview }}** page will show the target group details.
 
 - CLI {#cli}
 
@@ -100,7 +100,7 @@ You can request detailed information about each target group you created.
       * `output "target_group"`: Output variable with target group creation date information:
          * `value`: Return value.
 
-      You can replace `created_at` with another variable to get the information you need. For more on the properties of the `yandex_lb_target_group` data source, see [this provider guide]({{ tf-provider-datasources-link }}/lb_target_group).
+      You can replace `created_at` with any other attribute to get the information you need. For more on the properties of the `yandex_lb_target_group` data source, see [this provider guide]({{ tf-provider-datasources-link }}/lb_target_group).
 
   1. Create the resources:
 

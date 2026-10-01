@@ -36,12 +36,26 @@ description: На странице приведены коды ошибок в {
 [ERR.DS_API.DATASET.TOO_MANY_FIELDS](ERR-DS_API-DATASET-TOO_MANY_FIELDS.md) | There are too many fields in the dataset |
 [ERR.DS_API.DB](ERR-DS_API-DB.md) | Ошибка выполнения запроса в источнике данных |
 [ERR.DS_API.DB.AUTHENTICATION_FAILED](ERR-DS_API-DB-AUTHENTICATION_FAILED.md) | Database authentication failed |
+[ERR.DS_API.DB.CANNOT_INSERT_NULL_IN_ORDINARY_COLUMN](ERR-DS_API-DB-CANNOT_INSERT_NULL_IN_ORDINARY_COLUMN.md) | Cannot convert NULL value to non-Nullable type |
 [ERR.DS_API.DB.CANNOT_PARSE](ERR-DS_API-DB-CANNOT_PARSE.md) | Cannot parse |
+[ERR.DS_API.DB.CH.INCORRECT_DATA](ERR-DS_API-DB-CH-INCORRECT_DATA.md) | {{ CH }} could not parse the data in the specified source |
+[ERR.DS_API.DB.CH.READONLY_USER](ERR-DS_API-DB-CH-READONLY_USER.md) | {{ CH }} user must be correctly configured to use readonly 1 option (see docs). For other readonly options user should have parameter readonly set to 0 or 2 |
+[ERR.DS_API.DB.CHYT](ERR-DS_API-DB-CHYT.md) | CHYT Error |
 [ERR.DS_API.DB.CANNOT_PARSE.DATETIME](ERR-DS_API-DB-CANNOT_PARSE-DATETIME.md) | Cannot parse datetime |
 [ERR.DS_API.DB.CANNOT_PARSE.NUMBER](ERR-DS_API-DB-CANNOT_PARSE-NUMBER.md) | Cannot parse number |
 [ERR.DS_API.DB.CHYT.AUTH_FAILED](ERR-DS_API-DB-CHYT-AUTH_FAILED.md) | Authentication failed |
+[ERR.DS_API.DB.CHYT.CLIQUE.ACCESS_DENIED](ERR-DS_API-DB-CHYT-CLIQUE-ACCESS_DENIED.md) | Access to clique <название_клики> for user <логин_пользователя> was denied |
 [ERR.DS_API.DB.CHYT.CLIQUE.INVALID_GUID](ERR-DS_API-DB-CHYT-CLIQUE-INVALID_GUID.md) | Не удалось распарсить название клики |
 [ERR.DS_API.DB.CHYT.CLIQUE.INVALID_SPECIFICATION](ERR-DS_API-DB-CHYT-CLIQUE-INVALID_SPECIFICATION.md) | Invalid clique specification. Probably, clique does not exists |
+[ERR.DS_API.DB.CHYT.CLIQUE.NOT_RUNNING](ERR-DS_API-DB-CHYT-CLIQUE-NOT_RUNNING.md) | Clique <название_клики> is not running |
+[ERR.DS_API.DB.CHYT.CLIQUE.SUSPENDED](ERR-DS_API-DB-CHYT-CLIQUE-SUSPENDED.md) | Clique <название_клики> is suspended |
+[ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN](ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN.md) | Invalid sorted JOIN |
+[ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.COMPOUND_EXPR_NOT_SUPPORTED](ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-COMPOUND_EXPR_NOT_SUPPORTED.md) | CHYT does not support compound expressions in ON/USING clause |
+[ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.CONCAT_NOT_SUPPORTED](ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-CONCAT_NOT_SUPPORTED.md) | Joining concatenation of multiple tables is not supported |
+[ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.KEY_IS_EMPTY](ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-KEY_IS_EMPTY.md) | Cannot join: key is empty |
+[ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.NOT_SAME_KEY_POSITION](ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-NOT_SAME_KEY_POSITION.md) | Joined columns do not occupy same positions in key columns of joined tables |
+[ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.TABLE_NOT_SORTED](ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-TABLE_NOT_SORTED.md) | Tables should be sorted |
+[ERR.DS_API.DB.CHYT.MULTI_DYN_NOT_SUPPORTED](ERR-DS_API-DB-CHYT-MULTI_DYN_NOT_SUPPORTED.md) | Reading multiple dynamic tables or dynamic table together with static table is not supported in CHYT |
 [ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.MORE_THAN_ONE_TABLE](ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-MORE_THAN_ONE_TABLE.md) | Cannot join a concatenation of tables with another table |
 [ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.NOT_A_KEY_COLUMN](ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-NOT_A_KEY_COLUMN.md) | Column used in join expression is not a key column |
 [ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.NOT_KEY_PREFIX_COLUMN](ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-NOT_KEY_PREFIX_COLUMN.md) | Joined columns should form prefix of joined table key columns |
@@ -49,8 +63,12 @@ description: На странице приведены коды ошибок в {
 [ERR.DS_API.DB.CHYT.TABLE_ACCESS_DENIED](ERR-DS_API-DB-CHYT-TABLE_ACCESS_DENIED.md) | Access to table was denied |
 [ERR.DS_API.DB.CHYT.TABLE_HAS_NO_SCHEMA](ERR-DS_API-DB-CHYT-TABLE_HAS_NO_SCHEMA.md) | YT table has no schema. Only schematized tables are supported |
 [ERR.DS_API.DB.COLUMN_DOES_NOT_EXIST](ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md) | Requested database column does not exist |
+[ERR.DS_API.DB.COMMIT_OR_ROLLBACK_FAILED](ERR-DS_API-DB-COMMIT_OR_ROLLBACK_FAILED.md) | Failed to COMMIT or ROLLBACK |
 [ERR.DS_API.DB.DATA_PREPARATION_NOT_FINISHED](ERR-DS_API-DB-DATA_PREPARATION_NOT_FINISHED.md) | Подготовка данных еще не завершилась |
+[ERR.DS_API.DB.DATABASE_DOES_NOT_EXIST](ERR-DS_API-DB-DATABASE_DOES_NOT_EXIST.md) | Data source database does not exist |
 [ERR.DS_API.DB.DB_OPERATIONAL_ERROR](ERR-DS_API-DB-DB_OPERATIONAL_ERROR.md) | Ошибка на стороне БД |
+[ERR.DS_API.DB.EST_EXEC_TOO_LONG](ERR-DS_API-DB-EST_EXEC_TOO_LONG.md) | Estimated query execution time is too long. Maximum: 14400 |
+[ERR.DS_API.DB.INDEX_NOT_USED](ERR-DS_API-DB-INDEX_NOT_USED.md) | Filtration by any of indexed columns required |
 [ERR.DS_API.DB.INVALID_FUNCTION.PG_DOUBLE_PRECISION_ROUND](ERR-DS_API-DB-INVALID_FUNCTION-PG_DOUBLE_PRECISION_ROUND.md) | ROUND with precision parameter is not supported for double precision data type in PostgreSQL
 [ERR.DS_API.DB.JOIN_COLUMN_TYPE_MISMATCH](ERR-DS_API-DB-JOIN_COLUMN_TYPE_MISMATCH.md) | Columns in JOIN have different types |
 [ERR.DS_API.DB.MATERIALIZATION_NOT_FINISHED](ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md) | Подготовка данных еще не завершилась |

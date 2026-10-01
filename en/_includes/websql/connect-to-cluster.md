@@ -5,7 +5,7 @@ Before creating a connection, make sure you have selected the right folder. If y
 
 {% note info %}
 
-[{{ mtr-full-name }}](../../managed-trino/) is at the [Preview](../../overview/concepts/launch-stages.md) stage. Currently, you cannot create connections to {{ mtr-full-name }} in the {{ websql-full-name }} interface. However, if the current folder has a {{ mtr-full-name }} cluster and the user can access it, the connection will be displayed in {{ websql-name }}, available for use. 
+Currently, you cannot create connections to {{ mtr-full-name }} in the {{ websql-full-name }} interface. However, if the current folder has a {{ mtr-full-name }} cluster and the user can access it, the connection will be displayed in {{ websql-name }}, available for use. 
 
 {% endnote %}
 
@@ -22,5 +22,5 @@ To create a connection to a {{ yandex-cloud }} managed database cluster:
 1. In the **Cluster** field, select the managed database cluster you want to connect to. 
 1. Specify the **Username** you will use to connect to cluster databases.
 1. Enter the user **Password**.
-1. List the **Databases** you want to connect to. You can only connect to the databases that exist in this cluster. The user you specified must have access to them.
+1. List the **Databases** you want to connect to. You can only connect to the databases that exist in this cluster. The user account you specified must have access to them.
 1. Click **Create**.

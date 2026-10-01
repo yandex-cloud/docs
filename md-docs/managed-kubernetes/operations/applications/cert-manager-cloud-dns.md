@@ -22,8 +22,6 @@
    
    Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-1. Убедитесь, что кластер Managed Service for Kubernetes расположен в том же [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), что и [публичная зона Cloud DNS](../../../dns/concepts/dns-zone.md#public-zones).
-
 1. [Убедитесь](../connect/security-groups.md), что группы безопасности для кластера Managed Service for Kubernetes и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте](../../../vpc/operations/security-group-add-rule.md) его.
 
     {% note warning %}

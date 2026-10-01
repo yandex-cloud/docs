@@ -10,11 +10,49 @@ keywords:
 
 # {{ mspqr-name }} pricing policy
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 12
+      md: 6
+    indent:
+      top: '0'
+      bottom: '0'
+    children:
+      - type: basic-card
+        title: Price calculator
+        text: Calculate the cost of the service based on your needs
+        gravityIcon: Calculator
+        iconPosition: left
+        urlTitle: Price calculator
+        url: https://yandex.cloud/en/prices?state=2558778f9a9a#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Price list
+        text: Current prices of all our services
+        gravityIcon: CircleRuble
+        iconPosition: left
+        urlTitle: Price list
+        url: https://yandex.cloud/en/price-list?services=dn2sdm5cvhv4serguw5l
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
+
+
 
 
 This section describes the {{ mspqr-name }} pricing [policy](#rules) and [current prices](#prices) for its resources.
-
-{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -36,17 +74,17 @@ The {{ mspqr-name }} usage cost includes:
 
 The host operation cost is charged per hour based on the host class. For detailed class specifications, see [Host classes](concepts/instance-types.md).
 
-The minimum billing unit is one minute, e.g., 1.5 minutes of host usage is billed as 2 minutes. You are not billed for downtime periods when the host cannot perform its primary functions.
+The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as two minutes). You are not billed for downtime periods when the host cannot perform its primary functions.
 
 ### Disk space usage {#rules-storage}
 
-You are billed for the following:
+You pay for the following:
 
 * Storage allocated for database clusters.
 
     * You can order local SSD storage (`local-ssd`) only for clusters with three or more hosts:
 
-        * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
+        * For Intel Cascade Lake: In increments of 100 GB.
         * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
 
     * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more hosts.
@@ -55,7 +93,7 @@ You are billed for the following:
 
 For more information, see [Backups in {{ mspqr-name }}](concepts/backup.md).
 
-The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
+The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as 2 minutes).
 
 ## Discount for committed volume of services (CVoS) {#cvos}
 

@@ -3,7 +3,7 @@
 # Создание адреса Yandex Cloud Postbox и проверка владения доменом с помощью Terraform
 
 
-В этом руководстве вы с помощью Terraform создадите [адрес](../concepts/glossary.md#adress) в [Yandex Cloud Postbox](../index.md), а также добавите в [DNS-зону](../../dns/concepts/dns-zone.md) вашего домена необходимые [ресурсные записи](../../dns/concepts/resource-record.md#txt) для подтверждения владения доменом и отправки писем.
+В этом руководстве вы с помощью Terraform создадите [адрес](../concepts/glossary.md#address) в [Yandex Cloud Postbox](../index.md), а также добавите в [DNS-зону](../../dns/concepts/dns-zone.md) вашего домена необходимые [ресурсные записи](../../dns/concepts/resource-record.md#txt) для подтверждения владения доменом и отправки писем.
 
 Ресурсную запись для подтверждения владения доменом можно добавить в [Yandex Cloud DNS](../../dns/index.md), если вы [делегировали](#delegate) домен, или у вашего регистратора домена.
 
@@ -18,7 +18,7 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Подготовьте облако к работе {#before-begin}
+## Подготовьте облако к работе {#before-you-begin}
 
 Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
 1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.

@@ -9,12 +9,12 @@
 
 Чтобы дать доступ пользователям вашей организации в OpenVPN Access Server:
 
-1. [Подготовьте OpenVPN Access Server](#prepare-ovpn).
+1. [Подготовьте OpenVPN Access Server](#create-vpn-server).
 1. [Создайте приложение в {{ org-full-name }}](#create-app).
 1. [Настройте интеграцию](#setup-integration).
 1. [Убедитесь в корректной работе приложения](#validate).
 
-## Подготовьте OpenVPN Access Server {#prepare-ovpn}
+## Подготовьте OpenVPN Access Server {#create-vpn-server}
 
 Вы можете использовать собственную установку OpenVPN Access Server, SaaS-версию или создать виртуальную машину с OpenVPN Access Server в {{ yandex-cloud }}.
 
@@ -56,7 +56,7 @@
 
    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-   1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
+   1. Нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
       1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.saml-title_kyofk }}**.
       1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения: `ovpn-app`.
 

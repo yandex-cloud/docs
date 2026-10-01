@@ -3,7 +3,7 @@
 
 This tutorial will be useful if you have already deployed and started one of the {{ yandex-cloud }} services.
 
-You will create a chart using the [{{ monitoring-full-name }} query language](../../monitoring/concepts/querying.md) and add it to the dashboard.
+You will create a chart using the [{{ monitoring-full-name }} query language]({{ link-docs }}/monitoring/concepts/querying) and add it to the dashboard.
 
 
 To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-begin) and follow the steps below:
@@ -29,11 +29,11 @@ To get started with {{ datalens-short-name }}:
       
       {% note info %}
 
-      To activate a {{ datalens-short-name }} instance, the user must have the `admin` or `owner` role. For more information about roles, see [{#T}](../../organization/security/index.md).
+      To activate a {{ datalens-short-name }} instance, the user must have the `admin` or `owner` role. For more information about roles, see [{#T}]({{ link-docs }}/organization/security/).
 
       {% endnote %}
 
-   * If you have a cloud but no organization, click **Add new DataLens**. In the window that opens, enter a name and description for your organization and click **Create organization and DataLens**. For more information about working with organizations, see [Getting started with organizations](../../organization/quickstart.md).
+   * If you have a cloud but no organization, click **Add new DataLens**. In the window that opens, enter a name and description for your organization and click **Create organization and DataLens**. For more information about working with organizations, see [Getting started with organizations]({{ link-docs }}/organization/quickstart).
 
    If you encounter a technical issue with the service, contact {{ yandex-cloud }} [support]({{ link-console-support }}). To ask for advice, discuss a solution to your issue, or explore current best practices, join the [{{ datalens-short-name }}](https://t.me/YandexDataLens) chat in Telegram. 
 
@@ -42,8 +42,8 @@ To get started with {{ datalens-short-name }}:
 
 {% note info %}
 
-To create a connection, you need a [service account](../../iam/concepts/users/service-accounts.md) with the `{{ roles-monitoring-viewer }}` or `{{ roles-viewer }}` [role](../../iam/operations/sa/assign-role-for-sa.md).
-To write queries in QL charts, use the [{{ monitoring-full-name }} query language](../../monitoring/concepts/querying.md).
+To create a connection, you need a [service account]({{ link-docs }}/iam/concepts/users/service-accounts) with the `{{ roles-monitoring-viewer }}` or `{{ roles-viewer }}` [role]({{ link-docs }}/iam/operations/sa/assign-role-for-sa).
+To write queries in QL charts, use the [{{ monitoring-full-name }} query language]({{ link-docs }}/monitoring/concepts/querying).
 
 {% endnote %}
 

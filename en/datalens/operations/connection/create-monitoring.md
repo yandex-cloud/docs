@@ -7,9 +7,9 @@ description: Follow this guide to create a connection to {{ monitoring-name }}.
 
 {% note info %}
 
-* To create a connection, you need a [service account](../../../iam/concepts/users/service-accounts.md) with the `{{ roles-monitoring-viewer }}` or `{{ roles-viewer }}` [role](../../../iam/operations/sa/assign-role-for-sa.md).
-* Use the [Yandex Monitoring query language](../../../monitoring/concepts/querying.md) to write queries in QL charts.
-* When writing queries, do not use the `folderId` [label](../../../monitoring/concepts/data-model.md#label).
+* To create a connection, you need a [service account]({{ link-docs }}/iam/concepts/users/service-accounts) with the `{{ roles-monitoring-viewer }}` or `{{ roles-viewer }}` [role]({{ link-docs }}/iam/operations/sa/assign-role-for-sa).
+* Use the [Yandex Monitoring query language]({{ link-docs }}/monitoring/concepts/querying) to write queries in QL charts.
+* When writing queries, do not use the `folderId` [label]({{ link-docs }}/monitoring/concepts/data-model#label).
 
 {% endnote %}
 
@@ -23,7 +23,7 @@ To create a {{ monitoring-name }} connection:
    * **Service account**: Select an existing service account or create a new one.
 
 1. Click **Create connection**.
-1. Select the [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
+1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
 1. Enter a name for the connection and click **Create**.
 
 

@@ -3,11 +3,15 @@ title: Поиск чувствительных данных в бакете {{ o
 description: Следуя данной инструкции, вы узнаете, как создавать сканирование бакета и работать с результатами сканирования в {{ objstorage-full-name }}.
 ---
 
-# Поиск чувствительных данных в бакете
+# Искать чувствительные данные в бакете
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
+Вы можете искать в бакете [чувствительные данные](../../concepts/sensitive-data-search.md) — пароли, данные банковских карт, адреса электронной почты и другие — с помощью [модуля контроля данных](../../../security-deck/concepts/dspm.md) ({{ dspm-full-name }}). Создать сканирование бакета и работать с результатами можно в сервисе {{ objstorage-name }} через [консоль управления]({{ link-console-main }}).
 
-[Модуль контроля данных](../../../security-deck/concepts/dspm.md) ({{ dspm-full-name }}) находит [чувствительную информацию](../../concepts/sensitive-data-search.md) в хранилищах с помощью сканирования [бакетов](../../../storage/concepts/bucket.md). Вы можете создавать сканирование бакетов и работать с результатами сканирования в сервисе {{ objstorage-name }} через [консоль управления]({{ link-console-main }}).
+{% note warning %}
+
+Поиск чувствительных данных в бакете — платная операция. Сканирование, запущенное из интерфейса {{ objstorage-name }}, выполняет модуль контроля данных ({{ dspm-name }}) сервиса [{{ sd-full-name }}](../../../security-deck/). Стоимость сканирования рассчитывается по [правилам тарификации](../../../security-deck/pricing.md) {{ sd-name }} и в детализации расходов относится к этому сервису.
+
+{% endnote %}
 
 
 ## Перед началом работы {#before-begin}
@@ -34,7 +38,7 @@ description: Следуя данной инструкции, вы узнаете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите имя бакета, для которого вы хотите создать сканирование.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}** → **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}**.
   1. Нажмите **{{ ui-key.yacloud.storage.Bucket.BucketSecuritySensitiveDataTab.button_run_scan_af4cy }}**.
 
       {% note info %}
@@ -69,7 +73,7 @@ description: Следуя данной инструкции, вы узнаете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите на имя нужного бакета.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}** → **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}**.
   1. На вкладке **{{ ui-key.yacloud.storage.Bucket.BucketSecuritySensitiveDataTab.sub_tab_results }}** отобразятся чувствительные данные, если они были найдены при сканировании. Информация о каждом найденном объекте представлена в следующих столбцах:
 
       * `{{ ui-key.yacloud_org.dspm.scan.label_data-type }}` — категория поиска, к которой принадлежат данные. Например, `FULL-NAME-RU-ML` — полное имя.
@@ -90,8 +94,8 @@ description: Следуя данной инструкции, вы узнаете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите на имя нужного бакета.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}** → **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}**.
-  1. Нажмите ![image](../../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageActions.button_more_sGEBS }}** → **{{ ui-key.yacloud.storage.Bucket.BucketSecuritySensitiveDataTab.button_download_hR9sN }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.shared.layout.PageActions.button_more_sGEBS }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите ![arrow-down-to-line](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.storage.Bucket.BucketSecuritySensitiveDataTab.button_download_hR9sN }}**.
   1. В открывшемся окне укажите, как отображать имена, контактные данные и другую личную информацию, и нажмите **{{ ui-key.yacloud_components.security.dspm.action_button_apply }}**.
 
 {% endlist %}
@@ -108,14 +112,14 @@ description: Следуя данной инструкции, вы узнаете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите на имя нужного бакета.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}** → **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}**.
-  1. Нажмите ![image](../../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageActions.button_more_sGEBS }}** → **{{ ui-key.yacloud.storage.Bucket.BucketSecuritySensitiveDataTab.button_export_gQ8rM }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.shared.layout.PageActions.button_more_sGEBS }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите ![folder-arrow-up-in](../../../_assets/console-icons/folder-arrow-up-in.svg) **{{ ui-key.yacloud.storage.Bucket.BucketSecuritySensitiveDataTab.button_export_gQ8rM }}**.
   1. В открывшемся окне задайте настройки экспорта:
 
-      * В поле **{{ ui-key.yacloud_org.security.dspm.label_field-bucket_3mM6u }}** выберите бакет, в котором будут сохранены результаты.
-      * В поле **{{ ui-key.yacloud_org.security.dspm.field_bucket-path_5qRqM }}** задайте [префикс](../../concepts/object.md#folder) объекта, в который будут сохранены результаты.
-      * В поле **{{ ui-key.yacloud_org.security.dspm.field_file-name_kWRPK }}** задайте имя файла, в который будут сохранены результаты. Файлу будет автоматически присвоено расширение `.csv`.
-      * В поле **{{ ui-key.yacloud_org.security.dspm.field_service-account_rTeXv }}** выберите сервисный аккаунт, которому назначены [роли](../../../iam/concepts/access-control/roles.md) `storage.uploader` на выбранный бакет и `kms.keys.encrypter` на [ключ шифрования](../../../kms/concepts/key.md), если бакет [зашифрован](../../concepts/encryption.md).
+      * В поле **{{ ui-key.yacloud_components.security.dspm.label_field_bucket }}** выберите бакет, в котором будут сохранены результаты.
+      * В поле **Путь в бакете** задайте [префикс](../../concepts/object.md#folder) объекта, в который будут сохранены результаты.
+      * В поле **{{ ui-key.yacloud_components.security.dspm.field_file_name }}** задайте имя файла, в который будут сохранены результаты. Файлу будет автоматически присвоено расширение `.csv`.
+      * В поле **{{ ui-key.yacloud_components.security.dspm.field_service_account }}** выберите сервисный аккаунт, которому назначены [роли](../../../iam/concepts/access-control/roles.md) `storage.uploader` на выбранный бакет и `kms.keys.encrypter` на [ключ шифрования](../../../kms/concepts/key.md), если бакет [зашифрован](../../concepts/encryption.md).
       * В блоке **{{ ui-key.yacloud_components.security.dspm.header_scan_result_sensitive_data }}** укажите, как отображать имена, контактные данные и другую личную информацию.
       * Нажмите **{{ ui-key.yacloud_components.security.dspm.action_export }}**, чтобы экспортировать результаты проверки параметров.
 
@@ -131,11 +135,17 @@ description: Следуя данной инструкции, вы узнаете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите на имя нужного бакета.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}** → **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}** → **{{ ui-key.yacloud.storage.Bucket.BucketSecuritySensitiveDataTab.sub_tab_issues }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}**, затем — **{{ ui-key.yacloud.storage.Bucket.BucketSecuritySensitiveDataTab.sub_tab_issues }}**.
 
 {% endlist %}
 
 {% include [errors-scan-outro](../../../_includes/security-deck/errors-scan-outro.md) %}
+
+#### Полезные ссылки {#see-also}
+
+* [{#T}](../../concepts/sensitive-data-search.md)
+* [{#T}](../../../security-deck/concepts/dspm.md)
+* [{#T}](../../../security-deck/operations/dspm/create-data-source.md)
 
 [*bucket-object-key]: [Ключ объекта](../../concepts/object.md#key) — это полное имя файла внутри бакета, часто записанное как путь в файловой системе. Примеры ключей: `docs/reports/2026/april.pdf`, `photos/trips/paris/img001.jpg`.
 

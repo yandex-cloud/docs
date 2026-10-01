@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Миграция данных из Managed Service for OpenSearch в Managed Service for YDB с помощью Data Transfer
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > OpenSearch > Миграция данных из Managed Service for OpenSearch в Managed Service for YDB с помощью Data Transfer
 
 # Миграция данных из Yandex Managed Service for OpenSearch в Yandex Managed Service for YDB с помощью Yandex Data Transfer
 
@@ -105,6 +105,7 @@
            Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
         
         1. Если вас устраивают планируемые изменения, внесите их:
+        
            1. Выполните команду:
         
               ```bash
@@ -230,6 +231,7 @@
                Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
             
             1. Если вас устраивают планируемые изменения, внесите их:
+            
                1. Выполните команду:
             
                   ```bash

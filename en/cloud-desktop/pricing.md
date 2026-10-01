@@ -53,7 +53,6 @@ You are charged for disks whether the desktops are running or not.
 </MDX>
 
 
-
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
 
 ## Cost calculation example {#price-example}

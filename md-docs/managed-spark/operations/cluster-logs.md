@@ -18,7 +18,7 @@ Yandex Managed Service for Apache Spark™ позволяет [получить 
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
     1. [Перейдите](https://console.yandex.cloud/link/managed-spark) в сервис **Managed Service for Apache Spark**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **Логи**.
+    1. Нажмите на имя нужного кластера и перейдите в раздел **Логи**.
     1. Укажите **Уровень** логов и период времени, за который нужно отобразить лог.
 
 - CLI {#cli}
@@ -37,6 +37,6 @@ Yandex Managed Service for Apache Spark™ позволяет [получить 
         yc logging read --group-name <имя_лог-группы> --follow
         ```
 
-        Вы можете посмотреть имя лог-группы на вкладке **Обзор** кластера Apache Spark™.
+        Вы можете посмотреть имя лог-группы в разделе **Обзор** кластера Apache Spark™.
 
 {% endlist %}

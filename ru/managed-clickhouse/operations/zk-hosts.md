@@ -30,11 +30,13 @@ description: Следуя данной инструкции, вы сможете
 
 ## Добавить хосты {{ ZK }} {#add-zk}
 
+
 {% note info %}
 
 В [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d` недоступно использование платформы Intel Broadwell.
 
 {% endnote %}
+
 
 {% list tabs group=instructions %}
 

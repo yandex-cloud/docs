@@ -19,5 +19,5 @@ resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
 Where:
 
 * `enabled`: Enables statistics collection, `true` or `false`.
-* `sessions_sampling_interval`: Session sampling interval, from `5` to `86400` seconds.
-* `statements_sampling_interval`: Statement sampling interval, from `60` to `86400` seconds.
+* `sessions_sampling_interval`: Session sampling interval, from `1` to `86400` seconds.
+* `statements_sampling_interval`: Statement sampling interval, from `1` to `86400` seconds.

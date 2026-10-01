@@ -105,6 +105,12 @@ subcategory: Serverless Triggers
       - `max_count` (Number). Maximum number of events in a batch.
  At least one of max_count, max_bytes must be greater than 0.
     - `email` (String). Email address that receives messages for this trigger.
+  - `max_message` [Block]. MAX source: fires on MAX bot updates.
+    - `bot_token` (String). Input only, always empty in output.
+ Required on Create; on Update, changing it re-registers the subscription.
+    - `force` (Bool). Input only. Delete all existing webhook subscriptions before registering this trigger.
+ Without force, registration fails if any subscription uses a different URL.
+    - `update_types` (List Of String). Types of MAX updates to receive. Optional, default is ["message_created"].
   - `object_storage` [Block]. Object Storage source: fires on object events in a bucket.
     - `batch_settings` [Block]. Batch settings for accumulating object events.
       - `cutoff` (**Required**)(String). Maximum time to wait before flushing an incomplete batch.
@@ -127,6 +133,23 @@ subcategory: Serverless Triggers
     - `cron_expression` (**Required**)(String). Cron expression defining the trigger schedule.
  See http://man7.org/linux/man-pages/man5/crontab.5.html for the format; some limitations apply.
     - `payload` (String). Payload passed to the invoked target on each firing.
+  - `yandex_forms` [Block]. Yandex Forms source: fires when a response is submitted to a form.
+    - `cloud_organization_id` (String). ID of the Yandex Identity Hub organization.
+    - `oauth_token` (String). OAuth token of a user with permission to modify the form's integration settings.
+ Input only, always empty in output.
+ Required on Create; on Update, changing it replaces the token used to manage the HTTP integration.
+    - `organization_id` (String). ID of the Yandex 360 for Business organization.
+    - `survey_id` (**Required**)(String). ID of the Yandex Form to receive submitted responses from.
+  - `yandex_messenger` [Block]. Yandex Messenger source: fires on Yandex Messenger bot updates.
+    - `bot_display_name` (String). Display name of the bot the token belongs to. output only.
+    - `bot_id` (String). ID of the bot the token belongs to. output only.
+    - `bot_login` (String). Login of the bot the token belongs to. output only.
+    - `force` (Bool). input only. Overwrite a webhook the bot already has set to a different URL,
+ instead of failing with "webhook already in use". If the webhook already
+ points to this trigger, force does nothing - the existing webhook is kept.
+    - `oauth_token` (String). OAuth token of the Yandex Messenger bot.
+ input only, always empty in output.
+ Required on Create; on Update, changing it re-registers the webhook.
   - `yds` [Block]. YDS source: fires on records in a Yandex Data Streams stream.
     - `batch_settings` [Block]. Batch settings for reading records from the stream.
       - `cutoff` (**Required**)(String). Maximum time to wait before flushing an incomplete batch.

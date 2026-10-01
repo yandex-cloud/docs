@@ -24,7 +24,7 @@ description: Следуя данной инструкции, вы сможете
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
   1. В открывшемся окне:
      * В поле **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** выберите зону доступности, в которой нужно зарезервировать адрес.
-     * (Опционально) В блоке **{{ ui-key.yacloud.vpc.addresses.popup-create_field_advanced }}** включите опции **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** и **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection }}**.
+     * (Опционально) В блоке **{{ ui-key.yacloud.vpc.addresses.popup-create_field_advanced }}** включите опции **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** и **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection_jVSCP }}**.
      * (Опционально) Укажите метки.
      * (Опционально) Чтобы добавить DNS-запись, разверните список **{{ ui-key.yacloud.vpc.addresses.label_dns-spec-title }}** и нажмите кнопку **{{ ui-key.yacloud.dns.button_add-record }}**. В открывшемся блоке:
        * Выберите зону DNS.

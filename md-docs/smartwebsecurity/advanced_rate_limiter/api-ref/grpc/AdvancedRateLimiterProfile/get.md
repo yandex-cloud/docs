@@ -1117,7 +1117,8 @@ Required field. ID of the AdvancedRateLimiterProfile resource to return. ||
             // end of the list of possible fields
             "case_insensitive": "bool"
           }
-        ]
+        ],
+        "ban_period": "int64"
       },
       // end of the list of possible fields
       "name": "string",
@@ -1221,7 +1222,8 @@ StaticQuota object.
 
 Required field. Action in case of exceeding this quota.
 
-- `DENY`: Deny request. ||
+- `DENY`: Deny request.
+- `CAPTCHA`: Show a CAPTCHA challenge. ||
 || condition | **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition)**
 
 The condition for matching the quota. ||
@@ -1717,7 +1719,8 @@ DynamicQuota object.
 
 Required field. Action in case of exceeding this quota.
 
-- `DENY`: Deny request. ||
+- `DENY`: Deny request.
+- `CAPTCHA`: Show a CAPTCHA challenge. ||
 || condition | **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition)**
 
 The condition for matching the quota. ||
@@ -1735,6 +1738,11 @@ Period of time in seconds. ||
 List of characteristics.
 
 The maximum number of elements is 3. ||
+|| ban_period | **int64**
+
+Duration of the temporary ban, in seconds.
+
+Acceptable values are 0 to 86400, inclusive. ||
 |#
 
 ## Characteristic {#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic}

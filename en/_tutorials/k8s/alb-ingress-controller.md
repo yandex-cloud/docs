@@ -20,14 +20,12 @@ See the full configuration of {{ alb-name }} ingress controller resources in the
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* DNS zone and DNS query fee (see [{{ dns-name }}](../../dns/pricing.md) pricing).
-* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for using the computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
-* Fee for public IP addresses for cluster nodes and L7 load balancer (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* {{ objstorage-name }} bucket fee covering data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Public DNS requests and DNS zones (see [{{ dns-full-name }} pricing](../../dns/pricing.md)).
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: Use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Each active L7 load balancer: use of computing resources (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* Public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* {{ objstorage-full-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -497,9 +495,9 @@ Create test applications and Ingress resource:
 
      1. In the [management console]({{ link-console-main }}), select the relevant folder.
      1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-     1. Click the cluster name and select **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
+     1. Select the {{ managed-k8s-name }} cluster and open the **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** tab.
      1. Select one of the `alb-demo-***` pods the load balancer's creation was run in.
-     1. Go to the **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}** tab on the pod page.
+     1. Navigate to the **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}** tab.
 
         The load balancer's creation logs are generated and displayed in real time. Any errors that occur will also be logged.
 
@@ -518,7 +516,7 @@ Create test applications and Ingress resource:
 
 - Ingress resource for a backend group
 
-  1. Create a [backend group with a bucket](../../application-load-balancer/operations/backend-group-create.md#with-s3-bucket):
+  1. Create a [backend group with a bucket](../../application-load-balancer/operations/backend-group-create.md):
      1. Create a [public bucket in {{ objstorage-name }}](../../tutorials/web/static/console.md#create-public-bucket).
      1. [Configure the website home page and error page](../../tutorials/web/static/console.md).
   1. Create a configuration file named `demo-app-1.yaml` for your application:
@@ -752,9 +750,9 @@ Create test applications and Ingress resource:
 
      1. In the [management console]({{ link-console-main }}), select the relevant folder.
      1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-     1. Click the cluster name and select **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
+     1. Select the {{ managed-k8s-name }} cluster and open the **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** tab.
      1. Select one of the `alb-demo-***` pods the load balancer's creation was run in.
-     1. Go to the **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}** tab on the pod page.
+     1. Navigate to the **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}** tab.
 
         The load balancer's creation logs are generated and displayed in real time. Any errors that occur will also be logged.
 
@@ -815,7 +813,7 @@ If you specified a name for the Ingress resource group settings in the `ingress.
 
 ## Make sure the applications are accessible via the L7 load balancer {#verify-setup}
 
-1. If you have no [ExternalDNS with the {{ dns-name }} plugin](/marketplace/products/yc/externaldns) installed, [add an A record to your domain zone](../../dns/operations/resource-record-create.md). In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the public IP address of your L7 {{ alb-name }}. If you are using ExternalDNS with the {{ dns-full-name }} plugin, this record will be created automatically.
+1. If you have no [ExternalDNS with the {{ dns-name }} plugin](/marketplace/products/yc/externaldns) installed, [add an A record to your domain zone](../../dns/operations/resource-record-create.md). In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the public IP address of your L7 {{ alb-name }}. If you are using ExternalDNS with the {{ dns-name }} plugin, this record will be created automatically.
 1. Test the load balancer:
 
    {% list tabs %}

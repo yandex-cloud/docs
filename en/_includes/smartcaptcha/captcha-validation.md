@@ -9,7 +9,7 @@ After verifying the request, {{ captcha-name }} assigns it a unique identifier: 
 
 After validation, the token is placed into an `<input type="hidden" name="smart-token" value="<token>" ...>` tag on the user’s page. For example:
 
-```HTML
+```html
 <div id="captcha-container" class="smart-captcha" ...>
     <input type="hidden" name="smart-token" value="dD0xNjYyNDU3NDMzO2k9MmEwMjo2Yjg6YjA4MTpiNTk3OjoxOjFiO0Q9MjVCREY1RDgzMDBERjQ3QjExNkUyMDJDNjJFNEI3Q0Y0QjYzRkRDNzJEMkV********DNjMxODgzMUM0REZBNzI1QUE1QzUwO3U9MTY2MjQ1NzQzMzk5MTEwNjQxNTtoPTg4MWRjMDc2YzE3MjkxNGUwNDgwMTVkYzhl********">
     ...
@@ -88,7 +88,7 @@ The service will respond with a JSON object containing the `status` and `message
 To process responses correctly, refer to their `status` field:
 
 * `ok`: Request processed successfully.
-* `failed`: An error occurred.
+* `failed`: Error occurred.
 
 There are two types of errors:
 
@@ -101,11 +101,11 @@ The `message` field is not for processing in code using conditions or comparison
 
 ## Request errors {#errors}
 
-If your request to `https://{{ captcha-domain }}/validate` is malformed, it will return an error. For example:
+If your request to `https://{{ captcha-domain }}/validate` is malformed, it will return an error. Here is an example:
 
 1. Request with no server key:
 
-    ```JSON
+    ```json
     {
         "status": "failed",
         "message": "Authentication failed. Secret has not provided."
@@ -114,7 +114,7 @@ If your request to `https://{{ captcha-domain }}/validate` is malformed, it will
 
 1. Request with a missing or corrupted token:
 
-    ```JSON
+    ```json
     {
         "status": "failed",
         "message": "Invalid or expired Token."

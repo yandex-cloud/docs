@@ -33,7 +33,7 @@ The visual representation of one or more metrics over a specific period of time.
   * **{{ ui-key.yacloud_monitoring.wizard.vis.scheme-standard }}**: In all the other cases.
 * **{{ ui-key.yacloud_monitoring.wizard.vis.scheme-standard }}**: Color is defined by an algorithm installed in the system.
 * **{{ ui-key.yacloud_monitoring.wizard.vis.scheme-gradient }}**: Red-to-green gradient blend, where red represents high metric values, and green, low values.
-* **{{ ui-key.yacloud_monitoring.wizard.vis.scheme-hash }}**: Calculates a unique value (hash) for each line and generates the color based on the hash value. Lines with the same name will be displayed identically in most cases.
+* **{{ ui-key.yacloud_monitoring.wizard.vis.scheme-hash }}**: For each line, a unique value (hash) will be calculated, based on which the color will be generated. Lines with the same name will be displayed identically in most cases.
 * **{{ ui-key.yacloud_monitoring.wizard.vis.scheme-thresholds }}**: Line color is selected based on user-defined [thresholds](../../operations/dashboard/add-widget.md#thresholds) and data aggregation method. Use this setting to highlight lines which represent critical or target values.
 
 ### Time period on charts {#time-period-on-charts}

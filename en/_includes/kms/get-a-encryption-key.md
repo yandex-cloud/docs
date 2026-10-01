@@ -1,4 +1,4 @@
-Get the ID of the required encryption key pair by specifying the folder ID:
+Get the ID of your encryption key pair, specifying the folder ID:
 
 ```bash
 yc kms asymmetric-encryption-key list \

@@ -13,9 +13,9 @@ You can add and remove users, manage individual user settings, and change databa
 
 - Management console {#console}
   
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Locate the cluster you need in the list, click its name, and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
   
 - CLI {#cli}
   
@@ -87,9 +87,9 @@ You can add and remove users, manage individual user settings, and change databa
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. In the [management console]({{ link-console-main }}), select the folder.
     1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-    1. Locate the cluster you need in the list, click its name, and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
 
         User information is available in the user list.
 
@@ -173,10 +173,10 @@ You can add and remove users, manage individual user settings, and change databa
 
 - Management console {#console}
   
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-  1. Click the cluster name and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
 
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
 
@@ -193,6 +193,14 @@ You can add and remove users, manage individual user settings, and change databa
 
         For this authorization method, select the account in the **{{ ui-key.yacloud.common.user }}** field.
 
+
+  1. Select the deletion protection option for the user. The possible values are:
+
+     * **Same as cluster**
+     * **Enabled**
+     * **Disabled**
+
+     {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
 
   1. Configure the user’s [roles](../concepts/users-and-roles.md):
 
@@ -247,7 +255,9 @@ You can add and remove users, manage individual user settings, and change databa
       
        Specify a separate `--permission` property for each database you want the user to access.
      
-     * `--deletion-protection`: User protection from accidental deletion, `true` or `false`. There is no default value; the user will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the user.
+     * `--deletion-protection`: User protection from accidental deletion, `true` or `false`. There is no default value; the user uses the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the user.
+
+       {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
 
 - {{ TF }} {#tf}
 
@@ -278,7 +288,9 @@ You can add and remove users, manage individual user settings, and change databa
           {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
 
         * `deletion_protection`: User protection from accidental deletion, `true` or `false`. There is no default value; the user will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the user.
-        
+
+          {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
+
         * `permission`: User’s database access permissions:
           
           * `database_name`: Name of the database the user can access.
@@ -347,6 +359,8 @@ You can add and remove users, manage individual user settings, and change databa
      
      * `userSpec.deletionProtection`: User protection from accidental deletion, `true` or `false`. There is no default value; the user will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the user.
 
+       {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
+
   1. Check the [server response](../api-ref/User/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
@@ -404,6 +418,8 @@ You can add and remove users, manage individual user settings, and change databa
 
      * `user_spec.deletion_protection`: User protection from accidental deletion, `true` or `false`. There is no default value; the user will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the user.
 
+       {% include [deletion-protection-user](../../_includes/mdb/deletion-protection-user.md) %}
+
   1. Check the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
@@ -420,10 +436,10 @@ You cannot change the username.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-  1. Click the cluster name and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
 
   
   1. To change a user’s password, locate the user in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in their row, and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
@@ -435,6 +451,11 @@ You cannot change the username.
 
      To view passwords, you need the `lockbox.payloadViewer` role.
 
+
+  1. To configure user deletion protection:
+
+     1. Locate the user you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in their row, and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+     1. Select your preferred option in the **{{ ui-key.yacloud.mdb.dialogs.field_deletion_protection }}** field.
 
   1. To change the user's [roles](../concepts/users-and-roles.md):
 
@@ -473,7 +494,7 @@ You cannot change the username.
      
      * `<username>`: Username you can request with the [list of users in the cluster](#list-users).
      * `--cluster-name`: Cluster name you can request with the [list of clusters in the folder](cluster-list.md#list-clusters).
-     * `--password`: Password.
+     * `--password`: User password.
 
               
        The password must be from 8 to 128 characters long.
@@ -491,7 +512,7 @@ You cannot change the username.
       
        Specify a separate `--permission` property for each database you want the user to access.
      
-     * `--deletion-protection`: User protection from accidental deletion, `true` or `false`. There is no default value; the user will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the user.
+     * `--deletion-protection`: User protection from accidental deletion, `true` or `false`. There is no default value; the user uses the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the user.
 
   To grant a user access to a database with a specific set of roles:
 
@@ -624,7 +645,7 @@ You cannot change the username.
      * `<cluster_ID>`: Cluster ID you can request with the [list of clusters in the folder](cluster-list.md#list-clusters).
      * `<username>`: Username you can request with the [list of users in the cluster](#list-users).
      * `updateMask`: Comma-separated string of settings to update.
-     * `password`: Password.
+     * `password`: User password.
 
               
        The password must be from 8 to 128 characters long.
@@ -692,7 +713,7 @@ You cannot change the username.
      * `user_name`: Username you can request with the [list of users in the cluster](#list-users).
 
      * `update_mask`: List of settings to update as an array of strings (`paths[]`).
-     * `password`: Password.
+     * `password`: User password.
 
               
        The password must be from 8 to 128 characters long.
@@ -724,9 +745,9 @@ Before you delete a user, [disable their deletion protection](#updateuser).
 
 - Management console {#console}
   
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Click the cluster name and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
   1. Locate the user you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in their row, and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   
 - CLI {#cli}

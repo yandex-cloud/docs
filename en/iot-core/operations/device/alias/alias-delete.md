@@ -1,13 +1,13 @@
 ---
 title: Deleting an alias in {{ iot-full-name }}
-description: Aliases are linked to specific devices. To delete an alias, you need to find the device ID or name.
+description: Aliases are associated with specific devices. To delete an alias, you need to get the device ID or name.
 ---
 
 # Deleting an alias
 
 {% include [iot-sunset-warning](../../../../_includes/iot-core/sunset-warning.md) %}
 
-Aliases are linked to specific devices. To delete an alias, you need to [find the device ID or name](../device-list.md).
+Aliases are associated with specific devices. To delete an alias, you need to [get the device ID or name](../device-list.md).
 
 {% list tabs group=instructions %}
 
@@ -15,12 +15,11 @@ Aliases are linked to specific devices. To delete an alias, you need to [find th
 
    To delete an alias:
 
-   1. In the [management console]({{ link-console-main }}), select the folder you want to delete the alias from.
-   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. Select the required registry from the list.
-   1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left pane of the window.
-   1. To the right of the device name, click ![image](../../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
-   1. To the right of the alias to delete, click ![image](../../../../_assets/console-icons/xmark.svg).
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to delete an alias.
+   1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}** and select the registry of interest.
+   1. Navigate to the **{{ ui-key.yacloud.iot.label_devices }}** tab.
+   1. To the right of the device name, click ![image](../../../../_assets/console-icons/ellipsis.svg) → ![image](../../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+   1. Under **{{ ui-key.yacloud.iot.label_aliases }}**, click ![image](../../../../_assets/console-icons/xmark.svg) to the right of the alias you want to delete.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -52,7 +51,7 @@ Aliases are linked to specific devices. To delete an alias, you need to [find th
 
   To delete an alias created with {{ TF }}:
   
-  1. Open the {{ TF }} configuration file and delete the value of the alias in the `aliases` section, where the device description is located. To remove all aliases, delete the entire `aliases` section.
+  1. Open the {{ TF }} configuration file and delete the alias value from the `aliases` section of the device description. To remove all aliases, delete the entire `aliases` section.
 
       Here is an example of a device description in the {{ TF }} configuration:
 
@@ -90,7 +89,7 @@ Aliases are linked to specific devices. To delete an alias, you need to [find th
       terraform plan
       ```
 
-      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
   1. Apply the configuration changes:
 
       ```bash
@@ -99,7 +98,7 @@ Aliases are linked to specific devices. To delete an alias, you need to [find th
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify device aliases in the [management console]({{ link-console-main }}) or using the following [CLI](../../../../cli/quickstart.md) command:
+      You can check device aliases using the [management console]({{ link-console-main }}) or this [CLI](../../../../cli/quickstart.md) command:
 
       ```bash
       yc iot device get <device_name>

@@ -24,10 +24,14 @@ Name of the ClickHouse cluster. ||
 || `--password` | `string`
 
 New password of the ClickHouse user. ||
+|| `--password-file` | `string`
+
+File containing the password of the ClickHouse user. ||
+|| `--password-from-stdin` | Read password from stdin. ||
+|| `--generate-password` | Generate password using Connection Manager. ||
 || `--permissions` | `value[,value]`
 
 New set of databases that the user should be able to access. ||
-|| `--generate-password` | Generate password using Connection Manager. ||
 || `--settings` | `key1=value1[,key2=value2][,"key3=val3a,val3b"]`
 
 User-specific settings. Acceptable keys:
@@ -52,6 +56,24 @@ User-specific settings. Acceptable keys:
   Default value: **false**.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#allow_introspection_functions).
+
+- `allow_reorder_prewhere_conditions`: When moving conditions from WHERE to PREWHERE, allow reordering them to optimize filtering
+
+  Default value: **true**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/allow#allow_reorder_prewhere_conditions).
+
+- `async_socket_for_remote`: Enables asynchronous read from socket while executing remote query.
+
+  Default value: **true**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/async#async_socket_for_remote).
+
+- `async_query_sending_for_remote`: Enables asynchronous connection creation and query sending while executing remote query.
+
+  Default value: **true**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/async#async_query_sending_for_remote).
 
 - `connect_timeout`: Connection timeout in milliseconds.
 
@@ -509,6 +531,18 @@ This setting applies to every individual query.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bytes).
 
+- `max_remote_read_network_bandwidth`: The maximum speed of data exchange over the network in bytes per second for read.
+
+  Default value: **0**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_remote_read_network_bandwidth).
+
+- `max_remote_write_network_bandwidth`: The maximum speed of data exchange over the network in bytes per second for write.
+
+  Default value: **0**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_remote_write_network_bandwidth).
+
 - `max_temporary_data_on_disk_size_for_query`: The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running queries. **0** means unlimited.
 
   Default value: **0**.
@@ -776,6 +810,26 @@ If the execution speed is lower, an exception is thrown. **0** means unlimited.
   Default value: **0**.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_execution_speed_bytes).
+
+- `use_statistics`: Allows using statistics to optimize queries.
+Preferred over **allow_statistics_optimize** because of consistency with **use_primary_key** and **use_skip_indexes**.
+
+  Default value: **false**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/use-statistics#use_statistics).
+
+- `use_statistics_for_part_pruning`: Use statistics to filter out parts during query execution.
+When enabled, pruning in SELECT queries will use column statistics (e.g. MinMax statistics) to eliminate parts that cannot contain matching data before reading any data.
+
+  Default value: **true**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/use-statistics#use_statistics_for_part_pruning).
+
+- `refresh_statistics_interval`: The interval of refreshing statistics cache in seconds. If it is set to zero, the refreshing will be disabled.
+
+  Default value: **0** for versions 25.11 and higher, **300** (5 minutes) for versions 26.2 and lower.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/ru/reference/settings/merge-tree-settings/refresh#refresh_statistics_interval).
 
 - `input_format_values_interpret_expressions`: Enables or disables SQL parser if the fast stream parser cannot parse the data.
 
@@ -1199,6 +1253,12 @@ Only Keeper requests which failed due to network error, Keeper session timeout o
   Default value: **20**.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#insert_keeper_max_retries).
+
+- `database_atomic_wait_for_drop_and_detach_synchronously`: When executing DROP or DETACH TABLE in Atomic database, wait for table data to be finally dropped or detached.
+
+  Default value: **true**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#database_atomic_wait_for_drop_and_detach_synchronously).
 
 - `do_not_merge_across_partitions_select_final`: Enable or disable independent processing of partitions for **SELECT** queries with **FINAL**.
 

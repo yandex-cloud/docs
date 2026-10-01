@@ -156,7 +156,7 @@ Set up your {{ PG }} cluster for connection:
      1. Select the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
      1. Enter the user account’s email.
      1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `managed-postgresql.clusters.connector` role.
-     1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+     1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
   1. Create a user named {{ PG }}:
      1. Select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
      1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.

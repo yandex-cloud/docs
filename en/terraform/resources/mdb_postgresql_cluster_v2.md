@@ -33,10 +33,70 @@ resource "yandex_mdb_postgresql_cluster_v2" "my_v2_cluster" {
     }
   }
 
-  maintenance_window {
+  maintenance_window = {
     type = "WEEKLY"
     day  = "SAT"
     hour = 12
+  }
+
+  hosts = {
+    "host1d" = {
+      zone      = "ru-central1-d"
+      subnet_id = yandex_vpc_subnet.foo.id
+    }
+  }
+}
+
+// Auxiliary resources
+resource "yandex_vpc_network" "foo" {}
+
+resource "yandex_vpc_subnet" "foo" {
+  zone           = "ru-central1-d"
+  network_id     = yandex_vpc_network.foo.id
+  v4_cidr_blocks = ["10.5.0.0/24"]
+}
+```
+```terraform
+//
+// Create a new MDB PostgreSQL Cluster (v2).
+//
+resource "yandex_mdb_postgresql_cluster_v2" "scheduled_v2_cluster" {
+  name        = "test"
+  environment = "PRESTABLE"
+  network_id  = yandex_vpc_network.foo.id
+
+  config {
+    version = 17
+    resources {
+      resource_preset_id = "s2.micro"
+      disk_type_id       = "network-ssd"
+      disk_size          = 16
+    }
+    postgresql_config = {
+      max_connections                = 395
+      enable_parallel_hash           = true
+      autovacuum_vacuum_scale_factor = 0.34
+      default_transaction_isolation  = "TRANSACTION_ISOLATION_READ_COMMITTED"
+      shared_preload_libraries       = "SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN,SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN"
+    }
+  }
+
+  maintenance_windows = {
+    type = "WEEKLY"
+    slot = [
+      {
+        day                            = "MON"
+        start_time                     = "02:30:00"
+        duration                       = "3h"
+        allow_temporary_unavailability = true
+      },
+      {
+        day                            = "THU"
+        start_time                     = "01:30:00"
+        duration                       = "2h"
+        allow_temporary_unavailability = false
+      },
+    ]
   }
 
   hosts = {
@@ -74,10 +134,17 @@ resource "yandex_vpc_subnet" "foo" {
   - `zone` (**Required**)(String). The availability zone where the host is located.
 - `id` (*Read-Only*) (String). The resource identifier.
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
-- `maintenance_window` [Block]. Maintenance policy of the PostgreSQL cluster.
+- `maintenance_window` [Block]. Legacy maintenance policy. Conflicts with maintenance_windows. Weekly hour 1 means 00:00 UTC and hour 24 means 23:00 UTC; each legacy window lasts one hour and allows temporary write unavailability.
   - `day` (String). Day of the week (in DDD format). Allowed values: "MON", "TUE", "WED", "THU", "FRI", "SAT","SUN"
   - `hour` (Number). Hour of the day in UTC (in HH format). Allowed value is between 1 and 24.
   - `type` (String). Type of maintenance window. Can be either ANYTIME or WEEKLY. A day and hour of window need to be specified with weekly window.
+- `maintenance_windows` [Block]. Maintenance schedule. Conflicts with maintenance_window. Times are UTC. Omitting both attributes preserves the existing schedule; set ANYTIME explicitly to remove time restrictions.
+  - `slot` [Block]. Unordered weekly slots. Must not overlap, including across the end of the week. At least one slot must permit temporary write unavailability.
+    - `allow_temporary_unavailability` (Bool). Allow maintenance that may temporarily interrupt writes. Defaults to false; at least one weekly slot must allow this.
+    - `day` (**Required**)(String). UTC weekday: MON, TUE, WED, THU, FRI, SAT or SUN.
+    - `duration` (**Required**)(String). Duration from 1h through 24h with minute precision, for example 3h or 90m.
+    - `start_time` (**Required**)(String). UTC start time in HH:MM:00 format, with minute precision.
+  - `type` (**Required**)(String). ANYTIME or WEEKLY. ANYTIME forbids slots; WEEKLY requires at least one.
 - `name` (**Required**)(String). Name of the PostgreSQL cluster. Provided by the client when the cluster is created.
 - `network_id` (**Required**)(String). The `VPC Network ID` of subnets which resource attached to.
 - `restore` [Block]. The cluster will be created from the specified backup.
@@ -102,9 +169,9 @@ resource "yandex_vpc_subnet" "foo" {
   - `backup_window_start` [Block]. Time to start the daily backup, in the UTC timezone.
     - `hours` (Number). The hour at which backup will be started (UTC).
     - `minutes` (Number). The minute at which backup will be started.
-  - `connection_manager` [Block]. Connection Manager integration settings. If the block is omitted, the API enables the integration by default for newly created clusters. Disabling the integration after the cluster is created is not supported.
+  - `connection_manager` [Block]. Connection Manager integration settings. If the block is omitted, the API enables the integration by default for newly created clusters. Disabling the integration is not supported: `enabled = false` is rejected.
     - `connections_folder_id` (String). ID of the folder where connections for the cluster are created. Defaults to the cluster's folder if not specified.
-    - `enabled` (Bool). Indicates whether Connection Manager integration is enabled. Set to `true` to enable the integration. If omitted, the API enables the integration by default for newly created clusters. Disabling the integration after the cluster is created is not supported.
+    - `enabled` (Bool). Indicates whether Connection Manager integration is enabled. Set to `true` to enable the integration. If omitted, the API enables the integration by default for newly created clusters. Disabling the integration is not supported: `enabled = false` is rejected.
     - `secrets_folder_id` (String). ID of the folder where connection secrets are created. Defaults to the cluster's folder if not specified.
   - `disk_size_autoscaling` [Block]. Cluster disk size autoscaling settings.
     - `disk_size_limit` (**Required**)(Number). The overall maximum for disk size (GB) that limits all autoscaling iterations. See the [documentation](https://yandex.cloud/en/docs/managed-postgresql/concepts/storage#auto-rescale) for details.
@@ -116,7 +183,7 @@ resource "yandex_vpc_subnet" "foo" {
     - `advanced_mode` (Bool). Switch performance diagnostics from standard to advanced mode
     - `enabled` (Bool). Enable performance diagnostics
     - `sessions_sampling_interval` (**Required**)(Number). Interval (in seconds) for pg_stat_activity sampling. Acceptable values are 1 to 86400, inclusive.
-    - `statements_sampling_interval` (**Required**)(Number). Interval (in seconds) for pg_stat_statements sampling. Acceptable values are 60 to 86400, inclusive.
+    - `statements_sampling_interval` (**Required**)(Number). Interval (in seconds) for pg_stat_statements sampling. Acceptable values are 1 to 86400, inclusive.
   - `pooler_config` [Block]. Configuration of the connection pooler.
     - `pool_discard` (Bool). Setting pool_discard parameter in Odyssey.
     - `pooling_mode` (String). Mode that the connection pooler is working in. See descriptions of all modes in the [documentation for Odyssey](https://github.com/yandex/odyssey/blob/master/documentation/configuration.md#pool-string.)

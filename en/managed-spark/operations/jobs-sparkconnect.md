@@ -19,11 +19,16 @@ Once created, the job will run automatically.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. In the [management console]({{ link-console-main }}), select the folder.
     1. [Navigate]({{ link-console-main }}/link/managed-spark) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-    1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
+    1. Click the cluster name and go to **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
     1. Click **{{ ui-key.yacloud.spark.jobs.create_action }}**.
     1. Enter the job name.
+    1. Select an existing [service account](../../iam/concepts/users/service-accounts.md) or [create a new one](../../iam/operations/sa/create.md).
+    1. Select the environment the job will be executed in. Here are available options:
+       * **{{ ui-key.yacloud.spark.EnvironmentSelect.field_environment_cluster_sP4vs }}**: Environment specified in the cluster parameters.
+       * **{{ ui-key.yacloud.spark.EnvironmentSelect.base_environments_fq7iF }}**: One of several base environments with preinstalled {{ SPRK }} and Python versions.
+       * **{{ ui-key.yacloud.spark.EnvironmentSelect.user_environments_fwNXU }}**: One of the [custom environments you created](environment-create.md).
     1. In the **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}** field, select `SparkConnect`.
     1. Optionally, configure advanced settings:
 
@@ -92,7 +97,7 @@ Once created, the job will run automatically.
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Call the [JobService.Create](../api-ref/grpc/Job/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+    1. Call the [JobService/Create](../api-ref/grpc/Job/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -104,6 +109,8 @@ Once created, the job will run automatically.
           -d '{
             "cluster_id": "<cluster_ID>",
             "name": "<job_name>",
+            "service_account_id": "<service_account_ID>",
+            "environment_id": "<environment_ID>",
             "spark_connect_job": {
               "jar_file_uris": [
                 <list_of_paths_to_JAR_files>
@@ -139,6 +146,8 @@ Once created, the job will run automatically.
             You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
         
         * `name` (optional): Job name.
+        * `service_account_id`: ID of the service account you want to use to run the job.
+        * `environment_id`: ID of the base or custom environment the job will be run in. Call the [EnvironmentService/List](../environment/api-ref/grpc/Environment/list.md) method to get the custom environment ID or [EnvironmentService/ListBase](../environment/api-ref/grpc/Environment/listBase.md) to get the base environment ID.
         * `spark_connect_job`: SparkConnect job parameters:
 
             * `jar_file_uris`: List of paths to JAR files in the following format:

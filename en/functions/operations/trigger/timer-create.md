@@ -25,23 +25,33 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that invokes 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Enter a name and description for the trigger.
-        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}**.
-        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}**.
+
+        * {% include [triggers-labels-step](../../../_includes/functions/triggers-labels-step.md) %}
+
+        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}**:
 
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}** field, specify the function invocation schedule as a [cron expression](../../concepts/trigger/timer.md#cron-expression).
-        * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-payload }}** field, enter a message to provide to the function as `payload` when the timer fires. The data type is a string up to 4,096 characters long.
+        * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-payload }}** field, enter a message to send to the function as `payload` when the timer fires. The data type is a string up to 4,096 characters long.
 
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
+    1. Under **Targets**:
 
-    	{% include [function-settings](../../../_includes/functions/function-settings.md) %}
+        1. In the **Target type** field, select `Function`.
 
-    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+        1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
 
-    	{% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
+            {% include [function-settings](../../../_includes/functions/function-settings.md) %}
 
-    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a service account with write permissions for that queue.
+        1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+
+            {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
+
+        1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a service account with write permissions for that queue.
+
+        1. {% include [trigger-console-filter](../../../_includes/functions/trigger-console-filter.md) %}
+
+        1. {% include [trigger-console-template](../../../_includes/functions/trigger-console-template.md) %}
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -109,6 +119,53 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that invokes 
   1. In the {{ TF }} configuration file, describe the resources you want to create:
 
      ```hcl
+     resource "yandex_serverless_triggers" "my_trigger" {
+       name        = "<trigger_name>"
+       description = "<trigger_description>"
+       source {
+         timer {
+           cron_expression = "<cron_expression>"
+           payload         = "<message>"
+         }
+       }
+       action {
+         invoke_function {
+           function_id        = "<function_ID>"
+           function_tag       = "<function_version_tag>"
+           service_account_id = "<service_account_ID>"
+         }
+         retry_policy {
+           retry_attempts = "<number_of_retries>"
+           interval       = "<interval_between_retries>"
+         }
+         dead_letter {
+           dead_letter_queue {
+             queue_arn          = "<Dead_Letter_Queue_ARN>"
+             service_account_id = "<service_account_ID>"
+           }
+         }
+       }
+     }
+     ```
+
+     Where:
+
+     {% include [tf-triggers-common-params](../../../_includes/tf-triggers-common-params.md) %}
+
+     * `source`: Event source settings:
+
+       * `timer`: Timer settings:
+
+         * `cron_expression`: Function invocation schedule specified as a [cron expression](../../concepts/trigger/timer.md#cron-expression).
+         * `payload`: Message to send to the function when the timer fires. The string length must not exceed 4,096 characters. This is an optional parameter.
+
+     {% include [tf-triggers-action-function](../../../_includes/functions/tf-triggers-action-function.md) %}
+
+     For more on the properties of the `yandex_serverless_triggers` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_triggers).
+
+     {% cut "Configuration for the yandex_function_trigger resource" %}
+
+     ```hcl
      resource "yandex_function_trigger" "my_trigger" {
        name        = "<trigger_name>"
        description = "<trigger_description>"
@@ -141,6 +198,8 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that invokes 
      {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}
 
      For more on the properties of the `yandex_function_trigger` resource, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
+
+     {% endcut %}
 
   1. Create the resources:
 

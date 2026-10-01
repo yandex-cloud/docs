@@ -5,9 +5,13 @@ description: Пошаговые инструкции по управлению �
 
 # Пошаговые инструкции для {{ iam-name }}
 
+## Субъекты в системе управления доступом {{ yandex-cloud }} {#subject-details}
+
+- [{#T}](subject-details.md)
+
 ## Секреты в открытом доступе {#credentials}
 
-- [Обработка секретов, попавших в открытый доступ](compromised-credentials.md)
+- [{#T}](compromised-credentials.md)
 
 ## Пользователи {#users}
 

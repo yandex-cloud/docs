@@ -69,9 +69,9 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
      * `--cluster-name`: Name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) to create the node group in.
      * `--cores`: Number of vCPUs for {{ managed-k8s-name }} nodes.
      * `--core-fraction`: [Guaranteed vCPU share](../../../compute/concepts/performance-levels.md) for {{ managed-k8s-name }} nodes.
-     * `--daily-maintenance-window`: Start point and duration of the UTC time interval during which the [update](../../concepts/release-channels-and-updates.md#updates) will start. This setting is not related to the update duration or its completion time.
+     * `--daily-maintenance-window`: Start point and duration of the time interval in UTC during which the [update](../../concepts/release-channels-and-updates.md#updates) will start. This setting is not related to the update duration or its completion time.
      * `--disk-size`: [Disk size](../../../compute/concepts/disk.md#maximum-disk-size) of the {{ managed-k8s-name }} node.
-     * `--disk-type`: [Disk type](../../../compute/concepts/disk.md#disks_types) of the {{ managed-k8s-name }} node, `network-nvme` or `network-hdd`.
+     * `--disk-type`: [Disk type](../../../compute/concepts/disk.md#disks-types) of the {{ managed-k8s-name }} node, `network-nvme` or `network-hdd`.
      * Type of scaling:
 
        * `--fixed-size`: Fixed number of nodes in a {{ managed-k8s-name }} node group.
@@ -416,7 +416,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
     {% include [public-ip](../../../_includes/managed-kubernetes/public-ip.md) %}
 
-  * For nodes to use [non-replicated disks](../../../compute/concepts/disk.md#disks_types), provide `network-ssd-nonreplicated` for the `nodeTemplate.bootDiskSpec.diskTypeId` parameter.
+  * For nodes to use [non-replicated disks](../../../compute/concepts/disk.md#disks-types), provide `network-ssd-nonreplicated` for the `nodeTemplate.bootDiskSpec.diskTypeId` parameter.
 
     You can only change the size of non-replicated disks in 93 GB increments. The maximum size of this type of disk is 4 TB.
 
@@ -479,7 +479,7 @@ Create a node group for the {{ managed-k8s-name }} cluster with the following te
 * Number of vCPUs for nodes: Two.
 * [Guaranteed vCPU share](../../../compute/concepts/performance-levels.md): 50%.
 * [Disk size](../../../compute/concepts/disk.md#maximum-disk-size): 64 GB.
-* [Disk type](../../../compute/concepts/disk.md#disks_types): `network-ssd`.
+* [Disk type](../../../compute/concepts/disk.md#disks-types): `network-ssd`.
 * Number of nodes: One.
 * [Deployment policy](../../concepts/node-group/deploy-policy.md):
     * Maximum number of nodes by which you can expand the group when modifying or updating it: `3`.

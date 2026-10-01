@@ -127,7 +127,6 @@ apiPlayground:
 # Managed Service for OpenSearch API, REST: Cluster.AddDashboardsNodeGroup
 
 
-Required for backward compatibility with old clients. --)
 Creates a Dashboards type host group.
 
 ## HTTP request

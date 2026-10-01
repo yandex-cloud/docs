@@ -108,7 +108,7 @@ Provide your infrastructure and security administrators with access to the folde
       * `smart-web-security.editor`: To use and manage [{{ sws-name }}](../../smartwebsecurity/) profiles.
       * `compute.editor`: To be able to create, update, and delete [{{ compute-name }}](../../compute/) instances.
 
-  1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+  1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 {% endlist %}
 
@@ -223,7 +223,7 @@ The rules should allow outgoing and incoming traffic from the load balancer subn
 
 ### Create a security group for the L7 load balancer {#sg-balancer}
 
-The rules should allow incoming internet traffic on port `80` as well as traffic for load balancer node health checks on port `30080` with the `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` source.
+The rules should allow incoming internet traffic on port `80` as well as outgoing traffic to your backends.
 
 {% list tabs group=instructions %}
 
@@ -240,7 +240,6 @@ The rules should allow incoming internet traffic on port `80` as well as traffic
       | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source /<br/>destination | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
       | --- | --- | --- | --- | --- | --- |
       | `Ingress` | `http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | `Inbound` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — |
       | `Egress` | `http` | `8000` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.121.0.0/24`<br/>`10.122.0.0/24` |
 
       {% include [add-sg-rule](../_tutorials_includes/add-sg-rule.md) %}
@@ -292,8 +291,8 @@ Create a security profile using a preset template:
 
   1. In the [management console]({{ link-console-main }}), select `secured-entry-point`.
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** and click **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
-  1. Select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
+  1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** and click **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
+  1. Select `{{ ui-key.yacloud.smart-web-security.title_default-template }}`.
   1. Enter `sws-profile` as the profile name.
   1. In the **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** field, select `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
@@ -618,7 +617,7 @@ When creating a load balancer using the wizard, you can add resources only from 
 ### Review the health check details {#check-healthchecking}
 
 1. Go to the `app-load-balancer` page.
-1. Select ![healthcheck](../../_assets/application-load-balancer/healthchecks.svg) **{{ ui-key.yacloud.alb.label_healthchecks }}** on the left.
+1. Select the **{{ ui-key.yacloud.alb.label_healthchecks }}** tab.
 1. Make sure the targets have the `HEALTHY` status in all load balancer subnets.
 
 
@@ -655,7 +654,7 @@ A page will open, listing root folder files for the specified application, as in
         ```
 
     1. In another browser tab, go to the `app-load-balancer` page.
-    1. Select ![logs](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}** on the left.
+    1. Select the **{{ ui-key.yacloud.common.logs }}** tab.
     1. In the **{{ ui-key.yacloud.logging.label_filter-query }}** field, specify the [filter expression](../../logging/concepts/filter.md):
 
         ```text
@@ -670,15 +669,15 @@ A page will open, listing root folder files for the specified application, as in
 1. Add a basic deny rule:
 
     1. Go to the `sws-profile` page.
-    1. Under **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}**, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_add-rule }}**.
+    1. Under **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}**, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
     1. Enter the rule name, `deny-rule`.
     1. Set **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}** to `1000`.
-    1. Under **{{ ui-key.yacloud.smart-web-security.label_search-rule-type }}**, keep the **{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}** value.
-    1. Leave **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}** set to **{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}**.
+    1. Under **{{ ui-key.yacloud.smart-web-security.label_search-rule-type }}**, keep the `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}` value.
+    1. Leave **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}** set to `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}`.
     1. Set **Traffic** to `On condition`.
     1. Then select the following values:
 
-        * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**: `IP`.
+        * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**: `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`.
         * **Conditions for IP**: `Matches or falls within the range`.
         * **IP matches or falls within the range**: Specify the IP address of the device you are using to test the web service.
 
@@ -693,7 +692,7 @@ A page will open, listing root folder files for the specified application, as in
         ```
 
     1. In another browser tab, go to the `app-load-balancer` page.
-    1. Select ![logs](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}** on the left.
+    1. Select the **{{ ui-key.yacloud.common.logs }}** tab.
     1. In the **{{ ui-key.yacloud.logging.label_filter-query }}** field, specify the filter expression:
 
         ```text

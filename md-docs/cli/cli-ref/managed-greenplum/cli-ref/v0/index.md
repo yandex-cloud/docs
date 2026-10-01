@@ -22,6 +22,18 @@ Syntax:
 
   - [yc managed-greenplum v0 backup list](backup/list.md) — List available backups
 
+- [yc managed-greenplum v0 change-freeze](change-freeze/index.md) — Manage change freezes.
+
+  - [yc managed-greenplum v0 change-freeze create](change-freeze/create.md) — Create a change freeze for the specified resource.
+
+  - [yc managed-greenplum v0 change-freeze get](change-freeze/get.md) — Show the specified change freeze.
+
+  - [yc managed-greenplum v0 change-freeze get-limits](change-freeze/get-limits.md) — Show change freeze limits for the specified resource.
+
+  - [yc managed-greenplum v0 change-freeze list](change-freeze/list.md) — List change freezes.
+
+  - [yc managed-greenplum v0 change-freeze terminate](change-freeze/terminate.md) — Terminate the specified change freeze.
+
 - [yc managed-greenplum v0 cluster](cluster/index.md) — Manage Greenplum and Cloudberry clusters
 
   - [yc managed-greenplum v0 cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified Greenplum cluster
@@ -70,6 +82,8 @@ Syntax:
 
 - [yc managed-greenplum v0 hba-rules](hba-rules/index.md) — Manage Greenplum hba rules
 
+  - [yc managed-greenplum v0 hba-rules batch-update](hba-rules/batch-update.md) — Replace all hba-rules for specified Greenplum cluster
+
   - [yc managed-greenplum v0 hba-rules create](hba-rules/create.md) — Create hba-rule for specified Greenplum cluster
 
   - [yc managed-greenplum v0 hba-rules delete](hba-rules/delete.md) — Delete hba-rule for specified Greenplum cluster
@@ -83,6 +97,14 @@ Syntax:
 - [yc managed-greenplum v0 hosts](hosts/index.md) — Manage Greenplum cluster hosts.
 
 
+
+- [yc managed-greenplum v0 maintenance](maintenance/index.md) — Manage maintenances.
+
+  - [yc managed-greenplum v0 maintenance get](maintenance/get.md) — Show the specified maintenance.
+
+  - [yc managed-greenplum v0 maintenance list](maintenance/list.md) — List maintenances.
+
+  - [yc managed-greenplum v0 maintenance reschedule](maintenance/reschedule.md) — Reschedule the specified maintenance.
 
 - [yc managed-greenplum v0 pxf-datasource](pxf-datasource/index.md) — Manage Greenplum pxf datasources
 

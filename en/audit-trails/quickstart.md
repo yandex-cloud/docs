@@ -39,7 +39,6 @@ To create a trail, you will need the following roles:
   1. In the [management console]({{ link-console-main }}), select the folder to host the trail.
   1. [Navigate]({{ link-console-main }}/link/audit-trails) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
-  1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the trail.
   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, configure the destination object:
       
       * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
@@ -49,7 +48,9 @@ To create a trail, you will need the following roles:
       {% include [note-bucket-prefix](../_includes/audit-trails/note-bucket-prefix.md) %}
       
       * **{{ ui-key.yacloud.audit-trails.title_kms-key }}**: If the bucket you selected is [encrypted](../storage/concepts/encryption.md), specify the encryption key.
-      
+
+  1. {% include [control-plane-on-console](../_includes/audit-trails/control-plane-on-console.md) %}
+  1. {% include [data-plane-on-console](../_includes/audit-trails/data-plane-on-console.md) %}
   1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select an existing [service account](../iam/concepts/users/service-accounts.md) or create a new one. The trail will use this account to upload audit log files to the bucket.
       If you are creating a new account, click **{{ ui-key.yacloud.common.create }}**, name the account, and and assign the following roles to it:
       
@@ -57,16 +58,7 @@ To create a trail, you will need the following roles:
       * `audit-trails.viewer` for the folder if planning to collect events from the folder.
       * `kms.keys.encrypter` for the encryption key if the bucket is encrypted.
 
-  1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the following:
-      
-      * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: `{{ ui-key.yacloud.common.enabled }}`.
-      * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Event collection level: `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`, `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}`, or `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
-      * Depending on the event collection level you select:
-          
-          * Assign relevant roles to the service account. For example, if you select the **Folder** level, it will need the `audit-trails.viewer` role for this folder.
-          * Specify an organization, cloud, or folder to collect audit logs from.
-
-  1. {% include [data-plane-on-console](../_includes/audit-trails/data-plane-on-console.md) %}
+  1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the trail.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - Log group {#log-group}
@@ -80,22 +72,14 @@ To create a trail, you will need the following roles:
       * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_cloudLogging }}`.
       * **{{ ui-key.yacloud.audit-trails.label_log-group }}**: Select a log group to upload audit logs to. If you do not have a log group yet, click **{{ ui-key.yacloud.common.create }}** and [create a new log group](../logging/quickstart.md).
 
+  1. {% include [control-plane-on-console](../_includes/audit-trails/control-plane-on-console.md) %}
+  1. {% include [data-plane-on-console](../_includes/audit-trails/data-plane-on-console.md) %}
   1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select an existing [service account](../iam/concepts/users/service-accounts.md) or create a new one. The trail will use this account to upload audit log files to the log group.
       If you are creating a new account, click **{{ ui-key.yacloud.common.create }}**, name the account, and and assign the following roles to it:
       
       * `logging.writer` for the log group.
       * `audit-trails.viewer` for the folder if planning to collect events from the folder.
 
-  1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, configure the collection of management event audit logs:
-      
-      * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: Select `{{ ui-key.yacloud.common.enabled }}`.
-      * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select the event collection level: `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`, `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}`, or `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
-      * Depending on the event collection level you select:
-          
-          * Assign relevant roles to the service account. For example, if you select the **Folder** level, it will need the `audit-trails.viewer` role for this folder.
-          * Specify an organization, cloud, or folder to collect audit logs from.
-
-  1. {% include [data-plane-on-console](../_includes/audit-trails/data-plane-on-console.md) %}
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}

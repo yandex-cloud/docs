@@ -24,15 +24,28 @@ Meet {{ CK }}! It will help you coordinate and distribute queries among hosts in
 
 # {{ mch-full-name }} release notes
 
+## June 2026 {#jun-2026}
+
+* Added IAM authentication support for the CLI and API.
+* Added support for self-signed certificates.
+* Improved logic for recovery from a backup. Now the recovery progress is saved more frequently: not after processing each table entirely, but at smaller intervals. This allows to significantly reduce cluster recovery time.
+* Added support for [Replicated](https://clickhouse.com/docs/reference/engines/database-engines/replicated) databases.
+* Added the ability to schedule replica synchronization to the management console.
+* When adding new replicas, schema copying is now enabled by default. This ensures consistency of table structures between replicas.
+* Added the ability to create a cluster from a backup in {{ TF }}.
+* Added the option to export Terraform code in a single click when creating or editing cluster settings in the management console. This option also works for existing resources of the service.
+* Added a [method for available DBMS version listing](api-ref/Versions/list.md) to the public API.
+* Released a new {{ CH }} version: [26.5](https://clickhouse.com/blog/clickhouse-release-26-05).
+
 ## May 2026 {#may-2026}
 
 * Added the ability to [create and restore](./operations/cluster-backups.md) clusters with encrypted local disks from a backup. The encryption uses a custom KMS key.
 * Maximum local disk size per host is increased to 36 TB. Disks of this size are available for Intel Ice Lake (`standard-v3`) configurations with 16 or more cores. To create extra large clusters, you may need to contact [support]({{ link-console-support }}) to reserve the required resources.
-* Added an ability to enable [performance diagnostics](./operations/performance-diagnostics.md) in {{ TF }} version 0.202.0 and in CLI version 1.8.0. {{ tag-tf }} {{ tag-cli }}
-* Added an ability to [restore a cluster](./operations/cluster-backups.md) using {{ TF }}. {{ tag-tf }}
-* Added support for the `SET DEFINER` privilege. For clusters with user management via SQL, the `admin` user is granted the `SET DEFINER` privilege for all users. For clusters with management via API, each user is granted the `SET DEFINER` only for themselves.
-* The maximum username length has been increased to 64 characters.
-* Added an ability to use custom CAs (Certificate Authority).
+* Added optional [performance diagnostics](./operations/performance-diagnostics.md) in {{ TF }} 0.202.0 and CLI 1.8.0. {{ tag-tf }} {{ tag-cli }}
+* Added the ability to [restore a cluster](./operations/cluster-backups.md) using {{ TF }}. {{ tag-tf }}
+* Added support for the `SET DEFINER` privilege. For clusters with user management via SQL, the `admin` user gets the `SET DEFINER` privilege for all users. For clusters managed via API, each user gets the `SET DEFINER` only for themselves.
+* Maximum username length is increased to 64 characters.
+* Added an ability to use custom CAs (certificate authorities).
 * New {{ CH }} versions are out: [26.3 LTS](https://clickhouse.com/blog/clickhouse-release-26-03) and [26.4](https://clickhouse.com/blog/clickhouse-release-26-04).
 
 ## April 2026 {#apr-2026}

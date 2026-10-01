@@ -18,6 +18,9 @@ description: Из статьи вы узнаете, как работать с {
 
 * [{#T}](./alerts/view.md)
 * [{#T}](./alerts/work.md)
+* [{#T}](./alerts/download.md)
+* [{#T}](./alerts/tags.md)
+* [{#T}](./alerts/notification.md)
 
 ## Модуль контроля данных ({{ dspm-name }}) {#dspm}
 
@@ -38,6 +41,10 @@ description: Из статьи вы узнаете, как работать с {
 ## Модуль контроля конфигурации ({{ cspm-name }}) {#cspm}
 
 * [{#T}](./cspm/view-rules.md)
+* [{#T}](./cspm/create-custom-rule.md)
+* [{#T}](./cspm/edit-custom-rule.md)
+* [{#T}](./cspm/delete-custom-rule.md)
+* [{#T}](./cspm/check-environment.md)
 * [{#T}](./cspm/check-compliance.md)
 * [{#T}](./cspm/manage-exceptions.md)
 
@@ -54,4 +61,16 @@ description: Из статьи вы узнаете, как работать с {
 ## Модуль {{ vuln-man-name }} {#vulnerability-management}
 
 * [{#T}](./vulnerability-management/enable-vulnerability-management.md)
+* [{#T}](./vulnerability-management/create-scan-job.md)
+* [{#T}](./vulnerability-management/manage-scan-job.md)
+* [{#T}](./vulnerability-management/run-scan-job.md)
+* [{#T}](./vulnerability-management/view-scan-results.md)
 * [{#T}](./vulnerability-management/use-vulnerability-management.md)
+
+## Пользовательские наборы правил {#custom-rules-sets}
+
+* [{#T}](./custom-rules-sets/view-set.md)
+* [{#T}](./custom-rules-sets/create-set.md)
+* [{#T}](./custom-rules-sets/update-set.md)
+* [{#T}](./custom-rules-sets/enable-disable-set.md)
+* [{#T}](./custom-rules-sets/delete-set.md)

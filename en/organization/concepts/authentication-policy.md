@@ -41,7 +41,7 @@ You can also exclude specific IP address ranges from the policy. Note that you c
 
 ## Policy-driven actions {#action}
 
-Currently, authentication policies can deny user authentication if the authentication event matches the policy's defined [conditions](#conditions).
+Authentication policies can deny or allow user authentication if the authentication event matches the policy [conditions](#conditions).
 
 ## Policy statuses {#status}
 

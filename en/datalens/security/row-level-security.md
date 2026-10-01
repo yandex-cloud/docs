@@ -1,6 +1,6 @@
 # Row-level security (RLS)
 
-RLS (_row-level security_) enables you to restrict data access for users or [user group](../../organization/concepts/groups.md) within a single dataset. For example, you can introduce data access control for different customers.
+RLS (_row-level security_) enables you to restrict data access for users or [user group]({{ link-docs }}/organization/concepts/groups) within a single dataset. For example, you can introduce data access control for different customers.
 
 {% include [rls-note](../../_includes/datalens/datalens-rls-note.md) %}
 
@@ -16,109 +16,80 @@ With RLS, a query to a dataset passes through the following filter:
 where dimension in (value_1, value_2 ... value_N)
 ```
 
+You can configure access to rows from the interface or set the configuration in JSON format:
 
+{% list tabs group=instructions %}
 
-### User access {#user-rls}
+- Interface {#interface_datalens}
 
-For users, access control is based on the access configuration which looks like this:
+  1. Open the dataset and go to the **Fields** tab.
+  1. For the field you need to configure access to, click ![icon](../../_assets/console-icons/key.svg) or ![icon](../../_assets/console-icons/ellipsis.svg) → **Access permissions**.
+  1. In the window that opens, on the **Table** tab, click **Add rule** and specify:
 
-```yaml
-'value_1': user_1, user_2
-'value_2': user_3
-'value_3': user_1, user_2, user_3
-```
+     * Who gets the access:
+      
+       * `Users and groups`: Grant access to the specified users and groups. You can use search by name, login, or email.
+       * `All users`: Grant access to all users.
+       * `User IDs`: Control access at [data source level](#datasource-rls).
 
-For example, to configure `user-login` access to all rows with the `first-company` value in the `Company name` field, [set the following configuration](#how-to-manage-rls):
+     * Field value. Grant access to all rows with the specified field value.
 
-```yaml
-'first-company': user-login@yandex.ru
-```
+     {% cut "Configuring RLS" %}
+    
+     ![screenshot](../../_assets/datalens/security/rls-table.png)
 
-{% include [datalens-domain-federation-note](../../_includes/datalens/datalens-domain-federation-note.md) %}
+     {% endcut %}
 
-To configure access for multiple users, list their accounts in the access configuration separated by commas:
+  1. To add another rule, repeat the previous step.
+  1. Click **Save**.  
+  1. Save the dataset.
 
-```yaml
-'first-company': user-login-1@yandex.ru, user-login-2@yandex.ru, user-login-3@yandex.ru
-```
+- JSON {#json}
 
-### Access for user groups {#group-rls}
+  1. Open the dataset and go to the **Fields** tab.
+  1. For the field you need to configure access to, click ![icon](../../_assets/console-icons/key.svg) or ![icon](../../_assets/console-icons/ellipsis.svg) → **Access permissions**.
+  1. In the window that opens, set the RLS configuration in JSON format on the **JSON** tab:
 
-For user groups, access control is based on the access configuration which looks like this:
+     ```json
+     [
+       {
+         "allowed_value": "sp-21",
+         "pattern_type": "value",
+         "subject": {
+           "subject_id": "ssxiy********",
+           "subject_name": "user:ssxiy********",
+           "subject_type": "user"
+         }
+       }
+     ]
+     ```
 
-```yaml
-'value_1': @group:group_1_name
-'value_2': @group:group_1_name, @group:group_2_name
-```
+     Where:
 
-The configuration specifies the group name rather than its identifier. If a group is renamed, you will need to update its RLS configuration accordingly.
+     * `allowed_value`: Grant access to all rows with specified field value. You need to specify the value only if `pattern_type` is set to `value`; otherwise, it takes the `null` value.
+     * `pattern_type`: How to grant the access:
+      
+       * `value`: For the specific field value from the `allowed_value` field.
+       * `all`: For any field values. In this case, `allowed_value` must be `null`.
+       * `userid`: Control access at [data source level](#datasource-rls).
 
-For example, to configure `group-name` user group access to all rows with the `first-company` value in the `Company name` field, set the following configuration:
+     * `subject`: Description of the subject getting the access:
 
-```yaml
-'first-company': @group:group-name
-```
+       * `subject_id`: ID of the user or group to grant access to. Specify `*` if `subject_type` is set to `all` or an empty value if it is set to `userid`.
+       * `subject_name`: Name of the user to grant access to. Specify `*` if `subject_type` is set to `all` or the `userid` value if it is set to `userid`.
+       * `subject_type`: Who will get the access:
 
-To configure access for multiple user groups, list them in the access configuration separated by commas:
+         * `user`: Grant acces to a specific user. In this case, you need to specify the user ID and username in `subject_id` and `subject_name`, respectively.
+         * `group`: Grant access to a user group. In this case, you need to specify the group ID and group name in `subject_id` and `subject_name`, respectively.
+         * `all`: Grant access to all users. In which case you need to specify `*` in `subject_id` and `subject_name`.
+         * `userid`: Control access at [data source level](#datasource-rls).
 
-```yaml
-'first-company': @group:group-name-1, @group:group-name-2, @group:group-name-3
-```
+     You can set multiple rules by describing each one in an object with the specified fields.
 
-You can configure access for users and groups at the same time:
+  1. Click **Save**.
+  1. Save the dataset.
 
-```yaml
-'first-company': user-login-1@yandex.ru, user-login-2@yandex.ru, @group:group-name-1, @group:group-name-2
-```
-
-{% include [datalens-domain-federation-note](../../_includes/datalens/datalens-domain-federation-note.md) %}
-
-### Wildcards and quotation marks in RLS configuration {#special-}
-
-You can define values, users, and group names using wildcard characters:
-
-* `User_1`, `user_2`, and `group_1_name` can access all the field's values
-
-  ```yaml
-  *: user_1, user_2, @group:group_1_name
-  ```
-
-  For example, to configure access to all rows with any value in the `Company name` field, set the following configuration:
-
-  ```yaml
-  *: user-login-1@yandex.ru, @group:group-name-1
-  ```
-
-* `value_1` is available to all users and groups
-
-  ```yaml
-  'value_1': *
-  ```
-
-  For example, to allow all users to access all rows with the `first-company` value in the `Company name` field, set the following configuration:
-
-  ```yaml
-  'first-company': *
-  ```
-
-Quotes in values are set using double quotes:
-
-```yaml
-'value in ''quotes''': user_1, user_2
-```
-
-For example, to set quotation marks for the `first-company "Example"` company name in the `Company name` field, specify the following configuration:
-
-```yaml
-'first-company ''Example''': user-login-1@yandex.ru, @group:group-name-1
-```
-
-You can also use the `"` character:
-
-```yaml
-'first-company "Example"': user-login-1@yandex.ru, @group:group-name-1
-```
-
+{% endlist %}
 
 ## Configuring RLS at the data source level {#datasource-rls}
 
@@ -136,15 +107,46 @@ To avoid this, you can move the row-level security logic to the data source side
 
 1. For each source data row, specify the ID of the {{ datalens-short-name }} user who should get access to this row. If multiple users must have access to the same row, you can move the access control logic to a separate table and [join](../dataset/settings.md#multi-table) it to the main table at the dataset level.
 
+1. In the dataset, configure access to the field containing user IDs:
 
-1. In the dataset RLS setting, enter `userid:userid` in the ID field. The `userid` variable can be used together with the regular RLS type in the dataset:
+   {% list tabs group=instructions %}
 
-   ```yaml
-   'value_1': user_1, user_2
-   'value_2': user_3
-      userid:userid
-   ```
+   - Interface {#interface_datalens}
 
+     1. In the RLS settings window, on the **Tables** tab, click **Add rule**.
+     1. Select **User IDs** for the `Who has access` parameter.
+     
+        {% cut "Configuring RLS by user ID" %}
+        
+        ![screenshot](../../_assets/datalens/security/rls-table-userid.png)
+
+        {% endcut %}
+
+     1. Click **Save**.
+   
+   - JSON {#json}
+   
+     1. In the RLS configuration window, set the RLS configuration in JSON format on the **JSON** tab:
+
+        ```json
+        [
+          {
+            "allowed_value": null,
+            "pattern_type": "userid",
+            "subject": {
+              "subject_id": "",
+              "subject_name": "userid",
+              "subject_type": "userid"
+            },
+          }
+        ]
+        ```
+
+     1. Click **Save**. Access will be granted to users whose IDs are specified in the field.
+
+   {% endlist %}
+
+1. Save the dataset.
 
 {% note info %}
 
@@ -156,5 +158,4 @@ You can transfer the RLS logic to the source side for sources where the data str
 
 To configure access permissions to data rows:
 
-
-{% include [datalens-manage-rls](../../_includes/datalens/operations/datalens-manage-rls.md) %}
+{% include [datalens-manage-rls-on-premises](../../_includes/datalens/operations/datalens-manage-rls-on-premises.md) %}

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Поставка данных из Managed Service for Apache Kafka® в Managed Service for OpenSearch с помощью Data Transfer
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Apache Kafka® > Поставка данных с помощью Data Transfer > Поставка данных из Managed Service for Apache Kafka® в Managed Service for OpenSearch
 
 # Поставка данных из Yandex Managed Service for Apache Kafka® в Yandex Managed Service for OpenSearch с помощью Yandex Data Transfer
 
@@ -19,7 +19,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
+* Кластер Yandex Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
 * Кластер Managed Service for OpenSearch: использование вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for OpenSearch](../../managed-opensearch/pricing.md)).
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
@@ -32,11 +32,13 @@
 
     - Вручную {#manual}
 
+        
         {% note info %}
         
         Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
         
         {% endnote %}
+
 
         1. [Создайте кластер-источник Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации. Для подключения к кластеру с локальной машины пользователя, а не из облачной сети Yandex Cloud, включите публичный доступ к кластеру при его создании.
 
@@ -105,6 +107,7 @@
                Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
             
             1. Если вас устраивают планируемые изменения, внесите их:
+            
                1. Выполните команду:
             
                   ```bash
@@ -313,6 +316,7 @@
                Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
             
             1. Если вас устраивают планируемые изменения, внесите их:
+            
                1. Выполните команду:
             
                   ```bash

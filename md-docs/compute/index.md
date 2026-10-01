@@ -220,9 +220,7 @@
 
  - [Работа с ВМ на базе публичного образа](operations/images-with-pre-installed-software/operate.md)
 
- - [Получить список публичных образов](operations/images-with-pre-installed-software/get-list.md)
-
- - [Получить информацию о публичном образе](operations/images-with-pre-installed-software/get-info.md)
+ - [Получить информацию о публичном образе](operations/images-with-pre-installed-software/get-list.md)
 
 #### DSVM
 
@@ -771,6 +769,8 @@
  - [Шифрование](concepts/encryption.md)
 
  - [Резервное копирование](concepts/backups.md)
+
+ - [Изменение квотирования ресурсов](concepts/quota-zones.md)
 
  - [Квоты и лимиты](concepts/limits.md)
 

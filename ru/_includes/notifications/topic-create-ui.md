@@ -3,7 +3,15 @@
 1. Слева выберите раздел **{{ ui-key.yacloud.cns.local.label_topics_vhBR3 }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.cns.local.action_create-topic_qywb9 }}**.
 1. Введите имя топика. Имя топика должно быть уникальным в {{ cns-name }}.
-1. В разделе **{{ ui-key.yacloud.cns.section_logging }}** включите **{{ ui-key.yacloud.cns.field_logging }}**.
-1. В списке **{{ ui-key.yacloud.cns.field_logging-folder }}** выберите каталог, в котором будет расположена [лог-группа](../../logging/concepts/log-group.md).
-1. В поле **{{ ui-key.yacloud.cns.field_log-group }}** выберите существующую лог-группу или создайте новую.
+1. (Опционально) Настройте запись логов:
+    1. В разделе **{{ ui-key.yacloud.cns.section_logging }}** включите **{{ ui-key.yacloud.cns.field_logging }}**.
+    1. В списке **{{ ui-key.yacloud.cns.field_logging-folder }}** выберите каталог, в котором будет расположена [лог-группа](../../logging/concepts/log-group.md).
+    1. В поле **{{ ui-key.yacloud.cns.field_log-group }}** выберите существующую лог-группу или создайте новую.
+1. (Опционально) Включите опцию **{{ message-queue-full-name }}**, чтобы отправлять сообщения в [очереди](../../message-queue/concepts/queue.md) {{ message-queue-name }}, которые подписаны на топик. Укажите сервисный аккаунт, у которого есть [роль](../../message-queue/security/index.md#ymq-writer) `ymq.writer`:
+
+    * на каталог, в котором находятся очереди, подписанные на топик;
+    * на каталог, в котором находится сам сервисный аккаунт.
+
+    [Как назначить роль](../../iam/operations/roles/grant.md#cloud-or-folder).
+
 1. Нажмите **{{ ui-key.yacloud.cns.Topics.button_create_r6PZn }}**.

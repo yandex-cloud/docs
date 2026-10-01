@@ -12,6 +12,8 @@ keywords:
 
 # Создание виртуальной машины Linux
 
+{% include [quota-zones-warning](../../_includes/compute/quota-zones-warning.md) %}
+
 Создайте [ВМ](../concepts/vm.md) Linux с помощью сервиса {{ compute-name }} в консоли управления {{ yandex-cloud }} и подключитесь к ней.
 
 ## Перед началом работы {#before-you-begin}

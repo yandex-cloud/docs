@@ -240,6 +240,8 @@ items:
     href: concepts/events-data-plane.md
   - name: Справочник аудитных логов (англ.)
     items:
+      - name: Обзор
+        href: events-ref/index.md
       - name: accesstransparency
         items:
           - name: ComputeNodeAccess
@@ -348,6 +350,20 @@ items:
             href: audit/ai/ocr/events-ref/GetRecognition.md
           - name: RecognizeText
             href: audit/ai/ocr/events-ref/RecognizeText.md
+      - name: ai.realtime
+        items:
+          - name: CloseSession
+            href: audit/ai/realtime/events-ref/CloseSession.md
+          - name: CreatePrompt
+            href: audit/ai/realtime/events-ref/CreatePrompt.md
+          - name: CreateSession
+            href: audit/ai/realtime/events-ref/CreateSession.md
+          - name: DeletePrompt
+            href: audit/ai/realtime/events-ref/DeletePrompt.md
+          - name: UpdatePrompt
+            href: audit/ai/realtime/events-ref/UpdatePrompt.md
+          - name: UpdateSession
+            href: audit/ai/realtime/events-ref/UpdateSession.md
       - name: ai.responses
         items:
           - name: CancelResponse
@@ -594,6 +610,8 @@ items:
             href: audit/baremetal/events-ref/UpdateServer.md
           - name: UpdateVRF
             href: audit/baremetal/events-ref/UpdateVRF.md
+          - name: ExternalFlow
+            href: audit/baremetal/flowlogs/events-ref/ExternalFlow.md
       - name: cdn
         items:
           - name: CachePrefetch
@@ -1107,6 +1125,32 @@ items:
             href: audit/datalens/events-ref/UpdateWorkbook.md
           - name: UpdateWorkbookAccessBindings
             href: audit/datalens/events-ref/UpdateWorkbookAccessBindings.md
+          - name: CreateAirflowCluster
+            href: audit/datalens/platform/events-ref/CreateAirflowCluster.md
+          - name: CreateCloudEnvironment
+            href: audit/datalens/platform/events-ref/CreateCloudEnvironment.md
+          - name: CreateRestCatalog
+            href: audit/datalens/platform/events-ref/CreateRestCatalog.md
+          - name: CreateRestCatalogNamespace
+            href: audit/datalens/platform/events-ref/CreateRestCatalogNamespace.md
+          - name: CreateSparkCluster
+            href: audit/datalens/platform/events-ref/CreateSparkCluster.md
+          - name: CreateTrinoCluster
+            href: audit/datalens/platform/events-ref/CreateTrinoCluster.md
+          - name: DeleteAirflowCluster
+            href: audit/datalens/platform/events-ref/DeleteAirflowCluster.md
+          - name: DeleteCloudEnvironment
+            href: audit/datalens/platform/events-ref/DeleteCloudEnvironment.md
+          - name: DeleteRestCatalog
+            href: audit/datalens/platform/events-ref/DeleteRestCatalog.md
+          - name: DeleteRestCatalogNamespace
+            href: audit/datalens/platform/events-ref/DeleteRestCatalogNamespace.md
+          - name: DeleteSparkCluster
+            href: audit/datalens/platform/events-ref/DeleteSparkCluster.md
+          - name: DeleteTrinoCluster
+            href: audit/datalens/platform/events-ref/DeleteTrinoCluster.md
+          - name: UpdateCloudEnvironment
+            href: audit/datalens/platform/events-ref/UpdateCloudEnvironment.md
       - name: dataproc
         items:
           - name: CreateCluster
@@ -1597,12 +1641,56 @@ items:
             href: audit/k8s/events-ref/UpdateClusterAccessBindings.md
           - name: UpdateClusterCertificate
             href: audit/k8s/events-ref/UpdateClusterCertificate.md
+          - name: UpdateClusterSettings
+            href: audit/k8s/events-ref/UpdateClusterSettings.md
           - name: UpdateHelmRelease
             href: audit/k8s/events-ref/UpdateHelmRelease.md
           - name: UpdateHelmRelease
             href: audit/k8s/events-ref/UpdateHelmRelease.md
           - name: UpdateNodeGroup
             href: audit/k8s/events-ref/UpdateNodeGroup.md
+          - name: ApiServerApprove
+            href: audit/k8s/apiserver/events-ref/ApiServerApprove.md
+          - name: ApiServerBind
+            href: audit/k8s/apiserver/events-ref/ApiServerBind.md
+          - name: ApiServerCreate
+            href: audit/k8s/apiserver/events-ref/ApiServerCreate.md
+          - name: ApiServerDelete
+            href: audit/k8s/apiserver/events-ref/ApiServerDelete.md
+          - name: ApiServerDeleteCollection
+            href: audit/k8s/apiserver/events-ref/ApiServerDeleteCollection.md
+          - name: ApiServerEscalate
+            href: audit/k8s/apiserver/events-ref/ApiServerEscalate.md
+          - name: ApiServerGet
+            href: audit/k8s/apiserver/events-ref/ApiServerGet.md
+          - name: ApiServerHead
+            href: audit/k8s/apiserver/events-ref/ApiServerHead.md
+          - name: ApiServerImpersonate
+            href: audit/k8s/apiserver/events-ref/ApiServerImpersonate.md
+          - name: ApiServerList
+            href: audit/k8s/apiserver/events-ref/ApiServerList.md
+          - name: ApiServerNonstandardVerb
+            href: audit/k8s/apiserver/events-ref/ApiServerNonstandardVerb.md
+          - name: ApiServerOptions
+            href: audit/k8s/apiserver/events-ref/ApiServerOptions.md
+          - name: ApiServerPatch
+            href: audit/k8s/apiserver/events-ref/ApiServerPatch.md
+          - name: ApiServerPost
+            href: audit/k8s/apiserver/events-ref/ApiServerPost.md
+          - name: ApiServerPut
+            href: audit/k8s/apiserver/events-ref/ApiServerPut.md
+          - name: ApiServerUpdate
+            href: audit/k8s/apiserver/events-ref/ApiServerUpdate.md
+          - name: ApiServerWatch
+            href: audit/k8s/apiserver/events-ref/ApiServerWatch.md
+          - name: InstallHelmRelease
+            href: audit/k8s/marketplace/v1/events-ref/InstallHelmRelease.md
+          - name: UninstallHelmRelease
+            href: audit/k8s/marketplace/v1/events-ref/UninstallHelmRelease.md
+          - name: UpdateClusterSettings
+            href: audit/k8s/marketplace/v1/events-ref/UpdateClusterSettings.md
+          - name: UpdateHelmRelease
+            href: audit/k8s/marketplace/v1/events-ref/UpdateHelmRelease.md
       - name: kms
         items:
           - name: AsymmetricDecrypt
@@ -1746,6 +1834,8 @@ items:
             href: audit/lockbox/events-ref/ActivateSecret.md
           - name: AddVersion
             href: audit/lockbox/events-ref/AddVersion.md
+          - name: CancelDeleteSecret
+            href: audit/lockbox/events-ref/CancelDeleteSecret.md
           - name: CancelVersionDestruction
             href: audit/lockbox/events-ref/CancelVersionDestruction.md
           - name: CreateSecret
@@ -2729,6 +2819,230 @@ items:
             href: audit/organizationmanager/events-ref/ValidateFederationDomain.md
           - name: ValidateUserpoolDomain
             href: audit/organizationmanager/events-ref/ValidateUserpoolDomain.md
+          - name: CreateApplication
+            href: >-
+              audit/organizationmanager/application/linked/events-ref/CreateApplication.md
+          - name: DeleteApplication
+            href: >-
+              audit/organizationmanager/application/linked/events-ref/DeleteApplication.md
+          - name: ReactivateApplication
+            href: >-
+              audit/organizationmanager/application/linked/events-ref/ReactivateApplication.md
+          - name: SetApplicationAccessBindings
+            href: >-
+              audit/organizationmanager/application/linked/events-ref/SetApplicationAccessBindings.md
+          - name: SuspendApplication
+            href: >-
+              audit/organizationmanager/application/linked/events-ref/SuspendApplication.md
+          - name: UpdateApplication
+            href: >-
+              audit/organizationmanager/application/linked/events-ref/UpdateApplication.md
+          - name: UpdateApplicationAccessBindings
+            href: >-
+              audit/organizationmanager/application/linked/events-ref/UpdateApplicationAccessBindings.md
+          - name: UpdateApplicationAssignments
+            href: >-
+              audit/organizationmanager/application/linked/events-ref/UpdateApplicationAssignments.md
+          - name: CreateApplication
+            href: >-
+              audit/organizationmanager/application/oauth/events-ref/CreateApplication.md
+          - name: DeleteApplication
+            href: >-
+              audit/organizationmanager/application/oauth/events-ref/DeleteApplication.md
+          - name: ReactivateApplication
+            href: >-
+              audit/organizationmanager/application/oauth/events-ref/ReactivateApplication.md
+          - name: SetApplicationAccessBindings
+            href: >-
+              audit/organizationmanager/application/oauth/events-ref/SetApplicationAccessBindings.md
+          - name: SuspendApplication
+            href: >-
+              audit/organizationmanager/application/oauth/events-ref/SuspendApplication.md
+          - name: UpdateApplication
+            href: >-
+              audit/organizationmanager/application/oauth/events-ref/UpdateApplication.md
+          - name: UpdateApplicationAccessBindings
+            href: >-
+              audit/organizationmanager/application/oauth/events-ref/UpdateApplicationAccessBindings.md
+          - name: UpdateApplicationAssignments
+            href: >-
+              audit/organizationmanager/application/oauth/events-ref/UpdateApplicationAssignments.md
+          - name: CreateApplication
+            href: >-
+              audit/organizationmanager/application/saml/events-ref/CreateApplication.md
+          - name: CreateSignatureCertificate
+            href: >-
+              audit/organizationmanager/application/saml/events-ref/CreateSignatureCertificate.md
+          - name: DeleteApplication
+            href: >-
+              audit/organizationmanager/application/saml/events-ref/DeleteApplication.md
+          - name: DeleteSignatureCertificate
+            href: >-
+              audit/organizationmanager/application/saml/events-ref/DeleteSignatureCertificate.md
+          - name: ReactivateApplication
+            href: >-
+              audit/organizationmanager/application/saml/events-ref/ReactivateApplication.md
+          - name: SetApplicationAccessBindings
+            href: >-
+              audit/organizationmanager/application/saml/events-ref/SetApplicationAccessBindings.md
+          - name: SuspendApplication
+            href: >-
+              audit/organizationmanager/application/saml/events-ref/SuspendApplication.md
+          - name: UpdateApplication
+            href: >-
+              audit/organizationmanager/application/saml/events-ref/UpdateApplication.md
+          - name: UpdateApplicationAccessBindings
+            href: >-
+              audit/organizationmanager/application/saml/events-ref/UpdateApplicationAccessBindings.md
+          - name: UpdateApplicationAssignments
+            href: >-
+              audit/organizationmanager/application/saml/events-ref/UpdateApplicationAssignments.md
+          - name: UpdateSignatureCertificate
+            href: >-
+              audit/organizationmanager/application/saml/events-ref/UpdateSignatureCertificate.md
+          - name: UploadSignatureCertificate
+            href: >-
+              audit/organizationmanager/application/saml/events-ref/UploadSignatureCertificate.md
+          - name: AddUserBlock
+            href: audit/organizationmanager/idp/events-ref/AddUserBlock.md
+          - name: AddUserpoolDomain
+            href: audit/organizationmanager/idp/events-ref/AddUserpoolDomain.md
+          - name: AuthenticateByPassword
+            href: audit/organizationmanager/idp/events-ref/AuthenticateByPassword.md
+          - name: ChangeOneTimePassword
+            href: audit/organizationmanager/idp/events-ref/ChangeOneTimePassword.md
+          - name: ConvertUserToExternal
+            href: audit/organizationmanager/idp/events-ref/ConvertUserToExternal.md
+          - name: CreateAsset
+            href: audit/organizationmanager/idp/events-ref/CreateAsset.md
+          - name: CreateAsset
+            href: audit/organizationmanager/idp/events-ref/CreateAsset.md
+          - name: CreateBranding
+            href: audit/organizationmanager/idp/events-ref/CreateBranding.md
+          - name: CreateUser
+            href: audit/organizationmanager/idp/events-ref/CreateUser.md
+          - name: CreateUserpool
+            href: audit/organizationmanager/idp/events-ref/CreateUserpool.md
+          - name: DeleteAsset
+            href: audit/organizationmanager/idp/events-ref/DeleteAsset.md
+          - name: DeleteAsset
+            href: audit/organizationmanager/idp/events-ref/DeleteAsset.md
+          - name: DeleteBranding
+            href: audit/organizationmanager/idp/events-ref/DeleteBranding.md
+          - name: DeleteUser
+            href: audit/organizationmanager/idp/events-ref/DeleteUser.md
+          - name: DeleteUserpool
+            href: audit/organizationmanager/idp/events-ref/DeleteUserpool.md
+          - name: DeleteUserpoolDomain
+            href: audit/organizationmanager/idp/events-ref/DeleteUserpoolDomain.md
+          - name: ReactivateUser
+            href: audit/organizationmanager/idp/events-ref/ReactivateUser.md
+          - name: RemoveUserBlock
+            href: audit/organizationmanager/idp/events-ref/RemoveUserBlock.md
+          - name: ResetOwnPassword
+            href: audit/organizationmanager/idp/events-ref/ResetOwnPassword.md
+          - name: SetUserPassword
+            href: audit/organizationmanager/idp/events-ref/SetUserPassword.md
+          - name: SetUserpoolAccessBindings
+            href: >-
+              audit/organizationmanager/idp/events-ref/SetUserpoolAccessBindings.md
+          - name: SuspendUser
+            href: audit/organizationmanager/idp/events-ref/SuspendUser.md
+          - name: UpdateBranding
+            href: audit/organizationmanager/idp/events-ref/UpdateBranding.md
+          - name: UpdateSubscriptionLimit
+            href: >-
+              audit/organizationmanager/idp/events-ref/UpdateSubscriptionLimit.md
+          - name: UpdateUser
+            href: audit/organizationmanager/idp/events-ref/UpdateUser.md
+          - name: UpdateUserpool
+            href: audit/organizationmanager/idp/events-ref/UpdateUserpool.md
+          - name: UpdateUserpoolAccessBindings
+            href: >-
+              audit/organizationmanager/idp/events-ref/UpdateUserpoolAccessBindings.md
+          - name: ValidateUserpoolDomain
+            href: audit/organizationmanager/idp/events-ref/ValidateUserpoolDomain.md
+          - name: CreateAsset
+            href: >-
+              audit/organizationmanager/idp/application/events-ref/CreateAsset.md
+          - name: DeleteAsset
+            href: >-
+              audit/organizationmanager/idp/application/events-ref/DeleteAsset.md
+          - name: CreateAsset
+            href: audit/organizationmanager/idp/branding/events-ref/CreateAsset.md
+          - name: CreateBranding
+            href: >-
+              audit/organizationmanager/idp/branding/events-ref/CreateBranding.md
+          - name: DeleteAsset
+            href: audit/organizationmanager/idp/branding/events-ref/DeleteAsset.md
+          - name: DeleteBranding
+            href: >-
+              audit/organizationmanager/idp/branding/events-ref/DeleteBranding.md
+          - name: UpdateBranding
+            href: >-
+              audit/organizationmanager/idp/branding/events-ref/UpdateBranding.md
+          - name: OAuthFederationPrivateTlsCreateCertificate
+            href: >-
+              audit/organizationmanager/oauth/events-ref/OAuthFederationPrivateTlsCreateCertificate.md
+          - name: OAuthFederationPrivateTlsDeleteCertificate
+            href: >-
+              audit/organizationmanager/oauth/events-ref/OAuthFederationPrivateTlsDeleteCertificate.md
+          - name: OAuthFederationPrivateTlsUpdateCertificate
+            href: >-
+              audit/organizationmanager/oauth/events-ref/OAuthFederationPrivateTlsUpdateCertificate.md
+          - name: ActivateAuthenticationPolicyRule
+            href: >-
+              audit/organizationmanager/policy/events-ref/ActivateAuthenticationPolicyRule.md
+          - name: CreateAuthenticationPolicyRule
+            href: >-
+              audit/organizationmanager/policy/events-ref/CreateAuthenticationPolicyRule.md
+          - name: DeactivateAuthenticationPolicyRule
+            href: >-
+              audit/organizationmanager/policy/events-ref/DeactivateAuthenticationPolicyRule.md
+          - name: DeleteAuthenticationPolicyRule
+            href: >-
+              audit/organizationmanager/policy/events-ref/DeleteAuthenticationPolicyRule.md
+          - name: DeleteRefreshTokenPolicy
+            href: >-
+              audit/organizationmanager/policy/events-ref/DeleteRefreshTokenPolicy.md
+          - name: UpdateAuthenticationPolicyRule
+            href: >-
+              audit/organizationmanager/policy/events-ref/UpdateAuthenticationPolicyRule.md
+          - name: UpdateRefreshTokenPolicy
+            href: >-
+              audit/organizationmanager/policy/events-ref/UpdateRefreshTokenPolicy.md
+          - name: AddFederatedUserAccounts
+            href: >-
+              audit/organizationmanager/saml/events-ref/AddFederatedUserAccounts.md
+          - name: AddFederationDomain
+            href: audit/organizationmanager/saml/events-ref/AddFederationDomain.md
+          - name: CreateCertificate
+            href: audit/organizationmanager/saml/events-ref/CreateCertificate.md
+          - name: CreateFederation
+            href: audit/organizationmanager/saml/events-ref/CreateFederation.md
+          - name: DeleteCertificate
+            href: audit/organizationmanager/saml/events-ref/DeleteCertificate.md
+          - name: DeleteFederatedUserAccounts
+            href: >-
+              audit/organizationmanager/saml/events-ref/DeleteFederatedUserAccounts.md
+          - name: DeleteFederation
+            href: audit/organizationmanager/saml/events-ref/DeleteFederation.md
+          - name: DeleteFederationDomain
+            href: >-
+              audit/organizationmanager/saml/events-ref/DeleteFederationDomain.md
+          - name: ReactivateFederatedUserAccounts
+            href: >-
+              audit/organizationmanager/saml/events-ref/ReactivateFederatedUserAccounts.md
+          - name: SuspendFederatedUserAccounts
+            href: >-
+              audit/organizationmanager/saml/events-ref/SuspendFederatedUserAccounts.md
+          - name: UpdateCertificate
+            href: audit/organizationmanager/saml/events-ref/UpdateCertificate.md
+          - name: UpdateFederation
+            href: audit/organizationmanager/saml/events-ref/UpdateFederation.md
+          - name: ValidateFederationDomain
+            href: >-
+              audit/organizationmanager/saml/events-ref/ValidateFederationDomain.md
       - name: postbox
         items:
           - name: CreateConfigurationSet
@@ -3019,6 +3333,12 @@ items:
         items:
           - name: ArlMatchedRequest
             href: audit/smartwebsecurity/events-ref/ArlMatchedRequest.md
+          - name: ChangeSecurityProfileAdaptiveProtection
+            href: >-
+              audit/smartwebsecurity/events-ref/ChangeSecurityProfileAdaptiveProtection.md
+          - name: ChangeSecurityProfileProtectionMode
+            href: >-
+              audit/smartwebsecurity/events-ref/ChangeSecurityProfileProtectionMode.md
           - name: CreateArlProfile
             href: audit/smartwebsecurity/events-ref/CreateArlProfile.md
           - name: CreateCustomPage
@@ -3077,6 +3397,70 @@ items:
             href: audit/smartwebsecurity/events-ref/WafMatchedExclusionRule.md
           - name: WafMatchedRule
             href: audit/smartwebsecurity/events-ref/WafMatchedRule.md
+      - name: sourcecraft
+        items:
+          - name: AddPersonalEmail
+            href: audit/sourcecraft/events-ref/AddPersonalEmail.md
+          - name: AddPersonalPublicGpgKey
+            href: audit/sourcecraft/events-ref/AddPersonalPublicGpgKey.md
+          - name: AddPersonalPublicSshKey
+            href: audit/sourcecraft/events-ref/AddPersonalPublicSshKey.md
+          - name: CreatePersonalAccessToken
+            href: audit/sourcecraft/events-ref/CreatePersonalAccessToken.md
+          - name: CreateRepository
+            href: audit/sourcecraft/events-ref/CreateRepository.md
+          - name: CreateSecret
+            href: audit/sourcecraft/events-ref/CreateSecret.md
+          - name: CreateServiceConnection
+            href: audit/sourcecraft/events-ref/CreateServiceConnection.md
+          - name: DeleteAllSecrets
+            href: audit/sourcecraft/events-ref/DeleteAllSecrets.md
+          - name: DeletePersonalAccessToken
+            href: audit/sourcecraft/events-ref/DeletePersonalAccessToken.md
+          - name: DeleteRepository
+            href: audit/sourcecraft/events-ref/DeleteRepository.md
+          - name: DeleteSecret
+            href: audit/sourcecraft/events-ref/DeleteSecret.md
+          - name: DeleteServiceConnection
+            href: audit/sourcecraft/events-ref/DeleteServiceConnection.md
+          - name: GetSecret
+            href: audit/sourcecraft/events-ref/GetSecret.md
+          - name: GetSecretPayload
+            href: audit/sourcecraft/events-ref/GetSecretPayload.md
+          - name: ListSecrets
+            href: audit/sourcecraft/events-ref/ListSecrets.md
+          - name: NewAppSecDefect
+            href: audit/sourcecraft/events-ref/NewAppSecDefect.md
+          - name: OffboardCloudRegistry
+            href: audit/sourcecraft/events-ref/OffboardCloudRegistry.md
+          - name: OffboardOrganization
+            href: audit/sourcecraft/events-ref/OffboardOrganization.md
+          - name: OnboardCloudRegistry
+            href: audit/sourcecraft/events-ref/OnboardCloudRegistry.md
+          - name: OnboardOrganization
+            href: audit/sourcecraft/events-ref/OnboardOrganization.md
+          - name: RemovePersonalEmail
+            href: audit/sourcecraft/events-ref/RemovePersonalEmail.md
+          - name: RemovePersonalPublicGpgKey
+            href: audit/sourcecraft/events-ref/RemovePersonalPublicGpgKey.md
+          - name: RemovePersonalPublicSshKey
+            href: audit/sourcecraft/events-ref/RemovePersonalPublicSshKey.md
+          - name: UpdateAppsecSettings
+            href: audit/sourcecraft/events-ref/UpdateAppsecSettings.md
+          - name: UpdateOrganization
+            href: audit/sourcecraft/events-ref/UpdateOrganization.md
+          - name: UpdatePersonalAccessToken
+            href: audit/sourcecraft/events-ref/UpdatePersonalAccessToken.md
+          - name: UpdateRepository
+            href: audit/sourcecraft/events-ref/UpdateRepository.md
+          - name: UpdateRepositoryAccessBindings
+            href: audit/sourcecraft/events-ref/UpdateRepositoryAccessBindings.md
+          - name: UpdateSecret
+            href: audit/sourcecraft/events-ref/UpdateSecret.md
+          - name: UpdateServiceConnection
+            href: audit/sourcecraft/events-ref/UpdateServiceConnection.md
+          - name: VerifyPersonalEmail
+            href: audit/sourcecraft/events-ref/VerifyPersonalEmail.md
       - name: spark
         items:
           - name: CreateCluster

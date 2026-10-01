@@ -109,6 +109,20 @@ for replicated tables, Kafka streaming, and DNS cache updates.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#dictionaries_lazy_load).
 
+- `shutdown_wait_unfinished_queries`: Enables or disables wait for running queries finish before shutdown.
+
+  Default value: **false**.
+
+  Change of the setting is applied with restart.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#shutdown_wait_unfinished_queries).
+
+- `shutdown_wait_unfinished`: Delay in seconds to wait for unfinished queries before shutdown.
+
+  Default value: **60** (1 minute).
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#shutdown_wait_unfinished).
+
 - `log_level`: Logging level.
 
 - `query_log_retention_size`: The maximum size that query_log can grow to before old data will be removed. If set to **0**,
@@ -885,11 +899,26 @@ the session timeout, the broker will remove the consumer from the group and trig
 
   Default value: **9019**.
 
-- `mysql_protocol`: Enables or disables MySQL interface on ClickHouse server
+- `mysql_protocol`: Enables or disables MySQL interface on ClickHouse server.
+When enabled, the interface accepts connections on the default MySQL port, 3306.
 
   Default value: **false**.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/interfaces/mysql).
+
+- `grpc_protocol`: Enables or disables gRPC interface on ClickHouse server.
+When enabled, the interface accepts connections on the port 9100.
+
+  Default value: **false**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/concepts/features/interfaces/grpc).
+
+- `arrowflight_protocol`: Enables or disables Arrow Flight SQL interface on ClickHouse server.
+When enabled, the interface accepts connections on the port 9090.
+
+  Default value: **false**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/interfaces/arrowflight).
 
 - `custom_macros.name`: Name of the macro.
 

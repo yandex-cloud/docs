@@ -254,7 +254,8 @@
         "latestMaintenanceTime": "string",
         "nextMaintenanceWindowTime": "string"
       },
-      "diskEncryptionKeyId": "string"
+      "diskEncryptionKeyId": "string",
+      "isHa": "boolean"
     },
     "backup": {
       "id": "string",
@@ -495,6 +496,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow)** ||
 || plannedOperation | **[MaintenanceOperation](#yandex.cloud.mdb.opensearch.v1.MaintenanceOperation)** ||
 || diskEncryptionKeyId | **string** ||
+|| isHa | **boolean** ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.opensearch.v1.Monitoring}

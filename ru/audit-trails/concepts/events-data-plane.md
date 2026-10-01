@@ -15,6 +15,8 @@ description: В данном разделе приведены описания 
 
 {% include [about-events-ref](../../_includes/audit-trails/about-events-ref.md) %}
 
+{% include [note-events-delivery](../../_includes/audit-trails/note-events-delivery.md) %}
+
 Ниже описаны события для сервисов:
 
 {% include [dp-events-service-list](../../_includes/audit-trails/dp-events-service-list.md) %}
@@ -72,6 +74,12 @@ description: В данном разделе приведены описания 
 Имя сервиса — `organizationmanager`.
 
 {% include [org-events-dp](../../_includes/audit-trails/events/org-events-dp.md) %}
+
+## {{ src-full-name }} {#sourcecraft}
+
+Имя сервиса — `sourcecraft`.
+
+{% include [sourcecraft-events-dp](../../_includes/audit-trails/events/sourcecraft-events-dp.md) %}
 
 ## {{ iam-full-name }} {#iam}
 
@@ -215,11 +223,6 @@ description: В данном разделе приведены описания 
 
 {% include [vpc-events-dp](../../_includes/audit-trails/events/vpc-events-dp.md) %}
 
-## {{ vision-full-name }} {#vision}
-
-Имя сервиса — `ai.ocr`.
-
-{% include [vision-events-dp](../../_includes/audit-trails/events/vision-events-dp.md) %}
 
 ## {{ wiki-full-name }} {#wiki}
 
@@ -232,5 +235,4 @@ description: В данном разделе приведены описания 
 Имя сервиса — `websql`.
 
 {% include [websql-events-dp](../../_includes/audit-trails/events/websql-events-dp.md) %}
-
 

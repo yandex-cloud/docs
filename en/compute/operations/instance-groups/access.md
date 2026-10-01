@@ -17,7 +17,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select the group.
-  1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. In the window that opens, select the group, user, or service account you want to grant access to the instance group.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [roles](../../security/index.md#roles-list).
@@ -47,35 +47,32 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   1. Assign a role using this command:
 
-     * To a user:
+     ```bash
+     {{ yc-compute-ig }} add-access-binding <instance_group_name_or_ID> \
+       --role <role> \
+       --subject <subject_type>:<subject_ID>
+     ```
 
-       ```bash
-       {{ yc-compute-ig }} add-access-binding <instance_group_name_or_ID> \
-         --user-account-id <user_ID> \
-         --role <role>
-       ```
+     Where:
 
-       Where:
+     * `--role`: [Role](../../security/index.md#roles-list).
+     * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
 
-       * `--user-account-id`: [User ID](../../../organization/operations/users-get.md).
-       * `--role`: [Role](../../security/index.md#roles-list).
+         {% cut "Subject designations" %}
 
-     * To a service account:
+         {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
 
-       ```bash
-       {{ yc-compute-ig }} add-access-binding <instance_group_name_or_ID> \
-         --service-account-id <service_account_ID> \
-         --role <role>
-       ```
-
-       Where:
-
-       * `--service-account-id`: [Service account ID](../../../iam/operations/sa/get-id.md).
-       * `--role`: Role.
+         {% endcut %}
 
 - API {#api}
 
-  Use the [updateAccessBindings](../../instancegroup/api-ref/InstanceGroup/updateAccessBindings.md) REST API method for the [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/) resource or the [InstanceGroupService/UpdateAccessBindings](../../instancegroup/api-ref/grpc/InstanceGroup/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID under `subject`.
+  Use the [updateAccessBindings](../../instancegroup/api-ref/InstanceGroup/updateAccessBindings.md) REST API method for the [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/) resource or the [InstanceGroupService/UpdateAccessBindings](../../instancegroup/api-ref/grpc/InstanceGroup/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the [subject](../../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+
+  {% cut "Subject designations" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}
 
@@ -89,12 +86,12 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select the group.
-  1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. In the window that opens, select the group, user, or service account you want to grant access to the instance group.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [roles](../../security/index.md#roles-list).
   1. To add another role, click **{{ ui-key.yacloud_components.acl.button.add-role }}**.
-  1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+  1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 - CLI {#cli}
 
@@ -125,14 +122,18 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        --access-binding role=<role>,subject=<subject_type>:<subject_ID>
      ```
 
-     Where:
+     Where `--access-binding` is the role you are assigning:
 
-     * `--access-binding`: Role:
+     * `role`: Role ID.
+     * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
 
-       * `role`: Role ID.
-       * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+         {% cut "Indicating a subject" %}
 
-     For example, this command will assign roles to multiple users and a single service account:
+         {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+         {% endcut %}
+
+     For example, assign roles to several users and one service account:
 
      ```bash
      {{ yc-compute-ig }} set-access-bindings test-group \
@@ -143,7 +144,13 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  Use the [setAccessBindings](../../instancegroup/api-ref/InstanceGroup/setAccessBindings.md) REST API method for the [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/) resource or the [InstanceGroupService/SetAccessBindings](../../instancegroup/api-ref/grpc/InstanceGroup/setAccessBindings.md) gRPC API call.
+  Use the [setAccessBindings](../../instancegroup/api-ref/InstanceGroup/setAccessBindings.md) REST API method for the [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/) resource or the [InstanceGroupService/SetAccessBindings](../../instancegroup/api-ref/grpc/InstanceGroup/setAccessBindings.md) gRPC API call. In the request body, specify the [subject](../../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+
+  {% cut "Subject designations" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}
 
@@ -157,7 +164,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select the group.
-  1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. In the line with the user in question, click ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
   1. Click ![cross](../../../_assets/console-icons/xmark.svg) next to a role to delete it.
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -193,6 +200,12 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      * `--role`: ID of the role you need to revoke.
      * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) to revoke the role from.
 
+         {% cut "Subject designations" %}
+
+         {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+         {% endcut %}
+
      For example, this command revokes the `{{ roles-viewer }}` role for the instance group from a user with the `ajel6l0jcb9s********` ID:
 
      ```bash
@@ -203,6 +216,12 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  Use the [updateAccessBindings](../../instancegroup/api-ref/InstanceGroup/updateAccessBindings.md) REST API method for the [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/) resource or the [InstanceGroupService/UpdateAccessBindings](../../instancegroup/api-ref/grpc/InstanceGroup/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID under `subject`.
+  Use the [updateAccessBindings](../../instancegroup/api-ref/InstanceGroup/updateAccessBindings.md) REST API method for the [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/) resource or the [InstanceGroupService/UpdateAccessBindings](../../instancegroup/api-ref/grpc/InstanceGroup/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the [subject](../../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+
+  {% cut "Subject designations" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}

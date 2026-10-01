@@ -198,7 +198,7 @@ The infrastructure support cost includes:
     | ----------- | ----------- | ----------- |
     | `path_for_private_ssh_key` | File with a private key used to connect to the NAT instances and test VM over SSH | `./pt_key.pem` |
     | `vm_username` | NAT instance and test VM username | `admin` |
-    | `test_vm_password` | `admin` password for the test VM | `v3RCqU****` |
+    | `test_vm_password` | Test VM `admin` password | `v3RCqU****` |
     | `s3_bucket_name` | Bucket name in {{ objstorage-name }} | `s3-bucket-<...>` |
     | `s3_nlb_ip_address` | IP address of the internal load balancer | `10.10.1.100` |
 

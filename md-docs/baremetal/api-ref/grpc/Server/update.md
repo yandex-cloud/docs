@@ -100,9 +100,6 @@ The maximum string length in characters for each value is 63. The string length 
 
 ## NetworkInterfaceSpec {#yandex.cloud.baremetal.v1alpha.NetworkInterfaceSpec}
 
-
-Required for backward compatibility with old clients. --)
-
 #|
 ||Field | Description ||
 || private_subnet | **[PrivateSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PrivateSubnetNetworkInterface)**

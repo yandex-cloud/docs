@@ -34,37 +34,38 @@ output "my_saml_app.status" {
 - `application_id` (String). ID of the SAML application to return.
 - `attribute_mapping` [Block]. Attribute mapping configuration for the SAML application.
   - `attributes` [Block]. List of attribute mappings.
-    - `name` (**Required**)(String). Name of the SAML attribute.
-    - `value` (**Required**)(String). Value of the SAML attribute.
+    - `name` (*Read-Only*) (String). Name of the SAML attribute.
+    - `value` (*Read-Only*) (String). Value of the SAML attribute.
   - `name_id` [Block]. NameID configuration for the SAML application.
-    - `format` (**Required**)(String). Format of the NameID.
-    - `value` (String). Value of the NameID.
+    - `format` (*Read-Only*) (String). Format of the NameID.
+    - `value` (*Read-Only*) (String). Value of the NameID.
 - `created_at` (*Read-Only*) (String). Creation timestamp.
-- `description` (String). Description of the SAML application.
+- `description` (*Read-Only*) (String). Description of the SAML application.
 - `group_claims_settings` [Block]. Group claims settings for the SAML application.
-  - `group_attribute_name` (String). Name of the SAML attribute that contains group information.
-  - `group_distribution_type` (String). Distribution type for group claims.
+  - `group_attribute_name` (*Read-Only*) (String). Name of the SAML attribute that contains group information.
+  - `group_attribute_value` (*Read-Only*) (String). Source of the group value provided to the application.
+  - `group_distribution_type` (*Read-Only*) (String). Distribution type for group claims.
 - `id` (String). ID of the SAML application to return.
 - `identity_provider_metadata` [Block]. Identity provider metadata for the SAML application.
   - `issuer` (*Read-Only*) (String). Identity provider issuer identifier.
   - `metadata_url` (*Read-Only*) (String). Identity provider metadata URL.
   - `slo_url` (*Read-Only*) (String). Identity provider Single Logout URL.
   - `sso_url` (*Read-Only*) (String). Identity provider Single Sign-On URL.
-- `labels` (Map Of String). Resource labels as `` key:value `` pairs.
-- `name` (**Required**)(String). Name of the SAML application.
-- `organization_id` (**Required**)(String). ID of the organization that the application belongs to.
+- `labels` (*Read-Only*) (Map Of String). Resource labels as `` key:value `` pairs.
+- `name` (*Read-Only*) (String). Name of the SAML application.
+- `organization_id` (*Read-Only*) (String). ID of the organization that the application belongs to.
 - `security_settings` [Block]. Security settings for the SAML application.
-  - `signature_certificate_id` (String). ID of the signature certificate to use.
-  - `signature_mode` (String). Signature mode for SAML messages.
+  - `signature_certificate_id` (*Read-Only*) (String). ID of the signature certificate to use.
+  - `signature_mode` (*Read-Only*) (String). Signature mode for SAML messages.
 - `service_provider` [Block]. Service provider configuration for the SAML application.
   - `acs_urls` [Block]. Assertion Consumer Service URLs.
-    - `index` (Number). Optional index for the assertion consumer service.
-    - `url` (**Required**)(String). The URL where SAML responses are sent.
-  - `entity_id` (**Required**)(String). Service provider entity ID.
+    - `index` (*Read-Only*) (Number). Optional index for the assertion consumer service.
+    - `url` (*Read-Only*) (String). The URL where SAML responses are sent.
+  - `entity_id` (*Read-Only*) (String). Service provider entity ID.
   - `slo_urls` [Block]. Single Logout Service URLs.
-    - `protocol_binding` (**Required**)(String). Protocol binding supported by the logout endpoint.
-    - `response_url` (String). Optional separate URL for logout responses.
-    - `url` (**Required**)(String). The URL where logout requests are sent.
+    - `protocol_binding` (*Read-Only*) (String). Protocol binding supported by the logout endpoint.
+    - `response_url` (*Read-Only*) (String). Optional separate URL for logout responses.
+    - `url` (*Read-Only*) (String). The URL where logout requests are sent.
 - `status` (*Read-Only*) (String). Current status of the SAML application.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).

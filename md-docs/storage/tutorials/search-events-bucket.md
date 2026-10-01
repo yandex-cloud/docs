@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Поиск событий Yandex Cloud в Object Storage
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Сбор и анализ логов > Поиск событий Yandex Cloud в Object Storage
 
 # Поиск событий Yandex Cloud в Object Storage
 

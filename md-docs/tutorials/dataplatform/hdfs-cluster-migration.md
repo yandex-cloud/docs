@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Миграция кластера Yandex Data Processing с HDFS в другую зону доступности
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Yandex Data Processing > Миграция кластера Yandex Data Processing с HDFS в другую зону доступности
 
 # Миграция кластера Yandex Data Processing с файловой системой HDFS в другую зону доступности
 
@@ -127,6 +127,7 @@
          Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
       
       1. Если вас устраивают планируемые изменения, внесите их:
+      
          1. Выполните команду:
       
             ```bash
@@ -147,7 +148,7 @@
    Чтобы посмотреть список запущенных операций и заданий:
 
    1. Откройте [консоль управления](https://console.yandex.cloud).
-   1. [Перейдите]((https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
+   1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
    1. Нажмите на имя первоначального кластера и выберите вкладку **Операции**, затем — **Задания**.
 
    {% note info %}
@@ -218,7 +219,7 @@
    Объем копируемых данных можно посмотреть в веб-интерфейсе HDFS. Чтобы открыть его:
 
    1. Откройте [консоль управления](https://console.yandex.cloud).
-   1. [Перейдите]((https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
+   1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
    1. Нажмите на имя первоначального кластера.
    1. На его странице, в разделе **UI Proxy**, перейдите по ссылке **HDFS Namenode UI**.
 

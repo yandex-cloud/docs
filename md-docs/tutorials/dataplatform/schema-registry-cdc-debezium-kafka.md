@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Создание реестра схем для поставки данных в формате Debezium CDC из Apache Kafka®
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Yandex Data Transfer > Создание реестра схем для поставки данных в формате Debezium CDC из Apache Kafka®
 
 # Создание реестра схем для поставки данных в формате Debezium CDC из Apache Kafka®
 

@@ -197,6 +197,10 @@ items:
         href: tutorials/jdbc-ch-to-sql-server-integration.md
       - name: Integration with an external Oracle database via {{ CH }} JDBC Bridge
         href: tutorials/jdbc-ch-to-oracle-integration.md
+      - name: >-
+          Executing analytical queries in {{ mpg-name }} with processing in {{
+          mch-name }}
+        href: tutorials/mpg-pg-clickhouse-extension.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -246,6 +250,8 @@ items:
         href: concepts/settings-list.md
   - name: Access management
     href: security.md
+  - name: Inspections and recommendations
+    href: advisor.md
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference
@@ -262,6 +268,20 @@ items:
             href: cli-ref/backup/get.md
           - name: list
             href: cli-ref/backup/list.md
+      - name: change-freeze
+        items:
+          - name: Overview
+            href: cli-ref/change-freeze/index.md
+          - name: create
+            href: cli-ref/change-freeze/create.md
+          - name: get
+            href: cli-ref/change-freeze/get.md
+          - name: get-limits
+            href: cli-ref/change-freeze/get-limits.md
+          - name: list
+            href: cli-ref/change-freeze/list.md
+          - name: terminate
+            href: cli-ref/change-freeze/terminate.md
       - name: cluster
         items:
           - name: Overview
@@ -306,6 +326,8 @@ items:
             href: cli-ref/cluster/list-logs.md
           - name: list-operations
             href: cli-ref/cluster/list-operations.md
+          - name: migrate-to-keeper
+            href: cli-ref/cluster/migrate-to-keeper.md
           - name: move
             href: cli-ref/cluster/move.md
           - name: remove-access-binding
@@ -390,6 +412,16 @@ items:
             href: cli-ref/hosts/restart.md
           - name: update
             href: cli-ref/hosts/update.md
+      - name: maintenance
+        items:
+          - name: Overview
+            href: cli-ref/maintenance/index.md
+          - name: get
+            href: cli-ref/maintenance/get.md
+          - name: list
+            href: cli-ref/maintenance/list.md
+          - name: reschedule
+            href: cli-ref/maintenance/reschedule.md
       - name: ml-model
         items:
           - name: Overview
@@ -480,6 +512,20 @@ items:
                 href: cli-ref/v0/backup/get.md
               - name: list
                 href: cli-ref/v0/backup/list.md
+          - name: change-freeze
+            items:
+              - name: Overview
+                href: cli-ref/v0/change-freeze/index.md
+              - name: create
+                href: cli-ref/v0/change-freeze/create.md
+              - name: get
+                href: cli-ref/v0/change-freeze/get.md
+              - name: get-limits
+                href: cli-ref/v0/change-freeze/get-limits.md
+              - name: list
+                href: cli-ref/v0/change-freeze/list.md
+              - name: terminate
+                href: cli-ref/v0/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -524,6 +570,8 @@ items:
                 href: cli-ref/v0/cluster/list-logs.md
               - name: list-operations
                 href: cli-ref/v0/cluster/list-operations.md
+              - name: migrate-to-keeper
+                href: cli-ref/v0/cluster/migrate-to-keeper.md
               - name: move
                 href: cli-ref/v0/cluster/move.md
               - name: remove-access-binding
@@ -608,6 +656,16 @@ items:
                 href: cli-ref/v0/hosts/restart.md
               - name: update
                 href: cli-ref/v0/hosts/update.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/v0/maintenance/index.md
+              - name: get
+                href: cli-ref/v0/maintenance/get.md
+              - name: list
+                href: cli-ref/v0/maintenance/list.md
+              - name: reschedule
+                href: cli-ref/v0/maintenance/reschedule.md
           - name: ml-model
             items:
               - name: Overview
@@ -716,6 +774,20 @@ items:
                 href: api-ref/grpc/Backup/list.md
               - name: Delete
                 href: api-ref/grpc/Backup/delete.md
+          - name: ChangeFreeze
+            items:
+              - name: Overview
+                href: api-ref/grpc/ChangeFreeze/index.md
+              - name: Create
+                href: api-ref/grpc/ChangeFreeze/create.md
+              - name: Get
+                href: api-ref/grpc/ChangeFreeze/get.md
+              - name: List
+                href: api-ref/grpc/ChangeFreeze/list.md
+              - name: Terminate
+                href: api-ref/grpc/ChangeFreeze/terminate.md
+              - name: GetLimits
+                href: api-ref/grpc/ChangeFreeze/getLimits.md
           - name: ClusterExtension
             items:
               - name: Overview
@@ -748,6 +820,8 @@ items:
                 href: api-ref/grpc/Cluster/delete.md
               - name: AddZookeeper
                 href: api-ref/grpc/Cluster/addZookeeper.md
+              - name: MigrateToKeeper
+                href: api-ref/grpc/Cluster/migrateToKeeper.md
               - name: Start
                 href: api-ref/grpc/Cluster/start.md
               - name: Stop
@@ -928,6 +1002,20 @@ items:
                 href: api-ref/Backup/list.md
               - name: Delete
                 href: api-ref/Backup/delete.md
+          - name: ChangeFreeze
+            items:
+              - name: Overview
+                href: api-ref/ChangeFreeze/index.md
+              - name: Create
+                href: api-ref/ChangeFreeze/create.md
+              - name: Get
+                href: api-ref/ChangeFreeze/get.md
+              - name: List
+                href: api-ref/ChangeFreeze/list.md
+              - name: Terminate
+                href: api-ref/ChangeFreeze/terminate.md
+              - name: GetLimits
+                href: api-ref/ChangeFreeze/getLimits.md
           - name: ClusterExtension
             items:
               - name: Overview
@@ -960,6 +1048,8 @@ items:
                 href: api-ref/Cluster/delete.md
               - name: AddZookeeper
                 href: api-ref/Cluster/addZookeeper.md
+              - name: MigrateToKeeper
+                href: api-ref/Cluster/migrateToKeeper.md
               - name: Start
                 href: api-ref/Cluster/start.md
               - name: Stop

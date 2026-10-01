@@ -13,7 +13,7 @@
 1. [Подготовьте инфраструктуру для {{ managed-k8s-name }}](#infra).
 1. [Подготовьте виртуальную машину](#vm).
 1. [Проверьте доступность кластера](#check).
-1. (Опционально) [Настройте подключение к NTP-серверам](#ntp).
+1. (Опционально) [Настройте синхронизацию времени кластера {{ managed-k8s-name }} с собственным NTP-сервером](#ntp).
 1. (Опционально) [Подключите приватный реестр Docker-образов](#cert).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
@@ -21,12 +21,10 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер {{ managed-k8s-name }}: использование мастера ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера и ВМ: использование вычислительных ресурсов, операционной системы и хранилища ([тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Плата за публичный IP-адрес для ВМ, которая используется для подключения к кластеру ([тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
-* Плата за сервис {{ kms-name }}: количество активных версий ключа (в статусах `Active` и `Scheduled For Destruction`) и выполненных криптографических операций ([тарифы {{ kms-name }}](../../kms/pricing.md)).
+* Мастер {{ managed-k8s-name }} ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Сервис {{ kms-full-name }}: количество активных версий ключа и выполненных криптографических операций ([тарифы {{ kms-name }}](../../kms/pricing.md)).
 
 
 ## Подготовьте инфраструктуру для {{ managed-k8s-name }} {#infra}
@@ -357,7 +355,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
                        update-ca-certificates 
 
                        echo "Restarting containerd"
-                       ps -x -o pid= -o comm= | awk '$2 ~ "^(containerd|dockerd)$" { print $1 }' | xargs kill
+                       { pgrep -x containerd; pgrep -x dockerd; } | xargs -r kill
                        #systemd will get them back less than a minute
                    else
                      echo "Doing Nothing as no certs has not been changed"

@@ -36,6 +36,7 @@ description: Various use cases for core infrastructure management systems in {{ 
 * [{#T}](../infrastructure/coi-with-terraform.md)
 * [Running a Docker image on a VM](../infrastructure-management/run-docker-on-vm/index.md)
 * [Transferring logs through {{ unified-agent-short-name }} HTTP input to {{ cloud-logging-full-name }}](../infrastructure-management/ua-http-logging.md)
+* [Web service SLO monitoring in {{ monium-name }} using blackbox_exporter and {{ unified-agent-short-name }}](../infrastructure-management/slo-blackbox-exporter.md)
 * [{#T}](gpu-cluster-deepseek.md)
 
 ## Network {#routing}

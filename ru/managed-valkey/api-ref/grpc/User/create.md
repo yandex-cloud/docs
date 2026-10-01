@@ -28,7 +28,9 @@ Creates a Redis user in the specified cluster.
       "sanitize_payload": "google.protobuf.StringValue",
       "databases": "google.protobuf.StringValue"
     },
-    "enabled": "google.protobuf.BoolValue"
+    "enabled": "google.protobuf.BoolValue",
+    "generate_password": "google.protobuf.BoolValue",
+    "auth_type": "AuthType"
   }
 }
 ```
@@ -59,13 +61,22 @@ The maximum string length in characters is 32. Value must match the regular expr
 
 Password of the Redis user.
 
-The maximum number of elements is 1. ||
+Each value must match the regular expression ` ^[a-zA-Z0-9@=+?*.,!&#$^<>_-]*$ `. The maximum number of elements is 1. ||
 || permissions | **[Permissions](#yandex.cloud.mdb.redis.v1.Permissions)**
 
 Set of permissions to grant to the user. ||
 || enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Is Redis user enabled ||
+|| generate_password | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Generate password using Connection Manager ||
+|| auth_type | enum **AuthType**
+
+Authentication type for the user
+
+- `AUTH_TYPE_PASSWORD`: Password-based authentication
+- `AUTH_TYPE_IAM`: IAM-based authentication ||
 |#
 
 ## Permissions {#yandex.cloud.mdb.redis.v1.Permissions}
@@ -86,7 +97,7 @@ Command categories user has permissions to. ||
 Commands user can execute. ||
 || sanitize_payload | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
-SanitizePayload parameter. ||
+Deprecated. This parameter is ignored. ||
 || databases | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
 Databases parameter. ||

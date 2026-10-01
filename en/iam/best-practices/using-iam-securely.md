@@ -25,7 +25,7 @@ For critical resources:
 Automate your {{ yandex-cloud }} operations using [service accounts](../concepts/users/service-accounts.md) and follow these recommendations:
 
 * Control access to your service accounts. The `editor` role for a service account allows the user to perform operations that service account is authorized to perform. If the service account is the cloud administrator, the user can use it to make themselves an administrator.
-* Create separate service accounts for different tasks. This will allow you to give them only the roles they really need. You can revoke roles from a service account or delete it without affecting other service accounts.
+* Create separate service accounts for different tasks. This will allow you to give them only the roles they really need. You can revoke roles from a service account, as well as [suspend](../operations/sa/suspend-reactivate.md#suspend) or delete it without affecting other service accounts at any time.
 * Name your service accounts according to their intended purposes and permissions.
 * Keep your [service account keys](../concepts/users/service-accounts#sa-key) secret: they can be used to perform operations under your service account. Do not keep your service account keys in the source code.
 

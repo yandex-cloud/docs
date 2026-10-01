@@ -2,6 +2,8 @@
 
 # Удалить приватное соединение
 
+Если приватное соединение добавлено в [виртуальный маршрутизатор](../../cloud-router/concepts/routing-instance.md), сначала [удалите его из виртуального маршрутизатора](../../cloud-router/operations/ri-priv-con-del.md).
+
 {% note info %}
 
 Для выполнения операции необходима роль [cic.editor](../security/index.md#cic-editor).

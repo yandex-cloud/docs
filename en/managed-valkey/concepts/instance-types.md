@@ -15,11 +15,14 @@ The amount of memory allocated to a host also depends on the `maxmemory` configu
 {% endnote %}
 
 
+
 The host class determines the available [disk types](./storage.md):
 
-* **hm1**: `network-ssd`, `local-ssd`.
-* **hm2**, **hm3**: `network-ssd`, `local-ssd`, `network-ssd-nonreplicated`, `network-ssd-io-m3`.
+* **hm2**, **hm3**, **m3**, **m4a**: `network-ssd`, `local-ssd`, `network-ssd-nonreplicated`, `network-ssd-io-m3`.
+* **hm4af**, **m4af**: `network-ssd`, `network-ssd-nonreplicated`, `network-ssd-io-m3`.
 * **b2**, **b3**: `network-ssd`.
+
+
 
 
 The storage space available to the host should be at least twice as large as the selected memory size. For more information on {{ mrd-name }} technical and organizational limitations, see [Quotas and limits](limits.md).
@@ -29,33 +32,22 @@ The storage space available to the host should be at least twice as large as the
 
 {% include [disk-flavor-dependencies](../../_includes/mdb/disk-flavor-dependencies.md) %}
 
-For example, `{{ region-id }}-d` does not support Intel Broadwell and local SSD storage if Intel Cascade Lake is used.
+For example, `{{ region-id }}-d` does not support local SSD storage if using Intel Cascade Lake.
 
 Configuration types:
 
-* **burstable**: Configurations with a [guaranteed vCPU share](../../compute/concepts/performance-levels.md) under 100%. This host class is intended for test load, while the minimum recommended host configuration for production solutions is two vCPUs with a guaranteed share of 100%.
+* **burstable** (**b2**, **b3**): Configurations with a [guaranteed vCPU share](../../compute/concepts/performance-levels.md) under 100%. This host class is intended for test load, while the minimum recommended host configuration for production solutions is two vCPUs with a guaranteed share of 100%.
 
-* **high-memory**: Standard configurations for {{ VLK }}.
+* **high-memory** (**hm2**, **hm3**, **hm4af**): Standard configurations for {{ VLK }}.
 
     A cluster with this configuration type may contain several hosts (from one to current [quota](./limits.md) limit) per cluster or [shard](./sharding.md). The minimum number of hosts per cluster [depends](./limits.md#mrd-limits) on the [selected disk type](./storage.md).
 
+* **memory-optimized** (**m3**, **m4a**, **m4af**): Configurations with an increased GB RAM to vCPU ratio (8:1). These configurations are well suited for clusters with high cache requirements.
+
+{% include [note-burstable-deprecated](../../_includes/mdb/note-burstable-deprecated.md) %}
+
 | Host class name | Number of vCPUs | RAM, GB | CPU performance | Disk <br>size, GB |
 |-------------------|----------------|---------|------------------------|----------------------|
-| **Intel Broadwell**                                                                          |
-| hm1.nano          | 2              | 8       | 100%                   | 16 - 4,096            |
-| hm1.micro         | 2              | 12      | 100%                   | 24 - 4,096            |
-| hm1.small         | 2              | 16      | 100%                   | 32 - 4,096            |
-| hm1.medium        | 4              | 24      | 100%                   | 48 - 4,096            |
-| hm1.large         | 4              | 32      | 100%                   | 64 - 4,096            |
-| hm1.xlarge        | 4              | 48      | 100%                   | 96 - 4,096            |
-| hm1.2xlarge       | 4              | 64      | 100%                   | 128 - 4,096           |
-| hm1.3xlarge       | 4              | 80      | 100%                   | 160 - 4,096           |
-| hm1.4xlarge       | 8              | 96      | 100%                   | 192 - 4,096           |
-| hm1.5xlarge       | 8              | 128     | 100%                   | 256 - 4,096           |
-| hm1.6xlarge       | 8              | 160     | 100%                   | 320 - 4,096           |
-| hm1.7xlarge       | 8              | 192     | 100%                   | 384 - 4,096           |
-| hm1.8xlarge       | 8              | 224     | 100%                   | 448 - 4,096           |
-| hm1.9xlarge       | 8              | 256     | 100%                   | 512 - 4,096           |
 | **Intel Cascade Lake**                                                                       |
 | b2.medium         | 2              | 4       | 50%                    | 8 - 32               |
 | hm2.nano          | 2              | 8       | 100%                   | 16 - 8,184            |
@@ -90,6 +82,10 @@ Configuration types:
 | hm3-c14-m224      | 14             | 224     | 100%                   | 448 - 8,184           |
 | hm3-c16-m256      | 16             | 256     | 100%                   | 512 - 8,184           |
 | hm3-c20-m320      | 20             | 320     | 100%                   | 640 - 8,184           |
+| m3-c48-m384	    | 48             | 384     | 100%	                | 768 — 8,184           |
+| m3-c56-m448	    | 56             | 448     | 100%                   | 896 — 8,184           |
+| m3-c64-m512       | 64             | 512     | 100%                   | 1,024 — 8,184          |
+| m3-c80-m640       | 80             | 640     | 100%                   | 1,280 — 8,184          |
 | **AMD Zen 4**                                                                                |
 | m4a-c2-m16        | 2              | 16      | 100%                   | 32 - 8,184            |
 | m4a-c4-m32        | 4              | 32      | 100%                   | 64 - 8,184            |
@@ -101,13 +97,6 @@ Configuration types:
 | m4a-c128-m1024    | 128            | 1,024    | 100%                   | 2,048 - 8,184         |
 | m4a-c224-m1792    | 224            | 1,792    | 100%                   | 3,534 - 8,184         |
 | **AMD Zen 4 HighFreq**                                                                       |
-| m4af-c2-m16       | 2              | 16      | 100%                   | 32 - 8,184            |
-| m4af-c4-m32       | 4              | 32      | 100%                   | 64 - 8,184            |
-| m4af-c8-m64       | 8              | 64      | 100%                   | 128 - 8,184           |
-| m4af-c16-m128     | 16             | 128     | 100%                   | 256 - 8,184           |
-| m4af-c32-m256     | 32             | 256     | 100%                   | 512 - 8,184           |
-| m4af-c48-m384     | 48             | 384     | 100%                   | 768 - 8,184           |
-| m4af-c80-m640     | 80             | 640     | 100%                   | 1,280 - 8,184          |
 | hm4af-c2-m20      | 2              | 20      | 100%                   | 40 - 8,184            |
 | hm4af-c2-m24      | 2              | 24      | 100%                   | 48 - 8,184            |
 | hm4af-c4-m40      | 4              | 40      | 100%                   | 80 - 8,184            |
@@ -122,3 +111,12 @@ Configuration types:
 | hm4af-c48-m576    | 48             | 576     | 100%                   | 1,152 - 8,184          |
 | hm4af-c80-m800    | 80             | 800     | 100%                   | 1,600 - 8,184          |
 | hm4af-c80-m960    | 80             | 960     | 100%                   | 1,860 - 8,184          |
+| m4af-c2-m16       | 2              | 16      | 100%                   | 32 - 8,184            |
+| m4af-c4-m32       | 4              | 32      | 100%                   | 64 - 8,184            |
+| m4af-c8-m64       | 8              | 64      | 100%                   | 128 - 8,184           |
+| m4af-c16-m128     | 16             | 128     | 100%                   | 256 - 8,184           |
+| m4af-c32-m256     | 32             | 256     | 100%                   | 512 - 8,184           |
+| m4af-c48-m384     | 48             | 384     | 100%                   | 768 - 8,184           |
+| m4af-c80-m640     | 80             | 640     | 100%                   | 1,280 - 8,184          |
+
+

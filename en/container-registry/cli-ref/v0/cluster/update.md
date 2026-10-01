@@ -71,6 +71,12 @@ Security group IDs to use for cluster. ||
 || `--node-ipv4-mask-size` | `int`
 
 Size of the masks that are assigned for each node in the cluster. ||
+|| `--cluster-ipv4-range-list` | `value[,value]`
+
+List of IPv4 ranges for the Kubernetes cluster pods in CIDR notation. ||
+|| `--cluster-ipv6-range-list` | `value[,value]`
+
+List of IPv6 ranges for the Kubernetes cluster pods in CIDR notation. ||
 || `--master-location` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 List of regional master locations.

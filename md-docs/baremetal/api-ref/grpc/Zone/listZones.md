@@ -3,7 +3,6 @@
 # BareMetal API, gRPC: ZoneService.ListZones
 
 
-https://google.aip.dev/130 --)
 Retrieves the list of Zone resources.
 
 ## gRPC request

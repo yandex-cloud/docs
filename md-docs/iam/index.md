@@ -14,6 +14,8 @@
 
  - [Все инструкции](operations/index.md)
 
+ - [Получение информации о субъектах](operations/subject-details.md)
+
  - [Обработка секретов, попавших в открытый доступ](operations/compromised-credentials.md)
 
  - [Пользователи](../organization/operations/manage-users.md)
@@ -202,6 +204,8 @@
 
  - [Федерации сервисных аккаунтов](concepts/workload-identity.md)
 
+ - [Получение информации о субъектах](concepts/subject-details.md)
+
  - [Квоты и лимиты](concepts/limits.md)
 
  - [Безопасное использование Yandex Cloud](best-practices/using-iam-securely.md)
@@ -364,6 +368,14 @@
 
  - [list](cli-ref/service-control/list.md)
 
+### subject-details
+
+ - [Overview](cli-ref/subject-details/index.md)
+
+ - [get](cli-ref/subject-details/get.md)
+
+ - [list](cli-ref/subject-details/list.md)
+
 ### user-account
 
  - [Overview](cli-ref/user-account/index.md)
@@ -521,6 +533,14 @@
  - [get](cli-ref/v0/service-control/get.md)
 
  - [list](cli-ref/v0/service-control/list.md)
+
+#### subject-details
+
+ - [Overview](cli-ref/v0/subject-details/index.md)
+
+ - [get](cli-ref/v0/subject-details/get.md)
+
+ - [list](cli-ref/v0/subject-details/list.md)
 
 #### user-account
 
@@ -1177,5 +1197,7 @@
  - [Вход в систему и доступ к ресурсам](qa/access.md)
 
  - [Все вопросы на одной странице](qa/index.md)
+
+ - [Решение проблем](qa/troubleshooting.md)
 
  - [Обучающие курсы](training.md)

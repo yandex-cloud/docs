@@ -6,7 +6,7 @@ GeeseFS позволяет монтировать [бакет](../../storage/con
 
 Чтобы настроить резервное копирование с помощью GeeseFS:
 
-1. [Подготовьте облако к работе](#before-begin).
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте бакет](#create-bucket).
 1. [Создайте сервисный аккаунт](#create-sa).
 1. [Создайте статический ключ доступа](#create-static-key).
@@ -17,7 +17,7 @@ GeeseFS позволяет монтировать [бакет](../../storage/con
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 

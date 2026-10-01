@@ -31,7 +31,7 @@ To visualize and analyze the data, follow these steps:
       1. [Grant restricted access to data to an individual user](#provide-access-to-podcast-episode).
 
    1. [Revoke a user's access permissions](#revoke-access).
-
+   
 1. [Make a dashboard or chart public](#publish-dashboard-chart).
 1. [Add a chart or dashboard to your website](#add-dashboard-chart).
 
@@ -43,7 +43,7 @@ We recommend checking out [this FAQ](#qa) covering questions commonly asked by Y
 
 {{ datalens-full-name }} is deployed on the {{ yandex-cloud }} platform. 
 
-Set up {{ datalens-short-name }} depending on your experience:
+Get ready to work with {{ datalens-short-name }} guided by your experience:
 
 * You are a new user (you only want to use {{ datalens-full-name }} for podcast analysis).
 * You are already using {{ datalens-full-name }} (for other purposes).
@@ -83,7 +83,7 @@ You will get access after uploading a podcast to Yandex Music. The podcast is li
 
      * `D01. Podcast listens`: Dataset with data on listens.
      * `D02. Podcast subscribers`: Dataset with data on subscribers.
-
+   
    * ![image](../../_assets/datalens/solution-10/01-charts.png =20x20) Charts: Set of individual visualizations (diagrams and tables) used on the dashboard.
    * ![image](../../_assets/datalens/solution-10/02-dashboard.png =20x20) The `Metrica Live Demo Dashboard` and the `Sales Dashboard` are demos that may open in your connection. You can delete them if you need to.
    
@@ -156,7 +156,7 @@ You can change the order of charts and selectors, resize them, discard some data
 You can edit and configure any charts. Let's say we want to see on the chart the relative activity of listeners of different genders during the day.
 
 1. Open the `Yandex Music podcast analytics` dashboard and click the `Listens` tab.
-1. Scroll the dashboard down to the `Listening time by time of day` chart.
+1. Scroll the dashboard down to the `Listening duration by time of day` chart.
 1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the top-right corner of the chart and select **Edit**.
 
    ![image](../../_assets/datalens/solution-10/12-edit-dashboard.png) 
@@ -233,7 +233,7 @@ Let's say we want to build a chart with the total number of listens by stream ov
 
 1. In the window that opens, click **Select**.
 
-   1. Select the `Episode listening dynamics` chart. This will automatically populate the **Title** field with the name of the selected chart.
+   1. Select the `Listening dynamics by episode` chart. This will automatically populate the **Title** field with the name of the selected chart.
    1. Click **Add**.
 
 1. Place the chart next to the table in the `Episode listening statistics` section and click **Save**. 
@@ -254,7 +254,7 @@ You can grant access to your personal dashboard to other users. To do this, you 
 
 Set up access to {{ datalens-full-name }}:
 
-1. Go to [Access control]({{ link-console-access-management }}).
+1. Go to [Access management]({{ link-console-access-management }}).
 1. In the top-right corner, click **Add user**. 
 1. Enter the user's Yandex email address. The new user will appear in the list of users.
 1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the new user and select **Change roles**.
@@ -272,7 +272,7 @@ Set up access to {{ datalens-full-name }}:
      1. Permissions must be assigned to a specific user or a group the user is a member of. If there are no permissions, click **Add user**.
      1. In the window that opens, select a user or user group and specify an access permission for the workbook:
 
-        * `Limited view`: Allows viewing the workbook’s nested charts and dashboards and the info on the access permissions for it.
+        * `Restricted view`: Allows viewing the workbook’s nested charts and dashboards and the info on the access permissions for it.
         * `View`: Allows viewing all the workbook’s nested objects and the info on the access permissions for them.
         * `Edit`: Allows editing the workbook and all its nested objects.
         * `Administration`: Allows managing the workbook, access to it, and all its nested objects.
@@ -335,7 +335,7 @@ To restrict shared access:
   1. Open the workbook with the `Yandex Music podcast analytics` dashboard.
   1. At the top of the workbook, click ![image](../../_assets/console-icons/lock-open.svg) **Access**.
   1. Click **Add user**.
-  1. In the window that opens, select the `All users in the <organization_name> organization` and specify the `Limited view` access permission for the workbook. Shared access will be restricted: other users will be able to view statistics on the dashboard, e.g., only for individual episodes, but will not be able to change these settings.  
+  1. In the window that opens, select the `All users in the <organization_name> organization` and specify the `Restricted view` access permission for the workbook. Shared access will be restricted: other users will be able to view statistics on the dashboard, e.g., only for individual episodes, but will not be able to change these settings.  
 
 - Directory {#folder}
 
@@ -498,7 +498,7 @@ You can revoke a user's permissions:
   1. In the window that opens, click **Revoke permissions**.
   1. To completely deny the user access to your podcaster statistics dashboard:
 
-     1. Go to [Access control]({{ link-console-access-management }}).
+     1. Go to [Access management]({{ link-console-access-management }}).
      1. Find the user, click the icon next to the new user, and select **Delete**.
 
 {% endlist %}
@@ -523,7 +523,7 @@ Data in {{ datalens-short-name }} is only available to users of a specific insta
   1. On the navigation page, find a chart, e.g., `C07. Starts and streams: Dynamics`, and open it.
   1. At the top of the chart interface, click ![image](../../_assets/console-icons/nodes-right.svg).
   1. In the public access settings window that opens, enable **Access via link**.
-  1. Confirm the publishing and click **Next**.
+  1. Confirm publishing and click **Next**.
   1. Copy the public link and click **Apply**.
 
 {% endlist %}
@@ -544,7 +544,7 @@ You can only embed individual charts. Embedding the entire dashboard is not supp
 {% endnote %}
 
 ## FAQ {#qa}
-
+      
 {% cut "Why can I only connect with a Yandex account?" %}
 
 Using your Yandex account in Yandex Music and {{ datalens-short-name }} ensures enhanced data security.
@@ -558,7 +558,7 @@ Data is updated daily at 13:00. If someone listens to a podcast after this time,
 {% endcut %} 
 
 {% cut "There are more service subscribers than {{ datalens-short-name }} shows. Why?" %}
-
+  
 New subscribers appear in the service instantly, while in the statistics, only the next day. If a person has subscribed to a podcast today, the number of subscribers in the statistics will increase tomorrow.
 
 {% endcut %}

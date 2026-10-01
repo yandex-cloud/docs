@@ -27,7 +27,7 @@ description: Следуя данной инструкции, вы сможете
 
             Формат реестра | Адреса публичных источников
             --- | ---
-            Maven | `Maven Central`<br/>`Gradle Plugin Portal`<br/>`Gradle Distributions`<br/>`Confluent`<br/>`Axiom`
+            Maven | `Maven Central`<br/>`Gradle Plugin Portal`<br/>`Confluent`<br/>`Axiom`
             Npm | `Npm`
             Docker | `Docker Hub`<br/>`Amazon ECR Public`<br/>`Kubernetes Registry`<br/>`GitHub Container Registry`<br/>`GitLab Container Registry`<br/>`Kyverno Registry`<br/>`Microsoft Container Registry`<br/>`NVIDIA NGC Registry`<br/>`Red Hat Quay`
             Debian | `Debian`<br/>`Ubuntu`
@@ -81,6 +81,12 @@ description: Следуя данной инструкции, вы сможете
 
         1. В настройках реестра укажите имя пользователя (если тип авторизации — `Basic`) и идентификатор созданного секрета {{ lockbox-full-name }}.
 
+    1. Если вы выбрали формат реестра `Docker`, в блоке **Безопасность** включите опцию:
+
+        {% include [scanning](../../../_includes/cloud-registry/scanning.md) %}
+        
+        Сканируются только Docker-образы, которые сохранены в кеше {{ cloud-registry-name }}.
+
     1. Укажите [паттерны фильтрации](../../concepts/filtering-patterns.md).
     1. Введите имя и описание реестра.
     1. Добавьте метки в формате `ключ: значение`.
@@ -110,7 +116,7 @@ description: Следуя данной инструкции, вы сможете
 
             Формат реестра | Адреса публичных источников
             --- | ---
-            `maven` | `@maven-central`<br/>`@gradle-plugin-portal`<br/>`@gradle-distributions`<br/>`@confluent`<br/>`@axiom`
+            `maven` | `@maven-central`<br/>`@gradle-plugin-portal`<br/>`@confluent`<br/>`@axiom`
             `npm` | `@npmjs`
             `docker` | `@docker-hub`<br/>`@ecr-public`<br/>`@k8s`<br/>`@ghcr`<br/>`@gitlab`<br/>`@kyverno`<br/>`@mcr`<br/>`@nvcr`<br/>`@quay`
             `debian` | `@debian`<br/>`@ubuntu`

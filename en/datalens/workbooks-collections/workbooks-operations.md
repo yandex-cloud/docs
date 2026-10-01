@@ -15,6 +15,7 @@ In this section, you will learn how to use a workbook:
 * [Adding or removing embedding keys](#embedded-keys)
 * [Setting up access to a workbook](#security)
 * [Deleting a workbook](#delete-workbook)
+* [Restoring workbook objects](#restore-objects)
 
 You can perform most actions either from a collection or from the workbook page.
 
@@ -120,14 +121,14 @@ To assign access permissions for a workbook:
   
 1. On the workbook page, click ![icon](../../_assets/console-icons/lock-open.svg) **Access** at the top.
 
-   Under **Inherited permissions**, you can see the users who inherited object permissions, because they were granted permissions to one of its parent objects. For each user, the inherited permission and the object that it is inherited from are displayed.
+   Under **Inherited permissions**, you can see the users who inherited object permissions, because they were granted permissions for one of its parent objects. For each user, the inherited permission and the object it is inherited from are displayed.
 
-   Under **Direct permissions**, you can see the users who are granted permissions to the selected object.
+   Under **Direct permissions**, you can see the users who have permissions for the selected object.
 
 1. Click ![image](../../_assets/console-icons/plus.svg) **Add user**.
 1. In the window that opens, select a user or user group, specify the appropriate permission, and click **Save**. The user or user group will get permissions for this object.
 
-### Revoking privileges {#wb-coll-revoke}
+### Revoking permissions {#wb-coll-revoke}
 
 To revoke access permissions for a workbook:
 
@@ -136,7 +137,7 @@ To revoke access permissions for a workbook:
 
    {% note info %}
 
-   If the user is missing from the list, they might have been granted permissions to the parent object. You can revoke permissions for the parent object. To switch to the permission inheritance object, find the user in the **Inherited permissions** list and click the object name.
+   If the user is missing from the list, they might have permissions for the parent object. You can revoke permissions for the parent object. To switch to the object that inherits permissions, find the user in the **Inherited permissions** list and click the object name.
 
    {% endnote %}
 
@@ -150,3 +151,28 @@ To delete a workbook:
 1. At the top of the workbook page, click ![image](../../_assets/console-icons/ellipsis.svg) → ![icon](../../_assets/console-icons/trash-bin.svg) **Delete**.
 
 1. Confirm the deletion of the workbook.
+
+
+You can [restore](./collections-operations.md#restore-objects-workbooks) a deleted workbook.
+
+
+
+## Restoring workbook objects {#restore-objects}
+
+A user with the [Editor](../security/workbooks-access-basic.md#workbooks-editor) role for a workbook can restore its deleted objects, such as connections, datasets, charts, dashboards, reports, or HTML pages.
+
+To restore a workbook object:
+
+1. At the top of the workbook page, click ![image](../../_assets/console-icons/ellipsis.svg) → ![icon](../../_assets/console-icons/arrow-rotate-left.svg) **Deleted objects**.
+1. You will see a window with info on all objects deleted from the workbook, including the object name, deletion date, and the name of the user who deleted it.
+
+   You can sort the list by name or deletion date.
+
+   You can also search by object name or switch between tabs with object types: `Charts`, `Dashboards`, `Reports`, `More` → `Datasets` / `Connections` / `HTML pages`.
+
+   ![image](../../_assets/datalens/workbooks-collections/deleted-objects-in-workbook.png)
+   
+   Click ![icon](../../_assets/console-icons/arrow-rotate-left.svg) next to the object to restore.
+   
+1. Confirm restoring the object.
+

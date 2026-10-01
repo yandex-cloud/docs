@@ -29,7 +29,7 @@ Where:
 * `origin_group_id`: [Origin group](../../cdn/concepts/origins.md) ID. This is a required setting. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
 * `secondary_hostnames`: Additional domain names. This is an optional setting.
 * `provider_type`: CDN provider. This is an optional setting. The only possible value is `ourcdn`, the {{ cdn-full-name }} provider.
-* `ssl_certificate`: SSL certificate parameters. This is an optional setting. The possible values are:
+* `ssl_certificate`: SSL certificate parameters. This is an optional setting. The possible values are as follows:
 
     * `type`: Certificate type.
 
@@ -40,7 +40,7 @@ Where:
 
     * `certificate_manager_id`: Custom certificate ID in {{ certificate-manager-name }}.
 
-* `options`: Additional parameters of the CDN resource. This is an optional setting. The possible values are:
+* `options`: Additional parameters of the CDN resource. This is an optional setting. The possible values are as follows:
 
     * `redirect_http_to_https`: Parameter to redirect clients from HTTP to HTTPS, `true` or `false`. This parameter is available if an SSL certificate is used.
     * `secure_key`: Secret key, that is a string of 6 to 32 characters, which is required to restrict access to a resource using [secure tokens](../../cdn/concepts/secure-tokens.md).
@@ -60,4 +60,4 @@ Where:
 
     {% endnote %}
 
-For more on the properties of `yandex_cdn_resource` in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/cdn_resource).
+Learn more about `yandex_cdn_resource` properties in {{ TF }} in [this provider guide]({{ tf-provider-resources-link }}/cdn_resource).

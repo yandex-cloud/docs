@@ -1,4 +1,2 @@
 * The **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** option (default) allows performing maintenance at any time.
-* The **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** option allows you to select the day of the week and UTC time interval for the maintenance. For example, you can choose a time when the cluster is least loaded.
-
-Both active and stopped clusters are subject to maintenance. Maintenance operations may include DBMS updates, applying patches, etc.
+* The **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** option allows you to select the day of the week and UTC time interval for the maintenance. For example, you can choose the cluster's least busy time. Both active and stopped clusters are subject to maintenance operations. Maintenance operations may include DBMS updates, patches, etc.

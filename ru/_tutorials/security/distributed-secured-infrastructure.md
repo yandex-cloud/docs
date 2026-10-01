@@ -108,7 +108,7 @@
       * `smart-web-security.editor` — использование профилей безопасности [{{ sws-name }}](../../smartwebsecurity/) и управление ими.
       * `compute.editor` — возможность создавать, обновлять и удалять ВМ [{{ compute-name }}](../../compute/).
 
-  1. Нажмите **{{ ui-key.yacloud_components.acl.action.apply }}**.
+  1. Нажмите **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 {% endlist %}
 
@@ -123,7 +123,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `secured-entry-point`.
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** введите `alb-network`.
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -223,7 +223,7 @@
 
 ### Создайте группу безопасности для L7-балансировщика {#sg-balancer}
 
-Правила должны разрешать входящий трафик из интернета на порт `80` и трафик для проверки состояния узлов балансировщика на порт `30080` с источником `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`.
+Правила должны разрешать входящий трафик из интернета на порт `80` и исходящий трафик на бэкенды.
 
 {% list tabs group=instructions %}
 
@@ -240,7 +240,6 @@
       | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Источник /<br/>назначение | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
       | --- | --- | --- | --- | --- | --- |
       | `Входящий` | `http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | `Входящий` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — |
       | `Исходящий` | `http` | `8000` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.121.0.0/24`<br/>`10.122.0.0/24` |
 
       {% include [add-sg-rule](../_tutorials_includes/add-sg-rule.md) %}

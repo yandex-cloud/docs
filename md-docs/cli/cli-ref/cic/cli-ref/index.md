@@ -98,7 +98,7 @@ Syntax:
 
   - [yc cic trunk-connection-ticket revoke](trunk-connection-ticket/revoke.md) — Revokes a TrunkConnectionTicket and closes the underlying support ticket.
 
-- [yc cic v0](v0/index.md) — (legacy command tree) Manage Interconnect resources
+- [yc cic v0](v0/index.md) — (legacy command tree) Manage Cloud Interconnect resources
 
 
 
@@ -116,6 +116,15 @@ Set the custom profile. ||
 || `--region` | `string`
 
 Set the region. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||

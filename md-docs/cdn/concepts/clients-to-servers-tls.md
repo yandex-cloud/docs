@@ -34,13 +34,13 @@
     Этот профиль используется по умолчанию.
 * `PROFILE_LEGACY` — шифры, совместимые с TLS версии 1.0 и новее без известных критических уязвимостей.
 
-Настройка доступна с помощью API при [создании](../operations/resources/create-resource.md) и [изменении](../operations/resources/configure-basics.md) CDN-ресурса. Подробнее на странице [Настройка профиля безопасности TLS для CDN-ресурса](../operations/resources/configure-tls-profile.md).
+Настройка доступна с помощью консоли управления и API при [создании](../operations/resources/create-resource.md) и [изменении](../operations/resources/configure-tls-profile.md) CDN-ресурса.
 
 Подробнее о протоколе TLS в разделе [Введение в TLS: обзор принципов и основных характеристик](../../glossary/tls.md).
 
 ## Проверка прав на домен {#domain-name-challenge}
 
-Если вы [выпустили сертификат Let's Encrypt в Certificate Manager](../../certificate-manager/concepts/managed-certificate.md) и используете его в CDN-ресурсе, вам нужно пройти [проверку прав на домен](../../certificate-manager/concepts/challenges.md). Cloud CDN поддерживает только проверку прав типа `DNS`, с помощью DNS-записи типа `TXT` или `CNAME`. На запросы к файлам по путям вида `/.well-known/acme-challenge/<имя_файла>`, которые используются в проверке прав типа `HTTP`, CDN-балансировщик будет отвечать кодом состояния `404`.
+Если вы [выпустили сертификат Let's Encrypt в Certificate Manager](../../certificate-manager/concepts/managed-certificate.md) и используете его в CDN-ресурсе, вам нужно пройти [проверку прав на домен](../../certificate-manager/concepts/challenges.md). Для CDN-ресурса можно использовать проверки типов `HTTP` и `DNS`. При проверке типа `HTTP` CDN-балансировщик принимает по протоколам HTTP и HTTPS запросы к файлам по путям вида `/.well-known/acme-challenge/<имя_файла>` и передает их источнику. Убедитесь, что источник возвращает файл проверки с кодом состояния `200`.
 
 Если вы используете в CDN-ресурсе собственный сертификат, загруженный в Certificate Manager, проходить проверку не требуется.
 

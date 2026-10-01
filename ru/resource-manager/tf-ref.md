@@ -13,6 +13,8 @@ description: На этой странице приведен справочни�
 
 | **Ресурс {{ TF }}** | **Ресурс {{ yandex-cloud }}** |
 | --- | --- |
+| [yandex_resource_manager_cloud_iam_policy_binding]({{ tf-provider-resources-link }}/resource_manager_cloud_iam_policy_binding) | Назначение [политики авторизации](./operations/cloud/manage-access-policies.md) на облако |
+| [yandex_resource_manager_folder_iam_policy_binding]({{ tf-provider-resources-link }}/resource_manager_folder_iam_policy_binding) | Назначение [политики авторизации](./operations/folder/manage-access-policies.md) на каталог |
 | [yandex_resourcemanager_cloud]({{ tf-provider-resources-link }}/resourcemanager_cloud) | [Облако](./concepts/resources-hierarchy.md#cloud) |
 | [yandex_resourcemanager_cloud_iam_binding]({{ tf-provider-resources-link }}/resourcemanager_cloud_iam_binding) | [Назначение](../iam/concepts/access-control/index.md#access-bindings) прав доступа к облаку. Имеет ограничение в 1000 привязок на ресурс. <br>Вместо `yandex_resourcemanager_cloud_iam_binding` рекомендуется использовать `yandex_resourcemanager_cloud_iam_member` |
 | [yandex_resourcemanager_cloud_iam_member]({{ tf-provider-resources-link }}/resourcemanager_cloud_iam_member) | [Назначение](../iam/concepts/access-control/index.md#access-bindings) прав доступа к облаку |

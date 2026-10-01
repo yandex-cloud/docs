@@ -20,6 +20,8 @@
 1. [Создайте чарт](#chart-create).
 1. [Создайте дашборд в DataLens и добавьте на него чарты](#dashboard-create).
 
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
 ## Перед началом работы {#before-you-begin}
 
 
@@ -38,14 +40,11 @@
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Постоянно запущенный кластер Managed Service for ClickHouse® ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md));
-* Использование функции Cloud Functions ([тарифы Cloud Functions](../pricing.md)).
-
-Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
-
+* Кластер Managed Service for ClickHouse®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Функция Cloud Functions: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы ([тарифы Cloud Functions](../pricing.md)).
 
 ## Создайте БД для хранения данных Tracker {#database-create}
 

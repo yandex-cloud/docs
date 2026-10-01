@@ -5,7 +5,6 @@ description: Follow this guide to create a secret.
 
 # Creating secrets
 
-
 {% include [secret-create](../../_includes/lockbox/secret-create.md) %}
 
 {% note tip %}

@@ -108,7 +108,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![image](../../_assets/console-icons/pencil.svg) and specify the settings for the database hosts created together with the {{ mmy-name }} cluster:
-     * Availability zone.
+     * [Availability zone](../../overview/concepts/geo-scope.md).
      * Host [subnet](../../vpc/concepts/network.md#subnet): By default, each host is created in a separate subnet.
 
      
@@ -510,7 +510,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
           },
           "databaseSpecs": [
               {
-                  "name": "<DB_name>"
+                  "name": "<DB_name>",
+                  "deletionProtectionMode": "<deletion_protection>"
               },
               { <similar_settings_for_DB_2> },
               { ... },
@@ -520,6 +521,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
               {
                   "name": "<username>",
                   "password": "<user_password>",
+                  "deletionProtectionMode": "<deletion_protection>",
                   "permissions": [
                       {
                           "databaseName": "<DB_name>",
@@ -594,9 +596,15 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
       {% include [disk-size-autoscaling-rest](../../_includes/mdb/mmy/disk-size-autoscaling-rest.md) %}
 
-      * `databaseSpecs`: Database settings as an array of elements, one per database. Each element contains a database `name`.
+      * `databaseSpecs`: Database settings as an array of elements, one per database. Each element has the following structure:
+          * `name`: Database name.
 
-          {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+            {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
+          * `deletionProtectionMode`: Database protection from accidental deletion:
+              * `DELETION_PROTECTION_MODE_ENABLED`: Enabled.
+              * `DELETION_PROTECTION_MODE_DISABLED`: Disabled (default).
+              * `DELETION_PROTECTION_MODE_INHERITED`: Inherits the value from the cluster.
 
       * `userSpecs`: User settings as an array of elements, one per user. Each element has the following structure:
 
@@ -610,7 +618,12 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
               To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
 
-          * `permissions`: User permission settings:
+          * `deletionProtectionMode`: User protection from accidental deletion:
+             * `DELETION_PROTECTION_MODE_ENABLED`: Enabled.
+             * `DELETION_PROTECTION_MODE_DISABLED`: Disabled (default).
+             * `DELETION_PROTECTION_MODE_INHERITED`: Inherits the value from the cluster.
+
+          * `permissions`: User permissions:
 
               * `databaseName`: Name of the database to which the user will have access.
               * `roles`: Array of user privileges, each provided as a separate string in the array. For the list of possible values, see [User privileges in a cluster](../concepts/user-rights.md#db-privileges).
@@ -689,7 +702,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
           },
           "database_specs": [
                 {
-                    "name": "<DB_name>"
+                    "name": "<DB_name>",
+                    "deletion_protection_mode": "<deletion_protection>"
                 },
                 { <similar_settings_for_DB_2> },
                 { ... },
@@ -699,6 +713,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
               {
                   "name": "<username>",
                   "password": "<user_password>",
+                  "deletion_protection_mode": "<deletion_protection>",
                   "permissions": [
                       {
                           "database_name": "<DB_name>",
@@ -767,7 +782,15 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
       {% include [disk-size-autoscaling-grpc](../../_includes/mdb/mmy/disk-size-autoscaling-grpc.md) %}
 
-      * `database_specs`: Database settings as an array of elements, one per database. Each element contains a database `name`.
+      * `database_specs`: Database settings as an array of elements, one for each DB. Each element has the following structure:
+
+          * `name`: Database name.
+
+          * `deletion_protection_mode`: Database protection from accidental deletion:
+            * `DELETION_PROTECTION_MODE_ENABLED`: Enabled.
+            * `DELETION_PROTECTION_MODE_DISABLED`: Disabled (default).
+            * `DELETION_PROTECTION_MODE_INHERITED`: Inherits the value from the cluster.
+
       * `user_specs`: User settings as an array of elements, one per user. Each element has the following structure:
 
           * `name`: Username.
@@ -779,6 +802,12 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
               To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
+
+          * `deletion_protection_mode`: User protection from accidental deletion.
+
+             * `DELETION_PROTECTION_MODE_ENABLED`: Enabled.
+             * `DELETION_PROTECTION_MODE_DISABLED`: Disabled (default).
+             * `DELETION_PROTECTION_MODE_INHERITED`: Inherits the value from the cluster.
 
           * `permissions`: User permissions:
 

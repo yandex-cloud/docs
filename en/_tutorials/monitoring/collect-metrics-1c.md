@@ -363,7 +363,7 @@ Below is an example of a dashboard for monitoring metrics provided in the export
 
 For more dashboard settings, see [{#T}](../../monitoring/operations/dashboard/add-widget.md).
 
-## Delete the resources you created {#delete-resources}
+## Delete the resources you created {#clear-out}
 
 Stop reading and writing metrics by doing one of the following:
 

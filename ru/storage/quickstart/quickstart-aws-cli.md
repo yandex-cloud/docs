@@ -56,7 +56,7 @@ description: Следуя данной инструкции, вы сможете
       1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.service-accounts }}**.
       1. Выберите нужный сервисный аккаунт из списка или воспользуйтесь поиском.
       1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль из списка или воспользуйтесь поиском.
-      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
       Подробнее в документе [{#T}](../../iam/operations/sa/assign-role-for-sa.md).
 
@@ -68,8 +68,7 @@ description: Следуя данной инструкции, вы сможете
       1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
       1. В открывшемся списке выберите нужный сервисный аккаунт.
-      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** на верхней панели.
-      1. Выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
+      1. На панели сверху нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
       1. Задайте описание ключа и нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
       1. Сохраните идентификатор и секретный ключ.
 

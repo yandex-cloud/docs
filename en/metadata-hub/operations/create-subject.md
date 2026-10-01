@@ -19,9 +19,9 @@ You can create a subject:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a subject.
   1. [Navigate]({{ link-console-main }}/link/metadata-hub) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/layout-cells.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_schema-registry }}**.
+  1. Under **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.label_schema-registry }}**.
   1. Select the namespace you want to create a subject in.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.schema-registry.label_subjects }}**.
+  1. Navigate to the **{{ ui-key.yacloud.schema-registry.label_subjects }}** tab.
   1. In the top-right corner, click **{{ ui-key.yacloud.schema-registry.label_create-subject-action }}**.
   1. Specify the following settings:
       * Subject name and description.

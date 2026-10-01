@@ -23,19 +23,19 @@ output "network_id" {
 
 - `auth_settings` [Block]. Authentication settings for Dashboards.
   - `saml` [Block]. SAML authentication options.
-    - `dashboards_url` (**Required**)(String). Dashboards URL.
-    - `enabled` (**Required**)(Bool). Enables SAML authentication.
-    - `idp_entity_id` (**Required**)(String). ID of the SAML Identity Provider.
-    - `idp_metadata_file_content` (**Required**)(String). Metadata file content of the SAML Identity Provider. You can either put file content manually or use [`file` function](https://developer.hashicorp.com/terraform/language/functions/file)
+    - `dashboards_url` (*Read-Only*) (String). Dashboards URL.
+    - `enabled` (*Read-Only*) (Bool). Enables SAML authentication.
+    - `idp_entity_id` (*Read-Only*) (String). ID of the SAML Identity Provider.
+    - `idp_metadata_file_content` (*Read-Only*) (String). Metadata file content of the SAML Identity Provider. You can either put file content manually or use [`file` function](https://developer.hashicorp.com/terraform/language/functions/file)
     - `roles_key` (String). Roles key.
-    - `sp_entity_id` (**Required**)(String). Service provider entity ID.
+    - `sp_entity_id` (*Read-Only*) (String). Service provider entity ID.
     - `subject_key` (String). Subject key.
 - `cluster_id` (String). The ID of the OpenSearch cluster that the resource belongs to.
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
 - `deletion_protection` (Bool). The `true` value means that resource is protected from accidental deletion.
 - `description` (String). The resource description.
 - `disk_encryption_key_id` (String). ID of the KMS key for cluster disk encryption.
-- `environment` (String). Deployment environment of the OpenSearch cluster. Can be either `PRESTABLE` or `PRODUCTION`. Default: `PRODUCTION`. **It is not possible to change this value after cluster creation**.
+- `environment` (*Read-Only*) (String). Deployment environment of the OpenSearch cluster. Can be either `PRESTABLE` or `PRODUCTION`. Default: `PRODUCTION`. **It is not possible to change this value after cluster creation**.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `health` (*Read-Only*) (String). Aggregated health of the cluster. Can be either `ALIVE`, `DEGRADED`, `DEAD` or `HEALTH_UNKNOWN`. For more information see `health` field of JSON representation in [the official documentation](../../managed-opensearch/api-ref/Cluster/index.md).
 - `hosts` [Block]. A hosts of the OpenSearch cluster.
@@ -48,9 +48,9 @@ output "network_id" {
   - `zone` (*Read-Only*) (String). The availability zone where the OpenSearch host will be created. For more information see [the official documentation](../../overview/concepts/geo-scope.md).
 - `id` (*Read-Only*) (String). The resource identifier.
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
-- `name` (**Required**)(String). Name of the OpenSearch cluster. The name must be unique within the folder.
-- `network_id` (**Required**)(String). The `VPC Network ID` of subnets which resource attached to.
-- `security_group_ids` (Set Of String). The list of security groups applied to resource or their components.
+- `name` (String). Name of the OpenSearch cluster. The name must be unique within the folder.
+- `network_id` (*Read-Only*) (String). ID of the network, to which the OpenSearch cluster belongs. It is not possible to change this value after cluster creation.
+- `security_group_ids` (Set Of String). A set of security groups IDs which assigned to hosts of the cluster.
 - `service_account_id` (String). ID of the service account authorized for this cluster.
 - `status` (*Read-Only*) (String).  Status of the cluster. Can be either `CREATING`, `STARTING`, `RUNNING`, `UPDATING`, `STOPPING`, `STOPPED`, `ERROR` or `STATUS_UNKNOWN`. For more information see `status` field of JSON representation in [the official documentation](../../managed-opensearch/api-ref/Cluster/index.md).
 - `config` [Block]. Configuration of the OpenSearch cluster.
@@ -80,15 +80,15 @@ For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/s
 For details, see None.
   - `version` (String). Version of OpenSearch.
   - `access` [Block]. Enable access to the Yandex Cloud services.
-    - `data_transfer` (Bool). Enable access to the [Data Transfer](../../data-transfer/index.md) service.
-    - `serverless` (Bool). Enable access to the [Cloud Functions](../../functions/index.md) service.
+    - `data_transfer` (*Read-Only*) (Bool). Enable access to the [Data Transfer](../../data-transfer/index.md) service.
+    - `serverless` (*Read-Only*) (Bool). Enable access to the [Cloud Functions](../../functions/index.md) service.
   - `dashboards` [Block]. Configuration for Dashboards node groups.
-    - `node_groups` [Block]. 
+    - `node_groups` [Block]. A set of named Dashboard node group configurations.
       - `assign_public_ip` (Bool). Sets whether the hosts should get a public IP address.
       - `hosts_count` (**Required**)(Number). Number of hosts in this node group.
       - `name` (**Required**)(String). Name of OpenSearch node group.
       - `subnet_ids` (List Of String). A set of the subnets, to which the hosts belongs. The subnets must be a part of the network to which the cluster belongs.
-      - `zone_ids` (**Required**)(Set Of String). A set of availability zones where hosts of node group may be allocated.
+      - `zone_ids` (Set Of String). A set of availability zones where hosts of node group may be allocated.
       - `resources` [Block]. Resources allocated to hosts of this OpenSearch node group.
         - `disk_size` (Number). Volume of the storage available to a host, in bytes. Exactly one of `disk_size` or `disk_size_gb` must be set in configuration.
         - `disk_size_gb` (Number). Same disk volume in gibibytes (GiB); converted to bytes for the API. Exactly one of `disk_size` or `disk_size_gb` must be set in configuration.
@@ -113,24 +113,24 @@ For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/i
     - `node_groups` [Block]. A set of named OpenSearch node group configurations.
       - `assign_public_ip` (Bool). Sets whether the hosts should get a public IP address.
       - `disk_size_autoscaling` [Block]. Node group disk size autoscaling settings.
-        - `disk_size_gb_limit` (Number). The overall maximum for disk size in gibibytes (GiB) that limit all autoscaling iterations. Exactly one of `disk_size_limit` or `disk_size_gb_limit` must be set in configuration.
-        - `disk_size_limit` (Number). The overall maximum for disk size that limit all autoscaling iterations. See the [documentation](../../managed-opensearch/concepts/storage.md#auto-rescale) for details.
+        - `disk_size_gb_limit` (*Read-Only*) (Number). The overall maximum for disk size in gibibytes (GiB) that limit all autoscaling iterations. See the [documentation](../../managed-opensearch/concepts/storage.md#auto-rescale) for details.
+        - `disk_size_limit` (*Read-Only*) (Number). The overall maximum for disk size that limit all autoscaling iterations. See the [documentation](../../managed-opensearch/concepts/storage.md#auto-rescale) for details.
         - `emergency_usage_threshold` (Number). Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.
         - `planned_usage_threshold` (Number). Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.
-      - `hosts_count` (**Required**)(Number). Number of hosts in this node group.
-      - `name` (**Required**)(String). Name of OpenSearch node group.
-      - `roles` (**Required**)(Set Of String). A set of OpenSearch roles assigned to hosts. Available roles are: `DATA`, `MANAGER`, `WARM` and `INGEST`. Default: [`DATA`, `MANAGER`].
+      - `hosts_count` (*Read-Only*) (Number). Number of hosts in this node group.
+      - `name` (*Read-Only*) (String). Name of OpenSearch node group.
+      - `roles` (Set Of String). A set of OpenSearch roles assigned to hosts. Available roles are: `DATA`, `MANAGER`, `WARM` and `INGEST`. Default: [`DATA`, `MANAGER`].
       - `subnet_ids` (List Of String). A set of the subnets, to which the hosts belongs. The subnets must be a part of the network to which the cluster belongs.
-      - `zone_ids` (**Required**)(Set Of String). A set of availability zones where hosts of node group may be allocated.
+      - `zone_ids` (Set Of String). A set of availability zones where hosts of node group may be allocated.
       - `resources` [Block]. Resources allocated to hosts of this OpenSearch node group.
         - `disk_size` (Number). Volume of the storage available to a host, in bytes. Exactly one of `disk_size` or `disk_size_gb` must be set in configuration.
         - `disk_size_gb` (Number). Same disk volume in gibibytes (GiB); converted to bytes for the API. Exactly one of `disk_size` or `disk_size_gb` must be set in configuration.
         - `disk_type_id` (**Required**)(String). Type of the storage of OpenSearch hosts.
         - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a host (CPU, memory etc.). For more information, see [the official documentation](../../managed-opensearch/concepts/index.md).
-- `maintenance_window` [Block]. 
-  - `day` (String). 
-  - `hour` (Number). 
-  - `type` (**Required**)(String). 
+- `maintenance_window` [Block]. Maintenance window for the cluster.
+  - `day` (*Read-Only*) (String). Day of the week for `WEEKLY` maintenance. Can be one of `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
+  - `hour` (*Read-Only*) (Number). Hour of the day in UTC for maintenance (1-24).
+  - `type` (*Read-Only*) (String). Type of maintenance window. Can be either `ANYTIME` or `WEEKLY`.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
   - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.

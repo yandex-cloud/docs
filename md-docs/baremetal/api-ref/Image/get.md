@@ -2,8 +2,8 @@
 
 # BareMetal API, REST: Image.Get
 
-Returns the specific Image resource.
-To get the list of available Image resources, make a [List](list.md#List) request.
+Returns the specific BootImage resource.
+To get the list of available BootImage resources, make a [List](list.md#List) request.
 
 ## HTTP request
 
@@ -17,8 +17,8 @@ GET https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/images/{imageId}
 ||Field | Description ||
 || imageId | **string**
 
-Required field. ID of the Image resource to return.
-To get the image ID, use a [ImageService.List](list.md#List) request.
+Required field. ID of the BootImage resource to return.
+To get the BootImage ID, use a [ImageService.List](list.md#List) request.
 
 Value must match the regular expression ` [a-z][a-z0-9]* `. ||
 |#

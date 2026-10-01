@@ -8,6 +8,7 @@ description: In this tutorial, you will learn how to manage access to objects in
 This section describes how access management works for objects stored inside workbooks and collections, as well as access to the workbooks and collections themselves. If an object is stored in a folder, access to it is configured differently; for details, see [{#T}](./manage-access.md).
 
 
+
 {% note info %}
 
 [Workbooks and collections](../workbooks-collections/index.md) are the primary navigation model in {{ datalens-name }}.
@@ -18,6 +19,7 @@ This section describes how access management works for objects stored inside wor
 Some older {{ datalens-name }} instances still have folder-based navigation. We recommend [switching from folders to workbooks](../workbooks-collections/index.md#enable-workbooks) to gain more convenience and features, including copying and exporting/importing workbooks, assigning access permissions to groups, and sending newsletters.
 
 {% endnote %}
+
 
 {% cut "How to find where an object is stored" %}
 

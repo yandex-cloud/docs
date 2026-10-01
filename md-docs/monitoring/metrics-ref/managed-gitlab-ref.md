@@ -2,6 +2,7 @@
 
 # Метрики Yandex Managed Service for GitLab
 
+
 В этом разделе описаны метрики сервиса [Managed Service for GitLab](../../managed-gitlab/index.md), поставляемые в Monitoring.
 
 Имя метрики пишется в метку `name`.

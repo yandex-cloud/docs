@@ -17,11 +17,21 @@ The version number is provided in the `X-DL-API-Version` request header. To spec
 
 The previous Public API version remains supported for some time after a new release to give users time to migrate to the new version.
 
-The {{ datalens-name }} interface only supports the latest version of schemas. As a result, all objects modified via the interface are automatically saved under the latest version. Attempts to access such objects using an older Public API version will fail and return an error.
+The {{ datalens-name }} interface only supports the latest version of schemas. As a result, all objects modified via the interface are automatically saved under the latest version.
 
 {% note info %}
 
 Regularly update your Public API to ensure correct operation.
+
+{% endnote %}
+
+{% note warning %}
+
+We recommend following these steps when updating entities in the Public API:
+
+1. Get the current object version by using the relevant read method.
+1. Edit as appropriate.
+1. Send the entire object without filtering out any fields. Preserve all fields, including those not described in the schema, to maintain compatibility with different API versions.
 
 {% endnote %}
 
@@ -33,14 +43,14 @@ Previously:
 
 ```bash
 X-DL-API-Version: 1
-POST api.datalens.yandex.net/rpc/createReport {key, config}
+POST {{ api-host-datalens }}/rpc/createReport {key, config}
 ```
 
 Now:
 
 ```bash
 X-DL-API-Version: 1
-POST api.datalens.yandex.net/rpc/createReport {key, config, description}
+POST {{ api-host-datalens }}/rpc/createReport {key, config, description}
 ```
 
 Reports created before this update will be converted, and the new field will be populated with a default value.
@@ -53,27 +63,28 @@ Previously:
 
 ```bash
 X-DL-API-Version: 1
-POST api.datalens.yandex.net/rpc/createReport {key, config}
+POST {{ api-host-datalens }}/rpc/createReport {key, config}
 ```
 
 Now:
 
 ```bash
 X-DL-API-Version: 2
-POST api.datalens.yandex.net/rpc/createReport {workbookId, config}
+POST {{ api-host-datalens }}/rpc/createReport {workbookId, config}
 ```
 
 You can use the legacy method behavior while the previous API version is still supported. To do this, specify the required version in the header:
 
 ```bash
 X-DL-API-Version: 1
-POST api.datalens.yandex.net/rpc/createReport {key, config}
+POST {{ api-host-datalens }}/rpc/createReport {key, config}
 ```
+
 
 ## Viewing the legacy version in Swagger {#swagger-versions}
 
 During the transition period, you can view the legacy API version in Swagger. To do this, specify the version number in the link:
 
-   > `https://api.datalens.tech/<version_number>`
+   > `{{ api-host-datalens }}/<version_number>`
 
 

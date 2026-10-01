@@ -5,4 +5,6 @@ description: Для выполнения операций через API в {{ e
 
 # Аутентификация в API {{ er-name }}
 
+{% include [sunset-note](../../../_includes/serverless-integrations/sunset-note.md) %}
+
 {% include notitle [auth](../../../_includes/authentication.md) %}

@@ -15,7 +15,8 @@ When creating a cluster, you can select the following disk types for data storag
 * **Local SSDs** (`local-ssd`): Highest-performing disks.
 
   You can expand such a storage as follows:
-  * For **Intel Broadwell** and **Intel Cascade Lake**: Only in 100 GB increments.
+  
+  * For **Intel Cascade Lake**: Only in 100 GB increments.
   * For **Intel Ice Lake** and **AMD Zen 4**: Only in {{ local-ssd-v3-step }} increments.
 
   For a list of host classes and corresponding platforms, see [Host classes](../../../storedoc/concepts/instance-types.md).

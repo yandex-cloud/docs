@@ -86,7 +86,7 @@
 
   1. Откройте [консоль управления]({{ link-console-main }}).
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. Откройте вкладку **{{ ui-key.yacloud.vpc.label_security-groups }}**.
+  1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
   1. Создайте группу безопасности для балансировщика:
      
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
@@ -99,7 +99,6 @@
         | `{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}` | `any` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.button_select-all-port-range }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
         | `{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
         | `{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-        | `{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — |
       
         1. Выберите вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}**.
         1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
@@ -109,7 +108,6 @@
       
            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` — правило будет применено к диапазону IP-адресов. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` — правило будет применено к ВМ из текущей группы или из выбранной группы безопасности.
-           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` — правило, которое позволяет балансировщику проверять состояние ВМ.
 
         1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**. Таким образом создайте все правила из таблицы.
    
@@ -255,7 +253,7 @@
 
   1. Откройте [консоль управления]({{ link-console-main }}).
   1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Откройте вкладку **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
+  1. На панели слева выберите **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}** и нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. Укажите имя группы ВМ: `alb-logging-ig`.
   1. В поле **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** выберите аккаунт, [созданный ранее](#create-sa).
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** выберите несколько [зон доступности](../../overview/concepts/geo-scope.md), чтобы обеспечить отказоустойчивость хостинга.
@@ -492,7 +490,7 @@
      * `DB_PORT` — порт для подключения.
      * `DB_NAME` — имя базы данных для подключения.
      * `DB_USER` — имя пользователя для подключения.
-     * `DB_PASSWORD` — пароль, который был введен при [создании кластера](#cluster).
+     * `DB_PASSWORD` — пароль, который был введен при [создании кластера](#set-up-db-create-cluster).
   
      Чтобы определить значения параметров для подключения:
   

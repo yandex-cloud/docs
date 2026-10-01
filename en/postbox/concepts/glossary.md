@@ -5,7 +5,7 @@ description: In this article, you will learn about the terms and definitions in 
 
 # Terms and definitions in {{ postbox-name }}
 
-## Address {#adress}
+## Address {#address}
 
 An address is the domain emails are sent from. To send emails from any mailbox on the domain, you need to get your [domain ownership confirmed](../operations/check-domain.md).
 
@@ -14,9 +14,9 @@ To send emails from subdomains, add them as separate addresses. {{ postbox-name 
 ## Configuration {#configuration}
 
 A configuration is a group of rules you can apply to an outgoing email. A configuration may contain the following rules:
-* Getting email event notifications.
+* Getting email operation notifications.
 * Configuring mandatory TLS encryption.
-* Collecting engagement statistics.
+* Collection of engagement statistics.
 
 For more information, see [{#T}](configuration.md).
 
@@ -26,10 +26,19 @@ A sender is a confirmed domain mailbox used to send emails. You can [limit the l
 
 ## Subscription {#subscription}
 
-A subscription is a destination for [notifications about operations with emails](notification.md).
+A subscription is a destination for [email operation notifications](notification.md).
 
 ## DKIM signature {#dkim}
 
 {% include [dkim](../../_includes/postbox/dkim.md) %}
 
 {{ postbox-name }} supports Easy DKIM and the advanced DKIM settings. For more information, see [{#T}](dns-records.md#dkim).
+
+## Suppression list {#suppression-list}
+
+The suppression list is a list of addresses that {{ postbox-name }} blocks from receiving emails. {{ postbox-name }} uses two types of suppression lists:
+
+* Custom suppression list created and managed by the user.
+* Global suppression list managed by {{ postbox-name }}. The global suppression list applies to all {{ postbox-name }} addresses; it cannot be viewed or modified.
+
+For more information, see [{#T}](suppression-list.md).

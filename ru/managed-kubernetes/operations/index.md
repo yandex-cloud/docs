@@ -55,6 +55,7 @@ description: Из статьи вы узнаете, как работать с �
 ## Сетевые сценарии {#network-scenarios}
 
 * [{#T}](create-load-balancer.md)
+* [{#T}](configure-load-balancer-target-groups.md)
 * [{#T}](calico.md)
 * [{#T}](cilium.md)
 * [{#T}](cilium-node-local-dns.md)
@@ -75,6 +76,7 @@ description: Из статьи вы узнаете, как работать с �
 * [{#T}](kubernetes-cluster/kubernetes-cluster-operation-logs.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-create.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-update.md)
+* [{#T}](network/manage-ip-masq-agent.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-access.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-wlif-integration.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-configuration-list.md)
@@ -86,6 +88,7 @@ description: Из статьи вы узнаете, как работать с �
 * [{#T}](node-group/node-group-list.md)
 * [{#T}](node-group/node-group-create.md)
 * [{#T}](node-group/node-group-create-in-instance-pool.md)
+* [{#T}](node-group/node-group-gpu-maintenance.md)
 * [{#T}](node-connect-ssh.md)
 * [{#T}](node-connect-oslogin.md)
 * [{#T}](autoscale.md)
@@ -100,6 +103,12 @@ description: Из статьи вы узнаете, как работать с �
 * [{#T}](external-nodes-connect-wireguard.md)
 * [{#T}](external-nodes-connect-ipsec.md)
 * [{#T}](bms-server-connect.md)
+
+## Работа с группой узлов {{ baremetal-name }} {#baremetal-node-group}
+
+* [{#T}](baremetal-group/create-baremetal.md)
+* [{#T}](baremetal-group/update-baremetal.md)
+* [{#T}](baremetal-group/delete-baremetal.md)
 
 ## Работа с объектами {{ k8s }} из консоли управления {#kubernetes-console}
 

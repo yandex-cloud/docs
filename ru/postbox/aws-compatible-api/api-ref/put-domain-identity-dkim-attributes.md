@@ -1,6 +1,6 @@
 # Метод PutDomainIdentityDkimAttributes
 
-Включает или отключает [DKIM-подпись](https://ru.wikipedia.org/wiki/DomainKeys_Identified_Mail) для [адреса](../../concepts/glossary.md#adress). Позволяет получателю убедиться, что письмо действительно было отправлено с заявленного домена. Применяется для борьбы с фишинговыми письмами и спамом.
+Включает или отключает [DKIM-подпись](https://ru.wikipedia.org/wiki/DomainKeys_Identified_Mail) для [адреса](../../concepts/glossary.md#address). Позволяет получателю убедиться, что письмо действительно было отправлено с заявленного домена. Применяется для борьбы с фишинговыми письмами и спамом.
 
 ## Запрос {#request}
 

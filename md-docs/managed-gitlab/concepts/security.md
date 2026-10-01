@@ -2,6 +2,12 @@
 
 # Безопасность в Managed Service for GitLab
 
+## Интеграция с SourceCraft Security {#sourcecraft-security}
+
+Для репозиториев инстанса доступна [интеграция с SourceCraft Security](sourcecraft-security.md): сканирование секретов, анализ зависимостей, статический анализ кода и другие проверки безопасности. Репозитории зеркалируются в SourceCraft, где выполняются проверки и отображаются их результаты. Интеграция использует платное дополнение SourceCraft Security.
+
+Чтобы подключить интеграцию и посмотреть результаты проверок, следуйте [инструкции](../operations/sourcecraft-security.md).
+
 ## Обнаружение уязвимостей в CI/CD {#vulnerability-detection}
 
 Managed Service for GitLab предоставляет защиту вашего пайплайна встроенными в GitLab средствами.

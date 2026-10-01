@@ -20,7 +20,7 @@ Yandex MPP Analytics for PostgreSQL позволяет использовать 
 
     Колоночное хранение данных значительно снижает затраты на чтение и запись, когда запрос обращается только к небольшому количеству столбцов из множества всех полей таблицы. Колоночные таблицы также лучше поддаются сжатию. При использовании Yandex MPP Analytics for PostgreSQL в качестве аналитической СУБД рекомендуется использовать колоночные таблицы со стандартным сжатием первого уровня.
 
-    Для таблиц AO и AOCO в кластерах Yandex MPP Analytics for PostgreSQL доступно [гибридное хранилище](hybrid-storage.md): с помощью [расширения Yezzey](../operations/extensions/yezzey.md) можно переместить часть таблиц из хранилища кластера в холодное хранилище и наоборот. Холодное хранилище удобно, если данные таблиц нужно хранить долго, а работать с ними планируется редко. Так хранение [будет дешевле](../pricing/index.md#rules-storage).
+    Для таблиц AO и AOCO в кластерах Yandex MPP Analytics for PostgreSQL доступно [гибридное хранилище](hybrid-storage.md): с помощью [расширения Yezzey](../operations/extensions/yezzey.md) можно переместить часть таблиц из хранилища кластера в гибридное хранилище и наоборот. Гибридное хранилище удобно, если данные таблиц нужно хранить долго, а работать с ними планируется редко. Так хранение [будет дешевле](../pricing/index.md#rules-storage).
 
     Подробнее в [документации Greenplum®](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/admin_guide-ddl-ddl-storage.html#topic38) и [Apache Cloudberry™](https://cloudberry.apache.org/docs/operate-with-data/heap-and-ao-table-formats#append-optimized-storage).
 

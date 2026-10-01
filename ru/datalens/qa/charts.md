@@ -6,7 +6,6 @@ description: На странице представлены вопросы и о
 # Чарты
 
 
-
 {% include [show-top-100-values](../../_qa/datalens/show-top-100-values.md) %}
 
 {% include [create-labels-in-pie-chart](../../_qa/datalens/create-labels-in-pie-chart.md) %}
@@ -40,7 +39,6 @@ description: На странице представлены вопросы и о
 {% include [rename-column](../../_qa/datalens/rename-column.md) %}
 
 {% include [null-setting-in-charts](../../_qa/datalens/null-setting-in-charts.md) %}
-
 
 
 
@@ -61,13 +59,11 @@ description: На странице представлены вопросы и о
 ### Как добавить регионы на карту? {#add-geodata}
 
 
-
 {% include [geointellect-using](../../_includes/datalens/visualization-ref/geointellect-using.md) %}
-
+
 
 Пример работы с геоданными можно посмотреть в [руководстве](../tutorials/data-from-csv-geo-visualization.md).
 
 
-
 Вы можете приобрести предрассчитанные геослои от партнеров в [{{ datalens-gallery }}]({{ link-datalens-main }}/gallery/all?category=geo).
-
+

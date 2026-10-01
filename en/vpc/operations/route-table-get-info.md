@@ -1,10 +1,11 @@
 ---
 title: Getting information about a route table in {{ vpc-full-name }}
+description: Follow this guide to get information about a route table in {{ vpc-full-name }}.
 ---
 
 # Getting route table info
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
 - Management console {#console}
 
@@ -31,6 +32,8 @@ title: Getting information about a route table in {{ vpc-full-name }}
      ```bash
      yc vpc route-table get <route_table_name>
      ```
+
+     Where `<route_table_name>` is the name or ID of the route table.
 
      Result:
 
@@ -71,13 +74,13 @@ title: Getting information about a route table in {{ vpc-full-name }}
      * `output "route-table"`: Output variable containing information about static routes of the route table:
        * `value`: Return value.
 
-     You can replace `static_route` with another variable to get the information you need. For more on the properties of the `yandex_vpc_route_table` data source, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_route_table).
+     You can replace `static_route` with any other attribute to get the information you need. For more information about the properties of the `yandex_vpc_route_table` data source, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_route_table).
 
-  1. Create the resources:
+  1. Apply the configuration:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
+     {{ TF }} will display output variables in the terminal. To check the results, run this command:
 
      ```bash
      terraform output

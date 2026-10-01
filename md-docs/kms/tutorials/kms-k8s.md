@@ -9,8 +9,13 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входит плата за сервис Key Management Service: количество активных версий ключа (в статусах `Active` и `Scheduled For Destruction`) и выполненных криптографических операций ([тарифы Key Management Service](../pricing.md)).
+* Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Сервис Key Management Service: количество активных версий ключа и выполненных криптографических операций ([тарифы Key Management Service](../pricing.md)).
 
+
+## Создайте кластер с ключом шифрования {#create-cluster}
 
 {% list tabs group=instructions %}
 

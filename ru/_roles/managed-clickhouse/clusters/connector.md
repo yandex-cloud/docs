@@ -1,0 +1,1 @@
+Роль `managed-clickhouse.clusters.connector` позволяет [пользователям](../../../iam/concepts/users/accounts.md) {{ yandex-cloud }} подключаться к базам данных в [кластерах {{ CH }}](../../../managed-clickhouse/concepts/index.md) с помощью механизмов сервиса [{{ iam-full-name }}](../../../iam/index.yaml).

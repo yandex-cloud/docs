@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Поставка данных из Managed Service for Apache Kafka® в Yandex StoreDoc с помощью Data Transfer
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Apache Kafka® > Поставка данных с помощью Data Transfer > Поставка данных из Managed Service for Apache Kafka® в Yandex StoreDoc
 
 # Поставка данных из Yandex Managed Service for Apache Kafka® в Yandex StoreDoc с помощью Yandex Data Transfer
 
@@ -18,9 +18,9 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for Apache Kafka®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
-* Кластер Yandex StoreDoc: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Yandex StoreDoc](../../storedoc/pricing.md)).
-* Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Кластер Yandex Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
+* Кластер Yandex StoreDoc: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Yandex StoreDoc](../../storedoc/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -113,6 +113,7 @@
                Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
             
             1. Если вас устраивают планируемые изменения, внесите их:
+            
                1. Выполните команду:
             
                   ```bash
@@ -310,6 +311,7 @@
          Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
       
       1. Если вас устраивают планируемые изменения, внесите их:
+      
          1. Выполните команду:
       
             ```bash

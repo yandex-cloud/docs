@@ -15,6 +15,8 @@ Terraform распространяется под лицензией [Business S
 
 | **Ресурс Terraform** | **Ресурс Yandex Cloud** |
 | --- | --- |
+| [yandex_resource_manager_cloud_iam_policy_binding](../terraform/resources/resource_manager_cloud_iam_policy_binding.md) | Назначение [политики авторизации](operations/cloud/manage-access-policies.md) на облако |
+| [yandex_resource_manager_folder_iam_policy_binding](../terraform/resources/resource_manager_folder_iam_policy_binding.md) | Назначение [политики авторизации](operations/folder/manage-access-policies.md) на каталог |
 | [yandex_resourcemanager_cloud](../terraform/resources/resourcemanager_cloud.md) | [Облако](concepts/resources-hierarchy.md#cloud) |
 | [yandex_resourcemanager_cloud_iam_binding](../terraform/resources/resourcemanager_cloud_iam_binding.md) | [Назначение](../iam/concepts/access-control/index.md#access-bindings) прав доступа к облаку. Имеет ограничение в 1000 привязок на ресурс. <br>Вместо `yandex_resourcemanager_cloud_iam_binding` рекомендуется использовать `yandex_resourcemanager_cloud_iam_member` |
 | [yandex_resourcemanager_cloud_iam_member](../terraform/resources/resourcemanager_cloud_iam_member.md) | [Назначение](../iam/concepts/access-control/index.md#access-bindings) прав доступа к облаку |

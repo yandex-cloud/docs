@@ -1,5 +1,12 @@
 {% list tabs group=instructions %}
 
+- {{ cloud-center }} UI {#cloud-center}
+
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
+  1. In the left-hand panel, click ![icon-federation](../../_assets/organization/icon-federation.svg) **{{ ui-key.yacloud_org.pages.federations }}** and select the target [federation](../../organization/concepts/add-federation.md).
+  1. Navigate to the **{{ ui-key.yacloud_org.form.federation.note.tab-domains }}** tab. 
+  1. In the domain section, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.common.delete }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../cli-install.md) %}

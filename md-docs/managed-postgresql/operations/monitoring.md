@@ -17,7 +17,7 @@
 
 {% endnote %}
 
-Вы можете [настроить алерты](#monitoring-integration) в сервисе Yandex Monitoring для получения уведомлений о сбоях в работе кластера. В Yandex Monitoring используются два порога срабатывания алерта: `Warning` и `Alarm`. При превышении заданного порога вы получите оповещения через настроенные [каналы уведомлений](../../monitoring/concepts/alerting.md#notification-channel).
+Вы можете [настроить алерты](#monitoring-integration) в сервисе Yandex Monitoring для получения уведомлений о сбоях в работе кластера. В Yandex Monitoring используются два порога срабатывания алерта: `Warning` и `Alarm`. При превышении заданного порога вы получите оповещения через настроенные [каналы уведомлений](../../monitoring/concepts/alerting/notification-channel.md).
 
 
 Чтобы обнаружить возможные проблемы в кластере, [используйте другие инструменты](../tutorials/performance-problems.md) для анализа состояния кластера вместе с мониторингом.

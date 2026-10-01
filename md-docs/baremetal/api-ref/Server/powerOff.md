@@ -3,7 +3,6 @@
 # BareMetal API, REST: Server.PowerOff
 
 
-Required for backward compatibility with old clients. --)
 Powers off the specified server.
 
 ## HTTP request

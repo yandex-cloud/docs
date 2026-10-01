@@ -1,20 +1,18 @@
 ---
 title: End of trial period
-description: In this article, you will learn about trial period termination.
+description: In this article, you will learn about trial period expiration.
 ---
 
 # End of trial period
 
-Your trial period will end automatically depending on the payment method you selected when [creating your billing account for businesses](../../../billing/quickstart/index.md).
+{% include [free-trial-invoice-only](../../../_includes/billing/free-trial-invoice-only.md) %}
 
-Payment method | Terms of termination
------ | -----  
-Wire transfer | The [grant](../../usage-grant.md) was used up or expired.
-Credit or debit card  | The [grant](../../usage-grant.md) or one of its parts is used up and/or the grant expired.
+The trial period terminates automatically once your initial [grant](../../usage-grant.md) is used up or expires.
 
 Unless you upgraded to the paid version, access to your resources will be suspended for 60 days after the trial period ends:
 * Your VM instances and DB clusters will be stopped.
 * You will not be able to read or download any saved data.
+* The {{ baremetal-name }} servers will be [quarantined](../../../baremetal/concepts/servers.md#quarantine) and deleted in two days' time.
 
 You can restore access to your resources if you upgrade to the paid version within 60 days after the trial period ends. Otherwise, all resources in your cloud will be permanently deleted.
 

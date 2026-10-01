@@ -295,7 +295,7 @@ Nextcloud использует базу данных {{ MY }} для хране�
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
   1. [Перейдите]({{ link-console-main }}/link/managed-mysql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** и выберите кластер `nextcloud-db-cluster`.
-  1. В меню слева выберите ![cube](../../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
   1. С помощью кнопки **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}** добавьте дополнительные [хосты](../../../managed-mysql/concepts/instance-types.md), так чтобы в кластере было три хоста — по одному в каждой [зоне доступности](../../../overview/concepts/geo-scope.md).
 
         При создании хостов не включайте опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
@@ -323,7 +323,7 @@ Nextcloud использует базу данных {{ MY }} для хране�
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
       1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. На панели слева выберите ![hard-drive](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
+      1. На панели слева выберите ![hard-drive](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.storage_uisyT }}**.
       1. В строке с нужным диском нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.
       1. В поле **{{ ui-key.yacloud.common.name }}** задайте имя снимка `nextcloud-vm-snapshot`.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.

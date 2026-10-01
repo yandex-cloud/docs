@@ -30,6 +30,10 @@ Cloud Postbox позволяет не тратить бюджет и время 
 
  - [Привязка конфигурации к адресу](operations/bind-configuration.md)
 
+ - [Управление пользовательским стоп-листом](operations/manage-suppression-list.md)
+
+ - [Управление выделенными IP-адресами](operations/manage-dedicated-ip.md)
+
  - [Ограничение списка отправителей](operations/restrict-senders.md)
 
  - [Запись логов](operations/logs-write.md)
@@ -44,11 +48,13 @@ Cloud Postbox позволяет не тратить бюджет и время 
 
  - [Конфигурации](concepts/configuration.md)
 
+ - [Стоп-листы](concepts/suppression-list.md)
+
+ - [Выделенные IP-адреса](concepts/dedicated-ip.md)
+
  - [Уведомления об операциях с письмами](concepts/notification.md)
 
  - [Симулятор доставки писем](concepts/mail-simulator.md)
-
- - [Глобальный стоп-лист](concepts/gsl.md)
 
  - [Отслеживание открытия писем](concepts/mail-opened.md)
 
@@ -137,6 +143,34 @@ Cloud Postbox позволяет не тратить бюджет и время 
  - [Метод DeleteConfigurationSet](aws-compatible-api/api-ref/delete-configuration-set.md)
 
  - [Метод PutConfigurationSetDeliveryOptions](aws-compatible-api/api-ref/put-configuration-set-delivery-options.md)
+
+ - [Метод PutConfigurationSetSuppressionOptions](aws-compatible-api/api-ref/put-configuration-set-suppression-options.md)
+
+#### Стоп-лист
+
+ - [Метод ListSuppressedDestinations](aws-compatible-api/api-ref/list-suppressed-destinations.md)
+
+ - [Метод GetSuppressedDestination](aws-compatible-api/api-ref/get-suppressed-destination.md)
+
+ - [Метод PutSuppressedDestination](aws-compatible-api/api-ref/put-suppressed-destination.md)
+
+ - [Метод DeleteSuppressedDestination](aws-compatible-api/api-ref/delete-suppressed-destination.md)
+
+#### Выделенные IP-адреса
+
+ - [Метод ListDedicatedIpPools](aws-compatible-api/api-ref/list-dedicated-ip-pools.md)
+
+ - [Метод GetDedicatedIpPool](aws-compatible-api/api-ref/get-dedicated-ip-pool.md)
+
+ - [Метод CreateDedicatedIpPool](aws-compatible-api/api-ref/create-dedicated-ip-pool.md)
+
+ - [Метод DeleteDedicatedIpPool](aws-compatible-api/api-ref/delete-dedicated-ip-pool.md)
+
+ - [Метод GetDedicatedIps](aws-compatible-api/api-ref/get-dedicated-ips.md)
+
+ - [Метод GetDedicatedIp](aws-compatible-api/api-ref/get-dedicated-ip.md)
+
+ - [Метод PutDedicatedIpInPool](aws-compatible-api/api-ref/put-dedicated-ip-in-pool.md)
 
 #### Подписки
 

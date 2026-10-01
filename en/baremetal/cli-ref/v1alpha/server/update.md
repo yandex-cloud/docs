@@ -31,7 +31,7 @@ Name of the server. The name must be unique within the folder. ||
 Description of the server. ||
 || `--network-interfaces` | `shorthand/json`
 
-Network configuration for the server. Specifies how the network interface is configured to interact with other servers on the internal network and on the internet. Currently up to 2 network interfaces are supported: required private network interface and optional public network interface.
+Network configuration for the server. Specifies how the network interface is configured to interact with other servers on the internal network and on the internet.
 
 {% cut "Description" %}
 
@@ -211,6 +211,15 @@ Set the custom profile. ||
 || `--region` | `string`
 
 Set the region. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||

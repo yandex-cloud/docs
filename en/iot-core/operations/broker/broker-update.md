@@ -21,8 +21,8 @@ To access a broker, use its unique ID or name. For info on how to get the unique
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to update the broker name.
    1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
-   1. To the right of the name of your broker, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-branches.svg) **{{ ui-key.yacloud.iot.label_brokers }}**.
+   1. To the right of the name of the broker you need, click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
    1. Edit the **{{ ui-key.yacloud.common.name }}** field.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -88,7 +88,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
       terraform plan
       ```
 
-      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
   1. Apply the configuration changes:
 
       ```bash
@@ -119,8 +119,8 @@ To access a broker, use its unique ID or name. For info on how to get the unique
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to update the broker description.
    1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
-   1. To the right of the name of your broker, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-branches.svg) **{{ ui-key.yacloud.iot.label_brokers }}**.
+   1. To the right of the name of the broker you need, click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
    1. Edit the **{{ ui-key.yacloud.common.description }}** field.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -187,7 +187,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
       terraform plan
       ```
 
-      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
   1. Apply the configuration changes:
 
       ```bash
@@ -224,9 +224,9 @@ You can manage broker labels in the following ways:
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to add a broker label.
    1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
-   1. To the right of the name of your broker, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
-   1. Fill in the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields and click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-branches.svg) **{{ ui-key.yacloud.iot.label_brokers }}**.
+   1. To the right of the name of the broker you need, click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+   1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, enter the key and [label](../../../resource-manager/concepts/labels.md) value.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -301,7 +301,7 @@ You can manage broker labels in the following ways:
       terraform plan
       ```
 
-      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
   1. Apply the configuration changes:
 
       ```bash
@@ -330,9 +330,9 @@ You can manage broker labels in the following ways:
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to update a broker label.
    1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
-   1. To the right of the name of your broker, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
-   1. Edit the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-branches.svg) **{{ ui-key.yacloud.iot.label_brokers }}**.
+   1. To the right of the name of the broker you need, click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+   1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, update the key and the [label](../../../resource-manager/concepts/labels.md) value.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -403,7 +403,7 @@ You can manage broker labels in the following ways:
       terraform plan
       ```
 
-      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
   1. Apply the configuration changes:
 
       ```bash
@@ -432,8 +432,8 @@ You can manage broker labels in the following ways:
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a broker label.
    1. [Navigate]({{ link-console-main }}/link/iot-core) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-   1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
-   1. To the right of the name of your broker, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-branches.svg) **{{ ui-key.yacloud.iot.label_brokers }}**.
+   1. To the right of the name of the broker you need, click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
    1. To the right of the label to delete, click ![image](../../../_assets/console-icons/xmark.svg).
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -501,7 +501,7 @@ You can manage broker labels in the following ways:
       terraform plan
       ```
 
-      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
   1. Apply the configuration changes:
 
       ```bash

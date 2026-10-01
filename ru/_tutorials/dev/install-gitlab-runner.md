@@ -6,8 +6,6 @@
 
 Для {{ mgl-full-name }} вы также можете воспользоваться ручной установкой {{ GLR }} или автоматически развернуть [раннер](../../managed-gitlab/concepts/index.md#runners) в [консоли управления]({{ link-console-main }}), который будет обеспечивать нужное количество воркеров, запущенных в {{ compute-name }}.
 
-{% include [gl-runners-preview](../../_includes/managed-gitlab/gl-runners-preview.md) %}
-
 Чтобы начать работу с {{ GLR }} с помощью {{ compute-name }}:
 
 1. [Подготовьте инфраструктуру](#infra).
@@ -90,8 +88,6 @@
    ```
 
 ### Создайте раннер с помощью консоли управления {#create-runner}
-
-{% include [gl-runners-preview](../../_includes/managed-gitlab/gl-runners-preview.md) %}
 
 {% include [note-payment](../../_includes/managed-gitlab/note-payment.md) %}
 

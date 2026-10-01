@@ -4,7 +4,7 @@
 
 {% include [add-extentions-console](../../../_includes/api-gateway/add-extentions-console.md) %}
 
-## Поддерживаемые операции
+## Поддерживаемые операции {#operations}
 
 Операция | Поддерживаемые параметры | Что вернет {{ api-gw-name }} в формате JSON,<br/>если операция выполнится успешно
 ----|----|-----

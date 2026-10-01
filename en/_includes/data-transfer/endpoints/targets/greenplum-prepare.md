@@ -34,7 +34,7 @@
     
        Once started, the transfer will connect to the target on behalf of this user.
 
-- {{ GP }}
+- {{ GP }}/{{ CB }}
     
     1. {% include notitle [White IP list](../../configure-white-ip.md) %}
     

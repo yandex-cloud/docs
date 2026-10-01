@@ -42,5 +42,9 @@ Main web UI features:
 For more information on using the web UI, see the [{{ kafka-ui }} guides for {{ KF }}]({{ kafka-ui-kafbat }}).
 
 
-For a step-by-step guide on how to enable {{ kafka-ui }}, see [here](../operations/kafka-ui-enable.md).
+#### Useful links {#see-also}
+
+* For a step-by-step guide on how to enable {{ kafka-ui }}, see [{#T}](../operations/kafka-ui-enable.md).
+
+* For a tutorial on deploying {{ kafka-ui }} for a {{ mkf-name }} cluster, see [{#T}](../tutorials/deploy-kafka-ui.md).
 

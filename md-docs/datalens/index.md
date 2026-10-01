@@ -2,14 +2,6 @@
 
 # Yandex DataLens
 
-Yandex DataLens — это сервис бизнес-аналитики для визуализации ваших данных. Подключайтесь к различным источникам и визуализируйте данные, собирайте дашборды и формируйте отчеты в виде интерактивных презентаций.
-
-Отслеживайте ключевые продуктовые и бизнес-метрики в реальном времени, делитесь результатами с командой и принимайте обоснованные решения.
-
-Используйте Нейроаналитика для автоматического анализа данных, получения инсайтов, создания и редактирования визуализаций.
-
-# Yandex DataLens
-
 ## Знакомство с сервисом
 
  - [Обзор сервиса](concepts/index.md)
@@ -33,6 +25,12 @@ Yandex DataLens — это сервис бизнес-аналитики для �
  - [Экспорт и импорт воркбуков](workbooks-collections/export-and-import.md)
 
  - [Ошибки и предупреждения при экспорте и импорте](workbooks-collections/export-import-notifications.md)
+
+## AI-агенты
+
+ - [Использование DataLens с AI-агентами](operations/ai-agents.md)
+
+ - [AI-агенты в DataLens](concepts/ai-agents.md)
 
  - [Нейроаналитик DataLens](concepts/neuroanalyst.md)
 
@@ -966,6 +964,8 @@ Yandex DataLens — это сервис бизнес-аналитики для �
 
  - [Обзор](concepts/maillists.md)
 
+ - [Список рассылок](concepts/maillists-list.md)
+
  - [Рассылки для дашборда](operations/dashboard/add-maillists.md)
 
  - [Рассылки для отчета](reports/add-report-maillists.md)
@@ -981,6 +981,8 @@ Yandex DataLens — это сервис бизнес-аналитики для �
  - [Обзор](concepts/publishing-and-embedding.md)
 
  - [Публикация объектов](concepts/datalens-public.md)
+
+ - [Публикация по временной ссылке](concepts/datalens-temporary-link.md)
 
  - [Публичное встраивание](security/embedded-objects.md)
 
@@ -1222,16 +1224,6 @@ Yandex DataLens — это сервис бизнес-аналитики для �
 
  - [Get workbook import status](api-ref/WorkbookImport/rpcgetWorkbookImportStatus-post.md)
 
-#### EntryLock
-
- - [Overview](api-ref/EntryLock/index.md)
-
- - [Create entry lock](api-ref/EntryLock/rpccreateEntryLock-post.md)
-
- - [Extend entry lock](api-ref/EntryLock/rpcextendEntryLock-post.md)
-
- - [Delete entry lock](api-ref/EntryLock/rpcdeleteEntryLock-post.md)
-
 #### Editor
 
  - [Overview](api-ref/Editor/index.md)
@@ -1316,6 +1308,28 @@ Yandex DataLens — это сервис бизнес-аналитики для �
 
  - [List shared entry access bindings](api-ref/SharedEntry/rpclistSharedEntryAccessBindings-post.md)
 
+#### Licensing
+
+ - [Overview](api-ref/Licensing/index.md)
+
+ - [Get licenses](api-ref/Licensing/rpcgetLicenses-post.md)
+
+ - [Get licenses limit](api-ref/Licensing/rpcgetLicensesLimit-post.md)
+
+ - [Set licenses limit](api-ref/Licensing/rpcsetLicenseLimit-post.md)
+
+ - [Assign licenses](api-ref/Licensing/rpcassignLicenses-post.md)
+
+#### EntryLock
+
+ - [Overview](api-ref/EntryLock/index.md)
+
+ - [Create entry lock](api-ref/EntryLock/rpccreateEntryLock-post.md)
+
+ - [Extend entry lock](api-ref/EntryLock/rpcextendEntryLock-post.md)
+
+ - [Delete entry lock](api-ref/EntryLock/rpcdeleteEntryLock-post.md)
+
 #### Access
 
  - [Overview](api-ref/Access/index.md)
@@ -1334,23 +1348,19 @@ Yandex DataLens — это сервис бизнес-аналитики для �
 
  - [Delete HTML page](api-ref/HtmlPages/rpcdeleteHtmlPage-post.md)
 
-#### Licensing
+#### Data
 
- - [Overview](api-ref/Licensing/index.md)
+ - [Overview](api-ref/Data/index.md)
 
- - [Get licenses](api-ref/Licensing/rpcgetLicenses-post.md)
-
- - [Get licenses limit](api-ref/Licensing/rpcgetLicensesLimit-post.md)
-
- - [Set licenses limit](api-ref/Licensing/rpcsetLicenseLimit-post.md)
-
- - [Assign licenses](api-ref/Licensing/rpcassignLicenses-post.md)
+ - [🚧 [Experimental] Get dataset data](api-ref/Data/rpcgetDatasetData-post.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 
 ## История изменений
 
- - [Июль 2026](release-notes/index.md)
+ - [Август 2026](release-notes/index.md)
+
+ - [Июль 2026](release-notes/2607.md)
 
  - [Июнь 2026](release-notes/2606.md)
 
@@ -1360,9 +1370,11 @@ Yandex DataLens — это сервис бизнес-аналитики для �
 
  - [Март 2026](release-notes/2603.md)
 
- - [Февраль 2026](release-notes/2602.md)
+ - [Обзорные видео обновлений](release-notes/videos.md)
 
 ### Архив
+
+ - [Февраль 2026](release-notes/2602.md)
 
  - [Январь 2026](release-notes/2601.md)
 
@@ -1448,6 +1460,8 @@ Yandex DataLens — это сервис бизнес-аналитики для �
 
  - [Access denied](troubleshooting/errors/ERR-DS_API-US-ACCESS_DENIED.md)
 
+ - [Access to clique <название_клики> for user <логин_пользователя> was denied](troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-ACCESS_DENIED.md)
+
  - [Access to table was denied](troubleshooting/errors/ERR-DS_API-DB-CHYT-TABLE_ACCESS_DENIED.md)
 
  - [Authentication failed](troubleshooting/errors/ERR-DS_API-DB-CHYT-AUTH_FAILED.md)
@@ -1463,6 +1477,10 @@ Yandex DataLens — это сервис бизнес-аналитики для �
  - [Cannot parse datetime](troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-DATETIME.md)
 
  - [Cannot parse number](troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-NUMBER.md)
+
+ - [Clique <название_клики> is not running](troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-NOT_RUNNING.md)
+
+ - [Clique <название_клики> is suspended](troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-SUSPENDED.md)
 
  - [Column used in join expression is not a key column](troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-NOT_A_KEY_COLUMN.md)
 
@@ -1526,6 +1544,8 @@ Yandex DataLens — это сервис бизнес-аналитики для �
 
  - [Requested database column does not exist](troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md)
 
+ - [Failed to COMMIT or ROLLBACK](troubleshooting/errors/ERR-DS_API-DB-COMMIT_OR_ROLLBACK_FAILED.md)
+
  - [Подготовка данных еще не завершилась](troubleshooting/errors/ERR-DS_API-DB-DATA_PREPARATION_NOT_FINISHED.md)
 
  - [Subquery exceeds data weight limit](troubleshooting/errors/ERR-DS_API-DB-CHYT-SUBQ_WEIGHT_LIMIT_EXCEEDED.md)
@@ -1554,7 +1574,13 @@ Yandex DataLens — это сервис бизнес-аналитики для �
 
  - [YT table has no schema. Only schematized tables are supported](troubleshooting/errors/ERR-DS_API-DB-CHYT-TABLE_HAS_NO_SCHEMA.md)
 
+ - [Data source database does not exist.](troubleshooting/errors/ERR-DS_API-DB-DATABASE_DOES_NOT_EXIST.md)
+
  - [Не удалось создать <тип_объекта>](troubleshooting/errors/ERR-DS_API-DB-DB_OPERATIONAL_ERROR.md)
+
+ - [Estimated query execution time is too long. Maximum: 14400](troubleshooting/errors/ERR-DS_API-DB-EST_EXEC_TOO_LONG.md)
+
+ - [Filtration by any of indexed columns required.](troubleshooting/errors/ERR-DS_API-DB-INDEX_NOT_USED.md)
 
  - [Неверный формат файла](troubleshooting/errors/ERR-FILE-PARSE_FAILED-INVALID_EXCEL.md)
 
@@ -1615,3 +1641,25 @@ Yandex DataLens — это сервис бизнес-аналитики для �
  - [Dataset version mismatch. Refresh the page to continue](troubleshooting/errors/ERR-DS_API-DATASET_REVISION_MISMATCH.md)
 
  - [Ошибка при блокировке всплывающего окна](troubleshooting/errors/ERR-CLIENT-POPUP_BLOCKED.md)
+
+ - [Cannot convert NULL value to non-Nullable type](troubleshooting/errors/ERR-DS_API-DB-CANNOT_INSERT_NULL_IN_ORDINARY_COLUMN.md)
+
+ - [ClickHouse® could not parse the data in the specified source](troubleshooting/errors/ERR-DS_API-DB-CH-INCORRECT_DATA.md)
+
+ - [ClickHouse® user must be correctly configured to use readonly 1 option (see docs). For other readonly options user should have parameter readonly set to 0 or 2](troubleshooting/errors/ERR-DS_API-DB-CH-READONLY_USER.md)
+
+ - [Invalid sorted JOIN](troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN.md)
+
+ - [CHYT does not support compound expressions in ON/USING clause](troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-COMPOUND_EXPR_NOT_SUPPORTED.md)
+
+ - [Joining concatenation of multiple tables is not supported](troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-CONCAT_NOT_SUPPORTED.md)
+
+ - [Cannot join: key is empty](troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-KEY_IS_EMPTY.md)
+
+ - [Joined columns do not occupy same positions in key columns of joined tables](troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-NOT_SAME_KEY_POSITION.md)
+
+ - [Tables should be sorted](troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-TABLE_NOT_SORTED.md)
+
+ - [Reading multiple dynamic tables or dynamic table together with static table is not supported in CHYT](troubleshooting/errors/ERR-DS_API-DB-CHYT-MULTI_DYN_NOT_SUPPORTED.md)
+
+ - [CHYT Error](troubleshooting/errors/ERR-DS_API-DB-CHYT.md)

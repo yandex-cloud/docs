@@ -96,7 +96,7 @@ spec:
 Where:
 
 * `roleID`: IAM role ID, e.g., `admin`, `editor`, or `viewer`. This is a required field. It must match an existing role in {{ iam-name }}.
-* `subject`: Subject the role is assigned to. This is a required field.
+* `subject`: Subject getting the role. This is a required field.
   * `kind`: Subject type. The valid values are `User`, `Group`, `ServiceAccount`, and `FederatedUser`. This is a required field.
   * `name`: Subject name. For users, specify their username from {{ iam-name }}. This is a required field.
 
@@ -143,7 +143,7 @@ spec:
 
 * `metadata.namespace`: Namespace to assign the role at its level. The role will be assigned for this project’s folder. This is a required field.
 * `roleID`: IAM role ID. This is a required field.
-* `subject`: Subject the role is assigned to. This is a required field.
+* `subject`: Subject getting the role. This is a required field.
   * `kind`: Subject type. The valid values are `User`, `Group`, `ServiceAccount`, and `FederatedUser`. This is a required field.
   * `name`: Subject name. This is a required field.
 
@@ -169,7 +169,7 @@ Where:
 
 * `metadata.namespace`: Project to assign the role at its level. This is a required field.
 * `roleID`: IAM role ID. This is a required field.
-* `subject`: Subject the role is assigned to. This is a required field.
+* `subject`: Subject getting the role. This is a required field.
   * `kind`: `ServiceAccount` subject type. This is a required field.
   * `name`: Kubernetes ServiceAccount name. This is a required field.
   * `namespace`: Project the ServiceAccount is located in. This is a required field for the `ServiceAccount` subject type.

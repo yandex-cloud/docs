@@ -6,27 +6,22 @@ editable: false
 
 # Правила тарификации для {{ cdn-full-name }}
 
-{% note warning %}
-
-
-С 1 июля 2026 года действует новая модель тарификации {{ cdn-name }}.
-
-
-
-{% endnote %}
-
 ::: page-constructor
 blocks:
   - type: card-layout-block
     animated: false
     colSizes:
       all: 12
-      sm: 4
+      md: 4
+    indent:
+      top: '0'
+      bottom: '0'
     children:
       - type: basic-card
         title: Калькулятор цен
         text: Рассчитайте стоимость использования сервиса, исходя из ваших потребностей
-        icon: _assets/icons/calculator.svg
+        gravityIcon: Calculator
+        iconPosition: left
         urlTitle: Калькулятор цен
         url: https://yandex.cloud/ru/prices?state=e95a12e787e7#calculator
         size: s
@@ -38,7 +33,8 @@ blocks:
       - type: basic-card
         title: Прайс-лист
         text: Актуальные тарифы на все наши услуги
-        icon: _assets/icons/circle-ruble.svg
+        gravityIcon: CircleRuble
+        iconPosition: left
         urlTitle: Прайс-лист
         url: https://yandex.cloud/ru/price-list?services=dn2rse5n40m8h0bu8jqa
         size: s
@@ -50,7 +46,8 @@ blocks:
       - type: basic-card
         title: Акции и free tier
         text: Гранты, специальные условия и программы поддержки
-        icon: _assets/icons/flame.svg
+        gravityIcon: Flame
+        iconPosition: left
         urlTitle: Акции и free tier
         url: https://yandex.cloud/ru/all-offers
         size: s
@@ -67,14 +64,21 @@ blocks:
 {% include [vat](../_includes/vat.md) %}
 
 При расчете стоимости использования {{ cdn-name }} учитываются:
-* Количество [CDN-ресурсов](./concepts/resource.md).
-* Объем исходящего трафика, превышающего 150 ГБ бесплатного объема в месяц для каждого ресурса, за каждый 1 ГБ. 
 
-    При удалении ресурса, оставшийся бесплатный трафик обнуляется. Передача трафика между ресурсами невозможна.
+* Ежемесячная предоплата за пакет потребления для каждого [CDN-ресурса](./concepts/resource.md):
+    * исходящий трафик объемом 150 ГБ;
+    * 100 000 000 запросов к CDN-ресурсу.
+
+* Объем исходящего трафика сверх включенных в предоплаченный пакет 150 ГБ в месяц для каждого CDN-ресурса. Оплачивается каждый 1 ГБ сверх включенного в пакет объема.
+
+    При удалении ресурса остаток предоплаченного трафика обнуляется. Перенести его на другой CDN-ресурс нельзя.
 
     Учитывается исходящий трафик с CDN-серверов, в том числе запрошенный с пользовательских ресурсов сервисов {{ yandex-cloud }}, например с [виртуальных машин](../compute/concepts/vm.md) {{ compute-full-name }}. Входящий трафик, поступающий на CDN-серверы от сервисов и ресурсов {{ yandex-cloud }} и из интернета, не тарифицируется.
 
-* Количество запросов к CDN-ресурсам, превышающее бесплатный порог в 100 000 000 запросов в месяц, за каждые 100 000 запросов.
+* Количество запросов к CDN-ресурсам сверх включенных в предоплаченный пакет 100 000 000 запросов в месяц для каждого CDN-ресурса. Оплачиваются каждые 100 000 запросов сверх включенного в пакет количества.
+
+    При удалении ресурса остаток предоплаченных запросов обнуляется. Перенести его на другой CDN-ресурс нельзя.
+
 * Платные функции, включенные для ресурсов: [экранирование источников](concepts/origins-shielding.md), [выгрузка логов](./concepts/logs.md) и [выделенная IP-адресация](./concepts/dedicated-ip-addressing.md).
 
 ## Трафик между источником и CDN-серверами {#origin-cdn-traffic}

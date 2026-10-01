@@ -6,6 +6,8 @@ editable: false
 
 # {{ si-name }} pricing policy
 
+{% include [sunset-note](../_includes/serverless-integrations/sunset-note.md) %}
 
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ sw-name }} and {{ er-name }} are free of charge.
+
+At the [Preview](../overview/concepts/launch-stages.md) stage, {{ er-name }} is free of charge.

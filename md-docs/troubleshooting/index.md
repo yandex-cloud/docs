@@ -28,8 +28,6 @@
 
  - [В детализации по биллинг-аккаунту стало отображаться потребление по сервису Cloud Logging](billing/known-issues/cloud-logging-unexpectedly-charges-in-billing-account-details.md)
 
- - [KMS-ключи продолжают тарифицироваться после удаления](billing/known-issues/kms-keys-are-charged-in-billing-after-deletion.md)
-
  - [Устранение ошибки `Unauthorized` при создании платежного аккаунта](billing/known-issues/unauthorized-error-after-attempt-to-create-billing-account.md)
 
  - [Закончился пробный период](billing/known-issues/trial-expired-issue.md)
@@ -116,46 +114,6 @@
 
  - [Как сменить владельца аккаунта для юридических лиц](billing/how-to/changing-account-owner-for-legal-entities.md)
 
-## Certificate Manager
-
- - [Все решения для Certificate Manager](certificate-manager/index.md)
-
- - [Решения для известных проблем Certificate Manager](certificate-manager/known-issues/index.md)
-
- - [Устранение проблем с получением и обновлением сертификатов от Let's Encrypt](certificate-manager/known-issues/certificate-issue-or-renewal-failed.md)
-
- - [Примеры конфигураций и сценариев Certificate Manager](certificate-manager/how-to/index.md)
-
-## Managed Service for ClickHouse®
-
- - [Все решения для Managed Service for ClickHouse®](clickhouse/index.md)
-
- - [Решения для известных проблем Managed Service for ClickHouse®](clickhouse/known-issues/index.md)
-
- - [Примеры конфигураций и сценариев Managed Service for ClickHouse®](clickhouse/how-to/index.md)
-
-## Cloud CDN
-
- - [Все решения для Cloud CDN](cdn/index.md)
-
- - [Решения для известных проблем Cloud CDN](cdn/known-issues/index.md)
-
- - [Устранение ошибок `no such bucket` и `no such key` при загрузке объектов из Cloud CDN](cdn/known-issues/no-such-bucket-no-such-key.md)
-
- - [Сервис Cloud CDN возвращает только один IP-адрес](cdn/known-issues/returning-only-one-ip-address.md)
-
- - [Примеры конфигураций и сценариев Cloud CDN](cdn/how-to/index.md)
-
- - [Как ограничить доступ к бакету Object Storage диапазоном IP-адресов, принадлежащих Cloud CDN](cdn/how-to/permit-bucket-access-only-to-cdn-networks.md)
-
-## Cloud Logging
-
- - [Все решения для Cloud Logging](cloud-logging/index.md)
-
- - [Примеры конфигураций и сценариев Cloud Logging](cloud-logging/how-to/index.md)
-
- - [Как настроить отправку журналов работы сторонних приложений в Cloud Logging](cloud-logging/how-to/sending-logs-from-third-party-libraries-and-apps.md)
-
 ## Compute Cloud
 
  - [Все решения для Compute Cloud](compute/index.md)
@@ -230,16 +188,6 @@
 
  - [Как настроить защиту RDP-подключения на Microsoft Windows®](compute/how-to/rdp-protection-for-windows.md)
 
-## Container Registry
-
- - [Все решения для Container Registry](container-registry/index.md)
-
- - [Решения для известных проблем Container Registry](container-registry/known-issues/index.md)
-
- - [Превышение лимитов на загрузку образов из каталога Docker Hub](container-registry/known-issues/docker-pull-limit-reached-in-dockerhub.md)
-
- - [Примеры конфигураций и сценариев Container Registry](container-registry/how-to/index.md)
-
 ## DataLens
 
  - [Все решения для DataLens](datalens/index.md)
@@ -298,38 +246,6 @@
 
  - [Устранение неверного значения поля `Итого` в сводной таблице](datalens/known-issues/incorrect-value-in-field-total.md)
 
-## Yandex Data Processing
-
- - [Все решения для Yandex Data Processing](data-processing/index.md)
-
- - [Решения для известных проблем Yandex Data Processing](data-processing/known-issues/index.md)
-
- - [Кластер Yandex Data Processing находится в состоянии `UNKNOWN` сразу после создания](data-processing/known-issues/hosts-of-data-processing-cluster-are-in-status-unknown-after-creation.md)
-
- - [Нет логов в YARN Resource Manager Web UI после выполнения заданий](data-processing/known-issues/yarn-resource-manager-does-not-display-logs.md)
-
- - [Примеры конфигураций и сценариев Yandex Data Processing](data-processing/how-to/index.md)
-
-## DataSphere
-
- - [Все решения для DataSphere](datasphere/index.md)
-
- - [Решения для известных проблем DataSphere](datasphere/known-issues/index.md)
-
- - [Устранение ошибок при запуске проекта в DataSphere](datasphere/known-issues/datasphere-projects-starting-issue.md)
-
- - [Получение доступа к конфигурациям GPU g1.1 и выше в DataSphere](datasphere/known-issues/getting-access-go-g1-1-config.md)
-
- - [Устранение проблем с долгим запуском кода внутри ячеек проекта DataSphere](datasphere/known-issues/project-cells-dont-load-for-a-long-time.md)
-
- - [Устранение ошибки `Servant not allocated` при запуске кода внутри ячеек проекта DataSphere](datasphere/known-issues/servant-not-allocated-issue.md)
-
- - [Устранение ошибки `ConnectTimeoutError` при установке пакетов через pip](datasphere/known-issues/error-connect-timeout-when-installing-via-pip.md)
-
- - [Устранение ошибки `Device or resource busy`](datasphere/known-issues/error-device-or-resource-busy.md)
-
- - [Примеры конфигураций и сценариев DataSphere](datasphere/how-to/index.md)
-
 ## Cloud DNS
 
  - [Все решения для Cloud DNS](dns/index.md)
@@ -343,102 +259,6 @@
  - [Примеры конфигураций и сценариев Cloud DNS](dns/how-to/index.md)
 
  - [Как делегировать домен на серверы Cloud DNS](dns/how-to/delegate-public-zone.md)
-
-## Data Transfer
-
- - [Все решения для Data Transfer](data-transfer/index.md)
-
- - [Решения для известных проблем Data Transfer](data-transfer/known-issues/index.md)
-
- - [Устранение ошибки `failed to connect to the destination cluster to get type information`](data-transfer/known-issues/failed-to-connect-to-the-destination-cluster-to-get-type-information.md)
-
- - [Примеры конфигураций и сценариев Data Transfer](data-transfer/how-to/index.md)
-
-## Cloud Functions
-
- - [Все решения для Cloud Functions](functions/index.md)
-
- - [Решения для известных проблем Cloud Functions](functions/known-issues/index.md)
-
- - [Устранение ошибки `CORS` при обращении к API SpeechKit, Vision OCR или Translate из фронтенда веб-приложения](functions/known-issues/cors-error-when-querying-api-fron-webapp-frontend.md)
-
- - [Устранение ошибок с HTTP 499 при работе облачной функции или контейнера Serverless Containers](functions/known-issues/errors-499-in-function-or-container-logs.md)
-
- - [Устранение ошибки `No node can serve the request (Too many reschedules)`](functions/known-issues/too-many-reschedules.md)
-
- - [Устранение ошибки `No node can serve the request (concurrent requests exceeded)`](functions/known-issues/concurrent-request-quota-exceeded.md)
-
- - [Устранение ошибки Permission denied при создании новых ресурсов](functions/known-issues/permission-denied-when-creating-new-resources.md)
-
- - [Примеры конфигураций и сценариев Cloud Functions](functions/how-to/index.md)
-
- - [Как подключиться к функции из MDB](functions/how-to/accessing-function-from-mdb.md)
-
- - [Как настроить статический IP-адрес](functions/how-to/static-ip-address.md)
-
- - [Как работать с облачными функциями асинхронно](functions/how-to/async-functions-invokes.md)
-
-## Identity and Access Management
-
- - [Все решения для IAM](iam/index.md)
-
- - [Решения для известных проблем IAM](iam/known-issues/index.md)
-
- - [Устранение ошибок при назначении роли `resource-manager.clouds.owner` пользователю облака](iam/known-issues/resource-manager-clouds-owner-is-only-applicable-to-resources-of-type-resource-manager-cloud.md)
-
- - [Устранение ошибок при работе с приглашениями в облачную организацию](iam/known-issues/error-when-users-accepts-invite-to-organisation.md)
-
- - [Устранение ошибки `The signature of response or assertion was invalid` при авторизации федеративным аккаунтом](iam/known-issues/error-the-signature-of-response-or-assertion-was-invalid-when-using-federatadion-login.md)
-
- - [Устранение проблем при создании OAuth-токенов от имени учетных записей Яндекс ID](iam/known-issues/unauthorised-client-issue.md)
-
- - [Устранение ошибки `publicAccessBindings` при переносе облака между разными организациями](iam/known-issues/move-org-public-access-bindings-error.md)
-
- - [Устранение ошибки `OAuth token is invalid or expired`](iam/known-issues/error-oauth-token-is-invalid-or-expired.md)
-
- - [Устранение ошибки `Обратитесь к администратору организации за новым приглашением`](iam/known-issues/invitation-already-accepted.md)
-
- - [Устранение ошибки `Service account is not available`](iam/known-issues/service-account-is-not-available.md)
-
- - [Устранение ошибки `PROHIBITED_BILLING_ACCOUNT_USAGE_STATUS`](iam/known-issues/error-prohibited-billing-account-status.md)
-
- - [Устранение ошибки `Validation failed - access_binding_deltas Number of elements must be in the range of 1 to 1000`](iam/known-issues/error-validation-failed.md)
-
- - [В списке пользователей организации не отображается федеративный пользователь](iam/known-issues/federative-user-is-not-visible.md)
-
- - [Пользователь не видит приглашение в организацию или роль `admin`](iam/known-issues/invitation-or-admin-role-not-seen.md)
-
- - [Появление неизвестного пользователя в организации](iam/known-issues/unknown-user.md)
-
- - [Устранение ошибки `Такой логин не подойдет`](iam/known-issues/invalid-login.md)
-
- - [Устранение ошибки `Response is invalid in a general way` при авторизации через SAML-провайдер](iam/known-issues/error-bad-request.md)
-
- - [Устранение ошибки `Forbidden` при работе от имени сервисного аккаунта](iam/known-issues/error-forbidden.md)
-
- - [Примеры конфигураций и сценариев IAM](iam/how-to/index.md)
-
- - [Как отменить удаление облака](iam/how-to/cancel-pending-deletion.md)
-
- - [Как изменить владельца облака](iam/how-to/change-cloud-owner.md)
-
- - [Как изменить владельца организации](iam/how-to/change-organization-owner.md)
-
- - [Как удалить организацию](iam/how-to/deleting-organization.md)
-
- - [Какое время жизни сессии при аутентификации федеративного пользователя](iam/how-to/cookie-expire-time.md)
-
- - [Какую минимальную роль необходимо выдать пользователю для доступа к Консоли управления](iam/how-to/minimal-accessing-role-for-console.md)
-
-## Key Management Service
-
- - [Все решения для KMS](kms/index.md)
-
- - [Решения для известных проблем KMS](kms/known-issues/index.md)
-
- - [KMS-ключи продолжают тарифицироваться после удаления](kms/known-issues/kms-keys-are-charged-in-billing-after-deletion.md)
-
- - [Примеры конфигураций и сценариев KMS](kms/how-to/index.md)
 
 ## Managed Service for Kubernetes
 
@@ -489,48 +309,6 @@
  - [Как изменить часовой пояс на узлах кластера Managed Service for Kubernetes](managed-kubernetes/how-to/setting-timezone-on-mk8s-worker-nodes.md)
 
  - [Как выяснить размер эфемерного хранилища узла Managed Service for Kubernetes](managed-kubernetes/how-to/finding-out-ephemeral-storage-size.md)
-
-## Managed Service for Apache Kafka®
-
- - [Все решения для Managed Service for Apache Kafka®](managed-kafka/index.md)
-
- - [Примеры конфигураций и сценариев Managed Service for Apache Kafka®](managed-kafka/how-to/index.md)
-
- - [Как отслеживать процесс чтения топиков](managed-kafka/how-to/process-read-topic.md)
-
- - [Решения для известных проблем Managed Service for Apache Kafka®](managed-kafka/known-issues/index.md)
-
- - [Устранение ошибки `Failed authentication with /`](managed-kafka/known-issues/error-failed-authentification.md)
-
-## Managed Service for GitLab
-
- - [Все решения для Managed Service for GitLab](managed-gitlab/index.md)
-
- - [Решения для известных проблем  Managed Service for GitLab](managed-gitlab/known-issues/index.md)
-
- - [Устранение ошибки HTTP 500 в Managed Service for GitLab](managed-gitlab/known-issues/error-500.md)
-
- - [Устранение ошибки 413 при выполнении операции `git push`](managed-gitlab/known-issues/error-413.md)
-
- - [Примеры конфигураций и сценариев Managed Service for GitLab](managed-gitlab/how-to/index.md)
-
- - [Как обновить ПО на инстансе Managed Service for GitLab](managed-gitlab/how-to/update-gitlab-software-version.md)
-
- - [Как настроить миграцию проектов](managed-gitlab/how-to/migrate-projects.md)
-
-## Managed Service for YDB
-
- - [Все решения для Managed Service for YDB](managed-ydb/index.md)
-
- - [Решения для известных проблем Managed Service for YDB](managed-ydb/known-issues/index.md)
-
- - [Устранение ошибки `RESOURCE_EXHAUSTED`](managed-ydb/known-issues/resource-exhausted.md)
-
- - [Устранение ошибки `Unauthenticated`](managed-ydb/known-issues/sdk-unauthenticated.md)
-
- - [Устранение ошибки 503 `Service Unavailable`](managed-ydb/known-issues/error-503.md)
-
- - [Примеры конфигураций и сценариев Managed Service for YDB](managed-ydb/how-to/index.md)
 
 ## Network Load Balancer
 
@@ -618,70 +396,6 @@
 
  - [Примеры конфигураций и сценариев Managed Service for MySQL®](managed-mysql/how-to/index.md)
 
-## Managed Service for PostgreSQL
-
- - [Все решения для Managed Service for PostgreSQL](managed-postgresql/index.md)
-
- - [Решения для известных проблем Managed Service for PostgreSQL](managed-postgresql/known-issues/index.md)
-
- - [Восстановление работоспособности кластера Managed Service for PostgreSQL после исчерпания свободного места в хранилище данных](managed-postgresql/known-issues/restoring-health-of-a-cluster-after-switching-its-disks-to-read-only-mode.md)
-
- - [Не удается удалить кластер Managed Service for PostgreSQL в состоянии `DEAD`, если на нем включена защита от удаления](managed-postgresql/known-issues/unable-to-remove-cluster-in-dead-state-if-delete-protection-is-activated.md)
-
- - [Устранение проблем изменения конфигурации кластеров с дисками `local-ssd`](managed-postgresql/known-issues/unprocessable-entity-issue-when-enlarging-local-disk.md)
-
- - [Устранение последствий переполнения хранилища кластера WAL-журналами](managed-postgresql/known-issues/cluster-in-readonly-due-to-wal-overflow.md)
-
- - [Устранение ошибки `psql error could not translate host name to address nodename nor servname provided, or not known`](managed-postgresql/known-issues/error-could-not-translate-host-name-to-address-nodename-nor-servname-provided-or-not-known.md)
-
- - [Устранение ошибки `max_connections conn_limit is too high`](managed-postgresql/known-issues/conn-limit-is-too-high.md)
-
- - [Устранение ошибки `Must be superuser to create this extension`](managed-postgresql/known-issues/must-be-superuser-to-create-this-extension.md)
-
- - [Устранение ошибки `terminating connection due to administrator command` и `ERROR: odyssey: remote server read/write error`](managed-postgresql/known-issues/terminating-connection-due-to-administrator-command.md)
-
- - [Устранение ошибки `422 UNPROCESSABLE ENTITY The specified extension <'ext_name'> is not present in shared_preload_libraries`](managed-postgresql/known-issues/error-422.md)
-
- - [Примеры конфигураций и сценариев Managed Service for PostgreSQL](managed-postgresql/how-to/index.md)
-
- - [Как работает параметр `Conn limit`](managed-postgresql/how-to/conn-limit-parameter.md)
-
- - [Как настроить фильтрацию SQL-запросов](managed-postgresql/how-to/sql-queries-filtering.md)
-
- - [Как включить логирование SQL-запросов](managed-postgresql/how-to/sql-queries-logging.md)
-
-## Monitoring
-
- - [Все решения для Monitoring](monitoring/index.md)
-
- - [Решения для известных проблем Monitoring](monitoring/known-issues/index.md)
-
- - [Не приходят оповещения о событиях после настройки канала уведомлений в Monitoring](monitoring/known-issues/no-incoming-sms-and-emails-after-alert-config.md)
-
- - [Графики мониторинга имеют разрывы и пустоты при нормальной работе облачных ресурсов](monitoring/known-issues/gaps-in-chart-lines.md)
-
- - [Примеры конфигураций и сценариев Monitoring](monitoring/how-to/index.md)
-
-## Serverless Containers
-
- - [Все решения для Serverless Containers](serverless-containers/index.md)
-
- - [Решения для известных проблем Serverless Containers](serverless-containers/known-issues/index.md)
-
- - [Устранение ошибки `Code 502 Message Error during function invocation`](serverless-containers/known-issues/serverless-container-invoking-error-502.md)
-
- - [Устранение ошибки `Service account is not available`](serverless-containers/known-issues/service-account-is-not-available.md)
-
- - [Устранение ошибки `user container exec format error`](serverless-containers/known-issues/exec-format-error.md)
-
- - [Устранение ошибки `No space left on device`](serverless-containers/known-issues/no-space-left-on-device.md)
-
- - [Устранение ошибки 403 `Permission denied`](serverless-containers/known-issues/permission-denied.md)
-
- - [Примеры конфигураций и сценариев Serverless Containers](serverless-containers/how-to/index.md)
-
- - [Как настроить статический IP-адрес](serverless-containers/how-to/static-ip-address.md)
-
 ## SmartCaptcha
 
  - [Все решения для SmartCaptcha](smartcaptcha/index.md)
@@ -693,18 +407,6 @@
  - [Примеры конфигураций и сценариев SmartCaptcha](smartcaptcha/how-to/index.md)
 
  - [Как получить информацию о количестве использованных проверок за определенный период](smartcaptcha/how-to/learning-about-monitoring-and-tarification.md)
-
-## SpeechKit
-
- - [Все решения для SpeechKit](speechkit/index.md)
-
- - [Решения для известных проблем SpeechKit](speechkit/known-issues/index.md)
-
- - [Устранение ошибки `audio duration should be less than 30s`](speechkit/known-issues/error-audio-duration-should-be-less-then-30s.md)
-
- - [Примеры конфигураций и сценариев SpeechKit](speechkit/how-to/index.md)
-
- - [Как включить автоматическую расстановку знаков препинания в распознанном тексте](speechkit/how-to/enabling-punctuator-in-speechkit.md)
 
 ## VPC
 

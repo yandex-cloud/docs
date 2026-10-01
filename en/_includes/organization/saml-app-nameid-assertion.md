@@ -5,7 +5,7 @@ Possible attribute formats and values:
 * `{{ ui-key.yacloud_org.organization.apps.NameIdAttributeFormDialog.field_nameId_email_mqNDG }}`: User ID is provided in email address format. Available values:
     * `SubjectClaims.preferred_username`: Default value when switching to this format.
 
-        The uniqueness and invariability of the provided ID is not guaranteed: one organization may have two users with the same `preferred_username` ID. For example: a [federated](../../iam/concepts/users/accounts.md#saml-federation) and a [local](../../iam/concepts/users/accounts.md#local) user can have the same value for this attribute.
+        The uniqueness and invariability of the provided ID are not guaranteed: one organization may have two users with the same `preferred_username` ID. For example: a [federated](../../iam/concepts/users/accounts.md#saml-federation) and a [local](../../iam/concepts/users/accounts.md#local) user can have the same value for this attribute.
 
         If the federated user's `preferred_username` ID is not in email format, the provided ID will be automatically suffixed with `@<identity_federation_ID>` to bring it to that format.
     * `SubjectClaims.email`: User email address.

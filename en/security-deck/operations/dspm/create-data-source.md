@@ -68,7 +68,7 @@ Before [creating](create-scan.md#cloud-sd-v1) a regular scan in {{ dspm-name }},
 
                 {% note info %}
 
-                This feature is not available for the {{ yandex-360 }} Minimum [plan]({{ link-yandex }}/support/yandex-360/business/purchase/{{ lang }}/plans/payment-plans-ru).
+                This feature is not available for the {{ yandex-360 }} Minimum [plan](https://yandex.ru/support/yandex-360/business/purchase/{{ lang }}/plans/payment-plans-ru).
 
                 {% endnote %}
 

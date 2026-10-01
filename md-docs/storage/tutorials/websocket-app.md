@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Создание интерактивного serverless-приложения с использованием WebSocket
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Разработка и развертывание приложений > Создание интерактивного serverless-приложения с использованием WebSocket
 
 # Создание интерактивного serverless-приложения с использованием WebSocket
 
@@ -25,10 +25,10 @@
 1. [Создайте секрет Yandex Lockbox](#secrets-create).
 1. [Разверните проект](#app-deploy).
 1. [Создайте ключи доступа для сервисных аккаунтов](#create-extra-sa-keys).
-1. [Создайте новую версию секрета и разверните проект еще раз](#update-and-deploy).
+1. [Создайте новую версию секрета и разверните проект еще раз](#secrets-update).
 1. [Создайте API-шлюз Yandex API Gateway](#apigw-create).
 1. [Подключите домен к Telegram-боту](#api-gw-connect).
-1. [Протестируйте приложение](#test-api).
+1. [Протестируйте приложение](#test-app).
 
 Если созданные ресурсы больше не нужны, [удалите](#clear-out) их.
 

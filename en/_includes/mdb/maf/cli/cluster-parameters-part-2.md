@@ -32,10 +32,10 @@
 
     * `--gitsync`: Git repo parameters:
 
-      * `repo`: Repository address.
-      * `branch`: Working branch.
-      * `subpath`: Path to the DAG file folder in the repository.
-      * `ssh-key`: Private SSH repository access key as a single string with `\n` as the new line characters.
+      * `repo`: Repository address in `git@github.com:<user>/<path_to_git_repo>.git` format.
+      * `branch`: Repository branch name, e.g., `main`.
+      * `subpath`: Path to the directory with DAG files relative to the repository, in `/<path-to-DAG-files>` format.
+      * `ssh-key`: Private SSH repository access key, single-line with new line characters `\n`.
       * `--identity-file`: Path to the file with the private SSH repository access key.
 
         Specify either `ssh-key` or `ssh-key-path`.
@@ -44,13 +44,13 @@
 
     Specify either `--dags-bucket` or `--gitsync`.
 
-* `--maintenance-window`: [Maintenance window](../../../../managed-airflow/concepts/maintenance.md) settings (including for stopped clusters), where `type` is the maintenance type:
+* `--maintenance-window`: [Maintenance window](../../../../managed-airflow/concepts/maintenance.md) settings that apply to both running and stopped clusters. The `type` setting defines the maintenance type:
 
     {% include [maintenance-window](../../../../_includes/mdb/cli/maintenance-window-description.md) %}
 
 * `--deletion-protection`: Enables cluster protection against accidental deletion.
 
-    Even if it is enabled, one can still connect to the cluster manually and delete it.
+    Even with deletion protection on, one can still connect to the cluster manually and delete it.
 
 * `--lockbox-secrets-backend`: Enables using secrets in [{{ lockbox-full-name }}](../../../../lockbox/concepts/index.md) to [store {{ AF }} configuration data, variables, and connection parameters](../../../../managed-airflow/concepts/impersonation.md#lockbox-integration).
 * `--airflow-config`: [{{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) additional properties. Provide them in `<configuration_section>.<key>=<value>` format, such as the following:

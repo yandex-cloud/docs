@@ -19,7 +19,7 @@ Valkey™ ACL решает две основные задачи:
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится нужный кластер.
   1. [Перейдите](https://console.yandex.cloud/link/managed-valkey) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **Пользователи**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Пользователи**.
 
 - CLI {#cli}
   
@@ -117,7 +117,7 @@ Valkey™ ACL решает две основные задачи:
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится нужный кластер.
   1. [Перейдите](https://console.yandex.cloud/link/managed-valkey) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **Пользователи**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Пользователи**.
       
       Информация о пользователе доступна в списке пользователей.
   

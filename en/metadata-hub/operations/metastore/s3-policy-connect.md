@@ -5,6 +5,7 @@ description: In {{ metastore-full-name }}, you can work with a {{ objstorage-ful
 
 # Connecting to a {{ objstorage-full-name }} bucket with a bucket policy
 
+
 In {{ metastore-full-name }}, you can work with a {{ objstorage-full-name }} bucket with [bucket policies](../../../storage/security/policy.md) configured. You access the bucket from a separate DNS zone through an internal load balancer that distributes traffic across NAT instances. This connection is outlined below. A {{ metastore-name }} cluster will be used in place of the `test-s3-vm` VM.
 
 ![Storage VPC Access](../../../_assets/metadata-hub/storage-vpc-access-metastore.svg)

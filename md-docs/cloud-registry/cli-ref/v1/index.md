@@ -38,7 +38,19 @@ Syntax:
 
 - [yc cloud-registry v1 migration](migration/index.md) — A set of methods for managing cloud migration.
 
+  - [yc cloud-registry v1 migration get-cloud-migration-status-dashboard](migration/get-cloud-migration-status-dashboard.md) — Returns migration status dashboard for the specified cloud.
+
+  - [yc cloud-registry v1 migration get-folder-migration-status-dashboard](migration/get-folder-migration-status-dashboard.md) — Returns migration status dashboard for the specified folder.
+
   - [yc cloud-registry v1 migration start-cloud](migration/start-cloud.md) — Starts migration for all registries in the specified cloud.
+
+  - [yc cloud-registry v1 migration start-folder](migration/start-folder.md) — Starts migration for all registries in the specified folder.
+
+  - [yc cloud-registry v1 migration toggle-cloud-redirects](migration/toggle-cloud-redirects.md) — Toggles whether redirects are allowed for all registries in the specified cloud.
+
+  - [yc cloud-registry v1 migration toggle-folder-redirects](migration/toggle-folder-redirects.md) — Toggles whether redirects are allowed for all registries in the specified folder.
+
+  - [yc cloud-registry v1 migration toggle-registry-redirects](migration/toggle-registry-redirects.md) — Toggles whether redirects are allowed for the specified registry.
 
 - [yc cloud-registry v1 registry](registry/index.md) — A set of methods for managing Registry resources.
 
@@ -86,6 +98,15 @@ Set the custom profile. ||
 || `--region` | `string`
 
 Set the region. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||

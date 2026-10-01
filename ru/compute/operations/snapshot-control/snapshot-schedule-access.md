@@ -18,7 +18,7 @@ description: Следуя данной инструкции, вы настрои
   1. На панели слева выберите ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**.
   1. Выберите расписание из списка.
-  1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. В открывшемся окне выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к расписанию.
   1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые [роли](../../security/index.md#roles-list).
@@ -48,31 +48,22 @@ description: Следуя данной инструкции, вы настрои
 
   1. Назначьте роль с помощью команды:
 
-     * Пользователю:
+     ```bash
+     yc compute snapshot-schedule add-access-binding <идентификатор_расписания> \
+       --role <роль>
+       --subject <тип_субъекта>:<идентификатор_субъекта>
+     ```
 
-       ```bash
-       yc compute snapshot-schedule add-access-binding <идентификатор_расписания> \
-         --user-account-id <идентификатор_пользователя> \
-         --role <роль>
-       ```
+     Где:
 
-       Где:
+     * `--role` — назначаемая [роль](../../security/index.md#roles-list).
+     * `--subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-       * `--user-account-id` — [идентификатор пользователя](../../../organization/operations/users-get.md).
-       * `--role` — назначаемая [роль](../../security/index.md#roles-list).
+         {% cut "Обозначения субъектов" %}
 
-     * Сервисному аккаунту:
+         {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
 
-       ```bash
-       yc compute snapshot-schedule add-access-binding <идентификатор_расписания> \
-         --service-account-id <идентификатор_сервисного_аккаунта> \
-         --role <роль>
-       ```
-
-       Где:
-
-       * `--service-account-id` — [идентификатор сервисного аккаунта](../../../iam/operations/sa/get-id.md).
-       * `--role` — назначаемая роль.
+         {% endcut %}
 
 - {{ TF }} {#tf}
 
@@ -96,7 +87,13 @@ description: Следуя данной инструкции, вы настрои
 
       * `snapshot_schedule_id` — идентификатор расписания.
       * `role` — назначаемая [роль](../../security/index.md#roles-list).
-      * `members` — список типов и идентификаторов [субъектов](../../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+      * `members` — список обозначений [субъектов](../../../iam/concepts/access-control/index.md#subject), которым назначается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
       Более подробную информацию о параметрах ресурса `yandex_compute_snapshot_schedule_iam_binding` читайте в [документации провайдера]({{ tf-provider-resources-link }}/compute_snapshot_schedule_iam_binding).
 
@@ -112,7 +109,13 @@ description: Следуя данной инструкции, вы настрои
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/SnapshotSchedule/updateAccessBindings.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/) или вызовом gRPC API [SnapshotSchedule/UpdateAccessBindings](../../api-ref/grpc/SnapshotSchedule/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/SnapshotSchedule/updateAccessBindings.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/) или вызовом gRPC API [SnapshotSchedule/UpdateAccessBindings](../../api-ref/grpc/SnapshotSchedule/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}
 
@@ -127,12 +130,12 @@ description: Следуя данной инструкции, вы настрои
   1. На панели слева выберите ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**.
   1. Выберите расписание из списка.
-  1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. В открывшемся окне выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к расписанию.
   1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые [роли](../../security/index.md#roles-list).
   1. Добавьте еще роль через кнопку **{{ ui-key.yacloud_components.acl.button.add-role }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 - CLI {#cli}
 
@@ -163,19 +166,23 @@ description: Следуя данной инструкции, вы настрои
        --access-binding role=<роль>,subject=<тип_субъекта>:<идентификатор_субъекта>
      ```
 
-     Где:
+     Где `--access-binding` — назначаемая роль:
 
-     * `--access-binding` — назначаемая роль:
+     * `role` — идентификатор назначаемой роли.
+     * `subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
-       * `role` — идентификатор назначаемой роли.
-       * `subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+         {% cut "Обозначения субъектов" %}
+
+         {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+         {% endcut %}
 
      Например, назначьте роли нескольким пользователям и сервисному аккаунту:
 
      ```bash
      yc compute snapshot-schedule set-access-bindings my-schedule \
-       --access-binding role=editor,subject=userAccount:gfei8n54hmfh********
-       --access-binding role=viewer,subject=userAccount:helj89sfj80a********
+       --access-binding role=editor,subject=userAccount:gfei8n54hmfh******** \
+       --access-binding role=viewer,subject=userAccount:helj89sfj80a******** \
        --access-binding role=editor,subject=serviceAccount:ajel6l0jcb9s********
      ```
 
@@ -205,7 +212,13 @@ description: Следуя данной инструкции, вы настрои
 
       * `snapshot_schedule_id` — идентификатор расписания.
       * `role` — назначаемая [роль](../../security/index.md#roles-list).
-      * `members` — список типов и идентификаторов [субъектов](../../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+      * `members` — список обозначений [субъектов](../../../iam/concepts/access-control/index.md#subject), которым назначается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-terraform](../../../_includes/iam/subjects-designations-terraform.md) %}
+
+          {% endcut %}
 
       Более подробную информацию о параметрах ресурса `yandex_compute_snapshot_schedule_iam_binding` читайте в [документации провайдера]({{ tf-provider-resources-link }}/compute_snapshot_schedule_iam_binding).
 
@@ -221,7 +234,13 @@ description: Следуя данной инструкции, вы настрои
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [setAccessBindings](../../api-ref/SnapshotSchedule/setAccessBindings.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/) или вызовом gRPC API [SnapshotSchedule/SetAccessBindings](../../api-ref/grpc/SnapshotSchedule/setAccessBindings.md).
+  Воспользуйтесь методом REST API [setAccessBindings](../../api-ref/SnapshotSchedule/setAccessBindings.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/) или вызовом gRPC API [SnapshotSchedule/SetAccessBindings](../../api-ref/grpc/SnapshotSchedule/setAccessBindings.md). В теле запроса в свойстве `subject` укажите тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}
 
@@ -236,7 +255,7 @@ description: Следуя данной инструкции, вы настрои
   1. На панели слева выберите ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**.
   1. Выберите расписание из списка.
-  1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
   1. В строке нужного пользователя нажмите значок ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
   1. Нажмите значок ![cross](../../../_assets/console-icons/xmark.svg) рядом с ролью, чтобы удалить ее.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
@@ -270,7 +289,13 @@ description: Следуя данной инструкции, вы настрои
       Где:
 
       * `--role` — идентификатор роли, которую надо отозвать.
-      * `--subject` — [субъект](../../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
+      * `--subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
+
+          {% cut "Обозначения субъектов" %}
+
+          {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
+
+          {% endcut %}
 
       Например, чтобы отозвать роль `{{ roles-viewer }}` у пользователя с идентификатором `ajel6l0jcb9s********` на расписание:
 
@@ -309,6 +334,12 @@ description: Следуя данной инструкции, вы настрои
 
 - API {#api}
 
-  Чтобы отозвать роли на расписание снимков диска, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/SnapshotSchedule /updateAccessBindings.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/) или вызовом gRPC API [SnapshotScheduleService/UpdateAccessBindings](../../api-ref/grpc/SnapshotSchedule/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы отозвать роли на расписание снимков диска, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/SnapshotSchedule/updateAccessBindings.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/) или вызовом gRPC API [SnapshotScheduleService/UpdateAccessBindings](../../api-ref/grpc/SnapshotSchedule/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject).
+
+  {% cut "Обозначения субъектов" %}
+
+  {% include [subjects-designations-api](../../../_includes/iam/subjects-designations-api.md) %}
+
+  {% endcut %}
 
 {% endlist %}

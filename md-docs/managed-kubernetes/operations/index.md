@@ -52,6 +52,7 @@
 ## Сетевые сценарии {#network-scenarios}
 
 * [Обеспечение доступа к приложению, запущенному в кластере Kubernetes](create-load-balancer.md)
+* [Настройка режима управления целевыми группами для сетевых балансировщиков](configure-load-balancer-target-groups.md)
 * [Настройка контроллера сетевых политик Calico](calico.md)
 * [Настройка контроллера сетевых политик Cilium](cilium.md)
 * [Настройка NodeLocal DNS для контроллера сетевых политик Cilium](cilium-node-local-dns.md)
@@ -72,6 +73,7 @@
 * [Посмотреть операции с кластером Managed Service for Kubernetes](kubernetes-cluster/kubernetes-cluster-operation-logs.md)
 * [Создание кластера Managed Service for Kubernetes](kubernetes-cluster/kubernetes-cluster-create.md)
 * [Изменение кластера Managed Service for Kubernetes](kubernetes-cluster/kubernetes-cluster-update.md)
+* [Настройка маскарадинга в кластерах с несколькими диапазонами IP-адресов подов](network/manage-ip-masq-agent.md)
 * [Управление доступом к кластеру Managed Service for Kubernetes](kubernetes-cluster/kubernetes-cluster-access.md)
 * [Включение поддержки федерации сервисных аккаунтов Yandex Identity and Access Management в кластере Yandex Managed Service for Kubernetes](kubernetes-cluster/kubernetes-cluster-wlif-integration.md)
 * [Получение списка доступных конфигураций мастера в кластере Kubernetes](kubernetes-cluster/kubernetes-cluster-configuration-list.md)
@@ -83,6 +85,7 @@
 * [Информация об имеющихся группах узлов](node-group/node-group-list.md)
 * [Создание группы узлов](node-group/node-group-create.md)
 * [Создание группы с узлами из пула резервов ВМ Yandex Compute Cloud](node-group/node-group-create-in-instance-pool.md)
+* [Техническое обслуживание узлов кластера без потери ресурсов](node-group/node-group-gpu-maintenance.md)
 * [Подключение к узлу по SSH](node-connect-ssh.md)
 * [Подключение к узлу через OS Login](node-connect-oslogin.md)
 * [Настройка автомасштабирования](autoscale.md)
@@ -97,6 +100,12 @@
 * [Настройка WireGuard-шлюзов для подключения внешних узлов к кластеру](external-nodes-connect-wireguard.md)
 * [Настройка IPSec-шлюзов для подключения внешних узлов к кластеру](external-nodes-connect-ipsec.md)
 * [Подключение сервера Yandex BareMetal как внешнего узла к кластеру Yandex Managed Service for Kubernetes](bms-server-connect.md)
+
+## Работа с группой узлов BareMetal {#baremetal-node-group}
+
+* [Создание группы узлов на серверах BareMetal](baremetal-group/create-baremetal.md)
+* [Изменение группы узлов на серверах BareMetal](baremetal-group/update-baremetal.md)
+* [Удаление группы узлов на серверах BareMetal](baremetal-group/delete-baremetal.md)
 
 ## Работа с объектами Kubernetes из консоли управления {#kubernetes-console}
 

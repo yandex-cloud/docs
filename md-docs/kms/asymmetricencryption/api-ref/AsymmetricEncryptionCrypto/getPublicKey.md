@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > REST (англ.) > [Key Management Service API](../index.md) > [AsymmetricEncryptionCrypto](index.md) > GetPublicKey
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > REST (англ.) > [Asymmetric encryption API](../index.md) > [AsymmetricEncryptionCrypto](index.md) > GetPublicKey
 
 # Key Management Service API, REST: AsymmetricEncryptionCrypto.GetPublicKey
 
@@ -7,7 +7,7 @@ Gets value of public key.
 ## HTTP request
 
 ```
-GET https://kms.api.cloud.yandex.net/kms/v1/asymmetricEncryptionKeys/{keyId}/publicKey
+GET https://kms.yandex/kms/v1/asymmetricEncryptionKeys/{keyId}/publicKey
 ```
 
 ## Path parameters

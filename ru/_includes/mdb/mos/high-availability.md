@@ -8,6 +8,7 @@
     [Подробнее о шардировании и репликации индексов](../../../managed-opensearch/concepts/scalability-and-resilience.md).
 
 1. Кластер, индексы и хосты с ролью `DATA` должны быть настроены так, чтобы данные могли реплицироваться между зонами доступности.
+1. В кластере должна действовать [расширенная защита от опасных изменений](../../../managed-opensearch/concepts/high-availability.md#advanced-protection) настроек кластера и индексов.
 
 
 [Подробнее о высокой доступности кластера](../../../managed-opensearch/concepts/high-availability.md).

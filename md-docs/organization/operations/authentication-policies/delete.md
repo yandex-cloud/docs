@@ -16,7 +16,7 @@
 
 [*user_accounts]: В Yandex Cloud используются аккаунты пользователей на Яндексе, а также федеративные и локальные пользовательские аккаунты. Подробнее читайте в разделе [Аккаунты в Yandex Cloud](../../../iam/concepts/users/accounts.md).
 
-[*organization]: Организация — это высший ресурс в иерархии ресурсной модели Yandex Cloud, который объединяет ресурсы всех остальных сервисов, а также используется для управления пользователями и параметрами их аутентификации и авторизации. Подробнее читайте в разделе [Организация](../../concepts/organization.md).
+[*organization]: _Организация_ — это высший ресурс в иерархии ресурсной модели Yandex Cloud, который объединяет ресурсы всех остальных сервисов, а также используется для управления пользователями и параметрами их аутентификации и авторизации. Подробнее читайте в разделе [Организация](../../concepts/organization.md).
 
 Управлять политиками аутентификации может пользователь, которому назначена [роль](*org_manager_admin) `organization-manager.admin` или выше.
 
@@ -32,6 +32,10 @@
   1. На панели слева выберите ![shield](../../../_assets/console-icons/shield.svg) **Настройки безопасности** и перейдите на вкладку **Политики аутентификации**.
   1. В строке с нужной политикой аутентификации нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
   1. В открывшемся окне подтвердите удаление.
+
+- API {#api}
+
+    Воспользуйтесь методом REST API [delete](../../policy/api-ref/AuthenticationPolicyRule/delete.md) для ресурса [AuthenticationPolicyRule](../../policy/api-ref/AuthenticationPolicyRule/index.md) или вызовом gRPC API [AuthenticationPolicyRuleService/Delete](../../policy/api-ref/grpc/AuthenticationPolicyRule/delete.md).
 
 {% endlist %}
 

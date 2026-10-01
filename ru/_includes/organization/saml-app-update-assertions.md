@@ -29,6 +29,7 @@
          * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_trim_3SF6q }}` — удаляет пробелы в начале и в конце значения атрибута.
          * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_if_empty_e5unh }}` — заменяет текущее значение атрибута, если оно пустое. Можно выбрать значение для замены из списка значений атрибутов или указать свое. Например, если значение `username` пустое, использовать `email`.
          * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_constant_tvJWi }}` — заменяет текущее значение на указанную константу. Константа указывается в поле **{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.field_if_empty_value_1K7py }}**. Например, `<значение_атрибута>` → `User`.
+         * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_replace_kQ2vN }}` — заменяет указанную подстроку в значении атрибута на другую строку. Подстрока указывается в поле **{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.field_replace_pattern_hM0Yc }}**, строка замены — в поле **{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.field_replace_replacement_pFtQ8 }}**. Например, `user@example.com` + `example.com` + `company.com` → `user@company.com`.
 
       1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
   1. Чтобы изменить имеющийся атрибут, нажмите на строку с нужным атрибутом и в открывшемся окне:

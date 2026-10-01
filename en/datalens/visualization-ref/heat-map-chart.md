@@ -7,6 +7,10 @@ description: In this tutorial, you will learn how to create and customize the he
 
 A heat map shows the density of point distribution. Map areas are colored with a gradient ranging from green to red: the more points are grouped in an area, the closer its color is to red.
 
+
+{% include [geointellect-using](../../_includes/datalens/visualization-ref/geointellect-using.md) %}
+
+
 ### What you need to know about heat maps
 
 + Heat maps are used to display clusters of large numbers of points.
@@ -31,16 +35,14 @@ A heat map shows the density of point distribution. Map areas are colored with a
 
 Wizard<br/> section| Description
 ----- | ----
-Heat map (Geopoints) | Measure of the [Geopoint](../dataset/data-types.md#geopoint) type
-Colors | Dimension or measure. Affects the intensity of point fill.
-Layer filters | Dimension or measure. Used as a filter for the current layer.
-Filters | Dimension or measure. Used as a filter for the entire chart.
+Heat map (Geopoints) | Dimension of the [Geopoint](../dataset/data-types.md#geopoint) type.
+Colors  | Dimension or measure. It affects the intensity of point fill.
+Layer filters | Dimension or measure. It is used as a filter for the current layer.
+Filters | Dimension or measure. It is used as a filter for the entire chart.
 
 ## Creating a heat map {#create-diagram}
 
-
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
-
 
 1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
 1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}

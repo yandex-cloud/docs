@@ -41,6 +41,34 @@
 
 Файловая система хранится в RAM. Данные, записанные в файловую систему, не сохраняются при остановке экземпляра контейнера.
 
+## Доверенные корневые сертификаты {#trusted-certificates}
+
+В контейнере выполняется пользовательский Docker-образ со своим набором сертификатов. Сервис дополнительно не добавляет корневые сертификаты в контейнер. Если коду нужно доверять сертификатам Национального удостоверяющего центра Минцифры России (Russian Trusted Root CA) или внутреннего удостоверяющего центра {{ yandex-cloud }}, необходимо добавить их при сборке Docker-образа.
+
+Пример для Docker-образов на базе Debian или Ubuntu:
+
+```dockerfile
+RUN apt-get update && apt-get install -y ca-certificates curl \
+ && curl -fsSL https://gu-st.ru/content/Other/doc/russiantrustedca.pem \
+      -o /usr/local/share/ca-certificates/russian-trusted-root-ca.crt \
+ && curl -fsSL https://storage.yandexcloud.net/cloud-certs/CA.pem \
+      -o /usr/local/share/ca-certificates/yandex-internal-ca.crt \
+ && update-ca-certificates
+```
+
+Пример для Docker-образов на базе Alpine:
+
+```dockerfile
+RUN apk add --no-cache ca-certificates curl \
+ && curl -fsSL https://gu-st.ru/content/Other/doc/russiantrustedca.pem \
+      -o /usr/local/share/ca-certificates/russian-trusted-root-ca.crt \
+ && curl -fsSL https://storage.yandexcloud.net/cloud-certs/CA.pem \
+      -o /usr/local/share/ca-certificates/yandex-internal-ca.crt \
+ && update-ca-certificates
+```
+
+Если сайт передает неполную цепочку сертификатов и не отдает промежуточный сертификат, необходимо добавить недостающий промежуточный сертификат в Docker-образ так же, как корневой.
+
 ## Ресурсы экземпляра контейнера {#resource}
 
 ### CPU {#cpu}

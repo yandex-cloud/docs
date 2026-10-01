@@ -63,7 +63,7 @@
         * **{{ ui-key.yacloud_org.entity.federation.field.caseInsensitiveNameIds }}** — идентификаторы имен федеративных пользователей будут нечувствительны к регистру.
         * **{{ ui-key.yacloud_org.entity.federation.field.forceAuthn }}** — по истечении сессии в {{ yandex-cloud }} поставщик удостоверений запросит у пользователя повторную аутентификацию.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.action.create }}**.
 
 - CLI {#cli}
 
@@ -504,12 +504,12 @@
 * `phones`
 * `mobile`
 ||
-|| Аватар | Отображается в сервисах {{ yandex-cloud }}. Изображение передается в кодировке [Base64]({{ link-base64 }}). Ограничение по длине: {{ saml-limit-thumbnail-photo }}. |
+|| Аватар | Отображается в сервисах {{ yandex-cloud }}. В атрибуте `thumbnailPhoto` передается изображение в кодировке [Base64]({{ link-base64 }}) с ограничением по длине значения {{ saml-limit-thumbnail-photo }}, а в атрибутах `photos` и `picture` — ссылка на изображение. |
 * `thumbnailPhoto`
 * `photos`
 * `picture`
 ||
-|| Членство в группах | Используется для функционала динамического сопоставления членства в группах. |
+|| Членство в группах | Используется для динамического сопоставления членства в группах. |
 * `member`
 * `http://schemas.xmlsoap.org/claims/group`
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`

@@ -15,7 +15,7 @@ description: Follow this guide to delete a rule from a security group.
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the security group you need to delete a rule from and select **{{ ui-key.yacloud.common.edit }}**.
-  1. Under **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}**, click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the rule you need to delete.
+  1. Under **{{ ui-key.yacloud.vpc.network.security-groups.label_rules-ingress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_rules-egress }}**, click ![image](../../_assets/console-icons/ellipsis.svg) next to the rule you need to delete.
   1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
@@ -25,11 +25,13 @@ description: Follow this guide to delete a rule from a security group.
 
   1. Get the name or ID of the group to edit:
 
-     ```
+     ```bash
      yc vpc security-groups list
      ```
+
      Result:
-     ```
+
+     ```text
      +----------------------+---------------------------------+------------------------------------+----------------------+
      |          ID          |              NAME               |          DESCRIPTION               |      NETWORK-ID      |
      +----------------------+---------------------------------+------------------------------------+----------------------+
@@ -40,11 +42,13 @@ description: Follow this guide to delete a rule from a security group.
      ```
   1. Get a list of security group rules by specifying the group name or ID:
 
-     ```
+     ```bash
      yc vpc security-groups get <group_name_or_ID>
      ```
+
      Result:
-     ```
+
+     ```text
      id: enp8rs9i4h6j********
      folder_id: b1gaus8l79li********
      created_at: "2022-06-24T15:46:31Z"
@@ -68,11 +72,13 @@ description: Follow this guide to delete a rule from a security group.
 
   1. To delete a rule, specify its ID in the command:
 
-     ```
+     ```bash
      yc vpc security-group update-rules <group_name_or_ID> --delete-rule-id <rule_ID>
      ```
+
      Result:
-     ```
+
+     ```text
      done (12s)
      id: enp8rs9i4h6j********
      folder_id: b1gaus8l79li********
@@ -101,14 +107,7 @@ description: Follow this guide to delete a rule from a security group.
      resource "yandex_vpc_security_group" "test-sg" {
        name        = "Test security group"
        description = "Description for security group"
-       network_id  = "${yandex_vpc_network.lab-net.id}"
-
-       ingress {
-         protocol       = "TCP"
-         description    = "Rule description 1"
-         v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
-         port           = 8080
-       }
+       network_id  = yandex_vpc_network.lab-net.id
 
        egress {
          protocol       = "ANY"
@@ -117,45 +116,26 @@ description: Follow this guide to delete a rule from a security group.
          from_port      = 8090
          to_port        = 8099
        }
+
+       ingress {
+         protocol       = "TCP"
+         description    = "Rule description 1"
+         v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
+         port           = 8080
+       }
      }
      ...
      ```
 
      {% endcut %}
 
-  1. In the command line, navigate to the directory with the {{ TF }} configuration file.
+  1. Apply the configuration:
 
-  1. Check the configuration using this command:
-
-     ```
-     terraform validate
-     ```
-     
-     If the configuration is valid, you will get this message:
-     
-     ```
-     Success! The configuration is valid.
-     ```
-
-  1. Run this command:
-
-     ```
-     terraform plan
-     ```
-  
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-
-  1. Apply the configuration changes:
-
-     ```
-     terraform apply
-     ```
-
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      You can check the security group update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
-     ```
+     ```bash
      yc vpc security-group get <security_group_name>
      ```
 

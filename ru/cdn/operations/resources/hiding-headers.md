@@ -5,15 +5,22 @@ description: Следуя данной инструкции, вы сможете
 
 # Настройка скрытия заголовков от источника
 
-Вы можете настроить [скрытие заголовков от источника](../../concepts/hiding-headers.md) с помощью API при [создании](create-resource.md) или [изменении](configure-basics.md) CDN-ресурса.
+Вы можете настроить [скрытие заголовков от источника](../../concepts/hiding-headers.md) при [создании](create-resource.md) CDN-ресурса или изменении его настроек с помощью консоли управления или API.
 
-{% note warning %}
-
-Скрытие важных заголовков может нарушить работу веб-приложения.
-
-{% endnote %}
+{% include [hiding-headers-warning](../../../_includes/cdn/hiding-headers-warning.md) %}
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
+  1. [Перейдите]({{ link-console-main }}/link/cdn) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Нажмите на имя необходимого ресурса.
+  1. Перейдите на вкладку ![image](../../../_assets/console-icons/arrow-up-to-line.svg) **{{ ui-key.yacloud.cdn.label_resource-http-headers }}**.
+  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. В блоке **{{ ui-key.yacloud.cdn.label_resource-http-headers-response-headers }}** в поле **Скрытие заголовков источника** выберите `Скрывать все, кроме указанных`.
+  1. В поле **Какие оставить** укажите заголовки, которые нужно передавать клиентам, например `Content-Type`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - REST API {#rest-api}
 
@@ -58,6 +65,8 @@ description: Следуя данной инструкции, вы сможете
   * `headers` — список HTTP-заголовков, которые будут переданы клиенту. Все остальные заголовки от источника будут скрыты.
 
 {% endlist %}
+
+{% include [after-changes-tip](../../../_includes/cdn/after-changes-tip.md) %}
 
 
 ## Пример {#example}
@@ -194,4 +203,3 @@ description: Следуя данной инструкции, вы сможете
       ```
 
     {% endlist %}
-    

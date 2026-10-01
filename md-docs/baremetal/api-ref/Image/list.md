@@ -2,7 +2,7 @@
 
 # BareMetal API, REST: Image.List
 
-Retrieves the list of Image resources in the specified folder.
+Retrieves the list of BootImage resources in the specified folder.
 
 ## HTTP request
 
@@ -80,7 +80,7 @@ Both snake_case and camelCase are supported for fields. ||
 ||Field | Description ||
 || images[] | **[Image](#yandex.cloud.baremetal.v1alpha.Image)**
 
-List of Image resources. ||
+List of BootImage resources. ||
 || nextPageToken | **string**
 
 Token for getting the next page of the list. If the number of results is greater than

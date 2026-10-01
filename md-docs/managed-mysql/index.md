@@ -36,11 +36,15 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [Управление алиасами хостов](operations/hosts-aliases.md)
 
+ - [Управление балансировщиком нагрузки DB Proxy](operations/load-balancer.md)
+
  - [Миграция хостов в другую зону доступности](operations/host-migration.md)
 
  - [Управление резервными копиями](operations/cluster-backups.md)
 
  - [Управление доступом к кластеру](operations/cluster-access.md)
+
+ - [Техническое обслуживание](operations/cluster-maintenance.md)
 
  - [Обновление версии MySQL®](operations/cluster-version-update.md)
 
@@ -103,6 +107,8 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
  - [Хранилище в Managed Service for MySQL®](concepts/storage.md)
 
  - [Резервные копии](concepts/backup.md)
+
+ - [Балансировщик нагрузки для хостов](concepts/load-balancer.md)
 
  - [Репликация](concepts/replication.md)
 
@@ -222,6 +228,20 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [list-by-folder](cli-ref/backup-retention-policy/list-by-folder.md)
 
+### change-freeze
+
+ - [Overview](cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/change-freeze/terminate.md)
+
 ### cluster
 
  - [Overview](cli-ref/cluster/index.md)
@@ -300,6 +320,16 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [update](cli-ref/hosts/update.md)
 
+### maintenance
+
+ - [Overview](cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/maintenance/reschedule.md)
+
 ### resource-preset
 
  - [Overview](cli-ref/resource-preset/index.md)
@@ -349,6 +379,20 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
  - [list](cli-ref/v0/backup-retention-policy/list.md)
 
  - [list-by-folder](cli-ref/v0/backup-retention-policy/list-by-folder.md)
+
+#### change-freeze
+
+ - [Overview](cli-ref/v0/change-freeze/index.md)
+
+ - [create](cli-ref/v0/change-freeze/create.md)
+
+ - [get](cli-ref/v0/change-freeze/get.md)
+
+ - [get-limits](cli-ref/v0/change-freeze/get-limits.md)
+
+ - [list](cli-ref/v0/change-freeze/list.md)
+
+ - [terminate](cli-ref/v0/change-freeze/terminate.md)
 
 #### cluster
 
@@ -428,6 +472,16 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [update](cli-ref/v0/hosts/update.md)
 
+#### maintenance
+
+ - [Overview](cli-ref/v0/maintenance/index.md)
+
+ - [get](cli-ref/v0/maintenance/get.md)
+
+ - [list](cli-ref/v0/maintenance/list.md)
+
+ - [reschedule](cli-ref/v0/maintenance/reschedule.md)
+
 #### resource-preset
 
  - [Overview](cli-ref/v0/resource-preset/index.md)
@@ -487,6 +541,20 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
  - [List](api-ref/grpc/Backup/list.md)
 
  - [Delete](api-ref/grpc/Backup/delete.md)
+
+#### ChangeFreeze
+
+ - [Overview](api-ref/grpc/ChangeFreeze/index.md)
+
+ - [Create](api-ref/grpc/ChangeFreeze/create.md)
+
+ - [Get](api-ref/grpc/ChangeFreeze/get.md)
+
+ - [List](api-ref/grpc/ChangeFreeze/list.md)
+
+ - [Terminate](api-ref/grpc/ChangeFreeze/terminate.md)
+
+ - [GetLimits](api-ref/grpc/ChangeFreeze/getLimits.md)
 
 #### Cluster
 
@@ -629,6 +697,20 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
  - [List](api-ref/Backup/list.md)
 
  - [Delete](api-ref/Backup/delete.md)
+
+#### ChangeFreeze
+
+ - [Overview](api-ref/ChangeFreeze/index.md)
+
+ - [Create](api-ref/ChangeFreeze/create.md)
+
+ - [Get](api-ref/ChangeFreeze/get.md)
+
+ - [List](api-ref/ChangeFreeze/list.md)
+
+ - [Terminate](api-ref/ChangeFreeze/terminate.md)
+
+ - [GetLimits](api-ref/ChangeFreeze/getLimits.md)
 
 #### Cluster
 

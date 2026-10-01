@@ -4,6 +4,12 @@
 
 {% note warning %}
 
+Начиная с 11 сентября 2026 года хранение данных GitLab в Object Storage [тарифицируется](../pricing.md).
+
+{% endnote %}
+
+{% note warning %}
+
 Перед включением интеграции с Object Storage убедитесь, что [группа безопасности](configure-security-group.md) инстанса Managed Service for GitLab разрешает входящие подключения на порт `80` с внешних IP-адресов Let's Encrypt®. Подробнее об [ограничениях интеграции Object Storage](../concepts/s3-integration.md#restrictions).
 
 {% endnote %}
@@ -48,7 +54,7 @@
 
   1. [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
   1. Нажмите на имя нужного инстанса и выберите вкладку **Данные в Object Storage**.
-  1. Нажмите кнопку **Настроить хранение данных в Object Storage**.
+  1. Нажмите кнопку **Настроить хранение**.
   1. Выберите типы данных для хранения в Object Storage.
     
       Для каждого выбранного типа данных можно включить проксирование файлов. При этом файлы будут загружаться через сервер GitLab.

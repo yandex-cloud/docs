@@ -110,9 +110,7 @@ Not supported in [QL charts](../concepts/chart/index.md#sql-charts).
 
 To create a pivot table:
 
-
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
-
 
 1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
 1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}
@@ -275,6 +273,21 @@ To output the common **Total** row, enable **Sub-totals** in the settings for th
 * Calculations using [LOD expressions](../concepts/lod-aggregation.md), [window functions](../function-ref/window-functions.md), and [time series functions](../function-ref/time-series-functions.md) may not work correctly in the row with totals.
 
 {% endnote %}
+
+#### Setting up sorting by rows {#rows-sorting}
+
+1. At the top of the screen, click ![image](../../_assets/console-icons/gear.svg) next to the chart type.
+1. Enable or disable the **Sort by rows** option and click **Apply**.
+
+If the option is enabled (by default), you can sort data in rows mapped to dimensions in the **Rows** section. To do this, click the dimension value in the row. A single click will sort measure values in columns in ascending order. Click once again to sort the data in descending order. A third click will clear the sorting.
+
+If the **Rows** section contains multiple dimensions, sorting by rows is only available for the last dimension.
+
+{% cut "Sorting by rows" %}
+
+![pivot-table-rows-sorting](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-rows-sorting.png)
+
+{% endcut %}
 
 #### Adding a linear indicator to a column with a measure {#add-linear-indicator}
 

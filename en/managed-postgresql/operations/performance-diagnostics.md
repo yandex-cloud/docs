@@ -15,8 +15,8 @@ To learn how to identify and resolve cluster performance issues, see [Performanc
     1. Enable **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** (disabled by default).
     1. Set the **{{ ui-key.yacloud.mdb.forms.field_diagnostics-sessions-interval }}** and **{{ ui-key.yacloud.mdb.forms.field_diagnostics-statements-interval }}**. Valid values:
         
-        * For sessions: From `5` to `86400` seconds.
-        * For queries: From `60` to `86400` seconds.
+        * For sessions: From `1` to `86400` seconds.
+        * For queries: From `1` to `86400` seconds.
 
 - CLI {#cli}
 
@@ -37,8 +37,8 @@ To learn how to identify and resolve cluster performance issues, see [Performanc
 
     Allowed values:
 
-    - `sessions-sampling-interval`: From `5` to `86400` seconds.
-    - `statements-sampling-interval`: From `60` to `86400` seconds.
+    - `sessions-sampling-interval`: From `1` to `86400` seconds.
+    - `statements-sampling-interval`: From `1` to `86400` seconds.
 
 - {{ TF }} {#tf}
 
@@ -92,8 +92,8 @@ To learn how to identify and resolve cluster performance issues, see [Performanc
         Where `configSpec.performanceDiagnostics` represents the statistics collection settings:
 
         * `enabled`: Enables statistics collection, `true` or `false`.
-        * `sessionsSamplingInterval`: Session sampling interval. Allowed values range from `5` to `86400`.
-        * `statementsSamplingInterval`: Statement sampling interval. Allowed values range from `60` to `86400`.
+        * `sessionsSamplingInterval`: Session sampling interval. Allowed values range from `1` to `86400`.
+        * `statementsSamplingInterval`: Statement sampling interval. Allowed values range from `1` to `86400`.
 
      1. Check the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -124,8 +124,8 @@ To learn how to identify and resolve cluster performance issues, see [Performanc
         Where `configSpec.performanceDiagnostics` represents the statistics collection settings:
 
         * `enabled`: Enables statistics collection, `true` or `false`.
-        * `sessionsSamplingInterval`: Session sampling interval. Allowed values range from `5` to `86400`.
-        * `statementsSamplingInterval`: Statement sampling interval. Allowed values range from `60` to `86400`.
+        * `sessionsSamplingInterval`: Session sampling interval. Allowed values range from `1` to `86400`.
+        * `statementsSamplingInterval`: Statement sampling interval. Allowed values range from `1` to `86400`.
 
      1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -165,8 +165,8 @@ To learn how to identify and resolve cluster performance issues, see [Performanc
         Where `config_spec.performance_diagnostics` represents the statistics collection settings:
 
         * `enabled`: Enables statistics collection, `true` or `false`.
-        * `sessions_sampling_interval`: Session sampling interval. Allowed values range from `5` to `86400`.
-        * `statements_sampling_interval`: Statement sampling interval. Allowed values range from `60` to `86400`.
+        * `sessions_sampling_interval`: Session sampling interval. Allowed values range from `1` to `86400`.
+        * `statements_sampling_interval`: Statement sampling interval. Allowed values range from `1` to `86400`.
 
      1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -205,8 +205,8 @@ To learn how to identify and resolve cluster performance issues, see [Performanc
         Where `config_spec.performance_diagnostics` represents the statistics collection settings:
 
         * `enabled`: Enables statistics collection, `true` or `false`.
-        * `sessions_sampling_interval`: Session sampling interval. Allowed values range from `5` to `86400`.
-        * `statements_sampling_interval`: Statement sampling interval. Allowed values range from `60` to `86400`.
+        * `sessions_sampling_interval`: Session sampling interval. Allowed values range from `1` to `86400`.
+        * `statements_sampling_interval`: Statement sampling interval. Allowed values range from `1` to `86400`.
 
      1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -219,7 +219,7 @@ To learn how to identify and resolve cluster performance issues, see [Performanc
 - Management console {#console}
 
     1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-    1. Click the name of your cluster and select **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}**.
+    1. Click the cluster name and select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}**.
 
     To view session statistics:
 
@@ -279,7 +279,7 @@ For more on displayed data, see [this {{ PG }} guide](https://www.postgresql.org
 - Management console {#console}
 
     1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-    1. Click the name of your cluster and select **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_queries }}**.
+    1. Click the cluster name and select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_queries }}**.
 
     To view query statistics for a specific time interval:
 

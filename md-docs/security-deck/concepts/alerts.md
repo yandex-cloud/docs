@@ -23,11 +23,12 @@
 * Фильтровать алерты по источнику, чтобы анализировать угрозы в разрезе инфраструктуры.
 * Оценивать масштаб данных для анализа и разбора.
 
+[Создайте подписку](../operations/alerts/notification.md#create-subscription), чтобы не пропустить важное уведомление.
 
 #### Полезные ссылки {#see-also}
 
-* [Работа с алертами](../operations/alerts/work.md)
-* [Посмотреть алерты](../operations/alerts/view.md)
+* [Работать с алертами](../operations/alerts/work.md)
+* [Просмотр алертов](../operations/alerts/view.md)
 * [Обзор Yandex Cloud Detection and Response](../../ycdr/concepts/index.md)
 * [Контроль конфигурации (CSPM)](cspm.md)
 * [Контроль Kubernetes® (KSPM)](kspm.md)
