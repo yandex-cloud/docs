@@ -97,70 +97,14 @@
 
 1. Создайте для сертификата защищенное хранилище:
 
-    {% list tabs group=operating_system %}
-
-    - Linux (Bash) {#linux}
-
-      ```bash
-      awk '/-----BEGIN CERTIFICATE-----/ {n++} n {print > "YandexCA-" n ".crt"}' \
-        < {{ crt-local-dir }}{{ crt-local-file }}
-
-      for cert in YandexCA-*.crt; do
-        alias=$(
-          openssl x509 -noout -text -in "${cert}" |
-          perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
-        )
-
-        year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
-
-        echo "Importing ${alias}-${year}"
-
-        keytool -importcert \
-                -alias "${alias}-${year}" \
-                -file "${cert}" \
-                -keystore /etc/schema-registry/client.truststore.jks \
-                -storepass <пароль_защищенного_хранилища> \
-                -noprompt
-
-        rm "${cert}"
-      done
-
-      chmod 0655 /etc/schema-registry/client.truststore.jks
-      ```
-
-    - macOS (Zsh) {#macos}
-     
-      ```bash     
-      split -p "-----BEGIN CERTIFICATE-----" \
-        {{ crt-local-dir }}{{ crt-local-file }} \
-        YandexCA-
-
-      for cert in YandexCA-*.crt; do
-        alias=$(
-          openssl x509 -noout -text -in "${cert}" |
-          perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
-        )
-
-        year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
-
-        echo "Importing ${alias}-${year}"
-
-        keytool -importcert \
-                -alias "${alias}-${year}" \
-                -file "${cert}" \
-                -keystore /etc/schema-registry/client.truststore.jks \
-                -storepass <пароль_защищенного_хранилища> \
-                -noprompt
-
-        rm "${cert}"
-      done
-
-      chmod 0655 /etc/schema-registry/client.truststore.jks
-      ```
-
-    {% endlist %}
-
-    Где `-storepass` — пароль хранилища сертификатов. Пароль должен содержать не менее 6 символов.
+    ```bash
+    sudo keytool \
+         -keystore /etc/schema-registry/client.truststore.jks \
+         -alias CARoot \
+         -import -file {{ crt-local-dir }}{{ crt-local-file }} \
+         -storepass <пароль_защищенного_хранилища_сертификатов> \
+         --noprompt
+    ```
 
 1. Создайте файл `/etc/schema-registry/jaas.conf` с настройками для подключения к кластеру:
 

@@ -573,70 +573,14 @@ go run connect.go
     1. [Получите SSL-сертификат](index.md#get-ssl-cert).
     1. Создайте защищенное хранилище сертификатов:
 
-        {% list tabs group=operating_system %}
-
-        - Linux (Bash) {#linux}
-
-          ```bash
-          awk '/-----BEGIN CERTIFICATE-----/ {n++} n {print > "YandexInternalRootCA-" n ".crt"}' \
-            < ~/.redis/YandexInternalRootCA.crt
-
-          for cert in YandexInternalRootCA-*.crt; do
-            alias=$(
-              openssl x509 -noout -text -in "${cert}" |
-              perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
-            )
-
-            year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
-
-            echo "Importing ${alias}-${year}"
-
-            keytool -importcert \
-                    -alias "${alias}-${year}" \
-                    -file "${cert}" \
-                    -keystore ~/.redis/YATrustStore \
-                    -storepass <пароль_защищенного_хранилища> \
-                    -noprompt
-
-            rm "${cert}"
-          done
-
-          chmod 0655 ~/.redis/YATrustStore
-          ```
-
-        - macOS (Zsh) {#macos}
-
-          ```bash
-          split -p "-----BEGIN CERTIFICATE-----" \
-            ~/.redis/YandexInternalRootCA.crt \
-            YandexInternalRootCA-
-
-          for cert in YandexInternalRootCA-*; do
-            alias=$(
-              openssl x509 -noout -text -in "${cert}" |
-              perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
-            )
-
-            year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
-
-            echo "Importing ${alias}-${year}"
-
-            keytool -importcert \
-                    -alias "${alias}-${year}" \
-                    -file "${cert}" \
-                    -keystore ~/.redis/YATrustStore \
-                    -storepass <пароль_защищенного_хранилища> \
-                    -noprompt
-
-            rm "${cert}"
-          done
-
-          chmod 0655 ~/.redis/YATrustStore
-          ```
-
-        {% endlist %}
-
-        Где `-storepass` — пароль хранилища сертификатов. Пароль должен содержать не менее 6 символов.
+        ```bash
+        keytool -importcert \
+                -alias YARootCrt \
+                -file ~/.redis/YandexInternalRootCA.crt \
+                -keystore ~/.redis/YATrustStore \
+                -storepass <пароль_защищенного_хранилища> \
+                --noprompt && chmod 0655 ~/.redis/YATrustStore
+        ```
 
 {% list tabs group=connection %}
 

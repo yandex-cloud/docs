@@ -43,7 +43,8 @@ The maximum string length in characters for each value is 256. The number of ele
     {
       "user_id": "string",
       "external_id": "string",
-      "userpool_id": "string"
+      "userpool_id": "string",
+      "password_created_at": "google.protobuf.Timestamp"
     }
   ]
 }
@@ -73,4 +74,9 @@ External identifier. ||
 || userpool_id | **string**
 
 ID of the userpool the user belongs to. ||
+|| password_created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Timestamp when the user's current password was created.
+For synchronized passwords, this is the time when the password was last set in the source directory.
+Omitted if the timestamp is unknown. ||
 |#

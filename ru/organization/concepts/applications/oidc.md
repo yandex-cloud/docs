@@ -135,6 +135,12 @@ _Redirect URI_ — адрес на стороне внешнего прилож�
 
 В OIDC-приложениях вы можете задать одновременно несколько адресов Redirect URI.
 
+### Post Logout Redirect URI {#oidc-post-logout-redirect-uri}
+
+_Post Logout Redirect URI_ — адрес, на который пользователь перенаправляется после выхода из внешнего приложения. В отличие от Redirect URI, этот адрес используется при завершении сеанса, а не в начале при аутентификации. Необязательный параметр.
+
+Вы можете [указать](../../operations/applications/oidc-create.md#setup-idp) один или несколько адресов Post Logout Redirect URI в конфигурации поставщика услуг. К ним применяются те же требования к схемам URI, что и к [Redirect URI](#oidc-redirect-uri).
+
 ### Атрибуты пользователя {#oidc-attributes}
 
 В настройках OIDC-приложения вы можете задать состав атрибутов пользователя, которые определяются выбранными в поле **{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.field-scopes_hEuar }}** значениями и будут передаваться поставщику услуг в ID-токене:

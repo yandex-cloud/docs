@@ -12,5 +12,5 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Диапазоны публичных IP-адресов Yandex Cloud](../../vpc/concepts/ips.md)
+* [Диапазоны публичных IP-адресов](../../vpc/concepts/ips.md)
 * [Диапазоны IP-адресов, используемых Яндексом](https://yandex.ru/ips)

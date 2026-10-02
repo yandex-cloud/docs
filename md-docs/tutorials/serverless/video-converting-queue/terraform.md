@@ -10,6 +10,7 @@
 1. [Создайте таблицу](#create-table).
 1. [Проверьте работу приложения](#test-app).
 
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Подготовьте облако к работе {#before-begin}
 
@@ -21,14 +22,13 @@
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит:
+В стоимость поддержки инфраструктуры входят:
+
 * плата за вызовы [функций](../../../functions/concepts/function.md) ([тарифы Yandex Cloud Functions](../../../functions/pricing.md));
 * плата за выполнение запросов к [базе данных](../../../ydb/concepts/serverless-and-dedicated.md) ([тарифы Yandex Managed Service for YDB](../../../ydb/pricing/serverless.md));
 * плата за хранение данных в [бакете](../../../storage/concepts/bucket.md) ([тарифы Yandex Object Storage](../../../storage/pricing.md)).
-
 
 ## Создайте инфраструктуру {#deploy}
 
@@ -38,7 +38,8 @@ Terraform распространяется под лицензией [Business S
 
 Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
-Для создания инфраструктуры с помощью Terraform:
+Чтобы создать инфраструктуру с помощью Terraform:
+
 1. [Установите Terraform](../../infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
 
@@ -551,7 +552,8 @@ Terraform распространяется под лицензией [Business S
 
    {% endlist %}
 
-   Подробнее о параметрах используемых ресурсов в Terraform смотрите в документации провайдера:
+   Подробнее о параметрах используемых ресурсов в Terraform см. в документации провайдера:
+
    * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account](../../../terraform/resources/iam_service_account.md).
    * [Роль](../../../iam/concepts/access-control/roles.md) — [yandex_resourcemanager_folder_iam_member](../../../terraform/resources/resourcemanager_folder_iam_member.md)
    * [Секрет](../../../lockbox/concepts/secret.md) — [yandex_lockbox_secret](../../../terraform/resources/lockbox_secret.md)
@@ -599,20 +601,15 @@ Terraform распространяется под лицензией [Business S
 
 После создания инфраструктуры [создайте таблицу](#create-table) в базе данных YDB.
 
-
-
-
 ## Создайте таблицу {#create-table}
 
-1.  [Создайте таблицу](../../../ydb/operations/schema.md#create-table)  в базе данных YDB:
+1. [Создайте таблицу](../../../ydb/operations/schema.md#create-table) в базе данных YDB:
 
     * **Имя** — `tasks`.
     * **Тип таблицы** — [Документная таблица](../../../ydb/operations/schema.md#create-table).
     * **Колонки** — одна колонка с именем `task_id` типа `String`. Установите атрибут [Ключ партицирования](../../../ydb/operations/schema.md#create-table).
 
 После создания таблицы [проверьте работу приложения](#test-app).
-
-
 
 ## Проверьте работу приложения {#test-app}
 
@@ -622,8 +619,8 @@ Terraform распространяется под лицензией [Business S
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится функция `ffmpeg-api`.
-  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с функцией `ffmpeg-api`.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. Выберите функцию `ffmpeg-api`.
   1. Перейдите на вкладку **Тестирование**.
   1. В поле **Входные данные** введите:
@@ -632,7 +629,7 @@ Terraform распространяется под лицензией [Business S
      {"action":"convert", "src_url":"<ссылка_на_видео>"}
      ```
 
-     Где `<ссылка_на_видео>` — ссылка на сохраненный на [Яндекс Диске](https://disk.yandex.ru) видеофайл в формате [MP4](https://ru.wikipedia.org/wiki/MPEG-4_Part_14).
+     Где `<ссылка_на_видео>` — ссылка на видеофайл в формате [MP4](https://ru.wikipedia.org/wiki/MPEG-4_Part_14), который сохранен на [Яндекс Диске](https://disk.yandex.ru).
 
   1. Нажмите кнопку **Запустить тест**.
   1. В поле **Ответ функции** отобразится идентификатор задачи:
@@ -651,11 +648,11 @@ Terraform распространяется под лицензией [Business S
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится очередь `converter-queue`.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с очередью `converter-queue`.
   1. [Перейдите](https://console.yandex.cloud/link/message-queue) в сервис **Message Queue**.
   1. Выберите очередь `converter-queue`.
   1. В блоке **Общая информация** отображается количество сообщений в очереди и в обработке.
-  1. Перейдите на вкладку **Мониторинг**. Посмотрите графики **Overall queue stats**.
+  1. Перейдите на вкладку **Мониторинг** и посмотрите графики **Overall queue stats**.
 
 {% endlist %}
 
@@ -667,10 +664,10 @@ Terraform распространяется под лицензией [Business S
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится функция `ffmpeg-converter`.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с функцией `ffmpeg-converter`.
   1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. Выберите функцию `ffmpeg-converter`.
-  1. Перейдите на вкладку **Логи** и укажите период, за который хотите посмотреть логи.
+  1. Перейдите на вкладку **Логи** и укажите период для просмотра логов.
 
 {% endlist %}
 
@@ -680,7 +677,7 @@ Terraform распространяется под лицензией [Business S
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится функция `ffmpeg-api`.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с функцией `ffmpeg-api`.
   1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. Выберите функцию `ffmpeg-api`.
   1. Перейдите на вкладку **Тестирование**.
@@ -709,7 +706,6 @@ Terraform распространяется под лицензией [Business S
      ```
 
 {% endlist %}
-
 
 ## Как удалить созданные ресурсы {#clear-out}
 

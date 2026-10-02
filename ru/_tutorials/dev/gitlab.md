@@ -6,9 +6,8 @@
 
 Чтобы создать и протестировать проект в среде {{ GL }}:
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Необходимые платные ресурсы](#paid-resources).
 1. [Создайте ВМ с {{ GL }}](#create-vm).
-1. [Настройте {{ GL }}](#confgure-gitlab).
+1. [Настройте {{ GL }}](#configure-gitlab).
 1. [Задайте настройки приватности](#disable-signup).
 1. [Создайте проект](#create-project).
 1. [Настройте и запустите тестирование для проекта](#ci-cd).
@@ -23,9 +22,8 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки сервера для {{ GL }} входит:
-* Плата за [диск](../../compute/concepts/disk.md) и постоянно запущенную ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Виртуальная машина: вычислительные ресурсы и хранилище ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Публичный IP-адрес ВМ и исходящий трафик из {{ yandex-cloud }} в интернет ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 ## Создайте виртуальную машину с {{ GL }} {#create-vm}
 
@@ -55,9 +53,9 @@
 
 Подождите примерно пять минут, пока не будет создана ВМ и на ней не запустятся все сервисы. После полного запуска всех сервисов, {{ GL }} станет доступен через веб-интерфейс в браузере.
 
-## Настройте {{ GL }} {#confgure-gitlab}
+## Настройте {{ GL }} {#configure-gitlab}
 
-1. [Перейдите]({{ link-console-main }}/link/compute) в сервис ***{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Выберите созданную ВМ `gitlab` и скопируйте ее публичный IP-адрес.
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по протоколу SSH.
 1. Получите пароль администратора {{ GL }} с помощью команды ВМ:

@@ -20,7 +20,7 @@ description: Следуя данной инструкции, вы сможете
   1. Введите имя группы безопасности.
   1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите сеть, которой будет назначена группа безопасности.
   1. {% include [security-group-add-rule](../../_includes/vpc/security-group-add-rule.md) %}
-  1. Повторно нажмите **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
   

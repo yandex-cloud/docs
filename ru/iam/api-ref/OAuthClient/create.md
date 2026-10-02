@@ -48,6 +48,14 @@ apiPlayground:
           type: array
           items:
             type: string
+        postLogoutRedirectUris:
+          description: |-
+            **string**
+            List of URIs to which users can be redirected after signing out of the oauth client.
+            The maximum string length in characters for each value is 1000. The maximum number of elements is 1000.
+          type: array
+          items:
+            type: string
         profileId:
           description: |-
             **string**
@@ -91,6 +99,9 @@ POST https://iam.{{ api-host }}/iam/v1/oauthClients
   "authenticationMethods": [
     "string"
   ],
+  "postLogoutRedirectUris": [
+    "string"
+  ],
   "profileId": "string",
   "pkceRequired": "boolean"
 }
@@ -125,6 +136,11 @@ The maximum string length in characters is 255. ||
 List of authentication methods allowed for the oauth client.
 
 The maximum string length in characters for each value is 255. The maximum number of elements is 1000. ||
+|| postLogoutRedirectUris[] | **string**
+
+List of URIs to which users can be redirected after signing out of the oauth client.
+
+The maximum string length in characters for each value is 1000. The maximum number of elements is 1000. ||
 || profileId | **string**
 
 ID of the profile that defines the set of allowed settings for the oauth client.

@@ -3,22 +3,22 @@
 1. [Создайте таблицу](#create-table).
 1. [Проверьте работу приложения](#test-app).
 
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Подготовьте облако к работе {#before-begin}
 
 {% include [before-you-begin](../before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 {% include [paid-resources](paid-resources.md) %}
-
 
 ## Создайте инфраструктуру {#deploy}
 
 {% include [terraform-definition](../terraform-definition.md) %}
 
-Для создания инфраструктуры с помощью {{ TF }}:
+Чтобы создать инфраструктуру с помощью {{ TF }}:
+
 1. [Установите {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
 
@@ -90,7 +90,8 @@
 
    {% endlist %}
 
-   Подробнее о параметрах используемых ресурсов в {{ TF }} смотрите в документации провайдера:
+   Подробнее о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+
    * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
    * [Роль](../../../iam/concepts/access-control/roles.md) — [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member)
    * [Секрет](../../../lockbox/concepts/secret.md) — [yandex_lockbox_secret]({{ tf-provider-resources-link }}/lockbox_secret)
@@ -112,12 +113,9 @@
 
 После создания инфраструктуры [создайте таблицу](#create-table) в базе данных YDB.
 
-
-
-
 ## Создайте таблицу {#create-table}
 
-1.  [Создайте таблицу](../../../ydb/operations/schema.md#create-table)  в базе данных YDB:
+1. [Создайте таблицу](../../../ydb/operations/schema.md#create-table) в базе данных YDB:
 
     * **{{ ui-key.yacloud.ydb.table.form.field_name }}** — `tasks`.
     * **{{ ui-key.yacloud.ydb.table.form.field_type }}** — [{{ ui-key.yacloud.ydb.table.form.label_document-table }}](../../../ydb/operations/schema.md#create-table).
@@ -125,12 +123,9 @@
 
 После создания таблицы [проверьте работу приложения](#test-app).
 
-
-
 ## Проверьте работу приложения {#test-app}
 
 {% include [test-app](test-app.md) %}
-
 
 ## Как удалить созданные ресурсы {#clear-out}
 

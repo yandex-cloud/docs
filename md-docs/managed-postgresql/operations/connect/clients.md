@@ -551,7 +551,7 @@ WebSQL — это сервис Yandex Cloud, который позволяет �
 
 Подключаться из [Data Studio](https://datastudio.google.com/overview) можно только к хостам кластера в публичном доступе.
 
-1. Сохраните [сертификат сервера](https://storage.yandexcloud.net/cloud-certs/RootCA.pem) `RootCA.pem` в локальную папку.
+1. Сохраните [сертификат сервера](https://storage.yandexcloud.net/cloud-certs/CA.pem) `CA.pem` в локальную папку.
 1. В той же папке сгенерируйте сертификат клиента с приватным ключом:
 
     ```bash
@@ -575,7 +575,7 @@ WebSQL — это сервис Yandex Cloud, который позволяет �
 1. Выберите опции **Включить SSL** и **Включить аутентификацию клиента**.
 1. Укажите файлы сертификатов и приватный ключ клиента в соответствующих полях:
 
-    * **Server certificate** — выберите файл `RootCA.pem`.
+    * **Server certificate** — выберите файл `CA.pem`.
     * **Client certificate** — выберите файл `cert.pem`.
     * **Client private key** — выберите файл `private.pem`.
 
@@ -605,7 +605,7 @@ WebSQL — это сервис Yandex Cloud, который позволяет �
     RUN apt-get update && \
         apt-get install wget postgresql-client --yes && \
         mkdir --parents ~/.postgresql && \
-        wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
+        wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
              --output-document ~/.postgresql/root.crt && \
         chmod 0655 ~/.postgresql/root.crt
     ```

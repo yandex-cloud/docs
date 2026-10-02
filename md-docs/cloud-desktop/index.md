@@ -12,6 +12,8 @@ Yandex Cloud Desktop — сервис для управления виртуал
 
 # Yandex Cloud Desktop
 
+ - [Закрытие сервиса Yandex Cloud Desktop](sunset.md)
+
 ## Начало работы
 
  - [Для администраторов](quickstart.md)

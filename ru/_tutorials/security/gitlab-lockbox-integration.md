@@ -16,11 +16,10 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит:
-
-* Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за хранение секрета и запросы к нему ([тарифы {{ lockbox-name }}](../../lockbox/pricing.md)).
-* Плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Инстанс {{ mgl-name }}: вычислительные ресурсы, объем хранимых данных и резервных копий ([тарифы {{ mgl-full-name }}](../../managed-gitlab/pricing.md)).
+* Виртуальная машина с {{ GLR }}: вычислительные ресурсы и хранилище ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Секрет {{ lockbox-name }}: количество хранимых версий секрета и запросы к ним ([тарифы {{ lockbox-full-name }}](../../lockbox/pricing.md)).
+* Публичный IP-адрес ВМ и исходящий трафик из {{ yandex-cloud }} в интернет ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 ## Подготовьте инфраструктуру {#infra}
 

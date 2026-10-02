@@ -12,6 +12,7 @@ description: В этом разделе собраны практические 
 * [{#T}](billing.md)
 * [{#T}](jupyter.md)
 * [{#T}](airflow-auto-tasks.md)
+* [{#T}](migration.md)
 * [{#T}](yq.md)
 * [{#T}](yq-storage.md)
 * [{#T}](yq-clickhouse.md)

@@ -119,7 +119,7 @@ The revocation function was unable to check revocation for the certificate
 * выполните команду с параметром `--ssl-no-revoke`.
 
    ```powershell
-   mkdir $HOME\.kafka; curl.exe --ssl-no-revoke -o $HOME\.kafka\YandexInternalRootCA.crt https://storage.yandexcloud.net/cloud-certs/RootCA.pem
+   mkdir $HOME\.kafka; curl.exe --ssl-no-revoke -o $HOME\.kafka\YandexInternalRootCA.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
    ```
 
 #### Можно ли управлять кластером с помощью скриптов из дистрибутива Apache Kafka®? {#script-apache-kafka}

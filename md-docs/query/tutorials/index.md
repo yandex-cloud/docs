@@ -9,6 +9,7 @@
 * [Обработка файлов детализации в сервисе Yandex Cloud Billing](billing.md)
 * [Анализ данных с помощью Jupyter](jupyter.md)
 * [Автоматизация задач Yandex Query с помощью Yandex Managed Service for Apache Airflow™](airflow-auto-tasks.md)
+* [Миграция с Yandex Query](migration.md)
 * [Анализ данных с помощью Query](yq.md)
 * [Работа с данными в Yandex Object Storage](yq-storage.md)
 * [Работа с данными в Yandex Managed Service for ClickHouse®](yq-clickhouse.md)

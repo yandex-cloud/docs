@@ -395,6 +395,8 @@ items:
         href: at-ref.md
   - name: '{{ schema-registry-name }}'
     items:
+      - name: Закрытие {{ schema-registry-name }}
+        href: concepts/schema-registry-sunset.md
       - name: Начало работы
         href: quickstart/schema-registry.md
       - name: Пошаговые инструкции

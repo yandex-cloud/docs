@@ -183,8 +183,14 @@ items:
     items:
       - name: Overview
         href: kafkaapi/index.md
-      - name: Authenticating and connecting to the database
+      - name: Authenticating and connecting to a database
         href: kafkaapi/auth.md
+  - name: Amazon SQS-compatible HTTP API
+    items:
+      - name: Overview
+        href: sqsapi/index.md
+      - name: Authenticating and connecting to а database
+        href: sqsapi/auth.md
   - name: FAQ
     href: qa/index.md
 path: en/data-streams/toc.yaml

@@ -153,74 +153,14 @@ Managed Service for Apache Kafka® имеет встроенную поддер�
 
 1. [Получите SSL-сертификат](../operations/connect/index.md#get-ssl-cert).
 
-1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер Apache Kafka® мог использовать этот сертификат при защищенном подключении к хостам кластера:
+1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер Apache Kafka® мог использовать этот сертификат при защищенном подключении к хостам кластера. Задайте пароль не короче 6 символов в параметре `-storepass` для дополнительной защиты хранилища:
    
-   * {% cut "Скрипт для Linux (Bash)" %}
-   
-     ```bash
-     awk '/-----BEGIN CERTIFICATE-----/ {n++} n {print > "YandexInternalRootCA-" n ".crt"}' \
-       < /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
-   
-     for cert in YandexInternalRootCA-*.crt; do
-       alias=$(
-         openssl x509 -noout -text -in "${cert}" |
-         perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
-       )
-   
-       year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
-   
-       echo "Importing ${alias}-${year}"
-   
-       keytool -importcert \
-               -alias "${alias}-${year}" \
-               -file "${cert}" \
-               -keystore ssl \
-               -storepass <пароль_хранилища_сертификатов> \
-               -noprompt
-   
-       rm "${cert}"
-     done
-   
-     chmod 0655 ssl
-     ```
-   
-     Где `-storepass` — пароль хранилища сертификатов. Пароль должен содержать не менее 6 символов.
-     
-     {% endcut %}
-   
-   * {% cut "Скрипт для macOS (Zsh)" %}
-   
-     ```bash
-     split -p "-----BEGIN CERTIFICATE-----" \
-       /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt \
-       YandexInternalRootCA-
-   
-     for cert in YandexInternalRootCA-*.crt; do
-       alias=$(
-         openssl x509 -noout -text -in "${cert}" |
-         perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
-       )
-   
-       year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
-   
-       echo "Importing ${alias}-${year}"
-   
-       keytool -importcert \
-               -alias "${alias}-${year}" \
-               -file "${cert}" \
-               -keystore ssl \
-               -storepass <пароль_хранилища_сертификатов> \
-               -noprompt
-   
-       rm "${cert}"
-     done
-   
-     chmod 0655 ssl
-     ```
-   
-     Где `-storepass` — пароль хранилища сертификатов. Пароль должен содержать не менее 6 символов.
-     
-     {% endcut %}
+   ```bash
+   sudo keytool -importcert \
+                -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt \
+                -keystore ssl -storepass <пароль_хранилища_сертификатов> \
+                --noprompt
+   ```
 
 1. Создайте каталог с настройками процесса-исполнителя и скопируйте туда хранилище:
 

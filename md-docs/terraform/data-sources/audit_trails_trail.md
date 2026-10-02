@@ -91,6 +91,7 @@ data "yandex_audit_trails_trail" "basic-trail" {
 - `service_account_id` (*Read-Only*) (String). [Service account](../../iam/concepts/users/service-accounts.md) which linked to the resource.
 - `status` (*Read-Only*) (String). Status of this trail.
 - `storage_destination` (*Read-Only*) (List Of Object). Structure describing destination bucket of the trail. Mutually exclusive with `logging_destination` and `data_stream_destination`.
+  - `aggregation_period` . 
   - `bucket_name` . 
   - `object_prefix` . 
 - `trail_id` (**Required**)(String). Trail ID.
