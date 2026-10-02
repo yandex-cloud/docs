@@ -84,7 +84,7 @@
    
       ```bash
       mkdir -p ~/.mysql && \
-      wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
+      wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
            --output-document ~/.mysql/root.crt && \
       chmod 0600 ~/.mysql/root.crt
       ```
@@ -94,7 +94,7 @@
    - Windows (PowerShell) {#windows}
    
       ```powershell
-      mkdir $HOME\.mysql; curl.exe -o $HOME\.mysql\root.crt https://storage.yandexcloud.net/cloud-certs/RootCA.pem
+      mkdir $HOME\.mysql; curl.exe -o $HOME\.mysql\root.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
       ```
    
       Сертификат будет сохранен в файле `$HOME\.mysql\root.crt`.

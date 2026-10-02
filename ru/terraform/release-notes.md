@@ -4,6 +4,17 @@ description: Changelog, updates, and version history for the {{ yandex-cloud }} 
 editable: false
 ---
 
+## 0.234.0 (October 2, 2026)
+
+##### FEATURES:
+* greenplum: support Apache Cloudberry resource groups.
+* ydb: add the `yandex_ydb_database_iam_member` resource
+
+##### ENHANCEMENTS:
+* audit_trails: support duration strings in storage_destination.aggregation_period for yandex_audit_trails_trail resources and data sources.
+
+
+
 ## 0.233.0 (October 1, 2026)
 
 ##### FEATURES:

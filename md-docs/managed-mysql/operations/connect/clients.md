@@ -336,7 +336,7 @@ WebSQL — это сервис Yandex Cloud, который позволяет �
   RUN apt-get update && \
       apt-get install wget mysql-client --yes && \
       mkdir --parents ~/.mysql && \
-      wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
+      wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
            --output-document ~/.mysql/root.crt && \
       chmod 0600 ~/.mysql/root.crt
   ```

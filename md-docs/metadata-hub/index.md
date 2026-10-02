@@ -382,6 +382,8 @@
 
 ## Schema Registry
 
+ - [Закрытие Schema Registry](concepts/schema-registry-sunset.md)
+
  - [Начало работы](quickstart/schema-registry.md)
 
 ### Пошаговые инструкции

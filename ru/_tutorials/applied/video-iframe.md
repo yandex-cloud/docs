@@ -33,7 +33,7 @@
 
 Автоматическое воспроизведение видео может быть ограничено политикой браузеров. Подробнее в [{#T}](../../video/autoplay-policy.md).
 
-{% endnote %}
+{% endnote %}   
 
 ```html
 <iframe
@@ -41,14 +41,15 @@
     scrolling="no"
     allowfullscreen
     allow="autoplay; fullscreen; encrypted-media; accelerometer; gyroscope; picture-in-picture; clipboard-write; web-share; screen-wake-lock"
-    src="<ссылка>?autoplay=1&mute=true">
+    src="<ссылка>?autoplay=1&mute=1">
 </iframe>
 ```
 
 Где:
+
 * `<ссылка>` — ссылка на воспроизводимый контент, например `https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y`.
 * `autoplay=1` — автоматически запускает видео при загрузке плеера.
-* `mute=true` — выключает звук.
+* `mute=1` — выключает звук.
 
 {% cut "Пример" %}
 
@@ -57,11 +58,10 @@
     scrolling="no"
     allowfullscreen
     allow="autoplay; fullscreen; encrypted-media; accelerometer; gyroscope; picture-in-picture; clipboard-write; web-share; screen-wake-lock"
-    src="https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y?autoplay=1&mute=true">
+    src="https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y?autoplay=1&mute=1">
 </iframe>
 
 {% endcut %}
-
 
 ## Автоматически воспроизводить зацикленное видео {#automatically-loop}
 
@@ -76,6 +76,7 @@
 ```
 
 Где:
+
 * `<ссылка>` — ссылка на воспроизводимый контент, например `https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y`.
 * `autoplay=1` — автоматически запускает видео при загрузке плеера.
 * `loop=true` — зацикливает воспроизведение видео.
@@ -92,7 +93,6 @@
 
 {% endcut %}
 
-
 ## Автоматически воспроизводить видео со скрытыми элементами {#autoplay-hidden-elements}
 
 ```html
@@ -106,6 +106,7 @@
 ```
 
 Где:
+
 * `<ссылка>` — ссылка на воспроизводимый контент, например `https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y`.
 * `autoplay=1` — автоматически запускает видео при загрузке плеера.
 * `hidden=*,!time,!sound` — скрывает все элементы интерфейса плеера, кроме текущего времени и кнопки включения/отключения звука.
@@ -117,11 +118,10 @@
     scrolling="no"
     allowfullscreen
     allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture;"
-    src="https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y?autoplay=1&hidden=*,!time,!sound"
+    src="https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y?autoplay=1&hidden=*,!time,!sound">
 </iframe>
 
 {% endcut %}
-
 
 ## Запретить перемотку видео {#prohibit-rewinding}
 
@@ -136,6 +136,7 @@
 ```
 
 Где:
+
 * `<ссылка>` — ссылка на воспроизводимый контент, например `https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y`.
 * `autoplay=1` — автоматически запускает видео при загрузке плеера.
 * `hidden=timeline,mobileSeekButtons,timelinePreview` — скрывает временную шкалу, превью на ней и кнопки перемотки в мобильном интерфейсе. 
@@ -158,7 +159,6 @@
 
 {% endcut %}
 
-
 ## Настроить виджеты плеера {#widgets}
 
 ```html
@@ -173,6 +173,7 @@
 ```
 
 Где:
+
 * `width` — ширина блока плеера.
 * `height` — высота блока плеера.
 * `<ссылка>` — ссылка на воспроизводимый контент, например `https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y`.
@@ -192,7 +193,6 @@
 
 {% endcut %}
 
-
 ## Оформить видео для карточки товара {#product_card}
 
 Чтобы оформить видео для карточки товара, потребуется настроить автоматическое воспроизведение видео в зоне видимости, без звука и без элементов управления.
@@ -208,6 +208,7 @@
 ```
 
 Где:
+
 * `frameborder` — ширина рамки блока плеера.
 * `<ссылка>` — ссылка на воспроизводимый контент, например `https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y`.
 * `loop=true` — зацикливает воспроизведение видео.
@@ -254,6 +255,7 @@
 ```
 
 Где:
+
 * `frameborder` — ширина рамки блока плеера.
 * `width` — ширина блока плеера.
 * `height` — высота блока плеера.
@@ -261,6 +263,7 @@
 * `autoplay=0` — видео не запускается автоматически.
 * `mute=0` — звук включен.
 * Параметры стилизации:
+  
   * `background_color=ffeaea` — цвет фона плеера и виджетов.
   * `widget_text_color_primary=841327` — цвет основного текста виджетов.
   * `playlist_selected_item_background_color=FF8EA2` — цвет фона активного элемента плейлиста.

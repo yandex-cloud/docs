@@ -1,6 +1,8 @@
 title: Yandex Query
 href: index.yaml
 items:
+  - name: Закрытие сервиса {{ yq-full-name }}
+    href: sunset.md
   - name: Начало работы
     items:
       - name: Обзор
@@ -97,6 +99,8 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
+      - name: Миграция с {{ yq-full-name }}
+        href: tutorials/migration.md
       - name: Обработка логов {{ cloud-logging-name }}
         href: tutorials/cloud-logging.md
       - name: Обработка потока изменений Debezium

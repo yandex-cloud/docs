@@ -139,78 +139,19 @@ go run connect.go
     sudo apt update && sudo apt install --yes default-jdk maven
     ```
 
-1. Перейдите в директорию с SSL-сертификатом:
-    
+1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер {{ MY }} мог использовать этот сертификат при защищенном подключении к хостам кластера. При этом задайте пароль в параметре `-storepass` для защиты хранилища:
+
     ```bash
-    cd ~/.mysql
+    cd ~/.mysql && \
+    sudo keytool -importcert \
+                 -alias {{ crt-alias }} \
+                 -file root.crt \
+                 -keystore YATrustStore \
+                 -storepass <пароль_хранилища_сертификатов> \
+                 --noprompt
     ```
 
-1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер {{ MY }} мог использовать этот сертификат при защищенном подключении к хостам кластера:
-
-    {% list tabs group=operating_system %}
-
-    - Linux (Bash) {#linux}
-
-      ```bash
-      awk '/-----BEGIN CERTIFICATE-----/ {n++} n {print > "YandexCA-" n ".crt"}' \
-        < root.crt
-
-      for cert in YandexCA-*.crt; do
-        alias=$(
-          openssl x509 -noout -text -in "${cert}" |
-          perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
-        )
-
-        year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
-
-        echo "Importing ${alias}-${year}"
-
-        keytool -importcert \
-                -alias "${alias}-${year}" \
-                -file "${cert}" \
-                -keystore YATrustStore \
-                -storepass <пароль_защищенного_хранилища> \
-                -noprompt
-
-        rm "${cert}"
-      done
-
-      chmod 0655 YATrustStore
-      ```
-
-    - macOS (Zsh) {#macos}
-     
-      ```bash     
-      split -p "-----BEGIN CERTIFICATE-----" \
-        root.crt \
-        YandexCA-
-
-      for cert in YandexCA-*.crt; do
-        alias=$(
-          openssl x509 -noout -text -in "${cert}" |
-          perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
-        )
-
-        year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
-
-        echo "Importing ${alias}-${year}"
-
-        keytool -importcert \
-                -alias "${alias}-${year}" \
-                -file "${cert}" \
-                -keystore YATrustStore \
-                -storepass <пароль_защищенного_хранилища> \
-                -noprompt
-
-        rm "${cert}"
-      done
-
-      chmod 0655 YATrustStore
-      ```
-
-    {% endlist %}
-
-    Где `-storepass` — пароль хранилища сертификатов. Пароль должен содержать не менее 6 символов.
+    Где `storepass` — пароль хранилища сертификатов, не короче 6 символов.
 
 1. Создайте директорию для проекта Maven:
 

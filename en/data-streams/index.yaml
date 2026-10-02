@@ -36,6 +36,11 @@ links:
   - title: Kafka API
     description: Working with data streams using the Apache Kafka protocol
     href: kafkaapi/
+  - title: Amazon SQS-compatible HTTP API
+    description: >-
+      Working with data streams via an Amazon SQS-compatible protocol (SQS over
+      Topics)
+    href: sqsapi/
   - title: Concepts
     description: Learn about the service concepts and functionality
     href: concepts/

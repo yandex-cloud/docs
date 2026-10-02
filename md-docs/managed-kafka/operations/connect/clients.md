@@ -295,74 +295,14 @@ sudo apt update && sudo apt install -y kafkacat
         cd /etc/security
         ```
 
-    1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер Apache Kafka® мог использовать этот сертификат при защищенном подключении к хостам кластера:
+    1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер Apache Kafka® мог использовать этот сертификат при защищенном подключении к хостам кластера. Задайте пароль не короче 6 символов в параметре `-storepass` для дополнительной защиты хранилища:
        
-       * {% cut "Скрипт для Linux (Bash)" %}
-       
-         ```bash
-         awk '/-----BEGIN CERTIFICATE-----/ {n++} n {print > "YandexInternalRootCA-" n ".crt"}' \
-           < /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
-       
-         for cert in YandexInternalRootCA-*.crt; do
-           alias=$(
-             openssl x509 -noout -text -in "${cert}" |
-             perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
-           )
-       
-           year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
-       
-           echo "Importing ${alias}-${year}"
-       
-           keytool -importcert \
-                   -alias "${alias}-${year}" \
-                   -file "${cert}" \
-                   -keystore ssl \
-                   -storepass <пароль_хранилища_сертификатов> \
-                   -noprompt
-       
-           rm "${cert}"
-         done
-       
-         chmod 0655 ssl
-         ```
-       
-         Где `-storepass` — пароль хранилища сертификатов. Пароль должен содержать не менее 6 символов.
-         
-         {% endcut %}
-       
-       * {% cut "Скрипт для macOS (Zsh)" %}
-       
-         ```bash
-         split -p "-----BEGIN CERTIFICATE-----" \
-           /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt \
-           YandexInternalRootCA-
-       
-         for cert in YandexInternalRootCA-*.crt; do
-           alias=$(
-             openssl x509 -noout -text -in "${cert}" |
-             perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
-           )
-       
-           year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
-       
-           echo "Importing ${alias}-${year}"
-       
-           keytool -importcert \
-                   -alias "${alias}-${year}" \
-                   -file "${cert}" \
-                   -keystore ssl \
-                   -storepass <пароль_хранилища_сертификатов> \
-                   -noprompt
-       
-           rm "${cert}"
-         done
-       
-         chmod 0655 ssl
-         ```
-       
-         Где `-storepass` — пароль хранилища сертификатов. Пароль должен содержать не менее 6 символов.
-         
-         {% endcut %}
+       ```bash
+       sudo keytool -importcert \
+                    -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt \
+                    -keystore ssl -storepass <пароль_хранилища_сертификатов> \
+                    --noprompt
+       ```
 
     1. Создайте файлы с параметрами для подключения к кластеру: файл для производителя и файл для потребителя.
 
@@ -624,7 +564,7 @@ sudo apt update && sudo apt install -y kafkacat
           tar xzf <имя_архива>.tar.gz kafkactl && \
           mv kafkactl /usr/local/bin && \
           mkdir --parents /usr/local/share/ca-certificates/Yandex/ && \
-          wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
+          wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
                --output-document /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
           chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
       ```
@@ -658,7 +598,7 @@ sudo apt update && sudo apt install -y kafkacat
   RUN apt-get update && \
       apt-get install wget kafkacat --yes && \
       mkdir --parents /usr/local/share/ca-certificates/Yandex/ && \
-      wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
+      wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
            --output-document /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
       chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
   ```

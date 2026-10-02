@@ -381,12 +381,15 @@ WebSQL использует подключения в Connection Manager сер�
        mkdir --parents ~/.clickhouse-client && \
        wget "https://storage.yandexcloud.net/doc-files/clickhouse-client.conf.example" \
             --output-document ~/.clickhouse-client/config.xml && \
-       # Получить SSL-сертификат.
+       # Получить SSL-сертификаты.
        mkdir --parents /usr/local/share/ca-certificates/Yandex/ && \
        wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
             --output-document /usr/local/share/ca-certificates/Yandex/RootCA.crt && \
+       wget "https://storage.yandexcloud.net/cloud-certs/IntermediateCA.pem" \
+            --output-document /usr/local/share/ca-certificates/Yandex/IntermediateCA.crt && \
        chmod 655 \
-            /usr/local/share/ca-certificates/Yandex/RootCA.crt && \
+            /usr/local/share/ca-certificates/Yandex/RootCA.crt \
+            /usr/local/share/ca-certificates/Yandex/IntermediateCA.crt && \
        update-ca-certificates
    ```
 

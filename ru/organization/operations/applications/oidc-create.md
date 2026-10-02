@@ -66,6 +66,8 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       yc iam oauth-client create \
         --name <имя_OAuth-клиента> \
+        --redirect-uris <адрес>[,<адрес>] \
+        --post-logout-redirect-uris <адрес>[,<адрес>] \
         --scopes <атрибут>[,<атрибут>] \
         --profile-id <тип_OAuth-клиента>
       ```
@@ -73,6 +75,8 @@ description: Следуя данной инструкции, вы сможете
       Где:
 
       * `--name` — имя OAuth-клиента.
+      * `--redirect-uris` — полученный у поставщика услуг [адрес Redirect URI](../../concepts/applications/oidc.md#oidc-redirect-uri) или несколько адресов через запятую. Необязательный параметр.
+      * `--post-logout-redirect-uris` — полученный у поставщика услуг [адрес Post Logout Redirect URI](../../concepts/applications/oidc.md#oidc-post-logout-redirect-uri) или несколько адресов через запятую. Необязательный параметр.
       * `--scopes` — набор атрибутов пользователей, которые будут доступны поставщику услуг. Укажите один или несколько атрибутов через запятую в формате `<атрибут1>,<атрибут2>`. Возможные атрибуты:
 
           * `openid` — идентификатор пользователя. Обязательный атрибут.
@@ -187,9 +191,11 @@ description: Следуя данной инструкции, вы сможете
 
      ```hcl
      resource "yandex_iam_oauth_client" "example_oauth_client" {
-       name      = "<имя_OAuth-клиента>"
-       folder_id = "<идентификатор_каталога>"
-       scopes    = ["<атрибут1>", "<атрибут2>"]
+       name                      = "<имя_OAuth-клиента>"
+       folder_id                 = "<идентификатор_каталога>"
+       redirect_uris             = ["<адрес1>", "<адрес2>"]
+       post_logout_redirect_uris = ["<адрес1>", "<адрес2>"]
+       scopes                    = ["<атрибут1>", "<атрибут2>"]
      }
      ```
 
@@ -197,6 +203,8 @@ description: Следуя данной инструкции, вы сможете
 
      * `name` — имя OAuth-клиента.
      * `folder_id` — идентификатор каталога, в котором будет создан OAuth-клиент.
+     * `redirect_uris` — список полученных у поставщика услуг [адресов Redirect URI](../../concepts/applications/oidc.md#oidc-redirect-uri). Необязательный параметр.
+     * `post_logout_redirect_uris` — список полученных у поставщика услуг [адресов Post Logout Redirect URI](../../concepts/applications/oidc.md#oidc-post-logout-redirect-uri). Необязательный параметр.
      * `scopes` — набор атрибутов пользователей, которые будут доступны поставщику услуг. Укажите один или несколько атрибутов в квадратных скобках. Возможные атрибуты:
        * `openid` — идентификатор пользователя. Обязательный атрибут.
        * `profile` — дополнительная информация о пользователе, такая как имя, фамилия, аватар.
@@ -280,9 +288,15 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  1. Чтобы создать OAuth-клиент, воспользуйтесь методом REST API [OAuthClient.Create](../../../iam/api-ref/OAuthClient/create.md) для ресурса [OAuthClient](../../../iam/api-ref/grpc/OAuthClient/index.md) или вызовом gRPC API [OAuthClientService/Create](../../../iam/api-ref/grpc/OAuthClient/create.md).
-  1. Чтобы создать секрет OAuth-клиента, воспользуйтесь методом REST API [OAuthClientSecret.Create](../../../iam/api-ref/OAuthClientSecret/create.md) для ресурса [OAuthClientSecret](../../../iam/api-ref/OAuthClientSecret/index.md) или вызовом gRPC API [OAuthClientSecretService/Create](../../../iam/api-ref/grpc/OAuthClientSecret/create.md).
-  1. Чтобы создать OIDC-приложение, воспользуйтесь методом REST API [Application.Create](../../idp/application/oauth/api-ref/Application/create.md) для ресурса [Application](../../idp/application/oauth/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/Create](../../idp/application/oauth/api-ref/grpc/Application/create.md).  
+    1. Чтобы создать OAuth-клиент, воспользуйтесь методом REST API [create](../../../iam/api-ref/OAuthClient/create.md) для ресурса [OAuthClient](../../../iam/api-ref/OAuthClient/index.md) или вызовом gRPC API [OAuthClientService/Create](../../../iam/api-ref/grpc/OAuthClient/create.md).
+
+        Чтобы задать адреса перенаправления при создании OAuth-клиента, передайте в теле запроса:
+
+        * `redirectUris` — список полученных у поставщика услуг [адресов Redirect URI](../../concepts/applications/oidc.md#oidc-redirect-uri). В gRPC API — `redirect_uris`. Необязательный параметр.
+        * `postLogoutRedirectUris` — список полученных у поставщика услуг [адресов Post Logout Redirect URI](../../concepts/applications/oidc.md#oidc-post-logout-redirect-uri). В gRPC API — `post_logout_redirect_uris`. Необязательный параметр.
+
+    1. Чтобы создать секрет OAuth-клиента, воспользуйтесь методом REST API [create](../../../iam/api-ref/OAuthClientSecret/create.md) для ресурса [OAuthClientSecret](../../../iam/api-ref/OAuthClientSecret/index.md) или вызовом gRPC API [OAuthClientSecretService/Create](../../../iam/api-ref/grpc/OAuthClientSecret/create.md).
+    1. Чтобы создать OIDC-приложение, воспользуйтесь методом REST API [create](../../idp/application/oauth/api-ref/Application/create.md) для ресурса [Application](../../idp/application/oauth/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/Create](../../idp/application/oauth/api-ref/grpc/Application/create.md).
 
 {% endlist %}
 
@@ -325,7 +339,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [oidc-app-types-ui-notice](../../../_includes/organization/oidc-app-types-ui-notice.md) %}
 
-Прежде чем настраивать OIDC-приложение на стороне {{ org-full-name }}, получите адрес (адреса) Redirect URI у вашего поставщика услуг. Затем перейдите к настройкам OIDC-приложения в {{ org-full-name }}:
+Прежде чем настраивать OIDC-приложение на стороне {{ org-full-name }}, получите адрес (адреса) Redirect URI и, при необходимости, Post Logout Redirect URI у вашего поставщика услуг. Затем перейдите к настройкам OIDC-приложения в {{ org-full-name }}:
 
 {% list tabs group=instructions %}
 
@@ -353,6 +367,7 @@ description: Следуя данной инструкции, вы сможете
       yc iam oauth-client update \
         --id <идентификатор_OAuth-клиента> \
         --redirect-uris <адрес>[,<адрес>] \
+        --post-logout-redirect-uris <адрес>[,<адрес>] \
         --auth-methods <способ_передачи_секрета> \
         --pkce-required
       ```
@@ -360,7 +375,8 @@ description: Следуя данной инструкции, вы сможете
       Где:
 
       * `--id` — идентификатор OAuth-клиента.
-      * `--redirect-uris` — укажите полученный у поставщика услуг адрес или несколько адресов в формате `<адрес1>,<адрес2>`.
+      * `--redirect-uris` — укажите полученный у поставщика услуг адрес Redirect URI или несколько адресов в формате `<адрес1>,<адрес2>`.
+      * `--post-logout-redirect-uris` — укажите полученный у поставщика услуг адрес Post Logout Redirect URI или несколько адресов в формате `<адрес1>,<адрес2>`. Необязательный параметр.
       * `--auth-methods` — [способы передачи секрета](../../concepts/applications/oidc.md#secret-delivery) приложения. Параметр доступен только для OAuth-клиентов типа `{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}`. Возможные значения:
 
           * `client_secret_basic` — секрет приложения передается в HTTP-заголовке `Authorization: Basic`.
@@ -390,7 +406,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. В конфигурационном файле {{ TF }} для ресурса `yandex_iam_oauth_client` укажите параметр `redirect_uris`:
+  1. В конфигурационном файле {{ TF }} для ресурса `yandex_iam_oauth_client` укажите параметры перенаправления:
 
      ```hcl
      resource "yandex_iam_oauth_client" "example_oauth_client" {
@@ -399,7 +415,8 @@ description: Следуя данной инструкции, вы сможете
 
        ...
 
-       redirect_uris = ["<адрес1>", "<адрес2>"]
+       redirect_uris             = ["<адрес1>", "<адрес2>"]
+       post_logout_redirect_uris = ["<адрес1>", "<адрес2>"]
      }
      ```
 
@@ -407,7 +424,8 @@ description: Следуя данной инструкции, вы сможете
 
      * `name` — имя OAuth-клиента.
      * `folder_id` — идентификатор каталога, в котором будет создан OAuth-клиент.
-     * `redirect_uris` — укажите полученный у поставщика услуг адрес или несколько адресов в квадратных скобках.
+     * `redirect_uris` — укажите полученный у поставщика услуг адрес Redirect URI или несколько адресов в квадратных скобках.
+     * `post_logout_redirect_uris` — укажите полученный у поставщика услуг адрес Post Logout Redirect URI или несколько адресов в квадратных скобках. Необязательный параметр.
 
      Подробнее о параметрах ресурса `yandex_iam_oauth_client` читайте в [документации провайдера]({{ tf-provider-resources-link }}/iam_oauth_client).
 
@@ -423,7 +441,14 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [OAuthClient.Update](../../../iam/api-ref/OAuthClient/update.md) для ресурса [OAuthClient](../../../iam/api-ref/grpc/OAuthClient/index.md) или вызовом gRPC API [OAuthClientService/Update](../../../iam/api-ref/grpc/OAuthClient/update.md).
+    Воспользуйтесь методом REST API [update](../../../iam/api-ref/OAuthClient/update.md) для ресурса [OAuthClient](../../../iam/api-ref/OAuthClient/index.md) или вызовом gRPC API [OAuthClientService/Update](../../../iam/api-ref/grpc/OAuthClient/update.md).
+
+    Укажите идентификатор OAuth-клиента в параметре пути `oauthClientId` для REST API или в поле `oauth_client_id` для gRPC API. В теле запроса передайте:
+
+    * `redirectUris` — список полученных у поставщика услуг [адресов Redirect URI](../../concepts/applications/oidc.md#oidc-redirect-uri). В gRPC API — `redirect_uris`.
+    * `postLogoutRedirectUris` — список полученных у поставщика услуг [адресов Post Logout Redirect URI](../../concepts/applications/oidc.md#oidc-post-logout-redirect-uri). В gRPC API — `post_logout_redirect_uris`. Необязательный параметр.
+
+    В поле `updateMask` перечислите изменяемые поля, чтобы сохранить остальные настройки OAuth-клиента. В gRPC API используйте поле `update_mask`.
 
 {% endlist %}
 

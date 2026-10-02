@@ -280,7 +280,7 @@ GET foo
         cp ./src/valkey-cli /usr/bin/ && \
         # Получить SSL-сертификат.
         mkdir --parents ~/.redis && \
-        wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
+        wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
              --output-document ~/.redis/YandexInternalRootCA.crt && \
         chmod 0655 ~/.redis/YandexInternalRootCA.crt
     ```

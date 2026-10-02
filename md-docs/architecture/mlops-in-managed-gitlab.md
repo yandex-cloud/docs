@@ -70,9 +70,9 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Сервис Managed Service for GitLab: использование вычислительных ресурсов инстанса (виртуальной машины) и объем хранилища данных инстанса ([тарифы Managed Service for GitLab](../managed-gitlab/pricing.md)). В зависимости от того, где развернут GitLab Runner, может тарифицироваться ВМ Compute Cloud для установки GitLab Runner.
-* Виртуальные машины: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы Compute Cloud](../compute/pricing.md)).
-* Сервис Object Storage: использование для хранения резервных копий Managed Service for GitLab ([тарифы Object Storage](../storage/pricing.md)).
+* Инстанс Managed Service for GitLab: вычислительные ресурсы, объем хранимых данных и резервных копий ([тарифы Yandex Managed Service for GitLab](../managed-gitlab/pricing.md)).
+* Виртуальные машины: вычислительные ресурсы и хранилище ([тарифы Yandex Compute Cloud](../compute/pricing.md)).
+* Публичные IP-адреса ВМ и исходящий трафик из Yandex Cloud в интернет ([тарифы Yandex Virtual Private Cloud](../vpc/pricing.md)).
 
 ## Создайте инфраструктуру {#deploy}
 

@@ -2,7 +2,7 @@
 
 # Identity Hub Audit Trails Events: CreateAsset
 
-## Event JSON schema {#yandex.cloud.audit.organizationmanager.idp.application.CreateAsset2-schema}
+## Event JSON schema {#yandex.cloud.audit.organizationmanager.idp.branding.CreateAsset2-schema}
 
 ```json
 {
@@ -86,8 +86,7 @@
     ]
   },
   "details": {
-    "applicationId": "string",
-    "assetId": "string",
+    "brandingAssetId": "string",
     "values": [
       {
         "type": "string",
@@ -101,7 +100,7 @@
 }
 ```
 
-## Field description {#yandex.cloud.audit.organizationmanager.idp.application.CreateAsset2}
+## Field description {#yandex.cloud.audit.organizationmanager.idp.branding.CreateAsset2}
 
 #|
 ||Field | Description ||
@@ -130,7 +129,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || error | **[Status](#google.rpc.Status)**
 
 The error result of the operation in case of failure or cancellation. ||
-|| details | **[ApplicationAvatarAssetDetails](#yandex.cloud.audit.organizationmanager.idp.application.ApplicationAvatarAssetDetails)** ||
+|| details | **[BrandingAssetDetails](#yandex.cloud.audit.organizationmanager.idp.branding.BrandingAssetDetails)** ||
 || requestParameters | **object** ||
 || response | **object** ||
 |#
@@ -261,21 +260,31 @@ An error message. ||
 A list of messages that carry the error details. ||
 |#
 
-## ApplicationAvatarAssetDetails {#yandex.cloud.audit.organizationmanager.idp.application.ApplicationAvatarAssetDetails}
+## BrandingAssetDetails {#yandex.cloud.audit.organizationmanager.idp.branding.BrandingAssetDetails}
 
 #|
 ||Field | Description ||
-|| applicationId | **string** ||
-|| assetId | **string** ||
-|| values[] | **[ApplicationAvatarAssetThumbnail](#yandex.cloud.audit.organizationmanager.idp.application.ApplicationAvatarAssetThumbnail)**
+|| brandingAssetId | **string** ||
+|| values[] | **[BrandingAssetThumbnail](#yandex.cloud.audit.organizationmanager.idp.branding.BrandingAssetThumbnail)**
 
 The number of elements must be greater than 0. ||
 |#
 
-## ApplicationAvatarAssetThumbnail {#yandex.cloud.audit.organizationmanager.idp.application.ApplicationAvatarAssetThumbnail}
+## BrandingAssetThumbnail {#yandex.cloud.audit.organizationmanager.idp.branding.BrandingAssetThumbnail}
 
 #|
 ||Field | Description ||
+|| type | **enum** (FileExtension)
+
+- `JPEG`
+- `PNG`
+- `WEBP` ||
+|| scale | **enum** (Scale)
+
+- `X1`
+- `X2` ||
+|| url | **string** ||
+|#|
 || type | **enum** (FileExtension)
 
 - `JPEG`

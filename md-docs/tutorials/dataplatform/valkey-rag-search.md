@@ -315,7 +315,7 @@ RAG (Retrieval-Augmented Generation) — это подход, при котор�
         
           ```bash
           mkdir -p ~/.redis && \
-          wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
+          wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
                --output-document ~/.redis/YandexInternalRootCA.crt && \
           chmod 0655 ~/.redis/YandexInternalRootCA.crt
           ```
@@ -363,7 +363,7 @@ RAG (Retrieval-Augmented Generation) — это подход, при котор�
         
           ```bash
           mkdir -p ~/.redis && \
-          wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
+          wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
                --output-document ~/.redis/YandexInternalRootCA.crt && \
           chmod 0655 ~/.redis/YandexInternalRootCA.crt
           ```

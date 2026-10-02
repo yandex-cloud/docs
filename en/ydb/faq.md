@@ -31,16 +31,27 @@ For a single-vector request to an index of the [`vector_kmeans_tree`](https://yd
    The number of readings at this stage is around ${KMeansTreeSearchTopSize} * N / {clusters}^{levels}$ (in a balanced tree, where `N` is the total number of rows).
    If you do not use a [covering index](https://ydb.tech/docs/ru/concepts/secondary_indexes#covering), a row will be additionally read from the main table for each candidate record found via the index.
 
-### What does the RESOURCE_EXHAUSTED error mean? {#resource-exhausted}
+## Errors when working with a database {#errors}
 
-This error means a limit has been reached.
+### What does the `RESOURCE_EXHAUSTED` error mean? {#resource-exhausted}
 
-Check the throughput capacity in the {{ ydb-short-name }} cluster settings and increase it, if needed. If the issue persists after you increase the throughput limit or the quota is exceeded, contact [support]({{ link-console-support }}).
+The error indicates that a database resource usage metric has reached its limit.
+
+1. On the database page, check the limits on the **Overview** tab.
+1. In the monitoring view, check how `Requests` and `Units consumed` metrics correlate with periods of high `Latency`.
+1. If `Units consumed` has reached the RU per second quota, [request a quota increase]({{ link-console-quotas }}).
+1. If `Units consumed` has hit the serverless database throughput limit, [increase the limit](operations/manage-databases.md#update-db-serverless).
+
+{% note warning %}
+
+Increasing the throughput in the database settings might increase its operating expenses.
+
+{% endnote %}
 
 ### What does the ThrottlingException error mean? {#throttling-exception}
 
 This error means that you have exceeded the [quota](concepts/limits.md#ydb-quotas) for [RUs (request units)](concepts/serverless-and-dedicated.md#capacity) consumption per second.
 
-You can change the quotas for an individual database in its settings (see [{#T}](operations/manage-databases.md#update-db-serverless)). If you want to increase your cloud quota, [contact support]({{ link-console-support }}).
+You can change quotas for an individual database in its [settings](operations/manage-databases.md#update-db-serverless). To increase your cloud quota, [contact support]({{ link-console-support }}).
 
 To prevent users from overconsuming RUs, we recommend setting the [maximum consumption limit](concepts/serverless-and-dedicated.md#capacity).

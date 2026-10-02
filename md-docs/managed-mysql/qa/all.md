@@ -470,7 +470,7 @@ The revocation function was unable to check revocation for the certificate
 * выполните команду с параметром `--ssl-no-revoke`.
 
    ```powershell
-   mkdir $HOME\.mysql; curl.exe --ssl-no-revoke -o $HOME\.mysql\root.crt https://storage.yandexcloud.net/cloud-certs/RootCA.pem
+   mkdir $HOME\.mysql; curl.exe --ssl-no-revoke -o $HOME\.mysql\root.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
    ```
 
 #### Почему может быть превышен лимит соединений? {#connection-limit}

@@ -908,6 +908,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
  - [ydb_database_iam_binding](resources/ydb_database_iam_binding.md)
 
+ - [ydb_database_iam_member](resources/ydb_database_iam_member.md)
+
  - [ydb_database_serverless](resources/ydb_database_serverless.md)
 
  - [ydb_table](resources/ydb_table.md)

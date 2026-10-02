@@ -10,9 +10,8 @@
 
 Чтобы создать и протестировать проект в среде GitLab:
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Необходимые платные ресурсы](#paid-resources).
 1. [Создайте ВМ с GitLab](#create-vm).
-1. [Настройте GitLab](#confgure-gitlab).
+1. [Настройте GitLab](#configure-gitlab).
 1. [Задайте настройки приватности](#disable-signup).
 1. [Создайте проект](#create-project).
 1. [Настройте и запустите тестирование для проекта](#ci-cd).
@@ -33,9 +32,8 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки сервера для GitLab входит:
-* Плата за [диск](../../compute/concepts/disk.md) и постоянно запущенную ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Виртуальная машина: вычислительные ресурсы и хранилище ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Публичный IP-адрес ВМ и исходящий трафик из Yandex Cloud в интернет ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Создайте виртуальную машину с GitLab {#create-vm}
 
@@ -81,9 +79,9 @@
 
 Подождите примерно пять минут, пока не будет создана ВМ и на ней не запустятся все сервисы. После полного запуска всех сервисов, GitLab станет доступен через веб-интерфейс в браузере.
 
-## Настройте GitLab {#confgure-gitlab}
+## Настройте GitLab {#configure-gitlab}
 
-1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис ***Compute Cloud**.
+1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
 1. Выберите созданную ВМ `gitlab` и скопируйте ее публичный IP-адрес.
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по протоколу SSH.
 1. Получите пароль администратора GitLab с помощью команды ВМ:

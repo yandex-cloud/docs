@@ -19,10 +19,9 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит:
-
-* Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Инстанс Managed Service for GitLab: вычислительные ресурсы, объем хранимых данных и резервных копий ([тарифы Yandex Managed Service for GitLab](../pricing.md)).
+* Виртуальная машина с GitLab Runner: вычислительные ресурсы и хранилище ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Публичный IP-адрес ВМ и исходящий трафик из Yandex Cloud в интернет ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Подготовьте инфраструктуру {#infra}
 
@@ -189,7 +188,7 @@
 
 {% endlist %}
 
-## Создайте тестовый сценарий {#example} 
+## Создайте тестовый сценарий {#example}
 
 1. Откройте проект GitLab.
 

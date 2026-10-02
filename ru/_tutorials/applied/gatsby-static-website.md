@@ -76,8 +76,7 @@ keywords:
   1. Выберите тип [доступа](../../storage/concepts/bucket.md#bucket-access) **Публичный** для всех операций.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
   1. На странице со списком бакетов выберите созданный бакет.
-  1. На панели слева выберите ![image](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}** → **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
   1. Выберите режим `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
   1. В поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите абсолютный путь к файлу главной страницы сайта. Для сайта из шаблона Gatsby укажите `index.html`.
   1. (Опционально) В поле **{{ ui-key.yacloud.storage.bucket.website.field_error }}** укажите абсолютный путь к файлу, который будет отображаться при ошибках `4xx`. Для сайта из шаблона Gatsby укажите `404.html`.
@@ -108,8 +107,9 @@ keywords:
       name: gatsbytest.ru
       folder_id: b1g681qpemb4********
       anonymous_access_flags:
-        read: false
-        list: false
+        read: true
+        list: true
+        config_read: true
       default_storage_class: STANDARD
       versioning: VERSIONING_DISABLED
       max_size: "1073741824"
@@ -209,8 +209,7 @@ keywords:
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в созданный ранее бакет.
-  1. На панели слева выберите ![image](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}** → **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
   1. В блоке **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}** нажмите кнопку **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}** и выберите доменную зону, которая соответствует имени бакета, например `gatsbytest.ru.` (с точкой в конце). Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
@@ -462,8 +461,7 @@ keywords:
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ objstorage-name }}**.
   1. Нажмите на имя необходимого бакета, в данном примере это `gatsbytest.ru`.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
-  1. В меню сверху выберите **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_security }}** → **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_source }}** выберите **{{ ui-key.yacloud.storage.bucket.https.value_method-certificate-manager }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_certificate }}** выберите сертификат в появившемся списке.

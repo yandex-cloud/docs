@@ -18,16 +18,15 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Мастер {{ managed-k8s-name }} ([тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Сервис {{ container-registry-full-name }}: хранение созданных Docker-образов и использование сканера уязвимостей ([тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
-* Инстанс {{ GL }}. Стоимость зависит от способа создания инстанса:
-
-   * {{ mgl-name }} — оплачиваются вычислительные ресурсы ВМ, объем хранимых данных и резервных копий, объем исходящего трафика ([тарифы {{ mgl-name }}](../../managed-gitlab/pricing.md)).
-   * ВМ с образом {{ GL }} — оплачиваются вычислительные ресурсы ВМ и образ {{ GL }} ([тарифы {{ compute-name }}](../../compute/pricing.md)).
-
-* Публичные IP-адреса для мастера и узлов кластера {{ managed-k8s-name }}, а также для ВМ с образом {{ GL }}, если для них включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
-* NAT-шлюз, если он используется вместо публичных IP-адресов для узлов кластера: почасовое использование шлюза и исходящий через него трафик ([тарифы {{ vpc-name }}](../../vpc/pricing.md#nat-gateways)).
+* Мастер {{ managed-k8s-name }}: вычислительные ресурсы ([тарифы {{ managed-k8s-full-name }}](../../managed-kubernetes/pricing.md)).
+* Узлы кластера {{ managed-k8s-name }}: вычислительные ресурсы и хранилище ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Стоимость {{ GL }} зависит от того, где он развернут:
+    * Инстанс {{ mgl-name }}: вычислительные ресурсы, объем хранимых данных и резервных копий ([тарифы {{ mgl-full-name }}](../../managed-gitlab/pricing.md)).
+    * Виртуальная машина с {{ GL }}:
+      * Вычислительные ресурсы и хранилище ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+      * Публичный IP-адрес ВМ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Реестр {{ container-registry-name }}: хранение Docker-образов и сканер уязвимостей ([тарифы {{ container-registry-full-name }}](../../container-registry/pricing.md)).
+* Публичные IP-адреса узлов кластера {{ managed-k8s-name }} или NAT-шлюз и исходящий трафик из {{ yandex-cloud }} в интернет ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
