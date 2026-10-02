@@ -85,63 +85,13 @@ description: Следуя данной инструкции, вы сможете
 Подробнее о группах безопасности в разделе [Сеть и кластеры БД](../../concepts/network.md#security-groups).
 
 
-## Получение SSL-сертификата {#get-ssl-cert}
+## Получение SSL-сертификатов {#get-ssl-cert}
 
-Чтобы использовать шифрованное соединение, получите SSL-сертификат:
+Чтобы использовать шифрованное соединение, получите SSL-сертификаты:
 
 {% include [install-certificate](../../../_includes/mdb/mch/install-certificate.md) %}
 
 {% include [ide-ssl-cert](../../../_includes/mdb/mdb-ide-ssl-cert.md) %}
-
-## Получение промежуточных SSL-сертификатов для подключения через ODBC {#get-ssl-intermediate-cert}
-
-При [подключении к кластеру через ODBC](code-examples.md#odbc) может потребоваться установка промежуточных SSL-сертификатов. Чтобы установить их, выполните команду:
-
-{% list tabs group=operating_system %}
-
-- Linux (Bash) {#linux}
-
-  ```bash
-  sudo mkdir --parents {{ crt-local-dir }} && \
-  sudo wget "{{ crt-web-path-int }}" \
-       --output-document {{ crt-local-dir }}{{ crt-local-file-int }} && \
-  sudo wget "https://storage.yandexcloud.net/cloud-certs/IntermediateCA-2033.pem" \
-       --output-document {{ crt-local-dir }}IntermediateCA-2033.crt && \
-  sudo chmod 655 \
-       {{ crt-local-dir }}{{ crt-local-file-int }} \
-       {{ crt-local-dir }}IntermediateCA-2033.crt && \
-  sudo update-ca-certificates
-  ```
-
-  Сертификаты будут сохранены в файлах:
-
-  * `{{ crt-local-dir }}{{ crt-local-file-int }}`
-  * `{{ crt-local-dir }}IntermediateCA-2033.crt`
-
-- Windows (PowerShell) {#windows}
-
-  ```powershell
-  mkdir -Force $HOME\.yandex; `
-  curl.exe {{ crt-web-path-int }} `
-    --output $HOME\.yandex\{{ crt-local-file-int }}; `
-  curl.exe https://storage.yandexcloud.net/cloud-certs/IntermediateCA-2033.pem `
-    --output $HOME\.yandex\IntermediateCA-2033.crt; `
-  Import-Certificate `
-    -FilePath $HOME\.yandex\{{ crt-local-file-int }} `
-    -CertStoreLocation cert:\CurrentUser\CA; `
-  Import-Certificate `
-    -FilePath $HOME\.yandex\IntermediateCA-2033.crt `
-    -CertStoreLocation cert:\CurrentUser\CA
-  ```
-
-  Корпоративные политики и антивирус могут блокировать скачивание сертификатов. Подробнее в разделе [Вопросы и ответы](../../../managed-clickhouse/qa/connection.md#get-ssl-error).
-
-  Сертификаты будут сохранены в файлах:
-   
-  * `$HOME\.yandex\{{ crt-local-file-int }}`
-  * `$HOME\.yandex\IntermediateCA-2033.crt`
-
-{% endlist %}
 
 ## Что дальше {#whats-next}
 

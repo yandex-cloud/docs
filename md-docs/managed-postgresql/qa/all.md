@@ -487,7 +487,7 @@ Managed Service for PostgreSQL поддерживает PostgreSQL 14, 15, 16, 1
 SSL-сертификат можно получить с помощью PowerShell:
 
 ```powershell
-mkdir $HOME\.postgresql; curl.exe --output $HOME\.postgresql\root.crt https://storage.yandexcloud.net/cloud-certs/RootCA.pem
+mkdir $HOME\.postgresql; curl.exe --output $HOME\.postgresql\root.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
 ```
 
 Сертификат будет сохранен в файле `$HOME\.postgresql\root.crt`.
@@ -500,7 +500,7 @@ mkdir $HOME\.postgresql; curl.exe --output $HOME\.postgresql\root.crt https://st
 
    ```bash
    mkdir /mnt/c/temp && \
-   curl "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" --output /mnt/c/temp/CA.pem && \
+   curl "https://storage.yandexcloud.net/cloud-certs/CA.pem" --output /mnt/c/temp/CA.pem && \
    openssl pkcs12 -export -out /mnt/c/temp/CA.pfx -nokeys -in /mnt/c/temp/CA.pem
    ```
 
@@ -981,7 +981,7 @@ The revocation function was unable to check revocation for the certificate
 * выполните команду с параметром `--ssl-no-revoke`.
 
     ```powershell
-    mkdir $HOME\.postgresql; curl.exe --ssl-no-revoke -o $HOME\.postgresql\root.crt https://storage.yandexcloud.net/cloud-certs/RootCA.pem
+    mkdir $HOME\.postgresql; curl.exe --ssl-no-revoke -o $HOME\.postgresql\root.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
     ```
 
 #### Что делать, если при подключении я получаю ошибку `SSL is required`? {#ssl-req}

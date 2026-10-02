@@ -157,7 +157,7 @@ default:
   crt-local-file: YandexInternalRootCA.crt
   crt-local-file-int: IntermediateCA.crt
   crt-local-file-root: RootCA.crt
-  crt-web-path: https://storage.yandexcloud.net/cloud-certs/RootCA.pem
+  crt-web-path: https://storage.yandexcloud.net/cloud-certs/CA.pem
   crt-web-path-int: https://storage.yandexcloud.net/cloud-certs/IntermediateCA.pem
   crt-web-path-root: https://storage.yandexcloud.net/cloud-certs/RootCA.pem
   CSI: Container Storage Interface
@@ -8691,6 +8691,8 @@ default:
               value_ipv6-icmp: ICMPv6
               value_sg-rule-destination-cidr: Диапазон адресов
               value_sg-rule-destination-sg: Группа безопасности
+              value_sg-rule-direction-egress: Исходящий
+              value_sg-rule-direction-ingress: Входящий
               value_sg-rule-sg-type-balancer: Проверки состояния балансировщика
               value_sg-rule-sg-type-list: Из списка
               value_sg-rule-sg-type-self: Текущая

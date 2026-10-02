@@ -132,7 +132,7 @@
    
       ```bash
       mkdir -p /usr/local/share/ca-certificates/Yandex/ && \
-      wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
+      wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
            --output-document /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
       chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
       ```
@@ -142,7 +142,7 @@
    - Windows (PowerShell) {#windows}
    
       ```powershell
-      mkdir $HOME\.kafka; curl.exe -o $HOME\.kafka\YandexInternalRootCA.crt https://storage.yandexcloud.net/cloud-certs/RootCA.pem
+      mkdir $HOME\.kafka; curl.exe -o $HOME\.kafka\YandexInternalRootCA.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
       ```
    
       Сертификат будет сохранен в файле `$HOME\.kafka\YandexInternalRootCA.crt`.

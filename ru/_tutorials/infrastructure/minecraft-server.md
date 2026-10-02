@@ -42,30 +42,30 @@
       #|
       || **Направление**
       **трафика**
-      | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}**
       | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**
       | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**
       | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** /
       **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**
-      | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** ||
-      || Входящий
-      | `Доступ клиента к серверу Minecraft`
-      | `25565`/`19132`
-      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
-      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-      | `0.0.0.0/0` ||
-      || Входящий
-      | `Доступ на ВМ по SSH`
-      | `22`
-      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
-      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-      | `0.0.0.0/0` ||
+      | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**
+      | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}** ||
       || Исходящий
-      | `Доступ ВМ в интернет`
       | `0-65535`
       | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
       | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-      | `0.0.0.0/0` ||
+      | `0.0.0.0/0`
+      | `Доступ ВМ в интернет` ||
+      || Входящий
+      | `25565`/`19132`
+      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
+      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+      | `0.0.0.0/0`
+      | `Доступ клиента к серверу Minecraft` ||
+      || Входящий
+      | `22`
+      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
+      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+      | `0.0.0.0/0`
+      | `Доступ на ВМ по SSH` ||
       |#
 
    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
@@ -205,6 +205,8 @@
       sudo chown -R minecraft:minecraft /opt/minecraft-server
       ```
 
+      Владелец всех файлов в директории сервера, включая созданный ранее файл `eula.txt`, изменится на пользователя `minecraft`.
+
    1. Запустите в директории сервера фоновую сессию `screen` от имени пользователя `minecraft`:
 
       ```bash
@@ -228,6 +230,23 @@
       [14:17:05] [Server thread/INFO]: Time elapsed: 17317 ms
       [14:17:05] [Server thread/INFO]: Done (17.788s)! For help, type "help"
       ```
+
+   1. (Опционально) Настройте сервер под свои задачи в файле `server.properties` в директории `/opt/minecraft-server`. Например, с помощью редактора `nano`:
+
+      ```bash
+      nano /opt/minecraft-server/server.properties
+      ```
+
+      Основные параметры:
+
+      * `server-port` — порт, на котором сервер принимает подключения клиентов (по умолчанию `25565`).
+      * `max-players` — максимальное количество игроков.
+      * `online-mode` — проверка подлинности учетных записей игроков (`true` по умолчанию).
+      * `white-list` — включение белого списка игроков (`false` по умолчанию).
+
+      Полное описание параметров — в [документации Minecraft](https://minecraft.wiki/w/Server.properties).
+
+      После изменения настроек перезапустите сервер, чтобы они применились.
 
    1. (Опционально) Можно оставить сессию `screen` работать в фоне, используя горячие клавиши **Ctrl + A + D**, и вернуться в основной терминал виртуальной машины.
 
@@ -498,3 +517,4 @@
 Чтобы перестать платить за созданные ресурсы:
 1. [Удалите](../../compute/operations/vm-control/vm-delete.md) виртуальную машину `minecraft-server`.
 1. [Удалите](../../vpc/operations/security-group-delete.md) группу безопасности `minecraft-sg`.
+1. [Удалите статический публичный IP-адрес](../../vpc/operations/address-delete.md), если вы его зарезервировали.

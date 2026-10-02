@@ -4,8 +4,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится функция `ffmpeg-api`.
-  1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог с функцией `ffmpeg-api`.
+  1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Выберите функцию `ffmpeg-api`.
   1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** введите:
@@ -14,7 +14,7 @@
      {"action":"convert", "src_url":"<ссылка_на_видео>"}
      ```
 
-     Где `<ссылка_на_видео>` — ссылка на сохраненный на [Яндекс Диске](https://disk.yandex.ru) видеофайл в формате [MP4](https://ru.wikipedia.org/wiki/MPEG-4_Part_14).
+     Где `<ссылка_на_видео>` — ссылка на видеофайл в формате [MP4](https://ru.wikipedia.org/wiki/MPEG-4_Part_14), который сохранен на [Яндекс Диске](https://disk.yandex.ru).
 
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}**.
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_function-output }}** отобразится идентификатор задачи:
@@ -33,11 +33,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится очередь `converter-queue`.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог с очередью `converter-queue`.
   1. [Перейдите]({{ link-console-main }}/link/message-queue) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
   1. Выберите очередь `converter-queue`.
   1. В блоке **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** отображается количество сообщений в очереди и в обработке.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**. Посмотрите графики **Overall queue stats**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}** и посмотрите графики **Overall queue stats**.
 
 {% endlist %}
 
@@ -49,10 +49,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится функция `ffmpeg-converter`.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог с функцией `ffmpeg-converter`.
   1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Выберите функцию `ffmpeg-converter`.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** и укажите период, за который хотите посмотреть логи.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** и укажите период для просмотра логов.
 
 {% endlist %}
 
@@ -62,7 +62,7 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится функция `ffmpeg-api`.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог с функцией `ffmpeg-api`.
   1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Выберите функцию `ffmpeg-api`.
   1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.

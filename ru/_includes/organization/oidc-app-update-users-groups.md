@@ -117,6 +117,6 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [Application.UpdateAssignments](../../organization/idp/application/oauth/api-ref/Application/updateAssignments.md) для ресурса [Application](../../organization/idp/application/oauth/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/UpdateAssignments](../../organization/idp/application/oauth/api-ref/grpc/Application/updateAssignments.md).
+    Воспользуйтесь методом REST API [updateAssignments](../../organization/idp/application/oauth/api-ref/Application/updateAssignments.md) для ресурса [Application](../../organization/idp/application/oauth/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/UpdateAssignments](../../organization/idp/application/oauth/api-ref/grpc/Application/updateAssignments.md).
 
 {% endlist %}

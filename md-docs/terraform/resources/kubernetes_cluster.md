@@ -171,7 +171,9 @@ depends_on = [
 ## Arguments & Attributes Reference
 
 - `cluster_ipv4_range` (String). CIDR block. IP range for allocating pod addresses. It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be set up for this CIDR blocks in node subnets.
+- `cluster_ipv4_ranges` (List Of String). CIDR blocks for allocating pod IPv4 addresses. Cannot be set together with `cluster_ipv4_range`. Updates are append-only: keep existing CIDRs and add new ones at the end. At most 8 CIDRs.
 - `cluster_ipv6_range` (String). Identical to `cluster_ipv4_range` but for IPv6 protocol.
+- `cluster_ipv6_ranges` (List Of String). Identical to `cluster_ipv4_ranges` but for IPv6 protocol.
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
 - `description` (String). The resource description.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.

@@ -44,6 +44,9 @@ The maximum string length in characters is 50. ||
     "string"
   ],
   "status": "Status",
+  "post_logout_redirect_uris": [
+    "string"
+  ],
   "profile_id": "string",
   "pkce_required": "bool"
 }
@@ -78,6 +81,9 @@ Current status of the oauth client.
 - `CREATING`: OAuth client is being created.
 - `ACTIVE`: OAuth client is active.
 - `DELETING`: OAuth client is being deleted. ||
+|| post_logout_redirect_uris[] | **string**
+
+List of URIs to which users can be redirected after signing out of the oauth client. ||
 || profile_id | **string**
 
 ID of the profile that defines the set of allowed settings for the oauth client. ||

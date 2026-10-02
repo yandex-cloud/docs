@@ -14,7 +14,6 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-
 ## Подготовьте облако к работе {#before-begin}
 
 Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
@@ -25,14 +24,13 @@
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит:
+В стоимость поддержки инфраструктуры входят:
+
 * плата за вызовы [функций](../../concepts/function.md) ([тарифы Yandex Cloud Functions](../../pricing.md));
 * плата за выполнение запросов к [базе данных](../../../ydb/concepts/serverless-and-dedicated.md) ([тарифы Yandex Managed Service for YDB](../../../ydb/pricing/serverless.md));
 * плата за хранение данных в [бакете](../../../storage/concepts/bucket.md) ([тарифы Yandex Object Storage](../../../storage/pricing.md)).
-
 
 ## Подготовьте ресурсы {#create-resources}
 
@@ -42,7 +40,7 @@
    git clone https://github.com/yandex-cloud-examples/yc-serverless-video-gif-converter.git
    ```
 
-1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт с именем `ffmpeg-sa` и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему следующие роли:
+1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт `ffmpeg-sa` и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему роли:
 
    * `ymq.reader`;
    * `ymq.writer`;
@@ -52,20 +50,20 @@
    * `ydb.admin`;
    * `functions.functionInvoker`.
 
-1. [Создайте статический ключ](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта. Сохраните **Идентификатор ключа** и **Ваш секретный ключ**.
-1. [Создайте секрет](../../../lockbox/operations/secret-create.md) с именем `ffmpeg-sa-secret` в Yandex Lockbox:
+1. [Создайте статический ключ](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта. Сохраните идентификатор ключа и секретный ключ.
+1. [Создайте секрет](../../../lockbox/operations/secret-create.md) `ffmpeg-sa-secret` в Yandex Lockbox:
 
-      1. Выберите **Тип секрета**: **Пользовательский**.
+      1. Выберите тип секрета **Пользовательский**.
       1. Задайте две пары ключ-значение:
 
-         * Ключ — `ACCESS_KEY_ID`, значение — **Идентификатор ключа** из предыдущего шага.
-         * Ключ — `SECRET_ACCESS_KEY`, значение — **Ваш секретный ключ** из предыдущего шага.
+         * Ключ — `ACCESS_KEY_ID`, значение — идентификатор ключа из предыдущего шага.
+         * Ключ — `SECRET_ACCESS_KEY`, значение — секретный ключ из предыдущего шага.
 
-         Сохраните **Идентификатор** секрета из блока **Информация о секрете**.
+         Сохраните идентификатор секрета из блока **Информация о секрете**.
 
-1. [Создайте очередь сообщений](../../../message-queue/operations/message-queue-new-queue.md) с именем `converter-queue` в Yandex Message Queue. Сохраните **URL** очереди из блока **Общая информация**.
-1. [Создайте базу данных](../../../ydb/quickstart.md#serverless) YDB в режиме `Serverless`. Сохраните **Эндпоинт** из блока **Document API эндпоинт**.
-1.  [Создайте таблицу](../../../ydb/operations/schema.md#create-table)  в базе данных:
+1. [Создайте очередь сообщений](../../../message-queue/operations/message-queue-new-queue.md) `converter-queue` в Yandex Message Queue. Перейдите в созданную очередь и сохраните значение поля **URL** из блока **Общая информация**.
+1. [Создайте базу данных](../../../ydb/quickstart.md#serverless) YDB в режиме `Serverless`. Перейдите в созданную БД и сохраните значение поля **Document API эндпоинт** из блока **Соединение**.
+1. [Создайте таблицу](../../../ydb/operations/schema.md#create-table) в базе данных:
 
     * **Имя** — `tasks`.
     * **Тип таблицы** — [Документная таблица](../../../ydb/operations/schema.md#create-table).
@@ -85,18 +83,22 @@
 
 - Консоль управления {#console}
 
-  1. [Создайте](../../operations/function/function-create.md) функцию с именем `ffmpeg-api`.
-  1. [Создайте](../../operations/function/version-manage.md) версию функции:
+  1. [Создайте функцию](../../operations/function/function-create.md) с именем `ffmpeg-api`.
+  1. [Создайте версию функции](../../operations/function/version-manage.md):
 
      1. Создайте файл `requirements.txt` и укажите в нем библиотеки:
 
         ```text
         boto3
+        requests
         yandexcloud
         ```
 
-     1. Создайте файл `index.py` и вставьте в него содержимое файла `ffmpeg-api.py` из архива `ffmpeg-api.zip`.
-     1. Укажите следующие параметры:
+     1. Создайте файл `index.py` и вставьте в него содержимое файла `index.py` из архива `ffmpeg-api.zip`.
+
+        Также можно загрузить готовый архив `ffmpeg-api.zip` на странице создания версии функции.
+
+     1. Укажите параметры:
 
         * **Среда выполнения** — `python312`.
         * **Точка входа** — `index.handle_api`.
@@ -136,10 +138,10 @@
      * Файл `index.py` с содержимым файла `ffmpeg-converter.py` из архива `src.zip`.
      * Исполняемый файл FFmpeg. На [официальном сайте FFmpeg](http://ffmpeg.org/download.html) в разделе **Linux Static Builds** загрузите архив с 64-битной версией FFmpeg и сделайте файл исполняемым, выполнив команду `chmod +x ffmpeg`.
 
-  1. [Загрузите](../../../storage/operations/objects/upload.md) архив `src.zip` в бакет, созданный ранее.
-  1. [Создайте](../../operations/function/version-manage.md) версию функции:
+  1. [Загрузите архив](../../../storage/operations/objects/upload.md) `src.zip` в бакет, созданный ранее.
+  1. [Создайте версию функции](../../operations/function/version-manage.md):
 
-     1. Укажите следующие параметры:
+     1. Укажите параметры:
 
         * **Среда выполнения** — `python312`.
         * **Источник кода** — способ загрузки `Object Storage`.
@@ -152,10 +154,10 @@
 
      1. Добавьте переменные окружения:
 
-        * `DOCAPI_ENDPOINT` — **Эндпоинт** из конфигурации базы данных.
-        * `SECRET_ID` — **Идентификатор** секрета Yandex Lockbox.
-        * `YMQ_QUEUE_URL` — **URL** очереди Message Queue.
-        * `S3_BUCKET` — имя бакета, созданного ранее.
+        * `DOCAPI_ENDPOINT` — Document API эндпоинт из конфигурации базы данных.
+        * `SECRET_ID` — идентификатор секрета Yandex Lockbox.
+        * `YMQ_QUEUE_URL` — URL очереди Message Queue.
+        * `S3_BUCKET` — имя бакета.
 
 {% endlist %}
 
@@ -173,13 +175,13 @@
   1. Перейдите на вкладку **Триггеры**.
   1. Нажмите кнопку **Создать триггер**.
   1. В блоке **Базовые параметры**:
-     * Введите имя триггера — `ffmpeg-trigger`.
+     * Введите имя триггера `ffmpeg-trigger`.
      * В поле **Тип** выберите `Message Queue`.
-  1. В блоке **Настройки сообщений Message Queue** выберите очередь сообщений `converter-queue` и сервисный аккаунт с правами на чтение из нее — `ffmpeg-sa`.
+  1. В блоке **Настройки сообщений Message Queue** выберите очередь сообщений `converter-queue` и сервисный аккаунт `ffmpeg-sa` с правами на чтение из очереди.
   1. В блоке **Настройки функции**:
-     * Выберите функцию, которую будет вызывать триггер — `ffmpeg-converter`.
-     * Укажите [тег версии функции](../../concepts/function.md#tag) — `$latest`.
-     * Укажите сервисный аккаунт, от имени которого будет вызываться функция — `ffmpeg-sa`.
+     * Выберите функцию `ffmpeg-converter`.
+     * Укажите [тег версии функции](../../concepts/function.md#tag) `$latest`.
+     * Укажите сервисный аккаунт `ffmpeg-sa`, от имени которого будет вызываться функция.
   1. Нажмите кнопку **Создать триггер**.
 
 {% endlist %}
@@ -193,8 +195,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится функция `ffmpeg-api`.
-  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с функцией `ffmpeg-api`.
+  1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. Выберите функцию `ffmpeg-api`.
   1. Перейдите на вкладку **Тестирование**.
   1. В поле **Входные данные** введите:
@@ -203,7 +205,7 @@
      {"action":"convert", "src_url":"<ссылка_на_видео>"}
      ```
 
-     Где `<ссылка_на_видео>` — ссылка на сохраненный на [Яндекс Диске](https://disk.yandex.ru) видеофайл в формате [MP4](https://ru.wikipedia.org/wiki/MPEG-4_Part_14).
+     Где `<ссылка_на_видео>` — ссылка на видеофайл в формате [MP4](https://ru.wikipedia.org/wiki/MPEG-4_Part_14), который сохранен на [Яндекс Диске](https://disk.yandex.ru).
 
   1. Нажмите кнопку **Запустить тест**.
   1. В поле **Ответ функции** отобразится идентификатор задачи:
@@ -222,11 +224,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится очередь `converter-queue`.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с очередью `converter-queue`.
   1. [Перейдите](https://console.yandex.cloud/link/message-queue) в сервис **Message Queue**.
   1. Выберите очередь `converter-queue`.
   1. В блоке **Общая информация** отображается количество сообщений в очереди и в обработке.
-  1. Перейдите на вкладку **Мониторинг**. Посмотрите графики **Overall queue stats**.
+  1. Перейдите на вкладку **Мониторинг** и посмотрите графики **Overall queue stats**.
 
 {% endlist %}
 
@@ -238,10 +240,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится функция `ffmpeg-converter`.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с функцией `ffmpeg-converter`.
   1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. Выберите функцию `ffmpeg-converter`.
-  1. Перейдите на вкладку **Логи** и укажите период, за который хотите посмотреть логи.
+  1. Перейдите на вкладку **Логи** и укажите период для просмотра логов.
 
 {% endlist %}
 
@@ -251,7 +253,7 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится функция `ffmpeg-api`.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с функцией `ffmpeg-api`.
   1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. Выберите функцию `ffmpeg-api`.
   1. Перейдите на вкладку **Тестирование**.

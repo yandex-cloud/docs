@@ -7,7 +7,7 @@
 
 В [задачах Трекер](https://yandex.ru/support/tracker/ru/working-with-issues) можно автоматически добавлять ссылки на [мерж-реквесты](https://docs.gitlab.com/ee/user/project/merge_requests/) из GitLab, указывая [ключ](https://yandex.ru/support/tracker/ru/quick-start/glossary#rus-k) нужной задачи в названии или описании нового мерж-реквеста. Ссылки будут размещаться в разделе [Связи с внешними приложениями](https://yandex.ru/support/tracker/ru/external-links).
 
-Дополнительно можно включить автоматическое создание комментариев в задаче с информацией о мерж-реквестах. Автоматическое комментирование доступно только для [Managed Service for GitLab](../../managed-gitlab/index.md).
+Дополнительно можно включить автоматическое создание комментариев в задаче с информацией о мерж-реквестах. Автоматическое комментирование доступно только для [Yandex Managed Service for GitLab](../../managed-gitlab/index.md).
 
 Чтобы настроить интеграцию с GitLab в Трекер:
 
@@ -32,11 +32,13 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит:
-
-* Плата за [диск](../../compute/concepts/disk.md) и постоянно запущенную ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за количество пользователей Трекер с полным доступом, если их более 5 ([тарифы Трекер](https://yandex.ru/support/tracker/ru/pricing)).
-* Плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Стоимость GitLab зависит от того, где он развернут:
+  * Инстанс Managed Service for GitLab: вычислительные ресурсы, объем хранимых данных и резервных копий ([тарифы Yandex Managed Service for GitLab](../../managed-gitlab/pricing.md)).
+  * Виртуальная машина с GitLab:
+    * Вычислительные ресурсы и хранилище ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+    * Публичный IP-адрес ВМ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Исходящий трафик из Yandex Cloud в интернет ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-traffic)).
+* Яндекс Трекер ([тарифы Яндекс Трекера](https://yandex.ru/support/tracker/ru/pricing)).
 
 ## Подключите Яндекс Трекер {#enable-tracker}
 

@@ -11,7 +11,11 @@
 ## Какие роли действуют в сервисе {#roles-list}
 
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     security-deck.worker
     security-deck.auditor --> security-deck.viewer

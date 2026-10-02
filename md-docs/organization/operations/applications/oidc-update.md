@@ -225,7 +225,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [Application.Update](../../idp/application/oauth/api-ref/Application/update.md) для ресурса [Application](../../idp/application/oauth/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/Update](../../idp/application/oauth/api-ref/grpc/Application/update.md).
+    Воспользуйтесь методом REST API [update](../../idp/application/oauth/api-ref/Application/update.md) для ресурса [Application](../../idp/application/oauth/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/Update](../../idp/application/oauth/api-ref/grpc/Application/update.md).
 
 {% endlist %}
 
@@ -244,6 +244,9 @@
      1. В блоке **Конфигурация поставщика услуг (SP)** в поле **Redirect URI** укажите полученный у поставщика услуг адрес.
      
          Используйте кнопку **Добавить URI**, чтобы указать одновременно несколько адресов Redirect URI.
+     1. (Опционально) В поле **Post Logout Redirect URI** укажите полученный у поставщика услуг [адрес Post Logout Redirect URI](../../concepts/applications/oidc.md#oidc-post-logout-redirect-uri).
+     
+         Можно указать несколько адресов. К ним применяются те же требования, что и к [Redirect URI](../../concepts/applications/oidc.md#oidc-redirect-uri).
      1. Настройте параметры безопасности OIDC-приложения (действие доступно только для приложений [типа](../../concepts/applications/oidc.md#oidc-application-types) `Web Application`):
         
         В блоке **Безопасность OAuth/OIDC**:
@@ -294,6 +297,7 @@
         --id <идентификатор_OAuth-клиента> \
         --new-name <новое_имя_OAuth-клиента> \
         --redirect-uris <адрес>[,<адрес>] \
+        --post-logout-redirect-uris <адрес>[,<адрес>] \
         --scopes <атрибут>[,<атрибут>]
       ```
 
@@ -315,7 +319,8 @@
               
               {% endnote %}
 
-      * `--redirect-uris` — укажите новые полученные у поставщика услуг адрес или несколько адресов в формате `<адрес1>,<адрес2>`.
+      * `--redirect-uris` — укажите полученный у поставщика услуг новый адрес Redirect URI или несколько адресов в формате `<адрес1>,<адрес2>`.
+      * `--post-logout-redirect-uris` — укажите полученный у поставщика услуг новый адрес Post Logout Redirect URI или несколько адресов в формате `<адрес1>,<адрес2>`. Необязательный параметр.
 
       Результат:
 
@@ -325,6 +330,9 @@
       redirect_uris:
         - https://example.com
         - https://example.ru
+      post_logout_redirect_uris:
+        - https://example.com/logout
+        - https://example.ru/logout
       scopes:
         - email
         - groups
@@ -355,10 +363,11 @@
 
     ```hcl
     resource "yandex_iam_oauth_client" "example_oauth_client" {
-      oauth_client_id = "<идентификатор_OAuth-клиента>"
-      name           = "<новое_имя_OAuth-клиента>"
-      redirect_uris  = ["<адрес1>", "<адрес2>"]
-      scopes         = ["<атрибут1>", "<атрибут2>"]
+      oauth_client_id           = "<идентификатор_OAuth-клиента>"
+      name                      = "<новое_имя_OAuth-клиента>"
+      redirect_uris             = ["<адрес1>", "<адрес2>"]
+      post_logout_redirect_uris = ["<адрес1>", "<адрес2>"]
+      scopes                    = ["<атрибут1>", "<атрибут2>"]
     }
     ```
 
@@ -367,6 +376,7 @@
     * `oauth_client_id` — идентификатор OAuth-клиента. Обязательный параметр.
     * `name` — новое имя OAuth-клиента. Необязательный параметр.
     * `redirect_uris` — новый список адресов Redirect URI. Укажите один или несколько адресов в квадратных скобках. Необязательный параметр.
+    * `post_logout_redirect_uris` — новый список адресов Post Logout Redirect URI. Укажите один или несколько адресов в квадратных скобках. Необязательный параметр.
     * `scopes` — новый набор атрибутов пользователей, которые будут доступны поставщику услуг. Укажите один или несколько атрибутов в квадратных скобках. Возможные атрибуты:
       * `openid` — идентификатор пользователя. Обязательный атрибут.
       * `profile` — дополнительная информация о пользователе, такая как имя, фамилия, аватар.
@@ -415,7 +425,14 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [OAuthClient.Update](../../../iam/api-ref/OAuthClient/update.md) для ресурса [OAuthClient](../../../iam/api-ref/grpc/OAuthClient/index.md) или вызовом gRPC API [OAuthClientService/Update](../../../iam/api-ref/grpc/OAuthClient/update.md).
+    Воспользуйтесь методом REST API [update](../../../iam/api-ref/OAuthClient/update.md) для ресурса [OAuthClient](../../../iam/api-ref/OAuthClient/index.md) или вызовом gRPC API [OAuthClientService/Update](../../../iam/api-ref/grpc/OAuthClient/update.md).
+
+    Укажите идентификатор OAuth-клиента в параметре пути `oauthClientId` для REST API или в поле `oauth_client_id` для gRPC API. Чтобы изменить адреса перенаправления, передайте в теле запроса:
+
+    * `redirectUris` — новый список [адресов Redirect URI](../../concepts/applications/oidc.md#oidc-redirect-uri). В gRPC API — `redirect_uris`. Необязательный параметр.
+    * `postLogoutRedirectUris` — новый список [адресов Post Logout Redirect URI](../../concepts/applications/oidc.md#oidc-post-logout-redirect-uri). В gRPC API — `post_logout_redirect_uris`. Необязательный параметр.
+
+    В поле `updateMask` перечислите изменяемые поля, чтобы сохранить остальные настройки OAuth-клиента. В gRPC API используйте поле `update_mask`.
 
 {% endlist %}
 
@@ -509,7 +526,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [OAuthClient.Update](../../../iam/api-ref/OAuthClient/update.md) для ресурса [OAuthClient](../../../iam/api-ref/grpc/OAuthClient/index.md) или вызовом gRPC API [OAuthClientService/Update](../../../iam/api-ref/grpc/OAuthClient/update.md).
+    Воспользуйтесь методом REST API [update](../../../iam/api-ref/OAuthClient/update.md) для ресурса [OAuthClient](../../../iam/api-ref/OAuthClient/index.md) или вызовом gRPC API [OAuthClientService/Update](../../../iam/api-ref/grpc/OAuthClient/update.md).
 
 {% endlist %}
 
@@ -648,7 +665,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [OAuthClientSecret.Create](../../../iam/api-ref/OAuthClientSecret/create.md) для ресурса [OAuthClientSecret](../../../iam/api-ref/OAuthClientSecret/index.md) или вызовом gRPC API [OAuthClientSecretService/Create](../../../iam/api-ref/grpc/OAuthClientSecret/create.md).
+    Воспользуйтесь методом REST API [create](../../../iam/api-ref/OAuthClientSecret/create.md) для ресурса [OAuthClientSecret](../../../iam/api-ref/OAuthClientSecret/index.md) или вызовом gRPC API [OAuthClientSecretService/Create](../../../iam/api-ref/grpc/OAuthClientSecret/create.md).
 
 {% endlist %}
 
@@ -810,7 +827,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [Application.UpdateAssignments](../../idp/application/oauth/api-ref/Application/updateAssignments.md) для ресурса [Application](../../idp/application/oauth/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/UpdateAssignments](../../idp/application/oauth/api-ref/grpc/Application/updateAssignments.md).
+    Воспользуйтесь методом REST API [updateAssignments](../../idp/application/oauth/api-ref/Application/updateAssignments.md) для ресурса [Application](../../idp/application/oauth/api-ref/Application/index.md) или вызовом gRPC API [ApplicationService/UpdateAssignments](../../idp/application/oauth/api-ref/grpc/Application/updateAssignments.md).
 
 {% endlist %}
 

@@ -1347,6 +1347,9 @@ items:
                   - name: ydb_database_iam_binding
                     href: resources/ydb_database_iam_binding.md
                     title: ''
+                  - name: ydb_database_iam_member
+                    href: resources/ydb_database_iam_member.md
+                    title: ''
                   - name: ydb_database_serverless
                     href: resources/ydb_database_serverless.md
                     title: ''

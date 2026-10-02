@@ -6,6 +6,8 @@ Yandex Query — интерактивный, полностью управляе
 
 # Yandex Query
 
+ - [Закрытие сервиса Yandex Query](sunset.md)
+
 ## Начало работы
 
  - [Обзор](quickstart/index.md)
@@ -101,6 +103,8 @@ Yandex Query — интерактивный, полностью управляе
 ## Практические руководства
 
  - [Все руководства](tutorials/index.md)
+
+ - [Миграция с Yandex Query](tutorials/migration.md)
 
  - [Обработка логов Cloud Logging](tutorials/cloud-logging.md)
 

@@ -24,6 +24,9 @@ Updates the specified oauth client.
   "authentication_methods": [
     "string"
   ],
+  "post_logout_redirect_uris": [
+    "string"
+  ],
   "pkce_required": "bool"
 }
 ```
@@ -60,6 +63,11 @@ The maximum string length in characters for each value is 255. Each value must m
 List of authentication methods allowed for the oauth client.
 
 The maximum string length in characters for each value is 255. The maximum number of elements is 1000. ||
+|| post_logout_redirect_uris[] | **string**
+
+List of URIs to which users can be redirected after signing out of the oauth client.
+
+The maximum string length in characters for each value is 1000. The maximum number of elements is 1000. ||
 || pkce_required | **bool**
 
 Whether PKCE (Proof Key for Code Exchange) is required for the oauth client during the authorization code flow. ||

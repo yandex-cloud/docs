@@ -3,6 +3,9 @@
 1. В блоке **{{ ui-key.yacloud_org.application.overview.oauth_service_section_title }}** в поле **{{ ui-key.yacloud_org.application.overview.oauth_field_redirect_uri }}** укажите полученный у поставщика услуг адрес.
 
     Используйте кнопку **{{ ui-key.yacloud_org.organization.apps.OauthAppRedirectUrlsField.add-redirect-url_rS5jw }}**, чтобы указать одновременно несколько адресов Redirect URI.
+1. (Опционально) В поле **Post Logout Redirect URI** укажите полученный у поставщика услуг [адрес Post Logout Redirect URI](../../organization/concepts/applications/oidc.md#oidc-post-logout-redirect-uri).
+
+    Можно указать несколько адресов. К ним применяются те же требования, что и к [Redirect URI](../../organization/concepts/applications/oidc.md#oidc-redirect-uri).
 1. {% include [oidc-app-update-security-settings](./oidc-app-update-security-settings.md) %}
 1. В поле **{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.field-scopes_hEuar }}** выберите набор атрибутов пользователей, которые будут доступны поставщику услуг:
 

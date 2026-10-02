@@ -178,6 +178,31 @@ filtering_policy {
   }
 }
 ```
+```terraform
+//
+// Export management events to Object Storage with a one-minute aggregation period.
+//
+resource "yandex_audit_trails_trail" "storage_trail" {
+  name               = "storage-trail"
+  folder_id          = "home-folder"
+  service_account_id = "trail-service-account"
+
+  storage_destination {
+    bucket_name        = "audit-events-bucket"
+    object_prefix      = "events/"
+    aggregation_period = "1m"
+  }
+
+  filtering_policy {
+    management_events_filter {
+      resource_scope {
+        resource_id   = "home-folder"
+        resource_type = "resource-manager.folder"
+      }
+    }
+  }
+}
+```
 
 ## Arguments & Attributes Reference
 
@@ -256,6 +281,7 @@ filtering_policy {
 - `logging_destination` [Block]. Structure describing destination log group of the trail. Mutually exclusive with `storage_destination` and `data_stream_destination`.
   - `log_group_id` (**Required**)(String). ID of the destination [Cloud Logging Group](https://yandex.cloud/docs/logging/concepts/log-group).
 - `storage_destination` [Block]. Structure describing destination bucket of the trail. Mutually exclusive with `logging_destination` and `data_stream_destination`.
+  - `aggregation_period` (String). Target interval between starts of event exports to Object Storage, as a duration string (for example, `1m`, `300s`, or `1h`). Must be between `1m` and `1h`, inclusive. If omitted on creation, the server uses `5m`.
   - `bucket_name` (**Required**)(String). Name of the [destination bucket](https://yandex.cloud/docs/storage/concepts/bucket).
   - `object_prefix` (String). Additional prefix of the uploaded objects. If not specified, objects will be uploaded with prefix equal to `trail_id`.
 - `timeouts` [Block]. 

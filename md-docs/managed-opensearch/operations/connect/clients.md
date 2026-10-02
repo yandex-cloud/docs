@@ -158,7 +158,7 @@
     RUN apt-get update && \
         apt-get install wget curl --yes && \
         mkdir --parents ~/.opensearch && \
-        wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
+        wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
              --output-document ~/.opensearch/root.crt && \
         chmod 0600 ~/.opensearch/root.crt
     ```

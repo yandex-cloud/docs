@@ -85,10 +85,10 @@ The data writes are calculated in a similar way; the only difference is that the
 
 ### SQS API {#sqs-api}
 
-`SQS API` (SQS over Topics) is used to access a topic via an Amazon SQS-compatible interface. This interface does not support streaming read and write methods. To transfer each data block, you need to call a separate unary method (request-response). The cost of calling these methods in Request Units (RU) is calculated as explained below:
+The SQS API (SQS over Topics) is used when accessing a topic via the interface compatible with Amazon Simple Queue Service (SQS). This interface does not support streaming read and write methods. Therefore, to transfer each data block, you need to call a separate unary method (request-response). The cost of calling these methods in RUs is calculated as explained below:
 
-1. Each SQS API method call costs 2 RUs.
-1. For write (`SendMessage`, `SendMessageBatch`) and read (`ReceiveMessage`) methods, what is also calculated here is the amount of data blocks transferred in a request to the write method or received in response to the read method call. The block sizes for read and write operations are different:
+1. Each SQS API method call costs you 2 RUs.
+1. Write (`SendMessage` and `SendMessageBatch`) and read (`ReceiveMessage`) methods also include additional charges based on the size of data blocks sent in a write request or returned returned in a read call. The block sizes for reads and writes are different:
 
     Direction | Block size
     --- | ---
@@ -96,21 +96,21 @@ The data writes are calculated in a similar way; the only difference is that the
     Writes | 4KB
 
 1. 1 RU is charged for each complete data block transferred.
-1. For FIFO queues, an additional 1 RU is charged for read and write methods.
+1. For FIFO queues, there is an extra charge of 1 RU added to the cost of calling read and write methods.
 
 **Calculation examples**
 
-1. Let’s assume the `SendMessage` SQS API method is called for a standard queue:
+1. Calling the `SendMessage` SQS API method for a standard queue:
 
-    1. A 10 KB batch of data is transferred in the request. The batch contains two complete write blocks, 4 KB each.
-    1. The cost of method call in RU is 2 RUs per call plus 2 RUs for two complete data blocks transferred, which equals 4 RUs.
+    1. The request sends a 10 KB batch of data containing two complete write blocks, 4 KB each.
+    1. The cost of the method call in RU is 2 RUs per call plus 2 RUs for two complete data blocks sent, which equals 4 RUs.
 
-1. Let’s assume the `ReceiveMessage` SQS API method is called for a FIFO queue:
+1. Calling the `ReceiveMessage` SQS API method for a FIFO queue:
 
     1. A 20 KB batch of data is received in response. The batch contains two complete read blocks, 8 KB each.
-    1. The cost of method call in RU is 2 RUs per call plus 2 RUs for two complete data blocks received plus 1 RU for FIFO, which equals 5 RUs.
+    1. The cost of method call in RU is 2 RUs per call, plus 2 RUs for two complete data blocks received, plus 1 RU FIFO charge, which equals 5 RUs.
 
-1. Let’s assume the `DeleteMessage` SQS API method is called:
+1. Calling the `DeleteMessage` SQS API method:
 
     1. The cost of method call in RU is 2 RUs.
 

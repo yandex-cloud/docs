@@ -162,11 +162,11 @@ TrustStore — это хранилище доверенных сертифика
 
 Чтобы использовать TrustStore:
 
-1. Загрузите SSL-сертификат:
+1. Создайте SSL-сертификат:
 
    ```bash
    sudo mkdir -p /usr/local/share/ca-certificates/Yandex/ && \
-   sudo wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
+   sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
         --output-document /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
    sudo chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
    ```
@@ -179,72 +179,16 @@ TrustStore — это хранилище доверенных сертифика
 
    В ней будет храниться файл `truststore.jks`. Отдельная директория нужна, чтобы далее путь к файлу был корректно распознан в командах и конфигурационных файлах.
 
-1. Импортируйте сертификаты из файла `YandexCA.crt` в файл `truststore.jks`:
-   
-   {% list tabs group=operating_system %}
+1. Загрузите сертификат `YandexCA.crt` в файл `truststore.jks`:
 
-   - Linux (Bash) {#linux}
+   ```bash
+   sudo keytool -import \
+                -file /usr/local/share/ca-certificates/Yandex/YandexCA.crt \
+                -alias "kafka-ui-cert" \
+                -keystore /truststore/truststore.jks
+   ```
 
-     ```bash
-     awk '/-----BEGIN CERTIFICATE-----/ {n++} n {print > "YandexCA-" n ".crt"}' \
-       < /usr/local/share/ca-certificates/Yandex/YandexCA.crt
-
-     for cert in YandexCA-*.crt; do
-       alias=$(
-         openssl x509 -noout -text -in "${cert}" |
-         perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
-       )
-
-       year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
-
-       echo "Importing ${alias}-${year}"
-
-       keytool -importcert \
-               -alias "${alias}-${year}" \
-               -file "${cert}" \
-               -keystore /truststore/truststore.jks \
-               -storepass <пароль_защищенного_хранилища> \
-               -noprompt
-
-       rm "${cert}"
-     done
-
-     chmod 0655 /truststore/truststore.jks
-     ```
-
-   - macOS (Zsh) {#macos}
-     
-     ```bash     
-     split -p "-----BEGIN CERTIFICATE-----" \
-            /usr/local/share/ca-certificates/Yandex/YandexCA.crt \
-            YandexCA-
-
-     for cert in YandexCA-*.crt; do
-       alias=$(
-         openssl x509 -noout -text -in "${cert}" |
-         perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
-       )
-
-       year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
-
-       echo "Importing ${alias}-${year}"
-
-       keytool -importcert \
-               -alias "${alias}-${year}" \
-               -file "${cert}" \
-               -keystore /truststore/truststore.jks \
-               -storepass <пароль_защищенного_хранилища> \
-               -noprompt
-
-       rm "${cert}"
-     done
-
-     chmod 0655 /truststore/truststore.jks
-     ```
-
-   {% endlist %}
-
-   Где `-storepass` — пароль хранилища сертификатов. Он должен содержать не менее 6 символов. Сохраните пароль — он понадобится для развертывания веб-интерфейса Apache Kafka®.
+   Команда предложит создать пароль. Запомните его — он понадобится для развертывания веб-интерфейса Apache Kafka®.
 
 ### Подготовьте веб-интерфейс Apache Kafka® {#prepare-ui-via-docker}
 
@@ -426,11 +370,11 @@ TrustStore — это хранилище доверенных сертифика
 
 Чтобы использовать TrustStore:
 
-1. Загрузите SSL-сертификат:
+1. Создайте SSL-сертификат:
 
    ```bash
    sudo mkdir -p /usr/local/share/ca-certificates/Yandex/ && \
-   sudo wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
+   sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
         --output-document /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
    sudo chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
    ```
@@ -443,72 +387,16 @@ TrustStore — это хранилище доверенных сертифика
 
    В ней будет храниться файл `truststore.jks`. Отдельная директория нужна, чтобы далее путь к файлу был корректно распознан в командах и конфигурационных файлах.
 
-1. Импортируйте сертификаты из файла `YandexCA.crt` в файл `truststore.jks`:
-   
-   {% list tabs group=operating_system %}
+1. Загрузите сертификат `YandexCA.crt` в файл `truststore.jks`:
 
-   - Linux (Bash) {#linux}
+   ```bash
+   sudo keytool -import \
+                -file /usr/local/share/ca-certificates/Yandex/YandexCA.crt \
+                -alias "kafka-ui-cert" \
+                -keystore /truststore/truststore.jks
+   ```
 
-     ```bash
-     awk '/-----BEGIN CERTIFICATE-----/ {n++} n {print > "YandexCA-" n ".crt"}' \
-       < /usr/local/share/ca-certificates/Yandex/YandexCA.crt
-
-     for cert in YandexCA-*.crt; do
-       alias=$(
-         openssl x509 -noout -text -in "${cert}" |
-         perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
-       )
-
-       year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
-
-       echo "Importing ${alias}-${year}"
-
-       keytool -importcert \
-               -alias "${alias}-${year}" \
-               -file "${cert}" \
-               -keystore /truststore/truststore.jks \
-               -storepass <пароль_защищенного_хранилища> \
-               -noprompt
-
-       rm "${cert}"
-     done
-
-     chmod 0655 /truststore/truststore.jks
-     ```
-
-   - macOS (Zsh) {#macos}
-     
-     ```bash     
-     split -p "-----BEGIN CERTIFICATE-----" \
-            /usr/local/share/ca-certificates/Yandex/YandexCA.crt \
-            YandexCA-
-
-     for cert in YandexCA-*.crt; do
-       alias=$(
-         openssl x509 -noout -text -in "${cert}" |
-         perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
-       )
-
-       year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
-
-       echo "Importing ${alias}-${year}"
-
-       keytool -importcert \
-               -alias "${alias}-${year}" \
-               -file "${cert}" \
-               -keystore /truststore/truststore.jks \
-               -storepass <пароль_защищенного_хранилища> \
-               -noprompt
-
-       rm "${cert}"
-     done
-
-     chmod 0655 /truststore/truststore.jks
-     ```
-
-   {% endlist %}
-
-   Где `-storepass` — пароль хранилища сертификатов. Он должен содержать не менее 6 символов. Сохраните пароль — он понадобится для развертывания веб-интерфейса Apache Kafka®.
+   Команда предложит создать пароль. Запомните его — он понадобится для развертывания веб-интерфейса Apache Kafka®.
 
 ### Разверните приложение с веб-интерфейсом Apache Kafka® в поде Kubernetes {#application-in-pod}
 
