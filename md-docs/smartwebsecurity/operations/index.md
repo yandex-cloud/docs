@@ -14,9 +14,9 @@
 * [Подключить профиль безопасности к ресурсу](host-connect.md)
 * [Отключить профиль безопасности от ресурса](host-delete.md)
 
-## Управление профилями WAF {#waf-profiles}
+## Управление профилями Cloud WAF {#waf-profiles}
 
-* [Создать профиль WAF](waf-profile-create.md)
+* [Создать профиль Cloud WAF](waf-profile-create.md)
 * [Изменить основные параметры профиля WAF](waf-profile-update.md)
 * [Получить информацию о профиле WAF](waf-profile-get.md)
 * [Удалить профиль WAF](waf-profile-delete.md)
@@ -26,6 +26,15 @@
 * [Изменить правило-исключение WAF](exclusion-rule-update.md)
 * [Удалить правило-исключение WAF](exclusion-rule-delete.md)
 * [Мониторинг и корректировка защиты ML WAF](waf-ml-tuning-recommendations.md)
+
+## Управление профилями SolidWall WAF {#solidwall-waf-profiles}
+
+* [Создать профиль SolidWall WAF](solidwall-waf-profile-create.md)
+* [Создать приложение и подключить к нему домен](solidwall-waf-application-create.md)
+* [Изменить профиль SolidWall WAF](solidwall-waf-profile-update.md)
+* [Изменить приложение SolidWall WAF](solidwall-waf-application-update.md)
+* [Удалить приложение SolidWall WAF](solidwall-waf-application-delete.md)
+* [Удалить профиль SolidWall WAF](solidwall-waf-profile-delete.md)
 
 ## Управление профилями ARL {#arl-profiles}
 

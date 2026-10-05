@@ -16,7 +16,7 @@ Event name | Description
 `RestoreCluster` | Creating a new cluster from a backup
 `SetClusterAccessBindings` | Assigning access permissions for a cluster
 `StartCluster` | Starting a cluster
-`StepdownHosts` | Primary replica failover
+`StepdownHosts` | Changing the master
 `StopCluster` | Stopping a cluster
 `UpdateCluster` | Updating a cluster
 `UpdateClusterAccessBindings` | Updating access permissions for a cluster

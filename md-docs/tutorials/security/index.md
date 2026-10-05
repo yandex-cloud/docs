@@ -5,6 +5,7 @@
 * [Разграничение прав доступа для групп пользователей с различными ролями в Yandex Identity Hub](user-group-access-control.md)
 * [Создание L7-балансировщика с защитой от DDoS](alb-with-ddos-protection/index.md)
 * [Базовая настройка защиты в Smart Web Security](sws-basic-protection.md)
+* [Подключение SolidWall WAF к веб-приложению](solidwall-waf.md)
 * [Создание L7-балансировщика с профилем безопасности Smart Web Security через Ingress-контроллер Application Load Balancer](alb-ingress-with-sws-profile.md)
 * [Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для подключения защиты Yandex Smart Web Security](migration-from-nlb-to-alb/index.md)
 * [Терминирование TLS-соединений](tls-termination/index.md)

@@ -15,11 +15,11 @@
 Для управления правами доступа в Yandex Cloud Postbox можно использовать как сервисные, так и примитивные роли.
 
 ```mermaid
-%%{
-  init: {
-    "flowchart": { "defaultRenderer": "elk" }
-  }
-}%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     postbox.editor --> postbox.admin
     postbox.viewer --> postbox.editor

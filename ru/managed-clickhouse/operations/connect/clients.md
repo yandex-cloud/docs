@@ -311,15 +311,12 @@ https://<FQDN_любого_хоста_{{ CH }}>:8443/play
        mkdir --parents ~/.clickhouse-client && \
        wget "https://{{ s3-storage-host-doc-files }}/clickhouse-client.conf.example" \
             --output-document ~/.clickhouse-client/config.xml && \
-       # Получить SSL-сертификаты.
+       # Получить SSL-сертификат.
        mkdir --parents {{ crt-local-dir }} && \
        wget "{{ crt-web-path-root }}" \
             --output-document {{ crt-local-dir }}{{ crt-local-file-root }} && \
-       wget "{{ crt-web-path-int }}" \
-            --output-document {{ crt-local-dir }}{{ crt-local-file-int }} && \
        chmod 655 \
-            {{ crt-local-dir }}{{ crt-local-file-root }} \
-            {{ crt-local-dir }}{{ crt-local-file-int }} && \
+            {{ crt-local-dir }}{{ crt-local-file-root }} && \
        update-ca-certificates
    ```
 

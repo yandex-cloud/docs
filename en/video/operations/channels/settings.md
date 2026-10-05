@@ -1,9 +1,9 @@
 ---
 title: How to set up a channel in {{ video-full-name }}
-description: Follow this guide to set up a {{ video-full-name }} channel and manage advertising.
+description: Follow this guide to set up a {{ video-full-name }} channel and manage monetization.
 ---
 
-# Setting up a channel and advertising
+# Setting up a channel and monetization
 
 ## Setting up a channel {#channel-settings}
 
@@ -15,13 +15,15 @@ description: Follow this guide to set up a {{ video-full-name }} channel and man
   1. Select a channel.
   1. In the right-hand panel, select **{{ ui-key.yacloud_video.channels.title_settings }}**.
   1. Enable the **{{ ui-key.yacloud_video.channels.label_show-source-file-before-transcoding }}** option for playback to start as soon as the video is loaded without waiting for end of processing. In which case the video and metadata will be taken from the source file without transcoding. This feature works only in browsers supporting the source file format.
-  1. Under **{{ ui-key.yacloud_video.channels.label_advertisement }}**, specify the ad settings for all videos on your channel.
-  1. Under **{{ ui-key.yacloud_video.channels.label_allowed-domains }}**, add the addresses of websites that can play back videos from this channel. Videos will not be played on other websites.
+  1. Under **Monetization**, configure the ad settings for all videos on your channel.
+  1. Under **Embed protection**, add the addresses of websites that can play back videos from this channel. Videos will not be played on other websites.
+
      1. Enable **{{ ui-key.yacloud_video.channels.label_domains-status }}**.
      1. Click ![plus-sign](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_video.channels.action_add-domain }}**.
      1. Enter the address of a website or group of websites.
      1. Click **{{ ui-key.yacloud_video.common.action_create }}**.
      1. Add other domains as needed.
+
   1. To play back videos on all websites, disable **{{ ui-key.yacloud_video.channels.label_domains-status }}**. The domains you added will be saved.
   1. Click **{{ ui-key.yacloud_video.common.action_accept }}**.
 
@@ -31,11 +33,11 @@ description: Follow this guide to set up a {{ video-full-name }} channel and man
 
 {% endlist %}
 
-## Configuring ads {#ad-settings}
+## Setting up monetization {#ad-settings}
 
 You can monetize your video content using the Yandex Advertising Network.
 
-To configure ads:
+To set up monetization:
 
 1. Review the [requirements for placing video blocks](https://yandex.ru/support2/partner/ru/yan-rules/video).
 1. [Sign up](http://partner.yandex.ru/form/) for the Yandex Advertising Network (YAN).
@@ -48,7 +50,7 @@ To configure ads:
 1. [Add](#add-page-id) the `Page ID` to the {{ video-name }} channel settings.
 1. Wait until the moderation process is completed: the video resource status in YAN will change to **Active. No statistics**.
 1. [Configure](https://yandex.ru/support2/partner/ru/video/create-instream) the display of ad blocks for your videos.
-1. [Enable](../video/update.md) ads for each video individually.
+1. [Enable](../video/update.md) monetization for each video individually.
 1. [View statistics](https://yandex.ru/support2/partner/ru/statistics/working-with-reports) on advertising and learn about [technologies for increasing advertising efficiency](https://yandex.ru/support2/partner/ru/efficiency/site-quality).
 
 ### Adding Page ID {#add-page-id}
@@ -58,17 +60,19 @@ To configure ads:
 - {{ video-name }} UI {#console}
 
   1. Open **{{ ui-key.yacloud_video.channels.title_settings }}**.
-  1. Under **{{ ui-key.yacloud_video.channels.label_advertisement }}**, specify:
+  1. Under **Monetization**, specify:
+
      * **{{ ui-key.yacloud_video.channels.label_provider-type }}**: `Yandex Direct`.
      * **{{ ui-key.yacloud_video.channels.label_page-id }}** you got after you created your video resource.
      * **{{ ui-key.yacloud_video.channels.label_category }}** (topic) of the videos on your channel.
+
   1. Click **{{ ui-key.yacloud_video.common.action_accept }}**.
 
 - API {#api}
 
   Use the [create](../../api-ref/Channel/create.md) or [update](../../api-ref/Channel/update.md) REST API method for the [Channel](../../api-ref/Channel/index.md) resource, [ChannelService/Create](../../api-ref/grpc/Channel/create.md) or [ChannelService/Update](../../api-ref/grpc/Channel/update.md) gRPC API call.
   
-  Provide your advertising settings using the `settings` > `advertisement` parameter.
+  Provide your monetization settings using `settings` > `advertisement`.
 
 {% endlist %}
 

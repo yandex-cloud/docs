@@ -2,6 +2,12 @@
 
 # Создать целевую группу Network Load Balancer
 
+{% note info %}
+
+Вы можете создать целевую группу сразу при [создании группы ВМ с сетевым балансировщиком](../../compute/operations/instance-groups/create-with-balancer.md) или по инструкции ниже. Подробнее о работе группы ВМ с балансировщиком читайте в разделе [Интеграция группы ВМ с Network Load Balancer или Application Load Balancer](../../compute/concepts/instance-groups/balancers.md).
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

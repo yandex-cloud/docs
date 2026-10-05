@@ -76,8 +76,8 @@ description: Follow this guide to detach a target group from a network load bala
 
   To detach a target group from a network load balancer, use the [detachTargetGroup](../api-ref/NetworkLoadBalancer/detachTargetGroup.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/DetachTargetGroup](../api-ref/grpc/NetworkLoadBalancer/detachTargetGroup.md) gRPC API call, providing the following in your request:
 
-  * Load balancer ID in the `networkLoadBalancerId` parameter.
-  * Target group ID in the `targetGroupId` parameter.
+  * Load balancer ID in the `networkLoadBalancerId` parameter (REST API), or `network_load_balancer_id` (gRPC API).
+  * Target group ID in the `targetGroupId` parameter (REST API), or `target_group_id` (gRPC API).
 
   You can get the IDs of the load balancer and attached target groups with the [list of network load balancers in the folder](load-balancer-list.md#list).
 

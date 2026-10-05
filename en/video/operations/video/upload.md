@@ -39,7 +39,7 @@ description: Follow this guide to upload a video to {{ video-full-name }}.
 
       * **{{ ui-key.yacloud_video.videos.label_access_rights-public }}**: Available indefinitely to anyone with a link.
 
-  1. Optionally, to add advertising for the video, enable the **{{ ui-key.yacloud_video.videos.label_enable-ad }}** option.
+  1. Optionally, to add advertising for the video, enable the **Monetization** option.
   1. Optionally, to add a cover for a video, in the **{{ ui-key.yacloud_video.thumbnails.label_thumbnail }}** field, click ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Select file** and choose a cover image.
 
       {% include [image-characteristic](../../../_includes/video/image-characteristic.md) %}

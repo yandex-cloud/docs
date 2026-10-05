@@ -22,12 +22,13 @@
 ## Какие роли действуют в сервисе {#roles-list}
 
 ```mermaid
-%%{
-  init: {
-    "flowchart": { "defaultRenderer": "elk" },
-    "elk": { "nodePlacementStrategy": "NETWORK_SIMPLEX" }
-  }
-}%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+  elk:
+    nodePlacementStrategy: NETWORK_SIMPLEX
+---
 flowchart BT
     datasphere.community-projects.viewer["datasphere.
     community-projects.viewer"] --> datasphere.community-projects.developer["datasphere.

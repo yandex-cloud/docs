@@ -11,13 +11,6 @@ You can create a trail that will upload both [management](../concepts/format.md)
 * [{{ objstorage-full-name }}](../../storage/index.yaml) bucket.
 * [{{ cloud-logging-full-name }}](../../logging/index.yaml) group.
 * [{{ yds-full-name }}](../../data-streams/index.yaml) data stream.
-* [{{ er-full-name }}](../../serverless-integrations/index.yaml) bus.
-
-{% note info %}
-
-Currently, you can only create a trail with the **{{ ui-key.yacloud.audit-trails.label_eventRouter }}** destination object using the [management console]({{ link-console-main }}), {{ yandex-cloud }} [CLI](../../cli/index.yaml), and [API](../../api-design-guide/index.yaml).
-
-{% endnote %}
 
 ## Getting started {#before-you-begin}
 
@@ -76,25 +69,6 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
   1. {% include [required-account-roles](../../_includes/audit-trails/create-trail/required-account-roles.md) %}
 
-- {{ er-name }} bus {#eventrouter}
-
-  1. [Create](../../serverless-integrations/operations/eventrouter/bus/create.md) a {{ er-full-name }} bus.
-
-      {% note info %}
-
-      Currently, you can only create an {{ er-name }} bus [connector](../../serverless-integrations/concepts/eventrouter/connector.md) with the `{{ at-name }}` source type in the [management console]({{ link-console-main }}) when creating or editing a trail, or using the [{{ er-name }} API](../../serverless-integrations/eventrouter/api-ref/Connector/create.md).
-
-      {% endnote %}
-
-  1. [Create a service account](../../iam/operations/sa/create.md) for the trail.
-  1. [Assign to the service account these roles](../../iam/operations/sa/assign-role-for-sa.md) for the trail to collect and upload logs:
-
-      * [serverless.eventrouter.supplier](../../serverless-integrations/security/eventrouter.md#serverless-eventrouter-supplier) for the folder where the {{ er-name }} [bus](../../serverless-integrations/concepts/eventrouter/bus.md) resides.
-
-      {% include [at-viewer-role-scope](../../_includes/audit-trails/create-trail/at-viewer-role-scope.md) %}
-
-  1. {% include [required-account-roles](../../_includes/audit-trails/create-trail/required-account-roles.md) %}
-
 {% endlist %}
 
 ## Creating a trail {#create}
@@ -119,9 +93,6 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
       
       * **{{ ui-key.yacloud.audit-trails.label_cloudLogging }}**: Log group you [created earlier](#before-you-begin). Audit logs will be uploaded into this log group. Recommended for quick log collection and analysis.
       * **{{ ui-key.yacloud.audit-trails.label_dataStream }}**: Data stream you [created earlier](#before-you-begin). Audit logs will be uploaded into this stream. Recommended for streaming logs to other services or systems.
-      * **{{ ui-key.yacloud.audit-trails.label_eventRouter }}**: {{ er-name }} bus connector. Recommended for detailed analysis of logs and their subsequent sending to various handlers and systems depending on the conditions specified in the bus.
-
-          In the **Connector** field, select the relevant {{ er-name }} bus [connector](../../serverless-integrations/concepts/eventrouter/connector.md) with the `{{ at-name }}` source type or click **{{ ui-key.yacloud.common.create }}** to create a new connector in the bus.
 
   1. {% include [control-plane-on-console](../../_includes/audit-trails/control-plane-on-console.md) %}
   1. {% include [data-plane-on-console](../../_includes/audit-trails/data-plane-on-console.md) %}
@@ -189,11 +160,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
               * `stream_name`: Name of the data stream you [created earlier](#before-you-begin). You can request the name with the [list of data streams in the folder](../../data-streams/operations/manage-streams.md#list-data-streams).
               * `database_id`: ID of the {{ ydb-short-name }} database used by {{ yds-name }}. You can request the ID with the [list of {{ ydb-short-name }} databases in the folder](../../ydb/operations/manage-databases.md#list-db).
               * `codec`: Event compression method when writing to {{ yds-name }}. The possible values are `RAW` (no compression, default), `GZIP`, and `ZSTD`. Enable compression if you expect an event flow greater than 1 MB/s.
-          
-          * `eventrouter`: Uploading logs to a {{ er-full-name }} [bus](../../serverless-integrations/concepts/eventrouter/bus.md):
 
-              * `eventrouter_connector_id`: {{ er-name }} bus [connector](../../serverless-integrations/concepts/eventrouter/connector.md) ID with the `{{ at-name }}` source type.
-      
       * `service_account_id`: [ID](../../iam/operations/sa/get-id.md) of the service account you created [earlier](#before-you-begin).
 
       {% include [trail-create-cli-yaml-desc-filtering](../../_includes/audit-trails/trail-create-cli-yaml-desc-filtering.md) %}
@@ -230,7 +197,6 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
     --destination-yds-stream <YDS_name> \
     --destination-yds-database-id <YDS_database_ID> \
     --destination-yds-codec <event_compression_method> \
-    --destination-eventrouter-connector-id <bus_connector_ID> \
     --filter-all-folder-id <folder_ID> \
     --filter-all-cloud-id <cloud_ID> \
     --filter-all-organisation-id <organization_ID> \

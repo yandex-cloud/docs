@@ -1,10 +1,11 @@
 ```mermaid
-%%{
-  init: {
-    "flowchart": { "defaultRenderer": "elk" },
-    "elk": { "nodePlacementStrategy": "NETWORK_SIMPLEX" }
-  }
-}%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+  elk:
+    nodePlacementStrategy: NETWORK_SIMPLEX
+---
 flowchart BT
     managed-greenplum.auditor --> managed-greenplum.viewer --> managed-greenplum.editor
     managed-greenplum.maintenanceTask.viewer --> managed-greenplum.maintenanceTask.editor
@@ -31,6 +32,5 @@ flowchart BT
     managed-greenplum.admin --> mdb.admin
     mdb.viewer --> mdb.admin
     managed-greenplum.clusters.connector["`managed-greenplum.
-  clusters.connector`"]
-    vpc.publicAdmin
+    clusters.connector`"]
 ```

@@ -32,3 +32,9 @@ To add a new value:
 1. Click **{{ ui-key.yacloud.common.save }}**.
 
 For more information, see [{#T}](../operations/resource-record-update.md).
+
+#### Why is a long TXT record split into multiple segments? {#dns-txt-splitting}
+
+When creating a TXT record, {{ dns-name }} automatically splits text strings longer than 255 characters into 255-character segments. This is due to a DNS format constraint. The order of data is preserved, and all segments remain within a single TXT record.
+
+For more information, see [Automatic splitting of long TXT records](../concepts/resource-record.md#txt-splitting).

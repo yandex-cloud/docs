@@ -37,12 +37,13 @@
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
 
 ```mermaid
-%%{
-  init: {
-    "flowchart": { "defaultRenderer": "elk" },
-    "elk": { "nodePlacementStrategy": "NETWORK_SIMPLEX" }
-  }
-}%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+  elk:
+    nodePlacementStrategy: NETWORK_SIMPLEX
+---
 flowchart BT
     managed-greenplum.auditor --> managed-greenplum.viewer --> managed-greenplum.editor
     managed-greenplum.maintenanceTask.viewer --> managed-greenplum.maintenanceTask.editor
@@ -69,8 +70,7 @@ flowchart BT
     managed-greenplum.admin --> mdb.admin
     mdb.viewer --> mdb.admin
     managed-greenplum.clusters.connector["`managed-greenplum.
-  clusters.connector`"]
-    vpc.publicAdmin
+    clusters.connector`"]
 ```
 
 ### Сервисные роли {#service-roles}

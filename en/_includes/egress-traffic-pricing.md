@@ -4,7 +4,7 @@ When using the service, you pay for traffic from {{ yandex-cloud }} to the inter
 
 The first 100 GB of outgoing traffic per month are free of charge.
 
-The minimum billing unit is 1 MB.
+The minimum billing unit is 1 byte.
 
 
 

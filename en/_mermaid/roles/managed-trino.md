@@ -1,9 +1,9 @@
 ```mermaid
-%%{
-  init: {
-    "flowchart": { "defaultRenderer": "elk" }
-  }
-}%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     managed-trino.viewer --> managed-trino.user
     managed-trino.user --> managed-trino.editor

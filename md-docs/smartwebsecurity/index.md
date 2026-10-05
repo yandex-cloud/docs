@@ -32,9 +32,9 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
 
  - [Отключить профиль от ресурса](operations/host-delete.md)
 
-### Профили WAF
+### Профили Cloud WAF
 
- - [Создать профиль](operations/waf-profile-create.md)
+ - [Создать профиль Cloud WAF](operations/waf-profile-create.md)
 
  - [Изменить основные параметры профиля](operations/waf-profile-update.md)
 
@@ -53,6 +53,20 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
  - [Удалить правило-исключение](operations/exclusion-rule-delete.md)
 
  - [Мониторинг и корректировка защиты ML WAF](operations/waf-ml-tuning-recommendations.md)
+
+### Профили SolidWall WAF
+
+ - [Создать профиль SolidWall WAF](operations/solidwall-waf-profile-create.md)
+
+ - [Создать приложение и подключить к нему домен](operations/solidwall-waf-application-create.md)
+
+ - [Изменить профиль SolidWall WAF](operations/solidwall-waf-profile-update.md)
+
+ - [Изменить приложение SolidWall WAF](operations/solidwall-waf-application-update.md)
+
+ - [Удалить приложение SolidWall WAF](operations/solidwall-waf-application-delete.md)
+
+ - [Удалить профиль SolidWall WAF](operations/solidwall-waf-profile-delete.md)
 
 ### Профили ARL
 
@@ -113,6 +127,8 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
  - [Все практические руководства](tutorials/index.md)
 
  - [Базовая настройка SWS](tutorials/sws-basic-protection.md)
+
+ - [Подключение SolidWall WAF к веб-приложению](tutorials/solidwall-waf.md)
 
 ### Создание L7-балансировщика с профилем безопасности
 
@@ -186,7 +202,11 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
 
  - [Профили безопасности](concepts/profiles.md)
 
- - [WAF](concepts/waf.md)
+### [Профили WAF](concepts/waf-profiles.md)
+
+ - [Cloud WAF](concepts/waf.md)
+
+ - [SolidWall WAF](concepts/solidwall-waf.md)
 
  - [ARL (лимит на запросы)](concepts/arl.md)
 

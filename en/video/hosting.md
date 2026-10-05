@@ -6,6 +6,7 @@ description: Follow this guide to upload your video to {{ video-full-name }} and
 # Getting started with video hosting in {{ video-full-name }}
 
 To upload a [video](./concepts/videos.md) to a service [channel](./concepts/index.md#channels):
+
 1. [Get your cloud ready](#before-you-begin).
 1. [Create a channel](#create-channel).
 1. [Upload a video](#upload-video).
@@ -80,5 +81,5 @@ In the video settings window that opens, wait until the video is completely uplo
 * [{{ video-full-name }} overview](./concepts/index.md)
 * [Uploading a video](operations/video/upload.md)
 * [Configuring a player preset](operations/style-presets/update.md)
-* [Configuring ads](operations/channels/settings.md#ad-settings)
+* [Setting up monetization](operations/channels/settings.md#ad-settings)
 * [{#T}](troubleshooting/index.md)

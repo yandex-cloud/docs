@@ -20,7 +20,7 @@ description: This section contains the {{ video-name }} release notes.
 
 * Added an option called **Automatically process video file errors** for autocorrection of errors in uploaded video files.
 
-* Added an option called **Enable Ads** to manage ads for individual videos.
+* Added an option called **Monetization** to manage ads for individual videos.
 
 ## October – December 2025 {#oct-dec-2025}
 
@@ -43,7 +43,7 @@ description: This section contains the {{ video-name }} release notes.
 
 * Added [neural features](concepts/videos.md#ai-capabilities) to increase video availability and audience reach: summarization, neural translation, and automatic subtitle generation. These operate based on [Yandex](https://habr.com/ru/companies/yandex/articles/792608/) ML models and get regular updates.
 
-* Added support video content monetization based on the [Yandex Advertising Network](https://yandex.ru/support/partner/en/yan-rules/video). Advertising is [configured](operations/channels/settings.md#ad-settings) at the [channel](concepts/index.md#channels) level: you can select a video ad category aligned with the subject matter of your videos.
+* Added support video content monetization based on the [Yandex Advertising Network](https://yandex.ru/support/partner/en/yan-rules/video). Monetization is [configured](operations/channels/settings.md#ad-settings) at the [channel](concepts/index.md#channels) level: you can select a video ad category aligned with the topic of your videos.
 
 * Added the ability to [specify domains](operations/channels/settings.md#channel-settings) to allow the videos only on particular websites. The videos will not play on other domains.
 

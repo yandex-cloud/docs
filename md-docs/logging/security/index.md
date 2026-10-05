@@ -56,12 +56,13 @@
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе Cloud Logging.
 
 ```mermaid
-%%{
-  init: {
-    "flowchart": { "defaultRenderer": "elk" },
-    "elk": { "nodePlacementStrategy": "NETWORK_SIMPLEX" }
-  }
-}%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+  elk:
+    nodePlacementStrategy: NETWORK_SIMPLEX
+---
 flowchart BT
     logging.viewer --> logging.editor
     logging.viewer --> logging.reader

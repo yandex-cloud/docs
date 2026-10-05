@@ -37,11 +37,14 @@
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
 
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     mdb.viewer --> mdb.admin
     mdb.viewer --> mdb.restorer
-    vpc.publicAdmin
     managed-clickhouse.clusters.connector["`managed-clickhouse.
     clusters.connector`"]
     managed-clickhouse.admin --> mdb.admin

@@ -93,17 +93,73 @@
         ```bash
         sudo mkdir -p /etc/debezium/plugins/
         ```
+    
+    1. Чтобы коннектор Debezium мог подключаться к хостам-брокерам Managed Service for Apache Kafka®, добавьте SSL-сертификат в защищенное хранилище сертификатов Java (Java Key Store):
 
-    1. Чтобы коннектор Debezium мог подключаться к хостам-брокерам Managed Service for Apache Kafka®, добавьте SSL-сертификат в защищенное хранилище сертификатов Java (Java Key Store). Для дополнительной защиты хранилища в параметре `-storepass` укажите пароль длиной не меньше 6 символов:
+        {% list tabs group=operating_system %}
 
-        ```bash
-        sudo keytool \
-            -importcert \
-            -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt \
-            -keystore /etc/debezium/keystore.jks \
-            -storepass <пароль_JKS> \
-            --noprompt
-        ```
+        - Linux (Bash) {#linux}
+
+          ```bash
+          awk '/-----BEGIN CERTIFICATE-----/ {n++} n {print > "YandexCA-" n ".crt"}' \
+            < /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+
+          for cert in YandexCA-*.crt; do
+            alias=$(
+              openssl x509 -noout -text -in "${cert}" |
+              perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
+            )
+
+            year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
+
+            echo "Importing ${alias}-${year}"
+
+            keytool -importcert \
+                    -alias "${alias}-${year}" \
+                    -file "${cert}" \
+                    -keystore /etc/debezium/keystore.jks \
+                    -storepass <пароль_защищенного_хранилища> \
+                    -noprompt
+
+            rm "${cert}"
+          done
+
+          chmod 0655 /etc/debezium/keystore.jks
+          ```
+
+        - macOS (Zsh) {#macos}
+     
+          ```bash     
+          split -p "-----BEGIN CERTIFICATE-----" \
+            /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt \
+            YandexCA-
+
+          for cert in YandexCA-*.crt; do
+            alias=$(
+              openssl x509 -noout -text -in "${cert}" |
+              perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
+            )
+
+            year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
+
+            echo "Importing ${alias}-${year}"
+
+            keytool -importcert \
+                    -alias "${alias}-${year}" \
+                    -file "${cert}" \
+                    -keystore /etc/debezium/keystore.jks \
+                    -storepass <пароль_защищенного_хранилища> \
+                    -noprompt
+
+            rm "${cert}"
+          done
+
+          chmod 0655 /etc/debezium/keystore.jks
+          ```
+
+        {% endlist %}
+        
+        Где `-storepass` — пароль хранилища сертификатов. Пароль должен содержать не менее 6 символов.
 
 ## Подготовка кластера-источника {#prepare-source}
 

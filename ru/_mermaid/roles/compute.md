@@ -1,8 +1,10 @@
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
-    iam.serviceAccounts.user
-    vpc.user --> compute.editor
     compute.snapshotSchedules.viewer --> compute.viewer
     compute.snapshotSchedules.viewer --> compute.snapshotSchedules.editor
     compute.auditor --> compute.viewer

@@ -42,7 +42,7 @@ To create a bucket:
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+  1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
@@ -63,13 +63,12 @@ To get information on queries to objects, enable [logging actions on the bucket]
   1. Select the bucket.
   1. [Enable logging](../../storage/operations/buckets/enable-logging.md#enable):
 
-      1. In the left-hand panel, select ![image](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-      1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}** tab.
+      1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
       1. Enable **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_server-logs_mfGpj }}**.
       1. In the **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_target-bucket_jEJ5E }}** field, select `logs-bucket`.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** and [upload](../../storage/operations/objects/upload.md) your objects. For example, you can upload a couple of simple text files.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab and [upload](../../storage/operations/objects/upload.md) the objects. For example, a couple of simple text files.
 
 {% endlist %}
 
@@ -82,7 +81,7 @@ To get data from {{ objstorage-name }}, create a [connection](../../query/concep
 - {{ yq-full-name }} UI {#console}
 
   1. [Navigate]({{ link-console-yq }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-  1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+  1. Navigate to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** tab.
   1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
   1. Enter a name for the connection, e.g., `bucket-logs-connection`.
   1. Select the **{{ ui-key.yql.yq-connection.action_object-storage }}** connection type and specify the **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**.
@@ -111,7 +110,7 @@ Use a connection to create SQL queries and get statistics on queries to {{ objst
 - {{ yq-full-name }} UI {#console}
 
   1. [Navigate]({{ link-console-yq }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-  1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+  1. Navigate to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** tab.
   1. Select `bucket-logs-connection`.
   1. In the editor on the right, enter this query:
 

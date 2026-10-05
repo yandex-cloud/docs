@@ -8,11 +8,15 @@ editable: false
 
 
 
+
+
+
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 
 {% include [vat](../_includes/vat.md) %}
 
@@ -21,8 +25,10 @@ editable: false
 The {{ cloud-desktop-name }} usage cost includes:
 
 * Computing resources:
+
   * Number of vCPUs
   * Amount of RAM
+
 * Disk type and size
 * Amount of outgoing traffic
 

@@ -13,11 +13,11 @@
 Для управления правами доступа в Cloud Apps можно использовать как сервисные, так и примитивные роли.
 
 ```mermaid
-%%{
-  init: {
-    "flowchart": { "defaultRenderer": "elk" }
-  }
-}%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     cloudapps.editor --> cloudapps.admin
     cloudapps.viewer --> cloudapps.editor

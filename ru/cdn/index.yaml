@@ -1,24 +1,7 @@
-title: Yandex Cloud CDN
-description:
-  - >-
-    Yandex Cloud CDN позволяет организовать доставку контента до конечных
-    потребителей с помощью сети распространения контента (Content Delivery
-    Network, CDN).
-  - |-
-    Это позволяет: <ul>
-      <li>Перенести часть нагрузки с источников данных на CDN-серверы за счет кеширования.</li>
-      <li>Сократить время доставки контента конечным пользователям.</li>
-    </ul>
-  - Управлять сервисом можно с помощью консоли управления.
-  - >-
-    Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
-    об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
-    документе <a href="https://yandex.ru/legal/cloud_sla_cdn">Уровень
-    обслуживания Yandex Cloud CDN</a>.
 meta:
   title: Yandex Cloud CDN
   description: >-
-    Yandex Cloud CDN позволяет организовать доставку контента до конечных
+    {{ cdn-full-name }} позволяет организовать доставку контента до конечных
     потребителей с помощью сети распространения контента (Content Delivery
     Network, CDN).
   keywords:
@@ -28,30 +11,170 @@ meta:
     - keyword: '{{ cdn-full-name }}'
     - keyword: сервис {{ cdn-name }}
     - keyword: сеть распространения контента в {{ yandex-cloud }}
-    - keyword: content delivery detwork в {{ yandex-cloud }}
+    - keyword: content delivery network в {{ yandex-cloud }}
     - keyword: доставка контента в {{ yandex-cloud }}
     - keyword: сеть распространения контента
-    - keyword: content delivery detwork
+    - keyword: content delivery network
     - keyword: доставка контента
-links:
-  - title: Начало работы
-    description: Как начать доставлять контент с помощью CDN
-    href: quickstart
-  - title: Пошаговые инструкции
-    description: Инструкции по выполнению рутинных операций
-    href: operations/
-  - title: Концепции
-    description: Принципы работы CDN и основные понятия сервиса
-    href: concepts/
-  - title: Квоты и лимиты
-    description: Технические и организационные ограничения сервиса
-    href: concepts/limits
-  - title: Вопросы и ответы
-    description: Ответы на часто задаваемые вопросы, проблемы и способы их решения
-    href: troubleshooting
-  - title: Управление доступом
-    description: Настройте права доступа для работы с сервисом
-    href: security/
-  - title: Правила тарификации
-    description: Цены и правила расчета стоимости услуг сервиса
-    href: pricing
+blocks:
+  - type: card-layout-block
+    title: Yandex Cloud CDN
+    description: >-
+      Yandex Cloud CDN позволяет организовать доставку контента до конечных
+      пользователей с помощью сети распространения контента (Content Delivery
+      Network, CDN). Кеширование на CDN-серверах снижает нагрузку на источники
+      данных и сокращает время доставки контента.
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+      lg: 4
+    children:
+      - type: basic-card
+        title: Начало работы
+        text: Начните доставлять контент с помощью CDN
+        icon: ../_assets/console-icons/rocket.svg
+        urlTitle: Начало работы
+        url: quickstart/
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Пошаговые инструкции
+        text: Следуйте инструкциям для выполнения рутинных операций
+        icon: ../_assets/console-icons/list-ol.svg
+        urlTitle: Пошаговые инструкции
+        url: operations/
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Концепции
+        text: Изучите принципы работы CDN и основные понятия сервиса
+        icon: ../_assets/console-icons/bookmark.svg
+        urlTitle: Концепции
+        url: concepts/
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Практические руководства
+        text: Решайте типовые задачи с помощью сервиса
+        icon: ../_assets/console-icons/book.svg
+        urlTitle: Практические руководства
+        url: tutorials/
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Квоты и лимиты
+        text: Технические и организационные ограничения сервиса
+        icon: ../_assets/console-icons/sliders.svg
+        urlTitle: Квоты и лимиты
+        url: concepts/limits
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Управление доступом
+        text: Настройте права доступа для работы с сервисом
+        icon: ../_assets/console-icons/persons-lock.svg
+        urlTitle: Управление доступом
+        url: security/
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Правила тарификации
+        text: Цены и правила расчета стоимости услуг сервиса
+        icon: ../_assets/console-icons/calculator.svg
+        urlTitle: Правила тарификации
+        url: pricing
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: История изменений
+        text: Перечень обновлений сервиса
+        icon: ../_assets/console-icons/timeline.svg
+        urlTitle: История изменений
+        url: release-notes
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Вопросы и ответы
+        text: Ответы на частые вопросы и способы решения проблем
+        icon: ../_assets/console-icons/circle-question.svg
+        urlTitle: Вопросы и ответы
+        url: troubleshooting
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Справочник CLI
+        text: Управляйте ресурсами сервиса из командной строки
+        icon: ../_assets/console-icons/terminal.svg
+        urlTitle: Справочник CLI
+        url: cli-ref/
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Справочник Terraform
+        text: Создавайте и изменяйте ресурсы сервиса с помощью Terraform
+        icon: ../_assets/console-icons/cube.svg
+        urlTitle: Справочник Terraform
+        url: tf-ref
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Справочник API
+        text: Используйте методы HTTP API для управления сервисом
+        icon: ../_assets/console-icons/code.svg
+        urlTitle: Справочник API
+        url: api-ref/
+        centered: true
+        animated: false
+        size: s
+  - type: card-layout-block
+    colSizes:
+      all: 12
+      xl: 6
+      lg: 6
+      md: 6
+      sm: 12
+    centered: true
+    children:
+      - type: basic-card
+        title: Условия использования
+        border: shadow
+        size: s
+        icon: ../_assets/console-icons/file-text.svg
+        text: >
+          Инфраструктура Yandex Cloud
+          [защищена](https://yandex.cloud/ru/docs/security/conform#law) в
+          соответствии с Федеральным законом Российской Федерации «О
+          персональных данных» № 152-ФЗ.
+
+
+          * [Условия использования Yandex Cloud
+          CDN](https://yandex.ru/legal/cloud_terms_cdn)
+
+
+          * [Условия использования Yandex
+          Cloud](https://yandex.ru/legal/cloud_specialterms)
+      - type: basic-card
+        title: Уровень обслуживания
+        border: shadow
+        size: s
+        icon: ../_assets/console-icons/file-check.svg
+        text: >
+          * [Уровень обслуживания Yandex Cloud
+          CDN](https://yandex.ru/legal/cloud_sla_cdn)
+
+
+          * [Уровень обслуживания Yandex
+          Cloud](https://yandex.ru/legal/cloud_sla)
+links: []

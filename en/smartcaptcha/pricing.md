@@ -46,7 +46,6 @@ blocks:
 
 
 
-
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 {% include [vat](../_includes/vat.md) %}
@@ -61,7 +60,7 @@ You pay for [requests to the {{ captcha-name }} API](./quickstart.md#check-answe
 
 {% note info %}
 
-Using {{ captcha-name }} in [restricted mode](concepts/restricted-mode) is free of charge.
+{{ captcha-name }} is free of charge if used in [limited mode](concepts/restricted-mode).
 
 {% endnote %}
 

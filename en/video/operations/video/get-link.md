@@ -18,7 +18,6 @@ description: Follow this guide to get an embed code or link to a video in {{ vid
 
           1. `{{ ui-key.yacloud_video.streams.label_episode-mute }}`
           1. `{{ ui-key.yacloud_video.streams.label_episode-autoplay }}`
-          1. `Display controls in the player`.
 
           {% include [iframe-settings](../../../_includes/video/iframe-settings.md) %}
 

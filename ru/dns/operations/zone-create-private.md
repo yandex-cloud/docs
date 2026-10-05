@@ -115,3 +115,5 @@ description: Следуя данной инструкции, вы сможете
   Чтобы создать внутреннюю зону DNS, воспользуйтесь методом REST API [create](../api-ref/DnsZone/create.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/Create](../api-ref/grpc/DnsZone/create.md).
 
 {% endlist %}
+
+Для разрешения имен из внутренней зоны DNS в привязанных сетях VPC делегировать домен не требуется.

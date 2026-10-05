@@ -31,14 +31,16 @@
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
 
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     load-balancer.auditor --> load-balancer.viewer
     load-balancer.viewer --> load-balancer.privateAdmin
     load-balancer.privateAdmin --> load-balancer.editor
     load-balancer.editor --> load-balancer.admin
-
-    vpc.viewer --> load-balancer.privateAdmin
 ```
 
 ### Сервисные роли {#service-roles}

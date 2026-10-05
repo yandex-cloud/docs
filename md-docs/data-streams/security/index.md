@@ -36,7 +36,11 @@
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе Data Streams.
 
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     yds.writer --> yds.editor
     ydb.editor --> yds.editor

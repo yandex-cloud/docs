@@ -34,6 +34,7 @@ description: This page provides a list of tutorials on creating sites, using 1C 
 * [Creating an online store on 1C-Bitrix: Site Management](../internet-store/bitrix-shop/index.md)
 * [Creating a cluster of 1C:Enterprise Linux servers with a {{ mpg-full-name }} cluster](../infrastructure-management/1c-postgresql-linux.md)
 * [{#T}](../infrastructure-management/collect-metrics-1c-cluster.md)
+* [{#T}](../infrastructure-management/1c-valkey-locks.md)
 
 ## Internet of Things (IoT) {#iot}
 

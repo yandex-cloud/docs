@@ -27,9 +27,9 @@ items:
             href: operations/host-connect.md
           - name: Отключить профиль от ресурса
             href: operations/host-delete.md
-      - name: Профили WAF
+      - name: Профили Cloud WAF
         items:
-          - name: Создать профиль
+          - name: Создать профиль Cloud WAF
             href: operations/waf-profile-create.md
           - name: Изменить основные параметры профиля
             href: operations/waf-profile-update.md
@@ -49,6 +49,20 @@ items:
             href: operations/exclusion-rule-delete.md
           - name: Мониторинг и корректировка защиты ML WAF
             href: operations/waf-ml-tuning-recommendations.md
+      - name: Профили SolidWall WAF
+        items:
+          - name: Создать профиль SolidWall WAF
+            href: operations/solidwall-waf-profile-create.md
+          - name: Создать приложение и подключить к нему домен
+            href: operations/solidwall-waf-application-create.md
+          - name: Изменить профиль SolidWall WAF
+            href: operations/solidwall-waf-profile-update.md
+          - name: Изменить приложение SolidWall WAF
+            href: operations/solidwall-waf-application-update.md
+          - name: Удалить приложение SolidWall WAF
+            href: operations/solidwall-waf-application-delete.md
+          - name: Удалить профиль SolidWall WAF
+            href: operations/solidwall-waf-profile-delete.md
       - name: Профили ARL
         items:
           - name: Создать профиль
@@ -109,6 +123,8 @@ items:
         href: tutorials/index.md
       - name: Базовая настройка SWS
         href: tutorials/sws-basic-protection.md
+      - name: Подключение SolidWall WAF к веб-приложению
+        href: tutorials/solidwall-waf.md
       - name: Создание L7-балансировщика с профилем безопасности
         items:
           - name: Обзор
@@ -204,8 +220,13 @@ items:
         href: concepts/index.md
       - name: Профили безопасности
         href: concepts/profiles.md
-      - name: WAF
-        href: concepts/waf.md
+      - name: Профили WAF
+        href: concepts/waf-profiles.md
+        items:
+          - name: Cloud WAF
+            href: concepts/waf.md
+          - name: SolidWall WAF
+            href: concepts/solidwall-waf.md
       - name: ARL (лимит на запросы)
         href: concepts/arl.md
       - name: Правила

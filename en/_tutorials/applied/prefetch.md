@@ -224,7 +224,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
   1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket with files.
-  1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
+  1. In the top panel, click ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
   1. In the window that opens, select the `ycgame-update-v1.1.exe` patch file and click **{{ ui-key.yacloud.common.open }}**.
   1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
 
@@ -297,7 +297,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
 
   1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/cdn) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  1. In the ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** tab, click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** and click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
   1. Configure the basic CDN resource settings:
       * Under **{{ ui-key.yacloud.cdn.label_section-content }}**:
         * Enable **{{ ui-key.yacloud.cdn.label_access }}**.
@@ -622,8 +622,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
      1. In the [management console]({{ link-console-main }}), select the folder.
      1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Select the bucket with the logs.
-     1. Click the name of the object matching the download time for `ycgame-update-v1.1.exe`.
-     1. Click ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.bucket.button_download }}**.
+     1. In the object row corresponding to the `ycgame-update-v1.1.exe` download time, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![arrow-down-to-line](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.storage.bucket.button_download }}**.
 
    - AWS CLI {#cli}
 

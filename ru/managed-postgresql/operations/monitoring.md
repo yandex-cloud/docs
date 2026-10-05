@@ -202,6 +202,14 @@ description: Вы можете отслеживать состояние кла�
 
 {% include [monitoring-cluster-health](../../_includes/mdb/monitoring-cluster-health.md) %}
 
+#### Восстановление кластера в состоянии DEAD {#restore-dead-cluster}
+
+{% include [restore-dead-cluster](../../_includes/mdb/restore-dead-cluster.md) %}
+
+1. [Восстановите кластер из резервной копии](cluster-backups.md#restore).
+1. Обновите параметры подключения в приложениях и проверьте доступ к данным в новом кластере.
+1. Проанализируйте нагрузку на кластер, чтобы выявить ресурсоемкие запросы и сессии. Для этого [проведите диагностику производительности](performance-diagnostics.md). Используйте рекомендации по [поиску проблем с производительностью](../tutorials/performance-problems.md) и [оптимизации запросов](../tutorials/profiling.md).
+
 ### Статусы кластера {#cluster-status}
 
 {% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}

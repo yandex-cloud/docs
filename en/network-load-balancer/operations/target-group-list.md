@@ -37,7 +37,7 @@ You can request detailed information about each target group you created.
 
 - API {#api}
 
-    Use the [list](../api-ref/TargetGroup/list.md) API method, providing the folder ID in the `folderId` parameter of your request.
+    Use the [list](../api-ref/TargetGroup/list.md) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroupService/List](../api-ref/grpc/TargetGroup/list.md) gRPC API call and provide the folder ID in the request’s `folderId` (REST API) or `folder_id` (gRPC API) parameter.
 
 {% endlist %}
 
@@ -120,7 +120,7 @@ You can request detailed information about each target group you created.
 
 - API {#api}
 
-    Use the [get](../api-ref/TargetGroup/get.md) API method, providing the target group ID in the `targetGroupId` parameter of your request.
+    Use the [get](../api-ref/TargetGroup/get.md) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroupService/Get](../api-ref/grpc/TargetGroup/get.md) gRPC API call and provide the target group ID in the request’s `targetGroupId` (REST API) or `target_group_id` (gRPC API) parameter.
 
     You can get the target group ID with the [list of target groups in the folder](#list).
 

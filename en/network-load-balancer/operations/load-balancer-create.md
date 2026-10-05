@@ -34,8 +34,8 @@ Before you create a network load balancer, make sure to [create](target-group-cr
 
           * {% include [select-external-ip](../../_includes/network-load-balancer/select-external-ip.md) %}
 
-  1. Optionally, in the **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** field enable DDoS protection.
-  1. Optionally, in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_deletion-protection }}** field enable load balancer deletion protection.
+  1. Optionally, enable DDoS protection in the **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** field.
+  1. Optionally, in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_deletion-protection }}** field, enable load balancer protection from deletion.
 
       {% note warning %}
 
@@ -102,7 +102,7 @@ Before you create a network load balancer, make sure to [create](target-group-cr
 
   1. Describe the network load balancer settings in the configuration file.
 
-     Here is an example of the configuration file structure:
+     Configuration file structure example:
 
      ```hcl
      resource "yandex_lb_network_load_balancer" "foo" {
@@ -205,7 +205,7 @@ Create a network load balancer named `test-load-balancer-1` without a listener a
 
 - API {#api}
 
-  Call the [create](../api-ref/NetworkLoadBalancer/create.md) API method, providing the following information in the request body:
+  Use the [create](../api-ref/NetworkLoadBalancer/create.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Create](../api-ref/grpc/NetworkLoadBalancer/create.md) gRPC API call and provide the following in the request:
 
   ```api
   {
@@ -214,6 +214,8 @@ Create a network load balancer named `test-load-balancer-1` without a listener a
     "type": "EXTERNAL"
   }
   ```
+
+  In the gRPC API, field names use [snake_case](https://{{ lang }}.wikipedia.org/wiki/Snake_case), e.g., `folder_id`.
 
 {% endlist %}
 
@@ -307,7 +309,7 @@ Create a network load balancer with a listener and attached target group with th
 
 - API {#api}
 
-  Call the [create](../api-ref/NetworkLoadBalancer/create.md) API method, providing the following information in the request body:
+  Use the [create](../api-ref/NetworkLoadBalancer/create.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Create](../api-ref/grpc/NetworkLoadBalancer/create.md) gRPC API call and provide the following in the request:
 
   ```api
   {
@@ -345,5 +347,7 @@ Create a network load balancer with a listener and attached target group with th
     ]
   }
   ```
+
+  In the gRPC API, field names use [snake_case](https://{{ lang }}.wikipedia.org/wiki/Snake_case): `folder_id`, `listener_specs`, `target_port`, `external_address_spec`, `ip_version`, `attached_target_groups`, `target_group_id`, `health_checks`, `unhealthy_threshold`, `healthy_threshold`, `http_options`.
 
 {% endlist %}

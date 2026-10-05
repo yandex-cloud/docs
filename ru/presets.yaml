@@ -157,7 +157,7 @@ default:
   crt-local-file: YandexInternalRootCA.crt
   crt-local-file-int: IntermediateCA.crt
   crt-local-file-root: RootCA.crt
-  crt-web-path: https://storage.yandexcloud.net/cloud-certs/CA.pem
+  crt-web-path: https://storage.yandexcloud.net/cloud-certs/RootCA.pem
   crt-web-path-int: https://storage.yandexcloud.net/cloud-certs/IntermediateCA.pem
   crt-web-path-root: https://storage.yandexcloud.net/cloud-certs/RootCA.pem
   CSI: Container Storage Interface
@@ -5547,9 +5547,23 @@ default:
         not-selected: Не выбрано
         objects: Объекты
         open: Открыть
-        operations-key-value: Операции
         operations:
+          column_description: Операция
+          column_error: Сообщение об ошибке
+          column_id: Идентификатор
           column_status: Статус
+          column_user: Пользователь
+          column_value_done: Завершена
+          column_value_error: Ошибка
+          column_value_pending: Выполняется
+          filter_status: Статус
+          filter_text: Фильтр по идентификатору
+          label_empty-msg-body: Список операций пуст
+          label_empty-msg-title: Список операций пуст
+          select_value_done: Завершена
+          select_value_error: Ошибка
+          select_value_pending: Не завершена
+        operations-key-value: Операции
         overview: Обзор
         password: Пароль
         remove: Удалить
@@ -8092,6 +8106,9 @@ default:
         advanced_waf:
           sets_priority_section:
             section_title: Наборы правил в порядке приоритета
+        Application:
+          CreateApplicationPage:
+            actionCreate_pi4Bb: Создать приложение
         arl:
           column_rule-conditions: Условия на трафик
           column_rule-priority: Приоритет
@@ -8122,6 +8139,17 @@ default:
             label_domain_1hgsY: Домен
             label_proxy-server_w9BGG: Прокси-сервер
         baseRulesTitle_xcJEe: Базовые правила
+        cloudWafProfile_4E82H: Профиль Cloud WAF
+        cloudWafTab_oR48G: Cloud WAF
+        ConnectDomainSolidWallDialog:
+          button_connect_8BBRL: Подключить
+          DomainsFieldArray:
+            button_add-domain_cVb2C: Добавить домен
+          FormFieldDomainSelect:
+            title_domain_aHoh1: Домен
+          FormFieldSecurityProfileSelect:
+            title_security-profile_v6r5o: Профиль безопасности
+        controlPanel_nsbwt: Панель управления
         createCustomPage_t4SuU: Создать шаблон
         CreateDomain:
           createDomain_b2Ykj: Добавить домен
@@ -8220,6 +8248,7 @@ default:
             createDomain_49MGX: Добавить домен
         ProxyServerForm:
           add-rule_fnmLk: Добавить правило
+          discard-rules-title_xn6cP: Правила отбрасывания логов
           swith-enable-logging_e42nT: Логировать запросы
         ProxyServerFormCreate:
           createServer_sycVk: Создать сервер
@@ -8238,6 +8267,30 @@ default:
             denyAndCaptchaTitle_tCthP: DENY и CAPTCHA
             loggingEnable_6eK2x: Запись логов
             outputTitle_tw1oT: Записывать логи в
+        solid-wall:
+          5j7yt: Фактическое макс. количество запросов
+          domain_session-bindings_by-ip_pRD7K: По IP-адресу
+          domain_session-bindings_t5Jor: Привязка сессии
+        SolidWall:
+          SolidWallProfileOverviewPage:
+            label_add-application_4pETp: Добавить приложение
+            section-title_applications_5DnfM: Приложения
+        solidWallAdvancedTariff_6mLtW: Расширенный
+        SolidWallApplicationActions:
+          label_connect-domain_cAaqD: Подключить домен
+          popup_delete-application-title_eC8hf: Удаление приложения SolidWall WAF
+        solidWallBasicTariff_hB5xS: Базовый
+        SolidWallDomainsActions:
+          label_disable_7HM58: Отключить домен
+        solidWallProfile_jVUUm: Профиль SolidWall WAF
+        SolidWallProfileForm:
+          ConfirmPurchaseDialog:
+            dialogTitle_fomvt: Ознакомьтесь с правилами оплаты
+          titleApplications_rKJfh: Приложения
+          titleRpsLimit_b67eQ: Пиковая нагрузка на приложения
+          titleTariff_6j471: Тариф
+        target-state:
+          healthy_4tpQh: Доступен
         title_default-template: По преднастроенному шаблону
         title_no-template: С чистого листа
         title_profiles: Профили безопасности
@@ -8261,6 +8314,8 @@ default:
           value_exclude-all-yes: Все правила
           verdict-all: Вердикт DENY получен в каждом выбранном наборе
           verdict-at-least-one: Вердикт DENY получен хотя бы в одном выбранном наборе
+        WafCreateProfileAction:
+          createWafOrSolidWallProfileButton_6J5WK: Создать профиль
         WafProfileExclusionRuleForm:
           RulesSection:
             field_exclude-all_gKv9U: Правила WAF

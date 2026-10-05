@@ -20,5 +20,6 @@ As of today, solutions have been prepared for the following SIEM systems:
 * [ArcSight](../tutorials/export-logs-to-arcsight.md).
 * [Splunk](../tutorials/export-logs-to-splunk.md).
 * [MaxPatrol SIEM](../tutorials/maxpatrol/index.md).
+* [KUMA](../tutorials/audit-trails-events-to-kuma/index.md).
 
 All the solutions provide continuous delivery of audit log files from buckets to the SIEM system and also contain correlation rules, dashboards, and preset queries to search for important security events. The {{ yandex-cloud }} team supports and regularly updates all the solutions.

@@ -15,6 +15,8 @@ The general value format is as follows:
 
 {% include [about-events-ref](../../_includes/audit-trails/about-events-ref.md) %}
 
+{% include [note-events-delivery](../../_includes/audit-trails/note-events-delivery.md) %}
+
 On this page, you will find events for the following services:
 
 {% include [dp-events-service-list](../../_includes/audit-trails/dp-events-service-list.md) %}
@@ -221,11 +223,6 @@ Service name: `network`.
 
 {% include [vpc-events-dp](../../_includes/audit-trails/events/vpc-events-dp.md) %}
 
-## {{ vision-full-name }} {#vision}
-
-Service name: `ai.ocr`.
-
-{% include [vision-events-dp](../../_includes/audit-trails/events/vision-events-dp.md) %}
 
 ## {{ wiki-full-name }} {#wiki}
 

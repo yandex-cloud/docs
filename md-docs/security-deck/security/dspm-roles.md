@@ -5,7 +5,11 @@
 С помощью сервисных ролей [модуля контроля данных](../concepts/dspm.md) (DSPM) вы можете управлять доступом пользователей к ресурсам модуля контроля данных и их настройкам, а также к данным, содержащимся в результатах сканирования источников на наличие чувствительной информации.
 
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     dspm.admin --> security-deck.admin
     dspm.editor --> dspm.admin

@@ -48,7 +48,11 @@
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе Cloud Interconnect.
 
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     cic.auditor --> cic.viewer
     cic.viewer --> cic.editor

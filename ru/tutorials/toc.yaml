@@ -37,6 +37,8 @@ items:
         href: security/different-folders-services.md
       - name: Базовая настройка SWS
         href: security/sws-basic-protection.md
+      - name: Подключение SolidWall WAF к веб-приложению
+        href: security/solidwall-waf.md
       - name: Экстренная защита сервисов в {{ alb-name }} от DDoS на уровне L7
         href: security/sws-protection-ongoing-ddos.md
       - name: >-

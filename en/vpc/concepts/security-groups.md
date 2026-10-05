@@ -36,13 +36,7 @@ The default security group allows:
 
 {% note warning %}
 
-The default security group allows all incoming traffic from any IPv4 address. For production resources, especially those with public IP addresses, [create](../operations/security-group-create.md) a custom security group and allow only the traffic you need.
-
-{% endnote %}
-
-{% note warning %}
-
-The default security group allows incoming traffic over `SSH` and `RDP` from any IPv4 address. For production resources, especially those with public IP addresses, [create](../operations/security-group-create.md) a custom security group and allow only the required traffic within it.
+The default security group allows all incoming traffic from any IPv4 address. For production resources, especially those with public IP addresses, [create](../operations/security-group-create.md) a custom security group that only allows required traffic.
 
 {% endnote %}
 
