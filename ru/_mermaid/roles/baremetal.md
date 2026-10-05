@@ -1,5 +1,9 @@
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     baremetal.editor --> baremetal.admin
     baremetal.viewer --> baremetal.operator

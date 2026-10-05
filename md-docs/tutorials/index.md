@@ -38,6 +38,8 @@
 
  - [Базовая настройка SWS](security/sws-basic-protection.md)
 
+ - [Подключение SolidWall WAF к веб-приложению](security/solidwall-waf.md)
+
  - [Экстренная защита сервисов в Application Load Balancer от DDoS на уровне L7](security/sws-protection-ongoing-ddos.md)
 
 ### Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для подключения защиты Smart Web Security

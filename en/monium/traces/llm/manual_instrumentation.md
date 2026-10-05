@@ -166,6 +166,50 @@ The result returned by the tool is provided in the following request to the mode
        
 {% endcut %}
 
+### Model reasoning in spans {#llm-reasoning-in-spans}
+
+In reasoning mode, the model responds based on a chain of reasoning. To view this chain separately from the final response in the conversation history, mark it up as a portion of the message with the `reasoning` type. In the agent span, this portion will be highlighted with the ![cpu](../../../_assets/console-icons/cpu.svg) **Thinking** label.
+
+#### Format of the reasoning section of the message {#reasoning-part-format}
+
+To mark up the reasoning, provide a [message](#messages-format) containing `role == "assistant"` in the `gen_ai.output.messages` attribute. Add a separate element to the `parts` array:
+
+```json
+{
+  "type": "reasoning",
+  "content": "<reasoning_text>"
+}
+```
+
+Both fields are required:
+
+* `type`: Message part type, always `reasoning`.
+* `content`: Model's reasoning text.
+
+In a single message, you can deliver the reasoning, the response text, and the call for the tool by separate elements of the `parts` array. In the interface, all parts of the message are displayed in the same order in which they are specified in the `parts` array.
+
+#### Example of the reasoning message {#reasoning-message-example}
+
+Here is an example of the `gen_ai.output.messages` attribute value with the reasoning and the final response:
+
+```json
+[
+  {
+    "role": "assistant",
+    "parts": [
+      {
+        "type": "reasoning",
+        "content": "**Check for a table**\n\nThe check revealed that there is no `monthly_sales` table in the `reports` schema of the `analytics` database. You need to create a table before uploading the report."
+      },
+      {
+        "type": "text",
+        "content": "Before uploading the report, create a table titled `reports.monthly_sales` in the `analytics` database."
+      }
+    ],
+    "finish_reason": "stop"
+  }
+]
+```
 
 ### Images in spans {#images}
 
@@ -506,7 +550,7 @@ if __name__ == "__main__":
 python agent.py
 ```
 
-After the agent finishes running, the {{ traces-name }} interface will display a trace with the `agent.demo` root span: it includes the generation spans (conversation) and, when requesting weather, the child spans of the tool call. The `gen_ai.input.messages` attribute of the last generation span will contain the full conversation history (system prompt, both user requests, and model responses). For more information on how to use the interface, see [{#T}](./traces.md).
+After the agent finishes running, the {{ traces-name }} interface will display a trace with the `agent.demo` root span: it includes the generation spans (conversation) and, when requesting weather, the child spans of the tool call. The `gen_ai.input.messages` attribute of the last generation span will contain the full conversation history (system prompt, both user requests, and model responses). For more information on working with the interface, see [{#T}](./traces.md).
 
 ## Compatibility with auto-instrumentation {#compatibility}
 

@@ -1,5 +1,9 @@
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     yds.writer --> yds.editor
     ydb.editor --> yds.editor

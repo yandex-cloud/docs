@@ -1,14 +1,15 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профили WAF > Создать профиль
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профили Cloud WAF > Создать профиль Cloud WAF
 
-# Создать профиль WAF
+# Создать профиль Cloud WAF
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать [профиль WAF](../concepts/waf.md).
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать [профиль Cloud WAF](../concepts/waf.md).
   1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
-  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/waf.svg) **Профили WAF** и нажмите **Создать профиль WAF**.
+  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/waf.svg) **Профили WAF** и откройте вкладку **Cloud WAF**.
+  1. Нажмите **Создать профиль** и выберите **Профиль Cloud WAF**.
   1. Введите имя профиля.
   1. (Опционально) Введите описание.
   1. (Опционально) Добавьте профилю [метки](../../resource-manager/concepts/labels.md).
@@ -51,7 +52,7 @@
         version = "<версия_набора>"
       }
 
-      # Профиль WAF
+      # Профиль Cloud WAF
       resource "yandex_sws_waf_profile" "default" {
         name = "<имя_WAF_профиля>"
 
@@ -89,7 +90,7 @@
       }
       ```
 
-     {% cut "Пример описания профиля WAF в конфигурации Terraform" %}
+     {% cut "Пример описания профиля Cloud WAF в конфигурации Terraform" %}
 
      ```hcl
      # Объявление локальных переменных
@@ -154,9 +155,9 @@
 
       * `waf_paranoia_level` — [уровень паранойи](../concepts/waf.md#paranoia). Он классифицирует правила по степени агрессивности. Чем выше уровень паранойи, тем лучше защита, но больше вероятность ложных срабатываний WAF. Возможные значения от 1 до 4.
       * `data "yandex_sws_waf_rule_set_descriptor"` — источник данных Terraform для набора базовых правил. Из источника данных вы можете получить список правил и их идентификаторы.
-      * `resource "yandex_sws_waf_profile"` — ресурс Terraform для управления профилем WAF.
+      * `resource "yandex_sws_waf_profile"` — ресурс Terraform для управления профилем Cloud WAF.
 
-         * `name` — имя профиля WAF.
+         * `name` — имя профиля Cloud WAF.
          * `rule_set` — блок правил:
 
              * `action` — действие, которое нужно выполнить при срабатывании набора правил:
@@ -232,7 +233,7 @@
 
   Terraform создаст все требуемые ресурсы. Вы можете проверить появление ресурсов в [консоли управления](https://console.yandex.cloud).
 
-  После создания профиля WAF вы можете [изменить](configure-set-rules.md) набор базовых правил и [настроить](exclusion-rule-add.md) набор правил-исключений.
+  После создания профиля Cloud WAF вы можете [изменить](configure-set-rules.md) набор базовых правил и [настроить](exclusion-rule-add.md) набор правил-исключений.
 
 - API {#api}
 

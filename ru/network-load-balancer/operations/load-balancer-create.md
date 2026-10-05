@@ -34,7 +34,7 @@ description: Следуя данной инструкции, вы сможете
 
           * {% include [select-external-ip](../../_includes/network-load-balancer/select-external-ip.md) %}
 
-  1. (Опционально) В поле **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** включите защиту от DDoS-атак.
+  1. (Опционально) В поле **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** включите [защиту от DDoS-атак](../../vpc/ddos-protection/index.md). Опция [тарифицируется](../../vpc/pricing.md#prices-ddos-protection) и доступна только при выборе автоматического способа назначения IP-адреса на предыдущем шаге.
   1. (Опционально) В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_deletion-protection }}** включите защиту балансировщика от удаления.
 
       {% note warning %}

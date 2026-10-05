@@ -7,6 +7,30 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.40.0 (05.10.26) {#v-1-40-0}
+
+#### {{ at-name }} {#v-1-40-0-at-name}
+
+* Добавлен параметр `--destination-bucket-aggregation-period` в команды управления трейлами для настройки периода выгрузки событий в {{ objstorage-name }}:
+  * `yc audit-trails trail create`;
+  * `yc audit-trails trail update`.
+
+#### {{ iam-name }} {#v-1-40-0-iam-name}
+
+* Исправлено аварийное завершение команды `yc iam revoke-token` после успешного отзыва IAM-токена.
+
+#### {{ mos-name }} {#v-1-40-0-mos-name}
+
+* Добавлены команды для защиты кластера от опасных изменений:
+  * `yc managed-opensearch cluster disable-protection`;
+  * `yc managed-opensearch cluster enable-protection`.
+
+#### Изменения в системных командах CLI {#v-1-40-0-yc}
+
+* Добавлено предупреждение об устаревании аутентификации с помощью OAuth-токена Yandex ID.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.39.0 (01.10.26) {#v-1-39-0}
 
 #### Сервисы управляемых баз данных {#v-1-39-0-mdb}
@@ -34,8 +58,6 @@ description: На странице представлены релизы CLI, а
 * Добавлен параметр `--login` в команды управления пользователями:
   * `yc managed-greenplum users create`;
   * `yc managed-greenplum users update`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.38.0 (28.09.26) {#v-1-38-0}
 

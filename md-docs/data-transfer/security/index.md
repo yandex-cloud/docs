@@ -35,7 +35,11 @@
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
 
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     data-transfer.auditor --> data-transfer.viewer --> data-transfer.privateAdmin --> data-transfer.admin
 ```

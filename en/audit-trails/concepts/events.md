@@ -15,6 +15,8 @@ The general value format is as follows:
 
 {% include [about-events-ref](../../_includes/audit-trails/about-events-ref.md) %}
 
+{% include [note-events-delivery](../../_includes/audit-trails/note-events-delivery.md) %}
+
 On this page, you will find events for the following services:
 
 {% include [cp-events-service-list](../../_includes/audit-trails/cp-events-service-list.md) %}

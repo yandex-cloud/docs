@@ -1,10 +1,11 @@
 ```mermaid
-%%{
-  init: {
-    "flowchart": { "defaultRenderer": "elk" },
-    "elk": { "nodePlacementStrategy": "NETWORK_SIMPLEX" }
-  }
-}%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+  elk:
+    nodePlacementStrategy: NETWORK_SIMPLEX
+---
 flowchart BT
     vpc.publicAdmin
     managed-spqr.viewer --> managed-spqr.restorer

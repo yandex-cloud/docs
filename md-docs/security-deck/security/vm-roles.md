@@ -5,7 +5,11 @@
 С помощью сервисных ролей [модуля Управление уязвимостями](../concepts/vulnerability-management.md) (VM) вы можете управлять доступом пользователей к ресурсам модуля и их настройкам, а также к результатам сканирований на уязвимости.
 
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     security-deck.auditor --> security-deck.viewer
     security-deck.viewer --> security-deck.editor

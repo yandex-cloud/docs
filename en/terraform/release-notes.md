@@ -4,6 +4,16 @@ description: Changelog, updates, and version history for the {{ yandex-cloud }} 
 editable: false
 ---
 
+## 0.235.0 (October 2, 2026)
+
+##### BUG FIXES:
+* mdb_clickhouse: fix inconsistent result after apply in `yandex_mdb_clickhouse_cluster_v2` when `clickhouse.config` is set
+
+##### ENHANCEMENTS:
+* mdb_greenplum_cluster_v2: update security groups in place and avoid unintended cluster replacement for host group values.
+
+
+
 ## 0.234.0 (October 2, 2026)
 
 ##### FEATURES:

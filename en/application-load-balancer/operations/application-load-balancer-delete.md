@@ -5,6 +5,8 @@ description: In this tutorial, you will learn how to delete an L7 load balancer.
 
 # Deleting an L7 load balancer
 
+{% include [auto-address-note](../../_includes/application-load-balancer/auto-address-note.md) %}
+
 To delete an L7 load balancer:
 
 {% list tabs group=instructions %}
@@ -105,7 +107,7 @@ To delete an L7 load balancer:
      terraform plan
      ```
 
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
   1. Apply the configuration changes:
 
      ```bash

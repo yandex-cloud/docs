@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профили WAF > Изменить правило-исключение
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профили Cloud WAF > Изменить правило-исключение
 
 # Изменить правило-исключение WAF
 

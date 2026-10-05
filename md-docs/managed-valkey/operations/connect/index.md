@@ -129,7 +129,7 @@ Valkey™ по умолчанию оперирует IP-адресами хос�
 
    ```bash
    mkdir -p ~/.redis && \
-   wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
+   wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
         --output-document ~/.redis/YandexInternalRootCA.crt && \
    chmod 0655 ~/.redis/YandexInternalRootCA.crt
    ```
@@ -139,7 +139,7 @@ Valkey™ по умолчанию оперирует IP-адресами хос�
 - Windows (PowerShell) {#windows}
 
    ```powershell
-   mkdir $HOME\.redis; curl.exe -o $HOME\.redis\YandexInternalRootCA.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
+   mkdir $HOME\.redis; curl.exe -o $HOME\.redis\YandexInternalRootCA.crt https://storage.yandexcloud.net/cloud-certs/RootCA.pem
    ```
 
    Сертификат будет сохранен в файле `$HOME\.redis\YandexInternalRootCA.crt`.

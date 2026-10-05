@@ -67,8 +67,8 @@ description: Follow this guide to delete a listener.
   
   To remove a network load balancer listener, use the [removeListener](../api-ref/NetworkLoadBalancer/removeListener.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/RemoveListener](../api-ref/grpc/NetworkLoadBalancer/removeListener.md) gRPC API call, providing the following in your request:
 
-  * Load balancer ID in the `networkLoadBalancerId` parameter.
-  * Listener name in the `listenerName` parameter.
+  * Load balancer ID in the `networkLoadBalancerId` parameter (REST API), or `network_load_balancer_id` (gRPC API).
+  * Listener name in the `listenerName` parameter (REST API), or `listener_name` (gRPC API).
 
   You can get the load balancer ID with the [list of network load balancers in the folder](load-balancer-list.md#list), and the listener name with [network load balancer details](load-balancer-list.md#get).
 

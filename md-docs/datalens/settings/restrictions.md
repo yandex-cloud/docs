@@ -6,6 +6,7 @@
 
 * [Нейроаналитик](../concepts/neuroanalyst.md#prohibit) — ограничение использования Нейроаналитика.
 * [Возможность публикации](../concepts/datalens-public.md#publication-disable) — запрет на публикацию чартов и дашбордов.
+* [Роль на создаваемые объекты](../security/roles.md#workbooks-collections-roles) — определяет прямую роль, которую пользователь получает на созданный им объект. Возможные значения: `Администрирование`, `Редактирование` или `Не выдавать` роль.
 * [Экспорт воркбуков](../workbooks-collections/export-and-import.md#workbooks-export-disable) — запрет на экспорт воркбуков в виде файла.
 * [Экспорт данных](../concepts/chart/data-export.md#data-export-disable) — ограничение возможности скачивать данные из чартов в виде файлов.
 

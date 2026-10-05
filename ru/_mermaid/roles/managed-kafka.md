@@ -1,13 +1,12 @@
 ```mermaid
-%%{
-  init: {
-    "flowchart": { "defaultRenderer": "elk" },
-    "elk": { "nodePlacementStrategy": "NETWORK_SIMPLEX" }
-  }
-}%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+  elk:
+    nodePlacementStrategy: NETWORK_SIMPLEX
+---
 flowchart BT
-    vpc.publicAdmin
-
     managed-kafka.user --> managed-kafka.editor
     managed-kafka.interfaceUser["`managed-kafka.
     interfaceUser`"] --> managed-kafka.editor

@@ -257,10 +257,10 @@
     1. Скачайте [SSL-сертификат](../../managed-kafka/operations/connect#get-ssl-cert) для подключения к кластеру {{ mkf-name }}:
 
         ```bash
-        sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
-        sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
-            --output-document /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
-        sudo chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+        sudo mkdir -p {{ crt-local-dir }} && \
+        sudo wget "{{ crt-web-path }}" \ 
+            --output-document {{ crt-local-dir }}{{ crt-local-file }} && \
+        sudo chmod 0655 {{ crt-local-dir }}{{ crt-local-file }}
         ```
 
     1. Установите утилиту [kafkacat](https://github.com/edenhill/kcat):
@@ -280,15 +280,73 @@
    mkdir --parents /home/<домашняя_директория>/mirror-maker
    ```
 
-1. Выберите пароль для хранилища сертификатов не короче 6 символов, создайте хранилище и добавьте в него SSL-сертификат для подключения к кластеру:
+1. Добавьте SSL-сертификат в хранилище доверенных сертификатов:
 
-   ```bash
-   sudo keytool --noprompt -importcert -alias {{ crt-alias }} \
-      -file {{ crt-local-dir }}{{ crt-local-file }} \
-      -keystore /home/<домашняя_директория>/mirror-maker/keystore \
-      -storepass <пароль_хранилища_сертификатов>
-   ```
+    {% list tabs group=operating_system %}
 
+    - Linux (Bash) {#linux}
+
+      ```bash
+      awk '/-----BEGIN CERTIFICATE-----/ {n++} n {print > "YandexCA-" n ".crt"}' \
+        < {{ crt-local-dir }}{{ crt-local-file }}
+
+      for cert in YandexCA-*.crt; do
+        alias=$(
+          openssl x509 -noout -text -in "${cert}" |
+          perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
+        )
+
+        year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
+
+        echo "Importing ${alias}-${year}"
+
+        keytool -importcert \
+                -alias "${alias}-${year}" \
+                -file "${cert}" \
+                -keystore /home/<домашняя_директория>/mirror-maker/keystore \
+                -storepass <пароль_защищенного_хранилища> \
+                -noprompt
+
+        rm "${cert}"
+      done
+
+      chmod 0655 /home/<домашняя_директория>/mirror-maker/keystore
+      ```
+
+    - macOS (Zsh) {#macos}
+     
+      ```bash     
+      split -p "-----BEGIN CERTIFICATE-----" \
+        {{ crt-local-dir }}{{ crt-local-file }} \
+        YandexCA-
+
+      for cert in YandexCA-*.crt; do
+        alias=$(
+          openssl x509 -noout -text -in "${cert}" |
+          perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
+        )
+
+        year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
+
+        echo "Importing ${alias}-${year}"
+
+        keytool -importcert \
+                -alias "${alias}-${year}" \
+                -file "${cert}" \
+                -keystore /home/<домашняя_директория>/mirror-maker/keystore \
+                -storepass <пароль_защищенного_хранилища> \
+                -noprompt
+
+        rm "${cert}"
+      done
+
+      chmod 0655 /home/<домашняя_директория>/mirror-maker/keystore
+      ```
+
+    {% endlist %}
+
+    Где `-storepass` — пароль хранилища сертификатов. Пароль должен содержать не менее 6 символов.
+    
 1. Создайте в каталоге `mirror-maker` файл конфигурации MirrorMaker `mm2.properties`:
 
    ```text

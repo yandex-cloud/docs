@@ -62,12 +62,10 @@ To create a bucket for static website files:
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the bucket is located.
       1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** and select the previously created bucket in the window that opens.
-      1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
-      1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}**. In the window that opens, select the files you created and confirm the upload.
-      1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-      1. On the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab:
+      1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab and click ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** in the top panel. In the window that opens, select the files you created and confirm the upload.
+      1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_website }}**. In the window that opens:
 
-          1. Navigate to the `{{ ui-key.yacloud.storage.bucket.switch_website }}` tab and select `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
+          1. Select `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
           1. In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify `index.html`.
           1. In the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify `error.html`.
           1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.

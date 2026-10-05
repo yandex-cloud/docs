@@ -17,7 +17,7 @@ description: На странице представлен список поша�
 * [{#T}](host-connect.md)
 * [{#T}](host-delete.md)
 
-## Управление профилями WAF {#waf-profiles}
+## Управление профилями Cloud WAF {#waf-profiles}
 
 * [{#T}](waf-profile-create.md)
 * [{#T}](waf-profile-update.md)
@@ -29,6 +29,15 @@ description: На странице представлен список поша�
 * [{#T}](exclusion-rule-update.md)
 * [{#T}](exclusion-rule-delete.md)
 * [{#T}](waf-ml-tuning-recommendations.md)
+
+## Управление профилями SolidWall WAF {#solidwall-waf-profiles}
+
+* [{#T}](solidwall-waf-profile-create.md)
+* [{#T}](solidwall-waf-application-create.md)
+* [{#T}](solidwall-waf-profile-update.md)
+* [{#T}](solidwall-waf-application-update.md)
+* [{#T}](solidwall-waf-application-delete.md)
+* [{#T}](solidwall-waf-profile-delete.md)
 
 ## Управление профилями ARL {#arl-profiles}
 

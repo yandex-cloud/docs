@@ -99,9 +99,9 @@ description: Follow this guide to attach a target group to a network load balanc
 
   To attach a target group to a network load balancer, use the [attachTargetGroup](../api-ref/NetworkLoadBalancer/attachTargetGroup.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/AttachTargetGroup](../api-ref/grpc/NetworkLoadBalancer/attachTargetGroup.md) gRPC API call, providing the following in your request:
 
-  * Load balancer ID, in the `networkLoadBalancerId` parameter.
-  * Target group ID in the `attachedTargetGroup.targetGroupId` parameter.
-  * Health check settings in the `attachedTargetGroup.healthChecks` parameter.
+  * Load balancer ID in the `networkLoadBalancerId` parameter (REST API), or `network_load_balancer_id` (gRPC API).
+  * Target group ID in the `attachedTargetGroup.targetGroupId` parameter (REST API), or `target_group_id` (gRPC API).
+  * Health check settings in the `attachedTargetGroup.healthChecks` parameter (REST API), or `health_checks` (gRPC API).
 
   You can get the load balancer ID with the [list of network load balancers in the folder](load-balancer-list.md#list) and the target group ID with the [list of target groups in the folder](target-group-list.md#list).
 

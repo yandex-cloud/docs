@@ -5,6 +5,10 @@ description: In this tutorial, you will learn how to create an L7 load balancer.
 
 # Creating an L7 load balancer
 
+To access an L7 load balancer from the internet you need a public IP address. It is assigned either automatically when the load balancer is created or from a pool of [prereserved IPs](../../vpc/operations/get-static-ip.md). A reserved address is retained after you delete the load balancer.
+
+{% include [auto-address-note](../../_includes/application-load-balancer/auto-address-note.md) %}
+
 To create an [L7 load balancer](../concepts/application-load-balancer.md):
 
 {% list tabs group=instructions %}
@@ -52,8 +56,6 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
         
         * `{{ ui-key.yacloud.alb.label_address-auto }}`.
         * `{{ ui-key.yacloud.alb.label_address-list }}`: Select an address from the drop-down list that appears on the right.
-
-        {% include [auto-address-note](../../_includes/application-load-balancer/auto-address-note.md) %}
 
      1. Optionally, enable **{{ ui-key.yacloud.alb.section_internal-address-specs }}**. Specify **{{ ui-key.yacloud.alb.label_port }}** and select **{{ ui-key.yacloud.common.label_subnet }}** from the drop-down list.
      1. Under **{{ ui-key.yacloud.alb.section_common-address-specs }}**, select the listener type: `{{ ui-key.yacloud.alb.label_listener-type-http }}` or `{{ ui-key.yacloud.alb.label_listener-type-stream }}`.
@@ -204,8 +206,6 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
             --backend-group-id=<backend_group_ID> \
             --external-ipv4-endpoint port=<listener_port>
           ```
-
-     {% include [auto-address-note](../../_includes/application-load-balancer/auto-address-note.md) %}
 
      The result of adding two listeners:
  
@@ -376,8 +376,6 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
               {% include [name-format](../../_includes/name-format.md) %}
 
           * `endpoint`: Listener addresses and ports. Specify the external IPv4 address and port for receiving traffic. If the `external_ipv4_address` setting is not specified, a public IP address will be assigned automatically.
-
-              {% include [auto-address-note](../../_includes/application-load-balancer/auto-address-note.md) %}
 
           * `ports`: One or multiple ports. Listener ports must not match.
           * `http`: Listener HTTP endpoint description.

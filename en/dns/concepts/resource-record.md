@@ -273,7 +273,7 @@ It is mostly used to verify:
 
 TXT record implementation in {{ dns-full-name }} has the following special features and limitations:
 
-* The service uses [MASTER FILES](https://www.ietf.org/rfc/rfc1035.html#section-5) format. According to the format specification, `;` marks the beginning of a comment, i.e., all content that comes after it is ignored. If you want to use the `;` character in a TXT record, enclose the string containing it in double quotes (`""`).
+* The service uses [MASTER FILES](https://www.ietf.org/rfc/rfc1035.html#section-5) format. According to the format specification, `;` outside double quotes marks the beginning of a comment, i.e., all content that comes after it is ignored. If you want to use the `;` character in a TXT record, enclose the string containing it in double quotes (`""`).
 
 * The service supports a single TXT record.
 
@@ -308,6 +308,26 @@ TXT record implementation in {{ dns-full-name }} has the following special featu
 | example.com.                     | TXT | 6000 | "v=spf1 ip4=192.0.2.0 ip4=192.0.2.1 include:examplesender.email -all"              |
 
 Learn more about TXT records in [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.14) and [RFC-1464](https://tools.ietf.org/html/rfc1464).
+
+### Automatic splitting of long TXT records {#txt-splitting}
+
+When creating a TXT record, the {{ dns-name }} API automatically splits long values into text chunks based on the existing split settings. A continuous sequence of characters without spaces or double quotes is treated as a separate chunk. Text enclosed in double quotes is also treated as a single chunk, even if it contains spaces.
+
+Each chunk is processed separately:
+
+* If a chunk is no longer than 255 characters, it is kept as is.
+* If a chunk is longer than 255 characters, it is split into 255-character chunks from left to right. The last chunk contains the remaining characters and may be shorter.
+* If the length of the original chunk is a multiple of 255, no additional empty chunk is created.
+
+The data order is preserved, and the resulting chunks remain part of the same TXT record. No separate TXT records are created for these chunks. For example, a chunk of 300 characters is split into a 255-character chunk and a 45-character chunk, while a chunk of 510 characters, into two 255-character chunks.
+
+The outer double quotes are part of the record format and are not counted toward the record length. If the original chunk was enclosed in double quotes, each resulting chunk is also enclosed in its own pair of double quotes. Spaces between chunks are used as delimiters and are not part of their content, while spaces inside quotation marks are considered part of the value.
+
+If each existing chunk is no longer than 255 characters, the value remains unchanged, even if the total TXT record length exceeds 255 characters. The total length of the TXT record value is still limited to 1,024 characters.
+
+Automatic splitting applies only to data before `;` outside double quotes. Any comment after this character is not part the DNS record data and is not returned by the DNS resolver. `;` inside double quotes is treated as a regular part of the value.
+
+The chunk length limit is determined by the DNS format. According to [RFC-1035, Section 3.3](https://www.rfc-editor.org/rfc/rfc1035.html#section-3.3), the length of each chunk (`character-string`) is encoded in one octet, so a chunk can contain no more than 255 octets of data. For ASCII characters supported by the service, the limit is equivalent to 255 characters. However, [Section 3.3.14 of RFC-1035](https://www.rfc-editor.org/rfc/rfc1035.html#section-3.3.14) allows a single TXT record to contain multiple 255-character chunks. For comment processing rules, see [RFC-1035, Section 5.1](https://www.rfc-editor.org/rfc/rfc1035.html#section-5.1).
 
 
 ## Service records {#service-records}

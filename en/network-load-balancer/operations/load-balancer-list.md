@@ -35,7 +35,7 @@ You can request detailed information about each network load balancer you create
 
 - API {#api}
 
-    Use the [list](../api-ref/NetworkLoadBalancer/list.md) API method, providing the folder ID in the `folderId` parameter of your request.
+    Use the [list](../api-ref/NetworkLoadBalancer/list.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/List](../api-ref/grpc/NetworkLoadBalancer/list.md) gRPC API call and provide the folder ID in the `folderId` (REST API) or `folder_id` (gRPC API) parameter.
 
 {% endlist %}
 
@@ -97,7 +97,7 @@ You can request detailed information about each network load balancer you create
       * `output "network_load_balancer"`: Output variable containing information about the load balancer creation date:
          * `value`: Return value.
 
-      You can replace `created_at` with another variable to get the information you need. For more on the properties of the `yandex_lb_network_load_balancer` data source, see [this provider guide]({{ tf-provider-datasources-link }}/lb_network_load_balancer).
+      You can replace `created_at` with any other attribute to get the information you need. For more on the properties of the `yandex_lb_network_load_balancer` data source, see [this provider guide]({{ tf-provider-datasources-link }}/lb_network_load_balancer).
 
   1. Create the resources:
 
@@ -117,7 +117,7 @@ You can request detailed information about each network load balancer you create
 
 - API {#api}
 
-    Use the [get](../api-ref/NetworkLoadBalancer/get.md) API method, providing the network load balancer ID in the `networkLoadBalancerId` parameter of your request.
+    Use the [get](../api-ref/NetworkLoadBalancer/get.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Get](../api-ref/grpc/NetworkLoadBalancer/get.md) gRPC API call and provide the network load balancer ID in the `networkLoadBalancerId` (REST API) or `network_load_balancer_id` (gRPC API) parameter.
 
     You can get the network load balancer ID with the [list of network load balancers in the folder](#list).
 

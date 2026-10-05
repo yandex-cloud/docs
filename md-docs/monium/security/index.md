@@ -23,7 +23,12 @@
 {% cut "Роли алертинга" %}
 
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk', 'padding': 4}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+    padding: 4
+---
 flowchart BT
     monium.alerts.viewer --> monium.alerts.editor
     monium.alerts.viewer --> monium.auditor
@@ -53,12 +58,14 @@ flowchart BT
 {% cut "Роли телеметрии" %}
 
 ```mermaid
-%%{
-  init: {
-    "flowchart": { "defaultRenderer": "elk", "padding": 4 },
-    "elk": { "nodePlacementStrategy": "NETWORK_SIMPLEX" }
-  }
-}%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+    padding: 4
+  elk:
+    nodePlacementStrategy: NETWORK_SIMPLEX
+---
 flowchart BT
     monium.metrics.reader["monium.<br>metrics.<br>readers"] --> monium.telemetry.reader["monium.<br>telemetry.<br>reader"]
     monium.logs.reader["monium.<br>logs.<br>reader"] --> monium.telemetry.reader
@@ -81,7 +88,12 @@ flowchart BT
 {% cut "Роли конфигурации и визуализации" %}
 
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk', 'padding': 4}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+    padding: 4
+---
 flowchart BT
     monium.dashboards.viewer --> monium.auditor
     monium.dashboards.viewer["monium.<br>dashboards.<br>viewer"] --> monium.dashboards.editor["monium.<br>dashboards.<br>editor"] --> monium.editor

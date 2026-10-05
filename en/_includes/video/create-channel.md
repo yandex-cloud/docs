@@ -8,4 +8,4 @@
 Once the channel is created, you will find yourself inside it on the ![image](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** tab.
 
 * To learn more about channels, see [{#T}](../../video/concepts/index.md#channels).
-* The ad settings are described in [{#T}](../../video/operations/channels/settings.md#ad-settings).
+* For information on how to set up monetization, see [{#T}](../../video/operations/channels/settings.md#ad-settings).

@@ -1,17 +1,18 @@
 ---
-title: Как создать профиль WAF {{ sws-full-name }}
-description: Следуя данной инструкции, вы сможете создать профиль WAF {{ sws-full-name }}.
+title: Как создать профиль Cloud WAF в {{ sws-full-name }}
+description: Следуя данной инструкции, вы сможете создать профиль Cloud WAF в {{ sws-name }}.
 ---
 
-# Создать профиль WAF
+# Создать профиль Cloud WAF
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать [профиль WAF](../concepts/waf.md).
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать [профиль Cloud WAF](../concepts/waf.md).
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** и нажмите **{{ ui-key.yacloud.smart-web-security.waf.label_create-profile }}**.
+  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** и откройте вкладку **{{ ui-key.yacloud.smart-web-security.cloudWafTab_oR48G }}**.
+  1. Нажмите **{{ ui-key.yacloud.smart-web-security.WafCreateProfileAction.createWafOrSolidWallProfileButton_6J5WK }}** и выберите **{{ ui-key.yacloud.smart-web-security.cloudWafProfile_4E82H }}**.
   1. Введите имя профиля.
   1. (Опционально) Введите описание.
   1. (Опционально) Добавьте профилю [метки](../../resource-manager/concepts/labels.md).
@@ -40,7 +41,7 @@ description: Следуя данной инструкции, вы сможете
         version = "<версия_набора>"
       }
 
-      # Профиль WAF
+      # Профиль Cloud WAF
       resource "yandex_sws_waf_profile" "default" {
         name = "<имя_WAF_профиля>"
 
@@ -78,7 +79,7 @@ description: Следуя данной инструкции, вы сможете
       }
       ```
 
-     {% cut "Пример описания профиля WAF в конфигурации {{ TF }}" %}
+     {% cut "Пример описания профиля Cloud WAF в конфигурации {{ TF }}" %}
 
      {% include [waf-profile-terraform-example](../../_includes/smartwebsecurity/waf-profile-terraform-example.md) %}
 
@@ -88,9 +89,9 @@ description: Следуя данной инструкции, вы сможете
 
       * `waf_paranoia_level` — [уровень паранойи](../concepts/waf.md#paranoia). Он классифицирует правила по степени агрессивности. Чем выше уровень паранойи, тем лучше защита, но больше вероятность ложных срабатываний WAF. Возможные значения от 1 до 4.
       * `data "yandex_sws_waf_rule_set_descriptor"` — источник данных {{ TF }} для набора базовых правил. Из источника данных вы можете получить список правил и их идентификаторы.
-      * `resource "yandex_sws_waf_profile"` — ресурс {{ TF }} для управления профилем WAF.
+      * `resource "yandex_sws_waf_profile"` — ресурс {{ TF }} для управления профилем Cloud WAF.
 
-         * `name` — имя профиля WAF.
+         * `name` — имя профиля Cloud WAF.
          * `rule_set` — блок правил:
 
              * `action` — действие, которое нужно выполнить при срабатывании набора правил:
@@ -134,7 +135,7 @@ description: Следуя данной инструкции, вы сможете
 
   {{ TF }} создаст все требуемые ресурсы. Вы можете проверить появление ресурсов в [консоли управления]({{ link-console-main }}).
 
-  После создания профиля WAF вы можете [изменить](configure-set-rules.md) набор базовых правил и [настроить](exclusion-rule-add.md) набор правил-исключений.
+  После создания профиля Cloud WAF вы можете [изменить](configure-set-rules.md) набор базовых правил и [настроить](exclusion-rule-add.md) набор правил-исключений.
 
 - API {#api}
 

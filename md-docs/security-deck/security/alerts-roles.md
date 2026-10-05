@@ -5,7 +5,11 @@
 С помощью сервисных ролей модуля [Алерты](../concepts/alerts.md) вы можете управлять ресурсами модуля и доступом к ним.
 
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     security-deck.alertSinks.admin["security-deck.<br>alertSinks.admin"] --> security-deck.admin
     security-deck.alertSinks.editor["security-deck.<br>alertSinks.editor"] --> security-deck.alertSinks.admin["security-deck.<br>alertSinks.admin"]

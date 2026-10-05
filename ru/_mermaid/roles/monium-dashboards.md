@@ -1,5 +1,10 @@
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk', 'padding': 4}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+    padding: 4
+---
 flowchart BT
     monium.dashboards.viewer --> monium.auditor
     monium.dashboards.viewer["monium.<br>dashboards.<br>viewer"] --> monium.dashboards.editor["monium.<br>dashboards.<br>editor"] --> monium.editor

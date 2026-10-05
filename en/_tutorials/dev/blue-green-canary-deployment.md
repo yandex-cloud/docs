@@ -77,7 +77,7 @@ All resources you create will belong to the same [cloud network](../../vpc/conce
 
     1. In the [management console]({{ link-console-main }}), select `example-folder`.
     1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-    1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+    1. In the top panel, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
     1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `canary-network`.
     1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
     1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -249,7 +249,7 @@ All resources you create will belong to the same [cloud network](../../vpc/conce
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Create a blue bucket for the backend stable version:
 
-     1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+     1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
      1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
      1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** and **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** fields, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
      1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
@@ -384,7 +384,7 @@ All resources you create will belong to the same [cloud network](../../vpc/conce
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
      1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Select the blue bucket.
-     1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select `index.html` version 1 for uploading.
+     1. In the top panel, click ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select `index.html` version 1 for uploading.
      1. Similarly, upload `index.html` version 2 to the green bucket.
 
    - AWS CLI {#cli}
@@ -476,7 +476,7 @@ To create security groups:
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
-  1. At the top right, click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+  1. In the top panel, click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify `canary-sg`.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `canary-network`.
   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}**, create the following rules using the instructions below the table:
@@ -622,7 +622,7 @@ To create security groups:
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
      1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
      1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
-     1. At the top right, click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
+     1. In the top panel, click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
      1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-bg-production`.
      1. Create a backend named `canary-backend-blue`:
          1. Under **{{ ui-key.yacloud.alb.label_backends }}**, click **{{ ui-key.yacloud.common.add }}**.
@@ -657,7 +657,7 @@ To create security groups:
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
   1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
-  1. At the top right, click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
+  1. In the top panel, click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-router`.
   1. Create a virtual host named `canary-vh-production`:
 
@@ -872,7 +872,7 @@ To create security groups:
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
   1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. At the top right, click **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
+  1. In the top panel, click **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-balancer`.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
 

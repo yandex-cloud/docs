@@ -29,12 +29,13 @@
 ## Сервисные роли верхнего уровня {#service-level-roles}
 
 ```mermaid
-%%{
-  init: {
-    "flowchart": { "defaultRenderer": "elk" },
-    "elk": { "nodePlacementStrategy": "NETWORK_SIMPLEX" }
-  }
-}%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+  elk:
+    nodePlacementStrategy: NETWORK_SIMPLEX
+---
 flowchart BT
     data-catalog.user --> data-catalog.dataConsumer
     data-catalog.viewer --> data-catalog.dataConsumer

@@ -147,7 +147,7 @@ Add a listener with the following test settings to `test-load-balancer`:
 
 - API {#api}
 
-  Use the [addListener](../api-ref/NetworkLoadBalancer/addListener.md) API method, providing the following in the request body:
+  Use the [addListener](../api-ref/NetworkLoadBalancer/addListener.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/AddListener](../api-ref/grpc/NetworkLoadBalancer/addListener.md) gRPC API call, and provide the following in your request:
 
   ```api
   {
@@ -162,5 +162,7 @@ Add a listener with the following test settings to `test-load-balancer`:
     }
   }
   ```
+
+  In the gRPC API, field names use [snake_case](https://{{ lang }}.wikipedia.org/wiki/Snake_case): `listener_spec`, `target_port`, `external_address_spec`, `ip_version`.
 
 {% endlist %}

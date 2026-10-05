@@ -19,9 +19,9 @@ description: Follow this guide to create a {{ video-full-name }} broadcast.
       {% include [push-pull](../../../_includes/video/push-pull.md) %}
 
   1. If you selected the `Pull` stream type, enter the address of your broadcast server in the **{{ ui-key.yacloud_video.stream-lines.label_url }}** field.
-  1. Select **{{ ui-key.yacloud_video.streams.field_segment-duration }}**, which sets the time between video capture at the source and its playback for viewers:
+  1. Select **{{ ui-key.yacloud_video.streams.field_segment-duration }}**, which determines the time between video capture at the source and its playback by viewers:
      
-     * **{{ ui-key.yacloud_video.streams.option_segment-duration-standart }}**: Ensures high image quality and resilience to unstable connections. Suitable for broadcasts without active real-time viewer interaction.
+     * **{{ ui-key.yacloud_video.streams.option_segment-duration-standart }}**: Ensures high image quality and resilience to unstable connections. Suitable for broadcasts that do not involve active interaction with viewers in real time.
      * **{{ ui-key.yacloud_video.streams.option_segment-duration-low }}**: Suitable for scenarios with active viewer interaction but more sensitive to network quality.
   
   1. Enable **{{ ui-key.yacloud_video.streams.label_auto-publish-streams }}** to publish episodes automatically upon receiving an input signal.
@@ -41,18 +41,21 @@ description: Follow this guide to create a {{ video-full-name }} broadcast.
 
   1. Under **{{ ui-key.yacloud_video.streams.title_stream-episodes }}**, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_video.streams.action_add-stream-episode }}**.
   1. In the **{{ ui-key.yacloud_video.streams.label_episode-type }}** field, select a mode:
-     * **{{ ui-key.yacloud_video.streams.label_episode-type-live }}**: Real-time playback with rewind support.
-     * **{{ ui-key.yacloud_video.streams.label_episode-type-broadcast }}**: Scheduled playback with recording.
+
+     * **{{ ui-key.yacloud_video.streams.label_episode-type-live }}**: Continuous broadcast with no set end time. The record is not saved: you can only rewind it to the extent of the [rewind buffer](*rewind-buffer).
+     * **Recorded broadcast**: Broadcast with set start and end times. The recording is saved and remains available after the broadcast.
+
   1. Enter a name and description for the episode.
   1. In the **Access** list, select the episode access type:
+
      * `For all users`: Anyone with the link will have unlimited access to the episode.
   
      * `By temporary link`: Access to the episode will be provided through a special link.
   
       {% include [video-temporary-links](../../../_includes/video/video-temporary-links.md) %}
 
-  1. When selecting **{{ ui-key.yacloud_video.streams.label_episode-type-live }}** as the episode type, specify the **{{ ui-key.yacloud_video.streams.label_rewind-buffer }}** field to set the number of seconds the player buffers around the current position for smooth navigation.
-  1. When selecting **{{ ui-key.yacloud_video.streams.label_episode-type-broadcast }}** as the episode type, specify the broadcast start and end date and time in the **{{ ui-key.yacloud_video.streams.label_stream-episode-start }}** and **{{ ui-key.yacloud_video.streams.label_stream-episode-end }}** fields.
+  1. When selecting **{{ ui-key.yacloud_video.streams.label_episode-type-live }}** as the episode type, specify how many seconds the viewer can rewind the broadcast in the **{{ ui-key.yacloud_video.streams.label_rewind-buffer }}** field.
+  1. When selecting **Recorded broadcast** as the episode type, specify the broadcast start and end date and time in the **{{ ui-key.yacloud_video.streams.label_stream-episode-start }}** and **{{ ui-key.yacloud_video.streams.label_stream-episode-end }}** fields.
   
       {% note tip %}
 
@@ -60,7 +63,7 @@ description: Follow this guide to create a {{ video-full-name }} broadcast.
 
       {% endnote %}
 
-  1. Enable or disable ads. To enable it, [configure](../channels/settings.md#ad-settings) ad display in advance.
+  1. Enable or disable monetization. To enable it, [configure](../channels/settings.md#ad-settings) it in advance.
   1. To change a [player preset](../../concepts/player.md#player-presets), in the **{{ ui-key.yacloud_video.streams.label_player-template }}** list, select the one you need from those available in the channel or create a new preset.
   1. In the **{{ ui-key.yacloud_video.thumbnails.label_thumbnail }}** field, click ![upload](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Select file** and choose a cover image.
   
@@ -75,3 +78,5 @@ description: Follow this guide to create a {{ video-full-name }} broadcast.
   To create an episode, use the [create](../../api-ref/Episode/create.md) REST API method for the [Episode](../../api-ref/Episode/index.md) resource or the [Episode/Create](../../api-ref/grpc/Episode/create.md) gRPC API call.
 
 {% endlist %}
+
+[*rewind-buffer]: {% include notitle [rewind-buffer](../../../_popups/video/streams.md#rewind-buffer) %}

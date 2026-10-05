@@ -1,10 +1,11 @@
 ```mermaid
-%%{
-  init: {
-    "flowchart": { "defaultRenderer": "elk" },
-    "elk": { "nodePlacementStrategy": "SIMPLE" }
-  }
-}%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+  elk:
+    nodePlacementStrategy: SIMPLE
+---
 flowchart BT
     yq.editor --> yq.admin
     yq.invoker --> yq.editor

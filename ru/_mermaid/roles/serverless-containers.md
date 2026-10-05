@@ -1,10 +1,11 @@
 ```mermaid
-%%{
-  init: {
-    "flowchart": { "defaultRenderer": "elk" },
-    "elk": { "nodePlacementStrategy": "SIMPLE" }
-  }
-}%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+  elk:
+    nodePlacementStrategy: SIMPLE
+---
 flowchart BT
     serverless-containers.editor["serverless-containers.
     editor"] --> serverless-containers.admin["serverless-containers.

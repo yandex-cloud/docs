@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профили WAF > Мониторинг и корректировка защиты ML WAF
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профили Cloud WAF > Мониторинг и корректировка защиты ML WAF
 
 # Мониторинг и корректировка защиты ML WAF
 
@@ -119,7 +119,7 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Профили WAF](../concepts/waf.md)
+* [Cloud WAF](../concepts/waf.md)
 * [Настроить наборы правил WAF](configure-set-rules.md)
 * [Добавить правило-исключение WAF](exclusion-rule-add.md)
 * [Настроить логирование через Smart Web Security](configure-logging.md)

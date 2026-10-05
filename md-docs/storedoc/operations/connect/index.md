@@ -103,7 +103,7 @@
 
    ```bash
    mkdir -p ~/.mongodb && \
-   wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
+   wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
         --output-document ~/.mongodb/root.crt && \
    chmod 0644 ~/.mongodb/root.crt
    ```
@@ -113,7 +113,7 @@
 - Windows (PowerShell) {#windows}
 
    ```powershell
-   mkdir $HOME\.mongodb; curl.exe -o $HOME\.mongodb\root.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
+   mkdir $HOME\.mongodb; curl.exe -o $HOME\.mongodb\root.crt https://storage.yandexcloud.net/cloud-certs/RootCA.pem
    ```
 
    Сертификат будет сохранен в файле `$HOME\.mongodb\root.crt`.

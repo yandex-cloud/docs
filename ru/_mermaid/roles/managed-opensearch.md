@@ -1,12 +1,12 @@
 ```mermaid
-%%{
-  init: {
-    "flowchart": { "defaultRenderer": "elk" },
-    "elk": { "nodePlacementStrategy": "NETWORK_SIMPLEX" }
-  }
-}%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+  elk:
+    nodePlacementStrategy: NETWORK_SIMPLEX
+---
 flowchart BT
-    vpc.publicAdmin
     mdb.viewer --> mdb.restorer
     managed-opensearch.viewer --> managed-opensearch.restorer
     managed-opensearch.restorer["`managed-opensearch.

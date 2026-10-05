@@ -37,7 +37,18 @@ You cannot change or delete the preset lists.
 
 In addition to preset lists, you can create your custom value sets.
 
-There is a dedicated list for each value type: IP addresses, ASNs, string values, or regular expressions. You can group multiple values of the same type into a single list and reference that list across one or more rules. This way, you do not need to create a separate rule for each individual value if they require identical conditions and action. For example, you can group the `/login`, `/checkout`, and `/api/v1/users` paths into a single list of string values and use it within one rule. If some of these values change, you only need to update the list, not the rule. To group similar values, use a regular expression list: separate alternatives with the `|` operator and escape special characters with a backslash (`\`) to interpret them literally. For example, `/api/(v1|v2)/users` matches two versions of an API path, while `^/promo/(sale|discount)/?$`, `/promo/sale` and `/promo/discount` URLs, with an optional trailing slash.
+There is a dedicated list for each value type: IP addresses, ASNs, string values, or regular expressions. You can group multiple values of the same type into a single list and reference that list across one or more rules.
+
+Regular expression lists allow you to combine several values, e.g., request paths or HTTP header values, into a single filtering condition. You can use the following in expressions:
+
+* `|`: Selects an option: `(v1|v2)` is the same as `v1` or `v2`.
+* `?`: Makes the preceding element optional: `/promo/?` is the same as `/promo` and `/promo/`.
+* `.*`: Sequence of characters, including an empty one: `/assets/.*` is the same as any path starting with `/assets/`.
+* `\`: Escapes special characters: `logo\.svg`.
+
+The `^` and `$` anchors are not supported in regular expressions. Read more about [regular expression syntax](conditions.md#regular-expressions).
+
+To filter by path, connect a list of strings or regular expressions to the `Request URI` condition. For example, a string list can contain `/login`, `/checkout`, and `/api/v1/users`. Specify paths without the schema, domain, or query parameters. To filter by domain, add the `Host` condition and combine it with `Request URI` using the _AND_ operator.
 
 We recommend grouping them into one of these categories:
 

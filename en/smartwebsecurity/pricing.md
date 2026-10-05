@@ -22,7 +22,7 @@ blocks:
         text: Calculate the cost of the service based on your needs
         gravityIcon: Calculator
         urlTitle: Price calculator
-        url: https://yandex.cloud/en/prices?state=a9f2a3dd4fd2#calculator
+        url: https://yandex.cloud/en/prices?state=0fd59c4ae9e5#calculator
         size: s
         border: shadow
         centered: true

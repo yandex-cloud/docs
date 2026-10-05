@@ -168,6 +168,7 @@ blocks:
 Защита трафика от DDoS-атак на уровнях L3–L4 тарифицируется по объему [легитимного](concepts/rules.md#rule-action) трафика в ГБ.
 
 
+
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|sws }}']}

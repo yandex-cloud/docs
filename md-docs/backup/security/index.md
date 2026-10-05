@@ -32,12 +32,13 @@
 ## Какие роли действуют в сервисе {#roles-list}
 
 ```mermaid
-%%{
-  init: {
-    "flowchart": { "defaultRenderer": "elk" },
-    "elk": { "nodePlacementStrategy": "SIMPLE" }
-  }
-}%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+  elk:
+    nodePlacementStrategy: SIMPLE
+---
 flowchart BT
     backup.auditor --> backup.viewer
     backup.auditor --> backup.user

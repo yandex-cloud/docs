@@ -78,7 +78,7 @@ The system logs all actions with {{ network-load-balancer-name }} resources as a
 
   To get a list of operations, use the `listOperations` REST API method for the relevant resource or the `<service>/ListOperations` gRPC API call.
 
-  For example, for a network load balancer, use the [listOperations](../api-ref/NetworkLoadBalancer/listOperations.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/ListOperations](../api-ref/grpc/NetworkLoadBalancer/listOperations.md) gRPC API call, providing the network load balancer ID in the `networkLoadBalancerId` parameter of your request.
+  For example, for a network load balancer, use the [listOperations](../api-ref/NetworkLoadBalancer/listOperations.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/ListOperations](../api-ref/grpc/NetworkLoadBalancer/listOperations.md) gRPC API call, providing the network load balancer ID in the `networkLoadBalancerId` (REST API) or `network_load_balancer_id` (gRPC API) parameter of the request.
 
   You can get the network load balancer ID with the [list of network load balancers in the folder](load-balancer-list.md#list).
 

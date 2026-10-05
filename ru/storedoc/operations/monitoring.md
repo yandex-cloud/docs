@@ -349,6 +349,14 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [monitoring-cluster-health](../../_includes/mdb/monitoring-cluster-health.md) %}
 
+#### Восстановление кластера в состоянии DEAD {#restore-dead-cluster}
+
+{% include [restore-dead-cluster](../../_includes/mdb/restore-dead-cluster.md) %}
+
+1. [Восстановите кластер из резервной копии](cluster-backups.md#restore).
+1. Обновите параметры подключения в приложениях и проверьте доступ к данным в новом кластере.
+1. [Проведите диагностику производительности](performance-diagnostics.md) и [оптимизируйте запросы и индексы](../tutorials/profiling.md). Проверьте количество открытых соединений и настройки пула соединений в приложениях. Если ожидаемая нагрузка превышает доступные ресурсы, [увеличьте класс хостов](update.md#change-resource-preset).
+
 ### Статусы кластера {#cluster-status}
 
 {% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}

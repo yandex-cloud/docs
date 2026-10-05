@@ -3,6 +3,7 @@
 # Практические руководства Smart Web Security
 
 * [Базовая настройка защиты в Smart Web Security](sws-basic-protection.md)
+* [Подключение SolidWall WAF к веб-приложению](solidwall-waf.md)
 * [Создание L7-балансировщика Yandex Application Load Balancer с профилем безопасности Yandex Smart Web Security](balancer-with-sws-profile/index.md)
 * [Создание L7-балансировщика с профилем безопасности Smart Web Security через Ingress-контроллер Application Load Balancer](alb-ingress-with-sws-profile.md)
 * [Создание балансировщика с защитой от DDoS](alb-with-ddos-protection/index.md)

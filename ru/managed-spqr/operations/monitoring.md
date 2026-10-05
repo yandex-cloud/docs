@@ -109,6 +109,16 @@ description: Вы можете отслеживать состояние кла�
 
 {% include [monitoring-cluster-health](../../_includes/mdb/monitoring-cluster-health.md) %}
 
+#### Восстановление кластера в состоянии DEAD {#restore-dead-cluster}
+
+{% include [restore-dead-cluster](../../_includes/mdb/restore-dead-cluster.md) %}
+
+1. [Восстановите кластер из резервной копии](cluster-backups.md#restore).
+
+   Резервная копия {{ mspqr-name }} содержит конфигурацию шардов, а данные шардов хранятся в резервных копиях соответствующих кластеров {{ mpg-name }}. Если недоступен кластер с данными шарда, [восстановите его отдельно](../../managed-postgresql/operations/cluster-backups.md#restore). Подробнее о составе копий — в разделе [Резервные копии](../concepts/backup.md).
+1. Обновите параметры подключения в приложениях и проверьте доступ к данным в новом кластере.
+1. Проверьте нагрузку на роутеры, координаторы и хосты шардов. Используйте [рекомендации по выбору ресурсов](../qa/performance.md). Для кластеров {{ mpg-name }}, которые используются в качестве шардов, [проведите диагностику производительности](../../managed-postgresql/operations/performance-diagnostics.md).
+
 ### Статусы кластера {#cluster-status}
 
 {% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}

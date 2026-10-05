@@ -1,15 +1,8 @@
-title: Yandex Cloud Backup
-description:
-  - >-
-    With Yandex Cloud Backup, you can set up automatic backups for <a
-    href="/docs/compute">Yandex Compute Cloud</a> VMs, <a
-    href="/docs/baremetal">Yandex BareMetal</a> servers, as well as VMs and
-    servers in the user or third-party provider infrastructure.
 meta:
   title: Yandex Cloud Backup
   description: >-
-    With Yandex Cloud Backup, you can set up automatic backups for VMs and
-    servers both inside and outside Yandex Cloud.
+    With {{ backup-full-name }}, you can set up automatic backups for VMs and
+    servers both inside and outside {{ yandex-cloud }}.
   keywords:
     - keyword: backup
     - keyword: yandex backup
@@ -20,27 +13,163 @@ meta:
     - keyword: backing up in {{ yandex-cloud }}
     - keyword: backups
     - keyword: backing up
-links:
-  - title: Getting started
-    description: Create a VM and link it to a backup policy
-    href: quickstart
-  - title: Step-by-step guides
-    description: How to perform routine operations
-    href: operations/
-  - title: Concepts
+blocks:
+  - type: card-layout-block
+    title: Yandex Cloud Backup
     description: >-
-      Learn more about backups and backup policies, as well as the Cloud Backup
-      Agent.
-    href: concepts/
-  - title: Quotas
-    description: Technical and organizational limitations
-    href: concepts/limits
-  - title: Access management
-    description: Configure access permissions for the service
-    href: security/
-  - title: Pricing policy
-    description: Prices and cost calculation rules
-    href: pricing
-  - title: API reference
-    description: HTTP API method descriptions
-    href: backup/api-ref/
+      With Yandex Cloud Backup, you can set up automatic backups for [Yandex
+      Compute Cloud](../compute/) VMs, [Yandex BareMetal](../baremetal/)
+      servers, as well as VMs and servers in your own or third-party
+      infrastructure.
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+      lg: 4
+    children:
+      - type: basic-card
+        title: Getting started
+        text: Connect a VM to the service and create a backup
+        icon: ../_assets/console-icons/rocket.svg
+        urlTitle: Getting started
+        url: quickstart/
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Step-by-step guides
+        text: Follow guides to perform routine operations
+        icon: ../_assets/console-icons/list-ol.svg
+        urlTitle: Step-by-step guides
+        url: operations/
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Concepts
+        text: Learn about backups, backup policies, and the Cloud Backup agent
+        icon: ../_assets/console-icons/bookmark.svg
+        urlTitle: Concepts
+        url: concepts/
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Tutorials
+        text: Use the service to address common tasks
+        icon: ../_assets/console-icons/book.svg
+        urlTitle: Tutorials
+        url: tutorials/
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Quotas
+        text: Technical and organizational limitations of the service
+        icon: ../_assets/console-icons/sliders.svg
+        urlTitle: Quotas
+        url: concepts/limits
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Access management
+        text: Configure access permissions for the service
+        icon: ../_assets/console-icons/persons-lock.svg
+        urlTitle: Access management
+        url: security/
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Pricing policy
+        text: Prices and cost calculation rules
+        icon: ../_assets/console-icons/calculator.svg
+        urlTitle: Pricing policy
+        url: pricing
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Changelog
+        text: Updates to the service
+        icon: ../_assets/console-icons/timeline.svg
+        urlTitle: Changelog
+        url: release-notes
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Troubleshooting
+        text: Learn how to troubleshoot issues with the service
+        icon: ../_assets/console-icons/circle-question.svg
+        urlTitle: Troubleshooting
+        url: qa/troubleshooting
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: CLI reference
+        text: Manage service resources from the command line
+        icon: ../_assets/console-icons/terminal.svg
+        urlTitle: CLI reference
+        url: cli-ref/
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Terraform reference
+        text: Create and update service resources using Terraform
+        icon: ../_assets/console-icons/cube.svg
+        urlTitle: Terraform reference
+        url: tf-ref
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: API reference
+        text: Use HTTP API methods to manage the service
+        icon: ../_assets/console-icons/code.svg
+        urlTitle: API reference
+        url: backup/api-ref/
+        centered: true
+        animated: false
+        size: s
+  - type: card-layout-block
+    colSizes:
+      all: 12
+      xl: 6
+      lg: 6
+      md: 6
+      sm: 12
+    centered: true
+    children:
+      - type: basic-card
+        title: Terms of use
+        border: shadow
+        size: s
+        icon: ../_assets/console-icons/file-text.svg
+        text: >
+          The Yandex Cloud infrastructure is
+          [protected](https://yandex.cloud/en/docs/security/conform#law)
+          pursuant to the Russian Federal Law No. 152-FZ on Personal Data.
+
+
+          * [Terms of use for Yandex Cloud
+          Backup](https://yandex.ru/legal/cloud_terms_backup)
+
+
+          * [Terms of use for Yandex
+          Cloud](https://yandex.ru/legal/cloud_specialterms)
+      - type: basic-card
+        title: Service level
+        border: shadow
+        size: s
+        icon: ../_assets/console-icons/file-check.svg
+        text: >
+          * [Service level for Yandex Cloud
+          Backup](https://yandex.ru/legal/cloud_sla_backup)
+
+
+          * [Service level for Yandex Cloud](https://yandex.ru/legal/cloud_sla)
+links: []

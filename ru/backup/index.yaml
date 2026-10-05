@@ -1,17 +1,9 @@
-title: Yandex Cloud Backup
-description:
-  - >-
-    Сервис Yandex Cloud Backup позволяет настроить автоматическое резервное
-    копирование виртуальных машин <a href="/docs/compute">Yandex Compute
-    Cloud</a>, серверов <a href="/docs/baremetal">Yandex BareMetal</a>, а также
-    виртуальных машин и серверов в инфраструктуре пользователя или сторонних
-    провайдеров.
 meta:
   title: Yandex Cloud Backup
   description: >-
-    Сервис Yandex Cloud Backup позволяет настроить автоматическое резервное
-    копирование виртуальных машин и серверов как на платформе Yandex Cloud, так
-    и за ее пределами.
+    Сервис {{ backup-full-name }} позволяет настроить автоматическое резервное
+    копирование виртуальных машин и серверов как на платформе {{ yandex-cloud
+    }}, так и за ее пределами.
   keywords:
     - keyword: backup
     - keyword: yandex backup
@@ -22,25 +14,167 @@ meta:
     - keyword: резервное копирование в {{ yandex-cloud }}
     - keyword: резервные копии
     - keyword: резервное копирование
-links:
-  - title: Начало работы
-    description: Создайте ВМ и привяжите ее к политике резервного копирования
-    href: quickstart
-  - title: Пошаговые инструкции
-    description: Инструкции по выполнению рутинных операций
-    href: operations/
-  - title: Концепции
-    description: Узнайте про резервные копии, политики копирования и агента Cloud Backup
-    href: concepts/
-  - title: Квоты
-    description: Технические и организационные ограничения сервиса
-    href: concepts/limits
-  - title: Управление доступом
-    description: Настройте права доступа для работы с сервисом
-    href: security/
-  - title: Правила тарификации
-    description: Цены и правила расчета стоимости услуг сервиса
-    href: pricing
-  - title: Справочник API (англ.)
-    description: Описание методов HTTP API
-    href: backup/api-ref/
+blocks:
+  - type: card-layout-block
+    title: Yandex Cloud Backup
+    description: >-
+      Сервис Yandex Cloud Backup позволяет настроить автоматическое резервное
+      копирование виртуальных машин [Yandex Compute Cloud](../compute/),
+      серверов [Yandex BareMetal](../baremetal/), а также виртуальных машин и
+      серверов в инфраструктуре пользователя или сторонних провайдеров.
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+      lg: 4
+    children:
+      - type: basic-card
+        title: Начало работы
+        text: Подключите ВМ к сервису и создайте резервную копию
+        icon: ../_assets/console-icons/rocket.svg
+        urlTitle: Начало работы
+        url: quickstart/
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Пошаговые инструкции
+        text: Следуйте инструкциям для выполнения рутинных операций
+        icon: ../_assets/console-icons/list-ol.svg
+        urlTitle: Пошаговые инструкции
+        url: operations/
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Концепции
+        text: >-
+          Узнайте про резервные копии, политики копирования и агента Cloud
+          Backup
+        icon: ../_assets/console-icons/bookmark.svg
+        urlTitle: Концепции
+        url: concepts/
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Практические руководства
+        text: Решайте типовые задачи с помощью сервиса
+        icon: ../_assets/console-icons/book.svg
+        urlTitle: Практические руководства
+        url: tutorials/
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Квоты
+        text: Технические и организационные ограничения сервиса
+        icon: ../_assets/console-icons/sliders.svg
+        urlTitle: Квоты
+        url: concepts/limits
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Управление доступом
+        text: Настройте права доступа для работы с сервисом
+        icon: ../_assets/console-icons/persons-lock.svg
+        urlTitle: Управление доступом
+        url: security/
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Правила тарификации
+        text: Цены и правила расчета стоимости услуг сервиса
+        icon: ../_assets/console-icons/calculator.svg
+        urlTitle: Правила тарификации
+        url: pricing
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: История изменений
+        text: Перечень обновлений сервиса
+        icon: ../_assets/console-icons/timeline.svg
+        urlTitle: История изменений
+        url: release-notes
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Решение проблем
+        text: Узнайте, как решать проблемы при работе с сервисом
+        icon: ../_assets/console-icons/circle-question.svg
+        urlTitle: Решение проблем
+        url: qa/troubleshooting
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Справочник CLI
+        text: Управляйте ресурсами сервиса из командной строки
+        icon: ../_assets/console-icons/terminal.svg
+        urlTitle: Справочник CLI
+        url: cli-ref/
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Справочник Terraform
+        text: Создавайте и изменяйте ресурсы сервиса с помощью Terraform
+        icon: ../_assets/console-icons/cube.svg
+        urlTitle: Справочник Terraform
+        url: tf-ref
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Справочник API
+        text: Используйте методы HTTP API для управления сервисом
+        icon: ../_assets/console-icons/code.svg
+        urlTitle: Справочник API
+        url: backup/api-ref/
+        centered: true
+        animated: false
+        size: s
+  - type: card-layout-block
+    colSizes:
+      all: 12
+      xl: 6
+      lg: 6
+      md: 6
+      sm: 12
+    centered: true
+    children:
+      - type: basic-card
+        title: Условия использования
+        border: shadow
+        size: s
+        icon: ../_assets/console-icons/file-text.svg
+        text: >
+          Инфраструктура Yandex Cloud
+          [защищена](https://yandex.cloud/ru/docs/security/conform#law) в
+          соответствии с Федеральным законом Российской Федерации «О
+          персональных данных» № 152-ФЗ.
+
+
+          * [Условия использования Yandex Cloud
+          Backup](https://yandex.ru/legal/cloud_terms_backup)
+
+
+          * [Условия использования Yandex
+          Cloud](https://yandex.ru/legal/cloud_specialterms)
+      - type: basic-card
+        title: Уровень обслуживания
+        border: shadow
+        size: s
+        icon: ../_assets/console-icons/file-check.svg
+        text: >
+          * [Уровень обслуживания Yandex Cloud
+          Backup](https://yandex.ru/legal/cloud_sla_backup)
+
+
+          * [Уровень обслуживания Yandex
+          Cloud](https://yandex.ru/legal/cloud_sla)
+links: []

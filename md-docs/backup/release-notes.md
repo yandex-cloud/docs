@@ -2,6 +2,10 @@
 
 # История изменений в Yandex Cloud Backup
 
+## III квартал 2026 {#q3-2026}
+
+С 17 августа 2026 года за резервное копирование [внешних ресурсов](concepts/vm-connection/external-resources.md) в [регионе](../overview/concepts/region.md) Казахстан [взимается плата](pricing.md).
+
 ## II квартал 2026 {#q2-2026}
 
 * Реализовано подключение к Cloud Backup ВМ и серверов, расположенных за пределами Yandex Cloud. Подробнее в документации:

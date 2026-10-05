@@ -18,8 +18,8 @@ Types of input streams:
 
 Each broadcast consists of _episodes_. There are two types of episodes:
 
-* `{{ ui-key.yacloud_video.streams.label_episode-type-live }}`: Real-time viewing with rewind support.
-* `{{ ui-key.yacloud_video.streams.label_episode-type-broadcast }}`: Event with defined start and end times and recording.
+* `{{ ui-key.yacloud_video.streams.label_episode-type-live }}`: Continuous broadcast with no set end time. The record is not saved: you can only rewind it to the extent of the [rewind buffer](*rewind-buffer).
+* `Recorded broadcast`: Broadcast with set start and end times. The recording is saved and remains available after the broadcast.
 
 You can upload custom thumbnails for your episodes. The thumbnail will appear in the {{ video-name }} interface and in the player on the website hosting the broadcast episode.
 
@@ -40,8 +40,10 @@ You can view statuses under **{{ ui-key.yacloud_video.streams.title_stream-episo
 Broadcast episodes can have the following statuses:
 
 * `{{ ui-key.yacloud_video.streams.status_offline }}`: The broadcast is off. Displayed in two cases:
+
   * The broadcast is not started yet.
   * The broadcast ended either through disabling the **{{ ui-key.yacloud_video.streams.label_enable-broadcast }}** option or automatically at a specified time.
+
 * `{{ ui-key.yacloud_video.streams.status_preparing }}`: Preparation of a fault-tolerant {{ yandex-cloud }} infrastructure for video transcoding is ongoing. Awaiting video signal. The broadcast gets this status a few minutes before it starts.
 * `{{ ui-key.yacloud_video.streams.status_ready }}`: The infrastructure is ready, the video signal is received. You can start your broadcast.
 * `{{ ui-key.yacloud_video.streams.status_on-air }}`: The broadcast is on. The broadcast gets this status as soon as you click ![play](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.streams.label_start-broadcast }}** or automatically at a specified time.
@@ -68,7 +70,7 @@ The following metrics are available:
 
 * Stream drift: Graph for lag between video/audio tracks and real time. Shows the difference in your broadcasting software performance and the amount of data sent.
 
-* Stream drift semaphore: Semaphore that changes its color depending on the difference between the current Stream Drift and the average Stream Drift over the last 30 seconds. The possible values are as follows:
+* Stream drift semaphore: Semaphore that changes its color depending on the difference between the current Stream Drift and the average Stream Drift over the last 30 seconds. The possible values are:
 
   * Green: Good indicator, the difference is within the normal range (under 500 ms).
   * Yellow: Time to check source signal or network. Difference from 500 to 1,000 ms.
@@ -80,6 +82,7 @@ Each event log entry contains the following:
 * Broadcast date: Time the event occurred.
 * Message: Event description.
 * Status: Event type. There are two types of events:
+
   * `Information`: Informational message. For example, change in broadcast status.
   * `Error`: Error messages.
 
@@ -91,7 +94,9 @@ You can [view statistics](../operations/streams/get-statistics.md) for each broa
 
 This data will help you understand which devices and platforms are most popular among your audience and optimize your broadcast accordingly.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Getting started with a video broadcast](../streaming.md)
 * [Getting started with API](../api-ref/quickstart.md)
+
+[*rewind-buffer]: {% include notitle [rewind-buffer](../../_popups/video/streams.md#rewind-buffer) %}
