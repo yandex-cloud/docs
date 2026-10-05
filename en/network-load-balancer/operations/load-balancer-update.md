@@ -81,18 +81,18 @@ After you create a network load balancer, you can:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - API {#api}
 
-    Use the [update](../api-ref/NetworkLoadBalancer/update.md) API method, providing the following in your request:
+    Use the [update](../api-ref/NetworkLoadBalancer/update.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Update](../api-ref/grpc/NetworkLoadBalancer/update.md) gRPC API call and provide the following in the request:
 
-    * Load balancer ID in the `networkLoadBalancerId` parameter. To find out the ID, [get a list of network load balancers in the folder](load-balancer-list.md#list).
+    * Load balancer ID in the `networkLoadBalancerId` parameter (REST API), or `network_load_balancer_id` (gRPC API). To find out the ID, [get a list of network load balancers in the folder](load-balancer-list.md#list).
     * New name in the `name` parameter.
     * New description in the `description` parameter.
-    * List of cluster configuration fields to update, in the `updateMask` parameter (in this case, `name` and `description`).
+    * List of cluster configuration fields to update, in the `updateMask` (REST API) or `update_mask` (gRPC API) parameter (in this case, `name` and `description`).
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -163,17 +163,17 @@ After you create a network load balancer, you can:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - API {#api}
 
-    Use the [update](../api-ref/NetworkLoadBalancer/update.md) API method, providing the following in your request:
+    Use the [update](../api-ref/NetworkLoadBalancer/update.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Update](../api-ref/grpc/NetworkLoadBalancer/update.md) gRPC API call and provide the following in the request:
 
-    * Load balancer ID in the `networkLoadBalancerId` parameter. To find out the ID, [get a list of network load balancers in the folder](load-balancer-list.md#list).
+    * Load balancer ID in the `networkLoadBalancerId` parameter (REST API), or `network_load_balancer_id` (gRPC API). To find out the ID, [get a list of network load balancers in the folder](load-balancer-list.md#list).
     * New label values in the `labels` parameter.
-    * List of cluster configuration fields to update, in the `updateMask` parameter (in this case, `labels`).
+    * List of cluster configuration fields to update, in the `updateMask` (REST API) or `update_mask` (gRPC API) parameter (in this case, `labels`).
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -271,13 +271,13 @@ After you create a network load balancer, you can:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - API {#api}
 
-    Use the [update](../api-ref/NetworkLoadBalancer/update.md) API method, providing the following in your request:
+    Use the [update](../api-ref/NetworkLoadBalancer/update.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Update](../api-ref/grpc/NetworkLoadBalancer/update.md) gRPC API call and provide the following in the request:
 
     * Load balancer ID in the `networkLoadBalancerId` parameter. To find out the ID, [get a list of network load balancers in the folder](load-balancer-list.md#list).
     * Target group ID and health check settings in the `attachedTargetGroups` parameter.
@@ -285,6 +285,8 @@ After you create a network load balancer, you can:
       {% include [get-target-group-id](../../_includes/network-load-balancer/get-target-group-id.md) %}
 
     * List of cluster configuration fields to update, in the `updateMask` parameter (in this case, `attachedTargetGroups`).
+
+    In the gRPC API, field names use [snake_case](https://{{ lang }}.wikipedia.org/wiki/Snake_case), e.g., `network_load_balancer_id`, `attached_target_groups`, or `update_mask`.
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

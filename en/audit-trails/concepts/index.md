@@ -5,12 +5,11 @@ description: With {{ at-full-name }}, you can collect audit logs about {{ yandex
 
 # {{ at-full-name }} overview
 
-{{ at-full-name }} allows you to collect [management event audit logs](./events.md) and [data event audit logs](./events-data-plane.md) for {{ yandex-cloud }} resources and upload them to a [bucket](../../storage/concepts/bucket.md) in {{ objstorage-name }}, [log group](../../logging/concepts/log-group.md) in {{ cloud-logging-name }}, data stream in {{ yds-name }}, or [bus](../../serverless-integrations/concepts/eventrouter/bus.md) in {{ er-full-name }}:
+{{ at-full-name }} allows you to collect [management event audit logs](./events.md) and [data event audit logs](./events-data-plane.md) for {{ yandex-cloud }} resources and upload them to a [bucket](../../storage/concepts/bucket.md) in {{ objstorage-name }}, [log group](../../logging/concepts/log-group.md) in {{ cloud-logging-name }}, or [data stream](../../data-streams/concepts/glossary.md#stream-concepts) in {{ yds-name }}:
 
-* [Uploading audit logs to a bucket](../operations/create-trail.md#bucket_1).
-* [Uploading audit logs to Cloud Logging](../operations/create-trail.md#logging_1).
-* [Uploading audit logs to a data stream](../operations/create-trail.md#data-streams_1).
-* [Uploading audit logs to a bus](../operations/create-trail.md#eventrouter_1).
+* [Uploading audit logs to a bucket](../operations/create-trail.md#bucket).
+* [Uploading audit logs to {{ cloud-logging-name }}](../operations/create-trail.md#logging).
+* [Uploading audit logs to a data stream](../operations/create-trail.md#data-streams).
 
 Collecting audit logs enables you to use analytical tools and promptly respond to {{ yandex-cloud }} events:
 

@@ -1,10 +1,12 @@
 ```mermaid
-%%{
-  init: {
-    "flowchart": { "defaultRenderer": "elk", "padding": 4 },
-    "elk": { "nodePlacementStrategy": "LINEAR_SEGMENTS" }
-  }
-}%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+    padding: 4
+  elk:
+    nodePlacementStrategy: LINEAR_SEGMENTS
+---
 flowchart BT
     kms.auditor --> kms.viewer
     kms.viewer --> kms.editor

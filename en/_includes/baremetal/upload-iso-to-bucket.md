@@ -18,7 +18,7 @@
       1. On the `create bucket` page:
 
           1. Specify a bucket name that meets [these naming conventions](../../storage/concepts/bucket.md#naming).
-          1. Set a bucket size limit or enable **{{ ui-key.yacloud.storage.bucket.settings.label_size-limit-disabled }}**, if required.
+          1. Enable the **{{ ui-key.yacloud.storage.form-components.SizeLimitField.field_size-limit-enabled_hPy7f }}** option to set the maximum bucket size.
           1. Leave all other parameters as they are and click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
     - {{ yandex-cloud }} CLI {#cli}

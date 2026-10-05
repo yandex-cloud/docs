@@ -5,6 +5,128 @@ description: This section contains the {{ at-name }} release notes.
 
 # {{ at-full-name }} release notes
 
+## August 2026 {#aug-2026}
+
+Added new events for the services:
+
+  {% cut "{{ src-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `AddPersonalEmail` | Adding a personal email address
+  `AddPersonalPublicGpgKey` | Adding a personal public GPG key
+  `AddPersonalPublicSshKey` | Adding a personal public SSH key
+  `CreatePersonalAccessToken` | Creating a personal access token
+  `CreateRepository` | Creating a repository
+  `CreateSecret` | Creating a secret
+  `CreateServiceConnection` | Creating a connection to a service
+  `DeleteAllSecrets` | Deleting all secrets
+  `DeletePersonalAccessToken` | Deleting a personal access token
+  `DeleteRepository` | Deleting a repository
+  `DeleteSecret` | Destroying a secret
+  `DeleteServiceConnection` | Deleting a connection to a service
+  `OffboardCloudRegistry` | Disabling a {{ src-registry-endpoint }} registry
+  `OffboardOrganization` | Disabling an organization
+  `OnboardCloudRegistry` | Connecting a {{ src-registry-endpoint }} registry
+  `OnboardOrganization` | Connecting an organization
+  `RemovePersonalEmail` | Deleting a personal email address
+  `RemovePersonalPublicGpgKey` | Deleting a personal public GPG key
+  `RemovePersonalPublicSshKey` | Deleting a personal public SSH key
+  `UpdateAppsecSettings` | Changing AppSec settings
+  `UpdateOrganization` | Updating an organization
+  `UpdatePersonalAccessToken` | Updating a personal access token
+  `UpdateRepository` | Updating a repository
+  `UpdateRepositoryAccessBindings` | Updating access permissions for a repository
+  `UpdateSecret` | Updating a secret
+  `UpdateServiceConnection` | Updating a connection to a service
+  `VerifyPersonalEmail` | Confirming a personal email address
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `GetSecret` | Getting a secret
+  `GetSecretPayload` | Getting secret data
+  `ListSecrets` | Getting a list of secrets
+  `NewAppSecDefect` | Detecting a new defect in {{ src-name }} Security
+
+  {% endcut %}
+
+  {% cut "{{ cloud-registry-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateScanPolicy` | Creating a scan policy
+  `DeleteScanPolicy` | Deleting a scan policy
+  `UpdateScanPolicy` | Updating a scan policy
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `ScanArtifact` | Scanning an artifact
+
+  {% endcut %}
+
+  {% cut "{{ managed-k8s-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `marketplace.v1.InstallHelmRelease` | Installing an app from {{ marketplace-name }} using a Helm chart
+  `marketplace.v1.UninstallHelmRelease` | Deleting an app installed from {{ marketplace-name }} using a Helm chart
+  `marketplace.v1.UpdateHelmRelease` | Updating an app installed from {{ marketplace-name }} using a Helm chart
+
+  {% endcut %}
+
+  {% cut "{{ org-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `SetTwoFactorAuthenticationPassportRequired` | Setting the two-factor authentication requirement for Yandex accounts
+  `application.linked.CreateApplication` | Creating a linked application
+  `application.linked.DeleteApplication` | Deleting a linked application
+  `application.linked.ReactivateApplication` | Activating a linked application
+  `application.linked.SetApplicationAccessBindings` | Assigning access permissions for a linked application
+  `application.linked.SuspendApplication` | Deactivating a linked application
+  `application.linked.UpdateApplication` | Updating a linked application
+  `application.linked.UpdateApplicationAccessBindings` | Updating access permissions for a linked application
+  `application.linked.UpdateApplicationAssignments` | Updating a list of linked application users
+  `idp.application.CreateAsset` | Loading an app logo
+  `idp.application.DeleteAsset` | Deleting an app logo
+  `policy.DeleteRefreshTokenPolicy` | Deleting a token update policy
+  `policy.UpdateRefreshTokenPolicy` | Updating a token update policy
+
+  {% endcut %}
+
+  {% cut "{{ datalens-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `platform.CreateAirflowCluster` | Creating an Airflow cluster
+  `platform.CreateCloudEnvironment` | Creating a cloud environment
+  `platform.CreateRestCatalog` | Creating a REST catalog
+  `platform.CreateRestCatalogNamespace` | Creating a REST catalog namespace
+  `platform.CreateSparkCluster` | Creating a Spark cluster
+  `platform.CreateTrinoCluster` | Creating a Trino cluster
+  `platform.DeleteAirflowCluster` | Deleting an Airflow cluster
+  `platform.DeleteCloudEnvironment` | Deleting a cloud environment
+  `platform.DeleteRestCatalog` | Deleting a REST catalog
+  `platform.DeleteRestCatalogNamespace` | Deleting a REST catalog namespace
+  `platform.DeleteSparkCluster` | Deleting a Spark cluster
+  `platform.DeleteTrinoCluster` | Deleting a Trino cluster
+  `platform.UpdateCloudEnvironment` | Updating a cloud environment
+
+  {% endcut %}
 
 ## July 2026 {#jul-2026}
 

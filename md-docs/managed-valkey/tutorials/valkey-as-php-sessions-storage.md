@@ -115,7 +115,7 @@
 
         ```bash
         sudo mkdir --parents /usr/local/share/ca-certificates/Yandex/ && \
-        sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
+        sudo wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
             --output-document /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
         ```
 

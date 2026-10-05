@@ -1,10 +1,11 @@
 ```mermaid
-%%{
-  init: {
-    "flowchart": { "defaultRenderer": "elk" },
-    "elk": { "nodePlacementStrategy": "SIMPLE" }
-  }
-}%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+  elk:
+    nodePlacementStrategy: SIMPLE
+---
 flowchart BT
     managed-metastore.auditor --> managed-metastore.viewer
     managed-metastore.maintenanceTask.viewer --> managed-metastore.maintenanceTask.editor["`managed-metastore.

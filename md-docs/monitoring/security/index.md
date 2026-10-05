@@ -36,7 +36,11 @@
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе Yandex Monitoring.
 
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     monitoring.editor --> monitoring.admin
     monitoring.viewer --> monitoring.editor

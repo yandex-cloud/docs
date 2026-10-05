@@ -2,32 +2,34 @@
 
 # Передача данных через Fluent Bit
 
-Fluent Bit — агент для сбора, обработки и экспорта логов и метрик. Вы можете использовать Fluent Bit для передачи телеметрии в Monium в формате [OpenTelemetry (OTLP)](https://opentelemetry.io/docs/).
+Fluent Bit — агент для сбора, обработки и экспорта логов, метрик и трейсов. Вы можете использовать Fluent Bit для передачи телеметрии в Monium по протоколу [OTLP](https://opentelemetry.io/docs/specs/otlp/) (OpenTelemetry Protocol).
 
-Fluent Bit оптимально подходит в следующих случаях:
+Fluent Bit можно использовать в следующих случаях:
 
-* Много разных форматов логов и нужны гибкие парсеры.
-* Приложение работает в кластере Kubernetes.
-* Требуется собирать логи централизованно с одного хоста (файлы, Docker, системные логи).
-* Логи уже поставляются через файлы или стандартные выходы приложений.
+* Требуется разбирать логи разных форматов.
+* Нужно собирать логи контейнеров в кластере Kubernetes.
+* Нужно собирать разные логи с одного хоста: из файлов, Docker, системных журналов или стандартного вывода приложений.
+* Нужен легкий агент для приема и отправки метрик и трейсов по OTLP. При передаче метрик учитывайте [ограничения](#metrics-limitations).
 
 В остальных случаях рекомендуется использовать [OTel Collector](opentelemetry.md).
 
 ## Требования к версии {#version}
 
-Рекомендуется использовать Fluent Bit [версии 4.0](https://docs.fluentbit.io/fluent-bit/v/4.0/) и выше с выходом `opentelemetry`.
+Для работы примеров используйте [Fluent Bit](https://github.com/fluent/fluent-bit/security) версии 4.0 и выше с выходным плагином `opentelemetry`.
 
 ## Ограничения при передаче метрик {#metrics-limitations}
 
-Fluent Bit отрезает поле `startTimestampNanos` у метрик. Не используйте Fluent Bit для передачи метрик, если в приложении сконфигурирована дельта темпоральность (задана переменная `OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE="delta"`) — дельта-метрики без времени начала периода обрабатываются некорректно.
+Fluent Bit не сохраняет время начала периода метрик (`startTimeUnixNano`). Без него изменение (дельта) метрики обрабатываются некорректно. Не используйте Fluent Bit для передачи метрик, если в приложении настроена переменная `OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE="delta"`.
 
 ## Настройка передачи телеметрии {#configure}
 
-1. [Установите](https://docs.fluentbit.io/fluent-bit/v/4.0/installation/getting-started-with-fluent-bit) Fluent Bit рядом с источником телеметрии (на сервере, в контейнере или в кластере Kubernetes).
+1. [Установите](https://docs.fluentbit.io/manual/installation/downloads) Fluent Bit рядом с источником телеметрии (на сервере, в контейнере или в кластере Kubernetes).
 
 1. Создайте файл конфигурации (например, `fluent-bit.yaml`).
 
-    Ниже приведен минимальный пример конфигурации для отправки логов, метрик, трейсов в Monium. Настройте вход (inputs) под ваш источник данных.
+    Ниже приведены примеры конфигурации для отправки логов, метрик и трейсов в Monium по gRPC или HTTP. Настройте входной плагин под ваш источник данных.
+
+    Для передачи трейсов используются [входной](https://docs.fluentbit.io/manual/data-pipeline/inputs/opentelemetry) и [выходной](https://docs.fluentbit.io/manual/data-pipeline/outputs/opentelemetry) плагины `opentelemetry`. Агент принимает трейсы по OTLP, буферизует их и отправляет в Monium по тому же протоколу.
 
     **По gRPC**
     
@@ -76,10 +78,22 @@ Fluent Bit отрезает поле `startTimestampNanos` у метрик. Не
     ```
 
 1. Установите переменные окружения:
-   * `MONIUM_PROJECT` — идентификатор проекта Monium.
-   * `MONIUM_API_KEY` — API-ключ с правом записи телеметрии.
+
+   * `MONIUM_PROJECT` — проект Monium, например `folder__<идентификатор_каталога>`.
+   * `MONIUM_API_KEY` — API-ключ с [правом записи телеметрии](otlp-protocol.md#authorization).
 
 1. Запустите Fluent Bit с указанием конфигурации.
+
+1. Настройте приложение на отправку телеметрии во Fluent Bit по OTLP/HTTP в формате Protobuf. Например, для OpenTelemetry SDK с поддержкой [переменных окружения](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/) задайте в окружении приложения:
+
+   ```bash
+   export OTEL_EXPORTER_OTLP_ENDPOINT="http://127.0.0.1:4318"
+   export OTEL_EXPORTER_OTLP_PROTOCOL="http/protobuf"
+   ```
+
+   Адрес `127.0.0.1` подходит, если приложение и агент используют общее сетевое пространство, например работают на одном сервере без изоляции сети или в одном поде Kubernetes. В остальных случаях измените параметр `listen` входного плагина и укажите в приложении адрес агента, доступный по сети.
+
+1. Запустите приложение с этими настройками и начните отправлять телеметрию.
 
 1. Проверьте поступление данных в [Monium](https://monium.yandex.cloud).
 

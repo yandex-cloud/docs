@@ -8,6 +8,8 @@
 `smart-web-security.advancedRateLimiterProfiles.count` | 5 ||
 || Количество [профилей WAF](../smartwebsecurity/concepts/waf.md) в облаке
 `smart-web-security.wafProfiles.count` | 10 ||
+|| Количество [профилей SolidWall WAF](../smartwebsecurity/concepts/solidwall-waf.md#resources) в облаке
+`smart-web-security.solidWafProfiles.count` | 1 ||
 || Суммарное количество [правил профилей безопасности](../smartwebsecurity/concepts/rules.md) в облаке
 `smart-web-security.securityProfileRules.count` | 250 ||
 || Суммарное количество [правил-исключений WAF](../smartwebsecurity/concepts/waf.md#exclusion-rules) в облаке

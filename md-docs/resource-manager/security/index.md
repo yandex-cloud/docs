@@ -37,7 +37,11 @@
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
 
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
 resource-manager.auditor --> resource-manager.viewer --> resource-manager.editor --> resource-manager.admin --> resource-manager.clouds.owner
 resource-manager.clouds.member --> resource-manager.clouds.owner

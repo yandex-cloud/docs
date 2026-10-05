@@ -78,8 +78,8 @@ Even with balancer deletion protection enabled, one can still delete its listene
 
     To enable deletion protection, use the [update](../api-ref/NetworkLoadBalancer/update.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Update](../api-ref/grpc/NetworkLoadBalancer/update.md) gRPC API call and provide the following in the request:
 
-    * Name of the `deletionProtection` parameter in the `updateMask` parameter.
-    * `true` in the `deletionProtection` parameter.
+    * Name of the `deletionProtection` parameter in the `updateMask` parameter (REST API) or `update_mask` (gRPC API).
+    * The `true` value in the `updateMask` parameter (REST API) or `update_mask` (gRPC API).
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -148,8 +148,8 @@ Even with balancer deletion protection enabled, one can still delete its listene
 
     To enable deletion protection, use the [update](../api-ref/NetworkLoadBalancer/update.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Update](../api-ref/grpc/NetworkLoadBalancer/update.md) gRPC API call and provide the following in the request:
 
-    * Name of the `deletionProtection` parameter in the `updateMask` parameter.
-    * `false` in the `deletionProtection` parameter.
+    * Name of the `deletionProtection` parameter in the `updateMask` parameter (REST API) or `update_mask` (gRPC API).
+    * The `false` value in the `deletionProtection` parameter (REST API) or `deletion_protection` (gRPC API).
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

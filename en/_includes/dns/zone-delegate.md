@@ -4,4 +4,5 @@ To delegate [reverse zone](../../dns/concepts/dns-zone.md#reverse-zone) manageme
 1. Send the document and information from the RIPE database to the {{ yandex-cloud }} information security team. In your cover letter, describe the reason for your request and specify that a check is required.
 
    The {{ yandex-cloud }} information security team will verify the data you provide and notify you of the results.
-1. After your data has been successfully verified, [contact support](../../support/overview.md).
+1. After your data has been successfully verified, [contact support]({{ link-console-support }}).
+

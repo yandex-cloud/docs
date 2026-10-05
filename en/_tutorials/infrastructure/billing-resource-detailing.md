@@ -33,7 +33,7 @@ Install and configure the [AWS CLI](../../storage/tools/aws-cli.md).
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+  1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
@@ -48,13 +48,13 @@ Install and configure the [AWS CLI](../../storage/tools/aws-cli.md).
   1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
   1. Select the billing account you need from the list.
   1. Navigate to the **{{ ui-key.yacloud_billing.billing.account.switch_detail }}** tab.
-  1. At the top right, click **{{ ui-key.yacloud_billing.billing.account.detail.button_export }}** and select **{{ ui-key.yacloud_billing.billing.account.detail.button_create-periodic-export }}**.
+  1. At the top right, click **{{ ui-key.yacloud_org.common.more }}** ![chevron-down](../../_assets/console-icons/chevron-down.svg) and select **{{ ui-key.yacloud_billing.billing.account.detail.button_create-periodic-export }}**.
   1. In the window that opens:
 
      * In the **{{ ui-key.yacloud_billing.billing.account.exports.field_bucket }}** field, enter the name of the bucket you [created earlier](#create-bucket). This bucket will store a CSV file with your expense details.
-     * In the **{{ ui-key.yacloud_billing.billing.account.exports.field_prefix }}** field, enter the directory name for the file. The name must end with `/`.
+     * In the **{{ ui-key.yacloud_org.billing.account.exports.field_prefix }}** field, enter the directory name for the file. The name must end with `/`.
      * In the **{{ ui-key.yacloud_billing.billing.account.exports.field_locale }}** field, select the language to display product names in: **{{ ui-key.yacloud_billing.billing.account.exports.locale_value_en-lang }}** or **{{ ui-key.yacloud_billing.billing.account.exports.locale_value_ru-lang }}**.
-     * In the **{{ ui-key.yacloud_billing.billing.account.exports.field_detail-type }}** field, select ***{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}**.
+     * In the **{{ ui-key.yacloud_billing.billing.account.exports.field_detail-type }}** field, select **{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}**.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
 

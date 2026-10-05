@@ -5,14 +5,15 @@
 High-quality raw original video content (video file or broadcast) is not well suited for embedding on a website or app as it requires a stable, high-speed internet connection on the client side.
 
 {{ video-name }} prepares video content for posting on the internet:
+
 * Transcodes the original video file or broadcast into multiple versions with different bitrates and resolutions. When viewing content on client devices, the [video player](player.md) selects the best version for smooth playback at a given internet connection speed.
 * Divides content into small parts for efficient delivery, caching, and smooth playback in the video players on user devices.
 * Distributes content using the CDN technology.
 * Provides a fault-tolerant infrastructure for transcoding, storing, and broadcasting video content.
 
-You can also monetize your video content using the [Yandex Advertising Network](https://yandex.ru/support2/partner/ru/yan-rules/video). You need to [enable](../operations/video/update.md) ads for each video individually.
+You can also monetize your video content using the [Yandex Advertising Network](https://yandex.ru/support2/partner/ru/yan-rules/video). You need to [enable](../operations/video/update.md) monetization for each video separately.
 
-To learn more about advertising, see [{#T}](../operations/channels/settings.md).
+For more on monetization, see [{#T}](../operations/channels/settings.md).
 
 Also, in {{ video-name }}, you can use Yandex tools for summarization, neural translation, and subtitle generation.
 
@@ -25,4 +26,3 @@ A _channel_ is a way to arrange content in {{ video-name }}. For example, you ca
 * [{#T}](../security/index.md)
 * [{#T}](../hosting.md)
 * [{#T}](../streaming.md)
-* [AI tools and content monetization: What’s new in {{ video-full-name }}](https://yandex.cloud/ru/blog/cloud-video-update)

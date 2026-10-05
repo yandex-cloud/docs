@@ -1,12 +1,12 @@
 ```mermaid
-%%{
-  init: {
-    "flowchart": { "defaultRenderer": "elk" },
-    "elk": { "nodePlacementStrategy": "NETWORK_SIMPLEX" }
-  }
-}%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+  elk:
+    nodePlacementStrategy: NETWORK_SIMPLEX
+---
 flowchart BT
-    vpc.publicAdmin
     managed-mysql.clusters.connector["`managed-mysql.
     clusters.connector`"]
     managed-mysql.user --> managed-mysql.editor

@@ -36,12 +36,13 @@
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе.
 
 ```mermaid
-%%{
-  init: {
-    "flowchart": { "defaultRenderer": "elk" },
-    "elk": { "nodePlacementStrategy": "SIMPLE" }
-  }
-}%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+  elk:
+    nodePlacementStrategy: SIMPLE
+---
 flowchart BT
     managed-ytsaurus.auditor --> managed-ytsaurus.viewer
     managed-ytsaurus.viewer --> managed-ytsaurus.user

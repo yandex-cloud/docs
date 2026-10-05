@@ -224,7 +224,7 @@ Create an internal network load balancer named `internal-lb-test-1` without a li
 
 - API {#api}
 
-  Call the [create](../api-ref/NetworkLoadBalancer/create.md) API method, providing the following information in the request body:
+  Use the [create](../api-ref/NetworkLoadBalancer/create.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Create](../api-ref/grpc/NetworkLoadBalancer/create.md) gRPC API call and provide the following in the request:
 
   ```api
   {
@@ -233,6 +233,8 @@ Create an internal network load balancer named `internal-lb-test-1` without a li
     "type": "INTERNAL"
   }
   ```
+
+  In the gRPC API, field names use [snake_case](https://{{ lang }}.wikipedia.org/wiki/Snake_case), e.g., `folder_id`.
 
 {% endlist %}
 
@@ -334,7 +336,7 @@ Create an internal network load balancer with a listener and attached target gro
 
 - API {#api}
 
-  Call the [create](../api-ref/NetworkLoadBalancer/create.md) API method, providing the following information in the request body:
+  Use the [create](../api-ref/NetworkLoadBalancer/create.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/Create](../api-ref/grpc/NetworkLoadBalancer/create.md) gRPC API call and provide the following in the request:
 
   ```api
   {
@@ -374,5 +376,7 @@ Create an internal network load balancer with a listener and attached target gro
     ]
   }
   ```
+
+  In the gRPC API, field names use [snake_case](https://{{ lang }}.wikipedia.org/wiki/Snake_case): `folder_id`, `listener_specs`, `target_port`, `internal_address_spec`, `subnet_id`, `ip_version`, `attached_target_groups`, `target_group_id`, `health_checks`, `unhealthy_threshold`, `healthy_threshold`, `http_options`.
 
 {% endlist %}

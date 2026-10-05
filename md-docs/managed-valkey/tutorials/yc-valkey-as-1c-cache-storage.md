@@ -29,9 +29,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 * Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Кластер Yandex Managed Service for Valkey™: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Yandex Managed Service for Valkey™](../pricing.md)).
+* Кластер Yandex Managed Service for Valkey™: вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Yandex Managed Service for Valkey™](../pricing.md)).
 
-Для этого руководства используется пробная версия «1С-Битрикс» с ознакомительным периодом в 30 дней. Стоимость электронных версий продукта вы можете уточнить на официальном ресурсе [«1С-Битрикс»](https://www.1c-bitrix.ru).
+Для этого руководства используется пробная версия «1С-Битрикс» с ознакомительным периодом в 30 дней. Стоимость электронных версий продукта можно уточнить на официальном сайте [«1С-Битрикс»](https://www.1c-bitrix.ru).
 
 
 ## Подготовьте инфраструктуру {#deploy-infrastructure}
@@ -46,6 +46,8 @@
         * **Имя** — `subnet-a`.
         * **Зона доступности** — `ru-central1-a`.
         * **CIDR** — `192.168.0.0/24`.
+
+    1. Аналогично создайте в сети `network-1c` еще одну подсеть, например `subnet-b`, в зоне доступности `ru-central1-b` с адресом `192.168.1.0/24`. Она понадобится для хостов кластера Yandex Managed Service for Valkey™: два хоста кластера нельзя разместить в одной зоне доступности.
 
     1. В сети `network-1c` [создайте группы безопасности](../../vpc/operations/security-group-create.md):
 
@@ -75,18 +77,14 @@
             * **Группы безопасности** — `bitrix-sg`.
             * **Внутренний IPv4-адрес** — `Автоматически`.
 
-    1. [Подключитесь к ВМ](../../compute/operations/images-with-pre-installed-software/operate.md#vm-connect) по SSH и установите зависимости:
+    1. [Подключитесь к ВМ](../../compute/operations/images-with-pre-installed-software/operate.md#vm-connect) по SSH и установите PHP-расширения для работы с Redis:
 
         ```bash
-        sudo yum install php php-mcrypt php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo && \
-        sudo yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm && \
-        sudo yum install yum-utils && \
-        sudo yum-config-manager --enable remi-php74 && \
-        sudo yum update && \
-        php -v
+        sudo yum install -y php-pecl-redis6 php-pecl-igbinary && \
+        php -v && php -m | grep -E 'redis|igbinary'
         ```
 
-        Последняя команда покажет версию PHP, которая установлена на ВМ. Для корректной работы «1С-Битрикс» необходима версия PHP 7.4 или выше.
+        Образ «1С-Битрикс» уже содержит PHP (версии 8.1 или выше) со всеми необходимыми расширениями и подключенными репозиториями, поэтому дополнительно устанавливать PHP не требуется. Расширение `php-pecl-redis6` необходимо для подключения к кластеру Yandex Managed Service for Valkey™, а `php-pecl-igbinary` — для сериализации данных кеша.
 
     1. Установите «1С-Битрикс: Управление сайтом» на ВМ. Для этого в браузере перейдите по адресу `http://<публичный_IP-адрес_ВМ>/` и следуйте инструкциям установщика.
 
@@ -94,11 +92,12 @@
 
     1. [Создайте кластер](../operations/cluster-create.md) Yandex Managed Service for Valkey™ в следующей конфигурации:
 
-        * **Версия Valkey** — `9.1`.
+        * **Версия** — `9.1`.
+        * **Хосты** — не менее двух хостов, чтобы в кластере работала [репликация](../concepts/replication.md).
         * **Персистентность** — `На репликах`.
         * **Сетевые настройки** — сеть `network-1c` и группа безопасности `valkey-sg`.
         * **Настройки СУБД**:
-            * **Пароль** — `default`.
+            * **Пароль** — пароль пользователя с именем `default`. Пароль должен содержать не менее восьми символов.
             * **Настроить** → **Maxmemory policy** — `ALLKEYS LRU`. Эта настройка позволит Valkey™ удалять самые старые ключи при заполнении памяти.
         * **Доступ из WebSQL** — включен.
 
@@ -109,7 +108,7 @@
   1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
   1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
   1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
-  1. Скачайте в ту же рабочую директорию файл конфигурации [yc-valkey-as-1c-cache-storage.tf](https://github.com/yandex-cloud-examples/yc-valkey-1c-locks/blob/main/yc-valkey-as-1c-cache-storage.tf).
+  1. Скачайте в ту же рабочую директорию файл конфигурации [yc-valkey-as-1c-cache-storage.tf](https://github.com/yandex-cloud-examples/yc-valkey-as-1c-cache-storage/blob/main/yc-valkey-as-1c-cache-storage.tf).
 
       В этом файле описаны:
 
@@ -117,8 +116,8 @@
       * подсети;
       * группы безопасности;
       * кластер Yandex Managed Service for Valkey™;
-      * виртуальная машина с публичным доступом из интернета и предустановленным «1С-Битрикс: Управление сайтом».
-      * Настройки для «1С-Битрикс: Управление сайтом».
+      * виртуальная машина с публичным доступом из интернета и предустановленным «1С-Битрикс: Управление сайтом»;
+      * настройки для «1С-Битрикс: Управление сайтом».
 
           {% note info %}
 
@@ -133,6 +132,7 @@
       ```bash
       terraform validate
       ```
+
       Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Создайте необходимую инфраструктуру:
@@ -174,9 +174,9 @@
 
   1. [Подключитесь к ВМ](../../compute/operations/images-with-pre-installed-software/operate.md#vm-connect) с «1С-Битрикс» по SSH.
 
-  1. Перейдите в каталог сайта и откройте файл дополнительных настроек `bitrix/.settings_extra.php`.
+  1. Перейдите в каталог сайта и создайте файл дополнительных настроек `bitrix/.settings_extra.php` (по умолчанию он отсутствует на ВМ).
 
-  1. Укажите, что для кеширования используется Redis, и задайте адрес кластера Yandex Managed Service for Valkey™:
+  1. Укажите, что для кеширования используется Redis, и задайте адрес кластера Yandex Managed Service for Valkey™ и пароль пользователя:
 
       ```php
       <?php
@@ -193,7 +193,8 @@
                               'port' => 6379,
                           ],
                       ],
-                      'serializer' => \Redis::SERIALIZER_IGATBINARY ?? null,
+                      'auth' => '<пароль_пользователя_default>',
+                      'serializer' => \Redis::SERIALIZER_IGBINARY ?? null,
                   ],
               ],
               'readonly' => true,
@@ -217,7 +218,6 @@
 
 {% endlist %}
 
-
 ## Проверьте результат {#test}
 
 1. Авторизуйтесь на вашем сайте и перейдите в панель управления.
@@ -227,14 +227,14 @@
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог с нужным кластером.
     1. [Перейдите](https://console.yandex.cloud/link/managed-valkey) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**. На открывшейся странице будут отображены графики, отражающие состояние кластера.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Мониторинг**. На открывшейся странице будут отображены графики, отражающие состояние кластера.
     1. Убедитесь, что появились клиенты, растет объем хранимых данных и трафик, а на репликах есть активность записи на диск из-за включенной персистентности.
 
 ## Удалите созданные ресурсы {#clear-out}
 
 Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 
-{% list tabs group=instructions %}
+{% list tabs group="instructions" %}
 
 - Вручную {#manual}
 

@@ -267,7 +267,7 @@ The revocation function was unable to check revocation for the certificate
 * выполните команду с параметром `--ssl-no-revoke`.
 
    ```powershell
-   mkdir $HOME\.redis; curl.exe --ssl-no-revoke -o $HOME\.redis\YandexInternalRootCA.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
+   mkdir $HOME\.redis; curl.exe --ssl-no-revoke -o $HOME\.redis\YandexInternalRootCA.crt https://storage.yandexcloud.net/cloud-certs/RootCA.pem
    ```
 
 #### Какой размер блока используется на дисках кластера? {#block-size}

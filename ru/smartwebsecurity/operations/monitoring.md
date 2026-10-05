@@ -12,17 +12,13 @@ description: Следуя данной инструкции, вы сможете
 Вы можете посмотреть дашборды одним из способов:
 
 * На странице сервиса {{ sws-name }} выберите раздел ![display-pulse](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
-* В разделе **{{ ui-key.yacloud.common.monitoring }}** справа вверху нажмите **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}**.
+* В разделе **{{ ui-key.yacloud.common.monitoring }}** справа вверху нажмите **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}**. Выберите вкладку:
+  * **Anti-DDoS** — графики профилей безопасности и ARL.
+  * **SolidWall WAF** — графики профиля [SolidWall WAF](../concepts/solidwall-waf.md). 
 * На странице сервиса {{ alb-name }}:
   1. Выберите балансировщик, к которому привязан профиль безопасности.
   1. Выберите раздел **{{ ui-key.yacloud.common.monitoring }}**.
   1. Перейдите на вкладку **Smart Web Security**.
-
-{% note info %}
-
-В настоящий момент самый полный набор дашбордов для {{ sws-name }} находится на странице сервиса {{ monitoring-name }}. Ниже описаны дашборды с этой страницы.
-
-{% endnote %}
 
 ## Описание дашбордов для мониторинга {{ sws-name }} {#monitoring-dashboards}
 

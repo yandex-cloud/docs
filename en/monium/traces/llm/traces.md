@@ -42,10 +42,10 @@ Spans without attributes containing the conversation texts (e.g., if message con
 In the span feed, each generation span contains grouped sections:
 
 * **System instructions**: Prompt that shapes the agent's behavior, e.g., "You are a helpful assistant. Answer briefly."
-* **Conversation**: Message history between the user and the agent, which includes the input messages (user prompts, tool call results) and the model's response. 
+* **Conversation**: Message history between the user and the agent, which includes the input messages (user prompts, tool call results) and the model's response. If a portion of the model's response is marked up as [reasoning](manual_instrumentation.md#llm-reasoning-in-spans), it gets highlighted with the _Thinking_ label.
 * **Available tools**: In the [Available tools](#tools) section.
 
-Messages under **Conversation** are shown in chronological order. The role (user, assistant, system, tool) and message part type (text, tool_call, tool_call_response) are shown explicitly so you could quickly trace the chain: user request → model's response with a tool call → tool output → next request to the model → final response.
+Messages under **Conversation** are shown in chronological order. The role (user, assistant, system, tool) and message part type (text, reasoning, tool_call, tool_call_response) are shown explicitly so you could quickly trace the chain: user request → model's response with a tool call → tool output → next request to the model → final response.
 
 If no message texts were provided during instrumentation (e.g., the `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT` variable is disabled), the feed will show the structure and roles, but not the contents.
 

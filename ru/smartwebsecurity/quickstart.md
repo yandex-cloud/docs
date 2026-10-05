@@ -9,7 +9,7 @@
 * [Создайте и проверьте профиль безопасности](#security-profile)
 * [Подключите профиль безопасности к защищаемому ресурсу](#profile-connect)
 * [Посмотрите работу профиля безопасности](#monitoring)
-* (Опционально) [Создайте и подключите профиль WAF](#waf)
+* (Опционально) [Создайте и подключите профиль Cloud WAF](#waf)
 * (Опционально) [Создайте и подключите профиль ARL](#arl)
 
 {{ sws-name }} — это набор инструментов защиты, которые рекомендуется настраивать последовательно. Включайте каждое новое изменение в режиме **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}** и [анализируйте логи](operations/configure-logging.md). Это облегчит отслеживание и корректировку правил.
@@ -213,20 +213,21 @@
 {% endlist %}
 
 
-## Создайте и подключите профиль WAF {#waf}
+## Создайте и подключите профиль Cloud WAF {#waf}
 
-WAF позволяет использовать наборы правил для защиты веб-приложений от множества информационных атак. Рекомендуется настраивать профиль WAF после того, как будут настроены и протестированы базовые правила и Smart Protection в профиле безопасности.
+WAF позволяет использовать наборы правил для защиты веб-приложений от множества информационных атак. Рекомендуется настраивать профиль Cloud WAF после того, как будут настроены и протестированы базовые правила и Smart Protection в профиле безопасности.
 
 
-### Создайте профиль WAF {#waf-create}
+### Создайте профиль Cloud WAF {#waf-create}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать профиль WAF.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать профиль Cloud WAF.
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Перейдите на вкладку ![image](../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** и нажмите **{{ ui-key.yacloud.smart-web-security.waf.label_create-profile }}**.
+  1. На панели слева выберите ![image](../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** и откройте вкладку **{{ ui-key.yacloud.smart-web-security.cloudWafTab_oR48G }}**.
+  1. Нажмите **{{ ui-key.yacloud.smart-web-security.WafCreateProfileAction.createWafOrSolidWallProfileButton_6J5WK }}** и выберите **{{ ui-key.yacloud.smart-web-security.cloudWafProfile_4E82H }}**.
   1. Введите имя профиля, например `test-waf-profile-1`.
   1. Включите набор правил, например [OWASP Core Rule Set](https://coreruleset.org/), и последнюю версию набора. Чтобы посмотреть правила в наборе, нажмите на строку с его описанием.
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
@@ -240,7 +241,7 @@ WAF позволяет использовать наборы правил для
 
 - Консоль управления {#console}
 
-  1. На открывшейся обзорной странице профиля WAF напротив нужного набора нажмите ![image](../_assets/console-icons/gear.svg) **Настроить**.
+  1. На открывшейся обзорной странице профиля Cloud WAF напротив нужного набора нажмите ![image](../_assets/console-icons/gear.svg) **Настроить**.
   1. Установите **{{ ui-key.yacloud.smart-web-security.waf.label_anomaly-threshold }}** — суммарную [аномальность](concepts/waf.md#anomaly) сработавших правил, при которой запрос будет заблокирован, например `{{ ui-key.yacloud.smart-web-security.waf.label_anomaly-medium }}`.
 
       Рекомендуется начинать с порога аномальности `25` и постепенно снижать его до `5`. Чтобы снизить порог аномальности, отработайте ложные срабатывания WAF на легитимные запросы. Для этого подберите правила из базового набора и настройте [правила-исключения](#create-exclusion). Также для тестирования разных порогов аномальности используйте в профиле безопасности режим **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry-run)**.
@@ -275,18 +276,18 @@ WAF позволяет использовать наборы правил для
 {% endlist %}
 
 
-### Подключите профиль WAF к профилю безопасности {#waf-connect}
+### Подключите профиль Cloud WAF к профилю безопасности {#waf-connect}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. Перейдите на вкладку ![image](../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. В списке выберите профиль безопасности, к которому вы хотите подключить профиль WAF, например `test-sp1`.
+  1. В списке выберите профиль безопасности, к которому вы хотите подключить профиль Cloud WAF, например `test-sp1`.
   1. Нажмите ![plus-sign](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. Введите имя правила, например `waf-rule-1`.
   1. В поле **{{ ui-key.yacloud.smartcaptcha.field_security-rule_priority }}** задайте значение выше, чем у правил Smart Protection, уже имеющихся в профиле безопасности, например `888800`.
-  1. (Опционально) Чтобы протестировать профиль WAF и отработать ложные срабатывания на легитимные запросы, используйте в профиле безопасности режим **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry-run)**.
+  1. (Опционально) Чтобы протестировать профиль Cloud WAF и отработать ложные срабатывания на легитимные запросы, используйте в профиле безопасности режим **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry-run)**.
   1. В поле **Тип правила** выберите `{{ ui-key.yacloud.smart-web-security.overview.label_waf-rule }}`.
   1. В поле **{{ ui-key.yacloud.smart-web-security.overview.title_waf-profile }}** выберите `test-waf-profile-1`, созданный ранее.
   1. В поле **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}** выберите `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}`.

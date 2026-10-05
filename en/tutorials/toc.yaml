@@ -869,6 +869,8 @@ items:
             href: infrastructure-management/1c-postgresql-linux.md
           - name: Monitoring 1C:Enterprise Linux cluster
             href: infrastructure-management/collect-metrics-1c-cluster.md
+          - name: Distributed locks for 1C:Enterprise in a {{ mrd-name }} cluster
+            href: infrastructure-management/1c-valkey-locks.md
       - name: Internet of Things (IoT)
         items:
           - name: Working with Mosquitto

@@ -1,9 +1,9 @@
 ```mermaid
-%%{
-  init: {
-    "flowchart": { "defaultRenderer": "elk" }
-  }
-}%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     postbox.editor --> postbox.admin
     postbox.viewer --> postbox.editor

@@ -5,7 +5,11 @@
 С помощью сервисных ролей Access Transparency вы сможете настраивать модуль, а также просматривать аналитическую информацию о действиях, производимых инженерами Yandex Cloud с ресурсами организации в ходе технического обслуживания, работы с [обращениями](../../support/overview.md) или решения задач безопасности.
 
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     access-transparency.billingProvider["access-transparency.<br>billingProvider"] --> access-transparency.editor
     

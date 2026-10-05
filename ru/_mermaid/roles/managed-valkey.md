@@ -1,12 +1,12 @@
 ```mermaid
-%%{
-  init: {
-    "flowchart": { "defaultRenderer": "elk" },
-    "elk": { "nodePlacementStrategy": "NETWORK_SIMPLEX" }
-  }
-}%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+  elk:
+    nodePlacementStrategy: NETWORK_SIMPLEX
+---
 flowchart BT
-  vpc.publicAdmin
   managed-redis.clusters.connector["`managed-redis.
   clusters.connector`"]
   managed-redis.auditor --> managed-redis.maintenanceTask.viewer["`managed-redis.

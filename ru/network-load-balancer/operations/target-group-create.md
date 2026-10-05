@@ -5,6 +5,12 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать целевую группу {{ network-load-balancer-name }}
 
+{% note info %}
+
+Вы можете создать целевую группу сразу при [создании группы ВМ с сетевым балансировщиком](../../compute/operations/instance-groups/create-with-balancer.md) или по инструкции ниже. Подробнее о работе группы ВМ с балансировщиком читайте в разделе [{#T}](../../compute/concepts/instance-groups/balancers.md).
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -86,3 +92,4 @@ description: Следуя данной инструкции, вы сможете
   После создания целевой группы следует добавить в нее целевые ресурсы, по которым будет распределяться нагрузка. Для этого воспользуйтесь методом REST API [addTargets](../api-ref/TargetGroup/addTargets) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/AddTargets](../api-ref/grpc/TargetGroup/addTargets.md).
 
 {% endlist %}
+

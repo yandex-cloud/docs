@@ -2290,7 +2290,6 @@ default:
             field_bucket: Bucket
             field_detail-type: Usage details
             field_locale: Language
-            field_prefix: Directory
             label_include-resources: Resource
             label_not-include-resources: General
             locale_value_en-lang: English
@@ -2933,6 +2932,7 @@ default:
             column_service_account: Service account
             field_date: Start from
             field_period: Export historical data
+            field_prefix: Path within the bucket
             locale_value_en-lang: English
             locale_value_ru-lang: Русский
           force-reexport:
@@ -4000,8 +4000,6 @@ default:
       channels:
         action_add-domain: Add domain
         action_create-channel: Create a channel
-        label_advertisement: Monetization
-        label_allowed-domains: Permitted domains
         label_category: Content category
         label_description: Description
         label_domains-status: Check status
@@ -4066,7 +4064,6 @@ default:
         label_episode-hidden: Hide controls in player
         label_episode-mute: Play video without sound by default
         label_episode-type: Episode type
-        label_episode-type-broadcast: Recorded broadcast
         label_episode-type-live: Live
         label_player-template: Player template
         label_rewind-buffer: Rewind buffer (sec)
@@ -4097,7 +4094,6 @@ default:
         label_accessRights: Access
         label_allow-access: Grant access
         label_description: Description
-        label_enable-ad: Monetization
         label_neuro-translation: Neural translation
         label_subtitles: Subtitles
         label_title: Name
@@ -4298,7 +4294,6 @@ default:
         label_dataStream: Data Streams
         label_destination: Destination
         label_event-filter-section: Collecting data events
-        label_eventRouter: EventRouter
         label_log-group: Log group
         label_log-receiver: Log destination
         label_object-prefix: Object prefix
@@ -7826,6 +7821,9 @@ default:
           label_lifetime: Lifetime
           value_object-lock-mode-compliance: Compliance
           value_object-lock-mode-governance: Governance
+        form-components:
+          SizeLimitField:
+            field_size-limit-enabled_hPy7f: Set the maximum bucket size
         form:
           BucketObjectLockFormContent:
             field_default-rules-enabled_qtmC8: Default locks for new versions

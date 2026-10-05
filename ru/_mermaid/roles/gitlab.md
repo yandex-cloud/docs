@@ -1,5 +1,9 @@
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 
 flowchart BT
     gitlab.backupRestorer["gitlab.backupRestorer"] --> gitlab.backupAdmin["gitlab.backupAdmin"] --> gitlab.admin

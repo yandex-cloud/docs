@@ -1,23 +1,8 @@
-title: Yandex Managed Service for GitLab
-description:
-  - >-
-    Managed Service for GitLab helps you deploy and maintain GitLab instances
-    within the Yandex Cloud infrastructure.
-  - >-
-    The Yandex Cloud infrastructure is <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">protected</a>
-    pursuant to the Russian Federal Law No. 152-FZ on Personal Data.
-  - >-
-    This service is subject to a <a
-    href="https://yandex.com/legal/cloud_sla">service level agreement</a>. The
-    service level is set out in the document titled <a
-    href="https://yandex.com/legal/cloud_sla_glb/">Yandex Managed Service for
-    Gitlab Service Level</a>.
 meta:
   title: Yandex Managed Service for GitLab
   description: >-
-    Managed Service for GitLab helps you deploy and maintain GitLab instances
-    within the Yandex Cloud infrastructure.
+    {{ mgl-name }} helps you deploy and maintain GitLab instances within the {{
+    yandex-cloud }} infrastructure.
   keywords:
     - keyword: git lab
     - keyword: managed {{ GL }}
@@ -29,25 +14,161 @@ meta:
     - keyword: '{{ GL }} instance'
     - keyword: '{{ mgl-name }} instance'
     - keyword: '{{ GL }} in {{ yandex-cloud }}'
-links:
-  - title: Getting started
-    description: Create your first instance
-    href: quickstart
-  - title: Step-by-step guides
-    description: How to perform routine operations
-    href: operations/
-  - title: Concepts
-    description: Learn about the basic concepts and how this service works
-    href: concepts/
-  - title: Tutorials
-    description: Address common {{ mgl-name }} related tasks
-    href: tutorials/
-  - title: Quotas and limits
-    description: Technical and organizational limitations
-    href: concepts/limits
-  - title: Access management
-    description: Configure access permissions to use this service
-    href: security/
-  - title: Pricing policy
-    description: Pricing and cost calculations
-    href: pricing
+blocks:
+  - type: card-layout-block
+    title: Yandex Managed Service for GitLab
+    description: >-
+      Managed Service for GitLab helps you deploy and maintain GitLab instances
+      within the Yandex Cloud infrastructure.
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+      lg: 4
+    children:
+      - type: basic-card
+        title: Getting started
+        text: Create your first GitLab instance
+        icon: ../_assets/console-icons/rocket.svg
+        urlTitle: Getting started
+        url: quickstart
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Step-by-step guides
+        text: Follow guides to perform routine operations
+        icon: ../_assets/console-icons/list-ol.svg
+        urlTitle: Step-by-step guides
+        url: operations/
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Concepts
+        text: Learn about the basic concepts and how the service works
+        icon: ../_assets/console-icons/bookmark.svg
+        urlTitle: Concepts
+        url: concepts/
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Tutorials
+        text: Use the service to address common tasks
+        icon: ../_assets/console-icons/book.svg
+        urlTitle: Tutorials
+        url: tutorials/
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Quotas and limits
+        text: Technical and organizational limitations of the service
+        icon: ../_assets/console-icons/sliders.svg
+        urlTitle: Quotas and limits
+        url: concepts/limits
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Access management
+        text: Configure access permissions for the service
+        icon: ../_assets/console-icons/persons-lock.svg
+        urlTitle: Access management
+        url: security/
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Pricing policy
+        text: Prices and cost calculation rules
+        icon: ../_assets/console-icons/calculator.svg
+        urlTitle: Pricing policy
+        url: pricing
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Changelog
+        text: Updates to the service
+        icon: ../_assets/console-icons/timeline.svg
+        urlTitle: Changelog
+        url: release-notes
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: FAQ
+        text: Answers to common questions and troubleshooting tips
+        icon: ../_assets/console-icons/circle-question.svg
+        urlTitle: FAQ
+        url: qa/
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: CLI reference
+        text: Manage service resources from the command line
+        icon: ../_assets/console-icons/terminal.svg
+        urlTitle: CLI reference
+        url: cli-ref/
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: Terraform reference
+        text: Create and update service resources using Terraform
+        icon: ../_assets/console-icons/cube.svg
+        urlTitle: Terraform reference
+        url: tf-ref
+        centered: true
+        animated: false
+        size: s
+      - type: basic-card
+        title: API reference
+        text: Use HTTP API methods to manage the service
+        icon: ../_assets/console-icons/code.svg
+        urlTitle: API reference
+        url: api-ref/
+        centered: true
+        animated: false
+        size: s
+  - type: card-layout-block
+    colSizes:
+      all: 12
+      xl: 6
+      lg: 6
+      md: 6
+      sm: 12
+    centered: true
+    children:
+      - type: basic-card
+        title: Terms of use
+        border: shadow
+        size: s
+        icon: ../_assets/console-icons/file-text.svg
+        text: >
+          The Yandex Cloud infrastructure is
+          [protected](https://yandex.cloud/en/docs/security/conform#law)
+          pursuant to the Russian Federal Law No. 152-FZ on Personal Data.
+
+
+          * [Terms of use for Yandex Managed Service for
+          GitLab](https://yandex.ru/legal/cloud_terms_glb)
+
+
+          * [Terms of use for Yandex
+          Cloud](https://yandex.ru/legal/cloud_specialterms)
+      - type: basic-card
+        title: Service level
+        border: shadow
+        size: s
+        icon: ../_assets/console-icons/file-check.svg
+        text: >
+          * [Service level for Yandex Managed Service for
+          GitLab](https://yandex.ru/legal/cloud_sla_glb)
+
+
+          * [Service level for Yandex Cloud](https://yandex.ru/legal/cloud_sla)
+links: []

@@ -203,7 +203,7 @@
     
       ```bash
       mkdir -p ~/.opensearch && \
-      wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
+      wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
            --output-document ~/.opensearch/root.crt && \
       chmod 0600 ~/.opensearch/root.crt
       ```
@@ -213,7 +213,7 @@
     - Windows (PowerShell) {#windows}
 
       ```powershell
-      mkdir $HOME\.opensearch; curl.exe -o $HOME\.opensearch\root.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
+      mkdir $HOME\.opensearch; curl.exe -o $HOME\.opensearch\root.crt https://storage.yandexcloud.net/cloud-certs/RootCA.pem
       ```
 
       Сертификат будет сохранен в файле `$HOME\.opensearch\root.crt`.

@@ -1,9 +1,12 @@
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
     mdb.viewer --> mdb.admin
     mdb.viewer --> mdb.restorer
-    vpc.publicAdmin
     managed-clickhouse.clusters.connector["`managed-clickhouse.
     clusters.connector`"]
     managed-clickhouse.admin --> mdb.admin

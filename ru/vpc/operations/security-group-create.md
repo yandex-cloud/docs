@@ -17,7 +17,10 @@ description: Следуя данной инструкции, вы сможете
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-  1. Введите имя группы безопасности.
+  1. Введите имя группы безопасности. Требования к имени:
+
+      {% include [name-format-security-group](../../_includes/name-format-security-group.md) %}
+
   1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите сеть, которой будет назначена группа безопасности.
   1. {% include [security-group-add-rule](../../_includes/vpc/security-group-add-rule.md) %}
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
@@ -31,12 +34,15 @@ description: Следуя данной инструкции, вы сможете
     --name test-sg-cli \
     --description "My security group" \
     --rule "description=Allow HTTPS,direction=ingress,port=443,protocol=tcp,v4-cidrs=[10.0.0.0/24]" \
-    --network-id c645mh47vscb********
+    --network-id <идентификатор_сети>
   ```
 
   Где:
 
-  * `--name` — имя группы безопасности.
+  * `--name` — имя группы безопасности. Требования к имени:
+
+      {% include [name-format-security-group](../../_includes/name-format-security-group.md) %}
+
   * `--description` — описание группы безопасности.
   * `--labels` — список меток группы безопасности в формате `ключ=значение`.
   * `--rule` — правило группы безопасности:
@@ -52,13 +58,16 @@ description: Следуя данной инструкции, вы сможете
   ```bash
   yc vpc security-group create \
     --name allow-connection-from-app \
-    --rule "direction=ingress,port=443,protocol=tcp,security-group-id=enp099cqehlf********" \
+    --rule "direction=ingress,port=443,protocol=tcp,security-group-id=<идентификатор_другой_группы_безопасности>" \
     --network-name infra2
   ```
 
   Где:
 
-  * `--name` — имя группы безопасности.
+  * `--name` — имя группы безопасности. Требования к имени:
+
+      {% include [name-format-security-group](../../_includes/name-format-security-group.md) %}
+
   * `--rule` — правило группы безопасности:
     * `direction` — направление трафика. `ingress` — входящий трафик, `egress` — исходящий.
     * `port` — порт для получения или передачи трафика. Также можно указать диапазон портов с помощью параметров `from-port` и `to-port`.
@@ -88,7 +97,10 @@ description: Следуя данной инструкции, вы сможете
     
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-     * `name` — имя группы безопасности.
+     * `name` — имя группы безопасности. Требования к имени:
+
+        {% include [name-format-security-group](../../_includes/name-format-security-group.md) %}
+
      * `description` — опциональное описание группы безопасности.
      * `network_id` — идентификатор сети, которой будет назначена группа безопасности.
      * `ingress` и `egress` — параметры правил для входящего и исходящего трафика:
@@ -103,7 +115,7 @@ description: Следуя данной инструкции, вы сможете
 
      ```hcl
      resource "yandex_vpc_security_group" "test-sg" {
-       name        = "Test security group"
+       name        = "test-security-group"
        description = "Description for security group"
        network_id  = "<идентификатор_сети>"
 

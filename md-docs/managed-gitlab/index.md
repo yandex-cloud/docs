@@ -2,14 +2,6 @@
 
 # Yandex Managed Service for GitLab
 
-Сервис Managed Service for GitLab помогает разворачивать и поддерживать инстансы GitLab в инфраструктуре Yandex Cloud.
-
-Инфраструктура Yandex Cloud <a href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a> в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ.
-
-Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение об уровне обслуживания</a>. Уровень обслуживания сервиса определен в документе <a href="https://yandex.ru/legal/cloud_sla_glb/">Уровень обслуживания Yandex Managed Service for GitLab</a>.
-
-# Yandex Managed Service for GitLab
-
  - [Начало работы](quickstart.md)
 
 ## Пошаговые инструкции

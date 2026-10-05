@@ -121,10 +121,12 @@
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
 
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+---
 flowchart BT
-    iam.serviceAccounts.user
-    vpc.user --> compute.editor
     compute.snapshotSchedules.viewer --> compute.viewer
     compute.snapshotSchedules.viewer --> compute.snapshotSchedules.editor
     compute.auditor --> compute.viewer

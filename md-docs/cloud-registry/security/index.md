@@ -41,12 +41,13 @@
 Для управления правами доступа в Cloud Registry можно использовать как сервисные, так и примитивные роли.
 
 ```mermaid
-%%{
-  init: {
-    "flowchart": { "defaultRenderer": "elk" },
-    "elk": { "nodePlacementStrategy": "NETWORK_SIMPLEX" }
-  }
-}%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+  elk:
+    nodePlacementStrategy: NETWORK_SIMPLEX
+---
 flowchart BT
     cloud-registry.auditor --> cloud-registry.viewer
     cloud-registry.viewer --> cloud-registry.editor

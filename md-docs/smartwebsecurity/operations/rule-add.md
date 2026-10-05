@@ -34,7 +34,7 @@
           * [**Smart Protection**](../concepts/rules.md#smart-protection-rules) — правило, которое отправляет трафик на автоматический анализ с помощью алгоритмов машинного обучения и поведенческого анализа. В режиме полной защиты подозрительные запросы отправляются на [дополнительную проверку](../concepts/rules.md#client-checks), которую автоматически выбирает Smart Protection.
           * [**Web Application Firewall**](../concepts/rules.md#waf-rules) — правило, которое подключает набор правил из профиля WAF.
       
-              Для правила WAF выберите или [создайте профиль WAF](waf-profile-create.md).
+              Для правила WAF выберите или [создайте профиль Cloud WAF](waf-profile-create.md).
       1. Выберите [режимы защиты](../concepts/profiles.md#protection-mode), в которых будет действовать правило:
       
           * **Все режимы** (по умолчанию).

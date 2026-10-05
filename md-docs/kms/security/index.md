@@ -41,12 +41,14 @@
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
 
 ```mermaid
-%%{
-  init: {
-    "flowchart": { "defaultRenderer": "elk", "padding": 4 },
-    "elk": { "nodePlacementStrategy": "LINEAR_SEGMENTS" }
-  }
-}%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+    padding: 4
+  elk:
+    nodePlacementStrategy: LINEAR_SEGMENTS
+---
 flowchart BT
     kms.auditor --> kms.viewer
     kms.viewer --> kms.editor

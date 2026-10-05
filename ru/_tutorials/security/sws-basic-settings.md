@@ -45,10 +45,10 @@ description: Руководство помогает с нуля настрои�
 
 1. (Опционально) [Настройте Web Application Firewall](#firewall)
 
-   1. [Создайте профиль WAF](#waf-create)
+   1. [Создайте профиль Cloud WAF](#waf-create)
    1. [Настройте набор правил Yandex Ruleset](#waf-configure-rules)
    1. [Создайте правило-исключение](#create-exclusion)
-   1. [Добавьте профиль WAF к профилю безопасности](#waf-add-to-profile)
+   1. [Добавьте профиль Cloud WAF к профилю безопасности](#waf-add-to-profile)
    1. [Проверьте работу правил WAF](#test-waf-rules)
 
 ## Необходимые платные ресурсы {#paid-resources}
@@ -502,7 +502,7 @@ description: Руководство помогает с нуля настрои�
 
 Web Application Firewall (WAF) защищает от эксплуатации различных уязвимостей веб-приложений и требует тонкой настройки, исходя из особенностей вашего сервиса.
 
-При создании профиля WAF можно подключить несколько наборов правил. Для быстрого запуска рекомендуется начать с наборов [ML WAF](../../smartwebsecurity/concepts/waf.md#yandex-ml-ruleset) (Yandex Malicious Score) и [Yandex Ruleset](../../smartwebsecurity/concepts/waf.md#yandex-ruleset), они дают минимальное число ложноположительных срабатываний.
+При создании профиля Cloud WAF можно подключить несколько наборов правил. Для быстрого запуска рекомендуется начать с наборов [ML WAF](../../smartwebsecurity/concepts/waf.md#yandex-ml-ruleset) (Yandex Malicious Score) и [Yandex Ruleset](../../smartwebsecurity/concepts/waf.md#yandex-ruleset), они дают минимальное число ложноположительных срабатываний.
 
 Чтобы повысить уровень защиты, используйте дополнительные наборы правил и адаптируйте их к особенностям вашего сервиса.
 
@@ -510,7 +510,7 @@ Web Application Firewall (WAF) защищает от эксплуатации р
 
 Возможно, потребуется отключить некоторые правила для предотвращения ложных срабатываний и создать правила-исключения. Поскольку каждый сервис уникален, настройка WAF может занять некоторое время.
 
-### Создайте профиль WAF {#waf-create}
+### Создайте профиль Cloud WAF {#waf-create}
 
 {% list tabs group=instructions %}
 
@@ -518,7 +518,8 @@ Web Application Firewall (WAF) защищает от эксплуатации р
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится профиль безопасности.
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** и нажмите **{{ ui-key.yacloud.smart-web-security.waf.label_create-profile }}**.
+  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** и откройте вкладку **{{ ui-key.yacloud.smart-web-security.cloudWafTab_oR48G }}**.
+  1. Нажмите **{{ ui-key.yacloud.smart-web-security.WafCreateProfileAction.createWafOrSolidWallProfileButton_6J5WK }}** и выберите **{{ ui-key.yacloud.smart-web-security.cloudWafProfile_4E82H }}**.
   1. Введите имя профиля, например `waf-site-protection`.
   1. Включите наборы правил, например ML WAF и Yandex Ruleset. Чтобы посмотреть правила в наборе, нажмите на строку с его описанием.
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
@@ -531,7 +532,7 @@ Web Application Firewall (WAF) защищает от эксплуатации р
 
 - Консоль управления {#console}
 
-  1. На странице профиля WAF напротив нужного набора нажмите ![image](../../_assets/console-icons/gear.svg) **Настроить**.
+  1. На странице профиля Cloud WAF напротив нужного набора нажмите ![image](../../_assets/console-icons/gear.svg) **Настроить**.
   1. Для каждой группы правил:
 
       1. Нажмите ![image](../../_assets/console-icons/chevron-down.svg) возле названия группы правил, чтобы раскрыть ее.
@@ -559,7 +560,7 @@ Web Application Firewall (WAF) защищает от эксплуатации р
 
 {% endlist %}
 
-### Добавьте профиль WAF к профилю безопасности {#waf-add-to-profile}
+### Добавьте профиль Cloud WAF к профилю безопасности {#waf-add-to-profile}
 
 {% list tabs group=instructions %}
 

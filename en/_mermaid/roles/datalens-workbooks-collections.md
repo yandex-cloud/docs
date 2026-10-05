@@ -1,5 +1,10 @@
 ```mermaid
-%%{init: {"flowchart": {'defaultRenderer': 'elk', 'padding': 4}} }%%
+---
+config:
+  flowchart:
+    defaultRenderer: elk
+    padding: 4
+---
 flowchart BT
 
     subgraph sharedEntries["Shared entries"]
