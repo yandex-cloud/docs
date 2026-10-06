@@ -66,6 +66,50 @@ description: Следуя данной инструкции, вы сможете
        redirect_all_requests: {}
      ```
 
+- AWS CLI {#aws-cli}
+
+  1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
+  1. Проверьте, что бакет существует и доступен вам:
+
+      ```bash
+      aws s3api head-bucket \
+        --bucket <имя_бакета> \
+        --endpoint-url=https://{{ s3-storage-host }}
+      ```
+
+      Где:
+
+      * `--bucket` — имя бакета.
+      * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
+
+      Если бакета нет или прав на него не хватает, команда завершится ошибкой. Перечень возможных ответов приведен в разделе [{#T}](../../s3/api-ref/response-codes.md).
+
+  Отдельные настройки бакета возвращают методы S3 API — например, `get-bucket-versioning` для [версионирования](../../concepts/versioning.md) и `get-bucket-encryption` для [шифрования](../../concepts/encryption.md).
+
+- API {#api}
+
+  Чтобы получить информацию о [бакете](../../concepts/bucket.md), воспользуйтесь методом REST API [get](../../api-ref/Bucket/get.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Get](../../api-ref/grpc/Bucket/get.md) или методом S3 API [headBucket](../../s3/api-ref/bucket/getmeta.md).
+
+  Объем возвращаемых данных задается параметром `view`:
+
+  * `VIEW_BASIC` — основные сведения о бакете. В ответе не будет полей `acl`, `cors`, `websiteSettings`, `lifecycleRules` и `tags`.
+  * `VIEW_ACL` — основные сведения и [ACL](../../concepts/acl.md) бакета.
+  * `VIEW_FULL` — полные сведения о бакете.
+
+  Доступ к каждому из значений определяется [ролями {{ iam-short-name }}](../../security/index.md), а также [ACL](../../concepts/acl.md) и [политикой доступа](../../concepts/policy.md) бакета.
+
+  **Пример вызова REST API**
+
+  ```bash
+  export IAM_TOKEN="<IAM-токен>"
+  curl \
+    --request GET \
+    --header "Authorization: Bearer $IAM_TOKEN" \
+    --url 'https://storage.{{ api-host }}/storage/v1/buckets/<имя_бакета>?view=VIEW_FULL'
+  ```
+
+  Где `IAM_TOKEN` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md).
+
 {% endlist %}
 
 ## Получить статистику бакета {#get-statistics}
@@ -134,5 +178,23 @@ description: Следуя данной инструкции, вы сможете
      created_at: "2023-04-10T19:41:30.266075Z"
      updated_at: "2023-08-02T04:05:44.564924Z"
      ```
+
+- API {#api}
+
+  Чтобы получить статистику бакета, воспользуйтесь методом REST API [getStats](../../api-ref/Bucket/getStats.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/GetStats](../../api-ref/grpc/Bucket/getStats.md).
+
+  **Пример вызова REST API**
+
+  ```bash
+  export IAM_TOKEN="<IAM-токен>"
+  curl \
+    --request GET \
+    --header "Authorization: Bearer $IAM_TOKEN" \
+    --url 'https://storage.{{ api-host }}/storage/v1/buckets/<имя_бакета>:getStats'
+  ```
+
+  Где `IAM_TOKEN` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md).
+
+  В ответе возвращается общий занятый объем — поле `usedSize`, распределение объема по [классам хранилища](../../concepts/storage-class.md) — поле `storageClassUsedSizes`, и количество объектов в каждом классе — поле `storageClassCounters`.
 
 {% endlist %}
