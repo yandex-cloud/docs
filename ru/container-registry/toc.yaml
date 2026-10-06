@@ -1,6 +1,8 @@
 title: Yandex Container Registry
 href: index.yaml
 items:
+  - name: Закрытие сервиса
+    href: sunset.md
   - name: Начало работы
     href: quickstart/index.md
   - name: Пошаговые инструкции

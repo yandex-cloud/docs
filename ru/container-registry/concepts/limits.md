@@ -5,6 +5,8 @@ description: В {{ container-registry-full-name }} действуют лимит
 
 # Квоты и лимиты в {{ container-registry-name }}
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 В сервисе {{ container-registry-full-name }} действуют следующие ограничения:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}

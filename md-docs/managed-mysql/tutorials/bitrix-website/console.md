@@ -172,9 +172,16 @@
 
    {% endnote %}
 
+   Для работы «1С-Битрикс: Управление сайтом» требуется PHP версии 8.2 и выше. В Ubuntu 22.04 из официальных репозиториев устанавливается PHP 8.1, поэтому подключите репозиторий `ppa:ondrej/php` и установите PHP 8.2:
+
    ```bash
    sudo apt-get update
-   sudo apt-get install -y apache2 libapache2-mod-php php-gd php-mbstring php-mysql
+   sudo apt-get install -y apache2 software-properties-common
+   sudo add-apt-repository -y ppa:ondrej/php
+   sudo apt-get update
+   sudo apt-get install -y php8.2 php8.2-gd php8.2-mbstring php8.2-mysql libapache2-mod-php8.2
+   sudo a2enmod rewrite
+   sudo a2enmod php8.2
    ```
 
 1. Перейдите в рабочий каталог проекта и скачайте дистрибутив «1С-Битрикс: Управление сайтом»:
@@ -212,14 +219,13 @@
    -rwxrwxr-x 1 www-data www-data  1353 Jun  8  2023 index.php
    -rwxrwxr-x 1 www-data www-data   268 Apr 17  2023 install.config
    -rwxrwxr-x 1 www-data www-data 12821 Mar 18  2022 readme.html
-   -rwxrwxr-x 1 www-data www-data   112 Mar 27  2013 readme.php
    drwxrwxr-x 2 www-data www-data  4096 Jun  8  2023 upload
    ```
 
 1. Для корректной работы 1С настройте параметры PHP. Для этого воспользуйтесь встроенным редактором `nano` и отредактируйте следующие переменные в файле конфигурации `php.ini`:
 
    ```bash
-   sudo nano /etc/php/8.1/apache2/php.ini
+   sudo nano /etc/php/8.2/apache2/php.ini
    ```
 
    Было | Стало
@@ -227,14 +233,14 @@
    `short_open_tag = Off` | `short_open_tag = On`
    `memory_limit = 128M` | `memory_limit = 256M`
    `;date.timezone =` | `date.timezone = Europe/Moscow`
-   `;opcache.revalidate_freq =2` | `opcache.revalidate_freq =0`
+   `;opcache.revalidate_freq=2` | `opcache.revalidate_freq=0`
    `;session.save_path = "/var/lib/php/sessions"` | `session.save_path = "/var/lib/php/sessions"`
 
-   Путь к файлу `php.ini` зависит от установленной версии PHP. В примере приведен путь для версии `8.1`. Для версии `8.0` введите `/etc/php/8.0/apache2/php.ini`, для версии `8.2` — `/etc/php/8.2/apache2/php.ini` и т. д.
+   Путь к файлу `php.ini` зависит от установленной версии PHP. В примере приведен путь для версии `8.2`.
 
    {% note tip %}
 
-   Чтобы найти нужный параметр в редакторе `nano` нажмите сочетание клавиш **Ctrl** + **W**. Найдите требуемый параметр из таблицы выше, далее сохраните изменения при помощи сочетания клавиш **Ctrl** + **O**. Выход из редактора **Ctrl** + **X**.
+   Чтобы найти нужный параметр в редакторе `nano`, нажмите сочетание клавиш **Ctrl** + **W**. Найдите требуемый параметр из таблицы выше, далее сохраните изменения при помощи сочетания клавиш **Ctrl** + **O**. Выход из редактора — **Ctrl** + **X**.
 
    {% endnote %}
 
@@ -343,11 +349,7 @@
 
   1. [Удалите](../../../compute/operations/vm-control/vm-delete.md) ВМ `bitrixwebsite`.
   1. [Удалите](../../operations/cluster-delete.md) кластер БД `BitrixMySQL®`.
-  
-  Если вы зарезервировали статический публичный IP-адрес специально для этой ВМ:
-  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud** в вашем каталоге.
-  1. Откройте вкладку **Публичные IP-адреса**.
-  1. Найдите нужный IP-адрес, нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите пункт **Удалить**.
+  1. [Удалите](../../../vpc/operations/address-delete.md) статический публичный IP-адрес, если вы его зарезервировали.
 
 {% endlist %}
 

@@ -1,6 +1,6 @@
 [Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профили Cloud WAF > Получить информацию о профиле
 
-# Получить информацию о профиле WAF
+# Получить информацию о профиле Cloud WAF
 
 {% list tabs group=instructions %}
 

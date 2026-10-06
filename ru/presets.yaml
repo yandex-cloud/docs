@@ -325,6 +325,7 @@ default:
   link-console-settings: https://console.yandex.cloud/settings
   link-console-support: https://center.yandex.cloud/support
   link-console-yq: https://yq.yandex.cloud
+  link-datalens-docs: https://yandex.cloud/ru/docs/datalens
   link-datalens-main: https://datalens.ru
   link-datalens-main-promo: https://datalens.ru/promo
   link-datalens-main-skip-promo: https://datalens.ru/?skipPromo=true

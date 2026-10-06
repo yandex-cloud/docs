@@ -2998,6 +2998,16 @@
 
 ## Yandex Container Registry {#cr-roles}
 
+#### container-registry.registries.forceDeleter {#container-registry-registries-forceDeleter}
+
+Роль `container-registry.registries.forceDeleter` позволяет удалять реестры вместе со всеми хранящимися в них Docker-образами.
+
+{% note info %}
+
+Роль `container-registry.registries.forceDeleter` не входит в состав ролей `container-registry.admin` и `resource-manager.clouds.owner` и должна назначаться отдельно.
+
+{% endnote %}
+
 #### container-registry.viewer {#container-registry.viewer}
 
 Роль `container-registry.viewer` позволяет просматривать информацию о реестрах, Docker-образах и репозиториях, а также об облаке, каталоге и квотах сервиса.
@@ -3463,18 +3473,22 @@
 
 #### datalens.workbooks.viewer {#datalens-workbooks-viewer}
 
-Роль `datalens.workbooks.viewer` назначается на [воркбук](../datalens/workbooks-collections/index.md) и позволяет просматривать все вложенные в него [объекты](../datalens/concepts/index.md#component-interrelation), а также информацию о назначенных [правах доступа](concepts/access-control/index.md) к нему. В интерфейсе DataLens эта роль называется `Просмотр`. Рекомендуем выдавать эту роль только через интерфейс DataLens.
+Роль `datalens.workbooks.viewer` назначается на [воркбук](../datalens/workbooks-collections/index.md) и позволяет просматривать все вложенные в него [объекты](../datalens/concepts/index.md), а также информацию о назначенных [правах доступа](concepts/access-control/index.md) к нему. В интерфейсе DataLens эта роль называется `Просмотр`. Рекомендуем выдавать эту роль только через интерфейс DataLens.
+
 
 Включает разрешения, предоставляемые ролью `datalens.workbooks.limitedViewer`.
 
 #### datalens.workbooks.editor {#datalens-workbooks-editor}
 
-Роль `datalens.workbooks.editor` назначается на воркбук и позволяет редактировать его и все вложенные в него объекты. В интерфейсе DataLens эта роль называется `Редактирование`. Рекомендуем выдавать эту роль только через интерфейс DataLens.
+Роль `datalens.workbooks.editor` назначается на воркбук и позволяет управлять им и всеми вложенными в него объектами. В интерфейсе DataLens эта роль называется `Редактирование`. Рекомендуем выдавать эту роль только через интерфейс DataLens.
 
 Пользователи с этой ролью могут:
-* редактировать [воркбук](../datalens/workbooks-collections/index.md) и создавать его копии;
-* просматривать все вложенные в воркбук [объекты](../datalens/concepts/index.md#component-interrelation) и редактировать их;
+
+
+* редактировать [воркбук](../datalens/workbooks-collections/index.md) и создавать его копии, а также экспортировать и удалять воркбук;
+* просматривать все вложенные в воркбук [объекты](../datalens/concepts/index.md) и редактировать их;
 * просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к воркбуку.
+
 
 Включает разрешения, предоставляемые ролью `datalens.workbooks.viewer`.
 
@@ -3483,11 +3497,14 @@
 Роль `datalens.workbooks.admin` назначается на воркбук и позволяет управлять им, доступом к нему и всеми вложенными в него объектами. В интерфейсе DataLens эта роль называется `Администрирование`. Рекомендуем выдавать эту роль только через интерфейс DataLens.
 
 Пользователи с этой ролью могут:
+
+
 * просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к [воркбуку](../datalens/workbooks-collections/index.md) и изменять такие права доступа;
-* редактировать, перемещать воркбук, создавать копии и удалять его;
-* просматривать все вложенные в воркбук [объекты](../datalens/concepts/index.md#component-interrelation) и редактировать их;
+* редактировать, перемещать, экспортировать воркбук, создавать копии воркбука и удалять его;
+* просматривать все вложенные в воркбук [объекты](../datalens/concepts/index.md) и редактировать их;
 * [встраивать](../datalens/security/private-embedded-objects.md) вложенные в воркбук непубличные объекты на сайты и в приложения;
 * [публиковать](../datalens/concepts/datalens-public.md#how-to-publish) вложенные в воркбук объекты.
+
 
 Включает разрешения, предоставляемые ролью `datalens.workbooks.editor`.
 
@@ -3500,9 +3517,12 @@
 Роль `datalens.collections.limitedViewer` назначается на коллекцию и позволяет просматривать информацию о ней и вложенных в нее коллекциях и воркбуках, в том числе просматривать чарты, дашборды и отчеты вложенных воркбуков. В интерфейсе DataLens эта роль называется `Ограниченный просмотр`. Рекомендуем выдавать эту роль только через интерфейс DataLens.
 
 Пользователи с этой ролью могут:
+
+
 * просматривать информацию о текущей коллекции и вложенных в нее [воркбуках и коллекциях](../datalens/workbooks-collections/index.md);
 * просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к текущей коллекции, а также к вложенным в нее коллекциям и воркбукам;
 * просматривать [чарты](../datalens/concepts/chart/index.md), [дашборды](../datalens/concepts/dashboard.md) и [отчеты](../datalens/reports/index.md), вложенные в воркбуки, которые относятся к текущей и вложенным коллекциям.
+
 
 Включает разрешения, предоставляемые ролью `datalens.workbooks.limitedViewer`.
 
@@ -3511,9 +3531,11 @@
 Роль `datalens.collections.viewer` назначается на коллекцию и позволяет просматривать информацию о ней и вложенных в нее коллекциях и воркбуках, а также просматривать все объекты вложенных воркбуков. В интерфейсе DataLens эта роль называется `Просмотр`. Рекомендуем выдавать эту роль только через интерфейс DataLens.
 
 Пользователи с этой ролью могут:
+
 * просматривать информацию о текущей коллекции и вложенных в нее [воркбуках и коллекциях](../datalens/workbooks-collections/index.md);
 * просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к текущей коллекции, а также к вложенным в нее коллекциям и воркбукам;
-* просматривать все [объекты](../datalens/concepts/index.md#component-interrelation), вложенные в воркбуки, которые относятся к текущей и вложенным коллекциям.
+* просматривать все [объекты](../datalens/concepts/index.md), вложенные в воркбуки, которые относятся к текущей и вложенным коллекциям.
+
 
 Включает разрешения, предоставляемые ролями `datalens.collections.limitedViewer` и `datalens.workbooks.viewer`.
 
@@ -3537,15 +3559,18 @@
 
 #### datalens.collections.editor {#datalens-collections-editor}
 
-Роль `datalens.collections.editor` назначается на коллекцию и позволяет редактировать ее и все вложенные в нее коллекции, воркбуки, а также все объекты в таких воркбуках. В интерфейсе DataLens эта роль называется `Редактирование`. Рекомендуем выдавать эту роль только через интерфейс DataLens.
+Роль `datalens.collections.editor` назначается на коллекцию и позволяет управлять ей и всеми вложенными в нее коллекциями, воркбуками, а также всеми объектами в таких воркбуках. В интерфейсе DataLens эта роль называется `Редактирование`. Рекомендуем выдавать эту роль только через интерфейс DataLens.
 
 Пользователи с этой ролью могут:
+
+
 * просматривать информацию о текущей коллекции и вложенных в нее [коллекциях и воркбуках](../datalens/workbooks-collections/index.md);
-* редактировать текущую коллекцию и все вложенные в нее коллекции и воркбуки;
-* создавать копии воркбуков, вложенных в текущую коллекцию;
+* редактировать и удалять текущую коллекцию, а также все вложенные в нее коллекции и воркбуки;
+* создавать копии воркбуков, вложенных в текущую коллекцию, а также экспортировать такие воркбуки;
 * создавать новые коллекции и воркбуки внутри текущей и всех вложенных коллекций;
-* просматривать и редактировать все [объекты](../datalens/concepts/index.md#component-interrelation), вложенные в воркбуки, которые относятся к текущей и вложенным коллекциям;
+* просматривать и редактировать все [объекты](../datalens/concepts/index.md), вложенные в воркбуки, которые относятся к текущей и вложенным коллекциям;
 * просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к текущей коллекции, а также к вложенным в нее коллекциям и воркбукам.
+
 
 Включает разрешения, предоставляемые ролями `datalens.collections.viewer` и `datalens.workbooks.editor`.
 
@@ -3554,15 +3579,18 @@
 Роль `datalens.collections.admin` назначается на коллекцию и позволяет управлять ей, доступом к ней, а также всеми вложенными в нее коллекциями, воркбуками и объектами в таких воркбуках. В интерфейсе DataLens эта роль называется `Администрирование`. Рекомендуем выдавать эту роль только через интерфейс DataLens.
 
 Пользователи с этой ролью могут:
+
+
 * просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к текущей коллекции, к вложенным в нее [коллекциям и воркбукам](../datalens/workbooks-collections/index.md), а также изменять такие права доступа;
 * просматривать информацию о текущей коллекции и вложенных в нее коллекциях и воркбуках;
 * редактировать текущую коллекцию и все вложенные в нее коллекции и воркбуки;
-* создавать копии воркбуков, вложенных в текущую коллекцию;
+* создавать копии воркбуков, вложенных в текущую коллекцию, а также экспортировать такие воркбуки;
 * перемещать и удалять текущую коллекцию и все вложенные в нее коллекции и воркбуки;
 * создавать новые коллекции и воркбуки внутри текущей коллекции;
-* просматривать и редактировать все [объекты](../datalens/concepts/index.md#component-interrelation), вложенные в воркбуки, которые относятся к текущей и вложенным коллекциям;
+* просматривать и редактировать все [объекты](../datalens/concepts/index.md), вложенные в воркбуки, которые относятся к текущей и вложенным коллекциям;
 * [встраивать](../datalens/security/private-embedded-objects.md) на сайты и в приложения непубличные объекты, вложенные в воркбуки, которые относятся к текущей и вложенным коллекциям;
 * [публиковать](../datalens/concepts/datalens-public.md#how-to-publish) объекты, вложенные в воркбуки, которые относятся к текущей и вложенным коллекциям.
+
 
 Включает разрешения, предоставляемые ролями `datalens.collections.editor` и `datalens.workbooks.admin`.
 
@@ -3584,9 +3612,10 @@
 
 #### datalens.instances.user {#datalens-instances-user}
 
-Роль `datalens.instances.user` предоставляет доступ к сервису DataLens в качестве пользователя с правами на создание, чтение и изменение [объектов](../datalens/concepts/index.md#component-interrelation) согласно правам доступа к ним, а также позволяет просматривать информацию о [каталогах](../resource-manager/concepts/resources-hierarchy.md#folder).
+Роль `datalens.instances.user` предоставляет доступ к сервису DataLens в качестве пользователя с правами на создание, чтение и изменение [объектов](../datalens/concepts/index.md) согласно правам доступа к ним, а также позволяет просматривать информацию о [каталогах](../resource-manager/concepts/resources-hierarchy.md#folder).
 
 После назначения сервисной роли вы можете [назначить](../datalens/operations/permission/grant.md) пользователю права доступа к объектам и папкам в сервисе DataLens.
+
 
 {% note tip %}
 
@@ -3596,7 +3625,8 @@
 
 #### datalens.instances.admin {#datalens-instances-admin}
 
-Роль `datalens.instances.admin` предоставляет доступ к сервису DataLens в качестве администратора экземпляра DataLens. Администратор получает полные права на все [объекты](../datalens/concepts/index.md#component-interrelation) и папки в сервисе DataLens, доступ к настройкам DataLens, а также может просматривать информацию о [каталогах](../resource-manager/concepts/resources-hierarchy.md#folder).
+Роль `datalens.instances.admin` предоставляет доступ к сервису DataLens в качестве администратора экземпляра DataLens. Администратор получает полные права на все [объекты](../datalens/concepts/index.md) и папки в сервисе DataLens, доступ к настройкам DataLens, а также может просматривать информацию о [каталогах](../resource-manager/concepts/resources-hierarchy.md#folder).
+
 
 Включает разрешения, предоставляемые ролью `datalens.instances.user`.
 
@@ -3618,7 +3648,13 @@
 * чарт в Editor — [метод](https://api.datalens.tech/#/Editor/post_rpc_getEditorChart) `getEditorChart`;
 * QL-чарт — [метод](https://api.datalens.tech/#/QL/post_rpc_getQLChart) `getQLChart`;
 * дашборд — [метод](https://api.datalens.tech/#/Dashboard/post_rpc_getDashboard) `getDashboard`;
-* отчет — [метод](https://api.datalens.tech/#/Reports/post_rpc_getReport) `getReport`.
+* отчет — [метод](https://api.datalens.tech/#/Reports/post_rpc_getReport) `getReport`;
+* коллекция — [метод](https://api.datalens.tech/#/Collection/post_rpc_getCollection) `getCollection`;
+* информация о коллекции — [метод](https://api.datalens.tech/#/Collection/post_rpc_getCollectionContent) `getCollectionContent`;
+* воркбук — [метод](https://api.datalens.tech/#/Workbook/post_rpc_getWorkbook) `getWorkbook`;
+* сущности в воркбуке — [метод](https://api.datalens.tech/#/Workbook/post_rpc_getWorkbookEntries) `getWorkbookEntries`;
+* сущности — [метод](https://api.datalens.tech/#/Navigation/post_rpc_getEntries) `getEntries`;
+* связи между сущностями — [метод](https://api.datalens.tech/#/Entries/post_rpc_getEntriesRelations) `getEntriesRelations`.
 
 {% note warning %}
 

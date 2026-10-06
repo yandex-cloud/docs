@@ -34,7 +34,7 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
 
 ### Профили Cloud WAF
 
- - [Создать профиль Cloud WAF](operations/waf-profile-create.md)
+ - [Создать профиль](operations/waf-profile-create.md)
 
  - [Изменить основные параметры профиля](operations/waf-profile-update.md)
 
@@ -56,17 +56,17 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
 
 ### Профили SolidWall WAF
 
- - [Создать профиль SolidWall WAF](operations/solidwall-waf-profile-create.md)
+ - [Создать профиль](operations/solidwall-waf-profile-create.md)
 
  - [Создать приложение и подключить к нему домен](operations/solidwall-waf-application-create.md)
 
- - [Изменить профиль SolidWall WAF](operations/solidwall-waf-profile-update.md)
+ - [Изменить профиль](operations/solidwall-waf-profile-update.md)
 
- - [Изменить приложение SolidWall WAF](operations/solidwall-waf-application-update.md)
+ - [Изменить приложение](operations/solidwall-waf-application-update.md)
 
- - [Удалить приложение SolidWall WAF](operations/solidwall-waf-application-delete.md)
+ - [Удалить приложение](operations/solidwall-waf-application-delete.md)
 
- - [Удалить профиль SolidWall WAF](operations/solidwall-waf-profile-delete.md)
+ - [Удалить профиль](operations/solidwall-waf-profile-delete.md)
 
 ### Профили ARL
 

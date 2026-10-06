@@ -5,6 +5,8 @@ description: Из статьи вы узнаете, как получить ин
 
 # Получить информацию об имеющихся репозиториях
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 ## Получить список репозиториев в реестре {#repository-list}
 
 {% list tabs group=instructions %}

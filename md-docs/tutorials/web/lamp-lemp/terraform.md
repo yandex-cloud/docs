@@ -147,6 +147,12 @@ Terraform распространяется под лицензией [Business S
               v4_cidr_blocks = ["0.0.0.0/0"]
               port           = 443
             }
+            ingress {
+              protocol       = "TCP"
+              description    = "ext-ssh"
+              v4_cidr_blocks = ["0.0.0.0/0"]
+              port           = 22
+            }
           }
           
           # Добавление готового образа ВМ
@@ -158,7 +164,7 @@ Terraform распространяется под лицензией [Business S
           resource "yandex_compute_disk" "boot-disk" {
             name     = "bootvmdisk"
             type     = "network-hdd"
-            zone     = "ru-central1-a"
+            zone     = var.zone
             size     = "20"
             image_id = yandex_compute_image.lamp-vm-image.id
           }
@@ -209,7 +215,7 @@ Terraform распространяется под лицензией [Business S
           
           resource "yandex_dns_recordset" "rs-cname" {
             zone_id = yandex_dns_zone.zone1.id
-            name    = "www"
+            name    = "www.${var.dns_zone}"
             type    = "CNAME"
             ttl     = 600
             data    = [ var.dns_zone ]
@@ -246,7 +252,7 @@ Terraform распространяется под лицензией [Business S
   1. В файле `lamp-lemp.auto.tfvars` задайте пользовательские параметры:
       * `zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
       * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
-      * `family_id` — укажите семейство одного из [образов](../../../compute/concepts/image.md) ВМ с нужным набором компонентов:
+      * `vm_image_family` — укажите семейство одного из [образов](../../../compute/concepts/image.md) ВМ с нужным набором компонентов:
         * `lamp` — [LAMP](https://yandex.cloud/ru/marketplace/products/yc/lamp) (Linux, Apache, MySQL®, PHP).
         * `lemp` — [LEMP](https://yandex.cloud/ru/marketplace/products/yc/lemp) (Linux, Nginx, MySQL®, PHP).
       * `vm_user` — имя пользователя ВМ.
@@ -284,15 +290,13 @@ Terraform распространяется под лицензией [Business S
     
     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-1. [Получите публичный IP-адрес ВМ](../../../compute/operations/vm-info/get-info.md) — он потребуется далее, чтобы [загрузить файлы сайта](#upload-files).
-
-После создания инфраструктуры, [загрузите файлы сайта](#upload-files).
+1. [Получите публичный IP-адрес ВМ](../../../compute/operations/vm-info/get-info.md) — он потребуется далее, чтобы [загрузить файлы сайта](#upload-files) после создания инфраструктуры.
 
 ## Загрузите файлы сайта {#upload-files}
 
 Чтобы проверить работу веб-сервера, загрузите на ВМ файл `index.html`. Можно использовать [тестовый файл](https://storage.yandexcloud.net/doc-files/index.html.zip), скачайте и распакуйте архив.
 1. В блоке **Сеть** на странице ВМ в [консоли управления](https://console.yandex.cloud) найдите публичный IP-адрес ВМ.
-1. [Подключитесь](../../../compute/operations/vm-connect/ssh.md) к ВМ по протоколу SSH.
+1. [Подключитесь](../../../compute/operations/vm-connect/ssh.md) к ВМ по протоколу SSH. Если для доступа к ВМ используется [OS Login](../../../compute/operations/vm-connect/os-login.md), подключайтесь по инструкции для OS Login.
 1. Выдайте права на запись для вашего пользователя на директорию `/var/www/html`: 
 
     ```bash
@@ -362,4 +366,4 @@ Terraform распространяется под лицензией [Business S
 
 #### Полезные ссылки {#see-also}
 
-* [Сайт на LAMP- или LEMP-стеке с помощью консоли управления](console.md).
+[Сайт на LAMP- или LEMP-стеке с помощью консоли управления](console.md)

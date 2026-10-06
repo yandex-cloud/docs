@@ -2,6 +2,14 @@
 
 # Назначить роль на ресурс
 
+{% note warning %}
+
+С 13 октября 2026 года сервис Yandex Container Registry будет недоступен для новых пользователей.
+
+Текущие пользователи могут создавать ресурсы до 10 ноября 2026 года. После сервис перейдет в режим read-only, а 14 декабря 2026 года — прекратит работу. Подробнее о сроках и порядке закрытия читайте на странице [Закрытие сервиса](../../sunset.md).
+
+{% endnote %}
+
 Чтобы предоставить доступ к [ресурсу](../../../iam/concepts/access-control/resources-with-access-control.md), назначьте субъекту [роль](../../../iam/concepts/access-control/roles.md) на сам ресурс или на ресурс, от которого наследуются права доступа, например на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder) или [облако](../../../resource-manager/concepts/resources-hierarchy.md#cloud). Актуальный список ресурсов, на которые можно назначать роли, доступен в разделе [На какие ресурсы можно назначить роль](../../security/index.md#resources).
 
 {% list tabs group=instructions %}

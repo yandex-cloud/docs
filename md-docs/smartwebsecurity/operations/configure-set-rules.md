@@ -1,6 +1,6 @@
 [Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профили Cloud WAF > Настроить наборы правил
 
-# Настроить наборы правил WAF
+# Настроить наборы правил Cloud WAF
 
 {% list tabs group=instructions %}
 
@@ -244,6 +244,6 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Добавить правило-исключение WAF](exclusion-rule-add.md)
+* [Добавить правило-исключение Cloud WAF](exclusion-rule-add.md)
 * [Добавить правило в профиль безопасности](rule-add.md)
 * [Базовая настройка защиты в Smart Web Security](../tutorials/sws-basic-protection.md)

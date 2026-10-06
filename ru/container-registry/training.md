@@ -5,6 +5,8 @@ description: В этом разделе собраны обучающие кур
 
 # Обучающие курсы по {{ container-registry-name }}
 
+{% include [sunset](../_includes/container-registry/sunset.md) %}
+
 {% include [training-intro](../_includes/training/training-intro.md) %}
 
 Подробнее узнать об использовании сервиса {{ container-registry-name }} можно в следующих курсах:

@@ -153,6 +153,7 @@ description: This page provides a list of tutorials for building a data platform
 
 * [{#T}](valkey-data-migration.md)
 * [{#T}](valkey-as-php-sessions-storage.md)
+* [{#T}](1c-valkey-locks.md)
 
 ## {{ ydb-short-name }} {#ydb}
 

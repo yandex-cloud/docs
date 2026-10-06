@@ -1,5 +1,7 @@
 # Отозвать роль на ресурс
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 Вы можете запретить [субъекту](../../../iam/concepts/access-control/index.md#subject) доступ к ресурсу, для этого необходимо отозвать у него соответствующие [роли](../../../iam/concepts/access-control/roles.md) на этот ресурс и на ресурсы, от которых наследуются права доступа. Подробнее читайте в разделе [{#T}](../../../iam/concepts/access-control/index.md).
 
 {% list tabs group=instructions %}

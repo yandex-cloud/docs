@@ -29,7 +29,7 @@ items:
             href: operations/host-delete.md
       - name: Профили Cloud WAF
         items:
-          - name: Создать профиль Cloud WAF
+          - name: Создать профиль
             href: operations/waf-profile-create.md
           - name: Изменить основные параметры профиля
             href: operations/waf-profile-update.md
@@ -51,17 +51,17 @@ items:
             href: operations/waf-ml-tuning-recommendations.md
       - name: Профили SolidWall WAF
         items:
-          - name: Создать профиль SolidWall WAF
+          - name: Создать профиль
             href: operations/solidwall-waf-profile-create.md
           - name: Создать приложение и подключить к нему домен
             href: operations/solidwall-waf-application-create.md
-          - name: Изменить профиль SolidWall WAF
+          - name: Изменить профиль
             href: operations/solidwall-waf-profile-update.md
-          - name: Изменить приложение SolidWall WAF
+          - name: Изменить приложение
             href: operations/solidwall-waf-application-update.md
-          - name: Удалить приложение SolidWall WAF
+          - name: Удалить приложение
             href: operations/solidwall-waf-application-delete.md
-          - name: Удалить профиль SolidWall WAF
+          - name: Удалить профиль
             href: operations/solidwall-waf-profile-delete.md
       - name: Профили ARL
         items:

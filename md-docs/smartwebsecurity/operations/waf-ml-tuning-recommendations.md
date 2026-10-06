@@ -120,7 +120,7 @@
 #### Полезные ссылки {#see-also}
 
 * [Cloud WAF](../concepts/waf.md)
-* [Настроить наборы правил WAF](configure-set-rules.md)
-* [Добавить правило-исключение WAF](exclusion-rule-add.md)
+* [Настроить наборы правил Cloud WAF](configure-set-rules.md)
+* [Добавить правило-исключение Cloud WAF](exclusion-rule-add.md)
 * [Настроить логирование через Smart Web Security](configure-logging.md)
 * [Мониторинг в Smart Web Security](monitoring.md)

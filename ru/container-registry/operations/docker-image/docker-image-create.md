@@ -5,6 +5,8 @@ description: В инструкции описано, как создать Docke
 
 # Создать Docker-образ
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 В инструкции описано, как создать [Docker-образ](../../concepts/docker-image.md) на основе Dockerfile и собрать его.
 
 Чтобы работать с Docker-образами, [установите и настройте](../configure-docker.md) Docker.

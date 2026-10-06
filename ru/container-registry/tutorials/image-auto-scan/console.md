@@ -5,6 +5,8 @@ description: Следуя данному руководству, вы сможе
 
 # Автоматическое сканирование Docker-образа при загрузке с помощью консоли управления, CLI и API
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 
 {% note info %}
 

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профили SolidWall WAF > Создать профиль SolidWall WAF
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профили SolidWall WAF > Создать профиль
 
 # Создать профиль SolidWall WAF
 
@@ -60,6 +60,6 @@
 #### Полезные ссылки {#see-also}
 
 * [SolidWall WAF](../concepts/solidwall-waf.md)
-* [Создать приложение и подключить к нему домен](solidwall-waf-application-create.md)
+* [Создать приложение SolidWall WAF и подключить к нему домен](solidwall-waf-application-create.md)
 * [Удалить профиль SolidWall WAF](solidwall-waf-profile-delete.md)
 * [Подключение SolidWall WAF к веб-приложению](../tutorials/solidwall-waf.md)

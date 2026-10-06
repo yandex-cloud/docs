@@ -37,7 +37,7 @@ The cost of infrastructure support includes a fee for using a bucket (see [{{ ob
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md), e.g., `example-folder`.
+    1. In the [management console]({{ link-console-main }}), select the folder you want to create a [bucket](../../storage/concepts/bucket.md) in, e.g., `example-folder`.
     1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
     1. On the `create bucket` page:
@@ -237,7 +237,7 @@ Run event queries for the `audit-trails-logsyq-object_storage` binding:
 
     1. Click **Execute**.
 
-1. Changing access permissions for an {{ objstorage-name }} bucket:
+1. Updating access permissions for an {{ objstorage-name }} bucket:
 
     1. Select this query from the list: **11. Suspicious activity with the {{ at-name }} log repository ({{ objstorage-name }} bucket)**.
     1. Edit the query by specifying the number of displayed records:

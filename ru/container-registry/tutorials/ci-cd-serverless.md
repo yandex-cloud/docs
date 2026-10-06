@@ -6,4 +6,6 @@ canonical: '{{ link-docs }}/tutorials/serverless/ci-cd-serverless'
 
 # Построение пайплайна CI/CD с использованием serverless-продуктов
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 {% include notitle [ci-cd-serverless](../../_tutorials/serverless/ci-cd-serverless.md) %}

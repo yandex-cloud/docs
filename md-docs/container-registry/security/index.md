@@ -2,6 +2,14 @@
 
 # Управление доступом в Container Registry
 
+{% note warning %}
+
+С 13 октября 2026 года сервис Yandex Container Registry будет недоступен для новых пользователей.
+
+Текущие пользователи могут создавать ресурсы до 10 ноября 2026 года. После сервис перейдет в режим read-only, а 14 декабря 2026 года — прекратит работу. Подробнее о сроках и порядке закрытия читайте на странице [Закрытие сервиса](../sunset.md).
+
+{% endnote %}
+
 В этом разделе вы узнаете:
 * [На какие ресурсы можно назначить роль](#resources).
 * [Какие роли действуют в сервисе](#roles-list).
@@ -64,6 +72,16 @@
 ![service-roles-hierarchy](../../_assets/container-registry/service-roles-hierarchy.svg)
 
 ### Сервисные роли {#service-roles}
+
+#### container-registry.registries.forceDeleter {#container-registry-registries-forceDeleter}
+
+Роль `container-registry.registries.forceDeleter` позволяет удалять реестры вместе со всеми хранящимися в них Docker-образами.
+
+{% note info %}
+
+Роль `container-registry.registries.forceDeleter` не входит в состав ролей `container-registry.admin` и `resource-manager.clouds.owner` и должна назначаться отдельно.
+
+{% endnote %}
 
 #### container-registry.viewer {#container-registry.viewer}
 

@@ -79,6 +79,19 @@ index: 1
 
 ## 2026 год {#2026}
 
+### Сентябрь {#sept2026}
+
+
+* Поддержана репликация из [PostgreSQL](../operations/endpoint/source/postgresql.md) в [Apache Iceberg™](../operations/endpoint/target/iceberg.md).
+* Парсер Confluent Schema Registry для источников [Apache Kafka®](../operations/endpoint/source/kafka.md) и [YDS](../operations/endpoint/source/data-streams.md) теперь доступен через API (gRPC) и Terraform.
+
+
+* Для приемника [Object Storage](../operations/endpoint/target/object-storage.md) поддержаны:
+  
+  * временная раскладка своих данных или по полям Apache Kafka® и YDS;
+  * ограничение количества записей в одном файле;
+  * включение регулярной ротации при низком потоке и без необходимости гарантии `exactly once`.
+
 ### Август {#august2026}
 
 * Поддержана политика очистки данных в приемнике [Object Storage](../operations/endpoint/target/object-storage.md).

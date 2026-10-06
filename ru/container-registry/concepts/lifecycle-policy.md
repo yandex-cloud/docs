@@ -1,5 +1,7 @@
 # Политика автоматического удаления Docker-образов
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 Политика удаления [Docker-образов](docker-image.md) позволяет задать [правила](#lifecycle-rules), в соответствии с которыми Docker-образы будут удаляться автоматически.
 
 Как задать правила, читайте в разделе [Создать политику удаления](../operations/lifecycle-policy/lifecycle-policy-create.md).

@@ -2,6 +2,116 @@
 
 # История изменений в Yandex Identity and Access Management
 
+## Сентябрь 2026 {#september-2026}
+
+### Изменения в сервисе Identity and Access Management {#iam-september-2026}
+
+* Добавлены [шаблоны политик авторизации](concepts/access-control/access-policies.md#supported-policies) для Yandex Compute Cloud и Yandex Cloud Postbox, накладывающие ограничения на сетевые интерфейсы, публичные IP-адреса, серийную консоль и образы виртуальных машин, а также на IP-адреса отправителей писем.
+* Добавлена возможность [поиска и получения атрибутов субъектов](concepts/subject-details.md) разных типов в организации с фильтрацией на языке Common Expression Language (CEL).
+
+### Новые роли {#roles-september-2026}
+
+{% cut "Yandex AI Studio" %}
+
+#### ai.agentChannels.admin {#ai-agentchannels-admin}
+
+Роль `ai.agentChannels.admin` позволяет управлять [каналами публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels) и назначать права доступа к ним.
+
+Пользователи с этой ролью могут:
+* создавать, изменять и удалять каналы публикации текстовых агентов;
+* приостанавливать и возобновлять работу каналов публикации текстовых агентов;
+* публиковать версии текстовых агентов в каналах;
+* назначать и отзывать права доступа к каналам публикации текстовых агентов;
+* просматривать информацию о каналах публикации текстовых агентов;
+* просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+Включает разрешения, предоставляемые ролью `ai.agentChannels.editor`.
+
+#### ai.agentChannels.auditor {#ai-agentchannels-auditor}
+
+Роль `ai.agentChannels.auditor` позволяет просматривать метаданные [каналов публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels).
+
+Пользователи с этой ролью могут:
+* просматривать информацию о каналах публикации текстовых агентов, а также список каналов в каталоге;
+* просматривать права доступа, назначенные на каналы публикации текстовых агентов;
+* просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+#### ai.agentChannels.editor {#ai-agentchannels-editor}
+
+Роль `ai.agentChannels.editor` позволяет создавать [каналы публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels) и публиковать в них версии агентов.
+
+Пользователи с этой ролью могут:
+* создавать, изменять и удалять каналы публикации текстовых агентов;
+* приостанавливать и возобновлять работу каналов публикации текстовых агентов;
+* публиковать версии текстовых агентов в каналах;
+* просматривать информацию о каналах публикации текстовых агентов и назначенных на них правах доступа;
+* просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+Включает разрешения, предоставляемые ролью `ai.agentChannels.viewer`.
+
+#### ai.agentChannels.viewer {#ai-agentchannels-viewer}
+
+Роль `ai.agentChannels.viewer` позволяет просматривать [каналы публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels).
+
+Пользователи с этой ролью могут:
+* просматривать информацию о каналах публикации текстовых агентов, а также список каналов в каталоге;
+* просматривать права доступа, назначенные на каналы публикации текстовых агентов;
+* просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+Включает разрешения, предоставляемые ролью `ai.agentChannels.auditor`.
+
+#### ai.canvasAgents.admin {#ai-canvasagents-admin}
+
+Роль `ai.canvasAgents.admin` позволяет создавать [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents), управлять ими и назначать права доступа к ним.
+
+Пользователи с этой ролью могут:
+* создавать, изменять и удалять текстовых агентов;
+* создавать версии текстовых агентов;
+* тестировать в интерфейсе тестирования любую версию текстового агента, в том числе не опубликованную в канале;
+* назначать и отзывать права доступа к текстовым агентам;
+* просматривать информацию о текстовых агентах, их версиях и операциях с ними;
+* просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+Включает разрешения, предоставляемые ролью `ai.canvasAgents.editor`.
+
+#### ai.canvasAgents.auditor {#ai-canvasagents-auditor}
+
+Роль `ai.canvasAgents.auditor` позволяет просматривать метаданные [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents).
+
+Пользователи с этой ролью могут:
+* просматривать информацию о текстовых агентах и их версиях, а также список текстовых агентов в каталоге;
+* просматривать список асинхронных операций с текстовыми агентами;
+* просматривать права доступа, назначенные на текстовых агентов;
+* просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+#### ai.canvasAgents.editor {#ai-canvasagents-editor}
+
+Роль `ai.canvasAgents.editor` позволяет создавать [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents), управлять ими и тестировать их в интерфейсе тестирования.
+
+Пользователи с этой ролью могут:
+* создавать, изменять и удалять текстовых агентов;
+* создавать версии текстовых агентов;
+* тестировать в интерфейсе тестирования любую версию текстового агента, в том числе не опубликованную в канале: отправлять агенту сообщения и просматривать события выполнения;
+* просматривать информацию о текстовых агентах, их версиях и операциях с ними;
+* просматривать права доступа, назначенные на текстовых агентов;
+* просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+Включает разрешения, предоставляемые ролью `ai.canvasAgents.viewer`.
+
+#### ai.canvasAgents.viewer {#ai-canvasagents-viewer}
+
+Роль `ai.canvasAgents.viewer` позволяет просматривать [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents).
+
+Пользователи с этой ролью могут:
+* просматривать информацию о текстовых агентах и их версиях, а также список текстовых агентов в каталоге;
+* просматривать список асинхронных операций с текстовыми агентами;
+* просматривать права доступа, назначенные на текстовых агентов;
+* просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+Включает разрешения, предоставляемые ролью `ai.canvasAgents.auditor`.
+
+{% endcut %}
+
 ## Август 2026 {#august-2026}
 
 ### Изменения в сервисе Identity and Access Management {#iam-august-2026}
@@ -440,7 +550,13 @@
 * чарт в Editor — [метод](https://api.datalens.tech/#/Editor/post_rpc_getEditorChart) `getEditorChart`;
 * QL-чарт — [метод](https://api.datalens.tech/#/QL/post_rpc_getQLChart) `getQLChart`;
 * дашборд — [метод](https://api.datalens.tech/#/Dashboard/post_rpc_getDashboard) `getDashboard`;
-* отчет — [метод](https://api.datalens.tech/#/Reports/post_rpc_getReport) `getReport`.
+* отчет — [метод](https://api.datalens.tech/#/Reports/post_rpc_getReport) `getReport`;
+* коллекция — [метод](https://api.datalens.tech/#/Collection/post_rpc_getCollection) `getCollection`;
+* информация о коллекции — [метод](https://api.datalens.tech/#/Collection/post_rpc_getCollectionContent) `getCollectionContent`;
+* воркбук — [метод](https://api.datalens.tech/#/Workbook/post_rpc_getWorkbook) `getWorkbook`;
+* сущности в воркбуке — [метод](https://api.datalens.tech/#/Workbook/post_rpc_getWorkbookEntries) `getWorkbookEntries`;
+* сущности — [метод](https://api.datalens.tech/#/Navigation/post_rpc_getEntries) `getEntries`;
+* связи между сущностями — [метод](https://api.datalens.tech/#/Entries/post_rpc_getEntriesRelations) `getEntriesRelations`.
 
 {% note warning %}
 

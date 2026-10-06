@@ -34,7 +34,7 @@ terraform {
 }
 
 provider "yandex" {
-  zone = var.folder_id
+  folder_id = var.folder_id
 }
 
 # Создание облачной сети и подсетей

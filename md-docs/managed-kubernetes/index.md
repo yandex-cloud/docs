@@ -816,6 +816,8 @@
 
  - [Установка Gwin](alb-ref/gwin-quickstart.md)
 
+ - [Маршрутизация трафика напрямую в поды кластера](alb-ref/routes-pod.md)
+
  - [Миграция приложений с ALB Ingress-контроллера на Gwin](alb-ref/ingress-gwin-migration.md)
 
  - [Миграция приложений с Ingress NGINX на Gwin](alb-ref/nginx-gwin-migration.md)
@@ -824,31 +826,31 @@
 
 #### Конфигурация ресурсов (англ.)
 
- - [BackendTLSPolicy](gwin-ref/backendtlspolicy.md)
-
  - [DirectResponse](gwin-ref/directresponse.md)
-
- - [GRPCRoute](gwin-ref/grpcroute.md)
-
- - [HTTPRoute](gwin-ref/httproute.md)
 
  - [Gateway](gwin-ref/gateway.md)
 
- - [Ingress](gwin-ref/ingress.md)
+ - [GatewayPolicy](gwin-ref/gatewaypolicy.md)
 
- - [IngressPolicy](gwin-ref/ingresspolicy.md)
+ - [BackendTLSPolicy](gwin-ref/backendtlspolicy.md)
+
+ - [HTTPRoute](gwin-ref/httproute.md)
+
+ - [Ingress](gwin-ref/ingress.md)
 
  - [IngressBackendGroup](gwin-ref/ingressbackendgroup.md)
 
- - [ListenerSet](gwin-ref/listenerset.md)
+ - [GRPCRoute](gwin-ref/grpcroute.md)
 
- - [RoutePolicy](gwin-ref/routepolicy.md)
+ - [ListenerSet](gwin-ref/listenerset.md)
 
  - [ListenerSetPolicy](gwin-ref/listenersetpolicy.md)
 
+ - [RoutePolicy](gwin-ref/routepolicy.md)
+
  - [Service](gwin-ref/service.md)
 
- - [ServicePolicy](gwin-ref/servicepolicy.md)
+ - [IngressPolicy](gwin-ref/ingresspolicy.md)
 
  - [TLSRoute](gwin-ref/tlsroute.md)
 
@@ -856,7 +858,7 @@
 
  - [YCStorageBucket](gwin-ref/ycstoragebucket.md)
 
- - [GatewayPolicy](gwin-ref/gatewaypolicy.md)
+ - [ServicePolicy](gwin-ref/servicepolicy.md)
 
 ### Ingress-контроллер
 

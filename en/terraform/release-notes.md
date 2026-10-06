@@ -4,6 +4,13 @@ description: Changelog, updates, and version history for the {{ yandex-cloud }} 
 editable: false
 ---
 
+## 0.236.0 (October 6, 2026)
+
+##### ENHANCEMENTS:
+* greenplum: use DBMS config API fields for mdb_greenplum_cluster_v2 while keeping the existing Terraform schema.
+
+
+
 ## 0.235.0 (October 2, 2026)
 
 ##### BUG FIXES:

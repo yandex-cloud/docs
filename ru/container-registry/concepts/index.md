@@ -1,5 +1,7 @@
 # Концепции {{ container-registry-full-name }}
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 {{ container-registry-name }} — сервис для хранения и распространения [Docker-образов](/blog/posts/2022/03/docker-containers).
 
 {{ container-registry-name }} предоставляет надежное и независимое от внешних блокировок хранилище. Docker-образы в {{ container-registry-name }} размещаются в тех же [дата-центрах](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}, в которых размещена остальная облачная инфраструктура, что обеспечивает высокую скорость работы с образами и отсутствие затрат на внешний трафик.
