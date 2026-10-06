@@ -2,6 +2,14 @@
 
 # Хранение Docker-образов из проектов Yandex Managed Service for GitLab
 
+{% note warning %}
+
+С 13 октября 2026 года сервис Yandex Container Registry будет недоступен для новых пользователей.
+
+Текущие пользователи могут создавать ресурсы до 10 ноября 2026 года. После сервис перейдет в режим read-only, а 14 декабря 2026 года — прекратит работу. Подробнее о сроках и порядке закрытия читайте на странице [Закрытие сервиса](../sunset.md).
+
+{% endnote %}
+
 # Хранение Docker-образов из Yandex Managed Service for GitLab в Yandex Container Registry
 
 

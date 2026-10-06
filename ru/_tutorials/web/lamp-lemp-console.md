@@ -56,12 +56,12 @@
       1. Выберите **Сеть** `web-network`.
       1. В блоке **Правила** создайте следующие правила по инструкции под таблицей:
 
-          | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Источник /<br/>назначение | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+          | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Источник /<br/>назначение | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} |
           | --- | --- | --- | --- | --- | --- |
-          | `Исходящий` | `any` | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `CIDR` | `0.0.0.0/0` |
-          | `Входящий` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-          | `Входящий` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-          | `Входящий` | `ext-ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |         
+          | `Исходящий` | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `CIDR` | `0.0.0.0/0` | `any` |
+          | `Входящий` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `ext-http` |
+          | `Входящий` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `ext-https` |
+          | `Входящий` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `ext-ssh` |
 
           1. Выберите вкладку **Исходящий трафик** или **Входящий трафик**.
           1. Нажмите кнопку **Добавить правило**.
@@ -97,6 +97,7 @@
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть `web-network` и подсеть, в которой будет создана ВМ.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите группу безопасности `sg-web`.
       * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
 
@@ -123,8 +124,6 @@
       IP-адрес и [имя хоста (FQDN)](../../compute/concepts/network.md#hostname) для подключения к ВМ назначаются ей при создании. Если в поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** вы выбрали вариант `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`, вы не сможете обращаться к ВМ из интернета.
 
       {% endnote %}
-
-  1. Нажмите кнопку **Создать ВМ**.
 
       Создание ВМ может занять несколько минут. Когда ВМ перейдет в статус `RUNNING`, вы можете [загрузить на нее файлы сайта](#upload-files).
 
@@ -176,14 +175,13 @@
           1. В поле **{{ ui-key.yacloud.dns.label_records }}** вставьте скопированный IP-адрес ВМ.
           1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
       1. Создайте запись [типа CNAME](../../dns/concepts/resource-record.md#cname):
-         * Выберите зону DNS `example.com` из списка.
-         * Нажмите кнопку **Создать запись**.
-         * Задайте параметры записи:
-           * **Имя**: `www`.
-           * **Тип записи**: выберите значение `CNAME`.
-           * **TTL** (время кеширования записи): оставьте значение по умолчанию.
-           * **Значение**: введите `example.com`.
-         * Нажмите кнопку **Создать**.
+          1. Выберите зону `example-zone-1` из списка.
+          1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**.
+          1. В поле **{{ ui-key.yacloud.common.name }}** укажите `www`.
+          1. Выберите **{{ ui-key.yacloud.common.type }}** записи — `CNAME`.
+          1. **{{ ui-key.yacloud.dns.label_ttl }}** оставьте значение по умолчанию.
+          1. В поле **{{ ui-key.yacloud.dns.label_records }}** укажите `example.com`.
+          1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
       
       {% endcut %}
 
@@ -225,5 +223,7 @@ ns1.{{ dns-ns-host-sld }}.
   1. [Удалите](../../compute/operations/vm-control/vm-delete.md) ВМ `lamp-vm` (`lemp-vm`).
   1. [Удалите](../../vpc/operations/address-delete.md) статический публичный IP-адрес, если вы зарезервировали его специально для этой ВМ.
   1. [Удалите](../../dns/operations/resource-record-delete.md) DNS-записи и [удалите](../../dns/operations/zone-delete.md) DNS-зону, если вы использовали {{ dns-name }}.
+  1. [Удалите](../../vpc/operations/security-group-delete.md) группу безопасности `sg-web`.
+  1. [Удалите](../../vpc/operations/subnet-delete.md) подсети и [удалите](../../vpc/operations/network-delete.md) сеть `web-network`.
 
 {% endlist %}

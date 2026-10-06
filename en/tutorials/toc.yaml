@@ -1333,6 +1333,8 @@ items:
         href: dataplatform/valkey-data-migration.md
       - name: Using a {{ mrd-name }} cluster as a PHP session storage
         href: dataplatform/valkey-as-php-sessions-storage.md
+      - name: Distributed locks for 1C:Enterprise in a {{ mrd-name }} cluster
+        href: dataplatform/1c-valkey-locks.md
       - name: >-
           Delivering data from {{ ydb-name }} to {{ mkf-name }} using {{
           data-transfer-name }}

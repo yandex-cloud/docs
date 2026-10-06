@@ -83,6 +83,19 @@ index: 1
 
 ## 2026 год {#2026}
 
+### Сентябрь {#sept2026}
+
+
+* Поддержана репликация из [{{ PG }}](../operations/endpoint/source/postgresql.md) в [{{ IBRG }}](../operations/endpoint/target/iceberg.md).
+* Парсер Confluent Schema Registry для источников [{{ KF }}](../operations/endpoint/source/kafka.md) и [{{ DS }}](../operations/endpoint/source/data-streams.md) теперь доступен через API (gRPC) и Terraform.
+
+
+* Для приемника [{{ objstorage-name }}](../operations/endpoint/target/object-storage.md) поддержаны:
+  
+  * временная раскладка своих данных или по полям {{ KF }} и {{ DS }};
+  * ограничение количества записей в одном файле;
+  * включение регулярной ротации при низком потоке и без необходимости гарантии `exactly once`.
+
 ### Август {#august2026}
 
 * Поддержана политика очистки данных в приемнике [{{ objstorage-name }}](../operations/endpoint/target/object-storage.md).

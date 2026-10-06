@@ -42,9 +42,6 @@ links:
   - title: '{{ network-load-balancer-name }}'
     description: Решения для {{ network-load-balancer-name }}
     href: network-load-balancer/
-  - title: '{{ objstorage-name }}'
-    description: Решения для {{ objstorage-name }}
-    href: storage/
   - title: Partner
     description: Решения для Partner
     href: partner/

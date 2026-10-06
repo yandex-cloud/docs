@@ -5,6 +5,8 @@ description: На странице представлены вопросы и о
 
 # Вопросы и ответы про {{ container-registry-name }}
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 #### Почему тег `latest` отсутствует или установлен не на последнем загруженном Docker-образе? {#latest}
 
 Потому что вы указали другой [тег](../concepts/docker-image.md#version) при загрузке [Docker-образа](../concepts/docker-image.md).

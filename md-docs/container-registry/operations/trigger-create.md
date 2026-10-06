@@ -2,6 +2,14 @@
 
 # Создание триггера для реестра
 
+{% note warning %}
+
+С 13 октября 2026 года сервис Yandex Container Registry будет недоступен для новых пользователей.
+
+Текущие пользователи могут создавать ресурсы до 10 ноября 2026 года. После сервис перейдет в режим read-only, а 14 декабря 2026 года — прекратит работу. Подробнее о сроках и порядке закрытия читайте на странице [Закрытие сервиса](../sunset.md).
+
+{% endnote %}
+
 
 Создайте [триггер для Container Registry](../../functions/concepts/trigger/cr-trigger.md), который будет вызывать [функцию](../../functions/concepts/function.md) Cloud Functions при создании и удалении [Docker-образов](../concepts/docker-image.md) Container Registry или их [тегов](../concepts/docker-image.md#version).
 

@@ -210,7 +210,7 @@ Gateway policy configuration that applies to load balancer and listener settings
 
 Scaling settings of the application load balancer. The scaling settings relate to a special internal instance group which facilitates the balancer's work. Instances in this group are called resource units.
 
-*Appears in*: [Balancer](#balancer)
+*Appears in*: [Gateway](#gateway)
 
 | Field | Description |
 |-------|-------------|
@@ -221,7 +221,7 @@ Scaling settings of the application load balancer. The scaling settings relate t
 
 Zone-specific traffic control settings.
 
-*Appears in*: [Balancer](#balancer)
+*Appears in*: [Gateway](#gateway)
 
 | Field | Description |
 |-------|-------------|
@@ -231,7 +231,7 @@ Zone-specific traffic control settings.
 
 Cloud logging settings of the application load balancer.
 
-*Appears in*: [Balancer](#balancer)
+*Appears in*: [Gateway](#gateway)
 
 | Field | Description |
 |-------|-------------|

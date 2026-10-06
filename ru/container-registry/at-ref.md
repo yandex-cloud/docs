@@ -5,6 +5,8 @@ description: На этой странице приведен справочни�
 
 # Справочник аудитных логов {{ at-full-name }}
 
+{% include [sunset](../_includes/container-registry/sunset.md) %}
+
 В {{ at-name }} поддерживается отслеживание событий уровня конфигурации (Control Plane) для {{ container-registry-full-name }}. Подробнее на странице [{#T}](../audit-trails/concepts/format.md).
 
 Общий вид значения поля `event_type` (_тип события_):

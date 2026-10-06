@@ -5,6 +5,8 @@ description: Перед началом работы с {{ container-registry-nam
 
 # Установить и настроить Docker
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 Перед началом работы с {{ container-registry-name }} необходимо установить и настроить [Docker](https://www.docker.com/) на локальном компьютере.
 
 {% include [configure-docker](../../_includes/container-registry/configure-docker.md) %}

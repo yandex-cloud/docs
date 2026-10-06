@@ -5,6 +5,8 @@ description: В практическом руководстве описано, 
 
 # Миграция с {{ container-registry-name }} на {{ cloud-registry-name }}
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 Миграцию можно запустить двумя способами:
 
 * **По каталогу** — переносятся все реестры указанного [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder).

@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Удалить реестр
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 {% note info %}
 
 Удалить можно только пустой [реестр](../../concepts/registry.md). Не забудьте [удалить Docker-образы из реестра](../docker-image/docker-image-delete.md) перед началом операции.

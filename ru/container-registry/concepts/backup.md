@@ -5,6 +5,8 @@ description: Данные в {{ container-registry-name }} надежно хра
 
 # Резервное копирование Docker-образов в {{ container-registry-name }}
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 Данные в {{ container-registry-name }} надежно хранятся и реплицируются в инфраструктуре {{ yandex-cloud }}, однако в любой момент вы можете сделать резервные копии [Docker-образов](../concepts/docker-image.md).
 
 Чтобы выполнить резервное копирование Docker-образов:

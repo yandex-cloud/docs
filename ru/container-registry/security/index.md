@@ -5,6 +5,8 @@ description: Управление доступом в сервисе для хр
 
 # Управление доступом в {{ container-registry-name }}
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 В этом разделе вы узнаете:
 * [На какие ресурсы можно назначить роль](#resources).
 * [Какие роли действуют в сервисе](#roles-list).
@@ -58,6 +60,10 @@ description: Управление доступом в сервисе для хр
 ![service-roles-hierarchy](../../_assets/container-registry/service-roles-hierarchy.svg)
 
 ### Сервисные роли {#service-roles}
+
+#### container-registry.registries.forceDeleter {#container-registry-registries-forceDeleter}
+
+{% include [container-registry.registries.forceDeleter](../../_roles/container-registry/registries/forceDeleter.md) %}
 
 #### container-registry.viewer {#container-registry.viewer}
 

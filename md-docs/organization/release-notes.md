@@ -3,6 +3,13 @@
 # История изменений в Yandex Identity Hub
 
 
+## Сентябрь 2026 {#september-2026}
+
+* Добавлена возможность задавать [адреса перенаправления](concepts/applications/oidc.md#oidc-post-logout-redirect-uri) пользователей после выхода из OAuth-клиента.
+* Для [SAML-приложений](concepts/applications/saml.md#saml-attributes) и [OIDC-приложений](concepts/applications/oidc.md#oidc-attributes) добавлена возможность выбирать передаваемое значение группы: имя (`NAME`), идентификатор (`ID`) или внешний идентификатор (`EXTERNAL_ID`).
+* [Брендирование страниц аутентификации](concepts/branding.md) перешло на стадию [General Availability](../overview/concepts/launch-stages.md).
+* В [политики аутентификации](operations/authentication-policies/create.md) добавлены новые настройки требований при входе: повторная проверка MFA, полная повторная аутентификация, а также отключение MFA или проверка MFA только при первом входе.
+
 ## Август 2026 {#august-2026}
 
 * Добавлена возможность [самостоятельного сброса пароля](concepts/sspr.md) (SSPR): локальные пользователи могут сбрасывать свои пароли без участия администратора, подтверждая личность способами, заданными в [политике MFA](concepts/mfa.md#mfa-policies).

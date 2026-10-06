@@ -1,7 +1,7 @@
 # Loading data from {{ yandex-direct }} to a {{ mch-full-name }} data mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{ data-transfer-full-name }}
 
 
-You can transfer data from {{ yandex-direct }} to {{ mch-name }} using {{ sf-name }}, {{ objstorage-name }}, and {{ data-transfer-name }}. Proceed as follows:
+You can transfer data from {{ yandex-direct }} to {{ mch-name }} using {{ sf-name }}, {{ objstorage-name }}, and {{ data-transfer-name }}. Follow these steps:
 
 1. [Transfer your data from {{ yandex-direct }} to {{ objstorage-name }} using {{ sf-name }}](#direct-objstorage).
 1. [Transfer your data from {{ objstorage-name }} to {{ mch-name }} using {{ data-transfer-name }}](#objstorage-mch).
@@ -11,7 +11,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ objstorage-name }} bucket: storage use and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * {{ sf-name }}: number of function calls, idle time of provisioned instances, and computing resources allocated for the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 * {{ lockbox-name }}: number of stored secret versions and requests to them (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
 * {{ mch-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
@@ -129,7 +129,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `bucket_name`: {{ objstorage-short-name }} bucket name. The name must be unique within the service.
             * `ch_password`: {{ mch-name }} cluster admin user password.
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Validate your {{ TF }} configuration using this command:
 
             ```bash
             terraform validate
@@ -194,12 +194,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - {{ TF }} {#tf}
 
-        1. In the `ya-direct-to-mch.tf` file, specify these variables:
+        1. In the `ya-direct-to-mch.tf` file, specify the following variables:
 
             * `path_to_zip_cf`: Path to the ZIP archive file with the function code.
             * `create_function`: Set to `1` to create a function.
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Validate your {{ TF }} configuration using this command:
 
             ```bash
             terraform validate
@@ -213,7 +213,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% endlist %}
 
-1. Open the function you created in the management console. Select **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** in the left-hand panel.
+1. In the management console, open the function you created and navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
 1. Click **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}** and wait for the function to complete.
 
 You will see a Parquet file in the bucket.
@@ -249,7 +249,7 @@ You will see a Parquet file in the bucket.
 
     - {{ TF }} {#tf}
 
-        1. In the `ya-direct-to-mch.tf` file, specify these variables:
+        1. In the `ya-direct-to-mch.tf` file, specify the following variables:
 
             * `source_endpoint_id`: Source endpoint ID.
             * `transfer_enabled`: Set to `1` to create a transfer.
@@ -301,7 +301,7 @@ To reduce the consumption of resources, delete those you do not need:
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete the objects](../../storage/operations/objects/delete.md) from the bucket.
-1. Delete the rest of the resources depending on how you created them:
+1. Delete the other resources depending on how you created them:
 
    {% list tabs group=resources %}
 

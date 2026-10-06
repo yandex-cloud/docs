@@ -1,5 +1,7 @@
 # Настроить доступ к реестру
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 Для [реестра](../../concepts/registry.md) можно настроить политики доступа с конкретных [IP-адресов](../../../vpc/concepts/address.md).
 
 {% list tabs group=instructions %}

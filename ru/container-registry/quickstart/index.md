@@ -5,6 +5,8 @@ description: В этой инструкции вы создадите свой �
 
 # Как начать работать с {{ container-registry-name }}
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 В этой инструкции вы создадите свой первый [реестр](../concepts/registry.md) и попробуете управлять [Docker-образами](../concepts/docker-image.md).
 
 ## Подготовка к работе {#before-you-begin}

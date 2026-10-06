@@ -1,5 +1,7 @@
 # Создать реестр
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 Использовать созданный [реестр](../../concepts/registry.md) могут все пользователи и [сервисные аккаунты](../../../iam/concepts/users/service-accounts.md), у которых есть права на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder). 
 
 Вы можете создать безопасный реестр с автоматическим сканированием с помощью [сканера уязвимостей](../../concepts/vulnerability-scanner.md).

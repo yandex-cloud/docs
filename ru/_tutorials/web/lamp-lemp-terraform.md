@@ -64,7 +64,7 @@
   1. В файле `lamp-lemp.auto.tfvars` задайте пользовательские параметры:
       * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
       * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
-      * `family_id` — укажите семейство одного из [образов](../../compute/concepts/image.md) ВМ с нужным набором компонентов:
+      * `vm_image_family` — укажите семейство одного из [образов](../../compute/concepts/image.md) ВМ с нужным набором компонентов:
         * `lamp` — [LAMP](/marketplace/products/yc/lamp) (Linux, Apache, {{ MY }}, PHP).
         * `lemp` — [LEMP](/marketplace/products/yc/lemp) (Linux, Nginx, {{ MY }}, PHP).
       * `vm_user` — имя пользователя ВМ.
@@ -76,9 +76,7 @@
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-1. [Получите публичный IP-адрес ВМ](../../compute/operations/vm-info/get-info.md) — он потребуется далее, чтобы [загрузить файлы сайта](#upload-files).
-
-После создания инфраструктуры, [загрузите файлы сайта](#upload-files).
+1. [Получите публичный IP-адрес ВМ](../../compute/operations/vm-info/get-info.md) — он потребуется далее, чтобы [загрузить файлы сайта](#upload-files) после создания инфраструктуры.
 
 ## Загрузите файлы сайта {#upload-files}
 

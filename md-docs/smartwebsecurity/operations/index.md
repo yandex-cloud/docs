@@ -17,20 +17,20 @@
 ## Управление профилями Cloud WAF {#waf-profiles}
 
 * [Создать профиль Cloud WAF](waf-profile-create.md)
-* [Изменить основные параметры профиля WAF](waf-profile-update.md)
-* [Получить информацию о профиле WAF](waf-profile-get.md)
-* [Удалить профиль WAF](waf-profile-delete.md)
-* [Настроить наборы правил WAF](configure-set-rules.md)
-* [Получить информацию о наборе правил WAF](get-set-rules.md)
-* [Добавить правило-исключение WAF](exclusion-rule-add.md)
-* [Изменить правило-исключение WAF](exclusion-rule-update.md)
-* [Удалить правило-исключение WAF](exclusion-rule-delete.md)
+* [Изменить основные параметры профиля Cloud WAF](waf-profile-update.md)
+* [Получить информацию о профиле Cloud WAF](waf-profile-get.md)
+* [Удалить профиль Cloud WAF](waf-profile-delete.md)
+* [Настроить наборы правил Cloud WAF](configure-set-rules.md)
+* [Получить информацию о наборе правил Cloud WAF](get-set-rules.md)
+* [Добавить правило-исключение Cloud WAF](exclusion-rule-add.md)
+* [Изменить правило-исключение Cloud WAF](exclusion-rule-update.md)
+* [Удалить правило-исключение Cloud WAF](exclusion-rule-delete.md)
 * [Мониторинг и корректировка защиты ML WAF](waf-ml-tuning-recommendations.md)
 
 ## Управление профилями SolidWall WAF {#solidwall-waf-profiles}
 
 * [Создать профиль SolidWall WAF](solidwall-waf-profile-create.md)
-* [Создать приложение и подключить к нему домен](solidwall-waf-application-create.md)
+* [Создать приложение SolidWall WAF и подключить к нему домен](solidwall-waf-application-create.md)
 * [Изменить профиль SolidWall WAF](solidwall-waf-profile-update.md)
 * [Изменить приложение SolidWall WAF](solidwall-waf-application-update.md)
 * [Удалить приложение SolidWall WAF](solidwall-waf-application-delete.md)

@@ -48,7 +48,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 [Create a {{ mmg-name }} target cluster](../../storedoc/operations/cluster-create.md) with computing capacity and storage size matching the source database’s environment.
 
-The source and target database names must be the same.
+The names of the source and target databases must be the same.
 
 
 ### Prepare source and target clusters {#prepare-source-target}
@@ -110,7 +110,7 @@ If you no longer need the resources you created, [delete them](#clear-out-dump).
 
 [Create a {{ mmg-name }} target cluster](../../storedoc/operations/cluster-create.md) with computing capacity and storage size matching the source database’s environment.
 
-The source and target database names must be the same.
+The names of the source and target databases must be the same.
 
 ### Create a dump {#dump}
 
@@ -171,7 +171,7 @@ To prepare your virtual machine for dump recovery:
 
    The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient for migrating a database of up to 1 GB. The larger the database being migrated, the more disk space and RAM are required, with the available disk space at least twice the database size.
 
-   The VM must reside in the same network and availability zone as the {{ mmg-name }} cluster’s master host. The VM must have an external IP address, which will allow you to upload the dump from outside {{ yandex-cloud }}.
+   The VM must be in the same network and availability zone as the {{ mmg-name }} cluster master. The VM must have an external IP address, which will allow you to upload the dump from outside {{ yandex-cloud }}.
 
 1. Install the {{ MG }} client and additional database utilities:
 

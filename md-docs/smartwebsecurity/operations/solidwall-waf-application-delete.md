@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профили SolidWall WAF > Удалить приложение SolidWall WAF
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профили SolidWall WAF > Удалить приложение
 
 # Удалить приложение SolidWall WAF
 

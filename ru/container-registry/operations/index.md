@@ -5,6 +5,8 @@ description: Пошаговые инструкции по работе с Docker
 
 # Пошаговые инструкции для {{ container-registry-name }}
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 Чтобы работать с Docker-образами, [настройте Docker](./configure-docker.md) и [аутентифицируйтесь в {{ container-registry-name }}](./authentication.md).
 
 ## Управление Docker-образом {#docker-images}

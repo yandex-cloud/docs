@@ -12,6 +12,8 @@ Container Registry предоставляет встроенный <a href="conc
 
 # Yandex Container Registry
 
+ - [Закрытие сервиса](sunset.md)
+
  - [Начало работы](quickstart/index.md)
 
 ## Пошаговые инструкции

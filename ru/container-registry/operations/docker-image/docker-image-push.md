@@ -5,6 +5,8 @@ description: Инструкция описывает, как загрузить 
 
 # Загрузить Docker-образ в реестр
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 Инструкция описывает, как загрузить локальный [Docker-образ](../../concepts/docker-image.md) в реестр.
 
 {% note info %}

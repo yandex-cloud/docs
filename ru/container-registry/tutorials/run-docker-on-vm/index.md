@@ -2,6 +2,8 @@
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/run-docker-on-vm/index'
 ---
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 {% include [run-docker-on-vm](../../../_tutorials/infrastructure/run-docker-on-vm.md) %}
 
 * [Консоль управления, CLI и API](console.md) — используйте консоль управления {{ yandex-cloud }}, CLI или API, чтобы создать инфраструктуру в пошаговом режиме.

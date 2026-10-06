@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Изменить реестр
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 Узнайте, как изменить:
 * [Имя реестра](#update-name).
 * [Метку реестра](#update-label).

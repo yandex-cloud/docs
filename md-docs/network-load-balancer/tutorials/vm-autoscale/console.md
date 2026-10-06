@@ -176,7 +176,14 @@
 
    {% endlist %}
 
-1. Создайте [группу безопасности](../../../vpc/concepts/security-groups.md):
+1. Создайте [группу безопасности](../../../vpc/concepts/security-groups.md) `sg-autoscale` с [правилами](../../../vpc/concepts/security-groups.md#rules) из таблицы ниже:
+
+   #|
+   || **Направление трафика** | **Описание** | **Диапазон портов** | **Протокол** | **Тип источника / назначения** | **Источник / назначение** ||
+   || Исходящий | `any` | Весь | Любой | CIDR | `0.0.0.0/0` ||
+   || Входящий | `ext-http` | `80` | `TCP` | CIDR | `0.0.0.0/0` ||
+   || Входящий | `healthchecks` | `80` | `TCP` | Проверки состояния балансировщика | — ||
+   |#
 
    {% list tabs group=instructions %}
 
@@ -185,28 +192,146 @@
      1. Откройте [консоль управления](https://console.yandex.cloud).
      1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
      1. На панели слева выберите ![image](../../../_assets/vpc/security-group.svg) **Группы безопасности**.
-     1. Создайте группу безопасности для балансировщика:
-        1. Нажмите кнопку **Создать группу**.
-        1. Укажите **Имя** группы: `sg-autoscale`.
-        1. Выберите **Сеть** `yc-auto-network`.
-        1. В блоке **Правила** создайте правила по инструкции под таблицей:
+     1. Нажмите кнопку **Создать группу безопасности**.
+     1. В поле **Имя** укажите имя группы безопасности `sg-autoscale`.
+     1. В поле **Сеть** выберите сеть `yc-auto-network`.
+     1. Создайте правила из таблицы. Для этого в блоке **Правила** нажмите кнопку **Добавить правило** и в открывшемся окне:
 
-           Направление<br>трафика | Описание | Диапазон<br>портов | Протокол | Тип источника /<br>назначения | Источник /<br>назначение
-           --- | --- | --- | --- | --- | ---
-           Исходящий | any | Весь | Любой | CIDR | 0.0.0.0/0
-           Входящий | ext-http | 80 | TCP | CIDR | 0.0.0.0/0
-           Входящий | healthchecks | 80 | TCP | Проверки состояния балансировщика | —
+        1. Выберите опцию **Исходящий трафик** или **Входящий трафик** в соответствии с направлением трафика.
+        1. В поле **Диапазон портов** укажите порт `80` или не заполняйте для всего дипазона портов.
+        1. В поле **Протокол** укажите `TCP` или оставьте `Любой`, чтобы разрешить передачу трафика по всем протоколам.
+        1. В поле **Источник** выберите назначение правила:
 
-           1. Выберите вкладку **Исходящий трафик** или **Входящий трафик**.
-           1. Нажмите кнопку **Добавить правило**.
-           1. В открывшемся окне в поле **Диапазон портов** укажите один порт или диапазон портов, куда или откуда будет поступать трафик.
-           1. В поле **Протокол** укажите нужный протокол или оставьте **Любой**, чтобы разрешить передачу трафика по всем протоколам.
-           1. В поле **Назначение** или **Источник** выберите назначение правила:
-              * **CIDR** — правило будет применено к диапазону [IP-адресов](../../../vpc/concepts/address.md). В поле **CIDR блоки** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **Добавить CIDR**.
-              * **Группа безопасности** — правило будет применено к ВМ из текущей группы или из выбранной группы безопасности.
-              * **Проверки состояния балансировщика** — правило, которое позволяет балансировщику проверять состояние ВМ.
-           1. Нажмите кнопку **Сохранить**. Таким образом создайте все правила из таблицы.
-        1. Нажмите кнопку **Сохранить**.
+           * `Диапазон адресов` — правило будет применено к диапазону [IP-адресов](../../../vpc/concepts/address.md). В поле **IPv4 CIDR** укажите `0.0.0.0/0`.
+           * `Проверки состояния балансировщика` — правило, разрешающее [проверки состояния ресурсов](../../concepts/health-check.md) балансировщиком Network Load Balancer.
+
+        1. Нажмите кнопку **Сохранить**. Повторите для всех правила из таблицы.
+
+     1. Нажмите кнопку **Создать**.
+
+   - CLI {#cli}
+
+     Чтобы создать группу с правилами, выполните [команду](../../../cli/cli-ref/vpc/cli-ref/security-group/create.md):
+
+     ```bash
+     yc vpc security-group create \
+       --network-name yc-auto-network \
+       --name sg-autoscale \
+       --rule "description=any,direction=egress,port=any,protocol=any,v4-cidrs=[0.0.0.0/0]" \
+       --rule "description=ext-http,direction=ingress,port=80,protocol=tcp,v4-cidrs=[0.0.0.0/0]" \
+       --rule "description=healthchecks,direction=ingress,port=80,protocol=tcp,predefined=loadbalancer_healthchecks"
+     ```
+
+     Где:
+
+     * `--name` — имя группы безопасности.
+     * `--network-name` — имя [сети](../../../vpc/concepts/network.md#network), к которой будет подключена группа безопасности.
+     * `--rule` — [правило](../../../vpc/concepts/security-groups.md#rules) в группе безопасности:
+
+       * `description` — описание правила.
+       * `direction` — направление трафика:
+         * `ingress` — входящий.
+         * `egress` — исходящий.
+       * `port` — порт для получения или передачи трафика.
+       * `protocol` — протокол передачи данных.
+       * `v4-cidrs` — список IPv4-подсетей в формате CIDR, для которых действует правило.
+       * `predefined=loadbalancer_healthchecks` — адреса, с которых Yandex Network Load Balancer выполняет [проверки состояния ресурсов](../../concepts/health-check.md).
+
+     Результат:
+
+     ```text
+     id: enp7mt3ti1bl********
+     folder_id: b1g437oggp0u********
+     created_at: "2026-08-28T11:08:42Z"
+     name: sg-autoscale
+     network_id: enpnnitngdbv********
+     status: ACTIVE
+     rules:
+       - id: enpplmcdqr5a********
+         description: any
+         direction: EGRESS
+         protocol_name: ANY
+         protocol_number: "-1"
+         cidr_blocks:
+           v4_cidr_blocks:
+             - 0.0.0.0/0
+       - id: enprdipsiv5e********
+         description: ext-http
+         direction: INGRESS
+         ports:
+           from_port: "80"
+           to_port: "80"
+         protocol_name: TCP
+         protocol_number: "6"
+         cidr_blocks:
+           v4_cidr_blocks:
+             - 0.0.0.0/0
+       - id: enp2t99026uo********
+         description: healthchecks
+         direction: INGRESS
+         ports:
+           from_port: "80"
+           to_port: "80"
+         protocol_name: TCP
+         protocol_number: "6"
+     ```
+
+   - API {#api}
+
+     Воспользуйтесь методом REST API [create](../../../vpc/api-ref/SecurityGroup/create.md) для ресурса [SecurityGroup](../../../vpc/api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Create](../../../vpc/api-ref/grpc/SecurityGroup/create.md) и передайте в запросе настройки правил группы безопасности в массиве [ruleSpecs[]](../../../vpc/api-ref/SecurityGroup/create.md#yandex.cloud.vpc.v1.SecurityGroupRuleSpec):
+
+       ```json
+       "ruleSpecs": [
+         {
+           "description": "any",
+           "direction": "EGRESS",
+           "protocolName": "any",
+           "cidrBlocks": {
+             "v4CidrBlocks": ["0.0.0.0/0"]
+           }
+         },
+         {
+           "description": "ext-http",
+           "direction": "INGRESS",
+           "protocolName": "tcp",
+           "ports": {
+             "fromPort": "80",
+             "toPort": "80"
+           },
+           "cidrBlocks": {
+             "v4CidrBlocks": ["0.0.0.0/0"]
+           }
+         },
+         {
+           "description": "healthchecks",
+           "direction": "INGRESS",
+           "protocolName": "tcp",
+           "ports": {
+             "fromPort": "80",
+             "toPort": "80"
+           },
+           "predefinedTarget": "loadbalancer_healthchecks"
+         }
+       ]
+       ```
+
+       Где:
+
+       * `description` — описание правила.
+       * `direction` — направление трафика:
+         * `INGRESS` — входящий.
+         * `EGRESS` — исходящий.
+       * `protocolName` — имя протокола передачи трафика.
+       * `ports` — диапазон портов, для которых действует правило:
+
+         * `fromPort` — первый порт в диапазоне.
+         * `toPort` — последний порт в диапазоне.
+
+       * `cidrBlocks` — CIDR-блоки, на которые распространяется правило:
+
+         * `v4CidrBlocks[]` — список IPv4 CIDR-блоков.
+
+       * `predefinedTarget` — предустановленное назначение правила. Например, `loadbalancer_healthchecks` разрешает трафик от проверок состояния Yandex Network Load Balancer.
 
    {% endlist %}
 

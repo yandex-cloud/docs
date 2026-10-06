@@ -5,6 +5,8 @@ description: На странице приведены часто возника�
 
 # Решение проблем в {{ container-registry-name }}
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 В списке ниже приведены часто возникающие ошибки и способы их решения:
 
 * `docker login is not supported with yc credential helper`
