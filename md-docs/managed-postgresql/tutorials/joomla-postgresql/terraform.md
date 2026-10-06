@@ -322,6 +322,8 @@ Terraform распространяется под лицензией [Business S
            cluster_id = yandex_mdb_postgresql_cluster.joomla-pg-cluster.id
            name       = local.db_name
            owner      = local.db_user
+           
+           depends_on = [yandex_mdb_postgresql_user.joomla-user]
          }
          
          # Создание пользователя БД

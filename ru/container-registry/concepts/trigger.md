@@ -5,5 +5,7 @@ description: Из статьи вы узнаете про триггер {{ sf-f
 
 # Триггер {{ sf-full-name }}
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 
 {% include [cr-trigger](../../_includes/functions/cr-trigger.md) %}

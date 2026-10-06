@@ -5,5 +5,7 @@ description: Создайте триггер для {{ container-registry-name }
 
 # Создание триггера для реестра
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 
 {% include [container-registry](../../_includes/functions/cr-trigger-create.md) %}

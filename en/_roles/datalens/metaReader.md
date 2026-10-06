@@ -1,4 +1,4 @@
-The `datalens.metaReader` role enables executing requests from the [Audit](https://api.datalens.tech/#/Audit) section in the [{{ datalens-name }} Public API](../../datalens/operations/api-start.md), as well as requests to get {{ datalens-name }} entities.
+The `datalens.metaReader` role enables executing requests from the [Audit](https://api.datalens.tech/#/Audit) section in the [{{ datalens-name }} Public API]({{ link-datalens-docs }}/operations/api-start), as well as requests to get {{ datalens-name }} entities.
 
 You can get the following entities:
 
@@ -9,6 +9,12 @@ You can get the following entities:
 * QL chart: `getQLChart` [method](https://api.datalens.tech/#/QL/post_rpc_getQLChart)
 * Dashboard: `getDashboard` [method](https://api.datalens.tech/#/Dashboard/post_rpc_getDashboard)
 * Report: `getReport` [method](https://api.datalens.tech/#/Reports/post_rpc_getReport)
+* Collection: `getCollection` [method](https://api.datalens.tech/#/Collection/post_rpc_getCollection)
+* Collection information: `getCollectionContent` [method](https://api.datalens.tech/#/Collection/post_rpc_getCollectionContent)
+* Workbook: `getWorkbook` [method](https://api.datalens.tech/#/Workbook/post_rpc_getWorkbook)
+* Workbook entries: `getWorkbookEntries` [method](https://api.datalens.tech/#/Workbook/post_rpc_getWorkbookEntries)
+* Entries: `getEntries` [method](https://api.datalens.tech/#/Navigation/post_rpc_getEntries)
+* Entry relations: `getEntriesRelations` [method](https://api.datalens.tech/#/Entries/post_rpc_getEntriesRelations)
 
 {% note warning %}
 

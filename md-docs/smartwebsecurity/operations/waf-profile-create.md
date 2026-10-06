@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профили Cloud WAF > Создать профиль Cloud WAF
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профили Cloud WAF > Создать профиль
 
 # Создать профиль Cloud WAF
 
@@ -243,8 +243,8 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Настроить наборы правил WAF](configure-set-rules.md)
+* [Настроить наборы правил Cloud WAF](configure-set-rules.md)
 * [Добавить правило в профиль безопасности](rule-add.md)
-* [Изменить основные параметры профиля WAF](waf-profile-update.md)
+* [Изменить основные параметры профиля Cloud WAF](waf-profile-update.md)
 * [Базовая настройка защиты в Smart Web Security](../tutorials/sws-basic-protection.md)
-* [Удалить профиль WAF](waf-profile-delete.md)
+* [Удалить профиль Cloud WAF](waf-profile-delete.md)

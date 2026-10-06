@@ -2,6 +2,14 @@
 
 # Настройка подключения к Yandex Managed Service for PostgreSQL из контейнера Serverless Containers
 
+{% note warning %}
+
+С 13 октября 2026 года сервис Yandex Container Registry будет недоступен для новых пользователей.
+
+Текущие пользователи могут создавать ресурсы до 10 ноября 2026 года. После сервис перейдет в режим read-only, а 14 декабря 2026 года — прекратит работу. Подробнее о сроках и порядке закрытия читайте на странице [Закрытие сервиса](../sunset.md).
+
+{% endnote %}
+
 Чтобы подключиться к кластеру Managed Service for PostgreSQL из контейнера Serverless Containers:
 
 1. [Подготовьте файлы для Docker-образа](#prepare-docker).

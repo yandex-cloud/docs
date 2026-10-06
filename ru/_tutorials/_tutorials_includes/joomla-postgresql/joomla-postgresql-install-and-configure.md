@@ -53,13 +53,13 @@
     ```bash
     sudo apt update && sudo apt upgrade -y
     ```
-1. Установите и запустите [Apache HTTP-сервер](https://ru.wikipedia.org/wiki/Apache_HTTP_Server):
+1. Установите и запустите [Apache HTTP-сервер](https://{{ lang }}.wikipedia.org/wiki/Apache_HTTP_Server):
 
     ```bash
     sudo apt install apache2
     sudo systemctl start apache2 && sudo systemctl enable apache2
     ```
-1. Установите [PHP](https://ru.wikipedia.org/wiki/PHP) c необходимыми библиотеками:
+1. Установите [PHP](https://{{ lang }}.wikipedia.org/wiki/PHP) c необходимыми библиотеками:
 
     ```bash
     sudo apt install php libapache2-mod-php php-common php-pgsql php-xml php-mbstring php-curl php-zip php-intl php-json unzip

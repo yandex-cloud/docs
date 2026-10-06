@@ -1,6 +1,6 @@
 [Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профили Cloud WAF > Удалить правило-исключение
 
-# Удалить правило-исключение WAF
+# Удалить правило-исключение Cloud WAF
 
 {% list tabs group=instructions %}
 

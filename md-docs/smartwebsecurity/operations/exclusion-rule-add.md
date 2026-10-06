@@ -1,6 +1,6 @@
 [Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профили Cloud WAF > Добавить правило-исключение
 
-# Добавить правило-исключение WAF
+# Добавить правило-исключение Cloud WAF
 
 {% list tabs group=instructions %}
 
@@ -245,6 +245,6 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Настроить наборы правил WAF](configure-set-rules.md)
-* [Удалить правило-исключение WAF](exclusion-rule-delete.md)
+* [Настроить наборы правил Cloud WAF](configure-set-rules.md)
+* [Удалить правило-исключение Cloud WAF](exclusion-rule-delete.md)
 * [Добавить правило в профиль безопасности](rule-add.md)

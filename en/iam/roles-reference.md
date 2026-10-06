@@ -943,6 +943,10 @@ Learn more in [Access management in {{ connection-manager-name }}](../metadata-h
 
 ## {{ container-registry-full-name }} {#cr-roles}
 
+#### container-registry.registries.forceDeleter {#container-registry-registries-forceDeleter}
+
+{% include [container-registry.registries.forceDeleter](../_roles/container-registry/registries/forceDeleter.md) %}
+
 #### container-registry.viewer {#container-registry.viewer}
 
 {% include [container-registry.viewer](../_roles/container-registry/viewer.md) %}

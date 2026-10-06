@@ -5,6 +5,8 @@ description: Из статьи вы узнаете о загрузке Helm-ча
 
 # Загрузить Helm-чарт в реестр
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 Вы можете загружать чарты [Helm Chart](https://helm.sh/docs/topics/charts/) в [репозитории](../../concepts/repository.md) {{ container-registry-name }}. В {{ container-registry-name }} Helm-чарты хранятся так же, как и обычные [Docker-образы](../../concepts/docker-image.md).
 
 {% note info %}

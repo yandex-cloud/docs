@@ -782,7 +782,7 @@
 
  - [Создание кластера Linux-серверов «1С:Предприятия» с кластером Managed Service for PostgreSQL](infrastructure-management/1c-postgresql-linux.md)
 
- - [Мониторинг кластера «1С:Предприятие» на базе Linux](infrastructure-management/collect-metrics-1c-cluster.md)
+ - [Сбор метрик кластера «1С:Предприятие» на базе Linux](infrastructure-management/collect-metrics-1c-cluster.md)
 
  - [Распределенные блокировки для «1С:Предприятия» в кластере Yandex Managed Service for Valkey™](infrastructure-management/1c-valkey-locks.md)
 

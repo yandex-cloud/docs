@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Назначить роль на ресурс
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 Чтобы предоставить доступ к [ресурсу](../../../iam/concepts/access-control/resources-with-access-control.md), назначьте субъекту [роль](../../../iam/concepts/access-control/roles.md) на сам ресурс или на ресурс, от которого наследуются права доступа, например на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder) или [облако](../../../resource-manager/concepts/resources-hierarchy.md#cloud). Актуальный список ресурсов, на которые можно назначать роли, доступен в разделе [{#T}](../../security/index.md#resources).
 
 {% list tabs group=instructions %}

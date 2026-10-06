@@ -2,6 +2,14 @@
 
 # Скачать Docker-образ из реестра
 
+{% note warning %}
+
+С 13 октября 2026 года сервис Yandex Container Registry будет недоступен для новых пользователей.
+
+Текущие пользователи могут создавать ресурсы до 10 ноября 2026 года. После сервис перейдет в режим read-only, а 14 декабря 2026 года — прекратит работу. Подробнее о сроках и порядке закрытия читайте на странице [Закрытие сервиса](../../sunset.md).
+
+{% endnote %}
+
 Для скачивания [Docker-образа](../../concepts/docker-image.md) необходима [роль](../../security/index.md#container-registry-images-puller) `container-registry.images.puller` или выше. Кроме того, вам нужно знать, в каком [репозитории](../../concepts/repository.md) хранится Docker-образ, а также его [тег или хеш](../../concepts/docker-image.md#version).
 
 Чтобы работать с Docker-образами, [установите и настройте](../configure-docker.md) Docker.

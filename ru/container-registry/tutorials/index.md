@@ -5,6 +5,8 @@ description: Различные сценарии использования {{ c
 
 # Практические руководства {{ container-registry-name }}
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 * [{#T}](container-registry-migration.md)
 * [{#T}](run-docker-on-vm/index.md)
 * [{#T}](sign-cr-with-cosign.md)

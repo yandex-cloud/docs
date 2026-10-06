@@ -1,6 +1,6 @@
 [Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профили Cloud WAF > Изменить основные параметры профиля
 
-# Изменить основные параметры профиля WAF
+# Изменить основные параметры профиля Cloud WAF
 
 {% list tabs group=instructions %}
 
@@ -149,6 +149,6 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Удалить профиль WAF](waf-profile-delete.md)
+* [Удалить профиль Cloud WAF](waf-profile-delete.md)
 * [Добавить правило в профиль безопасности](rule-add.md)
 * [Изменить правило в профиле безопасности](rule-update.md)

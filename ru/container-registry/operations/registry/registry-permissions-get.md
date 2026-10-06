@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Получить информацию о политике доступа к реестру
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

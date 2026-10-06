@@ -1,4 +1,4 @@
-Роль `datalens.metaReader` позволяет выполнять запросы в [{{ datalens-name }} Public API](../../datalens/operations/api-start.md) из раздела [Audit](https://api.datalens.tech/#/Audit), а также запросы для получения сущностей {{ datalens-name }}.
+Роль `datalens.metaReader` позволяет выполнять запросы в [{{ datalens-name }} Public API]({{ link-datalens-docs }}/operations/api-start) из раздела [Audit](https://api.datalens.tech/#/Audit), а также запросы для получения сущностей {{ datalens-name }}.
 
 Доступно получение следующих сущностей:
 
@@ -8,7 +8,13 @@
 * чарт в Editor — [метод](https://api.datalens.tech/#/Editor/post_rpc_getEditorChart) `getEditorChart`;
 * QL-чарт — [метод](https://api.datalens.tech/#/QL/post_rpc_getQLChart) `getQLChart`;
 * дашборд — [метод](https://api.datalens.tech/#/Dashboard/post_rpc_getDashboard) `getDashboard`;
-* отчет — [метод](https://api.datalens.tech/#/Reports/post_rpc_getReport) `getReport`.
+* отчет — [метод](https://api.datalens.tech/#/Reports/post_rpc_getReport) `getReport`;
+* коллекция — [метод](https://api.datalens.tech/#/Collection/post_rpc_getCollection) `getCollection`;
+* информация о коллекции — [метод](https://api.datalens.tech/#/Collection/post_rpc_getCollectionContent) `getCollectionContent`;
+* воркбук — [метод](https://api.datalens.tech/#/Workbook/post_rpc_getWorkbook) `getWorkbook`;
+* сущности в воркбуке — [метод](https://api.datalens.tech/#/Workbook/post_rpc_getWorkbookEntries) `getWorkbookEntries`;
+* сущности — [метод](https://api.datalens.tech/#/Navigation/post_rpc_getEntries) `getEntries`;
+* связи между сущностями — [метод](https://api.datalens.tech/#/Entries/post_rpc_getEntriesRelations) `getEntriesRelations`.
 
 {% note warning %}
 

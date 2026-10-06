@@ -236,37 +236,39 @@ Yandex Application Load Balancer служит для распределения 
 
  - [Политики Gwin](tools/gwin/policies.md)
 
+ - [Маршрутизация трафика напрямую в поды кластера](tools/gwin/routes-pod.md)
+
  - [Миграция приложений с ALB Ingress-контроллера на Gwin](tools/gwin/ingress-gwin-migration.md)
 
  - [Механизм Attachment для интеграции Gwin с Application Load Balancer](tools/gwin/gwin-alb-attachment.md)
 
 #### Конфигурация ресурсов (англ.)
 
- - [BackendTLSPolicy](gwin-ref/backendtlspolicy.md)
-
  - [DirectResponse](gwin-ref/directresponse.md)
-
- - [GRPCRoute](gwin-ref/grpcroute.md)
-
- - [HTTPRoute](gwin-ref/httproute.md)
 
  - [Gateway](gwin-ref/gateway.md)
 
- - [Ingress](gwin-ref/ingress.md)
+ - [GatewayPolicy](gwin-ref/gatewaypolicy.md)
 
- - [IngressPolicy](gwin-ref/ingresspolicy.md)
+ - [BackendTLSPolicy](gwin-ref/backendtlspolicy.md)
+
+ - [HTTPRoute](gwin-ref/httproute.md)
+
+ - [Ingress](gwin-ref/ingress.md)
 
  - [IngressBackendGroup](gwin-ref/ingressbackendgroup.md)
 
- - [ListenerSet](gwin-ref/listenerset.md)
+ - [GRPCRoute](gwin-ref/grpcroute.md)
 
- - [RoutePolicy](gwin-ref/routepolicy.md)
+ - [ListenerSet](gwin-ref/listenerset.md)
 
  - [ListenerSetPolicy](gwin-ref/listenersetpolicy.md)
 
+ - [RoutePolicy](gwin-ref/routepolicy.md)
+
  - [Service](gwin-ref/service.md)
 
- - [ServicePolicy](gwin-ref/servicepolicy.md)
+ - [IngressPolicy](gwin-ref/ingresspolicy.md)
 
  - [TLSRoute](gwin-ref/tlsroute.md)
 
@@ -274,7 +276,7 @@ Yandex Application Load Balancer служит для распределения 
 
  - [YCStorageBucket](gwin-ref/ycstoragebucket.md)
 
- - [GatewayPolicy](gwin-ref/gatewaypolicy.md)
+ - [ServicePolicy](gwin-ref/servicepolicy.md)
 
 ### Ingress-контроллер
 

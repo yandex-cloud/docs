@@ -6,6 +6,8 @@ description: Следуя данной инструкции, вы можете �
 
 # Скачать Helm-чарт из реестра
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 Вы можете скачать [Helm-чарты](https://helm.sh/docs/topics/charts/) в репозитории {{ container-registry-name }}. В {{ container-registry-name }} Helm-чарты хранятся так же, как и обычные [Docker-образы](../../concepts/docker-image.md).
 
 {% list tabs group=instructions %}

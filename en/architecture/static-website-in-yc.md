@@ -20,7 +20,7 @@ These options optimize costs and ensure high website loading speeds for the end 
 
 The core infrastructure components in all solutions are [{{ objstorage-full-name }}](../storage/index.yaml) and [{{ vpc-full-name }}](../vpc/index.yaml). [{{ cdn-full-name }}](../cdn/index.yaml) ensures fast content delivery to end users. Also, different solutions rely on various combinations of other [services](../overview/concepts/services.md) within the {{ yandex-cloud }} ecosystem, such as [{{ dns-full-name }}](../dns/index.yaml), [{{ certificate-manager-full-name }}](../certificate-manager/index.yaml), [{{ api-gw-full-name }}](../api-gateway/index.yaml), [{{ alb-full-name }}](../application-load-balancer/index.yaml), [{{ postbox-full-name }}](../postbox/index.yaml), and [{{ sf-full-name }}](../functions/index.yaml).
 
-Fault tolerance  is achieved through automatic replication of data stored in {{ objstorage-name }} [buckets](../storage/concepts/bucket.md), as well as optional bucket [versioning](../storage/concepts/versioning.md).
+Fault tolerance is achieved through automatic replication of data stored in {{ objstorage-name }} [buckets](../storage/concepts/bucket.md), as well as optional bucket [versioning](../storage/concepts/versioning.md).
 
 The proposed solutions offer the following benefits:
 
@@ -246,7 +246,7 @@ When deploying a website, consider the following:
 
   {% endcut %}
 
-  For information on how to change the content type for a group of objects already uploaded to a bucket, see [Fixing issues with incorrect MIME types of objects when uploading them to {{ objstorage-short-name }}](../troubleshooting/storage/known-issues/incorrect-mime-type.md).
+  For information on how to change the content type for a group of objects already uploaded to a bucket, see [Fixing issues with incorrect MIME types of objects when uploading them to {{ objstorage-short-name }}](../storage/qa.md#qa-mime-type).
 
 {% endlist %}
 
@@ -573,7 +573,7 @@ When implementing this solution, consider the following {{ alb-name }} features:
 
     For more information on how to create a CDN resource, see [{#T}](../cdn/operations/resources/create-resource.md).
 
-* Since you cannot enable {{ ui-key.yacloud.storage.bucket.website.switch_hosting }} on a non-public bucket or a bucket with access via a service connection, make sure to properly configure root page `/` request processing on the load balancer side: such requests must return the contents of your website's main page (typically`index.html` file).
+* Since you cannot enable `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}` on a non-public bucket or a bucket with access via a service connection, make sure to properly configure root page `/` request processing on the load balancer side: such requests must return the contents of your website's main page (typically`index.html` file).
 
     For more information on how to configure request processing in a load balancer, see [{#T}](../application-load-balancer/operations/http-router-update.md).
 * L7 load balancer does not create additional (service) domains.

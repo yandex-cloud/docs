@@ -1,6 +1,6 @@
 # Сбор метрик кластера «1С:Предприятие» на базе Linux
 
-В этом руководстве вы настроите сбор метрик кластера «1С:Предприятие» на базе Linux в формате {{ prometheus-name }} и их визуализацию в сервисе [{{ monitoring-full-name }}](../../monitoring/concepts/visualization/metric-explorer.md). Помимо визуализации, {{ monitoring-name }} позволяет настраивать алерты, гибридные дашборды с метриками различных сервисов {{ yandex-cloud }} и обладает большими возможностями по масштабированию.
+В этом руководстве вы настроите сбор метрик кластера «1С:Предприятие» на базе Linux в формате {{ prometheus-name }} и их визуализацию в сервисе [{{ monitoring-full-name }}](../../monitoring/operations/metric/metric-explorer.md). Помимо визуализации, {{ monitoring-name }} позволяет настраивать алерты, гибридные дашборды с метриками различных сервисов {{ yandex-cloud }} и обладает большими возможностями по масштабированию.
 
 Метрики кластера будут собираться с помощью свободно распространяемой утилиты [{{ prometheus-name }} 1C Exporter](https://github.com/LazarenkoA/prometheus_1C_exporter), передаваться в [{{ unified-agent-full-name }}](../../monitoring/concepts/data-collection/unified-agent/index.md) и затем в {{ monitoring-name }}.
 
@@ -41,7 +41,7 @@
    sudo chmod +x /usr/local/bin/exporter_1C
    ```
 1. Создайте файл конфигурации для экспортера:
-   
+
    ```bash
    sudo mkdir /etc/exporter_1C/
    sudo vi /etc/exporter_1C/settings.yaml
@@ -161,7 +161,8 @@
    sudo systemctl status exporter_1C.service
    ```
 
-После запуска экспортера метрики доступны по адресу `curl http://localhost:9095/metrics`. Чтобы работать с метриками в {{ monitoring-full-name }}, надо установить {{ unified-agent-short-name }} и настроить его на прием метрик по этому адресу и передачу метрик в {{ monitoring-name }}.
+После запуска экспортера метрики доступны по адресу `curl http://localhost:9095/metrics`. Чтобы работать с метриками в {{ monitoring-full-name }}, нужно установить {{ unified-agent-short-name }} и настроить его на прием метрик по этому адресу и передачу метрик в {{ monitoring-name }}.
+
 
 ## Создайте сервисный аккаунт и привяжите его к ВМ {#sa-create}
 
@@ -176,18 +177,24 @@
 1. Скачайте последнюю версию deb-пакета:
 
    ```bash
-   ubuntu_name="<версия_ОС>" ua_version=$(curl --silent https://storage.yandexcloud.net/yc-unified-agent/latest-version) bash -c 'curl --silent --remote-name https://storage.yandexcloud.net/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
+   ubuntu_name="<полное_название_версии_ОС>" \
+   ua_version=$(curl --silent https://{{ s3-storage-host }}/yc-unified-agent/latest-version)
+
+   curl --silent --remote-name \
+     "https://{{ s3-storage-host }}/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb"
    ```
 
-1. Посмотрите версию deb-пакета с помощью команды `ls`.
-   
+   Где `ubuntu_name` — идентификатор версии операционной системы в формате `ubuntu-<номер_версии>-<кодовое_имя>`, например `ubuntu-22.04-jammy`.
+
+1. Посмотрите версию скачанного deb-пакета с помощью команды `ls`.
+
 1. Установите {{ unified-agent-short-name }} из deb-пакета, указав его версию:
 
    ```bash
-   sudo dpkg -i yandex-unified-agent_<версия_агента>_amd64.deb
+   sudo dpkg -i yandex-unified-agent_<версия>_amd64.deb
    ```
-   
-   Другие способы установки описаны в разделе [{#T}](../../monitoring/concepts/data-collection/unified-agent/installation.md). 
+
+   Другие способы установки описаны в разделе [{#T}](../../monitoring/concepts/data-collection/unified-agent/installation.md).
 
 1. Проверьте, что {{ unified-agent-short-name }} запущен:
 
@@ -278,7 +285,7 @@
    import:
    - /etc/yandex/unified_agent/conf.d/*.yml
    ```
-  
+
    В конфигурации для меток с эндпоинта `/metrics` задан префикс `app1c_`. Префикс может быть произвольным.
 
    В {{ monitoring-full-name }} есть ограничения на метки и их значения:
@@ -326,7 +333,7 @@
        * Значение метки `name`, начинающееся с префикса `app1c_`. Например, `app1c_available_performance`.
        * Значение метки `host` — имя ВМ кластера «1С:Предприятие».
 
-    1. Нажмите кнопку **Выполнить запрос**.
+    1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
 
 {% endlist %}
 
@@ -348,15 +355,15 @@
          ```
     1. Справа вверху нажмите ![image](../../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
     1. Таким же образом добавьте на дашборд графики:
-    
+
        * Использование клиентских лицензий:
          ```
-         "app1c.client_lic"{folderId = "<your-folder-id>", service = "custom", quantile = "0.99", host = "<имя_ВМ_1C>"}
+         "app1c.client_lic"{folderId = "<идентификатор_каталога>", service = "custom", quantile = "0.99", host = "<имя_ВМ_1C>"}
          ```
 
        * Соединения:
          ```
-         "app1c.connect"{folderId = "<your-folder-id>", service = "custom", quantile = "0.99"}
+         "app1c.connect"{folderId = "<идентификатор_каталога>", service = "custom", quantile = "0.99"}
          ```
 
 {% endlist %}
@@ -369,4 +376,4 @@
 
 * [Остановите {{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/run-and-stop.md#stop).
 * В [файле конфигурации](../../monitoring/concepts/data-collection/unified-agent/configuration.md) {{ unified-agent-short-name }} удалите настройки сбора и передачи метрик.
-* [Удалите {{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/delete.md).
+* Удалите {{ unified-agent-short-name }} с помощью команды `sudo dpkg -r yandex-unified-agent`.

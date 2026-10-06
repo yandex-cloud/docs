@@ -5,6 +5,51 @@ description: В разделе представлена история изме�
 
 # История изменений в {{ iam-full-name }}
 
+## Сентябрь 2026 {#september-2026}
+
+### Изменения в сервисе {{ iam-name }} {#iam-september-2026}
+
+* Добавлены [шаблоны политик авторизации](concepts/access-control/access-policies.md#supported-policies) для {{ compute-full-name }} и {{ postbox-full-name }}, накладывающие ограничения на сетевые интерфейсы, публичные IP-адреса, серийную консоль и образы виртуальных машин, а также на IP-адреса отправителей писем.
+* Добавлена возможность [поиска и получения атрибутов субъектов](concepts/subject-details.md) разных типов в организации с фильтрацией на языке Common Expression Language (CEL).
+
+### Новые роли {#roles-september-2026}
+
+{% cut "{{ ai-studio-full-name }}" %}
+
+#### ai.agentChannels.admin {#ai-agentchannels-admin}
+
+{% include [ai.agentChannels.admin](../_roles/ai/agentChannels/admin.md) %}
+
+#### ai.agentChannels.auditor {#ai-agentchannels-auditor}
+
+{% include [ai.agentChannels.auditor](../_roles/ai/agentChannels/auditor.md) %}
+
+#### ai.agentChannels.editor {#ai-agentchannels-editor}
+
+{% include [ai.agentChannels.editor](../_roles/ai/agentChannels/editor.md) %}
+
+#### ai.agentChannels.viewer {#ai-agentchannels-viewer}
+
+{% include [ai.agentChannels.viewer](../_roles/ai/agentChannels/viewer.md) %}
+
+#### ai.canvasAgents.admin {#ai-canvasagents-admin}
+
+{% include [ai.canvasAgents.admin](../_roles/ai/canvasAgents/admin.md) %}
+
+#### ai.canvasAgents.auditor {#ai-canvasagents-auditor}
+
+{% include [ai.canvasAgents.auditor](../_roles/ai/canvasAgents/auditor.md) %}
+
+#### ai.canvasAgents.editor {#ai-canvasagents-editor}
+
+{% include [ai.canvasAgents.editor](../_roles/ai/canvasAgents/editor.md) %}
+
+#### ai.canvasAgents.viewer {#ai-canvasagents-viewer}
+
+{% include [ai.canvasAgents.viewer](../_roles/ai/canvasAgents/viewer.md) %}
+
+{% endcut %}
+
 ## Август 2026 {#august-2026}
 
 ### Изменения в сервисе {{ iam-name }} {#iam-august-2026}

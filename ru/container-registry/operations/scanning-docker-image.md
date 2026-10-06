@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Сканирование Docker-образа на наличие уязвимостей
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 
 Вы можете [сканировать](../concepts/vulnerability-scanner.md) загруженные в [реестр](../concepts/registry.md) [Docker-образы](../concepts/docker-image.md) на наличие уязвимостей. Это можно делать:
 

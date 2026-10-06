@@ -1,6 +1,6 @@
 Чтобы проверить работу веб-сервера, загрузите на ВМ файл `index.html`. Можно использовать [тестовый файл](https://{{ s3-storage-host }}/doc-files/index.html.zip), скачайте и распакуйте архив.
 1. В блоке **Сеть** на странице ВМ в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес ВМ.
-1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ по протоколу SSH.
+1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ по протоколу SSH. Если для доступа к ВМ используется [OS Login](../../compute/operations/vm-connect/os-login.md), подключайтесь по инструкции для OS Login.
 1. Выдайте права на запись для вашего пользователя на директорию `/var/www/html`: 
 
     ```bash

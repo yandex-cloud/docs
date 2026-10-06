@@ -1,5 +1,7 @@
 # Протестировать политику удаления
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 Тестовый запуск позволяет проверить, какие [Docker-образы](../../concepts/docker-image.md) соответствуют правилам [политики удаления](../../concepts/lifecycle-policy.md). Реального удаления Docker-образов при тестовом запуске не происходит.
 
 {% note warning %}

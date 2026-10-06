@@ -5,6 +5,8 @@ description: На этой странице приведен справочни�
 
 # Справочник {{ TF }} для {{ container-registry-full-name }}
 
+{% include [sunset](../_includes/container-registry/sunset.md) %}
+
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
 
 ## Ресурсы {#resources}

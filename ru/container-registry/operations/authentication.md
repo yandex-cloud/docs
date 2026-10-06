@@ -5,6 +5,8 @@ description: Перед началом работы с {{ container-registry-nam
 
 # Аутентифицироваться в {{ container-registry-name }}
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 Перед началом работы с {{ container-registry-name }} необходимо [настроить Docker](./configure-docker.md) и аутентифицироваться для соответствующего интерфейса:
 
 * Для **Консоли управления** минимально необходимая [роль](../../iam/concepts/access-control/roles.md) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) — `viewer`.

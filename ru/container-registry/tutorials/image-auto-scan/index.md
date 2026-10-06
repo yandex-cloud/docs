@@ -5,6 +5,8 @@ description: Следуя данному руководству, вы сможе
 
 # Автоматическое сканирование Docker-образа при загрузке
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 
 {% note info %}
 

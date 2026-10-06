@@ -9,8 +9,8 @@
 Удалить организацию может пользователь с ролью `organization-manager.organizations.owner`. Как назначить роль пользователю, читайте в разделе [Роли](../security/index.md#add-role).
 
 Перед удалением организации:
-1. [Удалите](../../resource-manager/operations/cloud/delete.md) из организации все облака.
-1. [Удалите](../../billing/operations/delete-account.md) привязанный к организации платежный аккаунт.
+1. [Удалите](../../resource-manager/operations/cloud/delete.md) из организации все облака или [переместите](../../resource-manager/operations/cloud/change-organization.md) их в другую организацию.
+1. [Удалите](../../billing/operations/delete-account.md) все привязанные к организации платежные аккаунты.
 
 {% endnote %}
 
@@ -39,4 +39,20 @@
 
 После удаления организации вы больше не сможете использовать ресурсы Yandex Cloud, которые были созданы в этой организации.
 
-При возникновении проблем обратитесь в [службу поддержки](https://center.yandex.cloud/support).
+## Решение ошибки при удалении организации {#troubleshooting}
+
+Если при удалении организации появляется следующая ошибка, значит, в организации остались облака, которые не позволяют удалить ее:
+
+```text
+Service 'resource-manager.cloud' has banned deletion operation with reason: Organization `<идентификатор_организации>` has cloud(s)
+```
+
+Чтобы устранить ошибку:
+
+1. [Удалите](../../resource-manager/operations/cloud/delete.md) все облака из организации или [переместите](../../resource-manager/operations/cloud/change-organization.md) их в другую организацию.
+1. Если вы выбрали удаление облаков, дождитесь его завершения. По умолчанию срок удаления облака — 7 дней. После окончания этого срока необратимое удаление может занять до 72 часов.
+1. Повторите удаление организации.
+
+Если к организации привязаны платежные аккаунты, их также необходимо [удалить](../../billing/operations/delete-account.md).
+
+При возникновении других проблем создайте запрос в [техническую поддержку](https://center.yandex.cloud/support).

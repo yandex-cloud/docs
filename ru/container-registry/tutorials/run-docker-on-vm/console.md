@@ -4,6 +4,8 @@ canonical: '{{ link-docs }}/tutorials/infrastructure-management/run-docker-on-vm
 
 # Запуск Docker-образа на виртуальной машине с помощью консоли управления, CLI и API
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 Чтобы запустить [Docker-образ на ВМ](index.md) с использованием реестра [{{ container-registry-full-name }}](../../../container-registry/), выполните следующие шаги:
 
 {% include [run-docker-on-vm-console](../../../_tutorials/infrastructure/run-docker-on-vm-console.md) %}

@@ -6,4 +6,6 @@ canonical: '{{ link-docs }}/tutorials/container-infrastructure/container-registr
 
 # Интеграция с {{ managed-k8s-full-name }}
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 {% include notitle [container-registry](../../_tutorials/k8s/container-registry.md) %}

@@ -1,5 +1,7 @@
 # Том Docker в {{ container-registry-name }}
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 _Том Docker_ — это средство для постоянного хранения информации на [виртуальной машине](../../compute/concepts/vm.md). Данные в томе хранятся независимо от контейнеров. Если вы удалите контейнер, тома и данные в томах останутся. Удаление тома — отдельная операция.
 
 ## Тома и Docker Compose {#volume-compose}

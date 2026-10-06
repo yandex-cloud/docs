@@ -205,7 +205,7 @@ SolidWall WAF поддерживает HTTP-трафик и WebSocket (WSS).
 #### Полезные ссылки {#see-also}
 
 * [Создать профиль SolidWall WAF](../operations/solidwall-waf-profile-create.md)
-* [Создать приложение и подключить к нему домен](../operations/solidwall-waf-application-create.md)
+* [Создать приложение SolidWall WAF и подключить к нему домен](../operations/solidwall-waf-application-create.md)
 * [Удалить профиль SolidWall WAF](../operations/solidwall-waf-profile-delete.md)
 * [SolidWall WAF](../concepts/solidwall-waf.md)
 * [Документация SolidWall WAF](https://docs.solidwall.yandex.cloud/ru/)

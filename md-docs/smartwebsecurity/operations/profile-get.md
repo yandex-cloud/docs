@@ -149,5 +149,5 @@
 #### Полезные ссылки {#see-also}
 
 * [Посмотреть операции с профилями](operation-logs.md)
-* [Получить информацию о профиле WAF](waf-profile-get.md)
+* [Получить информацию о профиле Cloud WAF](waf-profile-get.md)
 * [Получить информацию о профиле ARL](arl-profile-get.md)

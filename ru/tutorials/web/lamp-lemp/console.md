@@ -11,4 +11,4 @@ description: LAMP (Linux, Apache HTTP Server, MySQL, PHP) и его вариац
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](terraform.md).
+[{#T}](terraform.md)

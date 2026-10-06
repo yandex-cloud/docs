@@ -1,5 +1,12 @@
 [Документация Yandex Cloud](../index.md) > [Terraform в Yandex Cloud](index.md) > Справочник Terraform > История изменений (англ.)
 
+## 0.236.0 (October 6, 2026)
+
+##### ENHANCEMENTS:
+* greenplum: use DBMS config API fields for mdb_greenplum_cluster_v2 while keeping the existing Terraform schema.
+
+
+
 ## 0.235.0 (October 2, 2026)
 
 ##### BUG FIXES:
