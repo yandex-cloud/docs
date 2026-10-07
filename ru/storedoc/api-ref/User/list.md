@@ -9,7 +9,7 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the cluster to list MongoDB users in.
+            Required field. ID of the cluster to list StoreDoc users in.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
             The maximum string length in characters is 50.
           type: string
@@ -42,7 +42,7 @@ apiPlayground:
 
 # Managed Service for MongoDB API, REST: User.List
 
-Retrieves the list of MongoDB User resources in the specified cluster.
+Retrieves the list of StoreDoc User resources in the specified cluster.
 
 ## HTTP request
 
@@ -56,7 +56,7 @@ GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/users
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the cluster to list MongoDB users in.
+Required field. ID of the cluster to list StoreDoc users in.
 To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -99,6 +99,9 @@ The maximum string length in characters is 100. ||
           ]
         }
       ],
+      "connectionManager": {
+        "connectionId": "string"
+      },
       "authType": "string",
       "deletionProtection": "boolean"
     }
@@ -111,7 +114,7 @@ The maximum string length in characters is 100. ||
 ||Field | Description ||
 || users[] | **[User](#yandex.cloud.mdb.mongodb.v1.User)**
 
-List of MongoDB User resources. ||
+List of StoreDoc User resources. ||
 || nextPageToken | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
@@ -122,20 +125,23 @@ list request will have its own `nextPageToken` to continue paging through the re
 
 ## User {#yandex.cloud.mdb.mongodb.v1.User}
 
-A MongoDB User resource. For more information, see the
+A StoreDoc User resource. For more information, see the
 [Developer's Guide](/docs/managed-mongodb/concepts).
 
 #|
 ||Field | Description ||
 || name | **string**
 
-Name of the MongoDB user. ||
+Name of the StoreDoc user. ||
 || clusterId | **string**
 
-ID of the MongoDB cluster the user belongs to. ||
+ID of the StoreDoc cluster the user belongs to. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)**
 
 Set of permissions granted to the user. ||
+|| connectionManager | **[ConnectionManager](#yandex.cloud.mdb.mongodb.v1.ConnectionManager)**
+
+Connection Manager connection configuration. ||
 || authType | **enum** (AuthType)
 
 Authentication type for the user.
@@ -144,7 +150,7 @@ Authentication type for the user.
 - `AUTH_TYPE_IAM`: IAM-based authentication via iam-auth-proxy (SASL/PLAIN, $external). ||
 || deletionProtection | **boolean**
 
-Deletion Protection inhibits deletion of the user ||
+Deletion Protection inhibits deletion of the user. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.mongodb.v1.Permission}
@@ -156,5 +162,16 @@ Deletion Protection inhibits deletion of the user ||
 Name of the database that the permission grants access to. ||
 || roles[] | **string**
 
-MongoDB roles for the `databaseName` database that the permission grants. ||
+StoreDoc roles for the `databaseName` database that the permission grants. ||
+|#
+
+## ConnectionManager {#yandex.cloud.mdb.mongodb.v1.ConnectionManager}
+
+Connection Manager connection configuration.
+
+#|
+||Field | Description ||
+|| connectionId | **string**
+
+ID of Connection Manager connection. ||
 |#

@@ -114,6 +114,9 @@ To get the backend group ID, make a [BackendGroupService.List](/docs/application
                 "trustedCaId": "string",
                 "trustedCaBytes": "string"
                 // end of the list of possible fields
+              },
+              "clientCertificate": {
+                "certificateId": "string"
               }
             }
             // end of the list of possible fields
@@ -126,6 +129,9 @@ To get the backend group ID, make a [BackendGroupService.List](/docs/application
             "trustedCaId": "string",
             "trustedCaBytes": "string"
             // end of the list of possible fields
+          },
+          "clientCertificate": {
+            "certificateId": "string"
           }
         },
         "enableProxyProtocol": "boolean",
@@ -202,6 +208,9 @@ To get the backend group ID, make a [BackendGroupService.List](/docs/application
                 "trustedCaId": "string",
                 "trustedCaBytes": "string"
                 // end of the list of possible fields
+              },
+              "clientCertificate": {
+                "certificateId": "string"
               }
             }
             // end of the list of possible fields
@@ -214,6 +223,9 @@ To get the backend group ID, make a [BackendGroupService.List](/docs/application
             "trustedCaId": "string",
             "trustedCaBytes": "string"
             // end of the list of possible fields
+          },
+          "clientCertificate": {
+            "certificateId": "string"
           }
         },
         "useHttp2": "boolean"
@@ -294,6 +306,9 @@ To get the backend group ID, make a [BackendGroupService.List](/docs/application
                 "trustedCaId": "string",
                 "trustedCaBytes": "string"
                 // end of the list of possible fields
+              },
+              "clientCertificate": {
+                "certificateId": "string"
               }
             }
             // end of the list of possible fields
@@ -306,6 +321,9 @@ To get the backend group ID, make a [BackendGroupService.List](/docs/application
             "trustedCaId": "string",
             "trustedCaBytes": "string"
             // end of the list of possible fields
+          },
+          "clientCertificate": {
+            "certificateId": "string"
           }
         }
       }
@@ -704,6 +722,9 @@ The maximum string length in characters is 255. Value must match the regular exp
 || validationContext | **[ValidationContext](#yandex.cloud.apploadbalancer.v1.ValidationContext)**
 
 Validation context for backend TLS connections. ||
+|| clientCertificate | **[ClientCertificateOptions](#yandex.cloud.apploadbalancer.v1.ClientCertificateOptions)**
+
+Client certificate options for backend TLS connections. ||
 |#
 
 ## ValidationContext {#yandex.cloud.apploadbalancer.v1.ValidationContext}
@@ -726,6 +747,17 @@ Includes only one of the fields `trustedCaId`, `trustedCaBytes`.
 TLS certificate issued by a trusted certificate authority (CA). ||
 |#
 
+## ClientCertificateOptions {#yandex.cloud.apploadbalancer.v1.ClientCertificateOptions}
+
+Client certificates options for usage during TLS handshake initiation as a client.
+
+#|
+||Field | Description ||
+|| certificateId | **string**
+
+Required field. Client certificate's ID from the [Certificate Manager](/docs/certificate-manager/). ||
+|#
+
 ## BackendTls {#yandex.cloud.apploadbalancer.v1.BackendTls}
 
 A resource for backend TLS settings.
@@ -740,6 +772,9 @@ The maximum string length in characters is 255. Value must match the regular exp
 || validationContext | **[ValidationContext](#yandex.cloud.apploadbalancer.v1.ValidationContext)**
 
 Validation context for TLS connections. ||
+|| clientCertificate | **[ClientCertificateOptions](#yandex.cloud.apploadbalancer.v1.ClientCertificateOptions)**
+
+Client certificate options for backend TLS connections. ||
 |#
 
 ## ConnectionSessionAffinity {#yandex.cloud.apploadbalancer.v1.ConnectionSessionAffinity}

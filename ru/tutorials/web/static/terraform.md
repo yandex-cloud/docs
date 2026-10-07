@@ -6,4 +6,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](./console.md).
+* [{#T}](./console.md)

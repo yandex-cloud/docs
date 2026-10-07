@@ -308,7 +308,8 @@ editable: false
         "connectionId": "string",
         "connectionFolderId": "string",
         "secretFolderId": "string"
-      }
+      },
+      "deletionProtectionMode": "string"
     },
     "clusterName": "string"
   },
@@ -502,6 +503,11 @@ A list of messages that carry the error details. ||
 - `AUTH_METHOD_PASSWORD`
 - `AUTH_METHOD_IAM` ||
 || userConnectionManager | **[UserConnectionManager](#yandex.cloud.mdb.v1.UserConnectionManager)** ||
+|| deletionProtectionMode | **enum** (DeletionProtectionMode)
+
+- `DELETION_PROTECTION_MODE_DISABLED`
+- `DELETION_PROTECTION_MODE_ENABLED`
+- `DELETION_PROTECTION_MODE_INHERITED` ||
 |#
 
 ## Permission {#yandex.cloud.mdb.clickhouse.v1.Permission}

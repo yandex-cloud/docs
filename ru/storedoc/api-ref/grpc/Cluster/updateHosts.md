@@ -35,13 +35,13 @@ Updates the specified parameters for the host.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the MongoDB cluster to update hosts from.
-To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request.
+Required field. ID of the StoreDoc cluster to update hosts from.
+To get the StoreDoc cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || update_host_specs[] | **[UpdateHostSpec](#yandex.cloud.mdb.mongodb.v1.UpdateHostSpec)**
 
-New configurations to apply to hosts of a Managed Service for MongoDB cluster.
+New configurations to apply to hosts of a Managed Service for StoreDoc cluster.
 
 The number of elements must be greater than 0. ||
 |#
@@ -65,13 +65,13 @@ The time, in seconds, by which the given replica set member lags behind the prim
 || priority | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 Priority of the host to be elected as the primary in the replica set.
-The minimum value is `0` if the Managed Service for MongoDB cluster contains three or more secondary hosts. Otherwise, the minimum value is `1`. ||
+The minimum value is `0` if the Managed Service for StoreDoc cluster contains three or more secondary hosts. Otherwise, the minimum value is `1`. ||
 || assign_public_ip | **bool**
 
 Determines whether the host should get a public IP address after the update. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
-Field mask that specifies which fields of the MongoDB host should be updated. ||
+Field mask that specifies which fields of the StoreDoc host should be updated. ||
 || tags | **object** (map<**string**, **string**>)
 
 Host tag list that contains key-value pairs for the given replica set member. For more information about how to specify the tags and what values to choose, see the [MongoDB documentation](https://www.mongodb.com/docs/manual/reference/replica-configuration/#mongodb-rsconf-rsconf.members-n-.tags). ||

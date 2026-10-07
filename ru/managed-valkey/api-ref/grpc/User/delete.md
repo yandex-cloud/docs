@@ -4,7 +4,7 @@ editable: false
 
 # Managed Service for Redis API, gRPC: UserService.Delete
 
-Deletes the specified Redis user.
+Deletes the specified Valkey user.
 
 ## gRPC request
 
@@ -23,7 +23,7 @@ Deletes the specified Redis user.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Redis cluster the user belongs to.
+Required field. ID of the Valkey cluster the user belongs to.
 To get the cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||

@@ -24,7 +24,7 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 When changing the host class:
 
 * A single-host cluster will be unavailable for a few minutes and all database connections will be dropped.
-* A multi-host cluster will undergo a [primary replica switchover](../concepts/replication.md). The hosts will undergo a rolling update, with each host unavailable for a few minutes while it is stopped and updated.
+* A multi-host cluster will switch to a new [master](../concepts/replication.md). The hosts will undergo a rolling update, with each host unavailable for a few minutes while it is stopped and updated.
 * A cluster with local SSD storage may be unavailable for an extended period of time in case of data migration to another physical server.
 
 We recommend changing the host class only when the cluster is idle.
@@ -33,7 +33,7 @@ We recommend changing the host class only when the cluster is idle.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
@@ -138,7 +138,7 @@ We recommend changing the host class only when the cluster is idle.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
  
@@ -256,7 +256,7 @@ We recommend changing the host class only when the cluster is idle.
 
   To change the disk type and expand the storage size for a cluster:
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Depending on the [sharding type](../concepts/sharding.md#shard-management) you select, go to the section of the cluster resources you need to update: **Resources**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongod-resources_ncXUZ }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongoinfra-resources_13TPT }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongocfg-resources_1cuU2 }}**, or **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongos-resources_wBGnr }}**.
@@ -347,7 +347,7 @@ We recommend changing the host class only when the cluster is idle.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -472,7 +472,7 @@ For more information about storage and autoscaling, see the [relevant section](.
 
   To set up automatic storage expansion:
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Depending on the [sharding type](../concepts/sharding.md#shard-management) you select, go to the section of the cluster resources you need to update: **Resources**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongod-resources_ncXUZ }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongoinfra-resources_13TPT }}**, **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongocfg-resources_1cuU2 }}**, or **{{ ui-key.yacloud.mongodb.ClusterForm.ClusterFormBase.section_mongos-resources_wBGnr }}**.
@@ -485,7 +485,7 @@ For more information about storage and autoscaling, see the [relevant section](.
 
           If both conditions are set, the percentage in the first condition must be lower than in the second one.
 
-          Learn more about the storage expansion criteria [here](../concepts/storage.md#auto-rescale).
+          For more information on the storage expansion criteria, see [this section](../concepts/storage.md#auto-rescale).
 
       * In the **{{ ui-key.yacloud.mdb.resources.DiskAutoscalingFieldGroup.field_disk-size-limit_bK9Ng }}** field, specify the maximum storage size that can be set during autoscaling.
 
@@ -601,7 +601,7 @@ For more information about storage and autoscaling, see the [relevant section](.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -648,7 +648,7 @@ For more information about storage and autoscaling, see the [relevant section](.
 
       * `<host_type>`: [Host type](../concepts/host-roles.md) to configure a storage for. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
       
-      * `configSpec.mongodb.<host_type>.diskSizeAutoscaling`: Parameters for automatic storage size expansion.
+      * `configSpec.mongodb.<host_type>.diskSizeAutoscaling`: Settings for automatic storage expansion.
 
         * `plannedUsageThreshold`: Storage usage percentage to trigger a storage expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
 
@@ -719,7 +719,7 @@ For more information about storage and autoscaling, see the [relevant section](.
 
       * `<host_type>`: [Host type](../concepts/host-roles.md) to configure a storage for. The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`.
 
-      * `config_spec.mongodb.<host_type>.disk_size_autoscaling`: Parameters for automatic storage size expansion.
+      * `config_spec.mongodb.<host_type>.disk_size_autoscaling`: Settings for automatic storage expansion.
 
         * `planned_usage_threshold`: Storage usage percentage to trigger a storage expansion during the next [maintenance window](../concepts/maintenance.md#maintenance-window).
 
@@ -755,7 +755,7 @@ You can change the DBMS settings for your cluster hosts.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. To change the [{{ SD }} settings](../concepts/settings-list.md#dbms-cluster-settings), click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
@@ -892,7 +892,7 @@ You can change the DBMS settings for your cluster hosts.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Configure advanced cluster settings:
@@ -1001,7 +1001,7 @@ You can change the DBMS settings for your cluster hosts.
 
         Once cluster deletion protection is enabled, it also applies to all new databases and users for whom deletion protection is not set explicitly. If a database or user has its own deletion protection setting, it will override the cluster setting.
 
-        You can configure deletion protection for a database in the `yandex_mdb_mongodb_database` resource, and for a user, in the `yandex_mdb_mongodb_user` resource.
+        You can configure deletion protection for a database in the `yandex_mdb_mongodb_database` resource, while for a user, in the `yandex_mdb_mongodb_user` resource.
 
         {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
@@ -1009,7 +1009,7 @@ You can change the DBMS settings for your cluster hosts.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1238,7 +1238,7 @@ You can change the DBMS settings for your cluster hosts.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. In the [management console]({{ link-console-main }}), select the folder.
     1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the cluster you want to move.
     1. Select **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
@@ -1288,7 +1288,7 @@ You can change the DBMS settings for your cluster hosts.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1361,7 +1361,7 @@ You can change the DBMS settings for your cluster hosts.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. In the [management console]({{ link-console-main }}), select the folder.
     1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select the security groups that control the cluster’s network traffic.
@@ -1408,7 +1408,7 @@ You can change the DBMS settings for your cluster hosts.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -22,7 +22,7 @@ Retrieves the list of Operation resources for the specified cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the MongoDB Cluster resource to list operations for.
+Required field. ID of the StoreDoc Cluster resource to list operations for.
 
 The maximum string length in characters is 50. ||
 || page_size | **int64**
@@ -32,7 +32,7 @@ results is larger than `page_size`, the service returns a [ListClusterOperations
 that can be used to get the next page of results in subsequent list requests.
 Acceptable values are 0 to 1000, inclusive. Default value: 100.
 
-The maximum value is 1000. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
@@ -68,7 +68,7 @@ The maximum string length in characters is 100. ||
 ||Field | Description ||
 || operations[] | **[Operation](#yandex.cloud.operation.Operation)**
 
-List of Operation resources for the specified MongoDB cluster. ||
+List of Operation resources for the specified StoreDoc cluster. ||
 || next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results

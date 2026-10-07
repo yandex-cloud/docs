@@ -520,8 +520,6 @@
 
  - [Создание веб-приложения на Python с использованием фреймворка Flask](tutorials/flask.md)
 
- - [Создание SAP-программы в Yandex Cloud](tutorials/sap.md)
-
  - [Развертывание сервера Minecraft в Yandex Cloud](tutorials/minecraft-server.md)
 
  - [Автоматизация сборки образов с помощью Jenkins и Packer](tutorials/jenkins.md)

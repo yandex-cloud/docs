@@ -78,8 +78,6 @@
 * [Просмотра алертов](../../security-deck/concepts/alerts.md).
 * [Портал соответствия требованиям](../../security-deck/concepts/compliance.md).
 
-Сервис также предоставляет [AI-ассистента](../../security-deck/concepts/ai-assistant.md) на базе YandexGPT для получения рекомендаций по безопасности.
-
 
 ### Ограничение ответственности {#liability-limit}
 

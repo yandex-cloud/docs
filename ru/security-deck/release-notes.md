@@ -63,7 +63,7 @@ description: В разделе представлена история изме�
 
 ## Февраль 2026 {#february-2026}
 
-* Модули [{{ dspm-name }}](./concepts/dspm.md), [{{ cspm-name }}](./concepts/cspm.md), [{{ kspm-name }}](./concepts/kspm.md) и [AI-ассистент](concepts/ai-assistant.md) стали доступны на стадии [Preview](../overview/concepts/launch-stages.md).
+* Модули [{{ dspm-name }}](./concepts/dspm.md), [{{ cspm-name }}](./concepts/cspm.md), [{{ kspm-name }}](./concepts/kspm.md) и AI-ассистент стали доступны на стадии [Preview](../overview/concepts/launch-stages.md).
 * С 2 февраля 2025 года использование модуля [{{ kspm-name }}](./concepts/kspm.md) тарифицируется в соответствии с [правилами тарификации](pricing.md#kspm-rules).
 * В модуле [{{ cspm-name }}](./concepts/cspm.md) поддержаны новые [стандарты безопасности](./concepts/cspm.md#standards) — PCI DSS (Payment Card Industry Data Security Standard) и Требования ФСТЭК (Приказ № 21) для защиты персональных данных. 
 * В модуле [{{ cspm-name }}](./concepts/cspm.md) реализованы новые правила соответствия всем поддержанным в модуле стандартам безопасности.
@@ -83,5 +83,5 @@ description: В разделе представлена история изме�
 * Запущены модули [{{ kspm-name }}](./concepts/kspm.md) и [{{ cspm-name }}](./concepts/cspm.md).
 * Модули {{ kspm-name }} и {{ cspm-name }} теперь доступны в качестве источников данных для [алертов](./concepts/alerts.md).
 * Добавлена возможность [создать окружение {{ sd-name }}](./operations/workspaces/index.md) — контейнер, который содержит настройки и ресурсы модулей, перечень контролируемых ресурсов, параметры контроля и другие настройки.
-* Добавлен [AI-ассистент](concepts/ai-assistant.md).
+* Добавлен AI-ассистент.
 * Для модуля [{{ dspm-name }}](./concepts/dspm.md) появились возможности [частичного сканирования](./operations/dspm/create-scan.md) и [сканирования по изображениям](./operations/dspm/create-scan.md).

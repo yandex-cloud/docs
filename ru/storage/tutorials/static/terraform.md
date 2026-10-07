@@ -10,4 +10,4 @@ canonical: '{{ link-docs }}/tutorials/web/static/terraform'
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](./console.md).
+* [{#T}](./console.md)

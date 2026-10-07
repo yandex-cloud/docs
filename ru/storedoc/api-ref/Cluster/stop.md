@@ -9,7 +9,7 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the MongoDB cluster to stop.
+            Required field. ID of the StoreDoc cluster to stop.
             The maximum string length in characters is 50.
           type: string
       required:
@@ -22,7 +22,7 @@ apiPlayground:
 
 # Managed Service for MongoDB API, REST: Cluster.Stop
 
-Stop the specified MongoDB cluster.
+Stop the specified StoreDoc cluster.
 
 ## HTTP request
 
@@ -36,7 +36,7 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}:stop
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster to stop.
+Required field. ID of the StoreDoc cluster to stop.
 
 The maximum string length in characters is 50. ||
 |#

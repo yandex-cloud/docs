@@ -8,5 +8,5 @@ editable: false
 
 #|
 ||Method | Description ||
-|| [List](list.md) | Returns list of available MongoDB versions. ||
+|| [List](list.md) | Returns the list of available StoreDoc versions. ||
 |#

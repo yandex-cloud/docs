@@ -2,7 +2,7 @@
 
 # Managed Service for MongoDB API, gRPC: DatabaseService.Delete
 
-Deletes the specified MongoDB database.
+Deletes the specified StoreDoc database.
 
 ## gRPC request
 
@@ -21,7 +21,7 @@ Deletes the specified MongoDB database.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the MongoDB cluster to delete a database in.
+Required field. ID of the StoreDoc cluster to delete a database in.
 To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||

@@ -15,7 +15,8 @@ Creates a new ClickHouse database in the specified cluster.
   "cluster_id": "string",
   "database_spec": {
     "name": "string",
-    "engine": "DatabaseEngine"
+    "engine": "DatabaseEngine",
+    "deletion_protection_mode": "DeletionProtectionMode"
   }
 }
 ```
@@ -48,6 +49,14 @@ Database engine. For details, see [ClickHouse documentation](https://clickhouse.
 
 - `DATABASE_ENGINE_ATOMIC`: Atomic database engine.
 - `DATABASE_ENGINE_REPLICATED`: Replicated database engine. ||
+|| deletion_protection_mode | enum **DeletionProtectionMode**
+
+Deletion protection mode.
+Default value: `DELETION_PROTECTION_MODE_DISABLED`.
+
+- `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled.
+- `DELETION_PROTECTION_MODE_ENABLED`: Deletion protection is enabled.
+- `DELETION_PROTECTION_MODE_INHERITED`: Deletion protection mode is inherited from the cluster. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

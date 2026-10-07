@@ -220,7 +220,7 @@ Updates the specified ClickHouse cluster.
               "max": "int64"
             },
             // end of the list of possible fields
-            // Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`
+            // Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`, `postgresql_source_v2`
             "http_source": {
               "url": "string",
               "format": "string",
@@ -281,6 +281,27 @@ Updates the specified ClickHouse cluster.
               "password": "string",
               "invalidate_query": "string",
               "ssl_mode": "SslMode"
+            },
+            "postgresql_source_v2": {
+              "db": "string",
+              "table": "string",
+              "replicas": [
+                {
+                  "host": "string",
+                  "priority": "int64",
+                  "port": "int64",
+                  "user": "string",
+                  "password": "string"
+                }
+              ],
+              "port": "int64",
+              "user": "string",
+              "password": "string",
+              "invalidate_query": "string",
+              "ssl_mode": "SslMode",
+              "where": "string",
+              "query": "string",
+              "background_reconnect": "google.protobuf.BoolValue"
             }
             // end of the list of possible fields
           }
@@ -360,6 +381,8 @@ Updates the specified ClickHouse cluster.
           "port": "google.protobuf.Int64Value"
         },
         "mysql_protocol": "google.protobuf.BoolValue",
+        "grpc_protocol": "google.protobuf.BoolValue",
+        "arrowflight_protocol": "google.protobuf.BoolValue",
         "custom_macros": [
           {
             "name": "string",
@@ -480,6 +503,9 @@ Updates the specified ClickHouse cluster.
         "max_parser_depth": "google.protobuf.Int64Value",
         "min_execution_speed": "google.protobuf.Int64Value",
         "min_execution_speed_bytes": "google.protobuf.Int64Value",
+        "use_statistics": "google.protobuf.BoolValue",
+        "use_statistics_for_part_pruning": "google.protobuf.BoolValue",
+        "refresh_statistics_interval": "google.protobuf.Int64Value",
         "input_format_values_interpret_expressions": "google.protobuf.BoolValue",
         "input_format_defaults_for_omitted_fields": "google.protobuf.BoolValue",
         "input_format_null_as_default": "google.protobuf.BoolValue",
@@ -632,7 +658,22 @@ Updates the specified ClickHouse cluster.
   ],
   "deletion_protection": "bool",
   "network_id": "string",
-  "allow_host_recreation": "google.protobuf.BoolValue"
+  "allow_host_recreation": "google.protobuf.BoolValue",
+  "maintenance_windows": {
+    // Includes only one of the fields `anytime`, `weekly_maintenance_schedule`
+    "anytime": "AnytimeMaintenanceWindow",
+    "weekly_maintenance_schedule": {
+      "slots": [
+        {
+          "day": "DayOfWeek",
+          "start_time": "google.type.TimeOfDay",
+          "duration": "google.protobuf.Duration",
+          "allow_temporary_unavailability": "bool"
+        }
+      ]
+    }
+    // end of the list of possible fields
+  }
 }
 ```
 
@@ -673,6 +714,7 @@ The maximum string length in characters is 63. Value must match the regular expr
 ID of the service account used for access to Object Storage. ||
 || maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.clickhouse.v1.MaintenanceWindow)**
 
+Deprecated. Use maintenance_windows instead.
 New maintenance window settings for the cluster. ||
 || security_group_ids[] | **string**
 
@@ -690,6 +732,9 @@ The maximum string length in characters is 100. ||
 Allows or denies re-creation of replicas during update of cluster configuration. The option must be enabled for
 configuration changes including disk type change.
 NOTE: Only data of replicated tables will be preserved during host re-creation. Data of non-replicated tables will be lost. ||
+|| maintenance_windows | **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)**
+
+Maintenance windows. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.clickhouse.v1.ConfigSpec}
@@ -1412,10 +1457,27 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/integ
 || mysql_protocol | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables MySQL interface on ClickHouse server.
+When enabled, the interface accepts connections on the default MySQL port, 3306.
 
 Default value: **false**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/interfaces/mysql). ||
+|| grpc_protocol | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables or disables gRPC interface on ClickHouse server.
+When enabled, the interface accepts connections on the port 9100.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/concepts/features/interfaces/grpc). ||
+|| arrowflight_protocol | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables or disables Arrow Flight SQL interface on ClickHouse server.
+When enabled, the interface accepts connections on the port 9090.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/interfaces/arrowflight). ||
 || custom_macros[] | **[Macro](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Macro)**
 
 Custom ClickHouse macros. ||
@@ -1815,27 +1877,33 @@ Includes only one of the fields `fixed_lifetime`, `lifetime_range`. ||
 
 HTTP source for the dictionary.
 
-Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`. ||
+Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`, `postgresql_source_v2`. ||
 || mysql_source | **[MysqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource)**
 
 MySQL source for the dictionary.
 
-Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`. ||
+Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`, `postgresql_source_v2`. ||
 || clickhouse_source | **[ClickhouseSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.ClickhouseSource)**
 
 ClickHouse source for the dictionary.
 
-Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`. ||
+Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`, `postgresql_source_v2`. ||
 || mongodb_source | **[MongodbSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MongodbSource)**
 
 MongoDB source for the dictionary.
 
-Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`. ||
+Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`, `postgresql_source_v2`. ||
 || postgresql_source | **[PostgresqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSource)**
 
 PostgreSQL source for the dictionary.
+Deprecated in favor of postgresql_source_v2.
 
-Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`. ||
+Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`, `postgresql_source_v2`. ||
+|| postgresql_source_v2 | **[PostgresqlSourceV2](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2)**
+
+PostgreSQL source for the dictionary using the native ClickHouse integration.
+
+Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`, `postgresql_source_v2`. ||
 |#
 
 ## Structure {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure}
@@ -2264,6 +2332,75 @@ Mode of SSL TCP/IP connection to the PostgreSQL host.
 - `PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.
 - `VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).
 - `VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate. ||
+|#
+
+## PostgresqlSourceV2 {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2}
+
+#|
+||Field | Description ||
+|| db | **string**
+
+Required field. Database name. ||
+|| table | **string**
+
+Table name. Either table or query must be specified. ||
+|| replicas[] | **[Replica](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2.Replica)**
+
+PostgreSQL replicas used as dictionary sources. ||
+|| port | **int64**
+
+Port to use when connecting to the PostgreSQL hosts. ||
+|| user | **string**
+
+Default PostgreSQL user for replicas. ||
+|| password | **string**
+
+Password of the PostgreSQL database user. ||
+|| invalidate_query | **string**
+
+Query for checking the dictionary status, to pull only updated data. ||
+|| ssl_mode | enum **SslMode**
+
+Mode of SSL TCP/IP connection to the PostgreSQL host.
+
+- `DISABLE`: Only try a non-SSL connection.
+- `ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.
+- `PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.
+- `VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).
+- `VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.
+- `REQUIRE`: Only try an SSL connection without verifying the server certificate. ||
+|| where | **string**
+
+Selection criteria for data in the specified table. ||
+|| query | **string**
+
+Custom query. Either table or query must be specified. ||
+|| background_reconnect | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Reconnect to unavailable replicas in the background. ||
+|#
+
+## Replica {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2.Replica}
+
+#|
+||Field | Description ||
+|| host | **string**
+
+Required field. PostgreSQL host of the replica.
+
+The maximum string length in characters is 253. ||
+|| priority | **int64**
+
+The priority of the replica. Lower values have higher priority. ||
+|| port | **int64**
+
+Port to use when connecting to the replica. Inherits the source port when omitted. ||
+|| user | **string**
+
+PostgreSQL user for the replica. Inherits the source user when omitted. ||
+|| password | **string**
+
+PostgreSQL password for the replica. Inherits the source password when omitted. ||
 |#
 
 ## GraphiteRollup {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.GraphiteRollup}
@@ -3505,6 +3642,29 @@ If the execution speed is lower, an exception is thrown. **0** means unlimited.
 Default value: **0**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_execution_speed_bytes). ||
+|| use_statistics | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Allows using statistics to optimize queries.
+Preferred over **allow_statistics_optimize** because of consistency with **use_primary_key** and **use_skip_indexes**.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/use-statistics#use_statistics). ||
+|| use_statistics_for_part_pruning | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Use statistics to filter out parts during query execution.
+When enabled, pruning in SELECT queries will use column statistics (e.g. MinMax statistics) to eliminate parts that cannot contain matching data before reading any data.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/use-statistics#use_statistics_for_part_pruning). ||
+|| refresh_statistics_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The interval of refreshing statistics cache in seconds. If it is set to zero, the refreshing will be disabled.
+
+Default value: **0** for versions 25.11 and higher, **300** (5 minutes) for versions 26.2 and lower.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/ru/reference/settings/merge-tree-settings/refresh#refresh_statistics_interval). ||
 || input_format_values_interpret_expressions | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables SQL parser if the fast stream parser cannot parse the data.
@@ -4312,6 +4472,69 @@ Day of the week (in `DDD` format).
 Hour of the day in UTC (in `HH` format).
 
 Acceptable values are 1 to 24, inclusive. ||
+|#
+
+## MaintenanceWindows {#yandex.cloud.mdb.v1.MaintenanceWindows}
+
+Maintenance windows shared by all managed database services.
+
+#|
+||Field | Description ||
+|| anytime | **[AnytimeMaintenanceWindow](#yandex.cloud.mdb.v1.AnytimeMaintenanceWindow)**
+
+Maintenance operations can be scheduled anytime.
+
+Includes only one of the fields `anytime`, `weekly_maintenance_schedule`. ||
+|| weekly_maintenance_schedule | **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+
+Maintenance operations can be scheduled during the specified weekly slots.
+
+Includes only one of the fields `anytime`, `weekly_maintenance_schedule`. ||
+|#
+
+## AnytimeMaintenanceWindow {#yandex.cloud.mdb.v1.AnytimeMaintenanceWindow}
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## WeeklyMaintenanceSchedule {#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule}
+
+#|
+||Field | Description ||
+|| slots[] | **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+
+Weekly time slots during which maintenance operations can be scheduled.
+At least one slot is required.
+
+The number of elements must be greater than 0. ||
+|#
+
+## MaintenanceWindowSlot {#yandex.cloud.mdb.v1.MaintenanceWindowSlot}
+
+#|
+||Field | Description ||
+|| day | enum **DayOfWeek**
+
+Day of the week.
+
+- `MONDAY`: The day-of-week of Monday.
+- `TUESDAY`: The day-of-week of Tuesday.
+- `WEDNESDAY`: The day-of-week of Wednesday.
+- `THURSDAY`: The day-of-week of Thursday.
+- `FRIDAY`: The day-of-week of Friday.
+- `SATURDAY`: The day-of-week of Saturday.
+- `SUNDAY`: The day-of-week of Sunday. ||
+|| start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
+
+Required field. Start time in UTC. ||
+|| duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+
+Required field. Slot duration. ||
+|| allow_temporary_unavailability | **bool**
+
+Allows maintenance operations that may cause temporary write unavailability. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

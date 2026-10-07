@@ -19,6 +19,7 @@ Once a [policy is created and linked to the index](../tutorials/opensearch-index
 
 Learn more about policies in [this {{ OS }} guide]({{ os.docs }}/im-plugin/ism/policies/).
 
+
 ## Use cases {#examples}
 
 * [{#T}](../tutorials/opensearch-index-policy.md)

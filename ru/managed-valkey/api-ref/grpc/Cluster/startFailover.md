@@ -4,7 +4,7 @@ editable: false
 
 # Managed Service for Redis API, gRPC: ClusterService.StartFailover
 
-Start a manual failover on the specified Redis cluster.
+Start a manual failover on the specified Valkey cluster.
 
 ## gRPC request
 
@@ -27,7 +27,7 @@ Start a manual failover on the specified Redis cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Redis cluster to start failover on.
+Required field. ID of the Valkey cluster to start failover on.
 
 The maximum string length in characters is 50. ||
 || host_names[] | **string**

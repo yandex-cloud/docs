@@ -2,7 +2,7 @@
 
 # Managed Service for Redis API, REST: Cluster.Backup
 
-Creates a backup for the specified Redis cluster.
+Creates a backup for the specified Valkey cluster.
 
 ## HTTP request
 
@@ -16,8 +16,8 @@ POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}:back
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Redis cluster to back up.
-To get the Redis cluster ID, use a [ClusterService.List](list.md#List) request.
+Required field. ID of the Valkey cluster to back up.
+To get the Valkey cluster ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 |#

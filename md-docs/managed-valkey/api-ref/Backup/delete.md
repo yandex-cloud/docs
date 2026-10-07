@@ -2,7 +2,7 @@
 
 # Managed Service for Redis API, REST: Backup.Delete
 
-Deletes the specified Redis backup.
+Deletes the specified Valkey backup.
 
 ## HTTP request
 

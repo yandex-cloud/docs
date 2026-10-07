@@ -9,14 +9,14 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the Redis cluster the shard belongs to.
+            Required field. ID of the Valkey cluster the shard belongs to.
             To get the cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
             The maximum string length in characters is 50.
           type: string
         shardName:
           description: |-
             **string**
-            Required field. Name of Redis shard to return.
+            Required field. Name of Valkey shard to return.
             To get the shard name use a [ClusterService.ListShards](/docs/managed-redis/api-ref/Cluster/listShards#ListShards) request.
             The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
@@ -46,13 +46,13 @@ GET https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/shards/{sha
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Redis cluster the shard belongs to.
+Required field. ID of the Valkey cluster the shard belongs to.
 To get the cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || shardName | **string**
 
-Required field. Name of Redis shard to return.
+Required field. Name of Valkey shard to return.
 To get the shard name use a [ClusterService.ListShards](/docs/managed-redis/api-ref/Cluster/listShards#ListShards) request.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
@@ -65,7 +65,8 @@ The maximum string length in characters is 63. Value must match the regular expr
 ```json
 {
   "name": "string",
-  "clusterId": "string"
+  "clusterId": "string",
+  "isHa": "boolean"
 }
 ```
 
@@ -73,9 +74,12 @@ The maximum string length in characters is 63. Value must match the regular expr
 ||Field | Description ||
 || name | **string**
 
-Name of the Redis shard. The shard name is assigned by user at creation time, and cannot be changed.
+Name of the Valkey shard. The shard name is assigned by user at creation time, and cannot be changed.
 1-63 characters long. ||
 || clusterId | **string**
 
-ID of the Redis cluster the shard belongs to. The ID is assigned by MDB at creation time. ||
+ID of the Valkey cluster the shard belongs to. The ID is assigned by MDB at creation time. ||
+|| isHa | **boolean**
+
+Indicates whether the shard topology is highly available as defined by the Yandex Cloud SLA for managed databases. ||
 |#

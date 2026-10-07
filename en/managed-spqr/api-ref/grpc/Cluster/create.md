@@ -31,7 +31,9 @@ Creates a SPQR cluster in the specified folder.
           "prefer_same_availability_zone": "google.protobuf.BoolValue",
           "enhanced_multishard_processing": "google.protobuf.BoolValue",
           "default_target_session_attrs": "TargetSessionAttrs",
-          "default_commit_strategy": "CommitStrategy"
+          "default_commit_strategy": "CommitStrategy",
+          "allow_postprocessing": "google.protobuf.BoolValue",
+          "auto_route_ro_on_standby": "google.protobuf.BoolValue"
         },
         "resources": {
           "resource_preset_id": "string",
@@ -40,7 +42,14 @@ Creates a SPQR cluster in the specified folder.
         }
       },
       "coordinator": {
-        "config": "CoordinatorSettings",
+        "config": {
+          "iteration_timeout": "google.protobuf.Duration",
+          "lock_iteration_timeout": "google.protobuf.Duration",
+          "router_keepalive_time": "google.protobuf.Duration",
+          "router_keepalive_timeout": "google.protobuf.Duration",
+          "etcd_max_send_bytes": "google.protobuf.Int64Value",
+          "etcd_max_txn_ops": "google.protobuf.Int64Value"
+        },
         "resources": {
           "resource_preset_id": "string",
           "disk_size": "int64",
@@ -70,9 +79,18 @@ Creates a SPQR cluster in the specified folder.
           "prefer_same_availability_zone": "google.protobuf.BoolValue",
           "enhanced_multishard_processing": "google.protobuf.BoolValue",
           "default_target_session_attrs": "TargetSessionAttrs",
-          "default_commit_strategy": "CommitStrategy"
+          "default_commit_strategy": "CommitStrategy",
+          "allow_postprocessing": "google.protobuf.BoolValue",
+          "auto_route_ro_on_standby": "google.protobuf.BoolValue"
         },
-        "coordinator": "CoordinatorSettings"
+        "coordinator": {
+          "iteration_timeout": "google.protobuf.Duration",
+          "lock_iteration_timeout": "google.protobuf.Duration",
+          "router_keepalive_time": "google.protobuf.Duration",
+          "router_keepalive_timeout": "google.protobuf.Duration",
+          "etcd_max_send_bytes": "google.protobuf.Int64Value",
+          "etcd_max_txn_ops": "google.protobuf.Int64Value"
+        }
       },
       "console_password": "string",
       "log_level": "LogLevel",
@@ -83,7 +101,9 @@ Creates a SPQR cluster in the specified folder.
         "max_move_count": "google.protobuf.Int64Value",
         "keys_per_move": "google.protobuf.Int64Value",
         "timeout": "google.protobuf.Int64Value"
-      }
+      },
+      "use_spqrguard": "google.protobuf.BoolValue",
+      "forbid_direct_shard_queries": "google.protobuf.BoolValue"
     },
     "backup_window_start": "google.type.TimeOfDay",
     "backup_retain_period_days": "google.protobuf.Int64Value",
@@ -155,7 +175,22 @@ Creates a SPQR cluster in the specified folder.
       }
       // end of the list of possible fields
     }
-  ]
+  ],
+  "maintenance_windows": {
+    // Includes only one of the fields `anytime`, `weekly_maintenance_schedule`
+    "anytime": "AnytimeMaintenanceWindow",
+    "weekly_maintenance_schedule": {
+      "slots": [
+        {
+          "day": "DayOfWeek",
+          "start_time": "google.type.TimeOfDay",
+          "duration": "google.protobuf.Duration",
+          "allow_temporary_unavailability": "bool"
+        }
+      ]
+    }
+    // end of the list of possible fields
+  }
 }
 ```
 
@@ -188,7 +223,7 @@ Required field. Deployment environment of the SPQR cluster.
 
 - `PRODUCTION`: Stable environment with a conservative update policy: only hotfixes
 are applied during regular maintenance.
-- `PRESTABLE`: Environment with more aggressive update policy: new versions
+- `PRESTABLE`: Environment with a more aggressive update policy: new versions
 are rolled out irrespective of backward compatibility. ||
 || config_spec | **[ConfigSpec](#yandex.cloud.mdb.spqr.v1.ConfigSpec)**
 
@@ -217,10 +252,14 @@ User security groups ||
 Deletion Protection inhibits deletion of the cluster ||
 || maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.spqr.v1.MaintenanceWindow)**
 
+Deprecated. Use maintenance_windows instead.
 New maintenance window settings for the cluster. ||
 || shard_specs[] | **[ShardSpec](#yandex.cloud.mdb.spqr.v1.ShardSpec)**
 
 Descriptions of shards to be created in the SPQR cluster. ||
+|| maintenance_windows | **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)**
+
+Maintenance windows for the cluster. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.spqr.v1.ConfigSpec}
@@ -239,7 +278,9 @@ Retain period of automatically created backup in days ||
 || access | **[Access](#yandex.cloud.mdb.spqr.v1.Access)**
 
 Access policy to DB ||
-|| sox_audit | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
+|| sox_audit | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Configuration setting which enables/disables SOX audit. ||
 |#
 
 ## SpqrSpec {#yandex.cloud.mdb.spqr.v1.SpqrSpec}
@@ -271,6 +312,8 @@ Password of the SPQR console. ||
 || balancer | **[BalancerSettings](#yandex.cloud.mdb.spqr.v1.BalancerSettings)**
 
 Configuration for SPQR Balancer. ||
+|| use_spqrguard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
+|| forbid_direct_shard_queries | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
 |#
 
 ## Router {#yandex.cloud.mdb.spqr.v1.SpqrSpec.Router}
@@ -311,6 +354,8 @@ Configuration of a SPQR router.
 - `BEST_EFFORT`
 - `ONE_PC`
 - `TWO_PC` ||
+|| allow_postprocessing | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
+|| auto_route_ro_on_standby | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
 |#
 
 ## Resources {#yandex.cloud.mdb.spqr.v1.Resources}
@@ -351,7 +396,12 @@ Configuration of a SPQR coordinator.
 
 #|
 ||Field | Description ||
-|| Empty | > ||
+|| iteration_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)** ||
+|| lock_iteration_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)** ||
+|| router_keepalive_time | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)** ||
+|| router_keepalive_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)** ||
+|| etcd_max_send_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)** ||
+|| etcd_max_txn_ops | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)** ||
 |#
 
 ## PostgreSQL {#yandex.cloud.mdb.spqr.v1.SpqrSpec.PostgreSQL}
@@ -605,6 +655,69 @@ The maximum string length in characters is 63. Value must match the regular expr
 Properties of the MDB PostgreSQL cluster
 
 Includes only one of the fields `mdb_postgresql`. ||
+|#
+
+## MaintenanceWindows {#yandex.cloud.mdb.v1.MaintenanceWindows}
+
+Maintenance windows shared by all managed database services.
+
+#|
+||Field | Description ||
+|| anytime | **[AnytimeMaintenanceWindow](#yandex.cloud.mdb.v1.AnytimeMaintenanceWindow)**
+
+Maintenance operations can be scheduled anytime.
+
+Includes only one of the fields `anytime`, `weekly_maintenance_schedule`. ||
+|| weekly_maintenance_schedule | **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+
+Maintenance operations can be scheduled during the specified weekly slots.
+
+Includes only one of the fields `anytime`, `weekly_maintenance_schedule`. ||
+|#
+
+## AnytimeMaintenanceWindow {#yandex.cloud.mdb.v1.AnytimeMaintenanceWindow}
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## WeeklyMaintenanceSchedule {#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule}
+
+#|
+||Field | Description ||
+|| slots[] | **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+
+Weekly time slots during which maintenance operations can be scheduled.
+At least one slot is required.
+
+The number of elements must be greater than 0. ||
+|#
+
+## MaintenanceWindowSlot {#yandex.cloud.mdb.v1.MaintenanceWindowSlot}
+
+#|
+||Field | Description ||
+|| day | enum **DayOfWeek**
+
+Day of the week.
+
+- `MONDAY`: The day-of-week of Monday.
+- `TUESDAY`: The day-of-week of Tuesday.
+- `WEDNESDAY`: The day-of-week of Wednesday.
+- `THURSDAY`: The day-of-week of Thursday.
+- `FRIDAY`: The day-of-week of Friday.
+- `SATURDAY`: The day-of-week of Saturday.
+- `SUNDAY`: The day-of-week of Sunday. ||
+|| start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
+
+Required field. Start time in UTC. ||
+|| duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+
+Required field. Slot duration. ||
+|| allow_temporary_unavailability | **bool**
+
+Allows maintenance operations that may cause temporary write unavailability. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

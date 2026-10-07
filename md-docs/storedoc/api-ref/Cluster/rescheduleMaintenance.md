@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}:re
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster to reschedule the maintenance operation for.
+Required field. ID of the StoreDoc cluster to reschedule the maintenance operation for.
 
 The maximum string length in characters is 50. ||
 |#

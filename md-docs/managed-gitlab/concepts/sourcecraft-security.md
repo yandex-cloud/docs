@@ -14,7 +14,7 @@
 
 {% note warning %}
 
-Для интеграции требуется платное дополнение _SourceCraft Security_. Стоимость определяется [правилами тарификации SourceCraft](https://sourcecraft.dev/portal/docs/ru/sourcecraft/pricing#additional).
+Для интеграции требуется платное дополнение _SourceCraft Security_. Стоимость определяется [правилами тарификации SourceCraft](https://sourcecraft.dev/portal/docs/ru/sourcecraft/pricing#security).
 
 Репозитории создаются в той же [организации Yandex Cloud](../../organization/concepts/organization.md), в которой находится инстанс GitLab. Эта организация может отличаться от [персональной организации](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/#org), автоматически созданной при регистрации в SourceCraft. Убедитесь, что дополнение подключено именно к организации инстанса.
 

@@ -2,7 +2,7 @@
 
 # Managed Service for MongoDB API, REST: User.GrantPermission
 
-Grants permission to the specified MongoDB user.
+Grants permission to the specified StoreDoc user.
 
 ## HTTP request
 
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/us
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster the user belongs to.
+Required field. ID of the StoreDoc cluster the user belongs to.
 To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -57,7 +57,7 @@ Required field. Permission that should be granted to the specified user. ||
 Name of the database that the permission grants access to. ||
 || roles[] | **string**
 
-MongoDB roles for the `databaseName` database that the permission grants. ||
+StoreDoc roles for the `databaseName` database that the permission grants. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

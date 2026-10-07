@@ -4,8 +4,8 @@ editable: false
 
 # Managed Service for MongoDB API, gRPC: DatabaseService.Get
 
-Returns the specified MongoDB Database resource.
-To get the list of available MongoDB Database resources, make a [List](/docs/managed-mongodb/api-ref/grpc/Database/list#List) request.
+Returns the specified StoreDoc Database resource.
+To get the list of available StoreDoc Database resources, make a [List](/docs/managed-mongodb/api-ref/grpc/Database/list#List) request.
 
 ## gRPC request
 
@@ -24,13 +24,13 @@ To get the list of available MongoDB Database resources, make a [List](/docs/man
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the MongoDB cluster that the database belongs to.
+Required field. ID of the StoreDoc cluster that the database belongs to.
 To get the cluster ID use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || database_name | **string**
 
-Required field. Name of the MongoDB database to return.
+Required field. Name of the StoreDoc database to return.
 To get the name of the database use a [DatabaseService.List](/docs/managed-mongodb/api-ref/grpc/Database/list#List) request.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
@@ -46,7 +46,7 @@ The maximum string length in characters is 63. Value must match the regular expr
 }
 ```
 
-A MongoDB Database resource. For more information, see the
+A StoreDoc Database resource. For more information, see the
 [Developer's Guide](/docs/managed-mongodb/concepts).
 
 #|
@@ -56,8 +56,8 @@ A MongoDB Database resource. For more information, see the
 Name of the database. ||
 || cluster_id | **string**
 
-ID of the MongoDB cluster that the database belongs to. ||
+ID of the StoreDoc cluster that the database belongs to. ||
 || deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Deletion Protection inhibits deletion of the database ||
+Deletion Protection inhibits deletion of the database. ||
 |#

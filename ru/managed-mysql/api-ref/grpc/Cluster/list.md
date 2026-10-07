@@ -987,7 +987,12 @@ The maximum string length in characters is 1000. ||
           "emergency_usage_threshold": "int64",
           "disk_size_limit": "int64"
         },
-        "full_version": "string"
+        "full_version": "string",
+        "connection_manager": {
+          "enabled": "google.protobuf.BoolValue",
+          "connections_folder_id": "string",
+          "secrets_folder_id": "string"
+        }
       },
       "network_id": "string",
       "health": "Health",
@@ -1012,7 +1017,23 @@ The maximum string length in characters is 1000. ||
       "host_group_ids": [
         "string"
       ],
-      "disk_encryption_key_id": "google.protobuf.StringValue"
+      "disk_encryption_key_id": "google.protobuf.StringValue",
+      "is_ha": "bool",
+      "maintenance_windows": {
+        // Includes only one of the fields `anytime`, `weekly_maintenance_schedule`
+        "anytime": "AnytimeMaintenanceWindow",
+        "weekly_maintenance_schedule": {
+          "slots": [
+            {
+              "day": "DayOfWeek",
+              "start_time": "google.type.TimeOfDay",
+              "duration": "google.protobuf.Duration",
+              "allow_temporary_unavailability": "bool"
+            }
+          ]
+        }
+        // end of the list of possible fields
+      }
     }
   ],
   "next_page_token": "string"
@@ -1097,6 +1118,7 @@ Current state of the cluster.
 - `STARTING`: Cluster is starting. ||
 || maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.mysql.v1.MaintenanceWindow)**
 
+Deprecated. Use maintenance_windows instead.
 Maintenance window settings for the cluster. ||
 || planned_operation | **[MaintenanceOperation](#yandex.cloud.mdb.mysql.v1.MaintenanceOperation)**
 
@@ -1113,6 +1135,12 @@ Host groups hosting VMs of the cluster. ||
 || disk_encryption_key_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
 ID of the key to encrypt cluster disks. ||
+|| is_ha | **bool**
+
+Indicates whether the cluster topology is highly available as defined by the Yandex Cloud SLA for managed databases. ||
+|| maintenance_windows | **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)**
+
+Maintenance windows. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.mysql.v1.Monitoring}
@@ -1183,6 +1211,9 @@ Disk size autoscaling ||
 || full_version | **string**
 
 Full version ||
+|| connection_manager | **[ClusterConnectionManager](#yandex.cloud.mdb.v1.ClusterConnectionManager)**
+
+Cluster-wide Connection Manager integration configuration ||
 |#
 
 ## MysqlConfigSet5_7 {#yandex.cloud.mdb.mysql.v1.config.MysqlConfigSet5_7}
@@ -2998,6 +3029,28 @@ Acceptable values are 0 to 100, inclusive. ||
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
 |#
 
+## ClusterConnectionManager {#yandex.cloud.mdb.v1.ClusterConnectionManager}
+
+A message representing the Connection Manager integration status and settings for a cluster.
+
+#|
+||Field | Description ||
+|| enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+True if the integration for the cluster is enabled.
+Set to true to enable the integration.
+Disabling the integration is not supported. ||
+|| connections_folder_id | **string**
+
+ID of the folder where connections for the cluster are created.
+Optional. Defaults to the cluster's folder if not specified. ||
+|| secrets_folder_id | **string**
+
+A Connection Manager setting for connections created by MDB integration.
+ID of the folder where connection secrets are created.
+Optional. Defaults to the cluster's folder if not specified. ||
+|#
+
 ## MaintenanceWindow {#yandex.cloud.mdb.mysql.v1.MaintenanceWindow}
 
 Configuration of a maintenance window in a MySQL cluster.
@@ -3065,4 +3118,67 @@ The maximum string length in characters is 256. ||
 || delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time until which this maintenance operation is delayed. ||
+|#
+
+## MaintenanceWindows {#yandex.cloud.mdb.v1.MaintenanceWindows}
+
+Maintenance windows shared by all managed database services.
+
+#|
+||Field | Description ||
+|| anytime | **[AnytimeMaintenanceWindow](#yandex.cloud.mdb.v1.AnytimeMaintenanceWindow)**
+
+Maintenance operations can be scheduled anytime.
+
+Includes only one of the fields `anytime`, `weekly_maintenance_schedule`. ||
+|| weekly_maintenance_schedule | **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+
+Maintenance operations can be scheduled during the specified weekly slots.
+
+Includes only one of the fields `anytime`, `weekly_maintenance_schedule`. ||
+|#
+
+## AnytimeMaintenanceWindow {#yandex.cloud.mdb.v1.AnytimeMaintenanceWindow}
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## WeeklyMaintenanceSchedule {#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule}
+
+#|
+||Field | Description ||
+|| slots[] | **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+
+Weekly time slots during which maintenance operations can be scheduled.
+At least one slot is required.
+
+The number of elements must be greater than 0. ||
+|#
+
+## MaintenanceWindowSlot {#yandex.cloud.mdb.v1.MaintenanceWindowSlot}
+
+#|
+||Field | Description ||
+|| day | enum **DayOfWeek**
+
+Day of the week.
+
+- `MONDAY`: The day-of-week of Monday.
+- `TUESDAY`: The day-of-week of Tuesday.
+- `WEDNESDAY`: The day-of-week of Wednesday.
+- `THURSDAY`: The day-of-week of Thursday.
+- `FRIDAY`: The day-of-week of Friday.
+- `SATURDAY`: The day-of-week of Saturday.
+- `SUNDAY`: The day-of-week of Sunday. ||
+|| start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
+
+Required field. Start time in UTC. ||
+|| duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+
+Required field. Slot duration. ||
+|| allow_temporary_unavailability | **bool**
+
+Allows maintenance operations that may cause temporary write unavailability. ||
 |#

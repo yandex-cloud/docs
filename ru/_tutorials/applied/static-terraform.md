@@ -17,6 +17,7 @@
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 Чтобы создать инфраструктуру для статического сайта в {{ objstorage-name }} с помощью {{ TF }}:
+
 1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 
 
@@ -33,6 +34,7 @@
         ```
 
      1. Перейдите в директорию с репозиторием. В ней должны появиться файлы:
+        
         * `static.tf` — конфигурация создаваемой инфраструктуры.
         * `index.html` и `error.html` — главная страница сайта и страница ошибки.
 
@@ -40,6 +42,7 @@
 
      1. Создайте папку для конфигурационных файлов.
      1. Создайте в папке:
+        
         1. Конфигурационный файл `static.tf`:
 
            {% cut "static.tf" %}
@@ -48,7 +51,7 @@
 
            {% endcut %}
 
-        1. Файл `index.html` с текстом `Hello world!`:
+        1. Файл `index.html` с текстом `Hello, world!`:
 
            {% cut "index.html" %}
 
@@ -67,6 +70,7 @@
    {% endlist %}
 
    Подробнее о параметрах используемых ресурсов в {{ TF }} смотрите в документации провайдера:
+    
     * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
     * [Настройка](../../iam/concepts/access-control/roles.md) прав доступа на каталог — [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
     * [Статический ключ доступа](../../iam/concepts/authorization/access-key.md) — [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
@@ -79,6 +83,7 @@
     * [Ресурсная запись DNS](../../dns/concepts/resource-record.md) — [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset).
 
 1. В файле `static.tf` в блоке `locals` задайте пользовательские параметры:
+   
    * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будут создаваться ресурсы.
    * `domain` — доменное имя в формате `example.com`, без точки в конце.
 

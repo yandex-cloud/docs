@@ -36,13 +36,13 @@ Creates new hosts for a cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the MongoDB cluster to add hosts to.
-To get the MongoDB cluster ID use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request.
+Required field. ID of the StoreDoc cluster to add hosts to.
+To get the StoreDoc cluster ID use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || host_specs[] | **[HostSpec](#yandex.cloud.mdb.mongodb.v1.HostSpec)**
 
-Configurations for MongoDB hosts that should be added to the cluster.
+Configurations for StoreDoc hosts that should be added to the cluster.
 
 The number of elements must be greater than 0. ||
 |#

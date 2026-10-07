@@ -191,7 +191,7 @@ You can add hosts of different types to your {{ mmg-name }} cluster. Their numbe
 
 
           * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, when you need to create its backups without extra load on the cluster.
-          * `secondary-delay-secs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
+          * `secondary-delay-secs`: Secondary replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
           * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
 
       {{ mmg-name }} will start the host addition process.
@@ -268,14 +268,14 @@ You can add hosts of different types to your {{ mmg-name }} cluster. Their numbe
        * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`.
        * `host_parameters`: Additional host settings:
            * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, when you need to create its backups without extra load on the cluster.
-           * `secondary_delay_secs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
+           * `secondary_delay_secs`: Secondary replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
            * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
 
   1. Make sure the settings are correct.
   
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -329,7 +329,7 @@ You can add hosts of different types to your {{ mmg-name }} cluster. Their numbe
       * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`. For a non-sharded cluster, use `MONGOD`.
       * `shardName`: Shard name in a sharded cluster.
       * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, when you need to create its backups without extra load on the cluster.
-      * `secondaryDelaySecs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
+      * `secondaryDelaySecs`: Secondary replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
       * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
       * `tags`: Host tags.
 
@@ -387,7 +387,7 @@ You can add hosts of different types to your {{ mmg-name }} cluster. Their numbe
       * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`. For a non-sharded cluster, use `MONGOD`.
       * `shard_name`: Shard name in a sharded cluster.
       * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, when you need to create its backups without extra load on the cluster.
-      * `secondaryDelaySecs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
+      * `secondaryDelaySecs`: Secondary replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
       * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
       * `tags`: Host tags.
 
@@ -458,7 +458,7 @@ If you cannot [connect](connect/index.md) to the new host, check the {{ mmg-name
 
 
         * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, when you need to create its backups without extra load on the cluster.
-        * `secondary-delay-secs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
+        * `secondary-delay-secs`: Secondary replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
         * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
 
 
@@ -493,7 +493,7 @@ If you cannot [connect](connect/index.md) to the new host, check the {{ mmg-name
     * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
     * `host_parameters`: Additional host settings:
         * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, when you need to create its backups without extra load on the cluster.
-        * `secondary_delay_secs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
+        * `secondary_delay_secs`: Secondary replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
         * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
 
     1. Make sure the settings are correct.
@@ -549,7 +549,7 @@ If you cannot [connect](connect/index.md) to the new host, check the {{ mmg-name
 
 
         * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, when you need to create its backups without extra load on the cluster.
-        * `secondaryDelaySecs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
+        * `secondaryDelaySecs`: Secondary replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
         * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -611,7 +611,7 @@ If you cannot [connect](connect/index.md) to the new host, check the {{ mmg-name
 
 
         * `hidden`: Determines whether the host is hidden, `true` or `false`. A hidden host is still accessible for read operations, but only through direct connections. This can be useful, for example, when you need to create its backups without extra load on the cluster.
-        * `secondary_delay_secs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
+        * `secondary_delay_secs`: Secondary replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
         * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -630,9 +630,9 @@ If you cannot [connect](connect/index.md) to the host after the update, make sur
 
 ## Deleting a host {#remove-host}
 
-You can remove a `MONGOD` host from a {{ mmg-name }} cluster unless it is the cluster’s sole host. To replace the only host, first create a new host and then delete the old one.
+You can remove a `MONGOD` host from a {{ mmg-name }} cluster unless it is the cluster’s sole host. To replace the only host, first create a new host and then remove the old one.
 
-If the host being removed is the primary replica, {{ mmg-name }} will automatically elect a new primary replica.
+If the host you are removing is the current primary replica, {{ mmg-name }} will automatically select a new master.
 
 In a [sharded {{ mmg-name }} cluster](../operations/shards.md#enable), you can remove the `MONGOS`, `MONGOCFG`, or `MONGOINFRA` hosts, provided you keep the [minimum number](#hosts-table) required for sharding.
 
@@ -658,7 +658,7 @@ In a [sharded {{ mmg-name }} cluster](../operations/shards.md#enable), you can r
 
   ```bash
   {{ yc-mdb-mg }} host delete <host_name>
-    --cluster-name <cluster_name>
+       --cluster-name <cluster_name>
   ```
 
   You can get the host name from the list of [{{ mmg-name }} cluster hosts](#list-hosts) and the cluster name from the list [list of clusters in your folder](cluster-list.md#list-clusters).
@@ -751,7 +751,7 @@ To resync a host with other replicas in the {{ mmg-name }} cluster or shard, run
 
 During this operation:
 
-1. The host stops accepting write requests. If the host was a `PRIMARY` replica, {{ mmg-name }} will attempt to demote it to a `SECONDARY` replica. In the event of failure, the operation is aborted.
+1. The host stops accepting write requests. If the host was the master (`PRIMARY`), {{ mmg-name }} will attempt to demote it to a `SECONDARY` replica. In the event of failure, the operation is aborted.
 1. The {{ SD }} instance on the host is stopped, and all its data is deleted.
 1. The {{ SD }} instance restarts and re-downloads data from the replicas.
 1. Once the host has synced with the other replicas in the {{ mmg-name }} cluster, it is demoted to a secondary replica.
@@ -857,9 +857,9 @@ You can manually restart {{ mmg-name }} cluster hosts.
 A host restart may result in temporary downtime for the {{ mmg-name }} cluster or [shard](../concepts/sharding.md):
 
 * If your cluster consists of a single host.
-* If the host being rebooted is the [primary replica](../concepts/replication.md).
+* If the host is the [master](../concepts/replication.md).
 
-A primary replica restart does not trigger an automatic failover. To prevent {{ mmg-name }} cluster downtime, [switch its primary replica](stepdown.md) before restarting the host.
+When the master is restarted, no automatic failover takes place. To prevent {{ mmg-name }} cluster downtime, [switch its master](stepdown.md) before restarting it.
 
 {% note info %}
 

@@ -24,12 +24,12 @@ Resetups hosts.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. Required. ID of the MongoDB cluster.
+Required field. ID of the StoreDoc cluster.
 
 The maximum string length in characters is 50. ||
 || host_names[] | **string**
 
-Required. Name of the hosts to resetup.
+Name of the hosts to resetup.
 
 The maximum string length in characters for each value is 253. The number of elements must be greater than 0. ||
 |#

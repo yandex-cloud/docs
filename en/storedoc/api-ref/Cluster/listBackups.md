@@ -9,8 +9,8 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the MongoDB cluster.
-            To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+            Required field. ID of the StoreDoc cluster.
+            To get the StoreDoc cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
             The maximum string length in characters is 50.
           type: string
       required:
@@ -26,7 +26,7 @@ apiPlayground:
             results is larger than `pageSize`, the service returns a [ListClusterBackupsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListClusterBackupsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Acceptable values are 0 to 1000, inclusive. Default value: 100.
-            The maximum value is 1000.
+            Acceptable values are 0 to 1000, inclusive.
           default: '100'
           type: string
           format: int64
@@ -44,7 +44,7 @@ apiPlayground:
 
 # Managed Service for MongoDB API, REST: Cluster.ListBackups
 
-Retrieves the list of available backups for the specified MongoDB cluster.
+Retrieves the list of available backups for the specified StoreDoc cluster.
 
 ## HTTP request
 
@@ -58,8 +58,8 @@ GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/backups
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster.
-To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+Required field. ID of the StoreDoc cluster.
+To get the StoreDoc cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 |#
@@ -75,7 +75,7 @@ results is larger than `pageSize`, the service returns a [ListClusterBackupsResp
 that can be used to get the next page of results in subsequent list requests.
 Acceptable values are 0 to 1000, inclusive. Default value: 100.
 
-The maximum value is 1000. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token.  To get the next page of results, set `pageToken` to the
@@ -113,7 +113,7 @@ The maximum string length in characters is 100. ||
 ||Field | Description ||
 || backups[] | **[Backup](#yandex.cloud.mdb.mongodb.v1.Backup)**
 
-List of MongoDB Backup resources. ||
+List of StoreDoc Backup resources. ||
 || nextPageToken | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
@@ -124,7 +124,7 @@ Each subsequent list request will have its own `nextPageToken` to continue pagin
 
 ## Backup {#yandex.cloud.mdb.mongodb.v1.Backup}
 
-A MongoDB Backup resource. For more information, see the
+A StoreDoc Backup resource. For more information, see the
 [Developer's Guide](/docs/managed-mongodb/concepts).
 
 #|
@@ -148,7 +148,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || sourceClusterId | **string**
 
-ID of the MongoDB cluster that the backup was created for. ||
+ID of the StoreDoc cluster that the backup was created for. ||
 || startedAt | **string** (date-time)
 
 Time when the backup operation was started.
@@ -169,7 +169,7 @@ Size of backup in bytes ||
 
 How this backup was created (manual/automatic/etc...)
 
-- `AUTOMATED`: Backup created by automated daily schedule
+- `AUTOMATED`: Backup created by automated daily schedule.
 - `MANUAL`: Backup created by user request ||
 || journalSize | **string** (int64)
 

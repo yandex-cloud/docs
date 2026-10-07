@@ -9,7 +9,7 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the MongoDB cluster to create a database in.
+            Required field. ID of the StoreDoc cluster to create a database in.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
             The maximum string length in characters is 50.
           type: string
@@ -35,7 +35,7 @@ apiPlayground:
           name:
             description: |-
               **string**
-              Required field. Name of the MongoDB database. 1-63 characters long.
+              Required field. Name of the StoreDoc database. 1-63 characters long.
               The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
             pattern: '[a-zA-Z0-9_-]*'
             type: string
@@ -50,7 +50,7 @@ apiPlayground:
 
 # Managed Service for MongoDB API, REST: Database.Create
 
-Creates a new MongoDB database in the specified cluster.
+Creates a new StoreDoc database in the specified cluster.
 
 ## HTTP request
 
@@ -64,7 +64,7 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/database
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster to create a database in.
+Required field. ID of the StoreDoc cluster to create a database in.
 To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -94,7 +94,7 @@ Required field. Configuration of the database to create. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the MongoDB database. 1-63 characters long.
+Required field. Name of the StoreDoc database. 1-63 characters long.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || deletionProtection | **boolean**

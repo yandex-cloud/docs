@@ -9,9 +9,6 @@ meta:
     Известные решения и советы для оптимального использования сервисов {{
     yandex-cloud }}.
 links:
-  - title: '{{ alb-name }}'
-    description: Решения для {{ alb-name }}
-    href: application-load-balancer/
   - title: '{{ billing-name }}'
     description: Решения для {{ billing-name }}
     href: billing/

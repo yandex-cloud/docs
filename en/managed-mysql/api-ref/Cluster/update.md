@@ -71,7 +71,9 @@ apiPlayground:
         maintenanceWindow:
           description: |-
             **[MaintenanceWindow](#yandex.cloud.mdb.mysql.v1.MaintenanceWindow)**
+            Deprecated. Use maintenance_windows instead.
             Configuration of a maintenance window in an MySQL cluster.
+          deprecated: true
           $ref: '#/definitions/MaintenanceWindow'
         securityGroupIds:
           description: |-
@@ -91,6 +93,11 @@ apiPlayground:
             ID of the network to move the cluster to.
             The maximum string length in characters is 50.
           type: string
+        maintenanceWindows:
+          description: |-
+            **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)**
+            Maintenance windows.
+          $ref: '#/definitions/MaintenanceWindows'
       additionalProperties: false
     definitions:
       MysqlConfig5_7:
@@ -2689,6 +2696,29 @@ apiPlayground:
               Limit on how large the storage for database instances can automatically grow, in bytes.
             type: string
             format: int64
+      ClusterConnectionManager:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              True if the integration for the cluster is enabled.
+              Set to true to enable the integration.
+              Disabling the integration is not supported.
+            type: boolean
+          connectionsFolderId:
+            description: |-
+              **string**
+              ID of the folder where connections for the cluster are created.
+              Optional. Defaults to the cluster's folder if not specified.
+            type: string
+          secretsFolderId:
+            description: |-
+              **string**
+              A Connection Manager setting for connections created by MDB integration.
+              ID of the folder where connection secrets are created.
+              Optional. Defaults to the cluster's folder if not specified.
+            type: string
       ConfigSpec:
         type: object
         properties:
@@ -2752,6 +2782,11 @@ apiPlayground:
               **[DiskSizeAutoscaling](#yandex.cloud.mdb.mysql.v1.DiskSizeAutoscaling)**
               Disk size autoscaling
             $ref: '#/definitions/DiskSizeAutoscaling'
+          connectionManager:
+            description: |-
+              **[ClusterConnectionManager](#yandex.cloud.mdb.v1.ClusterConnectionManager)**
+              Cluster-wide Connection Manager integration configuration
+            $ref: '#/definitions/ClusterConnectionManager'
         oneOf:
           - required:
               - mysqlConfig_5_7
@@ -2815,6 +2850,81 @@ apiPlayground:
               - anytime
           - required:
               - weeklyMaintenanceWindow
+      MaintenanceWindowSlot:
+        type: object
+        properties:
+          day:
+            description: |-
+              **enum** (DayOfWeek)
+              Day of the week.
+              - `MONDAY`: The day-of-week of Monday.
+              - `TUESDAY`: The day-of-week of Tuesday.
+              - `WEDNESDAY`: The day-of-week of Wednesday.
+              - `THURSDAY`: The day-of-week of Thursday.
+              - `FRIDAY`: The day-of-week of Friday.
+              - `SATURDAY`: The day-of-week of Saturday.
+              - `SUNDAY`: The day-of-week of Sunday.
+            type: string
+            enum:
+              - DAY_OF_WEEK_UNSPECIFIED
+              - MONDAY
+              - TUESDAY
+              - WEDNESDAY
+              - THURSDAY
+              - FRIDAY
+              - SATURDAY
+              - SUNDAY
+          startTime:
+            description: |-
+              **[TimeOfDay](#google.type.TimeOfDay)**
+              Required field. Start time in UTC.
+            $ref: '#/definitions/TimeOfDay'
+          duration:
+            description: |-
+              **string** (duration)
+              Required field. Slot duration.
+            type: string
+            format: duration
+          allowTemporaryUnavailability:
+            description: |-
+              **boolean**
+              Allows maintenance operations that may cause temporary write unavailability.
+            type: boolean
+        required:
+          - startTime
+          - duration
+      WeeklyMaintenanceSchedule:
+        type: object
+        properties:
+          slots:
+            description: |-
+              **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+              Weekly time slots during which maintenance operations can be scheduled.
+              At least one slot is required.
+              The number of elements must be greater than 0.
+            type: array
+            items:
+              $ref: '#/definitions/MaintenanceWindowSlot'
+      MaintenanceWindows:
+        type: object
+        properties:
+          anytime:
+            description: |-
+              **object**
+              Maintenance operations can be scheduled anytime.
+              Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`.
+            $ref: '#/definitions/AnytimeMaintenanceWindow'
+          weeklyMaintenanceSchedule:
+            description: |-
+              **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+              Maintenance operations can be scheduled during the specified weekly slots.
+              Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`.
+            $ref: '#/definitions/WeeklyMaintenanceSchedule'
+        oneOf:
+          - required:
+              - anytime
+          - required:
+              - weeklyMaintenanceSchedule
 ---
 
 # Managed Service for MySQL API, REST: Cluster.Update
@@ -3171,6 +3281,11 @@ The maximum string length in characters is 50. ||
       "plannedUsageThreshold": "string",
       "emergencyUsageThreshold": "string",
       "diskSizeLimit": "string"
+    },
+    "connectionManager": {
+      "enabled": "boolean",
+      "connectionsFolderId": "string",
+      "secretsFolderId": "string"
     }
   },
   "name": "string",
@@ -3187,7 +3302,27 @@ The maximum string length in characters is 50. ||
     "string"
   ],
   "deletionProtection": "boolean",
-  "networkId": "string"
+  "networkId": "string",
+  "maintenanceWindows": {
+    // Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`
+    "anytime": "object",
+    "weeklyMaintenanceSchedule": {
+      "slots": [
+        {
+          "day": "string",
+          "startTime": {
+            "hours": "integer",
+            "minutes": "integer",
+            "seconds": "integer",
+            "nanos": "integer"
+          },
+          "duration": "string",
+          "allowTemporaryUnavailability": "boolean"
+        }
+      ]
+    }
+    // end of the list of possible fields
+  }
 }
 ```
 
@@ -3225,6 +3360,7 @@ New name of the cluster.
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.mysql.v1.MaintenanceWindow)**
 
+Deprecated. Use maintenance_windows instead.
 Configuration of a maintenance window in an MySQL cluster. ||
 || securityGroupIds[] | **string**
 
@@ -3237,6 +3373,9 @@ This option prevents unintended deletion of the cluster. ||
 ID of the network to move the cluster to.
 
 The maximum string length in characters is 50. ||
+|| maintenanceWindows | **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)**
+
+Maintenance windows. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.mysql.v1.ConfigSpec}
@@ -3289,6 +3428,9 @@ Acceptable values are 7 to 60, inclusive. ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mysql.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling ||
+|| connectionManager | **[ClusterConnectionManager](#yandex.cloud.mdb.v1.ClusterConnectionManager)**
+
+Cluster-wide Connection Manager integration configuration ||
 |#
 
 ## MysqlConfig5_7 {#yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7}
@@ -5080,6 +5222,28 @@ Acceptable values are 0 to 100, inclusive. ||
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
 |#
 
+## ClusterConnectionManager {#yandex.cloud.mdb.v1.ClusterConnectionManager}
+
+A message representing the Connection Manager integration status and settings for a cluster.
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+True if the integration for the cluster is enabled.
+Set to true to enable the integration.
+Disabling the integration is not supported. ||
+|| connectionsFolderId | **string**
+
+ID of the folder where connections for the cluster are created.
+Optional. Defaults to the cluster's folder if not specified. ||
+|| secretsFolderId | **string**
+
+A Connection Manager setting for connections created by MDB integration.
+ID of the folder where connection secrets are created.
+Optional. Defaults to the cluster's folder if not specified. ||
+|#
+
 ## MaintenanceWindow {#yandex.cloud.mdb.mysql.v1.MaintenanceWindow}
 
 Configuration of a maintenance window in a MySQL cluster.
@@ -5124,6 +5288,62 @@ Day of the week (in `DDD` format).
 Hour of the day in UTC (in `HH` format).
 
 Acceptable values are 1 to 24, inclusive. ||
+|#
+
+## MaintenanceWindows {#yandex.cloud.mdb.v1.MaintenanceWindows}
+
+Maintenance windows shared by all managed database services.
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+Maintenance operations can be scheduled anytime.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|| weeklyMaintenanceSchedule | **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+
+Maintenance operations can be scheduled during the specified weekly slots.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|#
+
+## WeeklyMaintenanceSchedule {#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule}
+
+#|
+||Field | Description ||
+|| slots[] | **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+
+Weekly time slots during which maintenance operations can be scheduled.
+At least one slot is required.
+
+The number of elements must be greater than 0. ||
+|#
+
+## MaintenanceWindowSlot {#yandex.cloud.mdb.v1.MaintenanceWindowSlot}
+
+#|
+||Field | Description ||
+|| day | **enum** (DayOfWeek)
+
+Day of the week.
+
+- `MONDAY`: The day-of-week of Monday.
+- `TUESDAY`: The day-of-week of Tuesday.
+- `WEDNESDAY`: The day-of-week of Wednesday.
+- `THURSDAY`: The day-of-week of Thursday.
+- `FRIDAY`: The day-of-week of Friday.
+- `SATURDAY`: The day-of-week of Saturday.
+- `SUNDAY`: The day-of-week of Sunday. ||
+|| startTime | **[TimeOfDay](#google.type.TimeOfDay)**
+
+Required field. Start time in UTC. ||
+|| duration | **string** (duration)
+
+Required field. Slot duration. ||
+|| allowTemporaryUnavailability | **boolean**
+
+Allows maintenance operations that may cause temporary write unavailability. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

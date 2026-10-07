@@ -9,14 +9,14 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the MongoDB cluster that the database belongs to.
+            Required field. ID of the StoreDoc cluster that the database belongs to.
             To get the cluster ID use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
             The maximum string length in characters is 50.
           type: string
         databaseName:
           description: |-
             **string**
-            Required field. Name of the MongoDB database to return.
+            Required field. Name of the StoreDoc database to return.
             To get the name of the database use a [DatabaseService.List](/docs/managed-mongodb/api-ref/Database/list#List) request.
             The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
@@ -32,8 +32,8 @@ apiPlayground:
 
 # Managed Service for MongoDB API, REST: Database.Get
 
-Returns the specified MongoDB Database resource.
-To get the list of available MongoDB Database resources, make a [List](/docs/managed-mongodb/api-ref/Database/list#List) request.
+Returns the specified StoreDoc Database resource.
+To get the list of available StoreDoc Database resources, make a [List](/docs/managed-mongodb/api-ref/Database/list#List) request.
 
 ## HTTP request
 
@@ -47,13 +47,13 @@ GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/databases
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster that the database belongs to.
+Required field. ID of the StoreDoc cluster that the database belongs to.
 To get the cluster ID use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || databaseName | **string**
 
-Required field. Name of the MongoDB database to return.
+Required field. Name of the StoreDoc database to return.
 To get the name of the database use a [DatabaseService.List](/docs/managed-mongodb/api-ref/Database/list#List) request.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
@@ -71,7 +71,7 @@ The maximum string length in characters is 63. Value must match the regular expr
 }
 ```
 
-A MongoDB Database resource. For more information, see the
+A StoreDoc Database resource. For more information, see the
 [Developer's Guide](/docs/managed-mongodb/concepts).
 
 #|
@@ -81,8 +81,8 @@ A MongoDB Database resource. For more information, see the
 Name of the database. ||
 || clusterId | **string**
 
-ID of the MongoDB cluster that the database belongs to. ||
+ID of the StoreDoc cluster that the database belongs to. ||
 || deletionProtection | **boolean**
 
-Deletion Protection inhibits deletion of the database ||
+Deletion Protection inhibits deletion of the database. ||
 |#

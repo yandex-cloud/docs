@@ -4,7 +4,7 @@ editable: false
 
 # Managed Service for Redis API, gRPC: VersionsService.List
 
-Returns list of available Redis versions.
+Returns the list of available Valkey versions.
 
 ## gRPC request
 

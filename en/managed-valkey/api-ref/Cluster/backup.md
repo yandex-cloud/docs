@@ -9,8 +9,8 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the Redis cluster to back up.
-            To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+            Required field. ID of the Valkey cluster to back up.
+            To get the Valkey cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
             The maximum string length in characters is 50.
           type: string
       required:
@@ -23,7 +23,7 @@ apiPlayground:
 
 # Managed Service for Redis API, REST: Cluster.Backup
 
-Creates a backup for the specified Redis cluster.
+Creates a backup for the specified Valkey cluster.
 
 ## HTTP request
 
@@ -37,8 +37,8 @@ POST https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}:backup
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Redis cluster to back up.
-To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+Required field. ID of the Valkey cluster to back up.
+To get the Valkey cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 |#

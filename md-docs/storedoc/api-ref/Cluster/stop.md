@@ -2,7 +2,7 @@
 
 # Managed Service for MongoDB API, REST: Cluster.Stop
 
-Stop the specified MongoDB cluster.
+Stop the specified StoreDoc cluster.
 
 ## HTTP request
 
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}:st
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster to stop.
+Required field. ID of the StoreDoc cluster to stop.
 
 The maximum string length in characters is 50. ||
 |#

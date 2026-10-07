@@ -2,7 +2,7 @@
 
 # Managed Service for Redis API, gRPC: ClusterService.EnableSharding
 
-Enable Sharding on non sharded cluster
+Enable Sharding on non sharded cluster.
 
 ## gRPC request
 
@@ -20,7 +20,7 @@ Enable Sharding on non sharded cluster
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Redis cluster to return.
+Required field. ID of the Valkey cluster to return.
 
 The maximum string length in characters is 50. ||
 |#

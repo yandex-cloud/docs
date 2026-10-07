@@ -826,8 +826,6 @@
 
  - [Публикация обновлений для игр с помощью Cloud CDN](web/prefetch.md)
 
- - [Создание SAP-программы в Yandex Cloud](infrastructure-management/sap.md)
-
  - [Развертывание сервера Minecraft в Yandex Cloud](infrastructure/minecraft-server.md)
 
  - [Развертывание мультиплеер-сервера для GTA V в Yandex Cloud](infrastructure/gta-v-server.md)

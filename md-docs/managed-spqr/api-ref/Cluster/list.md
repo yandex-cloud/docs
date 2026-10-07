@@ -80,7 +80,9 @@ The maximum string length in characters is 1000. ||
               "preferSameAvailabilityZone": "boolean",
               "enhancedMultishardProcessing": "boolean",
               "defaultTargetSessionAttrs": "string",
-              "defaultCommitStrategy": "string"
+              "defaultCommitStrategy": "string",
+              "allowPostprocessing": "boolean",
+              "autoRouteRoOnStandby": "boolean"
             },
             "resources": {
               "resourcePresetId": "string",
@@ -89,7 +91,14 @@ The maximum string length in characters is 1000. ||
             }
           },
           "coordinator": {
-            "config": "object",
+            "config": {
+              "iterationTimeout": "string",
+              "lockIterationTimeout": "string",
+              "routerKeepaliveTime": "string",
+              "routerKeepaliveTimeout": "string",
+              "etcdMaxSendBytes": "string",
+              "etcdMaxTxnOps": "string"
+            },
             "resources": {
               "resourcePresetId": "string",
               "diskSize": "string",
@@ -119,9 +128,18 @@ The maximum string length in characters is 1000. ||
               "preferSameAvailabilityZone": "boolean",
               "enhancedMultishardProcessing": "boolean",
               "defaultTargetSessionAttrs": "string",
-              "defaultCommitStrategy": "string"
+              "defaultCommitStrategy": "string",
+              "allowPostprocessing": "boolean",
+              "autoRouteRoOnStandby": "boolean"
             },
-            "coordinator": "object"
+            "coordinator": {
+              "iterationTimeout": "string",
+              "lockIterationTimeout": "string",
+              "routerKeepaliveTime": "string",
+              "routerKeepaliveTimeout": "string",
+              "etcdMaxSendBytes": "string",
+              "etcdMaxTxnOps": "string"
+            }
           },
           "balancer": {
             "cpuThreshold": "number",
@@ -131,7 +149,9 @@ The maximum string length in characters is 1000. ||
             "keysPerMove": "string",
             "timeout": "string"
           },
-          "logLevel": "string"
+          "logLevel": "string",
+          "useSpqrguard": "boolean",
+          "forbidDirectShardQueries": "boolean"
         },
         "backupWindowStart": {
           "hours": "integer",
@@ -169,7 +189,31 @@ The maximum string length in characters is 1000. ||
       "securityGroupIds": [
         "string"
       ],
-      "deletionProtection": "boolean"
+      "deletionProtection": "boolean",
+      "hostGroupIds": [
+        "string"
+      ],
+      "maintenanceWindows": {
+        // Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`
+        "anytime": "object",
+        "weeklyMaintenanceSchedule": {
+          "slots": [
+            {
+              "day": "string",
+              "startTime": {
+                "hours": "integer",
+                "minutes": "integer",
+                "seconds": "integer",
+                "nanos": "integer"
+              },
+              "duration": "string",
+              "allowTemporaryUnavailability": "boolean"
+            }
+          ]
+        }
+        // end of the list of possible fields
+      },
+      "isHa": "boolean"
     }
   ],
   "nextPageToken": "string"
@@ -228,7 +272,7 @@ Deployment environment of the SPQR cluster.
 
 - `PRODUCTION`: Stable environment with a conservative update policy: only hotfixes
 are applied during regular maintenance.
-- `PRESTABLE`: Environment with more aggressive update policy: new versions
+- `PRESTABLE`: Environment with a more aggressive update policy: new versions
 are rolled out irrespective of backward compatibility. ||
 || monitoring[] | **[Monitoring](#yandex.cloud.mdb.spqr.v1.Monitoring)**
 
@@ -261,6 +305,7 @@ Current state of the cluster.
 - `STARTING`: Cluster is starting. ||
 || maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.spqr.v1.MaintenanceWindow)**
 
+Deprecated. Use maintenance_windows instead.
 Maintenance window for the cluster. ||
 || plannedOperation | **[MaintenanceOperation](#yandex.cloud.mdb.spqr.v1.MaintenanceOperation)**
 
@@ -271,6 +316,15 @@ User security groups ||
 || deletionProtection | **boolean**
 
 Deletion Protection inhibits deletion of the cluster ||
+|| hostGroupIds[] | **string**
+
+Host groups hosting VMs of the cluster. ||
+|| maintenanceWindows | **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)**
+
+Maintenance windows for the cluster. ||
+|| isHa | **boolean**
+
+Indicates whether the cluster topology is highly available as defined by the Yandex Cloud SLA for managed databases. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.spqr.v1.Monitoring}
@@ -306,7 +360,9 @@ Retain period of automatically created backup in days ||
 || access | **[Access](#yandex.cloud.mdb.spqr.v1.Access)**
 
 Access policy to DB ||
-|| soxAudit | **boolean** ||
+|| soxAudit | **boolean**
+
+Configuration setting which enables/disables SOX audit. ||
 |#
 
 ## SPQRConfig {#yandex.cloud.mdb.spqr.v1.SPQRConfig}
@@ -337,6 +393,8 @@ SPQR default log level
 - `WARNING`
 - `ERROR`
 - `FATAL` ||
+|| useSpqrguard | **boolean** ||
+|| forbidDirectShardQueries | **boolean** ||
 |#
 
 ## RouterConfig {#yandex.cloud.mdb.spqr.v1.RouterConfig}
@@ -373,6 +431,8 @@ Configuration of a SPQR router.
 - `BEST_EFFORT`
 - `ONE_PC`
 - `TWO_PC` ||
+|| allowPostprocessing | **boolean** ||
+|| autoRouteRoOnStandby | **boolean** ||
 |#
 
 ## Resources {#yandex.cloud.mdb.spqr.v1.Resources}
@@ -399,8 +459,22 @@ Possible values:
 
 #|
 ||Field | Description ||
-|| config | **object** ||
+|| config | **[CoordinatorSettings](#yandex.cloud.mdb.spqr.v1.CoordinatorSettings)** ||
 || resources | **[Resources](#yandex.cloud.mdb.spqr.v1.Resources)** ||
+|#
+
+## CoordinatorSettings {#yandex.cloud.mdb.spqr.v1.CoordinatorSettings}
+
+Configuration of a SPQR coordinator.
+
+#|
+||Field | Description ||
+|| iterationTimeout | **string** (duration) ||
+|| lockIterationTimeout | **string** (duration) ||
+|| routerKeepaliveTime | **string** (duration) ||
+|| routerKeepaliveTimeout | **string** (duration) ||
+|| etcdMaxSendBytes | **string** (int64) ||
+|| etcdMaxTxnOps | **string** (int64) ||
 |#
 
 ## PostgreSQLConfig {#yandex.cloud.mdb.spqr.v1.PostgreSQLConfig}
@@ -417,7 +491,7 @@ Possible values:
 ||Field | Description ||
 || resources | **[Resources](#yandex.cloud.mdb.spqr.v1.Resources)** ||
 || router | **[RouterSettings](#yandex.cloud.mdb.spqr.v1.RouterSettings)** ||
-|| coordinator | **object** ||
+|| coordinator | **[CoordinatorSettings](#yandex.cloud.mdb.spqr.v1.CoordinatorSettings)** ||
 |#
 
 ## BalancerSettings {#yandex.cloud.mdb.spqr.v1.BalancerSettings}
@@ -558,4 +632,60 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|#
+
+## MaintenanceWindows {#yandex.cloud.mdb.v1.MaintenanceWindows}
+
+Maintenance windows shared by all managed database services.
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+Maintenance operations can be scheduled anytime.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|| weeklyMaintenanceSchedule | **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+
+Maintenance operations can be scheduled during the specified weekly slots.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|#
+
+## WeeklyMaintenanceSchedule {#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule}
+
+#|
+||Field | Description ||
+|| slots[] | **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+
+Weekly time slots during which maintenance operations can be scheduled.
+At least one slot is required.
+
+The number of elements must be greater than 0. ||
+|#
+
+## MaintenanceWindowSlot {#yandex.cloud.mdb.v1.MaintenanceWindowSlot}
+
+#|
+||Field | Description ||
+|| day | **enum** (DayOfWeek)
+
+Day of the week.
+
+- `MONDAY`: The day-of-week of Monday.
+- `TUESDAY`: The day-of-week of Tuesday.
+- `WEDNESDAY`: The day-of-week of Wednesday.
+- `THURSDAY`: The day-of-week of Thursday.
+- `FRIDAY`: The day-of-week of Friday.
+- `SATURDAY`: The day-of-week of Saturday.
+- `SUNDAY`: The day-of-week of Sunday. ||
+|| startTime | **[TimeOfDay](#google.type.TimeOfDay)**
+
+Required field. Start time in UTC. ||
+|| duration | **string** (duration)
+
+Required field. Slot duration. ||
+|| allowTemporaryUnavailability | **boolean**
+
+Allows maintenance operations that may cause temporary write unavailability. ||
 |#

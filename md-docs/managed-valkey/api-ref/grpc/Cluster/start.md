@@ -2,7 +2,7 @@
 
 # Managed Service for Redis API, gRPC: ClusterService.Start
 
-Start the specified Redis cluster.
+Start the specified Valkey cluster.
 
 ## gRPC request
 
@@ -20,7 +20,7 @@ Start the specified Redis cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Redis cluster to start.
+Required field. ID of the Valkey cluster to start.
 
 The maximum string length in characters is 50. ||
 |#

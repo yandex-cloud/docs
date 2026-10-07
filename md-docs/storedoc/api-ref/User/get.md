@@ -2,8 +2,8 @@
 
 # Managed Service for MongoDB API, REST: User.Get
 
-Returns the specified MongoDB User resource.
-To get the list of available MongoDB User resources, make a [List](list.md#List) request.
+Returns the specified StoreDoc User resource.
+To get the list of available StoreDoc User resources, make a [List](list.md#List) request.
 
 ## HTTP request
 
@@ -17,13 +17,13 @@ GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/use
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster the user belongs to.
+Required field. ID of the StoreDoc cluster the user belongs to.
 To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || userName | **string**
 
-Required field. Name of the MongoDB User resource to return.
+Required field. Name of the StoreDoc User resource to return.
 To get the name of the user, use a [UserService.List](list.md#List) request.
 
 The maximum string length in characters is 63. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_@.-]*$ `. ||
@@ -45,25 +45,31 @@ The maximum string length in characters is 63. Value must match the regular expr
       ]
     }
   ],
+  "connectionManager": {
+    "connectionId": "string"
+  },
   "authType": "string",
   "deletionProtection": "boolean"
 }
 ```
 
-A MongoDB User resource. For more information, see the
+A StoreDoc User resource. For more information, see the
 [Developer's Guide](../../concepts/index.md).
 
 #|
 ||Field | Description ||
 || name | **string**
 
-Name of the MongoDB user. ||
+Name of the StoreDoc user. ||
 || clusterId | **string**
 
-ID of the MongoDB cluster the user belongs to. ||
+ID of the StoreDoc cluster the user belongs to. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)**
 
 Set of permissions granted to the user. ||
+|| connectionManager | **[ConnectionManager](#yandex.cloud.mdb.mongodb.v1.ConnectionManager)**
+
+Connection Manager connection configuration. ||
 || authType | **enum** (AuthType)
 
 Authentication type for the user.
@@ -72,7 +78,7 @@ Authentication type for the user.
 - `AUTH_TYPE_IAM`: IAM-based authentication via iam-auth-proxy (SASL/PLAIN, $external). ||
 || deletionProtection | **boolean**
 
-Deletion Protection inhibits deletion of the user ||
+Deletion Protection inhibits deletion of the user. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.mongodb.v1.Permission}
@@ -84,5 +90,16 @@ Deletion Protection inhibits deletion of the user ||
 Name of the database that the permission grants access to. ||
 || roles[] | **string**
 
-MongoDB roles for the `databaseName` database that the permission grants. ||
+StoreDoc roles for the `databaseName` database that the permission grants. ||
+|#
+
+## ConnectionManager {#yandex.cloud.mdb.mongodb.v1.ConnectionManager}
+
+Connection Manager connection configuration.
+
+#|
+||Field | Description ||
+|| connectionId | **string**
+
+ID of Connection Manager connection. ||
 |#

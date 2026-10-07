@@ -27,11 +27,11 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки создаваемого решения входят:
+В стоимость поддержки инфраструктуры для привязки доменного имени к ВМ входят:
 
-* плата за использование [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
-* плата за вычислительные ресурсы и диски [ВМ](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* плата за использование публичной [DNS-зоны](../../concepts/dns-zone.md) и публичные [DNS-запросы](../../../glossary/dns.md) ([тарифы Yandex Cloud DNS](../../pricing.md)).
+* Плата за постоянно запущенную [ВМ](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
+* Плата за использование [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md)).
+* Плата за использование публичной [DNS-зоны](../../concepts/dns-zone.md) и публичные [DNS-запросы](../../../glossary/dns.md) ([тарифы Yandex Cloud DNS](../../pricing.md)).
 
 ### Создайте облачную сеть и подсеть {#create-network}
 
@@ -457,15 +457,15 @@ ns1.yandexcloud.net.
 Теперь сайт на вашем веб-сервере доступен по доменному имени. Чтобы проверить работу сайта, введите в браузере его IP-адрес или доменное имя:
 
 * `http://<публичный_IP-адрес_ВМ>`
-* `http://example.com`
+* `http://<доменное_имя>`
 
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
 
+1. [Удалите](../../operations/zone-delete.md) DNS-зону.
 1. [Удалите](../../../compute/operations/vm-control/vm-delete.md) ВМ.
-1. [Удалите](../../../vpc/operations/address-delete.md) статический публичный IP-адрес, если вы зарезервировали его специально для этой ВМ.
-1. [Удалите](../../operations/zone-delete.md) созданную доменную зону.
+1. [Удалите](../../../vpc/operations/address-delete.md) статический публичный IP-адрес, если вы его зарезервировали.
 
 #### Полезные ссылки {#see-also}
 

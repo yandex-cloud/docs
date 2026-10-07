@@ -21,7 +21,6 @@ description: Контроль {{ k8s }}® ({{ kspm-name }}) контролиру
 
 * [{#T}](workspace.md)
 * [{#T}](cspm.md)
-* [{#T}](ai-assistant.md)
 * [{#T}](../quickstart-overview.md)
 * [{#T}](../operations/kspm/enable-kspm.md)
 * [{#T}](../security/kspm-roles.md)

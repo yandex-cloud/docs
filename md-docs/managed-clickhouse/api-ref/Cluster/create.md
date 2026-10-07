@@ -221,7 +221,7 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters
               "max": "string"
             },
             // end of the list of possible fields
-            // Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`
+            // Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`
             "httpSource": {
               "url": "string",
               "format": "string",
@@ -282,6 +282,27 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters
               "password": "string",
               "invalidateQuery": "string",
               "sslMode": "string"
+            },
+            "postgresqlSourceV2": {
+              "db": "string",
+              "table": "string",
+              "replicas": [
+                {
+                  "host": "string",
+                  "priority": "string",
+                  "port": "string",
+                  "user": "string",
+                  "password": "string"
+                }
+              ],
+              "port": "string",
+              "user": "string",
+              "password": "string",
+              "invalidateQuery": "string",
+              "sslMode": "string",
+              "where": "string",
+              "query": "string",
+              "backgroundReconnect": "boolean"
             }
             // end of the list of possible fields
           }
@@ -361,6 +382,8 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters
           "port": "string"
         },
         "mysqlProtocol": "boolean",
+        "grpcProtocol": "boolean",
+        "arrowflightProtocol": "boolean",
         "customMacros": [
           {
             "name": "string",
@@ -481,6 +504,9 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters
         "maxParserDepth": "string",
         "minExecutionSpeed": "string",
         "minExecutionSpeedBytes": "string",
+        "useStatistics": "boolean",
+        "useStatisticsForPartPruning": "boolean",
+        "refreshStatisticsInterval": "string",
         "inputFormatValuesInterpretExpressions": "boolean",
         "inputFormatDefaultsForOmittedFields": "boolean",
         "inputFormatNullAsDefault": "boolean",
@@ -625,7 +651,8 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters
   "databaseSpecs": [
     {
       "name": "string",
-      "engine": "string"
+      "engine": "string",
+      "deletionProtectionMode": "string"
     }
   ],
   "userSpecs": [
@@ -745,6 +772,9 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters
         "maxParserDepth": "string",
         "minExecutionSpeed": "string",
         "minExecutionSpeedBytes": "string",
+        "useStatistics": "boolean",
+        "useStatisticsForPartPruning": "boolean",
+        "refreshStatisticsInterval": "string",
         "inputFormatValuesInterpretExpressions": "boolean",
         "inputFormatDefaultsForOmittedFields": "boolean",
         "inputFormatNullAsDefault": "boolean",
@@ -842,7 +872,8 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters
         "connectionId": "string",
         "connectionFolderId": "string",
         "secretFolderId": "string"
-      }
+      },
+      "deletionProtectionMode": "string"
     }
   ],
   "hostSpecs": [
@@ -1074,7 +1105,7 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters
                   "max": "string"
                 },
                 // end of the list of possible fields
-                // Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`
+                // Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`
                 "httpSource": {
                   "url": "string",
                   "format": "string",
@@ -1135,6 +1166,27 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters
                   "password": "string",
                   "invalidateQuery": "string",
                   "sslMode": "string"
+                },
+                "postgresqlSourceV2": {
+                  "db": "string",
+                  "table": "string",
+                  "replicas": [
+                    {
+                      "host": "string",
+                      "priority": "string",
+                      "port": "string",
+                      "user": "string",
+                      "password": "string"
+                    }
+                  ],
+                  "port": "string",
+                  "user": "string",
+                  "password": "string",
+                  "invalidateQuery": "string",
+                  "sslMode": "string",
+                  "where": "string",
+                  "query": "string",
+                  "backgroundReconnect": "boolean"
                 }
                 // end of the list of possible fields
               }
@@ -1214,6 +1266,8 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters
               "port": "string"
             },
             "mysqlProtocol": "boolean",
+            "grpcProtocol": "boolean",
+            "arrowflightProtocol": "boolean",
             "customMacros": [
               {
                 "name": "string",
@@ -1245,7 +1299,27 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters
       ]
     }
   ],
-  "diskEncryptionKeyId": "string"
+  "diskEncryptionKeyId": "string",
+  "maintenanceWindows": {
+    // Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`
+    "anytime": "object",
+    "weeklyMaintenanceSchedule": {
+      "slots": [
+        {
+          "day": "string",
+          "startTime": {
+            "hours": "integer",
+            "minutes": "integer",
+            "seconds": "integer",
+            "nanos": "integer"
+          },
+          "duration": "string",
+          "allowTemporaryUnavailability": "boolean"
+        }
+      ]
+    }
+    // end of the list of possible fields
+  }
 }
 ```
 
@@ -1315,13 +1389,19 @@ User security groups ||
 Deletion Protection inhibits deletion of the cluster ||
 || maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.clickhouse.v1.MaintenanceWindow)**
 
+Deprecated. Use maintenance_windows instead.
 Window of maintenance operations. ||
 || shardSpecs[] | **[ShardSpec](#yandex.cloud.mdb.clickhouse.v1.ShardSpec)**
 
 Configuration(s) of the shard(s) to be created. ||
 || diskEncryptionKeyId | **string**
 
-ID of the key to encrypt cluster disks. ||
+ID of the key to encrypt cluster disks.
+
+Value must match the regular expression ` [a-zA-Z0-9_.-]{0,50} `. ||
+|| maintenanceWindows | **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)**
+
+Maintenance windows. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.clickhouse.v1.ConfigSpec}
@@ -2044,10 +2124,27 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/integ
 || mysqlProtocol | **boolean**
 
 Enables or disables MySQL interface on ClickHouse server.
+When enabled, the interface accepts connections on the default MySQL port, 3306.
 
 Default value: **false**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/interfaces/mysql). ||
+|| grpcProtocol | **boolean**
+
+Enables or disables gRPC interface on ClickHouse server.
+When enabled, the interface accepts connections on the port 9100.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/concepts/features/interfaces/grpc). ||
+|| arrowflightProtocol | **boolean**
+
+Enables or disables Arrow Flight SQL interface on ClickHouse server.
+When enabled, the interface accepts connections on the port 9090.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/interfaces/arrowflight). ||
 || customMacros[] | **[Macro](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Macro)**
 
 Custom ClickHouse macros. ||
@@ -2447,27 +2544,33 @@ Includes only one of the fields `fixedLifetime`, `lifetimeRange`. ||
 
 HTTP source for the dictionary.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
 || mysqlSource | **[MysqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource)**
 
 MySQL source for the dictionary.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
 || clickhouseSource | **[ClickhouseSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.ClickhouseSource)**
 
 ClickHouse source for the dictionary.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
 || mongodbSource | **[MongodbSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MongodbSource)**
 
 MongoDB source for the dictionary.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
 || postgresqlSource | **[PostgresqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSource)**
 
 PostgreSQL source for the dictionary.
+Deprecated in favor of postgresql_source_v2.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
+|| postgresqlSourceV2 | **[PostgresqlSourceV2](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2)**
+
+PostgreSQL source for the dictionary using the native ClickHouse integration.
+
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
 |#
 
 ## Structure {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure}
@@ -2896,6 +2999,75 @@ Mode of SSL TCP/IP connection to the PostgreSQL host.
 - `PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.
 - `VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).
 - `VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate. ||
+|#
+
+## PostgresqlSourceV2 {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2}
+
+#|
+||Field | Description ||
+|| db | **string**
+
+Required field. Database name. ||
+|| table | **string**
+
+Table name. Either table or query must be specified. ||
+|| replicas[] | **[Replica](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2.Replica)**
+
+PostgreSQL replicas used as dictionary sources. ||
+|| port | **string** (int64)
+
+Port to use when connecting to the PostgreSQL hosts. ||
+|| user | **string**
+
+Default PostgreSQL user for replicas. ||
+|| password | **string**
+
+Password of the PostgreSQL database user. ||
+|| invalidateQuery | **string**
+
+Query for checking the dictionary status, to pull only updated data. ||
+|| sslMode | **enum** (SslMode)
+
+Mode of SSL TCP/IP connection to the PostgreSQL host.
+
+- `DISABLE`: Only try a non-SSL connection.
+- `ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.
+- `PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.
+- `VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).
+- `VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.
+- `REQUIRE`: Only try an SSL connection without verifying the server certificate. ||
+|| where | **string**
+
+Selection criteria for data in the specified table. ||
+|| query | **string**
+
+Custom query. Either table or query must be specified. ||
+|| backgroundReconnect | **boolean**
+
+Reconnect to unavailable replicas in the background. ||
+|#
+
+## Replica {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2.Replica}
+
+#|
+||Field | Description ||
+|| host | **string**
+
+Required field. PostgreSQL host of the replica.
+
+The maximum string length in characters is 253. ||
+|| priority | **string** (int64)
+
+The priority of the replica. Lower values have higher priority. ||
+|| port | **string** (int64)
+
+Port to use when connecting to the replica. Inherits the source port when omitted. ||
+|| user | **string**
+
+PostgreSQL user for the replica. Inherits the source user when omitted. ||
+|| password | **string**
+
+PostgreSQL password for the replica. Inherits the source password when omitted. ||
 |#
 
 ## GraphiteRollup {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.GraphiteRollup}
@@ -4137,6 +4309,29 @@ If the execution speed is lower, an exception is thrown. **0** means unlimited.
 Default value: **0**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_execution_speed_bytes). ||
+|| useStatistics | **boolean**
+
+Allows using statistics to optimize queries.
+Preferred over **allow_statistics_optimize** because of consistency with **use_primary_key** and **use_skip_indexes**.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/use-statistics#use_statistics). ||
+|| useStatisticsForPartPruning | **boolean**
+
+Use statistics to filter out parts during query execution.
+When enabled, pruning in SELECT queries will use column statistics (e.g. MinMax statistics) to eliminate parts that cannot contain matching data before reading any data.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/use-statistics#use_statistics_for_part_pruning). ||
+|| refreshStatisticsInterval | **string** (int64)
+
+The interval of refreshing statistics cache in seconds. If it is set to zero, the refreshing will be disabled.
+
+Default value: **0** for versions 25.11 and higher, **300** (5 minutes) for versions 26.2 and lower.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/ru/reference/settings/merge-tree-settings/refresh#refresh_statistics_interval). ||
 || inputFormatValuesInterpretExpressions | **boolean**
 
 Enables or disables SQL parser if the fast stream parser cannot parse the data.
@@ -4932,6 +5127,14 @@ Database engine. For details, see [ClickHouse documentation](https://clickhouse.
 
 - `DATABASE_ENGINE_ATOMIC`: Atomic database engine.
 - `DATABASE_ENGINE_REPLICATED`: Replicated database engine. ||
+|| deletionProtectionMode | **enum** (DeletionProtectionMode)
+
+Deletion protection mode.
+Default value: `DELETION_PROTECTION_MODE_DISABLED`.
+
+- `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled.
+- `DELETION_PROTECTION_MODE_ENABLED`: Deletion protection is enabled.
+- `DELETION_PROTECTION_MODE_INHERITED`: Deletion protection mode is inherited from the cluster. ||
 |#
 
 ## UserSpec {#yandex.cloud.mdb.clickhouse.v1.UserSpec}
@@ -4971,6 +5174,13 @@ User authentication method.
 || userConnectionManager | **[UserConnectionManager](#yandex.cloud.mdb.v1.UserConnectionManager)**
 
 Connection Manager connection and settings associated with the user. ||
+|| deletionProtectionMode | **enum** (DeletionProtectionMode)
+
+Deletion protection mode. Default value is `DELETION_PROTECTION_MODE_DISABLED`.
+
+- `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled.
+- `DELETION_PROTECTION_MODE_ENABLED`: Deletion protection is enabled.
+- `DELETION_PROTECTION_MODE_INHERITED`: Deletion protection mode is inherited from the cluster. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.clickhouse.v1.Permission}
@@ -5162,6 +5372,62 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/opera
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.clickhouse.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings. ||
+|#
+
+## MaintenanceWindows {#yandex.cloud.mdb.v1.MaintenanceWindows}
+
+Maintenance windows shared by all managed database services.
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+Maintenance operations can be scheduled anytime.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|| weeklyMaintenanceSchedule | **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+
+Maintenance operations can be scheduled during the specified weekly slots.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|#
+
+## WeeklyMaintenanceSchedule {#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule}
+
+#|
+||Field | Description ||
+|| slots[] | **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+
+Weekly time slots during which maintenance operations can be scheduled.
+At least one slot is required.
+
+The number of elements must be greater than 0. ||
+|#
+
+## MaintenanceWindowSlot {#yandex.cloud.mdb.v1.MaintenanceWindowSlot}
+
+#|
+||Field | Description ||
+|| day | **enum** (DayOfWeek)
+
+Day of the week.
+
+- `MONDAY`: The day-of-week of Monday.
+- `TUESDAY`: The day-of-week of Tuesday.
+- `WEDNESDAY`: The day-of-week of Wednesday.
+- `THURSDAY`: The day-of-week of Thursday.
+- `FRIDAY`: The day-of-week of Friday.
+- `SATURDAY`: The day-of-week of Saturday.
+- `SUNDAY`: The day-of-week of Sunday. ||
+|| startTime | **[TimeOfDay](#google.type.TimeOfDay)**
+
+Required field. Start time in UTC. ||
+|| duration | **string** (duration)
+
+Required field. Slot duration. ||
+|| allowTemporaryUnavailability | **boolean**
+
+Allows maintenance operations that may cause temporary write unavailability. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

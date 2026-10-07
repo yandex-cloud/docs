@@ -2,7 +2,7 @@
 
 # Managed Service for MongoDB API, REST: User.Delete
 
-Deletes the specified MongoDB user.
+Deletes the specified StoreDoc user.
 
 ## HTTP request
 
@@ -16,7 +16,7 @@ DELETE https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster the user belongs to.
+Required field. ID of the StoreDoc cluster the user belongs to.
 To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||

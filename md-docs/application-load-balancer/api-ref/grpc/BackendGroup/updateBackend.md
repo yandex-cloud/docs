@@ -74,6 +74,9 @@ Updates the specified backend.
             "trusted_ca_id": "string",
             "trusted_ca_bytes": "string"
             // end of the list of possible fields
+          },
+          "client_certificate": {
+            "certificate_id": "string"
           }
         }
         // end of the list of possible fields
@@ -86,6 +89,9 @@ Updates the specified backend.
         "trusted_ca_id": "string",
         "trusted_ca_bytes": "string"
         // end of the list of possible fields
+      },
+      "client_certificate": {
+        "certificate_id": "string"
       }
     },
     "enable_proxy_protocol": "bool",
@@ -153,6 +159,9 @@ Updates the specified backend.
             "trusted_ca_id": "string",
             "trusted_ca_bytes": "string"
             // end of the list of possible fields
+          },
+          "client_certificate": {
+            "certificate_id": "string"
           }
         }
         // end of the list of possible fields
@@ -165,6 +174,9 @@ Updates the specified backend.
         "trusted_ca_id": "string",
         "trusted_ca_bytes": "string"
         // end of the list of possible fields
+      },
+      "client_certificate": {
+        "certificate_id": "string"
       }
     },
     "use_http2": "bool"
@@ -228,6 +240,9 @@ Updates the specified backend.
             "trusted_ca_id": "string",
             "trusted_ca_bytes": "string"
             // end of the list of possible fields
+          },
+          "client_certificate": {
+            "certificate_id": "string"
           }
         }
         // end of the list of possible fields
@@ -240,6 +255,9 @@ Updates the specified backend.
         "trusted_ca_id": "string",
         "trusted_ca_bytes": "string"
         // end of the list of possible fields
+      },
+      "client_certificate": {
+        "certificate_id": "string"
       }
     }
   }
@@ -582,6 +600,9 @@ The maximum string length in characters is 255. Value must match the regular exp
 || validation_context | **[ValidationContext](#yandex.cloud.apploadbalancer.v1.ValidationContext)**
 
 Validation context for backend TLS connections. ||
+|| client_certificate | **[ClientCertificateOptions](#yandex.cloud.apploadbalancer.v1.ClientCertificateOptions)**
+
+Client certificate options for backend TLS connections. ||
 |#
 
 ## ValidationContext {#yandex.cloud.apploadbalancer.v1.ValidationContext}
@@ -604,6 +625,17 @@ Includes only one of the fields `trusted_ca_id`, `trusted_ca_bytes`.
 TLS certificate issued by a trusted certificate authority (CA). ||
 |#
 
+## ClientCertificateOptions {#yandex.cloud.apploadbalancer.v1.ClientCertificateOptions}
+
+Client certificates options for usage during TLS handshake initiation as a client.
+
+#|
+||Field | Description ||
+|| certificate_id | **string**
+
+Required field. Client certificate's ID from the [Certificate Manager](../../../../certificate-manager/index.md). ||
+|#
+
 ## BackendTls {#yandex.cloud.apploadbalancer.v1.BackendTls}
 
 A resource for backend TLS settings.
@@ -618,6 +650,9 @@ The maximum string length in characters is 255. Value must match the regular exp
 || validation_context | **[ValidationContext](#yandex.cloud.apploadbalancer.v1.ValidationContext)**
 
 Validation context for TLS connections. ||
+|| client_certificate | **[ClientCertificateOptions](#yandex.cloud.apploadbalancer.v1.ClientCertificateOptions)**
+
+Client certificate options for backend TLS connections. ||
 |#
 
 ## HttpBackend {#yandex.cloud.apploadbalancer.v1.HttpBackend}

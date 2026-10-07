@@ -9,7 +9,7 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the MongoDB cluster to create a user in.
+            Required field. ID of the StoreDoc cluster to create a user in.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
             The maximum string length in characters is 50.
           type: string
@@ -40,7 +40,7 @@ apiPlayground:
           roles:
             description: |-
               **string**
-              MongoDB roles for the [databaseName](#yandex.cloud.mdb.mongodb.v1.Permission) database that the permission grants.
+              StoreDoc roles for the [databaseName](#yandex.cloud.mdb.mongodb.v1.Permission) database that the permission grants.
             type: array
             items:
               type: string
@@ -50,14 +50,14 @@ apiPlayground:
           name:
             description: |-
               **string**
-              Required field. Name of the MongoDB user.
+              Required field. Name of the StoreDoc user.
               The maximum string length in characters is 63. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_@.-]*$ `.
             pattern: ^[a-zA-Z0-9_][a-zA-Z0-9_@.-]*$
             type: string
           password:
             description: |-
               **string**
-              Password of the MongoDB user.
+              Password of the StoreDoc user.
               Must not be set for users with the [AuthType.AUTH_TYPE_IAM](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.AuthType) authentication type.
               The maximum string length in characters is 128.
             type: string
@@ -68,6 +68,11 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/Permission'
+          generatePassword:
+            description: |-
+              **boolean**
+              Generate password using Connection Manager
+            type: boolean
           authType:
             description: |-
               **enum** (AuthType)
@@ -90,7 +95,7 @@ apiPlayground:
 
 # Managed Service for MongoDB API, REST: User.Create
 
-Creates a MongoDB user in the specified cluster.
+Creates a StoreDoc user in the specified cluster.
 
 ## HTTP request
 
@@ -104,7 +109,7 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/users
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster to create a user in.
+Required field. ID of the StoreDoc cluster to create a user in.
 To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -125,6 +130,7 @@ The maximum string length in characters is 50. ||
         ]
       }
     ],
+    "generatePassword": "boolean",
     "authType": "string",
     "deletionProtection": "boolean"
   }
@@ -144,18 +150,21 @@ Required field. Properties of the user to be created. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the MongoDB user.
+Required field. Name of the StoreDoc user.
 
 The maximum string length in characters is 63. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_@.-]*$ `. ||
 || password | **string**
 
-Password of the MongoDB user.
+Password of the StoreDoc user.
 Must not be set for users with the [AuthType.AUTH_TYPE_IAM](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.AuthType) authentication type.
 
 The maximum string length in characters is 128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)**
 
 Set of permissions to grant to the user. ||
+|| generatePassword | **boolean**
+
+Generate password using Connection Manager ||
 || authType | **enum** (AuthType)
 
 Authentication type for the user. Defaults to AUTH_TYPE_PASSWORD.
@@ -176,7 +185,7 @@ Deletion Protection inhibits deletion of the user ||
 Name of the database that the permission grants access to. ||
 || roles[] | **string**
 
-MongoDB roles for the `databaseName` database that the permission grants. ||
+StoreDoc roles for the `databaseName` database that the permission grants. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

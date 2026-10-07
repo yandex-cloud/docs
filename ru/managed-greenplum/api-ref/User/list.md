@@ -57,7 +57,8 @@ The maximum string length in characters is 50. ||
         "poolMode": "string",
         "poolSize": "string",
         "poolClientIdleTimeout": "string",
-        "poolIdleInTransactionTimeout": "string"
+        "poolIdleInTransactionTimeout": "string",
+        "poolDiscard": "boolean"
       }
     }
   ]
@@ -133,4 +134,8 @@ Set to zero to disable.
 If not set, uses the cluster-level pool.idle_in_transaction_timeout setting.
 
 The minimum value is 0. ||
+|| poolDiscard | **boolean**
+
+Enables cleanup of server connections when they are returned to the connection pool.
+If not set, uses the cluster-level pool.pool_discard setting. ||
 |#

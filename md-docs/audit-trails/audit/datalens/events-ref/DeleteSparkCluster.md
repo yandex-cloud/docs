@@ -90,7 +90,8 @@
     "sparkClusterName": "string",
     "cloudEnvironmentId": "string",
     "collectionId": "string",
-    "description": "string"
+    "description": "string",
+    "labels": "object"
   },
   "requestParameters": "object",
   "response": "object"
@@ -266,4 +267,5 @@ A list of messages that carry the error details. ||
 || cloudEnvironmentId | **string** ||
 || collectionId | **string** ||
 || description | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 |#

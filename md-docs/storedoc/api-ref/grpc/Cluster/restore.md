@@ -2,7 +2,7 @@
 
 # Managed Service for MongoDB API, gRPC: ClusterService.Restore
 
-Creates a new MongoDB cluster using the specified backup.
+Creates a new StoreDoc cluster using the specified backup.
 
 ## gRPC request
 
@@ -1324,7 +1324,8 @@ Creates a new MongoDB cluster using the specified backup.
               "sampling_rate": "google.protobuf.DoubleValue",
               "max_time_ms": "google.protobuf.Int64Value"
             },
-            "redact_client_log_data": "google.protobuf.BoolValue"
+            "redact_client_log_data": "google.protobuf.BoolValue",
+            "allow_disk_use_by_default": "google.protobuf.BoolValue"
           },
           "oplog": {
             "max_size_percent": "google.protobuf.Int64Value",
@@ -1423,6 +1424,22 @@ Creates a new MongoDB cluster using the specified backup.
           "operation_profiling": {
             "slow_op_threshold": "google.protobuf.Int64Value",
             "slow_op_sample_rate": "google.protobuf.DoubleValue"
+          },
+          "balancer_config": {
+            "secondary_throttle": {
+              "enabled": "google.protobuf.BoolValue",
+              "write_concern": {
+                "nodes": "google.protobuf.Int64Value",
+                "majority": "google.protobuf.BoolValue",
+                "journal": "google.protobuf.BoolValue",
+                "timeout_ms": "google.protobuf.Int64Value"
+              }
+            },
+            "wait_for_delete": "google.protobuf.BoolValue",
+            "attempt_to_balance_jumbo_chunks": "google.protobuf.BoolValue"
+          },
+          "replication": {
+            "local_ping_threshold_ms": "google.protobuf.Int64Value"
           }
         },
         "resources": {
@@ -1469,6 +1486,22 @@ Creates a new MongoDB cluster using the specified backup.
           "operation_profiling": {
             "slow_op_threshold": "google.protobuf.Int64Value",
             "slow_op_sample_rate": "google.protobuf.DoubleValue"
+          },
+          "balancer_config": {
+            "secondary_throttle": {
+              "enabled": "google.protobuf.BoolValue",
+              "write_concern": {
+                "nodes": "google.protobuf.Int64Value",
+                "majority": "google.protobuf.BoolValue",
+                "journal": "google.protobuf.BoolValue",
+                "timeout_ms": "google.protobuf.Int64Value"
+              }
+            },
+            "wait_for_delete": "google.protobuf.BoolValue",
+            "attempt_to_balance_jumbo_chunks": "google.protobuf.BoolValue"
+          },
+          "replication": {
+            "local_ping_threshold_ms": "google.protobuf.Int64Value"
           }
         },
         "config_mongocfg": {
@@ -1560,6 +1593,21 @@ Creates a new MongoDB cluster using the specified backup.
     "blacklist": [
       "string"
     ]
+  },
+  "maintenance_windows": {
+    // Includes only one of the fields `anytime`, `weekly_maintenance_schedule`
+    "anytime": "AnytimeMaintenanceWindow",
+    "weekly_maintenance_schedule": {
+      "slots": [
+        {
+          "day": "DayOfWeek",
+          "start_time": "google.type.TimeOfDay",
+          "duration": "google.protobuf.Duration",
+          "allow_temporary_unavailability": "bool"
+        }
+      ]
+    }
+    // end of the list of possible fields
   }
 }
 ```
@@ -1572,24 +1620,24 @@ Required field. ID of the backup to create a cluster from.
 To get the backup ID, use a [ClusterService.ListBackups](listBackups.md#ListBackups) request. ||
 || name | **string**
 
-Required field. Name of the new MongoDB cluster. The name must be unique within the folder.
-The name can't be changed after the MongoDB cluster is created.
+Required field. Name of the new StoreDoc cluster. The name must be unique within the folder.
+The name can't be changed after the StoreDoc cluster is created.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || description | **string**
 
-Description of the new MongoDB cluster.
+Description of the new StoreDoc cluster.
 
 The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource.
+Custom labels for the StoreDoc cluster as `` key:value `` pairs. Maximum 64 per resource.
 For example, "project": "mvp" or "source": "dictionary".
 
 The maximum string length in characters for each value is 63. The maximum string length in characters for each key is 63. Each key must match the regular expression ` ^[a-z][-_./\@0-9a-z]*$ `. Each value must match the regular expression ` ^[-_./\@0-9a-z]*$ `. No more than 64 per resource. ||
 || environment | enum **Environment**
 
-Required field. Deployment environment of the new MongoDB cluster.
+Required field. Deployment environment of the new StoreDoc cluster.
 
 - `PRODUCTION`: Stable environment with a conservative update policy: only hotfixes
 are applied during regular maintenance.
@@ -1597,26 +1645,26 @@ are applied during regular maintenance.
 are rolled out irrespective of backward compatibility. ||
 || config_spec | **[ConfigSpec](#yandex.cloud.mdb.mongodb.v1.ConfigSpec)**
 
-Required field. Configuration for the MongoDB cluster to be created. ||
+Required field. Configuration for the StoreDoc cluster to be created. ||
 || host_specs[] | **[HostSpec](#yandex.cloud.mdb.mongodb.v1.HostSpec)**
 
-Configurations for MongoDB hosts that should be created for
+Configurations for StoreDoc hosts that should be created for
 the cluster that is being created from the backup.
 
 The number of elements must be greater than 0. ||
 || network_id | **string**
 
-ID of the network to create the MongoDB cluster in.
+ID of the network to create the StoreDoc cluster in.
 
 The maximum string length in characters is 150. ||
 || folder_id | **string**
 
-Required. ID of the folder to create the MongoDB cluster in.
+ID of the folder to create the StoreDoc cluster in.
 
 The maximum string length in characters is 50. ||
 || recovery_target_spec | **[RecoveryTargetSpec](#yandex.cloud.mdb.mongodb.v1.RestoreClusterRequest.RecoveryTargetSpec)**
 
-Specification of the moment to which the MongoDB cluster should be restored. ||
+Specification of the moment to which the StoreDoc cluster should be restored. ||
 || security_group_ids[] | **string**
 
 User security groups ||
@@ -1625,13 +1673,19 @@ User security groups ||
 Deletion Protection inhibits deletion of the cluster ||
 || maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.mongodb.v1.MaintenanceWindow)**
 
+Deprecated. Use maintenance_windows instead.
 Maintenance window settings for the cluster. ||
 || disk_encryption_key_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
-ID of the key to encrypt cluster disks. ||
+ID of the key to encrypt cluster disks.
+
+Value must match the regular expression ` [a-zA-Z0-9_.-]{0,50} `. ||
 || partial_restore_spec | **[PartialRestoreSpec](#yandex.cloud.mdb.mongodb.v1.RestoreClusterRequest.PartialRestoreSpec)**
 
 Specification of the list of cluster namespaces, which should be restored. ||
+|| maintenance_windows | **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)**
+
+Maintenance windows. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.mongodb.v1.ConfigSpec}
@@ -1640,62 +1694,85 @@ Specification of the list of cluster namespaces, which should be restored. ||
 ||Field | Description ||
 || version | **string**
 
-Version of MongoDB used in the cluster. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`, `6.0-enterprise`. ||
+Version of StoreDoc used in the cluster. Possible values: `7.0`, `8.0`. ||
 || feature_compatibility_version | **string**
 
-MongoDB feature compatibility version. See usage details in [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
+StoreDoc feature compatibility version. See usage details in [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
 Possible values:
-* `3.6` - persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or older.
-* `4.0` - persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or older.
-* `4.2` - persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or older.
-* `4.4` - persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or older.
-* `5.0` - persist data compatibility for version 5.0. After setting this option the data will not be compatible with 4.4 or older.
-* `6.0` - persist data compatibility for version 6.0. After setting this option the data will not be compatible with 5.0 or older. ||
+* `7.0` - persist data compatibility for version 7.0. After setting this option the data will not be compatible with 6.0 or lower.
+* `8.0` - persist data compatibility for version 8.0. After setting this option the data will not be compatible with 7.0 or lower. ||
 || mongodb_spec_3_6 | **[MongodbSpec3_6](#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6)**
 
-Configuration and resource allocation for a MongoDB 3.6 cluster.
+Configuration and resource allocation for a StoreDoc 3.6 cluster.
+Deprecated. Use `mongodb` instead.
 
-Includes only one of the fields `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_4_2`, `mongodb_spec_4_4`, `mongodb_spec_5_0`, `mongodb_spec_6_0`, `mongodb_spec_4_4_enterprise`, `mongodb_spec_5_0_enterprise`, `mongodb_spec_6_0_enterprise`. ||
+Includes only one of the fields `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_4_2`, `mongodb_spec_4_4`, `mongodb_spec_5_0`, `mongodb_spec_6_0`, `mongodb_spec_4_4_enterprise`, `mongodb_spec_5_0_enterprise`, `mongodb_spec_6_0_enterprise`.
+
+Configuration for StoreDoc servers in the cluster. ||
 || mongodb_spec_4_0 | **[MongodbSpec4_0](#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_0)**
 
-Configuration and resource allocation for a MongoDB 4.0 cluster.
+Configuration and resource allocation for a StoreDoc 4.0 cluster.
+Deprecated. Use `mongodb` instead.
 
-Includes only one of the fields `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_4_2`, `mongodb_spec_4_4`, `mongodb_spec_5_0`, `mongodb_spec_6_0`, `mongodb_spec_4_4_enterprise`, `mongodb_spec_5_0_enterprise`, `mongodb_spec_6_0_enterprise`. ||
+Includes only one of the fields `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_4_2`, `mongodb_spec_4_4`, `mongodb_spec_5_0`, `mongodb_spec_6_0`, `mongodb_spec_4_4_enterprise`, `mongodb_spec_5_0_enterprise`, `mongodb_spec_6_0_enterprise`.
+
+Configuration for StoreDoc servers in the cluster. ||
 || mongodb_spec_4_2 | **[MongodbSpec4_2](#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_2)**
 
-Configuration and resource allocation for a MongoDB 4.2 cluster.
+Configuration and resource allocation for a StoreDoc 4.2 cluster.
+Deprecated. Use `mongodb` instead.
 
-Includes only one of the fields `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_4_2`, `mongodb_spec_4_4`, `mongodb_spec_5_0`, `mongodb_spec_6_0`, `mongodb_spec_4_4_enterprise`, `mongodb_spec_5_0_enterprise`, `mongodb_spec_6_0_enterprise`. ||
+Includes only one of the fields `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_4_2`, `mongodb_spec_4_4`, `mongodb_spec_5_0`, `mongodb_spec_6_0`, `mongodb_spec_4_4_enterprise`, `mongodb_spec_5_0_enterprise`, `mongodb_spec_6_0_enterprise`.
+
+Configuration for StoreDoc servers in the cluster. ||
 || mongodb_spec_4_4 | **[MongodbSpec4_4](#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_4)**
 
-Configuration and resource allocation for a MongoDB 4.4 cluster.
+Configuration and resource allocation for a StoreDoc 4.4 cluster.
+Deprecated. Use `mongodb` instead.
 
-Includes only one of the fields `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_4_2`, `mongodb_spec_4_4`, `mongodb_spec_5_0`, `mongodb_spec_6_0`, `mongodb_spec_4_4_enterprise`, `mongodb_spec_5_0_enterprise`, `mongodb_spec_6_0_enterprise`. ||
+Includes only one of the fields `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_4_2`, `mongodb_spec_4_4`, `mongodb_spec_5_0`, `mongodb_spec_6_0`, `mongodb_spec_4_4_enterprise`, `mongodb_spec_5_0_enterprise`, `mongodb_spec_6_0_enterprise`.
+
+Configuration for StoreDoc servers in the cluster. ||
 || mongodb_spec_5_0 | **[MongodbSpec5_0](#yandex.cloud.mdb.mongodb.v1.MongodbSpec5_0)**
 
-Configuration and resource allocation for a MongoDB 5.0 cluster.
+Configuration and resource allocation for a StoreDoc 5.0 cluster.
+Deprecated. Use `mongodb` instead.
 
-Includes only one of the fields `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_4_2`, `mongodb_spec_4_4`, `mongodb_spec_5_0`, `mongodb_spec_6_0`, `mongodb_spec_4_4_enterprise`, `mongodb_spec_5_0_enterprise`, `mongodb_spec_6_0_enterprise`. ||
+Includes only one of the fields `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_4_2`, `mongodb_spec_4_4`, `mongodb_spec_5_0`, `mongodb_spec_6_0`, `mongodb_spec_4_4_enterprise`, `mongodb_spec_5_0_enterprise`, `mongodb_spec_6_0_enterprise`.
+
+Configuration for StoreDoc servers in the cluster. ||
 || mongodb_spec_6_0 | **[MongodbSpec6_0](#yandex.cloud.mdb.mongodb.v1.MongodbSpec6_0)**
 
-Configuration and resource allocation for a MongoDB 6.0 cluster.
+Configuration and resource allocation for a StoreDoc 6.0 cluster.
+Deprecated. Use `mongodb` instead.
 
-Includes only one of the fields `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_4_2`, `mongodb_spec_4_4`, `mongodb_spec_5_0`, `mongodb_spec_6_0`, `mongodb_spec_4_4_enterprise`, `mongodb_spec_5_0_enterprise`, `mongodb_spec_6_0_enterprise`. ||
+Includes only one of the fields `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_4_2`, `mongodb_spec_4_4`, `mongodb_spec_5_0`, `mongodb_spec_6_0`, `mongodb_spec_4_4_enterprise`, `mongodb_spec_5_0_enterprise`, `mongodb_spec_6_0_enterprise`.
+
+Configuration for StoreDoc servers in the cluster. ||
 || mongodb_spec_4_4_enterprise | **[MongodbSpec4_4_enterprise](#yandex.cloud.mdb.mongodb.v1.MongodbSpec4_4_enterprise)**
 
-Configuration and resource allocation for a MongoDB 4.4 Enterprise cluster.
+Configuration and resource allocation for a StoreDoc 4.4 Enterprise cluster.
+Deprecated. Use `mongodb` instead.
 
-Includes only one of the fields `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_4_2`, `mongodb_spec_4_4`, `mongodb_spec_5_0`, `mongodb_spec_6_0`, `mongodb_spec_4_4_enterprise`, `mongodb_spec_5_0_enterprise`, `mongodb_spec_6_0_enterprise`. ||
+Includes only one of the fields `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_4_2`, `mongodb_spec_4_4`, `mongodb_spec_5_0`, `mongodb_spec_6_0`, `mongodb_spec_4_4_enterprise`, `mongodb_spec_5_0_enterprise`, `mongodb_spec_6_0_enterprise`.
+
+Configuration for StoreDoc servers in the cluster. ||
 || mongodb_spec_5_0_enterprise | **[MongodbSpec5_0_enterprise](#yandex.cloud.mdb.mongodb.v1.MongodbSpec5_0_enterprise)**
 
-Configuration and resource allocation for a MongoDB 5.0 Enterprise cluster.
+Configuration and resource allocation for a StoreDoc 5.0 Enterprise cluster.
+Deprecated. Use `mongodb` instead.
 
-Includes only one of the fields `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_4_2`, `mongodb_spec_4_4`, `mongodb_spec_5_0`, `mongodb_spec_6_0`, `mongodb_spec_4_4_enterprise`, `mongodb_spec_5_0_enterprise`, `mongodb_spec_6_0_enterprise`. ||
+Includes only one of the fields `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_4_2`, `mongodb_spec_4_4`, `mongodb_spec_5_0`, `mongodb_spec_6_0`, `mongodb_spec_4_4_enterprise`, `mongodb_spec_5_0_enterprise`, `mongodb_spec_6_0_enterprise`.
+
+Configuration for StoreDoc servers in the cluster. ||
 || mongodb_spec_6_0_enterprise | **[MongodbSpec6_0_enterprise](#yandex.cloud.mdb.mongodb.v1.MongodbSpec6_0_enterprise)**
 
-Configuration and resource allocation for a MongoDB 6.0 Enterprise cluster.
+Configuration and resource allocation for a StoreDoc 6.0 Enterprise cluster.
+Deprecated. Use `mongodb` instead.
 
-Includes only one of the fields `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_4_2`, `mongodb_spec_4_4`, `mongodb_spec_5_0`, `mongodb_spec_6_0`, `mongodb_spec_4_4_enterprise`, `mongodb_spec_5_0_enterprise`, `mongodb_spec_6_0_enterprise`. ||
+Includes only one of the fields `mongodb_spec_3_6`, `mongodb_spec_4_0`, `mongodb_spec_4_2`, `mongodb_spec_4_4`, `mongodb_spec_5_0`, `mongodb_spec_6_0`, `mongodb_spec_4_4_enterprise`, `mongodb_spec_5_0_enterprise`, `mongodb_spec_6_0_enterprise`.
+
+Configuration for StoreDoc servers in the cluster. ||
 || backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
 
 Time to start the daily backup, in the UTC timezone. ||
@@ -1712,7 +1789,7 @@ Performance Diagnosics configuration ||
 Access policy to DB ||
 || mongodb | **[MongodbSpec](#yandex.cloud.mdb.mongodb.v1.MongodbSpec)**
 
-Configuration and resource allocation for a MongoDB 7.0 Enterprise cluster. ||
+Configuration and resource allocation for a StoreDoc cluster. ||
 || autocompact_config | **[AutoCompactConfig](#yandex.cloud.mdb.mongodb.v1.AutoCompactConfig)**
 
 AutoCompact config ||
@@ -1754,7 +1831,7 @@ Disk size autoscaling settings ||
 ## MongodConfig3_6 {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6}
 
 Configuration of a mongod daemon. Supported options are a limited subset of all
-options described in [MongoDB documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/).
+options described in the [MongoDB documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/).
 
 #|
 ||Field | Description ||
@@ -1778,7 +1855,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v3.6/refer
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.Storage.Journal)**
 
-Configuration of the MongoDB [journal](https://docs.mongodb.com/v3.6/reference/glossary/#term-journal). ||
+Configuration of the StoreDoc [journal](https://docs.mongodb.com/v3.6/reference/glossary/#term-journal). ||
 |#
 
 ## WiredTiger {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.Storage.WiredTiger}
@@ -2081,7 +2158,7 @@ Disk size autoscaling settings ||
 ## MongodConfig4_0 {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0}
 
 Configuration of a mongod daemon. Supported options are a limited subset of all
-options described in [MongoDB documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/).
+options described in the [MongoDB documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/).
 
 #|
 ||Field | Description ||
@@ -2105,7 +2182,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v4.0/refer
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0.Storage.Journal)**
 
-Configuration of the MongoDB [journal](https://docs.mongodb.com/v4.0/reference/glossary/#term-journal). ||
+Configuration of the StoreDoc [journal](https://docs.mongodb.com/v4.0/reference/glossary/#term-journal). ||
 |#
 
 ## WiredTiger {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0.Storage.WiredTiger}
@@ -2366,7 +2443,7 @@ Disk size autoscaling settings ||
 ## MongodConfig4_2 {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2}
 
 Configuration of a mongod daemon. Supported options are a limited subset of all
-options described in [MongoDB documentation](https://docs.mongodb.com/v4.2/reference/configuration-options/).
+options described in the [MongoDB documentation](https://docs.mongodb.com/v4.2/reference/configuration-options/).
 
 #|
 ||Field | Description ||
@@ -2393,7 +2470,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v4.2/refer
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.Storage.Journal)**
 
-Configuration of the MongoDB [journal](https://docs.mongodb.com/v4.2/reference/glossary/#term-journal). ||
+Configuration of the StoreDoc [journal](https://docs.mongodb.com/v4.2/reference/glossary/#term-journal). ||
 |#
 
 ## WiredTiger {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.Storage.WiredTiger}
@@ -2507,7 +2584,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -2666,7 +2743,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -2730,7 +2807,7 @@ Disk size autoscaling settings ||
 ## MongodConfig4_4 {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4}
 
 Configuration of a mongod daemon. Supported options are a limited subset of all
-options described in [MongoDB documentation](https://docs.mongodb.com/v4.4/reference/configuration-options/).
+options described in the [MongoDB documentation](https://docs.mongodb.com/v4.4/reference/configuration-options/).
 
 #|
 ||Field | Description ||
@@ -2757,7 +2834,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v4.4/refer
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.Storage.Journal)**
 
-Configuration of the MongoDB [journal](https://docs.mongodb.com/v4.4/reference/glossary/#term-journal). ||
+Configuration of the StoreDoc [journal](https://docs.mongodb.com/v4.4/reference/glossary/#term-journal). ||
 |#
 
 ## WiredTiger {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.Storage.WiredTiger}
@@ -2871,7 +2948,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -3030,7 +3107,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -3094,7 +3171,7 @@ Disk size autoscaling settings ||
 ## MongodConfig5_0 {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0}
 
 Configuration of a mongod daemon. Supported options are a limited subset of all
-options described in [MongoDB documentation](https://docs.mongodb.com/v5.0/reference/configuration-options/).
+options described in the [MongoDB documentation](https://docs.mongodb.com/v5.0/reference/configuration-options/).
 
 #|
 ||Field | Description ||
@@ -3121,7 +3198,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v5.0/refer
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.Storage.Journal)**
 
-Configuration of the MongoDB [journal](https://docs.mongodb.com/v5.0/reference/glossary/#term-journal). ||
+Configuration of the StoreDoc [journal](https://docs.mongodb.com/v5.0/reference/glossary/#term-journal). ||
 |#
 
 ## WiredTiger {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.Storage.WiredTiger}
@@ -3235,7 +3312,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -3399,7 +3476,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -3463,7 +3540,7 @@ Disk size autoscaling settings ||
 ## MongodConfig6_0 {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0}
 
 Configuration of a mongod daemon. Supported options are a limited subset of all
-options described in [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/).
+options described in the [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/).
 
 #|
 ||Field | Description ||
@@ -3490,7 +3567,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v6.0/refer
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.Storage.Journal)**
 
-Configuration of the MongoDB [journal](https://docs.mongodb.com/v6.0/reference/glossary/#term-journal). ||
+Configuration of the StoreDoc [journal](https://docs.mongodb.com/v6.0/reference/glossary/#term-journal). ||
 |#
 
 ## WiredTiger {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.Storage.WiredTiger}
@@ -3604,7 +3681,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -3768,7 +3845,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -3832,7 +3909,7 @@ Disk size autoscaling settings ||
 ## MongodConfig4_4_enterprise {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise}
 
 Configuration of a mongod daemon. Supported options are a limited subset of all
-options described in [MongoDB documentation](https://docs.mongodb.com/v4.4/reference/configuration-options/).
+options described in the [MongoDB documentation](https://docs.mongodb.com/v4.4/reference/configuration-options/).
 
 #|
 ||Field | Description ||
@@ -3865,7 +3942,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v4.4/refer
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.Storage.Journal)**
 
-Configuration of the MongoDB [journal](https://docs.mongodb.com/v4.4/reference/glossary/#term-journal). ||
+Configuration of the StoreDoc [journal](https://docs.mongodb.com/v4.4/reference/glossary/#term-journal). ||
 |#
 
 ## WiredTiger {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.Storage.WiredTiger}
@@ -3979,7 +4056,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -4183,7 +4260,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -4247,7 +4324,7 @@ Disk size autoscaling settings ||
 ## MongodConfig5_0_enterprise {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise}
 
 Configuration of a mongod daemon. Supported options are a limited subset of all
-options described in [MongoDB documentation](https://docs.mongodb.com/v5.0/reference/configuration-options/).
+options described in the [MongoDB documentation](https://docs.mongodb.com/v5.0/reference/configuration-options/).
 
 #|
 ||Field | Description ||
@@ -4280,7 +4357,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v5.0/refer
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.Storage.Journal)**
 
-Configuration of the MongoDB [journal](https://docs.mongodb.com/v5.0/reference/glossary/#term-journal). ||
+Configuration of the StoreDoc [journal](https://docs.mongodb.com/v5.0/reference/glossary/#term-journal). ||
 |#
 
 ## WiredTiger {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.Storage.WiredTiger}
@@ -4394,7 +4471,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -4606,7 +4683,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -4670,7 +4747,7 @@ Disk size autoscaling settings ||
 ## MongodConfig6_0_enterprise {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise}
 
 Configuration of a mongod daemon. Supported options are a limited subset of all
-options described in [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/).
+options described in the [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/).
 
 #|
 ||Field | Description ||
@@ -4703,7 +4780,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v6.0/refer
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.Storage.Journal)**
 
-Configuration of the MongoDB [journal](https://docs.mongodb.com/v6.0/reference/glossary/#term-journal). ||
+Configuration of the StoreDoc [journal](https://docs.mongodb.com/v6.0/reference/glossary/#term-journal). ||
 |#
 
 ## WiredTiger {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.Storage.WiredTiger}
@@ -4817,7 +4894,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -5029,7 +5106,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -5117,7 +5194,7 @@ Disk size autoscaling settings ||
 ## MongodConfig {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig}
 
 Configuration of a mongod daemon. Supported options are a limited subset of all
-options described in [MongoDB documentation](https://www.mongodb.com/docs/manual/reference/configuration-options/).
+options described in the [MongoDB documentation](https://www.mongodb.com/docs/manual/reference/configuration-options/).
 
 #|
 ||Field | Description ||
@@ -5159,7 +5236,7 @@ Change stream settings. ||
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.Journal)**
 
-Configuration of the MongoDB [journal](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-journal). ||
+Configuration of the StoreDoc [journal](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-journal). ||
 |#
 
 ## WiredTiger {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger}
@@ -5276,7 +5353,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -5329,7 +5406,7 @@ Audit filter, should be valid JSON object string ||
 || runtime_configuration | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Allows runtime configuration of audit filter and auditAuthorizationSuccess.
-Available for MongoDB Enterprise only. ||
+Available for StoreDoc Enterprise only. ||
 |#
 
 ## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter}
@@ -5395,6 +5472,9 @@ Enables redacting any message accompanying a given log event before logging.
 This prevents the mongod or mongos from writing potentially sensitive data
 stored on the database to the diagnostic log.
 https://mongo-db.ru/reference/configuration-options/index.html#mongodb-setting-security.redactClientLogData ||
+|| allow_disk_use_by_default | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Controls whether aggregation stages that exceed 100 MB can write temporary files to disk by default. ||
 |#
 
 ## MirrorReads {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads}
@@ -5622,6 +5702,13 @@ Network settings for mongos. ||
 || operation_profiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.OperationProfiling)**
 
 `OperationProfiling` section of mongos configuration. ||
+|| balancer_config | **[BalancerConfig](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.BalancerConfig)**
+
+Cluster-wide balancer settings applied through mongos.
+The service manages the balancing window; change enabled status through SetBalancerStatus. ||
+|| replication | **[Replication](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Replication)**
+
+Replication settings. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network}
@@ -5648,7 +5735,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -5737,6 +5824,67 @@ The fraction of slow operations that should be logged.
 operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
 
 Acceptable values are 0 to 1, inclusive. ||
+|#
+
+## BalancerConfig {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.BalancerConfig}
+
+#|
+||Field | Description ||
+|| secondary_throttle | **[SecondaryThrottle](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.BalancerConfig.SecondaryThrottle)**
+
+Replication acknowledgement policy during chunk migration. ||
+|| wait_for_delete | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Wait for orphan cleanup before starting the next migration. This can affect reads on secondaries. ||
+|| attempt_to_balance_jumbo_chunks | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Attempt to migrate oversized chunks that are not marked as jumbo. ||
+|#
+
+## SecondaryThrottle {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.BalancerConfig.SecondaryThrottle}
+
+#|
+||Field | Description ||
+|| enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Whether to wait for replication during migration. Cannot be false with write_concern. ||
+|| write_concern | **[WriteConcern](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.BalancerConfig.SecondaryThrottle.WriteConcern)**
+
+Explicit write concern for migration; implies secondary throttling when enabled is omitted. ||
+|#
+
+## WriteConcern {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.BalancerConfig.SecondaryThrottle.WriteConcern}
+
+#|
+||Field | Description ||
+|| nodes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Number of replica set members that must acknowledge each document migration.
+Set either nodes or majority.
+
+Acceptable values are 1 to 7, inclusive. ||
+|| majority | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Set to true to require majority acknowledgement instead of a numeric node count. ||
+|| journal | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Require acknowledgement after writing to the on-disk journal. ||
+|| timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Write concern timeout in milliseconds. Zero means no timeout.
+
+The minimum value is 0. ||
+|#
+
+## Replication {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Replication}
+
+#|
+||Field | Description ||
+|| local_ping_threshold_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The latency window in milliseconds within which mongos selects replica set members for secondary reads.
+
+Value must be greater than 0. ||
 |#
 
 ## MongoInfra {#yandex.cloud.mdb.mongodb.v1.MongodbSpec.MongoInfra}
@@ -5905,14 +6053,77 @@ Acceptable values are 1 to 24, inclusive. ||
 ||Field | Description ||
 || whitelist[] | **string**
 
-List of MongoDB namespaces restore to
+List of StoreDoc namespaces restore to
 
 The minimum number of elements is 0. ||
 || blacklist[] | **string**
 
-List of MongoDB namespaces not restore to
+List of StoreDoc namespaces not restore to
 
 The minimum number of elements is 0. ||
+|#
+
+## MaintenanceWindows {#yandex.cloud.mdb.v1.MaintenanceWindows}
+
+Maintenance windows shared by all managed database services.
+
+#|
+||Field | Description ||
+|| anytime | **[AnytimeMaintenanceWindow](#yandex.cloud.mdb.v1.AnytimeMaintenanceWindow)**
+
+Maintenance operations can be scheduled anytime.
+
+Includes only one of the fields `anytime`, `weekly_maintenance_schedule`. ||
+|| weekly_maintenance_schedule | **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+
+Maintenance operations can be scheduled during the specified weekly slots.
+
+Includes only one of the fields `anytime`, `weekly_maintenance_schedule`. ||
+|#
+
+## AnytimeMaintenanceWindow {#yandex.cloud.mdb.v1.AnytimeMaintenanceWindow}
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## WeeklyMaintenanceSchedule {#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule}
+
+#|
+||Field | Description ||
+|| slots[] | **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+
+Weekly time slots during which maintenance operations can be scheduled.
+At least one slot is required.
+
+The number of elements must be greater than 0. ||
+|#
+
+## MaintenanceWindowSlot {#yandex.cloud.mdb.v1.MaintenanceWindowSlot}
+
+#|
+||Field | Description ||
+|| day | enum **DayOfWeek**
+
+Day of the week.
+
+- `MONDAY`: The day-of-week of Monday.
+- `TUESDAY`: The day-of-week of Tuesday.
+- `WEDNESDAY`: The day-of-week of Wednesday.
+- `THURSDAY`: The day-of-week of Thursday.
+- `FRIDAY`: The day-of-week of Friday.
+- `SATURDAY`: The day-of-week of Saturday.
+- `SUNDAY`: The day-of-week of Sunday. ||
+|| start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
+
+Required field. Start time in UTC. ||
+|| duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+
+Required field. Slot duration. ||
+|| allow_temporary_unavailability | **bool**
+
+Allows maintenance operations that may cause temporary write unavailability. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

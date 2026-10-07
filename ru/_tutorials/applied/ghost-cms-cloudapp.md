@@ -16,7 +16,7 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Подготовьте облако к работе {#before-you-begin}
+## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
@@ -69,12 +69,16 @@
 
 - {{ yandex-cloud }} CLI {#cli}
 
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
   Выполните команду:
 
   ```bash
   yc lockbox secret create \
     --name db-password-secret \
-    --payload "[{'key': 'db_password', 'text_value': '<пароль>'}]"
+    --payload '[{"key": "db_password", "text_value": "<пароль>"}]'
   ```
 
   Где `text_value` — пароль базы данных {{ mmy-name }}. Требования к паролю:
@@ -223,9 +227,7 @@
     1. [Перейдите]({{ link-console-main }}/link/cloud-apps) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
     1. Найдите установленное приложение Ghost CMS High Availability в списке.
     1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) рядом с приложением и выберите **{{ ui-key.yacloud.common.delete }}**.
-    1. Подтвердите удаление приложения.
-
-        Дождитесь завершения удаления.
+    1. Подтвердите удаление приложения и дождитесь завершения.
 
 1. [Удалите](../../dns/operations/zone-delete.md) публичную DNS-зону.
 1. [Удалите](../../lockbox/operations/secret-delete.md) секрет {{ lockbox-name }}.

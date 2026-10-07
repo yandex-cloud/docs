@@ -941,8 +941,6 @@ items:
         items:
           - name: Публикация обновлений для игр с помощью {{ cdn-name }}
             href: web/prefetch.md
-          - name: Создание SAP-программы в {{ yandex-cloud }}
-            href: infrastructure-management/sap.md
           - name: Развертывание сервера Minecraft в {{ yandex-cloud }}
             href: infrastructure/minecraft-server.md
           - name: Развертывание мультиплеер-сервера для GTA V в {{ yandex-cloud }}

@@ -21,7 +21,7 @@ You can set your preferred maintenance start time using the {{ yandex-cloud }} i
 
 In the management console, you select the maintenance start time as an hour interval. In other interfaces, you specify this interval by its sequence number, from `1` to `24`.
 
-> For example, to start maintenance in the interval from `00:00` to `01:00`, put `1`; from `04:00` to `05:00`, `5`.
+> For example, to start a maintenance session in the interval from `00:00` to `01:00`, enter `1`, from `04:00` to `05:00`, `5`.
 
 {% note info %}
 
@@ -46,8 +46,8 @@ The maintenance procedure is as follows:
 
 In sharded clusters, maintenance is performed shard by shard in ascending order by shard number. Host maintenance in each shard is the same as in non-sharded clusters:
 
-1. Replica hosts undergo maintenance one by one. Such hosts are queued randomly. If a replica needs to be restarted during maintenance, it will become unavailable.
-1. Maintenance is performed on a master host. If the master host needs to restart and becomes unavailable, one of the replicas will assume its role. A single-host shard will be unavailable during its maintenance.
+1. Replica hosts undergo maintenance one by one. Such hosts are queued randomly. If a replica needs to be restarted during maintenance, it will become unavailable. If your write request returns an error, repeat it later.
+1. Maintenance is performed on a master host. If the master host needs to restart and becomes unavailable, one of the replicas will assume its role. A single-host shard will be unavailable during its maintenance. If your write request returns an error, repeat it later.
 
 ## How maintenance impacts a cluster {#impact-on-cluster}
 

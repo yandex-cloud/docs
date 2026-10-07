@@ -179,7 +179,6 @@ _Диск_ — это виртуальный аналог физических �
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/sap.md)
 * [{#T}](../tutorials/alb-with-ddos-protection/index.md)
 * [{#T}](../tutorials/packer-quickstart.md)
 * [{#T}](../tutorials/hpc-on-preemptible.md)

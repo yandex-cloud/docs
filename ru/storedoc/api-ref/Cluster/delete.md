@@ -9,8 +9,8 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the MongoDB cluster to delete.
-            To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+            Required field. ID of the StoreDoc cluster to delete.
+            To get the StoreDoc cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
             The maximum string length in characters is 50.
           type: string
       required:
@@ -23,7 +23,7 @@ apiPlayground:
 
 # Managed Service for MongoDB API, REST: Cluster.Delete
 
-Deletes the specified MongoDB cluster.
+Deletes the specified StoreDoc cluster.
 
 ## HTTP request
 
@@ -37,8 +37,8 @@ DELETE https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster to delete.
-To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+Required field. ID of the StoreDoc cluster to delete.
+To get the StoreDoc cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 |#

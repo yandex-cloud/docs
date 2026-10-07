@@ -2,7 +2,7 @@
 
 # Managed Service for Redis API, gRPC: BackupService.Delete
 
-Deletes the specified Redis backup.
+Deletes the specified Valkey backup.
 
 ## gRPC request
 

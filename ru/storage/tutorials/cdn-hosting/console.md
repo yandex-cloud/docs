@@ -15,4 +15,4 @@ canonical: '{{ link-docs }}/tutorials/applied/cdn-hosting/console'
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](terraform.md)
+[{#T}](terraform.md)

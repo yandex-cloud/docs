@@ -50,7 +50,7 @@ Maintenance related to software updates is performed as follows:
 
 1. [Segment hosts](index.md) undergo maintenance one by one. Such hosts are queued randomly. If a segment host needs to be restarted during maintenance, it becomes unavailable while being restarted.
 1. Maintenance is performed on the `STANDBY` master host. If it needs to be restarted during maintenance, it becomes unavailable while being restarted.
-1. Maintenance is performed on the `PRIMARY` master host. If it is restarted during maintenance and becomes unavailable, the standby master host will take its role. If you access a cluster using the FQDN of the primary master host, the cluster may become unavailable. To make your application continuously available, access the cluster using a [special FQDN](../operations/connect/fqdn.md#fqdn-master) always pointing to the primary master host.
+1. Maintenance is performed on the `PRIMARY` master host. If it is restarted during maintenance and becomes unavailable, the standby master host will take its role. If you access a cluster using the FQDN of the primary master host, the cluster may become unavailable. If your write request returns an error, repeat it later.
 
 ## Routine maintenance operations {#regular-ops}
 

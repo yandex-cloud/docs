@@ -42,7 +42,7 @@ For more information about limits on the number of hosts per cluster or [shard](
 After switching to _read-only_ mode:
 
 * Write queries stop being allowed on the host. You can only make read queries.
-* If the host was a [primary replica](replication.md) before switching to _read-only_ mode, this role will be automatically assigned to another cluster host, as the primary replica should be able to write to disk.
+* If the host was a [master](replication.md) before switching to _read-only_ mode, this role will be automatically assigned to another cluster host, as the master should be able to write to disk.
 
 If the data amount in the cluster keeps growing, all hosts will enter _read-only_ mode one by one and the cluster will eventually stop accepting data for writing.
 

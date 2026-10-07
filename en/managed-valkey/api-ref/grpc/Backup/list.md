@@ -4,7 +4,7 @@ editable: false
 
 # Managed Service for Redis API, gRPC: BackupService.List
 
-Retrieves the list of Redis backups available for the specified folder.
+Retrieves the list of Valkey backups available for the specified folder.
 
 ## gRPC request
 
@@ -79,8 +79,8 @@ list request will have its own `next_page_token` to continue paging through the 
 
 ## Backup {#yandex.cloud.mdb.redis.v1.Backup}
 
-Description of a Redis backup. For more information, see
-the Managed Service for Redis [documentation](/docs/managed-redis/concepts/backup).
+Description of a Valkey backup. For more information, see
+the Managed Service for Valkey [documentation](/docs/managed-redis/concepts/backup).
 
 #|
 ||Field | Description ||
@@ -96,7 +96,7 @@ Required field. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339
 (i.e. when the backup operation was completed). ||
 || source_cluster_id | **string**
 
-Required field. ID of the Redis cluster that the backup was created for. ||
+Required field. ID of the Valkey cluster that the backup was created for. ||
 || started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Required field. Start timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format
@@ -108,6 +108,6 @@ Shard names used as a source for backup. ||
 
 How this backup was created (manual/automatic/etc...)
 
-- `AUTOMATED`: Backup created by automated daily schedule
+- `AUTOMATED`: Backup created by automated daily schedule.
 - `MANUAL`: Backup created by user request ||
 |#

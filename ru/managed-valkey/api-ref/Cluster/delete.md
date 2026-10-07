@@ -9,8 +9,8 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the Redis cluster to delete.
-            To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+            Required field. ID of the Valkey cluster to delete.
+            To get the Valkey cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
             The maximum string length in characters is 50.
           type: string
       required:
@@ -23,7 +23,7 @@ apiPlayground:
 
 # Managed Service for Redis API, REST: Cluster.Delete
 
-Deletes the specified Redis cluster.
+Deletes the specified Valkey cluster.
 
 ## HTTP request
 
@@ -37,8 +37,8 @@ DELETE https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Redis cluster to delete.
-To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+Required field. ID of the Valkey cluster to delete.
+To get the Valkey cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 |#

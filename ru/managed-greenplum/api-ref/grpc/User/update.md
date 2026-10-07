@@ -25,7 +25,8 @@ Update user
       "pool_mode": "PoolMode",
       "pool_size": "google.protobuf.Int64Value",
       "pool_client_idle_timeout": "google.protobuf.Int64Value",
-      "pool_idle_in_transaction_timeout": "google.protobuf.Int64Value"
+      "pool_idle_in_transaction_timeout": "google.protobuf.Int64Value",
+      "pool_discard": "google.protobuf.BoolValue"
     }
   }
 }
@@ -108,6 +109,10 @@ Set to zero to disable.
 If not set, uses the cluster-level pool.idle_in_transaction_timeout setting.
 
 The minimum value is 0. ||
+|| pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables cleanup of server connections when they are returned to the connection pool.
+If not set, uses the cluster-level pool.pool_discard setting. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

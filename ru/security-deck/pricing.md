@@ -25,7 +25,6 @@ editable: false
 
 * [Модуль {{ access-analyzer-name }}](concepts/access-analyzer.md)
 * [Модуль обнаружения угроз ({{ td-name }})](concepts/threat-detector.md)
-* [AI-ассистент](concepts/ai-assistant.md)
 
 ## Из чего складывается стоимость использования {{ sd-name }} {#rules}
 

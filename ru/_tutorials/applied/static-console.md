@@ -61,9 +61,9 @@
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором расположен бакет.
-      1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и в открывшемся окне выберите созданный ранее бакет.
-      1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_files }}** и на панели сверху нажмите кнопку ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}**. В открывшемся окне выберите созданные файлы и подтвердите загрузку.
-      1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}**, затем на вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**. В открывшемся окне:
+      1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и на открывшейся странице выберите созданный ранее бакет.
+      1. Вверху нажмите кнопку ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}**. В открывшемся окне выберите созданные файлы и подтвердите загрузку.
+      1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_settings }}** → **{{ ui-key.yacloud.storage.bucket.switch_website }}**. На открывшейся странице:
 
           1. Выберите режим `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
           1. В поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите `index.html`.
@@ -76,6 +76,7 @@
 1. Убедитесь, что страница ошибки открывается. Для этого подключитесь к сайту через браузер по ссылке вида `http://<имя_бакета>.{{ s3-web-host }}/error-check`.
 
 По умолчанию сайт доступен только по протоколу HTTP, например `http://example.com.{{ s3-web-host }}`. Чтобы поддержать для сайта протокол HTTPS:
+
 1. Добавьте [собственный сертификат безопасности](../../certificate-manager/operations/import/cert-create.md) или [сертификат от Let's Encrypt](../../certificate-manager/operations/managed/cert-create.md) в сервисе {{ certificate-manager-full-name }}.
 1. [Настройте](../../storage/operations/hosting/certificate.md) поддержку HTTPS для бакета. После этого сайт будет доступен по протоколу HTTPS `https://example.com.website.yandexcloud.net`.
 
@@ -107,7 +108,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать публичную зону.
   1. [Перейдите]({{ link-console-main }}/link/dns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}** и в открывшемся окне задайте настройки зоны DNS:
+  1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}** и на открывшейся странице задайте настройки зоны DNS:
 
       * **{{ ui-key.yacloud.dns.label_zone }}** — укажите ваше зарегистрированное доменное имя. Например: `example.com.`. Значение поля должно заканчиваться точкой.
       * **{{ ui-key.yacloud.common.type }}** — `{{ ui-key.yacloud.dns.label_public }}`.
@@ -171,6 +172,7 @@ ns1.{{ dns-ns-host-sld }}.
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за ресурсы:
+
 1. [Удалите загруженные файлы](../../storage/operations/objects/delete.md).
 1. [Удалите бакет](../../storage/operations/buckets/delete.md).
 1. [Удалите зону DNS](../../dns/operations/zone-delete.md).

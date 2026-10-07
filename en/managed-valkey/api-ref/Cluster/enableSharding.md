@@ -9,7 +9,7 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the Redis cluster to return.
+            Required field. ID of the Valkey cluster to return.
             The maximum string length in characters is 50.
           type: string
       required:
@@ -22,7 +22,7 @@ apiPlayground:
 
 # Managed Service for Redis API, REST: Cluster.EnableSharding
 
-Enable Sharding on non sharded cluster
+Enable Sharding on non sharded cluster.
 
 ## HTTP request
 
@@ -36,7 +36,7 @@ POST https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}:enable_sha
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Redis cluster to return.
+Required field. ID of the Valkey cluster to return.
 
 The maximum string length in characters is 50. ||
 |#

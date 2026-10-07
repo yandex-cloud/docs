@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}:re
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the MongoDB cluster.
+Required field. ID of the StoreDoc cluster.
 
 The maximum string length in characters is 50. ||
 |#
@@ -35,7 +35,7 @@ The maximum string length in characters is 50. ||
 ||Field | Description ||
 || hostNames[] | **string**
 
-Required. Name of the hosts to restart.
+Name of the hosts to restart.
 
 The maximum string length in characters for each value is 253. The number of elements must be greater than 0. ||
 |#

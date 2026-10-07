@@ -5,9 +5,6 @@ meta:
   title: Troubleshooting
   description: Known solutions and tips for optimal use of {{ yandex-cloud }} services.
 links:
-  - title: '{{ alb-name }}'
-    description: Solutions for {{ alb-name }}
-    href: application-load-balancer/
   - title: '{{ billing-name }}'
     description: Solutions for {{ billing-name }}
     href: billing/

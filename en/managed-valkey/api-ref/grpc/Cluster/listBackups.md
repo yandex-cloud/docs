@@ -4,7 +4,7 @@ editable: false
 
 # Managed Service for Redis API, gRPC: ClusterService.ListBackups
 
-Retrieves the list of available backups for the specified Redis cluster.
+Retrieves the list of available backups for the specified Valkey cluster.
 
 ## gRPC request
 
@@ -24,8 +24,8 @@ Retrieves the list of available backups for the specified Redis cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Redis cluster.
-To get the Redis cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request.
+Required field. ID of the Valkey cluster.
+To get the Valkey cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || page_size | **int64**
@@ -68,7 +68,7 @@ The maximum string length in characters is 100. ||
 ||Field | Description ||
 || backups[] | **[Backup](#yandex.cloud.mdb.redis.v1.Backup)**
 
-List of Redis backups. ||
+List of Valkey backups. ||
 || next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
@@ -79,8 +79,8 @@ Each subsequent list request will have its own `next_page_token` to continue pag
 
 ## Backup {#yandex.cloud.mdb.redis.v1.Backup}
 
-Description of a Redis backup. For more information, see
-the Managed Service for Redis [documentation](/docs/managed-redis/concepts/backup).
+Description of a Valkey backup. For more information, see
+the Managed Service for Valkey [documentation](/docs/managed-redis/concepts/backup).
 
 #|
 ||Field | Description ||
@@ -96,7 +96,7 @@ Required field. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339
 (i.e. when the backup operation was completed). ||
 || source_cluster_id | **string**
 
-Required field. ID of the Redis cluster that the backup was created for. ||
+Required field. ID of the Valkey cluster that the backup was created for. ||
 || started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Required field. Start timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format
@@ -108,6 +108,6 @@ Shard names used as a source for backup. ||
 
 How this backup was created (manual/automatic/etc...)
 
-- `AUTOMATED`: Backup created by automated daily schedule
+- `AUTOMATED`: Backup created by automated daily schedule.
 - `MANUAL`: Backup created by user request ||
 |#

@@ -132,7 +132,7 @@ To view detailed information on the state of individual {{ mmg-name }} hosts:
 
   1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Click the name of your cluster and select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}**.
+  1. Click the cluster name and select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}**.
   1. Navigate to the **Hosts** tab and select the host.
 
       The page that opens will display performance charts for the cluster hosts.
@@ -172,7 +172,7 @@ To view detailed information on the health state of {{ mmg-name }} shards:
 
   1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Click the name of your cluster and select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}**.
+  1. Click the cluster name and select ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}**.
   1. Navigate to the **Shards** tab and select a shard.
       
       The page that opens will display health state charts for the selected shard and its hosts.
@@ -186,10 +186,10 @@ To view detailed information on the health state of {{ mmg-name }} shards:
 
   Under **Traffic**:
 
-  * **Queries on primary**: Increase in commands and operations on the primary replica of the shard.
+  * **Queries on primary**: Increase in commands and operations on the shard master.
   * **Queries on secondaries**: Increase in commands and operations on shard secondary replicas.
   * **Replicated queries**: Increase in replicated commands and operations on shard secondary replicas.
-  * **Documents affected on primary**: Increase in documents added, updated, deleted, or returned by queries on the primary replica of the shard.
+  * **Documents affected on primary**: Increase in documents added, updated, deleted, or returned by queries on the shard master.
   * **Documents affected on secondaries**: Increase in documents added, updated, deleted, or returned by queries on shard secondary replicas.
   * **Documents affected per host**: Increase in documents added, updated, deleted, or returned by queries on each shard host.
   * **Total operations count on cluster**: Total increase in commands and operations executed on the shard.
@@ -198,10 +198,10 @@ To view detailed information on the health state of {{ mmg-name }} shards:
 
   Under **Latency**:
    
-  * **Average operations time on primary**: Average execution time for commands and operations on the primary replica of the shard.
+  * **Average operations time on primary**: Average execution time for commands and operations on the shard master.
   * **Average operations time on secondaries**: Average execution time for commands and operations on shard secondary replicas.
   * **Average operation time per host**: Average time it takes each shard host to execute operations.
-  * **Total operations time on Primaries**: Total execution time for all operations on the primary replica of the shard.
+  * **Total operations time on Primaries**: Total execution time for all operations on the shard master.
   * **Total operations time on Secondaries**: Total execution time for all operations on shard secondary replicas.
   * **Total operations time on Cluster**: Total execution time for all operations on the shard.
   * **Write operations time, top 5 collections**: Total time spent on write operations for the five largest collections on the shard.
@@ -212,8 +212,8 @@ To view detailed information on the health state of {{ mmg-name }} shards:
   * **Replication lag per host and write_concern wait**: Replication delay and write concern timeout on each shard host.
   * **Scanned / returned**: Average ratio of scanned keys and documents to returned documents on the shard.
   * **Scan and order per host**: Increase in the number of non-index-based data sorts on each shard host.
-  * **Data size on primary, top 5 databases**: Data size for the five largest databases on the primary replica of the shard.
-  * **Index size on primary, top 5 indexes**: Index size for the five largest databases on the primary replica of the shard.
+  * **Data size on primary, top 5 databases**: Data size for the five largest databases on the shard master.
+  * **Index size on primary, top 5 indexes**: Index size for the five largest databases on the shard master.
   * **TTL indexes activity**: Increase in deleted documents and background deletion operations using TTL indexes on the shard.
   * **Configured oplog size per host**: Maximum operation log size on each shard host.
   * **Oplog window**: Time interval for retaining replication data in the `oplog` collection on each shard host.
@@ -226,13 +226,13 @@ To view detailed information on the health state of {{ mmg-name }} shards:
   Under **Resources** → **CPU**:
   
   * **CPU usage per host**: CPU usage percentage per shard host.
-  * **CPU usage on Primaries**: CPU load on the primary replica of the shard.
+  * **CPU usage on Primaries**: CPU load on the shard master.
   * **CPU usage on Secondaries**: CPU load on shard secondary replicas.
   
   Under **Resources** → **Memory**:
    
   * **Memory usage per host**: RAM usage per shard host as a percentage.
-  * **Memory usage on Primaries**: RAM usage on the primary replica of the shard.
+  * **Memory usage on Primaries**: RAM usage on the shard master.
   * **Memory usage on Secondaries**: RAM usage on shard secondary replicas.
 
   Under **Resources** → **Network**:
@@ -244,7 +244,7 @@ To view detailed information on the health state of {{ mmg-name }} shards:
   Under **Resources** → **Data**:
   
   * **Disk space usage per host**: Disk space usage per shard host as a percentage of the total storage size.
-  * **Disk space usage on Primaries**: Disk space usage on the primary replica of the shard.
+  * **Disk space usage on Primaries**: Disk space usage on the shard master.
   * **Disk space usage on Secondaries**: Disk space usage on shard secondary replicas.
   * **Disk usage per host**: Total disk read and write rate on each shard host.
   * **Disk write per host**: Disk write rate on each shard host.
@@ -258,11 +258,11 @@ To view detailed information on the health state of {{ mmg-name }} shards:
 
   Under **WiredTiger**:
 
-  * **WiredTiger checkpoint time on primary**: Time required to create checkpoints on the primary replica of the shard.
-  * **WiredTiger cache state on primary**: Cache usage on the primary replica of the shard.
-  * **WiredTiger transactions state on primary**: Increase in transactions on the primary replica of the shard.
-  * **WiredTiger concurrent transactions on primary**: Current number of parallel transaction tickets on the primary replica of the shard.
-  * **WiredTiger cache pages evicted on primary**: Increase in evicted cache pages (both modified and not) on the primary replica of the shard.
+  * **WiredTiger checkpoint time on primary**: Time required to create checkpoints on the shard master.
+  * **WiredTiger cache state on primary**: Cache usage on the shard master.
+  * **WiredTiger transactions state on primary**: Increase in transactions on the shard master.
+  * **WiredTiger concurrent transactions on primary**: Current number of parallel transaction tickets on the shard master.
+  * **WiredTiger cache pages evicted on primary**: Increase in evicted cache pages (both modified and not) on the shard master.
   
   Under **Mongos**:
    

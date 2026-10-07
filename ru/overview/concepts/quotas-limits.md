@@ -377,7 +377,7 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 
 #### Квоты {#ca-quotas}
 
-Квоты {{ ca-full-name }} устанавливаются в зависимости от используемого тарифного плана. Подробнее на странице [Тарифные планы {{ ca-name }}]({{ link-src-docs }}/sourcecraft/pricing#ca-plans).
+Квоты {{ ca-full-name }} устанавливаются в зависимости от используемого тарифного плана. Подробнее на странице [Тарифные планы {{ ca-name }}]({{ link-src-docs }}/sourcecraft/pricing).
 
 
 ### {{ vc-name }} {#vc}

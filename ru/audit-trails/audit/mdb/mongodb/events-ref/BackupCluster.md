@@ -3065,7 +3065,8 @@ editable: false
                     "samplingRate": "number",
                     "maxTimeMs": "string"
                   },
-                  "redactClientLogData": "boolean"
+                  "redactClientLogData": "boolean",
+                  "allowDiskUseByDefault": "boolean"
                 },
                 "oplog": {
                   "maxSizePercent": "string",
@@ -3139,7 +3140,8 @@ editable: false
                     "samplingRate": "number",
                     "maxTimeMs": "string"
                   },
-                  "redactClientLogData": "boolean"
+                  "redactClientLogData": "boolean",
+                  "allowDiskUseByDefault": "boolean"
                 },
                 "oplog": {
                   "maxSizePercent": "string",
@@ -3213,7 +3215,8 @@ editable: false
                     "samplingRate": "number",
                     "maxTimeMs": "string"
                   },
-                  "redactClientLogData": "boolean"
+                  "redactClientLogData": "boolean",
+                  "allowDiskUseByDefault": "boolean"
                 },
                 "oplog": {
                   "maxSizePercent": "string",
@@ -3376,6 +3379,22 @@ editable: false
                 "operationProfiling": {
                   "slowOpThreshold": "string",
                   "slowOpSampleRate": "number"
+                },
+                "balancerConfig": {
+                  "secondaryThrottle": {
+                    "enabled": "boolean",
+                    "writeConcern": {
+                      "nodes": "string",
+                      "majority": "boolean",
+                      "journal": "boolean",
+                      "timeoutMs": "string"
+                    }
+                  },
+                  "waitForDelete": "boolean",
+                  "attemptToBalanceJumboChunks": "boolean"
+                },
+                "replication": {
+                  "localPingThresholdMs": "string"
                 }
               },
               "userConfig": {
@@ -3410,6 +3429,22 @@ editable: false
                 "operationProfiling": {
                   "slowOpThreshold": "string",
                   "slowOpSampleRate": "number"
+                },
+                "balancerConfig": {
+                  "secondaryThrottle": {
+                    "enabled": "boolean",
+                    "writeConcern": {
+                      "nodes": "string",
+                      "majority": "boolean",
+                      "journal": "boolean",
+                      "timeoutMs": "string"
+                    }
+                  },
+                  "waitForDelete": "boolean",
+                  "attemptToBalanceJumboChunks": "boolean"
+                },
+                "replication": {
+                  "localPingThresholdMs": "string"
                 }
               },
               "defaultConfig": {
@@ -3444,6 +3479,22 @@ editable: false
                 "operationProfiling": {
                   "slowOpThreshold": "string",
                   "slowOpSampleRate": "number"
+                },
+                "balancerConfig": {
+                  "secondaryThrottle": {
+                    "enabled": "boolean",
+                    "writeConcern": {
+                      "nodes": "string",
+                      "majority": "boolean",
+                      "journal": "boolean",
+                      "timeoutMs": "string"
+                    }
+                  },
+                  "waitForDelete": "boolean",
+                  "attemptToBalanceJumboChunks": "boolean"
+                },
+                "replication": {
+                  "localPingThresholdMs": "string"
                 }
               }
             },
@@ -3492,6 +3543,22 @@ editable: false
                 "operationProfiling": {
                   "slowOpThreshold": "string",
                   "slowOpSampleRate": "number"
+                },
+                "balancerConfig": {
+                  "secondaryThrottle": {
+                    "enabled": "boolean",
+                    "writeConcern": {
+                      "nodes": "string",
+                      "majority": "boolean",
+                      "journal": "boolean",
+                      "timeoutMs": "string"
+                    }
+                  },
+                  "waitForDelete": "boolean",
+                  "attemptToBalanceJumboChunks": "boolean"
+                },
+                "replication": {
+                  "localPingThresholdMs": "string"
                 }
               },
               "userConfig": {
@@ -3526,6 +3593,22 @@ editable: false
                 "operationProfiling": {
                   "slowOpThreshold": "string",
                   "slowOpSampleRate": "number"
+                },
+                "balancerConfig": {
+                  "secondaryThrottle": {
+                    "enabled": "boolean",
+                    "writeConcern": {
+                      "nodes": "string",
+                      "majority": "boolean",
+                      "journal": "boolean",
+                      "timeoutMs": "string"
+                    }
+                  },
+                  "waitForDelete": "boolean",
+                  "attemptToBalanceJumboChunks": "boolean"
+                },
+                "replication": {
+                  "localPingThresholdMs": "string"
                 }
               },
               "defaultConfig": {
@@ -3560,6 +3643,22 @@ editable: false
                 "operationProfiling": {
                   "slowOpThreshold": "string",
                   "slowOpSampleRate": "number"
+                },
+                "balancerConfig": {
+                  "secondaryThrottle": {
+                    "enabled": "boolean",
+                    "writeConcern": {
+                      "nodes": "string",
+                      "majority": "boolean",
+                      "journal": "boolean",
+                      "timeoutMs": "string"
+                    }
+                  },
+                  "waitForDelete": "boolean",
+                  "attemptToBalanceJumboChunks": "boolean"
+                },
+                "replication": {
+                  "localPingThresholdMs": "string"
                 }
               }
             },
@@ -3673,7 +3772,8 @@ editable: false
           "targetFreeSpace": "string",
           "bloatPercent": "number",
           "compactionType": "string"
-        }
+        },
+        "balancerEnabled": "boolean"
       },
       "networkId": "string",
       "health": "string",
@@ -3697,7 +3797,27 @@ editable: false
       ],
       "deletionProtection": "boolean",
       "diskEncryptionKeyId": "string",
-      "isHa": "boolean"
+      "isHa": "boolean",
+      "maintenanceWindows": {
+        // Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`
+        "anytime": "object",
+        "weeklyMaintenanceSchedule": {
+          "slots": [
+            {
+              "day": "string",
+              "startTime": {
+                "hours": "integer",
+                "minutes": "integer",
+                "seconds": "integer",
+                "nanos": "integer"
+              },
+              "duration": "string",
+              "allowTemporaryUnavailability": "boolean"
+            }
+          ]
+        }
+        // end of the list of possible fields
+      }
     },
     "backupIds": [
       "string"
@@ -3940,6 +4060,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || deletionProtection | **boolean** ||
 || diskEncryptionKeyId | **string** ||
 || isHa | **boolean** ||
+|| maintenanceWindows | **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)** ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.mongodb.v1.Monitoring}
@@ -3991,6 +4112,7 @@ Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mo
 || mongodbConfig | **[Mongodb](#yandex.cloud.mdb.mongodb.v1.Mongodb)** ||
 || fullVersion | **string** ||
 || autocompactConfig | **[AutoCompactConfig](#yandex.cloud.mdb.mongodb.v1.AutoCompactConfig)** ||
+|| balancerEnabled | **boolean** ||
 |#
 
 ## Mongodb3_6 {#yandex.cloud.mdb.mongodb.v1.Mongodb3_6}
@@ -6646,6 +6768,7 @@ The minimum value is 0. ||
 The minimum value is 0. ||
 || mirrorReads | **[MirrorReads](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads)** ||
 || redactClientLogData | **boolean** ||
+|| allowDiskUseByDefault | **boolean** ||
 |#
 
 ## MirrorReads {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads}
@@ -6807,6 +6930,8 @@ Acceptable values are 10 to 32768, inclusive. ||
 || auditLog | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog)** ||
 || chunkSize | **string** (int64) ||
 || operationProfiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.OperationProfiling)** ||
+|| balancerConfig | **[BalancerConfig](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.BalancerConfig)** ||
+|| replication | **[Replication](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Replication)** ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network}
@@ -6870,6 +6995,46 @@ Value must be greater than 0. ||
 || slowOpSampleRate | **number** (double)
 
 Acceptable values are 0 to 1, inclusive. ||
+|#
+
+## BalancerConfig {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.BalancerConfig}
+
+#|
+||Field | Description ||
+|| secondaryThrottle | **[SecondaryThrottle](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.BalancerConfig.SecondaryThrottle)** ||
+|| waitForDelete | **boolean** ||
+|| attemptToBalanceJumboChunks | **boolean** ||
+|#
+
+## SecondaryThrottle {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.BalancerConfig.SecondaryThrottle}
+
+#|
+||Field | Description ||
+|| enabled | **boolean** ||
+|| writeConcern | **[WriteConcern](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.BalancerConfig.SecondaryThrottle.WriteConcern)** ||
+|#
+
+## WriteConcern {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.BalancerConfig.SecondaryThrottle.WriteConcern}
+
+#|
+||Field | Description ||
+|| nodes | **string** (int64)
+
+Acceptable values are 1 to 7, inclusive. ||
+|| majority | **boolean** ||
+|| journal | **boolean** ||
+|| timeoutMs | **string** (int64)
+
+The minimum value is 0. ||
+|#
+
+## Replication {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Replication}
+
+#|
+||Field | Description ||
+|| localPingThresholdMs | **string** (int64)
+
+Value must be greater than 0. ||
 |#
 
 ## MongoInfra {#yandex.cloud.mdb.mongodb.v1.Mongodb.MongoInfra}
@@ -6940,6 +7105,45 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|#
+
+## MaintenanceWindows {#yandex.cloud.mdb.v1.MaintenanceWindows}
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|| weeklyMaintenanceSchedule | **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|#
+
+## WeeklyMaintenanceSchedule {#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule}
+
+#|
+||Field | Description ||
+|| slots[] | **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+
+The number of elements must be greater than 0. ||
+|#
+
+## MaintenanceWindowSlot {#yandex.cloud.mdb.v1.MaintenanceWindowSlot}
+
+#|
+||Field | Description ||
+|| day | **enum** (DayOfWeek)
+
+- `MONDAY`
+- `TUESDAY`
+- `WEDNESDAY`
+- `THURSDAY`
+- `FRIDAY`
+- `SATURDAY`
+- `SUNDAY` ||
+|| startTime | **[TimeOfDay](#google.type.TimeOfDay)** ||
+|| duration | **string** (duration) ||
+|| allowTemporaryUnavailability | **boolean** ||
 |#
 
 ## Backup {#yandex.cloud.mdb.mongodb.v1.Backup}

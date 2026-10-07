@@ -24,7 +24,6 @@
 * [Создание триггеров, которые вызывают функции Cloud Functions для остановки ВМ и отправки уведомлений в Telegram](serverless-trigger-budget-queue-vm-tg.md)
 * [Создание интернет-магазина на платформе OpenCart](opencart/index.md)
 * [Создание веб-приложения на Python с использованием фреймворка Flask](flask.md)
-* [Создание SAP-программы в Yandex Cloud](sap.md)
 * [Развертывание сервера Minecraft в Yandex Cloud](minecraft-server.md)
 * [Автоматизация сборки образов с помощью Jenkins и Packer](jenkins.md)
 * [Создание тестовых виртуальных машин через GitLab CI](test-vms-creation-via-gitlab-ci.md)

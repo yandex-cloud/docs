@@ -15,7 +15,7 @@
 
 Чтобы создать CDN-инфраструктуру:
 1. [Подготовьтесь к работе](#before-you-begin).
-1. [Добавьте сертификат в Certificate Manager](#add-certificate)
+1. [Добавьте сертификат в Certificate Manager](#add-certificate).
 1. [Создайте бакеты в Object Storage](#create-buckets).
 1. [Включите логирование бакета с файлами](#enable-logging).
 1. [Загрузите файл в бакет](#upload-object).
@@ -42,9 +42,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки CDN-инфраструктуры входят:
-* Плата за исходящий трафик с CDN-серверов ([тарифы Cloud CDN](../../cdn/pricing.md)).
-* Плата за хранение данных в Object Storage, операции с ними и исходящий трафик ([тарифы Object Storage](../../storage/pricing.md)).
-* Плата за публичные DNS-запросы и [DNS-зоны](../../dns/concepts/dns-zone.md), если вы используете [Yandex Cloud DNS](../../dns/index.md) ([тарифы Cloud DNS](../../dns/pricing.md)).
+* плата за исходящий трафик с CDN-серверов ([тарифы Cloud CDN](../../cdn/pricing.md));
+* плата за хранение данных в Object Storage, операции с ними и исходящий трафик ([тарифы Object Storage](../../storage/pricing.md));
+* плата за публичные DNS-запросы и [DNS-зоны](../../dns/concepts/dns-zone.md), если вы используете [Yandex Cloud DNS](../../dns/index.md) ([тарифы Cloud DNS](../../dns/pricing.md)).
 
 ## Добавьте сертификат в Certificate Manager {#add-certificate}
 
@@ -126,6 +126,15 @@
      Пример структуры конфигурационного файла:
 
      ```hcl
+     terraform {
+       required_providers {
+         yandex = {
+           source  = "yandex-cloud/yandex"
+           version = ">= 0.47.0"
+         }
+       }
+     }
+
      provider "yandex" {
        cloud_id  = "<идентификатор_облака>"
        folder_id = "<идентификатор_каталога>"
@@ -384,6 +393,15 @@
      
      {% endnote %}
 
+  1. Включите кеширование на CDN-серверах:
+
+     ```bash
+     yc cdn resource update <идентификатор_ресурса> \
+       --cache-expiration-time 345600
+     ```
+
+     Где `--cache-expiration-time` — время жизни кеша в секундах.
+
   1. Включите переадресацию клиентов для ресурса:
 
      ```bash
@@ -410,6 +428,7 @@
        origin_protocol     = "https"
        origin_group_id     = yandex_cdn_origin_group.my_group.id
        options {
+         edge_cache_settings    = "345600"
          custom_host_header     = "<имя_бакета_с_файлами>.storage.yandexcloud.net"
        }
        ssl_certificate {
@@ -451,7 +470,7 @@
      ```hcl
      ...
      options {
-       redirect_https_to_http = true
+       redirect_http_to_https = true
      ...
      ```
 
@@ -470,7 +489,7 @@
 
   1. Подтвердите обновление ресурса: введите в терминал слово `yes` и нажмите **Enter**.
 
-  После этого для у ресурса будет включена переадресация.
+  После этого у ресурса будет включена переадресация.
 
 - API {#api}
 
@@ -549,7 +568,7 @@
         id: aetuvdw77q61********
         folder_id: aoewzf73jwdl********
         created_at: "2021-09-28T10:33:31.917Z"
-        name: cdn-zone-a
+        name: cdn-dns-a
         zone: ycprojectblue.example.
         public_visibility: {}
         ```
@@ -642,7 +661,7 @@
 1. Дождитесь обновления DNS-записей (на это может потребоваться несколько часов) и предзагрузки файла на CDN-серверы.
 1. Скачайте файл по новому URL:
 
-   ```http request
+   ```text
    https://cdn.ycprojectblue.example/ycgame-update-v1.1.exe
    ```
 
@@ -704,8 +723,10 @@
 
 Чтобы остановить работу CDN-ресурса и перестать платить за созданные ресурсы:
 1. [Отключите](../../cdn/operations/resources/disable-resource.md) созданный ресурс.
+1. [Удалите](../../cdn/operations/resources/delete-resource.md) CDN-ресурс.
 1. [Удалите](../../storage/operations/objects/delete.md) объект `ycgame-update-v1.1.exe` из бакета с файлами.
 1. [Удалите](../../storage/operations/buckets/delete.md) бакет с файлами.
 1. [Удалите](../../storage/operations/objects/delete.md) все объекты из бакета с логами.
 1. [Удалите](../../storage/operations/buckets/delete.md) бакет с логами.
 1. [Удалите](../../dns/operations/zone-delete.md) зону DNS, если вы пользовались ей при [настройке DNS](#dns-setup).
+1. [Удалите](../../certificate-manager/operations/managed/cert-delete.md) сертификат из Certificate Manager, если вы добавляли его при [подготовке руководства](#add-certificate).

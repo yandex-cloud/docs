@@ -4,7 +4,7 @@ editable: false
 
 # Managed Service for MongoDB API, gRPC: ClusterService.Start
 
-Start the specified MongoDB cluster.
+Start the specified StoreDoc cluster.
 
 ## gRPC request
 
@@ -22,7 +22,7 @@ Start the specified MongoDB cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the MongoDB cluster to start.
+Required field. ID of the StoreDoc cluster to start.
 
 The maximum string length in characters is 50. ||
 |#

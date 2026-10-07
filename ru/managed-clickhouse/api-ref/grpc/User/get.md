@@ -154,6 +154,9 @@ The maximum string length in characters is 63. ||
     "max_parser_depth": "google.protobuf.Int64Value",
     "min_execution_speed": "google.protobuf.Int64Value",
     "min_execution_speed_bytes": "google.protobuf.Int64Value",
+    "use_statistics": "google.protobuf.BoolValue",
+    "use_statistics_for_part_pruning": "google.protobuf.BoolValue",
+    "refresh_statistics_interval": "google.protobuf.Int64Value",
     "input_format_values_interpret_expressions": "google.protobuf.BoolValue",
     "input_format_defaults_for_omitted_fields": "google.protobuf.BoolValue",
     "input_format_null_as_default": "google.protobuf.BoolValue",
@@ -254,7 +257,8 @@ The maximum string length in characters is 63. ||
     "connection_id": "string",
     "connection_folder_id": "string",
     "secret_folder_id": "string"
-  }
+  },
+  "deletion_protection_mode": "DeletionProtectionMode"
 }
 ```
 
@@ -290,6 +294,13 @@ User authentication method.
 || user_connection_manager | **[UserConnectionManager](#yandex.cloud.mdb.v1.UserConnectionManager)**
 
 Connection Manager connection and settings associated with the user. ||
+|| deletion_protection_mode | enum **DeletionProtectionMode**
+
+Deletion protection mode. Default value is `DELETION_PROTECTION_MODE_DISABLED`.
+
+- `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled.
+- `DELETION_PROTECTION_MODE_ENABLED`: Deletion protection is enabled.
+- `DELETION_PROTECTION_MODE_INHERITED`: Deletion protection mode is inherited from the cluster. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.clickhouse.v1.Permission}
@@ -1250,6 +1261,29 @@ If the execution speed is lower, an exception is thrown. **0** means unlimited.
 Default value: **0**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_execution_speed_bytes). ||
+|| use_statistics | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Allows using statistics to optimize queries.
+Preferred over **allow_statistics_optimize** because of consistency with **use_primary_key** and **use_skip_indexes**.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/use-statistics#use_statistics). ||
+|| use_statistics_for_part_pruning | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Use statistics to filter out parts during query execution.
+When enabled, pruning in SELECT queries will use column statistics (e.g. MinMax statistics) to eliminate parts that cannot contain matching data before reading any data.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/session-settings/use-statistics#use_statistics_for_part_pruning). ||
+|| refresh_statistics_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The interval of refreshing statistics cache in seconds. If it is set to zero, the refreshing will be disabled.
+
+Default value: **0** for versions 25.11 and higher, **300** (5 minutes) for versions 26.2 and lower.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/ru/reference/settings/merge-tree-settings/refresh#refresh_statistics_interval). ||
 || input_format_values_interpret_expressions | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables SQL parser if the fast stream parser cannot parse the data.

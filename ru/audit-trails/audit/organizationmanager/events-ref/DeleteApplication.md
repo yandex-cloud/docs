@@ -4,7 +4,7 @@ editable: false
 
 # Identity Hub Audit Trails Events: DeleteApplication
 
-## Event JSON schema {#yandex.cloud.audit.organizationmanager.application.saml.DeleteApplication2-schema}
+## Event JSON schema {#yandex.cloud.audit.organizationmanager.application.linked.DeleteApplication2-schema}
 
 ```json
 {
@@ -90,109 +90,18 @@ editable: false
   "details": {
     "applicationId": "string",
     "applicationName": "string",
-    "status": "string",
-    "serviceProvider": {
-      "entityId": "string",
-      "acsUrls": [
-        {
-          "url": "string",
-          "index": "string"
-        }
-      ],
-      "signOnUrl": "string"
-    },
-    "securitySettings": {
-      "signatureMode": "string",
-      "signatureCertificateId": "string",
-      "requestSigning": {
-        "requireRequestSigning": "boolean"
-      },
-      "responseEncryption": {
-        "requireResponseEncryption": "boolean",
-        "encryptionCertificateId": "string",
-        "dataEncryptionAlgorithm": "string",
-        "keyEncryptionAlgorithm": "string"
-      }
-    },
-    "groupClaimsSettings": {
-      "groupDistributionType": "string",
-      "groupAttributeName": "string",
-      // Includes only one of the fields `groupAttributeValue`
-      "groupAttributeValue": "string"
-      // end of the list of possible fields
-    },
-    "attributeMapping": {
-      "nameId": {
-        "format": "string",
-        "value": "string",
-        "transformations": [
-          {
-            // Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`, `replace`
-            "extractBefore": {
-              "value": "string"
-            },
-            "extractAfter": {
-              "value": "string"
-            },
-            "ifEmpty": {
-              // Includes only one of the fields `attributeName`, `constant`
-              "attributeName": "string",
-              "constant": "string"
-              // end of the list of possible fields
-            },
-            "constant": {
-              "value": "string"
-            },
-            "replace": {
-              "pattern": "string",
-              "replacement": "string"
-            }
-            // end of the list of possible fields
-          }
-        ]
-      },
-      "attributes": [
-        {
-          "name": "string",
-          "value": "string",
-          "transformations": [
-            {
-              // Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`, `replace`
-              "extractBefore": {
-                "value": "string"
-              },
-              "extractAfter": {
-                "value": "string"
-              },
-              "ifEmpty": {
-                // Includes only one of the fields `attributeName`, `constant`
-                "attributeName": "string",
-                "constant": "string"
-                // end of the list of possible fields
-              },
-              "constant": {
-                "value": "string"
-              },
-              "replace": {
-                "pattern": "string",
-                "replacement": "string"
-              }
-              // end of the list of possible fields
-            }
-          ]
-        }
-      ]
-    },
     "description": "string",
+    "status": "string",
+    "link": "string",
     "labels": "object",
-    "visibleInMyApps": "boolean"
+    "visibleForUsers": "boolean"
   },
   "requestParameters": "object",
   "response": "object"
 }
 ```
 
-## Field description {#yandex.cloud.audit.organizationmanager.application.saml.DeleteApplication2}
+## Field description {#yandex.cloud.audit.organizationmanager.application.linked.DeleteApplication2}
 
 #|
 ||Field | Description ||
@@ -221,7 +130,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || error | **[Status](#google.rpc.Status)**
 
 The error result of the operation in case of failure or cancellation. ||
-|| details | **[ApplicationDetails](#yandex.cloud.audit.organizationmanager.application.saml.ApplicationDetails)** ||
+|| details | **[ApplicationDetails](#yandex.cloud.audit.organizationmanager.application.linked.ApplicationDetails)** ||
 || requestParameters | **object** ||
 || response | **object** ||
 |#
@@ -257,6 +166,118 @@ Includes only one of the fields `federationName`. ||
 Includes only one of the fields `federationType`.
 
 - `GLOBAL_FEDERATION`
+- `PRIVATE_FEDERATION` ||
+|| tokenInfo | **[IamTokenInfo](#yandex.cloud.audit.IamAuthentication.IamTokenInfo)** ||
+|#
+
+## IamTokenInfo {#yandex.cloud.audit.IamAuthentication.IamTokenInfo}
+
+#|
+||Field | Description ||
+|| maskedIamToken | **string** ||
+|| iamTokenId | **string**
+
+Includes only one of the fields `iamTokenId`. ||
+|| impersonatorId | **string**
+
+Includes only one of the fields `impersonatorId`. ||
+|| impersonatorType | **enum** (IamSubjectType)
+
+Includes only one of the fields `impersonatorType`.
+
+- `YANDEX_PASSPORT_USER_ACCOUNT`
+- `SERVICE_ACCOUNT`
+- `FEDERATED_USER_ACCOUNT`
+- `SSH_USER`
+- `KUBERNETES_USER` ||
+|| impersonatorName | **string**
+
+Includes only one of the fields `impersonatorName`. ||
+|| impersonatorFederationId | **string**
+
+Includes only one of the fields `impersonatorFederationId`. ||
+|| impersonatorFederationName | **string**
+
+Includes only one of the fields `impersonatorFederationName`. ||
+|| impersonatorFederationType | **enum** (FederationType)
+
+Includes only one of the fields `impersonatorFederationType`.
+
+- `GLOBAL_FEDERATION`
+- `PRIVATE_FEDERATION` ||
+|#
+
+## Authorization {#yandex.cloud.audit.Authorization}
+
+#|
+||Field | Description ||
+|| authorized | **boolean** ||
+|#
+
+## ResourceMetadata {#yandex.cloud.audit.ResourceMetadata}
+
+#|
+||Field | Description ||
+|| path[] | **[Resource](#yandex.cloud.audit.Resource)** ||
+|#
+
+## Resource {#yandex.cloud.audit.Resource}
+
+#|
+||Field | Description ||
+|| resourceType | **string** ||
+|| resourceId | **string** ||
+|| resourceName | **string**
+
+Includes only one of the fields `resourceName`. ||
+|#
+
+## RequestMetadata {#yandex.cloud.audit.RequestMetadata}
+
+#|
+||Field | Description ||
+|| remoteAddress | **string** ||
+|| userAgent | **string** ||
+|| requestId | **string** ||
+|| remotePort | **string** (int64)
+
+Includes only one of the fields `remotePort`. ||
+|#
+
+## Status {#google.rpc.Status}
+
+The error result of the operation in case of failure or cancellation.
+
+#|
+||Field | Description ||
+|| code | **integer** (int32)
+
+Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto). ||
+|| message | **string**
+
+An error message. ||
+|| details[] | **object**
+
+A list of messages that carry the error details. ||
+|#
+
+## ApplicationDetails {#yandex.cloud.audit.organizationmanager.application.linked.ApplicationDetails}
+
+#|
+||Field | Description ||
+|| applicationId | **string** ||
+|| applicationName | **string** ||
+|| description | **string** ||
+|| status | **enum** (Status)
+
+- `CREATING`
+- `ACTIVE`
+- `SUSPENDED`
+- `DELETING` ||
+|| link | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
+|| visibleForUsers | **boolean** ||
+|#ERATION`
 - `PRIVATE_FEDERATION` ||
 || tokenInfo | **[IamTokenInfo](#yandex.cloud.audit.IamAuthentication.IamTokenInfo)** ||
 |#

@@ -462,6 +462,10 @@ items:
                 href: api-ref/grpc/Cluster/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/grpc/Cluster/updateAccessBindings.md
+              - name: DisableProtection
+                href: api-ref/grpc/Cluster/disableProtection.md
+              - name: EnableProtection
+                href: api-ref/grpc/Cluster/enableProtection.md
           - name: Extension
             items:
               - name: Overview
@@ -606,6 +610,10 @@ items:
                 href: api-ref/Cluster/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/Cluster/updateAccessBindings.md
+              - name: DisableProtection
+                href: api-ref/Cluster/disableProtection.md
+              - name: EnableProtection
+                href: api-ref/Cluster/enableProtection.md
           - name: Extension
             items:
               - name: Overview

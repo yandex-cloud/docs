@@ -13,12 +13,12 @@ Actions are performed by making RPC calls. For more information about API archit
 #|
 ||Service | Description ||
 || [BackupRetentionPolicy](BackupRetentionPolicy/index.md) | A set of methods for managing Redis Cluster backup retention policies. ||
-|| [Backup](Backup/index.md) | A set of methods for managing Redis backups. ||
+|| [Backup](Backup/index.md) | A set of methods for managing Valkey backups. ||
 || [ChangeFreeze](ChangeFreeze/index.md) |  ||
-|| [Cluster](Cluster/index.md) | A set of methods for managing Redis clusters. ||
+|| [Cluster](Cluster/index.md) | A set of methods for managing Valkey clusters. ||
 || [Maintenance](Maintenance/index.md) |  ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [ResourcePreset](ResourcePreset/index.md) | A set of methods for working with resource presets. ||
-|| [User](User/index.md) | A set of methods for managing Redis User resources. ||
+|| [User](User/index.md) | A set of methods for managing Valkey User resources. ||
 || [Versions](Versions/index.md) |  ||
 |#

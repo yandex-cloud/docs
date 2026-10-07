@@ -28,3 +28,4 @@ When replication is pre-configured:
 {{ OS }} automatically manages replica shards, moving them between hosts in the cluster if the size of the cluster changes.
 
 The number of replica shards can be modified: unlike primary shards, their number is not fixed when creating an index.
+

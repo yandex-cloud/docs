@@ -81,9 +81,9 @@
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором расположен бакет.
-      1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage** и в открывшемся окне выберите созданный ранее бакет.
-      1. Перейдите на вкладку **Объекты** и на панели сверху нажмите кнопку ![arrow-up-from-line](../../../_assets/console-icons/arrow-up-from-line.svg) **Загрузить**. В открывшемся окне выберите созданные файлы и подтвердите загрузку.
-      1. Перейдите на вкладку **Настройки**, затем на вкладку **Веб-сайт**. В открывшемся окне:
+      1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage** и на открывшейся странице выберите созданный ранее бакет.
+      1. Вверху нажмите кнопку ![arrow-up-from-line](../../../_assets/console-icons/arrow-up-from-line.svg) **Загрузить**. В открывшемся окне выберите созданные файлы и подтвердите загрузку.
+      1. Перейдите на вкладку **Настройки** → **Веб-сайт**. На открывшейся странице:
 
           1. Выберите режим `Хостинг`.
           1. В поле **Главная страница** укажите `index.html`.
@@ -96,6 +96,7 @@
 1. Убедитесь, что страница ошибки открывается. Для этого подключитесь к сайту через браузер по ссылке вида `http://<имя_бакета>.website.yandexcloud.net/error-check`.
 
 По умолчанию сайт доступен только по протоколу HTTP, например `http://example.com.website.yandexcloud.net`. Чтобы поддержать для сайта протокол HTTPS:
+
 1. Добавьте [собственный сертификат безопасности](../../../certificate-manager/operations/import/cert-create.md) или [сертификат от Let's Encrypt](../../../certificate-manager/operations/managed/cert-create.md) в сервисе Yandex Certificate Manager.
 1. [Настройте](../../operations/hosting/certificate.md) поддержку HTTPS для бакета. После этого сайт будет доступен по протоколу HTTPS `https://example.com.website.yandexcloud.net`.
 
@@ -138,7 +139,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать публичную зону.
   1. [Перейдите](https://console.yandex.cloud/link/dns) в сервис **Cloud DNS**.
-  1. Нажмите кнопку **Создать зону** и в открывшемся окне задайте настройки зоны DNS:
+  1. Нажмите кнопку **Создать зону** и на открывшейся странице задайте настройки зоны DNS:
 
       * **Зона** — укажите ваше зарегистрированное доменное имя. Например: `example.com.`. Значение поля должно заканчиваться точкой.
       * **Тип** — `Публичная`.
@@ -206,10 +207,11 @@ ns1.yandexcloud.net.
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за ресурсы:
+
 1. [Удалите загруженные файлы](../../operations/objects/delete.md).
 1. [Удалите бакет](../../operations/buckets/delete.md).
 1. [Удалите зону DNS](../../../dns/operations/zone-delete.md).
 
 #### Полезные ссылки {#see-also}
 
-* [Статический сайт в Yandex Object Storage с помощью Terraform](terraform.md).
+* [Статический сайт в Yandex Object Storage с помощью Terraform](terraform.md)

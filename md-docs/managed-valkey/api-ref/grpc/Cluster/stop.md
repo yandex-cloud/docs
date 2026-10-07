@@ -2,7 +2,7 @@
 
 # Managed Service for Redis API, gRPC: ClusterService.Stop
 
-Stop the specified Redis cluster.
+Stop the specified Valkey cluster.
 
 ## gRPC request
 
@@ -20,7 +20,7 @@ Stop the specified Redis cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Redis cluster to stop.
+Required field. ID of the Valkey cluster to stop.
 
 The maximum string length in characters is 50. ||
 |#

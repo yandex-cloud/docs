@@ -9,8 +9,8 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the Redis cluster to request logs for.
-            To get the Redis cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+            Required field. ID of the Valkey cluster to request logs for.
+            To get the Valkey cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
             The maximum string length in characters is 50.
           type: string
       required:
@@ -31,7 +31,7 @@ apiPlayground:
           description: |-
             **enum** (ServiceType)
             Type of the service to request logs about.
-            - `REDIS`: Logs of Redis activity.
+            - `REDIS`: Logs of Valkey activity.
             - `VALKEY_AUDIT`: Valkey audit logs
           type: string
           enum:
@@ -106,7 +106,7 @@ apiPlayground:
 
 # Managed Service for Redis API, REST: Cluster.ListLogs
 
-Retrieves logs for the specified Redis cluster.
+Retrieves logs for the specified Valkey cluster.
 
 ## HTTP request
 
@@ -120,8 +120,8 @@ GET https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}:logs
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Redis cluster to request logs for.
-To get the Redis cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+Required field. ID of the Valkey cluster to request logs for.
+To get the Valkey cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 |#
@@ -138,7 +138,7 @@ If no columns are specified, entire log records are returned. ||
 
 Type of the service to request logs about.
 
-- `REDIS`: Logs of Redis activity.
+- `REDIS`: Logs of Valkey activity.
 - `VALKEY_AUDIT`: Valkey audit logs ||
 || fromTime | **string** (date-time)
 

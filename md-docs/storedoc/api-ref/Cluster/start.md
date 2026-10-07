@@ -2,7 +2,7 @@
 
 # Managed Service for MongoDB API, REST: Cluster.Start
 
-Start the specified MongoDB cluster.
+Start the specified StoreDoc cluster.
 
 ## HTTP request
 
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}:st
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster to start.
+Required field. ID of the StoreDoc cluster to start.
 
 The maximum string length in characters is 50. ||
 |#

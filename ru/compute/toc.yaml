@@ -523,8 +523,6 @@ items:
             href: tutorials/opencart/terraform.md
       - name: Создание веб-приложения на Python с использованием фреймворка Flask
         href: tutorials/flask.md
-      - name: Создание SAP-программы в {{ yandex-cloud }}
-        href: tutorials/sap.md
       - name: Развертывание сервера Minecraft в {{ yandex-cloud }}
         href: tutorials/minecraft-server.md
       - name: Автоматизация сборки образов с помощью Jenkins и Packer

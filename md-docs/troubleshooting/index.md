@@ -6,20 +6,6 @@
 
 # Все решения
 
-## Application Load Balancer
-
- - [Все решения для Application Load Balancer](application-load-balancer/index.md)
-
- - [Решения для известных проблем Application Load Balancer](application-load-balancer/known-issues/index.md)
-
- - [Устранение ошибки `no_route` при открытии адреса](application-load-balancer/known-issues/error-no-route.md)
-
- - [Устранение сложностей с добавлением маршрута](application-load-balancer/known-issues/cannot-add-route.md)
-
- - [Примеры конфигураций и сценариев Application Load Balancer](application-load-balancer/how-to/index.md)
-
- - [Как получить реальный IP-адрес источника в заголовках запросов](application-load-balancer/how-to/getting-external-src-ip-in-x-forwarded-for-headers.md)
-
 ## Yandex Cloud Billing
 
  - [Все решения для Yandex Cloud Billing](billing/index.md)

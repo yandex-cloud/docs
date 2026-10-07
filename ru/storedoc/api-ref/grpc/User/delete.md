@@ -4,7 +4,7 @@ editable: false
 
 # Managed Service for MongoDB API, gRPC: UserService.Delete
 
-Deletes the specified MongoDB user.
+Deletes the specified StoreDoc user.
 
 ## gRPC request
 
@@ -23,7 +23,7 @@ Deletes the specified MongoDB user.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the MongoDB cluster the user belongs to.
+Required field. ID of the StoreDoc cluster the user belongs to.
 To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||

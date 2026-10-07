@@ -79,7 +79,7 @@ list request will have its own `next_page_token` to continue paging through the 
 
 ## Backup {#yandex.cloud.mdb.mongodb.v1.Backup}
 
-A MongoDB Backup resource. For more information, see the
+A StoreDoc Backup resource. For more information, see the
 [Developer's Guide](../../../concepts/index.md).
 
 #|
@@ -96,7 +96,7 @@ Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text forma
 (i.e. when the backup operation was completed). ||
 || source_cluster_id | **string**
 
-ID of the MongoDB cluster that the backup was created for. ||
+ID of the StoreDoc cluster that the backup was created for. ||
 || started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the backup operation was started. ||
@@ -110,7 +110,7 @@ Size of backup in bytes ||
 
 How this backup was created (manual/automatic/etc...)
 
-- `AUTOMATED`: Backup created by automated daily schedule
+- `AUTOMATED`: Backup created by automated daily schedule.
 - `MANUAL`: Backup created by user request ||
 || journal_size | **int64**
 

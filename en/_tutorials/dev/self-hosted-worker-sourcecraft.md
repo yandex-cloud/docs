@@ -1,8 +1,8 @@
 # Deploying a self-hosted {{ src-name }} worker on a {{ compute-full-name }} VM
 
-[Self-hosted workers]({{ link-src-docs }}/sourcecraft/concepts/ci-cd#self-hosted-workers) are users’ personal servers, both virtual and physical, on which {{ src-name }} [CI/CD processes]({{ link-src-docs }}/sourcecraft/concepts/ci-cd) run. These processes will have access to the user server environment.
+[Self-hosted workers]({{ link-src-docs }}/sourcecraft/concepts/workers#self-hosted-workers) are users’ personal servers, both virtual and physical, on which {{ src-name }} [CI/CD processes]({{ link-src-docs }}/sourcecraft/concepts/ci-cd) run. These processes will have access to the user server environment.
 
-Restrictions on the [amount of computing resources]({{ link-src-docs }}/sourcecraft/concepts/ci-cd#cloud-worker-resources) do not apply to self-hosted workers, and they also do not consume the [total CI/CD runtime quota]({{ link-src-docs }}/sourcecraft/concepts/limits#ci-cd-quotas).
+Restrictions on the [amount of computing resources]({{ link-src-docs }}/sourcecraft/concepts/workers#cloud-worker-resources) do not apply to self-hosted workers, and they also do not consume the [total CI/CD runtime quota]({{ link-src-docs }}/sourcecraft/pricing#tariff-differences).
 
 If you have a computer with a suitable configuration, you can [set up a self-hosted worker for {{ src-name }}]({{ link-src-docs }}/sourcecraft/operations/self-hosted-worker) all by yourself. Otherwise, you can create a VM in {{ compute-name }} and install a self-hosted worker on it. Even more, you can automate not only the processes of creating a VM, installing, configuring, and starting a self-hosted worker, but also the process of deleting a VM after the CI/CD [workflow]({{ link-src-docs }}/sourcecraft/ci-cd-ref/workflows) is completed. This way you can optimize the use of your {{ compute-name }} resources.
 
@@ -202,7 +202,7 @@ The presented [CI/CD configuration]({{ link-src-docs }}/sourcecraft/ci-cd-ref/) 
 
 {% note info %}
 
-The `create-vm` and `delete-vm` workflows run on standard [{{ src-name }} cloud workers]({{ link-src-docs }}/sourcecraft/concepts/ci-cd#cloud-workers). The `test-task-and-delete-vm-async` process runs on a self-hosted worker.
+The `create-vm` and `delete-vm` workflows run on standard [{{ src-name }} cloud workers]({{ link-src-docs }}/sourcecraft/concepts/workers#cloud-workers). The `test-task-and-delete-vm-async` process runs on a self-hosted worker.
 
 {% endnote %}
 

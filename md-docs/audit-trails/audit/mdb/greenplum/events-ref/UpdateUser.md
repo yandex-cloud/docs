@@ -98,7 +98,8 @@
         "poolMode": "string",
         "poolSize": "string",
         "poolClientIdleTimeout": "string",
-        "poolIdleInTransactionTimeout": "string"
+        "poolIdleInTransactionTimeout": "string",
+        "poolDiscard": "boolean"
       }
     }
   },
@@ -311,4 +312,5 @@ The minimum value is 0. ||
 || poolIdleInTransactionTimeout | **string** (int64)
 
 The minimum value is 0. ||
+|| poolDiscard | **boolean** ||
 |#

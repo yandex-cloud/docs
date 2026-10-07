@@ -37,13 +37,13 @@ Creates a new shard.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the MongoDB cluster to add a shard to.
+Required field. ID of the StoreDoc cluster to add a shard to.
 To get the cluster ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || shard_name | **string**
 
-Required field. Name of the MongoDB shard to create.
+Required field. Name of the StoreDoc shard to create.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || host_specs[] | **[HostSpec](#yandex.cloud.mdb.mongodb.v1.HostSpec)**

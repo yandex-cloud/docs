@@ -53,9 +53,6 @@ The maximum string length in characters is 63. Value must match the regular expr
 }
 ```
 
-A SPQR User resource. For more information, see the
-[Developer's Guide](../../concepts/index.md).
-
 #|
 ||Field | Description ||
 || name | **string**

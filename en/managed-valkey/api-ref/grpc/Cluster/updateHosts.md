@@ -31,8 +31,8 @@ Updates the specified hosts.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Redis cluster to update hosts in.
-To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request.
+Required field. ID of the Valkey cluster to update hosts in.
+To get the Valkey cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || update_host_specs[] | **[UpdateHostSpec](#yandex.cloud.mdb.redis.v1.UpdateHostSpec)**
@@ -49,18 +49,20 @@ The number of elements must be greater than 0. ||
 || host_name | **string**
 
 Required field. Name of the host to update.
-To get the Redis host name, use a [ClusterService.ListHosts](/docs/managed-redis/api-ref/grpc/Cluster/listHosts#ListHosts) request. ||
+To get the Valkey host name, use a [ClusterService.ListHosts](/docs/managed-redis/api-ref/grpc/Cluster/listHosts#ListHosts) request. ||
 || replica_priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-A replica with a low priority number is considered better for promotion.
-A replica with priority of 0 will never be selected by Redis Sentinel for promotion.
+Priority of the host as a candidate for promotion to master: the higher the value,
+the more preferred the host is. A host with priority 0 is promoted only if there are
+no other suitable candidates. The priority is ignored if the host requires a full
+resynchronization: in that case the host with the smallest replication lag is promoted.
 Works only for non-sharded clusters. Default value is 100. ||
 || assign_public_ip | **bool**
 
 Whether the host should get a public IP address on update. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
-Field mask that specifies which fields of the Redis host should be updated. ||
+Field mask that specifies which fields of the Valkey host should be updated. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

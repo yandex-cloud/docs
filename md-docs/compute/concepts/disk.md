@@ -203,7 +203,6 @@ _Диск_ — это виртуальный аналог физических �
 
 ## Примеры использования {#examples}
 
-* [Создание SAP-программы в Yandex Cloud](../tutorials/sap.md)
 * [Создание балансировщика с защитой от DDoS](../tutorials/alb-with-ddos-protection/index.md)
 * [Начало работы с Packer](../tutorials/packer-quickstart.md)
 * [Высокопроизводительные вычисления (HPC) на прерываемых виртуальных машинах](../tutorials/hpc-on-preemptible.md)

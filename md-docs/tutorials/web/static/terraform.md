@@ -37,6 +37,7 @@ Terraform распространяется под лицензией [Business S
 Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
 Чтобы создать инфраструктуру для статического сайта в Object Storage с помощью Terraform:
+
 1. [Установите Terraform](../../infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 
 
@@ -53,6 +54,7 @@ Terraform распространяется под лицензией [Business S
         ```
 
      1. Перейдите в директорию с репозиторием. В ней должны появиться файлы:
+        
         * `static.tf` — конфигурация создаваемой инфраструктуры.
         * `index.html` и `error.html` — главная страница сайта и страница ошибки.
 
@@ -60,6 +62,7 @@ Terraform распространяется под лицензией [Business S
 
      1. Создайте папку для конфигурационных файлов.
      1. Создайте в папке:
+        
         1. Конфигурационный файл `static.tf`:
 
            {% cut "static.tf" %}
@@ -74,7 +77,7 @@ Terraform распространяется под лицензией [Business S
              required_providers {
                yandex = {
                  source  = "yandex-cloud/yandex"
-                 version = ">= 0.47.0"
+                 version = ">= 0.96.0"
                }
              }
            }
@@ -190,7 +193,7 @@ Terraform распространяется под лицензией [Business S
 
            {% endcut %}
 
-        1. Файл `index.html` с текстом `Hello world!`:
+        1. Файл `index.html` с текстом `Hello, world!`:
 
            {% cut "index.html" %}
 
@@ -229,6 +232,7 @@ Terraform распространяется под лицензией [Business S
    {% endlist %}
 
    Подробнее о параметрах используемых ресурсов в Terraform смотрите в документации провайдера:
+    
     * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account](../../../terraform/resources/iam_service_account.md).
     * [Настройка](../../../iam/concepts/access-control/roles.md) прав доступа на каталог — [yandex_resourcemanager_folder_iam_member](../../../terraform/resources/resourcemanager_folder_iam_member.md).
     * [Статический ключ доступа](../../../iam/concepts/authorization/access-key.md) — [yandex_iam_service_account_static_access_key](../../../terraform/resources/iam_service_account_static_access_key.md).
@@ -241,6 +245,7 @@ Terraform распространяется под лицензией [Business S
     * [Ресурсная запись DNS](../../../dns/concepts/resource-record.md) — [yandex_dns_recordset](../../../terraform/resources/dns_recordset.md).
 
 1. В файле `static.tf` в блоке `locals` задайте пользовательские параметры:
+   
    * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором будут создаваться ресурсы.
    * `domain` — доменное имя в формате `example.com`, без точки в конце.
 
@@ -321,4 +326,4 @@ Terraform распространяется под лицензией [Business S
 
 #### Полезные ссылки {#see-also}
 
-* [Статический сайт в Yandex Object Storage с помощью консоли управления](console.md).
+* [Статический сайт в Yandex Object Storage с помощью консоли управления](console.md)

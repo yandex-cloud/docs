@@ -295,7 +295,7 @@ editable: false
                     "max": "string"
                   },
                   // end of the list of possible fields
-                  // Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`
+                  // Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`
                   "httpSource": {
                     "url": "string",
                     "format": "string",
@@ -356,6 +356,27 @@ editable: false
                     "password": "string",
                     "invalidateQuery": "string",
                     "sslMode": "string"
+                  },
+                  "postgresqlSourceV2": {
+                    "db": "string",
+                    "table": "string",
+                    "replicas": [
+                      {
+                        "host": "string",
+                        "priority": "string",
+                        "port": "string",
+                        "user": "string",
+                        "password": "string"
+                      }
+                    ],
+                    "port": "string",
+                    "user": "string",
+                    "password": "string",
+                    "invalidateQuery": "string",
+                    "sslMode": "string",
+                    "where": "string",
+                    "query": "string",
+                    "backgroundReconnect": "boolean"
                   }
                   // end of the list of possible fields
                 }
@@ -649,7 +670,7 @@ editable: false
                     "max": "string"
                   },
                   // end of the list of possible fields
-                  // Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`
+                  // Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`
                   "httpSource": {
                     "url": "string",
                     "format": "string",
@@ -710,6 +731,27 @@ editable: false
                     "password": "string",
                     "invalidateQuery": "string",
                     "sslMode": "string"
+                  },
+                  "postgresqlSourceV2": {
+                    "db": "string",
+                    "table": "string",
+                    "replicas": [
+                      {
+                        "host": "string",
+                        "priority": "string",
+                        "port": "string",
+                        "user": "string",
+                        "password": "string"
+                      }
+                    ],
+                    "port": "string",
+                    "user": "string",
+                    "password": "string",
+                    "invalidateQuery": "string",
+                    "sslMode": "string",
+                    "where": "string",
+                    "query": "string",
+                    "backgroundReconnect": "boolean"
                   }
                   // end of the list of possible fields
                 }
@@ -1003,7 +1045,7 @@ editable: false
                     "max": "string"
                   },
                   // end of the list of possible fields
-                  // Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`
+                  // Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`
                   "httpSource": {
                     "url": "string",
                     "format": "string",
@@ -1064,6 +1106,27 @@ editable: false
                     "password": "string",
                     "invalidateQuery": "string",
                     "sslMode": "string"
+                  },
+                  "postgresqlSourceV2": {
+                    "db": "string",
+                    "table": "string",
+                    "replicas": [
+                      {
+                        "host": "string",
+                        "priority": "string",
+                        "port": "string",
+                        "user": "string",
+                        "password": "string"
+                      }
+                    ],
+                    "port": "string",
+                    "user": "string",
+                    "password": "string",
+                    "invalidateQuery": "string",
+                    "sslMode": "string",
+                    "where": "string",
+                    "query": "string",
+                    "backgroundReconnect": "boolean"
                   }
                   // end of the list of possible fields
                 }
@@ -1589,19 +1652,22 @@ Includes only one of the fields `fixedLifetime`, `lifetimeRange`. ||
 Includes only one of the fields `fixedLifetime`, `lifetimeRange`. ||
 || httpSource | **[HttpSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.HttpSource)**
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
 || mysqlSource | **[MysqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource)**
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
 || clickhouseSource | **[ClickhouseSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.ClickhouseSource)**
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
 || mongodbSource | **[MongodbSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MongodbSource)**
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
 || postgresqlSource | **[PostgresqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSource)**
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
+|| postgresqlSourceV2 | **[PostgresqlSourceV2](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2)**
+
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
 |#
 
 ## Structure {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure}
@@ -1783,6 +1849,43 @@ The maximum string length in characters is 253. ||
 - `PREFER`
 - `VERIFY_CA`
 - `VERIFY_FULL` ||
+|#
+
+## PostgresqlSourceV2 {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2}
+
+#|
+||Field | Description ||
+|| db | **string** ||
+|| table | **string** ||
+|| replicas[] | **[Replica](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2.Replica)** ||
+|| port | **string** (int64) ||
+|| user | **string** ||
+|| password | **string** ||
+|| invalidateQuery | **string** ||
+|| sslMode | **enum** (SslMode)
+
+- `DISABLE`
+- `ALLOW`
+- `PREFER`
+- `VERIFY_CA`
+- `VERIFY_FULL`
+- `REQUIRE` ||
+|| where | **string** ||
+|| query | **string** ||
+|| backgroundReconnect | **boolean** ||
+|#
+
+## Replica {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2.Replica}
+
+#|
+||Field | Description ||
+|| host | **string**
+
+The maximum string length in characters is 253. ||
+|| priority | **string** (int64) ||
+|| port | **string** (int64) ||
+|| user | **string** ||
+|| password | **string** ||
 |#
 
 ## GraphiteRollup {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.GraphiteRollup}

@@ -64,6 +64,42 @@
         1. Если необходимо, в поле **{{ ui-key.yacloud.dns.label_form-ttl }}** выберите другое значение.
         1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
         
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  1. Откройте файл конфигурации {{ TF }} и добавьте блок `custom_domains` в описание ресурса `yandex_api_gateway`:
+
+     ```hcl
+     resource "yandex_api_gateway" "<имя_API-шлюза>" {
+       name = "<имя_API-шлюза>"
+       ...
+       custom_domains {
+         fqdn           = "<доменное_имя>"
+         certificate_id = "<идентификатор_сертификата>"
+       }
+     }
+     ```
+
+     Где:
+
+     * `fqdn` — [FQDN](../../glossary/fqdn.md) подключаемого домена.
+     * `certificate_id` — идентификатор [сертификата](../../certificate-manager/concepts/index.md) домена в {{ certificate-manager-full-name }}.
+
+     Более подробную информацию о параметрах ресурса `yandex_api_gateway` читайте в [документации провайдера]({{ tf-provider-resources-link }}/api_gateway).
+
+  1. Примените изменения:
+
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     Проверить результат можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
+
+     ```bash
+     yc serverless api-gateway get <идентификатор_API-шлюза>
+     ```
+
 - API {#api}
 
   Чтобы подключить домен к API-шлюзу, воспользуйтесь методом REST API [addDomain](../apigateway/api-ref/ApiGateway/addDomain.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/AddDomain](../apigateway/api-ref/grpc/ApiGateway/addDomain.md).

@@ -2,7 +2,7 @@
 
 # Managed Service for MongoDB API, REST: User.Update
 
-Updates the specified MongoDB user.
+Updates the specified StoreDoc user.
 
 ## HTTP request
 
@@ -16,7 +16,7 @@ PATCH https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/u
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster the user belongs to.
+Required field. ID of the StoreDoc cluster the user belongs to.
 To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -42,6 +42,7 @@ The maximum string length in characters is 63. Value must match the regular expr
       ]
     }
   ],
+  "generatePassword": "boolean",
   "deletionProtection": "boolean"
 }
 ```
@@ -66,6 +67,9 @@ The maximum string length in characters is 128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)**
 
 New set of permissions for the user. ||
+|| generatePassword | **boolean**
+
+Generate password using Connection Manager ||
 || deletionProtection | **boolean**
 
 Deletion Protection inhibits deletion of the user ||
@@ -80,7 +84,7 @@ Deletion Protection inhibits deletion of the user ||
 Name of the database that the permission grants access to. ||
 || roles[] | **string**
 
-MongoDB roles for the `databaseName` database that the permission grants. ||
+StoreDoc roles for the `databaseName` database that the permission grants. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

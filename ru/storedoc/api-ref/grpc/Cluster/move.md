@@ -4,7 +4,7 @@ editable: false
 
 # Managed Service for MongoDB API, gRPC: ClusterService.Move
 
-Moves the specified MongoDB cluster to the specified folder.
+Moves the specified StoreDoc cluster to the specified folder.
 
 ## gRPC request
 
@@ -23,7 +23,7 @@ Moves the specified MongoDB cluster to the specified folder.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the MongoDB cluster to move.
+Required field. ID of the StoreDoc cluster to move.
 
 The maximum string length in characters is 50. ||
 || destination_folder_id | **string**
