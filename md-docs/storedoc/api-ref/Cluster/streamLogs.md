@@ -17,7 +17,7 @@ GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}:str
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the MongoDB cluster.
+Required field. ID of the StoreDoc cluster.
 
 The maximum string length in characters is 50. ||
 |#
@@ -36,7 +36,7 @@ Type of the service to request logs about.
 - `MONGOD`: Logs of mongod activity.
 - `MONGOS`: Logs of mongos activity.
 - `MONGOCFG`: Logs of mongocfg activity.
-- `AUDIT`: MongoDB Enterprise audit logs ||
+- `AUDIT`: StoreDoc Enterprise audit logs ||
 || fromTime | **string** (date-time)
 
 Start timestamp for the logs request.

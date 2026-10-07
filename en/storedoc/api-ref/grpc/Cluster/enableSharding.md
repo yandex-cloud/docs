@@ -59,7 +59,7 @@ that would support adding and using shards in the cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the MongoDB cluster to enable sharding for.
+Required field. ID of the StoreDoc cluster to enable sharding for.
 
 The maximum string length in characters is 50. ||
 || mongocfg | **[MongoCfg](#yandex.cloud.mdb.mongodb.v1.EnableClusterShardingRequest.MongoCfg)**

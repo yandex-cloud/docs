@@ -309,7 +309,7 @@ editable: false
                     "max": "string"
                   },
                   // end of the list of possible fields
-                  // Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`
+                  // Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`
                   "httpSource": {
                     "url": "string",
                     "format": "string",
@@ -370,6 +370,27 @@ editable: false
                     "password": "string",
                     "invalidateQuery": "string",
                     "sslMode": "string"
+                  },
+                  "postgresqlSourceV2": {
+                    "db": "string",
+                    "table": "string",
+                    "replicas": [
+                      {
+                        "host": "string",
+                        "priority": "string",
+                        "port": "string",
+                        "user": "string",
+                        "password": "string"
+                      }
+                    ],
+                    "port": "string",
+                    "user": "string",
+                    "password": "string",
+                    "invalidateQuery": "string",
+                    "sslMode": "string",
+                    "where": "string",
+                    "query": "string",
+                    "backgroundReconnect": "boolean"
                   }
                   // end of the list of possible fields
                 }
@@ -663,7 +684,7 @@ editable: false
                     "max": "string"
                   },
                   // end of the list of possible fields
-                  // Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`
+                  // Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`
                   "httpSource": {
                     "url": "string",
                     "format": "string",
@@ -724,6 +745,27 @@ editable: false
                     "password": "string",
                     "invalidateQuery": "string",
                     "sslMode": "string"
+                  },
+                  "postgresqlSourceV2": {
+                    "db": "string",
+                    "table": "string",
+                    "replicas": [
+                      {
+                        "host": "string",
+                        "priority": "string",
+                        "port": "string",
+                        "user": "string",
+                        "password": "string"
+                      }
+                    ],
+                    "port": "string",
+                    "user": "string",
+                    "password": "string",
+                    "invalidateQuery": "string",
+                    "sslMode": "string",
+                    "where": "string",
+                    "query": "string",
+                    "backgroundReconnect": "boolean"
                   }
                   // end of the list of possible fields
                 }
@@ -1017,7 +1059,7 @@ editable: false
                     "max": "string"
                   },
                   // end of the list of possible fields
-                  // Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`
+                  // Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`
                   "httpSource": {
                     "url": "string",
                     "format": "string",
@@ -1078,6 +1120,27 @@ editable: false
                     "password": "string",
                     "invalidateQuery": "string",
                     "sslMode": "string"
+                  },
+                  "postgresqlSourceV2": {
+                    "db": "string",
+                    "table": "string",
+                    "replicas": [
+                      {
+                        "host": "string",
+                        "priority": "string",
+                        "port": "string",
+                        "user": "string",
+                        "password": "string"
+                      }
+                    ],
+                    "port": "string",
+                    "user": "string",
+                    "password": "string",
+                    "invalidateQuery": "string",
+                    "sslMode": "string",
+                    "where": "string",
+                    "query": "string",
+                    "backgroundReconnect": "boolean"
                   }
                   // end of the list of possible fields
                 }
@@ -1446,7 +1509,27 @@ editable: false
       ],
       "deletionProtection": "boolean",
       "diskEncryptionKeyId": "string",
-      "isHa": "boolean"
+      "isHa": "boolean",
+      "maintenanceWindows": {
+        // Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`
+        "anytime": "object",
+        "weeklyMaintenanceSchedule": {
+          "slots": [
+            {
+              "day": "string",
+              "startTime": {
+                "hours": "integer",
+                "minutes": "integer",
+                "seconds": "integer",
+                "nanos": "integer"
+              },
+              "duration": "string",
+              "allowTemporaryUnavailability": "boolean"
+            }
+          ]
+        }
+        // end of the list of possible fields
+      }
     },
     "backup": {
       "id": "string",
@@ -1684,6 +1767,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || deletionProtection | **boolean** ||
 || diskEncryptionKeyId | **string** ||
 || isHa | **boolean** ||
+|| maintenanceWindows | **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)** ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.clickhouse.v1.Monitoring}
@@ -1935,19 +2019,22 @@ Includes only one of the fields `fixedLifetime`, `lifetimeRange`. ||
 Includes only one of the fields `fixedLifetime`, `lifetimeRange`. ||
 || httpSource | **[HttpSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.HttpSource)**
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
 || mysqlSource | **[MysqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource)**
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
 || clickhouseSource | **[ClickhouseSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.ClickhouseSource)**
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
 || mongodbSource | **[MongodbSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MongodbSource)**
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
 || postgresqlSource | **[PostgresqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSource)**
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
+|| postgresqlSourceV2 | **[PostgresqlSourceV2](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2)**
+
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
 |#
 
 ## Structure {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure}
@@ -2129,6 +2216,43 @@ The maximum string length in characters is 253. ||
 - `PREFER`
 - `VERIFY_CA`
 - `VERIFY_FULL` ||
+|#
+
+## PostgresqlSourceV2 {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2}
+
+#|
+||Field | Description ||
+|| db | **string** ||
+|| table | **string** ||
+|| replicas[] | **[Replica](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2.Replica)** ||
+|| port | **string** (int64) ||
+|| user | **string** ||
+|| password | **string** ||
+|| invalidateQuery | **string** ||
+|| sslMode | **enum** (SslMode)
+
+- `DISABLE`
+- `ALLOW`
+- `PREFER`
+- `VERIFY_CA`
+- `VERIFY_FULL`
+- `REQUIRE` ||
+|| where | **string** ||
+|| query | **string** ||
+|| backgroundReconnect | **boolean** ||
+|#
+
+## Replica {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2.Replica}
+
+#|
+||Field | Description ||
+|| host | **string**
+
+The maximum string length in characters is 253. ||
+|| priority | **string** (int64) ||
+|| port | **string** (int64) ||
+|| user | **string** ||
+|| password | **string** ||
 |#
 
 ## GraphiteRollup {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.GraphiteRollup}
@@ -2702,6 +2826,45 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|#
+
+## MaintenanceWindows {#yandex.cloud.mdb.v1.MaintenanceWindows}
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|| weeklyMaintenanceSchedule | **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|#
+
+## WeeklyMaintenanceSchedule {#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule}
+
+#|
+||Field | Description ||
+|| slots[] | **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+
+The number of elements must be greater than 0. ||
+|#
+
+## MaintenanceWindowSlot {#yandex.cloud.mdb.v1.MaintenanceWindowSlot}
+
+#|
+||Field | Description ||
+|| day | **enum** (DayOfWeek)
+
+- `MONDAY`
+- `TUESDAY`
+- `WEDNESDAY`
+- `THURSDAY`
+- `FRIDAY`
+- `SATURDAY`
+- `SUNDAY` ||
+|| startTime | **[TimeOfDay](#google.type.TimeOfDay)** ||
+|| duration | **string** (duration) ||
+|| allowTemporaryUnavailability | **boolean** ||
 |#
 
 ## Backup {#yandex.cloud.mdb.clickhouse.v1.Backup}

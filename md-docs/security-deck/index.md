@@ -190,8 +190,6 @@
 
  - [Портал соответствия требованиям](concepts/compliance.md)
 
- - [AI-ассистент](concepts/ai-assistant.md)
-
  - [Квоты и лимиты](concepts/limits.md)
 
 ## Диагностика ошибок

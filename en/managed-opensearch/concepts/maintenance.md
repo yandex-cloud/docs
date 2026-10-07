@@ -21,7 +21,7 @@ You can set the maintenance window when [creating a cluster](../operations/clust
 
 In the management console, you select the maintenance start time as an hour interval. In other interfaces, you specify this interval by its sequence number, from `1` to `24`.
 
-> For example, to start maintenance in the interval from `00:00` to `01:00`, put `1`; from `04:00` to `05:00`, `5`.
+> For example, to start a maintenance session in the interval from `00:00` to `01:00`, enter `1`; from `04:00` to `05:00`, `5`.
 
 {% note info %}
 
@@ -35,4 +35,4 @@ To manage maintenance tasks, you need the `managed-opensearch.maintenanceTask.ed
 
 In {{ mos-name }} single-host clusters, a single host undergoes maintenance. This means, if you restart such a cluster during maintenance, it will become unavailable.
 
-In multi-host clusters, hosts undergo maintenance one by one. Such hosts are queued randomly. Any host that requires a restart during maintenance will be unavailable until maintenance is complete. If you access a cluster using the [FQDN of the {{ OS }} host](../operations/connect/fqdn.md), the cluster may become unavailable. To make your application continuously available, access the cluster using a [special FQDN](../operations/connect/fqdn.md#special-fqdns) always pointing to the available host.
+In multi-host clusters, hosts undergo maintenance one by one. Such hosts are queued randomly. Any host that requires a restart during maintenance will be unavailable until maintenance is complete. If you access a cluster using the [FQDN of the {{ OS }} host](../operations/connect/fqdn.md), the cluster may become unavailable. If your write request returns an error, repeat it later.

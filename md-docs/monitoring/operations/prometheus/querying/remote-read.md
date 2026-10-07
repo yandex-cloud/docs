@@ -42,7 +42,7 @@
 | `401` | Сервисный аккаунт не найден. Убедитесь, что в конфигурации указан правильный [API-ключ](../../../../iam/concepts/authorization/api-key.md). | `remote_read: remote server https://monitoring.api.cloud.yandex.net/prometheus/workspaces/monb1piptmdo********/api/v1/read returned`<br/>`HTTP status 401 Unauthorized: {"status":"error","errorType":"","error":"cannot authenticate by either token or api-key, cause: UNAUTHENTICATED: The token is invalid"}` |
 | `403` | Отсутствуют права на чтение. Убедитесь, что сервисный аккаунт имеет роль `monitoring.viewer` на выбранный каталог. | `remote_read: remote server https://monitoring.api.cloud.yandex.net/prometheus/workspaces/monb1piptmdo********/api/v1/read returned`<br/>`HTTP status 403 Forbidden: {"status":"error","errorType":"","error":"PERMISSION_DENIED: Permission denied"}` |
 | `429` | Превышена квота [Количество запросов в секунду на чтение через Remote Read API](../index.md#limits). | `remote_read: remote server https://monitoring.api.cloud.yandex.net/prometheus/workspaces/monb1piptmdo********/api/v1/read returned`<br/>`HTTP status 429 Too Many Requests: {"status":"error","errorType":"execution","error":"too many read requests: monb1piptmdo********"}` |
-| `400` | Запрос вернул слишком много линий. Попробуйте уточнить запрос. | `remote_read: remote server https://monitoring.api.cloud.yandex.net/prometheus/workspaces/monb1piptmdo********/api/v1/read returned`<br/>`HTTP status 400 Bad Request: {"status":"error","errorType":"bad_data","error":"Too many metrics are loaded by selectors {job=='grafana'}, expected not more than: 20000"}` |
+| `400` | Запрос вернул слишком много линий. Попробуйте уточнить запрос. | `remote_read: remote server https://monitoring.api.cloud.yandex.net/prometheus/workspaces/monb1piptmdo********/api/v1/read returned`<br/>`HTTP status 400 Bad Request: {"status":"error","errorType":"bad_data","error":"Too many metrics are loaded by selectors {job=='grafana'}, expected not more than: 40000"}` |
 
 ## Метрики Prometheus {#metrics}
 
@@ -53,7 +53,7 @@
 
 ## Текущие ограничения {#restrictions}
 
-* Максимальное количество временных рядов, по которым можно получить метаданные при помощи запроса `/api/v1/series`, — 10 000.
-* Максимально количество временных рядов, которые можно прочитать в рамках одного запроса `/api/v1/query` или `/api/v1/query_range`, — 10 000.
+* Максимальное количество временных рядов для одного селектора `match[]` запроса `/api/v1/series` — 20 000.
+* Максимальное количество временных рядов, которые можно прочитать в рамках одного запроса `/api/v1/query` или `/api/v1/query_range`, — 40 000.
 
 _© 2025 Linux Foundation. Все права защищены. Linux Foundation зарегистрировала товарные знаки и использует товарные знаки. Список товарных знаков Linux Foundation приведен на странице [Trademark Usage](https://www.linuxfoundation.org/legal/trademark-usage)._

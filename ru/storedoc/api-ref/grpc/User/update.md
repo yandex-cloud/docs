@@ -4,7 +4,7 @@ editable: false
 
 # Managed Service for MongoDB API, gRPC: UserService.Update
 
-Updates the specified MongoDB user.
+Updates the specified StoreDoc user.
 
 ## gRPC request
 
@@ -26,6 +26,7 @@ Updates the specified MongoDB user.
       ]
     }
   ],
+  "generate_password": "google.protobuf.BoolValue",
   "deletion_protection": "google.protobuf.BoolValue"
 }
 ```
@@ -34,7 +35,7 @@ Updates the specified MongoDB user.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the MongoDB cluster the user belongs to.
+Required field. ID of the StoreDoc cluster the user belongs to.
 To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -46,7 +47,7 @@ To get the name of the user, use a [UserService.List](/docs/managed-mongodb/api-
 The maximum string length in characters is 63. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_@.-]*$ `. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
-Field mask that specifies which fields of the MongoDB User resource should be updated. ||
+Field mask that specifies which fields of the StoreDoc User resource should be updated. ||
 || password | **string**
 
 New password for the user.
@@ -55,6 +56,9 @@ The maximum string length in characters is 128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)**
 
 New set of permissions for the user. ||
+|| generate_password | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Generate password using Connection Manager ||
 || deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Deletion Protection inhibits deletion of the user ||
@@ -69,7 +73,7 @@ Deletion Protection inhibits deletion of the user ||
 Name of the database that the permission grants access to. ||
 || roles[] | **string**
 
-MongoDB roles for the `database_name` database that the permission grants. ||
+StoreDoc roles for the `database_name` database that the permission grants. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

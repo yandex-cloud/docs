@@ -2,7 +2,7 @@
 
 # Managed Service for MongoDB API, gRPC: ClusterService.SetAccessBindings
 
-Sets access bindings for the specified MongoDB cluster.
+Sets access bindings for the specified StoreDoc cluster.
 
 ## gRPC request
 

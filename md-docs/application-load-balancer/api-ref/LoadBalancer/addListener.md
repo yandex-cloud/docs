@@ -96,8 +96,10 @@ Required field. ID of the application load balancer to add a listener to. ||
         "clientCertificatesVerification": {
           "requireClientCertificate": "boolean",
           // Includes only one of the fields `bytes`
-          "bytes": "string"
+          "bytes": "string",
           // end of the list of possible fields
+          "acceptUntrusted": "boolean",
+          "allowExpired": "boolean"
         }
       },
       "sniHandlers": [
@@ -130,8 +132,10 @@ Required field. ID of the application load balancer to add a listener to. ||
             "clientCertificatesVerification": {
               "requireClientCertificate": "boolean",
               // Includes only one of the fields `bytes`
-              "bytes": "string"
+              "bytes": "string",
               // end of the list of possible fields
+              "acceptUntrusted": "boolean",
+              "allowExpired": "boolean"
             }
           }
         }
@@ -431,6 +435,15 @@ If true, ALB will reject connections without a valid client certificate. ||
 Trusted certificate authority certificates bundle (PEM text).
 
 Includes only one of the fields `bytes`. ||
+|| acceptUntrusted | **boolean**
+
+If true, ALB will not check certification chain.
+Backends could use configured client_certificate_forward in Route to proxy certificate and validate it there.
+Setting accept_untrusted to true forces ALB to allow expired client certificates too. ||
+|| allowExpired | **boolean**
+
+If true, ALB will allow expired client certificates even if accept_untrusted is set to false.
+Setting accept_untrusted to true forces ALB to allow expired client certificates too. ||
 |#
 
 ## SniMatch {#yandex.cloud.apploadbalancer.v1.SniMatch}

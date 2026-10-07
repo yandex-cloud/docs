@@ -474,6 +474,10 @@
 
  - [UpdateAccessBindings](api-ref/grpc/Cluster/updateAccessBindings.md)
 
+ - [DisableProtection](api-ref/grpc/Cluster/disableProtection.md)
+
+ - [EnableProtection](api-ref/grpc/Cluster/enableProtection.md)
+
 #### Extension
 
  - [Overview](api-ref/grpc/Extension/index.md)
@@ -617,6 +621,10 @@
  - [SetAccessBindings](api-ref/Cluster/setAccessBindings.md)
 
  - [UpdateAccessBindings](api-ref/Cluster/updateAccessBindings.md)
+
+ - [DisableProtection](api-ref/Cluster/disableProtection.md)
+
+ - [EnableProtection](api-ref/Cluster/enableProtection.md)
 
 #### Extension
 

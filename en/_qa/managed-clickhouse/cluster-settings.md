@@ -12,9 +12,11 @@ For more information about the `GRANT` command, see [this {{ CH }} guide]({{ ch.
 
 The `internal_replication` setting information is not available in {{ yandex-cloud }} interfaces or {{ CH }} system tables. The default setting value is `true`.
 
-#### How do I increase the maximum amount of RAM to run a query? {#max-memory-usage}
+#### Why do I get an `MEMORY_LIMIT_EXCEEDED` error? {#max-memory-usage}
 
-If you do not have enough RAM to run a query, you will see the following error:
+The [Max memory usage](../../managed-clickhouse/concepts/settings-list.md) setting limits the amount of memory that a single query can use on one server. By default, its value is `0`, meaning that no limit is set.
+
+Increase **Max memory usage** only if it is set to a non-zero value and the query exceeds this limit. In this case, you will get the following error:
 
 ```text
 DB::Exception: Memory limit (total) exceeded:
@@ -22,17 +24,31 @@ would use 14.10 GiB (attempt to allocate chunk of 4219924 bytes), maximum: 14.10
 (MEMORY_LIMIT_EXCEEDED), Stack trace (when copying this message, always include the lines below)
 ```
 
-To [increase](../../managed-clickhouse/operations/cluster-users.md#update-settings) the maximum amount of RAM, use the [Max memory usage](../../managed-clickhouse/concepts/settings-list.md#setting-max-memory-usage) parameter.
+The **Max memory usage** value cannot exceed the limit set by **Max server memory usage**. If **Max memory usage** is set to `0`, the `MEMORY_LIMIT_EXCEEDED` error may be caused by the server reaching its overall memory limit. Increasing **Max memory usage** will not resolve the issue in this case. [Optimize the query]({{ ch.docs }}resources/support-center/knowledge-base/performance-optimization/memory-limit-exceeded-for-query) to reduce memory usage or [change the host class](../../managed-clickhouse/operations/update.md#change-resource-preset). For more information, see [{#T}](../../managed-clickhouse/concepts/memory-management.md).
 
-If [user management via SQL](../../managed-clickhouse/concepts/user-access-rights.md#sql-user-management) is enabled for the cluster, you can set the `Max memory usage` parameter:
+You can [increase](../../managed-clickhouse/operations/cluster-users.md#update-settings) the **Max memory usage** value in the user settings or using SQL queries:
 
-* For the current user session by running this query:
+* For the current session:
 
     ```sql
     SET max_memory_usage = <value_in_bytes>;
     ```
 
-* For all default users by creating a [settings profile]({{ ch.docs }}{{ lang }}/operations/access-rights#settings-profiles-management).
+* For an individual query:
+
+    ```sql
+    SELECT <expression>
+    FROM <table_name>
+    SETTINGS max_memory_usage = <value_in_bytes>;
+    ```
+
+If [user management via SQL](../../managed-clickhouse/concepts/user-access-rights.md#sql-user-management) is enabled in the cluster, you can set the **Max memory usage** value for selected users via the [settings profile]({{ ch.docs }}{{ lang }}/operations/access-rights#settings-profiles-management). For example, to set a value for a single user:
+
+```sql
+CREATE SETTINGS PROFILE max_memory_usage_profile
+SETTINGS max_memory_usage = <value_in_bytes>
+TO <username>;
+```
 
 #### Why must a highly available {{ mch-name }} cluster have three or five {{ ZK }} hosts? {#zookeeper-hosts-number}
 

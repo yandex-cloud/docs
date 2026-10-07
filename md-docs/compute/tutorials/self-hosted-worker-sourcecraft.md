@@ -2,9 +2,9 @@
 
 # Развертывание пользовательского (self-hosted) воркера SourceCraft на виртуальной машине Yandex Compute Cloud
 
-[Пользовательские (self-hosted) воркеры](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/ci-cd#self-hosted-workers) — личные серверы пользователей, как виртуальные, так и физические, на которых выполняются [CI/CD-процессы](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/ci-cd) SourceCraft. В этом случае для процессов будет доступно окружение пользовательского сервера.
+[Пользовательские (self-hosted) воркеры](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/workers#self-hosted-workers) — личные серверы пользователей, как виртуальные, так и физические, на которых выполняются [CI/CD-процессы](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/ci-cd) SourceCraft. В этом случае для процессов будет доступно окружение пользовательского сервера.
 
-На пользовательские воркеры не действуют ограничения на [объем вычислительных ресурсов](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/ci-cd#cloud-worker-resources), а также не расходуется [квота на суммарное время работы CI/CD-процессов](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/limits#ci-cd-quotas).
+На пользовательские воркеры не действуют ограничения на [объем вычислительных ресурсов](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/workers#cloud-worker-resources), а также не расходуется [квота на суммарное время работы CI/CD-процессов](https://sourcecraft.dev/portal/docs/ru/sourcecraft/pricing#tariff-differences).
 
 При наличии компьютера с подходящей конфигурацией, можно самостоятельно на нем [настроить пользовательский воркер для SourceCraft](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/self-hosted-worker). В ином случае можно создать виртуальную машину в Compute Cloud и установить пользовательский воркер на ней. Более того, можно автоматизировать не только процессы создания ВМ, установки, настройки и запуска пользовательского воркера, но и процесс удаления ВМ после выполнения [рабочего процесса](https://sourcecraft.dev/portal/docs/ru/sourcecraft/ci-cd-ref/workflows) CI/CD. Таким образом, можно оптимально использовать ресурсы Compute Cloud.
 
@@ -210,7 +210,7 @@ CI/CD-процесс [настраивается](https://sourcecraft.dev/portal
 
 {% note info %}
 
-Рабочие процессы `create-vm` и `delete-vm` выполняются на стандартных [облачных воркерах SourceCraft](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/ci-cd#cloud-workers). Процесс `test-task-and-delete-vm-async` выполняется на пользовательском воркере.
+Рабочие процессы `create-vm` и `delete-vm` выполняются на стандартных [облачных воркерах SourceCraft](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/workers#cloud-workers). Процесс `test-task-and-delete-vm-async` выполняется на пользовательском воркере.
 
 {% endnote %}
 

@@ -9,7 +9,7 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the Redis cluster to start failover on.
+            Required field. ID of the Valkey cluster to start failover on.
             The maximum string length in characters is 50.
           type: string
       required:
@@ -51,7 +51,7 @@ apiPlayground:
 
 # Managed Service for Redis API, REST: Cluster.StartFailover
 
-Start a manual failover on the specified Redis cluster.
+Start a manual failover on the specified Valkey cluster.
 
 ## HTTP request
 
@@ -65,7 +65,7 @@ POST https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}:startFailo
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Redis cluster to start failover on.
+Required field. ID of the Valkey cluster to start failover on.
 
 The maximum string length in characters is 50. ||
 |#

@@ -31,11 +31,7 @@ There are several ways to get a {{ CH }} host's FQDN:
 
 If you do not want to manually connect to another host when the current one becomes unavailable, use a special FQDN.
 
-{% note warning %}
-
-Use special FQDN-based connections only for processes that allow up to 10 minutes of database write downtime.
-
-{% endnote %}
+{% include [fqdn-limitations](../../../_includes/mdb/special-fqdns-warning.md) %}
 
 Special FQDNs can be in one of the following formats:
 
@@ -51,6 +47,6 @@ If, during [cluster maintenance](../../concepts/maintenance.md#maintenance-order
 {% endnote %}
 
 
-A special FQDN may temporarily point to an unavailable host (for up to 10 minutes). This is because it takes time to update DNS records for special FQDNs. If your request returns an error, repeat it later.
+In multi-host clusters, a special FQDN may temporarily point to a replica host. This is because it takes time to update DNS records for special FQDNs. If your write request returns an error, repeat it later.
 
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

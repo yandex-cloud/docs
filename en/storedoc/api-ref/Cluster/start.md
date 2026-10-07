@@ -9,7 +9,7 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the MongoDB cluster to start.
+            Required field. ID of the StoreDoc cluster to start.
             The maximum string length in characters is 50.
           type: string
       required:
@@ -22,7 +22,7 @@ apiPlayground:
 
 # Managed Service for MongoDB API, REST: Cluster.Start
 
-Start the specified MongoDB cluster.
+Start the specified StoreDoc cluster.
 
 ## HTTP request
 
@@ -36,7 +36,7 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}:start
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster to start.
+Required field. ID of the StoreDoc cluster to start.
 
 The maximum string length in characters is 50. ||
 |#

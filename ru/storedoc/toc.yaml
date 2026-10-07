@@ -581,6 +581,8 @@ items:
                 href: api-ref/grpc/Cluster/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/grpc/Cluster/updateAccessBindings.md
+              - name: SetBalancerStatus
+                href: api-ref/grpc/Cluster/setBalancerStatus.md
           - name: Database
             items:
               - name: Overview
@@ -751,6 +753,8 @@ items:
                 href: api-ref/Cluster/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/Cluster/updateAccessBindings.md
+              - name: SetBalancerStatus
+                href: api-ref/Cluster/setBalancerStatus.md
           - name: Database
             items:
               - name: Overview

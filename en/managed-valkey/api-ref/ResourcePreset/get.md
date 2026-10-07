@@ -65,11 +65,11 @@ A resource preset that describes hardware configuration for a host.
 Required field. ID of the resource preset. ||
 || zoneIds[] | **string**
 
-IDs of availability zones where the resource preset is available. ||
+IDs of the availability zones where the resource preset is available. ||
 || memory | **string** (int64)
 
-RAM volume for a Redis host created with the preset, in bytes. ||
+RAM volume for a Valkey host created with the preset, in bytes. ||
 || cores | **string** (int64)
 
-Number of CPU cores for a Redis host created with the preset. ||
+Number of CPU cores for a Valkey host created with the preset. ||
 |#

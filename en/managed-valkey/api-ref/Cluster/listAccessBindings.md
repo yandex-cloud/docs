@@ -47,7 +47,7 @@ apiPlayground:
 
 # Managed Service for Redis API, REST: Cluster.ListAccessBindings
 
-Retrieves a list of access bindings for the specified Redis cluster.
+Retrieves a list of access bindings for the specified Valkey cluster.
 
 ## HTTP request
 

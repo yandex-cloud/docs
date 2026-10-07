@@ -966,6 +966,10 @@ Yandex Application Load Balancer служит для распределения 
 
  - [DeleteVirtualHost](events-ref/DeleteVirtualHost.md)
 
+ - [DisableZones](events-ref/DisableZones.md)
+
+ - [EnableZones](events-ref/EnableZones.md)
+
  - [LoadBalancerHTTPAccessLog](events-ref/LoadBalancerHTTPAccessLog.md)
 
  - [LoadBalancerTCPAccessLog](events-ref/LoadBalancerTCPAccessLog.md)
@@ -1005,6 +1009,8 @@ Yandex Application Load Balancer служит для распределения 
  - [UpdateVirtualHostRoute](events-ref/UpdateVirtualHostRoute.md)
 
  - [Логи L7-балансировщика](logs-ref.md)
+
+ - [Вопросы и ответы про Application Load Balancer](qa.md)
 
  - [История изменений](release-notes.md)
 

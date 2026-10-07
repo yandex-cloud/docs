@@ -53,7 +53,7 @@ Field mask that specifies which fields of the SPQR User resource should be updat
 
 New password for the user.
 
-The string length in characters must be 8-128. ||
+The string length in characters must be 0-128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.spqr.v1.Permission)**
 
 New set of permissions for the user. ||

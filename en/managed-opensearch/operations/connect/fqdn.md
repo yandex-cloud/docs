@@ -37,10 +37,6 @@ You can use a special FQDN to send requests to a specific host group with the `D
 
 You can get the host group name with [cluster details](../cluster-list.md#get-cluster).
 
-In clusters with multiple `DATA` or `DASHBOARDS` hosts, a special FQDN may temporarily point to an unavailable host (for up to 10 minutes). This is because it takes time to update DNS records for special FQDNs. If your request returns an error, repeat it later.
+In clusters with several `DATA` or `DASHBOARDS` hosts, a special FQDN may be pointing to an unavailable host for some time. This is because it takes time to update DNS records for special FQDNs. If your request returns an error, repeat it later.
 
-{% note warning %}
-
-Use special FQDN-based connections only for processes that allow for indexes being not available for writing for up to 10 minutes.
-
-{% endnote %}
+{% include [special-fqdns-warning](../../../_includes/mdb/special-fqdns-warning.md) %}

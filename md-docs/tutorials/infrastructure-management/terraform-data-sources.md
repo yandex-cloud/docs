@@ -319,6 +319,7 @@
 
 
    Где:
+   
    * `source` — глобальный [адрес источника](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses) провайдера.
    * `required_version` — минимальная версия Terraform, с которой совместим провайдер.
    * `provider` — название провайдера.
@@ -334,8 +335,10 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
 ```
 
 Где:
+
 * `-net-mirror` — адрес зеркала, откуда будет загружаться провайдер.
 * `-platform` — платформы, на которых будет использоваться конфигурация. Возможные значения:
+  
   * `windows_amd64` — 64-bit Windows.
   * `linux_amd64` — 64-bit Linux.
   * `darwin_arm64` — 64-bit macOS.

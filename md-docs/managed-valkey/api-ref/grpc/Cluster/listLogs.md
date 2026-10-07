@@ -2,7 +2,7 @@
 
 # Managed Service for Redis API, gRPC: ClusterService.ListLogs
 
-Retrieves logs for the specified Redis cluster.
+Retrieves logs for the specified Valkey cluster.
 
 ## gRPC request
 
@@ -31,8 +31,8 @@ Retrieves logs for the specified Redis cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Redis cluster to request logs for.
-To get the Redis cluster ID use a [ClusterService.List](list.md#List) request.
+Required field. ID of the Valkey cluster to request logs for.
+To get the Valkey cluster ID use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || column_filter[] | **string**
@@ -43,7 +43,7 @@ If no columns are specified, entire log records are returned. ||
 
 Type of the service to request logs about.
 
-- `REDIS`: Logs of Redis activity.
+- `REDIS`: Logs of Valkey activity.
 - `VALKEY_AUDIT`: Valkey audit logs ||
 || from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 

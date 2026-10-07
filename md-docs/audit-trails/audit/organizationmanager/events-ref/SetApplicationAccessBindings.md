@@ -2,7 +2,7 @@
 
 # Identity Hub Audit Trails Events: SetApplicationAccessBindings
 
-## Event JSON schema {#yandex.cloud.audit.organizationmanager.application.saml.SetApplicationAccessBindings2-schema}
+## Event JSON schema {#yandex.cloud.audit.organizationmanager.application.linked.SetApplicationAccessBindings2-schema}
 
 ```json
 {
@@ -105,7 +105,7 @@
 }
 ```
 
-## Field description {#yandex.cloud.audit.organizationmanager.application.saml.SetApplicationAccessBindings2}
+## Field description {#yandex.cloud.audit.organizationmanager.application.linked.SetApplicationAccessBindings2}
 
 #|
 ||Field | Description ||
@@ -134,7 +134,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || error | **[Status](#google.rpc.Status)**
 
 The error result of the operation in case of failure or cancellation. ||
-|| details | **[EventDetails](#yandex.cloud.audit.organizationmanager.application.saml.SetApplicationAccessBindings.EventDetails)** ||
+|| details | **[EventDetails](#yandex.cloud.audit.organizationmanager.application.linked.SetApplicationAccessBindings.EventDetails)** ||
 || requestParameters | **object** ||
 || response | **object** ||
 |#
@@ -265,7 +265,7 @@ An error message. ||
 A list of messages that carry the error details. ||
 |#
 
-## EventDetails {#yandex.cloud.audit.organizationmanager.application.saml.SetApplicationAccessBindings.EventDetails}
+## EventDetails {#yandex.cloud.audit.organizationmanager.application.linked.SetApplicationAccessBindings.EventDetails}
 
 #|
 ||Field | Description ||
@@ -304,6 +304,4 @@ The maximum string length in characters is 50. ||
 - `GROUP`
 - `INVITEE` ||
 || subjectName | **string** ||
-|#|
-|#|
 |#

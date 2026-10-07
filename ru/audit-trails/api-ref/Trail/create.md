@@ -86,6 +86,14 @@ apiPlayground:
               Prefix for exported objects. Optional
               If specified, uploaded objects will have prefix &lt;object_prefix&gt;/&lt;trail_id&gt;/
             type: string
+          aggregationPeriod:
+            description: |-
+              **string** (duration)
+              Target interval between the starts of exports to Object Storage.
+              Must be between 1 minute and 1 hour, inclusive.
+              If omitted, the default interval is 5 minutes.
+            type: string
+            format: duration
       CloudLogging:
         type: object
         properties:
@@ -532,7 +540,8 @@ POST https://audittrails.{{ api-host }}/audit-trails/v1/trails
     // Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`, `monium`
     "objectStorage": {
       "bucketId": "string",
-      "objectPrefix": "string"
+      "objectPrefix": "string",
+      "aggregationPeriod": "string"
     },
     "cloudLogging": {
       // Includes only one of the fields `logGroupId`
@@ -786,6 +795,11 @@ The string length in characters must be 3-63. ||
 
 Prefix for exported objects. Optional
 If specified, uploaded objects will have prefix &lt;object_prefix&gt;/&lt;trail_id&gt;/ ||
+|| aggregationPeriod | **string** (duration)
+
+Target interval between the starts of exports to Object Storage.
+Must be between 1 minute and 1 hour, inclusive.
+If omitted, the default interval is 5 minutes. ||
 |#
 
 ## CloudLogging {#yandex.cloud.audittrails.v1.Trail.CloudLogging}

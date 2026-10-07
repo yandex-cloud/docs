@@ -279,7 +279,7 @@ database "<DB_name>" has a collation version mismatch
 
 The error occurs because {{ PG }} `18` marked changes in the collation rules, while the database uses the old rules.
 
-Solution: as the database owner, run the following command for each database:
+Solution: Run the following command for each database as the database owner:
 
 ```bash
 ALTER DATABASE <DB_name> REFRESH COLLATION VERSION;
@@ -290,3 +290,4 @@ If your database contains indexes that depend on collation (e.g., B-tree indexes
 ```bash
 REINDEX DATABASE <DB_name>;
 ```
+

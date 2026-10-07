@@ -2,7 +2,7 @@
 
 # Managed Service for MongoDB API, gRPC: ClusterService.Backup
 
-Creates a backup for the specified MongoDB cluster.
+Creates a backup for the specified StoreDoc cluster.
 
 ## gRPC request
 
@@ -20,8 +20,8 @@ Creates a backup for the specified MongoDB cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the MongoDB cluster to back up.
-To get the MongoDB cluster ID, use a [ClusterService.List](list.md#List) request.
+Required field. ID of the StoreDoc cluster to back up.
+To get the StoreDoc cluster ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 |#

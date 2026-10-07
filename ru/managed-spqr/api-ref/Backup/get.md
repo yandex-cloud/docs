@@ -56,7 +56,8 @@ To get the backup ID, use a [ClusterService.ListBackups](/docs/managed-spqr/api-
     "string"
   ],
   "size": "string",
-  "type": "string"
+  "type": "string",
+  "method": "string"
 }
 ```
 
@@ -101,10 +102,16 @@ Shard names used as a source for backup. ||
 || size | **string** (int64)
 
 Size of backup in bytes ||
-|| type | **enum** (BackupType)
+|| type | **enum** (BackupCreationType)
 
 How this backup was created (manual/automatic/etc...)
 
 - `AUTOMATED`: Backup created by automated daily schedule
 - `MANUAL`: Backup created by user request ||
+|| method | **enum** (BackupMethod)
+
+Method of backup creation.
+
+- `BASE`: Base backup.
+- `FULL`: Full backup. ||
 |#

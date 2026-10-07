@@ -900,6 +900,8 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
 
  - [Create](api-ref/grpc/Database/create.md)
 
+ - [Update](api-ref/grpc/Database/update.md)
+
  - [Delete](api-ref/grpc/Database/delete.md)
 
 #### Extension
@@ -1127,6 +1129,8 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
  - [List](api-ref/Database/list.md)
 
  - [Create](api-ref/Database/create.md)
+
+ - [Update](api-ref/Database/update.md)
 
  - [Delete](api-ref/Database/delete.md)
 

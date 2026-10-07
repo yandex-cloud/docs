@@ -194,8 +194,6 @@ items:
         href: concepts/access-transparency.md
       - name: Портал соответствия требованиям
         href: concepts/compliance.md
-      - name: AI-ассистент
-        href: concepts/ai-assistant.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Диагностика ошибок

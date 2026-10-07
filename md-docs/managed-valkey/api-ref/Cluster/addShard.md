@@ -18,7 +18,7 @@ POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/shar
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Redis cluster to create a shard in.
+Required field. ID of the Valkey cluster to create a shard in.
 To get the cluster ID use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -51,7 +51,7 @@ The name must be unique within the cluster.
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || hostSpecs[] | **[HostSpec](#yandex.cloud.mdb.redis.v1.HostSpec)**
 
-Configurations for Redis hosts that should be created with the shard.
+Configurations for Valkey hosts that should be created with the shard.
 Must contain at least one element.
 
 The number of elements must be greater than 0. ||
@@ -72,14 +72,16 @@ of the network that the cluster belongs to.
 The ID of the network is set in the field [Cluster.networkId](get.md#yandex.cloud.mdb.redis.v1.Cluster). ||
 || shardName | **string**
 
-ID of the Redis shard the host belongs to.
+ID of the Valkey shard the host belongs to.
 To get the shard ID use a [ClusterService.ListShards](listShards.md#ListShards) request.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || replicaPriority | **string** (int64)
 
-A replica with a low priority number is considered better for promotion.
-A replica with priority of 0 will never be selected by Redis Sentinel for promotion.
+Priority of the host as a candidate for promotion to master: the higher the value,
+the more preferred the host is. A host with priority 0 is promoted only if there are
+no other suitable candidates. The priority is ignored if the host requires a full
+resynchronization: in that case the host with the smallest replication lag is promoted.
 Works only for non-sharded clusters. Default value is 100. ||
 || assignPublicIp | **boolean**
 

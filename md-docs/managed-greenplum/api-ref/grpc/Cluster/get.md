@@ -330,19 +330,22 @@ The maximum string length in characters is 50. ||
         "mode": "PoolMode",
         "size": "google.protobuf.Int64Value",
         "client_idle_timeout": "google.protobuf.Int64Value",
-        "idle_in_transaction_timeout": "google.protobuf.Int64Value"
+        "idle_in_transaction_timeout": "google.protobuf.Int64Value",
+        "pool_discard": "google.protobuf.BoolValue"
       },
       "user_config": {
         "mode": "PoolMode",
         "size": "google.protobuf.Int64Value",
         "client_idle_timeout": "google.protobuf.Int64Value",
-        "idle_in_transaction_timeout": "google.protobuf.Int64Value"
+        "idle_in_transaction_timeout": "google.protobuf.Int64Value",
+        "pool_discard": "google.protobuf.BoolValue"
       },
       "default_config": {
         "mode": "PoolMode",
         "size": "google.protobuf.Int64Value",
         "client_idle_timeout": "google.protobuf.Int64Value",
-        "idle_in_transaction_timeout": "google.protobuf.Int64Value"
+        "idle_in_transaction_timeout": "google.protobuf.Int64Value",
+        "pool_discard": "google.protobuf.BoolValue"
       }
     },
     "background_activities": {
@@ -441,6 +444,22 @@ The maximum string length in characters is 50. ||
     "command_center_enabled": "bool",
     "greenplum_enabled": "bool",
     "pooler_enabled": "bool"
+  },
+  "is_ha": "bool",
+  "maintenance_windows": {
+    // Includes only one of the fields `anytime`, `weekly_maintenance_schedule`
+    "anytime": "AnytimeMaintenanceWindow",
+    "weekly_maintenance_schedule": {
+      "slots": [
+        {
+          "day": "DayOfWeek",
+          "start_time": "google.type.TimeOfDay",
+          "duration": "google.protobuf.Duration",
+          "allow_temporary_unavailability": "bool"
+        }
+      ]
+    }
+    // end of the list of possible fields
   }
 }
 ```
@@ -526,6 +545,7 @@ Current state of the cluster.
 - `STARTING`: Cluster is starting. ||
 || maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.greenplum.v1.MaintenanceWindow)**
 
+Deprecated. Use maintenance_windows instead.
 A Greenplum® cluster maintenance window. Should be defined by either one of the two options. ||
 || planned_operation | **[MaintenanceOperation](#yandex.cloud.mdb.greenplum.v1.MaintenanceOperation)**
 
@@ -560,6 +580,12 @@ Service account that will be used to access a Yandex Cloud resources. ||
 || logging | **[LoggingConfig](#yandex.cloud.mdb.greenplum.v1.LoggingConfig)**
 
 Cloud logging configuration. ||
+|| is_ha | **bool**
+
+Indicates whether the cluster topology is highly available as defined by the Yandex Cloud SLA for managed databases. ||
+|| maintenance_windows | **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)**
+
+Maintenance windows. ||
 |#
 
 ## GreenplumConfig {#yandex.cloud.mdb.greenplum.v1.GreenplumConfig}
@@ -1333,6 +1359,9 @@ Set to zero to disable. ||
 Odyssey® [client pool idle in transaction timeout](https://github.com/yandex/odyssey/blob/master/docs/configuration/rules.md#pool_idle_in_transaction_timeout), in seconds.
 Drop client connection in transaction after this much seconds of idleness.
 Set to zero to disable. ||
+|| pool_discard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables cleanup of server connections when they are returned to the connection pool. ||
 |#
 
 ## BackgroundActivitiesConfig {#yandex.cloud.mdb.greenplum.v1.BackgroundActivitiesConfig}
@@ -1548,4 +1577,67 @@ Determines whether Greenplum® logs should be sent to Cloud Logging. ||
 || pooler_enabled | **bool**
 
 Determines whether Pooler logs should be sent to Cloud Logging. ||
+|#
+
+## MaintenanceWindows {#yandex.cloud.mdb.v1.MaintenanceWindows}
+
+Maintenance windows shared by all managed database services.
+
+#|
+||Field | Description ||
+|| anytime | **[AnytimeMaintenanceWindow](#yandex.cloud.mdb.v1.AnytimeMaintenanceWindow)**
+
+Maintenance operations can be scheduled anytime.
+
+Includes only one of the fields `anytime`, `weekly_maintenance_schedule`. ||
+|| weekly_maintenance_schedule | **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+
+Maintenance operations can be scheduled during the specified weekly slots.
+
+Includes only one of the fields `anytime`, `weekly_maintenance_schedule`. ||
+|#
+
+## AnytimeMaintenanceWindow {#yandex.cloud.mdb.v1.AnytimeMaintenanceWindow}
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## WeeklyMaintenanceSchedule {#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule}
+
+#|
+||Field | Description ||
+|| slots[] | **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+
+Weekly time slots during which maintenance operations can be scheduled.
+At least one slot is required.
+
+The number of elements must be greater than 0. ||
+|#
+
+## MaintenanceWindowSlot {#yandex.cloud.mdb.v1.MaintenanceWindowSlot}
+
+#|
+||Field | Description ||
+|| day | enum **DayOfWeek**
+
+Day of the week.
+
+- `MONDAY`: The day-of-week of Monday.
+- `TUESDAY`: The day-of-week of Tuesday.
+- `WEDNESDAY`: The day-of-week of Wednesday.
+- `THURSDAY`: The day-of-week of Thursday.
+- `FRIDAY`: The day-of-week of Friday.
+- `SATURDAY`: The day-of-week of Saturday.
+- `SUNDAY`: The day-of-week of Sunday. ||
+|| start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
+
+Required field. Start time in UTC. ||
+|| duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+
+Required field. Slot duration. ||
+|| allow_temporary_unavailability | **bool**
+
+Allows maintenance operations that may cause temporary write unavailability. ||
 |#

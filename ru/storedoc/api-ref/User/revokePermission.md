@@ -9,7 +9,7 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the MongoDB cluster the user belongs to.
+            Required field. ID of the StoreDoc cluster the user belongs to.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
             The maximum string length in characters is 50.
           type: string
@@ -44,7 +44,7 @@ apiPlayground:
 
 # Managed Service for MongoDB API, REST: User.RevokePermission
 
-Revokes permission from the specified MongoDB user.
+Revokes permission from the specified StoreDoc user.
 
 ## HTTP request
 
@@ -58,7 +58,7 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/users/{u
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster the user belongs to.
+Required field. ID of the StoreDoc cluster the user belongs to.
 To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||

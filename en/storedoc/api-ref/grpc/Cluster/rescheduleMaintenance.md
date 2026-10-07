@@ -24,7 +24,7 @@ Reschedules planned maintenance operation.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the MongoDB cluster to reschedule the maintenance operation for.
+Required field. ID of the StoreDoc cluster to reschedule the maintenance operation for.
 
 The maximum string length in characters is 50. ||
 || reschedule_type | enum **RescheduleType**

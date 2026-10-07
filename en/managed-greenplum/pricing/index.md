@@ -179,9 +179,8 @@ For dedicated hosts, there are two cost components: the [{{ compute-full-name }}
 </MDX>
 
 
+### Hybrid storage pricing {#prices-hybrid-storage}
 
-
-### Hybrid storage pricing for the Russia region
 
 {% list tabs %}
 
@@ -198,6 +197,7 @@ For dedicated hosts, there are two cost components: the [{{ compute-full-name }}
   {% include [usd-yezzey](../../_pricing/managed-greenplum/usd-yezzey.md) %}
 
 {% endlist %}
+
 
 
 {% include [egress-traffic-pricing](../../_includes/egress-traffic-pricing.md) %}

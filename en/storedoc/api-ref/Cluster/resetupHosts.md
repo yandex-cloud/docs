@@ -9,7 +9,7 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. Required. ID of the MongoDB cluster.
+            Required field. ID of the StoreDoc cluster.
             The maximum string length in characters is 50.
           type: string
       required:
@@ -22,7 +22,7 @@ apiPlayground:
         hostNames:
           description: |-
             **string**
-            Required. Name of the hosts to resetup.
+            Name of the hosts to resetup.
             The maximum string length in characters for each value is 253. The number of elements must be greater than 0.
           type: array
           items:
@@ -48,7 +48,7 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}:resetupH
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the MongoDB cluster.
+Required field. ID of the StoreDoc cluster.
 
 The maximum string length in characters is 50. ||
 |#
@@ -67,7 +67,7 @@ The maximum string length in characters is 50. ||
 ||Field | Description ||
 || hostNames[] | **string**
 
-Required. Name of the hosts to resetup.
+Name of the hosts to resetup.
 
 The maximum string length in characters for each value is 253. The number of elements must be greater than 0. ||
 |#

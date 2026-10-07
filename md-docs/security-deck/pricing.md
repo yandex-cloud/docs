@@ -21,7 +21,6 @@
 
 * [Модуль Access Analyzer](concepts/access-analyzer.md)
 * [Модуль обнаружения угроз (TD)](concepts/threat-detector.md)
-* [AI-ассистент](concepts/ai-assistant.md)
 
 ## Из чего складывается стоимость использования Security Deck {#rules}
 

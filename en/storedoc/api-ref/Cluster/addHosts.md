@@ -9,8 +9,8 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the MongoDB cluster to add hosts to.
-            To get the MongoDB cluster ID use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+            Required field. ID of the StoreDoc cluster to add hosts to.
+            To get the StoreDoc cluster ID use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
             The maximum string length in characters is 50.
           type: string
       required:
@@ -23,7 +23,7 @@ apiPlayground:
         hostSpecs:
           description: |-
             **[HostSpec](#yandex.cloud.mdb.mongodb.v1.HostSpec)**
-            Configurations for MongoDB hosts that should be added to the cluster.
+            Configurations for StoreDoc hosts that should be added to the cluster.
             The number of elements must be greater than 0.
           type: array
           items:
@@ -129,8 +129,8 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/hosts:ba
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster to add hosts to.
-To get the MongoDB cluster ID use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+Required field. ID of the StoreDoc cluster to add hosts to.
+To get the StoreDoc cluster ID use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 |#
@@ -160,7 +160,7 @@ The maximum string length in characters is 50. ||
 ||Field | Description ||
 || hostSpecs[] | **[HostSpec](#yandex.cloud.mdb.mongodb.v1.HostSpec)**
 
-Configurations for MongoDB hosts that should be added to the cluster.
+Configurations for StoreDoc hosts that should be added to the cluster.
 
 The number of elements must be greater than 0. ||
 |#

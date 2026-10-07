@@ -16,7 +16,7 @@ GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/sha
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster to list databases in.
+Required field. ID of the StoreDoc cluster to list databases in.
 To get the cluster ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -32,7 +32,7 @@ The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListClusterShardsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListClusterShardsResponse)
 that can be used to get the next page of results in subsequent list requests.
 
-The maximum value is 1000. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
@@ -50,7 +50,8 @@ The maximum string length in characters is 100. ||
   "shards": [
     {
       "name": "string",
-      "clusterId": "string"
+      "clusterId": "string",
+      "isHa": "boolean"
     }
   ],
   "nextPageToken": "string"
@@ -61,7 +62,7 @@ The maximum string length in characters is 100. ||
 ||Field | Description ||
 || shards[] | **[Shard](#yandex.cloud.mdb.mongodb.v1.Shard)**
 
-List of MongoDB shards. ||
+List of StoreDoc shards. ||
 || nextPageToken | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
@@ -80,4 +81,7 @@ Name of the shard. ||
 || clusterId | **string**
 
 ID of the cluster that the shard belongs to. ||
+|| isHa | **boolean**
+
+Indicates whether the shard topology is highly available as defined by the Yandex Cloud SLA for managed databases. ||
 |#

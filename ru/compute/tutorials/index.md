@@ -27,7 +27,6 @@ description: Различные сценарии использования {{ c
 * [{#T}](serverless-trigger-budget-queue-vm-tg.md)
 * [{#T}](opencart/index.md)
 * [{#T}](flask.md)
-* [{#T}](sap.md)
 * [{#T}](minecraft-server.md)
 * [{#T}](jenkins.md)
 * [{#T}](test-vms-creation-via-gitlab-ci.md)

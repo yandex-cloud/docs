@@ -2,7 +2,7 @@
 
 # Managed Service for MongoDB API, REST: Cluster.ListAccessBindings
 
-Retrieves a list of access bindings for the specified MongoDB cluster.
+Retrieves a list of access bindings for the specified StoreDoc cluster.
 
 ## HTTP request
 

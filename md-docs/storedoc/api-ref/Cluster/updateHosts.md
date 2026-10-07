@@ -17,8 +17,8 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/ho
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster to update hosts from.
-To get the MongoDB cluster ID, use a [ClusterService.List](list.md#List) request.
+Required field. ID of the StoreDoc cluster to update hosts from.
+To get the StoreDoc cluster ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 |#
@@ -46,7 +46,7 @@ The maximum string length in characters is 50. ||
 ||Field | Description ||
 || updateHostSpecs[] | **[UpdateHostSpec](#yandex.cloud.mdb.mongodb.v1.UpdateHostSpec)**
 
-New configurations to apply to hosts of a Managed Service for MongoDB cluster.
+New configurations to apply to hosts of a Managed Service for StoreDoc cluster.
 
 The number of elements must be greater than 0. ||
 |#
@@ -70,7 +70,7 @@ The time, in seconds, by which the given replica set member lags behind the prim
 || priority | **number** (double)
 
 Priority of the host to be elected as the primary in the replica set.
-The minimum value is `0` if the Managed Service for MongoDB cluster contains three or more secondary hosts. Otherwise, the minimum value is `1`. ||
+The minimum value is `0` if the Managed Service for StoreDoc cluster contains three or more secondary hosts. Otherwise, the minimum value is `1`. ||
 || assignPublicIp | **boolean**
 
 Determines whether the host should get a public IP address after the update. ||

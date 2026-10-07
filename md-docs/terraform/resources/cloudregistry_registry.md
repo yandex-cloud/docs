@@ -39,7 +39,7 @@ resource "yandex_cloudregistry_registry" "default" {
 - `created_at` (*Read-Only*) (String). Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 - `description` (String). Description of the registry.
 - `folder_id` (String). ID of the folder that the registry belongs to.
-- `id` (String). ID of the Registry resource to return.
+- `id` (*Read-Only*) (String). ID of the Registry resource to return.
  To get the registry ID use a [RegistryService.List] request.
 - `kind` (**Required**)(String). Kind of the registry.
 - `labels` (Map Of String). Resource labels as `key:value` pairs. Maximum of 64 per resource.
@@ -49,7 +49,7 @@ resource "yandex_cloudregistry_registry" "default" {
   - `exclude_patterns` (List Of String). List of patterns for artifacts to exclude.
   - `include_patterns` (List Of String). List of patterns for artifacts to include.
 - `properties` (Map Of String). Resource properties as `key:value` pairs. Maximum of 64 per resource.
-- `registry_id` (String). ID of the Registry resource to return.
+- `registry_id` (*Read-Only*) (String). ID of the Registry resource to return.
  To get the registry ID use a [RegistryService.List] request.
 - `status` (*Read-Only*) (String). Output only. Status of the registry.
 - `timeouts` [Block]. 

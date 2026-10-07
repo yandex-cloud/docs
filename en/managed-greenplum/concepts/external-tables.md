@@ -26,6 +26,29 @@ Sources enable you to do the following:
 * Simplify your SQL query for creating a table: with a dedicated source properly configured, there is no need to list configuration parameters in your query.
 * Simplify your configuration update: it is enough to redefine the parameters at the source only once without changing them for each table separately.
 
+## Working with files on external sources using gpfdist {#gpfdist}
+
+`gpfdist` is a file server that provides {{ mgp-name }} cluster hosts with parallel access to files on a remote server via the HTTP protocol.
+
+This utility is installed on all {{ mgp-name }} cluster segment hosts, but to work with external files you need to [install and run](../operations/gpfdist/connect.md#run-gpfdist) it on the server those files are stored on.
+
+To work with files using `gpfdist`, follow these steps:
+
+1. On the remote server, run `gpfdist`, which will open access to a specified directory on a specified port.
+1. [Create an external table](../operations/gpfdist/connect.md#create-gpfdist-table) in the {{ mgp-name }} cluster. In the `LOCATION` parameter, specify the `gpfdist` protocol, server address, port, and file path or file group mask.
+
+When accessing such a table, the cluster's segment hosts connect to `gpfdist` in parallel, each segment reading or writing its own portion of the data. Data flows between the segments and the remote server directly bypassing the master host. During loading, data is distributed between segments either evenly or as per the specified [distribution key](sharding.md#distribution-key). This improves performance when handling large amounts of external data.
+
+With `gpfdist`, you can:
+
+* Use delimited text files (`TEXT`, `CSV`, and `CUSTOM` formats), as well as gzip and bzip2 compressed files.
+* Use external tables to read data from files and write data to files. Do this by creating a table with the `READABLE` or `WRITABLE` option on.
+* Specify multiple files and multiple servers running `gpfdist` in a single external table.
+* Distribute the network load by running multiple instances of the utility on the same server using different directories and ports.
+
+The server running `gpfdist` must be available at the specified port from the network the {{ mgp-name }} cluster is connected to. You should [configure security groups](../operations/connect/index.md#configuring-security-groups) for this to work. If the server running `gpfdist` is outside of {{ yandex-cloud }} and accessible via the internet, [configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the cluster network.
+
+[External data sources](#pxf-data-sources) are not used for `gpfdist`: all connection parameters are specified in the SQL query used to create the external table.
 
 ## Use cases {#examples}
 

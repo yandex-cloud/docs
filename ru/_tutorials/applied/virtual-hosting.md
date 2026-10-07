@@ -303,6 +303,10 @@
   1. В поле **{{ ui-key.yacloud.alb.label_authority }}** укажите доменное имя сайта: `site-a.com`.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-route }}**.
   1. Укажите **{{ ui-key.yacloud.common.name }}** маршрута: `vhosting-route-a`.
+  1. В поле **{{ ui-key.yacloud.alb.label_path }}** выберите `{{ ui-key.yacloud.alb.label_match-prefix }}` и укажите `/`, чтобы маршрут обрабатывал запросы ко всем путям сайта.
+
+     Чтобы обрабатывать только запросы с определенным префиксом пути, вместо `/` укажите этот префикс, например `/blog/`.
+
   1. В поле **{{ ui-key.yacloud.alb.label_backend-group }}** выберите группу `vhosting-bg-a`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
@@ -327,6 +331,7 @@
   1. В поле **{{ ui-key.yacloud.alb.label_authority }}** укажите доменное имя сайта: `default.com`.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-route }}**.
   1. Укажите **{{ ui-key.yacloud.common.name }}** маршрута: `vhosting-route-a`.
+  1. В поле **{{ ui-key.yacloud.alb.label_path }}** выберите `{{ ui-key.yacloud.alb.label_match-prefix }}` и укажите `/`, чтобы маршрут обрабатывал запросы ко всем путям сайта.
   1. В поле **{{ ui-key.yacloud.alb.label_route-action }}** выберите `{{ ui-key.yacloud.alb.label_route-action-statusResponse }}`.
   1. В поле **{{ ui-key.yacloud.alb.label_http-status-code }}** выберите `404 Not Found`.
   1. В поле **{{ ui-key.yacloud.alb.label_body }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_select }}**. Выберите способ `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` и в поле **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** укажите:

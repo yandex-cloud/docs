@@ -21,7 +21,7 @@ terraform {
       source = "yandex-cloud/yandex"
     }
   }
-  required_version = ">=0.136.0"
+  required_version = ">= 0.13"
 }
 
 # Получение информации о TLS-сертификате

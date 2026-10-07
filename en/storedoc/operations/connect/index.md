@@ -18,14 +18,14 @@ To connect to cluster hosts, use the following ports:
 * `{{ port-mmg }}`: For a non-sharded cluster.
 * `{{ port-mmg-sharded }}`: For a [sharded](../../concepts/sharding.md) cluster.
 
-The system will automatically route write requests to the cluster’s primary replica.
+Write requests will be automatically routed to the cluster’s master.
 
 
 {% note info %}
 
-To enable internet connectivity to the cluster, configure public access on its primary replica.
+For internet connectivity to the cluster, configure public access for its master.
 
-[Automatic failover](../../concepts/replication.md) may break internet connectivity to the cluster if public access is limited to specific hosts.
+[Automatic master failover](../../concepts/replication.md) may disrupt internet connectivity to the cluster if public access is limited to specific hosts.
 
 {% endnote %}
 
@@ -89,7 +89,7 @@ Rule settings depend on the chosen connection method:
 
 You can specify more granular security group rules, such as allowing traffic only in specific subnets.
 
-Make sure to properly configure security groups for all subnets where the cluster hosts will reside. Incomplete or incorrect security group configuration can lead to a loss of access to the cluster in the event of [automatic primary replica failover](../../concepts/replication.md).
+Make sure to properly configure security groups for all subnets where the cluster hosts will reside. With an incomplete or incorrect security group configuration, you may lose access to the cluster in the event of [automatic master failover](../../concepts/replication.md). If your write request returns an error, repeat it later.
 
 {% endnote %}
 

@@ -1,5 +1,5 @@
 ---
-title: 'Getting FQDNs for {{ mgp-name }} hosts '
+title: Getting FQDNs for {{ mgp-name }} hosts
 description: Follow this guide to get host FQDNs for connecting to a database in a {{ mgp-name }} cluster.
 ---
 
@@ -31,7 +31,7 @@ There are several ways to get a {{ mgp-name }} host's FQDN:
 
 If you do not want to manually connect to another master host when the current one becomes unavailable, use a special FQDN in `c-<cluster_ID>.rw.{{ dns-zone }}` format. It always points to the primary master host in the cluster. Connection to this FQDN is permitted, with both read and write operations allowed.
 
-A special FQDN may temporarily point to an unavailable master host (for up to 10 minutes). This is because it takes time to update DNS records for special FQDNs. If your request returns an error, repeat it later.
+In multi-host clusters, a special FQDN may temporarily point to a replica host. This is because it takes time to update DNS records for special FQDNs. If your write request returns an error, repeat it later.
 
 Here is an example of connecting to a primary master host in a cluster with the `{{ cluster-id }}` ID:
 

@@ -75,7 +75,7 @@ list request will have its own `nextPageToken` to continue paging through the re
 
 ## Backup {#yandex.cloud.mdb.mongodb.v1.Backup}
 
-A MongoDB Backup resource. For more information, see the
+A StoreDoc Backup resource. For more information, see the
 [Developer's Guide](../../concepts/index.md).
 
 #|
@@ -99,7 +99,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || sourceClusterId | **string**
 
-ID of the MongoDB cluster that the backup was created for. ||
+ID of the StoreDoc cluster that the backup was created for. ||
 || startedAt | **string** (date-time)
 
 Time when the backup operation was started.
@@ -120,7 +120,7 @@ Size of backup in bytes ||
 
 How this backup was created (manual/automatic/etc...)
 
-- `AUTOMATED`: Backup created by automated daily schedule
+- `AUTOMATED`: Backup created by automated daily schedule.
 - `MANUAL`: Backup created by user request ||
 || journalSize | **string** (int64)
 

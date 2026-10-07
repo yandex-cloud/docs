@@ -50,6 +50,9 @@ Required field. ID of the target group to get target states of. ||
         // Includes only one of the fields `ip_address`
         "ip_address": "string",
         // end of the list of possible fields
+        "locality": {
+          "zone_id": "string"
+        },
         "subnet_id": "string",
         "external_address": "bool",
         "private_ipv4_address": "bool"
@@ -138,6 +141,9 @@ IP address of the target.
 Includes only one of the fields `ip_address`.
 
 Reference to the target. As of now, targets must only be referred to by their IP addresses. ||
+|| locality | **[Locality](#yandex.cloud.apploadbalancer.v1.Locality)**
+
+Locality where the target resides. ||
 || subnet_id | **string**
 
 ID of the subnet that the target is connected to. ||
@@ -151,4 +157,13 @@ If set, will not require `subnet_id` to validate the target.
 Instead, the address should belong to one of the following ranges:
 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
 Only one of `subnet_id` or `private_ipv4_address` should be set. ||
+|#
+
+## Locality {#yandex.cloud.apploadbalancer.v1.Locality}
+
+#|
+||Field | Description ||
+|| zone_id | **string**
+
+Required field. ID of the availability zone where the target resides. ||
 |#

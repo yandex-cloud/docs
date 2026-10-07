@@ -39,10 +39,10 @@
 
      1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится файловое хранилище.
      1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
-     1. На панели слева выберите ![image](../../../_assets/console-icons/nodes-right.svg) **Файловые хранилища**.
-     1. Выберите нужное хранилище.
+     1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски и хранилища** и перейдите на вкладку **Файловые хранилища**.
+     1. Выберите хранилище.
      1. Перейдите на вкладку **Виртуальные машины**.
-     1. В строке нужной ВМ нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите пункт **Отключить файловое хранилище**.
+     1. В строке ВМ нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите пункт ![image](../../../_assets/console-icons/plug-connection.svg) **Отключить файловое хранилище**.
      1. В открывшемся окне подтвердите отключение.
 
    - CLI {#cli}

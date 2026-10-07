@@ -4,7 +4,7 @@ editable: false
 
 # Managed Service for MongoDB API, gRPC: DatabaseService.Update
 
-Updates the specified MongoDB database.
+Updates the specified StoreDoc database.
 
 ## gRPC request
 
@@ -25,7 +25,7 @@ Updates the specified MongoDB database.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the MongoDB cluster to update a database in.
+Required field. ID of the StoreDoc cluster to update a database in.
 To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||

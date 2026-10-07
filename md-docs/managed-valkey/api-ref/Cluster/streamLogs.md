@@ -17,7 +17,7 @@ GET https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}:strea
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Redis cluster.
+Required field. ID of the Valkey cluster.
 
 The maximum string length in characters is 50. ||
 |#
@@ -33,7 +33,7 @@ Columns from logs table to get in the response. ||
 
 Type of the service to request logs about.
 
-- `REDIS`: Logs of Redis activity.
+- `REDIS`: Logs of Valkey activity.
 - `VALKEY_AUDIT`: Valkey audit logs ||
 || fromTime | **string** (date-time)
 

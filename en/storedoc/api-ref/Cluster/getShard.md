@@ -9,14 +9,14 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the MongoDB cluster that the shard belongs to.
+            Required field. ID of the StoreDoc cluster that the shard belongs to.
             To get the cluster ID use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
             The maximum string length in characters is 50.
           type: string
         shardName:
           description: |-
             **string**
-            Required field. Name of the MongoDB shard to return.
+            Required field. Name of the StoreDoc shard to return.
             To get the name of the shard use a [ClusterService.ListShards](/docs/managed-mongodb/api-ref/Cluster/listShards#ListShards) request.
             The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
@@ -46,13 +46,13 @@ GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/shards/{s
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster that the shard belongs to.
+Required field. ID of the StoreDoc cluster that the shard belongs to.
 To get the cluster ID use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || shardName | **string**
 
-Required field. Name of the MongoDB shard to return.
+Required field. Name of the StoreDoc shard to return.
 To get the name of the shard use a [ClusterService.ListShards](/docs/managed-mongodb/api-ref/Cluster/listShards#ListShards) request.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
@@ -65,7 +65,8 @@ The maximum string length in characters is 63. Value must match the regular expr
 ```json
 {
   "name": "string",
-  "clusterId": "string"
+  "clusterId": "string",
+  "isHa": "boolean"
 }
 ```
 
@@ -77,4 +78,7 @@ Name of the shard. ||
 || clusterId | **string**
 
 ID of the cluster that the shard belongs to. ||
+|| isHa | **boolean**
+
+Indicates whether the shard topology is highly available as defined by the Yandex Cloud SLA for managed databases. ||
 |#

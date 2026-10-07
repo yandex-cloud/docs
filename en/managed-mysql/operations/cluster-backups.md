@@ -349,7 +349,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To restore a cluster from a backup:
+  **To restore a cluster from a backup:**
 
   1. View the description of the CLI command for restoring a {{ MY }} cluster:
 
@@ -357,7 +357,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
       {{ yc-mdb-my }} cluster restore --help
       ```
 
-  1. Get the list of available {{ MY }} cluster backups:
+  1. If your plan is to restore your cluster from a specific backup, get a list of available {{ MY }} cluster backups:
 
      ```bash
      {{ yc-mdb-my }} backup list
@@ -374,9 +374,37 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
      +--------------------------+---------------------+----------------------+---------------------+
      ```
 
-     The `CREATED AT` column in the list of available backups shows the backup completion time in `yyyy-mm-dd hh:mm:ss` format (`2020-08-10 12:00:00` in the example above). You can restore your cluster to the state it was in at any point in time after the backup was created.
+     You can see the backup completion time in the `CREATED AT` column of the available backups list. It is formatted as `yyyy-mm-dd hh:mm:ss`, e.g., `2020-08-10 12:00:00` in the example above.
 
-  1. Send the following request to create a cluster from a backup:
+  1. Request cluster creation. You can specify the recovery source in one of the following ways:
+
+     * To restore a cluster from a specific backup, specify its ID in `--backup-id`:
+
+       ```bash
+       {{ yc-mdb-my }} cluster restore \
+         --backup-id=<backup_ID> \
+         --time=<time> \
+         ...
+       ```
+
+       {% note info %}
+
+       You may skip the `time` parameter, in which case the cluster will be restored as of the selected backup creation time.
+
+       {% endnote %}
+
+     * To restore a cluster to a particular time point based on source cluster ID, specify `--source-cluster-id` and `--time`:
+
+       ```bash
+       {{ yc-mdb-my }} cluster restore \
+         --source-cluster-id=<source_cluster_ID> \
+         --time=<time> \
+         ...
+       ```
+
+       In this case, the `--time` parameter is a required one, and the suitable backup will be selected automatically.
+
+     Here is a full example of the command for restoring from a specific backup:
 
       
       ```bash
@@ -434,7 +462,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
   * Existing cluster from a backup.
   * Cluster created and then deleted via the management console, CLI, or API.
 
-  To restore a cluster, you will need the backup ID. Get the list of available {{ MY }} cluster backups [using the CLI](#list-backups):
+  You may need a backup ID for recovery. Get the list of available {{ MY }} cluster backups [using the CLI](#list-backups):
 
   ```bash
   {{ yc-mdb-my }} backup list
@@ -451,31 +479,47 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
   +--------------------------+---------------------+----------------------+---------------------+
   ```
 
-  **To restore an existing cluster from a backup:**
+  **To restore an existing cluster:**
 
   1. Create a [{{ TF }} configuration file](cluster-create.md#create-cluster) for the new cluster.
 
       Do not specify database (`yandex_mdb_mysql_database`) and user (`yandex_mdb_mysql_user`) resources as they will be restored from the backup.
 
-  1. Add the `restore` section to the configuration file:
+  1. Add the `restore` section to this configuration file using one of these options:
 
-      ```hcl
-      resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
-        ...
-        restore {
-          backup_id = "<backup_ID>"
-          time      = "<time>"
+      * To restore a cluster from a specific backup, specify its ID in `backup_id`:
+
+        ```hcl
+        resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
+          ...
+          restore {
+            backup_id = "<backup_ID>"
+            time      = "<time>"
+          }
         }
-      }
-      ```
+        ```
 
-      In the `time` parameter, specify the point in time to which the {{ MY }} cluster's state should be restored, starting from the selected backup's creation time, in `yyyy-mm-ddThh:mm:ss` format.
+        In the `time` parameter, specify the time point in `yyyy-mm-ddThh:mm:ss` format to restore the {{ MY }} cluster to.
 
-      {% note info %}
+        {% note info %}
 
-      The `time` parameter is optional. If you skip it, the cluster state will be restored to the point in time when the recovery process was initiated.
+        You may skip the `time` parameter, in which case the cluster will be restored as of the selected backup creation time.
 
-      {% endnote %}
+        {% endnote %}
+
+      * To restore a cluster to a particular time point based on source cluster ID, specify `source_cluster_id` and `time`:
+
+        ```hcl
+        resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
+          ...
+          restore {
+            source_cluster_id = "<source_cluster_ID>"
+            time              = "<time>"
+          }
+        }
+        ```
+
+        In this case, the `time` parameter is a required one, and the suitable backup will be selected automatically.
 
   1. Make sure the settings are correct.
 
@@ -526,7 +570,39 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Create a file named `body.json` and paste the following code into it:
+  1. Create a file named `body.json`.
+
+      To restore a cluster, you need to provide the recovery source in the request body. There are several ways to do this:
+
+      * To restore a cluster from a specific backup, specify its ID in `backupId`:
+
+        ```json
+        {
+            "backupId": "<backup_ID>",
+            "time": "<time>",
+            ...
+        }
+        ```
+
+        {% note info %}
+
+        You may skip the `time` parameter, in which case the cluster will be restored as of the selected backup creation time.
+
+        {% endnote %}
+
+      * To restore a cluster to a particular time point based on source cluster ID, specify `sourceClusterId` and `time`:
+
+        ```json
+        {
+            "sourceClusterId": "<source_cluster_ID>",
+            "time": "<time>",
+            ...
+        }
+        ```
+
+        In this case, the `time` parameter is a required one, and the suitable backup will be selected automatically.
+
+      Here is a full example of the `body.json` file content for recovery from a specific backup:
 
       ```json
       {
@@ -601,7 +677,39 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Create a file named `body.json` and paste the following code into it:
+  1. Create a file named `body.json`.
+
+      To restore a cluster, you need to provide the recovery source in the request body. There are several ways to do this:
+
+      * To restore a cluster from a specific backup, specify its ID in `backup_id`:
+
+        ```json
+        {
+            "backup_id": "<backup_ID>",
+            "time": "<time>",
+            ...
+        }
+        ```
+
+        {% note info %}
+
+        You may skip the `time` parameter, in which case the cluster will be restored as of the selected backup creation time.
+
+        {% endnote %}
+
+      * To restore a cluster to a particular time point based on source cluster ID, specify `source_cluster_id` and `time`:
+
+        ```json
+        {
+            "source_cluster_id": "<source_cluster_ID>",
+            "time": "<time>",
+            ...
+        }
+        ```
+
+        In this case, the `time` parameter is a required one, and the suitable backup will be selected automatically.
+
+      Here is a full example of the `body.json` file content for recovery from a specific backup:
 
       ```json
       {

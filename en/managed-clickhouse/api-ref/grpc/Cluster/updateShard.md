@@ -218,7 +218,7 @@ Modifies the specified shard.
               "max": "int64"
             },
             // end of the list of possible fields
-            // Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`
+            // Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`, `postgresql_source_v2`
             "http_source": {
               "url": "string",
               "format": "string",
@@ -279,6 +279,27 @@ Modifies the specified shard.
               "password": "string",
               "invalidate_query": "string",
               "ssl_mode": "SslMode"
+            },
+            "postgresql_source_v2": {
+              "db": "string",
+              "table": "string",
+              "replicas": [
+                {
+                  "host": "string",
+                  "priority": "int64",
+                  "port": "int64",
+                  "user": "string",
+                  "password": "string"
+                }
+              ],
+              "port": "int64",
+              "user": "string",
+              "password": "string",
+              "invalidate_query": "string",
+              "ssl_mode": "SslMode",
+              "where": "string",
+              "query": "string",
+              "background_reconnect": "google.protobuf.BoolValue"
             }
             // end of the list of possible fields
           }
@@ -358,6 +379,8 @@ Modifies the specified shard.
           "port": "google.protobuf.Int64Value"
         },
         "mysql_protocol": "google.protobuf.BoolValue",
+        "grpc_protocol": "google.protobuf.BoolValue",
+        "arrowflight_protocol": "google.protobuf.BoolValue",
         "custom_macros": [
           {
             "name": "string",
@@ -1100,10 +1123,27 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/integ
 || mysql_protocol | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables MySQL interface on ClickHouse server.
+When enabled, the interface accepts connections on the default MySQL port, 3306.
 
 Default value: **false**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/interfaces/mysql). ||
+|| grpc_protocol | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables or disables gRPC interface on ClickHouse server.
+When enabled, the interface accepts connections on the port 9100.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/concepts/features/interfaces/grpc). ||
+|| arrowflight_protocol | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables or disables Arrow Flight SQL interface on ClickHouse server.
+When enabled, the interface accepts connections on the port 9090.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/interfaces/arrowflight). ||
 || custom_macros[] | **[Macro](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Macro)**
 
 Custom ClickHouse macros. ||
@@ -1503,27 +1543,33 @@ Includes only one of the fields `fixed_lifetime`, `lifetime_range`. ||
 
 HTTP source for the dictionary.
 
-Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`. ||
+Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`, `postgresql_source_v2`. ||
 || mysql_source | **[MysqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource)**
 
 MySQL source for the dictionary.
 
-Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`. ||
+Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`, `postgresql_source_v2`. ||
 || clickhouse_source | **[ClickhouseSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.ClickhouseSource)**
 
 ClickHouse source for the dictionary.
 
-Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`. ||
+Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`, `postgresql_source_v2`. ||
 || mongodb_source | **[MongodbSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MongodbSource)**
 
 MongoDB source for the dictionary.
 
-Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`. ||
+Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`, `postgresql_source_v2`. ||
 || postgresql_source | **[PostgresqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSource)**
 
 PostgreSQL source for the dictionary.
+Deprecated in favor of postgresql_source_v2.
 
-Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`. ||
+Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`, `postgresql_source_v2`. ||
+|| postgresql_source_v2 | **[PostgresqlSourceV2](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2)**
+
+PostgreSQL source for the dictionary using the native ClickHouse integration.
+
+Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`, `postgresql_source_v2`. ||
 |#
 
 ## Structure {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure}
@@ -1952,6 +1998,75 @@ Mode of SSL TCP/IP connection to the PostgreSQL host.
 - `PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.
 - `VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).
 - `VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate. ||
+|#
+
+## PostgresqlSourceV2 {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2}
+
+#|
+||Field | Description ||
+|| db | **string**
+
+Required field. Database name. ||
+|| table | **string**
+
+Table name. Either table or query must be specified. ||
+|| replicas[] | **[Replica](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2.Replica)**
+
+PostgreSQL replicas used as dictionary sources. ||
+|| port | **int64**
+
+Port to use when connecting to the PostgreSQL hosts. ||
+|| user | **string**
+
+Default PostgreSQL user for replicas. ||
+|| password | **string**
+
+Password of the PostgreSQL database user. ||
+|| invalidate_query | **string**
+
+Query for checking the dictionary status, to pull only updated data. ||
+|| ssl_mode | enum **SslMode**
+
+Mode of SSL TCP/IP connection to the PostgreSQL host.
+
+- `DISABLE`: Only try a non-SSL connection.
+- `ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.
+- `PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.
+- `VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).
+- `VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.
+- `REQUIRE`: Only try an SSL connection without verifying the server certificate. ||
+|| where | **string**
+
+Selection criteria for data in the specified table. ||
+|| query | **string**
+
+Custom query. Either table or query must be specified. ||
+|| background_reconnect | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Reconnect to unavailable replicas in the background. ||
+|#
+
+## Replica {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2.Replica}
+
+#|
+||Field | Description ||
+|| host | **string**
+
+Required field. PostgreSQL host of the replica.
+
+The maximum string length in characters is 253. ||
+|| priority | **int64**
+
+The priority of the replica. Lower values have higher priority. ||
+|| port | **int64**
+
+Port to use when connecting to the replica. Inherits the source port when omitted. ||
+|| user | **string**
+
+PostgreSQL user for the replica. Inherits the source user when omitted. ||
+|| password | **string**
+
+PostgreSQL password for the replica. Inherits the source password when omitted. ||
 |#
 
 ## GraphiteRollup {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.GraphiteRollup}

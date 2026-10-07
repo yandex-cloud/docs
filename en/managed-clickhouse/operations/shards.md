@@ -4,7 +4,7 @@ You can enable sharding for a cluster, as well as add and configure individual s
 
 ## Enabling sharding {#enable}
 
-If you do not enable sharding when creating a {{ mch-name }} cluster, a single shard containing all cluster hosts will be created. To be able to shard your data, [add](#add-shard) one or more shards and [create](../tutorials/sharding.md#example) a distributed table.
+If you do not enable sharding when creating a {{ mch-name }} cluster, a single shard containing all cluster hosts will be created. To shard data, [add](#add-shard) one or more shards and [create](../tutorials/sharding.md#example) a distributed table.
 
 ## Creating a shard {#add-shard}
 
@@ -14,7 +14,7 @@ You can create multiple shards in a cluster in one go.
 
 {% note warning %}
 
-In a cluster with a disabled [coordination service](../concepts/coordination-system.md) or built-in {{ CK }}, you cannot create a shard of two or more hosts. First, [enable the {{ CK }} or {{ ZK }} coordination service](update.md#coordination) on individual hosts.
+In a cluster with a disabled [coordination service](../concepts/coordination-system.md) or configured {{ CK }}, you cannot create a shard of two or more hosts. First, [enable the {{ CK }} or {{ ZK }} coordination service](update.md#coordination) on individual hosts.
 
 {% endnote %}
 
@@ -27,8 +27,12 @@ In a cluster with a disabled [coordination service](../concepts/coordination-sys
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
   1. Click **{{ ui-key.yacloud.clickhouse.Cluster.Shards.action_add-shards_iULX7 }}**.
   1. Click ![pencil](../../_assets/console-icons/pencil.svg) next to the new shard to update its parameters:
+
       * Name and weight.
       * Configuration of shard hosts.
+
+      {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+
   1. Optionally, click **{{ ui-key.yacloud.clickhouse.cluster.add_shard-btn }}** to add more shards and specify their parameters.
   1. Optionally, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}** to add more hosts and specify their parameters.
   1. To copy the schema from a random replica of one of the shard to the hosts of the new shards, select **{{ ui-key.yacloud.mdb.forms.field_copy_schema }}**.
@@ -82,6 +86,8 @@ In a cluster with a disabled [coordination service](../concepts/coordination-sys
 
           * `weight`: Shard weight.
 
+            {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+
       * `--host`: Parameters of the host to add to the shard:
 
           
@@ -126,6 +132,8 @@ In a cluster with a disabled [coordination service](../concepts/coordination-sys
      }
      ```
 
+     {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+
   1. Optionally, to copy the schema from a random replica of one of the shards to the hosts of the new shards, add `copy_schema_on_new_hosts` set to `true` to the cluster description.
 
      {% include [warning-schema-copy](../../_includes/managed-clickhouse/warning-schema-copy.md) %}
@@ -138,7 +146,7 @@ In a cluster with a disabled [coordination service](../concepts/coordination-sys
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster_v2).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
@@ -196,11 +204,7 @@ In a cluster with a disabled [coordination service](../concepts/coordination-sys
 
         * `configSpec.clickhouse.weight`: Shard weight.
 
-          By default, each shard is assigned a weight of `1`. If you assign a greater value to a single shard, data will be distributed across the shards according to their weights.
-
-          To calculate the shard priority for data distribution, the system adds up the weights of all shards and then divides each shard's weight by the total. For example, if one shard has a weight of `1` and another has a weight of `3`, then the first shard's priority is `1/4` and the second shard's priority is `3/4`. The higher the priority, the more data the shard will get.
-
-          For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed).
+          {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
 
         * `hostSpecs`: Settings of hosts to add to the shard. The settings appear as an array of elements, one per host. Each element has the following structure:
 
@@ -285,11 +289,7 @@ In a cluster with a disabled [coordination service](../concepts/coordination-sys
 
           * `config_spec.clickhouse.weight`: Shard weight.
 
-            By default, each shard is assigned a weight of `1`. If you assign a greater value to a single shard, data will be distributed across the shards according to their weights.
-
-            To calculate the shard priority for data distribution, the system adds up the weights of all shards and then divides each shard's weight by the total. For example, if one shard has a weight of `1` and another has a weight of `3`, then the first shard's priority is `1/4` and the second shard's priority is `3/4`. The higher the priority, the more data the shard will get.
-
-            For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed).
+            {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
 
         * `host_specs`: Settings of hosts to add to the shard as an array of elements, one per host. Each element has the following structure:
 
@@ -463,6 +463,9 @@ You can edit the shard weight as well as the [host class](../concepts/instance-t
 
      * `--cluster-name`: Cluster name. You can get it with the [list of clusters in the folder](cluster-list.md#list-clusters).
      * `--weight`: Shard weight. The minimum value is `0`.
+
+       {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+
      * `--clickhouse-resource-preset`: [Host class](../concepts/instance-types.md).
      * `--clickhouse-disk-size`: Storage size, in GB.
      * `--clickhouse-disk-type`: [Disk type](../concepts/storage.md).
@@ -520,11 +523,7 @@ You can edit the shard weight as well as the [host class](../concepts/instance-t
 
        * `weight`: Shard weight.
 
-         By default, each shard is assigned a weight of `1`. If you assign a greater value to a single shard, data will be distributed across the shards according to their weights.
-
-         To calculate the shard priority for data distribution, the system adds up the weights of all shards and then divides each shard's weight by the total. For example, if one shard has a weight of `1` and another has a weight of `3`, then the first shard's priority is `1/4` and the second shard's priority is `3/4`. The higher the priority, the more data the shard will get.
-
-         For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed).
+         {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
 
      * `allowHostRecreation`: Allows your cluster to recreate hosts. This setting is required when changing the disk type.
 
@@ -595,11 +594,7 @@ You can edit the shard weight as well as the [host class](../concepts/instance-t
 
        * `weight`: Shard weight.
 
-         By default, each shard is assigned a weight of `1`. If you assign a greater value to a single shard, data will be distributed across the shards according to their weights.
-
-         To calculate the shard priority for data distribution, the system adds up the weights of all shards and then divides each shard's weight by the total. For example, if one shard has a weight of `1` and another has a weight of `3`, then the first shard's priority is `1/4` and the second shard's priority is `3/4`. The higher the priority, the more data the shard will get.
-
-         For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed).
+         {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
 
      * `allow_host_recreation`: Allows your cluster to recreate hosts. This setting is required when changing the disk type.
 
@@ -663,7 +658,7 @@ Deleting a shard will delete all tables and data stored on that shard.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster_v2).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 

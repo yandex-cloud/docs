@@ -237,7 +237,7 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -297,7 +297,7 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
           * `shardName`: Shard name.
           * `hidden`: Determines whether the host is hidden, `true` or `false`.
           * `secondaryDelaySecs`: Host’s replication lag behind the master.
-          * `priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
+          * `priority`: Host priority for [master](../concepts/replication.md#master-failover) promotion.
           * `tags`: Host tags.
 
         You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
@@ -361,9 +361,9 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
         * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
         * `type`: Host type, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`.
         * `shard_name`: Shard name.
-        * `hidden`: Determines whether the host is hidden, `true` or `false`.
+        * `hidden`: The host will either be visible (`false`) or hidden (`true`).
         * `secondary_delay_secs`: Host’s replication lag behind the master.
-        * `priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
+        * `priority`: Host priority for [master](../concepts/replication.md#master-failover) promotion.
         * `tags`: Host tags.
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -520,7 +520,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -574,7 +574,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
           * `shardName`: Shard name.
           * `hidden`: Determines whether the host is hidden, `true` or `false`.
           * `secondaryDelaySecs`: Host’s replication lag behind the master.
-          * `priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
+          * `priority`: Host priority for [master](../concepts/replication.md#master-failover) promotion.
           * `tags`: Host tags.
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -632,9 +632,9 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
           * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
           * `type`: Host type. Specify `MONGOD`.
           * `shard_name`: Shard name.
-          * `hidden`: Determines whether the host is hidden, `true` or `false`.
+          * `hidden`: The host will either be visible (`false`) or hidden (`true`).
           * `secondary_delay_secs`: Host’s replication lag behind the master.
-          * `priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
+          * `priority`: Host priority for [master](../concepts/replication.md#master-failover) promotion.
           * `tags`: Host tags.
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).

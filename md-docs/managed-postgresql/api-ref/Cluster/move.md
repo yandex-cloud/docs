@@ -8216,7 +8216,28 @@ The maximum string length in characters is 50. ||
     "hostGroupIds": [
       "string"
     ],
-    "diskEncryptionKeyId": "string"
+    "diskEncryptionKeyId": "string",
+    "maintenanceWindows": {
+      // Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`
+      "anytime": "object",
+      "weeklyMaintenanceSchedule": {
+        "slots": [
+          {
+            "day": "string",
+            "startTime": {
+              "hours": "integer",
+              "minutes": "integer",
+              "seconds": "integer",
+              "nanos": "integer"
+            },
+            "duration": "string",
+            "allowTemporaryUnavailability": "boolean"
+          }
+        ]
+      }
+      // end of the list of possible fields
+    },
+    "isHa": "boolean"
   }
   // end of the list of possible fields
 }
@@ -8397,7 +8418,8 @@ Current state of the cluster.
 - `STARTING`: Cluster is starting. ||
 || maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow)**
 
-Maintenance window for the cluster. ||
+Deprecated. Use maintenance_windows instead.
+Contains anytime or the day and hour of the first weekly slot. ||
 || plannedOperation | **[MaintenanceOperation](#yandex.cloud.mdb.postgresql.v1.MaintenanceOperation)**
 
 Planned maintenance operation to be started for the cluster within the nearest `maintenanceWindow`. ||
@@ -8413,6 +8435,12 @@ Host groups hosting VMs of the cluster. ||
 || diskEncryptionKeyId | **string**
 
 ID of the key to encrypt cluster disks. ||
+|| maintenanceWindows | **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)**
+
+Maintenance windows. For a weekly schedule, contains all configured slots. ||
+|| isHa | **boolean**
+
+Indicates whether the cluster topology is highly available as defined by the Yandex Cloud SLA for managed databases. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.postgresql.v1.Monitoring}
@@ -20959,4 +20987,60 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|#
+
+## MaintenanceWindows {#yandex.cloud.mdb.v1.MaintenanceWindows}
+
+Maintenance windows shared by all managed database services.
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+Maintenance operations can be scheduled anytime.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|| weeklyMaintenanceSchedule | **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+
+Maintenance operations can be scheduled during the specified weekly slots.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|#
+
+## WeeklyMaintenanceSchedule {#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule}
+
+#|
+||Field | Description ||
+|| slots[] | **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+
+Weekly time slots during which maintenance operations can be scheduled.
+At least one slot is required.
+
+The number of elements must be greater than 0. ||
+|#
+
+## MaintenanceWindowSlot {#yandex.cloud.mdb.v1.MaintenanceWindowSlot}
+
+#|
+||Field | Description ||
+|| day | **enum** (DayOfWeek)
+
+Day of the week.
+
+- `MONDAY`: The day-of-week of Monday.
+- `TUESDAY`: The day-of-week of Tuesday.
+- `WEDNESDAY`: The day-of-week of Wednesday.
+- `THURSDAY`: The day-of-week of Thursday.
+- `FRIDAY`: The day-of-week of Friday.
+- `SATURDAY`: The day-of-week of Saturday.
+- `SUNDAY`: The day-of-week of Sunday. ||
+|| startTime | **[TimeOfDay](#google.type.TimeOfDay)**
+
+Required field. Start time in UTC. ||
+|| duration | **string** (duration)
+
+Required field. Slot duration. ||
+|| allowTemporaryUnavailability | **boolean**
+
+Allows maintenance operations that may cause temporary write unavailability. ||
 |#

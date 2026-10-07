@@ -30,7 +30,7 @@ Yandex Managed Service for Prometheus® поддерживает [Prometheus dat
 | `401` | Сервисный аккаунт не найден. Убедитесь, что в конфигурации указан правильный [API-ключ](../../../../iam/concepts/authorization/api-key.md). | ```auth: cannot authenticate by either token or api-key, cause: UNAUTHENTICATED: The token is invalid``` |
 | `403` | Отсутствуют права на чтение. Убедитесь, что сервисный аккаунт имеет роль `monitoring.viewer` на выбранный каталог. | ```auth: PERMISSION_DENIED: Permission denied```|
 | `429` | Превышена квота [Количество запросов в секунду на чтение через HTTP API](../index.md#limits). | ```execution: too many requests: monb1piptmdo********``` |
-| `400` | Запрос вернул слишком много линий. Попробуйте уточнить запрос. | ```bad_data: Too many metrics are loaded by selectors {job=='grafana'}, expected not more than: 20000``` |
+| `400` | Запрос вернул слишком много линий. Попробуйте уточнить запрос. | ```bad_data: Too many metrics are loaded by selectors {job=='grafana'}, expected not more than: 40000``` |
 
 ## Текущие ограничения {#restrictions}
 
@@ -49,8 +49,8 @@ Yandex Managed Service for Prometheus® работает на порте TCP 443
 * Параметры `start` и `end` не поддерживаются и игнорируются для запросов `/api/v1/labels`, `/api/v1/<label_name>/values` и `/api/v1/series`.
 * Максимальное число селекторов, которые можно передать в качестве параметра `match[]`, — 8.
 
-* Максимальное количество временных рядов, по которым можно получить метаданные при помощи запроса `/api/v1/series`, — 10 000.
-* Максимально количество временных рядов, которые можно прочитать в рамках одного запроса `/api/v1/query` или `/api/v1/query_range`, — 10 000.
+* Максимальное количество временных рядов для одного селектора `match[]` запроса `/api/v1/series` — 20 000.
+* Максимальное количество временных рядов, которые можно прочитать в рамках одного запроса `/api/v1/query` или `/api/v1/query_range`, — 40 000.
 
 * Параметр `--query.lookback-delta` равен `5m`.
 

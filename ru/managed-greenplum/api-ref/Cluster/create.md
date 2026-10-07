@@ -126,7 +126,9 @@ apiPlayground:
         maintenanceWindow:
           description: |-
             **[MaintenanceWindow](#yandex.cloud.mdb.greenplum.v1.MaintenanceWindow)**
+            Deprecated. Use maintenance_windows instead.
             A Greenplum® cluster maintenance window. Should be defined by either one of the two options.
+          deprecated: true
           $ref: '#/definitions/MaintenanceWindow'
         configSpec:
           description: |-
@@ -138,6 +140,11 @@ apiPlayground:
             **[CloudStorage](#yandex.cloud.mdb.greenplum.v1.CloudStorage)**
             Cloud storage settings
           $ref: '#/definitions/CloudStorage'
+        maintenanceWindows:
+          description: |-
+            **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)**
+            Maintenance windows.
+          $ref: '#/definitions/MaintenanceWindows'
         masterHostGroupIds:
           description: |-
             **string**
@@ -166,6 +173,8 @@ apiPlayground:
           description: |-
             **string**
             ID of the key to encrypt cluster disks.
+            Value must match the regular expression ` [a-zA-Z0-9_.-]{0,50} `.
+          pattern: '[a-zA-Z0-9_.-]{0,50}'
           type: string
       required:
         - folderId
@@ -1092,6 +1101,11 @@ apiPlayground:
               Set to zero to disable.
             type: string
             format: int64
+          poolDiscard:
+            description: |-
+              **boolean**
+              Enables cleanup of server connections when they are returned to the connection pool.
+            type: boolean
       BackgroundActivityStartAt:
         type: object
         properties:
@@ -1311,6 +1325,81 @@ apiPlayground:
               **boolean**
               enable Cloud Storage for cluster
             type: boolean
+      MaintenanceWindowSlot:
+        type: object
+        properties:
+          day:
+            description: |-
+              **enum** (DayOfWeek)
+              Day of the week.
+              - `MONDAY`: The day-of-week of Monday.
+              - `TUESDAY`: The day-of-week of Tuesday.
+              - `WEDNESDAY`: The day-of-week of Wednesday.
+              - `THURSDAY`: The day-of-week of Thursday.
+              - `FRIDAY`: The day-of-week of Friday.
+              - `SATURDAY`: The day-of-week of Saturday.
+              - `SUNDAY`: The day-of-week of Sunday.
+            type: string
+            enum:
+              - DAY_OF_WEEK_UNSPECIFIED
+              - MONDAY
+              - TUESDAY
+              - WEDNESDAY
+              - THURSDAY
+              - FRIDAY
+              - SATURDAY
+              - SUNDAY
+          startTime:
+            description: |-
+              **[TimeOfDay](#google.type.TimeOfDay)**
+              Required field. Start time in UTC.
+            $ref: '#/definitions/TimeOfDay'
+          duration:
+            description: |-
+              **string** (duration)
+              Required field. Slot duration.
+            type: string
+            format: duration
+          allowTemporaryUnavailability:
+            description: |-
+              **boolean**
+              Allows maintenance operations that may cause temporary write unavailability.
+            type: boolean
+        required:
+          - startTime
+          - duration
+      WeeklyMaintenanceSchedule:
+        type: object
+        properties:
+          slots:
+            description: |-
+              **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+              Weekly time slots during which maintenance operations can be scheduled.
+              At least one slot is required.
+              The number of elements must be greater than 0.
+            type: array
+            items:
+              $ref: '#/definitions/MaintenanceWindowSlot'
+      MaintenanceWindows:
+        type: object
+        properties:
+          anytime:
+            description: |-
+              **object**
+              Maintenance operations can be scheduled anytime.
+              Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`.
+            $ref: '#/definitions/AnytimeMaintenanceWindow'
+          weeklyMaintenanceSchedule:
+            description: |-
+              **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+              Maintenance operations can be scheduled during the specified weekly slots.
+              Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`.
+            $ref: '#/definitions/WeeklyMaintenanceSchedule'
+        oneOf:
+          - required:
+              - anytime
+          - required:
+              - weeklyMaintenanceSchedule
       LoggingConfig:
         type: object
         properties:
@@ -1512,7 +1601,8 @@ POST https://{{ api-host-mdb }}/managed-greenplum/v1/clusters
       "mode": "string",
       "size": "string",
       "clientIdleTimeout": "string",
-      "idleInTransactionTimeout": "string"
+      "idleInTransactionTimeout": "string",
+      "poolDiscard": "boolean"
     },
     "backgroundActivities": {
       "tableSizes": {
@@ -1569,6 +1659,26 @@ POST https://{{ api-host-mdb }}/managed-greenplum/v1/clusters
   },
   "cloudStorage": {
     "enable": "boolean"
+  },
+  "maintenanceWindows": {
+    // Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`
+    "anytime": "object",
+    "weeklyMaintenanceSchedule": {
+      "slots": [
+        {
+          "day": "string",
+          "startTime": {
+            "hours": "integer",
+            "minutes": "integer",
+            "seconds": "integer",
+            "nanos": "integer"
+          },
+          "duration": "string",
+          "allowTemporaryUnavailability": "boolean"
+        }
+      ]
+    }
+    // end of the list of possible fields
   },
   "masterHostGroupIds": [
     "string"
@@ -1664,6 +1774,7 @@ Determines whether the cluster is protected from being deleted. ||
 Host groups to place VMs of the cluster in. ||
 || maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.greenplum.v1.MaintenanceWindow)**
 
+Deprecated. Use maintenance_windows instead.
 A Greenplum® cluster maintenance window. Should be defined by either one of the two options. ||
 || configSpec | **[ConfigSpec](#yandex.cloud.mdb.greenplum.v1.ConfigSpec)**
 
@@ -1671,6 +1782,9 @@ Configuration of Greenplum® and Odyssey®. ||
 || cloudStorage | **[CloudStorage](#yandex.cloud.mdb.greenplum.v1.CloudStorage)**
 
 Cloud storage settings ||
+|| maintenanceWindows | **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)**
+
+Maintenance windows. ||
 || masterHostGroupIds[] | **string**
 
 Host groups hosting VMs of the master subcluster. ||
@@ -1685,7 +1799,9 @@ ID of the service account used for access Yandex Cloud resources. ||
 Cloud logging configuration ||
 || diskEncryptionKeyId | **string**
 
-ID of the key to encrypt cluster disks. ||
+ID of the key to encrypt cluster disks.
+
+Value must match the regular expression ` [a-zA-Z0-9_.-]{0,50} `. ||
 |#
 
 ## GreenplumConfig {#yandex.cloud.mdb.greenplum.v1.GreenplumConfig}
@@ -2397,6 +2513,9 @@ Set to zero to disable. ||
 Odyssey® [client pool idle in transaction timeout](https://github.com/yandex/odyssey/blob/master/docs/configuration/rules.md#pool_idle_in_transaction_timeout), in seconds.
 Drop client connection in transaction after this much seconds of idleness.
 Set to zero to disable. ||
+|| poolDiscard | **boolean**
+
+Enables cleanup of server connections when they are returned to the connection pool. ||
 |#
 
 ## BackgroundActivitiesConfig {#yandex.cloud.mdb.greenplum.v1.BackgroundActivitiesConfig}
@@ -2564,6 +2683,62 @@ Cloud Storage Settings
 || enable | **boolean**
 
 enable Cloud Storage for cluster ||
+|#
+
+## MaintenanceWindows {#yandex.cloud.mdb.v1.MaintenanceWindows}
+
+Maintenance windows shared by all managed database services.
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+Maintenance operations can be scheduled anytime.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|| weeklyMaintenanceSchedule | **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+
+Maintenance operations can be scheduled during the specified weekly slots.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|#
+
+## WeeklyMaintenanceSchedule {#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule}
+
+#|
+||Field | Description ||
+|| slots[] | **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+
+Weekly time slots during which maintenance operations can be scheduled.
+At least one slot is required.
+
+The number of elements must be greater than 0. ||
+|#
+
+## MaintenanceWindowSlot {#yandex.cloud.mdb.v1.MaintenanceWindowSlot}
+
+#|
+||Field | Description ||
+|| day | **enum** (DayOfWeek)
+
+Day of the week.
+
+- `MONDAY`: The day-of-week of Monday.
+- `TUESDAY`: The day-of-week of Tuesday.
+- `WEDNESDAY`: The day-of-week of Wednesday.
+- `THURSDAY`: The day-of-week of Thursday.
+- `FRIDAY`: The day-of-week of Friday.
+- `SATURDAY`: The day-of-week of Saturday.
+- `SUNDAY`: The day-of-week of Sunday. ||
+|| startTime | **[TimeOfDay](#google.type.TimeOfDay)**
+
+Required field. Start time in UTC. ||
+|| duration | **string** (duration)
+
+Required field. Slot duration. ||
+|| allowTemporaryUnavailability | **boolean**
+
+Allows maintenance operations that may cause temporary write unavailability. ||
 |#
 
 ## LoggingConfig {#yandex.cloud.mdb.greenplum.v1.LoggingConfig}

@@ -6,4 +6,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](./terraform.md).
+* [{#T}](./terraform.md)

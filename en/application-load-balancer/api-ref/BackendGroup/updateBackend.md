@@ -242,6 +242,16 @@ apiPlayground:
               - trustedCaId
           - required:
               - trustedCaBytes
+      ClientCertificateOptions:
+        type: object
+        properties:
+          certificateId:
+            description: |-
+              **string**
+              Required field. Client certificate's ID from the [Certificate Manager](/docs/certificate-manager/).
+            type: string
+        required:
+          - certificateId
       SecureTransportSettings:
         type: object
         properties:
@@ -257,6 +267,11 @@ apiPlayground:
               **[ValidationContext](#yandex.cloud.apploadbalancer.v1.ValidationContext)**
               Validation context for backend TLS connections.
             $ref: '#/definitions/ValidationContext'
+          clientCertificate:
+            description: |-
+              **[ClientCertificateOptions](#yandex.cloud.apploadbalancer.v1.ClientCertificateOptions)**
+              Client certificate options for backend TLS connections.
+            $ref: '#/definitions/ClientCertificateOptions'
       HealthCheck:
         type: object
         properties:
@@ -380,6 +395,11 @@ apiPlayground:
               **[ValidationContext](#yandex.cloud.apploadbalancer.v1.ValidationContext)**
               Validation context for TLS connections.
             $ref: '#/definitions/ValidationContext'
+          clientCertificate:
+            description: |-
+              **[ClientCertificateOptions](#yandex.cloud.apploadbalancer.v1.ClientCertificateOptions)**
+              Client certificate options for backend TLS connections.
+            $ref: '#/definitions/ClientCertificateOptions'
       StreamBackend:
         type: object
         properties:
@@ -686,6 +706,9 @@ Required field. ID of the backend group to update the backend in. ||
             "trustedCaId": "string",
             "trustedCaBytes": "string"
             // end of the list of possible fields
+          },
+          "clientCertificate": {
+            "certificateId": "string"
           }
         }
         // end of the list of possible fields
@@ -698,6 +721,9 @@ Required field. ID of the backend group to update the backend in. ||
         "trustedCaId": "string",
         "trustedCaBytes": "string"
         // end of the list of possible fields
+      },
+      "clientCertificate": {
+        "certificateId": "string"
       }
     },
     "enableProxyProtocol": "boolean",
@@ -765,6 +791,9 @@ Required field. ID of the backend group to update the backend in. ||
             "trustedCaId": "string",
             "trustedCaBytes": "string"
             // end of the list of possible fields
+          },
+          "clientCertificate": {
+            "certificateId": "string"
           }
         }
         // end of the list of possible fields
@@ -777,6 +806,9 @@ Required field. ID of the backend group to update the backend in. ||
         "trustedCaId": "string",
         "trustedCaBytes": "string"
         // end of the list of possible fields
+      },
+      "clientCertificate": {
+        "certificateId": "string"
       }
     },
     "useHttp2": "boolean"
@@ -840,6 +872,9 @@ Required field. ID of the backend group to update the backend in. ||
             "trustedCaId": "string",
             "trustedCaBytes": "string"
             // end of the list of possible fields
+          },
+          "clientCertificate": {
+            "certificateId": "string"
           }
         }
         // end of the list of possible fields
@@ -852,6 +887,9 @@ Required field. ID of the backend group to update the backend in. ||
         "trustedCaId": "string",
         "trustedCaBytes": "string"
         // end of the list of possible fields
+      },
+      "clientCertificate": {
+        "certificateId": "string"
       }
     }
   }
@@ -1189,6 +1227,9 @@ The maximum string length in characters is 255. Value must match the regular exp
 || validationContext | **[ValidationContext](#yandex.cloud.apploadbalancer.v1.ValidationContext)**
 
 Validation context for backend TLS connections. ||
+|| clientCertificate | **[ClientCertificateOptions](#yandex.cloud.apploadbalancer.v1.ClientCertificateOptions)**
+
+Client certificate options for backend TLS connections. ||
 |#
 
 ## ValidationContext {#yandex.cloud.apploadbalancer.v1.ValidationContext}
@@ -1211,6 +1252,17 @@ Includes only one of the fields `trustedCaId`, `trustedCaBytes`.
 TLS certificate issued by a trusted certificate authority (CA). ||
 |#
 
+## ClientCertificateOptions {#yandex.cloud.apploadbalancer.v1.ClientCertificateOptions}
+
+Client certificates options for usage during TLS handshake initiation as a client.
+
+#|
+||Field | Description ||
+|| certificateId | **string**
+
+Required field. Client certificate's ID from the [Certificate Manager](/docs/certificate-manager/). ||
+|#
+
 ## BackendTls {#yandex.cloud.apploadbalancer.v1.BackendTls}
 
 A resource for backend TLS settings.
@@ -1225,6 +1277,9 @@ The maximum string length in characters is 255. Value must match the regular exp
 || validationContext | **[ValidationContext](#yandex.cloud.apploadbalancer.v1.ValidationContext)**
 
 Validation context for TLS connections. ||
+|| clientCertificate | **[ClientCertificateOptions](#yandex.cloud.apploadbalancer.v1.ClientCertificateOptions)**
+
+Client certificate options for backend TLS connections. ||
 |#
 
 ## HttpBackend {#yandex.cloud.apploadbalancer.v1.HttpBackend}

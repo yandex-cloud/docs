@@ -1,23 +1,6 @@
 title: Все решения
 href: index.yaml
 items:
-  - name: '{{ alb-name }}'
-    items:
-      - name: Все решения для {{ alb-name }}
-        href: application-load-balancer/index.md
-      - name: Решения для известных проблем {{ alb-name }}
-        href: application-load-balancer/known-issues/index.md
-        hidden: true
-      - name: Устранение ошибки `no_route` при открытии адреса
-        href: application-load-balancer/known-issues/error-no-route.md
-      - name: Устранение сложностей с добавлением маршрута
-        href: application-load-balancer/known-issues/cannot-add-route.md
-      - name: Примеры конфигураций и сценариев {{ alb-name }}
-        href: application-load-balancer/how-to/index.md
-        hidden: true
-      - name: Как получить реальный IP-адрес источника в заголовках запросов
-        href: >-
-          application-load-balancer/how-to/getting-external-src-ip-in-x-forwarded-for-headers.md
   - name: '{{ billing-name }}'
     items:
       - name: Все решения для {{ billing-name }}

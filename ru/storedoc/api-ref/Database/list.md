@@ -9,7 +9,7 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the MongoDB cluster to list databases in.
+            Required field. ID of the StoreDoc cluster to list databases in.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
             The maximum string length in characters is 50.
           type: string
@@ -42,7 +42,7 @@ apiPlayground:
 
 # Managed Service for MongoDB API, REST: Database.List
 
-Retrieves the list of MongoDB Database resources in the specified cluster.
+Retrieves the list of StoreDoc Database resources in the specified cluster.
 
 ## HTTP request
 
@@ -56,7 +56,7 @@ GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/databases
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster to list databases in.
+Required field. ID of the StoreDoc cluster to list databases in.
 To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -102,7 +102,7 @@ The maximum string length in characters is 100. ||
 ||Field | Description ||
 || databases[] | **[Database](#yandex.cloud.mdb.mongodb.v1.Database)**
 
-List of MongoDB databases. ||
+List of StoreDoc databases. ||
 || nextPageToken | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
@@ -113,7 +113,7 @@ list request will have its own `nextPageToken` to continue paging through the re
 
 ## Database {#yandex.cloud.mdb.mongodb.v1.Database}
 
-A MongoDB Database resource. For more information, see the
+A StoreDoc Database resource. For more information, see the
 [Developer's Guide](/docs/managed-mongodb/concepts).
 
 #|
@@ -123,8 +123,8 @@ A MongoDB Database resource. For more information, see the
 Name of the database. ||
 || clusterId | **string**
 
-ID of the MongoDB cluster that the database belongs to. ||
+ID of the StoreDoc cluster that the database belongs to. ||
 || deletionProtection | **boolean**
 
-Deletion Protection inhibits deletion of the database ||
+Deletion Protection inhibits deletion of the database. ||
 |#

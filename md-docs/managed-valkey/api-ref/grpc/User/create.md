@@ -2,7 +2,7 @@
 
 # Managed Service for Redis API, gRPC: UserService.Create
 
-Creates a Redis user in the specified cluster.
+Creates a Valkey user in the specified cluster.
 
 ## gRPC request
 
@@ -37,7 +37,7 @@ Creates a Redis user in the specified cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Redis cluster to create a user in.
+Required field. ID of the Valkey cluster to create a user in.
 To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -52,12 +52,12 @@ Properties of the user to be created. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the Redis user.
+Required field. Name of the Valkey user.
 
 The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_@.-]*$ `. ||
 || passwords[] | **string**
 
-Password of the Redis user.
+Password of the Valkey user.
 
 Each value must match the regular expression ` ^[a-zA-Z0-9@=+?*.,!&#$^<>_-]*$ `. The maximum number of elements is 1. ||
 || permissions | **[Permissions](#yandex.cloud.mdb.redis.v1.Permissions)**
@@ -65,7 +65,7 @@ Each value must match the regular expression ` ^[a-zA-Z0-9@=+?*.,!&#$^<>_-]*$ `.
 Set of permissions to grant to the user. ||
 || enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Is Redis user enabled ||
+Is Valkey user enabled ||
 || generate_password | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Generate password using Connection Manager ||

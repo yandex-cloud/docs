@@ -9,7 +9,7 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the MongoDB cluster to update a database in.
+            Required field. ID of the StoreDoc cluster to update a database in.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
             The maximum string length in characters is 50.
           type: string
@@ -52,7 +52,7 @@ apiPlayground:
 
 # Managed Service for MongoDB API, REST: Database.Update
 
-Updates the specified MongoDB database.
+Updates the specified StoreDoc database.
 
 ## HTTP request
 
@@ -66,7 +66,7 @@ PATCH https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/databas
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster to update a database in.
+Required field. ID of the StoreDoc cluster to update a database in.
 To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||

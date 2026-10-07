@@ -2,7 +2,7 @@
 
 # Managed Service for MongoDB API, gRPC: DatabaseService.List
 
-Retrieves the list of MongoDB Database resources in the specified cluster.
+Retrieves the list of StoreDoc Database resources in the specified cluster.
 
 ## gRPC request
 
@@ -22,7 +22,7 @@ Retrieves the list of MongoDB Database resources in the specified cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the MongoDB cluster to list databases in.
+Required field. ID of the StoreDoc cluster to list databases in.
 To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -60,7 +60,7 @@ The maximum string length in characters is 100. ||
 ||Field | Description ||
 || databases[] | **[Database](#yandex.cloud.mdb.mongodb.v1.Database)**
 
-List of MongoDB databases. ||
+List of StoreDoc databases. ||
 || next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
@@ -71,7 +71,7 @@ list request will have its own `next_page_token` to continue paging through the 
 
 ## Database {#yandex.cloud.mdb.mongodb.v1.Database}
 
-A MongoDB Database resource. For more information, see the
+A StoreDoc Database resource. For more information, see the
 [Developer's Guide](../../../concepts/index.md).
 
 #|
@@ -81,8 +81,8 @@ A MongoDB Database resource. For more information, see the
 Name of the database. ||
 || cluster_id | **string**
 
-ID of the MongoDB cluster that the database belongs to. ||
+ID of the StoreDoc cluster that the database belongs to. ||
 || deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Deletion Protection inhibits deletion of the database ||
+Deletion Protection inhibits deletion of the database. ||
 |#

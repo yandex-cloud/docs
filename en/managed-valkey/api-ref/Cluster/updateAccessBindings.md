@@ -112,7 +112,7 @@ apiPlayground:
 
 # Managed Service for Redis API, REST: Cluster.UpdateAccessBindings
 
-Updates access bindings for the specified Redis cluster.
+Updates access bindings for the specified Valkey cluster.
 
 ## HTTP request
 

@@ -60,7 +60,7 @@
 
 ## Февраль 2026 {#february-2026}
 
-* Модули [DSPM](concepts/dspm.md), [CSPM](concepts/cspm.md), [KSPM](concepts/kspm.md) и [AI-ассистент](concepts/ai-assistant.md) стали доступны на стадии [Preview](../overview/concepts/launch-stages.md).
+* Модули [DSPM](concepts/dspm.md), [CSPM](concepts/cspm.md), [KSPM](concepts/kspm.md) и AI-ассистент стали доступны на стадии [Preview](../overview/concepts/launch-stages.md).
 * С 2 февраля 2025 года использование модуля [KSPM](concepts/kspm.md) тарифицируется в соответствии с [правилами тарификации](pricing.md#kspm-rules).
 * В модуле [CSPM](concepts/cspm.md) поддержаны новые [стандарты безопасности](concepts/cspm.md#standards) — PCI DSS (Payment Card Industry Data Security Standard) и Требования ФСТЭК (Приказ № 21) для защиты персональных данных. 
 * В модуле [CSPM](concepts/cspm.md) реализованы новые правила соответствия всем поддержанным в модуле стандартам безопасности.
@@ -80,5 +80,5 @@
 * Запущены модули [KSPM](concepts/kspm.md) и [CSPM](concepts/cspm.md).
 * Модули KSPM и CSPM теперь доступны в качестве источников данных для [алертов](concepts/alerts.md).
 * Добавлена возможность [создать окружение Security Deck](operations/workspaces/index.md) — контейнер, который содержит настройки и ресурсы модулей, перечень контролируемых ресурсов, параметры контроля и другие настройки.
-* Добавлен [AI-ассистент](concepts/ai-assistant.md).
+* Добавлен AI-ассистент.
 * Для модуля [DSPM](concepts/dspm.md) появились возможности [частичного сканирования](operations/dspm/create-scan.md) и [сканирования по изображениям](operations/dspm/create-scan.md).

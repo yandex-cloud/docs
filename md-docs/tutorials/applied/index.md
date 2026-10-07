@@ -55,7 +55,7 @@
 ## Прочее {#other}
 
 * [Публикация обновлений для игр с помощью Yandex Cloud CDN](../web/prefetch.md)
-* [Создание SAP-программы в Yandex Cloud](../infrastructure-management/sap.md)
 * [Развертывание сервера Minecraft в Yandex Cloud](../infrastructure/minecraft-server.md)
+* [Развертывание мультиплеер-сервера для GTA V в Yandex Cloud](../infrastructure/gta-v-server.md)
 * [Конвертация видео в GIF на Python](../serverless/video-converting-queue/index.md)
 * [Настройка печати с Yandex Cloud Desktop на локальный принтер в Linux](desktop-linux-printer.md)

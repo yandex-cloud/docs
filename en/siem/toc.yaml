@@ -55,6 +55,162 @@ items:
         href: concepts/correlation-rules.md
   - name: KQL reference
     href: kql-reference.md
+  - name: API reference
+    items:
+      - name: Authentication
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: siem/api-ref/grpc/index.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: siem/api-ref/grpc/Operation/index.md
+              - name: Get
+                href: siem/api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: siem/api-ref/grpc/Operation/cancel.md
+          - name: Yandex Cloud SIEM Instances API
+            items:
+              - name: Overview
+                href: instances/siem/api-ref/grpc/index.md
+              - name: SIEMInstance
+                items:
+                  - name: Overview
+                    href: instances/siem/api-ref/grpc/SIEMInstance/index.md
+                  - name: List
+                    href: instances/siem/api-ref/grpc/SIEMInstance/list.md
+                  - name: Get
+                    href: instances/siem/api-ref/grpc/SIEMInstance/get.md
+          - name: Yandex Cloud SIEM Queries API
+            items:
+              - name: Overview
+                href: queries/siem/api-ref/grpc/index.md
+              - name: Dataset
+                items:
+                  - name: Overview
+                    href: queries/siem/api-ref/grpc/Dataset/index.md
+                  - name: GetNormalizateSchema
+                    href: queries/siem/api-ref/grpc/Dataset/getNormalizateSchema.md
+                  - name: GetSchema
+                    href: queries/siem/api-ref/grpc/Dataset/getSchema.md
+                  - name: GetRecords
+                    href: queries/siem/api-ref/grpc/Dataset/getRecords.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: queries/siem/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: queries/siem/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: queries/siem/api-ref/grpc/Operation/cancel.md
+              - name: SearchLaunch
+                items:
+                  - name: Overview
+                    href: queries/siem/api-ref/grpc/SearchLaunch/index.md
+                  - name: Get
+                    href: queries/siem/api-ref/grpc/SearchLaunch/get.md
+                  - name: Create
+                    href: queries/siem/api-ref/grpc/SearchLaunch/create.md
+                  - name: Cancel
+                    href: queries/siem/api-ref/grpc/SearchLaunch/cancel.md
+              - name: Search
+                items:
+                  - name: Overview
+                    href: queries/siem/api-ref/grpc/Search/index.md
+                  - name: Get
+                    href: queries/siem/api-ref/grpc/Search/get.md
+                  - name: List
+                    href: queries/siem/api-ref/grpc/Search/list.md
+                  - name: Create
+                    href: queries/siem/api-ref/grpc/Search/create.md
+              - name: Session
+                items:
+                  - name: Overview
+                    href: queries/siem/api-ref/grpc/Session/index.md
+                  - name: List
+                    href: queries/siem/api-ref/grpc/Session/list.md
+                  - name: Get
+                    href: queries/siem/api-ref/grpc/Session/get.md
+                  - name: Create
+                    href: queries/siem/api-ref/grpc/Session/create.md
+      - name: REST
+        items:
+          - name: Overview
+            href: siem/api-ref/index.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: siem/api-ref/Operation/index.md
+              - name: Get
+                href: siem/api-ref/Operation/get.md
+              - name: Cancel
+                href: siem/api-ref/Operation/cancel.md
+          - name: Yandex Cloud SIEM Instances API
+            items:
+              - name: Overview
+                href: instances/siem/api-ref/index.md
+              - name: SIEMInstance
+                items:
+                  - name: Overview
+                    href: instances/siem/api-ref/SIEMInstance/index.md
+                  - name: List
+                    href: instances/siem/api-ref/SIEMInstance/list.md
+                  - name: Get
+                    href: instances/siem/api-ref/SIEMInstance/get.md
+          - name: Yandex Cloud SIEM Queries API
+            items:
+              - name: Overview
+                href: queries/siem/api-ref/index.md
+              - name: Dataset
+                items:
+                  - name: Overview
+                    href: queries/siem/api-ref/Dataset/index.md
+                  - name: GetNormalizateSchema
+                    href: queries/siem/api-ref/Dataset/getNormalizateSchema.md
+                  - name: GetSchema
+                    href: queries/siem/api-ref/Dataset/getSchema.md
+                  - name: GetRecords
+                    href: queries/siem/api-ref/Dataset/getRecords.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: queries/siem/api-ref/Operation/index.md
+                  - name: Get
+                    href: queries/siem/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: queries/siem/api-ref/Operation/cancel.md
+              - name: SearchLaunch
+                items:
+                  - name: Overview
+                    href: queries/siem/api-ref/SearchLaunch/index.md
+                  - name: Get
+                    href: queries/siem/api-ref/SearchLaunch/get.md
+                  - name: Create
+                    href: queries/siem/api-ref/SearchLaunch/create.md
+                  - name: Cancel
+                    href: queries/siem/api-ref/SearchLaunch/cancel.md
+              - name: Search
+                items:
+                  - name: Overview
+                    href: queries/siem/api-ref/Search/index.md
+                  - name: Get
+                    href: queries/siem/api-ref/Search/get.md
+                  - name: List
+                    href: queries/siem/api-ref/Search/list.md
+                  - name: Create
+                    href: queries/siem/api-ref/Search/create.md
+              - name: Session
+                items:
+                  - name: Overview
+                    href: queries/siem/api-ref/Session/index.md
+                  - name: List
+                    href: queries/siem/api-ref/Session/list.md
+                  - name: Get
+                    href: queries/siem/api-ref/Session/get.md
+                  - name: Create
+                    href: queries/siem/api-ref/Session/create.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

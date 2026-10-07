@@ -2,8 +2,8 @@
 
 # Managed Service for Redis API, gRPC: BackupService.Get
 
-Returns the specified Redis backup.
-To get the list of available Redis backups, make a [List](list.md#List) request.
+Returns the specified Valkey backup.
+To get the list of available Valkey backups, make a [List](list.md#List) request.
 
 ## gRPC request
 
@@ -21,7 +21,7 @@ To get the list of available Redis backups, make a [List](list.md#List) request.
 ||Field | Description ||
 || backup_id | **string**
 
-Required field. ID of the Redis backup to return.
+Required field. ID of the Valkey backup to return.
 To get the backup ID, use a [ClusterService.ListBackups](../Cluster/listBackups.md#ListBackups) request. ||
 |#
 
@@ -41,8 +41,8 @@ To get the backup ID, use a [ClusterService.ListBackups](../Cluster/listBackups.
 }
 ```
 
-Description of a Redis backup. For more information, see
-the Managed Service for Redis [documentation](../../../concepts/backup.md).
+Description of a Valkey backup. For more information, see
+the Managed Service for Valkey [documentation](../../../concepts/backup.md).
 
 #|
 ||Field | Description ||
@@ -58,7 +58,7 @@ Required field. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339
 (i.e. when the backup operation was completed). ||
 || source_cluster_id | **string**
 
-Required field. ID of the Redis cluster that the backup was created for. ||
+Required field. ID of the Valkey cluster that the backup was created for. ||
 || started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Required field. Start timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format
@@ -70,6 +70,6 @@ Shard names used as a source for backup. ||
 
 How this backup was created (manual/automatic/etc...)
 
-- `AUTOMATED`: Backup created by automated daily schedule
+- `AUTOMATED`: Backup created by automated daily schedule.
 - `MANUAL`: Backup created by user request ||
 |#

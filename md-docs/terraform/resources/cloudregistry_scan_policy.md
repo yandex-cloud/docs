@@ -11,7 +11,7 @@
 - `description` (String). Description of the scan policy.
  The maximum string length in characters is 256.
 - `disabled` (Bool). Turns off scan policy.
-- `id` (String). ID of the scan policy.
+- `id` (*Read-Only*) (String). ID of the scan policy.
 - `name` (String). Name of the scan policy.
 - `registry_id` (**Required**)(String). ID of the registry that the scan policy belongs to.
  Required. The maximum string length in characters is 50.
@@ -25,7 +25,7 @@
     - `interval_unit` (String). Unit for the scan interval.
     - `paths` (List Of String). List of paths that are scanned with rule. Child paths are included into parent node. "*" - means all artifacts in registry
 - `scan_lang_packages` (Bool). Flag indicating whether language packages should be scanned.
-- `scan_policy_id` (String). ID of the scan policy.
+- `scan_policy_id` (*Read-Only*) (String). ID of the scan policy.
 - `scan_policy_options` [Block]. Scan policy options.
   - `scan_lang_packages` (*Read-Only*) (Bool). Flag indicating whether language packages should be scanned.
 - `timeouts` [Block]. 

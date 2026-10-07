@@ -118,7 +118,7 @@ description: In this tutorial, you will learn how to migrate {{ SD }} cluster ho
             * `shardName`: Shard name in a sharded cluster.
             * `hidden`: Determines whether the host is hidden, `true` or `false`.
             * `secondaryDelaySecs`: Host’s replication lag behind the master.
-            * `priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
+            * `priority`: Host priority for [master](../concepts/replication.md#master-failover) promotion.
             * `tags`: Host tags.
 
             You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
@@ -170,7 +170,7 @@ description: In this tutorial, you will learn how to migrate {{ SD }} cluster ho
             * `shard_name`: Shard name in a sharded cluster.
             * `hidden`: Determines whether the host is hidden, `true` or `false`.
             * `secondary_delay_secs`: Host’s replication lag behind the master.
-            * `priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
+            * `priority`: Host priority for [master](../concepts/replication.md#master-failover) promotion.
             * `tags`: Host tags.
 
             You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).

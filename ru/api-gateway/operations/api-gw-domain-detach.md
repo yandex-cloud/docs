@@ -65,6 +65,37 @@ description: Из статьи вы узнаете, как отключить д
 
       * Если вашим доменом управляет сторонний DNS-провайдер, удалите запись на странице управления доменом вашего провайдера.
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  1. Откройте файл конфигурации {{ TF }} и удалите блок `custom_domains` с отключаемым доменом из описания ресурса `yandex_api_gateway`:
+
+     ```hcl
+     resource "yandex_api_gateway" "<имя_API-шлюза>" {
+       name = "<имя_API-шлюза>"
+       ...
+       custom_domains {
+         fqdn           = "<доменное_имя>"
+         certificate_id = "<идентификатор_сертификата>"
+       }
+     }
+     ```
+
+     Более подробную информацию о параметрах ресурса `yandex_api_gateway` читайте в [документации провайдера]({{ tf-provider-resources-link }}/api_gateway).
+
+  1. Примените изменения:
+
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  1. Удалите ресурсную запись, созданную при подключении домена к API-шлюзу:
+
+      * Если ваш домен делегирован {{ dns-name }}, [удалите](../../dns/operations/resource-record-delete.md) ANAME-запись в зоне DNS.
+
+      * Если вашим доменом управляет сторонний DNS-провайдер, удалите запись на странице управления доменом вашего провайдера.
+
 - API {#api}
 
   Чтобы отключить домен от API-шлюза, воспользуйтесь методом REST API [removeDomain](../apigateway/api-ref/ApiGateway/removeDomain.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/RemoveDomain](../apigateway/api-ref/grpc/ApiGateway/removeDomain.md).

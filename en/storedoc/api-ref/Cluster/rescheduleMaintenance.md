@@ -9,7 +9,7 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the MongoDB cluster to reschedule the maintenance operation for.
+            Required field. ID of the StoreDoc cluster to reschedule the maintenance operation for.
             The maximum string length in characters is 50.
           type: string
       required:
@@ -65,7 +65,7 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}:reschedu
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster to reschedule the maintenance operation for.
+Required field. ID of the StoreDoc cluster to reschedule the maintenance operation for.
 
 The maximum string length in characters is 50. ||
 |#

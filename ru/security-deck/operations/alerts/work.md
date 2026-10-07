@@ -41,24 +41,6 @@ description: В данном разделе вы узнаете, как в {{ sd
 
 {% endlist %}
 
-
-## Проанализировать алерт с помощью ИИ {#ai-analysis}
-
-{% list tabs group=instructions %}
-
-- Интерфейс {{ sd-name }} {#cloud-sd}
-
-  1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. На панели слева выберите ![alerts](../../../_assets/security-deck/alerts.svg) **{{ ui-key.yacloud_org.security-center.label_alerts }}**.
-  1. В верхней части окна выберите [окружение](../../concepts/workspace.md).
-  1. Нажмите на строку таблицы с именем алерта.
-  1. В открывшемся окне нажмите ![sparkles](../../../_assets/console-icons/sparkles-fill.svg) **{{ ui-key.yacloud_org.security-center.alert.action_alert_analysis }}**.
-
-      Справа откроется панель диалога с AI-ассистентом и его анализом.
-
-{% endlist %}
-
-
 ## Оставить комментарий к алерту {#comment}
 
 {% list tabs group=instructions %}

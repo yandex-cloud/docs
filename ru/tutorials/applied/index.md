@@ -58,7 +58,7 @@ description: На странице представлен список прак�
 ## Прочее {#other}
 
 * [Публикация обновлений для игр с помощью {{ cdn-full-name }}](../web/prefetch.md)
-* [{#T}](../infrastructure-management/sap.md)
 * [{#T}](../infrastructure/minecraft-server.md)
+* [{#T}](../infrastructure/gta-v-server.md)
 * [{#T}](../serverless/video-converting-queue/index.md)
 * [{#T}](./desktop-linux-printer.md)

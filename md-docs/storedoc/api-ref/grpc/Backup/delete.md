@@ -2,7 +2,7 @@
 
 # Managed Service for MongoDB API, gRPC: BackupService.Delete
 
-Deletes the specified MongoDB backup.
+Deletes the specified StoreDoc backup.
 
 ## gRPC request
 

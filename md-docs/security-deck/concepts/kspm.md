@@ -29,7 +29,6 @@
 * Управлять статусом алерта.
 * Оставлять комментарии.
 * Отслеживать прогресс устранения нарушения.
-* Запросить анализ у [AI-ассистента](ai-assistant.md).
 
 Подробнее на странице [Активировать модуль KSPM](../operations/kspm/enable-kspm.md).
 
@@ -37,7 +36,6 @@
 
 * [Окружения Security Deck](workspace.md)
 * [Контроль конфигурации (CSPM)](cspm.md)
-* [AI-ассистент в Security Deck](ai-assistant.md)
 * [Начало работы с Yandex Security Deck](../quickstart-overview.md)
 * [Активировать модуль KSPM](../operations/kspm/enable-kspm.md)
 * [Сервисные роли для модуля Контроль Kubernetes® (KSPM)](../security/kspm-roles.md)

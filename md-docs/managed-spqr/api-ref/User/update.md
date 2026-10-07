@@ -66,7 +66,7 @@ The rest of the fields will be reset to the default. ||
 
 New password for the user.
 
-The string length in characters must be 8-128. ||
+The string length in characters must be 0-128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.spqr.v1.Permission)**
 
 New set of permissions for the user. ||

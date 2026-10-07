@@ -48,7 +48,7 @@
     * `shard_name`: Shard name in a sharded cluster.
     * `hidden`: Specifies whether to hide (`true`) or display (`false`) the host.
     * `secondary_delay_secs`: Host’s replication lag behind the master.
-    * `priority`: Host priority for master promotion during [failover](../../../storedoc/concepts/replication.md#master-failover).
+    * `priority`: Host priority for [master](../../../storedoc/concepts/replication.md#master-failover) promotion.
     * `tags`: Host tags.
 
 * {% include [maintenance-window](../api/maintenance-window-grpc.md)%}

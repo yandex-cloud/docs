@@ -2,7 +2,7 @@
 
 # Managed Service for MongoDB API, REST: User.Create
 
-Creates a MongoDB user in the specified cluster.
+Creates a StoreDoc user in the specified cluster.
 
 ## HTTP request
 
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/us
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster to create a user in.
+Required field. ID of the StoreDoc cluster to create a user in.
 To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -37,6 +37,7 @@ The maximum string length in characters is 50. ||
         ]
       }
     ],
+    "generatePassword": "boolean",
     "authType": "string",
     "deletionProtection": "boolean"
   }
@@ -56,18 +57,21 @@ Required field. Properties of the user to be created. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the MongoDB user.
+Required field. Name of the StoreDoc user.
 
 The maximum string length in characters is 63. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_@.-]*$ `. ||
 || password | **string**
 
-Password of the MongoDB user.
+Password of the StoreDoc user.
 Must not be set for users with the [AuthType.AUTH_TYPE_IAM](../Cluster/create.md#yandex.cloud.mdb.mongodb.v1.AuthType) authentication type.
 
 The maximum string length in characters is 128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)**
 
 Set of permissions to grant to the user. ||
+|| generatePassword | **boolean**
+
+Generate password using Connection Manager ||
 || authType | **enum** (AuthType)
 
 Authentication type for the user. Defaults to AUTH_TYPE_PASSWORD.
@@ -88,7 +92,7 @@ Deletion Protection inhibits deletion of the user ||
 Name of the database that the permission grants access to. ||
 || roles[] | **string**
 
-MongoDB roles for the `databaseName` database that the permission grants. ||
+StoreDoc roles for the `databaseName` database that the permission grants. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

@@ -10,11 +10,11 @@ A LifecyclePolicy resource.
 - `created_at` (*Read-Only*) (String). Output only. Creation timestamp.
 - `created_by` (*Read-Only*) (String). Output only. ID of the user who created the lifecycle policy.
 - `description` (String). Description of the lifecycle policy. 0-1024 characters long.
-- `id` (String). ID of the lifecycle policy to return.
+- `id` (*Read-Only*) (String). ID of the lifecycle policy to return.
 - `modified_at` (*Read-Only*) (String). Output only. Modification timestamp.
 - `modified_by` (*Read-Only*) (String). Output only. ID of the user who last modified the lifecycle policy.
 - `name` (String). Name of the lifecycle policy.
-- `policy_id` (String). ID of the lifecycle policy to return.
+- `policy_id` (*Read-Only*) (String). ID of the lifecycle policy to return.
 - `registry_id` (**Required**)(String). ID of the registry that the lifecycle policy belongs to.
 - `rules` [Block]. List of lifecycle rules.
   - `delete` [Block]. Rule that deletes artifacts.

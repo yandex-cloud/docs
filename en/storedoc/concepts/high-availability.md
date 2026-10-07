@@ -11,7 +11,7 @@ description: High availability is the ability of a system to continue to operate
 
 ### For a non-sharded cluster
 
-A single-host cluster does not provide high availability. If the primary replica fails, your cluster becomes unavailable for reading and writing until the replica is recovered.
+A single-host cluster does not provide high availability. If the master fails, the cluster will be unavailable for reading and writing until the master is recovered.
 
 If your cluster has at least two hosts, it remains available if one of them fails.
 
@@ -63,7 +63,7 @@ To ensure data integrity and acceptable cluster recovery time:
 
   {% note warning %}
 
-  If public access is not configured for all cluster hosts, [automatic primary replica failover](../concepts/replication.md) may render the cluster unavailable from the internet.
+  If public access is not configured for all cluster hosts, [automatic master failover](../concepts/replication.md) may render the cluster unavailable from the internet.
 
   {% endnote %}
 
@@ -81,19 +81,19 @@ To keep your cluster's hosts writable, regularly [check its _Disk space usage pe
 
 ## Host configuration type {#host-type}
 
-Host configuration directly impacts cluster availability. A highly available cluster should use a configuration with a 100% vCPU guarantee. The **b1**, **b2**, and **b3** configuration types with a 50% vCPU guarantee do not ensure high availability and should only be used for test environments.
+Host configuration affects cluster availability. A highly available cluster should use a configuration with a 100% vCPU guarantee. The **b1**, **b2**, and **b3** configuration types with a 50% vCPU guarantee do not ensure high availability and should only be used for test environments.
 
 ## Maintaining a cluster and modifying its parameters {#maintenance}
 
 The following operations may lead to interrupted database connections and temporary performance degradation:
 * Starting [maintenance](../concepts/maintenance.md) (you can set your preferred start time by setting up the [maintenance window](../concepts/maintenance.md#maintenance-window)).
 * [Changing host class](../operations/update.md#change-resource-preset).
-* Automatic and manual database [backus](../concepts/backup.md).
+* Automatic and manual database [backups](../concepts/backup.md).
 
 Run these operations when the cluster load is minimal. Select [maintenance day and time](maintenance.md#maintenance-window) based on estimated cluster load.
 
 {% note warning %}
 
-These operations may trigger a primary replica switch. If the cluster has no hosts that can become the new primary replica, it is rendered temporarily unavailable.
+A master failover may take place during these operations. If the cluster has no hosts that can become the new master, it will go temporarily unavailable.
 
 {% endnote %}

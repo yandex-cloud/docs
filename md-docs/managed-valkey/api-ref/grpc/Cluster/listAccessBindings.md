@@ -2,7 +2,7 @@
 
 # Managed Service for Redis API, gRPC: ClusterService.ListAccessBindings
 
-Retrieves a list of access bindings for the specified Redis cluster.
+Retrieves a list of access bindings for the specified Valkey cluster.
 
 ## gRPC request
 

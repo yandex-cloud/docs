@@ -12,5 +12,6 @@ NOTE: these methods are available only if database management through SQL is dis
 || [Get](get.md) | Returns the specified ClickHouse Database resource. ||
 || [List](list.md) | Retrieves the list of ClickHouse Database resources in the specified cluster. ||
 || [Create](create.md) | Creates a new ClickHouse database in the specified cluster. ||
+|| [Update](update.md) | Updates the specified ClickHouse database. ||
 || [Delete](delete.md) | Deletes the specified ClickHouse database. ||
 |#

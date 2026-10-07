@@ -2,7 +2,7 @@
 
 # Managed Service for Redis API, gRPC: UserService.Update
 
-Updates the specified Redis user.
+Updates the specified Valkey user.
 
 ## gRPC request
 
@@ -35,21 +35,21 @@ Updates the specified Redis user.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Redis cluster the user belongs to.
+Required field. ID of the Valkey cluster the user belongs to.
 To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || user_name | **string**
 
-Required field. Name of the Redis user to be updated.
+Required field. Name of the Valkey user to be updated.
 
 The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_@.-]*$ `. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
-Field mask that specifies which fields of the Redis User resource should be updated. ||
+Field mask that specifies which fields of the Valkey User resource should be updated. ||
 || passwords[] | **string**
 
-New password of the Redis user, 8-128 characters long.
+New password of the Valkey user, 8-128 characters long.
 
 The maximum number of elements is 1. ||
 || permissions | **[Permissions](#yandex.cloud.mdb.redis.v1.Permissions)**
@@ -57,7 +57,7 @@ The maximum number of elements is 1. ||
 New set of permissions to grant to the user. ||
 || enabled | **bool**
 
-Is Redis user enabled ||
+Is Valkey user enabled ||
 || generate_password | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Generate password using Connection Manager ||

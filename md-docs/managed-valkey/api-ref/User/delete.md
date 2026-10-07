@@ -2,7 +2,7 @@
 
 # Managed Service for Redis API, REST: User.Delete
 
-Deletes the specified Redis user.
+Deletes the specified Valkey user.
 
 ## HTTP request
 
@@ -16,7 +16,7 @@ DELETE https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/us
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Redis cluster the user belongs to.
+Required field. ID of the Valkey cluster the user belongs to.
 To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||

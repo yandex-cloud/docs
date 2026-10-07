@@ -92,7 +92,8 @@
     "database": {
       "name": "string",
       "clusterId": "string",
-      "engine": "string"
+      "engine": "string",
+      "deletionProtectionMode": "string"
     }
   },
   "requestParameters": "object",
@@ -280,4 +281,9 @@ A list of messages that carry the error details. ||
 
 - `DATABASE_ENGINE_ATOMIC`
 - `DATABASE_ENGINE_REPLICATED` ||
+|| deletionProtectionMode | **enum** (DeletionProtectionMode)
+
+- `DELETION_PROTECTION_MODE_DISABLED`
+- `DELETION_PROTECTION_MODE_ENABLED`
+- `DELETION_PROTECTION_MODE_INHERITED` ||
 |#

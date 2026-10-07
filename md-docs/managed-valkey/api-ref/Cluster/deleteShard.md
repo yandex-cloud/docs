@@ -16,13 +16,13 @@ DELETE https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/sh
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Redis cluster the shard belongs to.
+Required field. ID of the Valkey cluster the shard belongs to.
 To get the cluster ID use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || shardName | **string**
 
-Required field. Name of the Redis shard to delete.
+Required field. Name of the Valkey shard to delete.
 To get the shard name use a [ClusterService.ListShards](listShards.md#ListShards) request.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
