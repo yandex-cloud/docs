@@ -122,11 +122,11 @@ curl -X POST \
 Где:
 
 * `<IAM-токен>` — IAM-токен для аутентификации.
-* `<идентификатор_сервера>` — идентификатор сервера, который нужно изменить. Чтобы узнать идентификатор, воспользуйтесь [инструкцией](get-info.md).
+* `<идентификатор_сервера>` — идентификатор останавливаемого сервера. Чтобы узнать идентификатор, воспользуйтесь [инструкцией](get-info.md).
 
 Результат:
 
-```bash
+```json
 {
   "done": false,
   "metadata": {
@@ -145,14 +145,14 @@ curl -X POST \
 
 ```bash
 curl -X POST \
--H "Content-Type: application/json" \
--H "Authorization: Bearer <IAM-токен>" \
--d '{}' \
-"https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/servers/<идентификатор_сервера>:powerOn"
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer <IAM-токен>" \
+  -d '{}' \
+  "https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/servers/<идентификатор_сервера>:powerOn"
 ```
 Результат:
 
-```bash
+```json
 {
   "done": false,
   "metadata": {
@@ -178,18 +178,18 @@ curl -X POST \
 
 Результат:
 
-```bash
+```json
 {
-"done": false,
-"metadata": {
-  "@type": "type.googleapis.com/yandex.cloud.baremetal.v1alpha.RebootServerMetadata",
-  "serverId": "ly56xpblirh4********"
-},
-"id": "ly54ebp4hozz********",
-"description": "Server reboot",
-"createdAt": "2025-12-07T19:39:42.667128Z",
-"createdBy": "ajeb9l33h6mu********",
-"modifiedAt": "2025-12-07T19:39:42.667128Z"
+  "done": false,
+  "metadata": {
+    "@type": "type.googleapis.com/yandex.cloud.baremetal.v1alpha.RebootServerMetadata",
+    "serverId": "ly56xpblirh4********"
+  },
+  "id": "ly54ebp4hozz********",
+  "description": "Server reboot",
+  "createdAt": "2025-12-07T19:39:42.667128Z",
+  "createdBy": "ajeb9l33h6mu********",
+  "modifiedAt": "2025-12-07T19:39:42.667128Z"
 }
 ```
 
