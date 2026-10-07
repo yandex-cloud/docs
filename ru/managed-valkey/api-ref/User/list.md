@@ -9,7 +9,7 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the cluster to list Redis users in.
+            Required field. ID of the cluster to list Valkey users in.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
             The maximum string length in characters is 50.
           type: string
@@ -42,7 +42,7 @@ apiPlayground:
 
 # Managed Service for Redis API, REST: User.List
 
-Retrieves the list of Redis User resources in the specified cluster.
+Retrieves the list of Valkey User resources in the specified cluster.
 
 ## HTTP request
 
@@ -56,7 +56,7 @@ GET https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/users
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the cluster to list Redis users in.
+Required field. ID of the cluster to list Valkey users in.
 To get the cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -115,7 +115,7 @@ The maximum string length in characters is 400. ||
 ||Field | Description ||
 || users[] | **[User](#yandex.cloud.mdb.redis.v1.User)**
 
-List of Redis User resources. ||
+List of Valkey User resources. ||
 || nextPageToken | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
@@ -126,26 +126,26 @@ list request will have its own `nextPageToken` to continue paging through the re
 
 ## User {#yandex.cloud.mdb.redis.v1.User}
 
-A Redis User resource. For more information, see the
+A Valkey User resource. For more information, see the
 [Developer's Guide](/docs/managed-redis/concepts).
 
 #|
 ||Field | Description ||
 || name | **string**
 
-Name of the Redis user. ||
+Name of the Valkey user. ||
 || clusterId | **string**
 
-ID of the Redis cluster the user belongs to. ||
+ID of the Valkey cluster the user belongs to. ||
 || permissions | **[Permissions](#yandex.cloud.mdb.redis.v1.Permissions)**
 
 Set of permissions to grant to the user. ||
 || enabled | **boolean**
 
-Is redis user enabled ||
+Is Valkey user enabled ||
 || aclOptions | **string**
 
-Raw ACL string inside of Redis ||
+Raw ACL string inside of Valkey ||
 || connectionManager | **[ConnectionManager](#yandex.cloud.mdb.redis.v1.ConnectionManager)**
 
 Connection Manager connection configuration. ||

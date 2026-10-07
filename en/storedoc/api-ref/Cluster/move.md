@@ -9,7 +9,7 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the MongoDB cluster to move.
+            Required field. ID of the StoreDoc cluster to move.
             The maximum string length in characters is 50.
           type: string
       required:
@@ -33,7 +33,7 @@ apiPlayground:
 
 # Managed Service for MongoDB API, REST: Cluster.Move
 
-Moves the specified MongoDB cluster to the specified folder.
+Moves the specified StoreDoc cluster to the specified folder.
 
 ## HTTP request
 
@@ -47,7 +47,7 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}:move
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster to move.
+Required field. ID of the StoreDoc cluster to move.
 
 The maximum string length in characters is 50. ||
 |#

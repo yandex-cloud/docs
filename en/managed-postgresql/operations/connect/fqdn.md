@@ -5,25 +5,41 @@ description: Follow this guide to get an FQDN of a {{ mpg-full-name }} host.
 
 # FQDNs of {{ PG }} hosts
 
-To connect to a host, you need its fully qualified domain name ([FQDN](../../concepts/network.md#hostname)). You can get it using one of the following methods:
+To connect to a host, you need its fully qualified domain name ([FQDN](../../concepts/network.md#hostname)). You can use the [FQDN of a particular host](#get-fqdn) in the cluster or a special FQDN always pointing to the [current master host](#fqdn-master) or the [most recent replica](#fqdn-replica).
 
-* [Request a list of cluster hosts](../../operations/hosts.md#list-hosts).
-* In the [management console]({{ link-console-main }}), copy the cluster connection command (it contains the host’s FQDN). To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+Here is a host FQDN example:
+
+```text
+{{ host-name }}.{{ dns-zone }}
+```
+
+## Getting a host FQDN {#get-fqdn}
+
+There are several ways to get a {{ PG }} host's FQDN:
+
 * Look up the FQDN in the management console:
 
-   1. Navigate to the cluster page.
-   1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-   1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
+    1. Navigate to the cluster page.
+    1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
-In addition to regular FQDNs, you can use [special FQDNs](#special-fqdns) and [aliases](#aliases) to connect to a cluster.
+* In the [management console]({{ link-console-main }}), copy the cluster connection command (it contains the host’s FQDN). To get this command, navigate to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+
+* [Get the list of cluster hosts](../../operations/hosts.md#list) using the CLI or API.
 
 ## Special FQDNs {#special-fqdns}
 
 {{ mpg-name }} provides the following special FQDNs:
-* [Current master FQDN](#fqdn-master).
-* [Most recent replica FQDN](#fqdn-replica).
+* [Current master FQDN](#fqdn-master)
+* [FQDN of the most recent replica](#fqdn-replica)
 
 {% include [special-fqdns-info](../../../_includes/mdb/special-fqdns-info.md) %}
+
+{% note warning %}
+
+If [automatic failover](../../concepts/replication.md#master-failover) promotes a host without public access to master or most recent replica, you will not be able to connect to that host from the internet. To avoid this, [enable public access](../hosts.md#update) for all cluster hosts.
+
+{% endnote %}
 
 ### Current master {#fqdn-master}
 
@@ -63,7 +79,7 @@ With cluster aliases, you can switch workloads from one cluster to another, e.g.
 
 {% note warning %}
 
-After a [master failover](../../concepts/replication.md#replication), DNS records may take up to 10 minutes to update. During this time, the cluster alias may continue pointing to the old host, which has already become a replica. Use cluster aliases only for processes that allow up to 10 minutes of database write downtime.
+{% include [special-fqdns-warning](../../../_includes/mdb/special-fqdns-info.md) %}
 
 {% endnote %}
 

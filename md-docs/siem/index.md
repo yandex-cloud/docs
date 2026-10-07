@@ -60,6 +60,162 @@
 
  - [Справочник KQL](kql-reference.md)
 
+## Справочник API
+
+ - [Аутентификация](api-ref/authentication.md)
+
+### gRPC (англ.)
+
+ - [Overview](siem/api-ref/grpc/index.md)
+
+#### Operation
+
+ - [Overview](siem/api-ref/grpc/Operation/index.md)
+
+ - [Get](siem/api-ref/grpc/Operation/get.md)
+
+ - [Cancel](siem/api-ref/grpc/Operation/cancel.md)
+
+#### Yandex Cloud SIEM Instances API
+
+ - [Overview](instances/siem/api-ref/grpc/index.md)
+
+##### SIEMInstance
+
+ - [Overview](instances/siem/api-ref/grpc/SIEMInstance/index.md)
+
+ - [List](instances/siem/api-ref/grpc/SIEMInstance/list.md)
+
+ - [Get](instances/siem/api-ref/grpc/SIEMInstance/get.md)
+
+#### Yandex Cloud SIEM Queries API
+
+ - [Overview](queries/siem/api-ref/grpc/index.md)
+
+##### Dataset
+
+ - [Overview](queries/siem/api-ref/grpc/Dataset/index.md)
+
+ - [GetNormalizateSchema](queries/siem/api-ref/grpc/Dataset/getNormalizateSchema.md)
+
+ - [GetSchema](queries/siem/api-ref/grpc/Dataset/getSchema.md)
+
+ - [GetRecords](queries/siem/api-ref/grpc/Dataset/getRecords.md)
+
+##### Operation
+
+ - [Overview](queries/siem/api-ref/grpc/Operation/index.md)
+
+ - [Get](queries/siem/api-ref/grpc/Operation/get.md)
+
+ - [Cancel](queries/siem/api-ref/grpc/Operation/cancel.md)
+
+##### SearchLaunch
+
+ - [Overview](queries/siem/api-ref/grpc/SearchLaunch/index.md)
+
+ - [Get](queries/siem/api-ref/grpc/SearchLaunch/get.md)
+
+ - [Create](queries/siem/api-ref/grpc/SearchLaunch/create.md)
+
+ - [Cancel](queries/siem/api-ref/grpc/SearchLaunch/cancel.md)
+
+##### Search
+
+ - [Overview](queries/siem/api-ref/grpc/Search/index.md)
+
+ - [Get](queries/siem/api-ref/grpc/Search/get.md)
+
+ - [List](queries/siem/api-ref/grpc/Search/list.md)
+
+ - [Create](queries/siem/api-ref/grpc/Search/create.md)
+
+##### Session
+
+ - [Overview](queries/siem/api-ref/grpc/Session/index.md)
+
+ - [List](queries/siem/api-ref/grpc/Session/list.md)
+
+ - [Get](queries/siem/api-ref/grpc/Session/get.md)
+
+ - [Create](queries/siem/api-ref/grpc/Session/create.md)
+
+### REST (англ.)
+
+ - [Overview](siem/api-ref/index.md)
+
+#### Operation
+
+ - [Overview](siem/api-ref/Operation/index.md)
+
+ - [Get](siem/api-ref/Operation/get.md)
+
+ - [Cancel](siem/api-ref/Operation/cancel.md)
+
+#### Yandex Cloud SIEM Instances API
+
+ - [Overview](instances/siem/api-ref/index.md)
+
+##### SIEMInstance
+
+ - [Overview](instances/siem/api-ref/SIEMInstance/index.md)
+
+ - [List](instances/siem/api-ref/SIEMInstance/list.md)
+
+ - [Get](instances/siem/api-ref/SIEMInstance/get.md)
+
+#### Yandex Cloud SIEM Queries API
+
+ - [Overview](queries/siem/api-ref/index.md)
+
+##### Dataset
+
+ - [Overview](queries/siem/api-ref/Dataset/index.md)
+
+ - [GetNormalizateSchema](queries/siem/api-ref/Dataset/getNormalizateSchema.md)
+
+ - [GetSchema](queries/siem/api-ref/Dataset/getSchema.md)
+
+ - [GetRecords](queries/siem/api-ref/Dataset/getRecords.md)
+
+##### Operation
+
+ - [Overview](queries/siem/api-ref/Operation/index.md)
+
+ - [Get](queries/siem/api-ref/Operation/get.md)
+
+ - [Cancel](queries/siem/api-ref/Operation/cancel.md)
+
+##### SearchLaunch
+
+ - [Overview](queries/siem/api-ref/SearchLaunch/index.md)
+
+ - [Get](queries/siem/api-ref/SearchLaunch/get.md)
+
+ - [Create](queries/siem/api-ref/SearchLaunch/create.md)
+
+ - [Cancel](queries/siem/api-ref/SearchLaunch/cancel.md)
+
+##### Search
+
+ - [Overview](queries/siem/api-ref/Search/index.md)
+
+ - [Get](queries/siem/api-ref/Search/get.md)
+
+ - [List](queries/siem/api-ref/Search/list.md)
+
+ - [Create](queries/siem/api-ref/Search/create.md)
+
+##### Session
+
+ - [Overview](queries/siem/api-ref/Session/index.md)
+
+ - [List](queries/siem/api-ref/Session/list.md)
+
+ - [Get](queries/siem/api-ref/Session/get.md)
+
+ - [Create](queries/siem/api-ref/Session/create.md)
+
  - [Управление доступом](security/index.md)
 
  - [Правила тарификации](pricing.md)

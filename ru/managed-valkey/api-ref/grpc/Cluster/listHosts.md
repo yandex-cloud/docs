@@ -24,8 +24,8 @@ Retrieves a list of hosts for the specified cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Redis cluster.
-To get the Redis cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request.
+Required field. ID of the Valkey cluster.
+To get the Valkey cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || page_size | **int64**
@@ -94,28 +94,28 @@ Each subsequent list request will have its own `next_page_token` to continue pag
 ||Field | Description ||
 || name | **string**
 
-Name of the Redis host. The host name is assigned by MDB at creation time, and cannot be changed.
+Name of the Valkey host. The host name is assigned by MDB at creation time, and cannot be changed.
 1-63 characters long.
 The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. ||
 || cluster_id | **string**
 
-ID of the Redis cluster. The ID is assigned by MDB at creation time. ||
+ID of the Valkey cluster. The ID is assigned by MDB at creation time. ||
 || zone_id | **string**
 
-ID of the availability zone where the Redis host resides. ||
+ID of the availability zone where the Valkey host resides. ||
 || subnet_id | **string**
 
 ID of the subnet that the host belongs to. ||
 || resources | **[Resources](#yandex.cloud.mdb.redis.v1.Resources)**
 
-Resources allocated to the Redis host. ||
+Resources allocated to the Valkey host. ||
 || role | enum **Role**
 
 Role of the host in the cluster. If the field has default value, it is not returned in the response.
 
 - `ROLE_UNKNOWN`: Role of the host in the cluster is unknown. Default value.
-- `MASTER`: Host is the master Redis server in the cluster.
-- `REPLICA`: Host is a replica (standby) Redis server in the cluster. ||
+- `MASTER`: Host is the master Valkey server in the cluster.
+- `REPLICA`: Host is a replica (standby) Valkey server in the cluster. ||
 || health | enum **Health**
 
 Aggregated health of the host. If the field has default value, it is not returned in the response.
@@ -132,8 +132,10 @@ Services provided by the host. ||
 Name of the shard that the host belongs to. ||
 || replica_priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-A replica with a low priority number is considered better for promotion.
-A replica with priority of 0 will never be selected by Redis Sentinel for promotion.
+Priority of the host as a candidate for promotion to master: the higher the value,
+the more preferred the host is. A host with priority 0 is promoted only if there are
+no other suitable candidates. The priority is ignored if the host requires a full
+resynchronization: in that case the host with the smallest replication lag is promoted.
 Works only for non-sharded clusters. Default value is 100. ||
 || assign_public_ip | **bool**
 
@@ -168,9 +170,9 @@ Possible values:
 
 Type of the service provided by the host. If the field has default value, it is not returned in the response.
 
-- `REDIS`: The host is a Redis server.
+- `REDIS`: The host is a Valkey server.
 - `ARBITER`: The host provides a Sentinel-only service (a quorum node).
-- `REDIS_CLUSTER`: The host is a Redis Cluster node. ||
+- `REDIS_CLUSTER`: The host is a Valkey Cluster node. ||
 || health | enum **Health**
 
 Aggregated health of the service. If the field has default value, it is not returned in the response.

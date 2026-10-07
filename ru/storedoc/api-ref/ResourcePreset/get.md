@@ -65,11 +65,11 @@ A ResourcePreset resource for describing hardware configuration presets.
 ID of the ResourcePreset resource. ||
 || zoneIds[] | **string**
 
-IDs of availability zones where the resource preset is available. ||
+IDs of the availability zones where the resource preset is available. ||
 || cores | **string** (int64)
 
-Number of CPU cores for a MongoDB host created with the preset. ||
+Number of CPU cores for a StoreDoc host created with the preset. ||
 || memory | **string** (int64)
 
-RAM volume for a MongoDB host created with the preset, in bytes. ||
+RAM volume for a StoreDoc host created with the preset, in bytes. ||
 |#

@@ -2,7 +2,7 @@
 
 # Managed Service for MongoDB API, REST: User.RevokePermission
 
-Revokes permission from the specified MongoDB user.
+Revokes permission from the specified StoreDoc user.
 
 ## HTTP request
 
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/us
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster the user belongs to.
+Required field. ID of the StoreDoc cluster the user belongs to.
 To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||

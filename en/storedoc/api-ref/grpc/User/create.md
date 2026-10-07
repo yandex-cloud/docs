@@ -4,7 +4,7 @@ editable: false
 
 # Managed Service for MongoDB API, gRPC: UserService.Create
 
-Creates a MongoDB user in the specified cluster.
+Creates a StoreDoc user in the specified cluster.
 
 ## gRPC request
 
@@ -26,6 +26,7 @@ Creates a MongoDB user in the specified cluster.
         ]
       }
     ],
+    "generate_password": "google.protobuf.BoolValue",
     "auth_type": "AuthType",
     "deletion_protection": "google.protobuf.BoolValue"
   }
@@ -36,7 +37,7 @@ Creates a MongoDB user in the specified cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the MongoDB cluster to create a user in.
+Required field. ID of the StoreDoc cluster to create a user in.
 To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -51,18 +52,21 @@ Required field. Properties of the user to be created. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the MongoDB user.
+Required field. Name of the StoreDoc user.
 
 The maximum string length in characters is 63. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_@.-]*$ `. ||
 || password | **string**
 
-Password of the MongoDB user.
+Password of the StoreDoc user.
 Must not be set for users with the [AuthType.AUTH_TYPE_IAM](/docs/managed-mongodb/api-ref/grpc/Cluster/create#yandex.cloud.mdb.mongodb.v1.AuthType) authentication type.
 
 The maximum string length in characters is 128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)**
 
 Set of permissions to grant to the user. ||
+|| generate_password | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Generate password using Connection Manager ||
 || auth_type | enum **AuthType**
 
 Authentication type for the user. Defaults to AUTH_TYPE_PASSWORD.
@@ -83,7 +87,7 @@ Deletion Protection inhibits deletion of the user ||
 Name of the database that the permission grants access to. ||
 || roles[] | **string**
 
-MongoDB roles for the `database_name` database that the permission grants. ||
+StoreDoc roles for the `database_name` database that the permission grants. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

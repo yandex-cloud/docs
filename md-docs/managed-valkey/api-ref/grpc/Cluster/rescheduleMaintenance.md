@@ -22,7 +22,7 @@ Reschedules planned maintenance operation.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Redis cluster to reschedule the maintenance operation for.
+Required field. ID of the Valkey cluster to reschedule the maintenance operation for.
 
 The maximum string length in characters is 50. ||
 || reschedule_type | enum **RescheduleType**

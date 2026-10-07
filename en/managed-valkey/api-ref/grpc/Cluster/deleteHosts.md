@@ -27,8 +27,8 @@ Deletes the specified hosts for a cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Redis cluster to remove hosts from.
-To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request.
+Required field. ID of the Valkey cluster to remove hosts from.
+To get the Valkey cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || host_names[] | **string**

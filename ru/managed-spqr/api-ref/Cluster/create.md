@@ -50,7 +50,7 @@ apiPlayground:
             Required field. Deployment environment of the SPQR cluster.
             - `PRODUCTION`: Stable environment with a conservative update policy: only hotfixes
             are applied during regular maintenance.
-            - `PRESTABLE`: Environment with more aggressive update policy: new versions
+            - `PRESTABLE`: Environment with a more aggressive update policy: new versions
             are rolled out irrespective of backward compatibility.
           type: string
           enum:
@@ -105,7 +105,9 @@ apiPlayground:
         maintenanceWindow:
           description: |-
             **[MaintenanceWindow](#yandex.cloud.mdb.spqr.v1.MaintenanceWindow)**
+            Deprecated. Use maintenance_windows instead.
             New maintenance window settings for the cluster.
+          deprecated: true
           $ref: '#/definitions/MaintenanceWindow'
         shardSpecs:
           description: |-
@@ -114,6 +116,11 @@ apiPlayground:
           type: array
           items:
             $ref: '#/definitions/ShardSpec'
+        maintenanceWindows:
+          description: |-
+            **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)**
+            Maintenance windows for the cluster.
+          $ref: '#/definitions/MaintenanceWindows'
       required:
         - folderId
         - name
@@ -177,6 +184,12 @@ apiPlayground:
               - BEST_EFFORT
               - ONE_PC
               - TWO_PC
+          allowPostprocessing:
+            description: '**boolean**'
+            type: boolean
+          autoRouteRoOnStandby:
+            description: '**boolean**'
+            type: boolean
       Resources:
         type: object
         properties:
@@ -216,13 +229,37 @@ apiPlayground:
             $ref: '#/definitions/Resources'
       CoordinatorSettings:
         type: object
-        properties: {}
+        properties:
+          iterationTimeout:
+            description: '**string** (duration)'
+            type: string
+            format: duration
+          lockIterationTimeout:
+            description: '**string** (duration)'
+            type: string
+            format: duration
+          routerKeepaliveTime:
+            description: '**string** (duration)'
+            type: string
+            format: duration
+          routerKeepaliveTimeout:
+            description: '**string** (duration)'
+            type: string
+            format: duration
+          etcdMaxSendBytes:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          etcdMaxTxnOps:
+            description: '**string** (int64)'
+            type: string
+            format: int64
       Coordinator:
         type: object
         properties:
           config:
             description: |-
-              **object**
+              **[CoordinatorSettings](#yandex.cloud.mdb.spqr.v1.CoordinatorSettings)**
               Configuration for coordinator hosts.
             $ref: '#/definitions/CoordinatorSettings'
           resources:
@@ -261,7 +298,7 @@ apiPlayground:
             $ref: '#/definitions/RouterSettings'
           coordinator:
             description: |-
-              **object**
+              **[CoordinatorSettings](#yandex.cloud.mdb.spqr.v1.CoordinatorSettings)**
               Coordinator related configuration
             $ref: '#/definitions/CoordinatorSettings'
       BalancerSettings:
@@ -340,6 +377,12 @@ apiPlayground:
               **[BalancerSettings](#yandex.cloud.mdb.spqr.v1.BalancerSettings)**
               Configuration for SPQR Balancer.
             $ref: '#/definitions/BalancerSettings'
+          useSpqrguard:
+            description: '**boolean**'
+            type: boolean
+          forbidDirectShardQueries:
+            description: '**boolean**'
+            type: boolean
       TimeOfDay:
         type: object
         properties:
@@ -418,7 +461,9 @@ apiPlayground:
               Access policy to DB
             $ref: '#/definitions/Access'
           soxAudit:
-            description: '**boolean**'
+            description: |-
+              **boolean**
+              Configuration setting which enables/disables SOX audit.
             type: boolean
       DatabaseSpec:
         type: object
@@ -648,6 +693,81 @@ apiPlayground:
         oneOf:
           - required:
               - mdbPostgresql
+      MaintenanceWindowSlot:
+        type: object
+        properties:
+          day:
+            description: |-
+              **enum** (DayOfWeek)
+              Day of the week.
+              - `MONDAY`: The day-of-week of Monday.
+              - `TUESDAY`: The day-of-week of Tuesday.
+              - `WEDNESDAY`: The day-of-week of Wednesday.
+              - `THURSDAY`: The day-of-week of Thursday.
+              - `FRIDAY`: The day-of-week of Friday.
+              - `SATURDAY`: The day-of-week of Saturday.
+              - `SUNDAY`: The day-of-week of Sunday.
+            type: string
+            enum:
+              - DAY_OF_WEEK_UNSPECIFIED
+              - MONDAY
+              - TUESDAY
+              - WEDNESDAY
+              - THURSDAY
+              - FRIDAY
+              - SATURDAY
+              - SUNDAY
+          startTime:
+            description: |-
+              **[TimeOfDay](#google.type.TimeOfDay)**
+              Required field. Start time in UTC.
+            $ref: '#/definitions/TimeOfDay'
+          duration:
+            description: |-
+              **string** (duration)
+              Required field. Slot duration.
+            type: string
+            format: duration
+          allowTemporaryUnavailability:
+            description: |-
+              **boolean**
+              Allows maintenance operations that may cause temporary write unavailability.
+            type: boolean
+        required:
+          - startTime
+          - duration
+      WeeklyMaintenanceSchedule:
+        type: object
+        properties:
+          slots:
+            description: |-
+              **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+              Weekly time slots during which maintenance operations can be scheduled.
+              At least one slot is required.
+              The number of elements must be greater than 0.
+            type: array
+            items:
+              $ref: '#/definitions/MaintenanceWindowSlot'
+      MaintenanceWindows:
+        type: object
+        properties:
+          anytime:
+            description: |-
+              **object**
+              Maintenance operations can be scheduled anytime.
+              Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`.
+            $ref: '#/definitions/AnytimeMaintenanceWindow'
+          weeklyMaintenanceSchedule:
+            description: |-
+              **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+              Maintenance operations can be scheduled during the specified weekly slots.
+              Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`.
+            $ref: '#/definitions/WeeklyMaintenanceSchedule'
+        oneOf:
+          - required:
+              - anytime
+          - required:
+              - weeklyMaintenanceSchedule
 ---
 
 # Managed Service for SPQR API, REST: Cluster.Create
@@ -681,7 +801,9 @@ POST https://{{ api-host-mdb }}/managed-spqr/v1/clusters
           "preferSameAvailabilityZone": "boolean",
           "enhancedMultishardProcessing": "boolean",
           "defaultTargetSessionAttrs": "string",
-          "defaultCommitStrategy": "string"
+          "defaultCommitStrategy": "string",
+          "allowPostprocessing": "boolean",
+          "autoRouteRoOnStandby": "boolean"
         },
         "resources": {
           "resourcePresetId": "string",
@@ -690,7 +812,14 @@ POST https://{{ api-host-mdb }}/managed-spqr/v1/clusters
         }
       },
       "coordinator": {
-        "config": "object",
+        "config": {
+          "iterationTimeout": "string",
+          "lockIterationTimeout": "string",
+          "routerKeepaliveTime": "string",
+          "routerKeepaliveTimeout": "string",
+          "etcdMaxSendBytes": "string",
+          "etcdMaxTxnOps": "string"
+        },
         "resources": {
           "resourcePresetId": "string",
           "diskSize": "string",
@@ -720,9 +849,18 @@ POST https://{{ api-host-mdb }}/managed-spqr/v1/clusters
           "preferSameAvailabilityZone": "boolean",
           "enhancedMultishardProcessing": "boolean",
           "defaultTargetSessionAttrs": "string",
-          "defaultCommitStrategy": "string"
+          "defaultCommitStrategy": "string",
+          "allowPostprocessing": "boolean",
+          "autoRouteRoOnStandby": "boolean"
         },
-        "coordinator": "object"
+        "coordinator": {
+          "iterationTimeout": "string",
+          "lockIterationTimeout": "string",
+          "routerKeepaliveTime": "string",
+          "routerKeepaliveTimeout": "string",
+          "etcdMaxSendBytes": "string",
+          "etcdMaxTxnOps": "string"
+        }
       },
       "consolePassword": "string",
       "logLevel": "string",
@@ -733,7 +871,9 @@ POST https://{{ api-host-mdb }}/managed-spqr/v1/clusters
         "maxMoveCount": "string",
         "keysPerMove": "string",
         "timeout": "string"
-      }
+      },
+      "useSpqrguard": "boolean",
+      "forbidDirectShardQueries": "boolean"
     },
     "backupWindowStart": {
       "hours": "integer",
@@ -810,7 +950,27 @@ POST https://{{ api-host-mdb }}/managed-spqr/v1/clusters
       }
       // end of the list of possible fields
     }
-  ]
+  ],
+  "maintenanceWindows": {
+    // Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`
+    "anytime": "object",
+    "weeklyMaintenanceSchedule": {
+      "slots": [
+        {
+          "day": "string",
+          "startTime": {
+            "hours": "integer",
+            "minutes": "integer",
+            "seconds": "integer",
+            "nanos": "integer"
+          },
+          "duration": "string",
+          "allowTemporaryUnavailability": "boolean"
+        }
+      ]
+    }
+    // end of the list of possible fields
+  }
 }
 ```
 
@@ -843,7 +1003,7 @@ Required field. Deployment environment of the SPQR cluster.
 
 - `PRODUCTION`: Stable environment with a conservative update policy: only hotfixes
 are applied during regular maintenance.
-- `PRESTABLE`: Environment with more aggressive update policy: new versions
+- `PRESTABLE`: Environment with a more aggressive update policy: new versions
 are rolled out irrespective of backward compatibility. ||
 || configSpec | **[ConfigSpec](#yandex.cloud.mdb.spqr.v1.ConfigSpec)**
 
@@ -872,10 +1032,14 @@ User security groups ||
 Deletion Protection inhibits deletion of the cluster ||
 || maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.spqr.v1.MaintenanceWindow)**
 
+Deprecated. Use maintenance_windows instead.
 New maintenance window settings for the cluster. ||
 || shardSpecs[] | **[ShardSpec](#yandex.cloud.mdb.spqr.v1.ShardSpec)**
 
 Descriptions of shards to be created in the SPQR cluster. ||
+|| maintenanceWindows | **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)**
+
+Maintenance windows for the cluster. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.spqr.v1.ConfigSpec}
@@ -894,7 +1058,9 @@ Retain period of automatically created backup in days ||
 || access | **[Access](#yandex.cloud.mdb.spqr.v1.Access)**
 
 Access policy to DB ||
-|| soxAudit | **boolean** ||
+|| soxAudit | **boolean**
+
+Configuration setting which enables/disables SOX audit. ||
 |#
 
 ## SpqrSpec {#yandex.cloud.mdb.spqr.v1.SpqrSpec}
@@ -926,6 +1092,8 @@ Password of the SPQR console. ||
 || balancer | **[BalancerSettings](#yandex.cloud.mdb.spqr.v1.BalancerSettings)**
 
 Configuration for SPQR Balancer. ||
+|| useSpqrguard | **boolean** ||
+|| forbidDirectShardQueries | **boolean** ||
 |#
 
 ## Router {#yandex.cloud.mdb.spqr.v1.SpqrSpec.Router}
@@ -966,6 +1134,8 @@ Configuration of a SPQR router.
 - `BEST_EFFORT`
 - `ONE_PC`
 - `TWO_PC` ||
+|| allowPostprocessing | **boolean** ||
+|| autoRouteRoOnStandby | **boolean** ||
 |#
 
 ## Resources {#yandex.cloud.mdb.spqr.v1.Resources}
@@ -992,12 +1162,26 @@ Possible values:
 
 #|
 ||Field | Description ||
-|| config | **object**
+|| config | **[CoordinatorSettings](#yandex.cloud.mdb.spqr.v1.CoordinatorSettings)**
 
 Configuration for coordinator hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.spqr.v1.Resources)**
 
 Resources allocated to each host. ||
+|#
+
+## CoordinatorSettings {#yandex.cloud.mdb.spqr.v1.CoordinatorSettings}
+
+Configuration of a SPQR coordinator.
+
+#|
+||Field | Description ||
+|| iterationTimeout | **string** (duration) ||
+|| lockIterationTimeout | **string** (duration) ||
+|| routerKeepaliveTime | **string** (duration) ||
+|| routerKeepaliveTimeout | **string** (duration) ||
+|| etcdMaxSendBytes | **string** (int64) ||
+|| etcdMaxTxnOps | **string** (int64) ||
 |#
 
 ## PostgreSQL {#yandex.cloud.mdb.spqr.v1.SpqrSpec.PostgreSQL}
@@ -1022,7 +1206,7 @@ Resources allocated to each host ||
 || router | **[RouterSettings](#yandex.cloud.mdb.spqr.v1.RouterSettings)**
 
 Router related configuration ||
-|| coordinator | **object**
+|| coordinator | **[CoordinatorSettings](#yandex.cloud.mdb.spqr.v1.CoordinatorSettings)**
 
 Coordinator related configuration ||
 |#
@@ -1259,6 +1443,62 @@ The maximum string length in characters is 63. Value must match the regular expr
 Properties of the MDB PostgreSQL cluster
 
 Includes only one of the fields `mdbPostgresql`. ||
+|#
+
+## MaintenanceWindows {#yandex.cloud.mdb.v1.MaintenanceWindows}
+
+Maintenance windows shared by all managed database services.
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+Maintenance operations can be scheduled anytime.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|| weeklyMaintenanceSchedule | **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+
+Maintenance operations can be scheduled during the specified weekly slots.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|#
+
+## WeeklyMaintenanceSchedule {#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule}
+
+#|
+||Field | Description ||
+|| slots[] | **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+
+Weekly time slots during which maintenance operations can be scheduled.
+At least one slot is required.
+
+The number of elements must be greater than 0. ||
+|#
+
+## MaintenanceWindowSlot {#yandex.cloud.mdb.v1.MaintenanceWindowSlot}
+
+#|
+||Field | Description ||
+|| day | **enum** (DayOfWeek)
+
+Day of the week.
+
+- `MONDAY`: The day-of-week of Monday.
+- `TUESDAY`: The day-of-week of Tuesday.
+- `WEDNESDAY`: The day-of-week of Wednesday.
+- `THURSDAY`: The day-of-week of Thursday.
+- `FRIDAY`: The day-of-week of Friday.
+- `SATURDAY`: The day-of-week of Saturday.
+- `SUNDAY`: The day-of-week of Sunday. ||
+|| startTime | **[TimeOfDay](#google.type.TimeOfDay)**
+
+Required field. Start time in UTC. ||
+|| duration | **string** (duration)
+
+Required field. Slot duration. ||
+|| allowTemporaryUnavailability | **boolean**
+
+Allows maintenance operations that may cause temporary write unavailability. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

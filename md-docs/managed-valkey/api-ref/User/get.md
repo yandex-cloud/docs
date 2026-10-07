@@ -2,8 +2,8 @@
 
 # Managed Service for Redis API, REST: User.Get
 
-Returns the specified Redis User resource.
-To get the list of available Redis User resources, make a [List](list.md#List) request.
+Returns the specified Valkey User resource.
+To get the list of available Valkey User resources, make a [List](list.md#List) request.
 
 ## HTTP request
 
@@ -17,13 +17,13 @@ GET https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/users
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Redis cluster the user belongs to.
+Required field. ID of the Valkey cluster the user belongs to.
 To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || userName | **string**
 
-Required field. Name of the Redis User resource to return.
+Required field. Name of the Valkey User resource to return.
 To get the name of the user, use a [UserService.List](list.md#List) request.
 
 The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_@.-]*$ `. ||
@@ -54,26 +54,26 @@ The maximum string length in characters is 32. Value must match the regular expr
 }
 ```
 
-A Redis User resource. For more information, see the
+A Valkey User resource. For more information, see the
 [Developer's Guide](../../concepts/index.md).
 
 #|
 ||Field | Description ||
 || name | **string**
 
-Name of the Redis user. ||
+Name of the Valkey user. ||
 || clusterId | **string**
 
-ID of the Redis cluster the user belongs to. ||
+ID of the Valkey cluster the user belongs to. ||
 || permissions | **[Permissions](#yandex.cloud.mdb.redis.v1.Permissions)**
 
 Set of permissions to grant to the user. ||
 || enabled | **boolean**
 
-Is redis user enabled ||
+Is Valkey user enabled ||
 || aclOptions | **string**
 
-Raw ACL string inside of Redis ||
+Raw ACL string inside of Valkey ||
 || connectionManager | **[ConnectionManager](#yandex.cloud.mdb.redis.v1.ConnectionManager)**
 
 Connection Manager connection configuration. ||

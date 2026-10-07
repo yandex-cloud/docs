@@ -31,7 +31,7 @@ Same as ListLogs but using server-side streaming. Also allows for 'tail -f' sema
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. Required. ID of the MongoDB cluster.
+Required field. ID of the StoreDoc cluster.
 
 The maximum string length in characters is 50. ||
 || column_filter[] | **string**
@@ -44,7 +44,7 @@ Type of the service to request logs about.
 - `MONGOD`: Logs of mongod activity.
 - `MONGOS`: Logs of mongos activity.
 - `MONGOCFG`: Logs of mongocfg activity.
-- `AUDIT`: MongoDB Enterprise audit logs ||
+- `AUDIT`: StoreDoc Enterprise audit logs ||
 || from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Start timestamp for the logs request. ||

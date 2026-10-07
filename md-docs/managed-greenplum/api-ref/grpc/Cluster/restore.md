@@ -61,6 +61,21 @@ Creates a new Greenplum® cluster using the specified backup.
   },
   "segment_host_count": "int64",
   "segment_in_host": "int64",
+  "maintenance_windows": {
+    // Includes only one of the fields `anytime`, `weekly_maintenance_schedule`
+    "anytime": "AnytimeMaintenanceWindow",
+    "weekly_maintenance_schedule": {
+      "slots": [
+        {
+          "day": "DayOfWeek",
+          "start_time": "google.type.TimeOfDay",
+          "duration": "google.protobuf.Duration",
+          "allow_temporary_unavailability": "bool"
+        }
+      ]
+    }
+    // end of the list of possible fields
+  },
   "restore_only": [
     "string"
   ],
@@ -138,6 +153,7 @@ Determines whether the cluster is protected from being deleted. ||
 Host groups to place VMs of cluster on. ||
 || maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.greenplum.v1.MaintenanceWindow)**
 
+Deprecated. Use maintenance_windows instead.
 A Greenplum® cluster maintenance window. Should be defined by either one of the two options. ||
 || segment_host_count | **int64**
 
@@ -145,6 +161,9 @@ Number of segment hosts ||
 || segment_in_host | **int64**
 
 Number of segments on each host ||
+|| maintenance_windows | **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)**
+
+Maintenance windows. ||
 || restore_only[] | **string**
 
 List of databases and tables to restore
@@ -167,7 +186,9 @@ Restore HBA settings from original cluster ||
 Service account that will be used to access a Yandex Cloud resources ||
 || disk_encryption_key_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
-ID of the key to encrypt cluster disks. ||
+ID of the key to encrypt cluster disks.
+
+Value must match the regular expression ` [a-zA-Z0-9_.-]{0,50} `. ||
 |#
 
 ## GreenplumRestoreConfig {#yandex.cloud.mdb.greenplum.v1.GreenplumRestoreConfig}
@@ -286,6 +307,69 @@ Day of the week.
 Hour of the day in the UTC timezone.
 
 Acceptable values are 1 to 24, inclusive. ||
+|#
+
+## MaintenanceWindows {#yandex.cloud.mdb.v1.MaintenanceWindows}
+
+Maintenance windows shared by all managed database services.
+
+#|
+||Field | Description ||
+|| anytime | **[AnytimeMaintenanceWindow](#yandex.cloud.mdb.v1.AnytimeMaintenanceWindow)**
+
+Maintenance operations can be scheduled anytime.
+
+Includes only one of the fields `anytime`, `weekly_maintenance_schedule`. ||
+|| weekly_maintenance_schedule | **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+
+Maintenance operations can be scheduled during the specified weekly slots.
+
+Includes only one of the fields `anytime`, `weekly_maintenance_schedule`. ||
+|#
+
+## AnytimeMaintenanceWindow {#yandex.cloud.mdb.v1.AnytimeMaintenanceWindow}
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## WeeklyMaintenanceSchedule {#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule}
+
+#|
+||Field | Description ||
+|| slots[] | **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+
+Weekly time slots during which maintenance operations can be scheduled.
+At least one slot is required.
+
+The number of elements must be greater than 0. ||
+|#
+
+## MaintenanceWindowSlot {#yandex.cloud.mdb.v1.MaintenanceWindowSlot}
+
+#|
+||Field | Description ||
+|| day | enum **DayOfWeek**
+
+Day of the week.
+
+- `MONDAY`: The day-of-week of Monday.
+- `TUESDAY`: The day-of-week of Tuesday.
+- `WEDNESDAY`: The day-of-week of Wednesday.
+- `THURSDAY`: The day-of-week of Thursday.
+- `FRIDAY`: The day-of-week of Friday.
+- `SATURDAY`: The day-of-week of Saturday.
+- `SUNDAY`: The day-of-week of Sunday. ||
+|| start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
+
+Required field. Start time in UTC. ||
+|| duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+
+Required field. Slot duration. ||
+|| allow_temporary_unavailability | **bool**
+
+Allows maintenance operations that may cause temporary write unavailability. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

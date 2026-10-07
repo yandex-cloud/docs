@@ -1,6 +1,6 @@
-# Primary replica failover
+# Master failover
 
-In a cluster with [multiple replicas](../concepts/replication.md), you can switch the primary replica if required.
+In a cluster with [multiple replicas](../concepts/replication.md), you can switch the master if required.
 
 The switchover typically takes less than a minute. During the switchover, the cluster may be unwriteable for a few seconds.
 
@@ -20,14 +20,14 @@ The switchover typically takes less than a minute. During the switchover, the cl
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To perform a primary replica switchover, run this command:
+    To switch the master in your cluster, run this command:
 
     ```bash
-    {{ yc-mdb-mg }} hosts stepdown <current_primary_replica_name> \
+    {{ yc-mdb-mg }} hosts stepdown <current_master_name> \
        --name=<cluster_name>
     ```
 
-    You can get the primary replica name for the required shard from the [cluster’s host list](hosts.md#list), and the cluster name from the [list of clusters in your folder](cluster-list.md#list-clusters).
+    You can get the master name for the required shard from the [cluster's host list](hosts.md#list), and the cluster name, from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -45,12 +45,12 @@ The switchover typically takes less than a minute. During the switchover, the cl
             --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>:stepdownHosts' \
             --data '{
                      "hostNames": [
-                        "<current_primary_replica_name>"
+                        "<current_master_name>"
                      ]
                     }'
         ```
 
-        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the primary replica name for the required shard from the [cluster’s host list](hosts.md#list).
+        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the master name for the required shard, from the [cluster's host list](hosts.md#list).
 
     1. Check the [server response](../api-ref/Cluster/stepdownHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -74,14 +74,14 @@ The switchover typically takes less than a minute. During the switchover, the cl
             -d '{
                  "cluster_id": "<cluster_ID>",
                  "host_names": [
-                    "<current_primary_replica_name>"
+                    "<current_master_name>"
                  ]
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.mongodb.v1.ClusterService.StepdownHosts
         ```    
 
-        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the primary replica name for the required shard from the [cluster’s host list](hosts.md#list).
+        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the master name for the required shard, from the [cluster's host list](hosts.md#list).
 
     1. Check the [server response](../api-ref/grpc/Cluster/stepdownHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

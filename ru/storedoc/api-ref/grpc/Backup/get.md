@@ -4,8 +4,8 @@ editable: false
 
 # Managed Service for MongoDB API, gRPC: BackupService.Get
 
-Returns the specified MongoDB backup.
-To get the list of available MongoDB backups, make a [List](/docs/managed-mongodb/api-ref/grpc/Backup/list#List) request.
+Returns the specified StoreDoc backup.
+To get the list of available StoreDoc backups, make a [List](/docs/managed-mongodb/api-ref/grpc/Backup/list#List) request.
 
 ## gRPC request
 
@@ -45,7 +45,7 @@ To get the backup ID, use a [ClusterService.ListBackups](/docs/managed-mongodb/a
 }
 ```
 
-A MongoDB Backup resource. For more information, see the
+A StoreDoc Backup resource. For more information, see the
 [Developer's Guide](/docs/managed-mongodb/concepts).
 
 #|
@@ -62,7 +62,7 @@ Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text forma
 (i.e. when the backup operation was completed). ||
 || source_cluster_id | **string**
 
-ID of the MongoDB cluster that the backup was created for. ||
+ID of the StoreDoc cluster that the backup was created for. ||
 || started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the backup operation was started. ||
@@ -76,7 +76,7 @@ Size of backup in bytes ||
 
 How this backup was created (manual/automatic/etc...)
 
-- `AUTOMATED`: Backup created by automated daily schedule
+- `AUTOMATED`: Backup created by automated daily schedule.
 - `MANUAL`: Backup created by user request ||
 || journal_size | **int64**
 

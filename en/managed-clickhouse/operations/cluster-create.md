@@ -95,6 +95,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
           * **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}** and its **{{ ui-key.yacloud.mdb.forms.base_field_shard-weight }}**.
 
+            {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+
           * **{{ ui-key.yacloud.clickhouse.cluster.field_shard-resources-type }}** of shard hosts:
 
               * **{{ ui-key.yacloud.clickhouse.cluster.value_shard-resources-type-default }}**: Hosts will inherit the cluster configuration.
@@ -250,7 +252,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
       * `--environment`: Cluster environment, `prestable` or `production`.
       * `--shard`: [Shard](../concepts/sharding.md) properties, such as name and weight.
 
-        To create a cluster with multiple shards from the outset, specify this flag as many times as needed. If you do not specify the `--shard` flag, the new cluster will have a single shard named `shard1`.
+        {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+
+        To create a cluster with multiple shards from the outset, specify the `--shard` flag as many times as needed. If you do not specify this flag, the new cluster will have a single shard named `shard1`.
 
       * `--host`: Host settings:
         * `type`: Host type, `clickhouse`.
@@ -274,6 +278,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
       * `--clickhouse-resource-preset`: {{ CH }} [host class](../concepts/instance-types.md).
       * `--clickhouse-disk-type`: {{ CH }} [disk type](../concepts/storage.md).
       * `--clickhouse-disk-size`: {{ CH }} storage size in GB.
+
       * `--embedded-keeper`: Use of the built-in {{ CK }} [coordination service](../concepts/coordination-system.md), `true` or `false`.
 
           In a production environment, the built-in coordination service is not supported for a cluster with two or more hosts. In a prestable environment, a cluster with the built-in coordination service may contain one, three, or more hosts.
@@ -572,6 +577,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
        * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
        * `shards`: Cluster [shards](../concepts/sharding.md) as an associative array of elements. The key specifies the shard name, and the value includes the `weight` parameter, i.e., the shard weight.
+
+          {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
 
        * `hosts`: Cluster hosts as an associative array of elements. The key specifies the host name, and the value, the host parameters. Each element in the array has the following structure:
 
@@ -877,6 +884,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 * `name`: Shard name.
                 * `weight`: Shard weight.
+
+                   {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+
                 * `configSpec.clickhouse`: Shard host configuration, i.e., including host class, storage settings, and DBMS settings. If you skip the shard host configuration, it will be inherited from the cluster configuration.
 
             * `deletionProtection`: Cluster deletion protection, `true` or `false`. The default value is `false`.
@@ -1125,6 +1135,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 * `name`: Shard name.
                 * `weight`: Shard weight.
+
+                   {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+
                 * `config_spec.clickhouse`: Shard host configuration, i.e., including host class, storage settings, and DBMS settings. If you skip the shard host configuration, it will be inherited from the cluster configuration.
 
             * `deletion_protection`: Cluster deletion protection, `true` or `false`. The default value is `false`.
@@ -1209,6 +1222,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         * Set up shards created together with the cluster. To change a shard's settings, click ![pencil](../../_assets/console-icons/pencil.svg) next to its number:
 
             * **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}** and its **{{ ui-key.yacloud.mdb.forms.base_field_shard-weight }}**.
+
+               {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
 
             * **{{ ui-key.yacloud.clickhouse.cluster.field_shard-resources-type }}** of shard hosts:
 
@@ -1362,7 +1377,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
       * `--environment`: Cluster environment, `prestable` or `production`.
       * `--shard`: [Shard](../concepts/sharding.md) properties, such as name and weight.
 
-        To create a cluster with multiple shards from the outset, specify this flag as many times as needed. If you do not specify the `--shard` flag, the new cluster will have a single shard named `shard1`.
+        {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+
+        To create a cluster with multiple shards from the outset, specify the `--shard` flag as many times as needed. If you do not specify this flag, the new cluster will have a single shard named `shard1`.
 
       * `--host`: Host settings:
         * `type`: Host type, `clickhouse` or `zookeeper`.
@@ -1674,6 +1691,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
        * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
        * `shards`: Cluster [shards](../concepts/sharding.md) as an associative array of elements. The key specifies the shard name, and the value includes the `weight` parameter, i.e., the shard weight.
+
+          {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
 
        * `hosts`: Cluster hosts as an associative array of elements. The key specifies the host name, and the value, the host parameters. Each element in the array has the following structure:
 
@@ -1993,6 +2012,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 * `name`: Shard name.
                 * `weight`: Shard weight.
+
+                   {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+
                 * `configSpec.clickhouse`: Shard host configuration, i.e., including host class, storage settings, and DBMS settings. If you skip the shard host configuration, it will be inherited from the cluster configuration.
 
             * `deletionProtection`: Cluster deletion protection, `true` or `false`. The default value is `false`.
@@ -2254,6 +2276,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 * `name`: Shard name.
                 * `weight`: Shard weight.
+
+                   {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+
                 * `config_spec.clickhouse`: Shard host configuration, i.e., including host class, storage settings, and DBMS settings. If you skip the shard host configuration, it will be inherited from the cluster configuration.
 
             * `deletion_protection`: Cluster deletion protection, `true` or `false`. The default value is `false`.

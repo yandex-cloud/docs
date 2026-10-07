@@ -118,7 +118,7 @@ Terraform распространяется под лицензией [Business S
                  source = "yandex-cloud/yandex"
                }
              }
-             required_version = ">=0.136.0"
+             required_version = ">= 0.13"
            }
            
            # Получение информации о TLS-сертификате
@@ -331,7 +331,6 @@ Terraform распространяется под лицензией [Business S
     
     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-
 #### Полезные ссылки {#see-also}
 
-* [Настройка хостинга статического сайта в бакете Yandex Object Storage с доступом через Yandex Cloud CDN](console.md)
+[Настройка хостинга статического сайта в бакете Yandex Object Storage с доступом через Yandex Cloud CDN](console.md)

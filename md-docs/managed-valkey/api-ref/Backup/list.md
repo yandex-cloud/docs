@@ -2,7 +2,7 @@
 
 # Managed Service for Redis API, REST: Backup.List
 
-Retrieves the list of Redis backups available for the specified folder.
+Retrieves the list of Valkey backups available for the specified folder.
 
 ## HTTP request
 
@@ -73,8 +73,8 @@ list request will have its own `nextPageToken` to continue paging through the re
 
 ## Backup {#yandex.cloud.mdb.redis.v1.Backup}
 
-Description of a Redis backup. For more information, see
-the Managed Service for Redis [documentation](../../concepts/backup.md).
+Description of a Valkey backup. For more information, see
+the Managed Service for Valkey [documentation](../../concepts/backup.md).
 
 #|
 ||Field | Description ||
@@ -97,7 +97,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || sourceClusterId | **string**
 
-Required field. ID of the Redis cluster that the backup was created for. ||
+Required field. ID of the Valkey cluster that the backup was created for. ||
 || startedAt | **string** (date-time)
 
 Required field. Start timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format
@@ -116,6 +116,6 @@ Shard names used as a source for backup. ||
 
 How this backup was created (manual/automatic/etc...)
 
-- `AUTOMATED`: Backup created by automated daily schedule
+- `AUTOMATED`: Backup created by automated daily schedule.
 - `MANUAL`: Backup created by user request ||
 |#

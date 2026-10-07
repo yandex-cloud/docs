@@ -659,7 +659,9 @@ psql "host=c-<идентификатор_кластера>.ro.mdb.yandexcloud.ne
 
 #### Можно ли сменить владельца БД? {#db-owner}
 
-После создания БД изменить ее владельца невозможно. Если [создать БД через Terraform](../operations/databases.md#add-db) и затем поменять ее владельца в параметре `owner`, это приведет к пересозданию БД и потере данных.
+Да, владельца существующей БД можно [изменить](../operations/databases.md#change-db-owner) без ее пересоздания и потери данных. Имя базы, FQDN кластера, порт и другие параметры подключения при этом не меняются.
+
+Доступна смена владельца только самой базы данных. Владельцы существующих внутри БД объектов (таблиц, последовательностей, представлений, функций, схем, включая `public`) автоматически не переназначаются. Как правило, владельцами остаются пользователи, от имени которых был создан объект. Чтобы передать владение существующими объектами новому пользователю, воспользуйтесь [документацией PostgreSQL](https://www.postgresql.org/docs/current/sql-reassign-owned.html).
 
 ## Перемещение и восстановление кластера {#backup}
 
@@ -1250,9 +1252,9 @@ ERROR: cannot execute INSERT in a read-only transaction
 
 #### Почему возникает ошибка `could not open extension control file "<путь_к_расширению>/vector.control": No such file or directory` при обращении к расширению `vector`? {#vector-error}
 
-Ошибка возникает из-за того, что в Managed Service for PostgreSQL расширение `vector` называется `pgvector`.
+Ошибка возникает, если расширение `vector` не включено для базы данных. Ранее в Managed Service for PostgreSQL это расширение было доступно только под устаревшим именем `pgvector`.
 
-Решение: при обращении к расширению используйте `pgvector` вместо `vector`.
+Решение: [включите расширение](../operations/extensions/cluster-extensions.md#update-extensions) `vector` для базы данных. Если в базе уже включено расширение `pgvector`, замените его на `vector` в рамках одной [операции изменения](../operations/extensions/cluster-extensions.md#update-extensions): расширение будет переименовано, данные и индексы сохранятся.
 
 #### Почему при обновлении кластера PostgreSQL до версии `18` возникает ошибка `collation version mismatch`? {#collation-version-mismatch}
 

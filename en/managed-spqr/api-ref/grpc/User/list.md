@@ -85,9 +85,6 @@ list request will have its own `next_page_token` to continue paging through the 
 
 ## User {#yandex.cloud.mdb.spqr.v1.User}
 
-A SPQR User resource. For more information, see the
-[Developer's Guide](/docs/managed-spqr/concepts).
-
 #|
 ||Field | Description ||
 || name | **string**

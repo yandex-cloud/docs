@@ -39,8 +39,8 @@ The {{ mmg-name }} cluster maintenance workflow depends on the number of hosts a
 
 The maintenance procedure is as follows:
 
-1. [Secondary replicas](replication.md) undergo maintenance one by one. Such hosts are queued randomly. A secondary replica becomes unavailable while being restarted during maintenance.
-1. Then, the primary replica undergoes maintenance. If it is restarted and becomes unavailable, one of the secondary replicas will take its role. A single-host cluster will be unavailable during its maintenance.
+1. [Secondary replicas](replication.md) undergo maintenance one by one. Such hosts are queued randomly. If a secondary replica needs to be restarted during maintenance, it will become unavailable until maintenance is complete.
+1. The master host undergoes maintenance. If the master requires a restart during maintenance and becomes unavailable, one of the secondary replicas will take over its role. A single-host cluster will be unavailable during its maintenance. If your write request returns an error, repeat it later.
 
 ### Sharded cluster
 
@@ -49,13 +49,13 @@ In sharded clusters, the maintenance procedure is as follows:
 1. The load balancer stops.
 1. Hosts with the `MONGOINFRA` role for standard sharding or `MONGOCFG` for advanced sharding undergo maintenance one by one. For hosts with the `MONGOINFRA` role, only MongoCFG is subject to maintenance. Host maintenance is run in the same way as it would in a non-sharded cluster:
 
-    1. Secondary replicas undergo maintenance one by one. Such hosts are queued randomly. A secondary replica becomes unavailable while being restarted during maintenance.
-    1. Then, the primary replica undergoes maintenance. If it is restarted and becomes unavailable, one of the secondary replicas will take its role.
+    1. Secondary replicas undergo maintenance one by one. Such hosts are queued randomly. If a secondary replica needs to be restarted during maintenance, it will become unavailable until maintenance is complete.
+    1. The master host undergoes maintenance. If the master requires a restart during maintenance and becomes unavailable, one of the secondary replicas will take over its role.
 
 1. Shards undergo maintenance one by one, in ascending order by shard number. Host maintenance in each shard is the same as in non-sharded clusters:
 
-    1. Secondary replicas undergo maintenance one by one. Such hosts are queued randomly. A secondary replica becomes unavailable while being restarted during maintenance.
-    1. Then, the primary replica undergoes maintenance. If it is restarted and becomes unavailable, one of the secondary replicas will take its role. A single-host shard will be unavailable during its maintenance.
+    1. Secondary replicas undergo maintenance one by one. Such hosts are queued randomly. If a secondary replica needs to be restarted during maintenance, it will become unavailable until maintenance is complete.
+    1. The master host undergoes maintenance. If the master requires a restart during maintenance and becomes unavailable, one of the secondary replicas will take over its role. A single-host shard will be unavailable during its maintenance. If your write request returns an error, repeat it later.
 
 1. Hosts with the `MONGOINFRA` role for standard sharding or `MONGOS` for advanced sharding undergo maintenance one by one. For hosts with the `MONGOINFRA` role, MongoS is subject to maintenance. Such hosts are queued randomly. Any host that requires a restart during maintenance will be unavailable until maintenance is complete.
 1. The load balancer resumes its operation.

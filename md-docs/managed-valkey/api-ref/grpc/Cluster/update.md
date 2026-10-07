@@ -2,7 +2,7 @@
 
 # Managed Service for Redis API, gRPC: ClusterService.Update
 
-Updates the specified Redis cluster.
+Updates the specified Valkey cluster.
 
 ## gRPC request
 
@@ -202,7 +202,22 @@ Updates the specified Redis cluster.
   "persistence_mode": "PersistenceMode",
   "network_id": "string",
   "announce_hostnames": "bool",
-  "auth_sentinel": "bool"
+  "auth_sentinel": "bool",
+  "maintenance_windows": {
+    // Includes only one of the fields `anytime`, `weekly_maintenance_schedule`
+    "anytime": "AnytimeMaintenanceWindow",
+    "weekly_maintenance_schedule": {
+      "slots": [
+        {
+          "day": "DayOfWeek",
+          "start_time": "google.type.TimeOfDay",
+          "duration": "google.protobuf.Duration",
+          "allow_temporary_unavailability": "bool"
+        }
+      ]
+    }
+    // end of the list of possible fields
+  }
 }
 ```
 
@@ -210,21 +225,21 @@ Updates the specified Redis cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Redis cluster to update.
-To get the Redis cluster ID, use a [ClusterService.List](list.md#List) request.
+Required field. ID of the Valkey cluster to update.
+To get the Valkey cluster ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
-Field mask that specifies which fields of the Redis cluster should be updated. ||
+Field mask that specifies which fields of the Valkey cluster should be updated. ||
 || description | **string**
 
-New description of the Redis cluster.
+New description of the Valkey cluster.
 
 The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Custom labels for the Redis cluster as `` key:value `` pairs. Maximum 64 per cluster.
+Custom labels for the Valkey cluster as `` key:value `` pairs. Maximum 64 per cluster.
 For example, "project": "mvp" or "source": "dictionary".
 The new set of labels will completely replace the old ones. To add a label, request the current
 set with the [ClusterService.Get](get.md#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set.
@@ -240,6 +255,7 @@ New name for the cluster.
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.redis.v1.MaintenanceWindow)**
 
+Deprecated. Use maintenance_windows instead.
 New maintenance window settings for the cluster. ||
 || security_group_ids[] | **string**
 
@@ -261,13 +277,16 @@ persist data to disk. ||
 
 ID of the network to move the cluster to.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 150. ||
 || announce_hostnames | **bool**
 
 Enable FQDN instead of ip ||
 || auth_sentinel | **bool**
 
 Allows to use ACL users to auth in sentinel ||
+|| maintenance_windows | **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)**
+
+Maintenance windows. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.redis.v1.ConfigSpec}
@@ -276,38 +295,38 @@ Allows to use ACL users to auth in sentinel ||
 ||Field | Description ||
 || version | **string**
 
-Version of Redis used in the cluster. ||
+Version of Valkey used in the cluster. ||
 || redis_config_5_0 | **[RedisConfig5_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0)**
 
-Configuration of a Redis 5.0 server.
+Configuration of a Valkey 5.0 server.
 
 Includes only one of the fields `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2`, `redis_config_7_0`.
 
-Configuration of a Redis cluster. ||
+Configuration of a Valkey cluster. ||
 || redis_config_6_0 | **[RedisConfig6_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0)**
 
-Configuration of a Redis 6.0 server.
+Configuration of a Valkey 6.0 server.
 
 Includes only one of the fields `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2`, `redis_config_7_0`.
 
-Configuration of a Redis cluster. ||
+Configuration of a Valkey cluster. ||
 || redis_config_6_2 | **[RedisConfig6_2](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2)**
 
-Configuration of a Redis 6.2 server.
+Configuration of a Valkey 6.2 server.
 
 Includes only one of the fields `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2`, `redis_config_7_0`.
 
-Configuration of a Redis cluster. ||
+Configuration of a Valkey cluster. ||
 || redis_config_7_0 | **[RedisConfig7_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0)**
 
-Configuration of a Redis 7.0 server.
+Configuration of a Valkey 7.0 server.
 
 Includes only one of the fields `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2`, `redis_config_7_0`.
 
-Configuration of a Redis cluster. ||
+Configuration of a Valkey cluster. ||
 || resources | **[Resources](#yandex.cloud.mdb.redis.v1.Resources)**
 
-Resources allocated to Redis hosts. ||
+Resources allocated to Valkey hosts. ||
 || backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
 
 Time to start the daily backup, in the UTC timezone. ||
@@ -316,7 +335,7 @@ Time to start the daily backup, in the UTC timezone. ||
 Access policy to DB ||
 || redis | **[RedisConfig](#yandex.cloud.mdb.redis.v1.config.RedisConfig)**
 
-Unified configuration of a Redis cluster. Use this field for all currently
+Unified configuration of a Valkey cluster. Use this field for all currently
 available versions. ||
 || disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.redis.v1.DiskSizeAutoscaling)**
 
@@ -341,16 +360,16 @@ Shard autoscaling settings for the cluster. ||
 
 ## RedisConfig5_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0}
 
-Fields and structure of `RedisConfig` reflects Redis configuration file
+Fields and structure of `RedisConfig` reflect Valkey configuration file
 parameters.
 
 #|
 ||Field | Description ||
 || maxmemory_policy | enum **MaxmemoryPolicy**
 
-Redis key eviction policy for a dataset that reaches maximum memory,
-available to the host. Redis maxmemory setting depends on Managed
-Service for Redis [host class](../../../concepts/instance-types.md).
+Valkey key eviction policy for a dataset that reaches maximum memory,
+available to the host. Valkey maxmemory setting depends on Managed
+Service for Valkey [host class](../../../concepts/instance-types.md).
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
@@ -365,7 +384,7 @@ and shorter TTL first.
 more memory to be used. ||
 || timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Time that Redis keeps the connection open while the client is idle.
+Time that Valkey keeps the connection open while the client is idle.
 If no new command is sent during that time, the connection is closed.
 
 Value must be greater than 0. ||
@@ -396,10 +415,10 @@ String setting for pub\sub functionality.
 Value must match the regular expression ` [KEg$lshzxeAtm]{0,12} `. ||
 || client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
 
-Redis connection output buffers limits for pubsub operations. ||
+Valkey connection output buffers limits for pubsub operations. ||
 || client_output_buffer_limit_normal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
 
-Redis connection output buffers limits for clients. ||
+Valkey connection output buffers limits for clients. ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit}
@@ -425,16 +444,16 @@ The minimum value is 0. ||
 
 ## RedisConfig6_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0}
 
-Fields and structure of `RedisConfig` reflects Redis configuration file
+Fields and structure of `RedisConfig` reflect Valkey configuration file
 parameters.
 
 #|
 ||Field | Description ||
 || maxmemory_policy | enum **MaxmemoryPolicy**
 
-Redis key eviction policy for a dataset that reaches maximum memory,
-available to the host. Redis maxmemory setting depends on Managed
-Service for Redis [host class](../../../concepts/instance-types.md).
+Valkey key eviction policy for a dataset that reaches maximum memory,
+available to the host. Valkey maxmemory setting depends on Managed
+Service for Valkey [host class](../../../concepts/instance-types.md).
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
@@ -449,7 +468,7 @@ and shorter TTL first.
 more memory to be used. ||
 || timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Time that Redis keeps the connection open while the client is idle.
+Time that Valkey keeps the connection open while the client is idle.
 If no new command is sent during that time, the connection is closed.
 
 Value must be greater than 0. ||
@@ -480,10 +499,10 @@ String setting for pub\sub functionality.
 Value must match the regular expression ` [KEg$lshzxeAtm]{0,13} `. ||
 || client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0.ClientOutputBufferLimit)**
 
-Redis connection output buffers limits for pubsub operations. ||
+Valkey connection output buffers limits for pubsub operations. ||
 || client_output_buffer_limit_normal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0.ClientOutputBufferLimit)**
 
-Redis connection output buffers limits for clients. ||
+Valkey connection output buffers limits for clients. ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0.ClientOutputBufferLimit}
@@ -509,16 +528,16 @@ The minimum value is 0. ||
 
 ## RedisConfig6_2 {#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2}
 
-Fields and structure of `RedisConfig` reflects Redis configuration file
+Fields and structure of `RedisConfig` reflect Valkey configuration file
 parameters.
 
 #|
 ||Field | Description ||
 || maxmemory_policy | enum **MaxmemoryPolicy**
 
-Redis key eviction policy for a dataset that reaches maximum memory,
-available to the host. Redis maxmemory setting depends on Managed
-Service for Redis [host class](../../../concepts/instance-types.md).
+Valkey key eviction policy for a dataset that reaches maximum memory,
+available to the host. Valkey maxmemory setting depends on Managed
+Service for Valkey [host class](../../../concepts/instance-types.md).
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
@@ -533,7 +552,7 @@ and shorter TTL first.
 more memory to be used. ||
 || timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Time that Redis keeps the connection open while the client is idle.
+Time that Valkey keeps the connection open while the client is idle.
 If no new command is sent during that time, the connection is closed.
 
 The minimum value is 0. ||
@@ -564,13 +583,13 @@ String setting for pub\sub functionality.
 Value must match the regular expression ` [KEg$lshzxeAtm]{0,13} `. ||
 || client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2.ClientOutputBufferLimit)**
 
-Redis connection output buffers limits for pubsub operations. ||
+Valkey connection output buffers limits for pubsub operations. ||
 || client_output_buffer_limit_normal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2.ClientOutputBufferLimit)**
 
-Redis connection output buffers limits for clients. ||
+Valkey connection output buffers limits for clients. ||
 || maxmemory_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Redis maxmemory percent
+Valkey maxmemory percent
 
 Acceptable values are 1 to 75, inclusive. ||
 |#
@@ -598,16 +617,16 @@ The minimum value is 0. ||
 
 ## RedisConfig7_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0}
 
-Fields and structure of `RedisConfig` reflects Redis configuration file
+Fields and structure of `RedisConfig` reflect Valkey configuration file
 parameters.
 
 #|
 ||Field | Description ||
 || maxmemory_policy | enum **MaxmemoryPolicy**
 
-Redis key eviction policy for a dataset that reaches maximum memory,
-available to the host. Redis maxmemory setting depends on Managed
-Service for Redis [host class](../../../concepts/instance-types.md).
+Valkey key eviction policy for a dataset that reaches maximum memory,
+available to the host. Valkey maxmemory setting depends on Managed
+Service for Valkey [host class](../../../concepts/instance-types.md).
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
@@ -622,7 +641,7 @@ and shorter TTL first.
 more memory to be used. ||
 || timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Time that Redis keeps the connection open while the client is idle.
+Time that Valkey keeps the connection open while the client is idle.
 If no new command is sent during that time, the connection is closed.
 
 The minimum value is 0. ||
@@ -653,13 +672,13 @@ String setting for pub\sub functionality.
 Value must match the regular expression ` [KEg$lshzxeAtm]{0,13} `. ||
 || client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0.ClientOutputBufferLimit)**
 
-Redis connection output buffers limits for pubsub operations. ||
+Valkey connection output buffers limits for pubsub operations. ||
 || client_output_buffer_limit_normal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0.ClientOutputBufferLimit)**
 
-Redis connection output buffers limits for clients. ||
+Valkey connection output buffers limits for clients. ||
 || maxmemory_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Redis maxmemory percent
+Valkey maxmemory percent
 
 Acceptable values are 1 to 75, inclusive. ||
 |#
@@ -719,16 +738,16 @@ Allow access for Web SQL. ||
 
 ## RedisConfig {#yandex.cloud.mdb.redis.v1.config.RedisConfig}
 
-Fields and structure of `RedisConfig` reflects Redis configuration file
+Fields and structure of `RedisConfig` reflect Valkey configuration file
 parameters.
 
 #|
 ||Field | Description ||
 || maxmemory_policy | enum **MaxmemoryPolicy**
 
-Redis key eviction policy for a dataset that reaches maximum memory,
-available to the host. Redis maxmemory setting depends on Managed
-Service for Redis [host class](../../../concepts/instance-types.md).
+Valkey key eviction policy for a dataset that reaches maximum memory,
+available to the host. Valkey maxmemory setting depends on Managed
+Service for Valkey [host class](../../../concepts/instance-types.md).
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
@@ -743,7 +762,7 @@ and shorter TTL first.
 more memory to be used. ||
 || timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Time that Redis keeps the connection open while the client is idle.
+Time that Valkey keeps the connection open while the client is idle.
 If no new command is sent during that time, the connection is closed. ||
 || password | **string**
 
@@ -772,13 +791,13 @@ String setting for pub\sub functionality.
 Value must match the regular expression ` [KEg$lshzxeAtmdn]{0,15} `. ||
 || client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
 
-Redis connection output buffers limits for pubsub operations. ||
+Valkey connection output buffers limits for pubsub operations. ||
 || client_output_buffer_limit_normal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
 
-Redis connection output buffers limits for clients. ||
+Valkey connection output buffers limits for clients. ||
 || maxmemory_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Share of the host RAM used as the Redis maxmemory limit, in percent.
+Share of the host RAM used as the Valkey maxmemory limit, in percent.
 
 Acceptable values are 1 to 75, inclusive. ||
 || lua_time_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
@@ -821,7 +840,7 @@ Allows some data to be lost in favor of faster switchover/restart ||
 Use JIT for lua scripts and functions ||
 || io_threads_allowed | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Allow redis to use io-threads. When enabled, the number of threads is
+Allow valkey to use io-threads. When enabled, the number of threads is
 derived from the host class; when disabled, a single thread is used. ||
 || zset_max_listpack_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
@@ -1049,6 +1068,69 @@ Day of the week (in `DDD` format).
 Hour of the day in UTC (in `HH` format).
 
 Acceptable values are 1 to 24, inclusive. ||
+|#
+
+## MaintenanceWindows {#yandex.cloud.mdb.v1.MaintenanceWindows}
+
+Maintenance windows shared by all managed database services.
+
+#|
+||Field | Description ||
+|| anytime | **[AnytimeMaintenanceWindow](#yandex.cloud.mdb.v1.AnytimeMaintenanceWindow)**
+
+Maintenance operations can be scheduled anytime.
+
+Includes only one of the fields `anytime`, `weekly_maintenance_schedule`. ||
+|| weekly_maintenance_schedule | **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+
+Maintenance operations can be scheduled during the specified weekly slots.
+
+Includes only one of the fields `anytime`, `weekly_maintenance_schedule`. ||
+|#
+
+## AnytimeMaintenanceWindow {#yandex.cloud.mdb.v1.AnytimeMaintenanceWindow}
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## WeeklyMaintenanceSchedule {#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule}
+
+#|
+||Field | Description ||
+|| slots[] | **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+
+Weekly time slots during which maintenance operations can be scheduled.
+At least one slot is required.
+
+The number of elements must be greater than 0. ||
+|#
+
+## MaintenanceWindowSlot {#yandex.cloud.mdb.v1.MaintenanceWindowSlot}
+
+#|
+||Field | Description ||
+|| day | enum **DayOfWeek**
+
+Day of the week.
+
+- `MONDAY`: The day-of-week of Monday.
+- `TUESDAY`: The day-of-week of Tuesday.
+- `WEDNESDAY`: The day-of-week of Wednesday.
+- `THURSDAY`: The day-of-week of Thursday.
+- `FRIDAY`: The day-of-week of Friday.
+- `SATURDAY`: The day-of-week of Saturday.
+- `SUNDAY`: The day-of-week of Sunday. ||
+|| start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
+
+Required field. Start time in UTC. ||
+|| duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+
+Required field. Slot duration. ||
+|| allow_temporary_unavailability | **bool**
+
+Allows maintenance operations that may cause temporary write unavailability. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

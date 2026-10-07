@@ -4,7 +4,7 @@ editable: false
 
 # Managed Service for MongoDB API, gRPC: UserService.RevokePermission
 
-Revokes permission from the specified MongoDB user.
+Revokes permission from the specified StoreDoc user.
 
 ## gRPC request
 
@@ -24,7 +24,7 @@ Revokes permission from the specified MongoDB user.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the MongoDB cluster the user belongs to.
+Required field. ID of the StoreDoc cluster the user belongs to.
 To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||

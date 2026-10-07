@@ -2,8 +2,8 @@
 
 # Managed Service for MongoDB API, REST: Cluster.Get
 
-Returns the specified MongoDB Cluster resource.
-To get the list of available MongoDB Cluster resources, make a [List](list.md#List) request.
+Returns the specified StoreDoc Cluster resource.
+To get the list of available StoreDoc Cluster resources, make a [List](list.md#List) request.
 
 ## HTTP request
 
@@ -17,7 +17,7 @@ GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB Cluster resource to return.
+Required field. ID of the StoreDoc Cluster resource to return.
 To get the cluster ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -3004,7 +3004,8 @@ The maximum string length in characters is 50. ||
                 "samplingRate": "number",
                 "maxTimeMs": "string"
               },
-              "redactClientLogData": "boolean"
+              "redactClientLogData": "boolean",
+              "allowDiskUseByDefault": "boolean"
             },
             "oplog": {
               "maxSizePercent": "string",
@@ -3078,7 +3079,8 @@ The maximum string length in characters is 50. ||
                 "samplingRate": "number",
                 "maxTimeMs": "string"
               },
-              "redactClientLogData": "boolean"
+              "redactClientLogData": "boolean",
+              "allowDiskUseByDefault": "boolean"
             },
             "oplog": {
               "maxSizePercent": "string",
@@ -3152,7 +3154,8 @@ The maximum string length in characters is 50. ||
                 "samplingRate": "number",
                 "maxTimeMs": "string"
               },
-              "redactClientLogData": "boolean"
+              "redactClientLogData": "boolean",
+              "allowDiskUseByDefault": "boolean"
             },
             "oplog": {
               "maxSizePercent": "string",
@@ -3315,6 +3318,22 @@ The maximum string length in characters is 50. ||
             "operationProfiling": {
               "slowOpThreshold": "string",
               "slowOpSampleRate": "number"
+            },
+            "balancerConfig": {
+              "secondaryThrottle": {
+                "enabled": "boolean",
+                "writeConcern": {
+                  "nodes": "string",
+                  "majority": "boolean",
+                  "journal": "boolean",
+                  "timeoutMs": "string"
+                }
+              },
+              "waitForDelete": "boolean",
+              "attemptToBalanceJumboChunks": "boolean"
+            },
+            "replication": {
+              "localPingThresholdMs": "string"
             }
           },
           "userConfig": {
@@ -3349,6 +3368,22 @@ The maximum string length in characters is 50. ||
             "operationProfiling": {
               "slowOpThreshold": "string",
               "slowOpSampleRate": "number"
+            },
+            "balancerConfig": {
+              "secondaryThrottle": {
+                "enabled": "boolean",
+                "writeConcern": {
+                  "nodes": "string",
+                  "majority": "boolean",
+                  "journal": "boolean",
+                  "timeoutMs": "string"
+                }
+              },
+              "waitForDelete": "boolean",
+              "attemptToBalanceJumboChunks": "boolean"
+            },
+            "replication": {
+              "localPingThresholdMs": "string"
             }
           },
           "defaultConfig": {
@@ -3383,6 +3418,22 @@ The maximum string length in characters is 50. ||
             "operationProfiling": {
               "slowOpThreshold": "string",
               "slowOpSampleRate": "number"
+            },
+            "balancerConfig": {
+              "secondaryThrottle": {
+                "enabled": "boolean",
+                "writeConcern": {
+                  "nodes": "string",
+                  "majority": "boolean",
+                  "journal": "boolean",
+                  "timeoutMs": "string"
+                }
+              },
+              "waitForDelete": "boolean",
+              "attemptToBalanceJumboChunks": "boolean"
+            },
+            "replication": {
+              "localPingThresholdMs": "string"
             }
           }
         },
@@ -3431,6 +3482,22 @@ The maximum string length in characters is 50. ||
             "operationProfiling": {
               "slowOpThreshold": "string",
               "slowOpSampleRate": "number"
+            },
+            "balancerConfig": {
+              "secondaryThrottle": {
+                "enabled": "boolean",
+                "writeConcern": {
+                  "nodes": "string",
+                  "majority": "boolean",
+                  "journal": "boolean",
+                  "timeoutMs": "string"
+                }
+              },
+              "waitForDelete": "boolean",
+              "attemptToBalanceJumboChunks": "boolean"
+            },
+            "replication": {
+              "localPingThresholdMs": "string"
             }
           },
           "userConfig": {
@@ -3465,6 +3532,22 @@ The maximum string length in characters is 50. ||
             "operationProfiling": {
               "slowOpThreshold": "string",
               "slowOpSampleRate": "number"
+            },
+            "balancerConfig": {
+              "secondaryThrottle": {
+                "enabled": "boolean",
+                "writeConcern": {
+                  "nodes": "string",
+                  "majority": "boolean",
+                  "journal": "boolean",
+                  "timeoutMs": "string"
+                }
+              },
+              "waitForDelete": "boolean",
+              "attemptToBalanceJumboChunks": "boolean"
+            },
+            "replication": {
+              "localPingThresholdMs": "string"
             }
           },
           "defaultConfig": {
@@ -3499,6 +3582,22 @@ The maximum string length in characters is 50. ||
             "operationProfiling": {
               "slowOpThreshold": "string",
               "slowOpSampleRate": "number"
+            },
+            "balancerConfig": {
+              "secondaryThrottle": {
+                "enabled": "boolean",
+                "writeConcern": {
+                  "nodes": "string",
+                  "majority": "boolean",
+                  "journal": "boolean",
+                  "timeoutMs": "string"
+                }
+              },
+              "waitForDelete": "boolean",
+              "attemptToBalanceJumboChunks": "boolean"
+            },
+            "replication": {
+              "localPingThresholdMs": "string"
             }
           }
         },
@@ -3612,7 +3711,8 @@ The maximum string length in characters is 50. ||
       "targetFreeSpace": "string",
       "bloatPercent": "number",
       "compactionType": "string"
-    }
+    },
+    "balancerEnabled": "boolean"
   },
   "networkId": "string",
   "health": "string",
@@ -3635,21 +3735,42 @@ The maximum string length in characters is 50. ||
     "string"
   ],
   "deletionProtection": "boolean",
-  "diskEncryptionKeyId": "string"
+  "diskEncryptionKeyId": "string",
+  "isHa": "boolean",
+  "maintenanceWindows": {
+    // Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`
+    "anytime": "object",
+    "weeklyMaintenanceSchedule": {
+      "slots": [
+        {
+          "day": "string",
+          "startTime": {
+            "hours": "integer",
+            "minutes": "integer",
+            "seconds": "integer",
+            "nanos": "integer"
+          },
+          "duration": "string",
+          "allowTemporaryUnavailability": "boolean"
+        }
+      ]
+    }
+    // end of the list of possible fields
+  }
 }
 ```
 
-A managed MongoDB cluster. For more information, see the [documentation](../../concepts/index.md).
+A managed StoreDoc cluster. For more information, see the [documentation](../../concepts/index.md).
 
 #|
 ||Field | Description ||
 || id | **string**
 
-ID of the MongoDB cluster.
+ID of the StoreDoc cluster.
 This ID is assigned by MDB at creation time. ||
 || folderId | **string**
 
-ID of the folder that the MongoDB cluster belongs to. ||
+ID of the folder that the StoreDoc cluster belongs to. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
@@ -3662,17 +3783,17 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || name | **string**
 
-Name of the MongoDB cluster.
+Name of the StoreDoc cluster.
 The name is unique within the folder. 1-63 characters long. ||
 || description | **string**
 
-Description of the MongoDB cluster. 0-256 characters long. ||
+Description of the StoreDoc cluster. 0-256 characters long. ||
 || labels | **object** (map<**string**, **string**>)
 
-Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource. ||
+Custom labels for the StoreDoc cluster as `` key:value `` pairs. Maximum 64 per resource. ||
 || environment | **enum** (Environment)
 
-Deployment environment of the MongoDB cluster.
+Deployment environment of the StoreDoc cluster.
 
 - `PRODUCTION`: Stable environment with a conservative update policy: only hotfixes
 are applied during regular maintenance.
@@ -3680,10 +3801,10 @@ are applied during regular maintenance.
 are rolled out irrespective of backward compatibility. ||
 || monitoring[] | **[Monitoring](#yandex.cloud.mdb.mongodb.v1.Monitoring)**
 
-Description of monitoring systems relevant to the MongoDB cluster. ||
+Description of monitoring systems relevant to the StoreDoc cluster. ||
 || config | **[ClusterConfig](#yandex.cloud.mdb.mongodb.v1.ClusterConfig)**
 
-Configuration of the MongoDB cluster. ||
+Configuration of the StoreDoc cluster. ||
 || networkId | **string**
 
 ID of the network that the cluster belongs to. ||
@@ -3712,19 +3833,26 @@ Current state of the cluster.
 Indicates current sharding status of the cluster. ||
 || maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.mongodb.v1.MaintenanceWindow)**
 
+Deprecated. Use maintenance_windows instead.
 Maintenance window for the cluster. ||
 || plannedOperation | **[MaintenanceOperation](#yandex.cloud.mdb.mongodb.v1.MaintenanceOperation)**
 
 Planned maintenance operation to be started for the cluster within the nearest `maintenanceWindow`. ||
 || securityGroupIds[] | **string**
 
-User security groups ||
+User security groups. ||
 || deletionProtection | **boolean**
 
 Deletion Protection inhibits deletion of the cluster ||
 || diskEncryptionKeyId | **string**
 
 ID of the key to encrypt cluster disks. ||
+|| isHa | **boolean**
+
+Indicates whether the cluster topology is highly available as defined by the Yandex Cloud SLA for managed databases. ||
+|| maintenanceWindows | **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)**
+
+Maintenance windows. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.mongodb.v1.Monitoring}
@@ -3741,7 +3869,7 @@ Name of the monitoring system. ||
 Description of the monitoring system. ||
 || link | **string**
 
-Link to the monitoring system charts for the MongoDB cluster. ||
+Link to the monitoring system charts for the StoreDoc cluster. ||
 |#
 
 ## ClusterConfig {#yandex.cloud.mdb.mongodb.v1.ClusterConfig}
@@ -3750,85 +3878,85 @@ Link to the monitoring system charts for the MongoDB cluster. ||
 ||Field | Description ||
 || version | **string**
 
-Version of MongoDB server software. Possible values: `7.0`, `8.0`. ||
+Version of StoreDoc server software. Possible values: `7.0`, `8.0`. ||
 || featureCompatibilityVersion | **string**
 
-MongoDB feature compatibility version. See usage details in [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
+StoreDoc feature compatibility version. See usage details in [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
 Possible values:
 * `7.0` - persist data compatibility for version 7.0. After setting this option the data will not be compatible with 6.0 or lower.
 * `8.0` - persist data compatibility for version 8.0. After setting this option the data will not be compatible with 7.0 or lower. ||
 || mongodb_3_6 | **[Mongodb3_6](#yandex.cloud.mdb.mongodb.v1.Mongodb3_6)**
 
-Configuration and resource allocation for a MongoDB 3.6 cluster.
+Configuration and resource allocation for a StoreDoc 3.6 cluster.
 Deprecated. Use `mongodbConfig` instead.
 
 Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
 
-Configuration for MongoDB servers in the cluster. ||
+Configuration for StoreDoc servers in the cluster. ||
 || mongodb_4_0 | **[Mongodb4_0](#yandex.cloud.mdb.mongodb.v1.Mongodb4_0)**
 
-Configuration and resource allocation for a MongoDB 4.0 cluster.
+Configuration and resource allocation for a StoreDoc 4.0 cluster.
 Deprecated. Use `mongodbConfig` instead.
 
 Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
 
-Configuration for MongoDB servers in the cluster. ||
+Configuration for StoreDoc servers in the cluster. ||
 || mongodb_4_2 | **[Mongodb4_2](#yandex.cloud.mdb.mongodb.v1.Mongodb4_2)**
 
-Configuration and resource allocation for a MongoDB 4.2 cluster.
+Configuration and resource allocation for a StoreDoc 4.2 cluster.
 Deprecated. Use `mongodbConfig` instead.
 
 Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
 
-Configuration for MongoDB servers in the cluster. ||
+Configuration for StoreDoc servers in the cluster. ||
 || mongodb_4_4 | **[Mongodb4_4](#yandex.cloud.mdb.mongodb.v1.Mongodb4_4)**
 
-Configuration and resource allocation for a MongoDB 4.4 cluster.
+Configuration and resource allocation for a StoreDoc 4.4 cluster.
 Deprecated. Use `mongodbConfig` instead.
 
 Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
 
-Configuration for MongoDB servers in the cluster. ||
+Configuration for StoreDoc servers in the cluster. ||
 || mongodb_5_0 | **[Mongodb5_0](#yandex.cloud.mdb.mongodb.v1.Mongodb5_0)**
 
-Configuration and resource allocation for a MongoDB 5.0 cluster.
+Configuration and resource allocation for a StoreDoc 5.0 cluster.
 Deprecated. Use `mongodbConfig` instead.
 
 Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
 
-Configuration for MongoDB servers in the cluster. ||
+Configuration for StoreDoc servers in the cluster. ||
 || mongodb_6_0 | **[Mongodb6_0](#yandex.cloud.mdb.mongodb.v1.Mongodb6_0)**
 
-Configuration and resource allocation for a MongoDB 6.0 cluster.
+Configuration and resource allocation for a StoreDoc 6.0 cluster.
 Deprecated. Use `mongodbConfig` instead.
 
 Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
 
-Configuration for MongoDB servers in the cluster. ||
+Configuration for StoreDoc servers in the cluster. ||
 || mongodb_4_4Enterprise | **[Mongodb4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.Mongodb4_4_enterprise)**
 
-Configuration and resource allocation for a MongoDB 4.4 Enterprise cluster.
+Configuration and resource allocation for a StoreDoc 4.4 Enterprise cluster.
 Deprecated. Use `mongodbConfig` instead.
 
 Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
 
-Configuration for MongoDB servers in the cluster. ||
+Configuration for StoreDoc servers in the cluster. ||
 || mongodb_5_0Enterprise | **[Mongodb5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.Mongodb5_0_enterprise)**
 
-Configuration and resource allocation for a MongoDB 5.0 Enterprise cluster.
+Configuration and resource allocation for a StoreDoc 5.0 Enterprise cluster.
 Deprecated. Use `mongodbConfig` instead.
 
 Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
 
-Configuration for MongoDB servers in the cluster. ||
+Configuration for StoreDoc servers in the cluster. ||
 || mongodb_6_0Enterprise | **[Mongodb6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.Mongodb6_0_enterprise)**
 
-Configuration and resource allocation for a MongoDB 6.0 Enterprise cluster.
+Configuration and resource allocation for a StoreDoc 6.0 Enterprise cluster.
 Deprecated. Use `mongodbConfig` instead.
 
 Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
 
-Configuration for MongoDB servers in the cluster. ||
+Configuration for StoreDoc servers in the cluster. ||
 || backupWindowStart | **[TimeOfDay](#google.type.TimeOfDay)**
 
 Time to start the daily backup, in the UTC timezone. ||
@@ -3843,13 +3971,18 @@ Performance Diagnostic ||
 Access policy to DB ||
 || mongodbConfig | **[Mongodb](#yandex.cloud.mdb.mongodb.v1.Mongodb)**
 
-Configuration and resource allocation for a MongoDB cluster. ||
+Configuration and resource allocation for a StoreDoc cluster. ||
 || fullVersion | **string**
 
 Full version ||
 || autocompactConfig | **[AutoCompactConfig](#yandex.cloud.mdb.mongodb.v1.AutoCompactConfig)**
 
 AutoCompact config ||
+|| balancerEnabled | **boolean**
+
+Whether balancing is enabled by the user. False for non-sharded clusters.
+Output only; change through SetBalancerStatus. Maintenance may temporarily
+pause balancing. ||
 |#
 
 ## Mongodb3_6 {#yandex.cloud.mdb.mongodb.v1.Mongodb3_6}
@@ -3858,16 +3991,16 @@ AutoCompact config ||
 ||Field | Description ||
 || mongod | **[Mongod](#yandex.cloud.mdb.mongodb.v1.Mongodb3_6.Mongod)**
 
-Configuration and resource allocation for mongod in a MongoDB 3.6 cluster. ||
+Configuration and resource allocation for mongod in a StoreDoc 3.6 cluster. ||
 || mongocfg | **[MongoCfg](#yandex.cloud.mdb.mongodb.v1.Mongodb3_6.MongoCfg)**
 
-Configuration and resource allocation for mongocfg in a MongoDB 3.6 cluster. ||
+Configuration and resource allocation for mongocfg in a StoreDoc 3.6 cluster. ||
 || mongos | **[Mongos](#yandex.cloud.mdb.mongodb.v1.Mongodb3_6.Mongos)**
 
-Configuration and resource allocation for mongos in a MongoDB 3.6 cluster. ||
+Configuration and resource allocation for mongos in a StoreDoc 3.6 cluster. ||
 || mongoinfra | **[MongoInfra](#yandex.cloud.mdb.mongodb.v1.Mongodb3_6.MongoInfra)**
 
-Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 3.6 cluster. ||
+Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a StoreDoc 3.6 cluster. ||
 |#
 
 ## Mongod {#yandex.cloud.mdb.mongodb.v1.Mongodb3_6.Mongod}
@@ -3879,7 +4012,7 @@ Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a Mong
 Configuration for a mongod 3.6 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
-Resources allocated to MongoDB hosts. ||
+Resources allocated to StoreDoc hosts. ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
@@ -3891,20 +4024,20 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongodConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6)**
 
-Effective mongod settings for a MongoDB 3.6 cluster (a combination of settings defined
+Effective mongod settings for a StoreDoc 3.6 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongodConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6)**
 
-User-defined mongod settings for a MongoDB 3.6 cluster. ||
+User-defined mongod settings for a StoreDoc 3.6 cluster. ||
 || defaultConfig | **[MongodConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6)**
 
-Default mongod configuration for a MongoDB 3.6 cluster. ||
+Default mongod configuration for a StoreDoc 3.6 cluster. ||
 |#
 
 ## MongodConfig3_6 {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6}
 
 Configuration of a mongod daemon. Supported options are a limited subset of all
-options described in [MongoDB documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/).
+options described in the [MongoDB documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/).
 
 #|
 ||Field | Description ||
@@ -3928,7 +4061,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v3.6/refer
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.Storage.Journal)**
 
-Configuration of the MongoDB [journal](https://docs.mongodb.com/v3.6/reference/glossary/#term-journal). ||
+Configuration of the StoreDoc [journal](https://docs.mongodb.com/v3.6/reference/glossary/#term-journal). ||
 |#
 
 ## WiredTiger {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.Storage.WiredTiger}
@@ -4072,14 +4205,14 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongoCfgConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig3_6)**
 
-Effective mongocfg settings for a MongoDB 3.6 cluster (a combination of settings defined
+Effective mongocfg settings for a StoreDoc 3.6 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongoCfgConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig3_6)**
 
-User-defined mongocfg settings for a MongoDB 3.6 cluster. ||
+User-defined mongocfg settings for a StoreDoc 3.6 cluster. ||
 || defaultConfig | **[MongoCfgConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig3_6)**
 
-Default mongocfg configuration for a MongoDB 3.6 cluster. ||
+Default mongocfg configuration for a StoreDoc 3.6 cluster. ||
 |#
 
 ## MongoCfgConfig3_6 {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig3_6}
@@ -4179,14 +4312,14 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongosConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig3_6)**
 
-Effective settings for a MongoDB 3.6 cluster (a combination of settings defined
+Effective settings for a StoreDoc 3.6 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongosConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig3_6)**
 
-User-defined settings for a MongoDB 3.6 cluster. ||
+User-defined settings for a StoreDoc 3.6 cluster. ||
 || defaultConfig | **[MongosConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig3_6)**
 
-Default configuration for a MongoDB 3.6 cluster. ||
+Default configuration for a StoreDoc 3.6 cluster. ||
 |#
 
 ## MongosConfig3_6 {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig3_6}
@@ -4233,16 +4366,16 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || mongod | **[Mongod](#yandex.cloud.mdb.mongodb.v1.Mongodb4_0.Mongod)**
 
-Configuration and resource allocation for mongod in a MongoDB 4.0 cluster. ||
+Configuration and resource allocation for mongod in a StoreDoc 4.0 cluster. ||
 || mongocfg | **[MongoCfg](#yandex.cloud.mdb.mongodb.v1.Mongodb4_0.MongoCfg)**
 
-Configuration and resource allocation for mongocfg in a MongoDB 4.0 cluster. ||
+Configuration and resource allocation for mongocfg in a StoreDoc 4.0 cluster. ||
 || mongos | **[Mongos](#yandex.cloud.mdb.mongodb.v1.Mongodb4_0.Mongos)**
 
-Configuration and resource allocation for mongos in a MongoDB 4.0 cluster. ||
+Configuration and resource allocation for mongos in a StoreDoc 4.0 cluster. ||
 || mongoinfra | **[MongoInfra](#yandex.cloud.mdb.mongodb.v1.Mongodb4_0.MongoInfra)**
 
-Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.0 cluster. ||
+Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a StoreDoc 4.0 cluster. ||
 |#
 
 ## Mongod {#yandex.cloud.mdb.mongodb.v1.Mongodb4_0.Mongod}
@@ -4266,20 +4399,20 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongodConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0)**
 
-Effective mongod settings for a MongoDB 4.0 cluster (a combination of settings defined
+Effective mongod settings for a StoreDoc 4.0 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongodConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0)**
 
-User-defined mongod settings for a MongoDB 4.0 cluster. ||
+User-defined mongod settings for a StoreDoc 4.0 cluster. ||
 || defaultConfig | **[MongodConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0)**
 
-Default mongod configuration for a MongoDB 4.0 cluster. ||
+Default mongod configuration for a StoreDoc 4.0 cluster. ||
 |#
 
 ## MongodConfig4_0 {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0}
 
 Configuration of a mongod daemon. Supported options are a limited subset of all
-options described in [MongoDB documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/).
+options described in the [MongoDB documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/).
 
 #|
 ||Field | Description ||
@@ -4303,7 +4436,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v4.0/refer
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0.Storage.Journal)**
 
-Configuration of the MongoDB [journal](https://docs.mongodb.com/v4.0/reference/glossary/#term-journal). ||
+Configuration of the StoreDoc [journal](https://docs.mongodb.com/v4.0/reference/glossary/#term-journal). ||
 |#
 
 ## WiredTiger {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0.Storage.WiredTiger}
@@ -4406,14 +4539,14 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongoCfgConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_0)**
 
-Effective mongocfg settings for a MongoDB 4.0 cluster (a combination of settings defined
+Effective mongocfg settings for a StoreDoc 4.0 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongoCfgConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_0)**
 
-User-defined mongocfg settings for a MongoDB 4.0 cluster. ||
+User-defined mongocfg settings for a StoreDoc 4.0 cluster. ||
 || defaultConfig | **[MongoCfgConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_0)**
 
-Default mongocfg configuration for a MongoDB 4.0 cluster. ||
+Default mongocfg configuration for a StoreDoc 4.0 cluster. ||
 |#
 
 ## MongoCfgConfig4_0 {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_0}
@@ -4512,14 +4645,14 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongosConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_0)**
 
-Effective mongos settings for a MongoDB 4.0 cluster (a combination of settings defined
+Effective mongos settings for a StoreDoc 4.0 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongosConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_0)**
 
-User-defined mongos settings for a MongoDB 4.0 cluster. ||
+User-defined mongos settings for a StoreDoc 4.0 cluster. ||
 || defaultConfig | **[MongosConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_0)**
 
-Default mongos configuration for a MongoDB 4.0 cluster. ||
+Default mongos configuration for a StoreDoc 4.0 cluster. ||
 |#
 
 ## MongosConfig4_0 {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_0}
@@ -4566,16 +4699,16 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || mongod | **[Mongod](#yandex.cloud.mdb.mongodb.v1.Mongodb4_2.Mongod)**
 
-Configuration and resource allocation for mongod in a MongoDB 4.2 cluster. ||
+Configuration and resource allocation for mongod in a StoreDoc 4.2 cluster. ||
 || mongocfg | **[MongoCfg](#yandex.cloud.mdb.mongodb.v1.Mongodb4_2.MongoCfg)**
 
-Configuration and resource allocation for mongocfg in a MongoDB 4.2 cluster. ||
+Configuration and resource allocation for mongocfg in a StoreDoc 4.2 cluster. ||
 || mongos | **[Mongos](#yandex.cloud.mdb.mongodb.v1.Mongodb4_2.Mongos)**
 
-Configuration and resource allocation for mongos in a MongoDB 4.2 cluster. ||
+Configuration and resource allocation for mongos in a StoreDoc 4.2 cluster. ||
 || mongoinfra | **[MongoInfra](#yandex.cloud.mdb.mongodb.v1.Mongodb4_2.MongoInfra)**
 
-Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.2 cluster. ||
+Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a StoreDoc 4.2 cluster. ||
 |#
 
 ## Mongod {#yandex.cloud.mdb.mongodb.v1.Mongodb4_2.Mongod}
@@ -4599,20 +4732,20 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongodConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2)**
 
-Effective mongod settings for a MongoDB 4.2 cluster (a combination of settings defined
+Effective mongod settings for a StoreDoc 4.2 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongodConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2)**
 
-User-defined mongod settings for a MongoDB 4.2 cluster. ||
+User-defined mongod settings for a StoreDoc 4.2 cluster. ||
 || defaultConfig | **[MongodConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2)**
 
-Default mongod configuration for a MongoDB 4.2 cluster. ||
+Default mongod configuration for a StoreDoc 4.2 cluster. ||
 |#
 
 ## MongodConfig4_2 {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2}
 
 Configuration of a mongod daemon. Supported options are a limited subset of all
-options described in [MongoDB documentation](https://docs.mongodb.com/v4.2/reference/configuration-options/).
+options described in the [MongoDB documentation](https://docs.mongodb.com/v4.2/reference/configuration-options/).
 
 #|
 ||Field | Description ||
@@ -4639,7 +4772,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v4.2/refer
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.Storage.Journal)**
 
-Configuration of the MongoDB [journal](https://docs.mongodb.com/v4.2/reference/glossary/#term-journal). ||
+Configuration of the StoreDoc [journal](https://docs.mongodb.com/v4.2/reference/glossary/#term-journal). ||
 |#
 
 ## WiredTiger {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.Storage.WiredTiger}
@@ -4753,7 +4886,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -4795,14 +4928,14 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongoCfgConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_2)**
 
-Effective mongocfg settings for a MongoDB 4.2 cluster (a combination of settings defined
+Effective mongocfg settings for a StoreDoc 4.2 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongoCfgConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_2)**
 
-User-defined mongocfg settings for a MongoDB 4.2 cluster. ||
+User-defined mongocfg settings for a StoreDoc 4.2 cluster. ||
 || defaultConfig | **[MongoCfgConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_2)**
 
-Default mongocfg configuration for a MongoDB 4.2 cluster. ||
+Default mongocfg configuration for a StoreDoc 4.2 cluster. ||
 |#
 
 ## MongoCfgConfig4_2 {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_2}
@@ -4901,14 +5034,14 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongosConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_2)**
 
-Effective mongos settings for a MongoDB 4.2 cluster (a combination of settings defined
+Effective mongos settings for a StoreDoc 4.2 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongosConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_2)**
 
-User-defined mongos settings for a MongoDB 4.2 cluster. ||
+User-defined mongos settings for a StoreDoc 4.2 cluster. ||
 || defaultConfig | **[MongosConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_2)**
 
-Default mongos configuration for a MongoDB 4.2 cluster. ||
+Default mongos configuration for a StoreDoc 4.2 cluster. ||
 |#
 
 ## MongosConfig4_2 {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_2}
@@ -4944,7 +5077,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -4978,16 +5111,16 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || mongod | **[Mongod](#yandex.cloud.mdb.mongodb.v1.Mongodb4_4.Mongod)**
 
-Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. ||
+Configuration and resource allocation for mongod in a StoreDoc 4.4 cluster. ||
 || mongocfg | **[MongoCfg](#yandex.cloud.mdb.mongodb.v1.Mongodb4_4.MongoCfg)**
 
-Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. ||
+Configuration and resource allocation for mongocfg in a StoreDoc 4.4 cluster. ||
 || mongos | **[Mongos](#yandex.cloud.mdb.mongodb.v1.Mongodb4_4.Mongos)**
 
-Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. ||
+Configuration and resource allocation for mongos in a StoreDoc 4.4 cluster. ||
 || mongoinfra | **[MongoInfra](#yandex.cloud.mdb.mongodb.v1.Mongodb4_4.MongoInfra)**
 
-Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. ||
+Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a StoreDoc 4.4 cluster. ||
 |#
 
 ## Mongod {#yandex.cloud.mdb.mongodb.v1.Mongodb4_4.Mongod}
@@ -5011,20 +5144,20 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongodConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4)**
 
-Effective mongod settings for a MongoDB 4.4 cluster (a combination of settings defined
+Effective mongod settings for a StoreDoc 4.4 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongodConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4)**
 
-User-defined mongod settings for a MongoDB 4.4 cluster. ||
+User-defined mongod settings for a StoreDoc 4.4 cluster. ||
 || defaultConfig | **[MongodConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4)**
 
-Default mongod configuration for a MongoDB 4.4 cluster. ||
+Default mongod configuration for a StoreDoc 4.4 cluster. ||
 |#
 
 ## MongodConfig4_4 {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4}
 
 Configuration of a mongod daemon. Supported options are a limited subset of all
-options described in [MongoDB documentation](https://docs.mongodb.com/v4.4/reference/configuration-options/).
+options described in the [MongoDB documentation](https://docs.mongodb.com/v4.4/reference/configuration-options/).
 
 #|
 ||Field | Description ||
@@ -5051,7 +5184,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v4.4/refer
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.Storage.Journal)**
 
-Configuration of the MongoDB [journal](https://docs.mongodb.com/v4.4/reference/glossary/#term-journal). ||
+Configuration of the StoreDoc [journal](https://docs.mongodb.com/v4.4/reference/glossary/#term-journal). ||
 |#
 
 ## WiredTiger {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.Storage.WiredTiger}
@@ -5165,7 +5298,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -5207,14 +5340,14 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongoCfgConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4)**
 
-Effective mongocfg settings for a MongoDB 4.4 cluster (a combination of settings defined
+Effective mongocfg settings for a StoreDoc 4.4 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongoCfgConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4)**
 
-User-defined mongocfg settings for a MongoDB 4.4 cluster. ||
+User-defined mongocfg settings for a StoreDoc 4.4 cluster. ||
 || defaultConfig | **[MongoCfgConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4)**
 
-Default mongocfg configuration for a MongoDB 4.4 cluster. ||
+Default mongocfg configuration for a StoreDoc 4.4 cluster. ||
 |#
 
 ## MongoCfgConfig4_4 {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4}
@@ -5313,14 +5446,14 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongosConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4)**
 
-Effective mongos settings for a MongoDB 4.4 cluster (a combination of settings defined
+Effective mongos settings for a StoreDoc 4.4 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongosConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4)**
 
-User-defined mongos settings for a MongoDB 4.4 cluster. ||
+User-defined mongos settings for a StoreDoc 4.4 cluster. ||
 || defaultConfig | **[MongosConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4)**
 
-Default mongos configuration for a MongoDB 4.4 cluster. ||
+Default mongos configuration for a StoreDoc 4.4 cluster. ||
 |#
 
 ## MongosConfig4_4 {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4}
@@ -5356,7 +5489,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -5390,16 +5523,16 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || mongod | **[Mongod](#yandex.cloud.mdb.mongodb.v1.Mongodb5_0.Mongod)**
 
-Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. ||
+Configuration and resource allocation for mongod in a StoreDoc 5.0 cluster. ||
 || mongocfg | **[MongoCfg](#yandex.cloud.mdb.mongodb.v1.Mongodb5_0.MongoCfg)**
 
-Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. ||
+Configuration and resource allocation for mongocfg in a StoreDoc 5.0 cluster. ||
 || mongos | **[Mongos](#yandex.cloud.mdb.mongodb.v1.Mongodb5_0.Mongos)**
 
-Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. ||
+Configuration and resource allocation for mongos in a StoreDoc 5.0 cluster. ||
 || mongoinfra | **[MongoInfra](#yandex.cloud.mdb.mongodb.v1.Mongodb5_0.MongoInfra)**
 
-Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. ||
+Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a StoreDoc 5.0 cluster. ||
 |#
 
 ## Mongod {#yandex.cloud.mdb.mongodb.v1.Mongodb5_0.Mongod}
@@ -5423,20 +5556,20 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongodConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0)**
 
-Effective mongod settings for a MongoDB 5.0 cluster (a combination of settings defined
+Effective mongod settings for a StoreDoc 5.0 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongodConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0)**
 
-User-defined mongod settings for a MongoDB 5.0 cluster. ||
+User-defined mongod settings for a StoreDoc 5.0 cluster. ||
 || defaultConfig | **[MongodConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0)**
 
-Default mongod configuration for a MongoDB 5.0 cluster. ||
+Default mongod configuration for a StoreDoc 5.0 cluster. ||
 |#
 
 ## MongodConfig5_0 {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0}
 
 Configuration of a mongod daemon. Supported options are a limited subset of all
-options described in [MongoDB documentation](https://docs.mongodb.com/v5.0/reference/configuration-options/).
+options described in the [MongoDB documentation](https://docs.mongodb.com/v5.0/reference/configuration-options/).
 
 #|
 ||Field | Description ||
@@ -5463,7 +5596,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v5.0/refer
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.Storage.Journal)**
 
-Configuration of the MongoDB [journal](https://docs.mongodb.com/v5.0/reference/glossary/#term-journal). ||
+Configuration of the StoreDoc [journal](https://docs.mongodb.com/v5.0/reference/glossary/#term-journal). ||
 |#
 
 ## WiredTiger {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.Storage.WiredTiger}
@@ -5577,7 +5710,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -5624,14 +5757,14 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongoCfgConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0)**
 
-Effective mongocfg settings for a MongoDB 5.0 cluster (a combination of settings defined
+Effective mongocfg settings for a StoreDoc 5.0 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongoCfgConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0)**
 
-User-defined mongocfg settings for a MongoDB 5.0 cluster. ||
+User-defined mongocfg settings for a StoreDoc 5.0 cluster. ||
 || defaultConfig | **[MongoCfgConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0)**
 
-Default mongocfg configuration for a MongoDB 5.0 cluster. ||
+Default mongocfg configuration for a StoreDoc 5.0 cluster. ||
 |#
 
 ## MongoCfgConfig5_0 {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0}
@@ -5730,14 +5863,14 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongosConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0)**
 
-Effective mongos settings for a MongoDB 5.0 cluster (a combination of settings defined
+Effective mongos settings for a StoreDoc 5.0 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongosConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0)**
 
-User-defined mongos settings for a MongoDB 5.0 cluster. ||
+User-defined mongos settings for a StoreDoc 5.0 cluster. ||
 || defaultConfig | **[MongosConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0)**
 
-Default mongos configuration for a MongoDB 5.0 cluster. ||
+Default mongos configuration for a StoreDoc 5.0 cluster. ||
 |#
 
 ## MongosConfig5_0 {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0}
@@ -5773,7 +5906,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -5807,16 +5940,16 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || mongod | **[Mongod](#yandex.cloud.mdb.mongodb.v1.Mongodb6_0.Mongod)**
 
-Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. ||
+Configuration and resource allocation for mongod in a StoreDoc 6.0 cluster. ||
 || mongocfg | **[MongoCfg](#yandex.cloud.mdb.mongodb.v1.Mongodb6_0.MongoCfg)**
 
-Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. ||
+Configuration and resource allocation for mongocfg in a StoreDoc 6.0 cluster. ||
 || mongos | **[Mongos](#yandex.cloud.mdb.mongodb.v1.Mongodb6_0.Mongos)**
 
-Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. ||
+Configuration and resource allocation for mongos in a StoreDoc 6.0 cluster. ||
 || mongoinfra | **[MongoInfra](#yandex.cloud.mdb.mongodb.v1.Mongodb6_0.MongoInfra)**
 
-Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. ||
+Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a StoreDoc 6.0 cluster. ||
 |#
 
 ## Mongod {#yandex.cloud.mdb.mongodb.v1.Mongodb6_0.Mongod}
@@ -5840,20 +5973,20 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongodConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0)**
 
-Effective mongod settings for a MongoDB 6.0 cluster (a combination of settings defined
+Effective mongod settings for a StoreDoc 6.0 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongodConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0)**
 
-User-defined mongod settings for a MongoDB 6.0 cluster. ||
+User-defined mongod settings for a StoreDoc 6.0 cluster. ||
 || defaultConfig | **[MongodConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0)**
 
-Default mongod configuration for a MongoDB 6.0 cluster. ||
+Default mongod configuration for a StoreDoc 6.0 cluster. ||
 |#
 
 ## MongodConfig6_0 {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0}
 
 Configuration of a mongod daemon. Supported options are a limited subset of all
-options described in [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/).
+options described in the [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/).
 
 #|
 ||Field | Description ||
@@ -5880,7 +6013,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v6.0/refer
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.Storage.Journal)**
 
-Configuration of the MongoDB [journal](https://docs.mongodb.com/v6.0/reference/glossary/#term-journal). ||
+Configuration of the StoreDoc [journal](https://docs.mongodb.com/v6.0/reference/glossary/#term-journal). ||
 |#
 
 ## WiredTiger {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.Storage.WiredTiger}
@@ -5994,7 +6127,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -6041,14 +6174,14 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongoCfgConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0)**
 
-Effective mongocfg settings for a MongoDB 6.0 cluster (a combination of settings defined
+Effective mongocfg settings for a StoreDoc 6.0 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongoCfgConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0)**
 
-User-defined mongocfg settings for a MongoDB 6.0 cluster. ||
+User-defined mongocfg settings for a StoreDoc 6.0 cluster. ||
 || defaultConfig | **[MongoCfgConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0)**
 
-Default mongocfg configuration for a MongoDB 6.0 cluster. ||
+Default mongocfg configuration for a StoreDoc 6.0 cluster. ||
 |#
 
 ## MongoCfgConfig6_0 {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0}
@@ -6147,14 +6280,14 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongosConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0)**
 
-Effective mongos settings for a MongoDB 6.0 cluster (a combination of settings defined
+Effective mongos settings for a StoreDoc 6.0 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongosConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0)**
 
-User-defined mongos settings for a MongoDB 6.0 cluster. ||
+User-defined mongos settings for a StoreDoc 6.0 cluster. ||
 || defaultConfig | **[MongosConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0)**
 
-Default mongos configuration for a MongoDB 6.0 cluster. ||
+Default mongos configuration for a StoreDoc 6.0 cluster. ||
 |#
 
 ## MongosConfig6_0 {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0}
@@ -6190,7 +6323,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -6224,16 +6357,16 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || mongod | **[Mongod](#yandex.cloud.mdb.mongodb.v1.Mongodb4_4_enterprise.Mongod)**
 
-Configuration and resource allocation for mongod in a MongoDB 4.4 cluster. ||
+Configuration and resource allocation for mongod in a StoreDoc 4.4 cluster. ||
 || mongocfg | **[MongoCfg](#yandex.cloud.mdb.mongodb.v1.Mongodb4_4_enterprise.MongoCfg)**
 
-Configuration and resource allocation for mongocfg in a MongoDB 4.4 cluster. ||
+Configuration and resource allocation for mongocfg in a StoreDoc 4.4 cluster. ||
 || mongos | **[Mongos](#yandex.cloud.mdb.mongodb.v1.Mongodb4_4_enterprise.Mongos)**
 
-Configuration and resource allocation for mongos in a MongoDB 4.4 cluster. ||
+Configuration and resource allocation for mongos in a StoreDoc 4.4 cluster. ||
 || mongoinfra | **[MongoInfra](#yandex.cloud.mdb.mongodb.v1.Mongodb4_4_enterprise.MongoInfra)**
 
-Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 4.4 cluster. ||
+Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a StoreDoc 4.4 cluster. ||
 |#
 
 ## Mongod {#yandex.cloud.mdb.mongodb.v1.Mongodb4_4_enterprise.Mongod}
@@ -6257,20 +6390,20 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongodConfig4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise)**
 
-Effective mongod settings for a MongoDB 4.4 cluster (a combination of settings defined
+Effective mongod settings for a StoreDoc 4.4 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongodConfig4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise)**
 
-User-defined mongod settings for a MongoDB 4.4 cluster. ||
+User-defined mongod settings for a StoreDoc 4.4 cluster. ||
 || defaultConfig | **[MongodConfig4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise)**
 
-Default mongod configuration for a MongoDB 4.4 cluster. ||
+Default mongod configuration for a StoreDoc 4.4 cluster. ||
 |#
 
 ## MongodConfig4_4_enterprise {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise}
 
 Configuration of a mongod daemon. Supported options are a limited subset of all
-options described in [MongoDB documentation](https://docs.mongodb.com/v4.4/reference/configuration-options/).
+options described in the [MongoDB documentation](https://docs.mongodb.com/v4.4/reference/configuration-options/).
 
 #|
 ||Field | Description ||
@@ -6303,7 +6436,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v4.4/refer
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.Storage.Journal)**
 
-Configuration of the MongoDB [journal](https://docs.mongodb.com/v4.4/reference/glossary/#term-journal). ||
+Configuration of the StoreDoc [journal](https://docs.mongodb.com/v4.4/reference/glossary/#term-journal). ||
 |#
 
 ## WiredTiger {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.Storage.WiredTiger}
@@ -6417,7 +6550,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -6504,14 +6637,14 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongoCfgConfig4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4_enterprise)**
 
-Effective mongocfg settings for a MongoDB 4.4 cluster (a combination of settings defined
+Effective mongocfg settings for a StoreDoc 4.4 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongoCfgConfig4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4_enterprise)**
 
-User-defined mongocfg settings for a MongoDB 4.4 cluster. ||
+User-defined mongocfg settings for a StoreDoc 4.4 cluster. ||
 || defaultConfig | **[MongoCfgConfig4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4_enterprise)**
 
-Default mongocfg configuration for a MongoDB 4.4 cluster. ||
+Default mongocfg configuration for a StoreDoc 4.4 cluster. ||
 |#
 
 ## MongoCfgConfig4_4_enterprise {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4_enterprise}
@@ -6610,14 +6743,14 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongosConfig4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4_enterprise)**
 
-Effective mongos settings for a MongoDB 4.4 cluster (a combination of settings defined
+Effective mongos settings for a StoreDoc 4.4 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongosConfig4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4_enterprise)**
 
-User-defined mongos settings for a MongoDB 4.4 cluster. ||
+User-defined mongos settings for a StoreDoc 4.4 cluster. ||
 || defaultConfig | **[MongosConfig4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4_enterprise)**
 
-Default mongos configuration for a MongoDB 4.4 cluster. ||
+Default mongos configuration for a StoreDoc 4.4 cluster. ||
 |#
 
 ## MongosConfig4_4_enterprise {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4_enterprise}
@@ -6653,7 +6786,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -6687,16 +6820,16 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || mongod | **[Mongod](#yandex.cloud.mdb.mongodb.v1.Mongodb5_0_enterprise.Mongod)**
 
-Configuration and resource allocation for mongod in a MongoDB 5.0 cluster. ||
+Configuration and resource allocation for mongod in a StoreDoc 5.0 cluster. ||
 || mongocfg | **[MongoCfg](#yandex.cloud.mdb.mongodb.v1.Mongodb5_0_enterprise.MongoCfg)**
 
-Configuration and resource allocation for mongocfg in a MongoDB 5.0 cluster. ||
+Configuration and resource allocation for mongocfg in a StoreDoc 5.0 cluster. ||
 || mongos | **[Mongos](#yandex.cloud.mdb.mongodb.v1.Mongodb5_0_enterprise.Mongos)**
 
-Configuration and resource allocation for mongos in a MongoDB 5.0 cluster. ||
+Configuration and resource allocation for mongos in a StoreDoc 5.0 cluster. ||
 || mongoinfra | **[MongoInfra](#yandex.cloud.mdb.mongodb.v1.Mongodb5_0_enterprise.MongoInfra)**
 
-Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 5.0 cluster. ||
+Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a StoreDoc 5.0 cluster. ||
 |#
 
 ## Mongod {#yandex.cloud.mdb.mongodb.v1.Mongodb5_0_enterprise.Mongod}
@@ -6720,20 +6853,20 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongodConfig5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise)**
 
-Effective mongod settings for a MongoDB 5.0 cluster (a combination of settings defined
+Effective mongod settings for a StoreDoc 5.0 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongodConfig5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise)**
 
-User-defined mongod settings for a MongoDB 5.0 cluster. ||
+User-defined mongod settings for a StoreDoc 5.0 cluster. ||
 || defaultConfig | **[MongodConfig5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise)**
 
-Default mongod configuration for a MongoDB 5.0 cluster. ||
+Default mongod configuration for a StoreDoc 5.0 cluster. ||
 |#
 
 ## MongodConfig5_0_enterprise {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise}
 
 Configuration of a mongod daemon. Supported options are a limited subset of all
-options described in [MongoDB documentation](https://docs.mongodb.com/v5.0/reference/configuration-options/).
+options described in the [MongoDB documentation](https://docs.mongodb.com/v5.0/reference/configuration-options/).
 
 #|
 ||Field | Description ||
@@ -6766,7 +6899,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v5.0/refer
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.Storage.Journal)**
 
-Configuration of the MongoDB [journal](https://docs.mongodb.com/v5.0/reference/glossary/#term-journal). ||
+Configuration of the StoreDoc [journal](https://docs.mongodb.com/v5.0/reference/glossary/#term-journal). ||
 |#
 
 ## WiredTiger {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.Storage.WiredTiger}
@@ -6880,7 +7013,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -6975,14 +7108,14 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongoCfgConfig5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0_enterprise)**
 
-Effective mongocfg settings for a MongoDB 5.0 cluster (a combination of settings defined
+Effective mongocfg settings for a StoreDoc 5.0 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongoCfgConfig5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0_enterprise)**
 
-User-defined mongocfg settings for a MongoDB 5.0 cluster. ||
+User-defined mongocfg settings for a StoreDoc 5.0 cluster. ||
 || defaultConfig | **[MongoCfgConfig5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0_enterprise)**
 
-Default mongocfg configuration for a MongoDB 5.0 cluster. ||
+Default mongocfg configuration for a StoreDoc 5.0 cluster. ||
 |#
 
 ## MongoCfgConfig5_0_enterprise {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0_enterprise}
@@ -7081,14 +7214,14 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongosConfig5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0_enterprise)**
 
-Effective mongos settings for a MongoDB 5.0 cluster (a combination of settings defined
+Effective mongos settings for a StoreDoc 5.0 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongosConfig5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0_enterprise)**
 
-User-defined mongos settings for a MongoDB 5.0 cluster. ||
+User-defined mongos settings for a StoreDoc 5.0 cluster. ||
 || defaultConfig | **[MongosConfig5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0_enterprise)**
 
-Default mongos configuration for a MongoDB 5.0 cluster. ||
+Default mongos configuration for a StoreDoc 5.0 cluster. ||
 |#
 
 ## MongosConfig5_0_enterprise {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0_enterprise}
@@ -7124,7 +7257,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -7158,16 +7291,16 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || mongod | **[Mongod](#yandex.cloud.mdb.mongodb.v1.Mongodb6_0_enterprise.Mongod)**
 
-Configuration and resource allocation for mongod in a MongoDB 6.0 cluster. ||
+Configuration and resource allocation for mongod in a StoreDoc 6.0 cluster. ||
 || mongocfg | **[MongoCfg](#yandex.cloud.mdb.mongodb.v1.Mongodb6_0_enterprise.MongoCfg)**
 
-Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster. ||
+Configuration and resource allocation for mongocfg in a StoreDoc 6.0 cluster. ||
 || mongos | **[Mongos](#yandex.cloud.mdb.mongodb.v1.Mongodb6_0_enterprise.Mongos)**
 
-Configuration and resource allocation for mongos in a MongoDB 6.0 cluster. ||
+Configuration and resource allocation for mongos in a StoreDoc 6.0 cluster. ||
 || mongoinfra | **[MongoInfra](#yandex.cloud.mdb.mongodb.v1.Mongodb6_0_enterprise.MongoInfra)**
 
-Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster. ||
+Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a StoreDoc 6.0 cluster. ||
 |#
 
 ## Mongod {#yandex.cloud.mdb.mongodb.v1.Mongodb6_0_enterprise.Mongod}
@@ -7191,20 +7324,20 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongodConfig6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise)**
 
-Effective mongod settings for a MongoDB 6.0 cluster (a combination of settings defined
+Effective mongod settings for a StoreDoc 6.0 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongodConfig6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise)**
 
-User-defined mongod settings for a MongoDB 6.0 cluster. ||
+User-defined mongod settings for a StoreDoc 6.0 cluster. ||
 || defaultConfig | **[MongodConfig6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise)**
 
-Default mongod configuration for a MongoDB 6.0 cluster. ||
+Default mongod configuration for a StoreDoc 6.0 cluster. ||
 |#
 
 ## MongodConfig6_0_enterprise {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise}
 
 Configuration of a mongod daemon. Supported options are a limited subset of all
-options described in [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/).
+options described in the [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/).
 
 #|
 ||Field | Description ||
@@ -7237,7 +7370,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v6.0/refer
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.Storage.Journal)**
 
-Configuration of the MongoDB [journal](https://docs.mongodb.com/v6.0/reference/glossary/#term-journal). ||
+Configuration of the StoreDoc [journal](https://docs.mongodb.com/v6.0/reference/glossary/#term-journal). ||
 |#
 
 ## WiredTiger {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.Storage.WiredTiger}
@@ -7351,7 +7484,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -7446,14 +7579,14 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongoCfgConfig6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0_enterprise)**
 
-Effective mongocfg settings for a MongoDB 6.0 cluster (a combination of settings defined
+Effective mongocfg settings for a StoreDoc 6.0 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongoCfgConfig6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0_enterprise)**
 
-User-defined mongocfg settings for a MongoDB 6.0 cluster. ||
+User-defined mongocfg settings for a StoreDoc 6.0 cluster. ||
 || defaultConfig | **[MongoCfgConfig6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0_enterprise)**
 
-Default mongocfg configuration for a MongoDB 6.0 cluster. ||
+Default mongocfg configuration for a StoreDoc 6.0 cluster. ||
 |#
 
 ## MongoCfgConfig6_0_enterprise {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0_enterprise}
@@ -7552,14 +7685,14 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongosConfig6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0_enterprise)**
 
-Effective mongos settings for a MongoDB 6.0 cluster (a combination of settings defined
+Effective mongos settings for a StoreDoc 6.0 cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongosConfig6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0_enterprise)**
 
-User-defined mongos settings for a MongoDB 5.0 cluster. ||
+User-defined mongos settings for a StoreDoc 5.0 cluster. ||
 || defaultConfig | **[MongosConfig6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0_enterprise)**
 
-Default mongos configuration for a MongoDB 5.0 cluster. ||
+Default mongos configuration for a StoreDoc 5.0 cluster. ||
 |#
 
 ## MongosConfig6_0_enterprise {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0_enterprise}
@@ -7595,7 +7728,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -7677,16 +7810,16 @@ Allow access for DataTransfer. ||
 ||Field | Description ||
 || mongod | **[Mongod](#yandex.cloud.mdb.mongodb.v1.Mongodb.Mongod)**
 
-Configuration and resource allocation for mongod in a MongoDB cluster. ||
+Configuration and resource allocation for mongod in a StoreDoc cluster. ||
 || mongocfg | **[MongoCfg](#yandex.cloud.mdb.mongodb.v1.Mongodb.MongoCfg)**
 
-Configuration and resource allocation for mongocfg in a MongoDB cluster. ||
+Configuration and resource allocation for mongocfg in a StoreDoc cluster. ||
 || mongos | **[Mongos](#yandex.cloud.mdb.mongodb.v1.Mongodb.Mongos)**
 
-Configuration and resource allocation for mongos in a MongoDB cluster. ||
+Configuration and resource allocation for mongos in a StoreDoc cluster. ||
 || mongoinfra | **[MongoInfra](#yandex.cloud.mdb.mongodb.v1.Mongodb.MongoInfra)**
 
-Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB cluster. ||
+Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a StoreDoc cluster. ||
 |#
 
 ## Mongod {#yandex.cloud.mdb.mongodb.v1.Mongodb.Mongod}
@@ -7710,20 +7843,20 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongodConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig)**
 
-Effective mongod settings for a MongoDB cluster (a combination of settings defined
+Effective mongod settings for a StoreDoc cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongodConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig)**
 
-User-defined mongod settings for a MongoDB cluster. ||
+User-defined mongod settings for a StoreDoc cluster. ||
 || defaultConfig | **[MongodConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig)**
 
-Default mongod configuration for a MongoDB cluster. ||
+Default mongod configuration for a StoreDoc cluster. ||
 |#
 
 ## MongodConfig {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig}
 
 Configuration of a mongod daemon. Supported options are a limited subset of all
-options described in [MongoDB documentation](https://www.mongodb.com/docs/manual/reference/configuration-options/).
+options described in the [MongoDB documentation](https://www.mongodb.com/docs/manual/reference/configuration-options/).
 
 #|
 ||Field | Description ||
@@ -7765,7 +7898,7 @@ Change stream settings. ||
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.Journal)**
 
-Configuration of the MongoDB [journal](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-journal). ||
+Configuration of the StoreDoc [journal](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-journal). ||
 |#
 
 ## WiredTiger {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger}
@@ -7882,7 +8015,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -7935,7 +8068,7 @@ Audit filter, should be valid JSON object string ||
 || runtimeConfiguration | **boolean**
 
 Allows runtime configuration of audit filter and auditAuthorizationSuccess.
-Available for MongoDB Enterprise only. ||
+Available for StoreDoc Enterprise only. ||
 |#
 
 ## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter}
@@ -8001,6 +8134,9 @@ Enables redacting any message accompanying a given log event before logging.
 This prevents the mongod or mongos from writing potentially sensitive data
 stored on the database to the diagnostic log.
 https://mongo-db.ru/reference/configuration-options/index.html#mongodb-setting-security.redactClientLogData ||
+|| allowDiskUseByDefault | **boolean**
+
+Controls whether aggregation stages that exceed 100 MB can write temporary files to disk by default. ||
 |#
 
 ## MirrorReads {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads}
@@ -8068,14 +8204,14 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongoCfgConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig)**
 
-Effective mongocfg settings for a MongoDB cluster (a combination of settings defined
+Effective mongocfg settings for a StoreDoc cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongoCfgConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig)**
 
-User-defined mongocfg settings for a MongoDB cluster. ||
+User-defined mongocfg settings for a StoreDoc cluster. ||
 || defaultConfig | **[MongoCfgConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig)**
 
-Default mongocfg configuration for a MongoDB cluster. ||
+Default mongocfg configuration for a StoreDoc cluster. ||
 |#
 
 ## MongoCfgConfig {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig}
@@ -8231,14 +8367,14 @@ Disk size autoscaling settings ||
 ||Field | Description ||
 || effectiveConfig | **[MongosConfig](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig)**
 
-Effective mongos settings for a MongoDB cluster (a combination of settings defined
+Effective mongos settings for a StoreDoc cluster (a combination of settings defined
 in `userConfig` and `defaultConfig`). ||
 || userConfig | **[MongosConfig](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig)**
 
-User-defined mongos settings for a MongoDB cluster. ||
+User-defined mongos settings for a StoreDoc cluster. ||
 || defaultConfig | **[MongosConfig](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig)**
 
-Default mongos configuration for a MongoDB cluster. ||
+Default mongos configuration for a StoreDoc cluster. ||
 |#
 
 ## MongosConfig {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig}
@@ -8260,6 +8396,13 @@ Network settings for mongos. ||
 || operationProfiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.OperationProfiling)**
 
 `OperationProfiling` section of mongos configuration. ||
+|| balancerConfig | **[BalancerConfig](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.BalancerConfig)**
+
+Cluster-wide balancer settings applied through mongos.
+The service manages the balancing window; change enabled status through SetBalancerStatus. ||
+|| replication | **[Replication](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Replication)**
+
+Replication settings. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network}
@@ -8286,7 +8429,7 @@ Specifies the default compressor(s) to use for communication between this mongod
 - other members of the deployment if the instance is part of a replica set or a sharded cluster
 - mongosh
 - drivers that support the OP_COMPRESSED message format.
-MongoDB supports the following compressors:
+StoreDoc supports the following compressors:
 
 The number of elements must be in the range 1-3.
 
@@ -8375,6 +8518,67 @@ The fraction of slow operations that should be logged.
 operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
 
 Acceptable values are 0 to 1, inclusive. ||
+|#
+
+## BalancerConfig {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.BalancerConfig}
+
+#|
+||Field | Description ||
+|| secondaryThrottle | **[SecondaryThrottle](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.BalancerConfig.SecondaryThrottle)**
+
+Replication acknowledgement policy during chunk migration. ||
+|| waitForDelete | **boolean**
+
+Wait for orphan cleanup before starting the next migration. This can affect reads on secondaries. ||
+|| attemptToBalanceJumboChunks | **boolean**
+
+Attempt to migrate oversized chunks that are not marked as jumbo. ||
+|#
+
+## SecondaryThrottle {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.BalancerConfig.SecondaryThrottle}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Whether to wait for replication during migration. Cannot be false with write_concern. ||
+|| writeConcern | **[WriteConcern](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.BalancerConfig.SecondaryThrottle.WriteConcern)**
+
+Explicit write concern for migration; implies secondary throttling when enabled is omitted. ||
+|#
+
+## WriteConcern {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.BalancerConfig.SecondaryThrottle.WriteConcern}
+
+#|
+||Field | Description ||
+|| nodes | **string** (int64)
+
+Number of replica set members that must acknowledge each document migration.
+Set either nodes or majority.
+
+Acceptable values are 1 to 7, inclusive. ||
+|| majority | **boolean**
+
+Set to true to require majority acknowledgement instead of a numeric node count. ||
+|| journal | **boolean**
+
+Require acknowledgement after writing to the on-disk journal. ||
+|| timeoutMs | **string** (int64)
+
+Write concern timeout in milliseconds. Zero means no timeout.
+
+The minimum value is 0. ||
+|#
+
+## Replication {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Replication}
+
+#|
+||Field | Description ||
+|| localPingThresholdMs | **string** (int64)
+
+The latency window in milliseconds within which mongos selects replica set members for secondary reads.
+
+Value must be greater than 0. ||
 |#
 
 ## MongoInfra {#yandex.cloud.mdb.mongodb.v1.Mongodb.MongoInfra}
@@ -8483,4 +8687,60 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|#
+
+## MaintenanceWindows {#yandex.cloud.mdb.v1.MaintenanceWindows}
+
+Maintenance windows shared by all managed database services.
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+Maintenance operations can be scheduled anytime.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|| weeklyMaintenanceSchedule | **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+
+Maintenance operations can be scheduled during the specified weekly slots.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|#
+
+## WeeklyMaintenanceSchedule {#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule}
+
+#|
+||Field | Description ||
+|| slots[] | **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+
+Weekly time slots during which maintenance operations can be scheduled.
+At least one slot is required.
+
+The number of elements must be greater than 0. ||
+|#
+
+## MaintenanceWindowSlot {#yandex.cloud.mdb.v1.MaintenanceWindowSlot}
+
+#|
+||Field | Description ||
+|| day | **enum** (DayOfWeek)
+
+Day of the week.
+
+- `MONDAY`: The day-of-week of Monday.
+- `TUESDAY`: The day-of-week of Tuesday.
+- `WEDNESDAY`: The day-of-week of Wednesday.
+- `THURSDAY`: The day-of-week of Thursday.
+- `FRIDAY`: The day-of-week of Friday.
+- `SATURDAY`: The day-of-week of Saturday.
+- `SUNDAY`: The day-of-week of Sunday. ||
+|| startTime | **[TimeOfDay](#google.type.TimeOfDay)**
+
+Required field. Start time in UTC. ||
+|| duration | **string** (duration)
+
+Required field. Slot duration. ||
+|| allowTemporaryUnavailability | **boolean**
+
+Allows maintenance operations that may cause temporary write unavailability. ||
 |#

@@ -2,13 +2,13 @@
 
 # Managed Service for MongoDB API, REST: Backup
 
-A set of methods for managing MongoDB Backup resources.
+A set of methods for managing StoreDoc Backup resources.
 
 ## Methods
 
 #|
 ||Method | Description ||
-|| [Get](get.md) | Returns the specified MongoDB backup. ||
+|| [Get](get.md) | Returns the specified StoreDoc backup. ||
 || [List](list.md) | Retrieves the list of backups available for the specified folder. ||
-|| [Delete](delete.md) | Deletes the specified MongoDB backup. ||
+|| [Delete](delete.md) | Deletes the specified StoreDoc backup. ||
 |#

@@ -2,7 +2,7 @@
 
 # Managed Service for MongoDB API, gRPC: VersionsService.List
 
-Returns list of available MongoDB versions.
+Returns the list of available StoreDoc versions.
 
 ## gRPC request
 

@@ -213,11 +213,11 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster_v2).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
@@ -241,6 +241,36 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
                  "description": "<shard_group_description>",
                  "shardNames": [
                    "<shard_1>", "<shard_2>", ... "<shard_N>"
+                 ],
+                 "externalShards" [
+                   {
+                     "name": "<external_shard_1>",
+                     "weight": <shard_weight_when_writing_data>,
+                     "replicas": [
+                       {
+                         "host": "<host_FQDN>",
+                         "port": "<port>",
+                         "secure": <use_SSL_connection>,
+                         "user": "<username>",
+                         "password": "<password>",
+                         "priority": <host_priority>
+                       },
+                       {
+                         <host_2_parameters>
+                       },
+                       ...
+                       {
+                         <host_N_parameters>
+                       }
+                     ]
+                   },
+                   {
+                     <external_shard_2_parameters>
+                   },
+                   ...
+                   {
+                     <external_shard_N_parameters>
+                   }
                  ]
                }'
      ```
@@ -250,6 +280,20 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
      * `shardGroupName`: Shard group name.
      * `description`: Shard group description.
      * `shardNames`: List of shards to include in the new group.
+     * `externalShards`: List of external shards to include in the new group. An external shard is a shard from another {{ mch-name }} cluster or a custom {{ CH }} installation. one per shard. Each element has the following structure:
+
+        * `name`: Shard name.
+        * `--weight`: Shard weight within a group.
+
+          {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
+
+        * `replicas`: Shard host settings:
+
+          * `host`: Host FQDN or IP address.
+          * `port`: Port for connecting to {{ CH }}.
+          * `secure`: Use an encrypted SSL/TLS connection when connecting to a host: `true` or `false`.
+          * `user`, `password`: Username and password for access to the {{ CH }} database.
+          * `priority`: Host priority for balancing shard connections. The default value is `0`. A lower value assigns a higher priority when selecting a host for shard connections.
 
      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -277,6 +321,36 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
                "description": "<shard_group_description>",
                "shard_names": [
                  "<shard_1>", "<shard_2>", ... "<shard_N>"
+               ],
+               "external_shards" [
+                 {
+                   "name": "<external_shard_1>",
+                   "weight": <shard_weight_when_writing_data>,
+                   "replicas": [
+                     {
+                       "host": "<host_FQDN>",
+                       "port": <port>,
+                       "secure": <use_SSL_connection>,
+                       "user": "<username>",
+                       "password": "<password>",
+                       "priority": <host_priority>
+                     },
+                     {
+                       <host_2_parameters>
+                     },
+                     ...
+                     {
+                       <host_N_parameters>
+                     }
+                   ]
+                 },
+                 {
+                   <external_shard_2_parameters>
+                 },
+                 ...
+                 {
+                   <external_shard_N_parameters>
+                 }
                ]
              }' \
          {{ api-host-mdb }}:{{ port-https }} \
@@ -288,6 +362,20 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
      * `shard_group_name`: Shard group name.
      * `description`: Shard group description.
      * `shard_names`: List of shards to include in the new group.
+     * `external_shards`: List of external shards to include in the new group. An external shard is a shard from another {{ mch-name }} cluster or a custom {{ CH }} installation. one per shard. Each element has the following structure:
+
+        * `name`: Shard name.
+        * `--weight`: Shard weight within a group.
+
+          {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
+
+        * `replicas`: Shard host settings:
+
+          * `host`: Host FQDN or IP address.
+          * `port`: Port for connecting to {{ CH }}.
+          * `secure`: Use an encrypted SSL/TLS connection when connecting to a host: `true` or `false`.
+          * `user`, `password`: Username and password for access to the {{ CH }} database.
+          * `priority`: Host priority for balancing shard connections. The default value is `0`. A lower value assigns a higher priority when selecting a host for shard connections.
 
      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -360,11 +448,11 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster_v2).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
@@ -386,10 +474,40 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
        --header "Content-Type: application/json" \
        --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/shardGroups/<shard_group_name>' \
        --data '{
-                 "updateMask": "description,shardNames",
+                 "updateMask": "description,shardNames,externalShards",
                  "description": "<shard_group_description>",
                  "shardNames": [
                    "<shard_1>", "<shard_2>", ... "<shard_N>"
+                 ],
+                 "externalShards" [
+                   {
+                     "name": "<external_shard_1>",
+                     "weight": <shard_weight_when_writing_data>,
+                     "replicas": [
+                       {
+                         "host": "<host_FQDN>",
+                         "port": "<port>",
+                         "secure": <use_SSL_connection>,
+                         "user": "<username>",
+                         "password": "<password>",
+                         "priority": <host_priority>
+                       },
+                       {
+                         <host_2_parameters>
+                       },
+                       ...
+                       {
+                         <host_N_parameters>
+                       }
+                     ]
+                   },
+                   {
+                     <external_shard_2_parameters>
+                   },
+                   ...
+                   {
+                     <external_shard_N_parameters>
+                   }
                  ]
                }'
      ```
@@ -398,7 +516,21 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
      * `updateMask`: Comma-separated string of settings to update.
      * `description`: New description for the shard group.
-     * `shardNames`: New list of shards to include in the group. To learn shard names, get the [list of shards](shards.md#list-shards) in the cluster. This list will replace the current one, so make sure you have added all the required shards to the new list.
+     * `shardNames`: New list of cluster shards to include in the group. To learn shard names, get the [list of shards](shards.md#list-shards) in the cluster. This list will replace the current one, so make sure you have added all the required shards to the new list.
+     * `externalShards`: List of external shards with updated settings to include in the group. An external shard is a shard from another {{ mch-name }} cluster or a custom {{ CH }} installation. one per shard. Each element has the following structure:
+
+        * `name`: Shard name.
+        * `--weight`: Shard weight within a group.
+
+          {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
+
+        * `replicas`: Shard host settings:
+
+          * `host`: Host FQDN or IP address.
+          * `port`: Port for connecting to {{ CH }}.
+          * `secure`: Use an encrypted SSL/TLS connection when connecting to a host: `true` or `false`.
+          * `user`, `password`: Username and password for access to the {{ CH }} database.
+          * `priority`: Host priority for balancing shard connections. The default value is `0`. A lower value assigns a higher priority when selecting a host for shard connections.
 
      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the shard group name, with the [list of groups in the cluster](#list-shard-groups).
 
@@ -427,12 +559,42 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
              "shard_group_name": "<shard_group_name>",
              "update_mask": {
                "paths": [
-                 "description", "shard_names"
+                 "description", "shard_names", "external_shards"
                ]
              },
              "description": "<shard_group_description>",
              "shard_names": [
                "<shard_1>", "<shard_2>", ... "<shard_N>"
+             ],
+             "external_shards" [
+               {
+                 "name": "<external_shard_1>",
+                 "weight": <shard_weight_when_writing_data>,
+                 "replicas": [
+                   {
+                     "host": "<host_FQDN>",
+                     "port": <port>,
+                     "secure": <use_SSL_connection>,
+                     "user": "<username>",
+                     "password": "<password>",
+                     "priority": <host_priority>
+                   },
+                   {
+                     <host_2_parameters>
+                   },
+                   ...
+                   {
+                     <host_N_parameters>
+                   }
+                 ]
+               },
+               {
+                 <external_shard_2_parameters>
+               },
+               ...
+               {
+                 <external_shard_N_parameters>
+               }
              ]
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
@@ -443,7 +605,21 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
      * `update_mask`: List of settings to update as an array of strings (`paths[]`).
      * `description`: New description for the shard group.
-     * `shard_names`: New list of shards to include in the group. To learn shard names, get the [list of shards](shards.md#list-shards) in the cluster. This list will replace the current one, so make sure you have added all the required shards to the new list.
+     * `shard_names`: New list of cluster shards to include in the group. To learn shard names, get the [list of shards](shards.md#list-shards) in the cluster. This list will replace the current one, so make sure you have added all the required shards to the new list.
+     * `external_shards`: List of external shards with updated settings to include in the group. An external shard is a shard from another {{ mch-name }} cluster or a custom {{ CH }} installation. one per shard. Each element has the following structure:
+
+        * `name`: Shard name.
+        * `--weight`: Shard weight within a group.
+
+          {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
+
+        * `replicas`: Shard host settings:
+
+          * `host`: Host FQDN or IP address.
+          * `port`: Port for connecting to {{ CH }}.
+          * `secure`: Use an encrypted SSL/TLS connection when connecting to a host: `true` or `false`.
+          * `user`, `password`: Username and password for access to the {{ CH }} database.
+          * `priority`: Host priority for balancing shard connections. The default value is `0`. A lower value assigns a higher priority when selecting a host for shard connections.
 
      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the shard group name, with the [list of groups in the cluster](#list-shard-groups).
 
@@ -499,7 +675,7 @@ Tables created on the deleted group remain but become unusable: any attempts to 
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster_v2).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 

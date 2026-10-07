@@ -91,7 +91,7 @@ apiPlayground:
 
 # Managed Service for MongoDB API, REST: Cluster.SetAccessBindings
 
-Sets access bindings for the specified MongoDB cluster.
+Sets access bindings for the specified StoreDoc cluster.
 
 ## HTTP request
 

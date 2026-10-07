@@ -4006,7 +4006,6 @@ default:
         users: Пользователи
       security-center:
         alert:
-          action_alert_analysis: Анализ алерта
           alert_severity-info: Замечание
           overview_tags: Теги
         alerts:

@@ -12,7 +12,6 @@ canonical: '{{ link-docs }}/tutorials/applied/cdn-hosting/terraform'
 
 {% include [cdn-hosting-terraform](../../../_tutorials/applied/cdn-hosting-terraform.md) %}
 
-
 #### Полезные ссылки {#see-also}
 
-* [{#T}](console.md)
+[{#T}](console.md)

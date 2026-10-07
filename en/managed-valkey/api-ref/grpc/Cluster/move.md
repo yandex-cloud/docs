@@ -4,7 +4,7 @@ editable: false
 
 # Managed Service for Redis API, gRPC: ClusterService.Move
 
-Moves a Redis cluster to the specified folder.
+Moves a Valkey cluster to the specified folder.
 
 ## gRPC request
 
@@ -23,7 +23,7 @@ Moves a Redis cluster to the specified folder.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Redis cluster to move.
+Required field. ID of the Valkey cluster to move.
 
 The maximum string length in characters is 50. ||
 || destination_folder_id | **string**

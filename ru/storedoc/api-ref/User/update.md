@@ -9,7 +9,7 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the MongoDB cluster the user belongs to.
+            Required field. ID of the StoreDoc cluster the user belongs to.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
             The maximum string length in characters is 50.
           type: string
@@ -54,6 +54,11 @@ apiPlayground:
           type: array
           items:
             $ref: '#/definitions/Permission'
+        generatePassword:
+          description: |-
+            **boolean**
+            Generate password using Connection Manager
+          type: boolean
         deletionProtection:
           description: |-
             **boolean**
@@ -72,7 +77,7 @@ apiPlayground:
           roles:
             description: |-
               **string**
-              MongoDB roles for the [databaseName](#yandex.cloud.mdb.mongodb.v1.Permission) database that the permission grants.
+              StoreDoc roles for the [databaseName](#yandex.cloud.mdb.mongodb.v1.Permission) database that the permission grants.
             type: array
             items:
               type: string
@@ -80,7 +85,7 @@ apiPlayground:
 
 # Managed Service for MongoDB API, REST: User.Update
 
-Updates the specified MongoDB user.
+Updates the specified StoreDoc user.
 
 ## HTTP request
 
@@ -94,7 +99,7 @@ PATCH https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/users/{
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster the user belongs to.
+Required field. ID of the StoreDoc cluster the user belongs to.
 To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -120,6 +125,7 @@ The maximum string length in characters is 63. Value must match the regular expr
       ]
     }
   ],
+  "generatePassword": "boolean",
   "deletionProtection": "boolean"
 }
 ```
@@ -144,6 +150,9 @@ The maximum string length in characters is 128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)**
 
 New set of permissions for the user. ||
+|| generatePassword | **boolean**
+
+Generate password using Connection Manager ||
 || deletionProtection | **boolean**
 
 Deletion Protection inhibits deletion of the user ||
@@ -158,7 +167,7 @@ Deletion Protection inhibits deletion of the user ||
 Name of the database that the permission grants access to. ||
 || roles[] | **string**
 
-MongoDB roles for the `databaseName` database that the permission grants. ||
+StoreDoc roles for the `databaseName` database that the permission grants. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

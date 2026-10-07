@@ -119,6 +119,30 @@ apiPlayground:
               The minimum value is 0.
             type: string
             format: int64
+      UserConnectionManager:
+        type: object
+        properties:
+          connectionId:
+            description: |-
+              **string**
+              ID of the Connection Manager connection corresponding to the user.
+              Ignored if specified in update requests.
+            type: string
+          connectionFolderId:
+            description: |-
+              **string**
+              ID of the folder where connection for the user is created.
+              Optional. Defaults to the cluster's ClusterConnectionManager.connections_folder_id if not specified,
+              or the cluster's folder if ClusterConnectionManager.connections_folder_id is not specified.
+            type: string
+          secretFolderId:
+            description: |-
+              **string**
+              A Connection Manager setting for a user's connection created by MDB integration.
+              ID of the folder where secret for the user's connection is created.
+              Optional. Defaults to the cluster's ClusterConnectionManager.secrets_folder_id if not specified,
+              or the cluster's ClusterConnectionManager.connections_folder_id, or the cluster's folder.
+            type: string
       UserSpec:
         type: object
         properties:
@@ -215,6 +239,11 @@ apiPlayground:
               - DELETION_PROTECTION_MODE_DISABLED
               - DELETION_PROTECTION_MODE_ENABLED
               - DELETION_PROTECTION_MODE_INHERITED
+          userConnectionManager:
+            description: |-
+              **[UserConnectionManager](#yandex.cloud.mdb.v1.UserConnectionManager)**
+              Connection Manager Connection and settings associated with user
+            $ref: '#/definitions/UserConnectionManager'
         required:
           - name
 ---
@@ -267,7 +296,12 @@ The maximum string length in characters is 50. ||
     },
     "authenticationPlugin": "string",
     "generatePassword": "boolean",
-    "deletionProtectionMode": "string"
+    "deletionProtectionMode": "string",
+    "userConnectionManager": {
+      "connectionId": "string",
+      "connectionFolderId": "string",
+      "secretFolderId": "string"
+    }
   }
 }
 ```
@@ -339,6 +373,9 @@ Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
 - `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled
 - `DELETION_PROTECTION_MODE_ENABLED`: Deletion protection is enabled
 - `DELETION_PROTECTION_MODE_INHERITED`: Deletion protection mode is inherited from the cluster ||
+|| userConnectionManager | **[UserConnectionManager](#yandex.cloud.mdb.v1.UserConnectionManager)**
+
+Connection Manager Connection and settings associated with user ||
 |#
 
 ## Permission {#yandex.cloud.mdb.mysql.v1.Permission}
@@ -402,6 +439,29 @@ The minimum value is 0. ||
 The maximum number of simultaneous connections permitted to any given MySQL user account.
 
 The minimum value is 0. ||
+|#
+
+## UserConnectionManager {#yandex.cloud.mdb.v1.UserConnectionManager}
+
+A message representing Connection Manager integration details and settings for a user in a cluster.
+
+#|
+||Field | Description ||
+|| connectionId | **string**
+
+ID of the Connection Manager connection corresponding to the user.
+Ignored if specified in update requests. ||
+|| connectionFolderId | **string**
+
+ID of the folder where connection for the user is created.
+Optional. Defaults to the cluster's ClusterConnectionManager.connections_folder_id if not specified,
+or the cluster's folder if ClusterConnectionManager.connections_folder_id is not specified. ||
+|| secretFolderId | **string**
+
+A Connection Manager setting for a user's connection created by MDB integration.
+ID of the folder where secret for the user's connection is created.
+Optional. Defaults to the cluster's ClusterConnectionManager.secrets_folder_id if not specified,
+or the cluster's ClusterConnectionManager.connections_folder_id, or the cluster's folder. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

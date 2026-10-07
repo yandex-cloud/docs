@@ -596,6 +596,8 @@
 
  - [UpdateAccessBindings](api-ref/grpc/Cluster/updateAccessBindings.md)
 
+ - [SetBalancerStatus](api-ref/grpc/Cluster/setBalancerStatus.md)
+
 #### Database
 
  - [Overview](api-ref/grpc/Database/index.md)
@@ -765,6 +767,8 @@
  - [SetAccessBindings](api-ref/Cluster/setAccessBindings.md)
 
  - [UpdateAccessBindings](api-ref/Cluster/updateAccessBindings.md)
+
+ - [SetBalancerStatus](api-ref/Cluster/setBalancerStatus.md)
 
 #### Database
 

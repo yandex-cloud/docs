@@ -40,4 +40,6 @@ A set of methods for managing OpenSearch clusters.
 || [ListAccessBindings](listAccessBindings.md) | Retrieves a list of access bindings for the specified OpenSearch cluster. ||
 || [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the specified OpenSearch cluster. ||
 || [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified OpenSearch cluster. ||
+|| [DisableProtection](disableProtection.md) | Disables high-availability protection for the cluster on behalf of its owner. ||
+|| [EnableProtection](enableProtection.md) | Restores high-availability protection for the cluster if it passes an availability impact analysis. ||
 |#

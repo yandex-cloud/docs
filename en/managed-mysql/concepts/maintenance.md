@@ -20,7 +20,7 @@ You can set the maintenance window when [creating a cluster](../operations/clust
 
 In the management console, you select the maintenance start time as an hour interval. In other interfaces, you specify this interval by its sequence number, from `1` to `24`.
 
-> For example, to start maintenance in the interval from `00:00` to `01:00`, put `1`; from `04:00` to `05:00`, `5`.
+> For example, to start a maintenance session in the interval from `00:00` to `01:00`, enter `1`; from `04:00` to `05:00`, `5`.
 
 {% note info %}
 
@@ -34,14 +34,14 @@ To manage maintenance tasks, you need the `managed-mysql.maintenanceTask.editor`
 
 In {{ mmy-name }} single-host clusters, a master host undergoes maintenance. Therefore, it may become unavailable in case it is restarted.
 
-In multi-host clusters, the maintenance is run as follows:
+In multi-host clusters, maintenance follows this procedure:
 
 1. [Replicas](replication.md) undergo maintenance one by one. The replicas are queued randomly. If a replica needs to be restarted during maintenance, it will become unavailable.
 1. Master host undergoes maintenance and gets updated. If the master host needs to restart and becomes unavailable, one of the replicas will assume its role. Once the upgrade is complete, the host with the highest [failover priority](../concepts/replication.md#master-failover) will become the new master. In a cluster with several hosts of maximum priority, the one with the least lag behind the master will be selected.
 
     {% include [note-role-master](../../_includes/mdb/mmy/note-role-master.md) %}
 
-    If you access a cluster using the [FQDN of the master host](../operations/connect/fqdn.md), the cluster may become unavailable. To make your application continuously available, access the cluster using a [special FQDN](../operations/connect/fqdn.md#special-fqdns) that always points to the current master host.
+    If you access a cluster using the [FQDN of the master host](../operations/connect/fqdn.md), the cluster may become unavailable. If your write request returns an error, repeat it later.
 
 ## How maintenance impacts a cluster {#impact-on-cluster}
 

@@ -9,8 +9,8 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the Redis cluster to remove hosts from.
-            To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+            Required field. ID of the Valkey cluster to remove hosts from.
+            To get the Valkey cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
             The maximum string length in characters is 50.
           type: string
       required:
@@ -50,8 +50,8 @@ POST https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/hosts:batc
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Redis cluster to remove hosts from.
-To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+Required field. ID of the Valkey cluster to remove hosts from.
+To get the Valkey cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 |#

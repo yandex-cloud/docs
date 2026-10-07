@@ -9,7 +9,7 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the MongoDB cluster to delete a database in.
+            Required field. ID of the StoreDoc cluster to delete a database in.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
             The maximum string length in characters is 50.
           type: string
@@ -32,7 +32,7 @@ apiPlayground:
 
 # Managed Service for MongoDB API, REST: Database.Delete
 
-Deletes the specified MongoDB database.
+Deletes the specified StoreDoc database.
 
 ## HTTP request
 
@@ -46,7 +46,7 @@ DELETE https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/databa
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster to delete a database in.
+Required field. ID of the StoreDoc cluster to delete a database in.
 To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||

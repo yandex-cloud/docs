@@ -2,7 +2,7 @@
 
 # Managed Service for MongoDB API, REST: Backup.Delete
 
-Deletes the specified MongoDB backup.
+Deletes the specified StoreDoc backup.
 
 ## HTTP request
 

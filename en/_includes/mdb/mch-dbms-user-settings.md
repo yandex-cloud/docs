@@ -878,6 +878,8 @@
 
   During sorting or merging and finalizing aggregations, the limit on the maximum query run time will not be checked and may be exceeded.
 
+  If not a multiple of `1000`, the value is rounded down, e.g., `1900` is rounded to `1000`.
+
   The minimum value is `0`, i.e., there is no limit. The default value is `600000`.
 
 * **Max expanded ast elements**{#setting-max-expanded-ast-elements} {{ tag-all }}

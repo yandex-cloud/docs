@@ -291,9 +291,9 @@ ERROR: cannot execute INSERT in a read-only transaction
 
 #### Почему возникает ошибка `could not open extension control file "<путь_к_расширению>/vector.control": No such file or directory` при обращении к расширению `vector`? {#vector-error}
 
-Ошибка возникает из-за того, что в {{ mpg-name }} расширение `vector` называется `pgvector`.
+Ошибка возникает, если расширение `vector` не включено для базы данных. Ранее в {{ mpg-name }} это расширение было доступно только под устаревшим именем `pgvector`.
 
-Решение: при обращении к расширению используйте `pgvector` вместо `vector`.
+Решение: [включите расширение](../../managed-postgresql/operations/extensions/cluster-extensions.md#update-extensions) `vector` для базы данных. Если в базе уже включено расширение `pgvector`, замените его на `vector` в рамках одной [операции изменения](../../managed-postgresql/operations/extensions/cluster-extensions.md#update-extensions): расширение будет переименовано, данные и индексы сохранятся.
 
 #### Почему при обновлении кластера {{ PG }} до версии `18` возникает ошибка `collation version mismatch`? {#collation-version-mismatch}
 

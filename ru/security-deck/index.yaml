@@ -4,8 +4,7 @@ meta:
     Yandex Security Deck — это комплексный сервис CNAPP, включающий в себя
     модули контроля данных ({{ dspm-name }}), контроля конфигурации ({{
     cspm-name }}), контроля {{ k8s }} ({{ kspm-name }}), {{ access-analyzer-name
-    }}, {{ alerts-name }}, {{ atr-name }}, AI-ассистента для обеспечения
-    безопасности облачной инфраструктуры и Портал соответствия требованиям.
+    }}, {{ alerts-name }}, {{ atr-name }} и Порталом соответствия требованиям.
   keywords:
     - keyword: '{{ sd-name }}'
     - keyword: '{{ sd-full-name }}'
@@ -38,7 +37,6 @@ meta:
     - keyword: '{{ alerts-name }}'
     - keyword: алерты безопасности {{ yandex-cloud }}
     - keyword: уведомления безопасности {{ yandex-cloud }}
-    - keyword: AI-ассистент безопасности
     - keyword: '{{ yagpt-name }} безопасность'
     - keyword: рекомендации по безопасности {{ yandex-cloud }}
     - keyword: окружения {{ sd-name }}

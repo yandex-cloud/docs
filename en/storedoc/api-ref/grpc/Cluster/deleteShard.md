@@ -23,13 +23,13 @@ Deletes the specified shard.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the MongoDB cluster to delete a shard in.
+Required field. ID of the StoreDoc cluster to delete a shard in.
 To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || shard_name | **string**
 
-Required field. Name of the MongoDB shard to delete.
+Required field. Name of the StoreDoc shard to delete.
 To get the name of the shard use a [ClusterService.ListShards](/docs/managed-mongodb/api-ref/grpc/Cluster/listShards#ListShards) request.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||

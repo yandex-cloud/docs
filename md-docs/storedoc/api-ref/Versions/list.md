@@ -2,7 +2,7 @@
 
 # Managed Service for MongoDB API, REST: Versions.List
 
-Returns list of available MongoDB versions.
+Returns the list of available StoreDoc versions.
 
 ## HTTP request
 

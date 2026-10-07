@@ -4,7 +4,7 @@ editable: false
 
 # Managed Service for Redis API, gRPC: ClusterService.Delete
 
-Deletes the specified Redis cluster.
+Deletes the specified Valkey cluster.
 
 ## gRPC request
 
@@ -22,8 +22,8 @@ Deletes the specified Redis cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Redis cluster to delete.
-To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request.
+Required field. ID of the Valkey cluster to delete.
+To get the Valkey cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 |#

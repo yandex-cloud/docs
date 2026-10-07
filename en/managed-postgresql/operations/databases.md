@@ -1,6 +1,6 @@
 # Managing databases in {{ mpg-name }}
 
-You can add, rename, and delete databases, and view their info.
+You can add, rename, and delete databases, view their info, and change the database owner.
 
 {% include [db-sql](../../_includes/mdb/mdb-db-sql-limits.md) %}
 
@@ -98,7 +98,7 @@ You can add, rename, and delete databases, and view their info.
 
       * Deletion protection
 
-        The possible values are:
+        Possible values:
           - **Same as cluster**
           - **Enabled**
           - **Disabled**
@@ -133,7 +133,7 @@ You can add, rename, and delete databases, and view their info.
      {{ yc-mdb-pg }} user list --cluster-name=<cluster_name>
      ```
 
-     If the required user is not in the list, [create it](cluster-users.md#adduser).
+     If the user you are looking for is not in the list, [create it](cluster-users.md#adduser).
 
   1. Run the database creation command. Optionally, specify the template and your preferred collation and character set locales. The default locale settings are `LC_COLLATE=C` and `LC_CTYPE=C`:
 
@@ -150,7 +150,8 @@ You can add, rename, and delete databases, and view their info.
 
      You can get the cluster name from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
-     {{ mpg-short-name }} will start creating the database.
+     {{ mpg-name }} will start creating the database.
+
 
 - {{ TF }} {#tf}
 
@@ -184,15 +185,10 @@ You can add, rename, and delete databases, and view their info.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  {% note warning %}
-
-  Changing the owner of the existing database by editing the `owner` setting will trigger the database recreation, resulting in data loss.
-
-  {% endnote %}
 
 - REST API {#api}
 
@@ -307,6 +303,7 @@ You can add, rename, and delete databases, and view their info.
 
 {% list tabs group=instructions %}
 
+
 - {{ TF }} {#tf}
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
@@ -335,6 +332,7 @@ You can add, rename, and delete databases, and view their info.
   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 - REST API {#api}
 
@@ -420,6 +418,168 @@ You can add, rename, and delete databases, and view their info.
 
 {% endlist %}
 
+## Changing the database owner {#change-db-owner}
+
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the relevant database row and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+  1. Select a new database owner from the list of cluster users in the **{{ ui-key.yacloud.mdb.dialogs.popup-add-db_field_owner }}** field.
+  1. Click **{{ ui-key.yacloud.postgresql.databases.dialog.button_submit }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. View a description of the CLI update DB parameter command:
+
+     ```bash
+     {{ yc-mdb-pg }} database update --help
+     ```
+
+  1. Request the list of cluster users to select a new database owner:
+
+     ```bash
+     {{ yc-mdb-pg }} user list --cluster-name=<cluster_name>
+     ```
+
+     If the user you are looking for is not in the list, [create it](cluster-users.md#adduser).
+
+  1. Change the database owner:
+
+     ```bash
+     {{ yc-mdb-pg }} database update <DB_name> \
+         --cluster-name=<cluster_name> \
+         --owner=<new_DB_owner_name>
+     ```
+
+     You can get the cluster name from the [list of clusters in your folder](cluster-list.md#list-clusters), and the database name, from the [list of databases in your cluster](#list-db).
+
+
+- {{ TF }} {#tf}
+
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
+
+  1. Find the `yandex_mdb_postgresql_database` resource describing your target database.
+
+  1. In `owner`, specify the new database owner, who must be named in the `yandex_mdb_postgresql_user` resource:
+
+      ```hcl
+      resource "yandex_mdb_postgresql_database" "<DB_name>" {
+        ...
+        owner = "<new_DB_owner_name>"
+        ...        
+      }
+      ```
+
+  1. If there is an owner dependency specified for the database, enter the name of the new database owner in `depends_on`:
+
+      ```hcl
+      resource "yandex_mdb_postgresql_database" "<DB_name>" {
+        ...
+        owner = "<new_DB_owner_name>"
+        ...
+        depends_on = [
+          yandex_mdb_postgresql_user.<new_DB_owner_name>
+        ]
+      }
+      ```
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+
+- REST API {#api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Call the [Database.Update](../api-ref/Database/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+     {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+     ```bash
+     curl \
+       --request PATCH \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>/databases/<DB_name>' \
+       --data '{
+                 "updateMask": "owner",
+                 "owner": <username>
+               }'
+     ```
+
+     Where:
+
+     * `updateMask`: Comma-separated string of settings to update.
+
+       Here, we provide only one setting.
+
+     * `owner`: New database owner. Only an existing user of this cluster can be assigned as the new owner. Learn more about [getting the list of users in a cluster](cluster-users.md#list-users).
+
+     You can get the cluster name from the [list of clusters in your folder](cluster-list.md#list-clusters), and the database name, from the [list of databases in your cluster](#list-db).
+
+  1. Check the [server response](../api-ref/Database/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Call the [DatabaseService.Update](../api-ref/grpc/Database/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+     {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/database_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>",
+             "database_name": "<DB_name>",
+             "update_mask": {
+               "paths": [
+                 "owner"
+               ]
+             },
+             "owner": <username>
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.DatabaseService.Update
+     ```
+
+     Where:
+
+     * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+
+       Here, we provide only one setting.
+
+     * `owner`: New database owner. Only an existing user of this cluster can be assigned as the new owner. Learn more about [getting the list of users in a cluster](cluster-users.md#list-users).
+
+     You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the database name, from the [list of databases in your cluster](#list-db).
+
+  1. Check the [server response](../api-ref/grpc/Database/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+{% endlist %}
+
 ## Configuring deletion protection {#update-db-deletion-protection}
 
 {% list tabs group=instructions %}
@@ -431,6 +591,7 @@ You can add, rename, and delete databases, and view their info.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the relevant database row and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Select your preferred option in the **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** field.
   1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
+
 
 - {{ TF }} {#tf}
 
@@ -455,6 +616,7 @@ You can add, rename, and delete databases, and view their info.
   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 - REST API {#api}
 
@@ -570,6 +732,7 @@ A database can have deletion protection enabled. To delete it, first [disable de
 
   You can get the cluster name with the [list of clusters in the folder](cluster-list.md).
 
+
 - {{ TF }} {#tf}
 
   To delete a database:
@@ -588,6 +751,7 @@ A database can have deletion protection enabled. To delete it, first [disable de
   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 - REST API {#api}
 

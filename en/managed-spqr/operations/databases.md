@@ -16,6 +16,21 @@ You can add and delete databases, and view their info.
   1. [Navigate]({{ link-console-main }}/link/managed-spqr) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.spqr.cluster.switch_databases }}** tab.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To get a list of cluster databases, run this command:
+
+  ```bash
+  yc managed-sharded-postgresql database list \
+     --cluster-id <cluster_ID>
+  ```
+
+  {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
+
 - REST API {#api}
 
   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
@@ -68,6 +83,21 @@ You can add and delete databases, and view their info.
 
 {% list tabs group=instructions %}
 
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To get database info, run this command:
+
+  ```bash
+  yc managed-sharded-postgresql database get <database_name> \
+     --cluster-id <cluster_ID>
+  ```
+
+  You can get the database name with the [list of databases](#list-db) in the cluster, and the cluster ID, with the [list of clusters](cluster-list.md#list-clusters) in the folder.
+  
 - REST API {#api}
 
   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
@@ -140,6 +170,70 @@ You can add and delete databases, and view their info.
           - **{{ ui-key.yacloud.mdb.dialogs.action_deletion-protection-disabled }}**
 
   1. Click **{{ ui-key.yacloud.mdb.dialogs.popup-add-db_button_add }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To create a database in a cluster:
+
+  1. See the description of the CLI command for creating a database:
+
+      ```bash
+      yc managed-sharded-postgresql database create --help
+      ```
+  
+  1. Create a database by running this command:
+
+      ```bash
+      yc managed-sharded-postgresql database create <DB_name> \
+         --cluster-id <cluster_ID>
+      ```
+
+      Where: 
+
+      * `<DB_name>`: Name of your new database.
+
+        {% include [db-name-limits](../../_includes/mdb/mspqr/console/db-name-limits.md) %}
+      
+      * `--cluster-id`: Cluster ID which you can get with the [list of clusters](cluster-list.md#list-clusters) in the folder.
+
+
+- {{ TF }} {#tf}
+
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
+
+      To learn how to create this file, refer to [{#T}](cluster-create.md).
+
+  1. Add the `yandex_mdb_sharded_postgresql_database` resource:
+
+      ```hcl
+      resource "yandex_mdb_sharded_postgresql_database" "<local_DB_name>" {
+        cluster_id = <cluster_ID>
+        name       = "<DB_name>"
+      }
+      ```
+
+      Where:
+      
+      * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
+
+      * `name`: Database name.
+        
+        {% include [db-name-limits](../../_includes/mdb/mspqr/console/db-name-limits.md) %}
+      
+      For more information about the `yandex_mdb_sharded_postgresql_database` resource, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_database).
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 - REST API {#api}
 
@@ -227,6 +321,39 @@ You can add and delete databases, and view their info.
   1. [Navigate]({{ link-console-main }}/link/managed-spqr) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.spqr.cluster.switch_databases }}** tab.
   1. Find the database you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**, then confirm the deletion.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To delete a database, run this command:
+
+  ```bash
+  yc managed-sharded-postgresql database delete <DB_name> \
+     --cluster-id <cluster_ID>
+  ```
+
+  You can get the database name with the [list of databases](#list-db) in the cluster, and the cluster ID, with the [list of clusters](cluster-list.md#list-clusters) in the folder.
+
+
+- {{ TF }} {#tf}
+
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
+
+      To learn how to create this file, refer to [{#T}](cluster-create.md).
+
+  1. Delete the `yandex_mdb_sharded_postgresql_database` resource describing the database you want to delete.
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 - REST API {#api}
 

@@ -9,7 +9,7 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the MongoDB cluster the user belongs to.
+            Required field. ID of the StoreDoc cluster the user belongs to.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
             The maximum string length in characters is 50.
           type: string
@@ -49,7 +49,7 @@ apiPlayground:
           roles:
             description: |-
               **string**
-              MongoDB roles for the [databaseName](#yandex.cloud.mdb.mongodb.v1.Permission) database that the permission grants.
+              StoreDoc roles for the [databaseName](#yandex.cloud.mdb.mongodb.v1.Permission) database that the permission grants.
             type: array
             items:
               type: string
@@ -57,7 +57,7 @@ apiPlayground:
 
 # Managed Service for MongoDB API, REST: User.GrantPermission
 
-Grants permission to the specified MongoDB user.
+Grants permission to the specified StoreDoc user.
 
 ## HTTP request
 
@@ -71,7 +71,7 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/users/{u
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster the user belongs to.
+Required field. ID of the StoreDoc cluster the user belongs to.
 To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -112,7 +112,7 @@ Required field. Permission that should be granted to the specified user. ||
 Name of the database that the permission grants access to. ||
 || roles[] | **string**
 
-MongoDB roles for the `databaseName` database that the permission grants. ||
+StoreDoc roles for the `databaseName` database that the permission grants. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

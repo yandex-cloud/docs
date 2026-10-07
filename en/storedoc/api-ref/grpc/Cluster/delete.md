@@ -4,7 +4,7 @@ editable: false
 
 # Managed Service for MongoDB API, gRPC: ClusterService.Delete
 
-Deletes the specified MongoDB cluster.
+Deletes the specified StoreDoc cluster.
 
 ## gRPC request
 
@@ -22,8 +22,8 @@ Deletes the specified MongoDB cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the MongoDB cluster to delete.
-To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request.
+Required field. ID of the StoreDoc cluster to delete.
+To get the StoreDoc cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 |#

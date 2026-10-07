@@ -2,7 +2,7 @@
 
 # Managed Service for MongoDB API, REST: Database.Update
 
-Updates the specified MongoDB database.
+Updates the specified StoreDoc database.
 
 ## HTTP request
 
@@ -16,7 +16,7 @@ PATCH https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/d
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster to update a database in.
+Required field. ID of the StoreDoc cluster to update a database in.
 To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||

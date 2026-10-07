@@ -975,6 +975,10 @@ items:
         href: events-ref/DeleteTargetGroup.md
       - name: DeleteVirtualHost
         href: events-ref/DeleteVirtualHost.md
+      - name: DisableZones
+        href: events-ref/DisableZones.md
+      - name: EnableZones
+        href: events-ref/EnableZones.md
       - name: LoadBalancerHTTPAccessLog
         href: events-ref/LoadBalancerHTTPAccessLog.md
       - name: LoadBalancerTCPAccessLog

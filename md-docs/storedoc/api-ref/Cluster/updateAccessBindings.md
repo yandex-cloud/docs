@@ -2,7 +2,7 @@
 
 # Managed Service for MongoDB API, REST: Cluster.UpdateAccessBindings
 
-Updates access bindings for the specified MongoDB cluster.
+Updates access bindings for the specified StoreDoc cluster.
 
 ## HTTP request
 

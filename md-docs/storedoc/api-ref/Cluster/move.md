@@ -2,7 +2,7 @@
 
 # Managed Service for MongoDB API, REST: Cluster.Move
 
-Moves the specified MongoDB cluster to the specified folder.
+Moves the specified StoreDoc cluster to the specified folder.
 
 ## HTTP request
 
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}:mo
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster to move.
+Required field. ID of the StoreDoc cluster to move.
 
 The maximum string length in characters is 50. ||
 |#

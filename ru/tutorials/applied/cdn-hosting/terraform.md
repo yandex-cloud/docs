@@ -11,7 +11,6 @@ description: В этом руководстве вы с помощью {{ TF }} 
 
 {% include [cdn-hosting-terraform](../../../_tutorials/applied/cdn-hosting-terraform.md) %}
 
-
 #### Полезные ссылки {#see-also}
 
-* [{#T}](console.md)
+[{#T}](console.md)

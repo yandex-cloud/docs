@@ -114,7 +114,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
              If both conditions are set, the percentage in the first condition must be less than the percentage in the second.
 
-             Learn more about the storage expansion criteria [here](../concepts/storage.md#auto-rescale).
+             For more information on the storage expansion criteria, see [this section](../concepts/storage.md#auto-rescale).
 
          * In the **{{ ui-key.yacloud.mdb.resources.DiskAutoscalingFieldGroup.field_disk-size-limit_bK9Ng }}** field, specify the maximum storage size that can be set during autoscaling.
 
@@ -319,7 +319,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). To be specified if the selected availability zone has more than one subnet.
         * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`. In a sharded cluster, it is used only for `MONGOS` and `MONGOINFRA` hosts.
         * `hidden`: Determines whether the host is hidden, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
-        * `secondary-delay-secs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
+        * `secondary-delay-secs`: Secondary replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
         * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
           
           {% note info %}
@@ -426,7 +426,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
      * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
-     Here is an example of the configuration file structure:
+     Configuration file structure example:
 
      {% cut "For a non-sharded cluster" %}
 
@@ -683,7 +683,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
        * `host_parameters`: Additional host settings:
          
          * `hidden`: Determines whether the host is hidden, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
-         * `secondary_delay_secs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
+         * `secondary_delay_secs`: Secondary replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
          * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
 
         {% note info %}
@@ -1259,7 +1259,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
           * `tags`: Host tags.
           * `shard_name`: Shard name in a sharded cluster (for `MONGOD` hosts only).
           * `hidden`: Determines whether the host is hidden, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
-          * `secondaryDelaySecs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
+          * `secondaryDelaySecs`: Secondary replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
           * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
 
           {% note info %}
@@ -1740,7 +1740,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
             {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
-          * `deletion_protection`: Database protection from accidental deletion, `true` or `false`. There is no default value; the database will use the one from the corresponding cluster setting. If the protection is enabled (`true`), you cannot delete the database.
+          * `deletion_protection`: Database protection from accidental deletion, `true` or `false`. There is no default value; the database will use the one from the corresponding cluster setting. If the protection is on (`true`), you cannot delete the database.
 
         * `user_specs`: User settings as an array of elements, one per user. Each element has the following structure:
 
@@ -1765,7 +1765,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
           * `tags`: Host tags.
           * `shard_name`: Shard name in a sharded cluster.
           * `hidden`: Determines whether the host is hidden, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
-          * `secondaryDelaySecs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
+          * `secondaryDelaySecs`: Secondary replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
           * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
 
           {% note info %}

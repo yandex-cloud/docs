@@ -1,6 +1,6 @@
 {% note warning %}
 
-Для интеграции требуется платное дополнение _{{ src-name }} Security_. Стоимость определяется [правилами тарификации {{ src-name }}]({{ link-src-docs }}/sourcecraft/pricing#additional).
+Для интеграции требуется платное дополнение _{{ src-name }} Security_. Стоимость определяется [правилами тарификации {{ src-name }}]({{ link-src-docs }}/sourcecraft/pricing#security).
 
 Репозитории создаются в той же [организации {{ yandex-cloud }}](../../organization/concepts/organization.md), в которой находится инстанс {{ GL }}. Эта организация может отличаться от [персональной организации]({{ link-src-docs }}/sourcecraft/concepts/#org), автоматически созданной при регистрации в {{ src-name }}. Убедитесь, что дополнение подключено именно к организации инстанса.
 

@@ -44,7 +44,8 @@ The maximum string length in characters is 50. ||
     // Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`, `eventrouter`, `monium`
     "object_storage": {
       "bucket_id": "string",
-      "object_prefix": "string"
+      "object_prefix": "string",
+      "aggregation_period": "google.protobuf.Duration"
     },
     "cloud_logging": {
       // Includes only one of the fields `log_group_id`
@@ -327,6 +328,11 @@ The string length in characters must be 3-63. ||
 
 Prefix for exported objects. Optional
 If specified, uploaded objects will have prefix &lt;object_prefix&gt;/&lt;trail_id&gt;/ ||
+|| aggregation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+
+Target interval between the starts of exports to Object Storage.
+Must be between 1 minute and 1 hour, inclusive.
+If omitted, the default interval is 5 minutes. ||
 |#
 
 ## CloudLogging {#yandex.cloud.audittrails.v1.Trail.CloudLogging}

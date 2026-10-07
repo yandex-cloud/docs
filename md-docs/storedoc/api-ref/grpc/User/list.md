@@ -2,7 +2,7 @@
 
 # Managed Service for MongoDB API, gRPC: UserService.List
 
-Retrieves the list of MongoDB User resources in the specified cluster.
+Retrieves the list of StoreDoc User resources in the specified cluster.
 
 ## gRPC request
 
@@ -22,7 +22,7 @@ Retrieves the list of MongoDB User resources in the specified cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the cluster to list MongoDB users in.
+Required field. ID of the cluster to list StoreDoc users in.
 To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -57,6 +57,9 @@ The maximum string length in characters is 100. ||
           ]
         }
       ],
+      "connection_manager": {
+        "connection_id": "string"
+      },
       "auth_type": "AuthType",
       "deletion_protection": "google.protobuf.BoolValue"
     }
@@ -69,7 +72,7 @@ The maximum string length in characters is 100. ||
 ||Field | Description ||
 || users[] | **[User](#yandex.cloud.mdb.mongodb.v1.User)**
 
-List of MongoDB User resources. ||
+List of StoreDoc User resources. ||
 || next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
@@ -80,20 +83,23 @@ list request will have its own `next_page_token` to continue paging through the 
 
 ## User {#yandex.cloud.mdb.mongodb.v1.User}
 
-A MongoDB User resource. For more information, see the
+A StoreDoc User resource. For more information, see the
 [Developer's Guide](../../../concepts/index.md).
 
 #|
 ||Field | Description ||
 || name | **string**
 
-Name of the MongoDB user. ||
+Name of the StoreDoc user. ||
 || cluster_id | **string**
 
-ID of the MongoDB cluster the user belongs to. ||
+ID of the StoreDoc cluster the user belongs to. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)**
 
 Set of permissions granted to the user. ||
+|| connection_manager | **[ConnectionManager](#yandex.cloud.mdb.mongodb.v1.ConnectionManager)**
+
+Connection Manager connection configuration. ||
 || auth_type | enum **AuthType**
 
 Authentication type for the user.
@@ -102,7 +108,7 @@ Authentication type for the user.
 - `AUTH_TYPE_IAM`: IAM-based authentication via iam-auth-proxy (SASL/PLAIN, $external). ||
 || deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Deletion Protection inhibits deletion of the user ||
+Deletion Protection inhibits deletion of the user. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.mongodb.v1.Permission}
@@ -114,5 +120,16 @@ Deletion Protection inhibits deletion of the user ||
 Name of the database that the permission grants access to. ||
 || roles[] | **string**
 
-MongoDB roles for the `database_name` database that the permission grants. ||
+StoreDoc roles for the `database_name` database that the permission grants. ||
+|#
+
+## ConnectionManager {#yandex.cloud.mdb.mongodb.v1.ConnectionManager}
+
+Connection Manager connection configuration.
+
+#|
+||Field | Description ||
+|| connection_id | **string**
+
+ID of Connection Manager connection. ||
 |#

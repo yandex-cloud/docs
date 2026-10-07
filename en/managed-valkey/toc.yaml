@@ -83,6 +83,8 @@ items:
         href: tutorials/valkey-as-php-sessions-storage.md
       - name: Migrating a database to {{ mrd-name }}
         href: tutorials/data-migration.md
+      - name: Distributed locks for 1C:Enterprise in a {{ mrd-name }} cluster
+        href: tutorials/1c-valkey-locks.md
   - name: Concepts
     items:
       - name: Resource relationships

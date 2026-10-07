@@ -2,7 +2,7 @@
 
 # Managed Service for Redis API, REST: Cluster.Stop
 
-Stop the specified Redis cluster.
+Stop the specified Valkey cluster.
 
 ## HTTP request
 
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}:stop
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Redis cluster to stop.
+Required field. ID of the Valkey cluster to stop.
 
 The maximum string length in characters is 50. ||
 |#

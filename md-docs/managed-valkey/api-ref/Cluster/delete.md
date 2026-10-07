@@ -2,7 +2,7 @@
 
 # Managed Service for Redis API, REST: Cluster.Delete
 
-Deletes the specified Redis cluster.
+Deletes the specified Valkey cluster.
 
 ## HTTP request
 
@@ -16,8 +16,8 @@ DELETE https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Redis cluster to delete.
-To get the Redis cluster ID, use a [ClusterService.List](list.md#List) request.
+Required field. ID of the Valkey cluster to delete.
+To get the Valkey cluster ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 |#

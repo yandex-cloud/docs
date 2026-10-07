@@ -2,7 +2,7 @@
 
 # Managed Service for Redis API, REST: Cluster.SetAccessBindings
 
-Sets access bindings for the specified Redis cluster.
+Sets access bindings for the specified Valkey cluster.
 
 ## HTTP request
 

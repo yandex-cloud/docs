@@ -91,12 +91,13 @@
     // end of the list of possible fields
     "trailName": "string",
     "destination": {
-      // Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`
+      // Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`, `monium`
       "objectStorage": {
         "bucketId": "string",
         // Includes only one of the fields `objectPrefix`
-        "objectPrefix": "string"
+        "objectPrefix": "string",
         // end of the list of possible fields
+        "aggregationPeriod": "string"
       },
       "cloudLogging": {
         // Includes only one of the fields `logGroupId`, `folderId`
@@ -113,7 +114,8 @@
       },
       "eventrouter": {
         "eventrouterConnectorId": "string"
-      }
+      },
+      "monium": "object"
       // end of the list of possible fields
     },
     // Includes only one of the fields `serviceAccountId`
@@ -157,6 +159,32 @@
             "id": "string",
             "type": "string"
           }
+        ],
+        "includeRules": [
+          {
+            "conditions": [
+              {
+                "field": "string",
+                "operator": "string",
+                "values": [
+                  "string"
+                ]
+              }
+            ]
+          }
+        ],
+        "excludeRules": [
+          {
+            "conditions": [
+              {
+                "field": "string",
+                "operator": "string",
+                "values": [
+                  "string"
+                ]
+              }
+            ]
+          }
         ]
       },
       "dataEventsFilters": [
@@ -178,6 +206,37 @@
             {
               "id": "string",
               "type": "string"
+            }
+          ],
+          // Includes only one of the fields `dnsFilter`
+          "dnsFilter": {
+            "includeNonrecursiveQueries": "boolean"
+          },
+          // end of the list of possible fields
+          "includeRules": [
+            {
+              "conditions": [
+                {
+                  "field": "string",
+                  "operator": "string",
+                  "values": [
+                    "string"
+                  ]
+                }
+              ]
+            }
+          ],
+          "excludeRules": [
+            {
+              "conditions": [
+                {
+                  "field": "string",
+                  "operator": "string",
+                  "values": [
+                    "string"
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -391,16 +450,19 @@ No more than 64 per resource. The maximum string length in characters for each v
 ||Field | Description ||
 || objectStorage | **[ObjectStorage](#yandex.cloud.audit.audittrails.ObjectStorage)**
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`, `monium`. ||
 || cloudLogging | **[CloudLogging](#yandex.cloud.audit.audittrails.CloudLogging)**
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`, `monium`. ||
 || dataStream | **[DataStream](#yandex.cloud.audit.audittrails.DataStream)**
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`, `monium`. ||
 || eventrouter | **[EventRouter](#yandex.cloud.audit.audittrails.EventRouter)**
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`, `monium`. ||
+|| monium | **object**
+
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`, `monium`. ||
 |#
 
 ## ObjectStorage {#yandex.cloud.audit.audittrails.ObjectStorage}
@@ -411,6 +473,7 @@ Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `
 || objectPrefix | **string**
 
 Includes only one of the fields `objectPrefix`. ||
+|| aggregationPeriod | **string** (duration) ||
 |#
 
 ## CloudLogging {#yandex.cloud.audit.audittrails.CloudLogging}
@@ -528,6 +591,35 @@ The number of elements must be less than 128. ||
 || resourceScopes[] | **[Resource](#yandex.cloud.audit.audittrails.Resource)**
 
 The number of elements must be in the range 1-1024. ||
+|| includeRules[] | **[FieldFilterRule](#yandex.cloud.audit.audittrails.FieldFilterRule)**
+
+The maximum number of elements is 64. ||
+|| excludeRules[] | **[FieldFilterRule](#yandex.cloud.audit.audittrails.FieldFilterRule)**
+
+The maximum number of elements is 64. ||
+|#
+
+## FieldFilterRule {#yandex.cloud.audit.audittrails.FieldFilterRule}
+
+#|
+||Field | Description ||
+|| conditions[] | **[FieldCondition](#yandex.cloud.audit.audittrails.FieldCondition)**
+
+The number of elements must be in the range 1-64. ||
+|#
+
+## FieldCondition {#yandex.cloud.audit.audittrails.FieldCondition}
+
+#|
+||Field | Description ||
+|| field | **string** ||
+|| operator | **enum** (Operator)
+
+- `IN`
+- `IP_IN` ||
+|| values[] | **string**
+
+The number of elements must be in the range 1-64. ||
 |#
 
 ## DataEventsFiltering {#yandex.cloud.audit.audittrails.DataEventsFiltering}
@@ -544,6 +636,15 @@ Includes only one of the fields `includedEvents`, `excludedEvents`. ||
 || resourceScopes[] | **[Resource](#yandex.cloud.audit.audittrails.Resource)**
 
 The number of elements must be in the range 1-1024. ||
+|| dnsFilter | **[DnsDataEventsFilter](#yandex.cloud.audit.audittrails.DnsDataEventsFilter)**
+
+Includes only one of the fields `dnsFilter`. ||
+|| includeRules[] | **[FieldFilterRule](#yandex.cloud.audit.audittrails.FieldFilterRule)**
+
+The maximum number of elements is 64. ||
+|| excludeRules[] | **[FieldFilterRule](#yandex.cloud.audit.audittrails.FieldFilterRule)**
+
+The maximum number of elements is 64. ||
 |#
 
 ## EventTypes {#yandex.cloud.audit.audittrails.EventTypes}
@@ -553,4 +654,11 @@ The number of elements must be in the range 1-1024. ||
 || eventTypes[] | **string**
 
 The number of elements must be in the range 1-1024. ||
+|#
+
+## DnsDataEventsFilter {#yandex.cloud.audit.audittrails.DnsDataEventsFilter}
+
+#|
+||Field | Description ||
+|| includeNonrecursiveQueries | **boolean** ||
 |#

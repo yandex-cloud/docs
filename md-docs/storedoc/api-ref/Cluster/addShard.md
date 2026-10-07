@@ -18,7 +18,7 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/sh
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster to add a shard to.
+Required field. ID of the StoreDoc cluster to add a shard to.
 To get the cluster ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -50,7 +50,7 @@ The maximum string length in characters is 50. ||
 ||Field | Description ||
 || shardName | **string**
 
-Required field. Name of the MongoDB shard to create.
+Required field. Name of the StoreDoc shard to create.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || hostSpecs[] | **[HostSpec](#yandex.cloud.mdb.mongodb.v1.HostSpec)**

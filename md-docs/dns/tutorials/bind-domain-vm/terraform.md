@@ -23,11 +23,11 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки создаваемого решения входят:
+В стоимость поддержки инфраструктуры для привязки доменного имени к ВМ входят:
 
-* плата за использование [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
-* плата за вычислительные ресурсы и диски [ВМ](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* плата за использование публичной [DNS-зоны](../../concepts/dns-zone.md) и публичные [DNS-запросы](../../../glossary/dns.md) ([тарифы Yandex Cloud DNS](../../pricing.md)).
+* Плата за постоянно запущенную [ВМ](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
+* Плата за использование [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md)).
+* Плата за использование публичной [DNS-зоны](../../concepts/dns-zone.md) и публичные [DNS-запросы](../../../glossary/dns.md) ([тарифы Yandex Cloud DNS](../../pricing.md)).
 
 ## Делегируйте домен сервису Cloud DNS {#delegate-domain}
 
@@ -61,7 +61,8 @@ Terraform распространяется под лицензией [Business S
 
 Для создания инфраструктуры c помощью Terraform:
 
-1. [Установите Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+1. [Установите Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) и [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
+1. Укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файл с описанием инфраструктуры:
 
     {% list tabs group=infrastructure_description %}
@@ -247,7 +248,7 @@ Terraform распространяется под лицензией [Business S
 
               ```hcl
               folder_id    = "<идентификатор_каталога>"
-              ssh_key_path = "<путь_к_SSH-ключу>"
+              ssh_key_path = "<путь_к_публичному_SSH-ключу>"
               domain_name  = "<имя_домена>"
               ```
 
@@ -311,11 +312,11 @@ Terraform распространяется под лицензией [Business S
 Теперь сайт на вашем веб-сервере доступен по доменному имени. Чтобы проверить работу сайта, введите в браузере его IP-адрес или доменное имя:
 
 * `http://<публичный_IP-адрес_ВМ>`
-* `http://example.com`
+* `http://<доменное_имя>`
 
-## Удалите созданные ресурсы {#clear-out}
+## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы остановить работу хостинга и перестать платить за созданные ресурсы:
+Чтобы перестать платить за созданные ресурсы:
 
 1. Откройте конфигурационный файл `bind-domain-to-vm.tf` и удалите описание создаваемой инфраструктуры из файла.
 1. Примените изменения:

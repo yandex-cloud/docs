@@ -1,3 +1,8 @@
+---
+title: Как изменить файловое хранилище в {{ compute-full-name }}
+description: Изменение имени, описания и размера файлового хранилища в {{ compute-name }}.
+---
+
 # Изменить файловое хранилище
 
 {% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
@@ -6,7 +11,7 @@
 
 {% note info %}
 
-Размер файлового хранилища можно изменить только с помощью [CLI](../../../cli/) или API. Изменить размер хранилища можно лишь в сторону увеличения, уменьшить размер хранилища нельзя.
+Размер хранилища можно только увеличить. Уменьшить размер нельзя, но можно [создать хранилище](create.md) меньшего размера.
 
 {% endnote %}
 
@@ -16,16 +21,9 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится файловое хранилище.
   1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}**.
-  1. В строке нужного файлового хранилище нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.common.edit }}**.
-  1. Измените параметры файлового хранилища: например, переименуйте его, отредактировав поле **{{ ui-key.yacloud.common.name }}**.
-
-     {% note info %}
-
-     Размер файлового хранилища можно изменить только с помощью CLI или API.
-
-     {% endnote %}
-
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.storage_uisyT }}** и перейдите на вкладку **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}**.
+  1. В строке файлового хранилища нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите пункт ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Измените имя, описание или размер файлового хранилища. Размер хранилища можно только увеличить.
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -65,7 +63,7 @@
        status: READY
      ```
 
-  1. Измените параметры файлового хранилища, указав в команде идентификатор (`--id`) или имя (`--name`) нужного хранилища. Например, измените:
+  1. Измените параметры файлового хранилища, указав в команде идентификатор (`--id`) или имя (`--name`) хранилища. Например, измените:
      * Имя и описание:
 
        ```bash

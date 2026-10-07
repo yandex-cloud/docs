@@ -4,13 +4,13 @@ editable: false
 
 # Managed Service for Redis API, gRPC: BackupService
 
-A set of methods for managing Redis backups.
+A set of methods for managing Valkey backups.
 
 ## Methods
 
 #|
 ||Method | Description ||
-|| [Get](get.md) | Returns the specified Redis backup. ||
-|| [List](list.md) | Retrieves the list of Redis backups available for the specified folder. ||
-|| [Delete](delete.md) | Deletes the specified Redis backup. ||
+|| [Get](get.md) | Returns the specified Valkey backup. ||
+|| [List](list.md) | Retrieves the list of Valkey backups available for the specified folder. ||
+|| [Delete](delete.md) | Deletes the specified Valkey backup. ||
 |#

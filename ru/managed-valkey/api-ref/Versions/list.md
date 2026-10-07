@@ -31,7 +31,7 @@ apiPlayground:
 
 # Managed Service for Redis API, REST: Versions.List
 
-Returns list of available Redis versions.
+Returns the list of available Valkey versions.
 
 ## HTTP request
 

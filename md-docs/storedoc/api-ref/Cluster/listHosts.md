@@ -16,8 +16,8 @@ GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/hos
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the MongoDB cluster.
-To get the MongoDB cluster ID, use a [ClusterService.List](list.md#List) request.
+Required field. ID of the StoreDoc cluster.
+To get the StoreDoc cluster ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 |#
@@ -33,7 +33,7 @@ results is larger than `pageSize`, the service returns a [ListClusterHostsRespon
 that can be used to get the next page of results in subsequent list requests.
 Acceptable values are 0 to 1000, inclusive. Default value: 100.
 
-The maximum value is 1000. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
@@ -102,25 +102,25 @@ Each subsequent list request will have its own `nextPageToken` to continue pagin
 ||Field | Description ||
 || name | **string**
 
-Name of the MongoDB host. The host name is assigned by MDB at creation time, and cannot be changed.
+Name of the StoreDoc host. The host name is assigned by MDB at creation time, and cannot be changed.
 1-63 characters long.
 The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. ||
 || clusterId | **string**
 
-ID of the MongoDB host. The ID is assigned by MDB at creation time. ||
+ID of the StoreDoc host. The ID is assigned by MDB at creation time. ||
 || zoneId | **string**
 
-ID of the availability zone where the MongoDB host resides. ||
+ID of the availability zone where the StoreDoc host resides. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
-Resources allocated to the MongoDB host. ||
+Resources allocated to the StoreDoc host. ||
 || role | **enum** (Role)
 
 Role of the host in the cluster. If the field has default value, it is not returned in the response.
 
 - `ROLE_UNKNOWN`: Role of the host in the cluster is unknown. Default value.
-- `PRIMARY`: Host is the primary MongoDB server in the cluster.
-- `SECONDARY`: Host is a secondary MongoDB server in the cluster. ||
+- `PRIMARY`: Host is the primary StoreDoc server in the cluster.
+- `SECONDARY`: Host is a secondary StoreDoc server in the cluster. ||
 || health | **enum** (Health)
 
 Aggregated health of the host. If the field has default value, it is not returned in the response.
@@ -184,7 +184,7 @@ Type of the service provided by the host. If the field has default value, it is 
 
 - `MONGOD`: The host is running a mongod daemon.
 - `MONGOS`: The host is running a mongos daemon.
-- `MONGOCFG`: The host is running a MongoDB config server. ||
+- `MONGOCFG`: The host is running a StoreDoc config server. ||
 || health | **enum** (Health)
 
 Aggregated health of the service. If the field has default value, it is not returned in the response.

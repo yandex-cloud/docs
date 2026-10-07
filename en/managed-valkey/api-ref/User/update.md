@@ -9,14 +9,14 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field. ID of the Redis cluster the user belongs to.
+            Required field. ID of the Valkey cluster the user belongs to.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
             The maximum string length in characters is 50.
           type: string
         userName:
           description: |-
             **string**
-            Required field. Name of the Redis user to be updated.
+            Required field. Name of the Valkey user to be updated.
             The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_@.-]*$ `.
           pattern: ^[a-zA-Z0-9_][a-zA-Z0-9_@.-]*$
           type: string
@@ -43,7 +43,7 @@ apiPlayground:
         passwords:
           description: |-
             **string**
-            New password of the Redis user, 8-128 characters long.
+            New password of the Valkey user, 8-128 characters long.
             The maximum number of elements is 1.
           type: array
           items:
@@ -56,7 +56,7 @@ apiPlayground:
         enabled:
           description: |-
             **boolean**
-            Is Redis user enabled
+            Is Valkey user enabled
           type: boolean
         generatePassword:
           description: |-
@@ -103,7 +103,7 @@ apiPlayground:
 
 # Managed Service for Redis API, REST: User.Update
 
-Updates the specified Redis user.
+Updates the specified Valkey user.
 
 ## HTTP request
 
@@ -117,13 +117,13 @@ PATCH https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/users/{us
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Redis cluster the user belongs to.
+Required field. ID of the Valkey cluster the user belongs to.
 To get the cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || userName | **string**
 
-Required field. Name of the Redis user to be updated.
+Required field. Name of the Valkey user to be updated.
 
 The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_@.-]*$ `. ||
 |#
@@ -163,7 +163,7 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || passwords[] | **string**
 
-New password of the Redis user, 8-128 characters long.
+New password of the Valkey user, 8-128 characters long.
 
 The maximum number of elements is 1. ||
 || permissions | **[Permissions](#yandex.cloud.mdb.redis.v1.Permissions)**
@@ -171,7 +171,7 @@ The maximum number of elements is 1. ||
 New set of permissions to grant to the user. ||
 || enabled | **boolean**
 
-Is Redis user enabled ||
+Is Valkey user enabled ||
 || generatePassword | **boolean**
 
 Generate password using Connection Manager ||

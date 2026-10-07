@@ -50,6 +50,21 @@ apiPlayground:
               - DATABASE_ENGINE_UNSPECIFIED
               - DATABASE_ENGINE_ATOMIC
               - DATABASE_ENGINE_REPLICATED
+          deletionProtectionMode:
+            description: |-
+              **enum** (DeletionProtectionMode)
+              Deletion protection mode.
+              Default value: `DELETION_PROTECTION_MODE_DISABLED`.
+              - `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled.
+              - `DELETION_PROTECTION_MODE_ENABLED`: Deletion protection is enabled.
+              - `DELETION_PROTECTION_MODE_INHERITED`: Deletion protection mode is inherited from the cluster.
+            default: DELETION_PROTECTION_MODE_DISABLED
+            type: string
+            enum:
+              - DELETION_PROTECTION_MODE_UNSPECIFIED
+              - DELETION_PROTECTION_MODE_DISABLED
+              - DELETION_PROTECTION_MODE_ENABLED
+              - DELETION_PROTECTION_MODE_INHERITED
         required:
           - name
 ---
@@ -82,7 +97,8 @@ The maximum string length in characters is 50. ||
 {
   "databaseSpec": {
     "name": "string",
-    "engine": "string"
+    "engine": "string",
+    "deletionProtectionMode": "string"
   }
 }
 ```
@@ -109,6 +125,14 @@ Database engine. For details, see [ClickHouse documentation](https://clickhouse.
 
 - `DATABASE_ENGINE_ATOMIC`: Atomic database engine.
 - `DATABASE_ENGINE_REPLICATED`: Replicated database engine. ||
+|| deletionProtectionMode | **enum** (DeletionProtectionMode)
+
+Deletion protection mode.
+Default value: `DELETION_PROTECTION_MODE_DISABLED`.
+
+- `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled.
+- `DELETION_PROTECTION_MODE_ENABLED`: Deletion protection is enabled.
+- `DELETION_PROTECTION_MODE_INHERITED`: Deletion protection mode is inherited from the cluster. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

@@ -112,12 +112,16 @@ apiPlayground:
         maintenanceWindow:
           description: |-
             **[MaintenanceWindow](#yandex.cloud.mdb.mysql.v1.MaintenanceWindow)**
+            Deprecated. Use maintenance_windows instead.
             Window of maintenance operations.
+          deprecated: true
           $ref: '#/definitions/MaintenanceWindow'
         diskEncryptionKeyId:
           description: |-
             **string**
             ID of the key to encrypt cluster disks.
+            Value must match the regular expression ` [a-zA-Z0-9_.-]{0,50} `.
+          pattern: '[a-zA-Z0-9_.-]{0,50}'
           type: string
         retentionPolicies:
           description: |-
@@ -126,6 +130,11 @@ apiPlayground:
           type: array
           items:
             $ref: '#/definitions/BackupRetentionPolicySpec'
+        maintenanceWindows:
+          description: |-
+            **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)**
+            Maintenance windows.
+          $ref: '#/definitions/MaintenanceWindows'
       required:
         - folderId
         - name
@@ -2727,6 +2736,29 @@ apiPlayground:
               Limit on how large the storage for database instances can automatically grow, in bytes.
             type: string
             format: int64
+      ClusterConnectionManager:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              True if the integration for the cluster is enabled.
+              Set to true to enable the integration.
+              Disabling the integration is not supported.
+            type: boolean
+          connectionsFolderId:
+            description: |-
+              **string**
+              ID of the folder where connections for the cluster are created.
+              Optional. Defaults to the cluster's folder if not specified.
+            type: string
+          secretsFolderId:
+            description: |-
+              **string**
+              A Connection Manager setting for connections created by MDB integration.
+              ID of the folder where connection secrets are created.
+              Optional. Defaults to the cluster's folder if not specified.
+            type: string
       ConfigSpec:
         type: object
         properties:
@@ -2790,6 +2822,11 @@ apiPlayground:
               **[DiskSizeAutoscaling](#yandex.cloud.mdb.mysql.v1.DiskSizeAutoscaling)**
               Disk size autoscaling
             $ref: '#/definitions/DiskSizeAutoscaling'
+          connectionManager:
+            description: |-
+              **[ClusterConnectionManager](#yandex.cloud.mdb.v1.ClusterConnectionManager)**
+              Cluster-wide Connection Manager integration configuration
+            $ref: '#/definitions/ClusterConnectionManager'
         oneOf:
           - required:
               - mysqlConfig_5_7
@@ -2914,6 +2951,30 @@ apiPlayground:
               The minimum value is 0.
             type: string
             format: int64
+      UserConnectionManager:
+        type: object
+        properties:
+          connectionId:
+            description: |-
+              **string**
+              ID of the Connection Manager connection corresponding to the user.
+              Ignored if specified in update requests.
+            type: string
+          connectionFolderId:
+            description: |-
+              **string**
+              ID of the folder where connection for the user is created.
+              Optional. Defaults to the cluster's ClusterConnectionManager.connections_folder_id if not specified,
+              or the cluster's folder if ClusterConnectionManager.connections_folder_id is not specified.
+            type: string
+          secretFolderId:
+            description: |-
+              **string**
+              A Connection Manager setting for a user's connection created by MDB integration.
+              ID of the folder where secret for the user's connection is created.
+              Optional. Defaults to the cluster's ClusterConnectionManager.secrets_folder_id if not specified,
+              or the cluster's ClusterConnectionManager.connections_folder_id, or the cluster's folder.
+            type: string
       UserSpec:
         type: object
         properties:
@@ -3010,6 +3071,11 @@ apiPlayground:
               - DELETION_PROTECTION_MODE_DISABLED
               - DELETION_PROTECTION_MODE_ENABLED
               - DELETION_PROTECTION_MODE_INHERITED
+          userConnectionManager:
+            description: |-
+              **[UserConnectionManager](#yandex.cloud.mdb.v1.UserConnectionManager)**
+              Connection Manager Connection and settings associated with user
+            $ref: '#/definitions/UserConnectionManager'
         required:
           - name
       HostSpec:
@@ -3173,6 +3239,81 @@ apiPlayground:
             type: string
         required:
           - policyName
+      MaintenanceWindowSlot:
+        type: object
+        properties:
+          day:
+            description: |-
+              **enum** (DayOfWeek)
+              Day of the week.
+              - `MONDAY`: The day-of-week of Monday.
+              - `TUESDAY`: The day-of-week of Tuesday.
+              - `WEDNESDAY`: The day-of-week of Wednesday.
+              - `THURSDAY`: The day-of-week of Thursday.
+              - `FRIDAY`: The day-of-week of Friday.
+              - `SATURDAY`: The day-of-week of Saturday.
+              - `SUNDAY`: The day-of-week of Sunday.
+            type: string
+            enum:
+              - DAY_OF_WEEK_UNSPECIFIED
+              - MONDAY
+              - TUESDAY
+              - WEDNESDAY
+              - THURSDAY
+              - FRIDAY
+              - SATURDAY
+              - SUNDAY
+          startTime:
+            description: |-
+              **[TimeOfDay](#google.type.TimeOfDay)**
+              Required field. Start time in UTC.
+            $ref: '#/definitions/TimeOfDay'
+          duration:
+            description: |-
+              **string** (duration)
+              Required field. Slot duration.
+            type: string
+            format: duration
+          allowTemporaryUnavailability:
+            description: |-
+              **boolean**
+              Allows maintenance operations that may cause temporary write unavailability.
+            type: boolean
+        required:
+          - startTime
+          - duration
+      WeeklyMaintenanceSchedule:
+        type: object
+        properties:
+          slots:
+            description: |-
+              **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+              Weekly time slots during which maintenance operations can be scheduled.
+              At least one slot is required.
+              The number of elements must be greater than 0.
+            type: array
+            items:
+              $ref: '#/definitions/MaintenanceWindowSlot'
+      MaintenanceWindows:
+        type: object
+        properties:
+          anytime:
+            description: |-
+              **object**
+              Maintenance operations can be scheduled anytime.
+              Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`.
+            $ref: '#/definitions/AnytimeMaintenanceWindow'
+          weeklyMaintenanceSchedule:
+            description: |-
+              **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+              Maintenance operations can be scheduled during the specified weekly slots.
+              Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`.
+            $ref: '#/definitions/WeeklyMaintenanceSchedule'
+        oneOf:
+          - required:
+              - anytime
+          - required:
+              - weeklyMaintenanceSchedule
 ---
 
 # Managed Service for MySQL API, REST: Cluster.Create
@@ -3519,6 +3660,11 @@ POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters
       "plannedUsageThreshold": "string",
       "emergencyUsageThreshold": "string",
       "diskSizeLimit": "string"
+    },
+    "connectionManager": {
+      "enabled": "boolean",
+      "connectionsFolderId": "string",
+      "secretsFolderId": "string"
     }
   },
   "databaseSpecs": [
@@ -3550,7 +3696,12 @@ POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters
       },
       "authenticationPlugin": "string",
       "generatePassword": "boolean",
-      "deletionProtectionMode": "string"
+      "deletionProtectionMode": "string",
+      "userConnectionManager": {
+        "connectionId": "string",
+        "connectionFolderId": "string",
+        "secretFolderId": "string"
+      }
     }
   ],
   "hostSpecs": [
@@ -3594,7 +3745,27 @@ POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters
       "retainForDays": "string",
       "description": "string"
     }
-  ]
+  ],
+  "maintenanceWindows": {
+    // Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`
+    "anytime": "object",
+    "weeklyMaintenanceSchedule": {
+      "slots": [
+        {
+          "day": "string",
+          "startTime": {
+            "hours": "integer",
+            "minutes": "integer",
+            "seconds": "integer",
+            "nanos": "integer"
+          },
+          "duration": "string",
+          "allowTemporaryUnavailability": "boolean"
+        }
+      ]
+    }
+    // end of the list of possible fields
+  }
 }
 ```
 
@@ -3658,13 +3829,19 @@ This option prevents unintended deletion of the cluster. ||
 Host groups hosting VMs of the cluster. ||
 || maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.mysql.v1.MaintenanceWindow)**
 
+Deprecated. Use maintenance_windows instead.
 Window of maintenance operations. ||
 || diskEncryptionKeyId | **string**
 
-ID of the key to encrypt cluster disks. ||
+ID of the key to encrypt cluster disks.
+
+Value must match the regular expression ` [a-zA-Z0-9_.-]{0,50} `. ||
 || retentionPolicies[] | **[BackupRetentionPolicySpec](#yandex.cloud.mdb.v1.BackupRetentionPolicySpec)**
 
 Backup long-term retention policies setting. ||
+|| maintenanceWindows | **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)**
+
+Maintenance windows. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.mysql.v1.ConfigSpec}
@@ -3717,6 +3894,9 @@ Acceptable values are 7 to 60, inclusive. ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mysql.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling ||
+|| connectionManager | **[ClusterConnectionManager](#yandex.cloud.mdb.v1.ClusterConnectionManager)**
+
+Cluster-wide Connection Manager integration configuration ||
 |#
 
 ## MysqlConfig5_7 {#yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7}
@@ -5508,6 +5688,28 @@ Acceptable values are 0 to 100, inclusive. ||
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
 |#
 
+## ClusterConnectionManager {#yandex.cloud.mdb.v1.ClusterConnectionManager}
+
+A message representing the Connection Manager integration status and settings for a cluster.
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+True if the integration for the cluster is enabled.
+Set to true to enable the integration.
+Disabling the integration is not supported. ||
+|| connectionsFolderId | **string**
+
+ID of the folder where connections for the cluster are created.
+Optional. Defaults to the cluster's folder if not specified. ||
+|| secretsFolderId | **string**
+
+A Connection Manager setting for connections created by MDB integration.
+ID of the folder where connection secrets are created.
+Optional. Defaults to the cluster's folder if not specified. ||
+|#
+
 ## DatabaseSpec {#yandex.cloud.mdb.mysql.v1.DatabaseSpec}
 
 #|
@@ -5587,6 +5789,9 @@ Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
 - `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled
 - `DELETION_PROTECTION_MODE_ENABLED`: Deletion protection is enabled
 - `DELETION_PROTECTION_MODE_INHERITED`: Deletion protection mode is inherited from the cluster ||
+|| userConnectionManager | **[UserConnectionManager](#yandex.cloud.mdb.v1.UserConnectionManager)**
+
+Connection Manager Connection and settings associated with user ||
 |#
 
 ## Permission {#yandex.cloud.mdb.mysql.v1.Permission}
@@ -5650,6 +5855,29 @@ The minimum value is 0. ||
 The maximum number of simultaneous connections permitted to any given MySQL user account.
 
 The minimum value is 0. ||
+|#
+
+## UserConnectionManager {#yandex.cloud.mdb.v1.UserConnectionManager}
+
+A message representing Connection Manager integration details and settings for a user in a cluster.
+
+#|
+||Field | Description ||
+|| connectionId | **string**
+
+ID of the Connection Manager connection corresponding to the user.
+Ignored if specified in update requests. ||
+|| connectionFolderId | **string**
+
+ID of the folder where connection for the user is created.
+Optional. Defaults to the cluster's ClusterConnectionManager.connections_folder_id if not specified,
+or the cluster's folder if ClusterConnectionManager.connections_folder_id is not specified. ||
+|| secretFolderId | **string**
+
+A Connection Manager setting for a user's connection created by MDB integration.
+ID of the folder where secret for the user's connection is created.
+Optional. Defaults to the cluster's ClusterConnectionManager.secrets_folder_id if not specified,
+or the cluster's ClusterConnectionManager.connections_folder_id, or the cluster's folder. ||
 |#
 
 ## HostSpec {#yandex.cloud.mdb.mysql.v1.HostSpec}
@@ -5783,6 +6011,62 @@ Defaults to "*". ||
 
 Day of week in cron format. Valid values: 0-7 (0 and 7 both mean Sunday), *, ranges (1-5), steps (0-6/2), lists (1,3,5).
 Defaults to "*". ||
+|#
+
+## MaintenanceWindows {#yandex.cloud.mdb.v1.MaintenanceWindows}
+
+Maintenance windows shared by all managed database services.
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+Maintenance operations can be scheduled anytime.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|| weeklyMaintenanceSchedule | **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+
+Maintenance operations can be scheduled during the specified weekly slots.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|#
+
+## WeeklyMaintenanceSchedule {#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule}
+
+#|
+||Field | Description ||
+|| slots[] | **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+
+Weekly time slots during which maintenance operations can be scheduled.
+At least one slot is required.
+
+The number of elements must be greater than 0. ||
+|#
+
+## MaintenanceWindowSlot {#yandex.cloud.mdb.v1.MaintenanceWindowSlot}
+
+#|
+||Field | Description ||
+|| day | **enum** (DayOfWeek)
+
+Day of the week.
+
+- `MONDAY`: The day-of-week of Monday.
+- `TUESDAY`: The day-of-week of Tuesday.
+- `WEDNESDAY`: The day-of-week of Wednesday.
+- `THURSDAY`: The day-of-week of Thursday.
+- `FRIDAY`: The day-of-week of Friday.
+- `SATURDAY`: The day-of-week of Saturday.
+- `SUNDAY`: The day-of-week of Sunday. ||
+|| startTime | **[TimeOfDay](#google.type.TimeOfDay)**
+
+Required field. Start time in UTC. ||
+|| duration | **string** (duration)
+
+Required field. Slot duration. ||
+|| allowTemporaryUnavailability | **boolean**
+
+Allows maintenance operations that may cause temporary write unavailability. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

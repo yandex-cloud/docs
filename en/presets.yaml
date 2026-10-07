@@ -6835,6 +6835,7 @@ default:
           popup_field_permissions: Database
           popup_field_roles: Roles
           popup-add-db_button_add: Create
+          popup-add-db_field_owner: Owner
           popup-confirm-delete-cluster_button: Delete
           popup-confirm-remove-subcluster_button: Delete
           popup-confirm-switch-master_auto: Choose master host automatically

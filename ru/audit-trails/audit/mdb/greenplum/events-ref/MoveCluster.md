@@ -510,7 +510,27 @@ editable: false
         "greenplumEnabled": "boolean",
         "poolerEnabled": "boolean"
       },
-      "isHa": "boolean"
+      "isHa": "boolean",
+      "maintenanceWindows": {
+        // Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`
+        "anytime": "object",
+        "weeklyMaintenanceSchedule": {
+          "slots": [
+            {
+              "day": "string",
+              "startTime": {
+                "hours": "integer",
+                "minutes": "integer",
+                "seconds": "integer",
+                "nanos": "integer"
+              },
+              "duration": "string",
+              "allowTemporaryUnavailability": "boolean"
+            }
+          ]
+        }
+        // end of the list of possible fields
+      }
     }
   },
   "requestParameters": "object",
@@ -752,6 +772,7 @@ The maximum string length in characters is 256. ||
 || serviceAccountId | **string** ||
 || logging | **[LoggingConfig](#yandex.cloud.mdb.greenplum.v1.LoggingConfig)** ||
 || isHa | **boolean** ||
+|| maintenanceWindows | **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)** ||
 |#
 
 ## GreenplumConfig {#yandex.cloud.mdb.greenplum.v1.GreenplumConfig}
@@ -1266,4 +1287,43 @@ Includes only one of the fields `folderId`, `logGroupId`. ||
 || commandCenterEnabled | **boolean** ||
 || greenplumEnabled | **boolean** ||
 || poolerEnabled | **boolean** ||
+|#
+
+## MaintenanceWindows {#yandex.cloud.mdb.v1.MaintenanceWindows}
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|| weeklyMaintenanceSchedule | **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|#
+
+## WeeklyMaintenanceSchedule {#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule}
+
+#|
+||Field | Description ||
+|| slots[] | **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+
+The number of elements must be greater than 0. ||
+|#
+
+## MaintenanceWindowSlot {#yandex.cloud.mdb.v1.MaintenanceWindowSlot}
+
+#|
+||Field | Description ||
+|| day | **enum** (DayOfWeek)
+
+- `MONDAY`
+- `TUESDAY`
+- `WEDNESDAY`
+- `THURSDAY`
+- `FRIDAY`
+- `SATURDAY`
+- `SUNDAY` ||
+|| startTime | **[TimeOfDay](#google.type.TimeOfDay)** ||
+|| duration | **string** (duration) ||
+|| allowTemporaryUnavailability | **boolean** ||
 |#

@@ -563,6 +563,81 @@ apiPlayground:
           - db
           - table
           - user
+      PostgresqlSourceV2:
+        type: object
+        properties:
+          db:
+            description: |-
+              **string**
+              Required field. Database name.
+            type: string
+          table:
+            description: |-
+              **string**
+              Table name. Either table or query must be specified.
+            type: string
+          replicas:
+            description: |-
+              **[Replica](/docs/managed-clickhouse/api-ref/Cluster/getShardGroup#yandex.cloud.mdb.clickhouse.v1.ExternalShard.Replica)**
+              PostgreSQL replicas used as dictionary sources.
+            type: array
+            items:
+              $ref: '#/definitions/Replica'
+          port:
+            description: |-
+              **string** (int64)
+              Port to use when connecting to the PostgreSQL hosts.
+            type: string
+            format: int64
+          user:
+            description: |-
+              **string**
+              Default PostgreSQL user for replicas.
+            type: string
+          password:
+            description: |-
+              **string**
+              Password of the PostgreSQL database user.
+            type: string
+          invalidateQuery:
+            description: |-
+              **string**
+              Query for checking the dictionary status, to pull only updated data.
+            type: string
+          sslMode:
+            description: |-
+              **enum** (SslMode)
+              Mode of SSL TCP/IP connection to the PostgreSQL host.
+              - `DISABLE`: Only try a non-SSL connection.
+              - `ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.
+              - `PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.
+              - `VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).
+              - `VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.
+            type: string
+            enum:
+              - SSL_MODE_UNSPECIFIED
+              - DISABLE
+              - ALLOW
+              - PREFER
+              - VERIFY_CA
+              - VERIFY_FULL
+          where:
+            description: |-
+              **string**
+              Selection criteria for data in the specified table.
+            type: string
+          query:
+            description: |-
+              **string**
+              Custom query. Either table or query must be specified.
+            type: string
+          backgroundReconnect:
+            description: |-
+              **boolean**
+              Reconnect to unavailable replicas in the background.
+            type: boolean
+        required:
+          - db
       ExternalDictionary:
         type: object
         properties:
@@ -599,32 +674,40 @@ apiPlayground:
             description: |-
               **[HttpSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.HttpSource)**
               HTTP source for the dictionary.
-              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
+              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`.
             $ref: '#/definitions/HttpSource'
           mysqlSource:
             description: |-
               **[MysqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource)**
               MySQL source for the dictionary.
-              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
+              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`.
             $ref: '#/definitions/MysqlSource'
           clickhouseSource:
             description: |-
               **[ClickhouseSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.ClickhouseSource)**
               ClickHouse source for the dictionary.
-              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
+              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`.
             $ref: '#/definitions/ClickhouseSource'
           mongodbSource:
             description: |-
               **[MongodbSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MongodbSource)**
               MongoDB source for the dictionary.
-              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
+              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`.
             $ref: '#/definitions/MongodbSource'
           postgresqlSource:
             description: |-
               **[PostgresqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSource)**
               PostgreSQL source for the dictionary.
-              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
+              Deprecated in favor of postgresql_source_v2.
+              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`.
+            deprecated: true
             $ref: '#/definitions/PostgresqlSource'
+          postgresqlSourceV2:
+            description: |-
+              **[PostgresqlSourceV2](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2)**
+              PostgreSQL source for the dictionary using the native ClickHouse integration.
+              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`.
+            $ref: '#/definitions/PostgresqlSourceV2'
         required:
           - name
           - structure
@@ -646,6 +729,8 @@ apiPlayground:
                   - mongodbSource
               - required:
                   - postgresqlSource
+              - required:
+                  - postgresqlSourceV2
 ---
 
 # Managed Service for ClickHouse API, REST: Cluster.CreateExternalDictionary
@@ -742,7 +827,7 @@ The maximum string length in characters is 50. ||
       "max": "string"
     },
     // end of the list of possible fields
-    // Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`
+    // Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`
     "httpSource": {
       "url": "string",
       "format": "string",
@@ -803,6 +888,27 @@ The maximum string length in characters is 50. ||
       "password": "string",
       "invalidateQuery": "string",
       "sslMode": "string"
+    },
+    "postgresqlSourceV2": {
+      "db": "string",
+      "table": "string",
+      "replicas": [
+        {
+          "host": "string",
+          "priority": "string",
+          "port": "string",
+          "user": "string",
+          "password": "string"
+        }
+      ],
+      "port": "string",
+      "user": "string",
+      "password": "string",
+      "invalidateQuery": "string",
+      "sslMode": "string",
+      "where": "string",
+      "query": "string",
+      "backgroundReconnect": "boolean"
     }
     // end of the list of possible fields
   }
@@ -847,27 +953,33 @@ Includes only one of the fields `fixedLifetime`, `lifetimeRange`. ||
 
 HTTP source for the dictionary.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
 || mysqlSource | **[MysqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource)**
 
 MySQL source for the dictionary.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
 || clickhouseSource | **[ClickhouseSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.ClickhouseSource)**
 
 ClickHouse source for the dictionary.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
 || mongodbSource | **[MongodbSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MongodbSource)**
 
 MongoDB source for the dictionary.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
 || postgresqlSource | **[PostgresqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSource)**
 
 PostgreSQL source for the dictionary.
+Deprecated in favor of postgresql_source_v2.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
+|| postgresqlSourceV2 | **[PostgresqlSourceV2](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2)**
+
+PostgreSQL source for the dictionary using the native ClickHouse integration.
+
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
 |#
 
 ## Structure {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure}
@@ -1296,6 +1408,75 @@ Mode of SSL TCP/IP connection to the PostgreSQL host.
 - `PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.
 - `VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).
 - `VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate. ||
+|#
+
+## PostgresqlSourceV2 {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2}
+
+#|
+||Field | Description ||
+|| db | **string**
+
+Required field. Database name. ||
+|| table | **string**
+
+Table name. Either table or query must be specified. ||
+|| replicas[] | **[Replica](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2.Replica)**
+
+PostgreSQL replicas used as dictionary sources. ||
+|| port | **string** (int64)
+
+Port to use when connecting to the PostgreSQL hosts. ||
+|| user | **string**
+
+Default PostgreSQL user for replicas. ||
+|| password | **string**
+
+Password of the PostgreSQL database user. ||
+|| invalidateQuery | **string**
+
+Query for checking the dictionary status, to pull only updated data. ||
+|| sslMode | **enum** (SslMode)
+
+Mode of SSL TCP/IP connection to the PostgreSQL host.
+
+- `DISABLE`: Only try a non-SSL connection.
+- `ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.
+- `PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.
+- `VERIFY_CA`: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).
+- `VERIFY_FULL`: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.
+- `REQUIRE`: Only try an SSL connection without verifying the server certificate. ||
+|| where | **string**
+
+Selection criteria for data in the specified table. ||
+|| query | **string**
+
+Custom query. Either table or query must be specified. ||
+|| backgroundReconnect | **boolean**
+
+Reconnect to unavailable replicas in the background. ||
+|#
+
+## Replica {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2.Replica}
+
+#|
+||Field | Description ||
+|| host | **string**
+
+Required field. PostgreSQL host of the replica.
+
+The maximum string length in characters is 253. ||
+|| priority | **string** (int64)
+
+The priority of the replica. Lower values have higher priority. ||
+|| port | **string** (int64)
+
+Port to use when connecting to the replica. Inherits the source port when omitted. ||
+|| user | **string**
+
+PostgreSQL user for the replica. Inherits the source user when omitted. ||
+|| password | **string**
+
+PostgreSQL password for the replica. Inherits the source password when omitted. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

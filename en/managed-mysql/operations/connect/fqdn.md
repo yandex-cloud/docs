@@ -30,8 +30,8 @@ There are several ways to get a {{ MY }} host's FQDN:
 ## Special FQDNs {#special-fqdns}
 
 {{ mmy-name }} provides the following special FQDNs:
-* [Current master FQDN](#fqdn-master).
-* [Most recent replica FQDN](#fqdn-replica).
+* [FQDN of the current master](#fqdn-master)
+* [FQDN of the most recent replica](#fqdn-replica)
 
 {% include [special-fqdns-info](../../../_includes/mdb/special-fqdns-info.md) %}
 
@@ -60,11 +60,11 @@ An FQDN in `c-<cluster_ID>.ro.{{ dns-zone }}` format points to the [replica](../
 
 ## Aliases {#aliases}
 
-With aliases, you can access the master, most recent replica, or each specific host in your {{ mmy-name }} cluster using a human-readable name instead of their internal FQDNs. Aliases are user-defined and can be used alongside regular and [special FQDNs](#special-fqdns).
+With aliases, you can access the master, most recent replica, or each particular host of your {{ mmy-name }} cluster using a stable, human-readable name no matter what their internal FQDNs are. Aliases are user-defined and function exactly like regular or [special FQDNs](#special-fqdns).
 
 ### Cluster alias {#cluster-alias}
 
-A cluster alias always points to the current master host in a {{ mmy-name }} cluster. It has the following format:
+A cluster alias always points to the current master host in the {{ mmy-name }} cluster. It has the following format:
 
 ```
 c-<short_name>-my-<folder_ID>.rw.{{ dns-zone }}
@@ -78,7 +78,7 @@ With cluster aliases, you can switch workloads from one cluster to another, e.g.
 
 {% note warning %}
 
-After a [master failover](../../concepts/replication.md#master-failover), DNS records may take up to 10 minutes to update. During this time, the cluster alias may continue pointing to the old host, which has already become a replica. Use cluster aliases only for processes that allow up to 10 minutes of database write downtime.
+{% include [special-fqdns-warning](../../../_includes/mdb/special-fqdns-info.md) %}
 
 {% endnote %}
 

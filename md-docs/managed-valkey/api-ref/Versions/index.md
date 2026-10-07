@@ -6,5 +6,5 @@
 
 #|
 ||Method | Description ||
-|| [List](list.md) | Returns list of available Redis versions. ||
+|| [List](list.md) | Returns the list of available Valkey versions. ||
 |#

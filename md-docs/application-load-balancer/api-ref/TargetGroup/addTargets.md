@@ -29,6 +29,9 @@ To get the target group ID, make a [TargetGroupService.List](list.md#List) reque
       // Includes only one of the fields `ipAddress`
       "ipAddress": "string",
       // end of the list of possible fields
+      "locality": {
+        "zoneId": "string"
+      },
       "subnetId": "string",
       "externalAddress": "boolean",
       "privateIpv4Address": "boolean"
@@ -60,6 +63,9 @@ IP address of the target.
 Includes only one of the fields `ipAddress`.
 
 Reference to the target. As of now, targets must only be referred to by their IP addresses. ||
+|| locality | **[Locality](#yandex.cloud.apploadbalancer.v1.Locality)**
+
+Locality where the target resides. ||
 || subnetId | **string**
 
 ID of the subnet that the target is connected to. ||
@@ -73,6 +79,15 @@ If set, will not require `subnet_id` to validate the target.
 Instead, the address should belong to one of the following ranges:
 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
 Only one of `subnet_id` or `private_ipv4_address` should be set. ||
+|#
+
+## Locality {#yandex.cloud.apploadbalancer.v1.Locality}
+
+#|
+||Field | Description ||
+|| zoneId | **string**
+
+Required field. ID of the availability zone where the target resides. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

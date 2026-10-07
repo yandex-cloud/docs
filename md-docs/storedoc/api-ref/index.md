@@ -11,13 +11,13 @@ This API reference is organized by resource. Actions are performed by sending HT
 #|
 ||Service | Description ||
 || [BackupRetentionPolicy](BackupRetentionPolicy/index.md) | A set of methods for managing MongoDB Cluster backup retention policies. ||
-|| [Backup](Backup/index.md) | A set of methods for managing MongoDB Backup resources. ||
+|| [Backup](Backup/index.md) | A set of methods for managing StoreDoc Backup resources. ||
 || [ChangeFreeze](ChangeFreeze/index.md) |  ||
-|| [Cluster](Cluster/index.md) | A set of methods for managing MongoDB Cluster resources. ||
-|| [Database](Database/index.md) | A set of methods for managing MongoDB Database resources. ||
+|| [Cluster](Cluster/index.md) | A set of methods for managing StoreDoc Cluster resources. ||
+|| [Database](Database/index.md) | A set of methods for managing StoreDoc Database resources. ||
 || [Maintenance](Maintenance/index.md) | A set of methods for managing maintenances in a service. ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [ResourcePreset](ResourcePreset/index.md) | A set of methods for managing ResourcePreset resources. ||
-|| [User](User/index.md) | A set of methods for managing MongoDB User resources. ||
+|| [User](User/index.md) | A set of methods for managing StoreDoc User resources. ||
 || [Versions](Versions/index.md) |  ||
 |#

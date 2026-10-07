@@ -24,7 +24,7 @@ Retrieves the list of operations for the specified cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Redis cluster to list operations for.
+Required field. ID of the Valkey cluster to list operations for.
 
 The maximum string length in characters is 50. ||
 || page_size | **int64**
@@ -69,7 +69,7 @@ The maximum string length in characters is 100. ||
 ||Field | Description ||
 || operations[] | **[Operation](#yandex.cloud.operation.Operation)**
 
-List of operations for the specified Redis cluster. ||
+List of operations for the specified Valkey cluster. ||
 || next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results

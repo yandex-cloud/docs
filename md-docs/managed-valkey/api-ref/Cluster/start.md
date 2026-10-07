@@ -2,7 +2,7 @@
 
 # Managed Service for Redis API, REST: Cluster.Start
 
-Start the specified Redis cluster.
+Start the specified Valkey cluster.
 
 ## HTTP request
 
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}:star
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Redis cluster to start.
+Required field. ID of the Valkey cluster to start.
 
 The maximum string length in characters is 50. ||
 |#

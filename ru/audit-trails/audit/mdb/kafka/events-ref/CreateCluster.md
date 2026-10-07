@@ -263,7 +263,27 @@ editable: false
       "kafkaUi": {
         "url": "string"
       },
-      "diskEncryptionKeyId": "string"
+      "diskEncryptionKeyId": "string",
+      "maintenanceWindows": {
+        // Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`
+        "anytime": "object",
+        "weeklyMaintenanceSchedule": {
+          "slots": [
+            {
+              "day": "string",
+              "startTime": {
+                "hours": "integer",
+                "minutes": "integer",
+                "seconds": "integer",
+                "nanos": "integer"
+              },
+              "duration": "string",
+              "allowTemporaryUnavailability": "boolean"
+            }
+          ]
+        }
+        // end of the list of possible fields
+      }
     },
     "hosts": [
       {
@@ -586,6 +606,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || isHa | **boolean** ||
 || kafkaUi | **[KafkaUI](#yandex.cloud.mdb.kafka.v1.Cluster.KafkaUI)** ||
 || diskEncryptionKeyId | **string** ||
+|| maintenanceWindows | **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)** ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.kafka.v1.Monitoring}
@@ -866,6 +887,55 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 #|
 ||Field | Description ||
 || url | **string** ||
+|#
+
+## MaintenanceWindows {#yandex.cloud.mdb.v1.MaintenanceWindows}
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|| weeklyMaintenanceSchedule | **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|#
+
+## WeeklyMaintenanceSchedule {#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule}
+
+#|
+||Field | Description ||
+|| slots[] | **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+
+The number of elements must be greater than 0. ||
+|#
+
+## MaintenanceWindowSlot {#yandex.cloud.mdb.v1.MaintenanceWindowSlot}
+
+#|
+||Field | Description ||
+|| day | **enum** (DayOfWeek)
+
+- `MONDAY`
+- `TUESDAY`
+- `WEDNESDAY`
+- `THURSDAY`
+- `FRIDAY`
+- `SATURDAY`
+- `SUNDAY` ||
+|| startTime | **[TimeOfDay](#google.type.TimeOfDay)** ||
+|| duration | **string** (duration) ||
+|| allowTemporaryUnavailability | **boolean** ||
+|#
+
+## TimeOfDay {#google.type.TimeOfDay}
+
+#|
+||Field | Description ||
+|| hours | **integer** (int32) ||
+|| minutes | **integer** (int32) ||
+|| seconds | **integer** (int32) ||
+|| nanos | **integer** (int32) ||
 |#
 
 ## HostDetails {#yandex.cloud.audit.mdb.kafka.HostDetails}
