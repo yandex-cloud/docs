@@ -4,7 +4,153 @@
 
 Вы можете управлять [техническим обслуживанием](../concepts/maintenance.md) кластера Yandex MPP Analytics for PostgreSQL.
 
+
 ## Получить список обслуживаний {#list-maintenance}
+
+Для сервиса Yandex MPP Analytics for PostgreSQL можно получить список обслуживаний в:
+
+* [облаке](#list-maintenance-cloud);
+* [каталоге](#list-maintenance-folder);
+* [кластере](#list-maintenance-cluster).
+
+
+### Получить список обслуживаний в облаке {#list-maintenance-cloud}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+  
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+      
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
+  
+  1. Воспользуйтесь методом [Maintenance.List](../api-ref/Maintenance/list.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  
+      ```bash
+      curl \
+        --request GET \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/maintenances?cloudId=<идентификатор_облака>'
+      ```
+    
+      
+      О том, как получить идентификатор облака, в [соответствующей инструкции](../../resource-manager/operations/cloud/get-id.md).
+      
+  
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
+
+- gRPC API {#grpc-api}
+  
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+  
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
+  
+  1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+     
+     ```bash
+     cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+     ```
+     
+     Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+  
+  1. Воспользуйтесь вызовом [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/maintenance_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cloud_id": "<идентификатор_облака>"
+            }' \
+        mdb.api.cloud.yandex.net:443 \
+        yandex.cloud.mdb.greenplum.v1.MaintenanceService.List
+      ```
+      
+      
+      О том, как получить идентификатор облака, в [соответствующей инструкции](../../resource-manager/operations/cloud/get-id.md).
+      
+  
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
+
+{% endlist %}
+
+
+### Получить список обслуживаний в каталоге {#list-maintenance-folder}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+  
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+      
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
+  
+  1. Воспользуйтесь методом [Maintenance.List](../api-ref/Maintenance/list.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  
+      ```bash
+      curl \
+        --request GET \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/maintenances?folderId=<идентификатор_каталога>'
+      ```
+    
+      
+      Идентификатор каталога можно получить со [списком каталогов](../../resource-manager/operations/folder/get-id.md) в облаке.
+      
+  
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
+
+- gRPC API {#grpc-api}
+  
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
+
+  1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+     
+     ```bash
+     cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+     ```
+     
+     Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+
+  1. Воспользуйтесь вызовом [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/maintenance_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "folder_id": "<идентификатор_каталога>"
+            }' \
+        mdb.api.cloud.yandex.net:443 \
+        yandex.cloud.mdb.greenplum.v1.MaintenanceService.List
+      ```
+
+            
+      Идентификатор каталога можно получить со [списком каталогов](../../resource-manager/operations/folder/get-id.md) в облаке.
+      
+  
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
+
+{% endlist %}
+
+
+### Получить список обслуживаний в кластере {#list-maintenance-cluster}
 
 {% list tabs group=instructions %}
 
@@ -15,7 +161,129 @@
   1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
   1. (Опционально) Выберите статус обслуживания над списком обслуживаний.
 
+- REST API {#api}
+  
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+      
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
+  
+  1. Воспользуйтесь методом [Maintenance.List](../api-ref/Maintenance/list.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  
+      ```bash
+      curl \
+        --request GET \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/maintenances?resourceId=<идентификатор_кластера>'
+      ```
+    
+      Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+  
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
+
+- gRPC API {#grpc-api}
+  
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
+
+  1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+     
+     ```bash
+     cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+     ```
+     
+     Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+
+  1. Воспользуйтесь вызовом [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/maintenance_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "resource_id": "<идентификатор_кластера>"
+            }' \
+        mdb.api.cloud.yandex.net:443 \
+        yandex.cloud.mdb.greenplum.v1.MaintenanceService.List
+      ```
+
+      Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+  
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
+
 {% endlist %}
+
+
+## Получить информацию об обслуживании {#get-maintenance}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+  
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+      
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
+  
+  1. Воспользуйтесь методом [Maintenance.Get](../api-ref/Maintenance/get.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  
+      ```bash
+      curl \
+        --request GET \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/maintenances/<идентификатор_обслуживания>'
+      ```
+    
+      Идентификатор обслуживания можно получить со [списком обслуживаний](#list-maintenance).
+  
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/get.md#yandex.cloud.maintenance.v2.Maintenance).
+
+- gRPC API {#grpc-api}
+  
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+      
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
+  
+  1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+     
+     ```bash
+     cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+     ```
+     
+     Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+  
+  1. Воспользуйтесь вызовом [MaintenanceService.Get](../api-ref/grpc/Maintenance/get.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/maintenance_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "maintenance_id": "<идентификатор_обслуживания>"
+            }' \
+        mdb.api.cloud.yandex.net:443 \
+        yandex.cloud.mdb.greenplum.v1.MaintenanceService.Get
+      ```
+
+      Идентификатор обслуживания можно получить со [списком обслуживаний](#list-maintenance).
+  
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/get.md#yandex.cloud.maintenance.v2.Maintenance).
+
+{% endlist %}
+
 
 ## Получить логи технического обслуживания кластера {#maintenance-logs}
 
@@ -30,6 +298,7 @@
   1. Нажмите ссылку **Логи задания**.
 
 {% endlist %}
+
 
 ## Перенести запланированное обслуживание {#postpone-planned-maintenance}
 
@@ -100,6 +369,13 @@
 
 - REST API {#api}
   
+  Перенести запланированное обслуживание можно с помощью одного из методов:
+  
+  * [Cluster.RescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md)
+  * [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md)
+  
+  Чтобы перенести запланированное обслуживание с помощью метода `Cluster.RescheduleMaintenance`:
+
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
       
       ```bash
@@ -115,8 +391,8 @@
         --header "Content-Type: application/json" \
         --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/<идентификатор_кластера>:rescheduleMaintenance' \
         --data '{
-                 "rescheduleType": "<тип_переноса>"
-               }'
+                  "rescheduleType": "<тип_переноса>"
+                }'
       ```
 
       Где `rescheduleType` — тип переноса:
@@ -124,9 +400,7 @@
       * `NEXT_AVAILABLE_WINDOW` — ближайшее доступное окно обслуживания.
       * `SPECIFIC_TIME` — конкретная дата и время по UTC.
         
-        Для этого значения дополнительно передайте параметр `delayedUntil` — временная метка в формате [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), например:
-
-        > `2006-01-02T15:04:05Z`
+        Для этого значения дополнительно передайте параметр `delayedUntil` — временная метка в формате [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), например `2006-01-02T15:04:05Z`.
     
         От первоначально запланированной даты обслуживание можно перенести:
         * Не более чем на два с половиной месяца — для мажорных обновлений версии Greenplum®, например с 6.28.20 до 6.29.8.
@@ -137,8 +411,54 @@
   
   1. Убедитесь, что запрос выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation).
 
+  Чтобы перенести запланированное обслуживание с помощью метода `Maintenance.Reschedule`:
+  
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+      
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
+      
+  1. Воспользуйтесь методом [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  
+      ```bash
+      curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/maintenances/<идентификатор_обслуживания>:reschedule' \
+        --data '{
+                  "rescheduleType": "<тип_переноса>"
+                }'
+      ```
+    
+      Где:
+      
+      * `<идентификатор_обслуживания>` — идентификатор обслуживания, который можно получить со [списком обслуживаний](#list-maintenance).
+
+      * `rescheduleType` — тип переноса:
+        
+        * `NEXT_AVAILABLE_WINDOW` — ближайшее доступное окно обслуживания.
+        * `SPECIFIC_TIME` — конкретная дата и время по UTC.
+        
+          Для этого значения дополнительно передайте параметр `scheduledAt` — временная метка в формате [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), например `2006-01-02T15:04:05Z`.
+    
+          От первоначально запланированной даты обслуживание можно перенести:
+          * Не более чем на два с половиной месяца — для мажорных обновлений версии Greenplum®, например с 6.28.20 до 6.29.8.
+          * Не более чем на один месяц — для обновлений между минорными версиями Greenplum®, например с 6.29.1 до 6.29.2.
+          * Не более чем на две недели — для всех остальных видов обслуживания.
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/reschedule.md#yandex.cloud.operation.Operation).
+
 - gRPC API {#grpc-api}
   
+  Перенести запланированное обслуживание можно с помощью одного из вызовов:
+  
+  * [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md)
+  * [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md)
+
+  Чтобы перенести запланированное обслуживание с помощью вызова `ClusterService.RescheduleMaintenance`:
+
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
       ```bash
@@ -163,8 +483,8 @@
         -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
         -rpc-header "Authorization: Bearer $IAM_TOKEN" \
         -d '{
-             "cluster_id": "<идентификатор_кластера>",
-             "reschedule_type": "<тип_переноса>"
+              "cluster_id": "<идентификатор_кластера>",
+              "reschedule_type": "<тип_переноса>"
             }' \
         mdb.api.cloud.yandex.net:443 \
         yandex.cloud.mdb.greenplum.v1.ClusterService.RescheduleMaintenance
@@ -175,9 +495,7 @@
       * `NEXT_AVAILABLE_WINDOW` — ближайшее доступное окно обслуживания.
       * `SPECIFIC_TIME` — конкретная дата и время по UTC.
         
-        Для этого значения дополнительно передайте параметр `delayed_until` — временная метка в формате [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), например:
-
-        > `2006-01-02T15:04:05Z`
+        Для этого значения дополнительно передайте параметр `delayed_until` — временная метка в формате [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), например `2006-01-02T15:04:05Z`.
 
         От первоначально запланированной даты обслуживание можно перенести:
         * Не более чем на два с половиной месяца — для мажорных обновлений версии Greenplum®, например с 6.28.20 до 6.29.8.
@@ -187,6 +505,57 @@
       Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
   
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation).
+
+  Чтобы перенести запланированное обслуживание с помощью вызова `MaintenanceService.Reschedule`:
+  
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+  
+     ```bash
+     export IAM_TOKEN="<IAM-токен>"
+     ```
+  
+  1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+     
+     ```bash
+     cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+     ```
+     
+     Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+  
+  1. Воспользуйтесь вызовом [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+      
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/maintenance_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "maintenance_id": "<идентификатор_обслуживания>",
+              "reschedule_type": "<тип_переноса>",
+              "scheduled_at": "<временная_метка>"
+            }' \
+        mdb.api.cloud.yandex.net:443 \
+        yandex.cloud.mdb.greenplum.v1.MaintenanceService.Reschedule
+      ```
+      
+      Где:
+
+      * `maintenance_id` — идентификатор обслуживания, который можно получить со [списком обслуживаний](#list-maintenance).
+      * `reschedule_type` — тип переноса:
+      
+        * `NEXT_AVAILABLE_WINDOW` — ближайшее доступное окно обслуживания.
+        * `SPECIFIC_TIME` — конкретная дата и время по UTC.
+        
+          Для этого значения дополнительно передайте параметр `scheduled_at` — временная метка в формате [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), например `2006-01-02T15:04:05Z`.
+
+          От первоначально запланированной даты обслуживание можно перенести:
+          * Не более чем на два с половиной месяца — для мажорных обновлений версии Greenplum®, например с 6.28.20 до 6.29.8.
+          * Не более чем на один месяц — для обновлений между минорными версиями Greenplum®, например с 6.29.1 до 6.29.2.
+          * Не более чем на две недели — для всех остальных видов обслуживания.
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/reschedule.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -228,6 +597,13 @@
 
 - REST API {#api}
   
+  Провести запланированное обслуживание немедленно можно с помощью одного из методов:
+  
+  * [Cluster.RescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md)
+  * [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md)
+
+  Чтобы провести запланированное обслуживание немедленно с помощью метода `Cluster.RescheduleMaintenance`:
+  
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
       
       ```bash
@@ -243,16 +619,48 @@
         --header "Content-Type: application/json" \
         --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/<идентификатор_кластера>:rescheduleMaintenance' \
         --data '{
-                 "rescheduleType": "IMMEDIATE"
-               }'
+                  "rescheduleType": "IMMEDIATE"
+                }'
       ```
     
       Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
   
   1. Убедитесь, что запрос выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation).
 
+  Чтобы провести запланированное обслуживание немедленно с помощью метода `Maintenance.Reschedule`:
+  
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+      
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
+      
+  1. Воспользуйтесь методом [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  
+      ```bash
+      curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/maintenances/<идентификатор_обслуживания>:reschedule' \
+        --data '{
+                  "rescheduleType": "IMMEDIATE"
+                }'
+      ```
+    
+      Идентификатор обслуживания можно получить со [списком обслуживаний](#list-maintenance).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/reschedule.md#yandex.cloud.operation.Operation).
+
 - gRPC API {#grpc-api}
   
+  Провести запланированное обслуживание немедленно можно с помощью одного из вызовов:
+  
+  * [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md)
+  * [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md)
+  
+  Чтобы провести запланированное обслуживание немедленно с помощью вызова `ClusterService.RescheduleMaintenance`:
+
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
       ```bash
@@ -277,9 +685,9 @@
         -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
         -rpc-header "Authorization: Bearer $IAM_TOKEN" \
         -d '{
-             "cluster_id": "<идентификатор_кластера>",
-             "reschedule_type": "IMMEDIATE"
-           }' \
+              "cluster_id": "<идентификатор_кластера>",
+              "reschedule_type": "IMMEDIATE"
+            }' \
         mdb.api.cloud.yandex.net:443 \
         yandex.cloud.mdb.greenplum.v1.ClusterService.RescheduleMaintenance
       ```
@@ -287,6 +695,43 @@
       Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
   
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation).
+
+  Чтобы провести запланированное обслуживание немедленно с помощью вызова `MaintenanceService.Reschedule`:
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+  
+     ```bash
+     export IAM_TOKEN="<IAM-токен>"
+     ```
+  
+  1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+     
+     ```bash
+     cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+     ```
+     
+     Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+  
+  1. Воспользуйтесь вызовом [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+      
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/maintenance_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "maintenance_id": "<идентификатор_обслуживания>",
+              "reschedule_type": "IMMEDIATE"
+            }' \
+        mdb.api.cloud.yandex.net:443 \
+        yandex.cloud.mdb.greenplum.v1.MaintenanceService.Reschedule
+      ```
+      
+      Идентификатор обслуживания можно получить со [списком обслуживаний](#list-maintenance).
+  
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/reschedule.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -454,14 +899,14 @@
         --header "Content-Type: application/json" \
         --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
         --data '{
-                 "updateMask": "maintenanceWindow",
-                 "maintenanceWindow": {
-                   "weeklyMaintenanceWindow": {
-                     "day": "<день_недели>",
-                     "hour": "<порядковый_номер_часового_интервала>"
-                   }
-                 }
-               }'
+                  "updateMask": "maintenanceWindow",
+                  "maintenanceWindow": {
+                    "weeklyMaintenanceWindow": {
+                      "day": "<день_недели>",
+                      "hour": "<порядковый_номер_часового_интервала>"
+                    }
+                  }
+                }'
       ```
     
       Где:
@@ -519,19 +964,19 @@
         -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
         -rpc-header "Authorization: Bearer $IAM_TOKEN" \
         -d '{
-             "cluster_id": "<идентификатор_кластера>",
-             "update_mask": {
-               "paths": [
-                 "maintenance_window"
-               ]
-             },
-             "maintenance_window": {
-               "weekly_maintenance_window": {
-                 "day": "<день_недели>",
-                 "hour": "<порядковый_номер_часового_интервала>"
-               }
-             }
-           }' \
+              "cluster_id": "<идентификатор_кластера>",
+              "update_mask": {
+                "paths": [
+                  "maintenance_window"
+                ]
+              },
+              "maintenance_window": {
+                "weekly_maintenance_window": {
+                  "day": "<день_недели>",
+                  "hour": "<порядковый_номер_часового_интервала>"
+                }
+              }
+            }' \
         mdb.api.cloud.yandex.net:443 \
         yandex.cloud.mdb.greenplum.v1.ClusterService.Update
       ```

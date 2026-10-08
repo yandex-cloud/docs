@@ -33,19 +33,20 @@ yandex.cloud.audit.datalens.<имя_события>
 `DeleteEntry` | Удаление объекта
 `DeleteSharedEntry` | Удаление общего объекта
 `DeleteWorkbooks` | Удаление одного или нескольких воркбуков
-`platform.CreateAirflowCluster` | Создание кластера Airflow
+`platform.CreateAirflowCluster` | Создание кластера Apache Airflow™
 `platform.CreateCloudEnvironment` | Создание облачного окружения
 `platform.CreateRestCatalog` | Создание REST-каталога
 `platform.CreateRestCatalogNamespace` | Создание пространства имен REST-каталога
-`platform.CreateSparkCluster` | Создание кластера Spark
+`platform.CreateSparkCluster` | Создание кластера Apache Spark™
 `platform.CreateTrinoCluster` | Создание кластера Trino
-`platform.DeleteAirflowCluster` | Удаление кластера Airflow
+`platform.DeleteAirflowCluster` | Удаление кластера Apache Airflow™
 `platform.DeleteCloudEnvironment` | Удаление облачного окружения
 `platform.DeleteRestCatalog` | Удаление REST-каталога
 `platform.DeleteRestCatalogNamespace` | Удаление пространства имен REST-каталога
-`platform.DeleteSparkCluster` | Удаление кластера Spark
+`platform.DeleteSparkCluster` | Удаление кластера Apache Spark™
 `platform.DeleteTrinoCluster` | Удаление кластера Trino
 `platform.UpdateCloudEnvironment` | Изменение облачного окружения
+`platform.UpdateTrinoCluster` | Изменение кластера Trino
 `DisableBillingInstanceService` | Получение сигнала от Yandex Cloud Billing о неактивности привязанного к DataLens платежного аккаунта
 `DisableFolders` | [Отключение](settings/navigation.md#disable-folder-navigation) навигации по папкам
 `DisableTenantBilling` | Планирование отключения тарифа Business пользователем в начале следующего месяца ^1^

@@ -285,6 +285,68 @@ yc load-balancer network-load-balancer update <nlb-id> --allow-zonal-shift
 
 Любые решения по обеспечению отказоустойчивости требуют регулярного тестирования в различных сценариях отказов. Подробнее о тестировании отказоустойчивости в облаке можно узнать из вебинара: [Отключаем ЦОД, или как тестировать отказоустойчивость в облаке](https://yandex.cloud/ru/events/841).
 
+## Действия по восстановлению нагрузок при отказе {#workload-recovery}
+
+### {{ mmy-name }} {#workload-recovery-mysql}
+
+* [Добавление хоста в кластер](../managed-mysql/operations/hosts.md#add).
+* [Ручное переключение хоста-мастера](../managed-mysql/operations/update.md#start-manual-failover).
+* [Восстановление кластера из резервной копии](../managed-mysql/operations/cluster-backups.md).
+
+### {{ mpg-name }} {#workload-recovery-postgresql}
+
+* [Ручное переключение хоста-мастера](../managed-postgresql/operations/update.md#start-manual-failover).
+* [Восстановление кластера из резервной копии](../managed-postgresql/operations/cluster-backups.md#restore).
+
+### {{ mch-name }} {#workload-recovery-clickhouse}
+
+* [Добавление хоста в кластер](../managed-clickhouse/operations/hosts.md#add-host).
+* [Восстановление кластера или шарда из резервной копии](../managed-clickhouse/operations/cluster-backups.md#restore).
+
+### {{ mrd-name }} {#workload-recovery-valkey}
+
+* [Добавление хоста в кластер](../managed-valkey/operations/hosts.md#add).
+* [Ручное переключение хоста-мастера](../managed-valkey/operations/failover.md).
+* [Восстановление кластера из резервной копии](../managed-valkey/operations/cluster-backups.md#restore).
+
+### {{ mmg-name }} {#workload-recovery-storedoc}
+
+* [Добавление хоста в кластер](../storedoc/operations/hosts.md#add-host).
+* [Переключение первичной реплики](../storedoc/operations/stepdown.md).
+* [Восстановление кластера из резервной копии](../storedoc/operations/cluster-backups.md#restore).
+
+### {{ mos-name }} {#workload-recovery-opensearch}
+
+* [Восстановление кластера из резервной копии](../managed-opensearch/operations/cluster-backups.md#restore).
+* [Восстановление индексов из снапшота](../managed-opensearch/operations/cluster-backups.md#restore-index-from-snapshot).
+
+### {{ mgp-name }} {#workload-recovery-mpp-analytics}
+
+* [Восстановление кластера из резервной копии](../managed-greenplum/operations/cluster-backups.md#restore).
+
+### {{ mspqr-name }} {#workload-recovery-sharded-postgresql}
+
+* [Восстановление кластера из резервной копии](../managed-spqr/operations/cluster-backups.md#restore).
+
+Резервная копия кластера содержит конфигурацию шардов. Данные самих шардов при необходимости восстановите отдельно в {{ mpg-name }}.
+
+### {{ compute-name }} {#workload-recovery-compute}
+
+* [Создание виртуальной машины с дисками из снимков](../compute/operations/vm-create/create-from-snapshots.md).
+* [Восстановление диска из снимка](../compute/operations/disk-create/from-snapshot.md).
+* [Отключение зоны доступности для группы виртуальных машин](../compute/operations/instance-groups/disable-enable-zone.md#disable).
+
+### {{ backup-name }} {#workload-recovery-backup}
+
+* [Восстановление виртуальной машины из резервной копии](../backup/operations/backup-vm/recover.md).
+* [Восстановление виртуальной машины из резервной копии другой виртуальной машины](../backup/operations/backup-vm/non-native-recovery.md).
+
+### {{ managed-k8s-name }} {#workload-recovery-kubernetes}
+
+* [Создание группы узлов](../managed-kubernetes/operations/node-group/node-group-create.md).
+* [Восстановление постоянного тома из снапшота](../managed-kubernetes/tutorials/pvc-snapshot-restore.md#restore-from-snapshot).
+* [Рекомендации по обеспечению высокой доступности и отказоустойчивости](../managed-kubernetes/concepts/usage-recommendations.md#high-availability).
+
 #### Смотрите также {#see-also}
 
 * [{#T}](../tutorials/infrastructure-management/fault-tolerance.md)

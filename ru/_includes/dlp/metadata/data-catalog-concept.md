@@ -10,4 +10,4 @@
 * [классификации и теги](#classifications-and-tags),
 * [глоссарии и термины](#glossaries-and-terms).
 
-![data-catalog](../../_assets/metadata-hub/data-catalog.svg)
+![data-catalog](../../../_assets/metadata-hub/data-catalog.svg)

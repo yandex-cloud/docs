@@ -16,7 +16,7 @@ description: Сервис {{ data-catalog-name }} позволяет вам со
 
 Основная сущность, которой оперирует сервис {{ data-catalog-name }} — _каталог метаданных_.
 
-{% include [data-catalog-concept](../../_includes/metadata-hub/data-catalog-concept.md) %}
+{% include [data-catalog-concept](../../_includes/dlp/metadata/data-catalog-concept.md) %}
 
 ## Загрузка метаданных {#metadata-upload}
 
@@ -39,21 +39,21 @@ description: Сервис {{ data-catalog-name }} позволяет вам со
 
 ## Хранилище данных {#data-store}
 
-{% include [data-catalog-concept](../../_includes/metadata-hub/data-catalog-storage-concept.md) %}
+{% include [data-catalog-concept](../../_includes/dlp/metadata/data-catalog-storage-concept.md) %}
 
 ## Разметка метаданных {#metadata-markup}
 
 ### Домены и поддомены {#domains-and-subdomains}
 
-{% include [data-catalog-concept](../../_includes/metadata-hub/data-catalog-domain-concept.md) %}
+{% include [data-catalog-concept](../../_includes/dlp/metadata/data-catalog-domain-concept.md) %}
 
 ### Классификации и теги {#classifications-and-tags}
 
-{% include [data-catalog-concept](../../_includes/metadata-hub/data-catalog-classification-tag-concept.md) %}
+{% include [data-catalog-concept](../../_includes/dlp/metadata/data-catalog-classification-tag-concept.md) %}
 
 ### Глоссарии и термины {#glossaries-and-terms}
 
-{% include [data-catalog-concept](../../_includes/metadata-hub/data-catalog-glossary-term.md) %}
+{% include [data-catalog-concept](../../_includes/dlp/metadata/data-catalog-glossary-term.md) %}
 
 ## Примеры использования {#examples}
 

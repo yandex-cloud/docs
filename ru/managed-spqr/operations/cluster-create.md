@@ -99,6 +99,423 @@ keywords:
 
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы создать кластер {{ mspqr-name }}:
+
+  1. Посмотрите описание команды CLI для создания кластера:
+
+      ```bash
+      yc managed-sharded-postgresql cluster create --help
+      ```
+
+  1. Укажите параметры кластера в команде создания (в примере приведены не все параметры):
+
+      {% cut "Для кластера со стандартным шардированием" %}
+
+            
+      ```bash
+      yc managed-sharded-postgresql cluster create \
+         --name <имя_кластера> \
+         --environment <окружение> \
+         --network-name <имя_сети> \
+         --security-group-ids <идентификаторы_групп_безопасности> \
+         --host type=infra,`
+               `zone-id=<зона_доступности>,`
+               `subnet-id=<идентификатор_подсети>,`
+               `assign-public-ip=<разрешить_публичный_доступ_к_хосту> \
+         --infra-resource-preset <класс_хостов_INFRA> \
+         --infra-disk-size <размер_хранилища_ГБ> \
+         --infra-disk-type <тип_диска> \
+         --database name=<имя_БД> \
+         --user name=<имя_пользователя>,`
+               `password=<пароль>,`
+               `permission=<имя_БД>,`
+               `connection-limit=<количество_подключений_для_пользователя>,`
+               `connection-retries=<количество_повторных_попыток_соединения> \
+         --deletion-protection=<защитить_кластер_от_удаления>
+      ```
+
+
+      {% endcut %}
+
+      {% cut "Для кластера с расширенным шардированием" %}
+
+      
+      ```bash
+      yc managed-sharded-postgresql cluster create \
+         --name <имя_кластера> \
+         --environment <окружение> \
+         --network-name <имя_сети> \
+         --security-group-ids <идентификаторы_групп_безопасности> \
+         --host type=router,`
+               `zone-id=<зона_доступности>,`
+               `subnet-id=<идентификатор_подсети>,`
+               `assign-public-ip=<разрешить_публичный_доступ_к_хосту> \
+         --router-resource-preset <класс_хостов_роутера> \
+         --router-disk-size <размер_хранилища_ГБ> \
+         --router-disk-type <тип_диска> \
+         --host type=coordinator,`
+               `zone-id=<зона_доступности>,`
+               `subnet-id=<идентификатор_подсети>,`
+               `assign-public-ip=<разрешить_публичный_доступ_к_хосту> \
+         --coordinator-resource-preset <класс_хостов_координатора> \
+         --coordinator-disk-size <размер_хранилища_ГБ> \
+         --coordinator-disk-type <тип_диска> \
+         --database name=<имя_БД> \
+         --user name=<имя_пользователя>,`
+               `password=<пароль>,`
+               `permission=<имя_БД>,`
+               `connection-limit=<количество_подключений_для_пользователя>,`
+               `connection-retries=<количество_повторных_попыток_соединения> \
+         --deletion-protection=<защитить_кластер_от_удаления>
+      ```
+
+
+      {% endcut %}
+
+      Где:
+
+      * `--name` — имя кластера.
+      * `--environment` — окружение кластера: `production` или `prestable`.
+      * `--network-name` — имя [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
+
+        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
+
+      
+      * `--security-group-ids` — идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md) через запятую.
+
+        {% include [note-sg](../../_includes/managed-spqr/note-sg.md) %}
+
+
+      * `--host` — настройки хоста кластера. Параметр задается для каждого хоста отдельно и имеет следующую структуру:
+
+        * `type` — тип хоста. Возможные значения:
+          
+          * `router` — [роутер](../concepts/index.md#router) в кластере с расширенным шардированием;
+          * `coordinator` — [координатор](../concepts/index.md#coordinator) в кластере с расширенным шардированием;
+          * `infra` — хост `INFRA` в кластере со стандартным шардированием.
+        
+        * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
+        
+        
+        * `subnet-id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet).
+        * `assign-public-ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+      
+      * `--router-resource-preset` — [класс хостов](../concepts/instance-types.md) роутера.
+      * `--router-disk-size` — размер диска роутера в гигабайтах.
+      * `--router-disk-type` — [тип диска](../concepts/storage.md) роутера.
+      * `--coordinator-resource-preset` — класс хостов координатора.
+      * `--coordinator-disk-size` — размер диска координатора в гигабайтах.
+      * `--coordinator-disk-type` — тип диска координатора.
+      * `--infra-resource-preset` — класс хостов `INFRA`.
+      * `--infra-disk-size` — размер диска `INFRA` в гигабайтах.
+      * `--infra-disk-type` — тип диска `INFRA`.
+      * `--database` — настройки базы данных:
+        
+        * `name` — имя базы данных.
+
+        Для каждой базы данных задайте отдельный параметр `--database`.
+
+      * `--user` — настройки пользователя. Параметр задается для каждого пользователя отдельно и имеет следующую структуру:
+        
+        * `name` — имя пользователя.
+          
+          {% include [user-name-limits](../../_includes/mdb/mspqr/console/user-name-limits.md) %}
+
+        * `password` — пароль пользователя. Длина пароля — от 8 до 128 символов.
+        * `permission` — имя базы данных, к которой пользователь получает доступ.
+
+          Для каждой базы данных, к которой пользователю нужно предоставить доступ, передайте отдельный параметр `permission`.
+
+        * `connection-limit` — максимальное количество одновременных подключений для пользователя.
+        * `connection-retries` — максимальное количество повторных попыток соединения.
+
+      * `--deletion-protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
+
+        {% include [deletion-protection-cluster](../../_includes/mdb/mspqr/deletion-protection-cluster.md) %}
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+      
+      1. Чтобы настроить окно [резервного копирования](../concepts/backup.md), передайте следующие параметры:
+
+          ```bash
+          yc managed-sharded-postgresql cluster create \
+             ...
+             --backup-window-start <время_начала_резервного_копирования> \
+             --backup-retain-period-days <срок_хранения_автоматических_резервных_копий_в_днях> \
+             ...
+          ```
+
+          Где:
+
+          * `--backup-window-start` — время начала резервного копирования кластера по UTC в формате `HH:MM:SS`.
+          * `--backup-retain-period-days` — срок хранения автоматических резервных копий. Возможные значения: от `7` до `60` дней. Значение по умолчанию — `7` дней.
+      
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать кластер {{ mspqr-name }}:
+
+  1. Опишите в конфигурационном файле параметры следующих ресурсов:
+
+      * Кластер {{ mspqr-name }}.
+      * База данных кластера.
+      * Пользователь кластера.
+      * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
+      * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
+
+      Пример структуры конфигурационного файла:
+
+      {% cut "Для кластера со стандартным шардированием" %}
+
+      ```hcl
+      resource "yandex_mdb_sharded_postgresql_cluster" "<локальное_имя_кластера>" {
+        name                = "<имя_кластера>"
+        environment         = "<окружение>"
+        network_id          = yandex_vpc_network.<локальное_имя_сети>.id
+        security_group_ids  = ["<идентификаторы_групп_безопасности>"]
+        deletion_protection = <защитить_кластер_от_удаления>
+  
+        config = {
+          sharded_postgresql_config = {
+            infra = {
+              resources = {
+                resource_preset_id = "<класс_хостов_INFRA>"
+                disk_size          = <размер_хранилища_ГБ>
+                disk_type_id       = "<тип_диска>"
+              }
+            }
+          }
+        }
+
+        hosts = {
+          <имя_хоста> = {
+            type             = "INFRA"
+            zone             = "<зона_доступности>"
+            subnet_id        = yandex_vpc_subnet.<локальное_имя_подсети>.id
+            assign_public_ip = <разрешить_публичный_доступ_к_хосту>
+          }
+        } 
+      }
+
+      resource "yandex_mdb_sharded_postgresql_database" "<локальное_имя_БД>" {
+        cluster_id = yandex_mdb_sharded_postgresql_cluster.<локальное_имя_кластера>.id
+        name       = "<имя_БД>"
+      }
+      
+      resource "yandex_mdb_sharded_postgresql_user" "<локальное_имя_пользователя>" {
+        cluster_id = yandex_mdb_sharded_postgresql_cluster.<локальное_имя_кластера>.id
+        name       = "<имя_пользователя>"
+        password   = "<пароль>"
+
+        permissions {
+          database = yandex_mdb_sharded_postgresql_database.<локальное_имя_БД>.name
+        }
+
+        settings = {
+          connection_limit   = <количество_подключений_для_пользователя>
+          connection_retries = <количество_повторных_попыток_соединения>
+        }
+      }
+
+      resource "yandex_vpc_network" "<локальное_имя_сети>" {
+        name = "<имя_сети>"
+      }
+
+      resource "yandex_vpc_subnet" "<локальное_имя_подсети>" {
+        name           = "<имя_подсети>"
+        zone           = "<зона_доступности>"
+        network_id     = yandex_vpc_network.<локальное_имя_сети>.id
+        v4_cidr_blocks = ["<диапазон_IP-адресов>"]
+      }
+      ```
+      
+      {% endcut %}
+
+      {% cut "Для кластера с расширенным шардированием" %}
+
+      ```hcl
+      resource "yandex_mdb_sharded_postgresql_cluster" "<локальное_имя_кластера>" {
+        name                = "<имя_кластера>"
+        environment         = "<окружение>"
+        network_id          = yandex_vpc_network.<локальное_имя_сети>.id
+        security_group_ids  = ["<идентификаторы_групп_безопасности>"]
+        deletion_protection = <защитить_кластер_от_удаления>
+  
+        config = {
+          sharded_postgresql_config = {
+            router = {
+              resources = {
+                resource_preset_id = "<класс_хостов_роутера>"
+                disk_size          = <размер_хранилища_ГБ>
+                disk_type_id       = "<тип_диска>"
+              }
+            }
+            
+            coordinator = {
+              resources = {
+                resource_preset_id = "<класс_хостов_координатора>"
+                disk_size          = <размер_хранилища_ГБ>
+                disk_type_id       = "<тип_диска>"
+              }
+            }
+          }
+        }
+
+        hosts = {
+          <имя_хоста_1> = {
+            type             = "ROUTER"
+            zone             = "<зона_доступности>"
+            subnet_id        = yandex_vpc_subnet.<локальное_имя_подсети>.id
+            assign_public_ip = <разрешить_публичный_доступ_к_хосту>
+          }
+
+          <имя_хоста_2> = {
+            type             = "COORDINATOR"
+            zone             = "<зона_доступности>"
+            subnet_id        = yandex_vpc_subnet.<локальное_имя_подсети>.id
+            assign_public_ip = <разрешить_публичный_доступ_к_хосту>
+          }
+        } 
+      }
+
+      resource "yandex_mdb_sharded_postgresql_database" "<локальное_имя_БД>" {
+        cluster_id = yandex_mdb_sharded_postgresql_cluster.<локальное_имя_кластера>.id
+        name       = "<имя_БД>"
+      }
+      
+      resource "yandex_mdb_sharded_postgresql_user" "<локальное_имя_пользователя>" {
+        cluster_id = yandex_mdb_sharded_postgresql_cluster.<локальное_имя_кластера>.id
+        name       = "<имя_пользователя>"
+        password   = "<пароль>"
+
+        permissions {
+          database = yandex_mdb_sharded_postgresql_database.<локальное_имя_БД>.name
+        }
+
+        settings = {
+          connection_limit   = <количество_пользовательских_подключений>
+          connection_retries = <количество_повторов_при_подключении>
+        }
+      }
+
+      resource "yandex_vpc_network" "<локальное_имя_сети>" {
+        name = "<имя_сети>"
+      }
+
+      resource "yandex_vpc_subnet" "<локальное_имя_подсети>" {
+        name           = "<имя_подсети>"
+        zone           = "<зона_доступности>"
+        network_id     = yandex_vpc_network.<локальное_имя_сети>.id
+        v4_cidr_blocks = ["<диапазон_IP-адресов>"]
+      }
+      ```
+
+      {% endcut %}
+
+      Где:
+
+      * `name` — имя кластера.
+      * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
+      * `network_id` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
+
+        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
+
+      * `security_group_ids` — список идентификаторов [групп безопасности](../../vpc/concepts/security-groups.md).
+
+        {% include [note-sg](../../_includes/managed-spqr/note-sg.md) %}
+      
+      * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
+
+        {% include [deletion-protection-cluster](../../_includes/mdb/mspqr/deletion-protection-cluster.md) %}
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+      * `hosts` — хосты кластера в виде ассоциативного массива элементов. Ключ задает имя хоста, а значение — параметры хоста. Каждый элемент имеет следующую структуру:
+
+        * `type` — тип хоста. Возможные значения:
+          
+          * `ROUTER` — [роутер](../concepts/index.md#router) в кластере с расширенным шардированием;
+          * `COORDINATOR` — [координатор](../concepts/index.md#coordinator) в кластере с расширенным шардированием;
+          * `INFRA` — хост `INFRA` в кластере со стандартным шардированием.
+        
+        * `zone` — [зона доступности](../../overview/concepts/geo-scope.md).
+        * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet).
+        * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+      
+      * `config.sharded_postgresql_config.router.resources` — параметры ресурсов роутера в кластере с расширенным шардированием:
+        
+        * `resource_preset_id` — [класс хостов](../concepts/instance-types.md).
+        * `disk_size` — размер диска в гигабайтах.
+        * `disk_type_id` — [тип диска](../concepts/storage.md).
+      
+      * `config.sharded_postgresql_config.coordinator.resources` — параметры ресурсов координатора в кластере с расширенным шардированием:
+        
+        * `resource_preset_id` — класс хостов.
+        * `disk_size` — размер диска в гигабайтах.
+        * `disk_type_id` — тип диска.
+      
+      * `config.sharded_postgresql_config.infra.resources` — параметры ресурсов `INFRA` в кластере со стандартным шардированием:
+        
+        * `resource_preset_id` — класс хостов.
+        * `disk_size` — размер диска в гигабайтах.
+        * `disk_type_id` — тип диска.
+      
+      1. Чтобы настроить окно [резервного копирования](../concepts/backup.md), добавьте в блок `config` следующие параметры:
+
+          ```hcl
+          resource "yandex_mdb_sharded_postgresql_cluster" "<локальное_имя_кластера>" {
+            ...
+            config = {
+              backup_window_start = {
+                hours   = <часы>
+                minutes = <минуты>
+              }
+
+              backup_retain_period_days = <срок_хранения_автоматических_резервных_копий_в_днях>
+              ...
+            }
+            ...
+          }
+          ```
+
+          Где:
+
+          * `backup_window_start` — время начала резервного копирования кластера по UTC:
+        
+            * `hours` — от `0` до `23` часов.
+            * `minutes` — от `0` до `59` минут.
+        
+          * `backup_retain_period_days` — срок хранения автоматических резервных копий. Возможные значения: от `7` до `60` дней. Значение по умолчанию — `7` дней.
+    
+      1. {% include [Maintenance window](../../_includes/mdb/mspqr/terraform/maintenance-window.md) %}
+  
+      Подробнее о ресурсе `yandex_mdb_sharded_postgresql_cluster` в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_cluster).
+
+  1. Проверьте корректность файлов конфигурации {{ TF }}:
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Создайте кластер:
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+      
+      {% include [Terraform timeouts](../../_includes/mdb/mspqr/terraform/timeouts.md) %}
+
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -254,6 +671,8 @@ keywords:
 
 
      * `deletionProtection` — защита кластера от удаления: `true` или `false`.
+
+        {% include [deletion-protection-cluster](../../_includes/mdb/mspqr/deletion-protection-cluster.md) %}
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
@@ -535,6 +954,8 @@ keywords:
 
      * `deletion_protection` — защита кластера от удаления: `true` или `false`.
 
+        {% include [deletion-protection-cluster](../../_includes/mdb/mspqr/deletion-protection-cluster.md) %}
+
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
      * `config_spec` — настройки кластера:
@@ -646,5 +1067,387 @@ keywords:
      ```
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
+
+## Примеры {#examples}
+
+
+### Создание кластера со стандартным шардированием {#creating-standard-sharded-cluster}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  Создайте кластер {{ mspqr-name }} с тестовыми характеристиками:
+
+  * Имя `spqr-std`.
+  * Окружение `production`.
+  * Сеть `{{ network-name }}`.
+
+    
+  * Группа безопасности `enpjfvd3f34c********`.
+  * Один хост `infra` в зоне доступности `{{ region-id }}-a` в подсети с идентификатором `e9bhbia2scnk********`.
+
+  
+  * Класс хоста `{{ host-class }}`.
+  
+  
+  * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером `10` ГБ.
+  
+
+  * База данных `db1`.
+  * Пользователь `user1` с паролем `Password123` и доступом к базе данных `db1`.
+  * Защита от непреднамеренного удаления кластера включена.
+
+  Выполните следующую команду:
+
+  
+  ```bash
+  yc managed-sharded-postgresql cluster create \
+     --name spqr-std \
+     --environment production \
+     --network-name {{ network-name }} \
+     --security-group-ids enpjfvd3f34c******** \
+     --host type=infra,zone-id={{ region-id }}-a,subnet-id=e9bhbia2scnk******** \
+     --infra-resource-preset {{ host-class }} \
+     --infra-disk-size 10 \
+     --infra-disk-type {{ disk-type-example }} \
+     --database name=db1 \
+     --user name=user1,password=Password123,permission=db1 \
+     --deletion-protection=true
+  ```
+
+
+
+- {{ TF }} {#tf}
+  
+  Создайте кластер {{ mspqr-name }}, а также сеть, подсеть и группу безопасности для него, используя следующие тестовые характеристики:
+  
+  * Имя `spqr-std`.
+  * Окружение `PRODUCTION`.
+  * Сеть `spqr-network`.
+  * Группа безопасности `spqr-sg` с правилами, которые разрешают входящие и исходящие TCP-подключения на порт `{{ port-mpg }}`.
+    
+    Эти правила нужны для подключения роутера к хостам шарда, а также для подключения к кластеру через интернет. Для подключения к кластеру через интернет также включите публичный доступ к хосту. [Подробнее о подключении к кластеру](connect.md).
+
+  * Один хост `INFRA` в зоне доступности `{{ region-id }}-a` в подсети `spqr-network-{{ region-id }}-a` с диапазоном IP-адресов `10.128.0.0/24`.
+  * Класс хоста `{{ host-class }}`.
+  * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером `10` ГБ.
+  * База данных `db1`.
+  * Пользователь `user1` с паролем `Password123` и доступом к базе данных `db1`.
+  * Защита от непреднамеренного удаления кластера включена.
+  
+  Конфигурационный файл для создания этих ресурсов выглядит так:
+
+  ```hcl
+  resource "yandex_vpc_network" "spqr_network" {
+    description = "Network for the Managed Service for Sharded PostgreSQL"
+    name        = "spqr-network"
+  }
+
+  resource "yandex_vpc_subnet" "subnet_a" {
+    description    = "Subnet in the {{ region-id }}-a availability zone"
+    name           = "spqr-network-{{ region-id }}-a"
+    zone           = "{{ region-id }}-a"
+    network_id     = yandex_vpc_network.spqr_network.id
+    v4_cidr_blocks = ["10.128.0.0/24"]
+  }
+
+  resource "yandex_vpc_security_group" "spqr_sg" {
+    description = "Security group for the Managed Service for Sharded PostgreSQL"
+    name        = "spqr-sg"
+    network_id  = yandex_vpc_network.spqr_network.id
+
+    ingress {
+      description    = "Allow connections from the Internet and between cluster components"
+      port           = 6432
+      protocol       = "TCP"
+      v4_cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    egress {
+      description    = "Allow connections between cluster components"
+      port           = 6432
+      protocol       = "TCP"
+      v4_cidr_blocks = ["0.0.0.0/0"]
+    }
+  }
+
+  resource "yandex_mdb_sharded_postgresql_cluster" "spqr_cluster" {
+    description         = "Managed Service for Sharded PostgreSQL cluster with standard sharding"
+    name                = "spqr-std"
+    environment         = "PRODUCTION"
+    network_id          = yandex_vpc_network.spqr_network.id
+    security_group_ids  = [yandex_vpc_security_group.spqr_sg.id]
+    deletion_protection = true
+  
+    config = {
+      sharded_postgresql_config = {
+        infra = {
+          resources = {
+            disk_size          = 10
+            disk_type_id       = "{{ disk-type-example }}"
+            resource_preset_id = "{{ host-class }}"
+          }
+        }
+      }
+    }
+
+    hosts = {
+      infra1 = {
+        type      = "INFRA"
+        zone      = "{{ region-id }}-a"
+        subnet_id = yandex_vpc_subnet.subnet_a.id
+      }
+    } 
+  }
+
+  resource "yandex_mdb_sharded_postgresql_database" "spqr_cluster_db" {
+    cluster_id = yandex_mdb_sharded_postgresql_cluster.spqr_cluster.id
+    name       = "db1"
+  }
+
+  resource "yandex_mdb_sharded_postgresql_user" "spqr_cluster_user" {
+    cluster_id = yandex_mdb_sharded_postgresql_cluster.spqr_cluster.id
+    name       = "user1"
+    password   = "Password123"
+    
+    permissions {
+      database = yandex_mdb_sharded_postgresql_database.spqr_cluster_db.name
+    }
+  }
+  ```
+
+
+{% endlist %}
+
+
+### Создание кластера с расширенным шардированием {#creating-advanced-sharded-cluster}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  Создайте кластер {{ mspqr-name }} с тестовыми характеристиками:
+
+  * Имя `spqr-adv`.
+  * Окружение `production`.
+  * Сеть `{{ network-name }}`.
+  
+  
+  * Группа безопасности `enpjfvd3f34c********`.
+  * Три хоста `router` класса `{{ host-class }}` по одному в каждой зоне доступности:
+    
+    * в зоне доступности `{{ region-id }}-a` в подсети с идентификатором `e9bhbia2scnk********`;
+    * в зоне доступности `{{ region-id }}-b` в подсети с идентификатором `e2lfqbm5nt9r********`;
+    * в зоне доступности `{{ region-id }}-d` в подсети с идентификатором `fl8beqmjckv8********`.
+  
+  * Три хоста `coordinator` класса `{{ host-class }}` по одному в каждой зоне доступности:
+    
+    * в зоне доступности `{{ region-id }}-a` в подсети с идентификатором `e9bhbia2scnk********`;
+    * в зоне доступности `{{ region-id }}-b` в подсети с идентификатором `e2lfqbm5nt9r********`;
+    * в зоне доступности `{{ region-id }}-d` в подсети с идентификатором `fl8beqmjckv8********`.
+
+  * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером `10` ГБ для каждого хоста `router`.
+  * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером `10` ГБ для каждого хоста `coordinator`.
+  
+
+  * База данных `db1`.
+  * Пользователь `user1` с паролем `Password123` и доступом к базе данных `db1`.
+  * Защита от непреднамеренного удаления кластера включена.
+
+  Выполните следующую команду:
+
+  
+  ```bash
+  yc managed-sharded-postgresql cluster create \
+     --name spqr-adv \
+     --environment production \
+     --network-name {{ network-name }} \
+     --security-group-ids enpjfvd3f34c******** \
+     --host type=router,zone-id={{ region-id }}-a,subnet-id=e9bhbia2scnk******** \
+     --host type=router,zone-id={{ region-id }}-b,subnet-id=e2lfqbm5nt9r******** \
+     --host type=router,zone-id={{ region-id }}-d,subnet-id=fl8beqmjckv8******** \
+     --host type=coordinator,zone-id={{ region-id }}-a,subnet-id=e9bhbia2scnk******** \
+     --host type=coordinator,zone-id={{ region-id }}-b,subnet-id=e2lfqbm5nt9r******** \
+     --host type=coordinator,zone-id={{ region-id }}-d,subnet-id=fl8beqmjckv8******** \
+     --router-resource-preset {{ host-class }} \
+     --router-disk-size 10 \
+     --router-disk-type {{ disk-type-example }} \
+     --coordinator-resource-preset {{ host-class }} \
+     --coordinator-disk-size 10 \
+     --coordinator-disk-type {{ disk-type-example }} \
+     --database name=db1 \
+     --user name=user1,password=Password123,permission=db1 \
+     --deletion-protection=true
+  ```
+
+
+
+- {{ TF }} {#tf}
+  
+  Создайте кластер {{ mspqr-name }}, а также сеть, подсеть и группу безопасности для него, используя следующие тестовые характеристики:
+  
+  * Имя `spqr-adv`.
+  * Окружение `PRODUCTION`.
+  * Сеть `spqr-network`.
+  * Группа безопасности `spqr-sg` с правилами, которые разрешают входящие и исходящие TCP-подключения на порт `{{ port-mpg }}`.
+    
+    Эти правила нужны для подключения роутера к хостам шарда, а также для подключения к кластеру через интернет. Для подключения к кластеру через интернет также включите публичный доступ к хостам. [Подробнее о подключении к кластеру](connect.md).
+  
+  * Три хоста `ROUTER` класса `{{ host-class }}` по одному в каждой зоне доступности:
+    
+    * в зоне доступности `{{ region-id }}-a` в подсети `spqr-network-{{ region-id }}-a` с диапазоном IP-адресов `10.128.0.0/24`;
+    * в зоне доступности `{{ region-id }}-b` в подсети `spqr-network-{{ region-id }}-b` с диапазоном IP-адресов `10.128.1.0/24`;
+    * в зоне доступности `{{ region-id }}-d` в подсети `spqr-network-{{ region-id }}-d` с диапазоном IP-адресов `10.128.2.0/24`.
+  
+  * Три хоста `COORDINATOR` класса `{{ host-class }}` по одному в каждой зоне доступности:
+    
+    * в зоне доступности `{{ region-id }}-a` в подсети `spqr-network-{{ region-id }}-a` с диапазоном IP-адресов `10.128.0.0/24`;
+    * в зоне доступности `{{ region-id }}-b` в подсети `spqr-network-{{ region-id }}-b` с диапазоном IP-адресов `10.128.1.0/24`;
+    * в зоне доступности `{{ region-id }}-d` в подсети `spqr-network-{{ region-id }}-d` с диапазоном IP-адресов `10.128.2.0/24`.
+  
+  * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером `10` ГБ для каждого хоста `ROUTER`.
+  * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером `10` ГБ для каждого хоста `COORDINATOR`.
+  * База данных `db1`.
+  * Пользователь `user1` с паролем `Password123` и доступом к базе данных `db1`.
+  * Защита от непреднамеренного удаления кластера включена.
+  
+  Конфигурационный файл для создания этих ресурсов выглядит так:
+
+  ```hcl
+  resource "yandex_vpc_network" "spqr_network" {
+    description = "Network for the Managed Service for Sharded PostgreSQL"
+    name        = "spqr-network"
+  }
+
+  resource "yandex_vpc_subnet" "subnet_a" {
+    description    = "Subnet in the {{ region-id }}-a availability zone"
+    name           = "spqr-network-{{ region-id }}-a"
+    zone           = "{{ region-id }}-a"
+    network_id     = yandex_vpc_network.spqr_network.id
+    v4_cidr_blocks = ["10.128.0.0/24"]
+  }
+
+  resource "yandex_vpc_subnet" "subnet_b" {
+    description    = "Subnet in the {{ region-id }}-b availability zone"
+    name           = "spqr-network-{{ region-id }}-b"
+    zone           = "{{ region-id }}-b"
+    network_id     = yandex_vpc_network.spqr_network.id
+    v4_cidr_blocks = ["10.128.1.0/24"]
+  }
+
+  resource "yandex_vpc_subnet" "subnet_d" {
+    description    = "Subnet in the {{ region-id }}-d availability zone"
+    name           = "spqr-network-{{ region-id }}-d"
+    zone           = "{{ region-id }}-d"
+    network_id     = yandex_vpc_network.spqr_network.id
+    v4_cidr_blocks = ["10.128.2.0/24"]
+  }
+
+  resource "yandex_vpc_security_group" "spqr_sg" {
+    description = "Security group for the Managed Service for Sharded PostgreSQL"
+    name        = "spqr-sg"
+    network_id  = yandex_vpc_network.spqr_network.id
+
+    ingress {
+      description    = "Allow connections from the Internet and between cluster components"
+      port           = 6432
+      protocol       = "TCP"
+      v4_cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    egress {
+      description    = "Allow connections between cluster components"
+      port           = 6432
+      protocol       = "TCP"
+      v4_cidr_blocks = ["0.0.0.0/0"]
+    }
+  }
+
+  resource "yandex_mdb_sharded_postgresql_cluster" "spqr_cluster" {
+    description         = "Managed Service for Sharded PostgreSQL cluster with advanced sharding"
+    name                = "spqr-adv"
+    environment         = "PRODUCTION"
+    network_id          = yandex_vpc_network.spqr_network.id
+    security_group_ids  = [yandex_vpc_security_group.spqr_sg.id]
+    deletion_protection = true
+  
+    config = {
+      sharded_postgresql_config = {
+        router = {
+          resources = {
+            disk_size          = 10
+            disk_type_id       = "{{ disk-type-example }}"
+            resource_preset_id = "{{ host-class }}"
+          }
+        }
+        coordinator = {
+          resources = {
+            disk_size          = 10
+            disk_type_id       = "{{ disk-type-example }}"
+            resource_preset_id = "{{ host-class }}"
+          }
+        }
+      }
+    }
+
+    hosts = {
+      router1 = {
+        type      = "ROUTER"
+        zone      = "{{ region-id }}-a"
+        subnet_id = yandex_vpc_subnet.subnet_a.id
+      }
+
+      router2 = {
+        type      = "ROUTER"
+        zone      = "{{ region-id }}-b"
+        subnet_id = yandex_vpc_subnet.subnet_b.id
+      }
+    
+      router3 = {
+        type      = "ROUTER"
+        zone      = "{{ region-id }}-d"
+        subnet_id = yandex_vpc_subnet.subnet_d.id
+      }
+
+      coordinator1 = {
+        type      = "COORDINATOR"
+        zone      = "{{ region-id }}-a"
+        subnet_id = yandex_vpc_subnet.subnet_a.id
+      }
+
+      coordinator2 = {
+        type      = "COORDINATOR"
+        zone      = "{{ region-id }}-b"
+        subnet_id = yandex_vpc_subnet.subnet_b.id
+      }
+    
+      coordinator3 = {
+        type      = "COORDINATOR"
+        zone      = "{{ region-id }}-d"
+        subnet_id = yandex_vpc_subnet.subnet_d.id
+      }
+    } 
+  }
+
+  resource "yandex_mdb_sharded_postgresql_database" "spqr_cluster_db" {
+    cluster_id = yandex_mdb_sharded_postgresql_cluster.spqr_cluster.id
+    name       = "db1"
+  }
+
+  resource "yandex_mdb_sharded_postgresql_user" "spqr_cluster_user" {
+    cluster_id = yandex_mdb_sharded_postgresql_cluster.spqr_cluster.id
+    name       = "user1"
+    password   = "Password123"
+  
+    permissions {
+      database = yandex_mdb_sharded_postgresql_database.spqr_cluster_db.name
+    }
+  }
+  ```
+
 
 {% endlist %}

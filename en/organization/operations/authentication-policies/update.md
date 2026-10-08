@@ -5,8 +5,6 @@ description: Follow this guide to edit an authentication policy in {{ org-full-n
 
 # Editing an authentication policy
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 {% include [auth-policy-intro](../../../_includes/organization/auth-policy-intro.md) %}
 
 {% include [auth-policy-role](../../../_includes/organization/auth-policy-role.md) %}

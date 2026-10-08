@@ -46,11 +46,28 @@ description: Настройки сервиса в {{ datalens-full-name }} по�
 
 Чтобы изменить настройки текущего пользователя, на панели слева выберите ![image](../../_assets/console-icons/gear.svg) **Настройки** и перейдите на вкладку:
 
-* **Уведомления** — укажите адрес электронной почты, номер телефона и аккаунт Telegram и отметьте нужные виды уведомлений.
+* **Уведомления** — настройте получение уведомлений:
+  
+  * В блоке **Каналы** укажите адрес электронной почты, номер телефона, настройте Telegram-бота, {{ messenger-full-name }}, добавьте [вебхук](../../support/notify.md#webhook).
+  * В блоке **Категории** выберите способы получения уведомлений:
+
+    * ![image](../../_assets/console-icons/at.svg) — письмом на электронную почту;
+    * ![image](../../_assets/console-icons/logo-telegram.svg) — сообщением в Telegram-бот;
+    * ![image](../../_assets/console-icons/logo-yandex-messenger.svg) — сообщением в {{ messenger-full-name }};
+    * ![image](../../_assets/datalens/logo-webhook.svg) — через вебхук в указанный канал мессенджера (пока не поддерживается для [рассылок](../concepts/maillists.md));
+    * ![image](../../_assets/console-icons/bell.svg) — в интерфейсе (не поддерживается для рассылок).
+
+    {% cut "Пример настройки способа получения рассылок" %}
+
+    ![maillist-list](../../_assets/datalens/settings/maillist-notify.png =518x465)
+
+    {% endcut %}
+
+
 * **Язык и регион** — выберите язык интерфейса, часовой пояс, формат даты и времени.
 * **Оформление** — выберите тему интерфейса и контрастность.
 * **Настройки AI** — [настройте пользовательский промпт](../concepts/neuroanalyst.md#user-promt) для AI.
 
-Подробнее в [{#T}](../../console/operations/update.md).
+Подробнее в [Изменение настроек консоли управления](../../console/operations/update.md).
 
 

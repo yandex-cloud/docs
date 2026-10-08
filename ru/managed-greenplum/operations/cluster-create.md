@@ -68,7 +68,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. (Опционально) Включите опцию **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**.
 
-        Она включает [гибридное хранилище](../concepts/hybrid-storage.md). Гибридное хранилище нельзя отключить после сохранения настроек кластера.
+        Она включает [гибридное хранилище](../concepts/hybrid-storage.md). После сохранения настроек кластера гибридное хранилище нельзя отключить.
 
         {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
 
@@ -193,6 +193,7 @@ description: Следуя данной инструкции, вы сможете
            --subnet-id=<идентификатор_подсети> \
            --assign-public-ip=<разрешить_публичный_доступ_к_хостам_кластера> \
            --security-group-ids=<список_идентификаторов_групп_безопасности> \
+           --cloud-storage-enable=<использовать_гибридное_хранилище> \
            --deletion-protection
         ```
 
@@ -226,6 +227,12 @@ description: Следуя данной инструкции, вы сможете
         * `--subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
         * `--assign-public-ip` — флаг, который указывается, если для хостов нужен [публичный доступ](../concepts/network.md#public-access-to-a-host): `true` или `false`.
         * `--security-group-ids` — список идентификаторов [групп безопасности](../../vpc/concepts/security-groups.md).
+        * `--cloud-storage-enable` — использование [гибридного хранилища](../concepts/hybrid-storage.md). 
+
+          Установите значение `true`, чтобы включить гибридное хранилище. После сохранения настроек кластера гибридное хранилище нельзя отключить.
+
+          {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
+
         * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
 
@@ -386,6 +393,10 @@ description: Следуя данной инструкции, вы сможете
           yandex_query = <разрешить_доступ_из_Yandex_Query>
         }
 
+        cloud_storage {
+          enable = <использовать_гибридное_хранилище>
+        }
+
         user_name     = "<имя_пользователя>"
         user_password = "<пароль>"
 
@@ -419,6 +430,12 @@ description: Следуя данной инструкции, вы сможете
       * `access.yandex_query` — доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md): `true` или `false`.
 
 
+
+      * `cloud_storage.enable` — использование [гибридного хранилища](../concepts/hybrid-storage.md).
+
+        Установите значение `true`, чтобы включить гибридное хранилище. После сохранения настроек кластера гибридное хранилище нельзя отключить.
+
+        {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
 
       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, читайте в [документации провайдера]({{ tf-provider-mgp }}).
 
@@ -639,9 +656,11 @@ description: Следуя данной инструкции, вы сможете
             * `clientIdleTimeout` — время неактивности клиентского соединения в секундах, после которого соединение разрывается.
             * `idleInTransactionTimeout` — время неактивности клиентского соединения с открытой транзакцией в секундах, после которого соединение разрывается.
 
-        * `cloudStorage.enable` — использование гибридного хранилища. Установите значение `true`, чтобы включить в кластере [расширение {{ YZ }}](https://github.com/yezzey-gp/yezzey/) от {{ yandex-cloud }}. Оно применяется, чтобы [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера {{ mgp-name }} в гибридное хранилище {{ objstorage-full-name }}. Так данные хранятся в служебном бакете в сжатом и зашифрованном виде. Это [более экономичный способ хранения](../../storage/pricing.md).
+        * `cloudStorage.enable` — использование [гибридного хранилища](../concepts/hybrid-storage.md).
 
-            Гибридное хранилище нельзя отключить после сохранения настроек кластера.
+            Установите значение `true`, чтобы включить гибридное хранилище. После сохранения настроек кластера гибридное хранилище нельзя отключить.
+
+            {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
 
         
         * `masterHostGroupIds` и `segmentHostGroupIds` — (опционально) идентификаторы групп [выделенных хостов](../../compute/concepts/dedicated-host.md) для хостов-мастеров и хостов-сегментов.
@@ -831,9 +850,11 @@ description: Следуя данной инструкции, вы сможете
             * `client_idle_timeout` — время неактивности клиентского соединения в секундах, после которого соединение разрывается.
             * `idle_in_transaction_timeout` — время неактивности клиентского соединения с открытой транзакцией в секундах, после которого соединение разрывается.
 
-        * `cloud_storage.enable` — использование гибридного хранилища. Установите значение `true`, чтобы включить в кластере [расширение {{ YZ }}](https://github.com/yezzey-gp/yezzey/) от {{ yandex-cloud }}. Оно применяется, чтобы [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера {{ mgp-name }} в гибридное хранилище {{ objstorage-full-name }}. Так данные хранятся в служебном бакете в сжатом и зашифрованном виде. Это [более экономичный способ хранения](../../storage/pricing.md).
+        * `cloud_storage.enable` — использование [гибридного хранилища](../concepts/hybrid-storage.md).
 
-            Гибридное хранилище нельзя отключить после сохранения настроек кластера.
+            Установите значение `true`, чтобы включить гибридное хранилище. После сохранения настроек кластера гибридное хранилище нельзя отключить.
+
+            {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
 
         
         * `master_host_group_ids` и `segment_host_group_ids` — (опционально) идентификаторы групп [выделенных хостов](../../compute/concepts/dedicated-host.md) для хостов-мастеров и хостов-сегментов.

@@ -21,7 +21,7 @@
 || Максимальное количество групп узлов в одном кластере {{ k8s }}
 `managed-kubernetes.clusterNodeGroups.count` | 32 ||
 || Максимальное количество узлов в одной группе узлов
-`managed-kubernetes.groupNodes.count` | 200 ||
+`managed-kubernetes.groupNodes.count` | 100 ||
 || Максимальное количество узлов в одном кластере {{ k8s }}
 `managed-kubernetes.clusterNodes.count` | 200 ||
 |#

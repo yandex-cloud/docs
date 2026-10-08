@@ -2,7 +2,9 @@
 
 # Настроить алерты Yandex Monium для ресурсов Yandex Cloud Backup
 
-_Алерт_ — набор последовательных именованных [запросов](../../monium/concepts/data-model.md#queries), которые вычисляются один раз в минуту. Полученное значение запроса сравнивается с заданными пороговыми значениями. Если порог достигнут, Monium переводит алерт в [статус](../../monium/concepts/alerting/alert.md#alert-statuses) `Alarm` или `Warning` и оповещает пользователя по [каналу уведомления](../../monium/concepts/alerting/notification-channel.md).
+_Алерт_ — проверка, которая раз в минуту определяет [статус](../../monium/concepts/alerting/alert.md#alert-statuses) по заданным условиям. Для каждого статуса задаются условия: когда они выполняются, алерт переходит в этот статус. В зависимости от типа алерта условия применяются к результатам [запросов](../../monium/concepts/querying.md#queries), показателям [SLO](../../monium/concepts/alerting/alert.md#slo-alerts) или статусам [других алертов](../../monium/concepts/alerting/alert.md#composite-alerts).
+
+Уведомления о смене статуса отправляются через настроенные [каналы](../../monium/concepts/alerting/notification-channel.md).
 
 Вы можете [настроить](../../monium/operations/alert/create-alert.md) алерт на любую из метрик [Yandex Cloud Backup](../index.md). Рекомендуется создать алерты на следующие события:
 

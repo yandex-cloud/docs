@@ -285,6 +285,68 @@ To quickly restore a service and address faults, you need to have action plans r
 
 Any fault tolerance solutions require regular testing in various fault scenarios. Learn more about testing fault tolerance in a cloud from this webinar: [Disabling a data center, or How to test fault tolerance in a cloud](https://yandex.cloud/ru/events/841).
 
+## Workload recovery actions in case of failure {#workload-recovery}
+
+### {{ mmy-name }} {#workload-recovery-mysql}
+
+* [Adding a host to a cluster](../managed-mysql/operations/hosts.md#add).
+* [Manually switching the master host](../managed-mysql/operations/update.md#start-manual-failover).
+* [Restoring a cluster from a backup](../managed-mysql/operations/cluster-backups.md).
+
+### {{ mpg-name }} {#workload-recovery-postgresql}
+
+* [Manually switching the master host](../managed-postgresql/operations/update.md#start-manual-failover).
+* [Restoring a cluster from a backup](../managed-postgresql/operations/cluster-backups.md#restore).
+
+### {{ mch-name }} {#workload-recovery-clickhouse}
+
+* [Adding a host to a cluster](../managed-clickhouse/operations/hosts.md#add-host).
+* [Restoring a cluster or shard from a backup](../managed-clickhouse/operations/cluster-backups.md#restore).
+
+### {{ mrd-name }} {#workload-recovery-valkey}
+
+* [Adding a host to a cluster](../managed-valkey/operations/hosts.md#add).
+* [Manually switching the master host](../managed-valkey/operations/failover.md).
+* [Restoring a cluster from a backup](../managed-valkey/operations/cluster-backups.md#restore).
+
+### {{ mmg-name }} {#workload-recovery-storedoc}
+
+* [Adding a host to a cluster](../storedoc/operations/hosts.md#add-host).
+* [Switching the primary replica](../storedoc/operations/stepdown.md).
+* [Restoring a cluster from a backup](../storedoc/operations/cluster-backups.md#restore).
+
+### {{ mos-name }} {#workload-recovery-opensearch}
+
+* [Restoring a cluster from a backup](../managed-opensearch/operations/cluster-backups.md#restore).
+* [Restoring indexes from a snapshot](../managed-opensearch/operations/cluster-backups.md#restore-index-from-snapshot).
+
+### {{ mgp-name }} {#workload-recovery-mpp-analytics}
+
+* [Restoring a cluster from a backup](../managed-greenplum/operations/cluster-backups.md#restore).
+
+### {{ mspqr-name }} {#workload-recovery-sharded-postgresql}
+
+* [Restoring a cluster from a backup](../managed-spqr/operations/cluster-backups.md#restore).
+
+The cluster backup contains the shard configuration. If needed, restore the shard data separately in {{ mpg-name }}.
+
+### {{ compute-name }} {#workload-recovery-compute}
+
+* [Creating a VM with disks recovered from snapshots](../compute/operations/vm-create/create-from-snapshots.md).
+* [Restoring a disk from a snapshot](../compute/operations/disk-create/from-snapshot.md).
+* [Disabling an availability zone for an instance group](../compute/operations/instance-groups/disable-enable-zone.md#disable).
+
+### {{ backup-name }} {#workload-recovery-backup}
+
+* [Restoring a VM from a backup](../backup/operations/backup-vm/recover.md).
+* [Restoring a VM from another VM's backup](../backup/operations/backup-vm/non-native-recovery.md).
+
+### {{ managed-k8s-name }} {#workload-recovery-kubernetes}
+
+* [Creating a node group](../managed-kubernetes/operations/node-group/node-group-create.md).
+* [Restoring a persistent volume from a snapshot](../managed-kubernetes/tutorials/pvc-snapshot-restore.md#restore-from-snapshot).
+* [Recommendations for high availability and fault tolerance](../managed-kubernetes/concepts/usage-recommendations.md#high-availability).
+
 #### See also {#see-also}
 
 * [{#T}](../tutorials/infrastructure-management/fault-tolerance.md)

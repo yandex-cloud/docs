@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать политику аутентификации
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 {% include [auth-policy-intro](../../../_includes/organization/auth-policy-intro.md) %}
 
 {% include [auth-policy-role](../../../_includes/organization/auth-policy-role.md) %}

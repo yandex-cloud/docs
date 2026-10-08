@@ -31,10 +31,16 @@ description: Следуя данной инструкции, вы сможете
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/maintenances/?cloudId=<идентификатор_облака>'
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/maintenances?cloudId=<идентификатор_облака>&filter=<выражение_фильтрации>&orderBy=<поле_сортировки> <направление_сортировки>'
      ```
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
+     Где:
+
+     * `cloudId` — идентификатор облака {{ yandex-cloud }}.
+
+     {% include [list-maintenance-rest](../../_includes/mdb/api/list-maintenance-rest.md) %}
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
 
 - gRPC API {#grpc-api}
 
@@ -53,11 +59,19 @@ description: Следуя данной инструкции, вы сможете
             -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/maintenance_service.proto \
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d '{
-                  "cloud_id": "<идентификатор_облака>"
+                  "cloud_id": "<идентификатор_облака>",
+                  "filter": "<выражение_фильтрации>",
+                  "order_by": "<поле_сортировки> <направление_сортировки>"
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.postgresql.v1.MaintenanceService.List
         ```
+
+        Где:
+
+        * `cloud_id` — идентификатор облака {{ yandex-cloud }}.
+
+        {% include [list-maintenance-grpc](../../_includes/mdb/api/list-maintenance-grpc.md) %}
 
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
 
@@ -79,12 +93,14 @@ description: Следуя данной инструкции, вы сможете
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/maintenances/?folderId=<идентификатор_каталога>'
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/maintenances?folderId=<идентификатор_каталога>&filter=<выражение_фильтрации>&orderBy=<поле_сортировки> <направление_сортировки>'
      ```
 
-     
-     Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+     Где:
 
+     * `folderId` — идентификатор каталога, который можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
+     {% include [list-maintenance-rest](../../_includes/mdb/api/list-maintenance-rest.md) %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
 
@@ -105,15 +121,19 @@ description: Следуя данной инструкции, вы сможете
             -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/maintenance_service.proto \
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d '{
-                  "folder_id": "<идентификатор_каталога>"
+                  "folder_id": "<идентификатор_каталога>",
+                  "filter": "<выражение_фильтрации>",
+                  "order_by": "<поле_сортировки> <направление_сортировки>"
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.postgresql.v1.MaintenanceService.List
         ```
 
-        
-        Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+        Где:
 
+        * `folder_id` — идентификатор каталога, который можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
+        {% include [list-maintenance-grpc](../../_includes/mdb/api/list-maintenance-grpc.md) %}
 
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
 
@@ -144,10 +164,14 @@ description: Следуя данной инструкции, вы сможете
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/maintenances/?resourceId=<идентификатор_кластера>'
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/maintenances?resourceId=<идентификатор_кластера>&filter=<выражение_фильтрации>&orderBy=<поле_сортировки> <направление_сортировки>'
      ```
 
-     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+     Где:
+
+     * `resourceId` — идентификатор кластера, который можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+     {% include [list-maintenance-rest](../../_includes/mdb/api/list-maintenance-rest.md) %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
 
@@ -168,13 +192,19 @@ description: Следуя данной инструкции, вы сможете
             -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/maintenance_service.proto \
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d '{
-                  "resource_id": "<идентификатор_кластера>"
+                  "resource_id": "<идентификатор_кластера>",
+                  "filter": "<выражение_фильтрации>",
+                  "order_by": "<поле_сортировки> <направление_сортировки>"
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.postgresql.v1.MaintenanceService.List
         ```
 
-        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+        Где:
+
+        * `resource_id` — идентификатор кластера, который можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+        {% include [list-maintenance-grpc](../../_includes/mdb/api/list-maintenance-grpc.md) %}
 
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
 
@@ -631,7 +661,7 @@ description: Следуя данной инструкции, вы сможете
       {{ yc-mdb-pg }} cluster update <имя_или_идентификатор_кластера> \
          --maintenance-window type=<тип_технического_обслуживания>,`
                              `day=<день_недели>,`
-                             `hour=<час>
+                             `hour=<порядковый_номер_часового_интервала>
       ```
 
       Где `type` — тип технического обслуживания:

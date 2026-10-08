@@ -15,6 +15,8 @@
 `DeleteLoadBalancer` | Удаление балансировщика
 `DeleteTargetGroup` | Удаление целевой группы
 `DeleteVirtualHost` | Удаление виртуального хоста
+`DisableZones` | [Отключение зон доступности](../../../application-load-balancer/operations/manage-zone/start-and-cancel-shift.md#disable-zones) балансировщика
+`EnableZones` | Включение зон доступности балансировщика
 `RemoveBackendGroupBackend` | Удаление бэкенда из группы бэкендов
 `RemoveLoadBalancerListener` | Удаление обработчика из балансировщика
 `RemoveLoadBalancerSniMatch` | Удаление SNI-обработчика из балансировщика

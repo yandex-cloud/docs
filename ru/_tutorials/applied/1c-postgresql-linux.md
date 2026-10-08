@@ -3,7 +3,7 @@
 
 В {{ yandex-cloud }} вы можете создать кластер {{ mpg-full-name }}, оптимизированный для работы с системой «1С:Предприятие».
 
-Создаваемая инфраструктура «1С:Предприятие» будет состоять из рабочего сервера 1С, сервера лицензий 1С и [кластера {{ mpg-short-name }}](../../managed-postgresql/concepts/index.md).  Серверы 1С будут работать под управлением ОС [CentOS 7](/marketplace/products/yc/centos-7) и не будут иметь выхода в интернет. Доступ к кластеру будет осуществляться через шифрованное [соединение с сервером OpenVPN](../../tutorials/routing/openvpn.md).
+Создаваемая инфраструктура «1С:Предприятие» будет состоять из рабочего сервера 1С, сервера лицензий 1С и [кластера {{ mpg-short-name }}](../../managed-postgresql/concepts/index.md). Серверы 1С будут работать под управлением ОС [CentOS 7](/marketplace/products/yc/centos-7) и не будут иметь выхода в интернет. Доступ к кластеру будет осуществляться через шифрованное [соединение с сервером OpenVPN](../../tutorials/routing/openvpn.md).
 
 Для настройки кластера 1С и проверки работоспособности созданной инфраструктуры на вашем локальном компьютере под управлением ОС Windows (вне {{ yandex-cloud }}) должен быть установлен клиент «1С:Предприятия» с консолью администрирования 1С.
 
@@ -18,7 +18,7 @@
 Чтобы настроить кластер серверов «1С:Предприятия»:
 
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Настройте VPN для доступа к облачной инфраструктуре](#setup-vpn). 
+1. [Настройте VPN для доступа к облачной инфраструктуре](#setup-vpn).
 1. [Создайте виртуальные машины для серверов «1С:Предприятия»](#create-1c-vms).
 1. [Создайте кластер {{ mpg-name }}](#create-pg-cluster).
 1. [Настройте Samba-сервер на серверах 1С](#set-up-samba).
@@ -62,8 +62,7 @@
 
 ### Настройте разрешения сетевого трафика {#network-settings}
 
-[Группы безопасности](../../vpc/concepts/security-groups.md) работают как виртуальный брандмауэр для входящего и исходящего трафика. Смотрите подробнее о [группе безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group)
-  
+[Группы безопасности](../../vpc/concepts/security-groups.md) работают как виртуальный брандмауэр для входящего и исходящего трафика. Подробнее о группе безопасности по умолчанию в разделе [{#T}](../../vpc/concepts/security-groups.md#default-security-group).
 Для корректной работы OpenVPN Access Server и кластера {{ mpg-short-name }} [добавьте](../../vpc/operations/security-group-add-rule.md) дополнительные правила в группу безопасности по умолчанию облачной сети `my-1c-network`:
 
 Направление<br>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
@@ -92,7 +91,7 @@
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
       * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-  
+
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть `my-1c-network` и подсеть, соответствующую выбранной зоне доступности ВМ.
@@ -127,7 +126,7 @@
 
 ### Подключитесь к VPN {#test-vpn}
 
-В панели пользователя можно загрузить клиента [OpenVPN Connect](https://openvpn.net/vpn-client/) для Windows, Linux, MacOS, Android, iOS.
+В панели пользователя можно загрузить клиента [OpenVPN Connect](https://openvpn.net/vpn-client/) для Windows, Linux, macOS, Android, iOS.
 
 Поскольку в настоящем руководстве рассматривается настройка клиента «1С:Предприятие» в ОС Windows, скачайте и установите на вашем локальном компьютере клиента OpenVPN для Windows:
 
@@ -145,7 +144,7 @@
 
 Лицензия для «1С:Предприятия» должна быть установлена на отдельном сервере, чтобы изменения конфигурации других серверов системы 1С не затрагивали установленную лицензию. На этом этапе вы создадите две виртуальные машины, одна из которых будет выполнять роль сервера «1С:Предприятия», а вторая — роль сервера лицензирования.
 
-Создайте ВМ для сервера «1С:Предприятия»: 
+Создайте ВМ для сервера «1С:Предприятия»:
 
 {% list tabs group=instructions %}
 
@@ -167,7 +166,7 @@
       * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}.
 
           Публичный адрес потребуется виртуальной машине для настройки программного обеспечения. После завершения настройки ПО вы отвяжете публичный IP-адрес от ВМ, а доступ к ней будет осуществляться через сервер OpenVPN.
-      * Поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**, оставьте пустым. Создаваемой виртуальной машине будет назначена [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group).
+      * Поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** оставьте пустым. Создаваемой виртуальной машине будет назначена [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group).
 
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
 
@@ -203,13 +202,13 @@
 
       * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `1c-database`.
       * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `user1`.
-      * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** – пароль, который вы будете использовать для доступа к базе данных.
+      * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — пароль, который вы будете использовать для доступа к базе данных.
       * **{{ ui-key.yacloud.mdb.forms.database_field_lc-collate }}** — `ru_RU.UTF-8`.
       * **{{ ui-key.yacloud.mdb.forms.database_field_lc-ctype }}** — `ru_RU.UTF-8`.
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите сеть `my-1c-network`.
 
-      Поле **{{ ui-key.yacloud.mdb.forms.field_security-group }}**, оставьте пустым. Создаваемому кластеру будет назначена [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group).
+      Поле **{{ ui-key.yacloud.mdb.forms.field_security-group }}** оставьте пустым. Создаваемому кластеру будет назначена [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group).
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** выберите разные зоны доступности для ваших хостов, чтобы обеспечить отказоустойчивость.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
@@ -276,7 +275,7 @@
             printing = cups
             printcap name = cups
             load printers = yes
-            cups iptions = raw
+            cups options = raw
             security = user
 
     [files]
@@ -408,7 +407,7 @@
 
         1. Нажмите **OK**.
 
-        В дереве слева отобразится локальный кластер. 
+        В дереве слева отобразится локальный кластер.
 
 1. Добавьте сервер лицензирования 1С в кластер серверов:
     1. Раскройте вкладку **Кластеры** → **Local cluster**.
@@ -459,7 +458,7 @@
           * В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан кластер `1c-pg`.
           * [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
           * В открывшемся окне выберите созданный ранее кластер `1c-pg`.
-          * Перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
+          * Перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}**.
           * В поле **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** подведите курсор к имени хоста (вида `rc1b-cfazv1db********`) и скопируйте полное доменное имя базы данных, нажав появившийся значок ![copy](../../_assets/copy.svg). К имени хоста добавится полное доменное имя, в результате в поле **Сервер баз данных** должно быть указано имя вида `rc1c-cfazv1db********.{{ dns-zone }} port=6432`.
 
         {% endlist %}
@@ -473,7 +472,7 @@
     * **Создать базу данных в случае ее отсутствия** — отключено.
     * **Установить блокировку регламентных заданий** — отключено.
 
-   Нажмите **ОК**.
+    Нажмите **ОК**.
 
 ## Подключитесь к информационной базе {#connect-to-infobase}
 

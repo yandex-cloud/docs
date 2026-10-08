@@ -2,12 +2,6 @@
 
 # Создать политику аутентификации
 
-{% note info %}
-
-Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 [Политики аутентификации](../../concepts/authentication-policy.md) — это инструмент Yandex Identity Hub, позволяющий гибко настраивать доступ [пользователей](*user_accounts) и [групп пользователей](*user_groups) к [приложениям](*applications) Yandex Identity Hub, запрещая или разрешая аутентификацию в зависимости от условий, заданных в области применения политики.
 
 [*user_groups]: Пользователей Yandex Identity Hub можно объединять в группы, что упрощает управление доступом в Yandex Cloud. Подробнее читайте в разделе [Группы пользователей](../../concepts/groups.md).

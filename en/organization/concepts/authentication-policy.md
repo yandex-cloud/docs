@@ -5,8 +5,6 @@ description: With authentication policies, you can flexibly configure access to 
 
 # Authentication policies in {{ org-full-name }}
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
 In {{ org-full-name }}, _authentication policies_ are used for granular management of [user](*user_accounts) and [user group](*user_groups) access to {{ org-full-name }} [applications](*applications) by [denying or allowing](#action) authentication based on the [policy criteria](#conditions).
 
 Currently, authentication policies can only be managed in the [{{ cloud-center }} UI]({{ link-org-cloud-center }}). To [create](../operations/authentication-policies/create.md), [update](../operations/authentication-policies/update.md), [activate](../operations/authentication-policies/activate-deactivate.md#activate), [deactivate](../operations/authentication-policies/activate-deactivate.md#deactivate), or [delete](../operations/authentication-policies/delete.md) authentication policies, a user must have the `organization-manager.admin` [role](*org_manager_admin) or higher.

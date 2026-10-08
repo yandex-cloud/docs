@@ -24,7 +24,7 @@
 
         ```bash
         curl \
-        --request POST \
+        --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
         --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/maintenances' \
@@ -94,7 +94,7 @@
 
         ```bash
         curl \
-        --request POST \
+        --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
         --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/maintenances' \
@@ -173,7 +173,7 @@
 
         ```bash
         curl \
-        --request POST \
+        --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
         --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/maintenances' \
@@ -239,7 +239,7 @@
 
         ```bash
         curl \
-        --request POST \
+        --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
         --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/maintenances/<идентификатор_обслуживания>'
@@ -479,7 +479,7 @@
             * `NEXT_AVAILABLE_WINDOW` — перенести обслуживание на ближайшее окно;
             * `SPECIFIC_TIME` — перенести обслуживание на определенную дату и время.
 
-            Временная метка должна иметь формат [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt), например: `2006-01-02T15:04:05Z`. При выборе типа переноса `NEXT_AVAILABLE_WINDOW` параметр `delayed_until` указывать не нужно.
+            Временная метка должна иметь формат [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt), например: `2006-01-02T15:04:05Z`. При выборе типа переноса `NEXT_AVAILABLE_WINDOW` параметр `scheduled_at` указывать не нужно.
 
             Идентификатор обслуживания можно запросить со [списком обслуживаний](#list-maintenance) в облаке, каталоге или кластере.
 
@@ -635,12 +635,6 @@
 
 По умолчанию техническое обслуживание может быть запланировано на любое время. Вы можете выбрать определенный день недели и часовой интервал, на который будет планироваться начало технического обслуживания. Например, можно указать интервал, когда кластер наименее загружен.
 
-{% note warning %}
-
-При выборе нового интервала обслуживания будет автоматически отменено запланированное обслуживание, если оно не попадает на новый интервал.
-
-{% endnote %}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -672,7 +666,7 @@
         yc managed-opensearch cluster update <имя_или_идентификатор_кластера> \
            --maintenance-window type=<тип_технического_обслуживания>,`
                                `day=<день_недели>,`
-                               `hour=<час>
+                               `hour=<порядковый_номер_часового_интервала>
         ```
 
         Где `type` — тип технического обслуживания:
@@ -695,10 +689,10 @@
 
         Полный список доступных для изменения полей конфигурации кластера Managed Service for OpenSearch вы найдете в [документации провайдера Terraform](../../terraform/resources/mdb_opensearch_cluster.md).
 
-    1. Чтобы настроить время [технического обслуживания](../../managed-postgresql/concepts/maintenance.md) (в т. ч. для выключенных кластеров), добавьте к описанию кластера блок `maintenance_window`:
+    1. Чтобы настроить время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), добавьте к описанию кластера блок `maintenance_window`:
        
        ```hcl
-       resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
+       resource "yandex_mdb_opensearch_cluster" "<имя_кластера>" {
          ...
          maintenance_window {
            type = "<тип_технического_обслуживания>"
@@ -716,8 +710,8 @@
            * `ANYTIME` (по умолчанию) — в любое время.
            * `WEEKLY` — по расписанию.
        
-       * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
-       * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
+       * `day` — день недели для типа `WEEKLY`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
+       * `hour` — порядковый номер часового интервала по UTC для типа `WEEKLY`: от `1` до `24`.
        
          > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
@@ -755,7 +749,7 @@
 
         {% note warning "Ограничения по времени" %}
         
-        Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for PostgreSQL:
+        Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for OpenSearch:
         
         * создание, в том числе путем восстановления из резервной копии, — 30 минут;
         * изменение — 60 минут;
@@ -768,7 +762,7 @@
         Добавьте к описанию кластера блок `timeouts`, например:
         
         ```hcl
-        resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_opensearch_cluster" "<имя_кластера>" {
           ...
           timeouts {
             create = "1h30m" # Полтора часа
@@ -824,7 +818,7 @@
         * `maintenanceWindow` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в том числе для выключенных кластеров). В `maintenanceWindow` передайте один из двух параметров:
 
             * `anytime` — техническое обслуживание может быть запланировано на любое время.
-            * `weeklyMaintenanceWindow` — техническое обслуживание может быть запланировано только на выбранный день недели и порядковый номер часового интервала:
+            * `weeklyMaintenanceWindow` — техническое обслуживание может быть запланировано только на выбранный день недели и часовой интервал:
 
                 * `day` — день недели в формате `DDD`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`;
                 * `hour` — порядковый номер часового интервала по UTC в формате `HH`: от `1` до `24`.
@@ -903,10 +897,10 @@
         * `maintenance_window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в том числе для выключенных кластеров). В `maintenance_window` передайте один из двух параметров:
 
             * `anytime` — техническое обслуживание может быть запланировано на любое время.
-            * `weekly_maintenance_window` — техническое обслуживание может быть запланировано только на выбранный день недели и час:
+            * `weekly_maintenance_window` — техническое обслуживание может быть запланировано только на выбранный день недели и часовой интервал:
 
                 * `day` — день недели в формате `DDD`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`;
-                * `hour` — час дня по UTC в формате `HH`: от `1` до `24`.
+                * `hour` — порядковый номер часового интервала по UTC в формате `HH`: от `1` до `24`.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 

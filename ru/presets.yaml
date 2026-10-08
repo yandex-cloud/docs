@@ -171,6 +171,8 @@ default:
   datalens-full-name: Yandex DataLens
   datalens-gallery: DataLens Gallery
   datalens-name: DataLens
+  datalens-platform-full-name: Yandex DataLens Platform
+  datalens-platform-short-name: DataLens Platform
   datalens-short-name: DataLens
   dataproc-full-name: Yandex Data Processing
   dataproc-name: Yandex Data Processing
@@ -329,6 +331,7 @@ default:
   link-datalens-main: https://datalens.ru
   link-datalens-main-promo: https://datalens.ru/promo
   link-datalens-main-skip-promo: https://datalens.ru/?skipPromo=true
+  link-datalens-platform-main: https://datalens.ru/platform
   link-datalens-settings: https://datalens.ru/settings
   link-datalens-wizard: https://datalens.ru/wizard
   link-datasphere-main: https://datasphere.yandex.cloud
@@ -1067,6 +1070,7 @@ default:
   quota-manager-name: Cloud Quota Manager
   quota-manager-short-name: Quota Manager
   RD: Redis
+  realtime-api: Realtime API
   region-id: ru-central1
   registry: cr.yandex
   resmgr-full-name: Yandex Resource Manager
@@ -3170,6 +3174,9 @@ default:
       header:
         action:
           settings: Настройки
+        description:
+          field:
+            id: ID
         title:
           mx-mode: Метрики
       homepage:
@@ -3197,19 +3204,39 @@ default:
         method:
           ya-chats: Яндекс Мессенджер
       monitoring-alerts:
+        action:
+          calculate-alert: Проверить результат
         button:
           create-custom-title: Пользовательский
+          create-slo-title: SLO
         channel-table:
+          notify-statuses: Статус срабатывания
           repeat: Повторная отправка
+        flap-suppressor:
+          checkbox: Подавление шума
         label:
           edit-notify-methods: Редактировать
           notification-method: Способ уведомления
           query-to-check: Запрос для проверки
           sent-notify-statuses: Отправляемые статусы
+          severity-level: Уровень алерта
+          slo-alert-type: Тип
           type: Тип
+        labels:
+          tokenized-input:
+            copy-button: Скопировать все лейблы
         list-table:
           evaluation-stats-single: Статус вычисления алерта
           name: Название
+        slo-type:
+          error-budget-key-value: Error Budget
+        slo:
+          alarm-threshold: Alarm
+          alert-type-key-value: Метод расчета
+          alert-type:
+            absolute: Остаток Error Budget
+            diff: Скорость расхода Error Budget
+          warn-threshold: Warning
         status:
           alarm: Alarm
           warn: Warning

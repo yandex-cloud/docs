@@ -466,6 +466,10 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [DeleteVirtualHost](audit/apploadbalancer/events-ref/DeleteVirtualHost.md)
 
+ - [DisableZones](audit/apploadbalancer/events-ref/DisableZones.md)
+
+ - [EnableZones](audit/apploadbalancer/events-ref/EnableZones.md)
+
  - [LoadBalancerHTTPAccessLog](audit/apploadbalancer/events-ref/LoadBalancerHTTPAccessLog.md)
 
  - [LoadBalancerTCPAccessLog](audit/apploadbalancer/events-ref/LoadBalancerTCPAccessLog.md)
@@ -1114,7 +1118,11 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [UpdateSharedEntryAccessBindings](audit/datalens/events-ref/UpdateSharedEntryAccessBindings.md)
 
+ - [UpdateSparkCluster](audit/datalens/events-ref/UpdateSparkCluster.md)
+
  - [UpdateTenantAccessBindings](audit/datalens/events-ref/UpdateTenantAccessBindings.md)
+
+ - [UpdateTrinoCluster](audit/datalens/events-ref/UpdateTrinoCluster.md)
 
  - [UpdateWorkbook](audit/datalens/events-ref/UpdateWorkbook.md)
 
@@ -1145,6 +1153,10 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [DeleteTrinoCluster](audit/datalens/platform/events-ref/DeleteTrinoCluster.md)
 
  - [UpdateCloudEnvironment](audit/datalens/platform/events-ref/UpdateCloudEnvironment.md)
+
+ - [UpdateSparkCluster](audit/datalens/platform/events-ref/UpdateSparkCluster.md)
+
+ - [UpdateTrinoCluster](audit/datalens/platform/events-ref/UpdateTrinoCluster.md)
 
 ### dataproc
 
@@ -2009,6 +2021,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [UpdateClusterHosts](audit/mdb/clickhouse/events-ref/UpdateClusterHosts.md)
 
  - [UpdateClusterShard](audit/mdb/clickhouse/events-ref/UpdateClusterShard.md)
+
+ - [UpdateDatabase](audit/mdb/clickhouse/events-ref/UpdateDatabase.md)
 
  - [UpdateFormatSchema](audit/mdb/clickhouse/events-ref/UpdateFormatSchema.md)
 
@@ -3266,6 +3280,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [DeleteWafProfile](audit/smartwebsecurity/events-ref/DeleteWafProfile.md)
 
+ - [SolidWallMatchedRequest](audit/smartwebsecurity/events-ref/SolidWallMatchedRequest.md)
+
  - [StartLoadBalancer](audit/smartwebsecurity/events-ref/StartLoadBalancer.md)
 
  - [StopLoadBalancer](audit/smartwebsecurity/events-ref/StopLoadBalancer.md)
@@ -3293,6 +3309,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [WafMatchedRule](audit/smartwebsecurity/events-ref/WafMatchedRule.md)
 
 ### sourcecraft
+
+ - [ActivateUserTariff](audit/sourcecraft/events-ref/ActivateUserTariff.md)
 
  - [AddPersonalEmail](audit/sourcecraft/events-ref/AddPersonalEmail.md)
 
@@ -3334,11 +3352,21 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [OnboardOrganization](audit/sourcecraft/events-ref/OnboardOrganization.md)
 
+ - [RedeemGiftLink](audit/sourcecraft/events-ref/RedeemGiftLink.md)
+
  - [RemovePersonalEmail](audit/sourcecraft/events-ref/RemovePersonalEmail.md)
 
  - [RemovePersonalPublicGpgKey](audit/sourcecraft/events-ref/RemovePersonalPublicGpgKey.md)
 
  - [RemovePersonalPublicSshKey](audit/sourcecraft/events-ref/RemovePersonalPublicSshKey.md)
+
+ - [SetBulkUserTariffs](audit/sourcecraft/events-ref/SetBulkUserTariffs.md)
+
+ - [SetUserCUExtraLimit](audit/sourcecraft/events-ref/SetUserCUExtraLimit.md)
+
+ - [SetUserCUExtraLimitBulk](audit/sourcecraft/events-ref/SetUserCUExtraLimitBulk.md)
+
+ - [SetUserTariff](audit/sourcecraft/events-ref/SetUserTariff.md)
 
  - [UpdateAppsecSettings](audit/sourcecraft/events-ref/UpdateAppsecSettings.md)
 
@@ -3360,7 +3388,11 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [CreateCluster](audit/spark/events-ref/CreateCluster.md)
 
+ - [CreateEnvironment](audit/spark/events-ref/CreateEnvironment.md)
+
  - [DeleteCluster](audit/spark/events-ref/DeleteCluster.md)
+
+ - [DeleteEnvironment](audit/spark/events-ref/DeleteEnvironment.md)
 
  - [RescheduleMaintenance](audit/spark/events-ref/RescheduleMaintenance.md)
 
@@ -3373,6 +3405,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [UpdateCluster](audit/spark/events-ref/UpdateCluster.md)
 
  - [UpdateClusterAccessBindings](audit/spark/events-ref/UpdateClusterAccessBindings.md)
+
+ - [UpdateEnvironment](audit/spark/events-ref/UpdateEnvironment.md)
 
 ### speechsense
 
