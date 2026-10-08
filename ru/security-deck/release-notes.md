@@ -5,6 +5,21 @@ description: В разделе представлена история изме�
 
 # История изменений в {{ sd-full-name }}
 
+## Сентябрь 2026 {#september-2026}
+
+* Запущен модуль [{{ access-analyzer-name}}](./concepts/access-analyzer.md), с помощью которого можно провести анализ прав доступа пользователей и сервисных аккаунтов. Модуль находится на стадии [Preview](../overview/concepts/launch-stages.md).
+* В модуле [{{ cspm-name }}](./concepts/cspm.md):
+  * появился новый [стандарт безопасности ИИ-систем](./concepts/standard-compliance/aispm.md) в {{ yandex-cloud }} и правила контроля безопасности ИИ-систем;
+  * теперь можно создавать [пользовательские правила](./concepts/custom-rules.md#cspm-rules) безопасности на основе базовых стандартных правил.
+* В модуле [{{ kspm-name }}](./concepts/kspm.md) теперь можно создавать [пользовательские правила](./concepts/custom-rules.md#kspm-rules) безопасности на основе собственных политик безопасности.
+* Появилась возможность создавать [пользовательские наборы правил](./operations/custom-rules-sets/index.md) — собственные стандарты безопасности — в модулях {{ cspm-name }}, {{ kspm-name }} и {{ td-full-name }}.
+* В модуле [{{ vuln-man-name }}](./concepts/vulnerability-management.md) реализовано [сканирование конечных точек](./concepts/vulnerability-management.md#endpoint-vulnerability-scanning) приложений и сервисов на уязвимости.
+* В модуле [{{ dspm-name }}](./concepts/dspm.md) появилась возможность [сканировать](./operations/dspm/create-data-source.md) файлы с общим доступом в {{ yandex-360 }}.
+* В алертах реализованы:
+  * [подписки](./operations/alerts/notification.md) на получение уведомлений об алертах и комментариях к ним;
+  * [добавление тегов](./operations/alerts/tags.md) для упрощения поиска по алертам;
+  * [скачивание](./operations/alerts/download.md) алертов в виде файла в формате JSON.
+
 ## Август 2026 {#august-2026}
 
 * В модуле [{{ cspm-name }}](./concepts/cspm.md):

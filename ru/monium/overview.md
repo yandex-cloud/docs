@@ -106,6 +106,8 @@ description: '{{ monium-name }} — платформа для наблюдени
 
 Алерты позволяют реагировать на проблемы до влияния на пользователей или минимизировать это влияние.
 
+Для контроля надежности сервиса используйте [SLO-алерты](concepts/alerting/alert.md#slo-alerts): они отслеживают остаток бюджета ошибок и скорость его расхода.
+
 [Подробнее об алертах](operations/alert/create-alert.md)
 
 ### Визуализация {#dashboards}
@@ -141,3 +143,4 @@ description: '{{ monium-name }} — платформа для наблюдени
 [Индексируем диапазоны с помощью битовых масок, чтобы {{ k8s }}® не ломал индекс](https://yandex.cloud/ru/blog/range-encoded-bit-sliced)
 [{{ monium-full-name }}: платформа для мониторинга и управления состоянием IT-систем](https://yandex.cloud/ru/blog/yandex-monium)
 [{{ monium-full-name }}: от сбоя к решению за минуты](https://yandex.cloud/ru/blog/monium-observability-incident-resolution)
+

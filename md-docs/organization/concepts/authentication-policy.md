@@ -2,12 +2,6 @@
 
 # Политики аутентификации в Yandex Identity Hub
 
-{% note info %}
-
-Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 _Политики аутентификации_ — это инструмент Yandex Identity Hub, позволяющий гибко настраивать доступ [пользователей](*user_accounts) и [групп пользователей](*user_groups) к [приложениям](*applications) Yandex Identity Hub, [запрещая или разрешая](#action) аутентификацию в зависимости от условий, заданных в [области применения](#conditions) политики.
 
 В настоящий момент управлять политиками аутентификации можно в [интерфейсе Cloud Center](https://center.yandex.cloud/organization). [Создавать](../operations/authentication-policies/create.md), [изменять](../operations/authentication-policies/update.md), [активировать](../operations/authentication-policies/activate-deactivate.md#activate), [деактивировать](../operations/authentication-policies/activate-deactivate.md#deactivate) и [удалять](../operations/authentication-policies/delete.md) политики аутентификации может пользователь, которому назначена [роль](*org_manager_admin) `organization-manager.admin` или выше.

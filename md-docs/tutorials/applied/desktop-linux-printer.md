@@ -7,7 +7,7 @@
 
 {% note info %}
 
-В руководстве приведен пример подключения виртуального принтера для печати в PDF-файл. Чтобы распечатывать на принтере, который подключен к вашей локальной машине (серверу), добавьте этот принтер в сервере печати [CUPS](https://docs.freebsd.org/ru/articles/cups/). При этом не потребуется установка драйвера печати в PDF `printer-driver-cups-pdf`.
+В руководстве приведен пример подключения виртуального принтера для печати в PDF-файл. Чтобы распечатывать на принтере, который подключен к вашей локальной машине (серверу), добавьте этот принтер на сервере печати [CUPS](https://docs.freebsd.org/ru/articles/cups/). При этом не потребуется установка драйвера печати в PDF `printer-driver-cups-pdf`.
 
 {% endnote %}
 
@@ -155,19 +155,19 @@
         case "$PKG_MGR" in
           apt)
             apt-get update
-            apt-get install -y --no-install-recommends cups inotify-tools freerdp2-x11
+            apt-get install -y --no-install-recommends cups inotify-tools freerdp2-x11 xdg-utils
             ;;
           dnf)
-            dnf install -y cups inotify-tools xfreerdp || true
+            dnf install -y cups inotify-tools xfreerdp xdg-utils || true
             ;;
           yum)
-            yum install -y cups inotify-tools freerdp2-x11 || true
+            yum install -y cups inotify-tools freerdp2-x11 xdg-utils || true
             ;;
           pacman)
-            pacman -Sy --noconfirm cups inotify-tools freerdp2-x11 || true
+            pacman -Sy --noconfirm cups inotify-tools freerdp2-x11 xdg-utils || true
             ;;
           zypper)
-            zypper --non-interactive install cups inotify-tools freerdp2-x11 || true
+            zypper --non-interactive install cups inotify-tools freerdp2-x11 xdg-utils || true
             ;;
           *)
             echo "Package manager not detected. Please install 'cups' and 'inotify-tools' manually." >&2
@@ -232,17 +232,21 @@
       </mime-info>
       EOF
 
-      xdg-mime install --novendor --mode system /usr/share/mime/packages/freerdp.xml
-      update-mime-database /usr/share/mime
+      if command -v xdg-mime >/dev/null 2>&1; then
+        xdg-mime install --novendor --mode system /usr/share/mime/packages/freerdp.xml
+        update-mime-database /usr/share/mime
 
-      # assign mime-type to desktop application
-      if [[ "$(sudo -u $PRINT_USER xdg-mime query default application/x-freerdp)" != "freerdp.desktop" ]]
-      then
-        echo "setting mime type to freerdp.desktop"
-        sudo -u $PRINT_USER xdg-mime default freerdp.desktop application/x-remmina 
-        sudo -u $PRINT_USER xdg-mime default freerdp.desktop application/x-freerdp
+        # assign mime-type to desktop application
+        if [[ "$(sudo -u $PRINT_USER xdg-mime query default application/x-freerdp)" != "freerdp.desktop" ]]
+        then
+          echo "setting mime type to freerdp.desktop"
+          sudo -u $PRINT_USER xdg-mime default freerdp.desktop application/x-remmina
+          sudo -u $PRINT_USER xdg-mime default freerdp.desktop application/x-freerdp
+        else
+          echo "freerdp mime type has been already set to freerdp.desktop"
+        fi
       else
-        echo "freerdp mime type has been already set to freerdp.desktop"
+        echo "Warning: xdg-mime not found, skipping mime-type registration for freerdp.desktop" >&2
       fi
 
       # write watcher script
@@ -261,7 +265,7 @@
 
       # defaults
       WATCH_DIR="${WATCH_DIR:-/srv/printdrop}"
-      PRINTER="${PRINTER:-PDF}"
+      PRINTER="${PRINTER:-}"
       USER="${USER:-username}"
 
       while getopts "d:p:u:h" opt; do
@@ -279,8 +283,7 @@
         logger -t print-watcher "$*"
       }
 
-      command -v inotifywait >/dev/null
-      2>&1 || { log "inotifywait not found. Exiting."; exit 2; }
+      command -v inotifywait >/dev/null 2>&1 || { log "inotifywait not found. Exiting."; exit 2; }
       command -v lp >/dev/null 2>&1 || { log "lp not found. Exiting."; exit 2; }
 
       if [[ ! -d "$WATCH_DIR" ]]; then
@@ -306,7 +309,13 @@
           *.pdf)
             if [[ -f "$FILE" ]]; then
               log "Detected PDF: $FILE — submitting to printer '$PRINTER' as user '$USER'"
-              if lp -U "$USER" -d "$PRINTER" "$FILE"; then
+              ok=1
+              if [[ -n "$PRINTER" ]]; then
+                lp -U "$USER" -d "$PRINTER" "$FILE" || ok=0
+              else
+                lp -U "$USER" "$FILE" || ok=0
+              fi
+              if [[ "$ok" -eq 1 ]]; then
                 rm -f -- "$FILE"
                 log "Printed and removed $FILE"
               else
@@ -372,7 +381,7 @@
         --user <имя_пользователя> \
         --dir <путь_к_папке> \
         --printer <имя_принтера> \
-        --fwdir <путь_к_папке>
+        --fwdir <имя_папки>
       ```
 
       Где:
@@ -544,7 +553,7 @@
       if [[ -d /usr/lib/cups/backend ]]; then
         BACKENDDIR="/usr/lib/cups/backend"
       elif [[ -d /usr/libexec/cups/backend ]]; then
-        BACKENDDIR ="/usr/libexec/cups/backend"
+        BACKENDDIR="/usr/libexec/cups/backend"
       else
         # create standard location if neither exists (best-effort)
         BACKENDDIR="/usr/lib/cups/backend"

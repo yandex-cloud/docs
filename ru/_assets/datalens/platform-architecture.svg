@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1232" height="640" viewBox="0 0 1232 640" role="img"
+     aria-labelledby="diagram-title diagram-description">
+  <title id="diagram-title">Схема платформы Yandex DataLens Platform</title>
+  <desc id="diagram-description">Загрузка данных → Lakehouse → Визуализация.
+  Lakehouse включает хранение и обработку данных. Ниже расположены инструменты
+  разработки и сквозные возможности. Обновлено по https://datalens.ru/platform;
+  тексты и фигуры редактируются, внешние изображения и скрипты не используются.</desc>
+  <defs>
+    <clipPath id="canvas-clip"><rect width="1232" height="640" rx="24"/></clipPath>
+    <linearGradient id="base-gradient" gradientUnits="userSpaceOnUse"
+                    x1="22.14" y1="-36.83" x2="1209.86" y2="676.83">
+      <stop stop-color="#021935"/>
+      <stop offset="0.84" stop-color="#1d7ce3"/>
+    </linearGradient>
+    <linearGradient id="ai-gradient" gradientUnits="userSpaceOnUse" x1="3.87879" y1="0.484848" x2="8" y2="16">
+      <stop stop-color="#ffbbb0"/><stop offset="1" stop-color="#8678ef"/>
+    </linearGradient>
+    <filter id="glass-blur" x="-30%" y="-60%" width="160%" height="220%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="80"/>
+    </filter>
+    <g id="background-art">
+      <rect x="-400" y="-400" width="2032" height="1440" fill="url(#base-gradient)"/>
+
+      <g transform="translate(5.1744 735.232) rotate(45) scale(1.24955294 1) translate(-343.358 -589.28)" style="mix-blend-mode:screen"><g xmlns="http://www.w3.org/2000/svg" filter="url(#warm-a)" style="mix-blend-mode:screen"><ellipse cx="343.358" cy="589.28" fill="url(#warm-b)" rx="205.314" ry="451.236" /></g><defs xmlns="http://www.w3.org/2000/svg"><radialGradient id="warm-b" cx="0" cy="0" r="1" gradientTransform="matrix(150.788 289.319 -222.434 440.258 377.325 523.323)" gradientUnits="userSpaceOnUse"><stop stop-color="#FEE9A2" /><stop offset=".412575" stop-color="#FFB000" /><stop offset=".867213" stop-color="#FF764D" stop-opacity=".5" /></radialGradient><filter id="warm-a" width="686.716" height="1178.56" x="0" y="0" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix" /><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" /><feGaussianBlur result="effect1_foregroundBlur_0_22" stdDeviation="69.0222" /></filter></defs></g>
+      <g transform="translate(700.7616 50.048) rotate(23.29) scale(1.24943195 1.00001804) translate(-375.142 -249.4035)" style="mix-blend-mode:screen"><g xmlns="http://www.w3.org/2000/svg" filter="url(#cool-a)" style="mix-blend-mode:screen"><ellipse cx="375.142" cy="249.404" fill="url(#cool-b)" rx="275.142" ry="149.404" /></g><defs xmlns="http://www.w3.org/2000/svg"><radialGradient id="cool-b" cx="0" cy="0" r="1" gradientTransform="matrix(0 149.404 -275.142 0 375.142 249.404)" gradientUnits="userSpaceOnUse"><stop stop-color="#027BFE" /><stop offset=".8" stop-color="#021935" /></radialGradient><filter id="cool-a" width="750.284" height="498.807" x="0" y="0" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix" /><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" /><feGaussianBlur result="effect1_foregroundBlur_0_19" stdDeviation="50" /></filter></defs></g>
+    </g>
+  </defs>
+  <g clip-path="url(#canvas-clip)">
+    <use xlink:href="#background-art"/>
+  </g>
+  <g id="diagram-content" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#ffffff">
+
+    <g id="data-ingestion" aria-label="Загрузка данных">
+      <defs><clipPath id="data-ingestion-clip"><rect x="40" y="40" width="344" height="240" rx="24"/></clipPath></defs>
+      <g clip-path="url(#data-ingestion-clip)"><use xlink:href="#background-art" filter="url(#glass-blur)"/></g>
+      <rect x="40" y="40" width="344" height="240" rx="24" fill="#ffffff" fill-opacity="0.05"/>
+      <text x="212" y="153.5" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff" letter-spacing="1">ЗАГРУЗКА ДАННЫХ</text>
+      <text x="212" y="171.8" text-anchor="middle" font-size="11" font-weight="400" fill="#ffffff" fill-opacity="0.7">Разово · По расписанию · CDC</text>
+    </g>
+    <g id="flow-arrows" fill="none" stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M398 160 H430 M427 157 L430 160 L427 163"/>
+      <path d="M802 160 H834 M831 157 L834 160 L831 163"/>
+    </g>
+    <g id="lakehouse" aria-label="Lakehouse">
+      <defs><clipPath id="lakehouse-clip"><rect x="444" y="40" width="344" height="240" rx="24"/></clipPath></defs>
+      <g clip-path="url(#lakehouse-clip)"><use xlink:href="#background-art" filter="url(#glass-blur)"/></g>
+      <rect x="444" y="40" width="344" height="240" rx="24" fill="#ffffff" fill-opacity="0.1"/>
+      <text x="616" y="60.5" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff" letter-spacing="1">LAKEHOUSE</text>
+      <g id="storage">
+      <rect x="455.5" y="73.5" width="155" height="195" rx="16" fill="none" stroke="#ffffff" stroke-opacity="0.3" stroke-dasharray="3 3"/>
+      <text x="533" y="93.5" text-anchor="middle" font-size="10" font-weight="500" fill="#ffffff" letter-spacing="1">ХРАНЕНИЕ</text>
+      <g aria-label="REST Catalog">
+      <rect x="466" y="106" width="134" height="46.333" rx="16" fill="#a5caf3" fill-opacity=".3"/>
+      <text x="533" y="132.967" text-anchor="middle" font-size="11" font-weight="400" fill="#ffffff">REST Catalog</text>
+      </g>
+      <g aria-label="Iceberg®">
+      <rect x="466" y="158.333" width="134" height="46.333" rx="16" fill="#a5caf3" fill-opacity=".3"/>
+      <text x="533" y="185.3" text-anchor="middle" font-size="11" font-weight="400" fill="#ffffff">Iceberg®</text>
+      </g>
+      <g aria-label="S3">
+      <rect x="466" y="210.667" width="134" height="46.333" rx="16" fill="#a5caf3" fill-opacity=".3"/>
+      <text x="533" y="237.633" text-anchor="middle" font-size="11" font-weight="400" fill="#ffffff">S3</text>
+      </g>
+    </g>
+      <g id="processing">
+      <rect x="621.5" y="73.5" width="155" height="195" rx="16" fill="none" stroke="#ffffff" stroke-opacity="0.3" stroke-dasharray="3 3"/>
+      <text x="699" y="93.5" text-anchor="middle" font-size="10" font-weight="500" fill="#ffffff" letter-spacing="1">ОБРАБОТКА</text>
+      <g aria-label="Trino">
+      <rect x="632" y="106" width="134" height="72.5" rx="16" fill="#a5caf3" fill-opacity=".3"/>
+      <text x="699" y="146.05" text-anchor="middle" font-size="11" font-weight="400" fill="#ffffff">Trino</text>
+      </g>
+      <g aria-label="Spark™">
+      <rect x="632" y="184.5" width="134" height="72.5" rx="16" fill="#a5caf3" fill-opacity=".3"/>
+      <text x="699" y="224.55" text-anchor="middle" font-size="11" font-weight="400" fill="#ffffff">Spark™</text>
+      </g>
+    </g>
+    </g>
+    <g id="visualization" aria-label="Визуализация">
+      <defs><clipPath id="visualization-clip"><rect x="848" y="40" width="344" height="240" rx="24"/></clipPath></defs>
+      <g clip-path="url(#visualization-clip)"><use xlink:href="#background-art" filter="url(#glass-blur)"/></g>
+      <rect x="848" y="40" width="344" height="240" rx="24" fill="#ffffff" fill-opacity="0.05"/>
+      <text x="1020" y="60.5" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff" letter-spacing="1">ВИЗУАЛИЗАЦИЯ</text>
+      <g aria-label="Дашборды и отчёты">
+      <rect x="859" y="73" width="322" height="61.333" rx="16" fill="#a5caf3" fill-opacity=".3"/>
+      <text x="1020" y="107.467" text-anchor="middle" font-size="11" font-weight="400" fill="#ffffff">Дашборды и отчёты</text>
+      </g>
+      <g aria-label="Рассылки, уведомления">
+      <rect x="859" y="140.333" width="322" height="61.333" rx="16" fill="#a5caf3" fill-opacity=".3"/>
+      <text x="1020" y="174.8" text-anchor="middle" font-size="11" font-weight="400" fill="#ffffff">Рассылки, уведомления</text>
+      </g>
+      <g aria-label="Встраиваемая аналитика">
+      <rect x="859" y="207.667" width="322" height="61.333" rx="16" fill="#a5caf3" fill-opacity=".3"/>
+      <text x="1020" y="242.133" text-anchor="middle" font-size="11" font-weight="400" fill="#ffffff">Встраиваемая аналитика</text>
+      </g>
+    </g>
+    <g id="development-tools" aria-label="Инструменты разработки">
+      <defs><clipPath id="development-tools-clip"><rect x="416" y="304" width="400" height="166" rx="24"/></clipPath></defs>
+      <g clip-path="url(#development-tools-clip)"><use xlink:href="#background-art" filter="url(#glass-blur)"/></g>
+      <rect x="416" y="304" width="400" height="166" rx="24" fill="#ffffff" fill-opacity="0.05"/>
+      <text x="616" y="324.5" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff" letter-spacing="1">ИНСТРУМЕНТЫ РАЗРАБОТКИ</text>
+      <g id="orchestration">
+      <rect x="427.5" y="337.5" width="183" height="121" rx="16" fill="none" stroke="#ffffff" stroke-opacity="0.3" stroke-dasharray="3 3"/>
+      <text x="519" y="357.5" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff" letter-spacing="1">ОРКЕСТРАЦИЯ</text>
+      <g aria-label="Airflow®">
+      <rect x="438" y="370" width="162" height="78" rx="16" fill="#a5caf3" fill-opacity=".3"/>
+      <text x="519" y="412.8" text-anchor="middle" font-size="11" font-weight="400" fill="#ffffff">Airflow®</text>
+      </g>
+    </g>
+      <g id="development-environment">
+      <rect x="621.5" y="337.5" width="183" height="121" rx="16" fill="none" stroke="#ffffff" stroke-opacity="0.3" stroke-dasharray="3 3"/>
+      <text x="713" y="357.5" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff" letter-spacing="1">СРЕДА РАЗРАБОТКИ</text>
+      <g aria-label="Редактор SQL">
+      <rect x="632" y="370" width="162" height="36" rx="16" fill="#a5caf3" fill-opacity=".3"/>
+      <text x="713" y="391.8" text-anchor="middle" font-size="11" font-weight="400" fill="#ffffff">Редактор SQL</text>
+      </g>
+      <g aria-label="Web IDE с ИИ-агентом">
+      <rect x="632" y="412" width="162" height="36" rx="16" fill="#a5caf3" fill-opacity=".3"/>
+      <text x="713" y="433.8" text-anchor="middle" font-size="11" font-weight="400" fill="#ffffff">Web IDE с ИИ-агентом</text>
+      </g>
+    </g>
+    </g>
+    <g id="cross-platform-capabilities" aria-label="Сквозные возможности">
+      <defs><clipPath id="cross-platform-capabilities-clip"><rect x="40" y="494" width="1152" height="106" rx="24"/></clipPath></defs>
+      <g clip-path="url(#cross-platform-capabilities-clip)"><use xlink:href="#background-art" filter="url(#glass-blur)"/></g>
+      <rect x="40" y="494" width="1152" height="106" rx="24" fill="#ffffff" fill-opacity="0.05"/>
+      <text x="616" y="514.5" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff" letter-spacing="1">СКВОЗНЫЕ ВОЗМОЖНОСТИ</text>
+      <g aria-label="Нейроаналитик">
+      <rect x="51" y="527" width="217" height="62" rx="16" fill="#ffffff" fill-opacity="1"/>
+      <text x="148.5" y="561.8" text-anchor="middle" font-size="11" font-weight="400" fill="#000000">Нейроаналитик</text>
+      <g transform="translate(192.7 550)"><path fill="url(#ai-gradient)" d="M8.72754 5.33301c0 1.07109.86933 1.93945 1.94046 1.93945H16v1.47168C12.1019 8.98458 8.98458 12.1019 8.74414 16H7.27246v-5.3945c-.03111-1.03025-.86374-1.85703-1.89648-1.87796H0V7.25586C3.89809 7.01542 7.01542 3.89809 7.25586 0h1.47168z"/></g>
+      </g>
+      <g aria-label="Внешние агенты">
+      <rect x="274" y="527" width="229" height="62" rx="16" fill="#a5caf3" fill-opacity=".3"/>
+      <text x="388.5" y="551.8" text-anchor="middle" font-size="11" font-weight="400" fill="#ffffff">Внешние агенты</text>
+      <text x="388.5" y="571.8" text-anchor="middle" font-size="11" font-weight="400" fill="#ffffff" fill-opacity="0.7">Public API · MCP · Python SDK · Skills</text>
+      </g>
+      <g aria-label="Единый интерфейс">
+      <rect x="509" y="527" width="217" height="62" rx="16" fill="#a5caf3" fill-opacity=".3"/>
+      <text x="617.5" y="551.8" text-anchor="middle" font-size="11" font-weight="400" fill="#ffffff">Единый интерфейс</text>
+      <text x="617.5" y="571.8" text-anchor="middle" font-size="11" font-weight="400" fill="#ffffff" fill-opacity="0.7">Для всех ролей</text>
+      </g>
+      <g aria-label="Метаданные">
+      <rect x="732" y="527" width="217" height="62" rx="16" fill="#a5caf3" fill-opacity=".3"/>
+      <text x="840.5" y="551.8" text-anchor="middle" font-size="11" font-weight="400" fill="#ffffff">Метаданные</text>
+      <text x="840.5" y="571.8" text-anchor="middle" font-size="11" font-weight="400" fill="#ffffff" fill-opacity="0.7">Каталог · Единый поиск</text>
+      </g>
+      <g aria-label="Права доступа">
+      <rect x="955" y="527" width="226" height="62" rx="16" fill="#a5caf3" fill-opacity=".3"/>
+      <text x="1068" y="551.8" text-anchor="middle" font-size="11" font-weight="400" fill="#ffffff">Права доступа</text>
+      <text x="1068" y="571.8" text-anchor="middle" font-size="11" font-weight="400" fill="#ffffff" fill-opacity="0.7">Права · Навигация · Заявки доступа</text>
+      </g>
+    </g>
+  </g>
+</svg>

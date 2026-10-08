@@ -7,7 +7,133 @@ description: Как посмотреть информацию о техниче�
 
 Вы можете управлять [техническим обслуживанием](../concepts/maintenance.md) кластера {{ mgp-full-name }}.
 
+
 ## Получить список обслуживаний {#list-maintenance}
+
+Для сервиса {{ mgp-name }} можно получить список обслуживаний в:
+
+* [облаке](#list-maintenance-cloud);
+* [каталоге](#list-maintenance-folder);
+* [кластере](#list-maintenance-cluster).
+
+
+### Получить список обслуживаний в облаке {#list-maintenance-cloud}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+  
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+      
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+  
+  1. Воспользуйтесь методом [Maintenance.List](../api-ref/Maintenance/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  
+      ```bash
+      curl \
+        --request GET \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/maintenances?cloudId=<идентификатор_облака>'
+      ```
+    
+      
+      О том, как получить идентификатор облака, в [соответствующей инструкции](../../resource-manager/operations/cloud/get-id.md).
+      
+  
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
+
+- gRPC API {#grpc-api}
+  
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+  
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+  
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  
+  1. Воспользуйтесь вызовом [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/maintenance_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cloud_id": "<идентификатор_облака>"
+            }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.greenplum.v1.MaintenanceService.List
+      ```
+      
+      
+      О том, как получить идентификатор облака, в [соответствующей инструкции](../../resource-manager/operations/cloud/get-id.md).
+      
+  
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
+
+{% endlist %}
+
+
+### Получить список обслуживаний в каталоге {#list-maintenance-folder}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+  
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+      
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+  
+  1. Воспользуйтесь методом [Maintenance.List](../api-ref/Maintenance/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  
+      ```bash
+      curl \
+        --request GET \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/maintenances?folderId=<идентификатор_каталога>'
+      ```
+    
+      
+      Идентификатор каталога можно получить со [списком каталогов](../../resource-manager/operations/folder/get-id.md) в облаке.
+      
+  
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
+
+- gRPC API {#grpc-api}
+  
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+  1. Воспользуйтесь вызовом [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/maintenance_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "folder_id": "<идентификатор_каталога>"
+            }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.greenplum.v1.MaintenanceService.List
+      ```
+
+            
+      Идентификатор каталога можно получить со [списком каталогов](../../resource-manager/operations/folder/get-id.md) в облаке.
+      
+  
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
+
+{% endlist %}
+
+
+### Получить список обслуживаний в кластере {#list-maintenance-cluster}
 
 {% list tabs group=instructions %}
 
@@ -18,7 +144,109 @@ description: Как посмотреть информацию о техниче�
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
   1. (Опционально) Выберите статус обслуживания над списком обслуживаний.
 
+- REST API {#api}
+  
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+      
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+  
+  1. Воспользуйтесь методом [Maintenance.List](../api-ref/Maintenance/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  
+      ```bash
+      curl \
+        --request GET \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/maintenances?resourceId=<идентификатор_кластера>'
+      ```
+    
+      Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+  
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
+
+- gRPC API {#grpc-api}
+  
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+  1. Воспользуйтесь вызовом [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/maintenance_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "resource_id": "<идентификатор_кластера>"
+            }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.greenplum.v1.MaintenanceService.List
+      ```
+
+      Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+  
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
+
 {% endlist %}
+
+
+## Получить информацию об обслуживании {#get-maintenance}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+  
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+      
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+  
+  1. Воспользуйтесь методом [Maintenance.Get](../api-ref/Maintenance/get.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  
+      ```bash
+      curl \
+        --request GET \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/maintenances/<идентификатор_обслуживания>'
+      ```
+    
+      Идентификатор обслуживания можно получить со [списком обслуживаний](#list-maintenance).
+  
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/get.md#yandex.cloud.maintenance.v2.Maintenance).
+
+- gRPC API {#grpc-api}
+  
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+      
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+  
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  
+  1. Воспользуйтесь вызовом [MaintenanceService.Get](../api-ref/grpc/Maintenance/get.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/maintenance_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "maintenance_id": "<идентификатор_обслуживания>"
+            }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.greenplum.v1.MaintenanceService.Get
+      ```
+
+      Идентификатор обслуживания можно получить со [списком обслуживаний](#list-maintenance).
+  
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/get.md#yandex.cloud.maintenance.v2.Maintenance).
+
+{% endlist %}
+
 
 ## Получить логи технического обслуживания кластера {#maintenance-logs}
 
@@ -33,6 +261,7 @@ description: Как посмотреть информацию о техниче�
   1. Нажмите ссылку **{{ ui-key.yacloud.mdb.maintenance.label_task-logs }}**.
 
 {% endlist %}
+
 
 ## Перенести запланированное обслуживание {#postpone-planned-maintenance}
 
@@ -95,6 +324,13 @@ description: Как посмотреть информацию о техниче�
 
 - REST API {#api}
   
+  Перенести запланированное обслуживание можно с помощью одного из методов:
+  
+  * [Cluster.RescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md)
+  * [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md)
+  
+  Чтобы перенести запланированное обслуживание с помощью метода `Cluster.RescheduleMaintenance`:
+
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
       
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
@@ -108,8 +344,8 @@ description: Как посмотреть информацию о техниче�
         --header "Content-Type: application/json" \
         --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>:rescheduleMaintenance' \
         --data '{
-                 "rescheduleType": "<тип_переноса>"
-               }'
+                  "rescheduleType": "<тип_переноса>"
+                }'
       ```
 
       Где `rescheduleType` — тип переноса:
@@ -117,9 +353,7 @@ description: Как посмотреть информацию о техниче�
       * `NEXT_AVAILABLE_WINDOW` — ближайшее доступное окно обслуживания.
       * `SPECIFIC_TIME` — конкретная дата и время по UTC.
         
-        Для этого значения дополнительно передайте параметр `delayedUntil` — временная метка в формате [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), например:
-
-        > `2006-01-02T15:04:05Z`
+        Для этого значения дополнительно передайте параметр `delayedUntil` — временная метка в формате [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), например `2006-01-02T15:04:05Z`.
     
         {% include [maintenance-rescheduling](../../_includes/mdb/mgp/maintenance-rescheduling.md) %}
     
@@ -127,8 +361,49 @@ description: Как посмотреть информацию о техниче�
   
   1. Убедитесь, что запрос выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation).
 
+  Чтобы перенести запланированное обслуживание с помощью метода `Maintenance.Reschedule`:
+  
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+      
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+      
+  1. Воспользуйтесь методом [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  
+      ```bash
+      curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/maintenances/<идентификатор_обслуживания>:reschedule' \
+        --data '{
+                  "rescheduleType": "<тип_переноса>"
+                }'
+      ```
+    
+      Где:
+      
+      * `<идентификатор_обслуживания>` — идентификатор обслуживания, который можно получить со [списком обслуживаний](#list-maintenance).
+
+      * `rescheduleType` — тип переноса:
+        
+        * `NEXT_AVAILABLE_WINDOW` — ближайшее доступное окно обслуживания.
+        * `SPECIFIC_TIME` — конкретная дата и время по UTC.
+        
+          Для этого значения дополнительно передайте параметр `scheduledAt` — временная метка в формате [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), например `2006-01-02T15:04:05Z`.
+    
+          {% include [maintenance-rescheduling](../../_includes/mdb/mgp/maintenance-rescheduling.md) %}
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/reschedule.md#yandex.cloud.operation.Operation).
+
 - gRPC API {#grpc-api}
   
+  Перенести запланированное обслуживание можно с помощью одного из вызовов:
+  
+  * [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md)
+  * [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md)
+
+  Чтобы перенести запланированное обслуживание с помощью вызова `ClusterService.RescheduleMaintenance`:
+
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
@@ -145,8 +420,8 @@ description: Как посмотреть информацию о техниче�
         -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
         -rpc-header "Authorization: Bearer $IAM_TOKEN" \
         -d '{
-             "cluster_id": "<идентификатор_кластера>",
-             "reschedule_type": "<тип_переноса>"
+              "cluster_id": "<идентификатор_кластера>",
+              "reschedule_type": "<тип_переноса>"
             }' \
         {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.greenplum.v1.ClusterService.RescheduleMaintenance
@@ -157,15 +432,53 @@ description: Как посмотреть информацию о техниче�
       * `NEXT_AVAILABLE_WINDOW` — ближайшее доступное окно обслуживания.
       * `SPECIFIC_TIME` — конкретная дата и время по UTC.
         
-        Для этого значения дополнительно передайте параметр `delayed_until` — временная метка в формате [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), например:
-
-        > `2006-01-02T15:04:05Z`
+        Для этого значения дополнительно передайте параметр `delayed_until` — временная метка в формате [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), например `2006-01-02T15:04:05Z`.
 
         {% include [maintenance-rescheduling](../../_includes/mdb/mgp/maintenance-rescheduling.md) %}
     
       Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
   
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation).
+
+  Чтобы перенести запланированное обслуживание с помощью вызова `MaintenanceService.Reschedule`:
+  
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+  
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+  
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  
+  1. Воспользуйтесь вызовом [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+      
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/maintenance_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "maintenance_id": "<идентификатор_обслуживания>",
+              "reschedule_type": "<тип_переноса>",
+              "scheduled_at": "<временная_метка>"
+            }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.greenplum.v1.MaintenanceService.Reschedule
+      ```
+      
+      Где:
+
+      * `maintenance_id` — идентификатор обслуживания, который можно получить со [списком обслуживаний](#list-maintenance).
+      * `reschedule_type` — тип переноса:
+      
+        * `NEXT_AVAILABLE_WINDOW` — ближайшее доступное окно обслуживания.
+        * `SPECIFIC_TIME` — конкретная дата и время по UTC.
+        
+          Для этого значения дополнительно передайте параметр `scheduled_at` — временная метка в формате [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), например `2006-01-02T15:04:05Z`.
+
+          {% include [maintenance-rescheduling](../../_includes/mdb/mgp/maintenance-rescheduling.md) %}
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/reschedule.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -205,6 +518,13 @@ description: Как посмотреть информацию о техниче�
 
 - REST API {#api}
   
+  Провести запланированное обслуживание немедленно можно с помощью одного из методов:
+  
+  * [Cluster.RescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md)
+  * [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md)
+
+  Чтобы провести запланированное обслуживание немедленно с помощью метода `Cluster.RescheduleMaintenance`:
+  
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
       
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
@@ -218,16 +538,46 @@ description: Как посмотреть информацию о техниче�
         --header "Content-Type: application/json" \
         --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>:rescheduleMaintenance' \
         --data '{
-                 "rescheduleType": "IMMEDIATE"
-               }'
+                  "rescheduleType": "IMMEDIATE"
+                }'
       ```
     
       Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
   
   1. Убедитесь, что запрос выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation).
 
+  Чтобы провести запланированное обслуживание немедленно с помощью метода `Maintenance.Reschedule`:
+  
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+      
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+      
+  1. Воспользуйтесь методом [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  
+      ```bash
+      curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/maintenances/<идентификатор_обслуживания>:reschedule' \
+        --data '{
+                  "rescheduleType": "IMMEDIATE"
+                }'
+      ```
+    
+      Идентификатор обслуживания можно получить со [списком обслуживаний](#list-maintenance).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/reschedule.md#yandex.cloud.operation.Operation).
+
 - gRPC API {#grpc-api}
   
+  Провести запланированное обслуживание немедленно можно с помощью одного из вызовов:
+  
+  * [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md)
+  * [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md)
+  
+  Чтобы провести запланированное обслуживание немедленно с помощью вызова `ClusterService.RescheduleMaintenance`:
+
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
@@ -244,9 +594,9 @@ description: Как посмотреть информацию о техниче�
         -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
         -rpc-header "Authorization: Bearer $IAM_TOKEN" \
         -d '{
-             "cluster_id": "<идентификатор_кластера>",
-             "reschedule_type": "IMMEDIATE"
-           }' \
+              "cluster_id": "<идентификатор_кластера>",
+              "reschedule_type": "IMMEDIATE"
+            }' \
         {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.greenplum.v1.ClusterService.RescheduleMaintenance
       ```
@@ -254,6 +604,35 @@ description: Как посмотреть информацию о техниче�
       Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
   
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation).
+
+  Чтобы провести запланированное обслуживание немедленно с помощью вызова `MaintenanceService.Reschedule`:
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+  
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+  
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  
+  1. Воспользуйтесь вызовом [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+      
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/maintenance_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "maintenance_id": "<идентификатор_обслуживания>",
+              "reschedule_type": "IMMEDIATE"
+            }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.greenplum.v1.MaintenanceService.Reschedule
+      ```
+      
+      Идентификатор обслуживания можно получить со [списком обслуживаний](#list-maintenance).
+  
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/reschedule.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -274,7 +653,7 @@ description: Как посмотреть информацию о техниче�
 
         Для этого типа обслуживания выберите начало окна обслуживания: день недели и интервал времени по UTC.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -358,14 +737,14 @@ description: Как посмотреть информацию о техниче�
         --header "Content-Type: application/json" \
         --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
         --data '{
-                 "updateMask": "maintenanceWindow",
-                 "maintenanceWindow": {
-                   "weeklyMaintenanceWindow": {
-                     "day": "<день_недели>",
-                     "hour": "<порядковый_номер_часового_интервала>"
-                   }
-                 }
-               }'
+                  "updateMask": "maintenanceWindow",
+                  "maintenanceWindow": {
+                    "weeklyMaintenanceWindow": {
+                      "day": "<день_недели>",
+                      "hour": "<порядковый_номер_часового_интервала>"
+                    }
+                  }
+                }'
       ```
     
       Где:
@@ -415,19 +794,19 @@ description: Как посмотреть информацию о техниче�
         -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
         -rpc-header "Authorization: Bearer $IAM_TOKEN" \
         -d '{
-             "cluster_id": "<идентификатор_кластера>",
-             "update_mask": {
-               "paths": [
-                 "maintenance_window"
-               ]
-             },
-             "maintenance_window": {
-               "weekly_maintenance_window": {
-                 "day": "<день_недели>",
-                 "hour": "<порядковый_номер_часового_интервала>"
-               }
-             }
-           }' \
+              "cluster_id": "<идентификатор_кластера>",
+              "update_mask": {
+                "paths": [
+                  "maintenance_window"
+                ]
+              },
+              "maintenance_window": {
+                "weekly_maintenance_window": {
+                  "day": "<день_недели>",
+                  "hour": "<порядковый_номер_часового_интервала>"
+                }
+              }
+            }' \
         {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.greenplum.v1.ClusterService.Update
       ```

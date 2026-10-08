@@ -2,18 +2,6 @@
 
 # Создание политики эскалаций
 
-{% note info %}
-
-Эскалации находятся на стадии [Preview](../../../overview/concepts/launch-stages.md) и для них действуют следующие ограничения:
-* не более 10 одновременно запущенных эскалаций;
-* не более 1 активного звонка;
-* не более 5 звонков в минуту;
-* не более 10 звонков за календарный месяц.
-
-Чтобы изменить значения ограничений, [обратитесь в техническую поддержку](https://center.yandex.cloud/support).
-
-{% endnote %}
-
 
 <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvwouze3np3m4t5rkb?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 

@@ -32,6 +32,8 @@
 
  - [Изменение настроек кластера](operations/update.md)
 
+ - [Техническое обслуживание](operations/cluster-maintenance.md)
+
  - [Обновление версии Yandex StoreDoc](operations/cluster-version-update.md)
 
  - [Остановка и запуск кластера](operations/cluster-stop.md)

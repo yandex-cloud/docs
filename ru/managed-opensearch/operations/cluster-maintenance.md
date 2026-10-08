@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
 
         ```bash
         curl \
-        --request POST \
+        --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
         --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/maintenances' \
@@ -85,7 +85,7 @@ description: Следуя данной инструкции, вы сможете
 
         ```bash
         curl \
-        --request POST \
+        --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
         --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/maintenances' \
@@ -154,7 +154,7 @@ description: Следуя данной инструкции, вы сможете
 
         ```bash
         curl \
-        --request POST \
+        --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
         --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/maintenances' \
@@ -210,7 +210,7 @@ description: Следуя данной инструкции, вы сможете
 
         ```bash
         curl \
-        --request POST \
+        --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
         --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/maintenances/<идентификатор_обслуживания>'
@@ -430,7 +430,7 @@ description: Следуя данной инструкции, вы сможете
             * `NEXT_AVAILABLE_WINDOW` — перенести обслуживание на ближайшее окно;
             * `SPECIFIC_TIME` — перенести обслуживание на определенную дату и время.
 
-            Временная метка должна иметь формат [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt), например: `2006-01-02T15:04:05Z`. При выборе типа переноса `NEXT_AVAILABLE_WINDOW` параметр `delayed_until` указывать не нужно.
+            Временная метка должна иметь формат [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt), например: `2006-01-02T15:04:05Z`. При выборе типа переноса `NEXT_AVAILABLE_WINDOW` параметр `scheduled_at` указывать не нужно.
 
             Идентификатор обслуживания можно запросить со [списком обслуживаний](#list-maintenance) в облаке, каталоге или кластере.
 
@@ -574,12 +574,6 @@ description: Следуя данной инструкции, вы сможете
 
 По умолчанию техническое обслуживание может быть запланировано на любое время. Вы можете выбрать определенный день недели и часовой интервал, на который будет планироваться начало технического обслуживания. Например, можно указать интервал, когда кластер наименее загружен.
 
-{% note warning %}
-
-При выборе нового интервала обслуживания будет автоматически отменено запланированное обслуживание, если оно не попадает на новый интервал.
-
-{% endnote %}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -609,7 +603,7 @@ description: Следуя данной инструкции, вы сможете
         {{ yc-mdb-os }} cluster update <имя_или_идентификатор_кластера> \
            --maintenance-window type=<тип_технического_обслуживания>,`
                                `day=<день_недели>,`
-                               `hour=<час>
+                               `hour=<порядковый_номер_часового_интервала>
         ```
 
         Где `type` — тип технического обслуживания:
@@ -626,7 +620,7 @@ description: Следуя данной инструкции, вы сможете
 
         Полный список доступных для изменения полей конфигурации кластера {{ mos-name }} вы найдете в [документации провайдера {{ TF }}]({{ tf-provider-mos }}).
 
-    1. {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
+    1. {% include [Maintenance window](../../_includes/mdb/mos/terraform/maintenance-window.md) %}
 
     1. Проверьте корректность настроек.
 
@@ -636,7 +630,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+        {% include [Terraform timeouts](../../_includes/mdb/mos/terraform/timeouts.md) %}
 
 - REST API {#api}
 
@@ -674,7 +668,7 @@ description: Следуя данной инструкции, вы сможете
         * `maintenanceWindow` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в том числе для выключенных кластеров). В `maintenanceWindow` передайте один из двух параметров:
 
             * `anytime` — техническое обслуживание может быть запланировано на любое время.
-            * `weeklyMaintenanceWindow` — техническое обслуживание может быть запланировано только на выбранный день недели и порядковый номер часового интервала:
+            * `weeklyMaintenanceWindow` — техническое обслуживание может быть запланировано только на выбранный день недели и часовой интервал:
 
                 * `day` — день недели в формате `DDD`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`;
                 * `hour` — порядковый номер часового интервала по UTC в формате `HH`: от `1` до `24`.
@@ -726,10 +720,10 @@ description: Следуя данной инструкции, вы сможете
         * `maintenance_window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в том числе для выключенных кластеров). В `maintenance_window` передайте один из двух параметров:
 
             * `anytime` — техническое обслуживание может быть запланировано на любое время.
-            * `weekly_maintenance_window` — техническое обслуживание может быть запланировано только на выбранный день недели и час:
+            * `weekly_maintenance_window` — техническое обслуживание может быть запланировано только на выбранный день недели и часовой интервал:
 
                 * `day` — день недели в формате `DDD`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`;
-                * `hour` — час дня по UTC в формате `HH`: от `1` до `24`.
+                * `hour` — порядковый номер часового интервала по UTC в формате `HH`: от `1` до `24`.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 

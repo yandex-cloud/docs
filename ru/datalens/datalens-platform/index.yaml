@@ -1,0 +1,210 @@
+meta:
+  title: Yandex DataLens Platform
+  description: >-
+    {{ datalens-platform-full-name }} — аналитическая платформа для загрузки,
+    хранения, обработки и визуализации данных. Lakehouse на базе Apache
+    Iceberg™, вычисления Trino и Apache Spark™, пайплайны Apache Airflow™,
+    дашборды и Нейроаналитик в одном интерфейсе.
+blocks:
+  - type: header-block
+    title: Документация Yandex DataLens Platform
+    width: l
+    offset: l
+    indent:
+      top: xl
+      bottom: l
+    background:
+      image:
+        desktop: ../../_assets/datalens/index/images/2.jpg
+        mobile: ../../_assets/datalens/index/images/1.jpg
+  - type: content-layout-block
+    textWidth: l
+    textContent:
+      text: >-
+        Yandex DataLens Platform — аналитическая платформа для полного цикла
+        работы с данными: от загрузки и хранения до обработки, анализа и
+        визуализации. Подключайте источники, готовьте данные и создавайте
+        дашборды в одном интерфейсе.
+
+
+        Храните данные в формате Apache Iceberg™, обрабатывайте их в кластерах
+        Trino и Apache Spark™, автоматизируйте обработку с помощью Apache
+        Airflow™. Используйте каталог метаданных и общие правила доступа для
+        совместной работы команды.
+
+
+        Обращайтесь к Нейроаналитику на естественном языке: он поможет
+        проанализировать данные, составить SQL-запросы и создать визуализации.
+  - type: card-layout-block
+    background:
+      light:
+        style:
+          backgroundColor: '#ADC5FA'
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+      lg: 6
+    title: "Yandex\_DataLens"
+    centered: true
+    children:
+      - type: basic-card
+        title: Хранение и обработка данных
+        centered: true
+        text: Вы в этом разделе документации
+        url: concepts
+        textSize: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#FFC4AE'
+      - type: basic-card
+        title: BI-система для бизнеса
+        centered: true
+        url: ../index
+        textSize: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#A5CAF3'
+  - type: card-layout-block
+    background:
+      light:
+        style:
+          backgroundColor: '#ADC5FA'
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+      lg: 6
+    title: DataLens On-premises
+    centered: true
+    children:
+      - type: basic-card
+        title: BI-система для бизнеса
+        centered: true
+        url: https://datalens.ru/on-premises/docs/ru/concepts/
+        textSize: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#A5CAF3'
+      - type: basic-card
+        title: Хранение и обработка данных
+        centered: true
+        text: Скоро!
+        url: ''
+        textSize: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#A5CAF3'
+  - type: card-layout-block
+    title: Хранение и обработка данных
+    centered: true
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+      lg: 3
+    children:
+      - type: basic-card
+        title: Начало работы
+        text: Как начать работать с DataLens Platform
+        icon: ../../_assets/console-icons/rocket.svg
+        urlTitle: Начало работы
+        url: quickstart
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Обзор сервиса
+        text: Как устроена платформа и как пройти путь от источника до дашборда
+        icon: ../../_assets/console-icons/circle-info.svg
+        urlTitle: Обзор сервиса
+        url: concepts/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: AI-инструменты
+        text: >-
+          Анализируйте данные и создавайте SQL-запросы и визуализации с
+          Нейроаналитиком
+        icon: ../../_assets/console-icons/sparkles-fill.svg
+        urlTitle: AI-инструменты
+        url: concepts/ai-tools/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: REST-каталог
+        text: Организуйте хранение таблиц Apache Iceberg™ и доступ к ним
+        icon: ../../_assets/console-icons/database.svg
+        urlTitle: REST-каталог
+        url: concepts/rest-catalog/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Поставки данных
+        text: >-
+          Загружайте данные из источников в REST-каталог разово или по
+          расписанию
+        icon: ../../_assets/console-icons/database-arrow-right.svg
+        urlTitle: Поставки данных
+        url: concepts/data-transfer/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Пайплайны
+        text: Автоматизируйте обработку данных с помощью Apache Airflow™
+        icon: ../../_assets/router.svg
+        urlTitle: Пайплайны
+        url: concepts/airflow/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Метаданные
+        text: Изучайте структуру и связи данных, добавляйте описания и метки
+        icon: ../../_assets/console-icons/folder-magnifier.svg
+        urlTitle: Метаданные
+        url: concepts/data-catalog/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Редактор SQL
+        text: Пишите SQL-запросы и просматривайте результаты в браузере
+        icon: ../../_assets/console-icons/code.svg
+        urlTitle: Редактор SQL
+        url: concepts/sql/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Кластеры и окружения
+        text: Настраивайте окружения и вычислительные ресурсы для обработки данных
+        icon: ../../_assets/datalens/compute.svg
+        urlTitle: Кластеры и окружения
+        url: concepts/clusters/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Управление доступом
+        text: Настраивайте права команды на данные и другие объекты платформы
+        icon: ../../_assets/console-icons/persons-lock.svg
+        urlTitle: Управление доступом
+        url: security/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Квоты
+        text: Технические и организационные ограничения сервиса
+        icon: ../../_assets/console-icons/sliders.svg
+        urlTitle: Квоты
+        url: concepts/limits
+        size: s
+        controlPosition: content
+        animated: false
+links: []
