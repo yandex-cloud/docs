@@ -18,6 +18,7 @@ description: На странице представлен список поша�
 - [{#T}](subnet-create.md)
 - [{#T}](subnet-delete.md)
 - [{#T}](subnet-update.md)
+- [{#T}](subnet-cidr-blocks.md)
 - [{#T}](subnet-get-info.md)
 - [{#T}](subnet-move.md)
 - [{#T}](subnet-used-addresses.md)
