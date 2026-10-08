@@ -506,10 +506,12 @@ Error Budget рассчитывается автоматически сразу 
 
 ## Настройте алерты по Error Budget {#slo-alert}
 
-Создайте алерты, чтобы отслеживать расход Error Budget:
+Создайте два SLO-алерта типа **{{ ui-key.yacloud_monitoring.monitoring-alerts.slo-type.error-budget-key-value }}**, чтобы отслеживать бюджет ошибок:
 
-* По остатку Error Budget — показывает, что надежность сервиса постепенно снижается.
-* По скорости расхода Error Budget — показывает резкий рост ошибок.
+* По остатку Error Budget — предупреждает о риске исчерпания бюджета ошибок.
+* По скорости расхода Error Budget — показывает фактический расход бюджета за заданное окно.
+
+Метод **{{ ui-key.yacloud_monitoring.monitoring-alerts.slo.alert-type.diff }}** проверяет разницу остатков бюджета в начале и конце окна. Алерт типа **Burn Rate** проверяет отношение доли плохих событий к допустимой доле ошибок. Подробнее о типах алертов и общих настройках в [инструкции по созданию SLO-алерта](../../monium/operations/alert/create-slo-alert.md).
 
 ### Создайте алерт по остатку Error Budget {#alert-budget-remaining}
 
@@ -519,14 +521,15 @@ Error Budget рассчитывается автоматически сразу 
 
   1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева раскройте раздел ![image](../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO**.
   1. Выберите ![image](../../_assets/console-icons/megaphone.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
-  1. Нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **SLO**.
-  1. Укажите название и уровень алерта, например `Critical` — остаток Error Budget сигнализирует о постепенной деградации.
+  1. Нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-slo-title }}**.
+  1. Укажите название алерта и выберите уровень критичности, например `Critical`.
+  1. В поле **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.slo-alert-type }}** выберите **{{ ui-key.yacloud_monitoring.monitoring-alerts.slo-type.error-budget-key-value }}**.
   1. Выберите SLO, созданный на предыдущем шаге.
-  1. В поле **Метод расчета** выберите `Остаток Error Budget`.
+  1. В поле **{{ ui-key.yacloud_monitoring.monitoring-alerts.slo.alert-type-key-value }}** выберите **{{ ui-key.yacloud_monitoring.monitoring-alerts.slo.alert-type.absolute }}**.
   1. Укажите условия срабатывания:
   
-      * **Warning** — `50%`.
-      * **Alarm** — `20%`.
+      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.slo.warn-threshold }}** — `50%`.
+      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.slo.alarm-threshold }}** — `20%`.
   
   1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
@@ -540,15 +543,16 @@ Error Budget рассчитывается автоматически сразу 
 
   1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева раскройте раздел ![image](../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO**.
   1. Выберите ![image](../../_assets/console-icons/megaphone.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
-  1. Нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **SLO**.
-  1. Укажите название и уровень алерта, например `Disaster` — высокая скорость расхода Error Budget сигнализирует о внезапном инциденте.
+  1. Нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-slo-title }}**.
+  1. Укажите название алерта и выберите уровень критичности, например `Disaster`.
+  1. В поле **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.slo-alert-type }}** выберите **{{ ui-key.yacloud_monitoring.monitoring-alerts.slo-type.error-budget-key-value }}**.
   1. Выберите SLO, созданный на предыдущем шаге.
-  1. В поле **Метод расчета** выберите `Скорость расхода Error Budget`.
+  1. В поле **{{ ui-key.yacloud_monitoring.monitoring-alerts.slo.alert-type-key-value }}** выберите **{{ ui-key.yacloud_monitoring.monitoring-alerts.slo.alert-type.diff }}**.
   1. Укажите условия срабатывания:
   
-      * **Warning** — `1%`.
-      * **Alarm** — `2%`.
-      * **Окно вычисления** — `1h`.
+      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.slo.warn-threshold }}** — `1%`.
+      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.slo.alarm-threshold }}** — `2%`.
+      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window-key-value }}** — `1h`.
   
   1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 

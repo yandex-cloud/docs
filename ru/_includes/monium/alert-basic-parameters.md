@@ -1,7 +1,7 @@
 * **{{ ui-key.yacloud_monitoring.alert.title_name }}** — произвольное название алерта.
-* **ID** — уникальный идентификатор алерта с префиксом проекта. По умолчанию совпадает с названием.
+* **{{ ui-key.yacloud_monitoring.header.description.field.id }}** — уникальный идентификатор алерта с префиксом проекта. Если не задан, генерируется автоматически. После создания алерта изменить ID нельзя.
 * **{{ ui-key.yacloud_monitoring.alert.title_description }}** — назначение алерта или комментарий.
-* **Уровень алерта** — [уровень критичности алерта](../../monium/concepts/alerting/alert.md#severity). Выбирайте уровень по влиянию события:
+* **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.severity-level }}** — [уровень критичности алерта](../../monium/concepts/alerting/alert.md#severity). Выбирайте уровень по влиянию события:
 
     * `Unspecified` — черновик или тест без выбранного уровня.
     * `Disaster` — недоступность сервиса или риск потери данных.
