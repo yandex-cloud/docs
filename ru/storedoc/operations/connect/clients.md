@@ -25,7 +25,7 @@ description: Следуя этой инструкции, вы сможете п�
 
 ### Linux (Bash) {#bash}
 
-Перед подключением [установите утилиту MongoDB Shell](index.md#install-mongosh).
+Перед подключением [установите утилиту MongoDB Shell](index.md#mongosh-install).
 
 {% list tabs group=connection %}
 
@@ -109,7 +109,7 @@ description: Следуя этой инструкции, вы сможете п�
 
 ### Windows (PowerShell) {#powershell}
 
-Перед подключением [установите утилиту MongoDB Shell](index.md#install-mongosh).
+Перед подключением [установите утилиту MongoDB Shell](index.md#mongosh-install).
 
 {% list tabs group=connection %}
 

@@ -30,7 +30,7 @@
 
   1. [Создайте сервисные аккаунты](../../iam/operations/sa/create.md):
      * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для ресурсов с [ролями](../../iam/concepts/access-control/roles.md) `k8s.clusters.agent` и `vpc.publicAdmin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается [кластер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
-     * Сервисный аккаунт для узлов с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) на каталог с [реестром](../../container-registry/concepts/registry.md) Docker-образов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
+     * Сервисный аккаунт для узлов с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) на каталог с [реестром](../../container-registry/concepts/registry.md) Docker-образов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
 
      Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
 
@@ -277,7 +277,7 @@
 
 ## Создайте политику для проверки подписей {#kyverno}
 
-1. Создайте [авторизованный ключ](../../iam/concepts/authorization/key.md) для сервисного аккаунта с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) и запишите его в файл:
+1. Создайте [авторизованный ключ](../../iam/concepts/authorization/key.md) для сервисного аккаунта с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) и запишите его в файл:
 
    ```bash
    yc iam key create \

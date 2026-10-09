@@ -41,7 +41,7 @@
    * [Добавьте хосты](../../managed-mysql/operations/hosts.md#add) с публичными IP-адресами.
    * [Удалите хосты](../../managed-mysql/operations/hosts.md#remove) без публичных IP-адресов.
 * Установите на хосты кластера-приемника [серверные SSL-сертификаты {{ mmy-name }}](../../managed-mysql/operations/connect/index.md#get-ssl-cert). Они требуются для подключения к публично доступному кластеру-источнику.
-* При необходимости настройте межсетевой экран (firewall) и [группы безопасности](../../managed-mysql/operations/connect/index.md#configuring-security-groups), чтобы можно было подключаться из кластера-приемника к кластеру-источнику, а также к каждому кластеру в отдельности (например, с помощью [утилиты mysql](https://dev.mysql.com/doc/refman/8.0/en/mysql.html)).
+* При необходимости настройте межсетевой экран (firewall) и [группы безопасности](../../managed-mysql/operations/connect/index.md#configure-security-groups), чтобы можно было подключаться из кластера-приемника к кластеру-источнику, а также к каждому кластеру в отдельности (например, с помощью [утилиты mysql](https://dev.mysql.com/doc/refman/8.0/en/mysql.html)).
 * Убедитесь, что с хостов кластера-приемника можно подключиться к хостам кластера-источника.
 * Убедитесь, что можно [подключиться к кластеру-источнику](../../managed-mysql/operations/connect/index.md) и к кластеру-приемнику с SSL.
 

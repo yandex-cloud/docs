@@ -126,7 +126,7 @@
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/object-storage.md#objstorage-name) типа `{{ objstorage-name }}` со следующими настройками:
+1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/object-storage.md#endpoint-settings) типа `{{ objstorage-name }}` со следующими настройками:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Object Storage`.
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}** — имя бакета в {{ objstorage-name }}.
@@ -148,7 +148,7 @@
 
     Остальные параметры оставьте по умолчанию.
 
-1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/greenplum.md#gp) типа `{{ GP }}` и укажите в нем параметры подключения к кластеру:
+1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/greenplum.md#endpoint-settings) типа `{{ GP }}` и укажите в нем параметры подключения к кластеру:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}** — `<имя_кластера_приемника_{{ GP }}>` из выпадающего списка.

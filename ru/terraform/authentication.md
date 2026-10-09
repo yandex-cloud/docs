@@ -2,7 +2,7 @@
 
 Для аутентификации и управления инфраструктурой {{ yandex-cloud }} вы можете использовать {{ TF }} от имени:
 * [сервисного аккаунта](../iam/concepts/users/service-accounts.md) с помощью [IAM-токена](#service-account) или [авторизованного ключа](#service-account-key);
-* [пользовательского аккаунта](#users):
+* [пользовательского аккаунта](#user):
     * [аккаунта на Яндексе](../iam/concepts/users/accounts.md#passport);
     * [федеративного аккаунта](../iam/concepts/users/accounts.md#saml-federation);
     * [локального пользователя](../iam/concepts/users/accounts.md#local).

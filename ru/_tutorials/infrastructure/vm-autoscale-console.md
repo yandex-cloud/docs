@@ -155,7 +155,7 @@
 
    {% endlist %}
 
-1. Создайте [группу безопасности](../../vpc/concepts/security-groups.md) `sg-autoscale` с [правилами](../../vpc/concepts/security-groups.md#rules) из таблицы ниже:
+1. Создайте [группу безопасности](../../vpc/concepts/security-groups.md) `sg-autoscale` с [правилами](../../vpc/concepts/security-groups.md#security-groups-rules) из таблицы ниже:
 
    #|
    || **Направление трафика** | **Описание** | **Диапазон портов** | **Протокол** | **Тип источника / назначения** | **Источник / назначение** ||
@@ -205,7 +205,7 @@
 
      * `--name` — имя группы безопасности.
      * `--network-name` — имя [сети](../../vpc/concepts/network.md#network), к которой будет подключена группа безопасности.
-     * `--rule` — [правило](../../vpc/concepts/security-groups.md#rules) в группе безопасности:
+     * `--rule` — [правило](../../vpc/concepts/security-groups.md#security-groups-rules) в группе безопасности:
 
        * `description` — описание правила.
        * `direction` — направление трафика:

@@ -14,6 +14,8 @@ _Снимок диска_ — это копия файловой системы 
 
 {% include [prepare-snapshots](../../../_includes/compute/prepare-snapshots.md) %}
 
+<a id="create-snapshot-operation"></a>
+
 ## Создание снимка {#create}
 
 {% note info %}

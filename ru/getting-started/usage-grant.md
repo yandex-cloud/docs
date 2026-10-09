@@ -47,21 +47,21 @@ description: При создании первого платежного акк�
 
   | Способ оплаты      | Использование гранта|
   |--------------------|---|
-  | Банковская карта   | Грант в размере 4&nbsp;000 ₽ может использоваться для оплаты услуг любых сервисов, кроме [кластеров GPU](../compute/pricing.md#prices-gpu-clusters), [платных тарифов](../support/pricing.md) технической поддержки и продуктов [{{ marketplace-full-name }}](../marketplace/operations/users/buy-subscription.md). |
+  | Банковская карта   | Грант в размере 4&nbsp;000 ₽ может использоваться для оплаты услуг любых сервисов, кроме [кластеров GPU](../compute/pricing.md#prices), [платных тарифов](../support/pricing.md) технической поддержки и продуктов [{{ marketplace-full-name }}](../marketplace/operations/users/buy-subscription.md). |
   | Банковский перевод | Грант в размере 10&nbsp;000 ₽ может использоваться для оплаты услуг любых сервисов {{ yandex-cloud }}. |
 
 - Резиденты Республики Казахстан {#kazakhstan}
 
   | Способ оплаты | Использование гранта|
   |--------------------|---|
-  | Банковская карта   | Грант в размере 20&nbsp;000 ₸ может использоваться для оплаты услуг любых сервисов, кроме [кластеров GPU](../compute/pricing.md#prices-gpu-clusters), [платных тарифов](../support/pricing.md) технической поддержки и продуктов [{{ marketplace-full-name }}](../marketplace/operations/users/buy-subscription.md). |
+  | Банковская карта   | Грант в размере 20&nbsp;000 ₸ может использоваться для оплаты услуг любых сервисов, кроме [кластеров GPU](../compute/pricing.md#prices), [платных тарифов](../support/pricing.md) технической поддержки и продуктов [{{ marketplace-full-name }}](../marketplace/operations/users/buy-subscription.md). |
   | Банковский перевод | Грант в размере 50&nbsp;000 ₸ может использоваться для оплаты услуг любых сервисов {{ yandex-cloud }}. |
 
 - Нерезиденты РФ и РК {#nonresidents}
 
   | Способ оплаты      | Использование гранта|
   |--------------------|---|
-  | Банковская карта   | Грант в размере 30 $ может использоваться для оплаты услуг любых сервисов, кроме [кластеров GPU](../compute/pricing.md#prices-gpu-clusters), [платных тарифов](../support/pricing.md) технической поддержки и продуктов [{{ marketplace-full-name }}](../marketplace/operations/users/buy-subscription.md). |
+  | Банковская карта   | Грант в размере 30 $ может использоваться для оплаты услуг любых сервисов, кроме [кластеров GPU](../compute/pricing.md#prices), [платных тарифов](../support/pricing.md) технической поддержки и продуктов [{{ marketplace-full-name }}](../marketplace/operations/users/buy-subscription.md). |
   | Банковский перевод | Грант в размере 90 $ может использоваться для оплаты услуг любых сервисов {{ yandex-cloud }}. |
 
 {% endlist %}

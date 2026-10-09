@@ -62,7 +62,7 @@ _Том_ — общее хранилище для совместного исп�
 
 В {{ managed-k8s-name }} можно использовать объекты `PersistentVolumes` на основе дисков {{ compute-full-name }}. Тип используемого диска и другие параметры можно установить с помощью соответствующих [классов хранилищ](../operations/volumes/manage-storage-class.md).
 
-В {{ managed-k8s-name }} доступны следующие [типы дисков](../../compute/concepts/disk.md##disks-types): {#disks-types}
+В {{ managed-k8s-name }} доступны следующие [типы дисков](../../compute/concepts/disk.md#disks-types): {#disks-types}
 
 * Сетевой SSD-диск (`network-ssd`) — быстрый сетевой диск, сетевое блочное хранилище на SSD-накопителе.
 * Сетевой HDD-диск (`network-hdd`) — стандартный сетевой диск, сетевое блочное хранилище на HDD-накопителе.

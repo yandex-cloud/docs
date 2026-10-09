@@ -38,7 +38,7 @@ Thumbor удобно использовать для подготовки изо
 
       * Сервисный аккаунт для ресурсов с [ролями](../../managed-kubernetes/security/index.md#yc-api) `k8s.clusters.agent` и `vpc.publicAdmin` на каталог, в котором создается кластер {{ managed-k8s-name }}. От имени этого аккаунта будут создаваться ресурсы для кластера {{ managed-k8s-name }}.
 
-      * Сервисный аккаунт для узлов с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) на каталог с [реестром](../../container-registry/concepts/registry.md) Docker-образов. От его имени узлы будут скачивать из реестра Docker-образы.
+      * Сервисный аккаунт для узлов с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) на каталог с [реестром](../../container-registry/concepts/registry.md) Docker-образов. От его имени узлы будут скачивать из реестра Docker-образы.
 
          Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
 

@@ -50,7 +50,7 @@ description: Управляйте подключениями к источник
 
 {% endlist %}
 
-После того как подключение будет создано, вы можете [просмотреть его настройки](../operations/update-connection.md#list-connections) в списке подключений и [изменить их](../operations/update-connection.md#update-connections), посмотреть список [операций](../operations/operation-connection.md) для выбранного подключения, а также [управлять доступом](../operations/connection-access.md) к этому подключению.
+После того как подключение будет создано, вы можете [просмотреть его настройки](../operations/view-connection.md#connection-list) в списке подключений и [изменить их](../operations/update-connection.md#update-connections), посмотреть список [операций](../operations/operation-connection.md) для выбранного подключения, а также [управлять доступом](../operations/connection-access.md) к этому подключению.
 
 
 ## Что дальше {#what-is-next}

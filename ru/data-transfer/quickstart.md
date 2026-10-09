@@ -83,7 +83,7 @@
   1. Выберите созданные эндпоинты для источника и приемника.
   1. Выберите [тип трансфера](./concepts/index.md#transfer-type):
 
-     * {{ dt-type-copy }} — чтобы создать полную копию данных без дальнейшего получения обновлений из источника. Этот тип также можно использовать для [репликации постоянно меняющихся таблиц](concepts/transfer-lifecycle.md#select-transfer-type).
+     * {{ dt-type-copy }} — чтобы создать полную копию данных без дальнейшего получения обновлений из источника. Этот тип также можно использовать для [репликации постоянно меняющихся таблиц](concepts/transfer-lifecycle.md#transfer-types).
 
        Если вам нужно создавать полную копию данных через определенные интервалы времени, включите настройку **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeSnapshot.regular_snapshot.title }}**.
 

@@ -375,7 +375,7 @@ pg_restore -h <IP-адрес_или_FQDN_хоста-мастера_класте�
             * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` или один адрес из списка зарезервированных IP-адресов.
 
     
-    1. Если вы используете группы безопасности для промежуточной виртуальной машины и кластера {{ mpg-name }}, [настройте их](../../managed-postgresql/operations/connect/index.md#configure-security-groups).
+    1. Если вы используете группы безопасности для промежуточной виртуальной машины и кластера {{ mpg-name }}, [настройте их](../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
 
 
 - {{ TF }} {#tf}

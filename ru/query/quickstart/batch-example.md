@@ -106,5 +106,5 @@ Kind: AdaptiveWard Bins: 100 WeightsSum: 140151844.000 Min: -531231.000 Max: 436
 
 * [Именованные выражения. Синтаксис YQL]({{ ydb.docs }}yql/reference/syntax/expressions#named-nodes)
 * [HISTOGRAM. Встроенные функции YQL]({{ ydb.docs }}yql/reference/builtins/aggregation#histogram)
-* [Формат SQL-выражения](../sources-and-sinks/object-storage-binding.md#model-dannyh)
+* [Формат SQL-выражения](../sources-and-sinks/object-storage-binding.md#data-model)
 * [{#T}](../concepts/batch-processing.md)

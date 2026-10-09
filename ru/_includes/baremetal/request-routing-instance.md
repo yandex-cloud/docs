@@ -21,9 +21,9 @@ vpc:
 Где:
 * `folder_id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога.
 * `vpc_net_id` — [идентификатор](../../vpc/operations/network-get-info.md) облачной сети.
-* `vpc_subnets` — список [анонсируемых](../../interconnect/concepts/priv-con.md#prc-announce) адресных префиксов для каждой из [зон доступности](../../overview/concepts/geo-scope.md). Например, для созданной ранее подсети {{ vpc-short-name }} вы укажете `{{ region-id }}-b: [192.168.11.0/24]`.
+* `vpc_subnets` — список [анонсируемых](../../cloud-router/concepts/announces.md#prc-announce) адресных префиксов для каждой из [зон доступности](../../overview/concepts/geo-scope.md). Например, для созданной ранее подсети {{ vpc-short-name }} вы укажете `{{ region-id }}-b: [192.168.11.0/24]`.
 
-    Допускается анонсирование адресных префиксов с [агрегированием](../../interconnect/concepts/priv-con.md#agg-subnets).
+    Допускается анонсирование адресных префиксов с [агрегированием](../../cloud-router/concepts/aggregates.md#agg-subnets).
 
 {% note info %}
 

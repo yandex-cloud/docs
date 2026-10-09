@@ -175,6 +175,6 @@ description: В этом примере вы рассчитаете стоимо
 
 * [Оператор HOP. Параметры окон в потоковой обработке данных](../concepts/stream-processing-windows.md)
 * [Агрегатные функции. Синтаксис YQL]({{ ydb.docs }}/yql/reference/builtins/aggregation)
-* [Формат SQL-выражения](../sources-and-sinks/data-streams-binding.md#model-dannyh)
+* [Формат SQL-выражения](../sources-and-sinks/data-streams-binding.md#data-model)
 * [{#T}](../concepts/batch-processing.md)
 * [{#T}](../concepts/stream-processing.md)

@@ -715,7 +715,7 @@ keywords:
 
 ## Изменить группы безопасности {#change-sg-set}
 
-После того как вы назначите другие [группы безопасности](../concepts/network.md#security-groups), может потребоваться их [дополнительная настройка](connect/fqdn.md#security-groups) для подключения к кластеру.
+После того как вы назначите другие [группы безопасности](../concepts/network.md#security-groups), может потребоваться их [дополнительная настройка](connect/index.md#security-groups) для подключения к кластеру.
 
 {% list tabs group=instructions %}
 

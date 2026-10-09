@@ -37,7 +37,7 @@ description: Эта инструкция поможет начать работ�
 
 ## Создание обращения {#create-request}
 
-Если [поиск решения проблемы](#finding-solution) в базе знаний технической поддержки и документации {{ yandex-cloud }} не дал результата, создайте обращение в поддержку.
+Если [поиск решения проблемы](#search-for-solution) в базе знаний технической поддержки и документации {{ yandex-cloud }} не дал результата, создайте обращение в поддержку.
 
 Создать обращение в поддержку можно на [главной странице поддержки]({{ link-console-support }}) в {{ support-center-name }} с помощью кнопки **{{ ui-key.support-center.tickets.common.action_create-ticket }}** или с любой страницы консоли управления, нажав на панели слева ![image](../_assets/console-icons/circle-question.svg)**Центр поддержки** -> **{{ ui-key.support-center.tickets.common.action_create-ticket }}**.
 

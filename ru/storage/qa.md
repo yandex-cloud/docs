@@ -106,7 +106,7 @@ description: На странице представлены вопросы и о
 Проверьте, что сервисному аккаунту назначена [роль](./security/#roles-list) для доступа в бакет.
 
 
-Если у бакета включено [шифрование](./concepts/encryption.md), назначьте сервисному аккаунту [роль](../kms/security/#service) `kms.keys.encrypterDecrypter` на [ключ {{ kms-short-name }}](../kms/concepts/key.md), которым зашифрован бакет. Это можно сделать, например, с помощью команды CLI:
+Если у бакета включено [шифрование](./concepts/encryption.md), назначьте сервисному аккаунту [роль](../kms/security/#kms-keys-encrypterDecrypter) `kms.keys.encrypterDecrypter` на [ключ {{ kms-short-name }}](../kms/concepts/key.md), которым зашифрован бакет. Это можно сделать, например, с помощью команды CLI:
 
 ```bash
 yc kms symmetric-key add-access-binding \

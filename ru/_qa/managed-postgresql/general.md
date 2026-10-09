@@ -195,7 +195,7 @@ _Кластер БД_ — это один или более хостов БД, �
 
 {% include [throttling](../throttling.md) %}
 
-Чтобы увеличить максимальные значения IOPS и bandwidth и снизить вероятность троттлинга, расширьте размер хранилища при [изменении кластера](../../managed-postgresql/operations/update.md#change-disk-size).
+Чтобы увеличить максимальные значения IOPS и bandwidth и снизить вероятность троттлинга, расширьте размер хранилища при [изменении кластера](../../managed-postgresql/operations/storage-space.md#change-disk-size).
 
 Если вы используете хранилище с типом диска `network-hdd`, рассмотрите возможность перехода на `network-ssd` или `network-ssd-nonreplicated` путем [восстановления кластера](../../managed-postgresql/operations/cluster-backups.md#restore) из резервной копии.
 
