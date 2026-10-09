@@ -63,5 +63,5 @@ index: 1
 
 ## I квартал 2024 {#q1-2024}
 
-* Добавлены ресурсные записи типа [SVCB/HTTPS](./concepts/resource-record.md#svcb-and-https-svcb-https).
+* Добавлены ресурсные записи типа [SVCB/HTTPS](./concepts/resource-record.md#svcb-https).
 * Добавлены [метрики мониторинга](./metrics.md).

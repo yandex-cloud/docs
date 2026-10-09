@@ -63,7 +63,7 @@
 1. В блоке **{{ ui-key.yacloud.compute.groups.create.label_custom-metrics }}** укажите:
    * В поле **{{ ui-key.yacloud.compute.groups.create.field_metric }}**:
      * [{{ ui-key.yacloud.compute.groups.create.metric-type-cpu }}](../../compute/concepts/instance-groups/scale.md#cpu-utilization) — укажите средний уровень загрузки CPU, который должен поддерживать {{ ig-name }}.
-     * [{{ ui-key.yacloud.compute.groups.create.metric-type-custom }}](../../compute/concepts/instance-groups/scale.md#custom-metrics) — укажите имя пользовательской метрики и целевое значение, которое должен поддерживать {{ ig-name }}.
+     * [{{ ui-key.yacloud.compute.groups.create.metric-type-custom }}](../../compute/concepts/instance-groups/scale.md#monitoring-metrics) — укажите имя пользовательской метрики и целевое значение, которое должен поддерживать {{ ig-name }}.
 1. При необходимости активируйте опцию **{{ ui-key.yacloud.compute.groups.create.section_health-check }}** для получения сведений о состоянии ВМ и их автоматического восстановления в случае сбоя.
    * В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}** выберите протокол проверок состояния: `{{ ui-key.yacloud.common.label_http }}` или `{{ ui-key.yacloud.common.label_tcp }}`.
    * В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** (для типа HTTP) укажите URL‐путь запроса, на который {{ ig-name }} будет отправлять запросы проверки для HTTP.

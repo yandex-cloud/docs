@@ -54,7 +54,7 @@
         1. Включите настройку [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics).
         1. Настройте [группы безопасности](../../managed-kafka/operations/connect/index.md#configuring-security-groups) для подключения к кластеру-приемнику.
 
-    1. [Создайте для кластера-приемника коннектор](../../managed-kafka/operations/cluster-connector.md#create-connector) с типом `MirrorMaker` и настройками:
+    1. [Создайте для кластера-приемника коннектор](../../managed-kafka/operations/cluster-connector.md#create) с типом `MirrorMaker` и настройками:
 
         * **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-topics }}** — список топиков, которые нужно перенести. Также можно указать регулярное выражение для выбора топиков. Для переноса всех топиков укажите `.*`.
         * В блоке **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-source-cluster }}** укажите параметры для подключения к кластеру-источнику:

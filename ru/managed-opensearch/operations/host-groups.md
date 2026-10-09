@@ -62,7 +62,7 @@ keywords:
             --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>'
         ```
 
-        Идентификатор кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster).
 
@@ -91,7 +91,7 @@ keywords:
             yandex.cloud.mdb.opensearch.v1.ClusterService.Get
         ```
 
-        Идентификатор кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster).
 

@@ -15,7 +15,7 @@
 
 Подробнее о монетизации в разделе [{#T}](../operations/channels/settings.md).
 
-Дополнительно в {{ video-name }} можно воспользоваться технологиями Яндекса по [суммаризации](videos.md#summarization), [нейропереводу](videos.md#translation) и генерации субтитров.
+Дополнительно в {{ video-name }} можно воспользоваться технологиями Яндекса по [суммаризации](videos.md#summarization), [нейропереводу](videos.md#stranslation) и генерации субтитров.
 
 ## Каналы {#channels}
 

@@ -36,6 +36,8 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [prepare-snapshots](../../../_includes/compute/prepare-snapshots.md) %}
 
+<a id="create-snapshot-operation"></a>
+
 #### Создайте снимки {#create}
 
 Чтобы [создать](../disk-control/create-snapshot.md) снимок диска:

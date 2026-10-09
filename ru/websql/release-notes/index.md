@@ -248,7 +248,7 @@ description: В разделе представлена история изме�
 
 1. Добавлена возможность [подключаться](../quickstart.md) к нешардированным кластерам {{ RD }}.
 
-1. Добавлены роли [`websql.auditor`](../security/index.md#websql-auditor), [`websql.executedQueries.auditor`](../security/index.md#websql-executedqueries-auditor) и [`websql.savedQueries.auditor`](../security/index.md#websql-savedqueries-auditor) для просмотра метаданных запросов и прав доступа к ним.
+1. Добавлены роли [`websql.auditor`](../security/index.md#websql-auditor), [`websql.executedQueries.auditor`](../security/index.md#websql-executedQueries-auditor) и [`websql.savedQueries.auditor`](../security/index.md#websql-savedQueries-auditor) для просмотра метаданных запросов и прав доступа к ним.
 
 #### Улучшения {#improvements-september-2024}
 

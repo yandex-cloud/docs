@@ -259,7 +259,7 @@ player.setPlaybackSpeed(0.5);
 
 В обработчик передается объект с соответствующим событию полем из [состояния плеера](./player-state.md).
 
-Пример подписки на все срабатывания события изменения статуса воспроизведения [StatusChange](./player-state.md#StatusChange):
+Пример подписки на все срабатывания события изменения статуса воспроизведения [StatusChange](player-events.md#statuschange):
 
 ```javascript
 player.on('StatusChange', ({ status }) => {

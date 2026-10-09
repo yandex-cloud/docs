@@ -52,7 +52,7 @@
         * `--service-type` — тип сервиса, для которого требуется вывести записи (`mysql-error`, `mysql-general`, `mysql-slow-query` или `mysql-audit`).
         * `--columns` — список колонок для вывода информации:
 
-            * `hostname` — [имя хоста](hosts.md#list-hosts).
+            * `hostname` — [имя хоста](hosts.md#list).
             * `id` — идентификатор запроса.
             * `message` — сообщение, которое выводит сервис.
             * `status` — статус сообщения, например `Note` или `Warning`.
@@ -220,7 +220,7 @@
 
         * `columnFilter` — список колонок для вывода информации:
 
-            * `hostname` — [имя хоста](hosts.md#list-hosts).
+            * `hostname` — [имя хоста](hosts.md#list).
             * `id` — идентификатор запроса.
             * `message` — сообщение, которое выводит сервис.
             * `status` — статус сообщения, например `Note` или `Warning`.
@@ -273,7 +273,7 @@
 
         * `column_filter` — список колонок для вывода информации:
 
-            * `hostname` — [имя хоста](hosts.md#list-hosts).
+            * `hostname` — [имя хоста](hosts.md#list).
             * `id` — идентификатор запроса.
             * `message` — сообщение, которое выводит сервис.
             * `status` — статус сообщения, например `Note` или `Warning`.

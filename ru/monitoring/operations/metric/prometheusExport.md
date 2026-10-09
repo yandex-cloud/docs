@@ -43,7 +43,7 @@
    * `ydb` — {{ ydb-name }}.
 
 1. Создайте [API-ключ](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
-1. [Назначьте сервисному аккаунту роль](../../../iam/operations/roles/grant.md#access-to-sa) `{{ roles-monitoring-viewer }}` на выбранный каталог.
+1. [Назначьте сервисному аккаунту роль](../../../iam/operations/roles/grant.md#cloud-or-folder) `{{ roles-monitoring-viewer }}` на выбранный каталог.
 1. В [конфигурацию Prometheus](https://prometheus.io/docs/prometheus/latest/configuration/configuration) в секцию для сбора данных добавьте еще одну задачу (`job`):
 
    ```yaml

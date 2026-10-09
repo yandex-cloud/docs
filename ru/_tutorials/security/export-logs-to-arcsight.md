@@ -178,7 +178,7 @@
 
 - CLI {#cli}
 
-  1. [Роль](../../audit-trails/security/index.md#roles) `audit-trails.viewer` на каталог:
+  1. [Роль](../../audit-trails/security/index.md#roles-list) `audit-trails.viewer` на каталог:
      
       ```
       yc resource-manager folder add-access-binding \
@@ -210,7 +210,7 @@
       * `--id` — идентификатор каталога `example-folder`;
       * `--service-account-id` — идентификатор сервисного аккаунта `sa-arcsight`.
 
-  1. [Роль](../../kms/security/index.md#service) `kms.keys.encrypterDecrypter` на ключ шифрования `arcsight-kms`:
+  1. [Роль](../../kms/security/index.md#kms-keys-encrypterDecrypter) `kms.keys.encrypterDecrypter` на ключ шифрования `arcsight-kms`:
   
       ```
       yc kms symmetric-key add-access-binding \

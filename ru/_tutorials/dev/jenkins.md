@@ -26,7 +26,7 @@
 
 В стоимость поддержки инфраструктуры входят:
 * Плата за постоянно запущенные ВМ ([тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Плата за хранение созданных образов ([тарифы {{ compute-name }}](../../compute/pricing#prices-storage)).
+* Плата за хранение созданных образов ([тарифы {{ compute-name }}](../../compute/pricing#prices)).
 * Плата за использование динамических [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 ## Настройте окружение {#prepare}

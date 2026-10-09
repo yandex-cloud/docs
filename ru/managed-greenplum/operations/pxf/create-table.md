@@ -167,7 +167,7 @@ CREATE FOREIGN TABLE <имя_таблицы>
     
   1. Создайте таблицу в {{ MY }} и заполните ее данными:
       
-      1. [Подключитесь к БД {{ MY }}](../../../managed-mysql/operations/connect/index.md#connection-string) с помощью утилиты `mysql`.
+      1. [Подключитесь к БД {{ MY }}](../../../managed-mysql/operations/connect/code-examples.md#connection-string) с помощью утилиты `mysql`.
   
       1. Создайте таблицу `test`:
 
@@ -560,7 +560,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
 
         Если не создать источник данных, параметры подключения к источнику нужно передать в SQL-запросе на создание внешней таблицы.
 
-    1. [Подключитесь к БД {{ MY }}](../../../managed-mysql/operations/connect/index.md#connection-string) с помощью утилиты `mysql`.
+    1. [Подключитесь к БД {{ MY }}](../../../managed-mysql/operations/connect/code-examples.md#connection-string) с помощью утилиты `mysql`.
     1. Создайте тестовую таблицу и наполните ее данными:
 
         ```sql

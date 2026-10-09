@@ -39,7 +39,7 @@ MCP-сервер в {{ OS }} доступен начиная с версии 3.0
 
             {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
-        1. Если вы используете группы безопасности в кластере, убедитесь, что они настроены правильно и допускают подключение к кластеру [{{ mos-name }}](../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
+        1. Если вы используете группы безопасности в кластере, убедитесь, что они настроены правильно и допускают подключение к кластеру [{{ mos-name }}](../../managed-opensearch/operations/connect/index.md#security-groups).
 
     - С помощью {{ TF }} {#tf}
 

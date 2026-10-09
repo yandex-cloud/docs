@@ -21,8 +21,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
-* Плата за вычислительные ресурсы ВМ ([тарифы {{ compute-name }}](../../compute/pricing.md#prices-instance-resources)).
-* Плата за [диски](../../compute/concepts/disk.md) ВМ ([тарифы {{ compute-name }}](../../compute/pricing.md#prices-storage)).
+* Плата за вычислительные ресурсы ВМ ([тарифы {{ compute-name }}](../../compute/pricing.md#prices)).
+* Плата за [диски](../../compute/concepts/disk.md) ВМ ([тарифы {{ compute-name }}](../../compute/pricing.md#prices)).
 * Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
 * Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы {{ sf-name }}](../../functions/pricing.md)).
 * Плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md) ([тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)), если вы используете сервис [{{ cloud-logging-name }}](../../logging/).

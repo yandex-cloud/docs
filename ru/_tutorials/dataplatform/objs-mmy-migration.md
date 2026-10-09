@@ -40,7 +40,7 @@
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `mmy-user`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль_пользователя>`.
 
-    1. [Назначьте пользователю {{ MY }} роль](../../managed-mysql/operations/grant.md#grant-role) `ALL_PRIVILEGES` для базы-приемника.
+    1. [Назначьте пользователю {{ MY }} роль](../../managed-mysql/operations/grant.md#grant-privilege) `ALL_PRIVILEGES` для базы-приемника.
 
 - {{ TF }} {#tf}
 

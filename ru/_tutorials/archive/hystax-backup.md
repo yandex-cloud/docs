@@ -38,8 +38,8 @@
 {% endnote %}
 
 В стоимость ресурсов для использования «Хайстекс Акура — Система резервного копирования» входят:
-* Плата за вычислительные ресурсы ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md#prices-instance-resources)).
-* Плата за диски ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md#prices-storage)).
+* Плата за вычислительные ресурсы ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md#prices)).
+* Плата за диски ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md#prices)).
 * Плата за использование динамического или статического внешнего IP-адреса ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
 * Плата за хранение данных в бакете и операции с ними ([тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
 * Плата за использование «Хайстекс Акура — Система резервного копирования» (смотрите [описание продукта](/marketplace/products/hystax/hystax-acura-backup) в {{ marketplace-name }}).
