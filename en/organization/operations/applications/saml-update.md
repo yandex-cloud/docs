@@ -27,7 +27,7 @@ To update the [SAML app's basic settings](../../concepts/applications/saml.md):
       1. Change the app's description in the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-description_cjpok }}** field.
       1. Add new [labels](../../../resource-manager/concepts/labels.md) by clicking **{{ ui-key.yacloud.component.label-set.button_add-label }}** in the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-labels_uT2D2 }}** field. Click ![xmark](../../../_assets/console-icons/xmark.svg) to delete an existing label.
     
-  1. Under **{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.section-service-provider_5d85k }}**:
+  1. Under **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.section-service-provider_83p1J }}**:
 
      1. In the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** field, enter the unique service provider ID. The value must be the same on the service provider's and {{ org-full-name }} side.
      1. In the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** field, specify the URL {{ org-full-name }} will send the SAML response to. To provide multiple addresses, click **{{ ui-key.yacloud_org.organization.apps.SamlAppAcsUrlsField.add-acs-url_eMunC }}**. The ACS URL must follow the `https` schema. You can only use an encryption-free protocol for testing purposes on a local host (`http://127.0.0.1` and `http://localhost` values).

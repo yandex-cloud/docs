@@ -62,7 +62,7 @@
 
    ```bash
    helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/crossplane/charts/crossplane \
-     --version 2.3.4+yc0.15.0 \
+     --version 2.3.4+yc0.15.2 \
      --untar && \
    helm install \
      --namespace <пространство_имен> \

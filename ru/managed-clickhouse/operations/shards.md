@@ -28,10 +28,8 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.Cluster.Shards.action_add-shards_iULX7 }}**.
   1. Нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке нового шарда, чтобы изменить его параметры:
 
-      * имя и вес;
-      * конфигурацию хостов шарда.
-
-      {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+      * Имя и [вес](../concepts/sharding.md#shard-weight). Вес шарда по умолчанию — `100`.
+      * Конфигурацию хостов шарда.
 
   1. (Опционально) Нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.add_shard-btn }}**, чтобы добавить дополнительные шарды, и укажите их параметры.
   1. (Опционально) Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-host }}**, чтобы добавить дополнительные хосты, и укажите их параметры.
@@ -84,9 +82,7 @@
 
               Может содержать латинские буквы, цифры, дефис и подчеркивание. Максимальная длина — 63 символа.
 
-          * `weight` — вес шарда.
-
-            {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+          * `weight` — [вес шарда](../concepts/sharding.md#shard-weight). По умолчанию — `100`.
 
       * `--host` — параметры хоста, который будет добавлен в шард:
 
@@ -132,7 +128,7 @@
      }
      ```
 
-     {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+     Где `weight` — [вес шарда](../concepts/sharding.md#shard-weight). По умолчанию — `100`.
 
   1. (Опционально) Чтобы скопировать схему со случайной реплики одного из шардов на хосты новых шардов, добавьте к описанию кластера поле `copy_schema_on_new_hosts` со значением `true`.
 
@@ -202,9 +198,7 @@
             * `diskSize` — размер диска в байтах.
             * `diskTypeId` — [тип диска](../concepts/storage.md).
 
-        * `configSpec.clickhouse.weight` — вес шарда.
-
-          {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+        * `configSpec.clickhouse.weight` — [вес шарда](../concepts/sharding.md#shard-weight). По умолчанию — `100`.
 
         * `hostSpecs` — настройки хостов, которые будут добавлены в шард. Настройки представлены в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
 
@@ -287,9 +281,7 @@
             * `disk_size` — размер диска в байтах.
             * `disk_type_id` — [тип диска](../concepts/storage.md).
 
-          * `config_spec.clickhouse.weight` — вес шарда.
-
-            {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+          * `config_spec.clickhouse.weight` — [вес шарда](../concepts/sharding.md#shard-weight). По умолчанию — `100`.
 
         * `host_specs` — настройки хостов, которые будут добавлены в шард. Настройки представлены в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
 
@@ -416,7 +408,7 @@
 
 ## Изменить шард {#shard-update}
 
-Вы можете изменить вес шарда, а также [класс хоста](../concepts/instance-types.md), [тип диска](../concepts/storage.md) и размер хранилища.
+Вы можете изменить [вес шарда](../concepts/sharding.md#shard-weight), а также [класс хоста](../concepts/instance-types.md), [тип диска](../concepts/storage.md) и размер хранилища.
 
 {% include [note-change-disk-type-data-loss](../../_includes/mdb/mch/note-change-disk-type-data-loss.md) %}
 
@@ -462,10 +454,7 @@
      Где:
 
      * `--cluster-name` — имя кластера. Его можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-     * `--weight` — вес шарда. Минимальное значение — `0`.
-
-       {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
-
+     * `--weight` — [вес шарда](../concepts/sharding.md#shard-weight). По умолчанию — `100`.
      * `--clickhouse-resource-preset` — [класс хостов](../concepts/instance-types.md).
      * `--clickhouse-disk-size` — размер хранилища в гигабайтах.
      * `--clickhouse-disk-type` — [тип диска](../concepts/storage.md).
@@ -521,9 +510,7 @@
          * `diskSize` — размер диска в байтах.
          * `diskTypeId` — [тип диска](../concepts/storage.md).
 
-       * `weight` — вес шарда.
-
-         {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+       * `weight` — [вес шарда](../concepts/sharding.md#shard-weight). По умолчанию — `100`.
 
      * `allowHostRecreation` — разрешить кластеру пересоздать хосты (параметр обязателен при изменении типа диска).
 
@@ -592,9 +579,7 @@
          * `disk_size` — размер диска в байтах.
          * `disk_type_id` — [тип диска](../concepts/storage.md).
 
-       * `weight` — вес шарда.
-
-         {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+       * `weight` — [вес шарда](../concepts/sharding.md#shard-weight). По умолчанию — `100`.
 
      * `allow_host_recreation` — разрешить кластеру пересоздать хосты (параметр обязателен при изменении типа диска).
 

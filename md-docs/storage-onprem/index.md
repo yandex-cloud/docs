@@ -128,7 +128,11 @@ HTTP API продукта совместим с API AWS S3, то есть для
 
  - [create](cli-ref/cli_buckets_create.md)
 
+ - [create-inventory-configuration](cli-ref/cli_buckets_create-inventory-configuration.md)
+
  - [delete](cli-ref/cli_buckets_delete.md)
+
+ - [delete-inventory-configuration](cli-ref/cli_buckets_delete-inventory-configuration.md)
 
 ##### get
 
@@ -154,7 +158,11 @@ HTTP API продукта совместим с API AWS S3, то есть для
 
  - [versioning](cli-ref/cli_buckets_get_versioning.md)
 
+ - [get-inventory-configuration](cli-ref/cli_buckets_get-inventory-configuration.md)
+
  - [list](cli-ref/cli_buckets_list.md)
+
+ - [list-inventory-configurations](cli-ref/cli_buckets_list-inventory-configurations.md)
 
 ##### update
 
@@ -202,6 +210,20 @@ HTTP API продукта совместим с API AWS S3, то есть для
 
  - [help](cli-ref/cli_help.md)
 
+#### license
+
+ - [Overview](cli-ref/cli_license.md)
+
+ - [export-usage](cli-ref/cli_license_export-usage.md)
+
+ - [setup-offline](cli-ref/cli_license_setup-offline.md)
+
+ - [setup-online](cli-ref/cli_license_setup-online.md)
+
+ - [show](cli-ref/cli_license_show.md)
+
+ - [usage](cli-ref/cli_license_usage.md)
+
 #### login
 
  - [Overview](cli-ref/cli_login.md)
@@ -218,17 +240,29 @@ HTTP API продукта совместим с API AWS S3, то есть для
 
  - [generate-csr-console](cli-ref/cli_ops_certs_generate-csr-console.md)
 
+ - [generate-csr-monitoring](cli-ref/cli_ops_certs_generate-csr-monitoring.md)
+
+ - [generate-csr-private](cli-ref/cli_ops_certs_generate-csr-private.md)
+
  - [generate-csr-s3](cli-ref/cli_ops_certs_generate-csr-s3.md)
 
  - [get-csr](cli-ref/cli_ops_certs_get-csr.md)
 
  - [install-cert-console](cli-ref/cli_ops_certs_install-cert-console.md)
 
+ - [install-cert-monitoring](cli-ref/cli_ops_certs_install-cert-monitoring.md)
+
+ - [install-cert-private](cli-ref/cli_ops_certs_install-cert-private.md)
+
  - [install-cert-s3](cli-ref/cli_ops_certs_install-cert-s3.md)
 
  - [list-csr](cli-ref/cli_ops_certs_list-csr.md)
 
  - [upload-console](cli-ref/cli_ops_certs_upload-console.md)
+
+ - [upload-monitoring](cli-ref/cli_ops_certs_upload-monitoring.md)
+
+ - [upload-private](cli-ref/cli_ops_certs_upload-private.md)
 
  - [upload-s3](cli-ref/cli_ops_certs_upload-s3.md)
 

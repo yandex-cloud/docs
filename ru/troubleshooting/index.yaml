@@ -29,7 +29,7 @@ links:
     href: legal/
   - title: '{{ managed-k8s-name }}'
     description: Решения для {{ managed-k8s-name }}
-    href: managed-kubernetes/
+    href: ../managed-kubernetes/qa/troubleshooting.md
   - title: '{{ mmy-name }}'
     description: Решения для {{ mmy-name }}
     href: managed-mysql/

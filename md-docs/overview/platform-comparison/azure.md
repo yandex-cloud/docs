@@ -6,7 +6,7 @@
 | Microsoft Azure | Yandex Cloud |
 |----|----|
 | AI Platform | [Yandex DataSphere](../../datasphere/index.md) |
-| Azure Application Gateway | [Yandex Serverless Integrations: API Gateway](../../api-gateway/index.md) |
+| Azure Application Gateway | [API Gateway](../../api-gateway/index.md) |
 | Azure Artifacts | [Yandex Cloud Registry](../../cloud-registry/index.md) |
 | Azure Cache for Redis | [Yandex Managed Service for Valkey™](../../managed-valkey/index.md) |
 | Azure Container Apps | [Yandex Serverless Containers](../../serverless-containers/index.md) |
@@ -20,7 +20,6 @@
 | Azure DDoS Protection | [Yandex DDoS Protection](../../vpc/ddos-protection/index.md) |
 | Azure Dedicated Hosts | [Yandex BareMetal](../../baremetal/index.md) |
 | Azure DNS | [Yandex Cloud DNS](../../dns/index.md) |
-| Azure Event Grid | [Yandex Serverless Integrations: EventRouter](../../serverless-integrations/quickstart/eventrouter.md) |
 | Azure Event Hubs | [Yandex Data Streams](../../data-streams/index.md) |
 | Azure Functions | [Yandex Cloud Functions](../../functions/index.md) |
 | Azure HDInsight | [Yandex Managed Service for YTsaurus](../../managed-ytsaurus/index.md)<br/>[Yandex Managed Service for Apache Spark™](../../managed-spark/index.md) |

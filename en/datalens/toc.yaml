@@ -1006,7 +1006,7 @@ items:
             href: security/workbooks-access.md
           - name: Basic setup
             href: security/workbooks-access-basic.md
-          - name: Advanced setup (shared objects)
+          - name: Advanced setup (common objects)
             href: security/workbooks-access-advanced.md
       - name: Access to objects in directories
         items:

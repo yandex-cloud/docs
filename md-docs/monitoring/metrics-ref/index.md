@@ -45,7 +45,6 @@
 * [Yandex Monitoring](monitoring-ref.md)
 * [Yandex Network Load Balancer](network-load-balancer-ref.md)
 * [Yandex Object Storage](storage-ref.md)
-* [Yandex Serverless Integrations](serverless-integrations-ref.md)
 * [Yandex Serverless Containers](serverless-containers-ref.md)
 * [Yandex SmartCaptcha](captcha-ref.md)
 * [Yandex Smart Web Security](smartwebsecurity-ref.md)

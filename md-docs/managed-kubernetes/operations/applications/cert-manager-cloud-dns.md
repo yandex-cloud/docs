@@ -74,7 +74,7 @@
 
    ```bash
    helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/cert-manager-webhook-yandex/cert-manager-webhook-yandex \
-     --version 1.0.11 \
+     --version 1.0.12 \
      --untar && \
    helm install \
      --namespace <пространство_имен> \

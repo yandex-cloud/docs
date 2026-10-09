@@ -352,7 +352,7 @@ When informing {{ org-full-name }} that a user has been authenticated, the ident
 
       To add a certificate, use the [create](../../organization/saml/api-ref/Certificate/create.md) method for the [Certificate](../../organization/saml/api-ref/Certificate/index.md) resource:
 
-      1. Create the request body by specifying the contents of the certificate's `data` property:
+      1. Create a request body by specifying the certificate contents in the `data` property:
 
           ```json
           {
@@ -574,7 +574,7 @@ To do this, you need to know the user's name IDs returned by the identity provid
 
 {% include [auto-create-users](../../_includes/organization/auto-create-users.md) %}
 
-A user can be added by the organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). To learn how to grant a role to a user, see the [Roles](../../organization/security/index.md#add-role) section.
+A user can be added by the organization administrator (`organization-manager.admin` role) or owner (`organization-manager.organizations.owner` role). To learn how to grant a role to a user, see the [Roles](../../organization/security/index.md#add-role) section.
 
 {% include [console-user-access](../../_includes/organization/console-user-access.md) %}
 
@@ -607,7 +607,7 @@ To add federation users to an organization:
 
 - API {#api}
 
-  1. Create a file with the request body, e.g., `body.json`. In the request body, specify the array of name IDs of users you want to add:
+  1. Create a file with the request body, e.g., `body.json`. In the request body, specify an array of users’ name IDs you want to add:
 
       ```json
       {

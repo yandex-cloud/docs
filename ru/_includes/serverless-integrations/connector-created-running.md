@@ -1,1 +1,0 @@
-По умолчанию коннектор создается запущенным. Чтобы коннектор перестал отправлять сообщения в шину, [остановите](../../serverless-integrations/operations/eventrouter/connector/stop.md) его.

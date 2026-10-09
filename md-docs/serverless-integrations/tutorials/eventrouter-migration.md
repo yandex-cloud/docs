@@ -1,10 +1,10 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Integrations](../index.md) > Практические руководства > Миграция с EventRouter на триггеры
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Integrations](../index.md) > Миграция с EventRouter на триггеры
 
 # Миграция с EventRouter на триггеры
 
 {% note warning %}
 
-Сервис Yandex Serverless Integrations прекращает работу 8 октября 2026 года. Подробнее о сроках и порядке закрытия читайте на странице [Закрытие сервиса Yandex Serverless Integrations](../sunset.md).
+Сервис Yandex Serverless Integrations прекращает работу 8 октября 2026 года. Подробнее о сроках и порядке закрытия читайте на странице [Cервис Yandex Serverless Integrations закрыт](../sunset.md).
 
 {% endnote %}
 

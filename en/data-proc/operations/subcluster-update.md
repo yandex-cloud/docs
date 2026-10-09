@@ -192,11 +192,11 @@ You can configure the [autoscaling](../concepts/autoscaling.md) rule in data pro
 
 Make sure your cloud quota is sufficient to scale up the VMs. Open the [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) page for your cloud and make sure the following **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** quotas are not fully used:
 
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.hddDisks.size }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.ssdDisks.size }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.disks.count }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.instanceCores.count }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.instances.count }}**.
+* **{{ ui-key.yacloud_quotas.quotas.compute.hddDisks.size }}**
+* **{{ ui-key.yacloud_quotas.quotas.compute.ssdDisks.size }}**
+* **{{ ui-key.yacloud_quotas.quotas.compute.disks.count }}**
+* **{{ ui-key.yacloud_quotas.quotas.compute.instanceCores.count }}**
+* **{{ ui-key.yacloud_quotas.quotas.compute.instances.count }}**.
 
 To enable autoscaling, [assign](../../iam/operations/sa/assign-role-for-sa.md) the following roles to the {{ dataproc-name }} cluster service account:
 
@@ -326,9 +326,9 @@ Currently, you cannot reduce the storage size. To do so, you must re-create the 
 
 Make sure the cloud quota is sufficient to increase the VM resources. Open the [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) page for your cloud and make sure the following **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** quotas are not fully used:
 
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.hddDisks.size }}**.
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.ssdDisks.size }}**.
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.disks.count }}**.
+* **{{ ui-key.yacloud_quotas.quotas.compute.hddDisks.size }}**.
+* **{{ ui-key.yacloud_quotas.quotas.compute.ssdDisks.size }}**.
+* **{{ ui-key.yacloud_quotas.quotas.compute.disks.count }}**.
 
 {% list tabs group=instructions %}
 

@@ -111,12 +111,12 @@ For IdP-specific examples, see our tutorials:
 
             {% include [ssourl_protocol](../../_includes/organization/ssourl_protocol.md) %}
 
-        * `--encrypted-assertions`: Ensures authentication requests from {{ yandex-cloud }} contain a digital signature. You will need to install a {{ yandex-cloud }} certificate on the IdP side. This is an optional setting.
-        * `--auto-create-account-on-login`: If enabled, a federated user will be automatically added to your organization once they sign in. Otherwise, you will need to [manually add](./add-account.md#add-user-sso) your federated users. This is an optional setting.
+        * `--encrypted-assertions`: Ensures authentication requests from {{ yandex-cloud }} contain a digital signature. You will need to install a {{ yandex-cloud }} certificate on the IdP side. This is an optional parameter.
+        * `--auto-create-account-on-login`: If enabled, a federated user will be automatically added to your organization once they sign in. Otherwise, you will need to [manually add](./add-account.md#add-user-sso) your federated users. This is an optional parameter.
 
             {% include [fed-users-note](../../_includes/organization/fed-users-note.md) %}
 
-        * `--case-insensitive-name-ids`: If enabled, federated user name IDs will be case-insensitive. This is an optional setting.
+        * `--case-insensitive-name-ids`: If enabled, federated user name IDs will be case-insensitive. This is an optional parameter.
         * {% include [forceauthn-cli-enable](../../_includes/organization/forceauth-cli-enable.md) %}
 
 - {{ TF }} {#tf}
@@ -127,7 +127,7 @@ For IdP-specific examples, see our tutorials:
 
   1. Create a configuration file describing the federation.
 
-      Here is an example of the configuration file structure:
+      Configuration file structure example:
 
       ```hcl
       resource "yandex_organizationmanager_saml_federation" federation {
@@ -150,7 +150,7 @@ For IdP-specific examples, see our tutorials:
       Where:
 
       * `name`: Federation name. It must be unique within the folder.
-      * `description`: Federation description. This is an optional setting.
+      * `description`: Federation description. This is an optional parameter.
       * `organization_id`: Organization ID.
       * `issuer`: IdP server ID to use for authentication.
 
@@ -219,7 +219,7 @@ For IdP-specific examples, see our tutorials:
 
       * `name`: Federation name. It must be unique within the folder.
       * `organizationId`: Organization ID.
-      * `description`: Federation description. This is an optional setting.
+      * `description`: Federation description. This is an optional parameter.
       * `cookieMaxAge`: Time, in seconds, before the browser prompts the user to re-authenticate. The default value is `28800` (8 hours).
       * `issuer`: IdP server ID to use for authentication.
 
@@ -488,17 +488,17 @@ To correctly provide user information to {{ org-full-name }}, you need to set up
 * `givenname`
 * `firstname`
 ||
-|| Full name | Displayed in {{ yandex-cloud }} services. Here is an example: Ivan Ivanov. Value length limit: {{ saml-limit-display-name }}. |
+|| Full name | Displayed in {{ yandex-cloud }} services. Example: Ivan Ivanov. Value length limit: {{ saml-limit-display-name }}. |
 * `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
 * `name`
 * `displayname`
 ||
-|| Email | Used to send notifications from {{ yandex-cloud }} services. Here is an example: `ivanov@example.com`. Value length limit: {{ saml-limit-email }}. |
+|| Email | Used to send notifications from {{ yandex-cloud }} services. Example: `ivanov@example.com`. Value length limit: {{ saml-limit-email }}. |
 * `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 * `emailaddress`
 * `email`
 ||
-|| Phone | Used to send notifications from {{ yandex-cloud }} services. Here is an example: +71234567890. Value length limit: {{ saml-limit-phone }}. |
+|| Phone | Used to send notifications from {{ yandex-cloud }} services. Example: +71234567890. Value length limit: {{ saml-limit-phone }}. |
 * `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone`
 * `phone`
 * `phones`

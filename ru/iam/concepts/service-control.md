@@ -60,7 +60,6 @@ _Сервисные агенты_ — это специальные систем
 {{ sd-full-name }} — [Контроль данных ({{ dspm-name }})](../../security-deck/concepts/dspm.md) | `dspm`
 [{{ websql-full-name }}](../../websql/index.yaml) | `websql`
 [{{ cloud-registry-full-name }}](../../cloud-registry/index.yaml) | `cloud-registry`
-{{ si-full-name }} — [{{ er-name }}](../../serverless-integrations/concepts/index.md#eventrouter) | `serverless-eventrouter`
 [{{ src-full-name }}]({{ link-src-docs }}) | `src-integration`
 
 В будущем у администраторов облака появится возможность управлять доступами всех сервисов, требующих прав на действия с ресурсами в облаке {{ yandex-cloud }}. С помощью [CLI](../../cli/cli-ref/iam/cli-ref/service-control/list.md) вы можете [получить](../operations/service-control/list-get.md#list) актуальный список сервисов, доступом которых можно управлять.

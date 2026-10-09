@@ -39,11 +39,19 @@ noIndex: true
 - Консоль управления {#console}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.counter_ids.title }}** — укажите [номера счетчиков](https://yandex.ru/support/metrica/general/tag-id.html), из которых будут поступать данные.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.token.title }}** — укажите токен для подтверждения доступа к счетчикам. Его можно получить по [ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=36b7fc9aa96c4fa09158bcacbbdc796a).
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.token.title }}** — укажите токен для подтверждения доступа к счетчикам. Его можно получить по [ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=36b7fc9aa96c4fa09158bcacbbdc796a). Срок действия токена — один год. При этом:
+        
+        * активированные трансферы продолжают работу после истечения токена;
+        * изменение списка переносимых счетчиков вызовет ошибку трансфера, если токен устарел или у владельца токена нет доступа к счетчикам;
+        * деактивация трансфера удаляет экспорт, поэтому для повторной активации нужен актуальный токен. При ошибке на трансфере экспорт сохраняется, и повторная активация не требует обновления токена.
+
     * (Опционально) укажите временной интервал, для которого надо произвести выгрузку данных. Эта возможность поддержана для трансферов типа {{ dt-type-copy }}. Конечная дата должна быть позже начальной даты на семь дней.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.hits.title }}** — выберите, передавать ли информацию о хитах.
+        
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.hits.columns.title }}** — выберите поля хита, которые нужно экспортировать. Помимо выбранных полей, всегда экспортируется несколько обязательных полей.
+    
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.visits.title }}** — выберите, передавать ли информацию о визитах.
+        
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.visits.columns.title }}** — выберите поля визита, которые нужно экспортировать. Помимо выбранных полей, всегда экспортируется несколько обязательных полей.
 
 - {{ TF }} {#tf}

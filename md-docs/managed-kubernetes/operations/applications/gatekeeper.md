@@ -52,8 +52,8 @@
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Gatekeeper выполните команду:
   
     ```bash
-    helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/gatekeeper/gatekeeper \
-      --version 3.20.1 \
+    helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/gatekeeper/charts/gatekeeper \
+      --version 3.23.1 \
       --untar && \
     helm install \
       --namespace <пространство_имен> \

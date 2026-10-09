@@ -235,9 +235,11 @@ We recommend to enable **all events** for [{{ iam-full-name }}](../../../audit-t
   1. Select the trail you need.
   1. Make sure the trail info page in **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}** lists all the services you want to collect data event logs for, specifying the correct audit log [scope](../../../audit-trails/concepts/trail.md#collecting-area) for each service.
 
-      A list of supported services is provided in the [{{ at-full-name }} data event reference](../../../audit-trails/concepts/events-data-plane.md).
+      For a list of supported services, see the [{{ at-full-name }} data event reference](../../../audit-trails/concepts/events-data-plane.md).
 
 {% endlist %}
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 5.9 {{ atr-name }} {{ sd-name }} is on for inspection of {{ yandex-cloud }} employees' actions with the infrastructure {#access-transparency-enabled}
 

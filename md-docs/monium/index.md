@@ -208,8 +208,6 @@ Monium платформа для сбора, хранения и анализа 
 
  - [Virtual Private Cloud](metrics-ref/vpc-ref.md)
 
- - [Serverless Integrations](metrics-ref/serverless-integrations-ref.md)
-
  - [Serverless Containers](metrics-ref/serverless-containers-ref.md)
 
  - [SmartCaptcha](metrics-ref/captcha-ref.md)

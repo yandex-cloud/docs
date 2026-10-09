@@ -9,7 +9,7 @@ description: В этой статье сопоставляются сервис�
 | Microsoft Azure | {{ yandex-cloud }} |
 |----|----|
 | AI Platform | [{{ ml-platform-full-name }}](../../datasphere/) |
-| Azure Application Gateway | [{{ si-full-name }}: {{ api-gw-name }}](../../api-gateway/) |
+| Azure Application Gateway | [{{ api-gw-name }}](../../api-gateway/) |
 | Azure Artifacts | [{{ cloud-registry-full-name }}](../../cloud-registry/) |
 | Azure Cache for Redis | [{{ mrd-full-name }}](../../managed-valkey/) |
 | Azure Container Apps | [{{ serverless-containers-full-name }}](../../serverless-containers/) |
@@ -23,7 +23,6 @@ description: В этой статье сопоставляются сервис�
 | Azure DDoS Protection | [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) |
 | Azure Dedicated Hosts | [{{ baremetal-full-name }}](../../baremetal/) |
 | Azure DNS | [{{ dns-full-name }}](../../dns/) |
-| Azure Event Grid | [{{ si-full-name }}: {{ er-name }}](../../serverless-integrations/quickstart/eventrouter.md) |
 | Azure Event Hubs | [{{ yds-full-name }}](../../data-streams/) |
 | Azure Functions | [{{ sf-full-name }}](../../functions/) |
 | Azure HDInsight | [{{ myt-full-name }}](../../managed-ytsaurus/)<br/>[{{ msp-full-name }}](../../managed-spark/) |

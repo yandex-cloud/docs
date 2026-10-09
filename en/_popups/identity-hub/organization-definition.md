@@ -1,0 +1,1 @@
+An organization is the highest resource in the {{ yandex-cloud }} resource model hierarchy that consolidates the resources of all other services. It is also used for user management as well as authentication and authorization management. For more information, see [{#T}](../../organization/concepts/organization.md).

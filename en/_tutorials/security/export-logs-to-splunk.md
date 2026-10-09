@@ -93,8 +93,7 @@ The infrastructure support cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the bucket you want to configure encryption for.
-  1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
-  1. Open the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select an existing key or create a new one:
 
      {% include [storage-create-kms](../../storage/_includes_service/storage-create-kms.md) %}
@@ -232,7 +231,7 @@ Enable `HTTPEventCollector` and follow this [guide](https://docs.splunk.com/Docu
       1. In the [management console]({{ link-console-main }}), select the folder containing the subnet for the jump host VM.
       1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. In the left-hand panel, select **{{ ui-key.yacloud.vpc.switch_gateways }}**.
-      1. Click **{{ ui-key.yacloud.common.create }}**.
+      1. Click **{{ ui-key.yacloud.vpc.gateways.button_create-gateway }}**.
       1. Enter a name for the gateway. The naming requirements are as follows:
 
           {% include [name-format](../../_includes/name-format.md) %}
@@ -241,7 +240,7 @@ Enable `HTTPEventCollector` and follow this [guide](https://docs.splunk.com/Docu
       1. Click **{{ ui-key.yacloud.common.save }}**.
   1. Create a route table:
       1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
-      1. Click **{{ ui-key.yacloud.common.create }}** to [add](../../vpc/operations/static-route-create.md) a new table, or select an existing one.
+      1. Click **{{ ui-key.yacloud.vpc.network.overview.button_create_route-table }}** to [create](../../vpc/operations/static-route-create.md) a new table, or select an existing one.
       1. Click **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
       1. In the window that opens, select `{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}` in the **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}** field.
       1. In the **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** field, select the NAT gateway you created. The destination prefix will apply automatically.

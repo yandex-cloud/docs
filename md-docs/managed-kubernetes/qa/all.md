@@ -30,6 +30,8 @@
 
 * [Какие типы томов поддерживает Managed Service for Kubernetes?](#supported-volumes)
 
+* [Почему возникает ошибка Multi-Attach error for volume?](#multi-attach)
+
 ### Автоматическое масштабирование {#toc-autosscaling}
 
 * [Почему в моем кластере стало N узлов и он не уменьшается?](#not-scaling-down)
@@ -70,6 +72,10 @@
 
 * [Что делать, если после обновления Kubernetes не подключаются тома?](#pvc)
 
+* [Как использовать сертификаты из Certificate Manager в приложениях в Managed Service for Kubernetes?](#application-certificate)
+
+* [Как задать часовой пояс для приложения или CronJob?](#timezone)
+
 ### Ресурсы {#toc-resources}
 
 * [Какие ресурсы требуются для обслуживания кластера Kubernetes, в который входит группа, например, из трех узлов?](#required-resources)
@@ -79,6 +85,10 @@
 * [Кто будет следить за масштабированием кластера Kubernetes?](#scaling)
 
 * [Нужен ли узлам кластера Kubernetes доступ в интернет?](#internet-access)
+
+* [Как автоматически удаляются старые образы на узлах?](#image-garbage-collection)
+
+* [Как узнать размер эфемерного хранилища узлов?](#ephemeral-storage)
 
 ### Логи {#toc-logs}
 
@@ -127,6 +137,22 @@
 * [Что делать, если я удалил сетевой балансировщик нагрузки или целевые группы Yandex Network Load Balancer, автоматически созданные для сервиса типа LoadBalancer?](#deleted-loadbalancer-service)
 
 * [Ошибка при подключении виртуальной машины Yandex Compute Cloud в качестве внешнего узла Managed Service for Kubernetes](#vm-as-external-node)
+
+* [После изменения маски подсети узлов в настройках кластера количество подов, размещаемых на узлах, не соответствует ожидаемому](#count-pods)
+
+* [Что делать при ошибке node(s) had untolerated taint?](#untolerated-taint)
+
+* [Почему под остается в состоянии Pending?](#pod-pending)
+
+* [Что делать при ошибке DEADLINE_EXCEEDED при выгрузке метрик?](#metrics-deadline-exceeded)
+
+* [Что делать, если HPA не получает метрики?](#hpa-metrics)
+
+* [Что делать при таймауте подключения тома к поду?](#volume-mount-timeout)
+
+* [Почему долго монтируется том с большим количеством файлов?](#volume-many-files)
+
+* [Что делать, если узлы долго находятся в состоянии RECONCILING?](#node-reconciling)
 
 ## Общие вопросы {#general}
 
@@ -191,6 +217,14 @@ Yandex Cloud. В кластере проводится мониторинг по
 
 Managed Service for Kubernetes поддерживает работу с временными (`Volume`) и постоянными (`PersistentVolume`) томами. Подробнее читайте в разделе [Том](../concepts/volume.md).
 
+#### Почему возникает ошибка `Multi-Attach error for volume`? {#multi-attach}
+
+Сетевой диск, на котором основан постоянный том, можно подключить только к одному узлу одновременно. Ошибка `Multi-Attach error for volume` возникает, когда Kubernetes пытается подключить том к узлу, пока том еще подключен к другому узлу. Например, это происходит, если поды используют один PVC, но размещены на разных узлах. Несколько подов на одном узле могут использовать один том в режиме `ReadWriteOnce`.
+
+Проверьте размещение подов, использующих PVC, и события подключения тома. Если приложению нужен доступ с нескольких узлов в режиме `ReadWriteMany`, выберите хранилище с поддержкой этого режима, например [Object Storage через CSI](../operations/volumes/s3-csi-integration.md). Также доступна [установка CSI для S3 из Cloud Marketplace или с помощью Helm](../operations/applications/csi-s3.md).
+
+Подробнее о [режимах доступа к томам](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).
+
 ## Автоматическое масштабирование {#autosscaling}
 
 #### Почему в моем кластере стало N узлов и он не уменьшается? {#not-scaling-down}
@@ -201,7 +235,7 @@ Managed Service for Kubernetes поддерживает работу с врем
   * которые созданы не под управлением контроллера [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/);
   * для которых не установлен `PodDisruptionBudget` или расселение которых ограничено с помощью `PodDisruptionBudget`.
 * Поды, которые не были созданы под управлением контроллера репликации ([ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/), [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) или [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)).
-* Поды с `local-storage`.
+* Поды с локальными томами, например `hostPath` или `emptyDir` без `medium: Memory`. Исключение — поды с аннотацией `cluster-autoscaler.kubernetes.io/safe-to-evict-local-volumes`, в значении которой перечислены все локальные тома пода, например `volume-1,volume-2`.
 * Поды, которые не могут быть расселены куда-либо из-за ограничений. Например, при недостатке ресурсов или отсутствии узлов, подходящих по селекторам [affinity или anti-affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity).
 * Поды, на которых установлена аннотация, запрещающая расселение: `"cluster-autoscaler.kubernetes.io/safe-to-evict": "false"`.
 
@@ -247,6 +281,12 @@ kubectl annotate pod <имя_пода> cluster-autoscaler.kubernetes.io/safe-to-
   kubectl annotate node <имя_узла> cluster-autoscaler.kubernetes.io/scale-down-disabled-
   ```
   
+Перед обращением в техническую поддержку [включите запись логов мастера](../operations/kubernetes-cluster/kubernetes-cluster-update.md) в лог-группу Cloud Logging, в том числе логов Cluster Autoscaler. В них можно найти причину, по которой узел не удаляется.
+
+Если причина остается неясной, [создайте запрос в техническую поддержку](https://center.yandex.cloud/support). Укажите идентификатор кластера, примерные дату и время проблемы и приложите YAML-спецификации контроллеров затронутых подов.
+
+Подробнее о диагностике масштабирования — в [документации Cluster Autoscaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#table-of-contents). Возможности Descheduler описаны отдельно в [его документации](https://github.com/kubernetes-sigs/descheduler).
+
 #### В группе с автоматическим масштабированием количество узлов не уменьшается до одного, даже при отсутствии нагрузки {#autoscaler-one-node}
 
 В кластере Managed Service for Kubernetes приложение `kube-dns-autoscaler` регулирует количество реплик CoreDNS. Если в конфигурации `kube-dns-autoscaler` параметр `preventSinglePointFailure` имеет значение `true` и в группе больше одного узла, минимальное количество реплик CoreDNS равно двум. В этом случае Cluster Autoscaler не может уменьшить количество узлов в кластере так, чтобы оно стало меньше количества подов CoreDNS.
@@ -270,7 +310,11 @@ kubectl annotate pod <имя_пода> cluster-autoscaler.kubernetes.io/safe-to-
 
 #### Почему автоматическое масштабирование не выполняется, хотя количество узлов меньше минимума / больше максимума? {#beyond-limits}
 
-Установленные лимиты не будут нарушены при масштабировании, но Managed Service for Kubernetes не следит за соблюдением границ намеренно. Масштабирование в сторону увеличения сработает только в случае появления подов в статусе `unschedulable`.
+Установленные лимиты не будут нарушены при масштабировании, но Managed Service for Kubernetes не следит за соблюдением границ намеренно. Масштабирование в сторону увеличения сработает только в случае появления подов, которые нельзя разместить на существующих узлах из-за нехватки запрошенных ресурсов (`unschedulable`).
+
+Параметр **Начальное кол-во узлов** определяет число узлов при создании группы. После создания размером группы управляет Cluster Autoscaler. Параметр **Минимальное кол-во узлов** задает нижнюю границу при уменьшении группы. Изменение этих параметров не является командой немедленно создать новые узлы. Высокая загрузка уже работающих подов сама по себе также не запускает увеличение группы.
+
+Если проблема сохраняется, [создайте запрос в техническую поддержку](https://center.yandex.cloud/support). Укажите идентификатор кластера, время возникновения ошибки и результаты диагностики. Укажите ожидаемый размер группы и приложите описание подов, которые не удается разместить.
 
 #### Почему в моем кластере остаются поды со статусом Terminated? {#terminated-pod}
 
@@ -349,7 +393,23 @@ AttachVolume.Attach failed for volume "pvc":
 Attach timeout for volume yadp-k8s-volumes/pvc
 ```
 
-Обновите [драйвер s3-CSI](https://github.com/ctrox/csi-s3) до актуальной версии.
+Проверьте установленную версию и настройки [CSI для Object Storage](../operations/volumes/s3-csi-integration.md). Используйте [поддерживаемый драйвер](https://github.com/yandex-cloud/k8s-csi-s3) и инструкции по его установке. Обновление отдельного компонента `csi-attacher` не является универсальным решением ошибки.
+
+Если проблема сохраняется, [создайте запрос в техническую поддержку](https://center.yandex.cloud/support). Укажите идентификатор кластера, время возникновения ошибки и результаты диагностики.
+
+#### Как использовать сертификаты из Certificate Manager в приложениях в Managed Service for Kubernetes? {#application-certificate}
+
+Способ подключения зависит от приложения и контроллера, который завершает TLS-соединение. Для [Ingress-контроллера Application Load Balancer](../alb-ref/ingress.md) можно указать сертификат из Certificate Manager в конфигурации Ingress.
+
+Если приложению нужен сертификат в виде файла, [выгрузите сертификат](../../certificate-manager/operations/managed/cert-get-content.md) из Certificate Manager и настройте его использование в приложении. Однократная выгрузка не обеспечивает обновление файла в приложении при перевыпуске сертификата: обновление нужно настроить отдельно.
+
+#### Как задать часовой пояс для приложения или CronJob? {#timezone}
+
+Для приложения настройте преобразование времени в нужный часовой пояс средствами самого приложения.
+
+Для CronJob укажите часовой пояс в поле `.spec.timeZone`, например `Europe/Moscow`. Если поле не задано, расписание интерпретируется в часовом поясе kube-controller-manager. Подробнее о [часовых поясах CronJob](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#time-zones).
+
+Если для вашего сценария требуется изменить часовой пояс самого узла, [создайте запрос в техническую поддержку](https://center.yandex.cloud/support). Укажите идентификатор кластера и опишите сценарий.
 
 ## Ресурсы {#resources}
 
@@ -372,6 +432,26 @@ Attach timeout for volume yadp-k8s-volumes/pvc
 Чтобы обеспечить доступ в интернет, [назначьте](../operations/node-group/node-group-update.md#node-internet-access) узлам публичный IP-адрес и [настройте](../operations/connect/security-groups.md#rules-internal-nodegroup) группу безопасности. Также в качестве альтернативы публичным IP-адресам можно создать и настроить в подсети узлов [NAT-шлюз](../../vpc/operations/create-nat-gateway.md) или [NAT-инстанс](../../vpc/tutorials/nat-instance/index.md).
 
 Подробнее в подразделе [Доступ в интернет для рабочих узлов кластера](../concepts/network.md#nodes-internet).
+
+#### Как автоматически удаляются старые образы на узлах? {#image-garbage-collection}
+
+Неиспользуемые образы автоматически удаляет kubelet. Очистка запускается при достижении верхнего порога использования диска и продолжается до достижения нижнего порога. Пороги задаются параметрами `imageGCHighThresholdPercent` и `imageGCLowThresholdPercent` конфигурации kubelet.
+
+Не запускайте параллельно сторонние средства очистки образов: они могут нарушить работу kubelet. Подробнее о [сборке мусора в Kubernetes](https://kubernetes.io/docs/concepts/architecture/garbage-collection/#containers-images).
+
+Если места по-прежнему недостаточно, проверьте, чем занят диск: образами, журналами или данными приложений. Если проблема сохраняется, [создайте запрос в техническую поддержку](https://center.yandex.cloud/support). Укажите идентификатор кластера, время возникновения ошибки и результаты диагностики.
+
+#### Как узнать размер эфемерного хранилища узлов? {#ephemeral-storage}
+
+Выполните команду:
+
+```bash
+kubectl get nodes -o custom-columns="NAME:.metadata.name,CAPACITY_EPHEM:.status.capacity.ephemeral-storage,ALLOCATABLE_EPHEM:.status.allocatable.ephemeral-storage"
+```
+
+`CAPACITY_EPHEM` — общий объем ресурса `ephemeral-storage` узла, а `ALLOCATABLE_EPHEM` — объем, доступный для выделения подам с учетом резервирования. Это не объем свободного места на диске в текущий момент.
+
+Подробнее о [резервировании ресурсов узла](../concepts/node-group/allocatable-resources.md) и [локальном эфемерном хранилище](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#local-ephemeral-storage).
 
 ## Логи {#logs}
 
@@ -536,7 +616,11 @@ kubectl describe svc <имя_сервиса_типа_LoadBalancer> \
 
 {% endlist %}
 
-Чтобы кластер Managed Service for Kubernetes запустился, [увеличьте квоты](../concepts/limits.md).
+Если квоты исчерпаны, [запросите их увеличение](https://console.yandex.cloud/cloud?section=quotas). Проверьте квоты как Managed Service for Kubernetes, так и [Compute Cloud](../../compute/concepts/limits.md).
+
+Эти проверки полезны и при длительном состоянии `STARTING` после создания или запуска кластера. Также проверьте роли [сервисного аккаунта для ресурсов кластера](../security/index.md#sa-annotation). Ему нужна роль `k8s.clusters.agent`; для использования публичных IP-адресов — `vpc.publicAdmin`.
+
+Если проблема сохраняется, [создайте запрос в техническую поддержку](https://center.yandex.cloud/support). Укажите идентификатор кластера, время возникновения ошибки и результаты диагностики.
 
 #### После изменения маски подсети узлов в настройках кластера количество подов, размещаемых на узлах, не соответствует ожидаемому {#count-pods}
 
@@ -598,7 +682,13 @@ Number of elements must be less than or equal to 1"}
 kubectl get pods -n kube-system -l k8s-app=kube-dns -o wide
 ```
 
-Все поды должны находиться в состоянии `Running`.
+Все поды должны находиться в состоянии `Running`. Если состояние отличается или запросы DNS продолжают завершаться с ошибкой, посмотрите журналы:
+
+```bash
+kubectl logs -l k8s-app=kube-dns -n kube-system --all-containers=true
+```
+
+Для дополнительной диагностики используйте [инструкцию Kubernetes по проверке DNS](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/).
 
 ##### Убедитесь, что кластеру достаточно ресурсов CPU {#check-cpu}
 
@@ -616,6 +706,8 @@ kubectl get pods -n kube-system -l k8s-app=kube-dns -o wide
 ##### Настройте локальное кеширование DNS {#node-local-dns}
 
 [Настройте NodeLocal DNS Cache](../tutorials/node-local-dns.md). Чтобы применить оптимальные настройки, [установите NodeLocal DNS Cache из Yandex Cloud Marketplace](../operations/applications/node-local-dns.md#marketplace-install).
+
+Если проблема сохраняется, [создайте запрос в техническую поддержку](https://center.yandex.cloud/support). Укажите идентификатор кластера, время возникновения ошибки и результаты диагностики. Приложите журналы CoreDNS и примеры DNS-запросов, которые завершились с ошибкой.
 
 #### При создании группы узлов через CLI возникает конфликт параметров. Как его решить? {#conflicting-flags}
 
@@ -744,7 +836,7 @@ FATA[0000] rpc error: code = Unknown desc = error testing repository connectivit
 
 **Решение**: настройте синхронизацию времени кластера Managed Service for Kubernetes с собственным NTP-сервером. Для этого:
 
-1. Укажите адреса NTP-серверов в [настройках DHCP](../../vpc/concepts/dhcp-options.md) подсетей мастера.
+1. Укажите адреса NTP-серверов в [настройках DHCP](../../vpc/concepts/dhcp-options.md) подсетей мастера и рабочих узлов. Если рабочие узлы находятся в других подсетях, повторите настройку для этих подсетей.
 
    {% list tabs group=instructions %}
 
@@ -883,6 +975,59 @@ FATA[0000] rpc error: code = Unknown desc = error testing repository connectivit
 
    {% endnote %}
 
+Для рабочих узлов с `systemd-timesyncd` также можно настроить источники времени через DaemonSet. Вариант требует привилегированного контейнера и изменяет конфигурацию хоста. Проверьте используемую службу синхронизации времени перед применением.
+
+{% cut "Пример DaemonSet для настройки systemd-timesyncd" %}
+
+В `NTP_SERVERS` укажите доступные с узлов NTP-серверы. Пример создает отдельный файл конфигурации, поэтому повторный запуск не зависит от наличия закомментированной строки `NTP=` в основном файле.
+
+```yaml
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: ntp-configurator
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      app: ntp-configurator
+  template:
+    metadata:
+      labels:
+        app: ntp-configurator
+    spec:
+      hostPID: true
+      hostNetwork: true
+      initContainers:
+        - name: configure-ntp
+          image: ubuntu:22.04
+          env:
+            - name: NTP_SERVERS
+              value: "<NTP-сервер_1> <NTP-сервер_2>"
+          command:
+            - /bin/bash
+            - -ec
+            - |
+              nsenter --mount=/proc/1/ns/mnt -- /bin/sh -ec '
+                mkdir -p /etc/systemd/timesyncd.conf.d
+                printf "[Time]\nNTP=%s\n" "$1" > /etc/systemd/timesyncd.conf.d/90-custom-ntp.conf
+                systemctl restart systemd-timesyncd
+                systemctl is-active systemd-timesyncd
+              ' sh "$NTP_SERVERS"
+          securityContext:
+            privileged: true
+      containers:
+        - name: sleep
+          image: ubuntu:22.04
+          command: ["/bin/sleep", "infinity"]
+```
+
+DaemonSet применяет настройки только на узлах, на которых может быть запланирован. Удаление DaemonSet не удаляет созданный файл с узлов. Для отмены настройки удалите файл `/etc/systemd/timesyncd.conf.d/90-custom-ntp.conf` и перезапустите `systemd-timesyncd` на затронутых узлах.
+
+{% endcut %}
+
+Если проблема сохраняется, [создайте запрос в техническую поддержку](https://center.yandex.cloud/support). Укажите идентификатор кластера, время возникновения ошибки и результаты диагностики. Укажите используемые NTP-серверы и величину расхождения времени.
+
 #### Что делать, если я удалил сетевой балансировщик нагрузки или целевые группы Yandex Network Load Balancer, автоматически созданные для сервиса типа LoadBalancer? {#deleted-loadbalancer-service}
 
 Восстановить сетевой балансировщик или целевые группы Network Load Balancer вручную нельзя. [Пересоздайте](../operations/create-load-balancer.md#lb-create) сервис типа `LoadBalancer` — балансировщик и целевые группы будут созданы автоматически.
@@ -915,3 +1060,145 @@ users:
 ```
 
 {% endcut %}
+
+#### Что делать при ошибке `node(s) had untolerated taint`? {#untolerated-taint}
+
+Ошибка означает, что на узле установлено ограничение `taint`, для которого у пода нет соответствующего допуска `toleration`. Эффект ограничения определяет поведение: `NoSchedule` запрещает назначать новые поды, `NoExecute` также вытесняет уже работающие поды, а `PreferNoSchedule` задает мягкое ограничение.
+
+Проверьте ограничения узла и допуски пода:
+
+```bash
+kubectl describe node <имя_узла>
+kubectl describe pod <имя_пода> --namespace <пространство_имен>
+```
+
+Если под должен работать на этом узле, добавьте соответствующий допуск в `spec.tolerations` пода. Если ограничение больше не требуется, удалите его или измените эффект на `PreferNoSchedule`. Подробнее о `taint` и `toleration` [в документации Kubernetes](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/).
+
+#### Почему под остается в состоянии Pending? {#pod-pending}
+
+Посмотрите описание пода:
+
+```bash
+kubectl describe pod <имя_пода> --namespace <пространство_имен>
+```
+
+Сообщения в разделе `Events` помогут определить причину: например, недостаток ресурсов, ограничения размещения или проблему с подключением тома. Дальнейшие действия зависят от сообщения об ошибке.
+
+Если информации недостаточно, [создайте запрос в техническую поддержку](https://center.yandex.cloud/support). Укажите идентификатор кластера и приложите описание пода. Если под уже назначен на узел, приложите журналы `kubelet`, ядра и системы с этого узла. Для сбора журналов можно использовать [диагностический скрипт](https://github.com/yandex-cloud/yc-architect-solution-library/tree/main/yc-k8s-capture-nodes-logs).
+
+#### Что делать при ошибке `DEADLINE_EXCEEDED` при выгрузке метрик? {#metrics-deadline-exceeded}
+
+При выгрузке метрик Managed Service for Kubernetes через API Monitoring запрос может завершиться с кодом `504` и сообщением `DEADLINE_EXCEEDED`. Одна из возможных причин — большой объем метрик, из-за которого запрос не успевает выполниться.
+
+Уменьшите объем данных с помощью параметра `selectors`. Например, в конфигурации Prometheus укажите пространство имен:
+
+```yaml
+scrape_configs:
+  - job_name: yc-monitoring-export
+    metrics_path: /monitoring/v2/prometheusMetrics
+    params:
+      folderId:
+        - '<идентификатор_каталога>'
+      service:
+        - managed-kubernetes
+      selectors:
+        - 'namespace=<пространство_имен>'
+    bearer_token: '<IAM-токен>'
+```
+
+Это фрагмент конфигурации сбора метрик: сохраните настройки адреса сервера из своей конфигурации. Для метрик подов можно также использовать маску имени, например `pod=app*`. Подробнее о [языке запросов Monitoring](../../monitoring/concepts/querying.md).
+
+#### Что делать, если HPA не получает метрики? {#hpa-metrics}
+
+Если HPA сообщает `FailedGetResourceMetric` или запросы к `metrics.k8s.io` завершаются по таймауту, проверьте [группы безопасности кластера](../operations/connect/security-groups.md#apply) и ресурсы узла, на котором работает Metrics Server.
+
+Если на этом узле недостаточно ресурсов, перенесите под Metrics Server на другой узел:
+
+1. Найдите имя пода и узел:
+
+   ```bash
+   kubectl get pods -n kube-system -o wide | grep metrics-server
+   ```
+
+1. Убедитесь, что другой узел имеет достаточно ресурсов и соответствует правилам размещения пода. Запретите назначение новых подов на исходный узел и удалите под Metrics Server:
+
+   ```bash
+   kubectl cordon <исходный_узел>
+   kubectl delete pod <имя_пода_metrics-server> -n kube-system
+   ```
+
+   Контроллер создаст новый под. До его запуска метрики могут быть недоступны.
+
+1. Проверьте готовность нового пода и узел, на котором он размещен:
+
+   ```bash
+   kubectl get pods -n kube-system -o wide | grep metrics-server
+   ```
+
+1. После запуска пода снова разрешите назначение подов на исходный узел:
+
+   ```bash
+   kubectl uncordon <исходный_узел>
+   ```
+
+   Если перенос не удался, также отмените `cordon` перед дальнейшей диагностикой.
+
+Если ошибка сохраняется, [создайте запрос в техническую поддержку](https://center.yandex.cloud/support). Укажите идентификатор кластера, имя проблемного пода и приложите вывод `kubectl describe hpa --namespace <пространство_имен>`.
+
+#### Что делать при таймауте подключения тома к поду? {#volume-mount-timeout}
+
+При подключении тома может возникнуть ошибка:
+
+```text
+Unable to attach or mount volumes: timed out waiting for the condition
+```
+
+Проверьте события пода и PVC, чтобы определить причину:
+
+```bash
+kubectl describe pod <имя_пода> --namespace <пространство_имен>
+kubectl describe pvc <имя_PVC> --namespace <пространство_имен>
+```
+
+Если в журналах kubelet есть сообщение о долгом изменении прав на файлы, используйте [инструкцию для тома с большим количеством файлов](#volume-many-files).
+
+Если проблема связана с подключением диска к ВМ узла, может помочь остановка и повторный запуск ВМ. [Остановите ВМ](../../compute/operations/vm-control/vm-stop-and-start.md#stop), дождитесь состояния `STOPPED`, затем [запустите ее](../../compute/operations/vm-control/vm-stop-and-start.md#start). Это прервет работу подов на узле, поэтому рекомендуется проводить операцию в период минимальной нагрузки.
+
+#### Почему долго монтируется том с большим количеством файлов? {#volume-many-files}
+
+Если монтирование завершается по таймауту, проверьте журнал kubelet на узле:
+
+```bash
+sudo journalctl -u kubelet --no-pager --since today
+```
+
+Сообщение `If the volume has a lot of files then setting volume ownership could be slow...` указывает на долгое изменение владельца и прав доступа к файлам тома.
+
+Если для пода задан `fsGroup`, Kubernetes может рекурсивно изменять права при монтировании. Для поддерживаемых томов параметр `fsGroupChangePolicy: OnRootMismatch` в `spec.securityContext` позволяет пропускать эту операцию, если права корневого каталога уже соответствуют ожидаемым. Подробнее об условиях применения — в [документации Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#configure-volume-permission-and-ownership-change-policy-for-pods).
+
+Если проблема сохраняется, [создайте запрос в техническую поддержку](https://center.yandex.cloud/support). Укажите идентификатор кластера, время возникновения ошибки и результаты диагностики.
+
+#### Что делать, если узлы долго находятся в состоянии `RECONCILING`? {#node-reconciling}
+
+Если состояние `RECONCILING` сохраняется более 20 минут, проверьте [использование квот](https://console.yandex.cloud/cloud?section=quotas) и состояние узлов:
+
+```bash
+yc managed-kubernetes node-group list-nodes <идентификатор_группы_узлов> --format yaml
+```
+
+Сообщение `Kubelet stopped posting node status` означает, что kubelet перестал передавать состояние узла. [Подключитесь к узлу по SSH](../operations/node-connect-ssh.md) и проверьте службы:
+
+```bash
+sudo systemctl status containerd kubelet
+```
+
+Если службы работают некорректно, изучите их журналы и перезапустите:
+
+```bash
+sudo systemctl restart containerd
+sudo systemctl restart kubelet
+```
+
+Перезапуск может повлиять на приложения узла. После него повторно проверьте состояние служб и узла.
+
+Если проблема сохраняется, [создайте запрос в техническую поддержку](https://center.yandex.cloud/support). Укажите идентификатор кластера, время возникновения ошибки и результаты диагностики.

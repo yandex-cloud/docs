@@ -51,9 +51,9 @@ To grant a user access to {{ datalens-short-name }}, [assign]({{ link-docs }}/or
 
 {% include [datalens-metaReader](../../_roles/datalens/metaReader.md) %}
 
-## Roles for workbooks, collections, and shared objects {#workbooks-collections-roles}
+## Roles for workbooks, collections, and common objects {#workbooks-collections-roles}
 
-These roles are valid for users who adopted the new {{ datalens-short-name }} object layout: in [workbooks and collections](../workbooks-collections/index.md). Roles allow you to define the access tier a user or group of users has to each workbook, collection, or shared object.
+These roles are valid for users who adopted the new {{ datalens-short-name }} object layout: in [workbooks and collections](../workbooks-collections/index.md). Roles allow you to define the access tier a user or group of users has to each workbook, collection, or common object.
 
 {% include [datalens-workbooks-collections-roles](../../_mermaid/roles/datalens-workbooks-collections.md) %}
 
@@ -125,7 +125,7 @@ The role granted for a collection applies to all collections and their workbooks
 
 {% endnote %}
 
-### Roles for shared objects {#shared-entry-roles}
+### Roles for common objects {#shared-entry-roles}
 
 #### datalens.sharedEntries.limitedViewer {#datalens-sharedEntries-limitedViewer}
 

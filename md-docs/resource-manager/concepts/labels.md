@@ -88,7 +88,6 @@ _Метка_ — это пара ключ-значение в формате `<�
 * [Yandex Cloud Functions](../../functions/index.md)
 * [Yandex IoT Core](../../iot-core/index.md)
 * [Yandex Serverless Containers](../../serverless-containers/index.md)
-* [Yandex Serverless Integrations](../../serverless-integrations/index.md) (EventRouter)
 
 ### Безопасность {#security}
 

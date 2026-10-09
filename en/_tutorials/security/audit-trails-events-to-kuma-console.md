@@ -149,7 +149,7 @@ Create a [symmetric encryption key](../../kms/concepts/key.md) for encryption of
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
-  1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and specify its attributes:
+  1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and specify the key attributes:
 
       * **{{ ui-key.yacloud.common.name }}**: `kuma-key`.
       * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}**: `AES-256`.
@@ -238,7 +238,7 @@ Assign to the service accounts the following [roles](../../iam/concepts/access-c
 
       1. [Navigate]({{ link-console-main }}/link/kms) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
       1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}** and click on the line with `kuma-key`.
-      1. Go to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+      1. Go to the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** section and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
       1. Select the `kuma-trail-sa` service account.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select [`kms.keys.encrypterDecrypter`](../../kms/security/index.md#kms-keys-encrypterDecrypter).
       1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
@@ -322,7 +322,10 @@ Create a [bucket](../../storage/concepts/bucket.md) for the trail to save audit 
 
       {% include [bucket-name-note](../_tutorials_includes/audit-trails-events-to-kuma/bucket-name-note.md) %}
 
-  1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** field, set the size of the bucket you are creating or enable **{{ ui-key.yacloud.storage.bucket.settings.label_size-limit-disabled }}**.
+  1. To set a limit, enable **{{ ui-key.yacloud.storage.form-components.SizeLimitField.field_size-limit-enabled_hPy7f }}** and specify the desired size in the fields that appear.
+
+      {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
+
   1. Leave all other parameters as they are and click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
   1. On the page with a list of buckets that opens, select the new bucket.
   1. In the left-hand menu, select ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**and go to the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
@@ -409,7 +412,7 @@ Create a [trail](../../audit-trails/concepts/trail.md) to collect and deliver au
 
       {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
 
-      1. Make sure the **{{ ui-key.yacloud.audit-trails.title_kms-key }}** field contains the encryption key named `kuma-key`. If the encryption key is not set, click **{{ ui-key.yacloud.audit-trails.action_add-bucket-key }}** and select this key.
+      1. Make sure the **{{ ui-key.yacloud.audit-trails.title_kms-key }}** field contains the encryption key named `kuma-key`. If the encryption key is not set, click **{{ ui-key.yacloud.audit-trails.button_create-encryption-key }}** and select this key.
 
   1. Under **{{ ui-key.yacloud.audit-trails.label_control-plane-collection-new }}**:
 

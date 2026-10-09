@@ -353,12 +353,12 @@ Added new events for the services:
 
   Event | Description
   --- | ---
-  `CreateEntityBinding` | Creating a shared object binding in a workbook
-  `DeleteEntityBinding` | Deleting a shared object binding from a workbook
-  `DeleteSharedEntry` | Deleting a shared object
-  `MoveSharedEntry` | Moving a shared object
-  `UpdateEntityBinding` | Updating a shared object binding in a workbook
-  `UpdateSharedEntryAccessBindings` | Updating access permissions for a shared object
+  `CreateEntityBinding` | Creating a common object binding in a workbook
+  `DeleteEntityBinding` | Deleting a common object binding from a workbook
+  `DeleteSharedEntry` | Deleting a common object
+  `MoveSharedEntry` | Moving a common object
+  `UpdateEntityBinding` | Updating a common object binding in a workbook
+  `UpdateSharedEntryAccessBindings` | Updating access permissions for a common object
   `UpdateTenantAccessBindings` | Updating access permissions for a tenant
 
   {% endcut %}

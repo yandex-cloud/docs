@@ -8,16 +8,16 @@ Event name | Description
 `CreateColorPalette` | Creating a [color palette](../../../datalens/operations/chart/create-palette.md)
 `CreateEmbed` | Creating an embedding
 `CreateEmbeddingSecret` | Creating a key for an [embedding](../../../datalens/security/embedded-objects.md)
-`CreateEntityBinding` | Creating a [shared object](../../../datalens/security/workbooks-access-advanced.md) binding in a workbook
+`CreateEntityBinding` | Creating a [common object](../../../datalens/security/workbooks-access-advanced.md) binding in a workbook
 `CreateEntry` | Creating an object
 `CreateWorkbook` | Creating a workbook
 `DeleteCollections` | Deleting collections
 `DeleteColorPalette` | Deleting a color palette
 `DeleteEmbed` | Deleting an embedding
 `DeleteEmbeddingSecret` | Deleting a key for an embedding
-`DeleteEntityBinding` | Deleting a shared object binding from a workbook
+`DeleteEntityBinding` | Deleting a common object binding from a workbook
 `DeleteEntry` | Deleting an object
-`DeleteSharedEntry` | Deleting a shared object
+`DeleteSharedEntry` | Deleting a common object
 `DeleteWorkbooks` | Deleting one or multiple workbooks
 `platform.CreateAirflowCluster` | Creating an Airflow cluster
 `platform.CreateCloudEnvironment` | Creating a cloud environment
@@ -42,7 +42,7 @@ Event name | Description
 `MigrateEntriesToWorkbook` | Migrating objects to a workbook
 `MoveCollections` | Moving collections
 `MoveEntry` | Moving an object
-`MoveSharedEntry` | Moving a shared object
+`MoveSharedEntry` | Moving a common object
 `MoveWorkbooks` | Moving workbooks
 `RenameEntry` | Renaming an object
 `SetDefaultColorPalette` | Setting up the default color palette
@@ -55,9 +55,9 @@ Event name | Description
 `UpdateCollectionAccessBindings` | Updating access permissions for a collection
 `UpdateColorPalette` | Updating a color palette
 `UpdateEmbed` | Updating an embedding
-`UpdateEntityBinding` | Updating a shared object binding in a workbook
+`UpdateEntityBinding` | Updating a common object binding in a workbook
 `UpdateEntry` | Updating an object
-`UpdateSharedEntryAccessBindings` | Updating access permissions for a shared object
+`UpdateSharedEntryAccessBindings` | Updating access permissions for a common object
 `UpdateTenantAccessBindings` | Updating access permissions for a {{ datalens-name }} instance
 `UpdateWorkbook` | Updating a workbook
 `UpdateWorkbookAccessBindings` | Updating access permissions for a workbook

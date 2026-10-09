@@ -438,7 +438,8 @@ The tutorial uses the demo versions of the keys.
     * `Get IP-address automatically on boot (via DHCP)`.
 1. Configure the `eth2` and `eth3` network interfaces: `Don't activate interface on boot`.
 1. Configure the following parameters:
-    * In the `Enable/Disable NTP server mode` field, select `Disable starting the DNS server on boot`.
+    * In the `Enable/Disable DNS server mode` field, select `Disable starting the DNS server on boot`.
+    * In the `Enable/Disable NTP server mode` field, select `Disable starting the NTP server on boot`.
     * In the `Enter hostname` field, specify `yc-vipnet-1`.
     * When prompted `Do you want to specify custom virtual IP address range?`, choose `Leave the default setting`.
     * When prompted `Do you want to probe VPN-connection with some host in order to verify the configuration you've just made?`, choose `No`.

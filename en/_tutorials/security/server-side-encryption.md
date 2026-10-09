@@ -313,8 +313,7 @@ To enable bucket encryption with a {{ kms-short-name }} key:
   1. In the [management console]({{ link-console-main }}), select the folder with the bucket.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the previously created bucket.
-  1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
-  1. Open the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select `bucket-key`.
   1. Click **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
@@ -461,8 +460,7 @@ After you disable bucket encryption, previously uploaded objects will be stored 
   1. In the [management console]({{ link-console-main }}), select the folder with the bucket.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the previously created bucket.
-  1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
-  1. Open the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select `{{ ui-key.yacloud.component.symmetric-key-select.label_no-symmetric-key }}`.
   1. Click **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 

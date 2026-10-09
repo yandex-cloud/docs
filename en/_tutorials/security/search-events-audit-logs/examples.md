@@ -61,7 +61,7 @@ This section contains the most common queries for searching events in audit logs
 
 #### Any actions with a VM {#any-actions-vm}
 
-{% list tabs group=at_logs_tools %}
+{% list tabs group=tools %}
 
 - {{ yq-full-name }} {#yandex-query}
 
@@ -307,7 +307,7 @@ This section contains the most common queries for searching events in audit logs
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }}
+- {{ yq-full-name }} {#yandex-query}
 
     Run this query:
 
@@ -318,7 +318,7 @@ This section contains the most common queries for searching events in audit logs
       JSON_VALUE(data,"$.event_type") = 'yandex.cloud.audit.organizationmanager.saml.CreateFederation'
     ```
 
-- {{ cloud-logging-full-name }}
+- {{ cloud-logging-full-name }} {#cloud-logging}
 
     Use a filter:
 
@@ -332,7 +332,7 @@ This section contains the most common queries for searching events in audit logs
 
 {% list tabs group=tools %}
 
-- {{ yq-full-name }}
+- {{ yq-full-name }} {#yandex-query}
 
     Run this query:
 
@@ -343,7 +343,7 @@ This section contains the most common queries for searching events in audit logs
       JSON_VALUE(data,"$.event_type") = 'yandex.cloud.audit.organizationmanager.saml.UpdateFederation'
     ```
 
-- {{ cloud-logging-full-name }}
+- {{ cloud-logging-full-name }} {#cloud-logging}
 
     Use a filter:
 

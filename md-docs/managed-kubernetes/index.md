@@ -826,13 +826,15 @@
 
 #### Конфигурация ресурсов (англ.)
 
+ - [BackendTLSPolicy](gwin-ref/backendtlspolicy.md)
+
  - [DirectResponse](gwin-ref/directresponse.md)
 
  - [Gateway](gwin-ref/gateway.md)
 
  - [GatewayPolicy](gwin-ref/gatewaypolicy.md)
 
- - [BackendTLSPolicy](gwin-ref/backendtlspolicy.md)
+ - [GRPCRoute](gwin-ref/grpcroute.md)
 
  - [HTTPRoute](gwin-ref/httproute.md)
 
@@ -840,7 +842,7 @@
 
  - [IngressBackendGroup](gwin-ref/ingressbackendgroup.md)
 
- - [GRPCRoute](gwin-ref/grpcroute.md)
+ - [IngressPolicy](gwin-ref/ingresspolicy.md)
 
  - [ListenerSet](gwin-ref/listenerset.md)
 
@@ -848,17 +850,15 @@
 
  - [RoutePolicy](gwin-ref/routepolicy.md)
 
+ - [ServicePolicy](gwin-ref/servicepolicy.md)
+
  - [Service](gwin-ref/service.md)
-
- - [IngressPolicy](gwin-ref/ingresspolicy.md)
-
- - [TLSRoute](gwin-ref/tlsroute.md)
 
  - [YCCertificate](gwin-ref/yccertificate.md)
 
- - [YCStorageBucket](gwin-ref/ycstoragebucket.md)
+ - [TLSRoute](gwin-ref/tlsroute.md)
 
- - [ServicePolicy](gwin-ref/servicepolicy.md)
+ - [YCStorageBucket](gwin-ref/ycstoragebucket.md)
 
 ### Ingress-контроллер
 

@@ -256,7 +256,7 @@ _Политики авторизации_ (политики) — это меха
 
 #### serverless.workflows.restrictNetworkAccess {#serverless-workflows-restrictNetworkAccess}
 
-Политика запрещает запуск [рабочих процессов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) Yandex Serverless Integrations и управление ими с любых адресов, за исключением заданных явно IP-адресов или [облачных сетей](../../../vpc/concepts/network.md#network) Yandex Virtual Private Cloud.
+Политика запрещает запуск [рабочих процессов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) Yandex AI Studio и управление ими с любых адресов, за исключением заданных явно IP-адресов или [облачных сетей](../../../vpc/concepts/network.md#network) Yandex Virtual Private Cloud.
 
 Настраиваемые параметры (применяются с логикой `ИЛИ`):
 
@@ -265,7 +265,7 @@ _Политики авторизации_ (политики) — это меха
 
 #### serverless.workflows.restrictResourceVPCNetwork {#serverless-workflows-restrictResourceVPCNetwork}
 
-Политика запрещает привязку к [рабочим процессам](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) Yandex Serverless Integrations любых [облачных сетей](../../../vpc/concepts/network.md#network) за исключением заданных явно.
+Политика запрещает привязку к [рабочим процессам](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) Yandex AI Studio любых [облачных сетей](../../../vpc/concepts/network.md#network) за исключением заданных явно.
 
 Настраиваемый параметр:
 

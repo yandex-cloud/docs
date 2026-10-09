@@ -92,6 +92,127 @@ If you have created user groups in your identity provider or plan to do so, you 
 | --- | --- |
 | IAM2 | Medium |
 
+{% include [check-security-deck](../check-security-deck.md) %}
+
+#### 1.1.2 User access to resources is assigned via groups, not directly {#access-via-groups}
+
+To manage access to resources, we recommend assigning roles mainly to user groups, not individual accounts. This approach simplifies audit, reduces the probability of error when issuing or revoking permissions, and makes the access model more manageable as the number of users grows.
+
+Direct assignment of roles to individual users should be reserved for justified exceptions only, e.g., for emergency accounts, technical scenarios, or temporary access backed by documented rationale.
+
+| Requirement ID | Severity |
+| --- | --- |
+| IAM28 | Medium |
+
+{% list tabs group=instructions %}
+
+- Performing a check in the management console {#console}
+
+  1. Open the {{ yandex-cloud }} console in your browser.
+  1. Go to **All services** → **{{ org-full-name }}** → **Users**.
+  1. Make sure direct access permissions are not assigned to users unless they are necessary.
+  1. Then navigate to the **Access permissions** tab of the clouds and folders of interest.
+  1. Make sure that user account roles are mainly assigned to groups, not individual users.
+  1. If direct assignments are issued to approved exceptions only, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+
+- Performing a check via the CLI {#cli}
+
+  1. View the organizations available to you and copy the required `ID`:
+
+      ```bash
+      yc organization-manager organization list
+      ```
+
+  1. Run the command below to search for direct assignments of access permissions to accounts at the organization level:
+
+      ```bash
+      export ORG_ID=<organization_ID>
+      GROUP_IDS=$(yc organization-manager group list --organization-id=${ORG_ID} --format=json | jq -r '.[].id')
+      yc organization-manager organization list-access-bindings \
+        --id=${ORG_ID} \
+        --format=json | jq -c '.[]' | while read -r BINDING; do
+        SUBJECT_ID=$(echo "$BINDING" | jq -r '.subject.id')
+        SUBJECT_TYPE=$(echo "$BINDING" | jq -r '.subject.type')
+        if [[ "$SUBJECT_TYPE" != "serviceAccount" ]] && \
+          [[ "$SUBJECT_ID" != "allUsers" ]] && \
+          [[ "$SUBJECT_ID" != "allAuthenticatedUsers" ]] && \
+          ! grep -qx "$SUBJECT_ID" <<< "$GROUP_IDS"; then
+          echo "$BINDING"
+        fi
+      done
+      ```
+
+  1. Run the command below to search for direct assignments of access permissions to accounts at the cloud level:
+
+      ```bash
+      export ORG_ID=<organization_ID>
+      GROUP_IDS=$(yc organization-manager group list --organization-id=${ORG_ID} --format=json | jq -r '.[].id')
+      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id'); do
+        yc resource-manager cloud list-access-bindings --id=$CLOUD_ID --format=json | jq -c '.[]' | while read -r BINDING; do
+          SUBJECT_ID=$(echo "$BINDING" | jq -r '.subject.id')
+          SUBJECT_TYPE=$(echo "$BINDING" | jq -r '.subject.type')
+          if [[ "$SUBJECT_TYPE" != "serviceAccount" ]] && \
+            [[ "$SUBJECT_ID" != "allUsers" ]] && \
+            [[ "$SUBJECT_ID" != "allAuthenticatedUsers" ]] && \
+            ! grep -qx "$SUBJECT_ID" <<< "$GROUP_IDS"; then
+            echo "$BINDING"
+            echo "CLOUD_ID: $CLOUD_ID"
+          fi
+        done
+      done
+      ```
+
+  1. Run the command below to search for direct assignments of access permissions to accounts at the folder level:
+
+      ```bash
+      export ORG_ID=<organization_ID>
+      GROUP_IDS=$(yc organization-manager group list --organization-id=${ORG_ID} --format=json | jq -r '.[].id')
+      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id'); do
+        for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); do
+          yc resource-manager folder list-access-bindings --id=$FOLDER_ID --format=json | jq -c '.[]' | while read -r BINDING; do
+            SUBJECT_ID=$(echo "$BINDING" | jq -r '.subject.id')
+            SUBJECT_TYPE=$(echo "$BINDING" | jq -r '.subject.type')
+            if [[ "$SUBJECT_TYPE" != "serviceAccount" ]] && \
+              [[ "$SUBJECT_ID" != "allUsers" ]] && \
+              [[ "$SUBJECT_ID" != "allAuthenticatedUsers" ]] && \
+              ! grep -qx "$SUBJECT_ID" <<< "$GROUP_IDS"; then
+              echo "$BINDING"
+              echo "FOLDER_ID: $FOLDER_ID"
+            fi
+          done
+        done
+      done
+      ```
+
+  1. If the output shows no direct assignments to user accounts or only approved exceptions remain, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+
+{% endlist %}
+
+**Guides and solutions to use**:
+
+1. Create user groups in accordance with your role-based access control model.
+1. Assign the required roles to groups instead of individual users.
+1. Delete direct role assignments to users leaving only the documented exceptions.
+1. Revise the groups' memberships on a regular basis and control their membership management permissions.
+
+#### 1.1.3 Users are not allowed to change their login by themselves {#allow-edit-self-login}
+
+A user login is used as a unique ID during authentication, including when signing in to applications integrated with the organization over SAML and OIDC. The `allow_edit_self_login` setting in the {{ org-full-name }} user pool allows users to change their login by themselves.
+
+With this setting on, a user can change their login for the login of another user (even a privileged one) if the latter, for example, was deleted, renamed, or has not been created yet. The result will be that, on their next sign-in to the applications integrated over SAML/OIDC, such a user can get authenticated as another user and get access to that user’s data and permissions in these applications.
+
+{% note warning %}
+
+Using this setting creates a risk of account takeover in applications that trust the login as a unique user ID.
+
+{% endnote %}
+
+You should disable this option (`allow_edit_self_login: false`) for all user pools, unless explicitly required by the business logic, and use centralized login management via an administrator or data source (IdP/employee catalog).
+
+| Requirement ID | Severity |
+| --- | --- |
+| IAM30 | Medium |
+
 #### 1.2 Yandex ID accounts are only used in exceptional cases {#yandex-id-accounts}
 
 The best approach to account management, in terms of security, is using identity federations (for more information, see recommendation 1.1). Therefore, you should do your best to ensure that your organization's list of users only contains federated users (those with the <q>FEDERATION ID</q> attribute) and there are as few Yandex ID accounts on the list as possible. The following exceptions are allowed:
@@ -178,6 +299,8 @@ In the [identity federation](../../../organization/concepts/add-federation.md) s
 
 Set **Cookie lifetime** to 6 hours (21600 seconds) or less.
 
+{% include [check-security-deck](../check-security-deck.md) %}
+
 ### Access management {#access-control}
 
 #### 1.4 Only appropriate administrators can manage {{ iam-short-name }} group membership {#iam-admins}
@@ -207,6 +330,8 @@ You can conveniently control access to resources via [user groups](../../../orga
 **Guides and solutions to use**:
 
 Remove the group access permissions from the accounts that do not require them.
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 1.5 Service roles are used instead of primitive roles: {{ roles-admin }}, {{ roles-editor }}, {{ roles-viewer }}, {{ roles-auditor }} {#min-privileges}
 
@@ -368,6 +493,8 @@ Use the [{{ roles-auditor }}](../../../iam/roles-reference.md#auditor) role with
 Analyze the accounts found with the `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-viewer }}` primitive roles assigned and replace them with [service granular roles](../../../iam/roles-reference.md) based on your role matrix.
 
 Follow [this guide](../../../security-deck/operations/ciem/view-permissions.md) to view the full list of a subject's access permissions.
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 1.6 The {{ roles-auditor }} role is used to prevent access to user data {#roles-auditor}
 
@@ -596,6 +723,8 @@ Follow the principle of least privilege and [assign to the service account](../.
 * Use {{ sd-name }} to [revoke](../../../security-deck/operations/ciem/revoke-permissions.md) the service account’s excessive access permissions.
 * [Remove](../../../iam/operations/roles/revoke.md) the excessive permissions from the service account using {{ iam-short-name }}.
 
+{% include [check-security-deck](../check-security-deck.md) %}
+
 #### 1.9 Only trusted administrators have access to service accounts {#sa-admins}
 
 You can grant permissions to use a service account under another user or service account.
@@ -649,6 +778,8 @@ Each service account with extended permissions should be placed as a resource in
 **Guides and solutions to use**:
 
 [Remove](../../../iam/operations/roles/revoke.md) the unnecessary service account permissions using {{ iam-short-name }}.
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 1.10 Service account keys are rotated on a regular basis {#sa-key-rotation}
 
@@ -811,6 +942,8 @@ You need to rotate keys with unlimited validity yourself: delete and generate ne
 
 Follow the [guide](../../../iam/operations/compromised-credentials.md#key-reissue) for rotating keys depending on their type.
 
+{% include [check-security-deck](../check-security-deck.md) %}
+
 #### 1.11 The minimum required scopes for service account API keys are defined {#api-key-scopes}
 
 {% include [scoped-api-keys](../../../_includes/iam/scoped-api-keys.md) %}
@@ -846,6 +979,8 @@ In addition to service account access permissions, you can define [scopes](../..
 **Guides and solutions to use**:
 
 [Create](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key with a specified scope.
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 1.12 Tokens for cloud functions and VMs are issued by a service account {#func-token}
 
@@ -1255,6 +1390,8 @@ yc compute instance update <VM_ID> \
   --metadata-options aws-v1-http-token=DISABLED
 ```
 
+{% include [check-security-deck](../check-security-deck.md) %}
+
 ### Privileged accounts {#privileged-accounts}
 
 #### 1.16 Two-factor authentication is set up for privileged accounts {#twofa}
@@ -1518,6 +1655,8 @@ Assign federated accounts the `{{ roles-admin }}` roles for clouds, folders, and
 **Guides and solutions to use**:
 
 If any roles granted to untrusted administrators are found, investigate why and remove the respective permissions.
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 ### Local users of managed databases {#mdb-users} 
 
@@ -1859,6 +1998,8 @@ Make sure these groups have no public access to your resources: clouds, folders,
 
 If you detect that `All users` and `All authenticated users` have the access permissions that they should not have, remove these permissions.
 
+{% include [check-security-deck](../check-security-deck.md) %}
+
 #### 1.22 Contact information of the person in charge of your organization is valid {#org-contacts}
 
 When registering a cloud in {{ yandex-cloud }}, customers enter their contact information. For example, an email address is used for notifications about incidents, scheduled maintenance activities, and so on.
@@ -1917,6 +2058,8 @@ For example, to tag resources which handle personal data under Federal Law No. F
 **Guides and solutions to use**:
 
 [Guide on managing labels](../../../resource-manager/operations/manage-labels.md)
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 ### Notifications and audit {#notifications-and-audit}
 
@@ -2038,3 +2181,51 @@ For more information, see [{#T}](../../../security-deck/concepts/ciem.md).
 
 [{#T}](../../../security-deck/operations/ciem/view-permissions.md).
 [{#T}](../../../security-deck/operations/ciem/revoke-permissions.md).
+
+{% include [check-security-deck](../check-security-deck.md) %}
+
+#### 1.27 Configured a password policy for local accounts and administrative access {#password-policy}
+
+For VMs and other virtual environment components that use local accounts, a password policy should be put in place and applied in accordance with the organization’s information security requirements and applicable standards.
+
+The password policy must set forth at least the following:
+
+* Minimum password length.
+* Password complexity requirements.
+* Ban on typical, weak, or compromised passwords.
+* Password change frequency if prescribed by internal requirements and standards.
+* Restrictions on repeated use of passwords.
+* Account blocking or other protective measures in the event of multiple failed login attempts.
+* Stricter individual requirements for privileged accounts.
+
+Special attention should be paid to local accounts used for:
+
+* Logging in to the VM OS.
+* Access via the serial console.
+* Emergency or administrative access.
+* Built-in accounts of applications and middleware if these are authenticated using a local password.
+
+If the infrastructure uses centralized access management tools, such as domain policies, LDAPs, or other means of centralized authentication, make sure the password policy covers them as well.
+
+| Requirement ID | Severity |
+| --- | --- |
+| IAM29 | Medium |
+
+{% list tabs group=instructions %}
+
+- Manual check {#manual}
+
+  1. Make a list of VMs and systems that use local accounts or password authentication.
+  1. Check if there is an approved password policy in place in internal regulations or centralized access management settings.
+  1. Make sure there are password difficulty, length, validity period, and history settings, as well as account lockout settings on VMs.
+  1. Check that there are increased individual requirements for privileged and emergency accounts.
+  1. If a password policy is in place and applied to all relevant systems, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
+
+{% endlist %}
+
+**Guides and solutions to use**:
+
+1. Pass a universal password policy for local and administrative accounts.
+1. Configure the use of this policy by the OS tools, domain infrastructure, or other centralized management mechanisms.
+1. Disable or restrict the use of local accounts where centralized authentication is available.
+1. Check that the emergency and privileged accounts meet the increased security requirements.
