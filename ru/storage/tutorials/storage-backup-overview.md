@@ -18,3 +18,5 @@ canonical: '{{ link-docs }}/tutorials/archive/storage-backup-overview'
 * [Резервное копирование с помощью Veeam Backup](./backup-with-veeam.md)
 * [Резервное копирование ВМ с помощью «Хайстекс Акура — Система резервного копирования»](./hystax-backup.md)
 * [Резервное копирование кластера {{ managed-k8s-name }}](./kubernetes-backup.md)
+
+Чтобы защитить версии резервных копий от удаления и перезаписи, настройте блокировки по руководству [{#T}](storage-backup-object-lock.md).
