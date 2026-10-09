@@ -5,4 +5,6 @@ description: 'To work with the {{ container-registry-full-name }} API, obtain an
 
 # Authentication with the {{ container-registry-name }} API
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 {% include notitle [auth](../../_includes/authentication.md) %}

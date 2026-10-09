@@ -1,5 +1,7 @@
 # Repository in {{ container-registry-name }}
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 A _repository_ is a set of Docker images with the same name. Repositories usually contain several versions of the same Docker image. Tags and digests are used to work with versions inside the repository. For more information, see [Docker image](docker-image.md).
 
 A repository is defined by the `<registry_ID>/<Docker_image_name>` combination.

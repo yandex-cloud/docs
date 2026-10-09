@@ -1149,6 +1149,29 @@ apiPlayground:
             type: boolean
         required:
           - db
+      YtSourceV2:
+        type: object
+        properties:
+          httpProxyUrls:
+            description: |-
+              **string**
+              URLs of the YTsaurus HTTP proxies.
+              The number of elements must be greater than 0.
+            type: array
+            items:
+              type: string
+          cypressPath:
+            description: |-
+              **string**
+              Required field. Cypress path to the YTsaurus table used as the dictionary source.
+            type: string
+          oauthToken:
+            description: |-
+              **string**
+              OAuth token for accessing YTsaurus.
+            type: string
+        required:
+          - cypressPath
       ExternalDictionary:
         type: object
         properties:
@@ -1185,40 +1208,46 @@ apiPlayground:
             description: |-
               **[HttpSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.HttpSource)**
               HTTP source for the dictionary.
-              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`.
+              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`, `ytSourceV2`.
             $ref: '#/definitions/HttpSource'
           mysqlSource:
             description: |-
               **[MysqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource)**
               MySQL source for the dictionary.
-              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`.
+              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`, `ytSourceV2`.
             $ref: '#/definitions/MysqlSource'
           clickhouseSource:
             description: |-
               **[ClickhouseSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.ClickhouseSource)**
               ClickHouse source for the dictionary.
-              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`.
+              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`, `ytSourceV2`.
             $ref: '#/definitions/ClickhouseSource'
           mongodbSource:
             description: |-
               **[MongodbSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MongodbSource)**
               MongoDB source for the dictionary.
-              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`.
+              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`, `ytSourceV2`.
             $ref: '#/definitions/MongodbSource'
           postgresqlSource:
             description: |-
               **[PostgresqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSource)**
               PostgreSQL source for the dictionary.
               Deprecated in favor of postgresql_source_v2.
-              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`.
+              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`, `ytSourceV2`.
             deprecated: true
             $ref: '#/definitions/PostgresqlSource'
           postgresqlSourceV2:
             description: |-
               **[PostgresqlSourceV2](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2)**
               PostgreSQL source for the dictionary using the native ClickHouse integration.
-              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`.
+              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`, `ytSourceV2`.
             $ref: '#/definitions/PostgresqlSourceV2'
+          ytSourceV2:
+            description: |-
+              **[YtSourceV2](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.YtSourceV2)**
+              YTsaurus source for the dictionary using the native ClickHouse integration.
+              Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`, `ytSourceV2`.
+            $ref: '#/definitions/YtSourceV2'
         required:
           - name
           - structure
@@ -1242,6 +1271,8 @@ apiPlayground:
                   - postgresqlSource
               - required:
                   - postgresqlSourceV2
+              - required:
+                  - ytSourceV2
       Retention:
         type: object
         properties:
@@ -2141,6 +2172,27 @@ apiPlayground:
               automatic removal of query_metric_log data based on time is disabled.
               Default value: **2592000000** (30 days).
             default: '**2592000000** (30 days)'
+            type: string
+            format: int64
+          automaticallyDetachedDataPartsRetentionTime:
+            description: |-
+              **string** (int64)
+              The maximum time that automatically detached data parts with a non-empty reason will be retained before removal.
+              The retention period starts when a data part is moved to the detached directory. If set to **0**,
+              automatic removal of these data parts is disabled.
+              Default value: **2592000000** (30 days).
+            default: '**2592000000** (30 days)'
+            type: string
+            format: int64
+          manuallyDetachedDataPartsRetentionTime:
+            description: |-
+              **string** (int64)
+              The maximum time that manually detached data parts with an empty reason will be retained before removal.
+              These data parts are detached using **ALTER TABLE DETACH PARTITION|PART**.
+              The retention period starts when a data part is moved to the detached directory. If set to **0**,
+              automatic removal of these data parts is disabled.
+              Default value: **0**.
+            default: '**0**'
             type: string
             format: int64
           accessControlImprovements:
@@ -4790,6 +4842,8 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters:restore
         "queryMetricLogEnabled": "boolean",
         "queryMetricLogRetentionSize": "string",
         "queryMetricLogRetentionTime": "string",
+        "automaticallyDetachedDataPartsRetentionTime": "string",
+        "manuallyDetachedDataPartsRetentionTime": "string",
         "accessControlImprovements": {
           "selectFromSystemDbRequiresGrant": "boolean",
           "selectFromInformationSchemaRequiresGrant": "boolean"
@@ -4931,7 +4985,7 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters:restore
               "max": "string"
             },
             // end of the list of possible fields
-            // Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`
+            // Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`, `ytSourceV2`
             "httpSource": {
               "url": "string",
               "format": "string",
@@ -5013,6 +5067,13 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters:restore
               "where": "string",
               "query": "string",
               "backgroundReconnect": "boolean"
+            },
+            "ytSourceV2": {
+              "httpProxyUrls": [
+                "string"
+              ],
+              "cypressPath": "string",
+              "oauthToken": "string"
             }
             // end of the list of possible fields
           }
@@ -5446,6 +5507,8 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters:restore
             "queryMetricLogEnabled": "boolean",
             "queryMetricLogRetentionSize": "string",
             "queryMetricLogRetentionTime": "string",
+            "automaticallyDetachedDataPartsRetentionTime": "string",
+            "manuallyDetachedDataPartsRetentionTime": "string",
             "accessControlImprovements": {
               "selectFromSystemDbRequiresGrant": "boolean",
               "selectFromInformationSchemaRequiresGrant": "boolean"
@@ -5587,7 +5650,7 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters:restore
                   "max": "string"
                 },
                 // end of the list of possible fields
-                // Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`
+                // Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`, `ytSourceV2`
                 "httpSource": {
                   "url": "string",
                   "format": "string",
@@ -5669,6 +5732,13 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters:restore
                   "where": "string",
                   "query": "string",
                   "backgroundReconnect": "boolean"
+                },
+                "ytSourceV2": {
+                  "httpProxyUrls": [
+                    "string"
+                  ],
+                  "cypressPath": "string",
+                  "oauthToken": "string"
                 }
                 // end of the list of possible fields
               }
@@ -6394,6 +6464,21 @@ The maximum time that query_metric_log records will be retained before removal. 
 automatic removal of query_metric_log data based on time is disabled.
 
 Default value: **2592000000** (30 days). ||
+|| automaticallyDetachedDataPartsRetentionTime | **string** (int64)
+
+The maximum time that automatically detached data parts with a non-empty reason will be retained before removal.
+The retention period starts when a data part is moved to the detached directory. If set to **0**,
+automatic removal of these data parts is disabled.
+
+Default value: **2592000000** (30 days). ||
+|| manuallyDetachedDataPartsRetentionTime | **string** (int64)
+
+The maximum time that manually detached data parts with an empty reason will be retained before removal.
+These data parts are detached using **ALTER TABLE DETACH PARTITION\|PART**.
+The retention period starts when a data part is moved to the detached directory. If set to **0**,
+automatic removal of these data parts is disabled.
+
+Default value: **0**. ||
 || accessControlImprovements | **[AccessControlImprovements](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.AccessControlImprovements)**
 
 Access control settings. ||
@@ -7035,33 +7120,38 @@ Includes only one of the fields `fixedLifetime`, `lifetimeRange`. ||
 
 HTTP source for the dictionary.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`, `ytSourceV2`. ||
 || mysqlSource | **[MysqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource)**
 
 MySQL source for the dictionary.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`, `ytSourceV2`. ||
 || clickhouseSource | **[ClickhouseSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.ClickhouseSource)**
 
 ClickHouse source for the dictionary.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`, `ytSourceV2`. ||
 || mongodbSource | **[MongodbSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MongodbSource)**
 
 MongoDB source for the dictionary.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`, `ytSourceV2`. ||
 || postgresqlSource | **[PostgresqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSource)**
 
 PostgreSQL source for the dictionary.
 Deprecated in favor of postgresql_source_v2.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`, `ytSourceV2`. ||
 || postgresqlSourceV2 | **[PostgresqlSourceV2](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2)**
 
 PostgreSQL source for the dictionary using the native ClickHouse integration.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`, `ytSourceV2`. ||
+|| ytSourceV2 | **[YtSourceV2](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.YtSourceV2)**
+
+YTsaurus source for the dictionary using the native ClickHouse integration.
+
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`, `ytSourceV2`. ||
 |#
 
 ## Structure {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure}
@@ -7559,6 +7649,26 @@ PostgreSQL user for the replica. Inherits the source user when omitted. ||
 || password | **string**
 
 PostgreSQL password for the replica. Inherits the source password when omitted. ||
+|#
+
+## YtSourceV2 {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.YtSourceV2}
+
+YTsaurus dictionary source using the native ClickHouse integration.
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/statements/create/dictionary/sources/ytsaurus).
+
+#|
+||Field | Description ||
+|| httpProxyUrls[] | **string**
+
+URLs of the YTsaurus HTTP proxies.
+
+The number of elements must be greater than 0. ||
+|| cypressPath | **string**
+
+Required field. Cypress path to the YTsaurus table used as the dictionary source. ||
+|| oauthToken | **string**
+
+OAuth token for accessing YTsaurus. ||
 |#
 
 ## GraphiteRollup {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.GraphiteRollup}

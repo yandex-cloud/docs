@@ -5,18 +5,15 @@ description: Пробный период доступен для юридиче�
 
 # Как работает пробный период
 
+
+{% note warning %}
+
+Пробный период временно недоступен, рекомендуем сразу [перейти на платную версию](./upgrade-to-paid.md).
+
+{% endnote %}
+
+
 {% include [free-trial-invoice-only](../../../_includes/billing/free-trial-invoice-only.md) %}
 
 {% include [free-trial-conditions](../../../_includes/free-trial-conditions.md) %}
-
-{% include [free-trial-first-section](../../../_includes/free-trial-first-section.md) %}
-
-{% include [free-trial-second-section](../../../_includes/free-trial-second-section.md) %}
-
-Вам также могут быть полезны ссылки:
-* [Какие ограничения действуют в пробном периоде](limits.md)
-* [Когда завершается пробный период](trial-ending.md)
-* [Как перейти на платную версию](upgrade-to-paid.md)
-* [Обзор платформы {{ yandex-cloud }}](../../../overview/index.yaml)
-* [Документация {{ yandex-cloud }}](/docs)
 

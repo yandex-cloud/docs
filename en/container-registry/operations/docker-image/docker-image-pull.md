@@ -1,5 +1,7 @@
 # Pulling a Docker image from a registry
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 To pull a [Docker image](../../concepts/docker-image.md), you need the `container-registry.images.puller` [role](../../security/index.md#container-registry-images-puller) or higher. In addition, you need to know which [repository](../../concepts/repository.md) houses the Docker image, as well as its [tag or digest](../../concepts/docker-image.md#version).
 
 To work with Docker images, [install and configure](../configure-docker.md) Docker.

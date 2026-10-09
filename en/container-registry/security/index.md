@@ -5,6 +5,8 @@ description: Access management in {{ container-registry-full-name }}, the Docker
 
 # Access management in {{ container-registry-name }}
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 In this section, you will learn about:
 * [Resources you can assign a role for](#resources).
 * [Roles this service has](#roles-list).
