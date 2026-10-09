@@ -116,8 +116,12 @@ items:
                 href: cli-ref/cli_buckets.md
               - name: create
                 href: cli-ref/cli_buckets_create.md
+              - name: create-inventory-configuration
+                href: cli-ref/cli_buckets_create-inventory-configuration.md
               - name: delete
                 href: cli-ref/cli_buckets_delete.md
+              - name: delete-inventory-configuration
+                href: cli-ref/cli_buckets_delete-inventory-configuration.md
               - name: get
                 items:
                   - name: Overview
@@ -142,8 +146,12 @@ items:
                     href: cli-ref/cli_buckets_get_tags.md
                   - name: versioning
                     href: cli-ref/cli_buckets_get_versioning.md
+              - name: get-inventory-configuration
+                href: cli-ref/cli_buckets_get-inventory-configuration.md
               - name: list
                 href: cli-ref/cli_buckets_list.md
+              - name: list-inventory-configurations
+                href: cli-ref/cli_buckets_list-inventory-configurations.md
               - name: update
                 items:
                   - name: Overview
@@ -190,6 +198,20 @@ items:
                 href: cli-ref/cli_config_show.md
           - name: help
             href: cli-ref/cli_help.md
+          - name: license
+            items:
+              - name: Overview
+                href: cli-ref/cli_license.md
+              - name: export-usage
+                href: cli-ref/cli_license_export-usage.md
+              - name: setup-offline
+                href: cli-ref/cli_license_setup-offline.md
+              - name: setup-online
+                href: cli-ref/cli_license_setup-online.md
+              - name: show
+                href: cli-ref/cli_license_show.md
+              - name: usage
+                href: cli-ref/cli_license_usage.md
           - name: login
             items:
               - name: Overview
@@ -206,18 +228,30 @@ items:
                     href: cli-ref/cli_ops_certs.md
                   - name: generate-csr-console
                     href: cli-ref/cli_ops_certs_generate-csr-console.md
+                  - name: generate-csr-monitoring
+                    href: cli-ref/cli_ops_certs_generate-csr-monitoring.md
+                  - name: generate-csr-private
+                    href: cli-ref/cli_ops_certs_generate-csr-private.md
                   - name: generate-csr-s3
                     href: cli-ref/cli_ops_certs_generate-csr-s3.md
                   - name: get-csr
                     href: cli-ref/cli_ops_certs_get-csr.md
                   - name: install-cert-console
                     href: cli-ref/cli_ops_certs_install-cert-console.md
+                  - name: install-cert-monitoring
+                    href: cli-ref/cli_ops_certs_install-cert-monitoring.md
+                  - name: install-cert-private
+                    href: cli-ref/cli_ops_certs_install-cert-private.md
                   - name: install-cert-s3
                     href: cli-ref/cli_ops_certs_install-cert-s3.md
                   - name: list-csr
                     href: cli-ref/cli_ops_certs_list-csr.md
                   - name: upload-console
                     href: cli-ref/cli_ops_certs_upload-console.md
+                  - name: upload-monitoring
+                    href: cli-ref/cli_ops_certs_upload-monitoring.md
+                  - name: upload-private
+                    href: cli-ref/cli_ops_certs_upload-private.md
                   - name: upload-s3
                     href: cli-ref/cli_ops_certs_upload-s3.md
               - name: tasks

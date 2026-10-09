@@ -5,3 +5,5 @@
 * [Как правильно подключить постоянный том к контейнеру?](#persistent-volume)
 
 * [Какие типы томов поддерживает {{ managed-k8s-name }}?](#supported-volumes)
+
+* [Почему возникает ошибка Multi-Attach error for volume?](#multi-attach)

@@ -272,11 +272,11 @@ The trail will collect management event audit logs for all your organization's r
       * **{{ ui-key.yacloud.audit-trails.label_stream-name }}**: Select `maxpatrol-stream`.
   1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select `maxpatrol-sa`.
   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, configure the collection of management event audit logs:
-      * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: Select `{{ ui-key.yacloud.common.enabled }}`.
+      * **Collecting events**: Select `{{ ui-key.yacloud.common.enabled }}`.
       * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`.
       * **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}**: Automatically populated field displaying the name of the organization to host the trail.
       * **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}**: Keep the default value, `{{ ui-key.yacloud.common.all }}`.
-  1. Under **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**, select `{{ ui-key.yacloud.common.disabled }}` in the **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}** field.
+  1. Under **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**, select `{{ ui-key.yacloud.common.disabled }}` in the **Collecting events** field.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}

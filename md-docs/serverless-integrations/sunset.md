@@ -1,42 +1,30 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Serverless Integrations](index.md) > Закрытие сервиса
+[Документация Yandex Cloud](../index.md) > [Yandex Serverless Integrations](index.md) > Serverless Integrations
 
-# Закрытие сервиса Yandex Serverless Integrations
+# Cервис Yandex Serverless Integrations закрыт
 
 {% note warning %}
 
-Сервис Yandex Serverless Integrations прекращает работу. На этой странице описаны сроки, порядок закрытия и рекомендации по миграции.
+Сервис Yandex Serverless Integrations прекратил работу 8 октября 2026 года.
 
 {% endnote %}
 
-## Что происходит {#what-happens}
+## Что произошло {#what-happens}
 
-Сервис Yandex Serverless Integrations, который объединял несколько функциональностей, прекращает работу. Сами возможности при этом сохраняются в других сервисах платформы:
+Сервис Yandex Serverless Integrations, который объединял несколько функциональностей, прекратил работу. Сами возможности при этом сохранились в других сервисах платформы:
 
-* Yandex Workflows переезжает в [AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow). Все рабочие процессы и логика работы с ними сохраняются.
+* Yandex Workflows переехал в [AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow). Все рабочие процессы и логика работы с ними сохранились.
 
-* EventRouter прекращает работу. Вместо него можно использовать триггеры для функций Cloud Functions, контейнеров Serverless Containers, API-шлюзов API Gateway и рабочих процессов Workflows.
+* EventRouter прекратил работу. Вместо него можно использовать триггеры для функций Cloud Functions, контейнеров Serverless Containers, API-шлюзов API Gateway и рабочих процессов Workflows.
 
-* Yandex API Gateway продолжит работать как отдельный сервис.
-
-## Ключевые даты {#key-dates}
-
-Закрытие Yandex Serverless Integrations пройдет в три этапа:
-
-* **4 сентября 2026** — Workflows перестает поддерживаться в интерфейсе Yandex Cloud. Для создания рабочих процессов и управления ими используйте [интерфейс AI Studio](https://aistudio.yandex.ru/platform/link//workflows).
-
-* **15 сентября 2026** — EventRouter переходит в режим read-only. Создание новых шин, коннекторов и правил станет недоступно.
-
-* **8 октября 2026** — сервис Yandex Serverless Integrations полностью прекращает работу. Доступ к интерфейсу сервиса будет закрыт для всех пользователей.
+* Yandex API Gateway продолжает работать как отдельный сервис.
 
 ## Что будет с вашими данными {#data}
 
-Ваши данные (шины, коннекторы, правила) не будут потеряны. После закрытия сервиса резервные копии ваших данных будут храниться до 31 января 2027 года — их можно будет запросить через [техническую поддержку](https://center.yandex.cloud/support).
-
-Все рабочие процессы будут автоматически перенесены в AI Studio.
+Резервные копии ваших данных (шины, коннекторы, правила) будут храниться до 31 января 2027 года — их можно запросить через [техническую поддержку](https://center.yandex.cloud/support).
 
 ## Миграция {#migration}
 
-В качестве альтернативы шинам EventRouter можно использовать триггеры. Некоторые шины будут перенесены автоматически, некоторые — потребуется перенести самостоятельно.
+В качестве альтернативы шинам EventRouter можно использовать триггеры. Некоторые шины были перенесены автоматически, некоторые — нужно перенести самостоятельно.
 
 Мы подготовили руководство, которое поможет при миграции: [Миграция с EventRouter на триггеры](tutorials/eventrouter-migration.md).
 

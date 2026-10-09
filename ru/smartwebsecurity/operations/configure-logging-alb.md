@@ -40,7 +40,7 @@ description: Следуя данной инструкции, вы сможете
 
 - {{ at-name }} {#at}
 
-  События {{ at-name }} можно записывать в [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}, [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }} или [шину](../../serverless-integrations/concepts/eventrouter/bus.md) {{ er-name }}. В этой инструкции настроим запись аудитных событий в лог-группу.
+  События {{ at-name }} можно записывать в [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}, [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }} или [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }}. В этой инструкции настроим запись аудитных событий в лог-группу.
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится профиль {{ sws-name }}.
   1. [Перейдите]({{ link-console-main }}/link/audit-trails) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.

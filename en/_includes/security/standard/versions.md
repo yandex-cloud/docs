@@ -2,6 +2,55 @@
 
 ### Changes in version {{ security-standard-current-version }} {#current-version}
 
+Publication date: 08/09/2026.
+
+* Added a footnote for requirements with compliance checks available in [CSPM](../../../security-deck/concepts/standard-compliance/yc-cloud-security-standard.md).
+
+* **Added the following items**:
+
+  * 1.1.2 User access to resources is assigned through groups rather than directly.
+  * 1.27 Configured a password policy for local accounts and administrative access.
+  * 4.2.1 Managed Services for Databases use at-rest encryption with a {{ kms-short-name }} key.
+
+* **Updated the following items**:
+
+  * **2.1 A firewall or security groups are used for cloud objects**:
+      * Revised the script logic: the search now checks for VMs without attached security groups instead of {{ marketplace-name }} product IDs.
+      * Added a note that {{ yandex-cloud }} cannot automatically track BYOI configurations.
+  * **2.2 In {{ vpc-name }}, a security group is created; the default security group is not used**: Instead of checking whether the default security group is used, the script now searches for at least one custom security group.
+  * **2.3 Security groups have no access rule that is too broad** and **2.4 Access through control ports is only allowed for trusted IPs**: Added a `safe navigation` section and the logical _OR_ operator to the scripts; rules with `null` values are now removed from the results.
+  * **2.5 Protection against DDoS attacks is enabled**:
+      * Split the requirement into basic (L3/L4) and application-level (L7) protection.
+      * Downgraded the severity level to _Information_.
+      * Added a warning about asymmetric routing.
+      * Fixed the jq query logic to filter out internal addresses.
+  * **2.6 Protected remote access is used**: Introduced a requirement to use {{ oslogin }} for access to VMs and {{ k8s }} clusters, and added a CLI-based check.
+  * **2.9 Outbound internet access control is performed**: Transformed the check into an informational outbound access radar, and updated the script to discover all VMs with public IP addresses and managed NAT gateway configurations.
+  * **3.8 No public access to the {{ objstorage-name }} bucket**: Revised the check to use `yc storage bucket get`, so that the AWS CLI and static keys are no longer required.
+  * **3.9 {{ objstorage-name }} uses bucket policies**: Revised the check to use `yc storage bucket get`, so that the AWS CLI and static keys are no longer required.
+  * **3.10 The **Object lock** feature is enabled in {{ objstorage-name }}**:
+      * Added a note that object lock does requires object versioning to be enabled.
+      * Both check outputs must now return `Status: Enabled` to consider the check successful.
+  * **3.10 The **Object lock** feature is enabled in {{ objstorage-name }}**: Revised the check to use `yc storage bucket get`, so that the AWS CLI and static keys are no longer required.
+  * **3.20 {{ serverless-containers-short-name }}/{{ sf-name }} uses the internal {{ vpc-short-name }} network**:
+      * In the script output, functions without an assigned network are now aggregated into an array.
+      * If the array is empty, the user will get this message: `SUCCESS: All functions are attached to a VPC network`. Otherwise, the script returns `FAILURE`.
+  * **3.26 There is no public access for {{ ydb-short-name }}**:
+      * Revised the check description.
+      * Added a requirement to assign security groups to Dedicated {{ ydb-name }} clusters.
+      * Documented data compromise risk via system port 8765.
+      * Updated the CLI check script to use `yc ydb database dedicated get`.
+  * **3.35 {{ oslogin }} is used for connection to a VM or {{ k8s }} node**: Updated the script to include three check levels: global, VM, and {{ k8s }}.
+  * **3.39 {{ backup-short-name }} or scheduled snapshots are used**: Implemented CLI support and technical compliance metrics.
+  * **4.2 At-rest encryption with a {{ kms-short-name }} key is enabled in {{ objstorage-full-name }}**: Revised the check to use `yc storage bucket get`, so that the AWS CLI and static keys are no longer required.
+  * **4.11 For {{ kms-short-name }} keys, rotation is enabled**:
+      * Added a note that encryption can only be configured during disk creation.
+      * For existing VMs, added a guide on creating a disk from a snapshot.
+      * Added a link to the {{ kms-short-name }} key rotation guide.
+  * **7.5 {{ managed-k8s-name }} uses a safe configuration**: Updated the check logic to implement a `short circuit` interrupt mechanism.
+
+### Changes in version 1.4.2 {#version-1-4-2}
+
 Publication date: 22/09/2025.
 
 Each item of the standard got a unique ID and criticality level:
@@ -96,7 +145,7 @@ Publication date: 27/12/24.
 
 * **Added the following items:**
     * 1.11 Service account API keys have specified scopes.
-    * 1.25 The date of the last service account authentication and the last use of the access keys in {{ iam-full-name }} are tracked.
+    * 1.25 Last service account authentication date and last use of access keys date are tracked in {{ iam-full-name }}.
     * 1.26 Access permissions of users and service accounts are regularly audited using the {{ sd-full-name }} {{ ciem-name }}.
 
 * **Updated the following items:**

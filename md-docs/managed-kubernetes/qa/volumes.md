@@ -10,6 +10,8 @@
 
 * [Какие типы томов поддерживает Managed Service for Kubernetes?](#supported-volumes)
 
+* [Почему возникает ошибка Multi-Attach error for volume?](#multi-attach)
+
 #### Какие существуют особенности работы с дисковым хранилищем при размещении БД (MySQL®, PostgreSQL и т. д.) в кластере Kubernetes? {#bd}
 
 При размещении БД в кластере Kubernetes используйте контроллеры [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/). Мы не рекомендуем запускать в Kubernetes stateful-сервисы с постоянными томами. Для работы с базами данных stateful-сервисов используйте [управляемые базы данных Yandex Cloud](https://yandex.cloud/ru/services#data-platform), например Managed Service for MySQL® или Managed Service for PostgreSQL.
@@ -31,3 +33,11 @@
 #### Какие типы томов поддерживает Managed Service for Kubernetes? {#supported-volumes}
 
 Managed Service for Kubernetes поддерживает работу с временными (`Volume`) и постоянными (`PersistentVolume`) томами. Подробнее читайте в разделе [Том](../concepts/volume.md).
+
+#### Почему возникает ошибка `Multi-Attach error for volume`? {#multi-attach}
+
+Сетевой диск, на котором основан постоянный том, можно подключить только к одному узлу одновременно. Ошибка `Multi-Attach error for volume` возникает, когда Kubernetes пытается подключить том к узлу, пока том еще подключен к другому узлу. Например, это происходит, если поды используют один PVC, но размещены на разных узлах. Несколько подов на одном узле могут использовать один том в режиме `ReadWriteOnce`.
+
+Проверьте размещение подов, использующих PVC, и события подключения тома. Если приложению нужен доступ с нескольких узлов в режиме `ReadWriteMany`, выберите хранилище с поддержкой этого режима, например [Object Storage через CSI](../operations/volumes/s3-csi-integration.md). Также доступна [установка CSI для S3 из Cloud Marketplace или с помощью Helm](../operations/applications/csi-s3.md).
+
+Подробнее о [режимах доступа к томам](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).

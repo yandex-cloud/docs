@@ -5,7 +5,7 @@
 
 С помощью serverless-технологий можно создать [бота](../../glossary/chat-bot.md) для Telegram с поддержкой [модели генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models) на базе сервиса [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/index).
 
-В этом руководстве вы создадите бота для подбора фильмов на основании предпочтений пользователя. Для этого вы создадите AI-агента, организуете хранение данных в [Yandex Object Storage](../../storage/index.md) и [Yandex Lockbox](../../lockbox/index.md), настроите логику бота в [Yandex Workflows](../../serverless-integrations/index.md) и вебхук для запуска по ссылке.
+В этом руководстве вы создадите бота для подбора фильмов на основании предпочтений пользователя. Для этого вы создадите AI-агента, организуете хранение данных в [Yandex Object Storage](../../storage/index.md) и [Yandex Lockbox](../../lockbox/index.md), настроите логику бота в [Yandex Workflows](../../serverless-integrations) и вебхук для запуска по ссылке.
 
 Чтобы создать бота:
 

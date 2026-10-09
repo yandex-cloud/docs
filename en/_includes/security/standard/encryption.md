@@ -151,7 +151,7 @@ Check the list of returned encrypted disks. If the list matches your threat mode
 
 #### 4.2 At-rest encryption with a {{ kms-short-name }} key is enabled in {{ objstorage-full-name }} {#storage-kms}
 
-To protect critical data in {{ objstorage-full-name }}, we recommend using bucket server-side encryption with {{ kms-full-name }} keys. It safeguards you against accidental or intentional publication of the bucket contents on the web. For more on encryption, see the [Encryption](../../../storage/concepts/encryption.md) section in the {{ objstorage-name }} guide.
+By default, data in {{ objstorage-full-name }} is encrypted using system keys, but for enhanced security, we recommend using server-side bucket encryption with {{ kms-full-name }} keys. It safeguards you against accidental or intentional publication of the bucket contents on the web. For more on encryption, see the [Encryption](../../../storage/concepts/encryption.md) section in the {{ objstorage-name }} guide.
 
 | Requirement ID | Severity |
 | --- | --- |
@@ -170,14 +170,19 @@ To protect critical data in {{ objstorage-full-name }}, we recommend using bucke
 
 - Performing a check via the CLI {#cli}
 
-  1. [Configure](../../../storage/tools/aws-cli.md) the AWS CLI to work with a cloud.
-  1. Run the command below to check whether encryption is enabled:
+  1. Run the following command to check the bucket encryption settings:
 
-     ```bash
-     aws --endpoint-url=https://{{ s3-storage-host }}/ \
-     s3api get-bucket-encryption \
-     --bucket <bucket_name>
-     ```
+      **Bash:**
+
+      ```bash
+      yc storage bucket get <bucket_name> --full --format=json | jq -r '.encryption'
+      ```
+
+      **PowerShell:**
+
+      ```powershell
+      (yc storage bucket get <bucket_name> --full --format=json | ConvertFrom-Json).encryption
+      ```
 
   1. If encryption is enabled, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
@@ -186,6 +191,8 @@ To protect critical data in {{ objstorage-full-name }}, we recommend using bucke
 **Guides and solutions to use**:
 
 Configure bucket encryption using the [guide](../../../storage/operations/buckets/encrypt.md).
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 ### Encryption in transit {#in-transit}
 
@@ -206,6 +213,30 @@ Support for legacy TLS protocols in {{ yandex-cloud }} services will [gradually 
 * {{ alb-name }}
 * {{ api-gw-name }}
 * {{ cdn-name }}
+
+### 4.2.1 Managed Services for Databases use at-rest encryption with a {{ kms-short-name }} key {#mdb-encryption}
+
+In {{ yandex-cloud }} managed services for databases, data at rest is encrypted using system keys by default. All database backups are also encrypted automatically.
+
+For enhanced security, we recommend encrypting database cluster disks with customer [{{ kms-full-name }}](../../../kms/) symmetric keys. When creating clusters with `network-hdd`, `network-ssd`, or `network-ssd-nonreplicated` disk types, the **{{ ui-key.yacloud.mdb.resources.DiskEncryptionFieldWithFieldWrap.label_disk-encryption_bkdrg }}** option is available.
+
+| Requirement ID | Severity |
+| --- | --- |
+| CRYPT18 | Medium |
+
+{% list tabs group=instructions %}
+
+- Manual check {#manual}
+
+  1. In the management console, navigate to a managed database service, e.g., {{ mpg-name }}.
+  1. Check the cluster disk settings.
+  1. Make sure the cluster was created with disk encryption enabled and is associated with a customer {{ kms-short-name }} key.
+
+{% endlist %}
+
+**Guides and solutions to use**:
+
+Database cluster disk encryption can be enabled when creating a cluster (by enabling the **{{ ui-key.yacloud.mdb.resources.DiskEncryptionFieldWithFieldWrap.label_disk-encryption_bkdrg }}** option and specifying a {{ kms-short-name }} key). You cannot enable it for an existing disk.
 
 #### 4.3 HTTPS for static website hosting is enabled in {{ objstorage-full-name }} {#storage-https}
 
@@ -244,6 +275,8 @@ When using [{{ objstorage-name }}](../../../storage/), make sure that support fo
 **Guides and solutions to use**:
 
 [Enable](../../../storage/operations/hosting/certificate.md) access over HTTPS if the bucket is used to host a static website.
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 4.4 {{ alb-full-name }} uses HTTPS {#alb-https}
 
@@ -320,6 +353,8 @@ When using [{{ objstorage-name }}](../../../storage/), make sure that support fo
 
 Enable an HTTPS listener using [this guide](../../../application-load-balancer/tutorials/tls-termination/index.md).
 
+{% include [check-security-deck](../check-security-deck.md) %}
+
 #### 4.5 {{ api-gw-full-name }} uses HTTPS and its own domain {#api-gateway-https}
 
 [{{ api-gw-name }}](../../../api-gateway/) supports secure connections over HTTPS. You can link your own domain and upload your own security certificate to access your [API gateway](../../../api-gateway/concepts/index.md) over HTTPS.
@@ -367,6 +402,8 @@ Enable an HTTPS listener using [this guide](../../../application-load-balancer/t
 1. In the management console, select the cloud or folder to enable domains and certificates in.
 1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ api-gw-name }} → Gateway settings → Domains**.
 1. Enable the domains and certificates.
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 4.6 {{ cdn-full-name }} uses HTTPS and its own SSL certificate {#cdn-https}
 
@@ -416,6 +453,8 @@ Enable an HTTPS listener using [this guide](../../../application-load-balancer/t
 
 [Enable](../../../cdn/operations/resources/configure-basics.md) a certificate and HTTPS using the instructions.
 
+{% include [check-security-deck](../check-security-deck.md) %}
+
 ### Providing encryption on your own {#self-encryption}
 
 **When using services without built-in encryption, it is the customer's responsibility to ensure that critical data is encrypted.**
@@ -459,7 +498,7 @@ You can encrypt the following types of disks:
 * Network SSD (`network-ssd`)
 * Network HDD (`network-hdd`)
 * Non-replicated SSD (`network-ssd-nonreplicated`)
-* Ultra high-speed network storage with three replicas (SSD) (`network-ssd-io-m3`)
+* High-performance network SSD (`network-ssd-io-m3`)
 
 | Requirement ID | Severity |
 | --- | --- |
@@ -476,6 +515,8 @@ You can encrypt the following types of disks:
 **Guides and solutions to use**:
 
 [Encrypt](../../../compute/operations/disk-control/disk-encrypt.md) the disk of your {{ compute-full-name }} VM.
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 ### Managing keys {#keys}
 
@@ -531,6 +572,8 @@ We recommend using HSMs for {{ kms-short-name }} keys to enhance the security le
 **Guides and solutions to use**:
 
 [Set](../../../kms/operations/symmetric-encryption.md) the encryption algorithm for {{ kms-short-name }} keys to AES-256 HSM.
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 4.10 Permissions to manage keys in {{ kms-short-name }} are granted to controlled users {#keys-controlled-users}
 
@@ -678,7 +721,9 @@ For more information about key rotation, see [Key version](../../../kms/concepts
 
 **Guides and solutions to use**:
 
-Set the key rotation period.
+Set the key rotation period by following [this {{ kms-short-name }} guide](../../../kms/operations/key.md#rotate).
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 4.12 The deletion protection is enabled for {{ kms-short-name }} keys {#keys-deletion-protection}
 
@@ -706,7 +751,7 @@ Deleting a {{ kms-short-name }} key always means destroying data. Therefore, mak
      yc organization-manager organization list
      ```
 
-  1. Run the command below to output the list of all KMS keys without protection against deletion:
+  1. Run the command below to output a list of all {{ kms-short-name }} keys without protection against deletion:
 
      ```bash
      export ORG_ID=<organization ID>
@@ -724,6 +769,8 @@ Deleting a {{ kms-short-name }} key always means destroying data. Therefore, mak
 **Guides and solutions to use**:
 
 Enable deletion protection.
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 ### Managing secrets {#secrets}
 
@@ -783,6 +830,8 @@ When working in {{ TF }}, we recommend using a script to [fill in]({{ tf-provide
 
 Keep secrets in {{ lockbox-short-name }}.
 
+{% include [check-security-deck](../check-security-deck.md) %}
+
 #### 4.14 For {{ serverless-containers-name }} and {{ sf-name }}, {{ lockbox-short-name }} secrets are used {#secrets-serverless-functions}
 
 When working with {{ serverless-containers-name }} or {{ sf-name }}, it is often necessary to use a secret (such as a token or password).
@@ -831,6 +880,8 @@ Make sure that the secrets are used as described above.
 Delete secret data from env and use the {{ lockbox-short-name }} integration functionality:
 * [{#T}](../../../serverless-containers/operations/lockbox-secret-transmit.md).
 * [{#T}](../../../functions/operations/function/lockbox-secret-transmit.md).
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 4.15 When working with {{ coi }}, secret encryption is used {#secrets-coi}
 

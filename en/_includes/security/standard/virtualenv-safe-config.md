@@ -88,6 +88,8 @@ We do not recommend using access to the serial console unless it is absolutely n
 
 If you don't intend to use serial console on the VM, disable it.
 
+{% include [check-security-deck](../check-security-deck.md) %}
+
 #### 3.3 A benchmark image is used for VM deployment {#standard-image}
 
 When deploying virtual machines, we recommend:
@@ -299,11 +301,18 @@ With ACLs, you can grant access to an object bypassing {{ iam-short-name }} veri
 
 - Performing a check via the CLI {#cli}
 
-  1. [Configure](../../../storage/tools/aws-cli.md) the AWS CLI to work with a cloud.
   1. Run the command below to check the bucket ACL for `allUsers` and `allAuthenticatedUsers`:
 
+     **Bash**:
+
      ```bash
-     aws --endpoint-url=https://{{ s3-storage-host }} s3api get-bucket-acl  <name of your bucket>
+     yc storage bucket get <bucket_name> --full --format=json
+     ```
+
+     **Powershell**:
+
+     ```powershell
+     yc storage bucket get <bucket_name> --full --format=json | ConvertFrom-Json | Select-Object -ExpandProperty acl
      ```
 
 {% endlist %}
@@ -311,6 +320,8 @@ With ACLs, you can grant access to an object bypassing {{ iam-short-name }} veri
 **Guides and solutions to use**:
 
 If public access is enabled, [remove](../../../iam/operations/roles/revoke.md) it or perform access control (grant permission to access public data consciously).
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 3.9 {{ objstorage-name }} uses bucket policies {#bucket-policy}
 
@@ -340,11 +351,18 @@ We recommend making sure that your {{ objstorage-name }} bucket uses at least on
 
 - Performing a check via the CLI {#cli}
 
-  1. [Configure](../../../storage/tools/aws-cli.md) the AWS CLI to work with a cloud.
-  1. Run the command below to check the bucket ACL for `allUsers` and `allAuthenticatedUsers`:
+  1. To output the assigned bucket policy, run this command:
+
+     **Bash**:
 
      ```bash
-     aws --endpoint-url=https://{{ s3-storage-host }} s3api get-bucket-policy --bucket <name of your bucket>
+     yc storage bucket get <bucket_name> --full --format=json | jq -r '.policy'
+     ```
+
+     **Powershell**:
+
+     ```powershell
+     (yc storage bucket get <bucket_name> --full --format=json | ConvertFrom-Json).policy
      ```
 
 {% endlist %}
@@ -353,19 +371,11 @@ We recommend making sure that your {{ objstorage-name }} bucket uses at least on
 
 [Enable](../../../storage/concepts/policy.md#config-examples) the required policy.
 
+{% include [check-security-deck](../check-security-deck.md) %}
+
 #### 3.10 The **Object lock** feature is enabled in {{ objstorage-name }} {#object-lock}
 
-When processing critical data in buckets, you must ensure that data is protected from deletion and that versions are backed up. This can be achieved by versioning and lifecycle management mechanisms, as well as by using object locks.
-
-Bucket versioning allows keeping a version history of an object. Each version is a complete copy of an object and occupies space in {{ objstorage-name }}. Using version control protects your data from both accidental user actions and application faults.
-
-If you delete or modify an object with versioning enabled, the action will create a new object version with a new ID. In the case of deletion, the object becomes unreadable, but its version is kept and can be restored.
-
-For more information about setting up versioning, see [Bucket versioning](../../../storage/concepts/versioning.md) in the {{ objstorage-name }} guide.
-
-For more information about lifecycles, see [Bucket object lifecycles](../../../storage/concepts/lifecycles.md) and [Bucket object lifecycle configuration](../../../storage/s3/api-ref/lifecycles/xml-config.md) in the {{ objstorage-name }} guide.
-
-In addition, to protect object versions against deletion, use [object locks](../../../storage/concepts/object-lock.md). For more information about object lock types and how to enable them, refer to the guide.
+When using [{{ objstorage-name }}](../../../storage/) to store critical data, you must enable [bucket versioning](../../../storage/concepts/versioning.md) for protection against accidental user actions. Also, use [object locks](../../../storage/concepts/object-lock.md) to prevent object versions from being deleted.
 
 The storage period of critical data in a bucket is determined by the customer's information security requirements and the information security standards. For example, the PCI DSS standard states that audit logs should be stored for at least one year and be available online for at least three months.
 
@@ -384,28 +394,30 @@ The storage period of critical data in a bucket is determined by the customer's 
 
 - Performing a check via the CLI {#cli}
 
-  1. [Configure](../../../storage/tools/aws-cli.md) the AWS CLI to work with a cloud.
-  1. Run the command below to check whether versioning is enabled:
+  To pass the check, both conditions must be met (logical _AND_): versioning is `Enabled` and object lock is configured.
 
-     ```bash
-     aws --endpoint https://{{ s3-storage-host }} \
-     s3api get-bucket-versioning \
-     --bucket <name of your bucket>
-     ```
+  1. To check your versioning and object lock status, run this command:
 
-  1. Run the command below to check whether versioning is enabled:
+      **Bash**:
 
-     ```bash
-     aws --endpoint-url=https://{{ s3-storage-host }}/ \
-     s3api get-object-lock-configuration \
-     --bucket <name of your bucket>
-     ```
+      ```bash
+      yc storage bucket get <bucket_name> --full --format=json | jq -r '{versioning: .versioning, object_lock: .object_lock}'
+      ```
+
+      **PowerShell**:
+
+      ```powershell
+      yc storage bucket get <bucket_name> --full --format=json | ConvertFrom-Json | Select-Object versioning, object_lock
+      ```
 
 {% endlist %}
 
 **Guides and solutions to use**:
 
-If public access is enabled, remove it or use access control (by only enabling it when necessary and if approved).
+* [Configure versioning](../../../storage/operations/buckets/versioning.md)
+* [Configure an object lock](../../../storage/operations/buckets/configure-object-lock.md)
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 3.11 Logging of actions with buckets is enabled in {{ objstorage-name }} {#bucket-logs}
 
@@ -458,7 +470,7 @@ With temporary keys, you can set up granular access to [buckets](../../../storag
 
 A temporary access key is created based on a [static key](../../../iam/concepts/authorization/access-key.md), but, unlike it, it has a limited lifetime and access permissions. Access permissions and lifetime are set for each temporary key individually. The maximum key lifetime is 12 hours.
 
-To set up access permissions for the key, you need an [access policy](../../../storage/security/policy.md) in JSON format based on [this schema](../../../storage/s3/api-ref/policy/scheme.md).
+To set up access permissions for a key, use an [access policy](../../../storage/security/policy.md) in JSON format based on [this schema](../../../storage/s3/api-ref/policy/scheme.md).
 
 Temporary {{ sts-name }} keys inherit the access permissions of the service account but are limited by the access policy. If you set up a temporary key's access policy to allow operations not allowed for the service account, such operations will not be performed.
 
@@ -490,6 +502,8 @@ We recommend using pre-signed URLs to users who are not authorized in the [cloud
 **Guides and solutions to use**:
 
 [Create](../../../storage/concepts/pre-signed-urls.md#creating-presigned-url) a pre-signed URL and communicate it to the user.
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 ### Managed Services for Databases {#managed-databases}
 
@@ -548,6 +562,8 @@ We recommend prohibiting internet access to databases that contain critical data
 
 If any databases without security groups are found, assign them or enable the **Default security group** [functionality](../../../vpc/concepts/security-groups.md#default-security-group.md).
 
+{% include [check-security-deck](../check-security-deck.md) %}
+
 #### 3.16 No public IP address is assigned in managed databases {#db-ip}
 
 Assigning a public IP to a managed database raises information security risks. We do not recommend assigning an external IP unless it is absolutely necessary.
@@ -592,6 +608,8 @@ Assigning a public IP to a managed database raises information security risks. W
 **Guides and solutions to use**:
 
 Disable public access if it is not required.
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 3.17 The deletion protection feature is enabled {#deletion-protection}
 
@@ -641,6 +659,8 @@ In {{ yandex-cloud }} managed databases, you can enable deletion protection. The
 1. In the object settings, go to the **Advanced settings** tab.
 1. In the object parameters, enable **Deletion protection**.
 
+{% include [check-security-deck](../check-security-deck.md) %}
+
 #### 3.18 The setting for access from {{ datalens-short-name }} is not active if not needed {#db-datalens-access}
 
 Do not enable access to databases containing critical data from the management console, [{{ datalens-short-name }}](../../../datalens), or other services unless you have to. Access from {{ datalens-short-name }} may be required for data analysis and visualization. For such access, the {{ yandex-cloud }} service network is used, with authentication and TLS encryption. You can enable and disable access from {{ datalens-short-name }} or other services in the cluster settings or when creating it in the advanced settings section.
@@ -688,6 +708,8 @@ Do not enable access to databases containing critical data from the management c
 1. In the list of services, select a service or services with managed databases.
 1. In the object settings, go to the **Advanced settings** tab.
 1. In the object parameters, disable **Access from {{ datalens-short-name }}**.
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 3.19 Access from the management console is disabled in managed databases {#db-console-access}
 
@@ -849,32 +871,45 @@ You can only specify a single network for functions, containers, and API gateway
 
 - Performing a check via the CLI {#cli}
 
-  1. Run the command below to search for any cloud functions that have no network settings specified in {{ vpc-short-name }}:
+  The check returns `SUCCESS` if all discovered functions are attached to a specific {{ vpc-short-name }} network. If there is at least one unattached function, the check returns `FAILURE`.
 
-     ```bash
-     export ORG_ID=<organization ID>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
-     do for VER in $(yc serverless function version list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
-     do yc serverless function version get $VER --format=json | jq -r '. | select(.connectivity.network_id | not)' | jq -r '.id' 
-     done;
-     done;
-     done
-     ```
+  1. Run the script below to search for cloud functions without a network configured in {{ vpc-short-name }}:
 
-  1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
+      ```bash
+      export ORG_ID="<organization_ID>"
+      VIOLATORS=()
+      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id'); do
+        for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); do
+          for VER in $(yc serverless function version list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do
+            if yc serverless function version get $VER --format=json | jq -e '.connectivity.network_id | not or . == null' > /dev/null; then
+              VIOLATORS+=($VER)
+            fi
+          done
+        done
+      done
+      if [ ${#VIOLATORS[@]} -gt 0 ]; then
+        echo "FAILURE: Discovered functions without a VPC network association:"
+        for v in "${VIOLATORS[@]}"; do
+          echo "- $v"
+        done
+      else
+        echo "SUCCESS: All functions are attached to a VPC network."
+      fi
+      ```
 
 {% endlist %}
 
 **Guides and solutions to use**:
 
 1. Select the cloud or folder to check the functions in.
-1. Select **{{ sf-name }}** in the list of services.
+1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 1. Open the function.
 1. In the object settings, go to the **Edit function version** tab.
 1. Set **Network — {{ vpc-short-name }}**.
 
 For more information about tracking function versions, see [{#T}](../../../functions/concepts/backup.md).
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 3.21 Functions are configured in terms of access control, secret and environment variable management, and DBMS connection {#function-access-and-env}
 
@@ -967,7 +1002,12 @@ When working with the database, use [parameterized prepared statements]({{ ydb.d
 
 #### 3.26 There is no public access for {{ ydb-short-name }} {#ydb-public}
 
-When accessing the database in dedicated mode, we recommend that you use it inside {{ vpc-short-name }} and disable public access to it from the internet. In serverless mode, the database can be accessed from the internet. You must therefore take this into account when modeling threats to your infrastructure. For more information about the operating modes, see the [Serverless and dedicated modes](../../../ydb/concepts/serverless-and-dedicated.md) section in the {{ ydb-name }} guide.
+When operating a database in dedicated mode, we recommend hosting it within a {{ vpc-short-name }} and disabling public internet access. To ensure network isolation, you must assign **security groups** to Dedicated YDB clusters.
+
+**Isolation of port 8765 (HTTP interface and YDB Embedded UI) is critical**:
+This port serves the native YDB web interface for monitoring and diagnostics. Exposing this port publicly to allow access from `0.0.0.0/0` creates a risk of cluster diagnostic data leakage, system metric exposure, and search engine indexing. Ensure your security group settings restrict access to port 8765 to trusted internal subnets, VPNs, or bastion hosts.
+
+In serverless mode, the database is accessible from the internet via a secure channel. Take this into account when building threat models and implementing access control in IAM. For more information about the operating modes, see the [Serverless and dedicated modes](../../../ydb/concepts/serverless-and-dedicated.md) section in the {{ ydb-name }} guide.
 
 When setting up database permissions, use the principle of least privilege.
 
@@ -983,7 +1023,9 @@ When setting up database permissions, use the principle of least privilege.
   1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Open all the databases.
   1. In the database settings, go to the **Network** tab.
-  1. If the parameters of each object have the **Public IP addresses** option disabled, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
+  1. Make sure that security groups are assigned to dedicated clusters.
+  1. Check the assigned security group settings to ensure there are no inbound rules allowing traffic from `0.0.0.0/0`, mainly on ports `2135` and `8765`.
+  1. Make sure the **Public IP addresses** option is disabled if the database does not require external access.
 
 - Performing a check via the CLI {#cli}
 
@@ -993,25 +1035,31 @@ When setting up database permissions, use the principle of least privilege.
      yc organization-manager organization list
      ```
 
-  1. Run the command below to search for managed DB clusters with public IPs:
+  1. To search for YDB Dedicated clusters that have a public address enabled or no security groups assigned, run this command:
 
      ```bash
      export ORG_ID=<organization ID>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
-     do for DB_ID in $(yc managed-mysql cluster list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc managed-mysql hosts list --cluster-id=$DB_ID --format=json | jq -r '.[] | select(.assign_public_ip)' | jq -r '.cluster_id' 
-     done;
-     done;
+     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id'); do
+     for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); do
+     for DB_ID in $(yc ydb database dedicated list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do
+     yc ydb database dedicated get --id=$DB_ID --format=json | jq -r 'select(.network_interfaces[]?.public_ip == true
+     or (.network_interfaces[]?.security_group_ids | length == 0)) | .id'
+     done
+     done
      done
      ```
 
-  1. The output should return an empty string. Otherwise, proceed to "Guides and solutions to use".
+  1. An empty output confirms compliance with the recommendation. Otherwise, check the displayed database IDs and proceed to _Guides and solutions to use_.
 
 {% endlist %}
 
 **Guides and solutions to use**:
 
-Disable public access if it is not required.
+1. Disable **Public access** for dedicated clusters unless it is absolutely required.
+1. Assign **Security groups** to the cluster network interfaces.
+1. In the security group settings, verify that they block incoming traffic from `0.0.0.0/0` on ports `2135` (client connections) and `8765` (the YDB Embedded UI monitoring interface). Allow access to these ports exclusively from trusted internal subnets, VPNs, or bastion hosts.
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 3.27 {{ ydb-short-name }} backup recommendations are followed {#ydb-backup}
 
@@ -1105,6 +1153,8 @@ We recommend that you limit access to your {{ container-registry-short-name }} t
 **Guides and solutions to use**:
 
 Specify the IP addresses for registry access.
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 3.29 Requirements for application protection in {{ container-registry-full-name }} are met {#app-container-registry}
 
@@ -1250,6 +1300,8 @@ We recommend that you update certificates in advance if they are not [updated au
 
 Update the certificate or set up auto updates.
 
+{% include [check-security-deck](../check-security-deck.md) %}
+
 ### {{ mgl-full-name }} {#git-lab-service}
 
 #### 3.32 {{ GL }} instance security setup guidelines are followed {#git-lab-secure}
@@ -1323,9 +1375,11 @@ Check the recommendations in [{#T}](../../../security/standard/kubernetes-securi
 
 #### 3.35 {{ oslogin }} is used for connection to a VM or {{ k8s }} node {#os-login-onto-hosts}
 
-[{{ oslogin }}](../../../organization/concepts/os-login.md) is a convenient way to manage connections to {{ managed-k8s-full-name }} [VMs](../../../compute/concepts/vm.md) and [cluster](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) nodes over SSH via the [CLI](../../../cli/quickstart.md) or a standard SSH client with an SSH certificate or SSH key, which you first need to add to the {{ oslogin }} profile of organization user or [service account](../../../iam/concepts/users/service-accounts.md) in {{ org-full-name }}.
+[{{ oslogin }}](../../../organization/concepts/os-login.md) is a convenient way to manage connections to {{ managed-k8s-full-name }} VMs and cluster nodes over SSH via the CLI or a standard SSH client with an SSH certificate or SSH key, which you first need to add to the {{ oslogin }} profile of organization user or service account in {{ org-full-name }}.
 
-{{ oslogin }} links the account of a virtual machine or {{ k8s }} node user with that of an organization or service account user. To manage access to virtual machines and {{ k8s }} nodes, [enable](../../../organization/operations/os-login-access.md) the OS Login access option at the organization level and then [activate](../../../compute/operations/vm-connect/enable-os-login.md) {{ oslogin }} access on each virtual machine or {{ k8s }} node separately.
+{{ oslogin }} links the account of a virtual machine or {{ k8s }} node user with that of an organization or service account user. To manage access to virtual machines and {{ k8s }} nodes, enable the OS Login access option at the organization level and then activate {{ oslogin }} access on each virtual machine or {{ k8s }} node separately.
+
+**Check logic (CLI)**: The script first checks if OS Login is activated globally at the organization level (`yc organization-manager oslogin get-settings`). If the feature is disabled globally, the check fails immediately. If it is active, the script scans all VM and K8s node settings for explicit SSH keys that bypass OS Login. For K8s, it checks node groups for SSH keys explicitly provided in the node template metadata.
 
 Thus, you can easily manage access to virtual machines and {{ k8s }} nodes by assigning appropriate roles to users or service accounts. If you revoke the roles from a user or service account, they will lose access to all virtual machines and {{ k8s }} nodes with {{ oslogin }} access enabled.
 
@@ -1398,8 +1452,9 @@ Customers must perform security updates themselves within their [scope of respon
 #### 3.39 {{ backup-short-name }} or scheduled snapshots are used {#snapshot}
 
 Make sure to back up all VMs in your organization using one of these options:
-* Scheduled snapshots
-* {{ backup-short-name }}
+
+* [Scheduled snapshots](../../../compute/operations/snapshot-control/create-schedule.md)
+* [{{ backup-short-name }}](../../../backup/)
 
 | Requirement ID | Severity |
 | --- | --- |
@@ -1409,11 +1464,38 @@ Make sure to back up all VMs in your organization using one of these options:
 
 - Performing a check in the management console {#console}
 
-  1. In the management console, select the cloud or folder to check the VMs in.
+  1. In the [management console]({{ link-console-main }}), select the cloud or folder to check the VMs in.
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Make sure that the scheduled snapshot policy is set up on the VMs.
   1. [Navigate]({{ link-console-main }}/link/backup) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Make sure that it is enabled.
+
+- Performing a check via the CLI {#cli}
+
+  Checks apply to a virtual machine, or, more precisely, its attached disks.
+
+  **Check criteria**:
+
+  * **Success**: The VM has attached disks, and all such disks are associated with at least one `ACTIVE` snapshot schedule, _OR_ the VM is successfully registered in Cloud Backup, i.e., its `initStatus` is `"REGISTERED"`, and has an associated backup policy.
+  * **Failure**: The snapshot schedule status is `INACTIVE`, or there are disks/VMs without an associated `ACTIVE` schedule or Cloud Backup policy.
+
+  1. Run the following command to get the list of snapshot schedules and check their status:
+
+      ```bash
+      yc compute snapshot-schedule list --format json | jq '.[] | select(.status == "ACTIVE")'
+      ```
+
+  1. Check if the schedules are associated with the target VM disks:
+
+      ```bash
+      yc compute snapshot-schedule list-disks <schedule_id>
+      ```
+
+  1. Alternatively, run this command to check if the VM is registered in {{ backup-name }}:
+
+      ```bash
+      yc backup vm list --format json | jq '.[] | select(.initStatus == "REGISTERED")'
+      ```
 
 {% endlist %}
 
@@ -1427,7 +1509,7 @@ An API gateway is an interface for working with services in {{ yandex-cloud }} o
 
 {% include [operate-via-roles-paragraph](../../../_includes/iam/operate-via-roles-paragraph.md) %}
 
-[{{ iam-full-name }}](../../../iam/) checks all operations in {{ yandex-cloud }}. If an entity does not have required permissions, {{ iam-short-name }} returns an error.
+[{{ iam-full-name }}](../../../iam/) checks all operations in {{ yandex-cloud }}. If a subject does not have the required permissions, {{ iam-short-name }} returns an error.
 
 Make sure that the {{ yandex-cloud }} user has access to the [{{ api-gw-name }}](../../../api-gateway/concepts/index.md) resources. The user needs proper roles for it. Roles for an API gateway can be issued by users with the `api-gateway.admin` role or one of the following roles:
 

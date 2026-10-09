@@ -85,7 +85,6 @@ _Сервис_ в составе {{ yandex-cloud }} позволяет упра�
 || [{{ message-queue-full-name }}](../../message-queue/index.yaml) | Сервис обмена сообщениями между приложениями | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [{{ yq-full-name }}](../../query/index.yaml)                                    | Сервис выполнения запросов с помощью единого диалекта SQL | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml) | Сервис бессерверного запуска контейнеризированных приложений | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
-|| [{{ si-full-name }}](../../serverless-integrations/index.yaml) | {{ preview-stage }} Сервис для настройки интеграций и управления ими на базе Serverless | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || **Управление ресурсами** | > | > | > ||
 || [{{ cloud-apps-full-name }}](../../cloud-apps/index.yaml) | Сервис для разворачивания приложений на базе {{ yandex-cloud }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ billing-name }}](../../billing/index.yaml) | Сервис для оплаты и детализации расходов | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||

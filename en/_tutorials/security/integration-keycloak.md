@@ -130,7 +130,7 @@ To follow the steps in this section, you will need:​
               http://<host>:8080/auth/realms/master
               ```
 
-              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
 
               ```
               {{ link-keycloak-example-old }}
@@ -144,7 +144,7 @@ To follow the steps in this section, you will need:​
               http://<host>:8080/realms/master/protocol/saml
               ```
 
-              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
 
               ```
               {{ link-keycloak-example }}/protocol/saml
@@ -156,7 +156,7 @@ To follow the steps in this section, you will need:​
               http://<host>:8080/auth/realms/master/protocol/saml
               ```
 
-              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
 
               ```
               {{ link-keycloak-example-old }}/protocol/saml
@@ -255,7 +255,7 @@ To follow the steps in this section, you will need:​
             http://<host>:8080/auth/realms/master
             ```
 
-            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
 
             ```
             {{ link-keycloak-example-old }}
@@ -269,7 +269,7 @@ To follow the steps in this section, you will need:​
               http://<host>:8080/realms/master/protocol/saml
               ```
 
-              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
 
               ```
               {{ link-keycloak-example }}/protocol/saml
@@ -281,7 +281,7 @@ To follow the steps in this section, you will need:​
               http://<host>:8080/auth/realms/master/protocol/saml
               ```
 
-              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
 
               ```
               {{ link-keycloak-example-old }}/protocol/saml
@@ -382,7 +382,7 @@ To follow the steps in this section, you will need:​
             http://<host>:8080/realms/master/protocol/saml
             ```
 
-            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
 
             ```
             {{ link-keycloak-example }}/protocol/saml
@@ -394,7 +394,7 @@ To follow the steps in this section, you will need:​
             http://<host>:8080/auth/realms/master/protocol/saml
             ```
 
-            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
 
             ```
             {{ link-keycloak-example-old }}/protocol/saml
@@ -416,7 +416,7 @@ To follow the steps in this section, you will need:​
 
   1. Describe the federation parameters in the configuration file.
 
-      Here is an example of the configuration file structure:
+      Configuration file structure example:
 
       - Keycloak 17 or higher
 
@@ -466,7 +466,7 @@ To follow the steps in this section, you will need:​
           http://<host>:8080/realms/master
           ```
 
-          If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its ID. For example:
+          If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its ID. Here is an example:
 
           ```
           {{ link-keycloak-example }}
@@ -478,7 +478,7 @@ To follow the steps in this section, you will need:​
           http://<host>:8080/auth/realms/master
           ```
 
-          If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its ID. For example:
+          If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its ID. Here is an example:
 
           ```
           {{ link-keycloak-example-old }}
@@ -495,7 +495,7 @@ To follow the steps in this section, you will need:​
 
           If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. 
 
-          For example:
+          Here is an example:
 
           ```
           {{ link-keycloak-example }}/protocol/saml
@@ -509,7 +509,7 @@ To follow the steps in this section, you will need:​
 
           If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. 
 
-          For example:
+          Here is an example:
 
           ```
           {{ link-keycloak-example-old }}/protocol/saml
@@ -783,7 +783,7 @@ To do this, you will need user name IDs. They are returned by the IdP server tog
 
 {% include [auto-create-users](../../_includes/organization/auto-create-users.md) %}
 
-A user can be added by the organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). To learn how to grant a role to a user, see [Roles](../../organization/security/index.md#add-role).
+A user can be added by the organization administrator (`organization-manager.admin` role) or owner (`organization-manager.organizations.owner` role). To learn how to grant a role to a user, see [Roles](../../organization/security/index.md#add-role).
 
 {% include [console-user-access](../../_includes/organization/console-user-access.md) %}
 
@@ -819,9 +819,9 @@ A user can be added by the organization administrator (the `organization-manager
 
 - API {#api}
 
-  To add identity federation users to the cloud:
+  To add identity federation users to a cloud:
 
-  1. Create a file with the request body, e.g., `body.json`. In the request body, specify the array of name IDs of users you want to add:
+  1. Create a file with the request body, e.g., `body.json`. In the request body, specify an array of users’ name IDs you want to add:
 
       ```json
       {
@@ -854,7 +854,7 @@ Following user authentication, the IdP server will send the user a SAML message 
 
 * User attributes such as a list of roles, the user's full name, and email address.
 
-You can set up a mapping between the SAML message attributes and the personal data stored on the IdP server. Proceed as follows:
+You can set up a mapping between the SAML message attributes and the personal data stored on the IdP server. Follow these steps:
 
 1. Enable the option for mapping the identity provider roles and {{ org-full-name }}:
 

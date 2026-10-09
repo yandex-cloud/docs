@@ -16,7 +16,7 @@ To mitigate the risks associated with automated attacks on applications, we reco
 
 - Performing a check in the management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/smartcaptcha) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha_ru }}**.
   1. Make sure at least one CAPTCHA is [created](../../../smartcaptcha/operations/create-captcha.md) for your application.
 
@@ -25,6 +25,8 @@ To mitigate the risks associated with automated attacks on applications, we reco
 **Guides and solutions to use**:
 
 [Guide on creating a CAPTCHA in {{ captcha-full-name }}](../../../smartcaptcha/operations/create-captcha.md).
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 ### Building a secure pipeline {#pipeline-recommendations}
 
@@ -82,6 +84,8 @@ When creating a new [registry](../../../container-registry/concepts/registry.md)
 
 {% include [scan-docker-upload](scan-docker-upload-test.md) %}
 
+{% include [check-security-deck](../check-security-deck.md) %}
+
 #### 6.4 Docker images stored in {{ container-registry-name }} are regularly scanned {#periodic-scan}
 
 {% include [scan-docker-periodic](scan-docker-periodic-description.md) %}
@@ -91,6 +95,8 @@ When creating a new [registry](../../../container-registry/concepts/registry.md)
 | APPSEC3 | High |
 
 {% include [scan-docker-periodic](scan-docker-periodic-test.md) %}
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 6.5 Container images used in the production environment have the last scan date of one week ago or less {#last-scan-date}
 
@@ -121,6 +127,8 @@ Checking Docker images used in production environments with the last scan date n
   ```
 
 {% endlist %}
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 6.6 Attestations are used when building artifacts {#provenance-attestation}
 
@@ -222,6 +230,8 @@ In a nutshell, the service checks the HTTP requests sent to the protected resour
 
 [Creating a security profile and connecting it to a virtual host of an L7 load balancer](../../../smartwebsecurity/quickstart.md).
 
+{% include [check-security-deck](../check-security-deck.md) %}
+
 #### 6.11 A web application firewall is used {#use-waf}
 
 To mitigate risks associated with web attacks, we recommend using the {{ sws-full-name }} web application firewall (WAF). A web application firewall analyzes HTTP requests to a web app according to pre-configured rules. Based on the analysis results, certain [actions](../../../smartwebsecurity/concepts/rules.md#rule-action) are applied to HTTP requests.
@@ -246,6 +256,8 @@ You can manage the web application firewall using a [WAF profile](../../../smart
 
 [Creating a WAF profile and connecting it to a security profile in {{ sws-name }}](../../../smartwebsecurity/quickstart.md#waf).
 
+{% include [check-security-deck](../check-security-deck.md) %}
+
 #### 6.12 Advanced Rate Limiter is used {#use-arl}
 
 [Advanced Rate Limiter (ARL)](../../../smartwebsecurity/concepts/arl.md) is a {{ sws-full-name }} module used to monitor and limit web app loads. It allows you to set a limit on the number of HTTP requests over a certain period of time. All requests above the limit will get blocked. You can set a single limit for all traffic or configure specific limits to segment requests by certain parameters. For the purpose of limits, you can count requests one by one or group them together based on specified property.
@@ -269,6 +281,8 @@ You need to connect your ARL profile to the [security profile](../../../smartweb
 **Guides and solutions to use**:
 
 [Creating an ARL profile and connecting it to a security profile in {{ sws-name }}](../../../smartwebsecurity/quickstart.md#arl).
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 6.13 Approval rules are configured {#setup-code-review}
 

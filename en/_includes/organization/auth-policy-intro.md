@@ -6,4 +6,4 @@ In {{ org-full-name }}, [authentication policies](../../organization/concepts/au
 
 [*user_accounts]: {{ yandex-cloud }} uses Yandex accounts as well as federated and local user accounts. For more information, see [{#T}](../../iam/concepts/users/accounts.md).
 
-[*organization]: An organization is the highest resource in the {{ yandex-cloud }} resource model hierarchy that consolidates the resources of all other services. It is also used for user management as well as authentication and authorization management. For more information, see [{#T}](../../organization/concepts/organization.md).
+[*organization]: {% include [organization-definition](../../_popups/identity-hub/organization-definition.md) %}

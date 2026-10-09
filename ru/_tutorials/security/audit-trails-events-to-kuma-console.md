@@ -412,7 +412,7 @@
 
       {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
 
-      1. Убедитесь, что в поле **{{ ui-key.yacloud.audit-trails.title_kms-key }}** указан ключ шифрования `kuma-key`. Если ключ шифрования не задан, нажмите **{{ ui-key.yacloud.audit-trails.action_add-bucket-key }}** и выберите этот ключ.
+      1. Убедитесь, что в поле **{{ ui-key.yacloud.audit-trails.title_kms-key }}** указан ключ шифрования `kuma-key`. Если ключ шифрования не задан, нажмите **{{ ui-key.yacloud.audit-trails.button_create-encryption-key }}** и выберите этот ключ.
 
   1. В блоке **{{ ui-key.yacloud.audit-trails.label_control-plane-collection-new }}**:
 

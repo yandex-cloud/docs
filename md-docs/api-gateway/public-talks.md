@@ -90,13 +90,6 @@
 * Serverless Containers и другие новинки serverless, 2021 — Видео на [YouTube](https://youtu.be/cwi8hvYSDFI) и [Яндекс](https://runtime.strm.yandex.ru/player/video/vplvfleteamx53wtdmhr).
 * <code><b><small>Внешний ресурс</small></b></code> Как использовать Puppeteer в контейнере Serverless Containers, 2025 — [Статья](https://nikolaymatrosov.ru/2025-02-01-Puppeteer-in-Yandex-Cloud-Serverless-container).
 
-## Yandex Workflows {#workflows}
-
-* No-code и low-code-разработка без кода и программирования, 2026 — [Статья](https://yandex.cloud/ru/blog/lowcode-nocode).
-* Создание надежных рабочих процессов с Yandex Workflows, 2025 — Видео на [YouTube](https://youtube.com/live/pdH6cHRzJtc) и [Яндекс](https://runtime.strm.yandex.ru/player/episode/vpleszm5yapipi4cqmkk).
-* Визуальный конструктор Yandex Workflows: оркестрация процессов без написания кода, 2025 — [Статья](https://yandex.cloud/ru/blog/posts/2025/03/yandex-workflows).
-* Бессерверные интеграции: LowCode и LowOps на практике, 2024 — Видео на [YouTube](https://youtu.be/BLlmaHx_Mu0) и [Яндекс](https://runtime.strm.yandex.ru/player/video/vplv5rf75k4fz5cc763n).
-
 ## Примеры коммерческого применения бессерверных вычислений {#serverless-ecom}
 
 * Первый Бит. Бессерверные технологии для автоматических производственных линий, 2025 — Видео на [YouTube](https://youtu.be/4qGrj5k9kKc) и [Яндекс](https://runtime.strm.yandex.ru/player/video/vplvmbin6nti7zjtgzfg).

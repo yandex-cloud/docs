@@ -20,6 +20,7 @@ Yandex Object Storage control tool
 * [cli buckets](cli_buckets.md)	 — Buckets management
 * [cli completion](cli_completion.md)	 — Generate the autocompletion script for the specified shell
 * [cli config](cli_config.md)	 — Configuration actions
+* [cli license](cli_license.md)	 — Manage the cluster license
 * [cli login](cli_login.md)	 — authentication actions
 * [cli ops](cli_ops.md)	 — Cluster maintenance operations
 * [cli service-accounts](cli_service-accounts.md)	 — Manage service accounts

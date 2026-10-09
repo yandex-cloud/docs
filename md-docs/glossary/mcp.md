@@ -144,7 +144,6 @@ Yandex Cloud предлагает следующие сервисы, котор�
 
 * [Yandex AI Studio](https://aistudio.yandex.ru/) предоставляет возможность подключать к своим корпоративным системам внешние MCP-серверы или создавать собственные, чтобы переложить на AI-агента часть бизнес-процессов и рабочих сценариев. Подробнее в [документации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/mcp-hub/index).
 * [Yandex Managed Service for YDB](https://yandex.cloud/ru/services/ydb/) поддерживает управление базами данных с помощью [LLM](llm.md), подключенных через MCP-сервер. Модель будет самостоятельно анализировать данные, предлагать решения по оптимизации и находить ошибки. Подробнее в [документации](../ydb/index.md).
-* [Yandex Serverless Integrations](https://yandex.cloud/ru/services/serverless-integrations/) позволяет с помощью MCP-сервера интегрировать в рабочие процессы Yandex Workflows AI-агента. Агент сможет автоматизировать процессы и взаимодействовать с внешними инструментами. Подробнее в [документации](../serverless-integrations/index.md).
 
 Yandex Cloud также предоставляет [собственные MCP-серверы](https://sourcecraft.dev/portal/docs/ru/code-assistant/operations/agent/mcp/recommended-mcp-servers), с которыми можно работать в [SourceCraft Code Assistant](https://yandex.cloud/ru/services/code-assistant/).
 

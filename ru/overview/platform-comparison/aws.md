@@ -8,7 +8,7 @@ description: В этой статье сопоставляются сервис�
 
 | Amazon Web Services | {{ yandex-cloud }} |
 |----|----|
-| Amazon API Gateway | [{{ si-full-name }}: {{ api-gw-name }}](../../api-gateway/) |
+| Amazon API Gateway | [{{ api-gw-name }}](../../api-gateway/) |
 | Amazon Athena | [{{ yq-full-name }}](../../query/) |
 | Amazon Aurora PostgreSQL Limitless Database | [{{ mspqr-full-name }}](../../managed-spqr/)
 | Amazon CloudFront | [{{ cdn-full-name }}](../../cdn/) |
@@ -26,7 +26,6 @@ description: В этой статье сопоставляются сервис�
 | Amazon EMR | [{{ dataproc-full-name }}](../../data-proc/) |
 | Amazon EMR Trino | [{{ mtr-full-name }}](../../managed-trino/) |
 | Amazon EMR Spark | [{{ msp-full-name }}](../../managed-spark/) |
-| Amazon EventBridge | [{{ si-full-name }}: {{ er-name }}](../../serverless-integrations/quickstart/eventrouter.md) |
 | Amazon Interactive Video Service | [{{ video-full-name }}](../../video/) |
 | Amazon Kinesis Data Streams | [{{ yds-full-name }}](../../data-streams/) |
 | Amazon Managed Workflows for Apache Airflow | [{{ maf-full-name }}](../../managed-airflow/) |

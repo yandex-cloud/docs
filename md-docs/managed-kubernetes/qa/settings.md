@@ -18,6 +18,10 @@
 
 * [Что делать, если после обновления Kubernetes не подключаются тома?](#pvc)
 
+* [Как использовать сертификаты из Certificate Manager в приложениях в Managed Service for Kubernetes?](#application-certificate)
+
+* [Как задать часовой пояс для приложения или CronJob?](#timezone)
+
 #### Что делать, если часть моих данных потеряется при обновлении версии Kubernetes? {#backups-update}
 
 Данные не потеряются: перед [обновлением версии Kubernetes](../concepts/release-channels-and-updates.md) Managed Service for Kubernetes подготавливаем для них резервные копии. Вы можете самостоятельно настроить [резервное копирование кластера в Yandex Object Storage](../tutorials/kubernetes-backup.md). Также мы рекомендуем выполнять резервное копирование баз данных средствами самого приложения.
@@ -65,4 +69,20 @@ AttachVolume.Attach failed for volume "pvc":
 Attach timeout for volume yadp-k8s-volumes/pvc
 ```
 
-Обновите [драйвер s3-CSI](https://github.com/ctrox/csi-s3) до актуальной версии.
+Проверьте установленную версию и настройки [CSI для Object Storage](../operations/volumes/s3-csi-integration.md). Используйте [поддерживаемый драйвер](https://github.com/yandex-cloud/k8s-csi-s3) и инструкции по его установке. Обновление отдельного компонента `csi-attacher` не является универсальным решением ошибки.
+
+Если проблема сохраняется, [создайте запрос в техническую поддержку](https://center.yandex.cloud/support). Укажите идентификатор кластера, время возникновения ошибки и результаты диагностики.
+
+#### Как использовать сертификаты из Certificate Manager в приложениях в Managed Service for Kubernetes? {#application-certificate}
+
+Способ подключения зависит от приложения и контроллера, который завершает TLS-соединение. Для [Ingress-контроллера Application Load Balancer](../alb-ref/ingress.md) можно указать сертификат из Certificate Manager в конфигурации Ingress.
+
+Если приложению нужен сертификат в виде файла, [выгрузите сертификат](../../certificate-manager/operations/managed/cert-get-content.md) из Certificate Manager и настройте его использование в приложении. Однократная выгрузка не обеспечивает обновление файла в приложении при перевыпуске сертификата: обновление нужно настроить отдельно.
+
+#### Как задать часовой пояс для приложения или CronJob? {#timezone}
+
+Для приложения настройте преобразование времени в нужный часовой пояс средствами самого приложения.
+
+Для CronJob укажите часовой пояс в поле `.spec.timeZone`, например `Europe/Moscow`. Если поле не задано, расписание интерпретируется в часовом поясе kube-controller-manager. Подробнее о [часовых поясах CronJob](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#time-zones).
+
+Если для вашего сценария требуется изменить часовой пояс самого узла, [создайте запрос в техническую поддержку](https://center.yandex.cloud/support). Укажите идентификатор кластера и опишите сценарий.

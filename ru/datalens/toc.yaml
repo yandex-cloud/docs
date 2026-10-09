@@ -1756,6 +1756,26 @@ items:
       - name: Internal server error
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG.md
+      - name: Подключение уже мигрировано
+        hidden: true
+        href: >-
+          /troubleshooting/errors/ERR-DS_API-CONNECTION-MIGRATION-ALREADY_MIGRATED.md
+      - name: Недостаточно прав для создания подключения
+        hidden: true
+        href: >-
+          /troubleshooting/errors/ERR-DS_API-CONNECTION-MIGRATION-CONNMAN-CREATOR_ROLE_REQUIRED.md
+      - name: Нет доступа к подключению {{ connection-manager-name }}
+        hidden: true
+        href: >-
+          /troubleshooting/errors/ERR-DS_API-CONNECTION-MIGRATION-CONNMAN-INSUFFICIENT_USE_PERMISSION.md
+      - name: Не удалось подобрать подключение {{ connection-manager-name }}
+        hidden: true
+        href: >-
+          /troubleshooting/errors/ERR-DS_API-CONNECTION-MIGRATION-NO_MATCHING_CONNECTION.md
+      - name: Миграция не поддерживается
+        hidden: true
+        href: >-
+          /troubleshooting/errors/ERR-DS_API-CONNECTION-MIGRATION-NOT_SUPPORTED.md
       - name: Internal server error
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DASHSQL-PARAMETER.md

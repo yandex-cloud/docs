@@ -283,6 +283,26 @@ description: В статье приведен полный справочник 
 
 {% include [serverless-mcpGateways-admin](../_roles/serverless/mcpGateways/admin.md) %}
 
+#### serverless.workflows.auditor {#serverless-workflows-auditor}
+
+{% include [serverless.workflows.auditor](../_roles/serverless/workflows/auditor.md) %}
+
+#### serverless.workflows.viewer {#serverless-workflows-viewer}
+
+{% include [serverless.workflows.viewer](../_roles/serverless/workflows/viewer.md) %}
+
+#### serverless.workflows.executor {#serverless-workflows-executor}
+
+{% include [serverless.workflows.executor](../_roles/serverless/workflows/executor.md) %}
+
+#### serverless.workflows.editor {#serverless-workflows-editor}
+
+{% include [serverless.workflows.editor](../_roles/serverless/workflows/editor.md) %}
+
+#### serverless.workflows.admin {#serverless-workflows-admin}
+
+{% include [serverless.workflows.admin](../_roles/serverless/workflows/admin.md) %}
+
 Подробнее в [Управление доступом в {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/security/index).
 
 
@@ -2901,57 +2921,6 @@ description: В статье приведен полный справочник 
 {% include [serverless.containers.invoker](../_roles/serverless/containers/invoker.md) %}
 
 Подробнее в [{#T}](../serverless-containers/security/index.md).
-
-
-## {{ si-full-name }} {#serverless-integrations-roles}
-
-### Сервисные роли {{ er-full-name }} {#eventrouter-roles}
-
-#### serverless.eventrouter.auditor {#serverless-eventrouter-auditor}
-
-{% include [serverless.eventrouter.auditor](../_roles/serverless/eventrouter/auditor.md) %}
-
-#### serverless.eventrouter.viewer {#serverless-eventrouter-viewer}
-
-{% include [serverless.eventrouter.viewer](../_roles/serverless/eventrouter/viewer.md) %}
-
-#### serverless.eventrouter.supplier {#serverless-eventrouter-supplier}
-
-{% include [serverless.eventrouter.supplier](../_roles/serverless/eventrouter/supplier.md) %}
-
-#### serverless.eventrouter.editor {#serverless-eventrouter-editor}
-
-{% include [serverless.eventrouter.editor](../_roles/serverless/eventrouter/editor.md) %}
-
-#### serverless.eventrouter.admin {#serverless-eventrouter-admin}
-
-{% include [serverless.eventrouter.admin](../_roles/serverless/eventrouter/admin.md) %}
-
-Подробнее в [Управление доступом в {{ er-name }}](../serverless-integrations/security/eventrouter.md).
-
-### Сервисные роли {{ sw-full-name }} {#workflows-roles}
-
-#### serverless.workflows.auditor {#serverless-workflows-auditor}
-
-{% include [serverless.workflows.auditor](../_roles/serverless/workflows/auditor.md) %}
-
-#### serverless.workflows.viewer {#serverless-workflows-viewer}
-
-{% include [serverless.workflows.viewer](../_roles/serverless/workflows/viewer.md) %}
-
-#### serverless.workflows.executor {#serverless-workflows-executor}
-
-{% include [serverless.workflows.executor](../_roles/serverless/workflows/executor.md) %}
-
-#### serverless.workflows.editor {#serverless-workflows-editor}
-
-{% include [serverless.workflows.editor](../_roles/serverless/workflows/editor.md) %}
-
-#### serverless.workflows.admin {#serverless-workflows-admin}
-
-{% include [serverless.workflows.admin](../_roles/serverless/workflows/admin.md) %}
-
-Подробнее в [Управление доступом в {{ sw-name }}]({{ link-docs-ai }}ai-studio/security/index#workflows-roles).
 
 
 ## {{ yandex-siem-full-name }} {#yandex-siem-roles}

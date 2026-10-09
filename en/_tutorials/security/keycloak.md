@@ -92,13 +92,13 @@ If you already have an active {{ keycloak }} server, check the {{ keycloak }} se
       1. In the **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** field, enter a link in this format:
 
           ```text
-          http://<{{ keycloak }}>_IP_or_URL:8080/realms/master
+          http://<{{ keycloak }}_IP_or_URL>:8080/realms/master
           ```
 
       1. In the **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** field, enter a link in this format:
 
           ```text
-          http://<{{ keycloak }}>_IP_or_URL:8080/realms/master/protocol/saml
+          http://<{{ keycloak }}_IP_or_URL>:8080/realms/master/protocol/saml
           ```
 
           {% include [ssourl_protocol](../../_includes/organization/ssourl_protocol.md) %}
@@ -331,7 +331,7 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
       Where:
       * `folder_id`: Folder the role is assigned for.
 
-      For more information, see the descriptions of the [yandex_organizationmanager_group_mapping]({{ tf-provider-resources-link }}/organizationmanager_group_mapping) and [yandex_organizationmanager_group_mapping_item]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item) resources in the {{ TF }} provider guides.
+      For more information, see [yandex_organizationmanager_group_mapping]({{ tf-provider-resources-link }}/organizationmanager_group_mapping) and [yandex_organizationmanager_group_mapping_item]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item) in the {{ TF }} provider guides.
 
   1. Create the resources:
 

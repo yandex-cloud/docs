@@ -57,7 +57,6 @@ Yandex MetaData Hub — [Connection Manager](../../metadata-hub/concepts/connect
 Yandex Security Deck — [Контроль данных (DSPM)](../../security-deck/concepts/dspm.md) | `dspm`
 [Yandex WebSQL](../../websql/index.md) | `websql`
 [Yandex Cloud Registry](../../cloud-registry/index.md) | `cloud-registry`
-Yandex Serverless Integrations — [EventRouter](../../serverless-integrations/concepts/index.md#eventrouter) | `serverless-eventrouter`
 [SourceCraft](https://sourcecraft.dev/portal/docs/ru) | `src-integration`
 
 В будущем у администраторов облака появится возможность управлять доступами всех сервисов, требующих прав на действия с ресурсами в облаке Yandex Cloud. С помощью [CLI](../../cli/cli-ref/iam/cli-ref/service-control/list.md) вы можете [получить](../operations/service-control/list-get.md#list) актуальный список сервисов, доступом которых можно управлять.

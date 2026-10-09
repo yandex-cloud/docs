@@ -38,6 +38,12 @@ Make sure that your [clouds](../../../resource-manager/concepts/resources-hierar
 | --- | --- |
 | NET1 | High |
 
+{% note info %}
+
+Automated verification guarantees security only if an explicitly assigned security group is present on the object's network interface. You cannot objectively verify the use of BYOI (NGFW disk images) using the platform tools; therefore, the responsibility for their routing lies with the administrator.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
@@ -48,48 +54,28 @@ Make sure that your [clouds](../../../resource-manager/concepts/resources-hierar
   1. In the object settings, find the **Security group** parameter and make sure that at least one security group is assigned.
   1. If the parameters of each object with security group support have at least one group set, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
-  Check whether the NGFW is used instead of security groups:
-  1. Open the {{ yandex-cloud }} management console in your browser.
-  1. Go to each cloud and folder and open all VM [disks](../../../compute/concepts/vm.md) one by one.
-  1. In the disk settings, find the **{{ marketplace-short-name }}** product parameter.
-  1. If the disk's **{{ marketplace-short-name }} product** parameters have one of the NGFW product names specified: Check Point CloudGuard IaaS — Firewall & Threat Prevention PAYG or UserGate NGFW, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
-
 - Performing a check via the CLI {#cli}
 
-  1. See what organizations are available to you and write down the `ID` you need:
+  1. View the organizations available to you and copy the required `ID`:
 
      ```bash
      yc organization-manager organization list
      ```
 
-  1. Run the command below to search for cloud objects with no security group:
-
-     ```bash
-     export ORG_ID=<Organization ID>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
-     do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc compute instance get --id=$VM_ID --format=json | jq -r '. | select(.network_interfaces[].security_group_ids | not)' | jq -r '.id'
-     done;
-     done;
-     done
-     ```
-
-  1. If an empty string is output, the recommendation is fulfilled. If you get the cloud resource `ID` in the output, proceed to "Guides and solutions to use".
-
-  Check whether the NGFW is used instead of a security group:
-  1. Run the command to search for the NGFW in the cloud. By default, the command searches for Checkpoint or Usergate. If you use a custom image, specify it.
+  1. Run the command to find all VMs without associated security groups:
 
      ```bash
      export ORG_ID=<organization ID>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
-     do for DISK_ID in $(yc compute disk list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc compute disk get --id=$DISK_ID --format=json | jq -r '. | select(.product_ids[0]=="f2ecl4ak62mjbl13qj5f" or .product_ids[0]=="f2eqc5sac8o5oic7m99k")' | jq -r '.id'
-     done;
+     do echo "VMs without SG in FOLDER_ID " $FOLDER_ID ":" && yc compute instance list --folder-id=$FOLDER_ID --format=json |
+     jq -r '.[] | select( (.network_interfaces[].security_group_ids | length) == 0 ) | .id' \
+     && echo "-----"
      done;
      done
      ```
 
-  1. If you get the `ID` of a VM with the NGFW in the output, the recommendation is fulfilled. If you get an empty string, proceed to "Guides and solutions to use".
+  1. If the result is empty or does not contain virtual machine IDs, the check is passed. If VMs without associated security groups are found, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -100,7 +86,9 @@ Make sure that your [clouds](../../../resource-manager/concepts/resources-hierar
 * Refer to [this guide](https://docs.google.com/document/d/1yYwHorzkwXwIUGeG3n_K6Zo-07BVYowZJL7q2bAgVR8/edit?usp=sharing) on using the UserGate NGFW in the cloud.
 * Use NGFW in [active-passive](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/network-sec/checkpoint-2VM_active-active/README.md) mode.
 
-#### 2.2 In {{ vpc-name }}, a security group is created; the default security group is not used {#vpc-sg}
+{% include [check-security-deck](../check-security-deck.md) %}
+
+#### 2.2 A security group is created in {{ vpc-name }}; the default security group is not used {#vpc-sg}
 
 A *security group* (SG) is a resource created at the [cloud network](../../../vpc/concepts/network.md#network) level. Once created, a [security group](../../../vpc/concepts/security-groups.md) can be used in {{ yandex-cloud }} [services](../../../vpc/concepts/security-groups.md#security-groups-apply) to control network access to an object it applies to.
 
@@ -147,21 +135,30 @@ You can combine security groups by assigning up to five groups per object for mo
   1. Run the command below to search for folders with no security group:
 
      ```bash
-     export ORG_ID=<organization ID>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
-     do echo "SG_ID: " && yc vpc security-group list --folder-id=$FOLDER_ID --format=json | jq -r '.[] | select(.id)' | jq -r '.id' && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
-     done;
+     export ORG_ID=<organization_ID>
+     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id'); do
+       for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); do
+         echo "Checking FOLDER_ID " $FOLDER_ID ":"
+         for NET_ID in $(yc vpc network list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do
+           USER_SGS=$(yc vpc security-group list --folder-id=$FOLDER_ID --format=json | jq -r "[.[] | select(.network_id == \"$NET_ID\" and .default_for_network != true)] | length")
+           if [ "$USER_SGS" -eq "0" ]; then
+             echo "Network $NET_ID has NO custom security groups!"
+           fi
+         done
+         echo "-----"
+       done
      done
      ```
 
-  1. If each `SG_ID` combination has the `ID` specified in front of the `FOLDER_ID` of the folder it resides in, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
+  1. If the script does not output any networks with missing security groups, the check is passed. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
 **Guides and solutions to use**:
 
 Create a security group in each {{ vpc-name }} with restricted access rules, so that it can be assigned to cloud objects.
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 2.3 Security groups have no access rule that is too broad {#access-rule}
 
@@ -203,23 +200,35 @@ Make sure to only allow access through the ports that your application requires 
   1. Find security groups with a dangerous access rule:
 
      ```bash
-     export ORG_ID=<organization ID>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
-     do echo "SG_ID: " && yc vpc security-group list --folder-id=$FOLDER_ID \
-     --format=json | jq -r '.[] | select(.rules[].direction=="INGRESS" and .rules[].ports.to_port=="65535" and .rules[].cidr_blocks.v4_cidr_blocks[]=="0.0.0.0/0")' | jq -r '.id' \
-     && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
-     done;
+     export ORG_ID=<organization_ID>
+     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id'); do
+       for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); do
+         echo "Checking SG in FOLDER_ID " $FOLDER_ID ":" && yc vpc security-group list --folder-id=$FOLDER_ID --format=json | \
+         jq -r 'map(select(
+           .rules != null and (
+             .rules[] | select(
+               .direction == "INGRESS" and
+               (.ports == null or .ports.to_port == "65535" or .ports.to_port == null) and
+               .cidr_blocks != null and
+               .cidr_blocks.v4_cidr_blocks != null and
+               (.cidr_blocks.v4_cidr_blocks | index("0.0.0.0/0") != null)
+             )
+           )
+         )) | .[].id' \
+         && echo "-----"
+       done
      done
      ```
 
-  1. If an empty value is set in `SG_ID` next to `FOLDER_ID`, the recommendation is fulfilled. If you see a non-empty `SG_ID`, proceed to "Guides and solutions to use".
+  1. If an empty string is output, the recommendation is fulfilled. If you see a list of security group IDs, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
 **Guides and solutions to use**:
 
 Delete the dangerous rule in each security group or edit it by specifying trusted IPs.
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 2.4 Access through control ports is only allowed for trusted IPs {#trusted-ip}
 
@@ -253,17 +262,17 @@ We recommend that you only allow access to your cloud infrastructure through con
   1. Run the command below to search for security groups with dangerous access rules:
 
      ```bash
-     export ORG_ID=<organization ID>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
-     do echo "SG_ID: " && yc vpc security-group list --folder-id=$FOLDER_ID \
-     --format=json | jq -r '.[] | select(.rules[].direction=="INGRESS" and (.rules[].ports.to_port=="22" or .rules[].ports.to_port=="3389" or .rules[].ports.to_port=="21") and .rules[].cidr_blocks.v4_cidr_blocks[]=="0.0.0.0/0")' | jq -r '.id' \
-     && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
-     done;
+     export ORG_ID=<organization_ID>
+     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id'); do
+       for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); do
+         echo "SG_ID: " && yc vpc security-group list --folder-id=$FOLDER_ID \
+         --format=json | jq -r '.[] | select(.rules[].direction=="INGRESS" and (.rules[].ports.to_port=="22" or .rules[].ports.to_port=="3389" or .rules[].ports.to_port=="21") and .rules[].cidr_blocks.v4_cidr_blocks[]=="0.0.0.0/0")' | jq -r '.id' \
+         && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
+       done
      done
      ```
 
-  1. If an empty value is set in `SG_ID` next to `FOLDER_ID`, the recommendation is fulfilled. If the `SG_ID` is not empty, proceed to "Guides and solutions to use".
+  1. If there is an empty value for `SG_ID` next to `FOLDER_ID`, the recommendation is fulfilled. If the `SG_ID` is not empty, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -271,92 +280,108 @@ We recommend that you only allow access to your cloud infrastructure through con
 
 [Delete](../../../cli/cli-ref/vpc/cli-ref/security-group/index.md) the dangerous rule in each security group or specify trusted IPs.
 
+{% include [check-security-deck](../check-security-deck.md) %}
+
 #### 2.5 Protection against DDoS attacks is enabled {#ddos-protection}
 
-{{ yandex-cloud }} provides basic and advanced DDoS protection as well as application level protection with {{ sws-full-name }}. Make sure to use at least basic protection.
+You can implement DDoS protection in {{ yandex-cloud }} on two levels:
 
-* [{{ sws-full-name }}](../../../smartwebsecurity/quickstart.md) is a service for protection against DDoS attacks and bots at application level L7 of the [OSI model](https://en.wikipedia.org/wiki/OSI_model). {{ sws-name }} [connects](../../../smartwebsecurity/quickstart.md) to {{ alb-full-name }}. In a nutshell, the service checks the HTTP requests sent to the protected resource against the [rules](../../../smartwebsecurity/concepts/rules.md) configured in the [security profile](../../../smartwebsecurity/concepts/profiles.md). Depending on the results of the check, the requests are forwarded to the protected resource, blocked, or sent to [{{ captcha-full-name }}](../../../smartcaptcha/index.yaml) for additional verification.
-* [{{ ddos-protection-full-name }}](../../../vpc/ddos-protection/index.md) is a {{ vpc-name }} component that safeguards cloud resources from DDoS attacks. {{ ddos-protection-name }} is provided in partnership with Curator. You can enable it yourself for an external [IP address](../../../vpc/concepts/address.md) through cloud administration tools. Supported up to OSI L4.
-* [Advanced](/services/ddos-protection) DDoS protection is available at OSI layers 3, 4, and 7. You can also track load and attack metrics and enable Solidwall WAF in your Curator account. To enable advanced protection, contact your manager or technical support.
+1. **Basic DDoS protection (L3/L4)**
+   To protect public IP addresses from attacks at the network and transport layers, use the built-in [DDoS protection mechanism](../../../vpc/ddos-protection/index.md) that operates in conjunction with [Qrator Labs](https://qrator.net/ru/). You can enable this protection for external IP addresses of VMs and network load balancers.
+1. **Application-layer (L7) protection**
+   Use {{ sws-full-name }} to protect web applications (WAF) and filter traffic at L7. In {{ sws-name }}, create a security profile, connect it to the load balancer ({{ alb-name }}), and configure the required rules. You can find the setup guide in [{#T}](../../../smartwebsecurity/operations/host-connect.md).
 
 | Requirement ID | Severity |
 | --- | --- |
-| NET5 | High |
+| NET5 | Informational |
+
+{% note info %}
+
+Activating the Qrator protection on public IP addresses may alter your traffic routing (by causing asymmetric routing). Lack of L3/L4 protection is not always a violation in complex network topologies. This check gathers information about unprotected IP addresses and SWS profiles for an informed decision by the administrator.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
 
-  * To make sure you are using DDoS protection at the application level:
+  * Basic protection (L3/L4) check for IP addresses:
 
-      1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to check the {{ sws-name }} status.
-      1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-      1. In the left-hand panel, select ![shield-check](../../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-      1. Make sure you have security profiles created.
-      1. If you have security profiles, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
+    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+    1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+    1. In the left-hand panel, select **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+    1. Check the status in the **DDoS protection** column. Assess how critical are the addresses where the check is disabled.
 
-  * To make sure you are using basic DDoS protection:
+  * L7 protection check (Smart Web Security):
 
-      1. In the [management console]({{ link-console-main }}), open all the created networks.
-      1. Go to **IP addresses**.
-      1. If all the public IP addresses have the **DDoS protection** column set to **Enabled**, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
-
-- Manual check {#manual}
-
-  Contact your account manager to make sure you have advanced DDoS protection activated. 
+    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to check the {{ sws-name }} status.
+    1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+    1. Make sure you have security profiles and they are connected to relevant web resources.
 
 - Performing a check via the CLI {#cli}
 
-  * To make sure you are using DDoS protection at the application level, run this command:
+  1. See what organizations are available to you and write down the `ID` you need:
 
       ```bash
-      yc smartwebsecurity security-profile list
+      yc organization-manager organization list
       ```
 
-      If the command returns information about the existing security profiles, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
+  1. Find external public IP addresses without basic protection (Qrator):
 
-  * To make sure you are using basic DDoS protection:
+     ```bash
+     export ORG_ID=<organization_ID>
+     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id'); do
+     for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); do
+     yc vpc address list --folder-id=$FOLDER_ID --format=json | jq -r 'map(select(
+     .external_ipv4_address != null and
+     (.external_ipv4_address.requirements == null or .external_ipv4_address.requirements.ddos_protection_provider != "qrator")
+     )) | .[].address'
+     done
+     done
+     ```
 
-      1. See what organizations are available to you and write down the `ID` you need:
+  1. Find SWS (L7) profiles:
 
-           ```bash
-           yc organization-manager organization list
-           ```
-
-      1. Run the command below to search for IP addresses with no DDOS protection:
-
-           ```bash
-           export ORG_ID=<organization ID>
-           for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-           do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
-           do echo "Address_ID: " && yc vpc address list --folder-id=$FOLDER_ID \
-           --format=json | jq -r '.[] | select(.external_ipv4_address.requirements.ddos_protection_provider=="qrator" | not)' | jq -r '.id' \
-           && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
-           done;
-           done
-           ```
-
-      1. If an empty value is set in `Address_ID` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
+     ```bash
+     export ORG_ID=<organization_ID>
+     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id'); do
+     for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); do
+     yc smartwebsecurity security-profile list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'
+     done
+     done
+     ```
 
 {% endlist %}
 
 **Guides and solutions to use**:
 
-* [How to create a security profile in {{ sws-name }}](../../../smartwebsecurity/operations/profile-create.md).
-* All [materials](../../../vpc/ddos-protection/index.md) about DDoS protection in {{ yandex-cloud }}.
+* Considering the impact the Qrator protection has on asymmetric routing, analyze whether you need to enable DDoS protection on public IP addresses in your project. Optionally, change the {{ vpc-name }} host settings.
+* To enable L7 protection, use {{ sws-name }}.
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 2.6 Protected remote access is used {#secure-access}
 
-To enable administrators to establish remote connections to your cloud resources, use one of the following:
-* Site-to-site VPN between a remote site, e.g., your office, and a cloud. As a remote access gateway, use a VM featuring a site-to-site VPN based on an [image]({{ link-cloud-marketplace }}?categories=network) from {{ marketplace-name }}.
+To ensure secure remote connection to cloud resources, use modern access management mechanisms and secure communication channels:
 
-  **Setup options**:
+* **OS-level access (OS Login)**
+
+  To access your virtual machines and Kubernetes nodes via SSH, stop using static SSH keys. Use the [OS Login](../../../organization/concepts/os-login.md) mechanism which links Linux accounts with {{ yandex-cloud }} organization users. This allows you to use short-lived SSH certificates, centralized access management via IAM roles, and automatically revoke access if the user is blocked.
+
+* **Secure network channels (VPN and Interconnect)**
+
+* **Site-to-site VPN** between a remote site, e.g., your office, and the cloud. As a remote access gateway, use a VM featuring a site-to-site VPN based on an [image from {{ marketplace-name }}]({{ link-cloud-marketplace }}?categories=network).
+
+  Setup options:
+
   * [Creating an IPsec VPN tunnel using the strongSwan](../../../tutorials/routing/ipsec/index.md).
   * [Creating a site-to-site VPN connection to {{ yandex-cloud }} using {{ TF }}](https://github.com/yandex-cloud-examples/yc-site-to-site-vpn-with-ipsec-strongswan).
-  * Client VPN between remote devices and {{ yandex-cloud }}. As a remote access gateway, use a VM featuring a client VPN based on an [image]({{ link-cloud-marketplace }}?categories=network) from {{ marketplace-name }}.
+
+* **Client VPN** between remote devices and {{ yandex-cloud }}. As a remote access gateway, use a VM featuring a Client VPN based on an [image from {{ marketplace-name }}]({{ link-cloud-marketplace }}?categories=network).
 
   See the guide in [Creating a VPN connection using OpenVPN](../../../tutorials/routing/openvpn.md). You can also use certified cryptographic information protection tools.
-* Dedicated private connection between a remote site and {{ yandex-cloud }} using {{ interconnect-name }}.
+
+* **Dedicated private connection** between a remote site and {{ yandex-cloud }} via [{{ interconnect-name }}](../../../interconnect/).
 
 To access the infrastructure using control protocols (such as SSH or RDP), create a bastion VM. You can do this using a free [Teleport](https://goteleport.com/) solution. Access to the bastion VM or VPN gateway from the internet must be restricted.
 
@@ -372,15 +397,47 @@ To access web services deployed in the cloud, use TLS version 1.2 or higher.
 
 - Performing a check in the management console {#console}
 
-  1. Open the {{ yandex-cloud }} console in your browser.
-  1. Open all created networks.
-  1. Go to the **Route tables** section.
+  **Checking if OS Login is on**:
+
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. In the left-hand panel, select ![shield](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.pages.oslogin.title }}**.
+  1. Make sure **{{ ui-key.yacloud_org.form.oslogin-settings.title_ssh-certificate-settings }}** is on.
+  1. [Go]({{ link-console-main }}/link/compute/instances) to the VM settings in {{ compute-short-name }} and make sure **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}** is on.
+
+  **Network access check (VPN/Gateways)**:
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the left-hand panel, select **{{ ui-key.yacloud.vpc.switch_route-tables }}**.
   1. If routes to remote sites' private networks through VMs with a VPN gateway are found, the recommendation is fulfilled.
   1. Check the VMs in each cloud for VPN gateways. In addition, check if their security groups have open ports for the VPN.
+
+- Performing a check via the CLI {#cli}
+
+  1. View the list of available organizations and copy the ID of the one you need:
+
+      ```bash
+      yc organization-manager organization list
+      ```
+
+  1. Run this command to check if OS Login is on at the organization level:
+
+      ```bash
+      yc organization-manager oslogin get-settings --organization-id <organization_ID> --format json | jq -r '.ssh_certificate_settings.enabled'
+      ```
+
+      If the command returns `true`, the OS Login functionality is enabled globally. If `false` or `null`, look up the guide.
 
 - Manual check {#manual}
 
   Contact your account manager to find out if you have {{ interconnect-name }} activated. If yes, check if remote access is used.
+
+{% endlist %}
+
+**Guides and solutions to use**:
+
+* Enable [access via OS Login](../../../organization/operations/os-login-access.md) at the organization level.
+* [Configure OS Login access](../../../compute/operations/vm-connect/os-login.md) on existing VMs (agent installation may be required).
 
 {% endlist %}
 
@@ -459,6 +516,12 @@ Regardless of which option you select for setting up outbound internet access, b
 
 - Performing a check via the CLI {#cli}
 
+  {% note info %}
+  
+  This check is of an inventory-taking nature. It outputs a lists of public VMs (one_to_one_nat) and NAT gateways (Egress NAT) for your information. The check is successful (PASS) if the administrator has analyzed the script output and confirmed that all public exit points are legitimate and justified.
+  
+  {% endnote %}
+
   1. See what organizations are available to you and write down the `ID` you need:
 
      ```bash
@@ -471,38 +534,27 @@ Regardless of which option you select for setting up outbound internet access, b
      export ORG_ID=<organization ID>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
-     do echo "VM_ID: " && yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[] | select(.network_interfaces[].primary_v4_address.one_to_one_nat.address)' | jq -r '.id' \
-     && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
+     do echo "VM_ID in FOLDER_ID " $FOLDER_ID ":" && yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[]
+     | select(.network_interfaces[].primary_v4_address.one_to_one_nat.address)' | jq -r '.id' \
+     && echo "-----"
      done;
      done
      ```
 
-  1. If an empty value is set in `VM_ID` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
+  1. If there is an empty value for `VM_ID` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to `Guides and solutions to use`.
   1. Run the command below to see if there is Egress NAT (NAT gateway):
 
      ```bash
      export ORG_ID=<organization ID>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
-     do echo "NAT_GW: " && yc vpc gateway list --folder-id=$FOLDER_ID --format=json | jq -r '.[] | select(.id)' | jq -r '.id' && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
+     do echo "NAT_GW in FOLDER_ID " $FOLDER_ID ":" && yc vpc gateway list --folder-id=$FOLDER_ID --format=json | jq -r '.[] |
+     select(.id)' | jq -r '.id' && echo "-----"
      done;
      done
      ```
 
   1. If an empty value is set in `NAT_GW` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to `Guides and solutions to use`.
-  1. Run the command below to see if there is a NAT instance:
-
-     ```bash
-     export ORG_ID=<organization ID>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
-     do for DISK_ID in $(yc compute disk list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc compute disk get --id=$DISK_ID --format=json | jq -r '. | select(.product_ids[0]=="fd8v7ru46kt3s4o5f0uo")' | jq -r '.id'
-     done;
-     done;
-     done
-     ```
-
-  1. If an empty string is output, the recommendation is fulfilled. If you see the NAT instance `ID`, proceed to "Guides and solutions to use".
 
 {% endlist %}
 

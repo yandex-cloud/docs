@@ -68,7 +68,7 @@
 
 - Audit Trails {#at}
 
-  События Audit Trails можно записывать в [бакет](../../storage/concepts/bucket.md) Object Storage, [лог-группу](../../logging/concepts/log-group.md) Cloud Logging, [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) Data Streams или [шину](../../serverless-integrations/concepts/eventrouter/bus.md) EventRouter. В этой инструкции настроим запись аудитных событий в лог-группу.
+  События Audit Trails можно записывать в [бакет](../../storage/concepts/bucket.md) Object Storage, [лог-группу](../../logging/concepts/log-group.md) Cloud Logging или [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) Data Streams. В этой инструкции настроим запись аудитных событий в лог-группу.
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится профиль Smart Web Security.
   1. [Перейдите](https://console.yandex.cloud/link/audit-trails) в сервис **Audit Trails**.

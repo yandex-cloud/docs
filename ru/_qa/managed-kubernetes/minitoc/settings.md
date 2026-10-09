@@ -13,3 +13,7 @@
 * [Можете ли вы установить Web UI Dashboard, Rook и другие инструменты?](#install-tools)
 
 * [Что делать, если после обновления {{ k8s }} не подключаются тома?](#pvc)
+
+* [Как использовать сертификаты из {{ certificate-manager-name }} в приложениях в {{ managed-k8s-name }}?](#application-certificate)
+
+* [Как задать часовой пояс для приложения или CronJob?](#timezone)

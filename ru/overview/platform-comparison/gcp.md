@@ -8,7 +8,7 @@ description: В этой статье сопоставляются сервис�
 
 | Google Cloud Platform | {{ yandex-cloud }} |
 |----|----|
-| API Gateway | [{{ si-full-name }}: {{ api-gw-name }}](../../api-gateway/) |
+| API Gateway | [{{ api-gw-name }}](../../api-gateway/) |
 | App Engine | [{{ cloud-apps-full-name }}](../../cloud-apps/) |
 | Artifact Registry | [{{ cloud-registry-full-name }}](../../cloud-registry/)<br/>[{{ container-registry-full-name }}](../../container-registry/)  |
 | Backup and DR Service | [{{ backup-full-name }}](../../backup/) |
@@ -50,7 +50,6 @@ description: В этой статье сопоставляются сервис�
 | Container Registry | [{{ container-registry-full-name }}](../../container-registry/) |
 | Database Migration Service,<br/>Migrate for Compute Engine | [{{ data-transfer-full-name }}](../../data-transfer/) |
 | Dataplex Universal Catalog | [{{ metadata-hub-full-name }}](../../metadata-hub/) |
-| Eventarc | [{{ si-full-name }}: {{ er-name }}](../../serverless-integrations/quickstart/eventrouter.md) |
 | External Application Load Balancer | [{{ alb-full-name }}](../../application-load-balancer/) |
 | Firebase Cloud Messaging | [{{ cns-full-name }}](../../notifications/) |
 | Google Distributed Cloud | [{{ stackland-full-name }}](../../stackland/) |

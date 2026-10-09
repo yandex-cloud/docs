@@ -15,3 +15,23 @@
 {% include [nodes-internet-access](../../_includes/managed-kubernetes/nodes-internet-access.md) %}
 
 {% include [nodes-internet-access-additional](../../_includes/managed-kubernetes/nodes-internet-access-additional.md) %}
+
+#### Как автоматически удаляются старые образы на узлах? {#image-garbage-collection}
+
+Неиспользуемые образы автоматически удаляет kubelet. Очистка запускается при достижении верхнего порога использования диска и продолжается до достижения нижнего порога. Пороги задаются параметрами `imageGCHighThresholdPercent` и `imageGCLowThresholdPercent` конфигурации kubelet.
+
+Не запускайте параллельно сторонние средства очистки образов: они могут нарушить работу kubelet. Подробнее о [сборке мусора в {{ k8s }}](https://kubernetes.io/docs/concepts/architecture/garbage-collection/#containers-images).
+
+Если места по-прежнему недостаточно, проверьте, чем занят диск: образами, журналами или данными приложений. Если проблема сохраняется, [создайте запрос в техническую поддержку]({{ link-console-support }}). Укажите идентификатор кластера, время возникновения ошибки и результаты диагностики.
+
+#### Как узнать размер эфемерного хранилища узлов? {#ephemeral-storage}
+
+Выполните команду:
+
+```bash
+kubectl get nodes -o custom-columns="NAME:.metadata.name,CAPACITY_EPHEM:.status.capacity.ephemeral-storage,ALLOCATABLE_EPHEM:.status.allocatable.ephemeral-storage"
+```
+
+`CAPACITY_EPHEM` — общий объем ресурса `ephemeral-storage` узла, а `ALLOCATABLE_EPHEM` — объем, доступный для выделения подам с учетом резервирования. Это не объем свободного места на диске в текущий момент.
+
+Подробнее о [резервировании ресурсов узла](../../managed-kubernetes/concepts/node-group/allocatable-resources.md) и [локальном эфемерном хранилище](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#local-ephemeral-storage).

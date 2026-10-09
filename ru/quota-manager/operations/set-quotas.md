@@ -45,7 +45,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите облако, в котором хотите посмотреть квоты.
   1. На панели справа выберите раздел **{{ ui-key.yacloud.iam.cloud.switch_quotas }}**.
-  1. Раскройте секцию **{{ ui-key.yacloud.iam.cloud.quotas.label_pending-requests-title }}**.
+  1. Раскройте секцию **{{ ui-key.yacloud_quotas.quotas.yq.streamingQuery.count }}**.
   1. Выберите нужный запрос и посмотрите ответы службы поддержки и операции с запросом.
 
 - CLI {#cli}
@@ -93,7 +93,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите облако, в котором хотите посмотреть квоты.
   1. На панели справа выберите раздел **{{ ui-key.yacloud.iam.cloud.switch_quotas }}**.
-  1. Раскройте секцию **{{ ui-key.yacloud.iam.cloud.quotas.label_pending-requests-title }}**.
+  1. Раскройте секцию **{{ ui-key.yacloud_quotas.quotas.yq.streamingQuery.count }}**.
   1. Выберите нужный запрос и нажмите кнопку **{{ ui-key.yacloud_components.helpfeedbackdialog.button_close }}**.
 
 - CLI {#cli}

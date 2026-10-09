@@ -15,6 +15,7 @@
 * [Управление резервными копиями](cluster-backups.md)
 * [Управление политиками резервного копирования](backup-retention-policies.md)
 * [Управление доступом к кластеру](cluster-access.md)
+* [Техническое обслуживание](cluster-maintenance.md)
 * [Удаление кластера](cluster-delete.md)
 
 ## Подключение {#connect}

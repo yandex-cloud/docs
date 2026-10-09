@@ -27,7 +27,7 @@ description: Из статьи вы узнаете, как добавить ви
 
 ## График {#graph}
 
-График позволяет отобразить изменение метрик во времени в графическом виде. Графики можно настроить на дашборде или добавить из раздела **Метрики**.
+График показывает изменение метрик во времени или агрегированные значения за выбранный период. Его можно создать на дашборде или добавить из раздела **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
 
 {% list tabs group=instructions %}
 
@@ -42,7 +42,7 @@ description: Из статьи вы узнаете, как добавить ви
 
 ### Параметры графика {#chart-parameters}
 
-Настройка графика на дашборде аналогична настройке графика в разделе **Метрики**.
+График на дашборде [настраивается так же](../../metrics/metric-explorer.md#set-graph), как в разделе **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**. Для сравнения агрегированных значений по категориям выберите тип [Столбцы](../../metrics/metric-explorer.md#bar-chart).
 
 Чтобы настроить график:
 
@@ -51,7 +51,7 @@ description: Из статьи вы узнаете, как добавить ви
 - Интерфейс {{ monium-name }} {#console}
 
   1. Рядом с графиком нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_monitoring.dashboard.dash.edit }}**.
-  1. На панели графика справа вверху нажмите ![image](../../../_assets/console-icons/gear.svg) **Настройки**.
+  1. На панели графика справа вверху нажмите ![image](../../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud_monitoring.wizard.settings }}**.
   1. Задайте параметры графика, приведенные ниже.
 
      Все указанные параметры сразу же применяются к графику, сохранять их не нужно.
@@ -121,8 +121,8 @@ description: Из статьи вы узнаете, как добавить ви
   1. Выберите **{{ ui-key.yacloud_monitoring.context-links.target.dashboard }}** и укажите:
      1. Облако и каталог, в котором расположен дашборд. В списке находятся все облака и каталоги, к которым у вас есть доступ.
      1. Дашборд, который будет открываться по ссылке.
-     1. **Передавать временной интервал** — график откроется с тем же временным интервалом, который задан на исходном графике.
-  1. Включите или отключите опцию **Открывать в новом окне**.
+     1. **{{ ui-key.yacloud_monitoring.wizard.tab.links.add-dialog.field.share-timeframe }}** — график откроется с тем же временным интервалом, который задан на исходном графике.
+  1. Включите или отключите опцию **{{ ui-key.yacloud_monitoring.wizard.tab.links.add-dialog.field.show-in-new-tab }}**.
 
      Добавленные ссылки появятся на графике вверху справа, в меню.
 
@@ -138,7 +138,7 @@ description: Из статьи вы узнаете, как добавить ви
 
 - Интерфейс {{ monium-name }} {#console}
 
-  1. Нажмите ![image](../../../_assets/console-icons/megaphone.svg) **Алерт**.
+  1. Нажмите ![image](../../../_assets/console-icons/megaphone.svg) **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-alert }}**.
   1. В списке выберите алерт и введите произвольный заголовок для него.
   1. Нажмите ![image](../../../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
 
@@ -152,7 +152,7 @@ description: Из статьи вы узнаете, как добавить ви
 
 - Интерфейс {{ monium-name }} {#console}
 
-  1. Нажмите **Эскалация**.
+  1. Нажмите **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-escalation-policy }}**.
   1. Введите произвольный заголовок для эскалации.
   1. В списке выберите политику эскалаций.
   1. (Опционально) Укажите, следует ли отображать на дашборде только запущенные эскалации или все эскалации.
@@ -205,8 +205,8 @@ description: Из статьи вы узнаете, как добавить ви
   1. Перенесите виджеты в секцию.
   1. Рядом с именем секции нажмите ![image](../../../_assets/console-icons/gear.svg) и укажите:
      1. **Имя секции** — введите произвольное имя.
-     1. **Состояние секции** — выберите, будет ли секция по умолчанию открыта или закрыта.
-     1. **Повторить по параметру** — выберите параметр, по которому будут добавлены секции с графиками для каждого из значений параметра.
+     1. **{{ ui-key.yacloud_monitoring.dashboard.group-widget.settings.collapsed }}** — выберите, будет ли секция по умолчанию открыта или закрыта.
+     1. **{{ ui-key.yacloud_monitoring.dashboard.group-widget.settings.repeat }}** — выберите параметр, по которому будут добавлены секции с графиками для каждого из значений параметра.
      1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
   1. Нажмите ![image](../../../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
 
