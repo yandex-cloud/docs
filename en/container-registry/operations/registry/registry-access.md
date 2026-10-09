@@ -1,5 +1,7 @@
 # Configuring access to a registry
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 You can set up policies for accessing a [registry](../../concepts/registry.md) from specific [IP addresses](../../../vpc/concepts/address.md).
 
 {% list tabs group=instructions %}

@@ -5,6 +5,8 @@ description: Follow this guide to view roles assigned for a resource.
 
 # Viewing roles for a resource
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

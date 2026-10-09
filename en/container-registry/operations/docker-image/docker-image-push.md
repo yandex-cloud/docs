@@ -5,6 +5,8 @@ description: This guide describes how to push a local Docker image to a {{ conta
 
 # Pushing a Docker image to a registry
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 This guide describes how to push a local [Docker image](../../concepts/docker-image.md) to a registry.
 
 {% note info %}

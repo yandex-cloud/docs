@@ -5,6 +5,8 @@ description: Follow this guide to get information about a registry access policy
 
 # Getting information about a registry access policy
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

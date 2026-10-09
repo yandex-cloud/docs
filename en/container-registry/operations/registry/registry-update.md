@@ -5,6 +5,8 @@ description: Follow this guide to update a registry.
 
 # Updating a registry
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 Find out how to update:
 * [Registry name](#update-name).
 * [Registry label](#update-label).

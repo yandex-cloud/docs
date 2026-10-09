@@ -1,5 +1,7 @@
 # Docker image lifecycle policy
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 A [Docker image](docker-image.md) lifecycle policy lets you set [rules](#lifecycle-rules) for deleting Docker images automatically.
 
 To learn how to set rules, see [Creating a lifecycle policy](../operations/lifecycle-policy/lifecycle-policy-create.md).
@@ -79,9 +81,9 @@ The `Untagged` rule deletes all images that meet the following conditions:
 Where:
 * `description`: Description of the policy rule.
 * `tag_regexp`: Docker image tag for filtering. The `test.*` regular expression for `tag_regexp` retrieves all images with tags starting with `test`.
-* `untagged`: Flag indicating that the rule applies to Docker images without tags.
+* `untagged`: Flag to apply the rule to untagged Docker images.
 * `expire_period`: Time after which the lifecycle policy may apply to the Docker image. This parameter comes as a number followed by a unit of measurement: `s`, `m`, `h`, or `d` (seconds, minutes, hours, or days). `expire_period` must be a multiple of 24 hours.
-* `retained_top`: Number of Docker images that are not deleted even if they match the rule.
+* `retained_top`: Number of Docker images that will not be deleted even if they match the rule.
 
 ## Resolving rule conflicts {#resolve}
 

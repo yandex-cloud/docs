@@ -20,7 +20,6 @@
    1. {% include [create-ba-import-egrul-step](../../billing/_includes/create-ba-import-egrul-step.md) %}
    1. Выберите **{{ ui-key.yacloud_billing_account.create-account.section_payment_method }}** — с помощью банковского перевода или привязанной банковской карты:
 
-      От выбранного способа оплаты зависит размер [стартового гранта](../../billing/concepts/bonus-account.md) и [условия его использования](../../getting-started/usage-grant.md#business).
 
       * Выберите **{{ ui-key.yacloud_billing_account.create-account.label_payment_invoice }}**. После создания аккаунта вы получите письмо с инструкциями по верификации. До прохождения верификации платные ресурсы будут недоступны.
 

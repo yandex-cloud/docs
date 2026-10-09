@@ -101,7 +101,6 @@ Yandex Cloud может заблокировать доступ или удал�
        * [пространства](https://aistudio.yandex.ru/docs/ru/speechsense/concepts/resources-hierarchy#space) Yandex SpeechSense,
        * экземпляры [Yandex DataLens](../../datalens/index.md),
        * пространства [Yandex Cloud Video](../../video/index.md). 
-     * Остались ресурсы, приобретенные по модели потребления [CVoS](../../billing/concepts/cvos.md).
      * Не отключен платный тарифный план [Технической поддержки](../../support/overview.md).
      * Платежный аккаунт имеет статус [партнера](../../partner/terms.md#referral-partner) либо вы являетесь [клиентом партнера](../../partner/terms.md#sub-account).
      * Не [завершены взаиморасчеты](../../billing/concepts/act.md) по оказанным услугам.

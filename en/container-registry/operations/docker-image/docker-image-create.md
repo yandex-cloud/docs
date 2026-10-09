@@ -5,6 +5,8 @@ description: This guide describes how to create and build a Docker image based o
 
 # Creating a Docker image
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 This guide describes how to create and build a [Docker image](../../concepts/docker-image.md) based on a Dockerfile.
 
 To work with Docker images, [install and configure](../configure-docker.md) Docker.

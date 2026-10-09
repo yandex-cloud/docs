@@ -29,8 +29,6 @@ items:
         href: legal-entity/create-vm.md
       - name: Что дальше?
         href: legal-entity/what-is-next.md
-  - name: Стартовый грант
-    href: usage-grant.md
   - name: Пробный период
     items:
       - name: Как воспользоваться пробным периодом

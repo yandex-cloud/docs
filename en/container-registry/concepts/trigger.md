@@ -5,5 +5,7 @@ description: In this article, you will learn about the {{ sf-full-name }} trigge
 
 # {{ sf-full-name }} trigger
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 
 {% include [cr-trigger](../../_includes/functions/cr-trigger.md) %}

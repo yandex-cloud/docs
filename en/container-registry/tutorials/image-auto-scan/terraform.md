@@ -5,6 +5,8 @@ description: Follow this tutorial to run automatic Docker image scans on push to
 
 # Automatic Docker image scan on push using {{ TF }}
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 
 {% note info %}
 
@@ -92,7 +94,7 @@ To create an infrastructure to automatically scan Docker images on push using {{
 
    {% endlist %}
 
-   For more information on the properties of {{ TF }} resources, see the relevant provider guides:
+   Learn more about the properties of resources in these {{ TF }} provider guides:
    * [Service account](../../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
    * [Assigning access permissions for a folder](../../../iam/concepts/access-control/index.md#access-bindings): [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
    * [Registry](../../../container-registry/concepts/registry.md): [yandex_container_registry]({{ tf-provider-resources-link }}/container_registry).

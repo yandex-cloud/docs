@@ -5,6 +5,8 @@ description: Use this guide to create your first {{ container-registry-name }} r
 
 # Getting started with {{ container-registry-name }}
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 Use this guide to create your first [registry](../concepts/registry.md) and try your hand at managing [Docker images](../concepts/docker-image.md).
 
 ## Getting started {#before-you-begin}

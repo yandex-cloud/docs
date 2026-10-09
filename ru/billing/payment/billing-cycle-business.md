@@ -11,7 +11,6 @@ description: Из статьи вы узнаете про особенности
 
 1. Вы [активируете платную версию](../operations/activate-commercial.md) до истечения срока действия [пробного периода](../../billing/concepts/trial-period.md).
 
-   {% include [billing-how-to-use-grant](../../_includes/billing-how-to-use-grant.md) %}
 
 1. Если вам предоставлен грант, вы используете его. Размер гранта уменьшается по мере потребления ресурсов сервисов {{ yandex-cloud }}.
 

@@ -5,11 +5,13 @@ description: This page gives a list of common issues and their fixes.
 
 # Troubleshooting in {{ container-registry-name }}
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 Below is a list of common issues and their fixes:
 
 * `docker login is not supported with yc credential helper`
 
-  **Why you got this error**: If using a [Docker credential helper](../operations/authentication.md#cred-helper), you cannot [get authenticated](../operations/authentication.md) in {{ container-registry-name }} with `docker login`. You may also get the same error in [{{ coi }}](../../cos/concepts/index.md) where a credential helper is used for authentication on behalf of a [service account](../../iam/concepts/users/service-accounts.md) associated with the [VM](../../compute/concepts/vm.md).
+  **Why you got this error**: If using a [Docker credential helper](../operations/authentication.md#cred-helper), you cannot [get authenticated](../operations/authentication.md) in {{ container-registry-name }} with `docker login`. You may also see the same error in [{{ coi }}](../../cos/concepts/index.md) where a credential helper is used for authentication on behalf of a [service account](../../iam/concepts/users/service-accounts.md) linked to a [VM](../../compute/concepts/vm.md).
 
   **How to fix it**: Get authenticated in the [registry](../concepts/registry.md) using a Docker credential helper or [disable the Docker credential helper](../operations/authentication.md#ch-not-use).
 

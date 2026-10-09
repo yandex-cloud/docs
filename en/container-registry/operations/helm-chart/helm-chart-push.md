@@ -5,6 +5,8 @@ description: In this guide, you will learn how to push Helm charts to {{ contain
 
 # Pushing a Helm chart to a registry
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 You can push [Helm Charts](https://helm.sh/docs/topics/charts/) to a {{ container-registry-name }} [repository](../../concepts/repository.md). {{ container-registry-name }} stores Helm charts the same way as conventional [Docker Images](../../concepts/docker-image.md).
 
 {% note info %}

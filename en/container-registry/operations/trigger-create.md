@@ -5,5 +5,7 @@ description: Create a trigger for {{ container-registry-name }} that invokes a f
 
 # Creating a trigger for a registry
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 
 {% include [container-registry](../../_includes/functions/cr-trigger-create.md) %}
