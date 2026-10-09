@@ -7,6 +7,8 @@ items:
     items:
       - name: Рекомендации по отказоустойчивости в {{ yandex-cloud }}
         href: fault-tolerance.md
+      - name: Восстановление кластеров БД при отказе зоны доступности
+        href: mdb-recovery.md
       - name: >-
           Развертывание веб-приложения в отказоустойчивой конфигурации в {{
           yandex-cloud }}

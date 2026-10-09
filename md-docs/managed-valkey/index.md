@@ -55,6 +55,8 @@ Yandex Managed Service for Valkey™ часто используется, что
 
  - [Управление многоуровневым хранилищем](operations/tiered-storage.md)
 
+ - [Техническое обслуживание](operations/cluster-maintenance.md)
+
  - [Удаление кластера](operations/cluster-delete.md)
 
 ### Подключение

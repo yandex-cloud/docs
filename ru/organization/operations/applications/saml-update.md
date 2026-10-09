@@ -27,7 +27,7 @@ description: Следуя данной инструкции, вы сможете
       1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-description_cjpok }}** измените описание приложения.
       1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-labels_uT2D2 }}** добавьте новые [метки](../../../resource-manager/concepts/labels.md) с помощью кнопки **{{ ui-key.yacloud.component.label-set.button_add-label }}**. Чтобы удалить существующую метку, используйте значок ![xmark](../../../_assets/console-icons/xmark.svg).
     
-  1. В блоке **{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.section-service-provider_5d85k }}**:
+  1. В блоке **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.section-service-provider_83p1J }}**:
 
      1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** укажите уникальный идентификатор поставщика услуг (Service Provider). Значение должно совпадать на стороне поставщика услуг и на стороне {{ org-full-name }}.
      1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** укажите URL-адрес, на который {{ org-full-name }} будет отправлять SAML-ответ. Чтобы указать несколько адресов, нажмите **{{ ui-key.yacloud_org.organization.apps.SamlAppAcsUrlsField.add-acs-url_eMunC }}**. ACS URL должен соответствовать схеме `https`. Использовать протокол без шифрования допускается только в целях тестирования на локальном хосте (значения `http://127.0.0.1` и `http://localhost`).

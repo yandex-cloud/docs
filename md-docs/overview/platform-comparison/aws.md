@@ -5,7 +5,7 @@
 
 | Amazon Web Services | Yandex Cloud |
 |----|----|
-| Amazon API Gateway | [Yandex Serverless Integrations: API Gateway](../../api-gateway/index.md) |
+| Amazon API Gateway | [API Gateway](../../api-gateway/index.md) |
 | Amazon Athena | [Yandex Query](../../query/index.md) |
 | Amazon Aurora PostgreSQL Limitless Database | [Yandex Managed Service for Sharded PostgreSQL](../../managed-spqr/index.md)
 | Amazon CloudFront | [Yandex Cloud CDN](../../cdn/index.md) |
@@ -23,7 +23,6 @@
 | Amazon EMR | [Yandex Data Processing](../../data-proc/index.md) |
 | Amazon EMR Trino | [Yandex Managed Service for Trino](../../managed-trino/index.md) |
 | Amazon EMR Spark | [Yandex Managed Service for Apache Spark™](../../managed-spark/index.md) |
-| Amazon EventBridge | [Yandex Serverless Integrations: EventRouter](../../serverless-integrations/quickstart/eventrouter.md) |
 | Amazon Interactive Video Service | [Yandex Cloud Video](../../video/index.md) |
 | Amazon Kinesis Data Streams | [Yandex Data Streams](../../data-streams/index.md) |
 | Amazon Managed Workflows for Apache Airflow | [Yandex Managed Service for Apache Airflow™](../../managed-airflow/index.md) |

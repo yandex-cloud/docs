@@ -98,7 +98,7 @@ Introduced breaking changes to the `getEntries` method for retrieving {{ datalen
 1. Changed the `ids` field data type: `string | string[]` → `string[]`.
 1. Changed the `createdBy` field data type: `string | string[]` → `string[]`.
 1. Removed the `page` field of the `number` type, replacing it with `pageToken` of the `string` type.
-1. Added a new `ignoreSharedEntries` field of the `boolean` type to remove shared objects from the response.
+1. Added a new `ignoreSharedEntries` field of the `boolean` type to remove common objects from the response.
 
 ## Version 1 {#version-1}
 

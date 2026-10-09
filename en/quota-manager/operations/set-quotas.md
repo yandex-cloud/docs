@@ -45,7 +45,7 @@ There is no reset to default values in {{ quota-manager-name }}.
 
   1. In the [management console]({{ link-console-main }}), select the cloud to view quotas for.
   1. In the right-hand panel, select **{{ ui-key.yacloud.iam.cloud.switch_quotas }}**.
-  1. Expand **{{ ui-key.yacloud.iam.cloud.quotas.label_pending-requests-title }}**.
+  1. Expand **{{ ui-key.yacloud_quotas.quotas.yq.streamingQuery.count }}**.
   1. Select the request of interest and view the responses from support and related operations.
 
 - CLI {#cli}
@@ -93,7 +93,7 @@ There is no reset to default values in {{ quota-manager-name }}.
 
   1. In the [management console]({{ link-console-main }}), select the cloud to view quotas for.
   1. In the right-hand panel, select **{{ ui-key.yacloud.iam.cloud.switch_quotas }}**.
-  1. Expand **{{ ui-key.yacloud.iam.cloud.quotas.label_pending-requests-title }}**.
+  1. Expand **{{ ui-key.yacloud_quotas.quotas.yq.streamingQuery.count }}**.
   1. Select the request of interest and click **{{ ui-key.yacloud_components.helpfeedbackdialog.button_close }}**
 
 - CLI {#cli}

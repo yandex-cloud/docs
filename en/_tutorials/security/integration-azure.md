@@ -434,7 +434,7 @@ To do this, you will need user name IDs. They are returned by the IdP server tog
 
 {% include [auto-create-users](../../_includes/organization/auto-create-users.md) %}
 
-A user can be added by the organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). To learn how to grant a role to a user, see [Roles](../../organization/security/index.md#add-role).
+A user can be added by the organization administrator (`organization-manager.admin` role) or owner (`organization-manager.organizations.owner` role). To learn how to grant a role to a user, see [Roles](../../organization/security/index.md#add-role).
 
 {% include [console-user-access](../../_includes/organization/console-user-access.md) %}
 
@@ -471,9 +471,9 @@ A user can be added by the organization administrator (the `organization-manager
 
 - API {#api}
 
-  To add identity federation users to the cloud:
+  To add identity federation users to a cloud:
 
-  1.  Create a file with the request body, e.g., `body.json`. In the request body, specify the array of name IDs of users you want to add:
+  1.  Create a file with the request body, e.g., `body.json`. In the request body, specify an array of users’ name IDs you want to add:
 
       ```json
       {

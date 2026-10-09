@@ -33,6 +33,8 @@ items:
             href: operations/cluster-access.md
           - name: Управление многоуровневым хранилищем
             href: operations/tiered-storage.md
+          - name: Техническое обслуживание
+            href: operations/cluster-maintenance.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
       - name: Подключение

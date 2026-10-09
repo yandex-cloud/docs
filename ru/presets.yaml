@@ -477,7 +477,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/cert-manager-webhook-yandex/cert-manager-webhook-yandex
-        tag: 1.0.11
+        tag: 1.0.12
     yc_chaos-mesh:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/chaos-mesh/chart/chaos-mesh
@@ -485,7 +485,7 @@ default:
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/charts/crossplane
-        tag: 2.3.4+yc0.15.0
+        tag: 2.3.4+yc0.15.2
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
@@ -509,8 +509,8 @@ default:
         tag: 5.0.0
     yc_gatekeeper:
       helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/gatekeeper/gatekeeper
-        tag: 3.20.1
+        name: cr.yandex/yc-marketplace/yandex-cloud/gatekeeper/charts/gatekeeper
+        tag: 3.23.1
     yc_gateway-api:
       helmChart:
         name: >-
@@ -2861,6 +2861,7 @@ default:
             label_quota-name-iam:
               serviceAccounts:
                 count: Количество сервисных аккаунтов
+            value_status-error: Почти израсходованы
         folder:
           dashboard:
             label_compute: Compute Cloud
@@ -2932,6 +2933,8 @@ default:
         action:
           add: Добавить
           create: Создать новую организацию
+      Quota-manager:
+        column_usage_jynXV: Использование
       revoke-access-dialog:
         action_revoke-all: Отозвать все
       search:
@@ -3044,6 +3047,7 @@ default:
         title_comparison-eq: Равно
         title_comparison-gt: Больше
         title_comparison-gte: Больше или равно
+        title_comparison-lt: Меньше
         title_comparison-lte: Меньше или равно
         title_comparison-ne: Не равно
         title_conditions: Условия срабатывания
@@ -3131,6 +3135,11 @@ default:
             custom: Набор значений
             query: Значение метки
             text-field: Текстовое поле
+        range-date-picker:
+          preset-last-hour: Последний час
+        share-form:
+          action:
+            copy-key-value: Скопировать
       context-links:
         label:
           type:
@@ -3143,6 +3152,10 @@ default:
           edit: Редактировать
           save: Сохранить
           setup: Редактировать
+        group-widget:
+          settings:
+            collapsed: Состояние секции
+            repeat: Повторить по параметру
         settings:
           general:
             labels:
@@ -3153,6 +3166,8 @@ default:
         tab:
           service-dashboards: Сервисные дашборды
         widget-placeholder:
+          add-alert: Алерт
+          add-escalation-policy: Эскалация
           add-graph: График
           add-group: Секция
           add-text: Текст
@@ -3206,16 +3221,35 @@ default:
       monitoring-alerts:
         action:
           calculate-alert: Проверить результат
+        aggregate:
+          strategy-type:
+            count: По количеству
+            percentage: По доле
         button:
           create-custom-title: Пользовательский
           create-slo-title: SLO
         channel-table:
           notify-statuses: Статус срабатывания
           repeat: Повторная отправка
+        downsampling:
+          aggregation:
+            avg: Среднее
+            count: Количество
+            default: По умолчанию
+            last: Последнее
+            max: Максимум
+            min: Минимум
+            sum: Сумма
+          fill:
+            empty: Без значения
+            'null': 'Null'
+            previous: Предыдущее значение
         flap-suppressor:
           checkbox: Подавление шума
         label:
+          downsampling-fill: Заполнение
           edit-notify-methods: Редактировать
+          group-by-labels: Разложение по меткам
           notification-method: Способ уведомления
           query-to-check: Запрос для проверки
           sent-notify-statuses: Отправляемые статусы
@@ -3256,6 +3290,7 @@ default:
           alert-conditions: Условия срабатывания
           alert-config: Настройки алерта
           annotations: Аннотации
+          calculation-history-alert: История вычисления алерта
           evaluation-window-key-value: Окно вычисления
           main-info: Основная информация
           no-data: Обработка отсутствия данных
@@ -3337,6 +3372,13 @@ default:
           secondary-y: Правая ось Y
         button:
           top-by: Разбивка графика
+        chart:
+          area: Область
+          column: Столбец
+          line: Линия
+          pie: Круговая диаграмма
+          points: Точки
+          tiles: Плитка
         general:
           chartsInRow: Количество графиков в ряд
           name: Заголовок
@@ -3362,6 +3404,11 @@ default:
           downsampling: Прореживание
           general: Основные
           links-key-value: Ссылки
+          links:
+            add-dialog:
+              field:
+                share-timeframe: Передавать временной интервал
+                show-in-new-tab: Открывать в новом окне
           pivot-table: Сводная таблица
           table: Исходные данные
           thresholds: Пороги
@@ -3370,6 +3417,7 @@ default:
           add: Добавить порог
           show-on-graph: Показывать на графике
         vis:
+          aggregation-key-value: Агрегация
           chart-type: Тип графика
           color-scheme: Цветовая схема
           downsampling:
@@ -3805,7 +3853,6 @@ default:
             oauth-scope-groups_iZoa5: groups (группы пользователя в организации)
             oauth-scope-openid_o99tx: openid (идентификатор пользователя)
             oauth-scope-profile_sgdKX: profile (полное имя, имя, фамилия, аватар и др.)
-            section-service-provider_5d85k: Конфигурация поставщика услуг (SP)
           OauthAppRedirectUrlsField:
             add-redirect-url_rS5jw: Добавить URI
           SamlAppAcsUrlsField:
@@ -4173,7 +4220,7 @@ default:
             action_title_download_report_pP1y8: Скачать отчёт
           PageHeader:
             page_tab_title_about_fEPiv: О сервисе
-            page_tab_title_errors_g7fT6: Уведомления
+            page_tab_title_errors_g7fT6: Сообщения и ошибки
             page_tab_title_history_4o4Hr: История проверок
             page_tab_title_overview_hvqrW: Дашборд
           TopAlertsWidget:
@@ -4331,7 +4378,7 @@ default:
             option_14-days: Каждые 14 дней
             option_30-days: Каждые 30 дней
             option_7-days: Каждые 7 дней
-          title_sXtyM: Артефакты с уязвимостями
+          title_sXtyM: Уязвимые артефакты
           VmArtifactScanResultBody:
             title_vulnerabilities: Уязвимости
           VmNewScanButton:
@@ -4524,6 +4571,19 @@ default:
         support: Поддержка
     yacloud_quotas:
       quotas:
+        compute:
+          disks:
+            count: Количество дисков
+          hddDisks:
+            size: Общий объём HDD-дисков
+          instanceCores:
+            count: Количество vCPU виртуальных машин
+          instanceMemory:
+            size: Общий объём RAM виртуальных машин
+          instances:
+            count: Количество виртуальных машин
+          ssdDisks:
+            size: Общий объём SSD-дисков
         iam:
           accessBindings:
             count: >-
@@ -4546,6 +4606,15 @@ default:
             count: Количество сервисных аккаунтов, привязанных к федерациям
           serviceAccounts:
             count: Количество сервисных аккаунтов
+        mdb:
+          cpu:
+            count: Количество vCPU
+          hdd:
+            size: Объём HDD-хранилищ
+          memory:
+            size: Объём виртуальной памяти
+          ssd:
+            size: Объём SSD-хранилищ
         organization-manager:
           authenticationPolicyRules:
             count: Количество правил в политиках аутентификации в организации
@@ -4619,6 +4688,20 @@ default:
               Общее количество
               [видео](https://yandex.cloud/ru/docs/video/concepts/videos) во
               всех каналах
+        vpc:
+          externalStaticAddresses:
+            count: Количество статических публичных IP-адресов
+          routeTables:
+            count: Количество таблиц маршрутизации
+          securityGroups:
+            count: Количество групп безопасности
+          staticRoutes:
+            count: Количество статических маршрутов
+          subnets:
+            count: Количество подсетей
+        yq:
+          streamingQuery:
+            count: Количество одновременно работающих потоковых запросов
     yacloud_video:
       channels:
         action_add-domain: Добавить домен
@@ -4906,12 +4989,11 @@ default:
         section_internal-address-specs: Внутренний IP-адрес
         section_logs-settings: Настройки логов
       audit-trails:
-        action_add-bucket-key: Добавить
+        button_create-encryption-key: Создать ключ
         button_create-trail: Создать трейл
         button_process-in-yq: Обработать в YQ
         label_bucket: Бакет
         label_cloudLogging: Cloud Logging
-        label_collecting-logs: Сбор событий
         label_control-plane-collection-new: Сбор логов с управляющего слоя
         label_data-plane-collection-new: Сбор логов со слоя данных
         label_dataStream: Data Streams
@@ -6634,43 +6716,7 @@ default:
           label_create_cloud: Создать облако
           quotas:
             button_action-request: Изменить
-            column_usage: Использование
-            label_pending-requests-title: Запросы в обработке
             label_quota-empty: Квота не выделена
-            label_quota-name-compute:
-              disks:
-                count: Количество дисков
-              hddDisks:
-                size: Общий объём HDD-дисков
-              instanceCores:
-                count: Количество vCPU виртуальных машин
-              instanceMemory:
-                size: Общий объём RAM виртуальных машин
-              instances:
-                count: Количество виртуальных машин
-              ssdDisks:
-                size: Общий объём SSD-дисков
-            label_quota-name-mdb:
-              cpu:
-                count: Количество vCPU
-              hdd:
-                size: Объём HDD-хранилищ
-              memory:
-                size: Объём виртуальной памяти
-              ssd:
-                size: Объём SSD-хранилищ
-            label_quota-name-vpc:
-              externalStaticAddresses:
-                count: Количество статических публичных IP-адресов
-              routeTables:
-                count: Количество таблиц маршрутизации
-              securityGroups:
-                count: Количество групп безопасности
-              staticRoutes:
-                count: Количество статических маршрутов
-              subnets:
-                count: Количество подсетей
-            value_status-error: Почти израсходованы
           switch_overview: Обзор
           switch_quotas: Квоты
         connected-federation:
@@ -6863,7 +6909,7 @@ default:
               field_private-subnet: Приватная подсеть
               label_internet-access: Доступ в интернет
               section_network-interfaces: Сетевые интерфейсы
-            step_configuration: Конфигурация серверов BareMetal
+            step_configuration: Выбор конфигурации BareMetal
             step_settings: Настройка группы узлов
         cluster:
           button_create-resource: Создать
@@ -7302,6 +7348,12 @@ default:
           label_status-pending: Ожидает принятия
         productDetailView:
           tab_personal-terms: Персональные условия
+      mdb-core:
+        entities:
+          Subnetwork:
+            label_title_c4P8n: Подсеть
+          Zone:
+            label_title_qQ3Vg: Зона доступности
       mdb:
         AuthMethodColumn:
           value_iam_boWet: IAM
@@ -7837,6 +7889,15 @@ default:
         hosts:
           dialog:
             button_choose: Сохранить
+        new:
+          entities:
+            AssignPublicIp:
+              label_title_8mK2p: Публичный доступ
+            Hosts:
+              label_add-host_p3wH5: Добавить хост
+              label_title_7pQ1w: Хосты
+            MasterPriority:
+              label_title_9nL4q: Приоритет мастера
         switch_backups_xgJVM: Резервные копии
         switch_list_9AfbP: Кластеры
         switch_operations_9JzwJ: Операции
@@ -7908,23 +7969,6 @@ default:
         section_parameters: Настройки
         section_resources: Ресурсы
         section-revisions: Ревизии
-      serverless-event-router:
-        button_create-bus: Создать шину
-        button_create-connector: Создать коннектор
-        button_create-rule: Создать правило
-        button_send-event: Отправить событие
-        button_submit: Отправить
-        label_additional-parameters: Дополнительные параметры
-        label_buses: Шины
-        label_connector-source: Источник
-        label_connectors: Коннекторы
-        label_filter: Фильтр
-        label_rules: Правила
-        label_service: EventRouter
-        label_target-dead-letter-settings: Настройки обработки недоставленных сообщений
-        label_target-transformer: Шаблон
-        label_target-type: Тип
-        label_targets: Приёмники
       serverless-functions:
         gateways:
           domains:
@@ -8110,7 +8154,6 @@ default:
         button_create-workflow: Создать рабочий процесс
         label_additional-parameters: Дополнительные параметры
         label_execution-url: Ссылка для запуска
-        label_input_data: Данные на входе
         label_public-access: Публичный рабочий процесс
         label_run-workflow: Запустить
         label_service: Workflows
@@ -8285,9 +8328,9 @@ default:
           AdaptiveProtectionSection:
             controlModeAutomatic: Автоматически
             controlModeManual: Вручную
-            holdLabel: Сохранять текущий режим после снижения нагрузки
-            sectionTitle: Адаптивная защита
-            thresholdLabelBefore: Включать, если входящая нагрузка превышает
+            holdLabel: Сохранять режим после снижения нагрузки
+            sectionTitle: Режим защиты
+            thresholdLabelBefore: Порог включения
           LoggingSection:
             allowPercentageTitle_3334: Сколько не записывать логов с вердиктом ALLOW
             allowTitle_g6CLe: ALLOW
@@ -10167,26 +10210,6 @@ default:
             Transformer:
               convert_to_string:
                 title: Преобразовать значения в строки
-    yc-eventrouter:
-      dynamic-forms:
-        event_service_name: API EventRouter
-        template_connector_batch_options_batch_size_title: Размер группы
-        template_connector_batch_options_polling_timeout_title: Таймаут опроса, мс
-        template_connector_batch_options_title: Настройки группирования сообщений
-        template_connector_batch_options_visibility_timeout_title: Таймаут видимости, с
-        template_connector_timer_base_options_title: Настройки таймера
-        template_connector_timer_cron_expression_title: Cron-выражение
-        template_connector_timer_payload_title: Данные
-        template_connector_timer_timezone_title: Часовой пояс
-        template_connector_yds_base_options_title: Настройки Data Streams
-        template_connector_ymq_base_options_title: Настройки сообщений Message Queue
-        template_target_batch_cutoff: Время ожидания, с
-        template_target_batch_max_bytes: Количество байтов в группе
-        template_target_batch_max_count: Количество сообщений в группе
-        template_target_retry_max_age: Интервал, ч
-        template_target_retry_max_attempts: Количество попыток
-        template_target_retry_title: Настройки повторной отправки сообщений
-        timer_name: Таймер
     yc-serverless-apigw:
       dynamic-forms:
         cloud_datasphere_folder_id_name: Каталог
@@ -10818,7 +10841,6 @@ default:
   yds-full-name: Yandex Data Streams
   yds-name: Data Streams
   yds-short-name: Data Streams
-  ymq-endpoint: https://message-queue.api.cloud.yandex.net/
   yq-full-name: Yandex Query
   yq-iceberg-name: Iceberg
   yq-name: Query

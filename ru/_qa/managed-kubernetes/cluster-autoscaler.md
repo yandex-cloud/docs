@@ -6,7 +6,7 @@
   * которые созданы не под управлением контроллера [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/);
   * для которых не установлен `PodDisruptionBudget` или расселение которых ограничено с помощью `PodDisruptionBudget`.
 * Поды, которые не были созданы под управлением контроллера репликации ([ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/), [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) или [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)).
-* Поды с `local-storage`.
+* Поды с локальными томами, например `hostPath` или `emptyDir` без `medium: Memory`. Исключение — поды с аннотацией `cluster-autoscaler.kubernetes.io/safe-to-evict-local-volumes`, в значении которой перечислены все локальные тома пода, например `volume-1,volume-2`.
 * Поды, которые не могут быть расселены куда-либо из-за ограничений. Например, при недостатке ресурсов или отсутствии узлов, подходящих по селекторам [affinity или anti-affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity).
 * Поды, на которых установлена аннотация, запрещающая расселение: `"cluster-autoscaler.kubernetes.io/safe-to-evict": "false"`.
 
@@ -52,6 +52,12 @@ kubectl annotate pod <имя_пода> cluster-autoscaler.kubernetes.io/safe-to-
   kubectl annotate node <имя_узла> cluster-autoscaler.kubernetes.io/scale-down-disabled-
   ```
   
+Перед обращением в техническую поддержку [включите запись логов мастера](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md) в лог-группу {{ cloud-logging-name }}, в том числе логов Cluster Autoscaler. В них можно найти причину, по которой узел не удаляется.
+
+Если причина остается неясной, [создайте запрос в техническую поддержку]({{ link-console-support }}). Укажите идентификатор кластера, примерные дату и время проблемы и приложите YAML-спецификации контроллеров затронутых подов.
+
+Подробнее о диагностике масштабирования — в [документации Cluster Autoscaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#table-of-contents). Возможности Descheduler описаны отдельно в [его документации](https://github.com/kubernetes-sigs/descheduler).
+
 #### В группе с автоматическим масштабированием количество узлов не уменьшается до одного, даже при отсутствии нагрузки {#autoscaler-one-node}
 
 В кластере {{ managed-k8s-name }} приложение `kube-dns-autoscaler` регулирует количество реплик CoreDNS. Если в конфигурации `kube-dns-autoscaler` параметр `preventSinglePointFailure` имеет значение `true` и в группе больше одного узла, минимальное количество реплик CoreDNS равно двум. В этом случае Cluster Autoscaler не может уменьшить количество узлов в кластере так, чтобы оно стало меньше количества подов CoreDNS.
@@ -75,7 +81,11 @@ kubectl annotate pod <имя_пода> cluster-autoscaler.kubernetes.io/safe-to-
 
 #### Почему автоматическое масштабирование не выполняется, хотя количество узлов меньше минимума / больше максимума? {#beyond-limits}
 
-Установленные лимиты не будут нарушены при масштабировании, но {{ managed-k8s-name }} не следит за соблюдением границ намеренно. Масштабирование в сторону увеличения сработает только в случае появления подов в статусе `unschedulable`.
+Установленные лимиты не будут нарушены при масштабировании, но {{ managed-k8s-name }} не следит за соблюдением границ намеренно. Масштабирование в сторону увеличения сработает только в случае появления подов, которые нельзя разместить на существующих узлах из-за нехватки запрошенных ресурсов (`unschedulable`).
+
+Параметр **{{ ui-key.yacloud.k8s.node-groups.create.field_initial-size }}** определяет число узлов при создании группы. После создания размером группы управляет Cluster Autoscaler. Параметр **{{ ui-key.yacloud.k8s.node-groups.create.field_min-size }}** задает нижнюю границу при уменьшении группы. Изменение этих параметров не является командой немедленно создать новые узлы. Высокая загрузка уже работающих подов сама по себе также не запускает увеличение группы.
+
+Если проблема сохраняется, [создайте запрос в техническую поддержку]({{ link-console-support }}). Укажите идентификатор кластера, время возникновения ошибки и результаты диагностики. Укажите ожидаемый размер группы и приложите описание подов, которые не удается разместить.
 
 #### Почему в моем кластере остаются поды со статусом Terminated? {#terminated-pod}
 

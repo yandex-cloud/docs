@@ -287,6 +287,12 @@ yc load-balancer network-load-balancer update <nlb-id> --allow-zonal-shift
 
 ## Действия по восстановлению нагрузок при отказе {#workload-recovery}
 
+{% note warning %}
+
+Порядок действий для кластеров управляемых баз данных при отказе зоны доступности описан в [отдельной инструкции](mdb-recovery.md) на примере зоны `ru-central1-b`.
+
+{% endnote %}
+
 ### {{ mmy-name }} {#workload-recovery-mysql}
 
 * [Добавление хоста в кластер](../managed-mysql/operations/hosts.md#add).

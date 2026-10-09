@@ -166,17 +166,14 @@
       {% include [shard-groups-name-limits](../../_includes/mdb/mch/shard-groups-name-limits.md) %}
 
   1. В поле **{{ ui-key.yacloud.mdb.shard-groups.field_shard-names }}** выберите шарды кластера, которые нужно включить в группу.
-  1. При необходимости добавьте в группу внешние шарды:
+  1. При необходимости добавьте в группу [внешние шарды](../concepts/sharding.md#external-shards):
 
       1. Нажмите кнопку **{{ ui-key.yacloud.mdb.shard-groups.button_add-external-shard }}**.
       1. Введите имя внешнего шарда.
 
           {% include [shard-groups-name-limits](../../_includes/mdb/mch/shard-groups-name-limits.md) %}
 
-      1. Укажите вес шарда.
-
-          {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
-
+      1. Укажите [вес шарда](../concepts/sharding.md#shard-weight). По умолчанию — `100`.
       1. В блоке **{{ ui-key.yacloud.mdb.shard-groups.field_external-shard-replicas }}** задайте параметры реплики внешнего шарда:
 
           * В поле **{{ ui-key.yacloud.mdb.shard-groups.field_external-shard-replica-host }}** укажите FQDN или IP-адрес хоста.
@@ -237,10 +234,8 @@
 
       {% include [shard-groups-name-limits](../../_includes/mdb/mch/shard-groups-name-limits.md) %}
 
-    * `weight` — вес шарда в группе.
-
-      {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
-
+    * `weight` — [вес шарда](../concepts/sharding.md#shard-weight) в группе. По умолчанию — `100`.
+    
   * `--external-shard-replica` — настройки реплики внешнего шарда. Параметр задается для каждой реплики отдельно и имеет следующую структуру:
 
     * `shard` — имя внешнего шарда, к которому относится реплика.
@@ -304,10 +299,7 @@
 
          {% include [shard-groups-name-limits](../../_includes/mdb/mch/shard-groups-name-limits.md) %}
 
-       * `weight` — вес шарда в группе.
-
-         {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
-
+       * `weight` — [вес шарда](../concepts/sharding.md#shard-weight) в группе. По умолчанию — `100`.
        * `replica` — настройки реплики внешнего шарда. Блок задается для каждой реплики отдельно и содержит следующие параметры:
 
          * `host` — FQDN или IP-адрес хоста.
@@ -393,16 +385,13 @@
 
      * `description` — описание группы шардов.
      * `shardNames` — список шардов, которые нужно включить в создаваемую группу.
-     * `externalShards` — список внешних шардов, которые нужно включить в создаваемую группу. Внешний шард — это шард в другом кластере {{ mch-name }} или пользовательской инсталляции {{ CH }}. Каждый элемент соответствует отдельному шарду и имеет следующую структуру:
+     * `externalShards` — список [внешних шардов](../concepts/sharding.md#external-shards), которые нужно включить в создаваемую группу. Каждый элемент соответствует отдельному шарду и имеет следующую структуру:
 
         * `name` — имя шарда.
           
           {% include [shard-groups-name-limits](../../_includes/mdb/mch/shard-groups-name-limits.md) %}
 
-        * `weight` — вес шарда в группе.
-
-          {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
-
+        * `weight` — [вес шарда](../concepts/sharding.md#shard-weight) в группе. По умолчанию — `100`.
         * `replicas` — настройки хостов шарда:
 
           * `host` — FQDN или IP-адрес хоста.
@@ -484,16 +473,13 @@
 
      * `description` — описание группы шардов.
      * `shard_names` — список шардов, которые нужно включить в создаваемую группу.
-     * `external_shards` — список внешних шардов, которые нужно включить в создаваемую группу. Внешний шард — это шард в другом кластере {{ mch-name }} или пользовательской инсталляции {{ CH }}. Каждый элемент соответствует отдельному шарду и имеет следующую структуру:
+     * `external_shards` — список [внешних шардов](../concepts/sharding.md#external-shards), которые нужно включить в создаваемую группу. Каждый элемент соответствует отдельному шарду и имеет следующую структуру:
 
         * `name` — имя шарда.
           
           {% include [shard-groups-name-limits](../../_includes/mdb/mch/shard-groups-name-limits.md) %}
 
-        * `weight` — вес шарда в группе.
-
-          {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
-
+        * `weight` — [вес шарда](../concepts/sharding.md#shard-weight) в группе. По умолчанию — `100`.
         * `replicas` — настройки хостов шарда:
 
           * `host` — FQDN или IP-адрес хоста.
@@ -530,10 +516,7 @@
 
             {% include [shard-groups-name-limits](../../_includes/mdb/mch/shard-groups-name-limits.md) %}
 
-          * Вес шарда.
-
-            {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
-
+          * [Вес шарда](../concepts/sharding.md#shard-weight). По умолчанию — `100`.
           * Параметры реплик шарда:
 
             * Хост (FQDN или IP-адрес).
@@ -588,15 +571,13 @@
 
     Имена шардов можно запросить со [списком шардов в кластере](shards.md#list-shards).
 
-  * `--external-shard` — настройки внешнего шарда. Параметр задается для каждого внешнего шарда отдельно и имеет следующую структуру:
+  * `--external-shard` — настройки [внешнего шарда](../concepts/sharding.md#external-shards). Параметр задается для каждого внешнего шарда отдельно и имеет следующую структуру:
 
     * `name` — имя шарда.
 
       {% include [shard-groups-name-limits](../../_includes/mdb/mch/shard-groups-name-limits.md) %}
 
-    * `weight` — вес шарда в группе.
-
-      {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
+    * `weight` — [вес шарда](../concepts/sharding.md#shard-weight) в группе. По умолчанию — `100`.
 
     {% note warning %}
 
@@ -661,16 +642,13 @@
 
      * `description` — описание группы шардов.
      * `shard_names` — список имен шардов кластера.
-     * `external_shard` — настройки внешнего шарда. Блок задается для каждого внешнего шарда отдельно и содержит следующие параметры:
+     * `external_shard` — настройки [внешнего шарда](../concepts/sharding.md#external-shards). Блок задается для каждого внешнего шарда отдельно и содержит следующие параметры:
 
        * `name` — имя шарда.
 
          {% include [shard-groups-name-limits](../../_includes/mdb/mch/shard-groups-name-limits.md) %}
 
-       * `weight` — вес шарда в группе.
-
-         {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
-
+       * `weight` — [вес шарда](../concepts/sharding.md#shard-weight) в группе. По умолчанию — `100`.
        * `replica` — настройки реплики внешнего шарда. Блок задается для каждой реплики отдельно и содержит следующие параметры:
 
          * `host` — FQDN или IP-адрес хоста.
@@ -755,16 +733,13 @@
      * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
      * `description` — новое описание группы шардов.
      * `shardNames` — новый список шардов кластера, которые нужно включить в группу. Чтобы узнать имена шардов, [получите их список](shards.md#list-shards) в кластере. Этот список заменит собой текущий: убедитесь, что вы включили в новый список все необходимые шарды.
-     * `externalShards` — список внешних шардов с измененными параметрами, которые нужно включить в группу. Внешний шард — это шард в другом кластере {{ mch-name }} или пользовательской инсталляции {{ CH }}. Каждый элемент соответствует отдельному шарду и имеет следующую структуру:
+     * `externalShards` — список [внешних шардов](../concepts/sharding.md#external-shards) с измененными параметрами, которые нужно включить в группу. Каждый элемент соответствует отдельному шарду и имеет следующую структуру:
 
         * `name` — имя шарда.
           
           {% include [shard-groups-name-limits](../../_includes/mdb/mch/shard-groups-name-limits.md) %}
 
-        * `weight` — вес шарда в группе.
-
-          {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
-
+        * `weight` — [вес шарда](../concepts/sharding.md#shard-weight) в группе. По умолчанию — `100`.
         * `replicas` — настройки хостов шарда:
 
           * `host` — FQDN или IP-адрес хоста.
@@ -850,16 +825,13 @@
      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
      * `description` — новое описание группы шардов.
      * `shard_names` — новый список шардов кластера, которые нужно включить в группу. Чтобы узнать имена шардов, [получите их список](shards.md#list-shards) в кластере. Этот список заменит собой текущий: убедитесь, что вы включили в новый список все необходимые шарды.
-     * `external_shards` — список внешних шардов с измененными параметрами, которые нужно включить в группу. Внешний шард — это шард в другом кластере {{ mch-name }} или пользовательской инсталляции {{ CH }}. Каждый элемент соответствует отдельному шарду и имеет следующую структуру:
+     * `external_shards` — список [внешних шардов](../concepts/sharding.md#external-shards) с измененными параметрами, которые нужно включить в группу. Каждый элемент соответствует отдельному шарду и имеет следующую структуру:
 
         * `name` — имя шарда.
           
           {% include [shard-groups-name-limits](../../_includes/mdb/mch/shard-groups-name-limits.md) %}
 
-        * `weight` — вес шарда в группе.
-
-          {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
-
+        * `weight` — [вес шарда](../concepts/sharding.md#shard-weight) в группе. По умолчанию — `100`.
         * `replicas` — настройки хостов шарда:
 
           * `host` — FQDN или IP-адрес хоста.

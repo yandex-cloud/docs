@@ -184,7 +184,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster_v2.md).
 
     {% note warning "Ограничения по времени" %}
     
@@ -534,7 +534,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster_v2.md).
 
     {% note warning "Ограничения по времени" %}
     
@@ -1407,7 +1407,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster_v2.md).
 
     {% note warning "Ограничения по времени" %}
     
@@ -2101,7 +2101,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster_v2.md).
 
     {% note warning "Ограничения по времени" %}
     
