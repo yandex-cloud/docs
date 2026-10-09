@@ -5,6 +5,8 @@ description: Follow this guide to create a repository.
 
 # Creating a repository
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 {% note info %}
 
 A [repository](../../concepts/repository.md) will only be displayed after you [push](../../operations/docker-image/docker-image-push.md) a [Docker image](../../concepts/docker-image.md) to it.

@@ -92,8 +92,6 @@ items:
         href: qa/contracts.md
       - name: Схема премирования партнеров
         href: qa/bonuses.md
-      - name: Стартовый грант
-        href: qa/start-grant.md
       - name: Дополнительные гранты в партнерской программе
         href: qa/additional-grants.md
       - name: Все вопросы на одной странице

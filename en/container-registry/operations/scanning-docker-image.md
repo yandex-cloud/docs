@@ -5,6 +5,8 @@ description: Follow this guide to scan a Docker image for vulnerabilities.
 
 # Scanning Docker images for vulnerabilities
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 
 You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts/docker-image.md) pushed to a [registry](../concepts/registry.md) for vulnerabilities. You can do this:
 

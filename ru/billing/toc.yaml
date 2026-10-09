@@ -42,8 +42,6 @@ items:
         items:
           - name: Установить уведомления
             href: operations/budgets.md
-          - name: Зарезервировать потребление (CVoS)
-            href: operations/purchase-cvos.md
       - name: Оплата услуг
         items:
           - name: Активировать промокод
@@ -94,8 +92,6 @@ items:
         href: concepts/organization.md
       - name: Отчетный период
         href: concepts/reporting-period.md
-      - name: Резервируемое потребление (CVoS)
-        href: concepts/cvos.md
       - name: Free tier
         href: concepts/serverless-free-tier.md
       - name: Бюджет
@@ -180,8 +176,6 @@ items:
         href: qa/billing-account.md
       - name: Вопросы о регулярном экспорте детализации
         href: qa/export.md
-      - name: Вопросы о пробном периоде и платной версии
-        href: qa/trial-commercial.md
       - name: Вопросы по работе с нерезидентами
         href: qa/non-resident.md
   - name: Справочник {{ TF }}

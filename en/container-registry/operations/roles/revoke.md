@@ -1,5 +1,7 @@
 # Revoking a role for a resource
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 You can prevent a [subject](../../../iam/concepts/access-control/index.md#subject) from accessing a resource. To do this, revoke the subject's [roles](../../../iam/concepts/access-control/roles.md) for that resource and any resources from which permissions are inherited. For more information, see [{#T}](../../../iam/concepts/access-control/index.md).
 
 {% list tabs group=instructions %}
@@ -125,7 +127,7 @@ You can prevent a [subject](../../../iam/concepts/access-control/index.md#subjec
 
   To revoke roles assigned for a repository, use the [updateAccessBindings](../../api-ref/Repository/updateAccessBindings.md) REST API method for the [Repository](../../api-ref/Repository/index.md) resource or the [RepositoryService/UpdateAccessBindings](../../api-ref/grpc/Repository/updateAccessBindings.md) gRPC API call.
 
-  In the request body, set the `action` property to `REMOVE` and specify the [subject](../../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+  In the request body, set the `action` property to `REMOVE` and specify [subject](../../../iam/concepts/access-control/index.md#subject) type and ID in the `subject` property.
 
   {% cut "Subject designations" %}
 

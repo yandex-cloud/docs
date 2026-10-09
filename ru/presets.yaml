@@ -398,8 +398,7 @@ default:
   mdb-lb: DB Proxy
   mdb-versions:
     mysql-version:
-      actual: '8.4'
-      supported: 5.7, 8.0
+      supported: 5.7, 8.0, 8.4
     postgresql-version:
       deprecated: 14, 14-1c
       new: 18, 18-1c
@@ -2669,7 +2668,6 @@ default:
         filter_label-labels-all: Все метки
         filter_label-products-all: Все продукты
         filter_label-services-all: Все сервисы
-        label_credit-cudCredit: Скидка на резервируемое потребление
         label_credit-monetaryGrantCredit: Грант
         label_credit-volumeIncentiveCredit: Скидка за объём потребления
         label_deselected-all: Очистить
@@ -2748,7 +2746,6 @@ default:
             title_section-billable: Привязанные облака и сервисы
           dashboard:
             button_go-pay: Перейти на платную версию
-            button_refill: Пополнить счет
             card_label_threshold-description: Подробнее
             label_inactivation: Удалить
             label_rename: Переименовать
@@ -2801,11 +2798,9 @@ default:
             account-data_label_organization: Организация
             card_label_edit: Изменить банковскую карту
             company_label_rs: Расчетный счет
-            payment-type_label_card: Банковская карта
             payment-type_label_invoice: Банковский перевод
             section_account-data: Общие сведения
             section_contract: Информация о договоре
-            usage-type_label_paid: Платная версия
           reconciliation-reports:
             action_download-with-facsimile: Скачать подписанный акт
             action_download-without-facsimile: Скачать акт без подписи
@@ -2819,7 +2814,6 @@ default:
           switch_expences: История расходов
           switch_exports: Экспорт детализации
           switch_history: История платежей
-          switch_offers: Резервируемый объём
           switch_users: Управление доступом
           tab_acts-title: Закрывающие документы
           tab_reconciliation-reports-title: Акты сверки
@@ -2831,9 +2825,6 @@ default:
         accounts:
           button_bind: Привязать
           column_status: Статус
-        cud:
-          purchase:
-            button_purchase: Зарезервировать потребление
         label_service: Yandex Cloud Billing
         title_accounts: Платёжные аккаунты
       common:

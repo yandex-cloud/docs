@@ -16,6 +16,22 @@ description: Из статьи вы узнаете, как добавлять и
   1. [Перейдите]({{ link-console-main }}/link/managed-spqr) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.spqr.cluster.switch_users }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы получить список пользователей кластера, выполните команду:
+
+  ```bash
+  yc managed-sharded-postgresql user list \
+       --cluster-name <имя_кластера>
+  ```
+
+  Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
+
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -67,6 +83,24 @@ description: Из статьи вы узнаете, как добавлять и
 ## Получить информацию о пользователе {#get-user}
 
 {% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы получить информацию о пользователе кластера, выполните команду:
+
+  ```bash
+  yc managed-sharded-postgresql user get <имя_пользователя> \
+       --cluster-name <имя_кластера>
+  ```
+
+  Имя пользователя можно запросить со [списком пользователей в кластере](#list-users).
+
+  Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
+
 
 - REST API {#api}
 
@@ -159,6 +193,98 @@ description: Из статьи вы узнаете, как добавлять и
 
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-button_add }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы создать пользователя в кластере, выполните команду:
+
+  ```bash
+  yc managed-sharded-postgresql user create <имя_пользователя> \
+     --cluster-name <имя_кластера> \
+     --password=<пароль> \
+     --permissions=<список_баз_данных> \
+     --grants=<список_грантов>
+     --connection-limit=<максимальное_количество_соединений> \
+     --connection-retries=<максимальное_количество_повторных_попыток_соединения>
+  ```
+
+  Где:
+
+  * `cluster-name` — имя кластера.
+  * `password` — пароль для пользователя. Длина пароля — от 8 до 128 символов.
+  * `permissions` — список баз, к которым пользователь должен иметь доступ.
+  * `grants` — список грантов, которые будут назначены пользователю. Возможные значения:
+    * `reader`
+    * `writer`
+    * `admin`
+    * `transfer`.
+  * `connection-limit` — максимальное количество подключений пользователя к БД.
+  * `connection-retries` — количество повторных попыток соединения [роутера](../concepts/index.md#router) с [шардами](../concepts/index.md#shard).
+
+  {% include [user-name-limits](../../_includes/mdb/mspqr/console/user-name-limits.md) %}
+
+  Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
+
+
+- {{ TF }} {#tf}
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+     Инструкцию по созданию такого файла читайте в разделе [Создание кластера](cluster-create.md).
+
+     Полный список доступных для изменения полей конфигурации пользователей кластера {{ mspqr-name }} вы найдете в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_user).
+
+  1. Добавьте ресурс `yandex_mdb_sharded_postgresql_user`:
+
+      ```hcl
+      resource "yandex_mdb_sharded_postgresql_user" "my_user" {
+        cluster_id = "<идентификатор_кластера>"
+        name       = "<имя_пользователя>"
+        password   = "<пароль>"
+        grants     = [ "<роль1>","<роль2>" ]
+        settings   = {
+          connection_limit = <максимальное_количество_соединений>
+          connection_retries = <максимальное_количество_повторных_попыток_соединения>
+        }
+        permissions {
+          database = "<имя_БД>"
+        }
+      }
+      ```
+
+      Где:
+
+      * `name` — имя пользователя.
+
+          {% include [user-name-limits](../../_includes/mdb/mspqr/console/user-name-limits.md) %}
+
+      * `password` — пароль пользователя. Длина пароля — от 8 до 128 символов.
+
+      * `grants` — список грантов, которые будут назначены пользователю. Возможные значения:
+          * `reader`
+          * `writer`
+          * `admin`
+          * `transfer`
+
+      * `settings` — настройки подключения:
+
+          * `connection_limit` — максимальное количество подключений пользователя к БД.
+          * `connection_retries` — количество повторных попыток соединения [роутера](../concepts/index.md#router) с [шардами](../concepts/index.md#shard).
+
+      * `permissions` — база данных, к которой должен иметь доступ пользователь. Чтобы дать пользователю доступ к нескольким базам данных, укажите каждую базу данных в отдельном блоке `permissions`.
+
+  1. Проверьте корректность настроек.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -193,7 +319,7 @@ description: Из статьи вы узнаете, как добавлять и
                }'
      ```
 
-     Где: 
+     Где:
 
      * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
      * `userSpec` — настройки нового пользователя БД:
@@ -211,13 +337,11 @@ description: Из статьи вы узнаете, как добавлять и
          * `connLimit` — максимальное количество подключений пользователя к БД.
          * `connectionRetries` — количество повторных попыток соединения [роутера](../concepts/index.md#router) с [шардами](../concepts/index.md#shard).
 
-       * `grants` — список грантов, которые будут назначены пользователю.
-
-         Возможные значения:
-         - `reader`
-         - `writer`
-         - `admin`
-         - `transfer`
+       * `grants` — список грантов, которые будут назначены пользователю. Возможные значения:
+         * `reader`
+         * `writer`
+         * `admin`
+         * `transfer`
 
        * `deletionProtection` — защита пользователя от удаления: `true` или `false`.
 
@@ -281,13 +405,11 @@ description: Из статьи вы узнаете, как добавлять и
          * `connection_limit` — максимальное количество подключений пользователя к БД.
          * `connection_retries` — количество повторных попыток соединения [роутера](../concepts/index.md#router) с [шардами](../concepts/index.md#shard).
 
-       * `grants` — список грантов, которые будут назначены пользователю.
-
-         Возможные значения:
-         - `reader`
-         - `writer`
-         - `admin`
-         - `transfer`
+       * `grants` — список грантов, которые будут назначены пользователю. Возможные значения:
+         * `reader`
+         * `writer`
+         * `admin`
+         * `transfer`
 
        * `deletion_protection` — защита пользователя от удаления: `true` или `false`.
 
@@ -331,6 +453,117 @@ description: Из статьи вы узнаете, как добавлять и
      1. Чтобы отозвать доступ к базе данных, нажмите значок ![image](../../_assets/console-icons/xmark.svg) справа от имени БД.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-button_save }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  * Чтобы настроить права пользователя на доступ к определенным базам данных, выполните команду, перечислив список имен баз данных с помощью параметра `--permissions`:
+
+     ```bash
+     yc managed-sharded-postgresql user update <имя_пользователя> \
+          --cluster-name=<имя_кластера> \
+          --permissions=<список_баз_данных>
+     ```
+
+     Где:
+
+     * `cluster-name` — имя кластера.
+     * `permissions` — список баз, к которым пользователь должен иметь доступ.
+
+     Имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
+
+     Чтобы отозвать доступ к определенной базе, исключите ее имя из списка и выполните команду заново.
+
+  * Чтобы изменить список грантов пользователя, выполните команду:
+
+     ```bash
+     yc managed-sharded-postgresql user update <имя_пользователя> \
+       --cluster-name=<имя_кластера> \
+       --grants=<новый_список_грантов>
+     ```
+
+     Имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
+
+     Чтобы отозвать определенный грант, исключите его из списка и выполните команду заново.
+
+  * Чтобы изменить настройки подключения для пользователя, выполните команду:
+
+     ```bash
+     yc managed-sharded-postgresql user update <имя_пользователя> \
+       --cluster-name=<имя_кластера> \
+       --connection-limit=<максимальное_количество_соединений> \
+       --connection-retries=<максимальное_количество_повторных_попыток_соединения>
+     ```
+
+     Где:
+
+     * `connection-limit` — максимальное количество подключений пользователя к БД.
+     * `connection-retries` — количество повторных попыток соединения [роутера](../concepts/index.md#router) с [шардами](../concepts/index.md#shard).
+
+     Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
+
+
+- {{ TF }} {#tf}
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+     Инструкцию по созданию такого файла читайте в разделе [Создание кластера](cluster-create.md).
+
+     Полный список доступных для изменения полей конфигурации пользователей кластера {{ mspqr-name }} вы найдете в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_user).
+
+  1. Измените параметры в ресурсе `yandex_mdb_sharded_postgresql_user`:
+
+      ```hcl
+      resource "yandex_mdb_sharded_postgresql_user" "my_user" {
+        ...
+        name     = "<имя_пользователя>"
+        grants   = [ "<роль1>","<роль2>" ]
+        settings = {
+          connection_limit = <максимальное_количество_соединений>
+          connection_retries = <максимальное_количество_повторных_попыток_соединения>
+        }
+        permissions {
+          database = "<имя_БД>"
+        }
+      }
+      ```
+
+      Где:
+
+      * `name` — имя пользователя.
+
+          {% include [user-name-limits](../../_includes/mdb/mspqr/console/user-name-limits.md) %}
+
+          {% note warning %}
+
+          Изменение имени пользователя в {{ TF }} приводит к удалению текущего пользователя и созданию нового с аналогичными настройками.
+
+          {% endnote %}
+
+      * `grants` — список грантов, которые будут назначены пользователю. Возможные значения:
+          * `reader`
+          * `writer`
+          * `admin`
+          * `transfer`
+
+      * `settings` — настройки подключения:
+
+          * `connection_limit` — максимальное количество подключений пользователя к БД.
+          * `connection_retries` — количество повторных попыток соединения [роутера](../concepts/index.md#router) с [шардами](../concepts/index.md#shard).
+
+      * `permissions` — база данных, к которой должен иметь доступ пользователь. Чтобы дать пользователю доступ к нескольким базам данных, укажите каждую базу данных в отдельном блоке `permissions`. Чтобы запретить пользователю доступ к определенной базе данных, удалите соответствующий блок `permissions`.
+
+  1. Проверьте корректность настроек.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 - REST API {#api}
 
@@ -478,6 +711,54 @@ description: Из статьи вы узнаете, как добавлять и
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
   1. Введите новый пароль. Длина пароля — от 8 до 128 символов.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы изменить пароль пользователя, выполните команду:
+
+  ```bash
+  yc managed-sharded-postgresql user update <имя_пользователя> \
+       --cluster-name=<имя_кластера> \
+       --password=<новый_пароль>
+  ```
+
+    Длина пароля — от 8 до 128 символов.
+
+    Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
+
+
+- {{ TF }} {#tf}
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+     Инструкцию по созданию такого файла читайте в разделе [Создание кластера](cluster-create.md).
+
+     Полный список доступных для изменения полей конфигурации пользователей кластера {{ mspqr-name }} вы найдете в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_user).
+
+  1. Измените параметры в ресурсе `yandex_mdb_sharded_postgresql_user`:
+
+      ```hcl
+      resource "yandex_mdb_sharded_postgresql_user" "my_user" {
+        ...
+        password = "<пароль>"
+        ...
+      }
+      ```
+
+      Где `password` — пароль пользователя. Длина пароля — от 8 до 128 символов.
+
+  1. Проверьте корректность настроек.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 - REST API {#api}
 
@@ -659,6 +940,39 @@ description: Из статьи вы узнаете, как добавлять и
   1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.spqr.cluster.switch_users }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. Подтвердите удаление.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы удалить пользователя, выполните команду:
+
+  ```bash
+  yc managed-sharded-postgresql user delete <имя_пользователя> \
+       --cluster-name <имя_кластера>
+  ```
+
+  Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
+
+
+- {{ TF }} {#tf}
+
+  Чтобы удалить пользователя:
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+  1. Удалите из манифеста ресурс `yandex_mdb_sharded_postgresql_user` с описанием пользователя, которого вы хотите удалить.
+
+  1. Проверьте корректность настроек.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 - REST API {#api}
 

@@ -1,9 +1,11 @@
 ---
-title: Quotas and limits in {{ container-registry-full-name }}
-description: '{{ container-registry-full-name }} has limits and quotas for the maximum number of registries and the number of simultaneous image scans running in a single cloud. For more information about the service restrictions, read this article.'
+title: '{{ container-registry-full-name }} quotas and limits'
+description: '{{ container-registry-full-name }} has limits and quotas for the maximum number of registries and the number of concurrent image scans running in a single cloud. For more information about the limits in {{ container-registry-full-name }}, read this article.'
 ---
 
-# Quotas and limits in {{ container-registry-name }}
+# {{ container-registry-name }} quotas and limits
+
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
 
 {{ container-registry-full-name }} has the following limits:
 

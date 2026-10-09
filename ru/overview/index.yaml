@@ -42,8 +42,8 @@ blocks:
         controlPosition: content
         animated: false
         icon:
-          light: assets/icons/rocket.svg
-          dark: assets/icons/rocket.svg
+          light: ../_assets/console-icons/rocket.svg
+          dark: ../_assets/console-icons/rocket.svg
       - type: basic-card
         title: Регионы
         text: Информация о географическом расположении дата-центров
@@ -53,8 +53,8 @@ blocks:
         controlPosition: content
         animated: false
         icon:
-          light: assets/icons/map-pin.svg
-          dark: assets/icons/map-pin.svg
+          light: ../_assets/console-icons/map-pin.svg
+          dark: ../_assets/console-icons/map-pin.svg
       - type: basic-card
         title: Обучающие курсы
         text: Информация о доступных программах обучения
@@ -64,8 +64,8 @@ blocks:
         controlPosition: content
         animated: false
         icon:
-          light: assets/icons/graduation-cap.svg
-          dark: assets/icons/graduation-cap.svg
+          light: ../_assets/console-icons/graduation-cap.svg
+          dark: ../_assets/console-icons/graduation-cap.svg
       - type: basic-card
         title: Облачная терминология
         text: Словарь облачных терминов
@@ -75,8 +75,8 @@ blocks:
         controlPosition: content
         animated: false
         icon:
-          light: assets/icons/book.svg
-          dark: assets/icons/book.svg
+          light: ../_assets/console-icons/book.svg
+          dark: ../_assets/console-icons/book.svg
   - type: card-layout-block
     title:
       text: Сервисы Yandex Cloud
@@ -94,8 +94,8 @@ blocks:
         controlPosition: content
         animated: false
         icon:
-          light: assets/icons/layers-3-diagonal.svg
-          dark: assets/icons/layers-3-diagonal.svg
+          light: ../_assets/console-icons/layers-3-diagonal.svg
+          dark: ../_assets/console-icons/layers-3-diagonal.svg
       - type: basic-card
         title: Стадии готовности сервисов
         text: Информация о стадиях готовности сервисов
@@ -105,8 +105,8 @@ blocks:
         controlPosition: content
         animated: false
         icon:
-          light: assets/icons/circle-info.svg
-          dark: assets/icons/circle-info.svg
+          light: ../_assets/console-icons/circle-info.svg
+          dark: ../_assets/console-icons/circle-info.svg
       - type: basic-card
         title: Квоты и лимиты
         text: Технические и организационные ограничения
@@ -116,8 +116,8 @@ blocks:
         controlPosition: content
         animated: false
         icon:
-          light: assets/icons/sliders.svg
-          dark: assets/icons/sliders.svg
+          light: ../_assets/console-icons/sliders.svg
+          dark: ../_assets/console-icons/sliders.svg
       - type: basic-card
         title: Решение проблем
         text: Ответы на часто задаваемые вопросы
@@ -127,15 +127,15 @@ blocks:
         controlPosition: content
         animated: false
         icon:
-          light: assets/icons/circle-question.svg
-          dark: assets/icons/circle-question.svg
+          light: ../_assets/console-icons/circle-question.svg
+          dark: ../_assets/console-icons/circle-question.svg
   - type: card-layout-block
     title:
       text: Интерфейсы для работы с сервисами
     colSizes:
       all: 12
-      lg: 4
-      sm: 4
+      lg: 3
+      sm: 3
     size: m
     children:
       - type: basic-card
@@ -146,8 +146,7 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon: assets/icons/code.svg
-        iconPosition: left
+        icon: ../_assets/console-icons/code.svg
       - type: basic-card
         title: SDK
         text: Средства разработки для взаимодействия с облачной инфраструктурой
@@ -156,8 +155,7 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon: assets/icons/folder-tree.svg
-        iconPosition: left
+        icon: ../_assets/console-icons/folder-tree.svg
       - type: basic-card
         title: Мобильное приложение
         text: Управляйте ресурсами с мобильного устройства
@@ -166,8 +164,16 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon: assets/icons/smartphone.svg
-        iconPosition: left
+        icon: ../_assets/console-icons/smartphone.svg
+      - type: basic-card
+        title: MCP-серверы
+        text: Подключите AI‑агентов и IDE к ресурсам Yandex Cloud
+        urlTitle: MCP-серверы
+        url: mcp-servers/
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon: ../_assets/console-icons/server.svg
   - type: content-layout-block
     textContent:
       title: ''

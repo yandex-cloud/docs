@@ -5,6 +5,8 @@ description: In this guide, you will learn how to delete a Docker image from a {
 
 # Deleting a Docker image from a registry
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 {% note alert %}
 
 Deleting a [Docker image](../../concepts/docker-image.md) is a deferred operation: once you delete a Docker image, its layers get physically removed after some time, which depends on total amount of data. The registry total size info will be updated 1 hour after physical removal.

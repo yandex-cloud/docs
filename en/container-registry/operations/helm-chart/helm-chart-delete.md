@@ -5,6 +5,8 @@ description: Follow this guide to delete a Helm chart from a {{ container-regist
 
 # Deleting a Helm chart from a registry
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 You can delete [Helm charts](https://helm.sh/docs/topics/charts/) in a {{ container-registry-name }} repository. {{ container-registry-name }} stores Helm charts the same way as conventional [Docker Images](../../concepts/docker-image.md).
 
 ## Deleting a Helm chart locally

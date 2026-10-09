@@ -39,8 +39,8 @@ blocks:
         controlPosition: content
         animated: false
         icon:
-          light: assets/icons/rocket.svg
-          dark: assets/icons/rocket.svg
+          light: ../_assets/console-icons/rocket.svg
+          dark: ../_assets/console-icons/rocket.svg
       - type: basic-card
         title: Regions
         text: Information on the geographic location of data centers
@@ -50,8 +50,8 @@ blocks:
         controlPosition: content
         animated: false
         icon:
-          light: assets/icons/map-pin.svg
-          dark: assets/icons/map-pin.svg
+          light: ../_assets/console-icons/map-pin.svg
+          dark: ../_assets/console-icons/map-pin.svg
       - type: basic-card
         title: Cloud terminology
         text: Dictionary of cloud terms
@@ -61,8 +61,8 @@ blocks:
         controlPosition: content
         animated: false
         icon:
-          light: assets/icons/book.svg
-          dark: assets/icons/book.svg
+          light: ../_assets/console-icons/book.svg
+          dark: ../_assets/console-icons/book.svg
   - type: card-layout-block
     title: Yandex Cloud services
     colSizes:
@@ -79,8 +79,8 @@ blocks:
         controlPosition: content
         animated: false
         icon:
-          light: assets/icons/layers-3-diagonal.svg
-          dark: assets/icons/layers-3-diagonal.svg
+          light: ../_assets/console-icons/layers-3-diagonal.svg
+          dark: ../_assets/console-icons/layers-3-diagonal.svg
       - type: basic-card
         title: Release stages
         text: Information on service release stages
@@ -90,8 +90,8 @@ blocks:
         controlPosition: content
         animated: false
         icon:
-          light: assets/icons/circle-info.svg
-          dark: assets/icons/circle-info.svg
+          light: ../_assets/console-icons/circle-info.svg
+          dark: ../_assets/console-icons/circle-info.svg
       - type: basic-card
         title: Quotas and limits
         text: Technical and organizational limitations
@@ -101,8 +101,8 @@ blocks:
         controlPosition: content
         animated: false
         icon:
-          light: assets/icons/sliders.svg
-          dark: assets/icons/sliders.svg
+          light: ../_assets/console-icons/sliders.svg
+          dark: ../_assets/console-icons/sliders.svg
       - type: basic-card
         title: Troubleshooting
         text: Answers to frequently asked questions
@@ -112,8 +112,8 @@ blocks:
         controlPosition: content
         animated: false
         icon:
-          light: assets/icons/circle-question.svg
-          dark: assets/icons/circle-question.svg
+          light: ../_assets/console-icons/circle-question.svg
+          dark: ../_assets/console-icons/circle-question.svg
   - type: card-layout-block
     title: Service interfaces
     colSizes:
@@ -130,7 +130,7 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon: assets/icons/code.svg
+        icon: ../_assets/console-icons/code.svg
         iconPosition: left
       - type: basic-card
         title: SDK
@@ -140,7 +140,7 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon: assets/icons/folder-tree.svg
+        icon: ../_assets/console-icons/folder-tree.svg
         iconPosition: left
       - type: basic-card
         title: Mobile app
@@ -150,7 +150,7 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon: assets/icons/smartphone.svg
+        icon: ../_assets/console-icons/smartphone.svg
         iconPosition: left
   - type: content-layout-block
     textContent:

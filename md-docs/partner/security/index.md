@@ -32,7 +32,6 @@
 * [выполнять API-запросы](../../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../../billing/concepts/budget.md);
-* [резервировать потребление ресурсов](../../billing/concepts/cvos.md);
 * пополнять [лицевой счет](../../billing/concepts/personal-account.md) с помощью расчетного счета;
 * пополнять лицевой счет с помощью банковской карты;
 * привязывать [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) к платежному аккаунту;
@@ -153,7 +152,6 @@
 * [выполнять API-запросы](../../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../../billing/concepts/budget.md);
-* [резервировать потребление ресурсов](../../billing/concepts/cvos.md);
 * пополнять [лицевой счет](../../billing/concepts/personal-account.md) с помощью расчетного счета;
 * привязывать [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) к платежному аккаунту;
 * переименовывать платежные аккаунты;
@@ -196,7 +194,6 @@
 * [выполнять API-запросы](../../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../../billing/concepts/budget.md);
-* [резервировать потребление ресурсов](../../billing/concepts/cvos.md);
 * пополнять [лицевой счет](../../billing/concepts/personal-account.md) с помощью расчетного счета;
 * привязывать [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) к платежному аккаунту;
 * переименовывать платежные аккаунты;
@@ -247,7 +244,6 @@
 * [выполнять API-запросы](../../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../../billing/concepts/budget.md);
-* [резервировать потребление ресурсов](../../billing/concepts/cvos.md);
 * пополнять [лицевой счет](../../billing/concepts/personal-account.md) с помощью расчетного счета;
 * привязывать [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) к платежному аккаунту;
 * переименовывать платежные аккаунты;

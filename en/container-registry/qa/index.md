@@ -5,6 +5,8 @@ description: This page covers questions and answers about {{ container-registry-
 
 # FAQ about {{ container-registry-name }}
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 #### Why is the `latest` tag missing or not set on the most recently uploaded Docker image? {#latest}
 
 The reason is that you specified a different [tag](../concepts/docker-image.md#version) when pushing the [Docker image](../concepts/docker-image.md).

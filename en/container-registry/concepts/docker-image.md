@@ -5,6 +5,8 @@ description: 'A Docker image is a template for creating Docker containers. It is
 
 # Docker image in {{ container-registry-name }}
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 A _Docker image_ is a template for creating Docker containers. It is an executable package that comes with everything you need to run an application: code, runtime environment, libraries, environment variables, and configuration files.
 
 A Docker image consists of layers. Each change is written to a new layer.

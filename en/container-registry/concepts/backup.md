@@ -5,6 +5,8 @@ description: Data in {{ container-registry-name }} is stored securely and replic
 
 # Backing up Docker images in {{ container-registry-name }}
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 Data in {{ container-registry-name }} is stored securely and replicated in the {{ yandex-cloud }} infrastructure. However, you can create backups of [Docker images](../concepts/docker-image.md) at any time.
 
 To back up your Docker images:

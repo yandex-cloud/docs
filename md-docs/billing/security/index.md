@@ -128,7 +128,6 @@ flowchart BT
 * [выполнять API-запросы](../operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../operations/get-folder-report.md);
 * создавать [бюджеты](../concepts/budget.md);
-* [резервировать потребление ресурсов](../concepts/cvos.md);
 * пополнять [лицевой счет](../concepts/personal-account.md) с помощью расчетного счета;
 * привязывать [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) к платежному аккаунту;
 * переименовывать платежные аккаунты;
@@ -171,7 +170,6 @@ flowchart BT
 * [выполнять API-запросы](../operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../operations/get-folder-report.md);
 * создавать [бюджеты](../concepts/budget.md);
-* [резервировать потребление ресурсов](../concepts/cvos.md);
 * пополнять [лицевой счет](../concepts/personal-account.md) с помощью расчетного счета;
 * привязывать [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) к платежному аккаунту;
 * переименовывать платежные аккаунты;
@@ -222,7 +220,6 @@ flowchart BT
 * [выполнять API-запросы](../operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../operations/get-folder-report.md);
 * создавать [бюджеты](../concepts/budget.md);
-* [резервировать потребление ресурсов](../concepts/cvos.md);
 * пополнять [лицевой счет](../concepts/personal-account.md) с помощью расчетного счета;
 * привязывать [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) к платежному аккаунту;
 * переименовывать платежные аккаунты;
@@ -276,7 +273,6 @@ flowchart BT
 * [выполнять API-запросы](../operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../operations/get-folder-report.md);
 * создавать [бюджеты](../concepts/budget.md);
-* [резервировать потребление ресурсов](../concepts/cvos.md);
 * пополнять [лицевой счет](../concepts/personal-account.md) с помощью расчетного счета;
 * пополнять лицевой счет с помощью банковской карты;
 * привязывать [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) к платежному аккаунту;

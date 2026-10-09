@@ -5,6 +5,8 @@ description: Follow this guide to get information about lifecycle policies.
 
 # Getting information about lifecycle policies
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 Find out how to get:
 * [List of lifecycle policies in a repository or registry](#lifecycle-policy-list).
 * [Details about a lifecycle policy](#lifecycle-policy-get).

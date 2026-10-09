@@ -5,6 +5,8 @@ description: Follow this guide to get a list of Helm charts in a {{ container-re
 
 # Getting information about existing Helm charts
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 You can get a list of [Helm charts](https://helm.sh/docs/topics/charts/) in a {{ container-registry-name }} repository. {{ container-registry-name }} stores Helm charts the same way as conventional [Docker Images](../../concepts/docker-image.md).
 
 ## Getting information about local Helm charts

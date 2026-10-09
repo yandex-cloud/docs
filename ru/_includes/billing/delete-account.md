@@ -16,7 +16,6 @@
        * [пространства]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space) {{ speechsense-full-name }},
        * экземпляры [{{ datalens-full-name }}](../../datalens/),
        * пространства [{{ video-full-name }}](../../video/). 
-     * Остались ресурсы, приобретенные по модели потребления [CVoS](../../billing/concepts/cvos.md).
      * Не отключен платный тарифный план [Технической поддержки](../../support/overview.md).
      * Платежный аккаунт имеет статус [партнера](../../partner/terms.md#referral-partner) либо вы являетесь [клиентом партнера](../../partner/terms.md#sub-account).
      * Не [завершены взаиморасчеты](../../billing/concepts/act.md) по оказанным услугам.

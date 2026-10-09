@@ -5,6 +5,8 @@ description: Follow this guide to get information about existing Docker images.
 
 # Getting information about existing Docker images
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 Find out how to get:
 
 * [List of Docker images in a registry](#docker-image-list).

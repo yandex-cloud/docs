@@ -91,8 +91,6 @@ items:
           Как восстановить доступ к платежному аккаунту, созданному на основе
           упрощенной регистрации в Яндекс ID
         href: billing/how-to/recover-access-to-billing-account-via-lite-account.md
-      - name: Как работает резервированное потребление ресурсов
-        href: billing/how-to/how-cvos-works.md
       - name: Как получать счета на электронную почту автоматически
         href: billing/how-to/getting-invoices-automatically.md
       - name: Как узнать, на какую электронную почту отправляются счета на оплату

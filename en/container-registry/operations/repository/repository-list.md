@@ -5,6 +5,8 @@ description: In this guide, you will learn how to get information about existing
 
 # Getting information about existing repositories
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 ## Getting a list of repositories in a registry {#repository-list}
 
 {% list tabs group=instructions %}
