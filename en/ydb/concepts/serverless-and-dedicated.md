@@ -87,3 +87,9 @@ In dedicated mode, {{ ydb-name }} uses {{ compute-full-name }} [instance groups]
 In the serverless mode, the {{ ydb-short-name }} infrastructure determines the amount of computing resources to allocate for maintaining the user DB. The amount of allocated resources can be both very large (any number of cores) and very small (significantly less than one core). If a user created a DB with a single table with a single entry and hardly ever makes DB queries, {{ ydb-short-name }} uses a small amount of RAM on tablet instances that are part of the user DB. This is possible because the user DB components are objects rather than processes. If the load increases, the DB components start using more CPU time and memory. If load grows to the point where there are not enough VM resources, the {{ ydb-short-name }} infrastructure can balance the system granularly by spawning tablet instances on other VMs.
 
 This technology allows you to pack virtual entities (tablet instances) very tightly together into physical resources based on actual consumption. Thus the user can be charged for the operations performed rather than the resources allocated.
+
+{% note info %}
+
+The computing resources of a serverless database are shared among the service users. During periods of high load on the {{ ydb-short-name }} infrastructure, some query processing stages, such as session creation, query compilation, and data reads, may take much longer than usual, up to tens of seconds. Caching query plans reduces the number of recompilations but does not guarantee there will be none. Take this into account when choosing query timeouts and retry strategies in your application. If your application has strict latency requirements and needs predictable behavior under load, use the Dedicated mode.
+
+{% endnote %}

@@ -14,7 +14,7 @@ To evaluate the {{ ydb-short-name }} API request cost, you need to calculate the
 
   The CPU time spent to compile the request is added to the CPU time spent at each step of request execution. This value is then divided by the CPU time increment of 1.5 ms, rounded down, and converted to RUs based on the pricing plan from the table below.
 
-  Cached requests are not recompiled. For caching, use `bind variables` in your requests and enable caching of the request execution plan.
+  Cached requests are usually not recompiled. For caching, use `bind variables` in your requests and enable caching of the request execution plan. Caching reduces the number of recompilations but does not guarantee there will be none: under high load on the shared resources of a serverless database, a request may be compiled again. The CPU time spent on a recompilation is included in the request cost the same way as for the first compilation.
 * I/O cost:
 
   The following values are calculated:
