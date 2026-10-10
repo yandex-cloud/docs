@@ -76,3 +76,19 @@ description: 'Порядок действий для восстановлени�
 
 1. Проверьте конфигурацию кластера и приложения по [рекомендациям по отказоустойчивости](fault-tolerance.md). Учитывайте требования вашего сервиса к размещению и количеству хостов.
 1. Если вам нужно настроить перенос или репликацию данных, изучите [инструкции {{ data-transfer-name }}](../data-transfer/operations/index.md) и [требования к подготовке источника и приемника](../data-transfer/operations/prepare.md).
+
+## Восстановление резервной копии кластера через {{ OS }} API  {#mos-backup}
+
+Вы можете подключить {{ objstorage-name }} к кластеру {{ mos-name }} как репозиторий снапшотов. Резервные копии будут создаваться вручную или по расписанию через [{{ OS }} Snapshot API](https://docs.opensearch.org/latest/api-reference/snapshots/index/).
+
+1. [Создайте репозиторий](https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/) для хранения снапшотов с указанием {{ objstorage-name }}.
+1. [Определите политику](https://docs.opensearch.org/latest/tuning-your-cluster/availability-and-recovery/snapshots/sm-api/) регулярного создания снапшотов.
+1. [Настройте права доступа](../managed-opensearch/operations/s3-access.md#configure-acl) и [подключите репозиторий](../managed-opensearch/operations/s3-access.md#register-snapshot-repository) снапшотов для кластера {{ mos-name }}.
+
+1. [Настройте права доступа](../managed-opensearch/operations/s3-access.md#configure-acl) и [подключите репозиторий](../managed-opensearch/operations/s3-access.md#register-snapshot-repository) спапшотов для кластера {{ mos-name }}.
+
+## Перенос базы данных из сервиса {{ mpg-name }} в другой кластер {{ PG }} с помощью логической репликации {#pg-replication}
+
+Кластер {{ mpg-name }} поддерживает [логическую репликацию](https://www.postgresql.org/docs/current/logical-replication.html). Это позволяет мигрировать базы данных встроенными средствами {{ PG }} между разными кластерами {{ PG }}.
+
+Чтобы мигрировать базу данных, воспользуйтесь [практическим руководством](../tutorials/dataplatform/outbound-replication.md).

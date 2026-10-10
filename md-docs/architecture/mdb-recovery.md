@@ -73,3 +73,19 @@
 
 1. Проверьте конфигурацию кластера и приложения по [рекомендациям по отказоустойчивости](fault-tolerance.md). Учитывайте требования вашего сервиса к размещению и количеству хостов.
 1. Если вам нужно настроить перенос или репликацию данных, изучите [инструкции Data Transfer](../data-transfer/operations/index.md) и [требования к подготовке источника и приемника](../data-transfer/operations/prepare.md).
+
+## Восстановление резервной копии кластера через OpenSearch API  {#mos-backup}
+
+Вы можете подключить Object Storage к кластеру Managed Service for OpenSearch как репозиторий снапшотов. Резервные копии будут создаваться вручную или по расписанию через [OpenSearch Snapshot API](https://docs.opensearch.org/latest/api-reference/snapshots/index/).
+
+1. [Создайте репозиторий](https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/) для хранения снапшотов с указанием Object Storage.
+1. [Определите политику](https://docs.opensearch.org/latest/tuning-your-cluster/availability-and-recovery/snapshots/sm-api/) регулярного создания снапшотов.
+1. [Настройте права доступа](../managed-opensearch/operations/s3-access.md#configure-acl) и [подключите репозиторий](../managed-opensearch/operations/s3-access.md#register-snapshot-repository) снапшотов для кластера Managed Service for OpenSearch.
+
+1. [Настройте права доступа](../managed-opensearch/operations/s3-access.md#configure-acl) и [подключите репозиторий](../managed-opensearch/operations/s3-access.md#register-snapshot-repository) спапшотов для кластера Managed Service for OpenSearch.
+
+## Перенос базы данных из сервиса Managed Service for PostgreSQL в другой кластер PostgreSQL с помощью логической репликации {#pg-replication}
+
+Кластер Managed Service for PostgreSQL поддерживает [логическую репликацию](https://www.postgresql.org/docs/current/logical-replication.html). Это позволяет мигрировать базы данных встроенными средствами PostgreSQL между разными кластерами PostgreSQL.
+
+Чтобы мигрировать базу данных, воспользуйтесь [практическим руководством](../tutorials/dataplatform/outbound-replication.md).
