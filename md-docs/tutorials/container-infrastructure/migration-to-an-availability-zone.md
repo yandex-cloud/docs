@@ -5,7 +5,7 @@
 # Миграция ресурсов Kubernetes в другую зону доступности
 
 
-В кластере Managed Service for Kubernetes вы можете [перенести группу узлов и рабочую нагрузку в подах](#transfer-a-node-group) из одной зоны доступности в другую.
+В кластере Managed Service for Kubernetes вы можете [перенести высокодоступный мастер](#transfer-a-master), а также [группу узлов и рабочую нагрузку в подах](#transfer-a-node-group) из одной зоны доступности в другую.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -29,6 +29,255 @@ yc components update
 * Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 
+## Перенесите мастер в другую зону доступности {#transfer-a-master}
+
+В этом разделе описана миграция [высокодоступного мастера](../../managed-kubernetes/concepts/index.md#master) из зоны `ru-central1-b` в `ru-central1-e`. Размещение в зонах `ru-central1-a` и `ru-central1-d` сохраняется.
+
+{% note warning %}
+
+В кластерах с Cilium после переноса мастера могут стать недоступны вебхуки. Способ устранения проблемы описан в разделе [Восстановите доступность вебхуков Cilium](#cilium-webhooks).
+
+{% endnote %}
+
+
+### Миграция высокодоступного мастера {#regional}
+
+Высокодоступный мастер размещается в трех подсетях в разных зонах доступности. Для миграции укажите полный набор из трех подсетей и зон: две текущие и одну новую. Новая подсеть должна находиться в той же облачной сети, что и кластер.
+
+Чтобы перенести высокодоступный мастер в другой набор зон доступности:
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+   
+   Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+   1. Посмотрите описание команды изменения кластера:
+
+      ```bash
+      yc managed-kubernetes cluster update --help
+      ```
+
+   1. Создайте подсеть в зоне доступности `ru-central1-e`:
+
+      ```bash
+      yc vpc subnet create \
+         --folder-id <идентификатор_каталога> \
+         --name <название_подсети> \
+         --zone ru-central1-e \
+         --network-id <идентификатор_сети> \
+         --range <CIDR_подсети>
+      ```
+
+      В команде укажите параметры подсети:
+
+      * `--folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
+      * `--name` — название подсети.
+      * `--zone` — зона доступности.
+      * `--network-id` — идентификатор сети, в которую входит новая подсеть.
+      * `--range` — список IPv4-адресов, откуда или куда будет поступать трафик. Например, `10.0.0.0/22` или `192.168.0.0/16`. Адреса должны быть уникальными внутри сети. Минимальный размер подсети — `/28`, а максимальный размер подсети — `/16`. Поддерживается только IPv4.
+
+   1. Переместите мастер в другой набор зон доступности:
+
+      ```bash
+      yc managed-kubernetes cluster update \
+         --folder-id <идентификатор_каталога> \
+         --id <идентификатор_кластера> \
+         --master-location subnet-id=<идентификатор_подсети_a>,zone=ru-central1-a \
+         --master-location subnet-id=<идентификатор_подсети_d>,zone=ru-central1-d \
+         --master-location subnet-id=<идентификатор_новой_подсети>,zone=ru-central1-e
+      ```
+
+      Где:
+
+      * `--folder-id` — идентификатор каталога. Необязательный параметр, если каталог задан в профиле CLI.
+      * `--id` — [идентификатор кластера](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md). Обязательный параметр.
+      * `--master-location` — параметры размещения мастера. Укажите три раза, по одному для каждой зоны:
+        * `subnet-id` — идентификатор подсети.
+        * `zone` — зона доступности.
+
+        Для зон `ru-central1-a` и `ru-central1-d` укажите текущие подсети, для `ru-central1-e` — новую.
+
+- Terraform {#tf}
+
+   Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../infrastructure-management/terraform-quickstart.md#install-terraform).
+   
+   
+   Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
+
+   {% note alert %}
+   
+   Чтобы убедиться, что кластер и все его группы узлов не будут пересозданы (если вы не делаете это намеренно), изучите вывод команд `terraform plan` и `terraform apply` перед применением конфигурации.
+   
+   Перенести мастер в другую зону доступности без пересоздания кластера можно только при наличии в конфигурационном файле блока `master_location`.
+   
+   {% endnote %}
+
+   1. Если в конфигурации кластера используется блок `regional`, замените его тремя блоками `master_location`, сохранив текущие значения зон и подсетей. Если блоки `master_location` уже используются, переходите к созданию новой подсети.
+
+      Ниже показаны фрагменты конфигурации. Сохраните имя ресурса в конфигурации и остальные параметры ресурса `yandex_kubernetes_cluster` без изменений.
+
+      **Старый формат**:
+
+      ```hcl
+      resource "yandex_kubernetes_cluster" "k8s-cluster" {
+         ...
+         master {
+            ...
+            regional {
+               region = "ru-central1"
+               location {
+                  subnet_id = yandex_vpc_subnet.my-subnet-a.id
+                  zone      = yandex_vpc_subnet.my-subnet-a.zone
+               }
+               location {
+                  subnet_id = yandex_vpc_subnet.my-subnet-d.id
+                  zone      = yandex_vpc_subnet.my-subnet-d.zone
+               }
+               location {
+                  subnet_id = yandex_vpc_subnet.my-subnet-b.id
+                  zone      = yandex_vpc_subnet.my-subnet-b.zone
+               }
+            }
+         }
+         ...
+      }
+      ```       
+
+      **Новый формат**: 
+
+      ```hcl
+      resource "yandex_kubernetes_cluster" "k8s-cluster" {
+         ...
+         master {
+            ...
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-subnet-a.id
+               zone      = yandex_vpc_subnet.my-subnet-a.zone
+            }
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-subnet-d.id
+               zone      = yandex_vpc_subnet.my-subnet-d.zone
+            }
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-subnet-b.id
+               zone      = yandex_vpc_subnet.my-subnet-b.zone
+            }
+         }
+         ...
+      }
+      ```
+
+   1. Убедитесь, что изменений в параметрах ресурсов Terraform не обнаружено:
+
+      ```bash
+      terraform plan
+      ```
+
+      Если Terraform обнаружил изменения, проверьте значения всех параметров кластера — они должны соответствовать текущему состоянию.
+
+   1. В файл с конфигурацией кластера добавьте манифест новой подсети и измените местоположение кластера:
+
+      ```hcl
+      resource "yandex_vpc_subnet" "my-subnet-e" {
+         name           = "<название_подсети>"
+         zone           = "ru-central1-e"
+         network_id     = yandex_vpc_network.k8s-network.id
+         v4_cidr_blocks = ["<CIDR_подсети>"]
+      }
+
+      ...
+
+      resource "yandex_kubernetes_cluster" "k8s-cluster" {
+         ...
+         master {
+            ...
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-subnet-a.id
+               zone      = yandex_vpc_subnet.my-subnet-a.zone
+            }
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-subnet-d.id
+               zone      = yandex_vpc_subnet.my-subnet-d.zone
+            }
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-subnet-e.id
+               zone      = yandex_vpc_subnet.my-subnet-e.zone
+            }
+            ...
+         }
+      ...
+      }
+      ```
+
+      Для кластера подсеть `my-subnet-b` заменяется на подсеть `my-subnet-e` с параметрами:
+
+      * `name` — название подсети.
+      * `zone` — зона доступности.
+      * `network_id` — идентификатор сети, в которую входит новая подсеть.
+      * `v4_cidr_blocks` — список IPv4-адресов, откуда или куда будет поступать трафик. Например, `10.0.0.0/22` или `192.168.0.0/16`. Адреса должны быть уникальными внутри сети. Минимальный размер подсети — `/28`, а максимальный размер подсети — `/16`. Поддерживается только IPv4.
+
+   1. Проверьте корректность конфигурационного файла.
+
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+      1. Выполните команду:
+      
+         ```bash
+         terraform validate
+         ```
+      
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+
+   1. Подтвердите изменение ресурсов. Перед применением убедитесь, что план не содержит удаления или пересоздания кластера и его групп узлов.
+
+      1. Выполните команду для просмотра планируемых изменений:
+      
+         ```bash
+         terraform plan
+         ```
+      
+         Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
+      
+      1. Если вас устраивают планируемые изменения, внесите их:
+      
+         1. Выполните команду:
+      
+            ```bash
+            terraform apply
+            ```
+      
+         1. Подтвердите изменение ресурсов.
+         1. Дождитесь завершения операции.
+
+   Подробная информация о параметрах ресурса `yandex_kubernetes_cluster` приведена в [документации провайдера](../../terraform/resources/kubernetes_cluster.md).
+
+{% endlist %}
+
+### Восстановите доступность вебхуков Cilium {#cilium-webhooks}
+
+После миграции мастера в кластерах с Cilium могут стать недоступны мутирующие и валидирующие вебхуки (Mutating/Validating Webhook) со стороны перенесенного мастера.
+
+Если вы столкнулись с этой проблемой:
+
+1. [Подключитесь к кластеру](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) с помощью Kubernetes CLI (kubectl).
+1. Получите список объектов `CiliumNode`:
+
+   ```bash
+   kubectl get ciliumnodes
+   ```
+
+1. Найдите объект старого мастера из исходной зоны доступности. Например, при переносе из `ru-central1-b` его имя имеет вид `mk8s-master-<идентификатор>-b`.
+1. Удалите только объект `CiliumNode`, который относится к старому мастеру:
+
+   ```bash
+   kubectl delete ciliumnode <имя_объекта_старого_мастера>
+   ```
+
+1. Проверьте, восстановилась ли доступность вебхуков. Если проблема сохраняется, обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
 
 ## Перенесите группу узлов и рабочую нагрузку в подах в другую зону доступности {#transfer-a-node-group}
 
