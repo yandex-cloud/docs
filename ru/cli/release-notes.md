@@ -7,6 +7,21 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.41.0 (12.10.26) {#v-1-41-0}
+
+#### {{ org-full-name }} {#v-1-41-0-org-name}
+
+* Добавлена группа команд `yc organization-manager authentication-policy-rule` для управления правилами политики аутентификации:
+  * `yc organization-manager authentication-policy-rule get`;
+  * `yc organization-manager authentication-policy-rule list`;
+  * `yc organization-manager authentication-policy-rule create`;
+  * `yc organization-manager authentication-policy-rule update`;
+  * `yc organization-manager authentication-policy-rule delete`;
+  * `yc organization-manager authentication-policy-rule activate`;
+  * `yc organization-manager authentication-policy-rule deactivate`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.40.0 (05.10.26) {#v-1-40-0}
 
 #### {{ at-name }} {#v-1-40-0-at-name}
@@ -28,8 +43,6 @@ description: На странице представлены релизы CLI, а
 #### Изменения в системных командах CLI {#v-1-40-0-yc}
 
 * Добавлено предупреждение об устаревании аутентификации с помощью OAuth-токена Yandex ID.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.39.0 (01.10.26) {#v-1-39-0}
 

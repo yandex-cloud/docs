@@ -49,11 +49,7 @@
 
 * [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/qa/index)
 * [Yandex DataSphere](../datasphere/qa/index.md)
-* [Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/qa/all)
 * [Yandex SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/qa/)
-* [Yandex Translate](https://aistudio.yandex.ru/docs/ru/translate/qa/index)
-* [Yandex Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/qa/index)
-
 
 ### Безопасность {#security}
 

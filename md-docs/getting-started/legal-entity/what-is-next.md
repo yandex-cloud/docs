@@ -84,15 +84,7 @@
 
 ### AI {#ai}
 
-* [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/index):
-
-  * [YandexGPT Lite и YandexGPT Pro](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/index#yandex).
-
-    Используйте нейросеть YandexGPT для генерации текста в синхронном режиме без дополнения контекста
-
-  * [YandexART](https://aistudio.yandex.ru/docs/ru/ai-studio/operations/generation/yandexart-request).
-
-    Используйте нейросеть YandexART для генерации изображений.
+* [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/index).
 
 * [Yandex DataSphere](../../datasphere/quickstart.md).
 

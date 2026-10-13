@@ -55,7 +55,7 @@ To set up locks:
 
   1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) for the HTTP lock server in the same network as the cluster.
 
-  1. [Configure security groups](../..//managed-valkey/operations/connect/index.md#configuring-security-groups) to allow:
+  1. [Configure security groups](../../managed-valkey/operations/connect/index.md#configure-security-groups) to allow:
 
      * The HTTP server to connect to the cluster.
      * The 1C:Enterprise server to access the HTTP server on the selected port.

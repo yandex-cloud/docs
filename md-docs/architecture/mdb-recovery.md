@@ -2,6 +2,10 @@
 
 # Восстановление кластеров баз данных при отказе зоны доступности
 
+Раздел содержит практические рекомендации по восстановлению данных при [недоступности зон Yandex Cloud](https://status.yandex.cloud/ru/incidents/2136?retpath=%2Fru%2Ftimeline$0).
+
+## Базовые рекомендации при различных отказах {#general}
+
 Если одна из [зон доступности](../overview/concepts/geo-scope.md) недоступна, порядок действий зависит от размещения хостов и состояния кластера. В примерах ниже предполагается, что недоступна зона `ru-central1-b`. Выберите подходящий сценарий:
 
 * [Все хосты кластера находятся в недоступной зоне](#all-hosts-in-zone-b).
@@ -9,7 +13,7 @@
 * [Часть хостов находится в недоступной зоне, мастер не переключился и кластер доступен только для чтения](#read-only).
 * [В кластере нет хостов в недоступной зоне](#no-hosts-in-zone-b).
 
-## Все хосты кластера находятся в недоступной зоне {#all-hosts-in-zone-b}
+### Все хосты кластера находятся в недоступной зоне {#all-hosts-in-zone-b}
 
 Чтобы сократить время простоя, начните восстановление из резервной копии, не дожидаясь возвращения зоны доступности в работу.
 
@@ -39,7 +43,7 @@
 
 Резервная копия Managed Service for Sharded PostgreSQL содержит конфигурацию шардов. Данные самих шардов при необходимости восстановите отдельно в Managed Service for PostgreSQL.
 
-## Часть хостов находится в недоступной зоне, мастер переключился {#master-switched}
+### Часть хостов находится в недоступной зоне, мастер переключился {#master-switched}
 
 Этот сценарий подходит для кластера из нескольких хостов, если мастер переключился на хост в другой зоне доступности.
 
@@ -57,7 +61,7 @@
 || Yandex StoreDoc | [Инструкция](../storedoc/operations/hosts.md#add-host) | [Инструкция](../storedoc/operations/hosts.md#remove-host) ||
 |#
 
-## Мастер не переключился, кластер доступен только для чтения {#read-only}
+### Мастер не переключился, кластер доступен только для чтения {#read-only}
 
 Этот сценарий подходит для кластера из нескольких хостов, часть которых находится в зоне `ru-central1-b`, если мастер не переключился и кластер перешел в режим только для чтения (Read Only, RO).
 
@@ -67,25 +71,48 @@
 1. Дождитесь, пока техническая поддержка переключит мастер.
 1. Выполните действия из [сценария, в котором мастер переключился](#master-switched).
 
-## В кластере нет хостов в недоступной зоне {#no-hosts-in-zone-b}
+### В кластере нет хостов в недоступной зоне {#no-hosts-in-zone-b}
 
 Чтобы подготовиться к возможным отказам других зон:
 
 1. Проверьте конфигурацию кластера и приложения по [рекомендациям по отказоустойчивости](fault-tolerance.md). Учитывайте требования вашего сервиса к размещению и количеству хостов.
 1. Если вам нужно настроить перенос или репликацию данных, изучите [инструкции Data Transfer](../data-transfer/operations/index.md) и [требования к подготовке источника и приемника](../data-transfer/operations/prepare.md).
 
-## Восстановление резервной копии кластера через OpenSearch API  {#mos-backup}
+## Перенос данных из резервных копий управляемых баз данных в сторонние кластеры {#outbound-backup}
 
-Вы можете подключить Object Storage к кластеру Managed Service for OpenSearch как репозиторий снапшотов. Резервные копии будут создаваться вручную или по расписанию через [OpenSearch Snapshot API](https://docs.opensearch.org/latest/api-reference/snapshots/index/).
+Если резервные копии управляемых баз данных Yandex Cloud хранятся в Object Storage с репликацией в трех зонах: ваши данные сохранены.
+Для сохранения копии данных можно сделать выгрузку любых хостов управляемой базы данных в доступных зонах по инструкциям:
 
-1. [Создайте репозиторий](https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/) для хранения снапшотов с указанием Object Storage.
-1. [Определите политику](https://docs.opensearch.org/latest/tuning-your-cluster/availability-and-recovery/snapshots/sm-api/) регулярного создания снапшотов.
-1. [Настройте права доступа](../managed-opensearch/operations/s3-access.md#configure-acl) и [подключите репозиторий](../managed-opensearch/operations/s3-access.md#register-snapshot-repository) снапшотов для кластера Managed Service for OpenSearch.
+#|
+|| **Сервис** | **Инструкция** ||
+|| Managed Service for PostgreSQL | [Восстановить кластер из `pg_dump`](https://www.postgresql.org/docs/current/app-pgdump.html) ||
+|| Managed Service for MySQL® | [Восстановить кластер из дампа](../tutorials/dataplatform/mysql-data-migration/logical-dump-migration.md#dump) ||
+|| Yandex StoreDoc | [Восстановить кластер из дампа](../tutorials/dataplatform/storedoc-data-migration.md#dump) ||
+|| Yandex Managed Service for Valkey™ | [Восстановить кластер из дампа](../tutorials/dataplatform/valkey-data-migration.md#create-dump) ||
+|| Managed Service for ClickHouse® | [Восстановление из S3](https://clickhouse.com/docs/concepts/features/backup-restore/s3-endpoint) ||
+|| Managed Service for OpenSearch | [Восстановление резервной копии кластера через OpenSearch API](../managed-opensearch/operations/cluster-backups.md#mos-backup) ||
+|| Managed Service for Apache Kafka® | Автоматические бекапы не предусмотрены||
+|| Yandex MPP Analytics for PostgreSQL | Используйте `PXF writable external table` для выгрузки таблиц в parquet или любой другой доступный в PXF формат файлов. Или воспользуйтесь стандартной утилитой `pg_dump` из состава PostgreSQL для выгрузки данных конкретных таблиц. ||
+|#
 
-1. [Настройте права доступа](../managed-opensearch/operations/s3-access.md#configure-acl) и [подключите репозиторий](../managed-opensearch/operations/s3-access.md#register-snapshot-repository) спапшотов для кластера Managed Service for OpenSearch.
+## Перенос данных из сервисов управляемых баз данных в сторонний кластер с помощью репликации {#pg-replication}
 
-## Перенос базы данных из сервиса Managed Service for PostgreSQL в другой кластер PostgreSQL с помощью логической репликации {#pg-replication}
+Если есть доступный хост базы данных в Yandex Cloud, вы можете скопировать его данные в самостоятельно развернутый экземпляр БД с помощью репликации:
 
-Кластер Managed Service for PostgreSQL поддерживает [логическую репликацию](https://www.postgresql.org/docs/current/logical-replication.html). Это позволяет мигрировать базы данных встроенными средствами PostgreSQL между разными кластерами PostgreSQL.
+#|
+|| **Сервис** | **Инструкция** ||
+|| Managed Service for PostgreSQL | [Миграция базы данных с помощью логической репликации](../tutorials/dataplatform/outbound-replication.md) ||
+|| Managed Service for MySQL® | [Миграция базы данных из Yandex Cloud в сторонний кластер](../tutorials/dataplatform/mmy-to-mysql-migration.md) ||
+|| Yandex Managed Service for Valkey™ | [Восстановление данных из доступного хоста](../managed-valkey/operations/data-recovery.md) ||
+|#
 
-Чтобы мигрировать базу данных, воспользуйтесь [практическим руководством](../tutorials/dataplatform/outbound-replication.md).
+## Перенос данных из сервисов управляемых баз данных в кластер Selectel с помощью Managed Service for Trino {#selectel-trino}
+
+Доступен способ миграции данных в инфраструктуру Selectel с помощью Managed Service for Trino:
+
+#|
+|| **Сервис** | **Инструкция** ||
+|| Managed Service for PostgreSQL | [Перенести данные из PostgreSQL в облачную базу данных PostgreSQL с помощью Trino](https://docs.selectel.ru/migrations/migrate-data-postgres-to-cloud-postgres-trino/) ||
+|| Managed Service for MySQL® | [Перенести данные из MySQL® в облачную базу данных MySQL® с помощью Trino](https://docs.selectel.ru/migrations/migrate-mysql-data-to-cloud-mysql-with-trino/) ||
+|| Managed Service for ClickHouse® | [Перенести данные из ClickHouse® в облачную базу данных ClickHouse® с помощью Trino](https://docs.selectel.ru/migrations/migrate-clickhouse-data-to-cloud-clickhouse-with-trino/) ||
+|#

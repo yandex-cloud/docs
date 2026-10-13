@@ -80,15 +80,7 @@
 
 ### AI {#ai}
 
-* [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/index):
-
-  * [{{ gpt-lite }} и {{ gpt-pro }}]({{ link-docs-ai }}ai-studio/concepts/generation/index#yandex).
-
-    Используйте нейросеть {{ yagpt-name }} для генерации текста в синхронном режиме без дополнения контекста
-
-  * [{{ yandexart-name }}]({{ link-docs-ai }}ai-studio/operations/generation/yandexart-request).
-
-    Используйте нейросеть {{ yandexart-name }} для генерации изображений.
+* [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/index).
 
 * [{{ ml-platform-full-name }}](../../datasphere/quickstart.md).
 

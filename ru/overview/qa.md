@@ -52,11 +52,7 @@ description: Из статьи вы узнаете, какими материа�
 
 * [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/qa/index)
 * [{{ ml-platform-full-name }}](../datasphere/qa/index.md)
-* [{{ speechkit-full-name }}]({{ link-docs-ai }}{{ speechkit-slug }}/qa/all)
 * [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/qa/)
-* [{{ translate-full-name }}]({{ link-docs-ai }}translate/qa/index)
-* [{{ vision-full-name }}]({{ link-docs-ai }}vision/qa/index)
-
 
 ### Безопасность {#security}
 

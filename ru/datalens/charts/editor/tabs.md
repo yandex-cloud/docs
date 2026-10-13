@@ -183,6 +183,8 @@ description: Из статьи вы узнаете, за что отвечают
 * [подключение к базам данных через SQL-запрос](#sources-database);
 * [подключение через API Connector](#sources-api-connector).
 
+Вы можете настроить [продолжение выполнения сценария](#fallback-on-error) при сбое источника.
+
 ### Подключение к источнику данных через датасет {#sources-dataset}
 
 Для использования данных из датасета:
@@ -292,6 +294,61 @@ description: Из статьи вы узнаете, за что отвечают
   };
   ```
 
+
+{% endlist %}
+
+### Продолжение выполнения при сбое источника {#fallback-on-error}
+
+Чтобы сценарий продолжал выполняться при сбое источника, укажите для такого источника параметр `fallbackOnError: true`.
+
+При сбое источника чарт продолжает работать: код на вкладках [Prepare](#prepare) и [Controls](#controls) выполняется. При этом:
+
+* `Editor.getLoadedData()` для такого источника возвращает `{}`.
+* `Editor.getDataStatus()` возвращает информацию о статусе запроса и код ошибки.
+
+Например:
+
+{% list tabs %}
+
+- Вкладка Sources
+
+  ```js
+  module.exports = {
+      catalog: {
+          url: '/_some/api/catalog',
+          fallbackOnError: true,
+      },
+  };
+  ```
+
+  Где:
+
+  * `url` — путь к источнику.
+  * `fallbackOnError` — флаг продолжения выполнения сценария при сбое источника.
+
+- Вкладка Prepare
+
+  ```js
+  const status = Editor.getDataStatus();
+  // {
+  //   catalog: {status: 500, code: 'ERR.CHARTS.DATA_FETCHING_ERROR'},
+  //   settings: {status: 200},
+  // }
+  ```
+
+  Пример обработки ошибки:
+
+  ```js
+  const {catalog} = Editor.getDataStatus();
+
+  if (catalog.status === 404) {
+      // handled: render the empty state ourselves
+      module.exports = buildEmptyChart();
+  } else if (catalog.code) {
+      // not handled: fail the chart the way it would have failed before the flag
+      Editor.setError({code: catalog.code, statusCode: catalog.status});
+  }
+  ```
 
 {% endlist %}
 

@@ -1,6 +1,8 @@
 title: Yandex Query
 href: index.yaml
 items:
+  - name: '{{ yq-full-name }} shutdown'
+    href: sunset.md
   - name: Getting started
     items:
       - name: Overview
@@ -97,6 +99,8 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
+      - name: Migrating from {{ yq-full-name }}
+        href: tutorials/migration.md
       - name: Processing {{ cloud-logging-name }} logs
         href: tutorials/cloud-logging.md
       - name: Processing Debezium CDC streams

@@ -25,7 +25,7 @@ description: Из статьи вы узнаете, как регулирует�
 
 ## Организация и экземпляр {#org-tennant}
 
-Для работы {{ datalens-platform-short-name }} требуется [организация]({{ link-docs }}/organization/concepts/organization.md) {{ org-full-name }}. Действует ограничение: в рамках одной организации можно создать только один экземпляр {{ datalens-platform-short-name }}.
+Для работы {{ datalens-platform-short-name }} требуется [организация]({{ link-docs }}/organization/concepts/organization) {{ org-full-name }}. Действует ограничение: в рамках одной организации можно создать только один экземпляр {{ datalens-platform-short-name }}.
 
 Если вы создаете {{ datalens-platform-short-name }} с нуля, то организация будет создана автоматически при [активации платформы](../quickstart.md#activate-service). При настройке прав доступа роли пользователям назначаются на уровне экземпляра.
 

@@ -8,7 +8,7 @@
 * Гипервизоры.
 * Физические серверы.
 
-Чтобы начать, создайте ВМ с [Хайстекс Акура — Аварийное восстановление](/marketplace/products/hystax/hystax-acura-disaster-recovery), которая управляет процессами репликации и восстановления. Постоянную и периодическую репликацию выполняют вспомогательные ВМ: облачные агенты Хайстекс. Подробное описание архитектуры в [документации](https://xn--q1ach.xn--p1ai/documentation/disaster-recovery-and-cloud-backup/index.html#_2).
+Чтобы начать, создайте ВМ с [Хайстекс Акура — Аварийное восстановление](/marketplace/products/hstx/akura-disaster-recovery), которая управляет процессами репликации и восстановления. Постоянную и периодическую репликацию выполняют вспомогательные ВМ: облачные агенты Хайстекс. Подробное описание архитектуры в [документации](https://xn--q1ach.xn--p1ai/documentation/disaster-recovery-and-cloud-backup/index.html#_2).
 
 Для запуска «Хайстекс Акура — Аварийное восстановление» выполните следующие шаги:
 1. [Подготовьте облако к работе](#before-begin).
@@ -44,7 +44,7 @@
 * Плата за диски и постоянно запущенные ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 * Плата за хранение образов ([тарифы {{ compute-name }}](../../compute/pricing.md)).
 * Плата за использование динамического или статического внешнего IP-адреса ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-* Плата за каждую защищаемую ВМ (смотрите [описание продукта](/marketplace/products/hystax/hystax-acura-disaster-recovery) в {{ marketplace-name }}).
+* Плата за каждую защищаемую ВМ (смотрите [описание продукта](/marketplace/products/hstx/akura-disaster-recovery) в {{ marketplace-name }}).
 
 
 ## Создайте сервисный аккаунт и авторизованный ключ {#create-sa}
@@ -101,7 +101,7 @@
 
       * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**.
       * Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
-      * В списке публичных образов выберите [«Хайстекс Акура — Аварийное восстановление» в {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-disaster-recovery) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+      * В списке публичных образов выберите [«Хайстекс Акура — Аварийное восстановление» в {{ yandex-cloud }}](/marketplace/products/hstx/akura-disaster-recovery) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** укажите размер загрузочного [диска](../../compute/concepts/disk.md): `200 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
@@ -167,7 +167,7 @@
       * `size` — размер диска.
       * `image-id` — идентификатор образа диска.
 
-        В данном случае используйте `image_id` из [описания продукта](/marketplace/products/hystax/hystax-acura-disaster-recovery) в {{ marketplace-name }}.
+        В данном случае используйте `image_id` из [описания продукта](/marketplace/products/hstx/akura-disaster-recovery) в {{ marketplace-name }}.
 
    * `service-account-id` — идентификатор сервисного аккаунта, [созданного ранее](#create-sa).
 

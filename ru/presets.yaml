@@ -5328,6 +5328,8 @@ default:
         label_use-bucket-site: Использовать сайт бакета
         md_value_certificate-le: Let's Encrypt^®^
         resources:
+          FollowRedirectsField:
+            option_use-custom-host-from-origin_iirxa: От основного источника
           QueriesField:
             button_add-query-param_x8JXA: Добавить query-параметр
           QueryParamsOptions:
@@ -5337,6 +5339,10 @@ default:
             option_cache-only_uJKZC: Кешировать только
             option_do-not-cache_4J3Bg: Не кешировать
         sections:
+          FollowRedirectsOptionSection:
+            field_follow-redirects-codes_kDoT8: Коды перенаправления
+            field_follow-redirects-enabled_6Y5ig: Следование перенаправлениям от источника
+            field_follow-redirects-use-custom-host_e3yZ7: Использовать заголовок Host
           StaticResponseSection:
             field_static-response-enabled_sPsQU: Настраиваемый HTTP-ответ
             field_static-response-type_5KyYv: Тип ответа
