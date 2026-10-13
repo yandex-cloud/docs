@@ -55,7 +55,17 @@
 
     - CLI {#cli}
 
-      1. Запросите новый wildcard-сертификат. Для этого выполните команду:
+      {% include [cli-install](../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+      1. Посмотрите описание команды CLI для запроса нового сертификата:
+
+          ```bash
+          yc certificate-manager certificate request --help
+          ```
+
+      1. Запросите новый wildcard-сертификат:
 
           ```bash
           yc certificate-manager certificate request \
@@ -65,7 +75,7 @@
 
           Где:
           * `--name` — имя сертификата. Например: `my-cdn-certificate`.
-          * `--domains` — маска для вашего домена и его поддоменов. Например: `*.example.com`, где `example.com` — доменное имя вашего сайта.
+          * `--domains` — маска для вашего домена и его поддоменов. Например: `*.example.com`, где `example.com` — доменное имя вашего сайта. Для wildcard-сертификата проверка прав будет выполнена через DNS.
 
           Результат:
 
@@ -100,6 +110,10 @@
           На вкладке **CNAME-запись** скопируйте и сохраните значения полей **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_dns-name }}** и **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_value }}**. Они понадобятся для создания CNAME-записи.
 
     - CLI {#cli}
+
+      {% include [cli-install](../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
       1. Получите значения CNAME-записи, необходимые для прохождения процедуры проверки прав на домен. Для этого выполните команду, указав сохраненный ранее идентификатор сертификата:
 
@@ -166,16 +180,39 @@
         * В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите протокол, по которому CDN-ресурс будет взаимодействовать с источником. Если вы выбираете варианты `{{ ui-key.yacloud.common.label_https }}` или `{{ ui-key.yacloud.cdn.value_protocol-match }}`, убедитесь, что ваш источник поддерживает HTTPS.
         * В поле **{{ ui-key.yacloud.cdn.label_personal-domain }}** укажите новое доменное имя, которое вы присвоили вашему новому CDN-ресурсу. Например: `cdn-new.example.com`.
       * В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}**:
-        * В поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
         * В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** выберите `{{ ui-key.yacloud.cdn.value_certificate-custom }}` и в появившемся списке выберите созданный ранее сертификат, например: `my-cdn-certificate`.
-        * В поле **{{ ui-key.yacloud.cdn.label_host-header }}** выберите `{{ ui-key.yacloud.cdn.value_host-header-default }}`.
+        * Включите опцию **{{ ui-key.yacloud.cdn.sections.FollowRedirectsOptionSection.field_follow-redirects-enabled_6Y5ig }}**.
+        * В поле **{{ ui-key.yacloud.cdn.sections.FollowRedirectsOptionSection.field_follow-redirects-codes_kDoT8 }}** выберите коды `301` и `302`.
+        * В поле **{{ ui-key.yacloud.cdn.sections.FollowRedirectsOptionSection.field_follow-redirects-use-custom-host_e3yZ7 }}** выберите **{{ ui-key.yacloud.cdn.resources.FollowRedirectsField.option_use-custom-host-from-origin_iirxa }}**.
   1. Нажмите **{{ ui-key.yacloud.common.continue }}**.
-  1. В разделах **{{ ui-key.yacloud.cdn.label_resource-cache }}**, **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** и **Дополнительно** оставьте настройки по умолчанию и нажмите **Продолжить**.
+  1. В разделах **{{ ui-key.yacloud.cdn.label_resource-cache }}**, **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** и **{{ ui-key.yacloud.cdn.label_section-additional }}** оставьте настройки по умолчанию и нажмите **{{ ui-key.yacloud.common.continue }}**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- CLI {#cli}
 
-  1. Выполните команду:
-  
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Если в вашем каталоге еще не активирован CDN-провайдер, активируйте его. Для этого проверьте список активированных провайдеров:
+
+      ```bash
+      yc cdn provider list-activated
+      ```
+
+      Если команда возвращает пустой список, активируйте провайдера:
+
+      ```bash
+      yc cdn provider activate --type ourcdn
+      ```
+
+  1. Посмотрите описание команды CLI для создания CDN-ресурса:
+
+      ```bash
+      yc cdn resource create --help
+      ```
+
+  1. Создайте CDN-ресурс:
+
       ```bash
       yc cdn resource create <имя_поддомена> \
         --origin-custom-source '<IP-адрес_или_доменное_имя_источника>' \
@@ -190,7 +227,7 @@
 
           * `http` — использовать протокол HTTP.
           * `https` — использовать протокол HTTPS.
-          * `match` — использовать такое же значение, как и у заголовка `Host` в запросе клиента к CDN.
+          * `match` — использовать тот же протокол (HTTP или HTTPS), который клиент использовал в запросе к CDN.
 
           Выбирая вариант `https` или `match`, убедитесь, что ваш источник поддерживает HTTPS.
       * `--cert-manager-ssl-cert-id` — идентификатор TLS-сертификата, сохраненный ранее при его создании.
@@ -212,11 +249,14 @@
           ignore_query_string:
             enabled: true
             value: true
-        stale:
+        host_options:
+          forward_host_header:
+            enabled: true
+            value: true
+        custom_server_name: {}
+        ignore_cookie:
           enabled: true
-          value:
-            - error
-            - updating
+          value: true
       origin_group_id: "352269"
       origin_group_name: Origins for cdn-new.example.com (302798)
       origin_protocol: HTTP
@@ -226,6 +266,10 @@
         data:
           cm:
             id: fpqnetjumkhn********
+      provider_type: ourcdn
+      provider_cname: xxxxxxxxxxxxxxxx.topology.gslb.yccdn.ru
+      tls:
+        profile: PROFILE_COMPATIBLE
       ```
 
       {% endcut %}
@@ -294,10 +338,20 @@
   1. В блоке **{{ ui-key.yacloud.cdn.label_section-domain }}** нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.cdn.button_add-domain }}** и в появившемся поле введите доменное имя, оставшееся от прежнего CDN-ресурса. Например: `cdn.example.com`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- CLI {#cli}
 
-  1. Выполните команду:
-  
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для обновления CDN-ресурса:
+
+      ```bash
+      yc cdn resource update --help
+      ```
+
+  1. Добавьте дополнительный домен к CDN-ресурсу:
+
       ```bash
       yc cdn resource update <идентификатор_CDN-ресурса> \
         --secondary-hostnames '<прежний_CDN-поддомен>'
@@ -310,8 +364,8 @@
       {% note warning %}
 
       Команда удалит все дополнительные домены, которые до этого были привязаны к CDN-ресурсу.
-      
-      Чтобы привязать дополнительный домен к CDN-ресурсу, уже имеющему привязанные дополнительные домены, укажите в параметре `--secondary-hostnames` через запятую все дополнительные домены, которые должны быть привязаны к ресурсу. 
+
+      Чтобы привязать дополнительный домен к CDN-ресурсу, уже имеющему привязанные дополнительные домены, укажите в параметре `--secondary-hostnames` через запятую все дополнительные домены, которые должны быть привязаны к ресурсу.
 
       {% endnote %}
 
@@ -332,13 +386,14 @@
           ignore_query_string:
             enabled: true
             value: true
-        stale:
-          enabled: true
-          value:
-            - error
-            - updating
+        host_options:
+          forward_host_header:
+            enabled: true
+            value: true
+        custom_server_name: {}
         ignore_cookie:
           enabled: true
+          value: true
       secondary_hostnames:
         - cdn.example.com
       origin_group_id: "350569"
@@ -347,6 +402,10 @@
       ssl_certificate:
         type: CM
         status: READY
+      provider_type: ourcdn
+      provider_cname: xxxxxxxxxxxxxxxx.topology.gslb.yccdn.ru
+      tls:
+        profile: PROFILE_COMPATIBLE
       ```
 
       {% endcut %}

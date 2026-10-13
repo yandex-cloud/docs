@@ -1,10 +1,10 @@
-# Перенос WordPress сайта с хостинга в {{ yandex-cloud }}
+# Перенос WordPress-сайта с хостинга в {{ yandex-cloud }}
 
 [WordPress](https://wordpress.com) — система управления контентом с открытым исходным кодом.
 
 С помощью WordPress вы можете создавать новостные сайты, личные или корпоративные блоги, сайты организаций, онлайн-магазины и другие сервисы.
 
-Система позволяет с минимальными усилиями развернуть сайт, используя один из множества шаблонов или собственный дизайн. Готовые плагины помогают легко добавить к созданному сервису новые блоки или функциональности.
+Система позволяет с минимальными усилиями развернуть сайт, используя один из множества шаблонов или собственный дизайн. Готовые плагины помогают легко добавить к созданному сервису новые блоки или функции.
 
 В {{ yandex-cloud }} вы можете быстро [создать сайт на WordPress](../../tutorials/web/wordpress/index.md) или перенести с другого хостинга.
 
@@ -25,7 +25,7 @@
 Сделайте [бэкап](../../glossary/backup.md) файлов сайта и БД одним из способов:
 * С помощью различных плагинов для WordPress (например, [BackWPup](https://ru.wordpress.org/plugins/backwpup) или [Updraft Plus](https://ru.wordpress.org/plugins/updraftplus)).
 * С помощью встроенных средств в панели управления хостингом, на котором располагается ваш сайт.
-* Скопировать все файлы на свой жесткий диск через FTP-клиент, а БД экспортировать через панель [phpMyAdmin](https://www.phpmyadmin.net/).
+* Скопируйте все файлы на свой жесткий диск через FTP-клиент, а БД экспортируйте через панель [phpMyAdmin](https://www.phpmyadmin.net/).
 
   Этот вариант дольше и займет от 5 до 20 минут — придется копировать много небольших файлов, из которых состоит сайт.
 
@@ -33,7 +33,17 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-Убедитесь, что в выбранном [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder) есть [облачная сеть](../../vpc/concepts/network.md#network) с [подсетью](../../vpc/concepts/network.md#subnet) хотя бы в одной [зоне доступности](../../overview/concepts/geo-scope.md). Для этого на странице каталога выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**. Если в списке есть сеть — нажмите на нее, чтобы увидеть список подсетей. Если нужных подсетей или сети нет, [создайте их](../../vpc/quickstart.md).
+Убедитесь, что в выбранном [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder) есть [облачная сеть](../../vpc/concepts/network.md#network) с [подсетью](../../vpc/concepts/network.md#subnet) хотя бы в одной [зоне доступности](../../overview/concepts/geo-scope.md).
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Нажмите на сеть и проверьте, что у нее есть подсеть хотя бы в одной зоне доступности.
+  1. Если нужной сети или подсети нет, [создайте их](../../vpc/quickstart.md).
+
+{% endlist %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -45,39 +55,44 @@
 ## Создайте ВМ для WordPress {#create-vm}
 
 Чтобы создать ВМ:
-1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `LAMP` и выберите публичный образ [LAMP](/marketplace/products/yc/lamp), который содержит необходимый набор компонентов: операционную систему семейства Linux, веб-сервер Apache, СУБД {{ MY }} и интерпретатор PHP.
-1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** выберите [тип диска](../../compute/concepts/disk.md#disks-types) и задайте нужный размер.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
-    * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
-    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
-    * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
-    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+{% list tabs group=instructions %}
 
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+- Консоль управления {#console}
 
-   * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть и подсеть, к которым нужно подключить ВМ. Если нужной [сети](../../vpc/concepts/network.md#network) или [подсети](../../vpc/concepts/network.md#subnet) еще нет, [создайте их](../../vpc/operations/subnet-create.md).
-   * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте [имя](*name) ВМ: `wordpress-vm`.
 
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
+      {% include [vm-no-public-ip-note](../../_includes/compute/vm-no-public-ip-note.md) %}
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `LAMP` и выберите публичный образ [LAMP](/marketplace/products/yc/lamp), который содержит необходимый набор компонентов: операционную систему семейства Linux, веб-сервер Apache, СУБД {{ MY }} и интерпретатор PHP.
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** выберите [тип диска](../../compute/concepts/disk.md#disks-types) и задайте нужный размер.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
-   * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
-   * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `wordpress-vm`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-    {% note alert %}
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть и подсеть, к которым нужно подключить ВМ. Если нужной [сети](../../vpc/concepts/network.md#network) или [подсети](../../vpc/concepts/network.md#subnet) еще нет, [создайте их](../../vpc/operations/subnet-create.md).
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
 
-    IP-адрес и [имя хоста (FQDN)](../../compute/concepts/network.md#hostname) для подключения к ВМ назначаются ей при создании. Если вы выбрали вариант `{{ ui-key.yacloud.component.compute.network-select.switch_none }}` в поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, вы не сможете обращаться к ВМ из интернета.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа к ВМ:
 
-    {% endnote %}
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) или создайте новый.
-1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) или создайте новый.
+  1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-   Создание ВМ может занять несколько минут. Когда ВМ перейдет в [статус](../../compute/concepts/vm-statuses.md) `RUNNING`, вы можете [загрузить на нее файлы сайта](#transfer-files).
+     Создание ВМ может занять несколько минут. Когда ВМ перейдет в [статус](../../compute/concepts/vm-statuses.md) `RUNNING`, вы можете [загрузить на нее файлы сайта](#transfer-files).
+
+{% endlist %}
 
 ## Подключитесь к ВМ {#connect-vm}
 
@@ -86,18 +101,25 @@
 Для подключения к ВМ необходимо указать ее публичный IP-адрес.
 
 Чтобы скопировать публичный IP-адрес ВМ:
-1. Откройте страницу каталога в [консоли управления]({{ link-console-main }}).
-1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
-1. Найдите созданную ВМ и нажмите на ее имя.
-1. В разделе **{{ ui-key.yacloud.compute.instance.overview.section_network }}** скопируйте IP-адрес из поля **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}**.
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. Откройте страницу каталога в [консоли управления]({{ link-console-main }}).
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. Найдите созданную ВМ и нажмите на ее имя.
+  1. В разделе **{{ ui-key.yacloud.compute.instance.overview.section_network }}** скопируйте IP-адрес из поля **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}**.
+
+{% endlist %}
 
 Выполните [подключение к ВМ](../../compute/operations/vm-connect/ssh.md).
 
 ## Установите и настройте дополнительные компоненты {#additional-components}
 
-Перед тем, как перейти к переносу файлов, необходимо:
-* Установить текстовый редактор `nano` — он потребуется нам для внесения правок в некоторые файлы конфигурации.
+Перед тем как перейти к переносу файлов, необходимо:
+* Установить текстовый редактор `nano` — он потребуется для внесения правок в некоторые файлы конфигурации.
 * Установить и настроить `phpMyAdmin` для работы с БД сайта.
 
 ### Установите редактор nano {#install-nano}
@@ -126,7 +148,7 @@
 
      ```bash
 	 sudo apt-get update
-	 sudo apt-get install phpmyadmin php-mbstring php-gettext
+	 sudo apt-get install phpmyadmin php-mbstring
 	 ```
 
   1. В процессе установки выберите сервер, на который будет установлен `phpMyAdmin`. Выберите `Apache2` и нажмите **пробел** на клавиатуре — напротив `Apache2` появится значок `*`. Нажмите **Enter**.
@@ -246,7 +268,7 @@
   1. Зайдите в phpMyAdmin — введите в адресной строке браузера:
 
      ```http request
-     http://<публичный_IP-адрес_ВМ>/phpmyadmin`
+     http://<публичный_IP-адрес_ВМ>/phpmyadmin
      ```
 
   1. Перейдите в раздел **Учетные записи пользователей** и добавьте учетную запись пользователя с параметрами:
@@ -266,12 +288,12 @@
 	    sudo nano /etc/php/X.X/apache2/php.ini
 	    ```
 
-	    `X.X`— версия PHP. Возможные значения `5.6`,`7.0`,`7.1`,`7.2`,`7.3`,`7.4`,`8.0`,`8.1`.
+	    `X.X` — версия PHP. Возможные значения: `8.2`, `8.4` (актуальную версию можно узнать командой `php -v`).
 	 1. Отредактируйте параметры:
 	    * `upload_max_filesize` — максимальный размер загружаемого файла.
 	    * `post_max_size` — максимальный размер сообщения методом `POST`.
 
-	    ```bash
+	    ```ini
 	    upload_max_filesize = 80M
 	    post_max_size = 80M
 	    ```
@@ -347,18 +369,18 @@
      ```
 
      Верните права на папки:
-     * `html` и вложенных папок — `755`.
-     * Для всех файлов внутри `html` — `644`.
-     * Для `wp-config.php` отдельно уровень доступа — `600`.
+     * папка `html` и вложенные папки — `755`;
+     * все файлы внутри `html` — `644`;
+     * `wp-config.php` — `600`.
 
      ```bash
-     cd var/www/
+     cd /var/www/
      sudo find ./ -type d -exec chmod 0755 {} \;
      sudo find ./ -type f -exec chmod 0644 {} \;
-     sudo chmod 600 wp-config.php
+     sudo chmod 600 html/wp-config.php
      ```
 
-     Параметр `f` — ищет все файлы внутри директорий. Параметр `d` — ищет все директории внутри `html`.
+     Параметр `f` ищет все файлы внутри директорий. Параметр `d` ищет все директории внутри `html`.
 
    {% endlist %}
 
@@ -374,9 +396,9 @@
 * `http://<публичный_IP-адрес_ВМ>`.
 * `http://www.example.com`.
 
-## Установите SSL-сертификат c помощью Let’s Encrypt® {#setting-ssl}
+## Установите SSL-сертификат с помощью Let’s Encrypt {#setting-ssl}
 
-Для установки [сертификата](../../certificate-manager/concepts/managed-certificate.md) используйте [Let’s Encrypt](https://letsencrypt.org/). Let’s Encrypt — это центр сертификации, предоставляющий бесплатные [SSL-сертификаты](https://ru.wikipedia.org/wiki/SSL).
+Для установки [сертификата](../../certificate-manager/concepts/managed-certificate.md) используйте [Let’s Encrypt](https://letsencrypt.org/). Let’s Encrypt — центр сертификации, предоставляющий бесплатные [SSL-сертификаты](https://ru.wikipedia.org/wiki/SSL).
 
 ### Установите клиент Let’s Encrypt {#install-client}
 
@@ -384,23 +406,23 @@
 
 - Ubuntu {#ubuntu}
 
-  1. Введите в терминал команду:
+  1. Введите в терминале команду:
 
      ```bash
 	 sudo apt-get update && sudo apt-get install software-properties-common
 	 ```
 
-  1. Добавьте репозитории `universe` and `certbot`:
+  1. Добавьте репозитории `universe` и `certbot`:
 
      ```bash
-     sudo add-apt-repository universe && sudo add-apt-repository ppa:certbot/certbot
+     sudo add-apt-repository universe
      ```
 
      Нажмите **Enter**.
   1. Установите клиент Let’s Encrypt:
 
      ```bash
-     sudo apt-get update && sudo apt-get install certbot python-certbot-apache
+     sudo apt-get update && sudo apt-get install certbot python3-certbot-apache
      ```
 
   1. Нажмите **Y** и **Enter**.
@@ -420,7 +442,7 @@
      ```
 
   1. В интерфейсе введите название вашего домена `example.com` или `www.example.com`.
-  1. Определите, нужно ли перенаправлять все страницы с `http` на `https` при открытии сайта. Выберите `2` — перенаправить на https.
+  1. Определите, нужно ли перенаправлять все страницы с `http` на `https` при открытии сайта. Выберите `2` — перенаправление на `https`.
   1. Протестируйте ваш сайт — введите в адресную строку браузера `https://www.ssllabs.com/ssltest/analyze.html?d=example.com`.
 
 {% endlist %}
@@ -440,19 +462,19 @@
 	 ```
 
   1. В диалоге выберите первый пункт из списка.
-  1. Добавьте в самый конец файла строчку кода:
+  1. Добавьте в конец файла строку:
 
      ```bash
 	 30 2 * * 1 /usr/bin/certbot renew >> /var/log/le-renew.log
 	 ```
 
-     В итоге будет запланировано обновление SSL-сертификата с выполнением каждый понедельник в 2:30 ночи. Результат выполнения будет записан в лог-файл.
+     Будет запланировано обновление SSL-сертификата каждый понедельник в 02:30. Результат выполнения будет записан в лог-файл.
 
 {% endlist %}
 
 ## Проверьте работу сайта {#check-site}
 
-У сайтов на WordPress иногда возникает проблема открытия внутренних ссылок при переходе от одного хостинга к другому. Проверьте, существует ли файл `.htaccess` в корневой папке вашего сайта — `var/www/html/.htaccess`.
+У сайтов на WordPress иногда возникает проблема открытия внутренних ссылок при переходе от одного хостинга к другому. Проверьте, существует ли файл `.htaccess` в корневой папке вашего сайта — `/var/www/html/.htaccess`.
 
 Если файла нет, создайте его.
 
@@ -483,7 +505,7 @@
 
 {% endlist %}
 
-Проверьте сайт. Если ссылки не открываются, значит в `Apache` отключена поддержка `.htaccess` файла.
+Проверьте сайт. Если ссылки не открываются, значит, в Apache отключена поддержка файла `.htaccess`.
 
 Чтобы включить поддержку `.htaccess`:
 
@@ -502,8 +524,7 @@
      ```text
 	 <Directory /var/www/html>
 	   AllowOverride All
-	   Order allow,deny
-	   allow from all
+	   Require all granted
 	 </Directory>
 	 ```
 
@@ -515,8 +536,7 @@
 	   DocumentRoot /var/www/html
 	   <Directory /var/www/html>
 	     AllowOverride All
-		 Order allow,deny
-		 allow from all
+	  Require all granted
 	   </Directory>
 	   ErrorLog ${APACHE_LOG_DIR}/error.log
 	   CustomLog ${APACHE_LOG_DIR}/access.log combined
@@ -530,3 +550,5 @@
 	 ```
 
 {% endlist %}
+
+[*name]: {% include [name-format](../../_popups/name-format-general.md) %}

@@ -130,7 +130,7 @@ _Модели машинного обучения_ — это методы об�
 
 Опробовать технологии машинного обучения можно на платформе Yandex Cloud, которая предлагает следующие инструменты:
 
-* [Yandex AI Studio](https://yandex.cloud/ru/services/ai-studio/) предоставляет API лингвистической генеративной модели, которую вы можете использовать для развития бизнеса. Подробнее в [документации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts).
+* [Yandex AI Studio](https://yandex.cloud/ru/services/ai-studio/) предоставляет API лингвистической генеративной модели, которую вы можете использовать для развития бизнеса. Подробнее в [документации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/).
 * [Управление](../managed-clickhouse/operations/ml-models.md) моделями машинного обучения в [Yandex Managed Service for ClickHouse®](https://yandex.cloud/ru/services/managed-clickhouse/).
 * [Yandex SpeechKit](https://yandex.cloud/ru/services/speechkit/) — технологии синтеза и распознавания речи, позволяющие распознавать речь в режиме реального времени, озвучивать аудиокниги и создавать собственные голоса для бизнеса. Подробнее в [документации](https://aistudio.yandex.ru/docs/ru/speechkit/overview).
 * [Yandex Translate](https://yandex.cloud/ru/services/translate/) — продвинутые алгоритмы перевода для интеграции в ваши проекты. Поддерживается технология дообучения моделей. Подробнее в [документации](https://aistudio.yandex.ru/docs/ru/translate/concepts/index).
