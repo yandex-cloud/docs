@@ -6,6 +6,8 @@ description: Follow this guide to pull a Helm chart from a {{ container-registry
 
 # Pulling a Helm chart from a registry
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 You can pull [Helm charts](https://helm.sh/docs/topics/charts/) from a {{ container-registry-name }} repository. {{ container-registry-name }} stores Helm charts the same way as conventional [Docker Images](../../concepts/docker-image.md).
 
 {% list tabs group=instructions %}

@@ -13,8 +13,10 @@
 * [Управление хостами кластера](hosts.md)
 * [Миграция хостов в другую зону доступности](host-migration.md)
 * [Управление резервными копиями](cluster-backups.md)
+* [Восстановление данных из доступного хоста Yandex Managed Service for Valkey™](data-recovery.md)
 * [Управление политиками резервного копирования](backup-retention-policies.md)
 * [Управление доступом к кластеру](cluster-access.md)
+* [Техническое обслуживание](cluster-maintenance.md)
 * [Удаление кластера](cluster-delete.md)
 
 ## Подключение {#connect}

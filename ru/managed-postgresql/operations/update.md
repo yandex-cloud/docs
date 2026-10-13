@@ -468,7 +468,7 @@ description: Из статьи вы узнаете, как изменить на
             --datalens-access=<разрешить_доступ_из_{{ datalens-name }}> \
             --maintenance-window type=<тип_технического_обслуживания>,`
                                 `day=<день_недели>,`
-                                `hour=<час> \
+                                `hour=<порядковый_номер_часового_интервала> \
             --websql-access=<разрешить_доступ_из_{{ websql-name }}> \
             --deletion-protection \
             --connection-pooling-mode=<режим_работы_менеджера_подключений> \

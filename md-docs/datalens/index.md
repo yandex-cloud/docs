@@ -1634,6 +1634,16 @@
 
  - [Internal server error](troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG.md)
 
+ - [Подключение уже мигрировано](https://yandex.cloud/ru/troubleshooting/errors/ERR-DS_API-CONNECTION-MIGRATION-ALREADY_MIGRATED.md)
+
+ - [Недостаточно прав для создания подключения](https://yandex.cloud/ru/troubleshooting/errors/ERR-DS_API-CONNECTION-MIGRATION-CONNMAN-CREATOR_ROLE_REQUIRED.md)
+
+ - [Нет доступа к подключению Connection Manager](https://yandex.cloud/ru/troubleshooting/errors/ERR-DS_API-CONNECTION-MIGRATION-CONNMAN-INSUFFICIENT_USE_PERMISSION.md)
+
+ - [Не удалось подобрать подключение Connection Manager](https://yandex.cloud/ru/troubleshooting/errors/ERR-DS_API-CONNECTION-MIGRATION-NO_MATCHING_CONNECTION.md)
+
+ - [Миграция не поддерживается](https://yandex.cloud/ru/troubleshooting/errors/ERR-DS_API-CONNECTION-MIGRATION-NOT_SUPPORTED.md)
+
  - [Internal server error](troubleshooting/errors/ERR-DS_API-DASHSQL-PARAMETER.md)
 
  - [Internal server error](troubleshooting/errors/ERR-DS_API-DASHSQL.md)

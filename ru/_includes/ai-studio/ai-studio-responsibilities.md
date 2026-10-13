@@ -8,7 +8,7 @@
 
 * **Инфраструктура платформы**. Отказоустойчивость платформы, защита сети, гипервизоров и компонентов инфраструктуры.
 
-* **Сервисы и компоненты {{ ai-studio-name }}**. Безопасность и доступность [Model Gallery]({{ link-docs-ai }}ai-studio/concepts/generation/), [Agent Atelier]({{ link-docs-ai }}ai-studio/concepts/agents/), [MCP Hub]({{ link-docs-ai }}ai-studio/concepts/mcp-hub), [API]({{ link-docs-ai }}ai-studio/concepts/api).
+* **Сервисы и компоненты {{ ai-studio-name }}**. Безопасность и доступность [Model Gallery]({{ link-docs-ai }}ai-studio/concepts/generation/), [Agent Atelier]({{ link-docs-ai }}ai-studio/concepts/agents/), [MCP Hub]({{ link-docs-ai }}ai-studio/concepts/mcp-hub/), [API]({{ link-docs-ai }}ai-studio/concepts/api).
 
 * **ML-модели и их работа**. Обеспечение работы доступных в сервисе моделей, их обновления и поддержка.
 
@@ -36,7 +36,7 @@
 
 * **Инструменты для разработки агентов и приложений**. Предоставление API, инструментов разработчика ([SDK]({{ link-docs-ai }}ai-studio/sdk/)), инструментов [Agent Atelier]({{ link-docs-ai }}ai-studio/concepts/agents/) и [интерфейс {{ ai-studio-name }}]({{ link-console-ai }}).
 
-* **Дообучение моделей**. Инфраструктура дообучения моделей ([Tuning API]({{ link-docs-ai }}ai-studio/concepts/tuning)), среда для обучения.
+* **Дообучение моделей**. Инфраструктура дообучения моделей ([Tuning API]({{ link-docs-ai }}ai-studio/concepts/tuning/)), среда для обучения.
 
 * **Компоненты для интеграции с внешними системами**: [{{ mcp-hub-name }}]({{ link-docs-ai }}ai-studio/concepts/mcp-hub/), [{{ search-api-full-name }}](*search-api_service_info).
 
@@ -76,7 +76,7 @@
 
 * **Сканирование на наличие уязвимостей**. [Включение](../../container-registry/operations/scanning-docker-image.md) политики сканирования при загрузке, периодическое сканирование образов, выполняемое не реже одного раза в неделю для среды эксплуатации (production).
 
-* **Разработка агентов и приложений**. Разработка логики [агентов]({{ link-docs-ai }}ai-studio/concepts/agents), настройка [рабочих процессов]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/workflow), тестирование промптов, интеграция в бизнес-процессы.
+* **Разработка агентов и приложений**. Разработка логики [агентов]({{ link-docs-ai }}ai-studio/concepts/agents/), настройка [рабочих процессов]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/workflow), тестирование промптов, интеграция в бизнес-процессы.
 
 * **Дообучение моделей**. Подготовка [датасетов]({{ link-docs-ai }}ai-studio/concepts/resources/dataset), выбор параметров дообучения, контроль качества результатов, защита тренировочных данных.
 

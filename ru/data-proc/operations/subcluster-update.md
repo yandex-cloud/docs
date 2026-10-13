@@ -192,11 +192,11 @@ description: Следуя данной инструкции, вы сможете
 
 Проверьте, что в облаке хватает квоты на увеличение ресурсов виртуальных машин. Откройте страницу [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) для вашего облака и проверьте, что в секции **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** не исчерпано место в строках:
 
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.hddDisks.size }}**;
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.ssdDisks.size }}**;
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.disks.count }}**;
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.instanceCores.count }}**;
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.instances.count }}**.
+* **{{ ui-key.yacloud_quotas.quotas.compute.hddDisks.size }}**;
+* **{{ ui-key.yacloud_quotas.quotas.compute.ssdDisks.size }}**;
+* **{{ ui-key.yacloud_quotas.quotas.compute.disks.count }}**;
+* **{{ ui-key.yacloud_quotas.quotas.compute.instanceCores.count }}**;
+* **{{ ui-key.yacloud_quotas.quotas.compute.instances.count }}**.
 
 Для работы автоматического масштабирования [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту кластера {{ dataproc-name }} роли:
 
@@ -326,9 +326,9 @@ description: Следуя данной инструкции, вы сможете
 
 Проверьте, что в облаке хватает квоты на увеличение ресурсов виртуальных машин. Откройте страницу [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) для вашего облака и проверьте, что в секции **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** не исчерпано место в строках:
 
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.hddDisks.size }}**;
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.ssdDisks.size }}**;
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.disks.count }}**.
+* **{{ ui-key.yacloud_quotas.quotas.compute.hddDisks.size }}**;
+* **{{ ui-key.yacloud_quotas.quotas.compute.ssdDisks.size }}**;
+* **{{ ui-key.yacloud_quotas.quotas.compute.disks.count }}**.
 
 {% list tabs group=instructions %}
 

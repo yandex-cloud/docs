@@ -1,5 +1,7 @@
 # Docker volume in {{ container-registry-name }}
 
+{% include [sunset](../../_includes/container-registry/sunset.md) %}
+
 A _Docker volume_ is a tool for the permanent storage of information on a [VM](../../compute/concepts/vm.md) instance. The data in the volume is stored independently of containers. If you delete a container, both its volumes and data will persist. Deleting a volume is a separate operation.
 
 ## Volumes and Docker Compose {#volume-compose}

@@ -1436,6 +1436,8 @@
 
  - [Настройка Postfix для отправки через Yandex Cloud Postbox](serverless/postfix-integration.md)
 
+ - [Веб-приложение на SourceCraft Sites и Yandex Cloud Functions](serverless/sourcecraft-sites-web-app.md)
+
 ### Боты на Serverless
 
 #### Разработка Telegram-бота

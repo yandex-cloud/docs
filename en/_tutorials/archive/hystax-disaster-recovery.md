@@ -8,7 +8,7 @@ Supported platforms:
 * Hypervisors
 * Physical servers
 
-To get started, create a VM with [Hystax Acura Disaster Recovery](/marketplace/products/hystax/hystax-acura-disaster-recovery) to manage replication and recovery. Auxiliary Hystax Cloud Agent VMs will perform continuous and periodic replication. For more information about the architecture, see [this guide](https://xn--q1ach.xn--p1ai/documentation/disaster-recovery-and-cloud-backup/index.html#_2).
+To get started, create a VM with [Hystax Acura Disaster Recovery](/marketplace/products/hstx/akura-disaster-recovery) to manage replication and recovery. Auxiliary Hystax Cloud Agent VMs will perform continuous and periodic replication. For more information about the architecture, see [this guide](https://xn--q1ach.xn--p1ai/documentation/disaster-recovery-and-cloud-backup/index.html#_2).
 
 To run Hystax Acura Disaster Recovery, follow these steps:
 1. [Get your cloud ready](#before-begin).
@@ -44,7 +44,7 @@ The cost of resources for Hystax Acura Disaster Recovery includes:
 * Fee for disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for storing Docker images (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* Fee for each backed up VM (see the [product description](/marketplace/products/hystax/hystax-acura-disaster-recovery) in {{ marketplace-name }}).
+* Fee for each backed up VM (see the [product description](/marketplace/products/hstx/akura-disaster-recovery) in {{ marketplace-name }}).
 
 
 ## Create a service account and authorized key {#create-sa}
@@ -101,7 +101,7 @@ Create a VM with a boot disk from the `Hystax Acura Disaster Recovery in {{ yand
 
       * Navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab.
       * Click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
-      * In the list of public images, select [Hystax Acura Disaster Recovery in {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-disaster-recovery) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+      * In the list of public images, select [Hystax Acura Disaster Recovery in {{ yandex-cloud }}](/marketplace/products/hstx/akura-disaster-recovery) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `200 {{ ui-key.yacloud.common.units.label_gigabyte }}` as the boot [disk](../../compute/concepts/disk.md) size.
@@ -167,7 +167,7 @@ Create a VM with a boot disk from the `Hystax Acura Disaster Recovery in {{ yand
       * `size`: Disk size.
       * `image-id`: Disk image ID.
 
-        For this example, use `image_id` from the [product description](/marketplace/products/hystax/hystax-acura-disaster-recovery) in {{ marketplace-name }}.
+        For this example, use `image_id` from the [product description](/marketplace/products/hstx/akura-disaster-recovery) in {{ marketplace-name }}.
 
    * `service-account-id`: ID of the service account you [created previously](#create-sa).
 

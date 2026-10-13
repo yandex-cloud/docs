@@ -201,8 +201,6 @@ items:
             href: metrics-ref/storage-ref.md
           - name: '{{ vpc-name }}'
             href: metrics-ref/vpc-ref.md
-          - name: '{{ si-name }}'
-            href: metrics-ref/serverless-integrations-ref.md
           - name: '{{ serverless-containers-name }}'
             href: metrics-ref/serverless-containers-ref.md
           - name: '{{ captcha-name }}'

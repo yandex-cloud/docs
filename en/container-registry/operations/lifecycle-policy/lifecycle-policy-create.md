@@ -1,5 +1,7 @@
 # Creating a lifecycle policy
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a [repository](../../concepts/repository.md). To find out the repository name, get a [list of repositories in the registry](../repository/repository-list.md#repository-get).
 
 {% list tabs group=instructions %}

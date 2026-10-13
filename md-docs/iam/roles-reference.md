@@ -113,7 +113,7 @@
 Пользователи с этой ролью могут:
 
 
-* использовать сервис Yandex Translate для [перевода текста](https://aistudio.yandex.ru/docs/ru/translate/concepts);
+* использовать сервис Yandex Translate для [перевода текста](https://aistudio.yandex.ru/docs/ru/translate/concepts/);
 * использовать сервис Yandex Vision OCR для [анализа изображений](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/);
 * использовать сервис Yandex SpeechKit для [распознавания](https://aistudio.yandex.ru/docs/ru/speechkit/stt/) и [синтеза](https://aistudio.yandex.ru/docs/ru/speechkit/tts/) речи;
 * просматривать информацию о [моделях генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models) Yandex AI Studio;
@@ -152,7 +152,6 @@
 * [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../billing/concepts/budget.md);
-* [резервировать потребление ресурсов](../billing/concepts/cvos.md);
 * пополнять [лицевой счет](../billing/concepts/personal-account.md) с помощью расчетного счета;
 * пополнять лицевой счет с помощью банковской карты;
 * привязывать [облака](../resource-manager/concepts/resources-hierarchy.md#cloud) к платежному аккаунту;
@@ -273,7 +272,6 @@
 * [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../billing/concepts/budget.md);
-* [резервировать потребление ресурсов](../billing/concepts/cvos.md);
 * пополнять [лицевой счет](../billing/concepts/personal-account.md) с помощью расчетного счета;
 * привязывать [облака](../resource-manager/concepts/resources-hierarchy.md#cloud) к платежному аккаунту;
 * переименовывать платежные аккаунты;
@@ -316,7 +314,6 @@
 * [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../billing/concepts/budget.md);
-* [резервировать потребление ресурсов](../billing/concepts/cvos.md);
 * пополнять [лицевой счет](../billing/concepts/personal-account.md) с помощью расчетного счета;
 * привязывать [облака](../resource-manager/concepts/resources-hierarchy.md#cloud) к платежному аккаунту;
 * переименовывать платежные аккаунты;
@@ -367,7 +364,6 @@
 * [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../billing/concepts/budget.md);
-* [резервировать потребление ресурсов](../billing/concepts/cvos.md);
 * пополнять [лицевой счет](../billing/concepts/personal-account.md) с помощью расчетного счета;
 * привязывать [облака](../resource-manager/concepts/resources-hierarchy.md#cloud) к платежному аккаунту;
 * переименовывать платежные аккаунты;
@@ -891,6 +887,53 @@
 
 
 Включает разрешения, предоставляемые ролями `serverless.mcpGateways.editor`, `serverless.mcpGateways.invoker` и `serverless.mcpGateways.anonymousInvoker`.
+
+#### serverless.workflows.auditor {#serverless-workflows-auditor}
+
+Роль `serverless.workflows.auditor` позволяет просматривать информацию о [рабочих процессах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) и назначенных [правах доступа](concepts/access-control/index.md) к ним, просматривать историю [запусков](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/execution) рабочих процессов, а также информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) Yandex Workflows.
+
+#### serverless.workflows.viewer {#serverless-workflows-viewer}
+
+Роль `serverless.workflows.viewer` позволяет просматривать информацию о [рабочих процессах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) и назначенных [правах доступа](concepts/access-control/index.md) к ним, просматривать историю [запусков](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/execution) рабочих процессов, а также информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) Yandex Workflows.
+
+
+Включает разрешения, предоставляемые ролью `serverless.workflows.auditor`.
+
+#### serverless.workflows.executor {#serverless-workflows-executor}
+
+Роль `serverless.workflows.executor` позволяет запускать, приостанавливать, возобновлять и останавливать [рабочие процессы](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) Yandex Workflows.
+
+#### serverless.workflows.editor {#serverless-workflows-editor}
+
+Роль `serverless.workflows.editor` позволяет управлять рабочими процессами.
+
+Пользователи с этой ролью могут:
+
+
+* просматривать информацию о [рабочих процессах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) и назначенных [правах доступа](concepts/access-control/index.md) к ним;
+* создавать, изменять и удалять рабочие процессы;
+* запускать, приостанавливать, возобновлять и останавливать рабочие процессы;
+* просматривать историю [запусков](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/execution) рабочих процессов;
+* просматривать информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) Yandex Workflows.
+
+
+Включает разрешения, предоставляемые ролями `serverless.workflows.viewer` и `serverless.workflows.executor`.
+
+#### serverless.workflows.admin {#serverless-workflows-admin}
+
+Роль `serverless.workflows.admin` позволяет управлять рабочими процессами.
+
+Пользователи с этой ролью могут:
+
+
+* просматривать информацию о [рабочих процессах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow), а также создавать, изменять и удалять их;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к рабочим процессам, а также изменять такие права доступа;
+* запускать, приостанавливать, возобновлять и останавливать рабочие процессы;
+* просматривать историю [запусков](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/execution) рабочих процессов;
+* просматривать информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) Yandex Workflows.
+
+
+Включает разрешения, предоставляемые ролью `serverless.workflows.editor`.
 
 Подробнее в [Управление доступом в Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/security/index).
 
@@ -1417,7 +1460,6 @@
 * [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../billing/concepts/budget.md);
-* [резервировать потребление ресурсов](../billing/concepts/cvos.md);
 * пополнять [лицевой счет](../billing/concepts/personal-account.md) с помощью расчетного счета;
 * пополнять лицевой счет с помощью банковской карты;
 * привязывать [облака](../resource-manager/concepts/resources-hierarchy.md#cloud) к платежному аккаунту;
@@ -1538,7 +1580,6 @@
 * [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../billing/concepts/budget.md);
-* [резервировать потребление ресурсов](../billing/concepts/cvos.md);
 * пополнять [лицевой счет](../billing/concepts/personal-account.md) с помощью расчетного счета;
 * привязывать [облака](../resource-manager/concepts/resources-hierarchy.md#cloud) к платежному аккаунту;
 * переименовывать платежные аккаунты;
@@ -1583,7 +1624,6 @@
 * [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../billing/concepts/budget.md);
-* [резервировать потребление ресурсов](../billing/concepts/cvos.md);
 * пополнять [лицевой счет](../billing/concepts/personal-account.md) с помощью расчетного счета;
 * привязывать [облака](../resource-manager/concepts/resources-hierarchy.md#cloud) к платежному аккаунту;
 * переименовывать платежные аккаунты;
@@ -1635,7 +1675,6 @@
 * [выполнять API-запросы](../billing/operations/get-charges-via-api.md) для получения детализации расходов;
 * создавать [экспорт детализации](../billing/operations/get-folder-report.md);
 * создавать [бюджеты](../billing/concepts/budget.md);
-* [резервировать потребление ресурсов](../billing/concepts/cvos.md);
 * пополнять [лицевой счет](../billing/concepts/personal-account.md) с помощью расчетного счета;
 * привязывать [облака](../resource-manager/concepts/resources-hierarchy.md#cloud) к платежному аккаунту;
 * переименовывать платежные аккаунты;
@@ -7863,115 +7902,6 @@
 Эта роль недоступна. Используйте роль `serverless-containers.containerInvoker`.
 
 Подробнее в [Управление доступом в Serverless Containers](../serverless-containers/security/index.md).
-
-
-## Yandex Serverless Integrations {#serverless-integrations-roles}
-
-### Сервисные роли Yandex EventRouter {#eventrouter-roles}
-
-#### serverless.eventrouter.auditor {#serverless-eventrouter-auditor}
-
-Роль `serverless.eventrouter.auditor` позволяет просматривать информацию о [шинах](../serverless-integrations/concepts/eventrouter/bus.md), [коннекторах](../serverless-integrations/concepts/eventrouter/connector.md) и [правилах](../serverless-integrations/concepts/eventrouter/rule.md), а также о назначенных [правах доступа](concepts/access-control/index.md) к ним.
-
-#### serverless.eventrouter.viewer {#serverless-eventrouter-viewer}
-
-Роль `serverless.eventrouter.viewer` позволяет просматривать информацию о [шинах](../serverless-integrations/concepts/eventrouter/bus.md), [коннекторах](../serverless-integrations/concepts/eventrouter/connector.md) и [правилах](../serverless-integrations/concepts/eventrouter/rule.md), а также о назначенных [правах доступа](concepts/access-control/index.md) к ним.
-
-Включает разрешения, предоставляемые ролью `serverless.eventrouter.auditor`.
-
-#### serverless.eventrouter.supplier {#serverless-eventrouter-supplier}
-
-Роль `serverless.eventrouter.supplier` позволяет отправлять пользовательские события в шины, а также передавать события аудита.
-
-Пользователи с этой ролью могут:
-* отправлять пользовательские события в [шины](../serverless-integrations/concepts/eventrouter/bus.md) с помощью вызова gRPC API [EventService/Send](../serverless-integrations/eventrouter/api-ref/grpc/Event/send.md);
-* отправлять пользовательские события в шины с помощью вызова gRPC API [EventService/Put](../serverless-integrations/eventrouter/api-ref/grpc/Event/put.md);
-* передавать события аудита.
-
-#### serverless.eventrouter.editor {#serverless-eventrouter-editor}
-
-Роль `serverless.eventrouter.editor` позволяет управлять шинами, коннекторами и правилами, а также отправлять в шины пользовательские и аудитные события.
-
-Пользователи с этой ролью могут:
-* просматривать информацию о [шинах](../serverless-integrations/concepts/eventrouter/bus.md) и назначенных [правах доступа](concepts/access-control/index.md) к ним, а также создавать, изменять и удалять шины;
-* просматривать информацию о [коннекторах](../serverless-integrations/concepts/eventrouter/connector.md) и назначенных правах доступа к ним, а также создавать, изменять и удалять коннекторы;
-* просматривать информацию о [правилах](../serverless-integrations/concepts/eventrouter/rule.md) и назначенных правах доступа к ним, а также создавать, изменять и удалять правила;
-* отправлять пользовательские события в шины с помощью вызова gRPC API [EventService/Send](../serverless-integrations/eventrouter/api-ref/grpc/Event/send.md);
-* отправлять пользовательские события в шины с помощью вызова gRPC API [EventService/Put](../serverless-integrations/eventrouter/api-ref/grpc/Event/put.md);
-* передавать события аудита.
-
-Включает разрешения, предоставляемые ролями `serverless.eventrouter.viewer` и `serverless.eventrouter.supplier`.
-
-#### serverless.eventrouter.admin {#serverless-eventrouter-admin}
-
-Роль `serverless.eventrouter.admin` позволяет управлять шинами, коннекторами, правилами и доступом к ним, а также отправлять в шины пользовательские и аудитные события.
-
-Пользователи с этой ролью могут:
-* просматривать информацию о [шинах](../serverless-integrations/concepts/eventrouter/bus.md), а также создавать, изменять и удалять их;
-* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к шинам, а также изменять такие права доступа;
-* просматривать информацию о [коннекторах](../serverless-integrations/concepts/eventrouter/connector.md), а также создавать, изменять и удалять их;
-* просматривать информацию о назначенных правах доступа к коннекторам, а также изменять такие права доступа;
-* просматривать информацию о [правилах](../serverless-integrations/concepts/eventrouter/rule.md), а также создавать, изменять и удалять их;
-* просматривать информацию о назначенных правах доступа к правилам, а также изменять такие права доступа;
-* отправлять пользовательские события в шины с помощью вызова gRPC API [EventService/Send](../serverless-integrations/eventrouter/api-ref/grpc/Event/send.md);
-* отправлять пользовательские события в шины с помощью вызова gRPC API [EventService/Put](../serverless-integrations/eventrouter/api-ref/grpc/Event/put.md);
-* передавать события аудита;
-* просматривать информацию о [квотах](../serverless-integrations/concepts/limits.md#eventrouter) EventRouter.
-
-Включает разрешения, предоставляемые ролью `serverless.eventrouter.editor`.
-
-Подробнее в [Управление доступом в EventRouter](../serverless-integrations/security/eventrouter.md).
-
-### Сервисные роли Yandex Workflows {#workflows-roles}
-
-#### serverless.workflows.auditor {#serverless-workflows-auditor}
-
-Роль `serverless.workflows.auditor` позволяет просматривать информацию о [рабочих процессах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) и назначенных [правах доступа](concepts/access-control/index.md) к ним, просматривать историю [запусков](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/execution) рабочих процессов, а также информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) Yandex Workflows.
-
-#### serverless.workflows.viewer {#serverless-workflows-viewer}
-
-Роль `serverless.workflows.viewer` позволяет просматривать информацию о [рабочих процессах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) и назначенных [правах доступа](concepts/access-control/index.md) к ним, просматривать историю [запусков](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/execution) рабочих процессов, а также информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) Yandex Workflows.
-
-
-Включает разрешения, предоставляемые ролью `serverless.workflows.auditor`.
-
-#### serverless.workflows.executor {#serverless-workflows-executor}
-
-Роль `serverless.workflows.executor` позволяет запускать, приостанавливать, возобновлять и останавливать [рабочие процессы](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) Yandex Workflows.
-
-#### serverless.workflows.editor {#serverless-workflows-editor}
-
-Роль `serverless.workflows.editor` позволяет управлять рабочими процессами.
-
-Пользователи с этой ролью могут:
-
-
-* просматривать информацию о [рабочих процессах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow) и назначенных [правах доступа](concepts/access-control/index.md) к ним;
-* создавать, изменять и удалять рабочие процессы;
-* запускать, приостанавливать, возобновлять и останавливать рабочие процессы;
-* просматривать историю [запусков](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/execution) рабочих процессов;
-* просматривать информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) Yandex Workflows.
-
-
-Включает разрешения, предоставляемые ролями `serverless.workflows.viewer` и `serverless.workflows.executor`.
-
-#### serverless.workflows.admin {#serverless-workflows-admin}
-
-Роль `serverless.workflows.admin` позволяет управлять рабочими процессами.
-
-Пользователи с этой ролью могут:
-
-
-* просматривать информацию о [рабочих процессах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/workflow), а также создавать, изменять и удалять их;
-* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к рабочим процессам, а также изменять такие права доступа;
-* запускать, приостанавливать, возобновлять и останавливать рабочие процессы;
-* просматривать историю [запусков](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/execution) рабочих процессов;
-* просматривать информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) Yandex Workflows.
-
-
-Включает разрешения, предоставляемые ролью `serverless.workflows.editor`.
-
-Подробнее в [Управление доступом в Workflows](https://aistudio.yandex.ru/docs/ru/ai-studio/security/index#workflows-roles).
 
 
 ## Yandex SIEM {#yandex-siem-roles}

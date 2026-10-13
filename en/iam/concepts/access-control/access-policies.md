@@ -44,6 +44,9 @@ The following access policy templates do not contain parameters and unconditiona
 
 * [backup.denyActivation](#backup-denyActivation)
 * [backup.denyRemoveProtection](#backup-denyRemoveProtection)
+* [compute.denyMultipleNic](#compute-denyMultipleNic)
+* [compute.denyPublicIpAssigning](#compute-denyPublicIpAssigning)
+* [compute.denySerialPortEnabling](#compute-denySerialPortEnabling)
 * [iam.denyServiceAccountAccessKeysCreation](#iam-denyServiceAccountAccessKeysCreation)
 * [iam.denyServiceAccountApiKeysCreation](#iam-denyServiceAccountApiKeysCreation)
 * [iam.denyServiceAccountAuthorizedKeysCreation](#iam-denyServiceAccountAuthorizedKeysCreation)
@@ -57,6 +60,8 @@ The following access policy templates do not contain parameters and unconditiona
 * [resourceManager.denyFolderRemoval](#resourceManager-denyFolderRemoval)
 
 {% include [backup-access-policies](../../../_includes/backup/backup-access-policies.md) %}
+
+{% include [compute-access-no-param-policies](../../../_includes/compute/compute-access-no-param-policies.md) %}
 
 #### iam.denyServiceAccountAccessKeysCreation {#iam-denyServiceAccountAccessKeysCreation}
 
@@ -132,6 +137,8 @@ For more information on how to create access policies based on templates with pa
 {% endnote %}
 
 * [aistudio.responses.restrictNetworkAccess](#aistudio-responses-restrictNetworkAccess)
+* [compute.restrictImage](#compute-restrictImage)
+* [postbox.identities.restrictNetworkAccess](#postbox-identities-restrictNetworkAccess)
 * [serverless.containers.restrictNetworkAccess](#serverless-containers-restrictNetworkAccess)
 * [serverless.containers.restrictResourceVPCNetwork](#serverless-containers-restrictResourceVPCNetwork)
 * [serverless.functions.restrictNetworkAccess](#serverless-functions-restrictNetworkAccess)
@@ -150,6 +157,16 @@ Customizable parameters (applied using the `OR` logic):
 
 * `allowed_src_ips`: List of IP addresses or IP address ranges in [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation you can call and manage functions from.
 * `allowed_vpc_network_ids`: List of IDs of cloud networks that allow calling and managing functions via a configured [service connection](../../../vpc/concepts/private-endpoint.md).
+
+{% include [compute-access-parametrized-policies](../../../_includes/compute/compute-access-parametrized-policies.md) %}
+
+#### postbox.identities.restrictNetworkAccess {#postbox-identities-restrictNetworkAccess}
+
+This policy allows specifying a list of IP addresses and IP address ranges that are allowed to [send emails](../../../postbox/operations/send-email.md) via {{ postbox-full-name }} and prohibits sending emails from any IP addresses that are not on the list.
+
+Customizable parameter:
+
+* `allowed_src_ips`: List of IP addresses or IP address ranges in [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation you can send emails from.
 
 #### serverless.containers.restrictNetworkAccess {#serverless-containers-restrictNetworkAccess}
 

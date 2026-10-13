@@ -859,3 +859,11 @@ keywords:
     ```http
     DELETE https://admin:<пароль>@<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя_репозитория>/<имя_снапшота>
     ```
+
+### Восстановление резервной копии кластера через {{ OS }} API  {#mos-backup}
+
+Вы можете подключить {{ objstorage-name }} к кластеру {{ mos-name }} как репозиторий снапшотов. Резервные копии будут создаваться вручную или по расписанию через [{{ OS }} Snapshot API](https://docs.opensearch.org/latest/api-reference/snapshots/index/).
+
+1. [Создайте репозиторий](https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/) для хранения снапшотов с указанием {{ objstorage-name }}.
+1. [Определите политику](https://docs.opensearch.org/latest/tuning-your-cluster/availability-and-recovery/snapshots/sm-api/) регулярного создания снапшотов.
+1. [Настройте права доступа](s3-access.md#configure-acl) и [подключите репозиторий](s3-access.md#register-snapshot-repository) снапшотов для кластера {{ mos-name }}.

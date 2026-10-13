@@ -5,6 +5,8 @@ description: Follow this guide to delete a {{ container-registry-short-name }}.
 
 # Deleting a registry
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 {% note info %}
 
 You can only delete an empty [registry](../../concepts/registry.md). Make sure to [delete Docker images from the registry](../docker-image/docker-image-delete.md) before deleting the registry itself.

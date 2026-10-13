@@ -27,12 +27,16 @@ items:
             href: operations/host-migration.md
           - name: Управление резервными копиями
             href: operations/cluster-backups.md
+          - name: Восстановление данных из доступного хоста
+            href: operations/data-recovery.md
           - name: Управление политиками резервного копирования
             href: operations/backup-retention-policies.md
           - name: Управление доступом к кластеру
             href: operations/cluster-access.md
           - name: Управление многоуровневым хранилищем
             href: operations/tiered-storage.md
+          - name: Техническое обслуживание
+            href: operations/cluster-maintenance.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
       - name: Подключение

@@ -36,6 +36,6 @@ To find the location of an object (in a workbook, collection, or folder), select
 
 Access to connections, datasets, charts, and dashboards is configured at the level of the workbooks and collections that store those objects. By granting access to a workbook or collection, you give the same access to all objects inside that workbook or collection: this is the [basic setup](./workbooks-access-basic.md) of access permissions.
 
-[Advanced setup](./workbooks-access-advanced.md) allows you to create _shared objects_ (connections and datasets) whose originals can be attached to multiple workbooks so that different teams can use them. Access to the original objects is managed by special permissions.
+[Advanced setup](./workbooks-access-advanced.md) allows you to create _common objects_ (connections and datasets) whose originals can be attached to multiple workbooks so that different teams can use them. Access to the original objects is managed by special permissions.
 
 

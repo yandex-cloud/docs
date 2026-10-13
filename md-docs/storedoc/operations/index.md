@@ -7,6 +7,7 @@
 * [Информация об имеющихся кластерах](cluster-list.md)
 * [Создание кластера](cluster-create.md)
 * [Изменение настроек кластера](update.md)
+* [Техническое обслуживание](cluster-maintenance.md)
 * [Обновление версии Yandex StoreDoc](cluster-version-update.md)
 * [Остановка и запуск кластера](cluster-stop.md)
 * [Управление хостами кластера](hosts.md)

@@ -129,10 +129,26 @@ The [CIS {{ k8s }} Benchmark](https://www.cisecurity.org/benchmark/kubernetes) s
 
 - Manual check {#manual}
 
-  * Using the [kube-bench](https://github.com/aquasecurity/kube-bench) tool, check whether the node group configuration is compliant with CIS {{ k8s }} Benchmark. The tool officially supports the {{ yandex-cloud }} node groups.
-  * [Starboard Operator](https://blog.aquasec.com/automate-kubernetes-compliance) is a free tool that helps you automate scanning of images for vulnerabilities and checking that the configuration is compliant with CIS {{ k8s }} Benchmark. Starboard Operator supports integration with kube-bench and is used for its automatic startup.
+  {% note info %}
+
+  You only need to check the configuration or use scanning in folders that have at least one {{ k8s }} node group. If a folder has no running {{ k8s }} clusters, the recommendation is automatically considered fulfilled (status `SUCCESS` or `Not Applicable`), as there is no attack surface.
+
+  {% endnote %}
+
+  1. Check if the folder has {{ k8s }} nodes by running this command:
+
+      ```bash
+      yc managed-kubernetes node-group list
+      ```
+
+      If the list is empty, no further action is required.
+
+  1. If nodes are found, use the [kube-bench](https://github.com/aquasecurity/kube-bench) tool to check the node group configuration against the CIS {{ k8s }} Benchmark. The tool officially supports the {{ yandex-cloud }} node groups.
+  1. [Starboard Operator](https://github.com/aquasecurity/starboard) is a free tool that helps you automate scanning of images for vulnerabilities and checking that the configuration is compliant with CIS {{ k8s }} Benchmark. Starboard Operator supports integration with kube-bench and is used for its automatic startup.
 
 {% endlist %}
+
+{% include [check-security-deck](../check-security-deck.md) %}
 
 #### 7.6 {{ managed-k8s-name }} data encryption and secret management are done in _ESO as a Service_ format {#data-encryption}
 
@@ -307,6 +323,8 @@ These requirements allow you to ensure security and reliability of applications 
 
 * [Kubesec](https://kubesec.io/)
 
+{% include [check-security-deck](../check-security-deck.md) %}
+
 #### 7.12 Audit log collection is set up for incident investigation {#audit-logs}
 
 Events available to the user in the {{ managed-k8s-name }} service can be classified as levels:
@@ -319,7 +337,7 @@ Events available to the user in the {{ managed-k8s-name }} service can be classi
 
 For more information about setting up audit event logging at different levels, see [{#T}](../../../security/domains/kubernetes.md#collection-monitoring-analysis-audit-logs).
 
-In {{ managed-k8s-name }}, you can audit the current role model used in the service. To do this, open the {{ k8s }} cluster page in the [management console]({{ link-console-main }}), and go to the **{{ ui-key.yacloud.k8s.access.label_title }}** tab.
+In {{ managed-k8s-name }}, you can audit the current role-based access control model. To do this, open the {{ k8s }} cluster page in the [management console]({{ link-console-main }}), and go to the **{{ ui-key.yacloud.k8s.access.label_title }}** tab.
 
 You can also use:
 

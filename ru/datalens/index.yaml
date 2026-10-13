@@ -16,17 +16,73 @@ meta:
     - keyword: бизнес-метрики в {{ yandex-cloud }}
     - keyword: Аналитика {{ yandex-cloud }}
 blocks:
+  - type: header-block
+    title: Документация Yandex DataLens
+    centered: true
+    width: l
+    offset: l
+    indent:
+      top: xl
+      bottom: l
+    background:
+      image:
+        desktop: ../_assets/datalens/index/images/2.jpg
+        mobile: ../_assets/datalens/index/images/1.jpg
   - type: card-layout-block
+    background:
+      light:
+        style:
+          backgroundColor: '#ADC5FA'
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
     title: "Yandex\_DataLens"
-    description: >-
-      Yandex DataLens — сервис бизнес-аналитики для визуализации данных.
-      Подключайтесь к источникам, собирайте дашборды и формируйте отчеты в виде
-      интерактивных презентаций.
-
-
-      Отслеживайте продуктовые и бизнес-метрики, делитесь результатами с
-      командой. Используйте Нейроаналитика для анализа данных и создания
-      визуализаций.
+    centered: true
+    children:
+      - type: basic-card
+        title: BI-система для бизнеса
+        text: Вы в этом разделе документации
+        url: concepts
+        size: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#FFC4AE'
+      - type: basic-card
+        title: Хранение и обработка данных
+        url: ./datalens-platform/index
+        size: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#A5CAF3'
+  - type: card-layout-block
+    background:
+      light:
+        style:
+          backgroundColor: '#ADC5FA'
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+    title: DataLens On-premises
+    centered: true
+    children:
+      - type: basic-card
+        title: BI-система для бизнеса
+        url: https://datalens.ru/on-premises/docs/ru/concepts/
+        size: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#A5CAF3'
+      - type: basic-card
+        title: Хранение и обработка данных
+        text: Скоро!
+        url: ''
+        size: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#A5CAF3'
+  - type: card-layout-block
     colSizes:
       all: 12
       sm: 6
@@ -43,58 +99,11 @@ blocks:
         controlPosition: content
         animated: false
       - type: basic-card
-        title: Нейроаналитик
-        text: Поможет интерпретировать ваши данные и написать код
-        icon: ../_assets/console-icons/sparkles-fill.svg
-        urlTitle: Нейроаналитик
-        url: ./concepts/neuroanalyst
-        size: s
-        controlPosition: content
-        animated: false
-      - type: basic-card
-        title: Подключения
-        text: Подключайте различные источники данных
-        icon: ../_assets/console-icons/thunderbolt.svg
-        urlTitle: Подключения
-        url: concepts/connection/index
-        size: s
-        controlPosition: content
-        animated: false
-      - type: basic-card
-        title: Датасеты
-        text: Описывайте структуру данных, полученных из источника
-        icon: ../_assets/console-icons/circles-intersection.svg
-        urlTitle: Датасеты
-        url: dataset/index
-        size: s
-        controlPosition: content
-        animated: false
-      - type: basic-card
-        title: Чарты
-        text: >-
-          Стройте чарты с помощью Self-service-конструктора визуализаций или
-          используйте JavaScript-кастомизацию
-        icon: ../_assets/console-icons/chart-column.svg
-        urlTitle: Чарты
-        url: concepts/chart/index
-        size: s
-        controlPosition: content
-        animated: false
-      - type: basic-card
-        title: Дашборды
-        text: Собирайте свои чарты на одной странице
-        icon: ../_assets/console-icons/layout-cells-large.svg
-        urlTitle: Дашборды
-        url: ./concepts/dashboard
-        size: s
-        controlPosition: content
-        animated: false
-      - type: basic-card
-        title: Отчеты
-        text: Готовьте многостраничные документы для печати
-        icon: ../_assets/console-icons/display-pulse.svg
-        urlTitle: Отчеты
-        url: reports/index
+        title: Правила тарификации
+        text: Цены и правила расчета стоимости услуг сервиса
+        icon: ../_assets/console-icons/calculator.svg
+        urlTitle: Правила тарификации
+        url: pricing
         size: s
         controlPosition: content
         animated: false
@@ -116,24 +125,59 @@ blocks:
         size: s
         controlPosition: content
         animated: false
+  - type: card-layout-block
+    colSizes:
+      all: 12
+      lg: 4
+      md: 6
+      sm: 6
+    background:
+      light:
+        style:
+          backgroundColor: '#ADC5FA'
+    title: "Визуализация\_данных\_в\_DataLens"
+    centered: true
+    children:
       - type: basic-card
-        title: Правила тарификации
-        text: Цены и правила расчета стоимости услуг сервиса
-        icon: ../_assets/console-icons/calculator.svg
-        urlTitle: Правила тарификации
-        url: pricing
+        title: Нейроаналитик
+        text: Поможет интерпретировать ваши данные и написать код
+        icon: ../_assets/console-icons/sparkles-fill.svg
+        urlTitle: Нейроаналитик
+        url: ./concepts/neuroanalyst
         size: s
         controlPosition: content
         animated: false
+        backgroundColor: '#A5CAF3'
       - type: basic-card
-        title: Обучающие курсы
-        text: Информация о доступных программах обучения
-        icon: ../_assets/console-icons/graduation-cap.svg
-        urlTitle: Обучающие курсы
-        url: training
+        title: Подключения
+        text: Подключайте различные источники данных
+        icon: ../_assets/console-icons/thunderbolt.svg
+        urlTitle: Подключения
+        url: concepts/connection/index
         size: s
         controlPosition: content
         animated: false
+        backgroundColor: '#A5CAF3'
+      - type: basic-card
+        title: Датасеты
+        text: Описывайте структуру данных, полученных из источника
+        icon: ../_assets/console-icons/circles-intersection.svg
+        urlTitle: Датасеты
+        url: dataset/index
+        size: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#A5CAF3'
+      - type: basic-card
+        title: HTML-страницы
+        text: Готовые HTML-страниц в DataLens
+        icon: ../_assets/console-icons/layers-3-diagonal.svg
+        urlTitle: Галерея в DataLens
+        url: ./concepts/gallery
+        size: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#A5CAF3'
       - type: basic-card
         title: Галерея в DataLens
         text: Готовые дашборды для вдохновения и решения бизнес-задач
@@ -143,4 +187,47 @@ blocks:
         size: s
         controlPosition: content
         animated: false
+        backgroundColor: '#A5CAF3'
+      - type: basic-card
+        title: Обучающие курсы
+        text: Информация о доступных программах обучения
+        icon: ../_assets/console-icons/graduation-cap.svg
+        urlTitle: Обучающие курсы
+        url: training
+        size: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#A5CAF3'
+      - type: basic-card
+        title: Чарты
+        text: >-
+          Стройте чарты с помощью Self-service-конструктора визуализаций или
+          используйте JavaScript-кастомизацию
+        icon: ../_assets/console-icons/chart-column.svg
+        urlTitle: Чарты
+        url: concepts/chart/index
+        size: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#A5CAF3'
+      - type: basic-card
+        title: Дашборды
+        text: Собирайте свои чарты на одной странице
+        icon: ../_assets/console-icons/layout-cells-large.svg
+        urlTitle: Дашборды
+        url: ./concepts/dashboard
+        size: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#A5CAF3'
+      - type: basic-card
+        title: Отчеты
+        text: Готовьте многостраничные документы для печати
+        icon: ../_assets/console-icons/display-pulse.svg
+        urlTitle: Отчеты
+        url: reports/index
+        size: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#A5CAF3'
 links: []

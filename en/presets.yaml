@@ -472,7 +472,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/cert-manager-webhook-yandex/cert-manager-webhook-yandex
-        tag: 1.0.11
+        tag: 1.0.12
     yc_chaos-mesh:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/chaos-mesh/chart/chaos-mesh
@@ -480,7 +480,7 @@ default:
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/charts/crossplane
-        tag: 2.3.4+yc0.15.0
+        tag: 2.3.4+yc0.15.2
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
@@ -504,8 +504,8 @@ default:
         tag: 5.0.0
     yc_gatekeeper:
       helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/gatekeeper/gatekeeper
-        tag: 3.20.1
+        name: cr.yandex/yc-marketplace/yandex-cloud/gatekeeper/charts/gatekeeper
+        tag: 3.23.1
     yc_gateway-api:
       helmChart:
         name: >-
@@ -2368,6 +2368,7 @@ default:
             label_quota-name-iam:
               serviceAccounts:
                 count: Number of service accounts
+            value_status-error: Almost exhausted
         folder:
           dashboard:
             label_compute: Compute Cloud
@@ -2434,6 +2435,8 @@ default:
         action:
           add: Add
           create: "Create a\_new organization"
+      Quota-manager:
+        column_usage_jynXV: Usage
       revoke-access-dialog:
         action_revoke-all: Revoke all
       search:
@@ -3278,7 +3281,6 @@ default:
             oauth-scope-groups_iZoa5: groups (user's groups in the organization)
             oauth-scope-openid_o99tx: openid (user ID)
             oauth-scope-profile_sgdKX: profile (full name, first name, last name, avatar, etc.)
-            section-service-provider_5d85k: Service provider (SP) configuration
           OauthAppRedirectUrlsField:
             add-redirect-url_rS5jw: Add URI
           SamlAppAcsUrlsField:
@@ -3618,7 +3620,7 @@ default:
             action_title_download_report_pP1y8: Download report
           PageHeader:
             page_tab_title_about_fEPiv: About the service
-            page_tab_title_errors_g7fT6: Notifications
+            page_tab_title_errors_g7fT6: Messages and errors
             page_tab_title_history_4o4Hr: Check history
             page_tab_title_overview_hvqrW: Dashboard
           TopAlertsWidget:
@@ -3915,6 +3917,19 @@ default:
         support: Support
     yacloud_quotas:
       quotas:
+        compute:
+          disks:
+            count: Number of disks
+          hddDisks:
+            size: Total HDD capacity
+          instanceCores:
+            count: Number of vCPUs for instances
+          instanceMemory:
+            size: Total RAM for instances
+          instances:
+            count: Number of instances
+          ssdDisks:
+            size: Total SSD capacity
         iam:
           accessBindings:
             count: >-
@@ -3932,6 +3947,15 @@ default:
             count: Number of service accounts linked to the federation
           serviceAccounts:
             count: Number of service accounts
+        mdb:
+          cpu:
+            count: Number of vCPUs
+          hdd:
+            size: HDD storage capacity
+          memory:
+            size: Amount of virtual memory
+          ssd:
+            size: SSD storage capacity
         vdi:
           desktopCores:
             count: Number of vCPU desktops
@@ -3997,6 +4021,20 @@ default:
               Total number of
               [videos](https://yandex.cloud/en/docs/video/concepts/videos) in
               all channels
+        vpc:
+          externalStaticAddresses:
+            count: Number of static public IP addresses
+          routeTables:
+            count: Number of routing tables
+          securityGroups:
+            count: Number of security groups
+          staticRoutes:
+            count: Number of static routes
+          subnets:
+            count: Number of subnets
+        yq:
+          streamingQuery:
+            count: Number of running streaming queries
     yacloud_video:
       channels:
         action_add-domain: Add domain
@@ -4284,12 +4322,11 @@ default:
         section_internal-address-specs: Internal IP address
         section_logs-settings: Log settings
       audit-trails:
-        action_add-bucket-key: Add
+        button_create-encryption-key: Create key
         button_create-trail: Create trail
         button_process-in-yq: Process in YQ
         label_bucket: Bucket
         label_cloudLogging: Cloud Logging
-        label_collecting-logs: Collecting events
         label_control-plane-collection-new: Control plane log collection
         label_data-plane-collection-new: Data plane log collection
         label_dataStream: Data Streams
@@ -5978,43 +6015,7 @@ default:
           label_create_cloud: Create cloud
           quotas:
             button_action-request: Change
-            column_usage: Usage
-            label_pending-requests-title: Requests processing
             label_quota-empty: Quota not allocated
-            label_quota-name-compute:
-              disks:
-                count: Number of disks
-              hddDisks:
-                size: Total HDD capacity
-              instanceCores:
-                count: Number of vCPUs for instances
-              instanceMemory:
-                size: Total RAM for instances
-              instances:
-                count: Number of instances
-              ssdDisks:
-                size: Total SSD capacity
-            label_quota-name-mdb:
-              cpu:
-                count: Number of vCPUs
-              hdd:
-                size: HDD storage capacity
-              memory:
-                size: Amount of virtual memory
-              ssd:
-                size: SSD storage capacity
-            label_quota-name-vpc:
-              externalStaticAddresses:
-                count: Number of static public IP addresses
-              routeTables:
-                count: Number of routing tables
-              securityGroups:
-                count: Number of security groups
-              staticRoutes:
-                count: Number of static routes
-              subnets:
-                count: Number of subnets
-            value_status-error: Almost exhausted
           switch_overview: Overview
           switch_quotas: Quotas
         connected-federation:
@@ -6203,7 +6204,7 @@ default:
               field_private-subnet: Private subnet
               label_internet-access: Internet access
               section_network-interfaces: Network interfaces
-            step_configuration: BareMetal server configuration
+            step_configuration: Select a BareMetal configuration
             step_settings: Node group setup
         cluster:
           button_create-resource: Create
@@ -6976,6 +6977,8 @@ default:
           DiskAutoscalingFieldGroup:
             field_autoscaling_fsAon: Increase size
             field_disk-size-limit_bK9Ng: Maximum storage size
+          DiskEncryptionFieldWithFieldWrap:
+            label_disk-encryption_bkdrg: Encrypted disk
         shard-groups:
           button_add-group: Create shard group
       metadata-hub:

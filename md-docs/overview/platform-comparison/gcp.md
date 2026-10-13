@@ -5,7 +5,7 @@
 
 | Google Cloud Platform | Yandex Cloud |
 |----|----|
-| API Gateway | [Yandex Serverless Integrations: API Gateway](../../api-gateway/index.md) |
+| API Gateway | [API Gateway](../../api-gateway/index.md) |
 | App Engine | [Yandex Cloud Apps](../../cloud-apps/index.md) |
 | Artifact Registry | [Yandex Cloud Registry](../../cloud-registry/index.md)<br/>[Yandex Container Registry](../../container-registry/index.md)  |
 | Backup and DR Service | [Yandex Cloud Backup](../../backup/index.md) |
@@ -47,7 +47,6 @@
 | Container Registry | [Yandex Container Registry](../../container-registry/index.md) |
 | Database Migration Service,<br/>Migrate for Compute Engine | [Yandex Data Transfer](../../data-transfer/index.md) |
 | Dataplex Universal Catalog | [Yandex MetaData Hub](../../metadata-hub/index.md) |
-| Eventarc | [Yandex Serverless Integrations: EventRouter](../../serverless-integrations/quickstart/eventrouter.md) |
 | External Application Load Balancer | [Yandex Application Load Balancer](../../application-load-balancer/index.md) |
 | Firebase Cloud Messaging | [Yandex Cloud Notification Service](../../notifications/index.md) |
 | Google Distributed Cloud | [Yandex Cloud Stackland](../../stackland/index.md) |

@@ -19,3 +19,11 @@
 #### Какие типы томов поддерживает {{ managed-k8s-name }}? {#supported-volumes}
 
 {{ managed-k8s-name }} поддерживает работу с временными (`Volume`) и постоянными (`PersistentVolume`) томами. Подробнее читайте в разделе [{#T}](../../managed-kubernetes/concepts/volume.md).
+
+#### Почему возникает ошибка `Multi-Attach error for volume`? {#multi-attach}
+
+Сетевой диск, на котором основан постоянный том, можно подключить только к одному узлу одновременно. Ошибка `Multi-Attach error for volume` возникает, когда {{ k8s }} пытается подключить том к узлу, пока том еще подключен к другому узлу. Например, это происходит, если поды используют один PVC, но размещены на разных узлах. Несколько подов на одном узле могут использовать один том в режиме `ReadWriteOnce`.
+
+Проверьте размещение подов, использующих PVC, и события подключения тома. Если приложению нужен доступ с нескольких узлов в режиме `ReadWriteMany`, выберите хранилище с поддержкой этого режима, например [{{ objstorage-name }} через CSI](../../managed-kubernetes/operations/volumes/s3-csi-integration.md). Также доступна [установка CSI для S3 из {{ marketplace-name }} или с помощью Helm](../../managed-kubernetes/operations/applications/csi-s3.md).
+
+Подробнее о [режимах доступа к томам](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).

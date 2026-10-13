@@ -80,7 +80,6 @@
 * [Yandex Cloud Postbox](../postbox/release-notes.md)
 * [Yandex IoT Core](../iot-core/release-notes.md)
 * [Yandex Serverless Containers](../serverless-containers/release-notes.md)
-* [Yandex Serverless Integrations](../serverless-integrations/release-notes.md)
 
 ## Управление ресурсами {#resources-operations}
 
