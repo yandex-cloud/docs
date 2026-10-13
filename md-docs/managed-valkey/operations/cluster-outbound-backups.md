@@ -1,5 +1,7 @@
 [Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Valkey™](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Восстановление базы данных из резервной копии WAL-G
 
+# Восстановление Yandex Managed Service for Valkey™ из резервной копии WAL-G
+
 Вы сможете восстановить данные кластера Yandex Managed Service for Valkey™ на пользовательской инфраструктуре из резервной копии, переданной в S3-бакет через WAL-G.
 
 ## Перед началом работы {before-you-begin}
