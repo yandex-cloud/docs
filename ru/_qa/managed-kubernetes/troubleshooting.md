@@ -77,7 +77,7 @@ kubectl describe svc <имя_сервиса_типа_LoadBalancer> \
 | grep 'External Traffic Policy'
 ```
 
-Подробнее в разделе [Параметры сервиса типа LoadBalancer](../../managed-kubernetes/operations/create-load-balancer.md#advanced).
+Подробнее в разделе [Параметры сервиса типа LoadBalancer](../../managed-kubernetes/operations/create-load-balancer.md#create-lb).
 
 #### Почему созданный PersistentVolumeClaim остается в статусе Pending? {#pvc-pending}
 

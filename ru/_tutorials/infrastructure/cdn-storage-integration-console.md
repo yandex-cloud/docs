@@ -1003,7 +1003,7 @@
   1. Задайте параметры записи:
 
         * В поле **{{ ui-key.yacloud.common.name }}** выберите `{{ ui-key.yacloud.dns.label_fqdn-equal-to-zone }}`.
-        * В поле **{{ ui-key.yacloud.common.type }}** выберите [тип записи](../../dns/concepts/resource-record.md#rr-types) `CNAME`.
+        * В поле **{{ ui-key.yacloud.common.type }}** выберите [тип записи](../../dns/concepts/resource-record.md) `CNAME`.
         * В поле **{{ ui-key.yacloud.dns.label_records }}** укажите значение [доменного имени](../../cdn/operations/resources/get-resources-info.md#get-cname) провайдера CDN.
 
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
