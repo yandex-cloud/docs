@@ -23,6 +23,9 @@ items:
             href: operations/cluster-stop.md
           - name: Управление резервными копиями
             href: operations/cluster-backups.md
+          - name: Восстановление из резервной копии WAL-G
+            hidden: true
+            href: operations/cluster-outbound-backups.md
           - name: Управление доступом к кластеру
             href: operations/cluster-access.md
           - name: Обновление версии в {{ mgp-full-name }}

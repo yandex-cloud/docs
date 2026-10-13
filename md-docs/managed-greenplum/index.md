@@ -44,6 +44,8 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
 
  - [Управление резервными копиями](operations/cluster-backups.md)
 
+ - [Восстановление из резервной копии WAL-G](operations/cluster-outbound-backups.md)
+
  - [Управление доступом к кластеру](operations/cluster-access.md)
 
  - [Обновление версии в Yandex MPP Analytics for PostgreSQL](operations/cluster-version-update.md)

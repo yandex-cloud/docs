@@ -27,6 +27,9 @@ items:
             href: operations/host-migration.md
           - name: Управление резервными копиями
             href: operations/cluster-backups.md
+          - name: Восстановление из резервной копии WAL-G
+            href: operations/cluster-outbound-backups.md
+            hidden: true
           - name: Управление политиками резервного копирования
             href: operations/backup-retention-policies.md
           - name: Управление доступом к кластеру

@@ -29,6 +29,9 @@ items:
             href: operations/cluster-backups.md
           - name: Восстановление данных из доступного хоста
             href: operations/data-recovery.md
+          - name: Восстановление базы данных из резервной копии WAL-G
+            href: operations/cluster-outbound-backups.md
+            hidden: true
           - name: Управление политиками резервного копирования
             href: operations/backup-retention-policies.md
           - name: Управление доступом к кластеру

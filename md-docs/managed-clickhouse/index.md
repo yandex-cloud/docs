@@ -62,6 +62,8 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
 
  - [Управление резервными копиями](operations/cluster-backups.md)
 
+ - [Восстановление данных из резервной копии ch-backup](operations/cluster-outbound-backups.md)
+
  - [Управление доступом к кластеру](operations/cluster-access.md)
 
  - [Удаление кластера](operations/cluster-delete.md)
