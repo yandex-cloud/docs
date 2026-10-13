@@ -42,6 +42,8 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [Управление резервными копиями](operations/cluster-backups.md)
 
+ - [Восстановление базы данных из резервной копии WAL-G](operations/cluster-outbound-backups.md)
+
  - [Управление доступом к кластеру](operations/cluster-access.md)
 
  - [Техническое обслуживание](operations/cluster-maintenance.md)

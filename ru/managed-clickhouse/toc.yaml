@@ -43,6 +43,9 @@ items:
                 href: operations/host-migration.md
           - name: Управление резервными копиями
             href: operations/cluster-backups.md
+          - name: Восстановление данных из резервной копии ch-backup
+            href: operations/cluster-outbound-backups.md
+            hidden: true
           - name: Управление доступом к кластеру
             href: operations/cluster-access.md
           - name: Удаление кластера

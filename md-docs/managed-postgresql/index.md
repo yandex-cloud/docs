@@ -44,6 +44,8 @@ Managed Service for PostgreSQL помогает разворачивать и п
 
  - [Управление резервными копиями](operations/cluster-backups.md)
 
+ - [Восстановление из резервной копии WAL-G](operations/cluster-outbound-backups.md)
+
  - [Управление политиками резервного копирования](operations/backup-retention-policies.md)
 
  - [Управление дисковым пространством](operations/storage-space.md)
