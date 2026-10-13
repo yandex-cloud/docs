@@ -31,6 +31,9 @@ items:
             href: operations/replication-slots.md
           - name: Управление резервными копиями
             href: operations/cluster-backups.md
+          - name: Восстановление из резервной копии WAL-G
+            hidden: true
+            href: operations/cluster-outbound-backups.md
           - name: Управление политиками резервного копирования
             href: operations/backup-retention-policies.md
           - name: Управление дисковым пространством

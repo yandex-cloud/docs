@@ -44,6 +44,8 @@
 
  - [Управление резервными копиями](operations/cluster-backups.md)
 
+ - [Восстановление из резервной копии WAL-G](operations/cluster-outbound-backups.md)
+
  - [Управление политиками резервного копирования](operations/backup-retention-policies.md)
 
  - [Управление доступом к кластеру](operations/cluster-access.md)

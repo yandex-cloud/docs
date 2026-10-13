@@ -51,6 +51,8 @@ Yandex Managed Service for Valkey™ часто используется, что
 
  - [Восстановление данных из доступного хоста](operations/data-recovery.md)
 
+ - [Восстановление базы данных из резервной копии WAL-G](operations/cluster-outbound-backups.md)
+
  - [Управление политиками резервного копирования](operations/backup-retention-policies.md)
 
  - [Управление доступом к кластеру](operations/cluster-access.md)
