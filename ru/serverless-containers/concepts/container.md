@@ -155,6 +155,6 @@ _Подготовленный экземпляр_ — это экземпляр 
 
 #### Полезные ссылки {#see-also}
 
-* [Создать ревизию контейнера](../operations/manage-revision.md#create)
+* [Создать ревизию контейнера](../operations/manage-revision.md)
 * [Добавить настройки масштабирования](../operations/scaling-settings-add.md)
 * [{#T}](../operations/concurrency.md)

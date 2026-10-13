@@ -745,7 +745,7 @@ keywords:
        --log-folder-id <идентификатор_каталога> \
        --maintenance-window type=<тип_технического_обслуживания>,`
                            `day=<день_недели>,`
-                           `hour=<час_дня> \
+                           `hour=<порядковый_номер_часового_интервала> \
        --deletion-protection
      ```
 
@@ -775,7 +775,7 @@ keywords:
 
      * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), где `type` — тип технического обслуживания:
 
-       {% include [Maintenance window](../../_includes/managed-spark/maintenance-window-console.md) %}
+       {% include [Maintenance window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
      * `--deletion-protection` — включает защиту кластера от непреднамеренного удаления.
 

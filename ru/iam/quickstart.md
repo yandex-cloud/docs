@@ -15,7 +15,7 @@
         * владельца организации (`organization-manager.organizations.owner`) или администратора организации (`organization-manager.admin`);
         * владельца облака (`resource-manager.clouds.owner`) или администратора облака (`admin`).
 
-1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md).
 1. Если пока нет пользователей, которых можно добавить в облако, [создайте новый аккаунт](https://passport.yandex.ru/registration) на Яндексе и предоставьте доступ в облако для этого аккаунта.
 
 ## Добавьте пользователей с аккаунтом на Яндексе в организацию и назначьте им роли {#add-organization-member-and-assign-roles}
@@ -73,7 +73,7 @@
 * Прочитайте, [как устроено управление доступом в {{ yandex-cloud }}](concepts/access-control/index.md).
 * Посмотрите [рекомендации по безопасному использованию {{ yandex-cloud }}](best-practices/using-iam-securely.md).
 * Узнайте, [как начать работать с сервисом {{ org-full-name }}](../organization/quickstart.md).
-* Узнайте, [как происходит аутентификация в {{ yandex-cloud }}](concepts/authorization/index.md#authentication).
+* Узнайте, [как происходит аутентификация в {{ yandex-cloud }}](concepts/authorization/index.md).
 * [Научитесь работать с сервисными аккаунтами](quickstart-sa.md).
 * Используйте [чеклист безопасности аутентификации и авторизации](../security/domains/iam-checklist.md).
 * Посмотрите [ответы на часто задаваемые вопросы](qa/index.md).

@@ -87,7 +87,6 @@ _Сервис_ в составе Yandex Cloud позволяет управля�
 || [Yandex Message Queue](../../message-queue/index.md) | Сервис обмена сообщениями между приложениями | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [Yandex Query](../../query/index.md)                                    | Сервис выполнения запросов с помощью единого диалекта SQL | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [Yandex Serverless Containers](../../serverless-containers/index.md) | Сервис бессерверного запуска контейнеризированных приложений | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
-|| [Yandex Serverless Integrations](../../serverless-integrations/index.md) | <code><b><small>Preview</small></b></code> Сервис для настройки интеграций и управления ими на базе Serverless | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || **Управление ресурсами** | > | > | > ||
 || [Yandex Cloud Apps](../../cloud-apps/index.md) | Сервис для разворачивания приложений на базе Yandex Cloud | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [Yandex Cloud Billing](../../billing/index.md) | Сервис для оплаты и детализации расходов | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||

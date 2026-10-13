@@ -462,6 +462,10 @@ items:
             href: audit/apploadbalancer/events-ref/DeleteTargetGroup.md
           - name: DeleteVirtualHost
             href: audit/apploadbalancer/events-ref/DeleteVirtualHost.md
+          - name: DisableZones
+            href: audit/apploadbalancer/events-ref/DisableZones.md
+          - name: EnableZones
+            href: audit/apploadbalancer/events-ref/EnableZones.md
           - name: LoadBalancerHTTPAccessLog
             href: audit/apploadbalancer/events-ref/LoadBalancerHTTPAccessLog.md
           - name: LoadBalancerTCPAccessLog
@@ -1119,8 +1123,12 @@ items:
             href: audit/datalens/events-ref/UpdateEntry.md
           - name: UpdateSharedEntryAccessBindings
             href: audit/datalens/events-ref/UpdateSharedEntryAccessBindings.md
+          - name: UpdateSparkCluster
+            href: audit/datalens/events-ref/UpdateSparkCluster.md
           - name: UpdateTenantAccessBindings
             href: audit/datalens/events-ref/UpdateTenantAccessBindings.md
+          - name: UpdateTrinoCluster
+            href: audit/datalens/events-ref/UpdateTrinoCluster.md
           - name: UpdateWorkbook
             href: audit/datalens/events-ref/UpdateWorkbook.md
           - name: UpdateWorkbookAccessBindings
@@ -1151,6 +1159,10 @@ items:
             href: audit/datalens/platform/events-ref/DeleteTrinoCluster.md
           - name: UpdateCloudEnvironment
             href: audit/datalens/platform/events-ref/UpdateCloudEnvironment.md
+          - name: UpdateSparkCluster
+            href: audit/datalens/platform/events-ref/UpdateSparkCluster.md
+          - name: UpdateTrinoCluster
+            href: audit/datalens/platform/events-ref/UpdateTrinoCluster.md
       - name: dataproc
         items:
           - name: CreateCluster
@@ -2023,6 +2035,8 @@ items:
             href: audit/mdb/clickhouse/events-ref/UpdateClusterHosts.md
           - name: UpdateClusterShard
             href: audit/mdb/clickhouse/events-ref/UpdateClusterShard.md
+          - name: UpdateDatabase
+            href: audit/mdb/clickhouse/events-ref/UpdateDatabase.md
           - name: UpdateFormatSchema
             href: audit/mdb/clickhouse/events-ref/UpdateFormatSchema.md
           - name: UpdateMlModel
@@ -3371,6 +3385,8 @@ items:
             href: audit/smartwebsecurity/events-ref/DeleteSolidWafProfile.md
           - name: DeleteWafProfile
             href: audit/smartwebsecurity/events-ref/DeleteWafProfile.md
+          - name: SolidWallMatchedRequest
+            href: audit/smartwebsecurity/events-ref/SolidWallMatchedRequest.md
           - name: StartLoadBalancer
             href: audit/smartwebsecurity/events-ref/StartLoadBalancer.md
           - name: StopLoadBalancer
@@ -3399,6 +3415,8 @@ items:
             href: audit/smartwebsecurity/events-ref/WafMatchedRule.md
       - name: sourcecraft
         items:
+          - name: ActivateUserTariff
+            href: audit/sourcecraft/events-ref/ActivateUserTariff.md
           - name: AddPersonalEmail
             href: audit/sourcecraft/events-ref/AddPersonalEmail.md
           - name: AddPersonalPublicGpgKey
@@ -3439,12 +3457,22 @@ items:
             href: audit/sourcecraft/events-ref/OnboardCloudRegistry.md
           - name: OnboardOrganization
             href: audit/sourcecraft/events-ref/OnboardOrganization.md
+          - name: RedeemGiftLink
+            href: audit/sourcecraft/events-ref/RedeemGiftLink.md
           - name: RemovePersonalEmail
             href: audit/sourcecraft/events-ref/RemovePersonalEmail.md
           - name: RemovePersonalPublicGpgKey
             href: audit/sourcecraft/events-ref/RemovePersonalPublicGpgKey.md
           - name: RemovePersonalPublicSshKey
             href: audit/sourcecraft/events-ref/RemovePersonalPublicSshKey.md
+          - name: SetBulkUserTariffs
+            href: audit/sourcecraft/events-ref/SetBulkUserTariffs.md
+          - name: SetUserCUExtraLimit
+            href: audit/sourcecraft/events-ref/SetUserCUExtraLimit.md
+          - name: SetUserCUExtraLimitBulk
+            href: audit/sourcecraft/events-ref/SetUserCUExtraLimitBulk.md
+          - name: SetUserTariff
+            href: audit/sourcecraft/events-ref/SetUserTariff.md
           - name: UpdateAppsecSettings
             href: audit/sourcecraft/events-ref/UpdateAppsecSettings.md
           - name: UpdateOrganization
@@ -3465,8 +3493,12 @@ items:
         items:
           - name: CreateCluster
             href: audit/spark/events-ref/CreateCluster.md
+          - name: CreateEnvironment
+            href: audit/spark/events-ref/CreateEnvironment.md
           - name: DeleteCluster
             href: audit/spark/events-ref/DeleteCluster.md
+          - name: DeleteEnvironment
+            href: audit/spark/events-ref/DeleteEnvironment.md
           - name: RescheduleMaintenance
             href: audit/spark/events-ref/RescheduleMaintenance.md
           - name: SetClusterAccessBindings
@@ -3479,6 +3511,8 @@ items:
             href: audit/spark/events-ref/UpdateCluster.md
           - name: UpdateClusterAccessBindings
             href: audit/spark/events-ref/UpdateClusterAccessBindings.md
+          - name: UpdateEnvironment
+            href: audit/spark/events-ref/UpdateEnvironment.md
       - name: speechsense
         items:
           - name: CreateProject

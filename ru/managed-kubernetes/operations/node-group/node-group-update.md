@@ -70,7 +70,7 @@ description: Следуя данной инструкции, вы сможете
 
   * `--new-name` — изменить имя.
   * `--description` — изменить описание.
-  * `--service-account-id`, `--service-account-name` — изменить [сервисный аккаунт](../../../iam/concepts/index.md#sa) для ресурсов.
+  * `--service-account-id`, `--service-account-name` — изменить [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для ресурсов.
   * `--node-service-account-id`, `--node-service-account-name` — изменить сервисный аккаунт для узлов {{ managed-k8s-name }}.
   * `--version` — изменить версию {{ k8s }}.
   * `--network-interface` — настройки [сети](../../../vpc/concepts/network.md#network):

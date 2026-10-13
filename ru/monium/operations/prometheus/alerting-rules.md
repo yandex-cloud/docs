@@ -127,7 +127,7 @@ groups:
 
 Действия с файлами и вычисление правил описаны в разделе [{#T}](./recording-rules.md).
 
-## Настройка Alert Manager {#alert-manager-create}
+## Настройка Alert Manager {#alert-manager-set}
 
 [Alert Manager](https://prometheus.io/docs/alerting/latest/alertmanager/) отвечает за отправку уведомлений и настраивается отдельно от правил алертинга. Для настройки можно использовать файлы [конфигурации](https://prometheus.io/docs/alerting/latest/configuration/), созданные для других ваших инсталляций {{ prometheus-name }}.
 

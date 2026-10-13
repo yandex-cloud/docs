@@ -1,6 +1,8 @@
 title: Yandex Container Registry
 href: index.yaml
 items:
+  - name: Service shutdown
+    href: sunset.md
   - name: Getting started
     href: quickstart/index.md
   - name: Step-by-step guides
@@ -83,6 +85,8 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
+      - name: Migrating to {{ cloud-registry-full-name }}
+        href: tutorials/container-registry-migration.md
       - name: Running a Docker image on a VM
         items:
           - name: Overview

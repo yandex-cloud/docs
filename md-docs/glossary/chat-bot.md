@@ -114,4 +114,4 @@
 Инструменты Yandex Cloud, которые помогут вам создать своего чат-бота, воспользоваться готовым или дообучить его:
 
 * [Создание навыка Алисы](../functions/tutorials/alice-skill/index.md) на основе [Yandex Cloud Functions](https://yandex.cloud/ru/services/functions/).
-* [Публикация текстового агента в Telegram](https://aistudio.yandex.ru/docs/ru/ai-studio/operations/agents/publish-agent-telegram.md) с помощью Agent Atelier.
+* [Публикация текстового агента в Telegram](https://aistudio.yandex.ru/docs/ru/ai-studio/operations/agents/publish-agent-telegram) с помощью Agent Atelier.

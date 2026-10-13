@@ -7,7 +7,7 @@
 ## Перед началом работы {#before-you-begin}
 
 1. Войдите в [консоль управления]({{ link-console-main }}) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
+1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md).
 1. Если у вас еще нет [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), [создайте его](../../resource-manager/operations/folder/create.md).
 
 ## Создайте группу ВМ {#create-ig}
@@ -45,7 +45,7 @@
     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите одну из готовых конфигураций ВМ или перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}**, чтобы создать собственную конфигурацию.
     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-        * Выберите [облачную сеть](../../compute/concepts/vm.md#network) и [подсеть](../../compute/concepts/network.md#subnet). Если подсети нет, создайте ее:
+        * Выберите [облачную сеть](../../compute/concepts/vm.md#network) и [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее:
 
             * Разверните раскрывающийся список и нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.instances.create.button_create-subnetwork-new }}**.
             * Введите имя и описание новой подсети, укажите зону доступности и CIDR.

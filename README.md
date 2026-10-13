@@ -29,17 +29,16 @@
 
 ## Как собрать документацию локально
 
-Перед тем так создавать pull request, удобно собрать документацию локально и посмотреть на нее вживую. Для этого используется инструмент [yfm-docs](https://ydocs.tech/ru/tools/docs/).
+Для HTML-превью используйте [локальный инструмент](tools/preview/README.md). Он
+фиксирует версии Diplodoc и поддерживает таргеты YC, Internal, External,
+DataLens, SourceCraft и AI Studio. Из корня репозитория:
 
-1. Установите **diplodoc**:
-  
-   `npm i @diplodoc/cli -g`
-  
-   Чтобы обновить версию **diplodoc**, используйте эту же команду.
+```bash
+npm ci --prefix tools/preview
+npm run preview --prefix tools/preview -- YC --region ru --lang ru
+```
 
-1. Соберите документацию: 
-  
-   `yfm -i docs -o docs-gen`, где `docs` — каталог с исходными текстами, а `docs-gen` — каталог, в котором будет находиться сгенерированная документация.
+Команда напечатает путь к собранному HTML и команду для его просмотра в браузере.
 
 ## MCP-сервер для документации
 

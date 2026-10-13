@@ -94,8 +94,7 @@ You can use a VM that has access to an ArcSight instance or create a new one:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the bucket created earlier.
-  1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
-  1. Open the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select `arcsight-kms`.
   1. Click **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
@@ -137,9 +136,8 @@ You will need the key ID and secret key when mounting the bucket.
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
-  1. In the list that opens, select `sa-arcsight-bucket`.
-  1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
-  1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
+  1. In the list that opens, select the `sa-arcsight-bucket` service account.
+  1. In the top panel, click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
   1. Enter a description for the key and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Save the ID and secret key.
 

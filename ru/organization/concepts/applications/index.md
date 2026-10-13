@@ -8,6 +8,12 @@ description: В {{ org-full-name }} вы можете аутентифициро
 
 Пользователи вашей [организации](../organization.md) могут аутентифицироваться во внешних приложениях с помощью [технологии единого входа](../../../glossary/sso.md) (SSO). Для этого {{ org-full-name }} позволяет создавать _приложения_ — [ресурсы](../../../overview/roles-and-resources.md#resources) {{ yandex-cloud }}, которые содержат настройки интеграции {{ org-full-name }} как _поставщика удостоверений_ (Identity Provider, IdP) с одной стороны и стороннего _поставщика услуг_ (Service Provider, SP) — с другой.
 
+{% note warning %}
+
+Для аутентификации во внешних приложениях [привяжите платежный аккаунт](../../operations/manage-billing.md) к {{ org-full-name }}. Привязка платежного аккаунта также требуется для активации [нетарифицируемого лимита](../../pricing.md#monthly-limit) пользователей.
+
+{% endnote %}
+
 {{ org-full-name }} поддерживает стандарты технологии единого входа [SAML](https://ru.wikipedia.org/wiki/SAML) и [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC).
 
 В качестве поставщика услуг могут выступать различные сервисы, поддерживающие технологию единого входа, которые могут работать как по модели [SaaS](https://ru.wikipedia.org/wiki/Программное_обеспечение_как_услуга), так и по модели [on-premise](https://en.wikipedia.org/wiki/On-premises_software). Например: [{{ yandex-360 }}](https://360.yandex.ru/), [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/), [Jenkins](https://www.jenkins.io/), [Jira](https://www.atlassian.com/software/jira) и множество других.

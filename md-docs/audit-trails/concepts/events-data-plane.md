@@ -132,6 +132,12 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `mcp_hub.InvokeMcpTool` | Вызов инструмента MCP-сервера
 `mcp_hub.ListMcpTools` | Получение списка инструментов MCP-сервера
 `mcp_hub.StartMcpSession` | Запуск сессии MCP-сервера
+`realtime.CloseSession` | Закрытие [сессии](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/realtime#sessions) Realtime API
+`realtime.CreatePrompt` | Создание промпта голосового агента
+`realtime.CreateSession` | Создание сессии Realtime API
+`realtime.DeletePrompt` | Удаление промпта голосового агента
+`realtime.UpdatePrompt` | Изменение промпта голосового агента
+`realtime.UpdateSession` | Изменение сессии Realtime API
 `searchindex.CreateSearchIndex` | Создание поискового индекса
 `searchindex.DeleteFilesFromSearchIndex` | Удаление файлов из поискового индекса
 `searchindex.DeleteSearchIndex` | Удаление поискового индекса
@@ -492,6 +498,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 Имя события | Описание
 --- | ---
 `ArlMatchedRequest` | Срабатывание правила из профиля ARL
+`SolidWallMatchedRequest` | Срабатывание правила из [профиля SolidWall WAF](../../smartwebsecurity/concepts/solidwall-waf.md#resources)
 `SWSMatchedRequest` | Срабатывание правила профиля безопасности
 `WafMatchedExclusionRule` | Срабатывание правила-исключения из профиля WAF
 `WafMatchedRule` | Срабатывание правила из профиля WAF

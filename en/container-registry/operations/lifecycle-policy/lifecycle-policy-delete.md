@@ -5,6 +5,8 @@ description: Follow this guide to delete a lifecycle policy.
 
 # Deleting a lifecycle policy
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

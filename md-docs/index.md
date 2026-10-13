@@ -156,7 +156,7 @@
 
  - [Техническая поддержка Yandex Cloud](support/index.md)
 
- - [Serverless Integrations](serverless-integrations/index.md)
+ - [Serverless Integrations](serverless-integrations/sunset.md)
 
  - [Serverless Containers](serverless-containers/index.md)
 

@@ -3,7 +3,7 @@
 # Получение статистики посещения сайта с использованием S3 Select
 
 
-Получите статистику запросов к объектам бакета, который настроен для [хостинга статического сайта](../concepts/hosting.md). Для получения данных будет использоваться язык запросов [S3 Select](../concepts/s3-select-language.md).
+Получите статистику запросов к объектам бакета, который настроен для [хостинга статического сайта](../concepts/hosting.md). Для получения данных используйте язык запросов [S3 Select](../concepts/s3-select-language.md).
 
 {% note info %}
 
@@ -56,10 +56,10 @@
           "output.csv"
         ```
 
-  1. Чтобы вывести количество посещений для каждой страницы, выполните агрегирующий запрос с помощью команд `sort` и `uniq`:
+  1. Чтобы вывести количество запросов к сайту, сгруппированное по браузерам и другим клиентам, от которых выполнены запросы (по значению поля `user_agent`), выполните агрегирующий запрос с помощью команд `sort` и `uniq`:
 
      ```bash
-     sort -nr output.csv | uniq -c
+     sort output.csv | uniq -c | sort -nr
      ```
 
      Результат:
@@ -70,5 +70,41 @@
      101 aws-sdk-java/1.11.424 Linux/4.14.74-28+yc7 OpenJDK_64-Bit_Server_VM/11.0.5-shenandoah+10-adhoc.heretic.src java/11.0.5-shenandoah
      17 aws-cli/1.18.27 Python/2.7.6 Linux/4.19.62-13 botocore/1.17.50
      ```
+
+  1. Чтобы вывести количество посещений для каждой страницы:
+
+     1. Измените выражение в переменной `$query`:
+
+        ```bash
+        query="select object_key from s3object"
+        ```
+
+     1. Выполните команду:
+
+        ```bash
+        aws --endpoint https://storage.yandexcloud.net s3api select-object-content \
+          --bucket $bucket \
+          --key $key \
+          --expression "$query" \
+          --expression-type 'SQL' \
+          --input-serialization 'JSON={Type=LINES}' \
+          --output-serialization 'CSV={}' \
+          "output.csv"
+        ```
+
+     1. Выполните агрегирующий запрос:
+
+        ```bash
+        sort output.csv | uniq -c | sort -nr
+        ```
+
+        Результат:
+
+        ```bash
+        418 index.html
+        255 about.html
+        101 images/logo.png
+        17 css/style.css
+        ```
 
 {% endlist %}

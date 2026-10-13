@@ -184,7 +184,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster_v2.md).
 
     {% note warning "Ограничения по времени" %}
     
@@ -534,7 +534,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster_v2.md).
 
     {% note warning "Ограничения по времени" %}
     
@@ -1359,8 +1359,8 @@
            * `ANYTIME` (по умолчанию) — в любое время.
            * `WEEKLY` — по расписанию.
        
-       * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
-       * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
+       * `day` — день недели для типа `WEEKLY`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
+       * `hour` — порядковый номер часового интервала по UTC для типа `WEEKLY`: от `1` до `24`.
        
          > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
@@ -1407,7 +1407,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster_v2.md).
 
     {% note warning "Ограничения по времени" %}
     
@@ -2101,7 +2101,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster_v2.md).
 
     {% note warning "Ограничения по времени" %}
     

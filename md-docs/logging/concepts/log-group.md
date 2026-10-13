@@ -31,7 +31,6 @@ _Лог-группа_ — это способ группировки логов 
 * [Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/index.md)
 * [Managed Service for Kubernetes®](../../managed-kubernetes/index.md)
 * [Serverless Containers](../../serverless-containers/index.md)
-* [Serverless Integrations](../../serverless-integrations/index.md)
 * [Yandex Cloud Postbox](../../postbox/index.md)
 * [Yandex Cloud Notification Service](../../notifications/index.md)
 * [Yandex Data Processing](../../data-proc/index.md)

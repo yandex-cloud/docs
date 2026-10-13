@@ -5,6 +5,8 @@ description: This page provides a reference for {{ container-registry-name }} ev
 
 # {{ at-full-name }} event reference
 
+{% include [sunset](../_includes/container-registry/sunset.md) %}
+
 {{ at-name }} supports tracking control plane events for {{ container-registry-full-name }}. For more information, see [{#T}](../audit-trails/concepts/format.md).
 
 The general format of the `event_type` field value is as follows:

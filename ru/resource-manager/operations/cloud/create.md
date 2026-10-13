@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Создание нового облака
 
-[После регистрации](../../../billing/quickstart/index.md#create_billing_account) в {{ yandex-cloud }} и создания [организации](../../../organization/concepts/organization.md) вы создадите свое первое [облако](../../concepts/resources-hierarchy.md#cloud). Если вам потребуется дополнительное облако, вы сможете создать его, следуя этой же инструкции.
+[После регистрации](../../../billing/quickstart/index.md) в {{ yandex-cloud }} и создания [организации](../../../organization/concepts/organization.md) вы создадите свое первое [облако](../../concepts/resources-hierarchy.md#cloud). Если вам потребуется дополнительное облако, вы сможете создать его, следуя этой же инструкции.
 
 {% note info %}
 
@@ -19,7 +19,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что [платежный аккаунт](../../../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account) или попросите вашего администратора назначить вам роль `billing.accounts.member` на платежный аккаунт.
+  1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что [платежный аккаунт](../../../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) или попросите вашего администратора назначить вам роль `billing.accounts.member` на платежный аккаунт.
   1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужную [организацию](../../../organization/concepts/organization.md).
   1. Справа от названия организации нажмите ![image](../../../_assets/console-icons/ellipsis.svg).
   1. Выберите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.cloud.label_create_cloud }}**.

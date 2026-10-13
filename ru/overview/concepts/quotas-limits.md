@@ -353,11 +353,6 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [serverless-containers-limits.md](../../_includes/serverless-containers/serverless-containers-limits.md) %}
 
 
-### {{ si-full-name }} {#serverless-integrations}
-
-{% include [serverless-integrations-limits](../../_includes/si-limits.md) %}
-
-
 ### {{ captcha-full-name }} {#captcha}
 
 {% include [smartcaptcha-limits](../../_includes/smartcaptcha-limits.md) %}

@@ -31,3 +31,19 @@
 * [Что делать, если я удалил сетевой балансировщик нагрузки или целевые группы {{ network-load-balancer-full-name }}, автоматически созданные для сервиса типа LoadBalancer?](#deleted-loadbalancer-service)
 
 * [Ошибка при подключении виртуальной машины {{ compute-full-name }} в качестве внешнего узла {{ managed-k8s-name }}](#vm-as-external-node)
+
+* [После изменения маски подсети узлов в настройках кластера количество подов, размещаемых на узлах, не соответствует ожидаемому](#count-pods)
+
+* [Что делать при ошибке node(s) had untolerated taint?](#untolerated-taint)
+
+* [Почему под остается в состоянии Pending?](#pod-pending)
+
+* [Что делать при ошибке DEADLINE_EXCEEDED при выгрузке метрик?](#metrics-deadline-exceeded)
+
+* [Что делать, если HPA не получает метрики?](#hpa-metrics)
+
+* [Что делать при таймауте подключения тома к поду?](#volume-mount-timeout)
+
+* [Почему долго монтируется том с большим количеством файлов?](#volume-many-files)
+
+* [Что делать, если узлы долго находятся в состоянии RECONCILING?](#node-reconciling)

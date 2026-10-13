@@ -95,7 +95,7 @@ The maximum string length in characters is 50. ||
       "max": "string"
     },
     // end of the list of possible fields
-    // Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`
+    // Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`, `ytSourceV2`
     "httpSource": {
       "url": "string",
       "format": "string",
@@ -177,6 +177,13 @@ The maximum string length in characters is 50. ||
       "where": "string",
       "query": "string",
       "backgroundReconnect": "boolean"
+    },
+    "ytSourceV2": {
+      "httpProxyUrls": [
+        "string"
+      ],
+      "cypressPath": "string",
+      "oauthToken": "string"
     }
     // end of the list of possible fields
   },
@@ -232,33 +239,38 @@ Includes only one of the fields `fixedLifetime`, `lifetimeRange`. ||
 
 HTTP source for the dictionary.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`, `ytSourceV2`. ||
 || mysqlSource | **[MysqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource)**
 
 MySQL source for the dictionary.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`, `ytSourceV2`. ||
 || clickhouseSource | **[ClickhouseSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.ClickhouseSource)**
 
 ClickHouse source for the dictionary.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`, `ytSourceV2`. ||
 || mongodbSource | **[MongodbSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MongodbSource)**
 
 MongoDB source for the dictionary.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`, `ytSourceV2`. ||
 || postgresqlSource | **[PostgresqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSource)**
 
 PostgreSQL source for the dictionary.
 Deprecated in favor of postgresql_source_v2.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`, `ytSourceV2`. ||
 || postgresqlSourceV2 | **[PostgresqlSourceV2](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSourceV2)**
 
 PostgreSQL source for the dictionary using the native ClickHouse integration.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`. ||
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`, `ytSourceV2`. ||
+|| ytSourceV2 | **[YtSourceV2](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.YtSourceV2)**
+
+YTsaurus source for the dictionary using the native ClickHouse integration.
+
+Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`, `postgresqlSourceV2`, `ytSourceV2`. ||
 |#
 
 ## Structure {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure}
@@ -756,6 +768,26 @@ PostgreSQL user for the replica. Inherits the source user when omitted. ||
 || password | **string**
 
 PostgreSQL password for the replica. Inherits the source password when omitted. ||
+|#
+
+## YtSourceV2 {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.YtSourceV2}
+
+YTsaurus dictionary source using the native ClickHouse integration.
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/statements/create/dictionary/sources/ytsaurus).
+
+#|
+||Field | Description ||
+|| httpProxyUrls[] | **string**
+
+URLs of the YTsaurus HTTP proxies.
+
+The number of elements must be greater than 0. ||
+|| cypressPath | **string**
+
+Required field. Cypress path to the YTsaurus table used as the dictionary source. ||
+|| oauthToken | **string**
+
+OAuth token for accessing YTsaurus. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

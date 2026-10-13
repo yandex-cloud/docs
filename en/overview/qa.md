@@ -52,10 +52,7 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 
 * [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/qa/index)
 * [{{ ml-platform-full-name }}](../datasphere/qa/index.md)
-* [{{ speechkit-full-name }}]({{ link-docs-ai }}{{ speechkit-slug }}/qa/all)
 * [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/qa/)
-* [{{ translate-full-name }}]({{ link-docs-ai }}translate/qa/index)
-* [{{ vision-full-name }}]({{ link-docs-ai }}vision/qa/index)
 
 
 ### Security {#security}

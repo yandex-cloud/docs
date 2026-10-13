@@ -87,7 +87,7 @@ To view quotas, you need the `quota-manager.viewer` [role](../iam/operations/rol
 
      The page will display a list of services used in your cloud.
 
-  1. Expand a service section and view the values in the **{{ ui-key.yacloud.iam.cloud.quotas.column_usage }}** column.
+  1. Expand a service section and view the values in the **{{ ui-key.yacloud_components.Quota-manager.column_usage_jynXV }}** column.
 
      * Two numbers mean `quota usage / quota value`. For example, `2 / 20` or `1.203 / 5,120 GB`.
 
@@ -95,7 +95,7 @@ To view quotas, you need the `quota-manager.viewer` [role](../iam/operations/rol
 
   1. To estimate resource consumption, at the top right, select:
      * **Actively used**: Resources consuming over a half of the quota.
-     * **{{ ui-key.yacloud.iam.cloud.quotas.value_status-error }}**: Resources that are almost exhausted.
+     * **{{ ui-key.yacloud_billing.iam.cloud.quotas.value_status-error }}**: Resources that are almost exhausted.
 
 - CLI {#cli}
 

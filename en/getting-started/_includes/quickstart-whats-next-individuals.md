@@ -76,15 +76,7 @@ Get started with {{ yandex-cloud }}:
 
 ### AI {#ai}
 
-* [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/index):
-
-  * [{{ gpt-lite }} and {{ gpt-pro }}]({{ link-docs-ai }}ai-studio/concepts/generation/index#yandex).
-
-    Leverage {{ yagpt-name }} to generate text synchronously without additional context.
-
-  * [{{ yandexart-name }}]({{ link-docs-ai }}ai-studio/operations/generation/yandexart-request).
-
-    Leverage {{ yandexart-name }} to generate images.
+* [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/index).
 
 * [{{ ml-platform-full-name }}](../../datasphere/quickstart.md).
 

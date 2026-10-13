@@ -21,11 +21,6 @@
 
       * Привяжите банковскую карту. Если к аккаунту пользователя уже привязаны банковские карты, вы можете выбрать одну из них, не добавляя новую.
 
-        После привязки карты вам начислится [стартовый грант](../../billing/concepts/bonus-account.md), если ранее вы не пользовались сервисами {{ yandex-cloud }}. 
-
-        {% include [bonus-account](bonus-account.md) %}
-
-        {% include [no-card](create-ba-without-card.md) %}
 
         {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
                 

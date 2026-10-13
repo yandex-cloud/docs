@@ -13,7 +13,7 @@ You can set up a mailing list for a dashboard. The email will deliver links to t
 * To add or update a mailing list, you need the `Editor` [role](../../security/roles.md#datalens-workbooks-editor) or higher for the workbook.
 * Mailing lists are only available for dashboards located in [workbooks](../../workbooks-collections/index.md).
 * Mailing lists do not support [RLS](../../security/row-level-security.md).
-* Mailing lists only support [shared objects](../../security/workbooks-access-advanced.md) that are configured to allow delegated access permissions.
+* Mailing lists only support [common objects](../../security/workbooks-access-advanced.md) that are configured to allow delegated access permissions.
 
 {% endnote %}
 

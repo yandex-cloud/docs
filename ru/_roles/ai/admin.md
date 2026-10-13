@@ -3,7 +3,7 @@
 Пользователи с этой ролью могут:
 
 
-* использовать сервис {{ translate-full-name }} для [перевода текста]({{ link-docs-ai }}translate/concepts);
+* использовать сервис {{ translate-full-name }} для [перевода текста]({{ link-docs-ai }}translate/concepts/);
 * использовать сервис {{ vision-full-name }} для [анализа изображений]({{ link-docs-ai }}vision/concepts/ocr/);
 * использовать сервис {{ speechkit-full-name }} для [распознавания]({{ link-docs-ai }}speechkit/stt/) и [синтеза]({{ link-docs-ai }}speechkit/tts/) речи;
 * просматривать информацию о [моделях генерации текста]({{ link-docs-ai }}ai-studio/concepts/generation/models) {{ ai-studio-full-name }};

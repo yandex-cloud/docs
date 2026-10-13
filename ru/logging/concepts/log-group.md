@@ -34,7 +34,6 @@ _Лог-группа_ — это способ группировки логов 
 * [{{ mgp-name }}](../../managed-greenplum/)
 * [{{ managed-k8s-name }}®](../../managed-kubernetes/)
 * [{{ serverless-containers-name }}](../../serverless-containers/)
-* [{{ si-name }}](../../serverless-integrations/)
 * [{{ postbox-name }}](../../postbox/)
 * [{{ cns-full-name }}](../../notifications/)
 * [{{ dataproc-name }}](../../data-proc/)

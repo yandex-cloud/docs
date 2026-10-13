@@ -162,8 +162,8 @@
 
 Значительно улучшили работу с кластерами Apache Spark™:
 1. В {{ ml-platform-name }} появился новый тип ресурсов — [шаблоны {{ dataproc-name }}](concepts/data-processing-template.md).
-1. Появилась возможность [конфигурировать livy-сессию](concepts/data-processing.md#session) при работе с кластерами {{ dataproc-name }}.
-1. Теперь {{ ml-platform-name }} поддерживает [работу с библиотекой Spark SQL](concepts/data-processing.md#sql).
+1. Появилась возможность [конфигурировать livy-сессию](concepts/data-processing-operations.md#session) при работе с кластерами {{ dataproc-name }}.
+1. Теперь {{ ml-platform-name }} поддерживает [работу с библиотекой Spark SQL](concepts/data-processing-operations.md#sql).
 
 ## Релиз 23.09.2022 {#230922}
 

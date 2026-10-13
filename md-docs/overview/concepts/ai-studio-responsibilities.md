@@ -10,7 +10,7 @@
 
 * **Инфраструктура платформы**. Отказоустойчивость платформы, защита сети, гипервизоров и компонентов инфраструктуры.
 
-* **Сервисы и компоненты AI Studio**. Безопасность и доступность [Model Gallery](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/), [Agent Atelier](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/), [MCP Hub](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/mcp-hub), [API](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/api).
+* **Сервисы и компоненты AI Studio**. Безопасность и доступность [Model Gallery](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/), [Agent Atelier](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/), [MCP Hub](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/mcp-hub/), [API](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/api).
 
 * **ML-модели и их работа**. Обеспечение работы доступных в сервисе моделей, их обновления и поддержка.
 
@@ -38,7 +38,7 @@
 
 * **Инструменты для разработки агентов и приложений**. Предоставление API, инструментов разработчика ([SDK](https://aistudio.yandex.ru/docs/ru/ai-studio/sdk/)), инструментов [Agent Atelier](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/) и [интерфейс AI Studio](https://aistudio.yandex.ru/platform).
 
-* **Дообучение моделей**. Инфраструктура дообучения моделей ([Tuning API](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/tuning)), среда для обучения.
+* **Дообучение моделей**. Инфраструктура дообучения моделей ([Tuning API](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/tuning/)), среда для обучения.
 
 * **Компоненты для интеграции с внешними системами**: [MCP Hub](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/mcp-hub/), [Yandex Search API](*search-api_service_info).
 
@@ -78,7 +78,7 @@
 
 * **Сканирование на наличие уязвимостей**. [Включение](../../container-registry/operations/scanning-docker-image.md) политики сканирования при загрузке, периодическое сканирование образов, выполняемое не реже одного раза в неделю для среды эксплуатации (production).
 
-* **Разработка агентов и приложений**. Разработка логики [агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents), настройка [рабочих процессов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/yawl/integration/workflow), тестирование промптов, интеграция в бизнес-процессы.
+* **Разработка агентов и приложений**. Разработка логики [агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/), настройка [рабочих процессов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/yawl/integration/workflow), тестирование промптов, интеграция в бизнес-процессы.
 
 * **Дообучение моделей**. Подготовка [датасетов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/resources/dataset), выбор параметров дообучения, контроль качества результатов, защита тренировочных данных.
 

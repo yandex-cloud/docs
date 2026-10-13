@@ -164,7 +164,6 @@ blocks:
 * <code><b><small>Preview</small></b></code> [Yandex Cloud Router](../cloud-router/pricing.md)
 * [Yandex Identity and Access Management](../iam/pricing.md)
 * [Yandex Resource Manager](../resource-manager/pricing.md)
-* <code><b><small>Preview</small></b></code> [Yandex Serverless Integrations](../serverless-integrations/pricing.md)
 * <code><b><small>Preview</small></b></code> [VibeCraft](https://sourcecraft.dev/portal/docs/ru/vibecraft/pricing)
 * [Yandex WebSQL](../websql/pricing.md)
 

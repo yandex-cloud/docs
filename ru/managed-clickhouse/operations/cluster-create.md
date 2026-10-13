@@ -100,7 +100,9 @@ description: Следуя данной инструкции, вы сможете
 
           * **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}** и его **{{ ui-key.yacloud.mdb.forms.base_field_shard-weight }}**.
 
-            {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+              Вес шарда по умолчанию — `100`.
+                
+              Подробнее о влиянии веса шарда на распределение данных в разделе [{#T}](../concepts/sharding.md#shard-weight).
 
           * **{{ ui-key.yacloud.clickhouse.cluster.field_shard-resources-type }}** хостов шарда:
 
@@ -251,9 +253,7 @@ description: Следуя данной инструкции, вы сможете
       Где:
 
       * `--environment` — окружение кластера: `prestable` или `production`.
-      * `--shard` — параметры [шарда](../concepts/sharding.md): его имя и вес.
-
-        {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+      * `--shard` — параметры [шарда](../concepts/sharding.md): его имя и [вес](../concepts/sharding.md#shard-weight). Вес шарда по умолчанию — `100`.
 
         Чтобы создать кластер сразу с несколькими шардами, передайте флаг `--shard` нужное количество раз. Если не указать этот флаг, будет создан кластер с одним шардом `shard1`.
 
@@ -571,9 +571,7 @@ description: Следуя данной инструкции, вы сможете
 
        * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
-       * `shards` — [шарды](../concepts/sharding.md) кластера в виде ассоциативного массива элементов. Ключ задает имя шарда, а значение включает параметр `weight` — вес шарда.
-
-          {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+       * `shards` — [шарды](../concepts/sharding.md) кластера в виде ассоциативного массива элементов. Ключ задает имя шарда, а значение включает параметр `weight` — [вес шарда](../concepts/sharding.md#shard-weight). Вес шарда по умолчанию — `100`.
 
        * `hosts` — хосты кластера в виде ассоциативного массива элементов. Ключ задает имя хоста, а значение — параметры хоста. Каждый элемент имеет следующую структуру:
 
@@ -878,9 +876,7 @@ description: Следуя данной инструкции, вы сможете
             * `shardSpecs` — настройки шардов в виде массива элементов, где каждый элемент соответствует отдельному шарду. Если не передать этот блок в запросе, будет создан кластер с одним шардом `shard1`. Вы можете задать следующие настройки:
 
                 * `name` — имя шарда.
-                * `weight` — вес шарда.
-
-                   {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+                * `weight` — [вес шарда](../concepts/sharding.md#shard-weight). По умолчанию — `100`.
 
                 * `configSpec.clickhouse` — конфигурация хостов шарда: класс хоста, настройки хранилища и настройки СУБД. Если не указывать конфигурацию хостов шарда, она будет унаследована от конфигурации кластера.
 
@@ -1129,9 +1125,7 @@ description: Следуя данной инструкции, вы сможете
             * `shard_specs` — настройки шардов в виде массива элементов, где каждый элемент соответствует отдельному шарду. Если не передать этот блок в запросе, будет создан кластер с одним шардом `shard1`. Вы можете задать следующие настройки:
 
                 * `name` — имя шарда.
-                * `weight` — вес шарда.
-
-                   {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+                * `weight` — [вес шарда](../concepts/sharding.md#shard-weight). По умолчанию — `100`.
 
                 * `config_spec.clickhouse` — конфигурация хостов шарда: класс хоста, настройки хранилища и настройки СУБД. Если не указывать конфигурацию хостов шарда, она будет унаследована от конфигурации кластера.
 
@@ -1218,7 +1212,9 @@ description: Следуя данной инструкции, вы сможете
 
             * **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}** и его **{{ ui-key.yacloud.mdb.forms.base_field_shard-weight }}**.
 
-               {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+                Вес шарда по умолчанию — `100`.
+                
+                Подробнее о влиянии веса шарда на распределение данных в разделе [{#T}](../concepts/sharding.md#shard-weight).
 
             * **{{ ui-key.yacloud.clickhouse.cluster.field_shard-resources-type }}** хостов шарда:
 
@@ -1366,9 +1362,7 @@ description: Следуя данной инструкции, вы сможете
       Где:
 
       * `--environment` — окружение кластера: `prestable` или `production`.
-      * `--shard` — параметры [шарда](../concepts/sharding.md): его имя и вес.
-
-        {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+      * `--shard` — параметры [шарда](../concepts/sharding.md): его имя и [вес](../concepts/sharding.md#shard-weight). Вес шарда по умолчанию — `100`.
 
         Чтобы создать кластер сразу с несколькими шардами, передайте флаг `--shard` нужное количество раз. Если не указать этот флаг, будет создан кластер с одним шардом `shard1`.
 
@@ -1675,10 +1669,8 @@ description: Следуя данной инструкции, вы сможете
 
        * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
-       * `shards` — [шарды](../concepts/sharding.md) кластера в виде ассоциативного массива элементов. Ключ задает имя шарда, а значение включает параметр `weight` — вес шарда.
-
-          {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
-
+       * `shards` — [шарды](../concepts/sharding.md) кластера в виде ассоциативного массива элементов. Ключ задает имя шарда, а значение включает параметр `weight` — [вес шарда](../concepts/sharding.md#shard-weight). Вес шарда по умолчанию — `100`.
+       
        * `hosts` — хосты кластера в виде ассоциативного массива элементов. Ключ задает имя хоста, а значение — параметры хоста. Каждый элемент имеет следующую структуру:
 
           * `type` — тип хоста: `CLICKHOUSE` или `ZOOKEEPER`.
@@ -1996,9 +1988,7 @@ description: Следуя данной инструкции, вы сможете
             * `shardSpecs` — настройки шардов в виде массива элементов, где каждый элемент соответствует отдельному шарду. Если не передать этот блок в запросе, будет создан кластер с одним шардом `shard1`. Вы можете задать следующие настройки:
 
                 * `name` — имя шарда.
-                * `weight` — вес шарда.
-
-                   {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+                * `weight` — [вес шарда](../concepts/sharding.md#shard-weight). По умолчанию — `100`.
 
                 * `configSpec.clickhouse` — конфигурация хостов шарда: класс хоста, настройки хранилища и настройки СУБД. Если не указывать конфигурацию хостов шарда, она будет унаследована от конфигурации кластера.
 
@@ -2260,9 +2250,7 @@ description: Следуя данной инструкции, вы сможете
             * `shard_specs` — настройки шардов в виде массива элементов, где каждый элемент соответствует отдельному шарду. Если не передать этот блок в запросе, будет создан кластер с одним шардом `shard1`. Вы можете задать следующие настройки:
 
                 * `name` — имя шарда.
-                * `weight` — вес шарда.
-
-                   {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+                * `weight` — [вес шарда](../concepts/sharding.md#shard-weight). По умолчанию — `100`.
 
                 * `config_spec.clickhouse` — конфигурация хостов шарда: класс хоста, настройки хранилища и настройки СУБД. Если не указывать конфигурацию хостов шарда, она будет унаследована от конфигурации кластера.
 

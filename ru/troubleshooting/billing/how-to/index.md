@@ -7,7 +7,6 @@
 * [Как восстановить доступ к платежному аккаунту, созданному на основе упрощенной регистрации в Яндекс ID](recover-access-to-billing-account-via-lite-account.md)
 * [Как сформировать счет на оплату](generating-invoice.md)
 * [Как перевести денежные средства между разными платежными аккаунтами](transfer-funds-between-billing-accounts.md)
-* [Как работает резервированное потребление ресурсов](how-cvos-works.md)
 * [Как получать счета на электронную почту автоматически](getting-invoices-automatically.md)
 * [Как узнать, на какую электронную почту отправляются счета на оплату](viewing-email-for-invoices.md)
 * [Как получить акт сверки](getting-reconcillation-report.md)

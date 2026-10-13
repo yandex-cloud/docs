@@ -181,7 +181,7 @@ yc kms symmetric-key add-access-binding \
 
 1. {% include [setup-bucket.md](../_includes/storage/setup-bucket.md) %}
 
-1. [Создайте](operations/hosting/own-domain.md#domain-support) на своем DNS-сервере CNAME-запись, чтобы привязать ваш домен к бакету.
+1. [Создайте](operations/hosting/own-domain.md) на своем DNS-сервере CNAME-запись, чтобы привязать ваш домен к бакету.
 
 1. {% include [create-cert.md](../_includes/storage/create-cert.md) %}
 

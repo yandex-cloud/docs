@@ -7,6 +7,10 @@ items:
     items:
       - name: Рекомендации по отказоустойчивости в {{ yandex-cloud }}
         href: fault-tolerance.md
+      - name: Восстановление кластеров БД при отказе зоны доступности
+        href: mdb-recovery.md
+      - name: Перенос образа диска в стороннее S3-хранилище
+        href: disk-migration-to-external-s3.md
       - name: >-
           Развертывание веб-приложения в отказоустойчивой конфигурации в {{
           yandex-cloud }}

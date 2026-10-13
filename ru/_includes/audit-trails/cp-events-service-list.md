@@ -60,4 +60,4 @@
 * [{{ speechsense-full-name }}](../../audit-trails/concepts/events.md#speechsense)
 * [{{ vpc-full-name }}](../../audit-trails/concepts/events.md#vpc)
 * [{{ websql-full-name }}](../../audit-trails/concepts/events.md#websql)
-* [{{ sw-full-name }}](../../audit-trails/concepts/events.md#workflows)
+* [{{ sw-full-name }}](../../audit-trails/concepts/events.md#ai-studio)

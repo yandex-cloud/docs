@@ -41,7 +41,7 @@ description: Следуя данной инструкции, вы сможете
   1. (Опционально) В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}**:
      1. Включите опцию **{{ ui-key.yacloud.alb.label_log-requests }}**.
      1. Выберите [лог-группу](../../logging/concepts/log-group.md) [{{ cloud-logging-full-name }}](../../logging/), в которую будут записываться логи балансировщика.
-     1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-discard-rule }}** и настройте его [параметры](../concepts/application-load-balancer.md#discard-logs-rules):
+     1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-discard-rule }}** и настройте его [параметры](../concepts/monitoring.md#discard-logs-rules):
         * **{{ ui-key.yacloud.alb.label_discard-http-codes }}** — добавьте HTTP-коды.
         * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}** — добавьте классы HTTP-кодов.
         * **{{ ui-key.yacloud.alb.label_discard-grpc-codes }}** — добавьте gRPC-коды.
@@ -133,7 +133,7 @@ description: Следуя данной инструкции, вы сможете
         yc alb load-balancer logging --help
         ```
 
-     1. Привяжите лог-группу к балансировщику и настройте [правило отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules):
+     1. Привяжите лог-группу к балансировщику и настройте [правило отбрасывания логов](../concepts/monitoring.md#discard-logs-rules):
 
         ```bash
         yc alb load-balancer logging <имя_балансировщика> \
@@ -415,7 +415,7 @@ description: Следуя данной инструкции, вы сможете
       * `log_options` — (опционально) параметры записи [логов](../logs-ref.md) в [{{ cloud-logging-full-name }}](../../logging/):
 
           * `log_group_id` — идентификатор [лог-группы](../../logging/concepts/log-group.md).
-          * `discard_rule` — [правило отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules):
+          * `discard_rule` — [правило отбрасывания логов](../concepts/monitoring.md#discard-logs-rules):
 
             * `http_codes` — HTTP-коды.
             * `http_code_intervals` — классы HTTP-кодов.

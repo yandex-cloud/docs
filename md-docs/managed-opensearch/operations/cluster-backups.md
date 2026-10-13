@@ -924,3 +924,11 @@ Managed Service for OpenSearch позволяет создавать резер�
     ```http
     DELETE https://admin:<пароль>@<идентификатор_хоста_OpenSearch_с_ролью_DATA>.mdb.yandexcloud.net:9200/_snapshot/<имя_репозитория>/<имя_снапшота>
     ```
+
+### Восстановление резервной копии кластера через OpenSearch API  {#mos-backup}
+
+Вы можете подключить Object Storage к кластеру Managed Service for OpenSearch как репозиторий снапшотов. Резервные копии будут создаваться вручную или по расписанию через [OpenSearch Snapshot API](https://docs.opensearch.org/latest/api-reference/snapshots/index/).
+
+1. [Создайте репозиторий](https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/) для хранения снапшотов с указанием Object Storage.
+1. [Определите политику](https://docs.opensearch.org/latest/tuning-your-cluster/availability-and-recovery/snapshots/sm-api/) регулярного создания снапшотов.
+1. [Настройте права доступа](s3-access.md#configure-acl) и [подключите репозиторий](s3-access.md#register-snapshot-repository) снапшотов для кластера Managed Service for OpenSearch.

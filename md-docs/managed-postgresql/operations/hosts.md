@@ -126,6 +126,9 @@
      * Подсеть (если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md)).
      * Источник репликации (если вы используете [каскадную репликацию](../concepts/replication.md#replication-manual)).
      * Выберите опцию **Публичный доступ**, если хост должен быть доступен извне Yandex Cloud.
+     * Приоритет. Возможные значения: от `0` до `100`. По умолчанию — `0`.
+
+       Приоритет хоста используется при [выборе мастера в случае переключения](../concepts/replication.md#master-failover).
 
 
 - CLI {#cli}
@@ -172,22 +175,31 @@
      
      ```bash
      yc managed-postgresql host add \
-       --cluster-name <имя_кластера> \
-       --host zone-id=<зона_доступности>,subnet-id=<идентификатор_подсети>
+        --cluster-name <имя_кластера> \
+        --host zone-id=<зона_доступности>,`
+              `subnet-id=<идентификатор_подсети>,`
+              `assign-public-ip=<разрешить_публичный_доступ_к_хосту>,`
+              `replication-source=<имя_хоста-источника>,`
+              `priority=<приоритет_хоста>
      ```
 
 
-     
-     Идентификатор подсети необходимо указать, если в зоне доступности больше одной подсети, в противном случае Managed Service for PostgreSQL автоматически выберет единственную подсеть. Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+     Где:
 
-     Также вы можете указать несколько дополнительных опций в параметре `--host` для управления публичным доступом к хосту и репликацией в кластере:
-     * Источник репликации для хоста в опции `replication-source` для того, чтобы [вручную управлять потоками репликации](../concepts/replication.md#replication-manual).
-     * Доступность хоста извне Yandex Cloud в опции `assign-public-ip`:
-       * `true` — публичный доступ включен.
-       * `false` — публичный доступ выключен.
+     * `--cluster-name` — имя кластера, которое можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+     * `--host` — настройки хоста:
+       
+       * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
 
+              
+       * `subnet-id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet).
+       * `assign-public-ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+       
+        
+       * `replication-source` — имя хоста-источника. Подробнее о [ручном управлении потоками репликации](../concepts/replication.md#replication-manual).
+       * `priority` — приоритет хоста. Возможные значения: от `0` до `100`. По умолчанию — `0`.
 
-  Managed Service for PostgreSQL запустит операцию добавления хоста.
+         Приоритет хоста используется при [выборе мастера в случае переключения](../concepts/replication.md#master-failover).
 
 
 - Terraform {#tf}
@@ -209,6 +221,7 @@
          subnet_id               = "<идентификатор_подсети>"
          replication_source_name = "<источник_репликации>"
          assign_public_ip        = <публичный_доступ_к_хосту>
+         priority                = <приоритет_хоста>
        }
      }
      ```
@@ -220,6 +233,9 @@
      * `subnet_id` — идентификатор подсети.
      * `replication_source_name` — источник репликации: атрибут `name` соответствующего блока `host`.
      * `assign_public_ip` — [публичный доступ к хосту](../concepts/network.md#public-access-to-a-host): `true` или `false`.
+     * `priority` — приоритет хоста. Возможные значения: от `0` до `100`. По умолчанию — `0`. Параметр `priority` можно использовать, только если для хоста задан параметр `name`.
+
+       Приоритет хоста используется при [выборе мастера в случае переключения](../concepts/replication.md#master-failover).
 
   1. Проверьте корректность настроек.
 
@@ -332,7 +348,10 @@
 
 
      * `replicationSource` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#replication-manual). В параметре укажите [FQDN хоста](connect/fqdn.md#special-fqdns), который будет источником репликации.
-     * `priority` — приоритет хоста среди всех хостов.
+     * `priority` — приоритет хоста. Возможные значения: от `0` до `100`. По умолчанию — `0`.
+
+       Приоритет хоста используется при [выборе мастера в случае переключения](../concepts/replication.md#master-failover).
+
      * `configSpec.postgresqlConfig_<версия_PostgreSQL>` — набор настроек PostgreSQL. Укажите каждую настройку на отдельной строке через запятую.
 
        Список версий PostgreSQL, доступных для параметра, вы найдете в [описании метода](../api-ref/Cluster/addHosts.md#yandex.cloud.mdb.postgresql.v1.AddClusterHostsRequest). Описание и возможные значения настроек в разделе [Настройки PostgreSQL](../concepts/settings-list.md).
@@ -401,7 +420,10 @@
 
 
      * `replication_source` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#replication-manual). В параметре укажите [FQDN хоста](connect/fqdn.md#special-fqdns), который будет источником репликации.
-     * `priority` — приоритет хоста среди всех хостов.
+     * `priority` — приоритет хоста. Возможные значения: от `0` до `100`. По умолчанию — `0`.
+
+       Приоритет хоста используется при [выборе мастера в случае переключения](../concepts/replication.md#master-failover).
+
      * `config_spec.postgresql_config_<версия_PostgreSQL>` — набор настроек PostgreSQL. Укажите каждую настройку на отдельной строке через запятую.
 
        Список версий PostgreSQL, доступных для параметра, вы найдете в [описании метода](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec). Описание и возможные значения настроек в разделе [Настройки PostgreSQL](../concepts/settings-list.md).
@@ -439,6 +461,8 @@
      1. Включите опцию **Публичный доступ**, если хост должен быть доступен извне Yandex Cloud.
 
 
+     1. В поле **Приоритет мастера** укажите приоритет хоста. Возможные значения: от `0` до `100`. По умолчанию — `0`. Приоритет хоста используется при [выборе мастера в случае переключения](../concepts/replication.md#master-failover).
+
   1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
@@ -456,22 +480,25 @@
   yc managed-postgresql host update <имя_хоста> \
     --cluster-name <имя_кластера> \
     --replication-source <имя_хоста-источника> \
-    --assign-public-ip=<публичный_доступ_к_хосту>
+    --assign-public-ip=<публичный_доступ_к_хосту> \
+    --priority <приоритет_хоста>
   ```
 
 
   Где:
 
   * `cluster-name` — имя кластера.
-  * `replication-source` — имя хоста-источника.
+  * `replication-source` — имя хоста-источника. Подробнее о [ручном управлении потоками репликации](../concepts/replication.md#replication-manual).
 
   
   * `assign-public-ip` — [публичный доступ к хосту](../concepts/network.md#public-access-to-a-host): `true` или `false`.
 
 
-  Имя хоста можно запросить со [списком хостов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+  * `--priority` — приоритет хоста. Возможные значения: от `0` до `100`. По умолчанию — `0`.
 
-  Чтобы [вручную управлять потоками репликации](../concepts/replication.md#replication-manual) в кластере, измените источник репликации для хоста в параметре `--replication-source`.
+    Приоритет хоста используется при [выборе мастера в случае переключения](../concepts/replication.md#master-failover).
+
+  Имя хоста можно запросить со [списком хостов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
 - Terraform {#tf}
@@ -490,14 +517,18 @@
        host {
          replication_source_name = "<источник_репликации>"
          assign_public_ip        = <публичный_доступ_к_хосту>
+         priority                = <приоритет_хоста>
        }
      }
      ```
 
-  Где:
+     Где:
 
-  * `replication_source_name` — источник репликации: атрибут `name` соответствующего блока `host`.
-  * `assign_public_ip` — [публичный доступ к хосту](../concepts/network.md#public-access-to-a-host): `true` или `false`.
+     * `replication_source_name` — источник репликации: атрибут `name` соответствующего блока `host`.
+     * `assign_public_ip` — [публичный доступ к хосту](../concepts/network.md#public-access-to-a-host): `true` или `false`.
+     * `priority` — приоритет хоста. Возможные значения: от `0` до `100`. По умолчанию — `0`. Параметр `priority` можно использовать, только если для хоста задан параметр `name`.
+
+       Приоритет хоста используется при [выборе мастера в случае переключения](../concepts/replication.md#master-failover).
 
   1. Проверьте корректность настроек.
 
@@ -616,7 +647,10 @@
 
 
      * `replicationSource` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#replication-manual). В параметре укажите FQDN хоста, который будет источником репликации.
-     * `priority` — приоритет хоста среди всех хостов.
+     * `priority` — приоритет хоста. Возможные значения: от `0` до `100`. По умолчанию — `0`.
+
+       Приоритет хоста используется при [выборе мастера в случае переключения](../concepts/replication.md#master-failover).
+
      * `configSpec.postgresqlConfig_<версия_PostgreSQL>` — набор настроек PostgreSQL. Укажите каждую настройку на отдельной строке через запятую.
 
        Список версий PostgreSQL, доступных для параметра, вы найдете в [описании метода](../api-ref/Cluster/updateHosts.md#yandex.cloud.mdb.postgresql.v1.UpdateClusterHostsRequest). Описание и возможные значения настроек в разделе [Настройки PostgreSQL](../concepts/settings-list.md).
@@ -710,7 +744,10 @@
 
 
      * `replication_source` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#replication-manual). В параметре укажите FQDN хоста, который будет источником репликации.
-     * `priority` — приоритет хоста среди всех хостов.
+     * `priority` — приоритет хоста. Возможные значения: от `0` до `100`. По умолчанию — `0`.
+
+       Приоритет хоста используется при [выборе мастера в случае переключения](../concepts/replication.md#master-failover).
+
      * `config_spec.postgresql_config_<версия_PostgreSQL>` — набор настроек PostgreSQL. Укажите каждую настройку на отдельной строке через запятую.
 
        Список версий PostgreSQL, доступных для параметра, вы найдете в [описании метода](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec). Описание и возможные значения настроек в разделе [Настройки PostgreSQL](../concepts/settings-list.md).

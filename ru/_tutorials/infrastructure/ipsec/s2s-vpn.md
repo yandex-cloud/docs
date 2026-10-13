@@ -214,15 +214,15 @@
 [Убедитесь](../../../quota-manager/operations/read-quotas.md), что в целевом облаке не израсходованы квоты:
 
 * **{{ ui-key.yacloud_billing.iam.cloud.quotas.label_quota-name-iam.serviceAccounts.count }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-vpc.subnets.count }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-vpc.externalStaticAddresses.count }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-vpc.routeTables.count }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-vpc.staticRoutes.count }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-vpc.securityGroups.count }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.instances.count }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.disks.count }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.ssdDisks.size }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.instanceMemory.size }}**
+* **{{ ui-key.yacloud_quotas.quotas.vpc.subnets.count }}**
+* **{{ ui-key.yacloud_quotas.quotas.vpc.externalStaticAddresses.count }}**
+* **{{ ui-key.yacloud_quotas.quotas.vpc.routeTables.count }}**
+* **{{ ui-key.yacloud_quotas.quotas.vpc.staticRoutes.count }}**
+* **{{ ui-key.yacloud_quotas.quotas.vpc.securityGroups.count }}**
+* **{{ ui-key.yacloud_quotas.quotas.compute.instances.count }}**
+* **{{ ui-key.yacloud_quotas.quotas.compute.disks.count }}**
+* **{{ ui-key.yacloud_quotas.quotas.compute.ssdDisks.size }}**
+* **{{ ui-key.yacloud_quotas.quotas.compute.instanceMemory.size }}**
 
 Если какая-либо квота израсходована, создайте запрос на расширение квоты и дождитесь его исполнения.
 

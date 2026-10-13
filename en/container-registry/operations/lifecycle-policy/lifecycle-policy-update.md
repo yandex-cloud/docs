@@ -1,5 +1,7 @@
 # Updating a lifecycle policy
 
+{% include [sunset](../../../_includes/container-registry/sunset.md) %}
+
 After you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you can edit its rules as well as its status, name, or description.
 
 {% list tabs group=instructions %}
