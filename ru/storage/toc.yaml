@@ -178,6 +178,10 @@ items:
           - name: Обзор
             href: tutorials/storage-backup-overview.md
           - name: >-
+              Защита резервных копий от удаления и перезаписи с помощью
+              блокировок версий объектов
+            href: tutorials/storage-backup-object-lock.md
+          - name: >-
               Резервное копирование в {{ objstorage-name }} с помощью aws s3
               sync
             href: tutorials/storage-backup-aws-s3-sync.md
