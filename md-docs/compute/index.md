@@ -202,6 +202,8 @@
 
  - [Перенести диск в другую зону доступности](operations/disk-control/disk-change-zone.md)
 
+ - [Перенести образ диска в стороннее S3-хранилище](operations/disk-control/disk-migration-to-external-s3.md)
+
  - [Зашифровать диск](operations/disk-control/disk-encrypt.md)
 
  - [Получить информацию о диске](operations/disk-control/get-info.md)

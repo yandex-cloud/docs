@@ -16,6 +16,7 @@ description: На странице представлен список поша�
 * [Управление хостами кластера](hosts.md)
 * [Миграция хостов в другую зону доступности](host-migration.md)
 * [Управление резервными копиями](cluster-backups.md)
+* [{#T}](data-recovery.md)
 * [Управление политиками резервного копирования](backup-retention-policies.md)
 * [Управление доступом к кластеру](cluster-access.md)
 * [Техническое обслуживание](cluster-maintenance.md)
