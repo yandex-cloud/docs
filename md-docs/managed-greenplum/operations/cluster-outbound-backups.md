@@ -1,5 +1,7 @@
 [Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Восстановление из резервной копии WAL-G
 
+# Восстановление Greenplum® из резервной копии WAL-G
+
 Вы сможете восстановить данные кластера Yandex MPP Analytics for PostgreSQL на пользовательской инфраструктуре из резервной копии, переданной в S3-бакет через утилиту WAL-G.
 
 ## Перед началом работы {before-you-begin}
