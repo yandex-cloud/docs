@@ -166,7 +166,7 @@ resource "yandex_function" "vm-scale-scheduled-function" {
   ]
 }
 
-# Создание тригера
+# Создание триггера
 
 resource "yandex_function_trigger" "vm-scale-scheduled-trigger" {
   name = "vm-scale-scheduled-trigger"

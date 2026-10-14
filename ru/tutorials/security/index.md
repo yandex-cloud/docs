@@ -36,6 +36,7 @@ description: Различные сценарии использования по
 * [{#T}](mgp-to-cloud-logging.md)
 * [{#T}](info-for-federal-ip-whitelist.md)
 * [{#T}](ephemeral-key-storage.md)
+* [{#T}](traces-for-litellm-proxy.md)
 
 ## Управление федерациями удостоверений {#federations}
 

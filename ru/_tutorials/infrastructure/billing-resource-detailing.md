@@ -1,6 +1,6 @@
 # Анализ поресурсной детализации расходов с помощью {{ objstorage-full-name }}
 
-Вы настроите автоматический экспорт данных с детализацией расходов на вашем [платежном аккаунте](../../billing/concepts/billing-account.md) и сформируете отчет, содержащий информацию о сумме расходов на ресурсы в каталоге. Для получения данных из бакета {{ objstorage-name }} будет использоваться язык запросов [S3 Select](../../storage/concepts/s3-select-language.md).
+Вы настроите автоматический экспорт данных с детализацией расходов на вашем [платежном аккаунте](../../billing/concepts/billing-account.md) и сформируете отчет, который содержит информацию о сумме расходов на ресурсы в каталоге. Для получения данных из бакета {{ objstorage-name }} будет использоваться язык запросов [S3 Select](../../storage/concepts/s3-select-language.md).
 
 Чтобы проанализировать расходы:
 
@@ -34,7 +34,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
   1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. На панели сверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета. Имя должно быть [уникальным](../../storage/concepts/bucket.md#naming) в пределах {{ objstorage-full-name }}.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 {% endlist %}
@@ -68,21 +68,21 @@
 
   1. Выполните запрос в {{ objstorage-name }} и сохраните результат выполнения в файл:
 
-     1. Для удобства работы сохраните:
+     1. Для удобства работы сохраните данные в переменные:
 
-        * Имя бакета, в котором хранится файл с детализацией, в переменную `$bucket`:
+        * `bucket` — имя бакета:
 
           ```bash
           bucket=<имя_бакета>
           ```
 
-        * [Ключ](../../storage/concepts/object.md#key) объекта с детализацией в переменную `$key`:
+        * `key` — [ключ](../../storage/concepts/object.md#key) объекта с детализацией:
 
           ```bash
           key=<ключ_объекта>
           ```
 
-        * Выражение для запроса данных из файла с детализацией на языке S3 Select в переменную `$query`:
+        * `query` — выражение для запроса данных из файла с детализацией на языке S3 Select:
 
           ```bash
           query="select service_name,resource_id,sku_id,sku_name,\"date\",cost from S3Object where service_name='Compute Cloud'"
@@ -123,7 +123,7 @@
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы остановить работу и перестать платить за созданные ресурсы:
+Чтобы перестать платить за созданные ресурсы:
 
 1. [Удалите](../../storage/operations/objects/delete.md) все объекты из бакета.
 1. [Удалите](../../storage/operations/buckets/delete.md) бакет.

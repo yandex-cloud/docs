@@ -4,7 +4,7 @@
 
 Контроллер Gwin, установленный в кластер, автоматически разворачивает [L7-балансировщики](../../../application-load-balancer/concepts/application-load-balancer.md) на основе конфигурации созданных вами ресурсов {{ k8s }}.
 
-Контроллер поддерживает спецификации [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) и [Gateway API](https://gateway-api.sigs.k8s.io/). Для настройки дополнительных возможностей {{ alb-name }}, выходящих за рамки спецификации {{ k8s }}, реализован механизм [политик](../../../managed-kubernetes/alb-ref/gwin-policies.md), которые управляются с помощью [CustomResourceDefinitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) или аннотаций. К дополнительным возможностям относятся, например, автомасштабирование, логирование и интеграция с [{{ sws-full-name }}](../../../smartwebsecurity/concepts/index.md).
+Контроллер поддерживает спецификации [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) и [Gateway API](https://gateway-api.sigs.k8s.io/). Для настройки дополнительных возможностей {{ alb-name }}, выходящих за рамки спецификации {{ k8s }}, контроллер использует механизм [политик](../../../managed-kubernetes/alb-ref/gwin-policies.md), которые управляются с помощью [CustomResourceDefinitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) или аннотаций. К дополнительным возможностям относятся, например, автомасштабирование, логирование и интеграция с [{{ sws-full-name }}](../../../smartwebsecurity/concepts/index.md).
 
 Поддерживаемые ресурсы {{ k8s }}:
 
@@ -14,7 +14,7 @@
 
 ![image](../../../_assets/managed-kubernetes/gwin.svg)
 
-Установить контроллер Gwin можно [по инструкции](../../../managed-kubernetes/alb-ref/gwin-quickstart.md).
+Об установке контроллера Gwin читайте в разделе [{#T}](../../../managed-kubernetes/alb-ref/gwin-quickstart.md), об обновлении — в разделе [{#T}](../../../managed-kubernetes/alb-ref/gwin-upgrade.md).
 
 {% note tip %}
 
@@ -26,10 +26,10 @@
 
 Ниже приведены два примера конфигурации — с использованием ресурсов Gateway API и Ingress. В обоих случаях создается балансировщик {{ alb-name }}, который:
 
-  * автоматически получает динамический публичный IP-адрес;
-  * принимает HTTP-трафик на порт `80`;
-  * принимает HTTPS-трафик на порт `443`, используя сертификат {{ certificate-manager-name }};
-  * отправляет GET-запросы к тестовому сервису `example-service`.
+* автоматически получает динамический публичный IP-адрес;
+* принимает HTTP-трафик на порт `80`;
+* принимает HTTPS-трафик на порт `443`, используя сертификат {{ certificate-manager-name }};
+* отправляет GET-запросы к тестовому сервису `example-service`.
 
 {% list tabs group=instructions %}
 

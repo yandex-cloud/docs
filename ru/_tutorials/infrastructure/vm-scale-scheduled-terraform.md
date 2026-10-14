@@ -95,7 +95,7 @@
 
    {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-После создания инфраструктуры, [проверьте масштабирование группы ВМ](#test-scale).
+После создания инфраструктуры [проверьте масштабирование группы ВМ](#test-scale).
 
 ## Проверьте масштабирование группы ВМ {#test-scale}
 

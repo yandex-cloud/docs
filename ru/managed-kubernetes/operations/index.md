@@ -1,6 +1,6 @@
 ---
 title: Инструкции по работе с {{ managed-k8s-full-name }}
-description: Из статьи вы узнаете, как работать с управляемым сервисом {{ k8s }} в {{ yandex-cloud }}. Рассказываем, как работать с постоянными томами, управлять группой узлов и кластером {{ k8s }}.
+description: 'В разделе собраны пошаговые инструкции по работе с {{ managed-k8s-name }}: подключение к кластеру, работа с постоянными томами, управление группой узлов и кластером {{ k8s }}.'
 ---
 
 # Пошаговые инструкции для {{ managed-k8s-name }}
@@ -36,7 +36,8 @@ description: Из статьи вы узнаете, как работать с �
 * [{#T}](applications/gateway-api.md)
 * [{#T}](applications/gitlab-agent.md)
 * [{#T}](applications/gitlab-runner.md)
-* [{#T}](../alb-ref/gwin-quickstart.md)
+* [{#T}](applications/gwin-quickstart.md)
+* [{#T}](applications/gwin-upgrade.md)
 * [{#T}](applications/hashicorp-vault.md)
 * [{#T}](applications/alb-ingress-controller.md)
 * [{#T}](applications/upgrade-alb-ingress-controller.md)

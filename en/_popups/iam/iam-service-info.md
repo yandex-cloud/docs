@@ -1,0 +1,1 @@
+{{ iam-full-name }} is designed configures access permissions and controls access to {{ yandex-cloud }} resources. For more information, read this [{{ iam-name }} guide](../../iam/concepts/index.md).

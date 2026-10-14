@@ -194,7 +194,7 @@ To create a key pair:
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+  1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket, e.g., `mlflow-bucket`.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
@@ -339,7 +339,7 @@ For MLFlow to run automatically after the VM restarts, you need to convert it in
 ## Create secrets {#create-secrets}
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![secret](../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![secret](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yc-ui-datasphere.resources.secret }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 1. In the **{{ ui-key.yc-ui-datasphere.secret.name }}** field, enter the secret name: `MLFLOW_S3_ENDPOINT_URL`.
 1. In the **{{ ui-key.yc-ui-datasphere.secret.content }}** field, paste the URL: `https://{{ s3-storage-host }}/`.

@@ -32,6 +32,10 @@ items:
             href: operations/alerts/view.md
           - name: Working with alerts
             href: operations/alerts/work.md
+          - name: Downloading alerts
+            href: operations/alerts/download.md
+          - name: Managing alert tags
+            href: operations/alerts/tags.md
       - name: '{{ dspm-full-name }} ({{ dspm-name }})'
         items:
           - name: Overview
@@ -48,6 +52,8 @@ items:
         items:
           - name: Overview
             href: operations/kspm/index.md
+          - name: System and technical requirements
+            href: operations/kspm/requirements.md
           - name: Activating the module {{ kspm-name }}
             href: operations/kspm/enable-kspm.md
           - name: Working with a dashboard

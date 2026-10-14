@@ -302,6 +302,8 @@
 
  - [Загрузка объектов в бакет Object Storage с помощью эфемерного ключа доступа](security/ephemeral-key-storage.md)
 
+ - [Интеграция LiteLLM Proxy с Yandex AI Studio и Monium Traces](security/traces-for-litellm-proxy.md)
+
 ## Хранение и восстановление данных
 
  - [Все руководства](archive/index.md)

@@ -399,7 +399,7 @@ Deploy a static website.
      1. In the [management console]({{ link-console-main }}), select the folder where you want to upload your objects.
      1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Click `bucket-for-tutorial`.
-     1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select the objects you [previously generated](#project-prepare) in the `build` directory.
+     1. In the top panel, click ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select the objects you [previously generated](#project-prepare) in the `build` directory.
      1. The management console will display all the objects you selected for uploading and prompt you to select a [storage class](../../storage/concepts/storage-class.md). The [bucket configuration](../../storage/concepts/bucket.md#bucket-settings) determines the default storage class.
      1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
      1. Refresh the page.
@@ -415,8 +415,7 @@ Deploy a static website.
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), go to `bucket-for-tutorial`.
-     1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-     1. On the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab:
+     1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_website }}**. On the page that opens:
         * Select `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
         * In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify the absolute path to the website home page file, `index.html`.
         * In the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify the absolute path to the file to display in case of 4xx errors, `error.html`.

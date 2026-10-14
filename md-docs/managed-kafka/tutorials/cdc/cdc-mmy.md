@@ -59,7 +59,7 @@
 
 1. Если вы используете группы безопасности, настройте их так, чтобы к кластерам можно было подключаться из интернета:
 
-    * [Инструкция для Managed Service for MySQL®](../../../managed-mysql/operations/connect/index.md#configuring-security-groups).
+    * [Инструкция для Managed Service for MySQL®](../../../managed-mysql/operations/connect/index.md#configure-security-groups).
     * [Инструкция для Managed Service for Apache Kafka®](../../operations/connect/index.md#configuring-security-groups).
 
 
@@ -136,29 +136,35 @@
 
 1. [Создайте эндпоинт](../../../data-transfer/operations/endpoint/index.md#create) для источника MySQL® с [настройками](../../../data-transfer/operations/endpoint/source/mysql.md):
 
+    * **Направление** — `Источник`.
+    * Укажите имя эндпоинта.
     * **Тип базы данных** — `MySQL`.
     * **Параметры эндпоинта**:
-        * **Настройки подключения** — `Кластер Managed Service for MySQL`.
-        * **Кластер Managed Service for MySQL** — выберите [созданный ранее](#before-you-begin) кластер Managed Service for MySQL®.
-        * **База данных** — `db1`.
-        * **Пользователь** — `my-user`.
+        * **Тип подключения** — выберите `Ручная настройка`.
+        * **Тип инсталляции** — выберите `Кластер Managed Service for MySQL`.
+        * **Кластер управляемой БД** — выберите [созданный ранее](#prepare-infrastructure) кластер Managed Service for MySQL®.
+        * **База данных** — укажите `db1`.
+        * **Пользователь** — укажите `my-user`.
         * **Пароль** — укажите пароль пользователя `my-user`.
-        * **Список включённых таблиц** — `db1.measurements`.
+        * **Список включённых таблиц** — укажите `db1.measurements`.
 
 1. [Создайте эндпоинт](../../../data-transfer/operations/endpoint/index.md#create) для приемника Apache Kafka® с [настройками](../../../data-transfer/operations/endpoint/source/kafka.md):
 
+    * **Направление** — `Приёмник`.
+    * Укажите имя эндпоинта.
     * **Тип базы данных** — `Kafka`.
     * **Параметры эндпоинта**:
-        * **Тип подключения** — `Кластер Managed Service for Apache Kafka`.
-            * **Кластер Managed Service for Apache Kafka** — выберите [созданный ранее](#before-you-begin) кластер Managed Service for Apache Kafka®.
-            * **Аутентификация** — укажите данные созданного ранее пользователя `kafka-user`.
+        * **Тип подключения** — выберите `Ручная настройка`.
+        * **Тип инсталляции** — выберите `Кластер Managed Service for Apache Kafka`.
+        * **Кластер Managed Service for Apache Kafka** — выберите [созданный ранее](#prepare-infrastructure) кластер Managed Service for Apache Kafka®.
+        * **Аутентификация** — выберите `SASL` и укажите данные созданного ранее пользователя `kafka-user`.
 
-        * **Топик** — `Полное имя топика`.
-        * **Полное имя топика** — `cdc.db1.measurements`.
+        * **Топик** — выберите `Полное имя топика`.
+        * **Полное имя топика** — укажите `cdc.db1.measurements`.
 
         Если необходимо отслеживать изменения в нескольких таблицах, заполните поля следующим образом:
 
-        * **Топик** — `Префикс топика`.
+        * **Топик** — выберите `Префикс топика`.
         * **Префикс топика** — укажите префикс `cdc`, использованный при формировании имен топиков.
 
 1. [Создайте трансфер](../../../data-transfer/operations/transfer.md#create) типа **_Репликация_** с созданными эндпоинтами для источника и приемника.

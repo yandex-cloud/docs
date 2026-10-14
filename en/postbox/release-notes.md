@@ -5,6 +5,12 @@ description: This section contains the {{ postbox-name }} release notes.
 
 # {{ postbox-full-name }} release notes
 
+## August 2026 {#august-2026}
+
+### Updates {#updates}
+
+* Added support for [dedicated IP addresses](concepts/dedicated-ip.md). You can group dedicated IP addresses into pools and link those pools to [configurations](concepts/configuration.md). All emails the configuration applies to will be sent from the linked pool’s IP addresses. To manage pools, use the [AWS-compatible HTTP API](aws-compatible-api/api-ref/index.md#dedicated-ips) and AWS CLI.
+
 ## June 2026 {#june-2026}
 
 ### Updates {#updates}

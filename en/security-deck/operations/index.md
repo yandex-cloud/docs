@@ -18,6 +18,8 @@ description: In this article, you will learn how to work with {{ sd-name }} in {
 
 * [{#T}](./alerts/view.md)
 * [{#T}](./alerts/work.md)
+* [{#T}](./alerts/download.md)
+* [{#T}](./alerts/tags.md)
 
 ## {{ dspm-full-name }} ({{ dspm-name }}) {#dspm}
 

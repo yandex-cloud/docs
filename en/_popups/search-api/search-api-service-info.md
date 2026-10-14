@@ -1,0 +1,1 @@
+{{ search-api-full-name }} allows you to automatically query the Yandex search database and get search results in an easy-to-process format. For more information, see [this {{ search-api-name }} guide]({{ link-docs-ai }}search-api/concepts/).

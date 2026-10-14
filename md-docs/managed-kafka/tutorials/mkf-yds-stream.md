@@ -2,21 +2,32 @@
 
 # Поставка данных в Yandex Data Streams с помощью Yandex Data Transfer
 
-# Поставка данных из очереди Apache Kafka® в YDS
+# Поставка данных из Apache Kafka® в YDS
 
 
 В поток данных Yandex Data Streams можно в реальном времени поставлять данные из топиков Apache Kafka®.
 
 Чтобы запустить поставку данных:
 
-1. [Создайте поток данных приемника Data Streams](#create-target-yds).
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
+1. [Создайте поток данных Data Streams](#prepare-source).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работоспособность трансфера](#verify-transfer).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Необходимые платные ресурсы {#paid-resources}
+## Перед началом работы {#before-you-begin}
+
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер Yandex Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы Managed Service for Apache Kafka®](../pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
@@ -31,7 +42,7 @@
     * [По фактическому использованию](../../data-streams/pricing.md#on-demand) (On-demand) — оплачиваются выполненные операции записи и чтения данных, объем считанных/записанных данных, а также объем фактически используемого хранилища для сообщений, по которым не истек срок хранения.
 
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте инфраструктуру {#prepare-infrastructure}
 
 1. Подготовьте инфраструктуру поставки данных:
 
@@ -71,7 +82,7 @@
             * `source_user_name` — имя пользователя для подключения к топику Apache Kafka®;
             * `source_user_password` — пароль пользователя;
             * `target_db_name` — имя базы данных Managed Service for YDB;
-            * `transfer_enabled` — значение `0`, чтобы не создавать трансфер до [создания эндпоинтов вручную](#prepare-transfer).
+            * `transfer_enable` — значение `0`, чтобы не создавать эндпоинты и трансфер до [создания потока данных приемника](#prepare-source).
 
         1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
@@ -138,7 +149,7 @@
         sudo apt update && sudo apt-get install --yes jq
         ```
 
-## Создайте поток данных приемника Data Streams {#create-target-yds}
+## Создайте поток данных Data Streams {#prepare-source}
 
 [Создайте поток данных приемника Data Streams](../../data-streams/operations/aws-cli/create.md) для базы данных Managed Service for YDB.
 
@@ -146,16 +157,20 @@
 
 1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [источника `Apache Kafka®`](../../data-transfer/operations/endpoint/source/kafka.md):
 
-    **Параметры эндпоинта**:
+    * **Направление** — `Источник`.
+    * Укажите имя эндпоинта.
+    * **Тип базы данных** — `Kafka`.
+    * **Параметры эндпоинта**:
 
-    * **Тип подключения** — `Кластер Managed Service for Apache Kafka`.
+        * **Тип подключения** — выберите `Ручная настройка`.
+        * **Тип инсталляции** — выберите `Кластер Managed Service for Apache Kafka`.
+        * **Кластер Managed Service for Apache Kafka** — выберите кластер-источник из списка.
+        * **Аутентификация** — выберите `SASL` и укажите имя и пароль пользователя, созданного [ранее](#prepare-infrastructure).
 
-        Выберите кластер-источник из списка и укажите настройки подключения к нему.
+    * **Расширенные настройки** → **Правила конвертации**:
 
-    * **Расширенные настройки** → **Правила конвертации**.
-
-        * **Правила конвертации** – `json`.
-        * **Схема данных** –  Вы можете задать схему двумя способами:
+        * **Правила конвертации** – `JSON`.
+        * **Схема данных** – вы можете задать схему двумя способами:
 
             * `Список полей`.
 
@@ -225,13 +240,17 @@
 
 1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [приемника `Yandex Data Streams`](../../data-transfer/operations/endpoint/target/data-streams.md):
 
-    **Настройки подключения**:
+    * **Направление** — `Приёмник`.
+    * Укажите имя эндпоинта.
+    * **Тип базы данных** — `Yandex Data Streams`.
+    * **Настройки подключения**:
 
-    * **База данных** — выберите базу данных Managed Service for YDB из списка.
-    * **Поток** — укажите имя потока Data Streams.
+        * **Тип подключения** — выберите `База Managed Service for YDB`.
+        * **База данных** — выберите базу данных Managed Service for YDB из списка.
+        * **Поток** — укажите имя потока Data Streams.
 
-    
-    * **Идентификатор сервисного аккаунта** — выберите или создайте сервисный аккаунт с ролью `yds.editor`.
+        
+        * **Идентификатор сервисного аккаунта** — выберите или создайте сервисный аккаунт с ролью `yds.editor`.
 
 
 1. Создайте трансфер:
@@ -259,9 +278,8 @@
 
         1. Укажите в файле `data-transfer-mkf-ydb.tf` переменные:
 
-            * `source_endpoint_id` — значение идентификатора эндпоинта для источника;
-            * `target_endpoint_id` — значение идентификатора эндпоинта для приемника;
-            * `transfer_enabled` – значение `1` для создания трансфера.
+            * `data_stream_name` — имя созданного потока данных приемника;
+            * `transfer_enable` — значение `1` для создания эндпоинтов и трансфера.
 
         1. Если в процессе трансфера вы хотите преобразовать данные, добавьте в ресурс `yandex_datatransfer_transfer` блок `transformation` со списком нужных трансформеров:
 
@@ -388,7 +406,7 @@
            -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z
         ```
 
-        Данные отправляются от имени [созданного пользователя](#before-you-begin). Подробнее о настройке SSL-сертификата и работе с `kafkacat` смотрите в разделе [Подключение к кластеру Apache Kafka® из приложений](../operations/connect/clients.md).
+        Данные отправляются от имени [созданного пользователя](#prepare-infrastructure). Подробнее о настройке SSL-сертификата и работе с `kafkacat` смотрите в разделе [Подключение к кластеру Apache Kafka® из приложений](../operations/connect/clients.md).
 
     Проверьте, что в поток данных Data Streams перенеслись данные из источника:
     

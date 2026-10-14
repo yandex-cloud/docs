@@ -33,6 +33,7 @@
 * [Передача логов кластера Yandex MPP Analytics for PostgreSQL в Yandex Cloud Logging](mgp-to-cloud-logging.md)
 * [Получение сведений, необходимых для включения ресурса в белый список Минцифры](info-for-federal-ip-whitelist.md)
 * [Загрузка объектов в бакет Yandex Object Storage с помощью эфемерного ключа доступа](ephemeral-key-storage.md)
+* [Интеграция LiteLLM Proxy с Yandex AI Studio и Monium Traces](traces-for-litellm-proxy.md)
 
 ## Управление федерациями удостоверений {#federations}
 

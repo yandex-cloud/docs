@@ -68,7 +68,9 @@ items:
           - name: Установка {{ GLR }}
             href: operations/applications/gitlab-runner.md
           - name: Установка Gwin
-            href: alb-ref/gwin-quickstart.md
+            href: operations/applications/gwin-quickstart.md
+          - name: Обновление Gwin
+            href: operations/applications/gwin-upgrade.md
           - name: Установка HashiCorp Vault
             href: operations/applications/hashicorp-vault.md
           - name: Установка Ingress-контроллера {{ alb-name }}
@@ -844,6 +846,8 @@ items:
             href: alb-ref/gwin-policies.md
           - name: Установка Gwin
             href: alb-ref/gwin-quickstart.md
+          - name: Обновление Gwin
+            href: alb-ref/gwin-upgrade.md
           - name: Маршрутизация трафика напрямую в поды кластера
             href: alb-ref/routes-pod.md
           - name: Миграция приложений с ALB Ingress-контроллера на Gwin

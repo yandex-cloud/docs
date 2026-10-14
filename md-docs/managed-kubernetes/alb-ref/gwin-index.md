@@ -6,7 +6,7 @@ Yandex Application Load Balancer предоставляет инструмент
 
 Контроллер Gwin, установленный в кластер, автоматически разворачивает [L7-балансировщики](../../application-load-balancer/concepts/application-load-balancer.md) на основе конфигурации созданных вами ресурсов Kubernetes.
 
-Контроллер поддерживает спецификации [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) и [Gateway API](https://gateway-api.sigs.k8s.io/). Для настройки дополнительных возможностей Application Load Balancer, выходящих за рамки спецификации Kubernetes, реализован механизм [политик](gwin-policies.md), которые управляются с помощью [CustomResourceDefinitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) или аннотаций. К дополнительным возможностям относятся, например, автомасштабирование, логирование и интеграция с [Yandex Smart Web Security](../../smartwebsecurity/concepts/index.md).
+Контроллер поддерживает спецификации [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) и [Gateway API](https://gateway-api.sigs.k8s.io/). Для настройки дополнительных возможностей Application Load Balancer, выходящих за рамки спецификации Kubernetes, контроллер использует механизм [политик](gwin-policies.md), которые управляются с помощью [CustomResourceDefinitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) или аннотаций. К дополнительным возможностям относятся, например, автомасштабирование, логирование и интеграция с [Yandex Smart Web Security](../../smartwebsecurity/concepts/index.md).
 
 Поддерживаемые ресурсы Kubernetes:
 
@@ -28,7 +28,7 @@ Yandex Application Load Balancer предоставляет инструмент
 
 ![image](../../_assets/managed-kubernetes/gwin.svg)
 
-Установить контроллер Gwin можно [по инструкции](gwin-quickstart.md).
+Об установке контроллера Gwin читайте в разделе [Установка контроллера Gwin](gwin-quickstart.md), об обновлении — в разделе [Обновление контроллера Gwin](gwin-upgrade.md).
 
 {% note tip %}
 
@@ -40,10 +40,10 @@ Yandex Application Load Balancer предоставляет инструмент
 
 Ниже приведены два примера конфигурации — с использованием ресурсов Gateway API и Ingress. В обоих случаях создается балансировщик Application Load Balancer, который:
 
-  * автоматически получает динамический публичный IP-адрес;
-  * принимает HTTP-трафик на порт `80`;
-  * принимает HTTPS-трафик на порт `443`, используя сертификат Certificate Manager;
-  * отправляет GET-запросы к тестовому сервису `example-service`.
+* автоматически получает динамический публичный IP-адрес;
+* принимает HTTP-трафик на порт `80`;
+* принимает HTTPS-трафик на порт `443`, используя сертификат Certificate Manager;
+* отправляет GET-запросы к тестовому сервису `example-service`.
 
 {% list tabs group=instructions %}
 

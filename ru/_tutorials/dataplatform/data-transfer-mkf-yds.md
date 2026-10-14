@@ -1,18 +1,23 @@
-# Поставка данных из очереди {{ KF }} в {{ DS }}
+# Поставка данных из {{ KF }} в {{ DS }}
 
 
 В поток данных {{ yds-full-name }} можно в реальном времени поставлять данные из топиков {{ KF }}.
 
 Чтобы запустить поставку данных:
 
-1. [Создайте поток данных приемника {{ yds-name }}](#create-target-yds).
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
+1. [Создайте поток данных {{ yds-name }}](#prepare-source).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работоспособность трансфера](#verify-transfer).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Необходимые платные ресурсы {#paid-resources}
+## Перед началом работы {#before-you-begin}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер {{ mkf-full-name }}: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
@@ -27,7 +32,7 @@
     * [По фактическому использованию](../../data-streams/pricing.md#on-demand) (On-demand) — оплачиваются выполненные операции записи и чтения данных, объем считанных/записанных данных, а также объем фактически используемого хранилища для сообщений, по которым не истек срок хранения.
 
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте инфраструктуру {#prepare-infrastructure}
 
 1. Подготовьте инфраструктуру поставки данных:
 
@@ -67,7 +72,7 @@
             * `source_user_name` — имя пользователя для подключения к топику {{ KF }};
             * `source_user_password` — пароль пользователя;
             * `target_db_name` — имя базы данных {{ ydb-name }};
-            * `transfer_enabled` — значение `0`, чтобы не создавать трансфер до [создания эндпоинтов вручную](#prepare-transfer).
+            * `transfer_enable` — значение `0`, чтобы не создавать эндпоинты и трансфер до [создания потока данных приемника](#prepare-source).
 
         1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
@@ -117,7 +122,7 @@
         sudo apt update && sudo apt-get install --yes jq
         ```
 
-## Создайте поток данных приемника {{ yds-name }} {#create-target-yds}
+## Создайте поток данных {{ yds-name }} {#prepare-source}
 
 [Создайте поток данных приемника {{ yds-name }}](../../data-streams/operations/aws-cli/create.md) для базы данных {{ ydb-name }}.
 
@@ -125,16 +130,20 @@
 
 1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [источника `{{ KF }}`](../../data-transfer/operations/endpoint/source/kafka.md):
 
-    **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
+    * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** — `{{ ui-key.yacloud.data-transfer.forms.label_source-type }}`.
+    * Укажите имя эндпоинта.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Kafka`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}** — выберите кластер-источник из списка.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaAuth.sasl.title }}` и укажите имя и пароль пользователя, созданного [ранее](#prepare-infrastructure).
 
-        Выберите кластер-источник из списка и укажите настройки подключения к нему.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**.
-
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}** – `json`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** –  Вы можете задать схему двумя способами:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}** – `JSON`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** – вы можете задать схему двумя способами:
 
             * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.fields.title }}`.
 
@@ -204,13 +213,17 @@
 
 1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [приемника `{{ yds-full-name }}`](../../data-transfer/operations/endpoint/target/data-streams.md):
 
-    **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSTarget.connection.title }}**:
+    * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** — `{{ ui-key.yacloud.data-transfer.forms.label_target-type }}`.
+    * Укажите имя эндпоинта.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ yds-full-name }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSTarget.connection.title }}**:
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}** — выберите базу данных {{ ydb-name }} из списка.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}** — укажите имя потока {{ yds-name }}.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.managed_connection.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}** — выберите базу данных {{ ydb-name }} из списка.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}** — укажите имя потока {{ yds-name }}.
 
-    
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `yds.editor`.
+        
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `yds.editor`.
 
 
 1. Создайте трансфер:
@@ -231,9 +244,8 @@
 
         1. Укажите в файле `data-transfer-mkf-ydb.tf` переменные:
 
-            * `source_endpoint_id` — значение идентификатора эндпоинта для источника;
-            * `target_endpoint_id` — значение идентификатора эндпоинта для приемника;
-            * `transfer_enabled` – значение `1` для создания трансфера.
+            * `data_stream_name` — имя созданного потока данных приемника;
+            * `transfer_enable` — значение `1` для создания эндпоинтов и трансфера.
 
         1. Если в процессе трансфера вы хотите преобразовать данные, добавьте в ресурс `yandex_datatransfer_transfer` блок `transformation` со списком нужных трансформеров:
 
@@ -336,7 +348,7 @@
            -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
         ```
 
-        Данные отправляются от имени [созданного пользователя](#before-you-begin). Подробнее о настройке SSL-сертификата и работе с `kafkacat` смотрите в разделе [{#T}](../../managed-kafka/operations/connect/clients.md).
+        Данные отправляются от имени [созданного пользователя](#prepare-infrastructure). Подробнее о настройке SSL-сертификата и работе с `kafkacat` смотрите в разделе [{#T}](../../managed-kafka/operations/connect/clients.md).
 
     {% include [get-yds-data](../../_includes/data-transfer/get-yds-data.md) %}
 

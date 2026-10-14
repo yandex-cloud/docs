@@ -375,7 +375,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
 
       {% include [secret-version-tf-note](../../_includes/lockbox/secret-version-tf-note.md) %}
 
-      For more on the properties of resources used in {{ TF }}, see these provider guides:
+      Learn more on the properties of resources used in {{ TF }} in these provider guides:
 
       * [yandex_lockbox_secret]({{ tf-provider-resources-link }}/lockbox_secret)
       * [yandex_lockbox_secret_version]({{ tf-provider-resources-link }}/lockbox_secret_version).
@@ -861,7 +861,7 @@ Create a trigger for {{ objstorage-name }} that invokes `copy-function` when you
   1. In the [management console]({{ link-console-main }}), select the folder containing your main bucket.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click the name of the main bucket.
-  1. In the top-right corner, click **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
+  1. In the top panel, click ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
   1. In the window that opens, select the files and click **Open**.
   1. The management console will display all objects selected for upload. Click **{{ ui-key.yacloud.storage.button_upload }}**.
   1. Refresh the page.

@@ -1,0 +1,1 @@
+A bastion host is a separate VM with a public IP address, located in a protected infrastructure and providing a secure connection to other infrastructure resources without public IP addresses assigned. For more on configuring a bastion host, see [{#T}](../tutorials/routing/bastion.md).

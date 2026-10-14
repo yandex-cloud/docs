@@ -1,16 +1,8 @@
 # Origin shielding
 
 
-_Origin shielding_ is a {{ cdn-name }} feature that helps reduce the load on [content origins](origins.md) from CDN servers.
-
-If shielding is enabled for a [resource](resource.md), CDN servers request files from an intermediate _shielding server_ rather than from an origin directly. This server deduplicates the requests received: a file requested more than once is downloaded from an origin once and cached.
-
-{% include [provider-location-id](../../_includes/cdn/provider-location-id.md) %}
-
-You can select a suitable location when enabling or configuring shielding.
-
-Origin shielding is a paid feature. See [{#T}](../pricing.md) for billing details.
+{% include [cdn-shielding-intro](../../_includes/cdn/cdn-shielding-intro.md) %}
 
 #### Useful links {#see-also}
 
-* [Instructions for enabling shielding](../operations/resources/enable-shielding.md).
+[{#T}](../operations/resources/enable-shielding.md)

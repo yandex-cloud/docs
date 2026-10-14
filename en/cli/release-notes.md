@@ -7,6 +7,31 @@ description: This page presents CLI releases and their updates.
 
 ## Current version {#latest-release}
 
+### Version 1.33.0 (07/09/26) {#v-1-33-0}
+
+#### {{ baremetal-name }} {#v-1-33-0-baremetal-name}
+
+* Added a command to get a list of available {{ stackland-full-name }} versions:
+  * `yc baremetal v2 extend stackland-cluster list-stackland-versions`
+
+#### {{ cloud-registry-name }} {#v-1-33-0-cloud-registry-name}
+
+* You can now disable redirects during migration:
+  * `yc cloud-registry migration toggle-registry-redirects`
+  * `yc cloud-registry migration toggle-folder-redirects`
+  * `yc cloud-registry migration toggle-cloud-redirects`
+
+#### {{ mgp-name }} {#v-1-33-0-mgp-name}
+
+* Added the `--disk-encryption-key-id` parameter for cluster disk encryption setup:
+  * `yc managed-greenplum cluster create`
+  * `yc managed-greenplum cluster restore`
+* Added the `--pool-mode`, `--pool-size`, `--pool-client-idle-timeout`, and `--pool-idle-in-transaction-timeout` parameters for custom settings:
+  * `yc managed-greenplum user create`
+  * `yc managed-greenplum user update`
+
+## Previous releases {#previous-release}
+
 ### Version 1.32.0 (03/09/26) {#v-1-32-0}
 
 #### {{ alb-name }} {#v-1-32-0-alb-name}
@@ -46,8 +71,6 @@ Added the `yc managed-greenplum cluster move` command for moving a cluster to a 
 
 The `yc managed-zonalshift config update` command now supports comma-separated `--cluster-id` values.
 
-## Previous releases {#previous-release}
-
 ### Version 1.31.0 (31/08/26) {#v-1-31-0}
 
 #### {{ mgp-name }} {#v-1-31-0-mgp-name}
@@ -80,8 +103,6 @@ The `yc managed-zonalshift config update` command now supports comma-separated `
 #### {{ sws-name }} {#v-1-30-0-sws-name}
 
 * Fixed the documentation display for `yc smartwebsecurity` commands by hiding a duplicate `v1` subtree and adding group descriptions.
-
-## Previous releases {#previous-release}
 
 ### Version 1.29.0 (24/08/26) {#v-1-29-0}
 

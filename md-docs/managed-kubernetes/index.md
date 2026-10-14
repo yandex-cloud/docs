@@ -74,7 +74,9 @@
 
  - [Установка GitLab Runner](operations/applications/gitlab-runner.md)
 
- - [Установка Gwin](alb-ref/gwin-quickstart.md)
+ - [Установка Gwin](operations/applications/gwin-quickstart.md)
+
+ - [Обновление Gwin](operations/applications/gwin-upgrade.md)
 
  - [Установка HashiCorp Vault](operations/applications/hashicorp-vault.md)
 
@@ -815,6 +817,8 @@
  - [Политики Gwin](alb-ref/gwin-policies.md)
 
  - [Установка Gwin](alb-ref/gwin-quickstart.md)
+
+ - [Обновление Gwin](alb-ref/gwin-upgrade.md)
 
  - [Маршрутизация трафика напрямую в поды кластера](alb-ref/routes-pod.md)
 

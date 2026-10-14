@@ -1,0 +1,1 @@
+{{ kms-full-name }} is made to create and manage encryption keys for data protection across the {{ yandex-cloud }} infrastructure and to help you encrypt and decrypt any of your data. For more information, see [this {{ kms-name }} guide](../../kms/concepts/index.md).

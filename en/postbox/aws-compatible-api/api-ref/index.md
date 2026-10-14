@@ -47,6 +47,19 @@ description: In this tutorial, you will learn about the Amazon API methods you c
 || [DeleteSuppressedDestination](delete-suppressed-destination.md) | Deletes an address from the suppression list. ||
 |#
 
+## Dedicated IP addresses {#dedicated-ips}
+
+#|
+|| **Method** | **Description** ||
+|| [ListDedicatedIpPools](list-dedicated-ip-pools.md) | Returns a list of [dedicated IP address pools](../../concepts/glossary.md#dedicated-ip-pool). ||
+|| [GetDedicatedIpPool](get-dedicated-ip-pool.md) | Returns information about a pool. ||
+|| [CreateDedicatedIpPool](create-dedicated-ip-pool.md) | Creates a pool. ||
+|| [DeleteDedicatedIpPool](delete-dedicated-ip-pool.md) | Deletes a pool. ||
+|| [GetDedicatedIps](get-dedicated-ips.md) | Returns a list of [dedicated IP addresses](../../concepts/glossary.md#dedicated-ip). ||
+|| [GetDedicatedIp](get-dedicated-ip.md) | Returns information about a dedicated IP address. ||
+|| [PutDedicatedIpInPool](put-dedicated-ip-in-pool.md) | Moves a dedicated IP address into a pool. ||
+|#
+
 ## Subscriptions {#event-destinations}
 
 #|

@@ -35,13 +35,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * Centralized Check Point security management.
 * In our example, we will configure Check Point firewall with basic access control and NAT policies.
 
-Yandex Cloud Marketplace offers PAYG and BYOL licensing for Check Point CloudGuard IaaS. We will use BYOL with a 15-day trial:
-* VM for Check Point CloudGuard IaaS NGFW: Firewall & Threat Prevention BYOL.
-* Management server VM for Check Point CloudGuard IaaS: Security Management BYOL, for NGFW management tasks.
+You can get Check Point CloudGuard IaaS from Yandex Cloud Marketplace as BYOL with a trial period of 15-days.
+* NGFW VM: Check Point CloudGuard IaaS – Firewall & Threat Prevention BYOL.
+* Management server VM: Check Point CloudGuard IaaS – Security Management BYOL for NGFW management tasks.
 
-For production deployment, we recommend to use the following options:
-* NGFW [Check Point CloudGuard IaaS - Firewall & Threat Prevention PAYG](/marketplace/products/checkpoint/cloudguard-iaas-firewall-tp-payg-m).
-* Separate license for the Check Point CloudGuard IaaS - Security Management server. Alternatively, you can use your on-premise server.
+For use in a production environment, you need to purchase licenses for Check Point CloudGuard IaaS. If using a custom Check Point management server installation, you do not need to deploy a management server VM in the cloud.
 
 ## Get your cloud ready {#prepare-cloud}
 
@@ -683,8 +681,8 @@ To set up the firewall gateway NAT table:
 * If you plan to connect to the `mgmt` segment through the `jump` VM WireGuard VPN, change the WireGuard keys on the `jump` VM and your remote PC, e.g., admin workstation.
 * Set up access control and NAT policies for your Check Point NGFW configuration.
 * Set up security group rules for applications deployed in different segments.
-* Do not assign public IP addresses to the VMs in the segments protected by the Check Point NGFW rules and routing, with the exception of the `mgmt` segment where routing tables do not use the `0.0.0.0/0` default route. 
-* Select your preferred Check Point CloudGuard IaaS license and image (see [Next-Generation Firewall](#next-generation-firewall)).
+* Do not assign public IP addresses to the VMs in the segments protected by the Check Point NGFW rules and routing, with the exception of the `mgmt` segment where routing tables do not use the `0.0.0.0/0` default route.
+* For use in a production environment, you need to purchase licenses for Check Point CloudGuard IaaS.
 
 ## How to delete the resources you created {#clear-out}
 

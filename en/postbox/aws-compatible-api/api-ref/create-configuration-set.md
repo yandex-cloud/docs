@@ -20,6 +20,10 @@ POST /v2/email/configuration-sets HTTP/2
   "SuppressionOptions": {
     "SuppressedReasons": ["BOUNCE", "COMPLAINT"]
   },
+  "DeliveryOptions": {
+    "TlsPolicy": "REQUIRE|OPTIONAL",
+    "SendingPoolName": "<pool_name>"
+  },
   "Tags": [
     {
       "Key": "<label_key>",
@@ -34,6 +38,7 @@ POST /v2/email/configuration-sets HTTP/2
 || `ConfigurationSetName` | **Type**: String.
 
 Configuration name.  ||
+
 || `SuppressionOptions` | **Type**: Object.
 
 [Suppression list](../../concepts/suppression-list.md) settings for your configuration. Contains the `SuppressedReasons` array. ||
@@ -42,6 +47,22 @@ Configuration name.  ||
 [Reasons](../../concepts/suppression-list.md#reasons) why the address from the suppression list blocks the send. Possible array item values: `BOUNCE` and `COMPLAINT`.
 
 If there is a `COMPLAINT` value in the array, the addresses are automatically added to the suppression list due to complaints from recipients. ||
+|| `DeliveryOptions` | **Type**: Object.
+
+Delivery settings for emails sent using the configuration.
+
+This is an optional parameter. You can modify the delivery settings for an existing configuration using the [PutConfigurationSetDeliveryOptions](put-configuration-set-delivery-options.md) method. ||
+
+|| `TlsPolicy` | **Type**: String.
+
+Outgoing connection security policy.
+
+Specifies whether or not to use the TLS protocol for mail covered by the configuration. If `REQUIRE`, emails will be delivered only provided that a TLS connection can be established. If `OPTIONAL`, emails may be delivered as plain text if a TLS connection cannot be established. ||
+|| `SendingPoolName` | **Type**: String.
+
+Name of the [pool](../../concepts/dedicated-ip.md) of IP addresses that will be used to send emails covered by the configuration.
+
+This is an optional parameter. ||
 || `Tags` | **Type**: Array.
 
 Array of labels for the configuration.

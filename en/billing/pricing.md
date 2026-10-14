@@ -79,6 +79,7 @@ The cost of billable services is calculated based on the amount of consumed reso
 * [{{ backup-full-name }}](../backup/pricing.md)
 * [{{ cdn-full-name }}](../cdn/pricing.md)
 * {{ preview-stage }} [{{ cloud-desktop-full-name }}](../cloud-desktop/pricing.md)
+* [{{ ycdr-full-name }}](../ycdr/pricing.md)
 * [{{ dns-full-name }}](../dns/pricing.md)
 * [{{ sf-full-name }}](../functions/pricing.md)
 * [{{ interconnect-full-name }}](../interconnect/pricing.md)

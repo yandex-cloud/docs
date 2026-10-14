@@ -1,0 +1,1 @@
+{{ cloud-logging-full-name }} is a service for reading and writing service and user application logs from and to [log groups](../../logging/concepts/log-group.md). For more information, see [this {{ cloud-logging-name }} guide](../../logging/index.yaml).

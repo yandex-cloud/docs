@@ -21,7 +21,7 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте облако к работе {#before-you-begin}
 
 Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
 1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
@@ -69,11 +69,11 @@
      Результат:
        
      ```text
-     id: enptrcle5q3d********
-     folder_id: b1g9hv2loamq********
-     created_at: "2022-06-08T09:25:03Z"
+     id: enp64k2cqstn********
+     folder_id: b1go3el0d8fs********
+     created_at: "2026-10-09T12:19:28Z"
      name: usergate-network
-     default_security_group_id: enpbsnnop4ak********
+     default_security_group_id: enpp2o1j3va8********
      ```
 
      Подробнее о команде `yc vpc network create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
@@ -90,14 +90,14 @@
      Результат:
     
      ```text
-     id: e9bnnssj8sc8********
-     folder_id: b1g9hv2loamq********
-     created_at: "2022-06-08T09:27:00Z"
+     id: fl804d76vve6********
+     folder_id: b1go3el0d8fs********
+     created_at: "2026-10-09T12:19:35Z"
      name: usergate-subnet-ru-central1-d
-     network_id: enptrcle5q3d********
+     network_id: enp64k2cqstn********
      zone_id: ru-central1-d
      v4_cidr_blocks:
-     - 10.1.0.0/16
+       - 10.1.0.0/16
      ```
 
      Подробнее о команде `yc vpc subnet create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
@@ -121,26 +121,35 @@
 
      Подробнее в описаниях ресурсов [yandex_vpc_network](../../terraform/resources/vpc_network.md) и [yandex_vpc_subnet](../../terraform/resources/vpc_subnet.md) в документации провайдера Terraform.
      
-  1. Проверьте корректность конфигурационных файлов.
-
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
-
+  1. Создайте ресурсы:
+  
+     1. В терминале перейдите в директорию с конфигурационным файлом.
+     1. Проверьте корректность конфигурации с помощью команды:
+     
+        ```bash
+        terraform validate
+        ```
+     
+        Если конфигурация является корректной, появится сообщение:
+     
+        ```bash
+        Success! The configuration is valid.
+        ```
+     
+     1. Выполните команду:
+     
         ```bash
         terraform plan
         ```
-
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
-
-  1. Разверните облачные ресурсы.
-  
-     1. Если в конфигурации нет ошибок, выполните команду:
-
+     
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     1. Примените изменения конфигурации:
+     
         ```bash
         terraform apply
         ```
-
-     1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
+     
+     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
 - API {#api}
 
@@ -202,67 +211,67 @@
   Результат:
   
   ```text
-  id: enpu0e0nrqdn********
-  folder_id: b1g86q4m5vej********
-  created_at: "2022-06-29T09:38:40Z"
+  id: enpadfhrnu6h********
+  folder_id: b1go3el0d8fs********
+  created_at: "2026-10-09T12:19:47Z"
   name: usergate-sg
-  network_id: enp3srbi9u49********
+  network_id: enp64k2cqstn********
   status: ACTIVE
   rules:
-  - id: enpdp9d0ping********
-    direction: EGRESS
-    protocol_name: ANY
-    protocol_number: "-1"
-    cidr_blocks:
-      v4_cidr_blocks:
-      - 0.0.0.0/0
-  - id: enps2r5ru3s1********
-    direction: INGRESS
-    protocol_name: ICMP
-    protocol_number: "1"
-    cidr_blocks:
-      v4_cidr_blocks:
-      - 0.0.0.0/0
-  - id: enpgonbui61a********
-    direction: INGRESS
-    ports:
-      from_port: "3389"
-      to_port: "3389"
-    protocol_name: TCP
-    protocol_number: "6"
-    cidr_blocks:
-      v4_cidr_blocks:
-      - 0.0.0.0/0
-  - id: enpbg1jh11hv********
-    direction: INGRESS
-    ports:
-      from_port: "22"
-      to_port: "22"
-    protocol_name: TCP
-    protocol_number: "6"
-    cidr_blocks:
-      v4_cidr_blocks:
-      - 0.0.0.0/0
-  - id: enpgdavevku7********
-    direction: INGRESS
-    ports:
-      from_port: "8001"
-      to_port: "8001"
-    protocol_name: TCP
-    protocol_number: "6"
-    cidr_blocks:
-      v4_cidr_blocks:
-      - 0.0.0.0/0
-  - id: enp335ibig9k********
-    direction: INGRESS
-    ports:
-      from_port: "8090"
-      to_port: "8090"
-    protocol_name: TCP
-    protocol_number: "6"
-    cidr_blocks:
-      v4_cidr_blocks:
-      - 0.0.0.0/0
+    - id: enp5b3nqjhau********
+      direction: EGRESS
+      protocol_name: ANY
+      protocol_number: "-1"
+      cidr_blocks:
+        v4_cidr_blocks:
+          - 0.0.0.0/0
+    - id: enp7lvfhjt0i********
+      direction: INGRESS
+      protocol_name: ICMP
+      protocol_number: "1"
+      cidr_blocks:
+        v4_cidr_blocks:
+          - 0.0.0.0/0
+    - id: enpqlnvr2798********
+      direction: INGRESS
+      ports:
+        from_port: "3389"
+        to_port: "3389"
+      protocol_name: TCP
+      protocol_number: "6"
+      cidr_blocks:
+        v4_cidr_blocks:
+          - 0.0.0.0/0
+    - id: enp6i5649li6********
+      direction: INGRESS
+      ports:
+        from_port: "22"
+        to_port: "22"
+      protocol_name: TCP
+      protocol_number: "6"
+      cidr_blocks:
+        v4_cidr_blocks:
+          - 0.0.0.0/0
+    - id: enpmai1geo2o********
+      direction: INGRESS
+      ports:
+        from_port: "8001"
+        to_port: "8001"
+      protocol_name: TCP
+      protocol_number: "6"
+      cidr_blocks:
+        v4_cidr_blocks:
+          - 0.0.0.0/0
+    - id: enpu7a11t0vv********
+      direction: INGRESS
+      ports:
+        from_port: "8090"
+        to_port: "8090"
+      protocol_name: TCP
+      protocol_number: "6"
+      cidr_blocks:
+        v4_cidr_blocks:
+          - 0.0.0.0/0
   ```
 
   Подробнее о команде `yc vpc security-group create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
@@ -316,26 +325,35 @@
 
      Подробнее о ресурсе `yandex_vpc_security_group` смотрите в [документации](../../terraform/resources/vpc_security_group.md) провайдера Terraform.
      
-  1. Проверьте корректность конфигурационных файлов.
-
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
-
+  1. Создайте ресурсы:
+  
+     1. В терминале перейдите в директорию с конфигурационным файлом.
+     1. Проверьте корректность конфигурации с помощью команды:
+     
+        ```bash
+        terraform validate
+        ```
+     
+        Если конфигурация является корректной, появится сообщение:
+     
+        ```bash
+        Success! The configuration is valid.
+        ```
+     
+     1. Выполните команду:
+     
         ```bash
         terraform plan
         ```
-
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
-
-  1. Разверните облачные ресурсы.
-  
-     1. Если в конфигурации нет ошибок, выполните команду:
-
+     
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     1. Примените изменения конфигурации:
+     
         ```bash
         terraform apply
         ```
-
-     1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
+     
+     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
 - API {#api}
 
@@ -369,14 +387,16 @@
   Результат:
 
   ```text
-  id: e9b6un9gkso6********
-  folder_id: b1g7gvsi89m3********
-  created_at: "2022-06-08T17:52:42Z"
+  id: fl8m5dfolbon********
+  folder_id: b1go3el0d8fs********
+  created_at: "2026-10-09T12:19:54Z"
   external_ipv4_address:
-    address: 178.154.253.52
+    address: 158.160.222.250
     zone_id: ru-central1-d
     requirements: {}
   reserved: true
+  type: EXTERNAL
+  ip_version: IPV4
   ```
 
   Подробнее о команде `yc vpc address create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/address/create.md).
@@ -390,6 +410,7 @@
 - Консоль управления {#console}
 
   1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления](https://console.yandex.cloud) нажмите кнопку **Создать ресурс** и выберите `Виртуальная машина`.
+  1. В блоке **Общая информация** задайте имя ВМ: `usergate-proxy`.
   1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `UserGate NGFW` и выберите публичный образ [UserGate NGFW](https://yandex.cloud/ru/marketplace/products/usergate/ngfw).
   1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-d`.
   1. В блоке **Вычислительные ресурсы** перейдите на вкладку `Своя конфигурация` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
@@ -432,7 +453,6 @@
         
         SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-  1. В блоке **Общая информация** задайте имя ВМ: `usergate-proxy`.
   1. Нажмите кнопку **Создать ВМ**.
 
 - CLI {#cli}
@@ -462,9 +482,9 @@
      Результат:
 
      ```text
-     id: fhm2na1siftp********
-     folder_id: b1g86q4m5vej********
-     created_at: "2022-06-09T11:15:52Z"
+     id: fv479tkalkn0********
+     folder_id: b1go3el0d8fs********
+     created_at: "2026-10-09T12:20:19Z"
      name: usergate-proxy
      zone_id: ru-central1-d
      platform_id: standard-v2
@@ -475,19 +495,21 @@
      status: RUNNING
      boot_disk:
        mode: READ_WRITE
-       device_name: fhmiq60rni2t********
+       device_name: fv4fdc8ju9vb********
        auto_delete: true
-       disk_id: fhmiq60rni2t********
+       disk_id: fv4fdc8ju9vb********
      network_interfaces:
-     - index: "0"
-       mac_address: d0:0d:2b:a8:3c:93
-       subnet_id: e9bqlr188as7********
-       primary_v4_address:
-         address: 10.1.0.27
-         one_to_one_nat:
-           address: 51.250.72.1
-           ip_version: IPV4
-     fqdn: fhm2na1siftp********.auto.internal
+       - index: "0"
+         mac_address: d0:0d:74:********
+         subnet_id: fl804d76vve6********
+         primary_v4_address:
+           address: 10.1.0.16
+           one_to_one_nat:
+             address: 158.160.248.36
+             ip_version: IPV4
+         security_group_ids:
+           - enpadfhrnu6h********
+     fqdn: fv479tkalkn0********.auto.internal
      scheduling_policy: {}
      network_settings:
        type: STANDARD
@@ -535,26 +557,35 @@
 
      Подробнее смотрите в описании ресурса [yandex_compute_instance](../../terraform/resources/compute_instance.md) в документации провайдера Terraform.
      
-  1. Проверьте корректность конфигурационных файлов.
-
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
-
+  1. Создайте ресурсы:
+  
+     1. В терминале перейдите в директорию с конфигурационным файлом.
+     1. Проверьте корректность конфигурации с помощью команды:
+     
+        ```bash
+        terraform validate
+        ```
+     
+        Если конфигурация является корректной, появится сообщение:
+     
+        ```bash
+        Success! The configuration is valid.
+        ```
+     
+     1. Выполните команду:
+     
         ```bash
         terraform plan
         ```
-
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
-
-  1. Разверните облачные ресурсы.
-  
-     1. Если в конфигурации нет ошибок, выполните команду:
-
+     
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     1. Примените изменения конфигурации:
+     
         ```bash
         terraform apply
         ```
-
-     1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
+     
+     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
 - API {#api}
 

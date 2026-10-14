@@ -62,7 +62,7 @@ To see what changed in the {{ yandex-cloud }} services and tools, see the links 
 
 ## DevOps tools {#dev-tools}
 
-* [{{ src-full-name }}]({{ link-src-docs }}/release-notes)
+* [{{ src-full-name }}]({{ link-src-docs }}/sourcecraft/release-notes)
 * [{{ ca-full-name }}]({{ link-src-docs }}/code-assistant/release-notes)
 * [{{ cloud-logging-full-name }}](../logging/release-notes.md)
 * [{{ mgl-full-name }}](../managed-gitlab/release-notes.md)

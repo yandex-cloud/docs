@@ -1,14 +1,14 @@
 ---
-title: How to enable origin shielding in {{ cdn-full-name }}
-description: Follow this guide to enable origin shielding.
+title: How to enable or disable origin shielding in {{ cdn-full-name }}
+description: Follow this guide to enable or disable origin shielding.
 ---
 
-# Enabling origin shielding
+# Enabling or disabling origin shielding
 
 
-{% include [provider-location-id](../../../_includes/cdn/provider-location-id.md) %}
+{% include [cdn-shielding-intro](../../../_includes/cdn/cdn-shielding-intro.md) %}
 
-To enable [origin shielding](../../concepts/origins-shielding.md) for a [resource](../../concepts/resource.md):
+To enable or disable origin shielding:
 
 {% list tabs group=instructions %}
 
@@ -19,3 +19,7 @@ To enable [origin shielding](../../concepts/origins-shielding.md) for a [resourc
 {% endlist %}
 
 {% include [after-changes-tip](../../../_includes/cdn/after-changes-tip.md) %}
+
+#### Useful links {#see-also}
+
+[{#T}](../../concepts/origins-shielding.md)

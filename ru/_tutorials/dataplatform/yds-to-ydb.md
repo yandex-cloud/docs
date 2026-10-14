@@ -5,19 +5,25 @@
 
 Чтобы перенести данные:
 
-1. [Подготовьте поток данных {{ yds-name }}](#prepare-source).
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
+1. [Создайте поток данных {{ yds-name }}](#prepare-source).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работоспособность трансфера](#verify-transfer).
+
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Необходимые платные ресурсы {#paid-resources}
+## Перед началом работы {#before-you-begin}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Базы данных {{ ydb-name }} ([тарифы {{ ydb-name }}](../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
 
-	* Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
-  	* Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервные копии.
+    * Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
+    * Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервных копий.
 
 * Сервис {{ yds-name }} ([тарифы {{ yds-name }}](../../data-streams/pricing.md)). Стоимость зависит от режима тарификации:
 
@@ -27,7 +33,7 @@
 * Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте инфраструктуру {#prepare-infrastructure}
 
 Подготовьте инфраструктуру поставки данных:
 
@@ -86,19 +92,22 @@
 
 1. [Создайте эндпоинт для источника {{ yds-name }}](../../data-transfer/operations/endpoint/index.md#create).
 
+    * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** — `{{ ui-key.yacloud.data-transfer.forms.label_source-type }}`.
+    * Укажите имя эндпоинта.
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ yds-full-name }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.title }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}** — выберите из списка базу данных {{ ydb-name }} для потока {{ yds-name }}.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}** — укажите имя потока {{ yds-name }}.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `yds.editor`.
+            * **Тип подключения** — выберите `База {{ ydb-name }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}** — выберите [созданную ранее](#prepare-infrastructure) базу данных {{ ydb-name }} из списка.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}** — укажите имя [созданного ранее](#prepare-source) потока {{ yds-name }}.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}** — выберите [созданный ранее](#prepare-infrastructure) сервисный аккаунт с ролью `yds.editor`.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}** — `JSON`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`:
 
                 Заполните схему данных:
 
@@ -149,13 +158,18 @@
 
 1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
 
+    * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** — `{{ ui-key.yacloud.data-transfer.forms.label_target-type }}`.
+    * Укажите имя эндпоинта.
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `YDB`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.title }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}**:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydbtopic.console.form.ydbtopic.Connection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.managed_connection.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите базу данных {{ ydb-name }} из списка.
 
-           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите базу данных приемника {{ ydb-name }} из списка.
-           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `ydb.editor`.
+            
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `ydb.editor`.
+
 
 1. Создайте трансфер:
 
@@ -216,7 +230,7 @@
 
     - Консоль управления {#console}
 
-        1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором база данных.
+        1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужная база данных.
         1. [Перейдите]({{ link-console-main }}/link/ydb) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Выберите базу из списка.
         1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
@@ -261,3 +275,4 @@
        {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
    {% endlist %}
+

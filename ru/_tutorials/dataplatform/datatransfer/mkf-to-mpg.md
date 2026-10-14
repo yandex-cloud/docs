@@ -1,4 +1,4 @@
-# Поставка данных из очереди {{ KF }} в {{ PG }} с помощью {{ data-transfer-full-name }}
+# Поставка данных из {{ KF }} в {{ PG }} с помощью {{ data-transfer-full-name }}
 
 
 Вы можете настроить перенос данных из топика {{ mkf-full-name }} в {{ mpg-full-name }} с помощью сервиса {{ data-transfer-full-name }}. Для этого:
@@ -24,65 +24,67 @@
 
 ## Подготовьте инфраструктуру {#prepare-infrastructure}
 
-{% list tabs group=instructions %}
+1. Подготовьте ресурсы {{ yandex-cloud }}:
 
-- Вручную {#manual}
-  
-  
-  {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+    {% list tabs group=instructions %}
+
+    - Вручную {#manual}
+      
+      
+      {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
 
-  1. [Создайте кластер-источник {{ mkf-name }}](../../../managed-kafka/operations/cluster-create.md#create-cluster) в любой [зоне доступности](../../../overview/concepts/geo-scope.md), любой подходящей конфигурации и с публичным доступом.
+      1. [Создайте кластер-источник {{ mkf-name }}](../../../managed-kafka/operations/cluster-create.md#create-cluster) в любой [зоне доступности](../../../overview/concepts/geo-scope.md), любой подходящей конфигурации и с публичным доступом.
 
-  1. [Создайте в кластере-источнике топик](../../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `sensors`.
+      1. [Создайте в кластере-источнике топик](../../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `sensors`.
 
-  1. [Создайте в кластере-источнике пользователя](../../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `mkf-user` и правами доступа к созданному топику `ACCESS_ROLE_PRODUCER` и `ACCESS_ROLE_CONSUMER`.
+      1. [Создайте в кластере-источнике пользователя](../../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `mkf-user` и правами доступа к созданному топику `ACCESS_ROLE_PRODUCER` и `ACCESS_ROLE_CONSUMER`.
 
-  1. В той же зоне доступности [создайте кластер-приемник {{ mpg-name }}](../../../managed-postgresql/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с именем пользователя-администратора `pg-user` и хостами в публичном доступе.
+      1. В той же зоне доступности [создайте кластер-приемник {{ mpg-name }}](../../../managed-postgresql/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с именем пользователя-администратора `pg-user` и хостами в публичном доступе.
 
-  1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним:
-      * [{{ mkf-name }}](../../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-      * [{{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
+      1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним:
+          * [{{ mkf-name }}](../../../managed-kafka/operations/connect/index.md#configuring-security-groups).
+          * [{{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
 
-- {{ TF }} {#tf}
+    - {{ TF }} {#tf}
 
-  1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
-  1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
-  1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
-  1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
+      1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
+      1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
+      1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
+      1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-  1. Скачайте в ту же рабочую директорию файл конфигурации [kafka-postgresql.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-kafka-to-postgresql/blob/main/kafka-postgresql.tf).
+      1. Скачайте в ту же рабочую директорию файл конфигурации [kafka-postgresql.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-kafka-to-postgresql/blob/main/kafka-postgresql.tf).
 
-      В этом файле описаны:
+          В этом файле описаны:
 
-      * [сети](../../../vpc/concepts/network.md#network) и [подсети](../../../vpc/concepts/network.md#subnet) для размещения кластеров;
-      * [группы безопасности](../../../vpc/concepts/security-groups.md) для подключения к кластерам;
-      * кластер-источник {{ mkf-name }};
-      * кластер-приемник {{ mpg-name }};
-      * эндпоинт для источника;
-      * эндпоинт для приемника;
-      * трансфер.
+          * [сети](../../../vpc/concepts/network.md#network) и [подсети](../../../vpc/concepts/network.md#subnet) для размещения кластеров;
+          * [группы безопасности](../../../vpc/concepts/security-groups.md) для подключения к кластерам;
+          * кластер-источник {{ mkf-name }};
+          * кластер-приемник {{ mpg-name }};
+          * эндпоинт для источника;
+          * эндпоинт для приемника;
+          * трансфер.
 
-  1. Укажите в файле `kafka-postgresql.tf`:
+      1. Укажите в файле `kafka-postgresql.tf`:
 
-      * Версии {{ KF }} и {{ PG }}.
-      * Пароли пользователей {{ KF }} и {{ PG }}.
+          * Версии {{ KF }} и {{ PG }}.
+          * Пароли пользователей {{ KF }} и {{ PG }}.
 
-  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+      1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
-      ```bash
-      terraform validate
-      ```
+          ```bash
+          terraform validate
+          ```
 
-      Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+          Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
-  1. Создайте необходимую инфраструктуру:
+      1. Создайте необходимую инфраструктуру:
 
-      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+          {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
+          {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
 
-{% endlist %}
+    {% endlist %}
 
 1. Установите утилиты:
 
@@ -152,64 +154,80 @@
 
 - Вручную {#manual}
 
-    1. [Создайте эндпоинт-источник](../../../data-transfer/operations/endpoint/source/kafka.md) типа `{{ KF }}` и задайте для него:
+    1. [Создайте эндпоинт для источника](../../../data-transfer/operations/endpoint/index.md#create):
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}** — `sensors`.
-        * Правила конвертации типа `json`. В поле **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}` и в открывшуюся форму скопируйте следующую спецификацию полей:
+        * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** — `{{ ui-key.yacloud.data-transfer.forms.label_source-type }}`.
+        * Укажите имя эндпоинта.
+        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Kafka`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}** — выберите кластер-источник из списка.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaAuth.sasl.title }}` и укажите данные [созданного ранее](#prepare-infrastructure) пользователя {{ KF }}.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}** – `JSON`.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** – `JSON спецификация`.
 
-        {% cut "sensors-specification" %}
+                    Создайте и загрузите файл схемы данных в формате JSON `json_schema.json`:
 
-        ```json
-        [
-            {
-                "name": "device_id",
-                "type": "utf8",
-                "key": true
-            },
-            {
-                "name": "datetime",
-                "type": "utf8"
-            },
-            {
-                "name": "latitude",
-                "type": "double"
-            },
-            {
-                "name": "longitude",
-                "type": "double"
-            },
-            {
-                "name": "altitude",
-                "type": "double"
-            },
-            {
-                "name": "speed",
-                "type": "double"
-            },
-            {
-                "name": "battery_voltage",
-                "type": "double"
-            },
-            {
-                "name": "cabin_temperature",
-                "type": "uint16"
-            },
-            {
-                "name": "fuel_level",
-                "type": "uint16"
-            }
-        ]
-        ```
+                    {% cut "sensors-specification" %}
 
-        {% endcut %}
+                    ```json
+                    [
+                        {
+                            "name": "device_id",
+                            "type": "utf8",
+                            "key": true
+                        },
+                        {
+                            "name": "datetime",
+                            "type": "utf8"
+                        },
+                        {
+                            "name": "latitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "longitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "altitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "speed",
+                            "type": "double"
+                        },
+                        {
+                            "name": "battery_voltage",
+                            "type": "double"
+                        },
+                        {
+                            "name": "cabin_temperature",
+                            "type": "uint16"
+                        },
+                        {
+                            "name": "fuel_level",
+                            "type": "uint16"
+                        }
+                    ]
+                    ```
+
+                    {% endcut %}
 
     1. [Создайте эндпоинт-приемник](../../../data-transfer/operations/endpoint/target/postgresql.md) типа `{{ PG }}` и укажите в нем параметры подключения к кластеру:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}** — `<имя_кластера-приемника_{{ PG }}>` из выпадающего списка.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — `db1`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}** — `pg-user`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}** — `<пароль_пользователя>`.
+        * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** — `{{ ui-key.yacloud.data-transfer.forms.label_target-type }}`.
+        * Укажите имя эндпоинта.
+        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `PostgreSQL`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.title }}**:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConnmanConnection.mdb_cluster_id.title }}** — выберите кластер {{ mpg-name }} из выпадающего списка.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — `db1`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}** — `pg-user`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}** — укажите пароль пользователя.
 
     1. [Создайте трансфер](../../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**, использующий созданные эндпоинты.
     1. [Активируйте трансфер](../../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.

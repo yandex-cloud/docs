@@ -79,8 +79,8 @@ To allow the service account to send queries using {{ yq-name }}, create an [aut
   1. In the [management console]({{ link-console-main }}), select `data-folder`.
   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
-  1. In the list that opens, select `yq-sa`.
-  1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
+  1. In the list that opens, select the `yq-sa` service account.
+  1. In the top panel, click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
   1. Select the encryption algorithm and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}**.
 
@@ -91,7 +91,7 @@ To allow the service account to send queries using {{ yq-name }}, create an [aut
 To get an authorized key from the notebook, create a [secret](../../datasphere/concepts/secrets.md) with the contents of the authorized key file.
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![secret](../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![secret](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yc-ui-datasphere.resources.secret }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 1. In the **{{ ui-key.yc-ui-datasphere.secret.name }}** field, enter the name for the secret: `yq_access_key`.
 1. In the **{{ ui-key.yc-ui-datasphere.secret.content }}** field, paste the full contents of the authorized key file you downloaded.
@@ -126,7 +126,7 @@ Create a {{ yq-name }} [connection](../../query/concepts/glossary.md#connection)
   
   1. In the [management console]({{ link-console-main }}), select `data-folder`.
   1. [Navigate]({{ link-console-yq }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-  1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+  1. Navigate to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** tab.
   1. Click ![info](../../_assets/console-icons/plus.svg)**{{ ui-key.yql.yq-connection-form.action_create-new }}**.
   1. Enter a name for the connection, e.g., `storage-connection`.
   1. Select the **{{ ui-key.yql.yq-connection.action_object-storage }}** connection type and specify the **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
@@ -150,7 +150,7 @@ To create a data binding:
 
   1. In the [management console]({{ link-console-main }}), select `data-folder`.
   1. [Navigate]({{ link-console-yq }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-  1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
+  1. Navigate to the **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}** tab.
   1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-binding-add.create-binding.button-text }}**.
   1. Under **{{ ui-key.yql.yq-binding-form.connection-parameters.title }}**:
 
@@ -209,7 +209,7 @@ Configure Hive partitioning:
    
      1. In the [management console]({{ link-console-main }}), select `data-folder`.
      1. [Navigate]({{ link-console-yq }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-     1. In the left-hand panel, click **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
+     1. Navigate to the **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}** tab.
      1. In the row with `yq_binding`, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yql.yq-binding-actions.clone-binding.menu-item-text }}**.
      1. Enter a name for the binding: `yq_tutorial_hive_partitioned`.
      1. Under **{{ ui-key.yql.yq-schema.schema-partitioning.section-header }}**:
@@ -244,7 +244,7 @@ Configure partition projection:
    
      1. In the [management console]({{ link-console-main }}), select `data-folder`.
      1. [Navigate]({{ link-console-yq }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-     1. In the left-hand panel, click **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
+     1. Navigate to the **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}** tab.
      1. In the row with `yq_binding`, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yql.yq-binding-actions.clone-binding.menu-item-text }}**.
      1. Enter a name for the binding: `yq_tutorial_partition_projection`.
      1. Under **{{ ui-key.yql.yq-schema.schema-partitioning.section-header }}**:

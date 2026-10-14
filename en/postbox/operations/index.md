@@ -14,6 +14,7 @@ description: This section contains step-by-step guides for {{ postbox-name }}.
 * [{#T}](create-configuration.md)
 * [{#T}](bind-configuration.md)
 * [{#T}](manage-suppression-list.md)
+* [{#T}](manage-dedicated-ip.md)
 * [{#T}](restrict-senders.md)
 * [{#T}](logs-write.md)
 * [{#T}](messages.md)

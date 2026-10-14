@@ -2,13 +2,14 @@
 
 # Поставка данных из Yandex Managed Service for Apache Kafka® в Yandex StoreDoc с помощью Yandex Data Transfer
 
-# Поставка данных из очереди Apache Kafka® в Yandex StoreDoc с помощью Yandex Data Transfer
+# Поставка данных из Apache Kafka® в Yandex StoreDoc с помощью Yandex Data Transfer
 
 
 В кластер Yandex StoreDoc можно в реальном времени поставлять данные из топиков Apache Kafka®.
 
 Чтобы запустить поставку данных:
 
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
 1. [Подготовьте тестовые данные](#prepare-data).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работоспособность трансфера](#verify-transfer).
@@ -16,14 +17,24 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Необходимые платные ресурсы {#paid-resources}
+## Перед началом работы {#before-you-begin}
+
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер Yandex Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
 * Кластер Yandex StoreDoc: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Yandex StoreDoc](../../storedoc/pricing.md)).
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте инфраструктуру {#prepare-infrastructure}
 
 1. Подготовьте инфраструктуру поставки данных:
 
@@ -198,91 +209,84 @@
 
   1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [источника Apache Kafka®](../../data-transfer/operations/endpoint/source/kafka.md):
 
-      **Параметры эндпоинта**:
+      * **Направление** — `Источник`.
+      * Укажите имя эндпоинта.
+      * **Тип базы данных** — `Kafka`.
+      * **Параметры эндпоинта**:
 
-        * **Настройки подключения**:
+          * **Тип подключения** — выберите `Ручная настройка`.
+          * **Тип инсталляции** — выберите `Кластер Managed Service for Apache Kafka`.
+          * **Кластер Managed Service for Apache Kafka** — выберите кластер-источник из списка.
+          * **Аутентификация** — выберите `SASL` и укажите имя и пароль пользователя `mkf-user`, созданного [ранее](#prepare-infrastructure).
+          * **Полное имя топика** — укажите `sensors`.
 
-          * **Тип подключения** — `Кластер Managed Service for Apache Kafka`.
+          * **Расширенные настройки** → **Правила конвертации**:
 
-            * **Кластер Managed Service for Apache Kafka** — выберите кластер-источник из списка.
+              * **Правила конвертации** — выберите `JSON`.
+              * **Схема данных** — выберите `JSON-спецификация`.
 
-            * **Аутентификация** — `SASL`.
+                  Вставьте схему данных в формате JSON:
 
-              * **Имя пользователя** — `mkf-user`.
-              * **Пароль** — укажите пароль пользователя.
+                  {% cut "json" %}
 
-          * **Полное имя топика** — `sensors`.
+                  ```json
+                  [
+                    {
+                      "name": "device_id",
+                      "type": "utf8",
+                      "key": true
+                    },
+                    {
+                      "name": "datetime",
+                      "type": "utf8"
+                    },
+                    {
+                      "name": "latitude",
+                      "type": "double"
+                    },
+                    {
+                      "name": "longitude",
+                      "type": "double"
+                    },
+                    {
+                      "name": "altitude",
+                      "type": "double"
+                    },
+                    {
+                      "name": "speed",
+                      "type": "double"
+                    },
+                    {
+                      "name": "battery_voltage",
+                      "type": "double"
+                    },
+                    {
+                      "name": "cabin_temperature",
+                      "type": "uint16"
+                    },
+                    {
+                      "name": "fuel_level",
+                      "type": "uint16"
+                    }
+                  ]
+                  ```
 
-      * **Расширенные настройки** → **Правила конвертации**:
-
-        * **Правила конвертации** — `json`.
-          * **Схема данных** — `JSON-спецификация`.
-
-            Вставьте схему данных в формате JSON:
-
-            {% cut "json" %}
-
-            ```json
-            [
-              {
-                "name": "device_id",
-                "type": "utf8",
-                "key": true
-              },
-              {
-                "name": "datetime",
-                "type": "utf8"
-              },
-              {
-                "name": "latitude",
-                "type": "double"
-              },
-              {
-                "name": "longitude",
-                "type": "double"
-              },
-              {
-                "name": "altitude",
-                "type": "double"
-              },
-              {
-                "name": "speed",
-                "type": "double"
-              },
-              {
-                "name": "battery_voltage",
-                "type": "double"
-              },
-              {
-                "name": "cabin_temperature",
-                "type": "uint16"
-              },
-              {
-                "name": "fuel_level",
-                "type": "uint16"
-              }
-            ]
-            ```
-
-            {% endcut %}
+                  {% endcut %}
 
   1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [приемника MongoDB](../../data-transfer/operations/endpoint/target/mongodb.md):
 
-      **Параметры эндпоинта**:
+      * **Направление** — `Приёмник`.
+      * Укажите имя эндпоинта.
+      * **Тип базы данных** — `MongoDB/Yandex StoreDoc`.
+      * **Параметры эндпоинта**:
 
-        * **Настройки подключения**:
-
-          * **Тип подключения** — `Кластер Yandex StoreDoc`.
-
-            * **Кластер Yandex StoreDoc** — выберите кластер-приемник из списка.
-
-          * **Источник аутентификации** — `db1`.
-
-          * **Пользователь** — `mmg-user`.
-
-          * **Пароль** — укажите пароль пользователя.
-
-        * **База данных** — `db1`.
+          * **Тип подключения** — выберите `Ручная настройка`.
+          * **Тип инсталляции** — выберите `Кластер Yandex StoreDoc`.
+          * **Кластер Yandex StoreDoc** — выберите кластер из выпадающего списка.
+          * **Источник аутентификации** — укажите `db1`.
+          * **Пользователь** — укажите `mmg-user`.
+          * **Пароль** — укажите пароль пользователя `mmg-user`.
+          * **База данных** — укажите `db1`.
 
   1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_Репликация_**, использующий созданные эндпоинты.
   1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **Реплицируется**.

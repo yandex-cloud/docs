@@ -17,7 +17,14 @@ You can email to the simulator address using any method supported by {{ postbox-
 || `bounce@simulator.pstbx.ru` | Delivery error | The simulator's mail server returns the `452 4.2.2 The recipient's inbox is out of storage space` SMTP response. ||
 || `delay@simulator.pstbx.ru` | Delivery delayed | {{ postbox-name }} fails to deliver the email due to a temporary error, sends a [delivery delayed notification](notification.md#delayed-delivery), and retries delivery. ||
 || `suppressed@simulator.pstbx.ru` | Recipient on suppression list | {{ postbox-name }} does not attempt to deliver the email and sends a [delivery error notification](notification.md#bounce) with the `Suppressed` subtype, as if the recipient's address were on the [global suppression list](suppression-list.md#global). ||
+|| `spam@simulator.pstbx.ru` | Email recognized as spam | The simulator's mail server returns a permanent `554 5.7.1 Message rejected under suspicion of SPAM` SMTP error. {{ postbox-name }} does not retry the delivery and sends a [delivery failure notification](notification.md#bounce). ||
 |#
+
+{% note info %}
+
+If the same scenario requires multiple addresses (for example, to tell emails apart in statistics or notifications), add a label to the local part of the address followed by `+`, e.g., `success+test1@simulator.pstbx.ru`, `success+test2@simulator.pstbx.ru`, etc. The scenario is determined by what precedes the `+` sign; therefore, all such addresses behave in the same way.
+
+{% endnote %}
 
 ## How to use {#usage}
 

@@ -1,10 +1,10 @@
-# Поставка данных из очереди {{ KF }} в {{ CH }} с помощью {{ data-transfer-full-name }}
+# Поставка данных из {{ KF }} в {{ CH }} с помощью {{ data-transfer-full-name }}
 
 В кластер {{ mch-name }} можно в реальном времени поставлять данные из топиков {{ KF }}. Эти данные будут автоматически вставлены в таблицы {{ CH }} на [движке `Kafka`]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka).
 
 Чтобы настроить поставку данных из {{ mkf-full-name }} в {{ mch-name }}:
 
-1. [Подготовьте инфраструктуру](#deploy-infrastructure).
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
 1. [Выполните дополнительные настройки](#additional-settings).
 1. [Отправьте тестовые данные в топик {{ mkf-name }}](#send-sample-data-to-kf).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
@@ -24,7 +24,7 @@
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 
-## Подготовьте инфраструктуру {#deploy-infrastructure}
+## Подготовьте инфраструктуру {#prepare-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -232,89 +232,90 @@
 
 - Вручную {#manual}
   
-  1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
+  1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [источника `{{ KF }}`](../../data-transfer/operations/endpoint/source/kafka.md):
 
+      * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** — `{{ ui-key.yacloud.data-transfer.forms.label_source-type }}`.
+      * Укажите имя эндпоинта.
       * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Kafka`.
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**:
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
-
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}`.
+          * **Тип инсталляции** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}** — выберите кластер-источник из списка.
-          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**:
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaAuth.sasl.title }}` и укажите имя и пароль пользователя, созданного [ранее](#prepare-infrastructure).
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.user.title }}** — укажите имя пользователя потребителя.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.password.title }}** — укажите пароль пользователя потребителя.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}** — укажите имя топика в кластере {{ mkf-name }}.
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}** — укажите имя топика в кластере {{ mkf-name }}.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
+              * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}** — `JSON`.
+              * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`:
 
-          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}** — `JSON`.
-          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`:
+                  Скопируйте и вставьте схему данных в формате JSON:
 
-            Скопируйте и вставьте схему данных в формате JSON:
+                  {% cut "схема данных" %}
 
-            {% cut "схема данных" %}
+                  ```json
+                  [
+                    {
+                      "name": "device_id",
+                      "type": "string"
+                    },
+                    {
+                      "name": "datetime",
+                      "type": "datetime"
+                    },
+                    {
+                      "name": "latitude",
+                      "type": "double"
+                    },
+                    {
+                      "name": "longitude",
+                      "type": "double"
+                    },
+                    {
+                      "name": "altitude",
+                      "type": "double"
+                    },
+                    {
+                      "name": "speed",
+                      "type": "double"
+                    },
+                    {
+                      "name": "battery_voltage",
+                      "type": "any"
+                    },
+                    {
+                      "name": "cabin_temperature",
+                      "type": "double"
+                    },
+                    {
+                      "name": "fuel_level",
+                      "type": "any"
+                    }
+                  ]
+                  ```
 
-            ```json
-            [
-              {
-                "name": "device_id",
-                "type": "string"
-              },
-              {
-                "name": "datetime",
-                "type": "datetime"
-              },
-              {
-                "name": "latitude",
-                "type": "double"
-              },
-              {
-                "name": "longitude",
-                "type": "double"
-              },
-              {
-                "name": "altitude",
-                "type": "double"
-              },
-              {
-                "name": "speed",
-                "type": "double"
-              },
-              {
-                "name": "battery_voltage",
-                "type": "any"
-              },
-              {
-                "name": "cabin_temperature",
-                "type": "double"
-              },
-              {
-                "name": "fuel_level",
-                "type": "any"
-              }
-            ]
-            ```
-
-            {% endcut %}
+                  {% endcut %}
 
 
-  1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
+  1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [приемника `{{ CH }}`](../../data-transfer/operations/endpoint/target/clickhouse.md):
 
+      * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** — `{{ ui-key.yacloud.data-transfer.forms.label_target-type }}`.
+      * Укажите имя эндпоинта.
       * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `ClickHouse`.
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.title }}**:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.connection.title }}**:
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}`.
 
-          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}** — выберите `Кластер Managed Service for ClickHouse`.
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}** — выберите кластер-приемник из списка.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}** — выберите кластер-приемник из списка.
 
           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}** — укажите имя базы данных.
           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}** и **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}** — укажите имя и пароль пользователя с доступом к базе, например, владельца базы данных.
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.advanced_settings.title }}** → **Загружать данные в формате JSON** — включите эту опцию, если в расширенных настройках эндпоинта-источника включили опцию **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.advanced_settings.title }}** → **Загружать данные в формате JSON** — включите эту опцию, если в расширенных настройках эндпоинта-источника включили опцию **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**.
 
   1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**, использующий созданные эндпоинты.
   1. [Активируйте](../../data-transfer/operations/transfer.md#activate) трансфер.

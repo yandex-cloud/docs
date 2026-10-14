@@ -1,0 +1,1 @@
+{{ objstorage-full-name }} is a versatile, scalable data storage solution that ensures reliable and fast access to data. For more information, see [this {{ objstorage-name }} guide](../../storage/index.yaml).

@@ -50,7 +50,7 @@ If you want your bot to respond to user messages with an image, create an {{ obj
       1. Enter a name for the bucket. Save the bucket name. You will need it later.
       1. Specify these bucket settings:
 
-          * **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}**: `1 {{ ui-key.yacloud_portal.common.units.label_gigabyte }}`.
+          * Enable **{{ ui-key.yacloud.storage.form-components.SizeLimitField.field_size-limit-enabled_hPy7f }}** and specify `1 {{ ui-key.yacloud_portal.common.units.label_gigabyte }}` in the fields that appear.
           * **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**: `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
           * **{{ ui-key.yacloud.storage.bucket.settings.field_class }}**: `{{ ui-key.yacloud.storage.value_standard }}`.
 
@@ -68,7 +68,7 @@ If you want your bot to respond to user messages with an image, create an {{ obj
   1. In the [management console]({{ link-console-main }}), select the folder containing the created bucket.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket.
-  1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
+  1. In the top panel, click ![arrow-up-from-line](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
   1. In the window that opens, select `sayhello.png` from the saved archive. The management console will display the file selected for upload.
   1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
 
@@ -85,7 +85,7 @@ If you want your bot to respond to user messages with an image, create an {{ obj
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket.
   1. Select `sayhello.png`.
-  1. Click **{{ ui-key.yacloud.storage.file.button_generate }}**.
+  1. In the top panel, click ![link](../../../_assets/console-icons/link.svg) **{{ ui-key.yacloud.storage.file.button_generate }}**, set the link expiration period, and copy the generated link.
   1. Make sure the image is accessible through the link in your browser.
 
 {% endlist %}
@@ -196,7 +196,7 @@ If you want your Telegram bot to respond to the `/start` and `/help` commands an
 
     - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select a folder.
+      1. In the [management console]({{ link-console-main }}), select the folder.
       1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
       1. Select the `for-serverless-hello-telegram-bot` API gateway.
       1. Update the API gateway specification by adding the `fshtb-function` section at the end of the code:

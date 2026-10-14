@@ -1,0 +1,1 @@
+{{ yandex-siem-full-name }} is a solution for monitoring and analyzing security events in a cloud infrastructure to detect anomalies. For more information, see [this {{ yandex-siem-full-name }} guide](../../siem/index.yaml).

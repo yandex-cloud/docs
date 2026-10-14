@@ -25,9 +25,9 @@ Responses with the 4xx code mean that you can repeat your request later.
 #|
 || **Code** | **Enhanced code** | **Text** | **Cause** | **What to do** ||
 || `421` | `4.3.0` | `Unexpected error.` | Internal service error or unexpected processing error. | Resend later. If the error persists, contact support with `RequestID`. ||
+|| `421` | `4.4.2` | `Idle timeout, bye bye` | The server closed the connection because it did not receive any SMTP commands from the client for longer than the allowed idle time (about one minute). | Do not keep the connection open while idle. Establish a new connection and retry sending. ||
 || `451` | `4.4.2` | `Timeout waiting for data from client` | Email body retrieval timeout expired or the connection was interrupted during data transmission. | Check the network connection and client timeouts, then resend. ||
-|| `452` | `5.5.3` | `Maximum limit of <N> recipients reached` | Recipient limit per email exceeded. | Split the send into multiple emails with fewer recipients. ||
-|| `454` | — | `Maximum sending rate exceeded` | Sending rate limit (`rate limit`) exceeded for the cloud. | Reduce sending rate and repeat the request later. ||
+|| `454` | — | `Maximum sending rate exceeded` | The `postbox.send.rate` quota has been exceeded. | Reduce the email sending rate and retry the request later. ||
 |#
 
 ## Permanent 5xx errors {#permanent-errors}
@@ -65,11 +65,13 @@ Responses with the 4xx code mean that you can repeat your request later.
 
 ### Quotas and limits {#quotas-and-message-size}
 
+Learn more about quotas and how to increase them [here](../concepts/limits.md).
+
 #|
 || **Code** | **Enhanced code** | **Text** | **Cause** | **What to do** ||
-|| `550` | `5.4.5` | `Daily sending quota exceeded.` | Daily sending quota exceeded. | Wait for a quota reset or request an increase. ||
-|| `550` | `5.5.3` | `too many recipients (recipient count quota exceeded)` | Quota for the number of recipients exceeded. | Reduce the number of recipients or request a quota increase. ||
-|| `552` | `5.3.4` | `message is too big (message size quota exceeded)` | Message size quota exceeded. | Reduce message size: email body or attachments. ||
+|| `550` | `5.4.5` | `Daily sending quota exceeded.` | The `postbox.emails_sent.count` quota has been used up. | Wait for a quota reset or request an increase. ||
+|| `552` | `5.5.3` | `Maximum limit of <N> recipients reached` | The `RCPT TO` command adds a recipient beyond the `postbox.recipients_per_email.count` quota. Only this command is rejected; previously accepted recipients remain in the transaction. | Do not proceed with the transaction: if you send the `DATA` command after this response, the email will be accepted and delivered to the first `<N>` recipients. Reset the transaction using the `RSET` command and split the delivery into multiple emails with fewer recipients. ||
+|| `552` | `5.3.4` | `message is too big (message size quota exceeded)` | The `postbox.email.size` quota has been exceeded. | Reduce message size: email body or attachments. ||
 || `552` | `5.3.4` | `Maximum message size exceeded` | Message size exceeds the server's technical limit. | Reduce message size. ||
 |#
 

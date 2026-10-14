@@ -3061,6 +3061,8 @@ default:
             title: Политики эскалаций
           explorer:
             title: Метрики
+          llm-monitoring:
+            title: LLM-мониторинг
           logs-analytics:
             title: Ошибки
           logs-metrics:
@@ -3191,6 +3193,10 @@ default:
         title_alerts: Алерты
         title_service-dashboards: Сервисные дашборды
         title_service-features: Возможности сервиса
+      llm-tracing:
+        search:
+          actions:
+            execute: Выполнить запрос
       logs-metrics:
         form:
           block:
@@ -3995,6 +4001,9 @@ default:
           password_check_gP9tG: Проверка пароля
           password_uniqueness_13P78: Уникальность пароля
           reject_common_passwords_9bpqu: Нельзя использовать пароль из базы распространённых паролей
+          ResetUserPasswordDialog:
+            resetMethodAutomatic_2W6hk: Сгенерировать автоматически
+            resetMethodManual_vsFDC: Задать вручную
           title_password_policy: Парольная политика
           title_personal-info: Персональная информация
           title_userpool_members: Пользователи
@@ -6914,6 +6923,10 @@ default:
           marketplace:
             button_install: Установить
             button_release-uninstall: Удалить
+            label_app-namespace: Пространство имён
+            label_new-version-available: Доступна новая версия приложения
+            label_product-settings: Настройки приложения
+            label_tab-general: Основное
             section_releases: Установленные приложения
           node-groups:
             button_create: Создать группу узлов
@@ -9375,8 +9388,6 @@ default:
                     KafkaSource:
                       advanced_settings:
                         title: Расширенные настройки
-                      connection:
-                        title: Настройки подключения
                       title: Параметры эндпоинта
                     KafkaSourceAdvancedSettings:
                       converter:
@@ -10050,6 +10061,13 @@ default:
                         title: Поддиректория для размещения таблиц
                       shard_count:
                         title: Количество шардов
+            ydbtopic:
+              console:
+                form:
+                  ydbtopic:
+                    Connection:
+                      connection_type:
+                        title: Тип подключения
             yds:
               console:
                 form:

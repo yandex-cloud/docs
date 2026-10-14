@@ -90,7 +90,7 @@
         * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}**, чтобы [подключаться](../../compute/operations/vm-connect/os-login.md) к создаваемой ВМ и управлять доступом к ней с помощью [{{ oslogin }}](../../organization/concepts/os-login.md) в {{ org-full-name }}.
 
-        Используя {{ oslogin }}, вы сможете подключаться к ВМ по SSH-ключам и SSH-сертификатам с помощью стандартного SSH-клиента или [CLI](../../cli/quickstart.md). {{ oslogin }} позволяет ротировать SSH-ключи, используемые для доступа к ВМ, и является наиболее [безопасным](../../security/domains/iaas-checklist.md#vm-security) вариантом доступа.
+        Используя {{ oslogin }}, вы сможете подключаться к ВМ по SSH-ключам и SSH-сертификатам с помощью стандартного SSH-клиента или [CLI](../../cli/quickstart.md). {{ oslogin }} позволяет ротировать SSH-ключи и является наиболее [безопасным](../../security/domains/iaas-checklist.md#vm-security) вариантом доступа.
 
     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ — `vm-1`.
     1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -159,7 +159,7 @@
 
 #### Создайте группу безопасности для VPN-шлюза {#create-vpn-sg}
 
-Для работы [VPN](../../glossary/vpn.md) необходимо разрешить прием и передачу трафика на UDP-порты `500` и `4500` из внешней сети — это необходимо для работы IPSec-туннеля. Также необходимо разрешить передачу трафика между подсетями вашей виртуальной сети и сетью на удаленной площадке.
+Для работы [VPN](../../glossary/vpn.md) необходимо разрешить прием и передачу трафика на UDP-порты `500` и `4500` из внешней сети — это требуется для работы IPSec-туннеля. Также необходимо разрешить передачу трафика между подсетями вашей виртуальной сети и сетью на удаленной площадке.
 
 {% list tabs group=instructions %}
 
@@ -174,21 +174,21 @@
     1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}** [создайте](../../vpc/operations/security-group-add-rule.md) правила в соответствии с таблицей:
 
        #|
-       || **Направление<br/>трафика** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** ||
-       || Входящий | `udp500` | `500` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<публичный_IP-адрес_удаленной_ВМ>/32` ||
-       || Входящий | `udp4500` | `4500` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<публичный_IP-адрес_удаленной_ВМ>/32` ||
-       || Входящий | `internal` | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | 
+       || **Направление<br/>трафика** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}** ||
+       || Входящий | `500` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<публичный_IP-адрес_удаленной_ВМ>/32` | `udp500` ||
+       || Входящий | `4500` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<публичный_IP-адрес_удаленной_ВМ>/32` | `udp4500` ||
+       || Входящий | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` |
          * `192.168.5.0/24`
          * `192.168.15.0/24`
          * `192.168.25.0/24`
-         * `10.129.0.0/24` ^1^ ||
-       || Исходящий | `udp500` | `500` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<публичный_IP-адрес_удаленной_ВМ>/32` ||
-       || Исходящий | `udp4500` | `4500` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<публичный_IP-адрес_удаленной_ВМ>/32` ||
-       || Исходящий | `intersubnet` | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | 
+         * `10.129.0.0/24` ^1^ | `internal` ||
+       || Исходящий | `500` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<публичный_IP-адрес_удаленной_ВМ>/32` | `udp500` ||
+       || Исходящий | `4500` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<публичный_IP-адрес_удаленной_ВМ>/32` | `udp4500` ||
+       || Исходящий | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` |
          * `192.168.5.0/24`
          * `192.168.15.0/24`
          * `192.168.25.0/24`
-         * `10.129.0.0/24` ^1^ ||
+         * `10.129.0.0/24` ^1^ | `intersubnet` ||
        |#
 
        ^1^ Если в качестве тестовой ВМ вы будете использовать локальный компьютер, укажите здесь CIDR подсети, в которой этот компьютер находится.
@@ -212,11 +212,11 @@
     1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}** [создайте](../../vpc/operations/security-group-add-rule.md) правила в соответствии с таблицей:
    
        #|
-       || **Направление<br/>трафика** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** /<br/>**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** ||
-       || Входящий | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` ||
-       || Входящий | `anyself` | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` ||
-       || Входящий | `healthchecks` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — ||
-       || Исходящий | `self` | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` ||
+       || **Направление<br/>трафика** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** /<br/>**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}** ||
+       || Входящий | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `ssh` ||
+       || Входящий | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` | `anyself` ||
+       || Входящий | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — | `healthchecks` ||
+       || Исходящий | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` | `self` ||
        |#
 
     1. Нажмите **{{ ui-key.yacloud.common.create }}**.
@@ -249,7 +249,7 @@
 
             {% note alert %}
 
-            Не используйте логин `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+            Не используйте логин `root` или другие имена, зарезервированные ОС. Для выполнения операций, которые требуют прав суперпользователя, используйте команду `sudo`.
 
             {% endnote %}
 
@@ -343,7 +343,7 @@
 
 ### Создайте сетевой балансировщик {#create-load-balancer}
 
-Сетевой балансировщик будет распределять входящий трафик интернет-сервиса между ВМ, объединенными в целевую группу. 
+Сетевой балансировщик будет распределять входящий трафик интернет-сервиса между ВМ целевой группы. 
 
 Чтобы создать сетевой балансировщик:
 
@@ -392,9 +392,9 @@
 1. [Добавьте](../../vpc/operations/security-group-add-rule.md) в группу безопасности `web-service-sg` два новых правила для входящего трафика:
 
    #|
-   || **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** ||
-   || http-external-vm | 80 | TCP | CIDR | `<публичный_IP-адрес_удаленной_ВМ>/32` ||
-   || https-external-vm | 443 | TCP | CIDR | `<публичный_IP-адрес_удаленной_ВМ>/32` ||
+   || **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}** ||
+   || 80 | TCP | CIDR | `<публичный_IP-адрес_удаленной_ВМ>/32` | `http-external-vm` ||
+   || 443 | TCP | CIDR | `<публичный_IP-адрес_удаленной_ВМ>/32` | `https-external-vm` ||
    |#
 
    Добавленные правила разрешают доступ с публичного адреса ВМ на удаленной площадке к ВМ целевой группы сетевого балансировщика.
@@ -410,6 +410,7 @@
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за развернутые ресурсы:
+
 1. [Удалите](../../compute/operations/vm-control/vm-delete.md) виртуальные машины.
 1. [Удалите](../../network-load-balancer/operations/load-balancer-delete.md) сетевой балансировщик.
 1. [Удалите](../../vpc/operations/address-delete.md) зарезервированные статические публичные IP-адреса.

@@ -44,12 +44,6 @@ ksqlDB — это база данных, которая предназначен
 
 
 1. [Создайте топики](../../managed-kafka/operations/cluster-topics.md#create-topic) в кластере Managed Service for Apache Kafka®:
-   1. Служебный топик `_confluent-ksql-default__command_topic` с настройками:
-        * Фактор репликации — `1`.
-        * Количество разделов — `1`.
-        * Политика очистки лога — `Delete`.
-        * Время жизни сегмента лога, мс — `-1`.
-        * Минимальное число синхронных реплик — `1`.
    1. Служебный топик `default_ksql_processing_log` для записи логов ksqlDB. Настройки топика могут быть любыми.
    1. Топик для хранения данных `locations`. Настройки топика могут быть любыми.
 
@@ -59,7 +53,7 @@ ksqlDB — это база данных, которая предназначен
 
 1. Установите утилиту `kafkacat` на сервер ksqlDB и убедитесь, что можете с ее помощью [подключиться к кластеру Managed Service for Apache Kafka® через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-1. Установите утилиту для потоковой обработки JSON-файлов [jq](https://stedolan.github.io/jq/) на сервер ksqlDB.
+1. Установите утилиту для потоковой обработки JSON-файлов [jq](https://jqlang.org/) на сервер ksqlDB.
 
 ## Настройте интеграцию с Apache Kafka® для базы ksqlDB {#configure-ksqldb-for-kf}
 
@@ -172,7 +166,7 @@ ksqlDB — это база данных, которая предназначен
 
     ```bash
     sudo systemctl restart confluent-ksqldb.service
-    ````
+    ```
 
 ## Изучите формат данных, поступающих от Managed Service for Apache Kafka® {#explore-kf-data-format}
 

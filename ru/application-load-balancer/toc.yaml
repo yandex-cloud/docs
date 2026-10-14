@@ -251,6 +251,8 @@ items:
             href: tools/gwin/index.md
           - name: Установка Gwin
             href: tools/gwin/quickstart.md
+          - name: Обновление Gwin
+            href: tools/gwin/upgrade.md
           - name: Политики Gwin
             href: tools/gwin/policies.md
           - name: Маршрутизация трафика напрямую в поды кластера

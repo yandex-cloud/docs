@@ -9,7 +9,15 @@ In {{ postbox-full-name }}, you can track whether recipients open your emails. W
 
 ## How it works {#how-it-works}
 
-To track email openings, {{ postbox-name }} uses a `tracking pixel`. When tracking is enabled, {{ postbox-name }} automatically embeds an invisible 1x1 pixel image at the end of the top HTML part of the email.
+To track email openings, {{ postbox-name }} uses a `tracking pixel`. When tracking is enabled, {{ postbox-name }} automatically embeds an invisible 1x1 pixel image in the top HTML part of the email.
+
+To specify where to place the tracking pixel, add an `{{ses:openTracker}}` marker in the HTML part of the email. {{ postbox-name }} processes markers as follows:
+
+* If one marker is specified, {{ postbox-name }} replaces it with a tracking pixel.
+* If no markers are specified, {{ postbox-name }} embeds the pixel at the end of the HTML part.
+* If multiple markers are specified, {{ postbox-name }} replaces the first marker with a pixel and removes the others.
+
+If email open tracking is disabled, {{ postbox-name }} does not process `{{ses:openTracker}}` markers and leaves them in the HTML part as is.
 
 As soon as the recipient opens the email in an email client, the client loads the images, including the tracking pixel. {{ postbox-name }} logs the request to load the pixel and sends a notification that the email has been opened.
 

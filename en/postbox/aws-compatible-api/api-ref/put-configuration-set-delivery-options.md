@@ -2,7 +2,7 @@
 
 Updates delivery settings for a [configuration](../../concepts/glossary.md#configuration) in a folder. The folder is selected based on the service account the request originates from.
 
-## Query {#request}
+## Request {#request}
 
 ```http
 PUT /v2/email/configuration-sets/{ConfigurationSetName}/delivery-options HTTP/2
@@ -25,7 +25,8 @@ Name of the configuration to update.
 
 ```json
 {
-   "TlsPolicy": "REQUIRE|OPTIONAL"
+   "TlsPolicy": "REQUIRE|OPTIONAL",
+   "SendingPoolName": "<pool_name>"
 }
 ```
 
@@ -35,9 +36,25 @@ Name of the configuration to update.
 
 Outgoing connection security policy.
 
-It specifies whether or not to use the TLS protocol for the messages with this configuration. If the value is `REQUIRE`, messages will be delivered only when it is possible to establish a TLS connection. If `OPTIONAL`, messages may be delivered as plain text if a TLS connection is not established.||
+Specifies whether or not to use the TLS protocol for mail covered by the configuration. If `REQUIRE`, emails will be delivered only provided that a TLS connection can be established. If `OPTIONAL`, emails may be delivered as plain text if a TLS connection cannot be established.||
+|| `SendingPoolName` | **Type**: String.
 
+Name of the [pool](../../concepts/dedicated-ip.md) of IP addresses that will be used to send emails covered by the configuration.
+
+This is an optional parameter. ||
 |#
+
+{% note warning %}
+
+This method completely updates the configuration's delivery settings. If you do not specify `SendingPoolName` during the call, the pool will be unlinked from the configuration, and emails will be sent from the service’s shared IP addresses.
+
+{% endnote %}
+
+{% note info %}
+
+{% include [no-ip-address-in-pool-note.md](../../../_includes/postbox/no-ip-address-in-pool-note.md) %}
+
+{% endnote %}
 
 ## Responses {#responses}
 
@@ -49,11 +66,11 @@ It specifies whether or not to use the TLS protocol for the messages with this c
 
 {% include [api-errors](../../../_includes/postbox/api-errors.md) %}
 
-Possible errors:
+The possible errors include:
 
 #|
 || **Error code** | **Description** ||
-|| `400 BadRequestException` | The request contains invalid headers or parameters. ||
+|| `400 BadRequestException` | The request contains invalid headers or parameters, or the pool specified in `SendingPoolName` does not exist. ||
 || `404 NotFoundException` | The requested resource was not found. ||
 || `429 TooManyRequestsException ` | The request [quota](../../concepts/limits.md#postbox-quotas) was exceeded. ||
 |#

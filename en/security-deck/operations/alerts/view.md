@@ -19,8 +19,17 @@ description: In this section, you will learn how to view alerts in {{ sd-full-na
 
   1. Optionally, [configure](#configure) alert display.
 
+- API {#api}
+
+  To get a list of [alerts](../../concepts/alerts.md), use the [Alert.List](../../api-ref/Alert/list.md) REST API method for the [Alert](../../api-ref/Alert/index.md) resource or the [AlertService/List](../../api-ref/grpc/Alert/list.md) gRPC API call.
 
 {% endlist %}
+
+{% note tip %}
+
+You can [download](./download.md) the required alerts as a JSON file.
+
+{% endnote %}
 
 ## Searching alerts {#search}
 
@@ -97,5 +106,9 @@ description: In this section, you will learn how to view alerts in {{ sd-full-na
       You can [create an exception](./work.md#create-exception) on the {{ kspm-name }} and {{ cspm-name }} alerts page.
 
       {% endnote %}
+
+- API {#api}
+
+  To get detailed information about an alert, use the [Alert.Get](../../api-ref/Alert/get.md) REST API method for the [Alert](../../api-ref/Alert/index.md) resource or the [AlertService/Get](../../api-ref/grpc/Alert/get.md) gRPC API call.
 
 {% endlist %}

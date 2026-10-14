@@ -1,0 +1,1 @@
+A folder is a logical space where you create and group your {{ yandex-cloud }} resources. Just like folders in your file system, {{ yandex-cloud }} folders make resource management simpler. For more information, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#folder).

@@ -36,6 +36,8 @@ sudo apt install -y jq
 
 Для загрузки файлов в бакет установите и настройте [AWS CLI](../../storage/tools/aws-cli.md) для выбранного S3-совместимого хранилища.
 
+{% include [key](../../_includes/mdb/decrypt-key.md) %}
+
 ## Восстановление данных {#restore}
 
 ### 1. Проверьте выгрузку {#inspect-backup}

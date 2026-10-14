@@ -5,6 +5,7 @@ description: This section contains step-by-step guides on how to use the {{ kspm
 
 # {{ kspm-full-name }} ({{ kspm-name }})
 
+* [{#T}](requirements.md).
 * [{#T}](enable-kspm.md).
 * [{#T}](use-kspm.md).
 * [{#T}](view-rules.md).
