@@ -38,7 +38,7 @@
 
     1. [Получите SSL-сертификат](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) для подключения к кластеру-приемнику {{ mos-name }}.
 
-    1. Настройте группы безопасности для подключения к [кластеру-источнику {{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups) и [кластеру-приемнику {{ mos-name }}](../../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
+    1. Настройте группы безопасности для подключения к [кластеру-источнику {{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups) и [кластеру-приемнику {{ mos-name }}](../../../managed-opensearch/operations/connect/index.md#security-groups).
 
 - {{ TF }} {#tf}
 

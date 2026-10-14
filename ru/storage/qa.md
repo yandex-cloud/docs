@@ -106,7 +106,7 @@ description: На странице представлены вопросы и о
 Проверьте, что сервисному аккаунту назначена [роль](./security/#roles-list) для доступа в бакет.
 
 
-Если у бакета включено [шифрование](./concepts/encryption.md), назначьте сервисному аккаунту [роль](../kms/security/#service) `kms.keys.encrypterDecrypter` на [ключ {{ kms-short-name }}](../kms/concepts/key.md), которым зашифрован бакет. Это можно сделать, например, с помощью команды CLI:
+Если у бакета включено [шифрование](./concepts/encryption.md), назначьте сервисному аккаунту [роль](../kms/security/#kms-keys-encrypterDecrypter) `kms.keys.encrypterDecrypter` на [ключ {{ kms-short-name }}](../kms/concepts/key.md), которым зашифрован бакет. Это можно сделать, например, с помощью команды CLI:
 
 ```bash
 yc kms symmetric-key add-access-binding \
@@ -181,7 +181,7 @@ yc kms symmetric-key add-access-binding \
 
 1. {% include [setup-bucket.md](../_includes/storage/setup-bucket.md) %}
 
-1. [Создайте](operations/hosting/own-domain.md#domain-support) на своем DNS-сервере CNAME-запись, чтобы привязать ваш домен к бакету.
+1. [Создайте](operations/hosting/own-domain.md) на своем DNS-сервере CNAME-запись, чтобы привязать ваш домен к бакету.
 
 1. {% include [create-cert.md](../_includes/storage/create-cert.md) %}
 

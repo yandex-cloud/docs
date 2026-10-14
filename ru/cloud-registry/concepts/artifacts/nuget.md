@@ -11,4 +11,4 @@ _Артефакт [NuGet](https://ru.wikipedia.org/wiki/NuGet)_ — это фа�
 
 #### Полезные ссылки {#see-also}
 
-[Поддерживаемые типы артефактов](./index.md#artifacts)
+[Поддерживаемые типы артефактов](index.md)

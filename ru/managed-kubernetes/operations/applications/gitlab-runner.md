@@ -16,7 +16,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. Откройте в браузере административную панель {{ GL }}:
    * Если {{ GL }} развернут на [виртуальной машине](../../../compute/concepts/vm.md) [{{ compute-full-name }}](../../../compute/), используйте ее [публичный IP-адрес](../../../compute/concepts/network.md#public-ip).
-   * Если {{ GL }} развернут в [сервисе {{ mgl-full-name }}](../../../managed-gitlab/), используйте [FQDN инстанса](../../../compute/concepts/network.md##hostname).
+   * Если {{ GL }} развернут в [сервисе {{ mgl-full-name }}](../../../managed-gitlab/), используйте [FQDN инстанса](../../../compute/concepts/network.md#hostname).
 1. Получите токен аутентификации {{ GLR }} (Runner authentication token):
    * Для настройки {{ GLR }} для всего [инстанса {{ GL }}](../../../managed-gitlab/concepts/index.md#instance) (требуются права администратора {{ GL }}):
      1. Нажмите кнопку **Admin area** и выберите пункт **CI/CD** → **Runners**.

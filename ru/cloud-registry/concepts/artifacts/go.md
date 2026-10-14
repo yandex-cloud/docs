@@ -15,7 +15,7 @@ _Go-артефакт_ — это [ZIP-архив](https://go.dev/ref/mod#zip-fil
 
 #### Полезные ссылки {#see-also}
 
-* [Поддерживаемые типы артефактов](./index.md#artifacts)
+* [Поддерживаемые типы артефактов](index.md)
 * [{#T}](../../operations/go/pull.md)
 * [{#T}](../../operations/go/push.md)
 * [{#T}](../registry.md)

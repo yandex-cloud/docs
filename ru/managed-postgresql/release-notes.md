@@ -84,7 +84,7 @@ index: 1
 
 ## Декабрь 2025 {#dec-2025}
 
-* Добавлены [детальные метрики](operations/monitoring.md#hosts) использования дисков в хостах кластера.
+* Добавлены [детальные метрики](operations/monitoring.md#monitoring-hosts) использования дисков в хостах кластера.
 * Добавлена детализация выполнения [операций над кластером](operations/cluster-list.md#list-operations).
 * Для {{ PG }} 18 доступны все [расширения](./operations/extensions/cluster-extensions.md), которые поддерживаются в {{ PG }} 17.
 * Реализована авторизация через {{ iam-short-name }} при [создании пользователя](./operations/cluster-users.md#adduser) {{ PG }}.

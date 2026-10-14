@@ -62,7 +62,7 @@ description: В разделе представлена история изме�
 
 ## Июль 2024 {#jul-2024}
 
-1 июля 2024 года функциональность [правил ревью кода](concepts/approval-rules.md) перешла на стадию [General Availability](../overview/concepts/launch-stages.md), и за ее использование теперь взимается плата в соответствии с [правилами тарификации](pricing.md#prices-instance).
+1 июля 2024 года функциональность [правил ревью кода](concepts/approval-rules.md) перешла на стадию [General Availability](../overview/concepts/launch-stages.md), и за ее использование теперь взимается плата в соответствии с [правилами тарификации](pricing.md#prices).
 
 
 ## Март 2024 {#mar-2024}

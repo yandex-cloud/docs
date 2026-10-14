@@ -79,7 +79,7 @@
 
      * Имя и опциональное описание в свободной форме.
      * Алгоритм шифрования, например AES-256.
-     * Период [ротации](../../kms/concepts/index.md#rotation) (частота смены версии ключа по умолчанию).
+     * Период [ротации](../../kms/concepts/version.md#rotate-key) (частота смены версии ключа по умолчанию).
      * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
   Вместе с ключом создается его первая версия: нажмите на ключ в списке, чтобы открыть страницу с его атрибутами.
@@ -125,7 +125,7 @@
 
 - CLI {#cli}
 
-  1. Назначьте роль [audit-trails.viewer](../../audit-trails/security/index.md#roles) на каталог, с ресурсов которого будут собираться аудитные логи:
+  1. Назначьте роль [audit-trails.viewer](../../audit-trails/security/index.md#roles-list) на каталог, с ресурсов которого будут собираться аудитные логи:
      
       ```
       yc resource-manager folder add-access-binding \
@@ -155,7 +155,7 @@
       * `--id` — идентификатор каталога, в котором будет находиться трейл.
       * `--service-account-id` — идентификатор сервисного аккаунта.
   
-  1. Назначьте роль [kms.keys.encrypterDecrypter](../../kms/security/index.md#service) на ключ шифрования:
+  1. Назначьте роль [kms.keys.encrypterDecrypter](../../kms/security/index.md#kms-keys-encrypterDecrypter) на ключ шифрования:
   
       ```
       yc kms symmetric-key add-access-binding \

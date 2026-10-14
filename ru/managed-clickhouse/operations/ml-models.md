@@ -16,7 +16,7 @@
 1. [Подключите сервисный аккаунт к кластеру](s3-access.md#connect-service-account). С помощью [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) вы настроите доступ к файлу модели.
 1. [Назначьте роль](s3-access.md#configure-acl) `storage.viewer` сервисному аккаунту.
 1. В ACL бакета [добавьте разрешение](../../storage/operations/buckets/edit-acl.md) `READ` сервисному аккаунту.
-1. [Получите ссылку](s3-access.md#get-link-to-object) на файл модели.
+1. [Получите ссылку](../../storage/concepts/object.md#object-url) на файл модели.
 
 
 ## Получить список моделей в кластере {#list}
@@ -343,7 +343,7 @@
 
 
 1. [Загрузите файл](../../storage/operations/objects/upload.md) с актуальной моделью в {{ objstorage-full-name }}.
-1. [Получите ссылку](s3-access.md#get-link-to-object) на этот файл.
+1. [Получите ссылку](../../storage/concepts/object.md#object-url) на этот файл.
 1. Измените параметры модели, подключенной к {{ mch-name }}, передав новую ссылку на файл с моделью.
 
 

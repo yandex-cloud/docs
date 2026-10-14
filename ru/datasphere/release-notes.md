@@ -101,7 +101,7 @@
 
 1. С помощью [{{ ml-platform-name }} Jobs](concepts/jobs/index.md) стало возможным использовать облачные вычислительные ресурсы в рамках {{ ml-platform-name }} из локальной среды пользователя.
 1. У проектов {{ ml-platform-name }} появился новый тип ресурсов — [Модели](concepts/models/index.md).
-1. В JupyterLab 3 (доступен в режиме [Dedicated](concepts/project.md#dedicated)) добавлены расширения, повышающие удобство работы.
+1. В JupyterLab 3 (доступен в режиме [Dedicated](concepts/project.md#mode)) добавлены расширения, повышающие удобство работы.
 1. На стадии [Preview](../overview/concepts/launch-stages.md) доступно [дообучение модели {{ yagpt-name }}](concepts/models/foundation-models.md#yagpt-tuning).
 1. Исправлены ошибки и добавлены небольшие улучшения в работе платформы.
 
@@ -130,7 +130,7 @@
 
 ## Релиз 23.05.2023 {#230523}
 
-1. В {{ ml-platform-name }} появился новый режим работы [{{ dd }}](concepts/project.md#dedicated).
+1. В {{ ml-platform-name }} появился новый режим работы [{{ dd }}](concepts/project.md#mode).
 1. В режиме {{ dd }} обновлена версия IDE до JupyterLab 3.5.3.
 1. Улучшен выбор организации.
 1. Работа с участниками сообществ и проектов стала проще.
@@ -162,8 +162,8 @@
 
 Значительно улучшили работу с кластерами Apache Spark™:
 1. В {{ ml-platform-name }} появился новый тип ресурсов — [шаблоны {{ dataproc-name }}](concepts/data-processing-template.md).
-1. Появилась возможность [конфигурировать livy-сессию](concepts/data-processing.md#session) при работе с кластерами {{ dataproc-name }}.
-1. Теперь {{ ml-platform-name }} поддерживает [работу с библиотекой Spark SQL](concepts/data-processing.md#sql).
+1. Появилась возможность [конфигурировать livy-сессию](concepts/data-processing-operations.md#session) при работе с кластерами {{ dataproc-name }}.
+1. Теперь {{ ml-platform-name }} поддерживает [работу с библиотекой Spark SQL](concepts/data-processing-operations.md#sql).
 
 ## Релиз 23.09.2022 {#230922}
 

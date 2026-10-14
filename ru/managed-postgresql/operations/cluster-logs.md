@@ -57,7 +57,7 @@
         * {% include [logs output format](../../_includes/cli/logs/format.md) %}
         * `--service-type` — тип сервиса, для которого требуется вывести записи (`postgresql` или `pooler`).
         * `--columns` — список колонок для вывода информации:
-            * `hostname` — [имя хоста](hosts.md#list-hosts).
+            * `hostname` — [имя хоста](hosts.md#list).
             * `db` — [имя базы данных](databases.md#list-db).
             * `level` — уровень логирования, например `info`.
             * `pid` — идентификатор серверного процесса текущей сессии.
@@ -105,7 +105,7 @@
 
      * `columnFilter` — название колонки для вывода информации:
 
-       * `hostname` — [имя хоста](hosts.md#list-hosts).
+       * `hostname` — [имя хоста](hosts.md#list).
        * `db` — [имя базы данных](databases.md#list-db).
        * `level` — уровень логирования, например `info`.
        * `pid` — идентификатор серверного процесса текущей сессии.
@@ -164,7 +164,7 @@
 
      * `column_filter` — список колонок для вывода информации:
 
-       * `hostname` — [имя хоста](hosts.md#list-hosts).
+       * `hostname` — [имя хоста](hosts.md#list).
        * `db` — [имя базы данных](databases.md#list-db).
        * `level` — уровень логирования, например `info`.
        * `pid` — идентификатор серверного процесса текущей сессии.
@@ -233,7 +233,7 @@
 
      * `columnFilter` — название колонки для вывода информации:
 
-       * `hostname` — [имя хоста](hosts.md#list-hosts).
+       * `hostname` — [имя хоста](hosts.md#list).
        * `db` — [имя базы данных](databases.md#list-db).
        * `level` — уровень логирования, например `info`.
        * `pid` — идентификатор серверного процесса текущей сессии.
@@ -289,7 +289,7 @@
 
      * `column_filter` — список колонок для вывода информации:
 
-       * `hostname` — [имя хоста](hosts.md#list-hosts).
+       * `hostname` — [имя хоста](hosts.md#list).
        * `db` — [имя базы данных](databases.md#list-db).
        * `level` — уровень логирования, например `info`.
        * `pid` — идентификатор серверного процесса текущей сессии.

@@ -1,6 +1,6 @@
 # Сегменты и ключи сегментов
 
-Следующие примеры поясняют понятия [сегментов](glossary.md#hard) (Partitions) и [ключей сегментов](glossary.md#partition-key) (PartitionKey).
+Следующие примеры поясняют понятия [сегментов](glossary.md#shard) (Partitions) и [ключей сегментов](glossary.md#partition-key) (PartitionKey).
 
 ## Когда важен порядок обработки сообщений {#order}
 

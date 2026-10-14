@@ -29,7 +29,7 @@ description: Следуя данной инструкции, вы узнаете
 
 - Интерфейс v1.0 {#cloud-sd-v1}
 
-  Для создания регулярного сканирования нужен [источник данных](../../concepts/dspm.md#data-source). [Создайте](create-data-source.md#create-data-source) его заранее или во время создания сканирования.
+  Для создания регулярного сканирования нужен [источник данных](../../concepts/dspm.md#data-source). [Создайте](create-data-source.md#change-scaning) его заранее или во время создания сканирования.
 
   {% note tip %}
 

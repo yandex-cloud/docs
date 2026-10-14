@@ -26,6 +26,6 @@ keywords:
 
 {% note info %}
 
-Для подключения с использованием SSL-соединения используйте клиент `redis-cli`, собранный с флагом `BUILD_TLS=yes`. Подробнее — в примерах строк подключения к [шардированному](../operations/connect/sharded-code-examples.md#bash) или [нешардированному](../operations/connect/non-sharded-code-examples.md#bash) кластеру.
+Для подключения с использованием SSL-соединения используйте клиент `redis-cli`, собранный с флагом `BUILD_TLS=yes`. Подробнее — в примерах строк подключения к [шардированному](../operations/connect/clients.md#valkey-cli) или [нешардированному](../operations/connect/clients.md#valkey-cli) кластеру.
 
 {% endnote %}

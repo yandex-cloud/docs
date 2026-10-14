@@ -51,7 +51,7 @@ description: Вы можете получить информацию о конф
             --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
         ```
 
-        Идентификатор кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
     1. Описание ресурсных групп и правил маршрутизации в кластере {{ mtr-name }} содержится в [ответе сервера](../api-ref/Cluster/get.md#yandex.cloud.trino.v1.Cluster) в поле `resourceGroups`.
 
@@ -79,7 +79,7 @@ description: Вы можете получить информацию о конф
             yandex.cloud.trino.v1.ClusterService.Get
         ```
 
-        Идентификатор кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
     1. Описание ресурсных групп и правил маршрутизации в кластере {{ mtr-name }} содержится в [ответе сервера](../api-ref/grpc/Cluster/get.md#yandex.cloud.trino.v1.Cluster) в поле `resource_groups`.
 

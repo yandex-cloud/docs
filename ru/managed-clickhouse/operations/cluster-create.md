@@ -322,7 +322,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-      1. Чтобы включить [режим управления пользователями через SQL](./cluster-users.md#sql-user-management):
+      1. Чтобы включить [режим управления пользователями через SQL](../concepts/user-access-rights.md#sql-user-management):
 
          * задайте значение `true` для параметра `--enable-sql-user-management`;
          * задайте пароль для пользователя `admin` в параметре `--admin-password`.
@@ -837,7 +837,7 @@ description: Следуя данной инструкции, вы сможете
                 * `sql...` и `adminPassword` — группа настроек для управления пользователями и базами данных через SQL:
 
                     * `adminPassword` — пароль пользователя `admin`.
-                    * `sqlUserManagement` — режим [управления пользователями через SQL](./cluster-users.md#sql-user-management): `true` или `false`.
+                    * `sqlUserManagement` — режим [управления пользователями через SQL](../concepts/user-access-rights.md#sql-user-management): `true` или `false`.
                     * `sqlDatabaseManagement` — режим [управления базами данных через SQL](./databases.md#sql-database-management): `true` или `false`. Необходимо, чтобы был включен режим управления пользователями через SQL.
 
 
@@ -1086,7 +1086,7 @@ description: Следуя данной инструкции, вы сможете
                 * `sql...` и `admin_password` — группа настроек для управления пользователями и базами данных через SQL:
 
                     * `admin_password` — пароль пользователя `admin`.
-                    * `sql_user_management` — режим [управления пользователями через SQL](./cluster-users.md#sql-user-management): `true` или `false`.
+                    * `sql_user_management` — режим [управления пользователями через SQL](../concepts/user-access-rights.md#sql-user-management): `true` или `false`.
                     * `sql_database_management` — режим [управления базами данных через SQL](./databases.md#sql-database-management): `true` или `false`. Необходимо, чтобы был включен режим управления пользователями через SQL.
 
 
@@ -1423,7 +1423,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-      1. Чтобы включить [режим управления пользователями через SQL](./cluster-users.md#sql-user-management):
+      1. Чтобы включить [режим управления пользователями через SQL](../concepts/user-access-rights.md#sql-user-management):
 
          * задайте значение `true` для параметра `--enable-sql-user-management`;
          * задайте пароль для пользователя `admin` в параметре `--admin-password`.
@@ -1951,7 +1951,7 @@ description: Следуя данной инструкции, вы сможете
                 * `sql...` и `adminPassword` — группа настроек для управления пользователями и базами данных через SQL:
 
                     * `adminPassword` — пароль пользователя `admin`.
-                    * `sqlUserManagement` — режим [управления пользователями через SQL](./cluster-users.md#sql-user-management): `true` или `false`.
+                    * `sqlUserManagement` — режим [управления пользователями через SQL](../concepts/user-access-rights.md#sql-user-management): `true` или `false`.
                     * `sqlDatabaseManagement` — режим [управления базами данных через SQL](./databases.md#sql-database-management): `true` или `false`. Необходимо, чтобы был включен режим управления пользователями через SQL.
 
 
@@ -2213,7 +2213,7 @@ description: Следуя данной инструкции, вы сможете
                 * `sql...` и `admin_password` — группа настроек для управления пользователями и базами данных через SQL:
 
                     * `admin_password` — пароль пользователя `admin`.
-                    * `sql_user_management` — режим [управления пользователями через SQL](./cluster-users.md#sql-user-management): `true` или `false`.
+                    * `sql_user_management` — режим [управления пользователями через SQL](../concepts/user-access-rights.md#sql-user-management): `true` или `false`.
                     * `sql_database_management` — режим [управления базами данных через SQL](./databases.md#sql-database-management): `true` или `false`. Необходимо, чтобы был включен режим управления пользователями через SQL.
 
 

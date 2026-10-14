@@ -44,11 +44,11 @@ description: Из статьи вы узнаете, какие чарты дос
 - Таблицы
 
   * [Таблица](table-chart.md)
-  * [Сводная таблица](pivot-table-chart.md) — Не поддерживается в [QL-чартах](../concepts/chart/index.md#sql-charts)
+  * [Сводная таблица](pivot-table-chart.md) — Не поддерживается в [QL-чартах](../concepts/chart/ql-charts.md)
 
 - Географическая карта
 
-  * [Карта](map-chart.md) — Не поддерживаются в [QL-чартах](../concepts/chart/index.md#sql-charts)
+  * [Карта](map-chart.md) — Не поддерживаются в [QL-чартах](../concepts/chart/ql-charts.md)
 
     * [Точечная карта](point-map-chart.md)
     * [Точечная карта с кластеризацией](cluster-point-map-chart.md)

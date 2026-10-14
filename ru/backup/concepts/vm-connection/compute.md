@@ -18,7 +18,7 @@ description: Из этой статьи вы узнаете, как подклю
 
 {% endnote %}
 
-После подключения к {{ backup-name }} [привяжите](../../operations/policy-vm/attach-and-detach-vm.md#attach-vm) виртуальную машину к [политике резервного копирования](../policy.md).
+После подключения к {{ backup-name }} [привяжите](../../operations/policy-vm/attach-and-detach-vm.md) виртуальную машину к [политике резервного копирования](../policy.md).
 
 {% note info %}
 

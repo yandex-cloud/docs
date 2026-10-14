@@ -29,4 +29,4 @@
 * [{{ vpc-full-name }}](../../audit-trails/concepts/events-data-plane.md#vpc)
 * [{{ wiki-full-name }}](../../audit-trails/concepts/events-data-plane.md#wiki)
 * [{{ websql-full-name }}](../../audit-trails/concepts/events-data-plane.md#websql)
-* [{{ sw-full-name }}](../../audit-trails/concepts/events-data-plane.md#workflows)
+* [{{ sw-full-name }}](../../audit-trails/concepts/events-data-plane.md#ai-studio)

@@ -9,7 +9,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% note info %}
 
-Прежде чем создавать приватное соединение, убедитесь, что в вашем каталоге есть [VRF](../../baremetal/concepts/private-network.md#vrf-segment) c одной или более маршрутизируемыми подсетями в {{ baremetal-name }}, а также Routing Instance, в составе которого [анонсированы](../../interconnect/concepts/priv-con.md#prc-announce) один или несколько префиксов приватных подсетей {{ vpc-short-name }}. [Заказать](../tutorials/bm-vrf-and-vpc-interconnect.md#request-ri) Routing Instance вы можете через [обращение]({{ link-console-support }}/tickets/create) в службу технической поддержки.
+Прежде чем создавать приватное соединение, убедитесь, что в вашем каталоге есть [VRF](../../baremetal/concepts/private-network.md#vrf-segment) c одной или более маршрутизируемыми подсетями в {{ baremetal-name }}, а также Routing Instance, в составе которого [анонсированы](../../cloud-router/concepts/announces.md#prc-announce) один или несколько префиксов приватных подсетей {{ vpc-short-name }}. [Заказать](../tutorials/bm-vrf-and-vpc-interconnect.md#request-ri) Routing Instance вы можете через [обращение]({{ link-console-support }}/tickets/create) в службу технической поддержки.
 
 {% endnote %}
 

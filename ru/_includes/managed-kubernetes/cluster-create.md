@@ -71,7 +71,7 @@
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}` — укажите начало и длительность интервала времени в UTC, в течение которого запустится обновление. Параметр не связан с длительностью самого обновления и временем его окончания.
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}` — укажите день, начало и длительность интервала времени в UTC, в течение которого запустится обновление. Параметр не связан с длительностью самого обновления и временем его окончания.
 1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**:
-   * (Опционально) Выберите [контроллер сетевых политик](../../managed-kubernetes/concepts/network-policy.md#policy-controllers):
+   * (Опционально) Выберите [контроллер сетевых политик](../../managed-kubernetes/concepts/network-policy.md):
 
      {% include [write-once-setting](write-once-setting.md) %}
 

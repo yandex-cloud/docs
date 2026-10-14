@@ -44,7 +44,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Чтобы удалить субтитры, нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
 
-  1. Чтобы изменить [нейроперевод](../../concepts/videos.md#translation), удалите старые языки и добавьте новые:
+  1. Чтобы изменить [нейроперевод](../../concepts/videos.md#stranslation), удалите старые языки и добавьте новые:
       
       1. В блоке **{{ ui-key.yacloud_video.videos.label_neuro-translation }}** нажмите ![image](../../../_assets/console-icons/ellipsis.svg) справа от языка нейроперевода.
       1. Нажмите ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_video.common.action_delete }}**.

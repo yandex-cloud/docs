@@ -203,7 +203,7 @@
 
 * **Turn before switchover**{#settings-turn-before-switchover} {{ tag-all }}
 
-    Если флаг включен, [агент управления состоянием хоста](../../managed-valkey/concepts/replication.md#availability) перед назначением нового мастера переключает реплику на хост нового мастера.
+    Если флаг включен, [агент управления состоянием хоста](../../managed-valkey/concepts/replication.md#rdsync) перед назначением нового мастера переключает реплику на хост нового мастера.
 
     По умолчанию настройка выключена.
 

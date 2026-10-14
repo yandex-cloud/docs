@@ -15,7 +15,7 @@
 
 {% note info %}
 
-Значение настройки [Max server memory usage]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings#max_server_memory_usage) нельзя изменять напрямую. {{ mch-name }} выставляет для нее значение автоматически в зависимости от объема оперативной памяти хостов {{ CH }}. Чтобы изменить значение настройки, [измените класс хостов {{ CH }}](#change-resource-preset). Подробнее в разделе [Управление памятью](../concepts/memory-management.md).
+Значение настройки [Max server memory usage]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings#max_server_memory_usage) нельзя изменять напрямую. {{ mch-name }} выставляет для нее значение автоматически в зависимости от объема оперативной памяти хостов {{ CH }}. Чтобы изменить значение настройки, [измените класс хостов {{ CH }}](update.md#change-resource-preset). Подробнее в разделе [Управление памятью](../concepts/memory-management.md).
 
 {% endnote %}
 

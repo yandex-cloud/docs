@@ -234,7 +234,7 @@
 
 ## Включите политику автоматического удаления Docker-образов {#lifecycle-policy}
 
-Чтобы не хранить устаревшие Docker-образы и их теги, используйте [политику автоматического удаления Docker-образов](../../container-registry/concepts/lifecycle-policy.md). Она применяется к образам в [репозитории {{ container-registry-name }}](../../container-registry/concepts/repository.md) и позволяет своевременно очищать место в нем. Так вы не переплачиваете за [хранение устаревших образов](../../container-registry/pricing.md#prices-storage).
+Чтобы не хранить устаревшие Docker-образы и их теги, используйте [политику автоматического удаления Docker-образов](../../container-registry/concepts/lifecycle-policy.md). Она применяется к образам в [репозитории {{ container-registry-name }}](../../container-registry/concepts/repository.md) и позволяет своевременно очищать место в нем. Так вы не переплачиваете за [хранение устаревших образов](../../container-registry/pricing.md#prices).
 
 Чтобы создать политику, [следуйте инструкции](../../container-registry/operations/lifecycle-policy/lifecycle-policy-create.md).
 

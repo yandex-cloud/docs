@@ -112,7 +112,7 @@
 
 При помощи команд `BACKUP` и `RESTORE` и бакета {{ objstorage-name }} вы можете перенести из стороннего кластера {{ CH }} как отдельные таблицы, так и базу данных целиком:
 
-1. [Создайте кластер-приемник {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md#create-cluster) с включенным [управлением пользователями через SQL](../../managed-clickhouse/operations/cluster-users.md#sql-user-management).
+1. [Создайте кластер-приемник {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md#create-cluster) с включенным [управлением пользователями через SQL](../../managed-clickhouse/concepts/user-access-rights.md#sql-user-management).
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с ролью `storage.editor`.
 1. [Создайте статический ключ](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта.
 

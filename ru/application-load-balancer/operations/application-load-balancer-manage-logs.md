@@ -15,7 +15,7 @@
      
      1. Включите опцию **{{ ui-key.yacloud.alb.label_log-requests }}**.
      1. Выберите [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, в которую будут записываться логи балансировщика.
-     1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-discard-rule }}** и настройте его [параметры](../concepts/application-load-balancer.md#discard-logs-rules):
+     1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-discard-rule }}** и настройте его [параметры](../concepts/monitoring.md#discard-logs-rules):
         
         * **{{ ui-key.yacloud.alb.label_discard-http-codes }}** — добавьте HTTP-коды.
         * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}** — добавьте классы HTTP-кодов.
@@ -50,7 +50,7 @@
      
      * `--enable` — параметр для включения логирования.
      * `--log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md), в которую будут записываться логи балансировщика.
-     * `--discard` — [правило отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules). Параметры правила:
+     * `--discard` — [правило отбрасывания логов](../concepts/monitoring.md#discard-logs-rules). Параметры правила:
        
        * `codes` — HTTP-коды, классы HTTP-кодов или gRPC-коды.
        * `percent` — доля отбрасываемых логов в процентах.
@@ -97,7 +97,7 @@
      Где `log_options` — параметры записи [логов](../logs-ref.md) в {{ cloud-logging-name }}:
      
      * `log_group_id` — идентификатор [лог-группы](../../logging/concepts/log-group.md), в которую будут записываться логи балансировщика.
-     * `discard_rule` — [правило отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules):
+     * `discard_rule` — [правило отбрасывания логов](../concepts/monitoring.md#discard-logs-rules):
        
        * `http_codes` — HTTP-коды.
        * `http_code_intervals` — классы HTTP-кодов.
@@ -136,7 +136,7 @@
   1. В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}**:
      
      1. Измените лог-группу {{ cloud-logging-name }}, в которую будут записываться логи балансировщика.
-     1. Измените [правила отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules):
+     1. Измените [правила отбрасывания логов](../concepts/monitoring.md#discard-logs-rules):
         
         * **{{ ui-key.yacloud.alb.label_discard-http-codes }}** — измените HTTP-коды.
         * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}** — измените классы HTTP-кодов.
@@ -169,7 +169,7 @@
      Где:
      
      * `--log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md), в которую будут записываться логи балансировщика.
-     * `--discard` — [правило отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules). Параметры правила:
+     * `--discard` — [правило отбрасывания логов](../concepts/monitoring.md#discard-logs-rules). Параметры правила:
        
        * `codes` — HTTP-коды, классы HTTP-кодов или gRPC-коды.
        * `percent` — доля отбрасываемых логов в процентах.
@@ -216,7 +216,7 @@
      Где `log_options` — параметры записи [логов](../logs-ref.md) в {{ cloud-logging-name }}:
      
      * `log_group_id` — идентификатор [лог-группы](../../logging/concepts/log-group.md), в которую будут записываться логи балансировщика.
-     * `discard_rule` — [правило отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules):
+     * `discard_rule` — [правило отбрасывания логов](../concepts/monitoring.md#discard-logs-rules):
        
        * `http_codes` — HTTP-коды.
        * `http_code_intervals` — классы HTTP-кодов.

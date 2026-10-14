@@ -59,7 +59,7 @@ description: Из статьи вы узнаете, как создать рас
      * `--retention-period` — срок хранения снимков. Указывается в формате длительности, например: `300ms`, `1.5h` или `2h45m`. Используйте либо `--retention-period`, либо `--snapshot-count`.
      * `--snapshot-count` — максимальное количество снимков для каждого [диска](../../concepts/disk.md). Используйте либо `--snapshot-count`, либо `--retention-period`.
      * `--description` — описание расписания.
-     * `--labels` — [метки](../../../overview/concepts/services.md#labels) расписания в формате `ключ=значение`.
+     * `--labels` — [метки](../../../resource-manager/concepts/labels.md) расписания в формате `ключ=значение`.
      * `--snapshot-description` — описание снимка.
      * `--snapshot-labels` — метки снимка в формате `ключ=значение`.
 
@@ -175,7 +175,7 @@ description: Из статьи вы узнаете, как создать рас
         {% include [name-format](../../../_includes/name-format.md) %}
 
      * `description` — описание расписания.
-     * `labels` — [метки](../../../overview/concepts/services.md#labels) расписания в формате `<ключ> = "<значение>"`.
+     * `labels` — [метки](../../../resource-manager/concepts/labels.md) расписания в формате `<ключ> = "<значение>"`.
      * `snapshot_spec` — параметры снимков, которые будут созданы по этому расписанию:
         * `description` — описание снимка.
         * `labels` — метки снимка в формате `<ключ> = "<значение>"`.

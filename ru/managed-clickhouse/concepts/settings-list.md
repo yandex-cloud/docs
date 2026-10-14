@@ -53,7 +53,7 @@
 
 ### Пользовательские настройки {#custom-settings}
 
-[Пользовательские настройки]({{ ch.docs }}{{ lang }}/operations/settings#custom_settings) можно переопределять как переменные в [профиле настроек]({{ ch.docs }}{{ lang }}/operations/access-rights#settings-profiles-management), сессии или запросе. Работа с профилями настроек доступна, если для кластера включено [управление пользователями через SQL](../operations/cluster-users.md#sql-user-management).
+[Пользовательские настройки]({{ ch.docs }}{{ lang }}/operations/settings#custom_settings) можно переопределять как переменные в [профиле настроек]({{ ch.docs }}{{ lang }}/operations/access-rights#settings-profiles-management), сессии или запросе. Работа с профилями настроек доступна, если для кластера включено [управление пользователями через SQL](user-access-rights.md#sql-user-management).
 
 Название пользовательской настройки в {{ mch-name }} должно начинаться с предопределенного префикса `custom_`. Префикс фиксированный — пользователь не может его менять.
 

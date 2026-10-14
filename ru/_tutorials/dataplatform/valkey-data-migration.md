@@ -54,7 +54,7 @@
             * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** — выберите ту же группу безопасности, что и для кластера {{ mrd-name }}.
 
     
-    1. Если вы используете группы безопасности {{ vpc-name }}, [настройте их](../../managed-valkey/operations/connect/index.md#configuring-security-groups).
+    1. Если вы используете группы безопасности {{ vpc-name }}, [настройте их](../../managed-valkey/operations/connect/index.md#configure-security-groups).
 
 
 - {{ TF }} {#tf}

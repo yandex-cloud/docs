@@ -55,7 +55,7 @@ description: Контроль данных ({{ dspm-name }}) — это один
 
 Сканирование на наличие чувствительной информации выполняется от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
 
-Чтобы [создать сканирование](../operations/dspm/create-scan.md), пользователь должен обладать [ролью](../../security-deck/security/dspm-roles.md#dspm-editor) `dspm.editor` на каталог, [заданный](../quickstart-overview.md#configure-sd) в настройках {{ sd-name }} в качестве хранилища по умолчанию, а также [ролью](../../iam/security/index.md#iam-serviceAccounts-user) `iam.serviceAccounts.user` на сервисный аккаунт, от имени которого будет выполняться сканирование.
+Чтобы [создать сканирование](../operations/dspm/create-scan.md), пользователь должен обладать [ролью](../../security-deck/security/dspm-roles.md#dspm-editor) `dspm.editor` на каталог, [заданный](../quickstart-overview.md#create-workspace) в настройках {{ sd-name }} в качестве хранилища по умолчанию, а также [ролью](../../iam/security/index.md#iam-serviceAccounts-user) `iam.serviceAccounts.user` на сервисный аккаунт, от имени которого будет выполняться сканирование.
 
 {% include [sa-scan-roles-warning](../../_includes/security-deck/sa-scan-roles-warning.md) %}
 
@@ -97,7 +97,7 @@ description: Контроль данных ({{ dspm-name }}) — это один
 
 {% note info %}
 
-Функциональность доступна только при выборе [подписки с фиксированным объемом сканирования](../pricing.md#dspm-package-subscription).
+Функциональность доступна только при выборе [подписки с фиксированным объемом сканирования](../pricing.md#starter-rules).
 
 {% endnote %}
 

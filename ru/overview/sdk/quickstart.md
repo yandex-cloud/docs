@@ -30,8 +30,8 @@ description: Познакомьтесь с возможностями {{ yandex-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки ВМ, созданной с помощью SDK, входят:
-* плата за вычислительные ресурсы ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md#prices-instance-resources));
-* плата за диски ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md#prices-storage));
+* плата за вычислительные ресурсы ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md#prices));
+* плата за диски ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md#prices));
 * плата за использование динамического внешнего IP-адреса ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
 
 ### Создайте сервисный аккаунт {#create-sa}

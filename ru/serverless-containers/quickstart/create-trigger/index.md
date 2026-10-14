@@ -43,5 +43,5 @@ description: Из статьи вы узнаете, как создать и з�
 
 #### Полезные ссылки {#see-also}
 
-* [Пошаговые инструкции по созданию триггеров](../../operations/index.md#trigger-create)
+* [Пошаговые инструкции по созданию триггеров](../../operations/index.md#create-trigger)
 * [Обзор триггеров в {{ serverless-containers-full-name }}](../../concepts/trigger/index.md)
