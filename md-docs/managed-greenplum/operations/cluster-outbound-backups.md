@@ -8,14 +8,25 @@
 
 Для выполнения инструкции вам потребуются:
 
+1. Greenplum®: Скачайте последнюю версию из репозитория [https://github.com/open-gpdb/gpdb/releases](https://github.com/open-gpdb/gpdb/releases).
 1. Виртуальная инфраструктура: Развернуты виртуальные машины, каждому из которых присвоено соответствующее FQDN-имя.
-1. Операционная система: На узлах установлена ОС из списка совместимых с Greenplum® (рекомендуется Ubuntu 24.04).
+1. Операционная система: На узлах установлена ОС из списка совместимых с Greenplum® (рекомендуется Ubuntu 22.04).
 1. Сетевой доступ: На всех узлах кластера настроен вход по SSH без пароля (passwordless) для пользователя `gpadmin`. 
 1. WAL-G: Бинарный файл [wal-g](https://github.com/wal-g/wal-g/releases/) установлен на все хосты кластера.
 1. Дисковое пространство: Свободное место на диске, достаточное для хранения данных в распакованном виде с учетом:
    * Размера самой базы данных;
    * Размера WAL-сегментов, которые будут восстанавливаться.
 
+Чтобы расшифровать ключ шифрования резервной копии:
+
+1. Скачайте из бакета файл `gpg-key-<id>-0-of-1.7z`.
+1. Откройте архив и введите ключ, который ранее получили через форму запроса резервной копии. Если вы не сохранили ключ, то выгрузку резервной копии нужно запросить повторно. Чтобы раскрыть архив, используйте способ, подходящий для вашей операционной системы:
+
+   * Windows: 7-Zip.
+   * macOS: Keka.
+   * Linux: команда `7z x gpg-key-<id>-0-of-1.7z`. Пароль вводите, когда 7z его спросит.
+
+1. Используйте ключ, полученный из архива, для расшифровки резервной копии.
 
 ## Подготовка окружения на хостах кластера {#prepare-env}
 
@@ -61,6 +72,118 @@
    ```
 
 1. Скопируйте файл приватного PGP-ключа, полученного от Yandex MPP Analytics for PostgreSQL, в указанное место в файле конфигурации `/etc/wal-g/PGP_KEY`. Убедитесь, что права доступа строгие (`chmod 600 /etc/wal-g/PGP_KEY`).
+
+1. Проверьте целостность резервной копии:
+ 
+   1. Сохраните скрипт в файл `s3_test_script.sh`.
+   
+       {% cut "Код скрипта" %}
+   
+       ```bash
+       #!/usr/bin/env bash
+       set -u
+   
+       if [[ $# -lt 1 || $# -gt 2 || ! -f $1 || ! -r $1 ]]; then
+         printf 'Usage: %s /path/to/wal-g-config [storage/directory]\n' "$0" >&2
+         exit 2
+       fi
+   
+       config=$1
+       directory=${2:-}
+       directory=${directory#/}
+       directory=${directory%/}
+       wal_g=${WAL_G_BIN:-wal-g}
+       listing=$(mktemp) || exit 2
+       trap 'rm -f "$listing"' EXIT
+   
+       if ! "$wal_g" --config "$config" st ls -r >"$listing"; then
+         printf 'ERROR: wal-g st ls -r failed\n' >&2 
+         exit 2
+       fi
+   
+       help=$({ "$wal_g" --config "$config" st cat --help || :; } 2>&1)
+       if [[ $help == *--decode* ]]; then
+         decode_flag=--decode
+       elif [[ $help == *--decrypt* ]]; then
+         decode_flag=--decrypt
+       else
+         printf 'ERROR: st cat supports neither --decode nor --decrypt\n' >&2
+         exit 2
+       fi
+       if [[ $help != *--decompress* ]]; then
+         printf 'ERROR: st cat does not support --decompress\n' >&2
+         exit 2
+       fi
+   
+       red='' reset=''
+       if [[ -t 2 ]]; then red=$'\033[31m'; reset=$'\033[0m'; fi
+       checked=0 decoded=0 raw=0 unknown=0 failed=0
+   
+       while IFS= read -r line; do
+         path=''
+         case $line in
+           obj\ *) read -r _ _ _ _ _ _ path <<<"$line" ;;
+           [0-9]*) read -r _ _ _ _ _ path <<<"$line" ;;
+           dir\ *|type\ *|size\ *|'') continue ;;
+           *) printf 'UNPARSED listing line: %s\n' "$line" >&2; ((unknown += 1)); continue ;;
+         esac
+   
+         if [[ -z $path ]]; then
+           printf 'UNPARSED listing line: %s\n' "$line" >&2
+           ((unknown += 1))
+           continue
+         fi
+         if [[ -n $directory && $path != "$directory/"* ]]; then
+           continue
+         fi
+   
+         ((checked += 1))
+         case $path in
+           *.br|*.lz4|*.lzma|*.zst|*.zstd|*.lzo)
+             ((decoded += 1))
+             "$wal_g" --config "$config" st cat "$path" "$decode_flag" --decompress >/dev/null ;;
+           *.json)
+             ((raw += 1))
+             "$wal_g" --config "$config" st cat "$path" >/dev/null ;;
+           *)
+             ((raw += 1, unknown += 1))
+             printf 'RAW ONLY (unknown format): %s\n' "$path" >&2
+             "$wal_g" --config "$config" st cat "$path" >/dev/null ;;
+         esac
+   
+         if [[ $? -ne 0 ]]; then
+           printf '%sFAIL%s %s\n' "$red" "$reset" "$path" >&2
+           ((failed += 1))
+         fi
+       done <"$listing"
+   
+       printf 'Checked: %d; decoded: %d; raw: %d; failed: %d; unknown: %d\n' \
+         "$checked" "$decoded" "$raw" "$failed" "$unknown"
+   
+       if ((failed > 0)); then exit 1; fi
+       if ((checked == 0 || unknown > 0)); then exit 2; fi
+       ```
+      
+       {% endcut %}
+
+   1. Запустите скрипт:
+
+      ```bash
+      WAL_G_BIN=wal-g-gp ./s3_test_script.sh */etc/wal-g/wal-g.yaml*
+      ```
+   
+      При необходимости укажите директорию:
+
+      ```bash
+      WAL_G_BIN=wal-g-gp ./s3_test_script.sh */etc/wal-g/wal-g.yaml* basebackups_005 # проверяет копии
+      WAL_G_BIN=wal-g-gp ./s3_test_script.sh */etc/wal-g/wal-g.yaml* wal_005 # проверяет WAL
+      ```
+
+      Пример вывода:
+
+      ```bash
+      FAIL test/corrupted_file_2.txt.br
+      Checked: 2; decoded: 2; raw: 0; failed: 1; unknown:
 
 ## Настройка конфигурации восстановления {#restore-config}
 
@@ -112,6 +235,7 @@
    rm -rf /var/lib/greenplum/data1/master/gpseg-1
    rm -rf /var/lib/greenplum/data1/primary/gpseg*
    rm -rf /var/lib/greenplum/data1/mirror/gpseg*
+   EOF
    ```
 
 ## Восстановление базы данных {#restore-db}

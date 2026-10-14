@@ -1,0 +1,1 @@
+In IT system access management, granularity refers to breaking down broad access permissions into distinct, narrow privileges based on the [principle of least privilege](../iam/best-practices/using-iam-securely.md#restrict-access).

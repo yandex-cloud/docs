@@ -1,0 +1,1 @@
+{{ lockbox-full-name }} is designed for centralized storage of secrets, such as passwords, SSH keys, and tokens. For more information, see [this {{ lockbox-name }} guide](../../lockbox/concepts/index.md).

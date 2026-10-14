@@ -77,7 +77,8 @@ The maximum string length in characters is 1000. ||
                 "max_size": "int64"
               }
               // end of the list of possible fields
-            }
+            },
+            "preemptible": "bool"
           },
           "executor": {
             "resource_preset_id": "string",
@@ -91,7 +92,8 @@ The maximum string length in characters is 1000. ||
                 "max_size": "int64"
               }
               // end of the list of possible fields
-            }
+            },
+            "preemptible": "bool"
           }
         },
         "history_server": {
@@ -307,6 +309,9 @@ The maximum string length in characters is 50. ||
 || scale_policy | **[ScalePolicy](#yandex.cloud.spark.v1.ScalePolicy)**
 
 Required field. Scale Policy. ||
+|| preemptible | **bool**
+
+Run pool nodes on preemptible (interruptible) VMs. ||
 |#
 
 ## ScalePolicy {#yandex.cloud.spark.v1.ScalePolicy}

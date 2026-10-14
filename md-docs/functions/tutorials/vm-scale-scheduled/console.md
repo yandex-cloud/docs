@@ -6,6 +6,7 @@
 Чтобы настроить [масштабирование группы виртуальных машин по расписанию](index.md), выполните следующие шаги:
 
 1. [Подготовьте облако к работе](#before-begin).
+1. [Создайте вспомогательные ресурсы](#create-aux-resources).
 1. [Создайте группу ВМ](#create-ig).
 1. [Создайте ресурсы Cloud Functions](#create-sf-resources).
 1. [Проверьте масштабирование группы ВМ](#test-scale).
@@ -103,7 +104,7 @@
 
   1. Создайте сервисный аккаунт `vm-scale-scheduled-sa`. Для этого воспользуйтесь методом REST API [create](../../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../../iam/api-ref/grpc/ServiceAccount/create.md).
   1. Назначьте сервисному аккаунту в текущем каталоге [роли](../../../iam/concepts/access-control/roles.md):
-     * `compute.admin` — для управления группой ВМ.
+     * `compute.editor` — для управления группой ВМ.
      * `iam.serviceAccounts.user` — для привязки сервисного аккаунта к ВМ, входящим в группу.
      * `functions.functionInvoker` — для запуска функции Cloud Functions.
 
@@ -436,20 +437,22 @@
   1. Вставьте вместо содержимого файла следующий код:
 
      ```bash
-     # Get ID and current size of the instance group
-     IG_SPEC=$(yc compute instance-group get --name $IG_NAME --folder-id $FOLDER_ID --format json)
-     IG_ID=$(jq -r ".id" <<< $IG_SPEC)
-     IG_SIZE=$(jq -r ".scale_policy.fixed_scale.size" <<< $IG_SPEC)
+     set -e
      
-     # Calculate new size for the instance group
-     if [ $IG_SIZE = $IG_BASE_SIZE ]; then
+     # Получение идентификатора и текущего размера группы ВМ
+     IG_SPEC=$(yc compute instance-group get --name "$IG_NAME" --folder-id "$FOLDER_ID" --format json)
+     IG_ID=$(jq -r ".id" <<< "$IG_SPEC")
+     IG_SIZE=$(jq -r ".scale_policy.fixed_scale.size" <<< "$IG_SPEC")
+     
+     # Вычисление нового размера группы ВМ
+     if [ "$IG_SIZE" = "$IG_BASE_SIZE" ]; then
          IG_SIZE="$(($IG_BASE_SIZE + 1))"
      else
-         IG_SIZE=$IG_BASE_SIZE
+         IG_SIZE="$IG_BASE_SIZE"
      fi
      
-     # Update the instance group
-     yc compute instance-group update --id $IG_ID --scale-policy-fixed-scale-size $IG_SIZE
+     # Обновление группы ВМ
+     yc compute instance-group update --id "$IG_ID" --scale-policy-fixed-scale-size "$IG_SIZE"
      ```
 
   1. В блоке **Параметры**:
@@ -459,27 +462,29 @@
        * `IG_NAME` = `vm-scale-scheduled-ig`.
        * `IG_BASE_SIZE` = `2`.
        * `FOLDER_ID` = идентификатор каталога. Получить идентификатор можно по [инструкции](../../../resource-manager/operations/folder/get-id.md).
-  1. В правом верхнем углу нажмите **Сохранить изменения**.
+  1. Нажмите **Сохранить изменения**.
 
 - CLI {#cli}
 
   1. Создайте файл `handler.sh` со следующим кодом:
 
      ```bash
-     # Get ID and current size of the instance group
-     IG_SPEC=$(yc compute instance-group get --name $IG_NAME --folder-id $FOLDER_ID --format json)
-     IG_ID=$(jq -r ".id" <<< $IG_SPEC)
-     IG_SIZE=$(jq -r ".scale_policy.fixed_scale.size" <<< $IG_SPEC)
+     set -e
      
-     # Calculate new size for the instance group
-     if [ $IG_SIZE = $IG_BASE_SIZE ]; then
+     # Получение идентификатора и текущего размера группы ВМ
+     IG_SPEC=$(yc compute instance-group get --name "$IG_NAME" --folder-id "$FOLDER_ID" --format json)
+     IG_ID=$(jq -r ".id" <<< "$IG_SPEC")
+     IG_SIZE=$(jq -r ".scale_policy.fixed_scale.size" <<< "$IG_SPEC")
+     
+     # Вычисление нового размера группы ВМ
+     if [ "$IG_SIZE" = "$IG_BASE_SIZE" ]; then
          IG_SIZE="$(($IG_BASE_SIZE + 1))"
      else
-         IG_SIZE=$IG_BASE_SIZE
+         IG_SIZE="$IG_BASE_SIZE"
      fi
      
-     # Update the instance group
-     yc compute instance-group update --id $IG_ID --scale-policy-fixed-scale-size $IG_SIZE
+     # Обновление группы ВМ
+     yc compute instance-group update --id "$IG_ID" --scale-policy-fixed-scale-size "$IG_SIZE"
      ```
 
   1. Создайте функцию:
@@ -535,20 +540,22 @@
   1. Создайте версию функции с помощью метода REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызова gRPC API [FunctionService/CreateVersion](../../functions/api-ref/grpc/Function/createVersion.md). Версия функции должна иметь следующий код:
 
      ```bash
-     # Get ID and current size of the instance group
-     IG_SPEC=$(yc compute instance-group get --name $IG_NAME --folder-id $FOLDER_ID --format json)
-     IG_ID=$(jq -r ".id" <<< $IG_SPEC)
-     IG_SIZE=$(jq -r ".scale_policy.fixed_scale.size" <<< $IG_SPEC)
+     set -e
      
-     # Calculate new size for the instance group
-     if [ $IG_SIZE = $IG_BASE_SIZE ]; then
+     # Получение идентификатора и текущего размера группы ВМ
+     IG_SPEC=$(yc compute instance-group get --name "$IG_NAME" --folder-id "$FOLDER_ID" --format json)
+     IG_ID=$(jq -r ".id" <<< "$IG_SPEC")
+     IG_SIZE=$(jq -r ".scale_policy.fixed_scale.size" <<< "$IG_SPEC")
+     
+     # Вычисление нового размера группы ВМ
+     if [ "$IG_SIZE" = "$IG_BASE_SIZE" ]; then
          IG_SIZE="$(($IG_BASE_SIZE + 1))"
      else
-         IG_SIZE=$IG_BASE_SIZE
+         IG_SIZE="$IG_BASE_SIZE"
      fi
      
-     # Update the instance group
-     yc compute instance-group update --id $IG_ID --scale-policy-fixed-scale-size $IG_SIZE
+     # Обновление группы ВМ
+     yc compute instance-group update --id "$IG_ID" --scale-policy-fixed-scale-size "$IG_SIZE"
      ```
 
 {% endlist %}
@@ -564,16 +571,16 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
   1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **Триггеры**.
-  1. Справа сверху нажмите **Создать триггер**.
+  1. Нажмите **Создать триггер**.
   1. В блоке **Базовые параметры**:
      * В поле **Имя** укажите `vm-scale-scheduled-trigger`.
      * В поле **Тип** выберите `Таймер`.
-     * В поле **Запускаемый ресурс** выберите `Функция`.
   1. В блоке **Настройки таймера** в поле **Cron-выражение** укажите `*/2 * * * ? *` — триггер будет срабатывать каждые две минуты, например, в 09:58, 10:00, 10:02, 10:04 и т. д.
-  1. В блоке **Настройки функции**:
+  1. В блоке **Приёмники**:
+     * В поле **Тип приёмника** выберите `Функция`.
      * В поле **Функция** укажите `vm-scale-scheduled-function`.
      * В поле **Тег версии функции** выберите `$latest`.
-     * Выберите **Сервисный аккаунт** `vm-scale-scheduled-sa`.
+     * Выберите **Сервисный аккаунт** — `vm-scale-scheduled-sa`.
   1. В блоке **Настройки Dead Letter Queue** очистите поле **Сервисный аккаунт** (`Не выбрано`).
   1. Нажмите **Создать триггер**.
 

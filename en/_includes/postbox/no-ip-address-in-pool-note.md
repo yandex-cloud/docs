@@ -1,0 +1,1 @@
+If a configuration is linked to a pool with no allocated IP addresses, sending emails with that configuration will fail: the [SendEmail](../../postbox/aws-compatible-api/api-ref/send-email.md) method will return the `404 NotFoundException` error. The system will not automatically fall back to the shared IP address pool.

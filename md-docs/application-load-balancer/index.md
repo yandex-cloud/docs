@@ -234,6 +234,8 @@ Yandex Application Load Balancer служит для распределения 
 
  - [Установка Gwin](tools/gwin/quickstart.md)
 
+ - [Обновление Gwin](tools/gwin/upgrade.md)
+
  - [Политики Gwin](tools/gwin/policies.md)
 
  - [Маршрутизация трафика напрямую в поды кластера](tools/gwin/routes-pod.md)

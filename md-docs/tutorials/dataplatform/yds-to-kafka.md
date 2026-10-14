@@ -10,7 +10,7 @@
 Чтобы перенести данные:
 
 1. [Подготовьте инфраструктуру](#prepare-infrastructure).
-1. [Подготовьте поток данных Data Streams](#prepare-source).
+1. [Создайте поток данных Data Streams](#prepare-source).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работоспособность трансфера](#verify-transfer).
 
@@ -100,7 +100,7 @@
         * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md);
         * `ydb_name` — имя базы данных Managed Service for YDB;
         * `stream_name` — имя потока Data Streams;
-        * `mkf_version` — версия кластера Apache Kafka®;
+        * `mkf_version` — [версия](../../managed-kafka/operations/cluster-version-update.md#version-list) кластера Apache Kafka®;
         * `mkf_user_name` — имя пользователя в кластере Managed Service for Apache Kafka®;
         * `mkf_user_password` — пароль пользователя в кластере Managed Service for Apache Kafka®.
 
@@ -149,15 +149,17 @@
 
     1. [Создайте эндпоинт для источника Data Streams](../../data-transfer/operations/endpoint/index.md#create).
 
+        * **Направление** — `Источник`.
+        * Укажите имя эндпоинта.
         * **Тип базы данных** — `Yandex Data Streams`.
         * **Параметры эндпоинта**:
 
             * **Настройки подключения**:
 
                 * **Тип подключения** — выберите `База Managed Service for YDB`.
-                * **База данных** — выберите [созданную ранее](#before-you-begin) базу данных Managed Service for YDB из списка.
+                * **База данных** — выберите [созданную ранее](#prepare-infrastructure) базу данных Managed Service for YDB из списка.
                 * **Поток** — укажите имя [созданного ранее](#prepare-source) потока Data Streams.
-                * **Сервисный аккаунт** — выберите [созданный ранее](#before-you-begin) сервисный аккаунт с ролью `yds.editor`.
+                * **Сервисный аккаунт** — выберите [созданный ранее](#prepare-infrastructure) сервисный аккаунт с ролью `yds.editor`.
 
             * **Расширенные настройки**:
 
@@ -213,23 +215,24 @@
 
     1. [Создайте эндпоинт для приемника Managed Service for Apache Kafka®](../../data-transfer/operations/endpoint/index.md#create).
 
+        * **Направление** — `Приёмник`.
+        * Укажите имя эндпоинта.
         * **Тип базы данных** — `Kafka`.
         * **Параметры эндпоинта**:
 
-            * **Настройки подключения**:
-
-                * **Тип подключения** — выберите `Кластер Managed Service for Apache Kafka`.
-                * **Кластер Managed Service for Apache Kafka** — выберите [созданный ранее](#before-you-begin) кластер Managed Service for Apache Kafka® из списка.
-                * **Аутентификация** — выберите `SASL` и укажите данные [созданного ранее](#before-you-begin) пользователя Apache Kafka®.
-                * **Топик** — выберите `Полное имя топика`.
-                * **Полное имя топика** — укажите значение `sensors`.
+            * **Тип подключения** — выберите `Ручная настройка`.
+            * **Тип инсталляции** — выберите `Кластер Managed Service for Apache Kafka`.
+            * **Кластер Managed Service for Apache Kafka** — выберите [созданный ранее](#prepare-infrastructure) кластер Managed Service for Apache Kafka® из списка.
+            * **Аутентификация** — выберите `SASL` и укажите данные [созданного ранее](#prepare-infrastructure) пользователя Apache Kafka®.
+            * **Топик** — выберите `Полное имя топика`.
+            * **Полное имя топика** — укажите `sensors`.
 
     1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **Репликация**, использующий созданные эндпоинты.
     1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate).
 
 - Terraform {#tf}
 
-    1. Укажите в файле `data-transfer-ydb-mkf.tf` значение `1` для переменной `transfer_enabled`, чтобы создать эндпоинты и трансфер.
+    1. Укажите в файле `yds-to-kafka.tf` значение `1` для переменной `transfer_enabled`, чтобы создать эндпоинты и трансфер.
 
     1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 

@@ -56,19 +56,19 @@ blocks:
 
 The cost of using {{ cdn-name }} is based on:
 
-* Monthly prepayment for a usage package for each [CDN resource](./concepts/resource.md):
+* Monthly prepaid fee for each [CDN resource](./concepts/resource.md), which covers:
     * 150 GB of outgoing traffic.
     * 100,000,000 requests to the CDN resource.
 
-* Outgoing traffic exceeding the 150 GB included in the prepaid package per CDN resource per month. You are charged for each 1 GB in excess of the package allowance.
+* Outgoing traffic exceeding the 150 GB monthly package per CDN resource. You pay for each additional GB of traffic.
 
-    Deleting a resource forfeits any remaining free traffic. You cannot transfer traffic from one resource to another.
+    If you delete a resource, its unused prepaid traffic will be lost. You cannot use this amount toward a different CDN resource.
 
     You pay for outgoing traffic from CDN servers, including traffic requested from user resources of {{ yandex-cloud }} services, e.g., {{ compute-full-name }} [VM instances](../compute/concepts/vm.md). Inbound traffic to the CDN servers from {{ yandex-cloud }} services and resources or from the internet is free of charge.
 
-* Requests to CDN resources exceeding the 100,000,000 requests included in the prepaid package per CDN resource per month. You are charged per 100,000 requests in excess of the package allowance.
+* Requests exceeding the 100,000,000 monthly package per CDN resource. You pay for each additional 100,000 requests.
 
-    Deleting a resource forfeits any unused prepaid request allowance. You cannot transfer it to another CDN resource.
+    If you delete a resource, unused prepaid requests will be lost. You cannot use them toward a different CDN resource.
 
 * Paid features enabled for your resources, such as [origin shielding](concepts/origins-shielding.md), [log export](./concepts/logs.md), and [dedicated IP addressing](./concepts/dedicated-ip-addressing.md).
 

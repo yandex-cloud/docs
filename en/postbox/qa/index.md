@@ -36,3 +36,15 @@ One common cause of delays is [greylisting](https://en.wikipedia.org/wiki/Greyli
 #### Why was an email not sent to the recipient? {#message-suppressed}
 
 One possible reason is that the recipient's address is on a [suppression list](../concepts/suppression-list.md). For more information, see [{#T}](../concepts/suppression-list.md).
+
+#### Why does my connection drop with a `421 4.4.2 Idle timeout` error? {#idle-timeout}
+
+The SMTP connection remains open for as long as the client is sending commands: the idle timeout restarts on each command received by the server. If the pause between commands exceeds the allowed idle time (around one minute), the server will respond with `421 4.4.2 Idle timeout, bye bye` and close the connection. This error comes between transactions, so the email is neither lost nor duplicated. To continue sending, establish a new connection.
+
+To avoid getting this error:
+
+* If using a connection pool, send emails in succession, send the `NOOP` command more often than once per minute (any command resets the idle timeout), or close the connection with the `QUIT` command and open a new one before the next send.
+* Your pauses between retries, including after the `454 Maximum sending rate exceeded` error, should be between connections, not during an active connection.
+* The message body must fit entirely within the same timeout after the `DATA` command; the timeout is counted from the `DATA` command. Otherwise, the server will return the `451 4.4.2 Timeout waiting for data from client` error. If your data transmission channel is slow and the attachments are large, reduce the size of the email.
+
+The `421 4.4.2` error is neither a quota error nor a bounce. For more on SMTP responses, see [{#T}](../api-ref/smtp-errors.md).

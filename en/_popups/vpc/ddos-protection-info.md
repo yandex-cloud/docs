@@ -1,0 +1,1 @@
+{{ ddos-protection-full-name }} is a [{{ vpc-full-name }}](../../vpc/index.yaml) component that safeguards cloud resources from DDoS attacks. For more information, see [{#T}](../../vpc/ddos-protection/index.md).

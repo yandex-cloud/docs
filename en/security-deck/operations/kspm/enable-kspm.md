@@ -9,14 +9,7 @@ description: How to activate and configure {{ kspm-full-name }} ({{ kspm-name }}
 
 ## Getting started {#before-you-begin}
 
-Before onboarding clusters to {{ kspm-name }}, make sure they meet the following requirements:
-
-* {{ k8s }} 1.30 or higher.
-* There is no [Kyverno](https://yandex.cloud/en/marketplace/products/yc/kyverno)-based [admission control](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/) in the {{ k8s }} cluster. If Kyverno was previously deployed, remove it along with all [CustomResourceDefinition](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) resources it has created.
-* Networking must be set up between the {{ k8s }} cluster nodes and [{{ container-registry-full-name }}](../../../managed-kubernetes/tutorials/container-registry.md).
-* Network access must be allowed on port `54321` from the pod running a runtime security monitoring sensor to the cluster pods.
-* TCP access from the cluster to the {{ kspm-name }} API (`kspm.api.cloud.yandex.net`) must be allowed on port `443`.
-* [Security groups](../../../managed-kubernetes/operations/connect/security-groups.md#rules-nodes) must allow access from the cluster’s master node to {{ kspm-name }} components running on the cluster nodes.
+Before onboarding clusters to {{ kspm-name }}, make sure they meet the following [system and technical requirements](./requirements.md).
 
 ## Activating the module {#kspm-activate}
 
@@ -71,3 +64,7 @@ To get started with {{ kspm-name }}:
 To remove clusters from the control scope and to stop monitoring them for security, [delete](../workspaces/delete.md) the {{ sd-name }} workspace or disable the {{ k8s }} security standards.
 
 {% endnote %}
+
+### Useful links {#see-also}
+
+[{#T}](../../concepts/kspm.md)

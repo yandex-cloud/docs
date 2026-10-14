@@ -22,13 +22,7 @@ The following points of presence host {{ yandex-cloud }} equipment:
 
 To have a cross-connect set up at a point of presence, you need to sign an agreement letter, one per cross-connect.
 
-You can find the agreement letter templates for each point of presence below:
-
-* `M9`: [Agreement letter template for M9 (Level 10)](https://{{ s3-storage-host }}/doc-files/Interconnect-agreement-M9-L10.docx).
-* `M9`: [Agreement letter template for M9 (Level 7)](https://{{ s3-storage-host }}/doc-files/Interconnect-agreement-M9-L7.docx).
-* `NORD`: [Agreement letter template for NORD](https://{{ s3-storage-host }}/doc-files/Interconnect-agreement-NORD.docx).
-* `OST`: [Agreement letter template for OST](https://{{ s3-storage-host }}/doc-files/Interconnect-agreement-OST.docx).
-* `TEHNO`: [Agreement letter template for TEHNO](https://{{ s3-storage-host }}/doc-files/Interconnect-agreement-TEHNO.docx).
+Request an agreement letter template and equipment location details for the selected point of presence from [technical support]({{ link-console-support }}).
 
 {% note alert %}
 

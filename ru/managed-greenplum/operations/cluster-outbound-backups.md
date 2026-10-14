@@ -12,14 +12,16 @@ noIndex: true
 
 Для выполнения инструкции вам потребуются:
 
+1. {{ GP }}: Скачайте последнюю версию из репозитория [https://github.com/open-gpdb/gpdb/releases](https://github.com/open-gpdb/gpdb/releases).
 1. Виртуальная инфраструктура: Развернуты виртуальные машины, каждому из которых присвоено соответствующее FQDN-имя.
-1. Операционная система: На узлах установлена ОС из списка совместимых с {{ GP }} (рекомендуется Ubuntu 24.04).
+1. Операционная система: На узлах установлена ОС из списка совместимых с {{ GP }} (рекомендуется Ubuntu 22.04).
 1. Сетевой доступ: На всех узлах кластера настроен вход по SSH без пароля (passwordless) для пользователя `gpadmin`. 
 1. WAL-G: Бинарный файл [wal-g](https://github.com/wal-g/wal-g/releases/) установлен на все хосты кластера.
 1. Дисковое пространство: Свободное место на диске, достаточное для хранения данных в распакованном виде с учетом:
    * Размера самой базы данных;
    * Размера WAL-сегментов, которые будут восстанавливаться.
 
+{% include [key](../../_includes/mdb/decrypt-key.md) %}
 
 ## Подготовка окружения на хостах кластера {#prepare-env}
 
@@ -65,6 +67,29 @@ noIndex: true
    ```
 
 1. Скопируйте файл приватного PGP-ключа, полученного от {{ mgp-short-name }}, в указанное место в файле конфигурации `/etc/wal-g/PGP_KEY`. Убедитесь, что права доступа строгие (`chmod 600 /etc/wal-g/PGP_KEY`).
+
+1. Проверьте целостность резервной копии:
+ 
+   {% include [checkup](../../_includes/mdb/backup-checkup.md) %}
+
+   1. Запустите скрипт:
+
+      ```bash
+      WAL_G_BIN=wal-g-gp ./s3_test_script.sh */etc/wal-g/wal-g.yaml*
+      ```
+   
+      При необходимости укажите директорию:
+
+      ```bash
+      WAL_G_BIN=wal-g-gp ./s3_test_script.sh */etc/wal-g/wal-g.yaml* basebackups_005 # проверяет копии
+      WAL_G_BIN=wal-g-gp ./s3_test_script.sh */etc/wal-g/wal-g.yaml* wal_005 # проверяет WAL
+      ```
+
+      Пример вывода:
+
+      ```bash
+      FAIL test/corrupted_file_2.txt.br
+      Checked: 2; decoded: 2; raw: 0; failed: 1; unknown:
 
 ## Настройка конфигурации восстановления {#restore-config}
 
@@ -116,6 +141,7 @@ noIndex: true
    rm -rf /var/lib/greenplum/data1/master/gpseg-1
    rm -rf /var/lib/greenplum/data1/primary/gpseg*
    rm -rf /var/lib/greenplum/data1/mirror/gpseg*
+   EOF
    ```
 
 ## Восстановление базы данных {#restore-db}

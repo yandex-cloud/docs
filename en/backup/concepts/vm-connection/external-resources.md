@@ -28,7 +28,7 @@ Currently, the {{ backup-name }} agent can be installed on VMs and servers runni
 
 {% include [baremetal-os-list](../../../_includes/backup/baremetal-os-list.md) %}
 
-For a complete list of supported operating systems, see the [backup provider documentation](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/{{ backup-provider-docs-version }}/user/supported-operating-systems-and-environments.html).
+For a complete list of supported operating systems, see the [backup provider guides](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/{{ backup-provider-docs-version }}/user/supported-operating-systems-and-environments.html).
 
 ## Updating the operating system kernel {#os-kernel-update}
 
@@ -56,7 +56,7 @@ When installing the {{ backup-name }} agent on your VM or server, you may need t
 
 {% endnote %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../operations/external/connect.md)
 * [{#T}](../../operations/backup-baremetal/restore-agent.md)

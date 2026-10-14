@@ -1,6 +1,6 @@
 ---
-title: How to delete a {{ container-registry-full-name }}
-description: Follow this guide to delete a {{ container-registry-short-name }}.
+title: How to delete a {{ container-registry-full-name }} registry
+description: Follow this guide to delete a {{ container-registry-short-name }} registry.
 ---
 
 # Deleting a registry

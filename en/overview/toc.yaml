@@ -22,14 +22,6 @@ items:
         href: concepts/public-ips.md
       - name: User interaction with resources
         href: roles-and-resources.md
-      - name: Zones of control in MDB
-        href: concepts/mdb-responsibilities.md
-      - name: Zones of control in {{ managed-k8s-name }}
-        href: concepts/kubernetes-responsibilities.md
-      - name: Zones of control in {{ dataproc-name }}
-        href: concepts/data-processing-responsibilities.md
-      - name: Zones of control in {{ maf-name }}
-        href: concepts/maf-responsibilities.md
       - name: Deleting user data
         href: concepts/data-deletion.md
       - name: >-
@@ -43,6 +35,16 @@ items:
         href: concepts/services.md
       - name: Release stages
         href: concepts/launch-stages.md
+      - name: Zones of control
+        items:
+          - name: Zones of control in {{ ai-studio-name }}
+            href: concepts/ai-studio-responsibilities.md
+          - name: Zones of control in {{ dataproc-name }}
+            href: concepts/data-processing-responsibilities.md
+          - name: Zones of control in MDB
+            href: concepts/mdb-responsibilities.md
+          - name: Zones of control in {{ managed-k8s-name }}
+            href: concepts/kubernetes-responsibilities.md
       - name: Observability tools for monitoring and logging
         href: concepts/monitoring-logging-tools.md
       - name: SLA

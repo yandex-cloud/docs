@@ -22,13 +22,7 @@
 
 Для организации прокладки кроссировки на точке присутствия необходимо оформление согласительного письма. Для каждой кроссировки оформляется отдельное согласительное письмо.
 
-Шаблоны согласительных писем для каждой из точек присутствия:
-
-* `M9` — [шаблон согласительного письма для M9 (этаж 10)](https://{{ s3-storage-host }}/doc-files/Interconnect-agreement-M9-L10.docx)
-* `M9` — [шаблон согласительного письма для M9 (этаж 7)](https://{{ s3-storage-host }}/doc-files/Interconnect-agreement-M9-L7.docx)
-* `NORD` — [шаблон согласительного письма для NORD](https://{{ s3-storage-host }}/doc-files/Interconnect-agreement-NORD.docx)
-* `OST` — [шаблон согласительного письма для OST](https://{{ s3-storage-host }}/doc-files/Interconnect-agreement-OST.docx)
-* `TEHNO` - [шаблон согласительного письма для TEHNO](https://{{ s3-storage-host }}/doc-files/Interconnect-agreement-TEHNO.docx)
+Шаблон согласительного письма и сведения о размещении оборудования в выбранной точке присутствия запросите в [технической поддержке]({{ link-console-support }}).
 
 {% note alert %}
 

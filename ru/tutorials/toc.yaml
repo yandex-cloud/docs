@@ -331,6 +331,10 @@ items:
           Загрузка объектов в бакет {{ objstorage-name }} с помощью эфемерного
           ключа доступа
         href: security/ephemeral-key-storage.md
+      - name: >-
+          Интеграция LiteLLM Proxy с {{ ai-studio-full-name }} и {{ traces-name
+          }}
+        href: security/traces-for-litellm-proxy.md
   - name: Хранение и восстановление данных
     items:
       - name: Все руководства

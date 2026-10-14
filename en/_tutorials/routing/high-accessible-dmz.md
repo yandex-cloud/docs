@@ -31,7 +31,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 We will use a next-generation firewall for cloud network protection and segmentation, creating a dedicated DMZ for publicly accessible applications. [{{ marketplace-full-name }}]({{ link-cloud-marketplace }}?categories=security) offers multiple NGFW solutions.
 
-In this tutorial, we will use the [Check Point CloudGuard IaaS]({{ link-cloud-marketplace }}/products/checkpoint/cloudguard-iaas-firewall-tp-payg-m) solution. Its features include:
+In this tutorial, we will use the Check Point CloudGuard IaaS solution. Its features include:
 
 * Firewalling
 * NAT
@@ -57,7 +57,6 @@ The infrastructure support cost includes:
 * Fee for using {{ network-load-balancer-name }} (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
 * Fee for using public IP addresses and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for using functions (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
-* Fee for using the [CheckPoint NGFW]({{ link-cloud-marketplace }}/products/checkpoint/cloudguard-iaas-firewall-tp-payg-m).
 
 ### Required quotas {#required-quotes}
 

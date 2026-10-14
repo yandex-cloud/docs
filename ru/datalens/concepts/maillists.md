@@ -22,8 +22,10 @@ description: Эта статья рассказывает, какие рассы
 
 Наличие прав пользователя на воркбук проверяется при добавлении пользователя в рассылку и при каждой ее отправке.
 
-{% include [datdatalens-maillist-add-recipients](../../_includes/datalens/datalens-maillist-add-recipients.md) %}
+
+{% include [datalens-maillist-add-recipients](../../_includes/datalens/datalens-maillist-add-recipients.md) %}
 
 Пользователь с доступом к воркбуку (минимальная роль `Ограниченный просмотр`), в котором хранится рассылка, может подписаться на нее.
+
 
 Вы можете посмотреть [список всех рассылок](./maillists-list.md) в {{ datalens-name }}.

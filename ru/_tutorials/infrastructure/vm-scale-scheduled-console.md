@@ -1,4 +1,5 @@
 1. [Подготовьте облако к работе](#before-begin).
+1. [Создайте вспомогательные ресурсы](#create-aux-resources).
 1. [Создайте группу ВМ](#create-ig).
 1. [Создайте ресурсы {{ sf-name }}](#create-sf-resources).
 1. [Проверьте масштабирование группы ВМ](#test-scale).
@@ -88,7 +89,7 @@
 
   1. Создайте сервисный аккаунт `vm-scale-scheduled-sa`. Для этого воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md).
   1. Назначьте сервисному аккаунту в текущем каталоге [роли](../../iam/concepts/access-control/roles.md):
-     * `compute.admin` — для управления группой ВМ.
+     * `compute.editor` — для управления группой ВМ.
      * `iam.serviceAccounts.user` — для привязки сервисного аккаунта к ВМ, входящим в группу.
      * `{{ roles-functions-invoker }}` — для запуска функции {{ sf-name }}.
 
@@ -363,7 +364,7 @@
        * `IG_NAME` = `vm-scale-scheduled-ig`.
        * `IG_BASE_SIZE` = `2`.
        * `FOLDER_ID` = идентификатор каталога. Получить идентификатор можно по [инструкции](../../resource-manager/operations/folder/get-id.md).
-  1. В правом верхнем углу нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+  1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
 
@@ -438,16 +439,16 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. [Перейдите]({{ link-console-main }}/link/functions) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
-  1. Справа сверху нажмите **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
+  1. Нажмите **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
      * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** укажите `vm-scale-scheduled-trigger`.
      * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
-     * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
   1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}** в поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}** укажите `*/2 * * * ? *` — триггер будет срабатывать каждые две минуты, например, в 09:58, 10:00, 10:02, 10:04 и т. д.
-  1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**:
+  1. В блоке **Приёмники**:
+     * В поле **Тип приёмника** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
      * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function }}** укажите `vm-scale-scheduled-function`.
      * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}** выберите `$latest`.
-     * Выберите **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }}** `vm-scale-scheduled-sa`.
+     * Выберите **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }}** — `vm-scale-scheduled-sa`.
   1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}** очистите поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_dlq_service-account }}** (`{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`).
   1. Нажмите **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 

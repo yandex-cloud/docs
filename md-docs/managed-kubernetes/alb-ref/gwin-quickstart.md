@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > Пошаговые инструкции > Установка приложений из Cloud Marketplace > Установка Gwin
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Инструменты Application Load Balancer](index.md) > Gwin > Установка Gwin
 
 # Установка контроллера Gwin
 

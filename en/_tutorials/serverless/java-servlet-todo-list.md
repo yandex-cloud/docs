@@ -60,7 +60,7 @@ Create a [bucket](*bucket) and upload `index.html` to it:
       1. Select the default [storage class](*storage_class).
       1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
   1. Select the bucket you created.
-  1. Click ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** in the top-right corner of the page. In the project's folder, select `src/main/resources/index.html`.
+  1. Click ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** in the top panel. In the project's folder, select `src/main/resources/index.html`.
   1. Select the storage class for the file and click **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
 
 - CLI {#cli}
@@ -104,7 +104,7 @@ Create a [bucket](*bucket) and upload `index.html` to it:
       Where:
 
       * `--bucket`: Name of the bucket you created earlier.
-      * `--body`: Local path to `index.html` you pulled from the repository. Here is an example: `/Users/myuser/repositories/yc-serverless-servlet/src/main/resources/index.html`.
+      * `--body`: Local path to `index.html` you pulled from the repository, e.g., `/Users/myuser/repositories/yc-serverless-servlet/src/main/resources/index.html`.
 
       Result:
 

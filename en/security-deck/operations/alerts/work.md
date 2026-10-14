@@ -19,6 +19,10 @@ description: In this section, you will learn how to work with alerts in {{ sd-fu
   1. Click the table row containing the [alert](../../concepts/alerts.md) name.
   1. In the window that opens, select the status in the top-left corner.
 
+- API {#api}
+
+  To update the status of an [alert](../../concepts/alerts.md), use the [Alert.Update](../../api-ref/Alert/update.md) REST API method for the [Alert](../../api-ref/Alert/index.md) resource or the [AlertService/Update](../../api-ref/grpc/Alert/update.md) gRPC API call.
+
 {% endlist %}
 
 

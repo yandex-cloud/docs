@@ -28,6 +28,8 @@ noIndex: true
 
 Для восстановления на определенный момент времени также нужен архив бинарных логов. Время восстановления должно быть позднее завершения создания выбранной резервной копии.
 
+{% include [key](../../_includes/mdb/decrypt-key.md) %}
+
 ## Восстановить базу данных {#restore}
 
 1. Установите Percona Server for MySQL, Percona XtraBackup и WAL-G:
@@ -134,6 +136,30 @@ noIndex: true
    ```
 
    Если команда вывела список, доступ к бакету и путь `WALG_S3_PREFIX` настроены правильно. Выберите резервную копию, созданную до момента, на который хотите восстановить данные. Пример имени копии: `stream_20261009T203209Z`.
+
+1. Проверьте целостность резервной копии:
+ 
+   {% include [checkup](../../_includes/mdb/backup-checkup.md) %}
+
+   1. Запустите скрипт:
+
+      ```bash
+      WAL_G_BIN=wal-g-mysql ./s3_test_script.sh */etc/wal-g/wal-g.yaml*
+      ```
+   
+      При необходимости укажите директорию:
+
+      ```bash
+      WAL_G_BIN=wal-g-mysql ./s3_test_script.sh */etc/wal-g/wal-g.yaml* basebackups_005 # проверяет копии
+      WAL_G_BIN=wal-g-mysql ./s3_test_script.sh */etc/wal-g/wal-g.yaml* wal_005 # проверяет WAL
+      ```
+
+      Пример вывода:
+
+      ```bash
+      FAIL test/corrupted_file_2.txt.br
+      Checked: 2; decoded: 2; raw: 0; failed: 1; unknown:
+      ```
 
 1. Остановите {{ MY }} и восстановите файлы выбранной резервной копии. Выполняйте команды только на подготовленном сервере: удаление каталога `/var/lib/mysql` уничтожит данные установленного экземпляра {{ MY }}.
 
