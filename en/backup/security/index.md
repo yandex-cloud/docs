@@ -67,10 +67,10 @@ You can assign access policies to a [folder](*folders), [cloud](*clouds), or [or
 
 For more on how to create an access policy for a resource, see [{#T}](../../iam/operations/access-policies/assign.md).
 
-[*access_policies]: _Access policies_ are a {{ iam-full-name }} mechanism that allows you to manage permissions for specific operations with [{{ yandex-cloud }} resources](../../overview/roles-and-resources.md). Access policies complement the [role](../../iam/concepts/access-control/roles.md) system for more flexible [access management](../../iam/concepts/access-control/index.md). [Learn more](../../iam/concepts/access-control/access-policies.md) about access policies in {{ yandex-cloud }}.
+[*access_policies]: {% include [access-policy-definition](../../_popups/iam/access-policy-definition.md) %}
 
-[*folders]: [Learn more](../../resource-manager/concepts/resources-hierarchy.md#folder) about folders.
+[*folders]: {% include [folder-definition](../../_popups/resource-manager/folder-definition.md) %}
 
-[*clouds]: [Learn more](../../resource-manager/concepts/resources-hierarchy.md#cloud) about clouds.
+[*clouds]: {% include [cloud-definition](../../_popups/resource-manager/cloud-definition.md) %}
 
-[*organizations]: [Learn more](../../organization/concepts/organization.md) about organizations.
+[*organizations]: {% include [organization-definition](../../_popups/identity-hub/organization-definition.md) %}

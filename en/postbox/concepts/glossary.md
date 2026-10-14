@@ -11,6 +11,12 @@ An address is the domain emails are sent from. To send emails from any mailbox o
 
 To send emails from subdomains, add them as separate addresses. {{ postbox-name }} checks whether the sender’s email domain matches that specified in the address. For example, with `yourdomain.com` as your confirmed ownership domain, you can email from `noreply@yourdomain.com` or `admin@yourdomain.com` but not from `user@mail.yourdomain.com`.
 
+## Dedicated IP address {#dedicated-ip}
+
+A _dedicated IP address_ is an IP address {{ postbox-name }} uses to send emails for a single customer cloud. The reputation of a dedicated IP address depends only on the user's traffic.
+
+For more information, see [{#T}](dedicated-ip.md).
+
 ## Configuration {#configuration}
 
 A configuration is a group of rules you can apply to an outgoing email. A configuration may contain the following rules:
@@ -33,6 +39,12 @@ A subscription is a destination for [email operation notifications](notification
 {% include [dkim](../../_includes/postbox/dkim.md) %}
 
 {{ postbox-name }} supports Easy DKIM and the advanced DKIM settings. For more information, see [{#T}](dns-records.md#dkim).
+
+## Dedicated IP address pool {#dedicated-ip-pool}
+
+A pool is a named group of [dedicated IP addresses](#dedicated-ip). If a pool is assigned to a [configuration](#configuration), all emails the configuration applies to are sent from the assigned pool's IP addresses.
+
+For more information, see [{#T}](dedicated-ip.md#pools).
 
 ## Suppression list {#suppression-list}
 

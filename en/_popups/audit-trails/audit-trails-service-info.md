@@ -1,0 +1,1 @@
+{{ at-full-name }} collects {{ yandex-cloud }} resource audit logs and exports them to various [targets](../../audit-trails/concepts/trail.md#target) for further analysis and prompt response to events. For more information, see [this {{ at-name }} guide](../../audit-trails/concepts/index.md).

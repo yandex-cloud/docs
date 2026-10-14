@@ -9,9 +9,9 @@ Depending on the selected {{ yandex-cloud }} tools, you can extend your network 
 * Creating subnets in target folders with `CLI`.
 * Creating subnets in target folders with `Terraform`.
 
-Once you placed a subnet into the target folder, you can connect other folder resources to it, including VMs, {{ managed-k8s-name }} clusters, database hosts, load balancers, load testing agents, etc. As a result, you will have a network connecting resources from different folders.
+Once you placed a subnet into the target folder, you can connect other folder resources to it, including VMs, {{ managed-k8s-name }} clusters, database hosts, load balancers, load testing agents, etc. As a result, you will have a network connecting resources from different folders. Folders will not need `next hop` to transfer packages between resources.
 
-This guide provides an example of how to create an infrastructure consisting of three VM instances, each residing in a different folder. These instances are connected via a shared internal network. Network connectivity between cloud resources hosted in different folders is established by creating a cloud network in one of these folders and then extending its scope to other folders. This way, a single-folder network is extended to multiple folders, which allows connecting required resources to `extended subnets` residing in these folders.
+In this tutorial, we will set up three VMs residing in different folders and connected by a shared network. Network connectivity between cloud resources hosted in different folders is established by creating a cloud network in one of these folders and then extending its scope to other folders. This way, a single-folder network is extended to multiple folders, which allows connecting required resources to `extended subnets` residing in these folders.
 
 {% note warning %}
 
@@ -676,11 +676,11 @@ Create [VMs](../../compute/concepts/vm.md) with the following settings:
    Result:
 
    ```text
-   PING 10.127.20.4 (10.127.20.4) 56(84) bytes of data.
-   64 bytes from 10.127.20.4: icmp_seq=1 ttl=61 time=7.45 ms
-   64 bytes from 10.127.20.4: icmp_seq=2 ttl=61 time=5.61 ms
-   64 bytes from 10.127.20.4: icmp_seq=3 ttl=61 time=5.65 ms
-   --- 10.127.20.4 ping statistics ---
+   PING 10.1.11.137 (10.1.11.137) 56(84) bytes of data.
+   64 bytes from 10.1.11.137: icmp_seq=1 ttl=61 time=7.45 ms
+   64 bytes from 10.1.11.137: icmp_seq=2 ttl=61 time=5.61 ms
+   64 bytes from 10.1.11.137: icmp_seq=3 ttl=61 time=5.65 ms
+   --- 10.1.11.137 ping statistics ---
    3 packets transmitted, 3 received, 0% packet loss, time 2003ms
    rtt min/avg/max/mdev = 5.613/6.235/7.446/0.855 ms
    ```

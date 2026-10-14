@@ -2,7 +2,7 @@
 
 # Поставка данных в Yandex Managed Service for PostgreSQL с помощью Yandex Data Transfer
 
-# Поставка данных из очереди Apache Kafka® в PostgreSQL с помощью Yandex Data Transfer
+# Поставка данных из Apache Kafka® в PostgreSQL с помощью Yandex Data Transfer
 
 
 Вы можете настроить перенос данных из топика Yandex Managed Service for Apache Kafka® в Yandex Managed Service for PostgreSQL с помощью сервиса Yandex Data Transfer. Для этого:
@@ -34,86 +34,88 @@
 
 ## Подготовьте инфраструктуру {#prepare-infrastructure}
 
-{% list tabs group=instructions %}
+1. Подготовьте ресурсы Yandex Cloud:
 
-- Вручную {#manual}
-  
-  
-  {% note info %}
-  
-  Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
-  
-  {% endnote %}
+    {% list tabs group=instructions %}
 
-
-  1. [Создайте кластер-источник Managed Service for Apache Kafka®](../operations/cluster-create.md#create-cluster) в любой [зоне доступности](../../overview/concepts/geo-scope.md), любой подходящей конфигурации и с публичным доступом.
-
-  1. [Создайте в кластере-источнике топик](../operations/cluster-topics.md#create-topic) с именем `sensors`.
-
-  1. [Создайте в кластере-источнике пользователя](../operations/cluster-accounts.md#create-account) с именем `mkf-user` и правами доступа к созданному топику `ACCESS_ROLE_PRODUCER` и `ACCESS_ROLE_CONSUMER`.
-
-  1. В той же зоне доступности [создайте кластер-приемник Managed Service for PostgreSQL](../../managed-postgresql/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с именем пользователя-администратора `pg-user` и хостами в публичном доступе.
-
-  1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним:
-      * [Managed Service for Apache Kafka®](../operations/connect/index.md#configuring-security-groups).
-      * [Managed Service for PostgreSQL](../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
-
-- Terraform {#tf}
-
-  1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-  1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
-  1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
-  1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
-
-  1. Скачайте в ту же рабочую директорию файл конфигурации [kafka-postgresql.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-kafka-to-postgresql/blob/main/kafka-postgresql.tf).
-
-      В этом файле описаны:
-
-      * [сети](../../vpc/concepts/network.md#network) и [подсети](../../vpc/concepts/network.md#subnet) для размещения кластеров;
-      * [группы безопасности](../../vpc/concepts/security-groups.md) для подключения к кластерам;
-      * кластер-источник Managed Service for Apache Kafka®;
-      * кластер-приемник Managed Service for PostgreSQL;
-      * эндпоинт для источника;
-      * эндпоинт для приемника;
-      * трансфер.
-
-  1. Укажите в файле `kafka-postgresql.tf`:
-
-      * Версии Apache Kafka® и PostgreSQL.
-      * Пароли пользователей Apache Kafka® и PostgreSQL.
-
-  1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
-
-      ```bash
-      terraform validate
-      ```
-
-      Если в файлах конфигурации есть ошибки, Terraform на них укажет.
-
-  1. Создайте необходимую инфраструктуру:
-
-      1. Выполните команду для просмотра планируемых изменений:
+    - Вручную {#manual}
       
-         ```bash
-         terraform plan
-         ```
       
-         Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
+      {% note info %}
       
-      1. Если вас устраивают планируемые изменения, внесите их:
+      Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
       
-         1. Выполните команду:
-      
-            ```bash
-            terraform apply
-            ```
-      
-         1. Подтвердите изменение ресурсов.
-         1. Дождитесь завершения операции.
+      {% endnote %}
 
-      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
-{% endlist %}
+      1. [Создайте кластер-источник Managed Service for Apache Kafka®](../operations/cluster-create.md#create-cluster) в любой [зоне доступности](../../overview/concepts/geo-scope.md), любой подходящей конфигурации и с публичным доступом.
+
+      1. [Создайте в кластере-источнике топик](../operations/cluster-topics.md#create-topic) с именем `sensors`.
+
+      1. [Создайте в кластере-источнике пользователя](../operations/cluster-accounts.md#create-account) с именем `mkf-user` и правами доступа к созданному топику `ACCESS_ROLE_PRODUCER` и `ACCESS_ROLE_CONSUMER`.
+
+      1. В той же зоне доступности [создайте кластер-приемник Managed Service for PostgreSQL](../../managed-postgresql/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с именем пользователя-администратора `pg-user` и хостами в публичном доступе.
+
+      1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним:
+          * [Managed Service for Apache Kafka®](../operations/connect/index.md#configuring-security-groups).
+          * [Managed Service for PostgreSQL](../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
+
+    - Terraform {#tf}
+
+      1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
+      1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+      1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
+
+      1. Скачайте в ту же рабочую директорию файл конфигурации [kafka-postgresql.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-kafka-to-postgresql/blob/main/kafka-postgresql.tf).
+
+          В этом файле описаны:
+
+          * [сети](../../vpc/concepts/network.md#network) и [подсети](../../vpc/concepts/network.md#subnet) для размещения кластеров;
+          * [группы безопасности](../../vpc/concepts/security-groups.md) для подключения к кластерам;
+          * кластер-источник Managed Service for Apache Kafka®;
+          * кластер-приемник Managed Service for PostgreSQL;
+          * эндпоинт для источника;
+          * эндпоинт для приемника;
+          * трансфер.
+
+      1. Укажите в файле `kafka-postgresql.tf`:
+
+          * Версии Apache Kafka® и PostgreSQL.
+          * Пароли пользователей Apache Kafka® и PostgreSQL.
+
+      1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+
+          ```bash
+          terraform validate
+          ```
+
+          Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+
+      1. Создайте необходимую инфраструктуру:
+
+          1. Выполните команду для просмотра планируемых изменений:
+          
+             ```bash
+             terraform plan
+             ```
+          
+             Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
+          
+          1. Если вас устраивают планируемые изменения, внесите их:
+          
+             1. Выполните команду:
+          
+                ```bash
+                terraform apply
+                ```
+          
+             1. Подтвердите изменение ресурсов.
+             1. Дождитесь завершения операции.
+
+          В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+
+    {% endlist %}
 
 1. Установите утилиты:
 
@@ -183,64 +185,80 @@
 
 - Вручную {#manual}
 
-    1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/kafka.md) типа `Apache Kafka®` и задайте для него:
+    1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
 
-        * **Полное имя топика** — `sensors`.
-        * Правила конвертации типа `json`. В поле **Схема данных** выберите `JSON-спецификация` и в открывшуюся форму скопируйте следующую спецификацию полей:
+        * **Направление** — `Источник`.
+        * Укажите имя эндпоинта.
+        * **Тип базы данных** — `Kafka`.
+        * **Параметры эндпоинта**:
+            * **Тип подключения** — `Ручная настройка`.
+            * **Тип инсталляции** — `Кластер Managed Service for Apache Kafka`.
+            * **Кластер Managed Service for Apache Kafka** — выберите кластер-источник из списка.
+            * **Аутентификация** — выберите `SASL` и укажите данные [созданного ранее](#prepare-infrastructure) пользователя Apache Kafka®.
+            * **Расширенные настройки** → **Правила конвертации**:
+                * **Формат данных** – `JSON`.
+                * **Схема данных** – `JSON спецификация`.
 
-        {% cut "sensors-specification" %}
+                    Создайте и загрузите файл схемы данных в формате JSON `json_schema.json`:
 
-        ```json
-        [
-            {
-                "name": "device_id",
-                "type": "utf8",
-                "key": true
-            },
-            {
-                "name": "datetime",
-                "type": "utf8"
-            },
-            {
-                "name": "latitude",
-                "type": "double"
-            },
-            {
-                "name": "longitude",
-                "type": "double"
-            },
-            {
-                "name": "altitude",
-                "type": "double"
-            },
-            {
-                "name": "speed",
-                "type": "double"
-            },
-            {
-                "name": "battery_voltage",
-                "type": "double"
-            },
-            {
-                "name": "cabin_temperature",
-                "type": "uint16"
-            },
-            {
-                "name": "fuel_level",
-                "type": "uint16"
-            }
-        ]
-        ```
+                    {% cut "sensors-specification" %}
 
-        {% endcut %}
+                    ```json
+                    [
+                        {
+                            "name": "device_id",
+                            "type": "utf8",
+                            "key": true
+                        },
+                        {
+                            "name": "datetime",
+                            "type": "utf8"
+                        },
+                        {
+                            "name": "latitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "longitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "altitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "speed",
+                            "type": "double"
+                        },
+                        {
+                            "name": "battery_voltage",
+                            "type": "double"
+                        },
+                        {
+                            "name": "cabin_temperature",
+                            "type": "uint16"
+                        },
+                        {
+                            "name": "fuel_level",
+                            "type": "uint16"
+                        }
+                    ]
+                    ```
+
+                    {% endcut %}
 
     1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/postgresql.md) типа `PostgreSQL` и укажите в нем параметры подключения к кластеру:
 
-        * **Тип инсталляции** — `Кластер Managed Service for PostgreSQL`.
-        * **Кластер Managed Service for PostgreSQL** — `<имя_кластера-приемника_PostgreSQL>` из выпадающего списка.
-        * **База данных** — `db1`.
-        * **Пользователь** — `pg-user`.
-        * **Пароль** — `<пароль_пользователя>`.
+        * **Направление** — `Приёмник`.
+        * Укажите имя эндпоинта.
+        * **Тип базы данных** — `PostgreSQL`.
+        * **Параметры эндпоинта**:
+            * **Тип подключения** — `Ручная настройка`.
+            * **Тип инсталляции** — `Кластер Managed Service for PostgreSQL`.
+            * **Кластер управляемой БД** — выберите кластер Managed Service for PostgreSQL из выпадающего списка.
+            * **База данных** — `db1`.
+            * **Пользователь** — `pg-user`.
+            * **Пароль** — укажите пароль пользователя.
 
     1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_Репликация_**, использующий созданные эндпоинты.
     1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **Реплицируется**.

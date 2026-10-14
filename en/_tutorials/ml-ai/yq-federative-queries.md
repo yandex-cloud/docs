@@ -42,7 +42,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+   1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Name your folder, e.g., `data-folder`.
    1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
@@ -134,7 +134,7 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will contai
 
   1. In the [management console]({{ link-console-main }}), select `data-folder`.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+  1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
@@ -146,7 +146,7 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will contai
      2024-05-15 13:13:00|2|1
      ```
 
-  1. Navigate to the bucket you created and click **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
+  1. Navigate to the new bucket and click ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** in the top panel.
   1. In the window that opens, select `visits.csv` and click **Open**.
   1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
 
@@ -160,7 +160,7 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will contai
   
   1. In the [management console]({{ link-console-main }}), select `data-folder`.
   1. [Navigate]({{ link-console-yq }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-  1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+  1. Navigate to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** tab.
   1. Click ![info](../../_assets/console-icons/plus.svg)**{{ ui-key.yql.yq-connection-form.action_create-new }}**.
   1. Enter a name for the connection, e.g., `storage-connection`.
   1. Select the **{{ ui-key.yql.yq-connection.action_object-storage }}** connection type and specify the **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**.
@@ -186,7 +186,7 @@ To create a data binding:
 
   1. In the [management console]({{ link-console-main }}), select `data-folder`.
   1. [Navigate]({{ link-console-yq }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-  1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
+  1. Navigate to the **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}** tab.
   1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-binding-add.create-binding.button-text }}**.
   1. Under **{{ ui-key.yql.yq-binding-form.connection-parameters.title }}**:
 
@@ -288,7 +288,7 @@ The {{ mch-name }} table will contain the item names.
   
   1. In the [management console]({{ link-console-main }}), select `data-folder`.
   1. [Navigate]({{ link-console-yq }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-  1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+  1. Navigate to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** tab.
   1. Click ![info](../../_assets/console-icons/plus.svg)**{{ ui-key.yql.yq-connection-form.action_create-new }}**.
   1. Name the connection, e.g., `clickhouse`.
   1. Select the **{{ ui-key.yql.yq-connection.action_clickhouse }}** connection type.
@@ -367,7 +367,7 @@ The {{ mpg-name }} table will contain the names of the customers.
   
   1. In the [management console]({{ link-console-main }}), select `data-folder`.
   1. [Navigate]({{ link-console-yq }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-  1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+  1. Navigate to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** tab.
   1. Click ![info](../../_assets/console-icons/plus.svg)**{{ ui-key.yql.yq-connection-form.action_create-new }}**.
   1. Name the connection, e.g., `postgresql`.
   1. Select the **{{ ui-key.yql.yq-connection.action_postgersql }}** connection type.

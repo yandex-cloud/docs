@@ -72,6 +72,7 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 * [{{ mgl-full-name }}](../managed-gitlab/qa/index.md)
 * [{{ managed-k8s-full-name }}®](../managed-kubernetes/qa/all.md)
 * [{{ monitoring-full-name }}](../monitoring/qa/all.md)
+* [{{ monium-full-name }}](../monium/qa/general.md)
 
 
 ### Serverless computing {#serverless}

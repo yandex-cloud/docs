@@ -33,13 +33,13 @@ Before [creating](create-scan.md#cloud-sd-v1) a regular scan in {{ dspm-name }},
   
   1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}**.
-  1. On the {{ ui-key.yacloud_org.security-center.dspm.label_dspm }}** page, select `{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_prefix_iWUEX }}{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_dspm_xm8pa }}` and navigate to the **{{ ui-key.yacloud_org.security-center.dspm.title_data-sources }}** tab.
-  1. In the top-right corner, click **{{ ui-key.yacloud_org.dspm.data-sources.label_create-source }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) and select ![storage-logo](../../../_assets/storage/storage-logo.svg) **{{ ui-key.yacloud_org.security.dspm.dataSourceTypes.object_storage_meF3x }}** or ![storage-logo](../../../_assets/security-deck/yandex360-logo.svg) **{{ ui-key.yacloud_org.security.dspm.dataSourceTypes.yandex_360_1TUsr }}**. 
+  1. On the **{{ ui-key.yacloud_org.security-center.dspm.label_dspm }}** page, select `{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_prefix_iWUEX }}{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_dspm_xm8pa }}` and navigate to the **{{ ui-key.yacloud_org.security-center.dspm.title_data-sources }}** tab.
+  1. In the top-right corner, click **{{ ui-key.yacloud_org.dspm.data-sources.label_create-source }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) and select ![storage-logo](../../../_assets/storage/storage-logo.svg) **{{ ui-key.yacloud_org.security.dspm.dataSourceTypes.object_storage_meF3x }}** or ![storage-logo](../../../_assets/security-deck/yandex360-logo.svg) **{{ ui-key.yacloud_org.security.dspm.dataSourceTypes.yandex_360_1TUsr }}**.
  
       {% list tabs %}
 
       - {{ ui-key.yacloud_org.security.dspm.dataSourceTypes.object_storage_meF3x }}
-          
+
         Add the resources you want to scan to the data source:
            * To add individual buckets, click ![circle-plus](../../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.dspm.scan-resource-group.button_select_bucket }}** and select one or more buckets from available folders.
 
@@ -54,8 +54,8 @@ Before [creating](create-scan.md#cloud-sd-v1) a regular scan in {{ dspm-name }},
              * **{{ ui-key.yacloud_org.dspm.scan-resource-group.public_buckets }}**
                The data source will include buckets with [public access](../../../storage/operations/buckets/bucket-availability.md) configured. Only these buckets will be scanned for personal data. Disable public access for these buckets to automatically remove them from the scan.
 
-      - {{ ui-key.yacloud_org.security.dspm.dataSourceTypes.yandex_360_1TUsr }}        
-        
+      - {{ ui-key.yacloud_org.security.dspm.dataSourceTypes.yandex_360_1TUsr }}
+
         1. Click **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.action_configure-connection_v6Gjm }}** and configure integration with the {{ yandex-360 }} organization:
             1. Specify the [Organization 360]({{ link-yandex }}/support/yandex-360/business/admin/{{ lang }}/org-admin) ID.
 
@@ -68,16 +68,20 @@ Before [creating](create-scan.md#cloud-sd-v1) a regular scan in {{ dspm-name }},
 
                 {% note info %}
 
-                This feature is not available for the {{ yandex-360 }} Minimum [plan](https://yandex.ru/support/yandex-360/business/purchase/{{ lang }}/plans/payment-plans-ru).
+                This feature is not available for the {{ yandex-360 }} Minimum [plan]({{ link-yandex }}/support/yandex-360/business/purchase/{{ lang }}/plans/payment-plans-ru).
 
                 {% endnote %}
 
             1. Click **{{ ui-key.yacloud.common.save }}**.
 
         1. Add the resources you want to scan to the data source:
-            * To add shared disks to your organization, under **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.section_organization_resources_title_5u8qX }}**, click **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.action_add_resources_2qrRH }}**. Select or deselect disks as appropriate in one or more folders.
-            * To add custom disks to the data source, click **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.action_add_resources_2qrRH }}** under **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.section_user_resources_title_aN75p }}**. Select or deselect custom disks as appropriate.
+            * To add shared disks to your organization, click **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.action_add_resources_2qrRH }}** under **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.section_organization_resources_title_5u8qX }}**. Click ![circle-plus](../../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.button_add_disk_nUBSX }}** and select objects from the folders you have access to.
+            * To add custom disks to the data source, click **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.action_add_resources_2qrRH }}** under **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.section_user_resources_title_aN75p }}**. Click ![circle-plus](../../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.button_add_disk_nUBSX }}** and select objects from the folders you have access to.
             * To add all available disks to the data source, click **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.label_all_disks_5KEY9 }}** under **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.section_organization_resources_title_5u8qX }}** or **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.section_user_resources_title_aN75p }}**. The scan will include not only the disks existing in the selected organization when the data source is created, but also disks added later (by the time of the scan).
+        1. Under **{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.label_public_access }}**, select one of the following values:
+
+            * `{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.public_access_all_files }}`: Scan all files regardless of their access level.
+            * `{{ ui-key.yacloud_org.security.dspm.Yandex360DataSourceForm.public_access_public_files }}`: Scan [shared-access]({{ link-yandex }}/support/yandex-360/business/disk/web/{{ lang }}/share/personal-and-public-access#vidy-dostupa) files only. Such files are accessible to anyone with the link, including users outside the organization. Files restricted to the organization or specific users are not included in the scan.
 
       {% endlist %}
 

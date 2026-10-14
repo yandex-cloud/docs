@@ -388,6 +388,8 @@ Monium платформа для сбора, хранения и анализа 
 
  - [SLO-мониторинг веб-сервиса](slo/slo-blackbox-exporter.md)
 
+ - [Интеграция LiteLLM Proxy с Yandex AI Studio и Monium Traces](tutorials/traces-for-litellm-proxy.md)
+
 ## Yandex Managed Service for Prometheus®
 
  - [Обзор](operations/prometheus/index.md)

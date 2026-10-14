@@ -4,6 +4,7 @@
 
 Вы можете настроить перенос данных из топика Yandex Managed Service for Apache Kafka® в Greenplum®/Apache Cloudberry™ в сервисе Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer. Для этого:
 
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
 1. [Подготовьте тестовые данные](#prepare-data).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работоспособность трансфера](#verify-transfer).
@@ -11,16 +12,26 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Необходимые платные ресурсы {#paid-resources}
+## Перед началом работы {#before-you-begin}
+
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
 * Кластер Yandex MPP Analytics for PostgreSQL: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Yandex MPP Analytics for PostgreSQL](../pricing/index.md)).
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте инфраструктуру {#prepare-infrastructure}
 
-1. Подготовьте инфраструктуру:
+1. Подготовьте инфраструктуру поставки данных:
 
     {% list tabs group=instructions %}
 
@@ -143,63 +154,84 @@
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/greenplum.md) типа `Greenplum®`, укажите имя пользователя `user`.
-1. Создайте эндпоинт-источник Apache Kafka® и трансфер:
+1. [Создайте эндпоинт для приемника Greenplum®](../../data-transfer/operations/endpoint/target/greenplum.md):
+
+    * **Направление** — `Приёмник`.
+    * Укажите имя эндпоинта.
+    * **Тип базы данных** — `Greenplum/Yandex MPP Analytics`.
+    * **Параметры эндпоинта**:
+        * **Тип подключения** — выберите `Ручная настройка`.
+        * **Тип инсталляции** — выберите `Кластер`.
+        * **Кластер** — выберите кластер из списка.
+        * **База данных** — укажите имя нужной БД.
+        * **Пользователь** — укажите `user`.
+        * **Пароль** — укажите пароль пользователя `user`.
+
+1. Создайте эндпоинт для источника Apache Kafka® и трансфер:
 
     {% list tabs group=instructions %}
 
     - Вручную {#manual}
 
-        1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/kafka.md) типа `Apache Kafka®` и задайте для него:
+        1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/kafka.md) типа `Apache Kafka®`:
 
-            * **Полное имя топика** — `sensors`.
-            * Правила конвертации типа `json`. В поле **Схема данных** выберите `JSON-спецификация` и в открывшуюся форму скопируйте следующую спецификацию полей:
+            * **Направление** — `Источник`.
+            * Укажите имя эндпоинта.
+            * **Тип базы данных** — `Kafka`.
+            * **Параметры эндпоинта**:
 
-                {% cut "sensors-specification" %}
+                * **Тип подключения** — выберите `Ручная настройка`.
+                * **Тип инсталляции** — выберите `Кластер Managed Service for Apache Kafka`.
+                * **Кластер Managed Service for Apache Kafka** — выберите кластер-источник из списка.
+                * **Аутентификация** — выберите `SASL` и укажите имя и пароль пользователя, созданного [ранее](#prepare-infrastructure).
+                * **Полное имя топика** — укажите `sensors`.
+                * В поле **Схема данных** укажите правила конвертации типа `json`. Выберите `JSON-спецификация` и в открывшуюся форму скопируйте следующую спецификацию полей:
 
-                ```json
-                [
-                    {
-                        "name": "device_id",
-                        "type": "utf8",
-                        "key": true
-                    },
-                    {
-                        "name": "datetime",
-                        "type": "utf8"
-                    },
-                    {
-                        "name": "latitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "longitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "altitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "speed",
-                        "type": "double"
-                    },
-                    {
-                        "name": "battery_voltage",
-                        "type": "double"
-                    },
-                    {
-                        "name": "cabin_temperature",
-                        "type": "uint16"
-                    },
-                    {
-                        "name": "fuel_level",
-                        "type": "uint16"
-                    }
-                ]
-                ```
+                    {% cut "sensors-specification" %}
 
-                {% endcut %}
+                    ```json
+                    [
+                        {
+                            "name": "device_id",
+                            "type": "utf8",
+                            "key": true
+                        },
+                        {
+                            "name": "datetime",
+                            "type": "utf8"
+                        },
+                        {
+                            "name": "latitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "longitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "altitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "speed",
+                            "type": "double"
+                        },
+                        {
+                            "name": "battery_voltage",
+                            "type": "double"
+                        },
+                        {
+                            "name": "cabin_temperature",
+                            "type": "uint16"
+                        },
+                        {
+                            "name": "fuel_level",
+                            "type": "uint16"
+                        }
+                    ]
+                    ```
+
+                    {% endcut %}
 
         1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа _**Репликация**_, использующий созданные эндпоинты.
         1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **Реплицируется**.

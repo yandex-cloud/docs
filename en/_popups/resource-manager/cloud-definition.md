@@ -1,0 +1,1 @@
+A cloud is an isolated logical space where folders and other {{ yandex-cloud }} resources are created. You cannot move resources from one cloud to another. For more information, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#cloud).

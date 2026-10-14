@@ -30,6 +30,8 @@ noIndex: true
 
 Основная инструкция описывает восстановление бинарной копии нешардированного кластера в набор реплик с одним хостом. Для [шардированного кластера](#sharded-cluster) и [логической копии](#logical-backup) используйте отдельные разделы.
 
+{% include [key](../../_includes/mdb/decrypt-key.md) %}
+
 ## Восстановление базы данных {#restore}
 
 ### Установите MongoDB и WAL-G {#install}
@@ -128,6 +130,29 @@ noIndex: true
    ```
 
    Проверьте версию исходного кластера в `MongoMeta.Version` и размер данных. Для PITR также используется `MongoMeta.BackupLastTS` — момент, на который копия согласована.
+
+1. Проверьте целостность резервной копии:
+ 
+   {% include [checkup](../../_includes/mdb/backup-checkup.md) %}
+
+   1. Запустите скрипт:
+
+      ```bash
+      WAL_G_BIN=wal-g-mongo ./s3_test_script.sh */etc/wal-g/wal-g.yaml*
+      ```
+   
+      При необходимости укажите директорию:
+
+      ```bash
+      WAL_G_BIN=wal-g-mongo ./s3_test_script.sh */etc/wal-g/wal-g.yaml* basebackups_005 # проверяет копии
+      WAL_G_BIN=wal-g-mongo ./s3_test_script.sh */etc/wal-g/wal-g.yaml* wal_005 # проверяет WAL
+      ```
+
+      Пример вывода:
+
+      ```bash
+      FAIL test/corrupted_file_2.txt.br
+      Checked: 2; decoded: 2; raw: 0; failed: 1; unknown:
 
 ### Подготовьте конфигурацию MongoDB {#configure-mongodb}
 

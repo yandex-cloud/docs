@@ -31,6 +31,10 @@ Configuration name. ||
   "SuppressionOptions": {
     "SuppressedReasons": ["BOUNCE", "COMPLAINT"]
   },
+  "DeliveryOptions": {
+    "TlsPolicy": "REQUIRE|OPTIONAL",
+    "SendingPoolName": "<pool_name>"
+  },
   "Tags": [
     {
       "Key": "key_1",
@@ -50,6 +54,7 @@ Configuration name. ||
 || `ConfigurationSetName` | **Type**: String.
 
 Configuration name. ||
+
 || `SuppressionOptions` | **Type**: Object.
 
 Current [suppression list](../../concepts/suppression-list.md) settings for your configuration. Contains the `SuppressedReasons` array. ||
@@ -58,6 +63,16 @@ Current [suppression list](../../concepts/suppression-list.md) settings for your
 [Reasons](../../concepts/suppression-list.md#reasons) why the address from the suppression list blocks the send. Possible array item values: `BOUNCE` and `COMPLAINT`.
 
 If there is a `COMPLAINT` value in the array, the addresses are automatically added to the suppression list due to complaints from recipients. ||
+
+|| `DeliveryOptions` | **Type**: Object.
+
+Delivery settings for emails sent using the configuration. ||
+|| `TlsPolicy` | **Type**: String.
+
+Outgoing connection security policy: `REQUIRE` or `OPTIONAL`. ||
+|| `SendingPoolName` | **Type**: String.
+
+The name of the [pool](../../concepts/dedicated-ip.md) the IP addresses of which are used to send the configuration emails. ||
 || `Tags` | **Type**: Array.
 
 Label array for configuration. ||

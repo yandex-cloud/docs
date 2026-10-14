@@ -24,9 +24,11 @@
 
       При необходимости воспользуйтесь строкой поиска или фильтром вверху страницы.
   1. В строке с нужным пользователем нажмите значок ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) и выберите ![key](../../../_assets/console-icons/key.svg) **Сбросить пароль**.
-  1. В появившемся окне подтвердите сброс пароля.
+  1. В появившемся окне выберите способ сброса пароля:
 
-      Сохраните сгенерированный пароль и передайте его пользователю. После закрытия окна посмотреть новый пароль будет невозможно.
+      * **Сгенерировать автоматически** — новый пароль будет создан автоматически. Сохраните сгенерированный пароль и передайте его пользователю. После закрытия окна посмотреть новый пароль будет невозможно.
+      * **Задать вручную** — укажите новый пароль самостоятельно. Он должен соответствовать [парольной политике](../../concepts/password-policy.md) пула пользователей.
+  1. Нажмите кнопку **Сбросить пароль**.
 
 - CLI {#cli}
 
@@ -105,7 +107,7 @@
 
 - Интерфейс Cloud Center {#cloud-center}
 
-  Задать произвольный пароль локальному пользователю через интерфейс Cloud Center нельзя. Чтобы изменить пароль на сгенерированный, воспользуйтесь [инструкцией](#reset).
+  Чтобы задать произвольный пароль локальному пользователю, [сбросьте](#reset) предыдущий. При сбросе выберите способ **Задать вручную** и укажите новый пароль.
 
 - CLI {#cli}
 
@@ -242,8 +244,10 @@
 
 - API {#api}
 
-    Чтобы изменить свой пароль, воспользуйтесь методом REST API [setOwnPassword](../../idp/api-ref/User/setOwnPassword.md) для ресурса [User](../../idp/api-ref/User/index.md) или вызовом gRPC API [UserService/SetOwnPassword](../../idp/api-ref/grpc/User/setOwnPassword.md).
+  Чтобы изменить свой пароль, воспользуйтесь методом REST API [setOwnPassword](../../idp/api-ref/User/setOwnPassword.md) для ресурса [User](../../idp/api-ref/User/index.md) или вызовом gRPC API [UserService/SetOwnPassword](../../idp/api-ref/grpc/User/setOwnPassword.md).
 
-    Чтобы задать пароль другому пользователю, воспользуйтесь методом REST API [setOthersPassword](../../idp/api-ref/User/setOthersPassword.md) для ресурса [User](../../idp/api-ref/User/index.md) или вызовом gRPC API [UserService/SetOthersPassword](../../idp/api-ref/grpc/User/setOthersPassword.md).
+  Чтобы задать пароль другому пользователю, воспользуйтесь методом REST API [setOthersPassword](../../idp/api-ref/User/setOthersPassword.md) для ресурса [User](../../idp/api-ref/User/index.md) или вызовом gRPC API [UserService/SetOthersPassword](../../idp/api-ref/grpc/User/setOthersPassword.md).
 
 {% endlist %}
+
+Пользователь должен будет изменить этот пароль при первом входе в Yandex Cloud.

@@ -48,11 +48,11 @@ To create a bucket, upload your URL shortener's HTML page to it, and configure i
      {% endcut %}
 
   1. Click the name of the bucket you created.
-  1. Click **{{ ui-key.yacloud.storage.bucket.button_empty-create }}**.
+  1. In the top panel, click ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
   1. Specify the `index.html` file you set up earlier.
   1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
-  1. In the left-hand panel, select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
-  1. Select **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+  1. Select `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
   1. Specify the website's home page: `index.html`.
   1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 

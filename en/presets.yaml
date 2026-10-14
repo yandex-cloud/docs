@@ -3511,6 +3511,7 @@ default:
         alert:
           action_alert_analysis: Alert analysis
           alert_severity-info: Remark
+          overview_tags: Tags
         alerts:
           sink:
             action_create: Create sink
@@ -3543,8 +3544,13 @@ default:
         alerts-base:
           action_create-exception_kyUtB: Create exception
         alerts:
+          AlertTagsControl:
+            action_add-tag_bu4cy: Add tag
           comment_form:
             send: Send
+          i18n:
+            ts:
+              action-add-tags_kUsL6: Add tags
         comp:
           SetsTable:
             action_disable_5hgkz: Disable verification
@@ -3681,9 +3687,13 @@ default:
           Yandex360DataSourceForm:
             action_add_resources_2qrRH: Add resources
             action_configure-connection_v6Gjm: Configure connection
+            button_add_disk_nUBSX: Add disk
             field_client_id_iVUvK: ClientID
             field_client_secret_pcFGg: Client secret
             label_all_disks_5KEY9: All disks
+            label_public_access: Scan
+            public_access_all_files: All files
+            public_access_public_files: Public files
             section_organization_resources_title_5u8qX: Organization resources
             section_user_resources_title_aN75p: User resources
         kspm:
@@ -3748,6 +3758,15 @@ default:
           template_type_global_qSrVE: Global
           template_type_local_77J2t: Instance
           title_ap766: Save query as template
+        vm:
+          WorkspaceVulnerabilityForm:
+            add_image_trigger_title: Vulnerability searches when adding images to registries
+            scan_only_latest_title: >-
+              Only scan images with the latest tag or the most recently added
+              ones
+            schedular_search_title: Periodic vulnerability search in registries
+            scope_control_option_all: All registries in the workspace
+            scope_control_option_selected: Only registries in the location selected
         workspaces:
           ConnectorAddField:
             addNewConnector: Create connector
@@ -3779,6 +3798,7 @@ default:
             tabGeneralParams_xc2v2: Main parameters
             tabResources_vJuSN: Resources
             tabStandards_wSeaW: Control modules
+            tabVulnerabilities_wSeaW: Vulnerability management
           WorkspaceGeneralParamsForm:
             alert_sink_title_pvDBG: Alert sink
             billing_account_title_sU1Tj: Payment for resources
@@ -4566,6 +4586,7 @@ default:
       cdn:
         button_activate-shielding: Activate
         button_add-domain: Add domain name
+        button_deactivate-shielding: Deactivate
         button_origins-group-create: Create origin group
         button_resource-activate-raw-logs: Activate
         button_resource-content-prefetch-cache: Preload content

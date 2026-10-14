@@ -22,6 +22,8 @@ noIndex: true
 
 Команды ниже выполняются в bash от `root`. В примерах служба называется `valkey-server`, пользователь и группа — `valkey:valkey`, конфигурационный файл — `/etc/valkey/valkey.conf`, каталог данных — `/var/lib/valkey`. Если в вашей установке они отличаются, подставьте свои значения.
 
+{% include [key](../../_includes/mdb/decrypt-key.md) %}
+
 ## Передаваемые данные {#data}
 
 | Ресурс             | Содержимое                                                                                                    |
@@ -134,6 +136,29 @@ noIndex: true
    ```bash
    wal-g-redis --config "$WALG_CONFIG" backup-info --tag Version "$BACKUP_NAME"
    ```
+
+1. Проверьте целостность резервной копии:
+ 
+   {% include [checkup](../../_includes/mdb/backup-checkup.md) %}
+
+   1. Запустите скрипт:
+
+      ```bash
+      WAL_G_BIN=wal-g-redis ./s3_test_script.sh */etc/wal-g/wal-g.yaml*
+      ```
+   
+      При необходимости укажите директорию:
+
+      ```bash
+      WAL_G_BIN=wal-g-redis ./s3_test_script.sh */etc/wal-g/wal-g.yaml* basebackups_005 # проверяет копии
+      WAL_G_BIN=wal-g-redis ./s3_test_script.sh */etc/wal-g/wal-g.yaml* wal_005 # проверяет WAL
+      ```
+
+      Пример вывода:
+
+      ```bash
+      FAIL test/corrupted_file_2.txt.br
+      Checked: 2; decoded: 2; raw: 0; failed: 1; unknown:
 
 1. Подготовьте {{ VLK }}:
 

@@ -182,12 +182,9 @@ To stop the skill, [delete](../../../functions/operations/function/function-dele
 
 [*functions]: With {{ sf-full-name }} functions, you can place your code in {{ yandex-cloud }} and run on request or trigger. For more information, see [{#T}](../../../functions/concepts/function.md).
 
-[*folder]: A folder is a logical space where you create and group your {{ yandex-cloud }} resources. Just like folders in your file system, {{ yandex-cloud }} folders make resource management simpler. For more information, see [{#T}](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+[*folder]: {% include [folder-definition](../../../_popups/resource-manager/folder-definition.md) %}
 
-[*naming]: The naming requirements are as follows:
-* It must be between 3 and 63 characters in length.
-* It can only contain lowercase Latin letters, numbers, and hyphens.
-* It must start with a letter and cannot end with a hyphen.
+[*naming]: {% include [name-format-general](../../../_popups/name-format-general.md) %}
 
 [*function_version]: A version contain the function code, execution parameters, as well as all required dependencies. You can use different versions of the same function at different development stages. For more information, see [{#T}](../../../functions/concepts/function.md#version).
 

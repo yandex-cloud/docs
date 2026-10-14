@@ -2,20 +2,31 @@
 
 # Поставка данных из Yandex Managed Service for Apache Kafka® с помощью Yandex Data Transfer
 
-# Поставка данных очереди из Apache Kafka® в Yandex Managed Service for YDB
+# Поставка данных из Apache Kafka® в Yandex Managed Service for YDB
 
 
 В кластер Yandex Managed Service for YDB можно в реальном времени поставлять данные из топиков Apache Kafka®. Эти данные будут автоматически добавлены в таблицы YDB с именами топиков.
 
 Чтобы запустить поставку данных:
 
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работоспособность трансфера](#verify-transfer).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Необходимые платные ресурсы {#paid-resources}
+## Перед началом работы {#before-you-begin}
+
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер Yandex Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
@@ -27,7 +38,7 @@
 * Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы Yandex Data Transfer](../../data-transfer/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте инфраструктуру {#prepare-infrastructure}
 
 1. Подготовьте инфраструктуру поставки данных:
 
@@ -145,26 +156,16 @@
 
 - Вручную {#manual}
 
-    1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
-
-        * **Тип базы данных** — `YDB`.
-        * **Параметры эндпоинта**:
-
-            * **Настройки подключения**:
-                * **База данных** — выберите базу данных Managed Service for YDB из списка.
-
-                
-                * **Идентификатор сервисного аккаунта** — выберите или создайте сервисный аккаунт с ролью `ydb.editor`.
-
-
     1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
 
+        * **Направление** — `Источник`.
+        * Укажите имя эндпоинта.
         * **Тип базы данных** — `Kafka`.
         * **Параметры эндпоинта**:
-            * **Тип подключения** — `Кластер Managed Service for Apache Kafka`.
-
-                Выберите кластер-источник из списка и укажите настройки подключения к нему.
-
+            * **Тип подключения** — `Ручная настройка`.
+            * **Тип инсталляции** — `Кластер Managed Service for Apache Kafka`.
+            * **Кластер Managed Service for Apache Kafka** — выберите кластер-источник из списка.
+            * **Аутентификация** — выберите `SASL` и укажите данные [созданного ранее](#prepare-infrastructure) пользователя Apache Kafka®.
             * **Расширенные настройки** → **Правила конвертации**:
                 * **Формат данных** – `JSON`.
                 * **Схема данных** – вы можете задать схему двумя способами:
@@ -234,6 +235,21 @@
                         ```
 
                         {% endcut %}
+
+    1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
+
+        * **Направление** — `Приёмник`.
+        * Укажите имя эндпоинта.
+        * **Тип базы данных** — `YDB`.
+        * **Параметры эндпоинта**:
+
+            * **Настройки подключения**:
+                * **Тип подключения** — `База Managed Service for YDB`.
+                * **База данных** — выберите базу данных Managed Service for YDB из списка.
+
+                
+                * **Идентификатор сервисного аккаунта** — выберите или создайте сервисный аккаунт с ролью `ydb.editor`.
+
 
     1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_Репликация_**, использующий созданные эндпоинты.
     1. [Активируйте](../../data-transfer/operations/transfer.md#activate) трансфер.
@@ -336,7 +352,7 @@
            -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z
         ```
 
-        Данные отправляются от имени [созданного пользователя](#before-you-begin). Подробнее о настройке SSL-сертификата и работе с `kafkacat` смотрите в разделе [Подключение к кластеру Apache Kafka® из приложений](../../managed-kafka/operations/connect/clients.md).
+        Данные отправляются от имени [созданного пользователя](#prepare-infrastructure). Подробнее о настройке SSL-сертификата и работе с `kafkacat` смотрите в разделе [Подключение к кластеру Apache Kafka® из приложений](../../managed-kafka/operations/connect/clients.md).
 
     1. Убедитесь, что в базу данных Managed Service for YDB перенеслись данные из кластера-источника Managed Service for Apache Kafka®:
 

@@ -10,6 +10,7 @@ Actions are performed by making RPC calls. For more information about API archit
 
 #|
 ||Service | Description ||
+|| [ChangeFreeze](ChangeFreeze/index.md) |  ||
 || [Cluster](Cluster/index.md) | A set of methods for managing Spark clusters. ||
 || [Job](Job/index.md) | A set of methods for managing jobs for Spark cluster. ||
 || [Maintenance](Maintenance/index.md) |  ||

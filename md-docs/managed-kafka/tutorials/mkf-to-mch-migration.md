@@ -2,13 +2,13 @@
 
 # Поставка данных в Yandex Managed Service for ClickHouse® с помощью Yandex Data Transfer
 
-# Поставка данных из очереди Apache Kafka® в ClickHouse® с помощью Yandex Data Transfer
+# Поставка данных из Apache Kafka® в ClickHouse® с помощью Yandex Data Transfer
 
 В кластер Managed Service for ClickHouse® можно в реальном времени поставлять данные из топиков Apache Kafka®. Эти данные будут автоматически вставлены в таблицы ClickHouse® на [движке `Kafka`](https://clickhouse.com/docs/ru/engines/table-engines/integrations/kafka).
 
 Чтобы настроить поставку данных из Yandex Managed Service for Apache Kafka® в Managed Service for ClickHouse®:
 
-1. [Подготовьте инфраструктуру](#deploy-infrastructure).
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
 1. [Выполните дополнительные настройки](#additional-settings).
 1. [Отправьте тестовые данные в топик Managed Service for Apache Kafka®](#send-sample-data-to-kf).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
@@ -34,7 +34,7 @@
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
-## Подготовьте инфраструктуру {#deploy-infrastructure}
+## Подготовьте инфраструктуру {#prepare-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -271,89 +271,90 @@
 
 - Вручную {#manual}
   
-  1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
+  1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [источника `Apache Kafka®`](../../data-transfer/operations/endpoint/source/kafka.md):
 
+      * **Направление** — `Источник`.
+      * Укажите имя эндпоинта.
       * **Тип базы данных** — `Kafka`.
-      * **Параметры эндпоинта** → **Настройки подключения**:
+      * **Параметры эндпоинта**:
 
-        * **Тип подключения** — `Кластер Managed Service for Apache Kafka`.
-
+          * **Тип подключения** — выберите `Ручная настройка`.
+          * **Тип инсталляции** — выберите `Кластер Managed Service for Apache Kafka`.
           * **Кластер Managed Service for Apache Kafka** — выберите кластер-источник из списка.
-          * **Аутентификация**:
+          * **Аутентификация** — выберите `SASL` и укажите имя и пароль пользователя, созданного [ранее](#prepare-infrastructure).
 
-            * **Имя пользователя** — укажите имя пользователя потребителя.
-            * **Пароль** — укажите пароль пользователя потребителя.
+          * **Полное имя топика** — укажите имя топика в кластере Managed Service for Apache Kafka®.
 
-        * **Полное имя топика** — укажите имя топика в кластере Managed Service for Apache Kafka®.
+          * **Расширенные настройки** → **Правила конвертации**:
 
-        * **Расширенные настройки** → **Правила конвертации**:
+              * **Формат данных** — `JSON`.
+              * **Схема данных** — `JSON-спецификация`:
 
-          * **Формат данных** — `JSON`.
-          * **Схема данных** — `JSON-спецификация`:
+                  Скопируйте и вставьте схему данных в формате JSON:
 
-            Скопируйте и вставьте схему данных в формате JSON:
+                  {% cut "схема данных" %}
 
-            {% cut "схема данных" %}
+                  ```json
+                  [
+                    {
+                      "name": "device_id",
+                      "type": "string"
+                    },
+                    {
+                      "name": "datetime",
+                      "type": "datetime"
+                    },
+                    {
+                      "name": "latitude",
+                      "type": "double"
+                    },
+                    {
+                      "name": "longitude",
+                      "type": "double"
+                    },
+                    {
+                      "name": "altitude",
+                      "type": "double"
+                    },
+                    {
+                      "name": "speed",
+                      "type": "double"
+                    },
+                    {
+                      "name": "battery_voltage",
+                      "type": "any"
+                    },
+                    {
+                      "name": "cabin_temperature",
+                      "type": "double"
+                    },
+                    {
+                      "name": "fuel_level",
+                      "type": "any"
+                    }
+                  ]
+                  ```
 
-            ```json
-            [
-              {
-                "name": "device_id",
-                "type": "string"
-              },
-              {
-                "name": "datetime",
-                "type": "datetime"
-              },
-              {
-                "name": "latitude",
-                "type": "double"
-              },
-              {
-                "name": "longitude",
-                "type": "double"
-              },
-              {
-                "name": "altitude",
-                "type": "double"
-              },
-              {
-                "name": "speed",
-                "type": "double"
-              },
-              {
-                "name": "battery_voltage",
-                "type": "any"
-              },
-              {
-                "name": "cabin_temperature",
-                "type": "double"
-              },
-              {
-                "name": "fuel_level",
-                "type": "any"
-              }
-            ]
-            ```
-
-            {% endcut %}
+                  {% endcut %}
 
 
-  1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
+  1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [приемника `ClickHouse®`](../../data-transfer/operations/endpoint/target/clickhouse.md):
 
+      * **Направление** — `Приёмник`.
+      * Укажите имя эндпоинта.
       * **Тип базы данных** — `ClickHouse`.
       * **Параметры эндпоинта**:
 
-        * **Настройки подключения**:
+          * **Тип подключения** — выберите `Ручная настройка`.
 
-          * **Тип подключения** — `Managed кластер`.
+          * **Тип инсталляции** — выберите `Кластер Managed Service for ClickHouse`.
 
-            * **Managed кластер** — выберите кластер-приемник из списка.
+          * **Managed кластер** — выберите кластер-приемник из списка.
 
           * **База данных** — укажите имя базы данных.
           * **Пользователь** и **Пароль** — укажите имя и пароль пользователя с доступом к базе, например, владельца базы данных.
 
-        * **Расширенные настройки** → **Загружать данные в формате JSON** — включите эту опцию, если в расширенных настройках эндпоинта-источника включили опцию **Правила конвертации**.
+          * **Расширенные настройки** → **Загружать данные в формате JSON** — включите эту опцию, если в расширенных настройках эндпоинта-источника включили опцию **Правила конвертации**.
 
   1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_Репликация_**, использующий созданные эндпоинты.
   1. [Активируйте](../../data-transfer/operations/transfer.md#activate) трансфер.

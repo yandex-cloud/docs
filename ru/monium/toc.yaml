@@ -382,6 +382,10 @@ items:
     items:
       - name: SLO-мониторинг веб-сервиса
         href: slo/slo-blackbox-exporter.md
+      - name: >-
+          Интеграция LiteLLM Proxy с {{ ai-studio-full-name }} и {{ traces-name
+          }}
+        href: tutorials/traces-for-litellm-proxy.md
   - name: '{{ managed-prometheus-name }}'
     items:
       - name: Обзор

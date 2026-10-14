@@ -1,0 +1,1 @@
+{{ sws-full-name }} protects your infrastructure against DDoS attacks and bots at the application layer (L7). For more information, see [this {{ sws-name }} guide](../../smartwebsecurity/concepts/index.md).

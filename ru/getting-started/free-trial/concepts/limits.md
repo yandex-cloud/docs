@@ -6,13 +6,13 @@ editable: false
 
 # Ограничения пробного периода
 
-
 {% note warning %}
 
-Пробный период временно недоступен, рекомендуем [перейти на платную версию](./upgrade-to-paid.md).
+Пробный период и стартовый грант для новых клиентов недоступны.
+
+Рекомендуем сразу [перейти на платную версию](./upgrade-to-paid.md).
 
 {% endnote %}
-
 
 {% include [free-trial-invoice-only](../../../_includes/billing/free-trial-invoice-only.md) %}
 

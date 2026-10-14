@@ -2,6 +2,20 @@
 
 # История изменений в Yandex Smart Web Security
 
+## Октябрь 2026 {#october-2026}
+
+* В Smart Web Security интегрирован [SolidWall WAF](concepts/solidwall-waf.md) — средство защиты веб-приложений от атак на прикладном уровне. Защиту настраивают и сопровождают аналитики сервиса. Функциональность доступна на стадии [Preview](../overview/concepts/launch-stages.md) по запросу в [техническую поддержку](https://center.yandex.cloud/support).
+
+* Добавлена поддержка [API](load_balancer/api-ref/LoadBalancer/index.md), [CLI](cli-ref/load-balancer/load-balancer/index.md) и [Terraform](../terraform/resources/sws_load_balancer.md) для управления [прокси-серверами](concepts/domain-protect.md#proxy).
+
+## III квартал 2026 {#q3-2026}
+
+* Добавлена функциональность «Адаптивная защита», которая позволяет настраивать правила фильтрации для разных [режимов защиты](concepts/profiles.md#protection-mode). У профиля безопасности три режима: «Нормальный», «Повышенная защита» и «Под атакой». Режимы определяют, какие правила профиля применяются к трафику и насколько строго работает Smart Protection. Переключать режимы можно вручную или автоматически при превышении заданных порогов нагрузки.
+
+* В режиме полной защиты Smart Protection добавлены [проверки JS Challenge и Cookie Challenge](concepts/rules.md#client-checks). Они автоматически проверяют выполнение JavaScript-кода и работу с cookie на стороне клиента. Smart Protection выбирает проверку для подозрительного трафика: JS Challenge, Cookie Challenge или капчу.
+
+* Обновлена версия [ML WAF](concepts/waf.md#yandex-ml-ruleset): повышена точность обнаружения атак.
+
 ## II квартал 2026 {#q2-2026}
 
 * Обновлена функциональность [списков адресов](concepts/lists.md): теперь с их помощью можно создавать правила фильтрации трафика по группам IP-адресов, номеров ASN, регулярных выражений и строковых значений.
