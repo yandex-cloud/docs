@@ -75,6 +75,12 @@ items:
             items:
               - name: Настроить NuGet
                 href: operations/nuget/installation.md
+              - name: Создать NuGet-пакет
+                href: operations/nuget/create.md
+              - name: Загрузить NuGet-пакет в реестр
+                href: operations/nuget/push.md
+              - name: Скачать NuGet-пакет из реестра
+                href: operations/nuget/pull.md
           - name: Python-артефакт
             items:
               - name: Настроить PyPI
