@@ -106,6 +106,30 @@ noIndex: true
 
    Скорость скачивания определяется параметром `WALG_DOWNLOAD_CONCURRENCY`. По умолчанию он равен 10, однако если общее число файлов меньше 10, параметр принимает значение, равное количеству файлов.
 
+1. Проверьте целостность резервной копии:
+ 
+   {% include [checkup](../../_includes/mdb/backup-checkup.md) %}
+
+   1. Запустите скрипт:
+
+      ```bash
+      ./s3_test_script.sh */etc/wal-g/wal-g.yaml*
+      ```
+   
+      При необходимости укажите директорию:
+
+      ```bash
+      ./s3_test_script.sh */etc/wal-g/wal-g.yaml* basebackups_005 # проверяет копии
+      ./s3_test_script.sh */etc/wal-g/wal-g.yaml* wal_005 # проверяет WAL
+      ```
+
+      Пример вывода:
+
+      ```bash
+      FAIL test/corrupted_file_2.txt.br
+      Checked: 2; decoded: 2; raw: 0; failed: 1; unknown:
+      ```
+
 1. Очистите настройки исходного кластера в каталоге данных:
 
    * `postgresql.auto.conf` — {{ PG }} читает его автоматически. Удалите или закомментируйте строки, которые ссылаются на чужие пути, хосты и библиотеки: `shared_preload_libraries`, `archive_command`, `primary_conninfo` и т. п.

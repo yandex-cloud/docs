@@ -15,5 +15,4 @@ With [{{ objstorage-full-name }}](../../storage/), you can set up automatic data
 * [Backing up to {{ objstorage-full-name }} with Bacula](backup-with-bacula.md)
 * [Backing up to {{ objstorage-full-name }} with Veritas Backup Exec](object-storage-veritas.md)
 * [Backing up to {{ objstorage-full-name }} with Veeam Backup](./backup-with-veeam.md)
-* [Backing up a VM with Hystax Acura Backup](../infrastructure-management/hystax-backup.md)
 * [{{ managed-k8s-name }} cluster backups in {{ objstorage-full-name }}](kubernetes-backup.md)

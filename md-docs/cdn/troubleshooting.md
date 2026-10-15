@@ -9,6 +9,7 @@
 * [Почему CDN возвращает ошибку 413 на запросы GET, HEAD и OPTIONS?](#request-body-413)
 * [При загрузке объектов из CDN возникают ошибки `no such bucket` и `no such key`](#no-such-bucket-no-such-key)
 * [На запросы файлов CDN отвечает кодами 5xx (ошибка сервера)](#responses-5xx)
+* [Как настроить Cloud CDN при недоступности источника?](#fault-tolerance)
 * [Почему растут нагрузка на источник и расходы на его работу](#origin-load-growth)
 * [Запросы с методами POST, PUT, PATCH, DELETE недоступны пользователям](#post-responses)
 * [Браузер блокирует CORS-запросы к CDN-ресурсу](#cors-requests)
@@ -76,6 +77,10 @@ CDN-серверы не поддерживают протокол IPv6 и мог
   * с указанным значением HTTP-заголовка `Host` и другими заголовками. 
   
 Также проверьте статус Cloud CDN на [специальной странице Yandex Cloud](https://status.yandex.cloud/ru/dashboard?service=cloud%20cdn).
+
+## Как настроить Cloud CDN при недоступности источника? {#fault-tolerance}
+
+Чтобы подготовить ресурс к недоступности основного [источника](concepts/origins.md), воспользуйтесь [рекомендациями](concepts/fault-tolerance.md).
 
 ## Почему растут нагрузка на источник и расходы на его работу {#origin-load-growth}
 

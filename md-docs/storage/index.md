@@ -186,8 +186,6 @@
 
  - [Резервное копирование в Object Storage с помощью GeeseFS](tutorials/storage-backup-geesefs.md)
 
- - [Резервное копирование ВМ с помощью Хайстекс Акура](tutorials/hystax-backup.md)
-
  - [Резервное копирование в Object Storage с помощью Duplicati](tutorials/object-storage-duplicati.md)
 
  - [Резервное копирование кластера Managed Service for Kubernetes в Object Storage](tutorials/kubernetes-backup.md)

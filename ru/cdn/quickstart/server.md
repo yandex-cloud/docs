@@ -91,6 +91,12 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [quickstart-check-cdn-working](../../_includes/cdn/quickstart-check-cdn-working.md) %}
 
+{% note tip %}
+
+{% include [fault-tolerance-recommendations](../../_includes/cdn/fault-tolerance-recommendations.md) %}
+
+{% endnote %}
+
 #### Полезные ссылки {#see-also}
 
 * [{#T}](./bucket.md)

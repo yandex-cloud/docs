@@ -91,7 +91,6 @@ _Возможность находится на стадии [Preview](../../ove
 * [Начало работы с Packer](../tutorials/packer-quickstart.md)
 * [Сборка образа ВМ с набором инфраструктурных инструментов с помощью Packer](../tutorials/packer-custom-image.md)
 * [Привязка доменного имени к ВМ с веб-сервером](../tutorials/bind-domain-vm/index.md)
-* [Миграция в Yandex Cloud с помощью Хайстекс Акура](../tutorials/hystax-migration.md)
 
 ## Смотрите также {#see-also}
 

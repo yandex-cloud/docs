@@ -14,6 +14,7 @@
 * [Подключение к базе данных Yandex Managed Service for YDB из функции Cloud Functions на Node.js](connect-to-ydb-nodejs.md)
 * [Канареечный релиз функции Cloud Functions](canary-release.md)
 * [Интерактивная отладка функций Cloud Functions](serverless-live-debug.md)
+* [Веб-приложение на SourceCraft Sites и Yandex Cloud Functions](sourcecraft-sites-web-app.md)
 
 ## Боты на Serverless {#bots}
 

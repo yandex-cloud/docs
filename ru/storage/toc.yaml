@@ -189,8 +189,6 @@ items:
             href: tutorials/backup-with-veeam.md
           - name: Резервное копирование в {{ objstorage-name }} с помощью GeeseFS
             href: tutorials/storage-backup-geesefs.md
-          - name: Резервное копирование ВМ с помощью Хайстекс Акура
-            href: tutorials/hystax-backup.md
           - name: Резервное копирование в {{ objstorage-name }} с помощью Duplicati
             href: tutorials/object-storage-duplicati.md
           - name: >-

@@ -12,6 +12,8 @@
 
  - [Перенос образа диска в стороннее S3-хранилище](disk-migration-to-external-s3.md)
 
+ - [Настройка Cloud CDN при недоступности источника](cdn-fault-tolerance.md)
+
  - [Развертывание веб-приложения в отказоустойчивой конфигурации в Yandex Cloud](app-in-k8s.md)
 
  - [Размещение статического сайта в Yandex Cloud](static-website-in-yc.md)

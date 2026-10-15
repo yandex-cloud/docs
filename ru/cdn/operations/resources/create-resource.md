@@ -346,3 +346,9 @@ description: Следуя данной инструкции, вы сможете
   ```
 
 {% endlist %}
+
+{% note tip %}
+
+{% include [fault-tolerance-recommendations](../../../_includes/cdn/fault-tolerance-recommendations.md) %}
+
+{% endnote %}

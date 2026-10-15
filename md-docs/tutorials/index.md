@@ -328,13 +328,7 @@
 
  - [Резервное копирование в Object Storage с помощью Veeam Backup](archive/backup-with-veeam.md)
 
- - [Резервное копирование ВМ с помощью Хайстекс Акура](infrastructure-management/hystax-backup.md)
-
  - [Резервное копирование кластера Managed Service for Kubernetes в Object Storage](archive/kubernetes-backup.md)
-
- - [Миграция в Yandex Cloud с помощью Хайстекс Акура](infrastructure-management/hystax-migration.md)
-
- - [Защита от сбоев с помощью Хайстекс Акура](infrastructure-management/hystax-disaster-recovery.md)
 
 ### Однонодовый файловый сервер
 
@@ -1102,6 +1096,8 @@
 
  - [Выполнение аналитических запросов в Managed Service for PostgreSQL с обработкой в Managed Service for ClickHouse®](dataplatform/mpg-pg-clickhouse-extension.md)
 
+ - [Выполнение векторного поиска в Managed Service for PostgreSQL с помощью vector](dataplatform/mpg-vector-extension.md)
+
 ### Valkey™
 
  - [Миграция БД из стороннего кластера Valkey™ в Yandex Managed Service for Valkey™](dataplatform/valkey-data-migration.md)
@@ -1438,7 +1434,7 @@
 
  - [Настройка Postfix для отправки через Yandex Cloud Postbox](serverless/postfix-integration.md)
 
- - [Веб-приложение на SourceCraft Sites и Yandex Cloud Functions](serverless/sourcecraft-sites-web-app.md)
+ - [Веб-приложение на SourceCraft Sites и Cloud Functions](serverless/sourcecraft-sites-web-app.md)
 
 ### Боты на Serverless
 

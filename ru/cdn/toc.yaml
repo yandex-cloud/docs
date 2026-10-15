@@ -132,6 +132,8 @@ items:
         href: concepts/points-of-presence.md
       - name: Ресурс
         href: concepts/resource.md
+      - name: Настройка {{ cdn-name }} при недоступности источника
+        href: concepts/fault-tolerance.md
       - name: Источники и их группы
         href: concepts/origins.md
       - name: Обмен данными между клиентами и CDN

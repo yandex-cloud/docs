@@ -8,7 +8,7 @@
 
 {% endnote %}
 
-Чтобы гарантировать наличие критически важных для вашего сервиса ресурсов, проверяйте потребление квот и запрашивайте их увеличение в автоматическом режиме. Для этого можно использовать CLI или API Yandex Cloud Quota Manager.
+Чтобы избежать исчерпания квот, отслеживайте их потребление и заранее запрашивайте увеличение. Автоматизировать эти действия можно с помощью CLI или API Yandex Cloud Quota Manager. Увеличение квот не гарантирует наличие свободных ресурсов.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -24,37 +24,34 @@
       
       Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  1. Убедитесь, что у пользователя или сервисного аккаунта, аутентифицированного в профиле CLI, есть следующие [роли](../iam/concepts/access-control/roles.md):
+  1. Убедитесь, что у пользователя или сервисного аккаунта, аутентифицированного в профиле CLI, есть [роль](../iam/concepts/access-control/roles.md) для нужной операции:
 
-      * для получения информации о квотах: [quota-manager.viewer](security/index.md#quota-manager-viewer) или выше;
-      * для создания запросов на изменение квот:
+      * [quota-manager.viewer](security/index.md#quota-manager-viewer) — для просмотра квот.
+      * [quota-manager.requestOperator](security/index.md#quota-manager-requestoperator) — для просмотра квот и создания запросов на их изменение.
       
-          * на уровне [организации](../resource-manager/concepts/resources-hierarchy.md#cloud) — [quota-manager.requestOperator](security/index.md#quota-manager-requestoperator) или выше и [organization-manager.viewer](../organization/security/index.md#organization-manager-viewer) или выше;
-          * на уровне облака — [resource-manager.viewer](../resource-manager/security/index.md#resource-manager-viewer) или выше.
+      Назначьте роль на облако или организацию, к которым относятся квоты.
 
 - REST API {#api}
 
   1. Установите утилиту [cURL](https://curl.haxx.se).
-  1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) и [назначьте](../iam/operations/sa/assign-role-for-sa.md) ему [роли](../iam/concepts/access-control/roles.md):
+  1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) и [назначьте](../iam/operations/sa/assign-role-for-sa.md) ему [роль](../iam/concepts/access-control/roles.md) для нужной операции:
 
-      * для получения информации о квотах: [quota-manager.viewer](security/index.md#quota-manager-viewer) или выше;
-      * для создания запросов на изменение квот:
+      * [quota-manager.viewer](security/index.md#quota-manager-viewer) — для просмотра квот.
+      * [quota-manager.requestOperator](security/index.md#quota-manager-requestoperator) — для просмотра квот и создания запросов на их изменение.
       
-          * на уровне [организации](../resource-manager/concepts/resources-hierarchy.md#cloud) — [quota-manager.requestOperator](security/index.md#quota-manager-requestoperator) или выше и [organization-manager.viewer](../organization/security/index.md#organization-manager-viewer) или выше;
-          * на уровне облака — [resource-manager.viewer](../resource-manager/security/index.md#resource-manager-viewer) или выше.
+      Назначьте роль на облако или организацию, к которым относятся квоты.
 
   1. [Получите IAM-токен](../iam/operations/iam-token/create-for-sa.md) для созданного сервисного аккаунта.
 
 - gRPC API {#grpc-api}
 
   1. Установите утилиту [gRPCurl](https://github.com/fullstorydev/grpcurl).
-  1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) и [назначьте](../iam/operations/sa/assign-role-for-sa.md) ему [роли](../iam/concepts/access-control/roles.md):
+  1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) и [назначьте](../iam/operations/sa/assign-role-for-sa.md) ему [роль](../iam/concepts/access-control/roles.md) для нужной операции:
 
-      * для получения информации о квотах: [quota-manager.viewer](security/index.md#quota-manager-viewer) или выше;
-      * для создания запросов на изменение квот:
+      * [quota-manager.viewer](security/index.md#quota-manager-viewer) — для просмотра квот.
+      * [quota-manager.requestOperator](security/index.md#quota-manager-requestoperator) — для просмотра квот и создания запросов на их изменение.
       
-          * на уровне [организации](../resource-manager/concepts/resources-hierarchy.md#cloud) — [quota-manager.requestOperator](security/index.md#quota-manager-requestoperator) или выше и [organization-manager.viewer](../organization/security/index.md#organization-manager-viewer) или выше;
-          * на уровне облака — [resource-manager.viewer](../resource-manager/security/index.md#resource-manager-viewer) или выше.
+      Назначьте роль на облако или организацию, к которым относятся квоты.
 
   1. [Получите IAM-токен](../iam/operations/iam-token/create-for-sa.md) для созданного сервисного аккаунта.
 
@@ -118,7 +115,7 @@
 
 - REST API {#api}
 
-  Воспользуйтесь методом REST API [Get](api-ref/QuotaLimit/get.md) для ресурса [QuotaLimit](api-ref/QuotaLimit/index.md).
+  Воспользуйтесь методом REST API [get](api-ref/QuotaLimit/get.md) для ресурса [QuotaLimit](api-ref/QuotaLimit/index.md).
 
   **Пример запроса**
 
@@ -204,7 +201,7 @@
 
 - REST API {#api}
 
-  Воспользуйтесь методом REST API [List](api-ref/QuotaLimit/list.md) для ресурса [QuotaLimit](api-ref/QuotaLimit/index.md).
+  Воспользуйтесь методом REST API [list](api-ref/QuotaLimit/list.md) для ресурса [QuotaLimit](api-ref/QuotaLimit/index.md).
 
   **Пример запроса**
 
@@ -292,7 +289,7 @@
 
 ## Запросить изменение квоты {#request-quota-change}
 
-Чтобы запросить изменение квоты, создайте запрос и укажите идентификаторы квот ресурсов и новое значение.
+Чтобы изменить квоты, создайте запрос: укажите идентификатор и тип ресурса, идентификаторы квот и желаемые значения.
 
 {% list tabs group=instructions %}
 
@@ -334,7 +331,7 @@
 
 - REST API {#api}
 
-  Воспользуйтесь методом REST API [Create](api-ref/QuotaRequest/create.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md).
+  Воспользуйтесь методом REST API [create](api-ref/QuotaRequest/create.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md).
 
   **Пример запроса**
 
@@ -364,7 +361,7 @@
   }
   ```
   
-  Статус операции `false` означает, что запрос находится на рассмотрении.
+  Значение `done: false` означает, что операция создания запроса еще не завершена. Чтобы узнать статус самого запроса, используйте его идентификатор из поля `metadata.quotaRequestId`.
 
 - gRPC API {#grpc-api}
 
@@ -438,7 +435,7 @@
 
 - REST API {#api}
 
-  Воспользуйтесь методом REST API [List](api-ref/QuotaRequest/list.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md).
+  Воспользуйтесь методом REST API [list](api-ref/QuotaRequest/list.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md).
 
   **Пример запроса**
 
@@ -557,7 +554,7 @@
 
 - REST API {#api}
 
-  Воспользуйтесь методом REST API [Get](api-ref/QuotaRequest/get.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md). В запросе передайте идентификатор запроса на изменение квоты, информацию о котором вы хотите посмотреть.
+  Воспользуйтесь методом REST API [get](api-ref/QuotaRequest/get.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md). Передайте идентификатор запроса на изменение квоты.
 
   **Пример запроса**
 
@@ -616,7 +613,7 @@
 
 - gRPC API {#grpc-api}
 
-  Воспользуйтесь вызовом gRPC API [QuotaRequestService/Get](api-ref/grpc/QuotaRequest/get.md). В запросе передайте идентификатор запроса на изменение квоты, информацию о котором вы хотите посмотреть.
+  Воспользуйтесь вызовом gRPC API [QuotaRequestService/Get](api-ref/grpc/QuotaRequest/get.md). Передайте идентификатор запроса на изменение квоты.
 
   **Пример запроса**
 
@@ -738,7 +735,7 @@
 
 - REST API {#api}
 
-  Воспользуйтесь методом REST API [List](api-ref/QuotaRequest/list.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md) с параметром `filter`. Отфильтровать запросы можно только по их статусу.
+  Воспользуйтесь методом REST API [list](api-ref/QuotaRequest/list.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md) с параметром `filter`. Отфильтровать запросы можно только по их статусу.
 
   **Пример запроса**
 
@@ -895,7 +892,7 @@
 
 - REST API {#api}
 
-  Воспользуйтесь методом REST API [Cancel](api-ref/QuotaRequest/cancel.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md). В запросе передайте идентификатор запроса на изменение квоты, который вы хотите отменить.
+  Воспользуйтесь методом REST API [cancel](api-ref/QuotaRequest/cancel.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md). Передайте идентификатор запроса, который хотите отменить.
 
   **Пример запроса**
 
@@ -927,7 +924,7 @@
 
 - gRPC API {#grpc-api}
 
-  Воспользуйтесь вызовом gRPC API [QuotaRequestService/Cancel](api-ref/grpc/QuotaRequest/cancel.md). В запросе передайте идентификатор запроса на изменение квоты, который вы хотите отменить.
+  Воспользуйтесь вызовом gRPC API [QuotaRequestService/Cancel](api-ref/grpc/QuotaRequest/cancel.md). Передайте идентификатор запроса, который хотите отменить.
 
   **Пример запроса**
 
@@ -985,7 +982,7 @@
 
 - REST API {#api}
 
-  Воспользуйтесь методом REST API [ListOperations](api-ref/QuotaRequest/listOperations.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md). В запросе передайте идентификатор запроса на изменение квоты, список операций с которым вы хотите посмотреть.
+  Воспользуйтесь методом REST API [listOperations](api-ref/QuotaRequest/listOperations.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md). Передайте идентификатор запроса на изменение квоты.
 
   **Пример запроса**
 
@@ -1038,7 +1035,7 @@
 
 - gRPC API {#grpc-api}
 
-  Воспользуйтесь вызовом gRPC API [QuotaRequestService/ListOperations](api-ref/grpc/QuotaRequest/listOperations.md). В запросе передайте идентификатор запроса на изменение квоты, список операций с которым вы хотите посмотреть.
+  Воспользуйтесь вызовом gRPC API [QuotaRequestService/ListOperations](api-ref/grpc/QuotaRequest/listOperations.md). Передайте идентификатор запроса на изменение квоты.
 
   **Пример запроса**
 

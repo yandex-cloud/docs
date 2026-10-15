@@ -1,6 +1,6 @@
 # Удаление облака
 
-Чтобы удалить [облако](../../concepts/resources-hierarchy.md#cloud), у вас должна быть роль [{{ roles-resource-manager-editor }}](../../security/index.md#resource-manager-editor) или выше на это облако. Если вы не можете выполнить эту операцию, обратитесь к [владельцу облака](../../concepts/resources-hierarchy.md#owner).
+Чтобы удалить [облако](../../concepts/resources-hierarchy.md#cloud), у вас должна быть роль [resource-manager.editor](../../security/index.md#resource-manager-editor) или выше на это облако. Если вы не можете выполнить эту операцию, обратитесь к [владельцу облака](../../concepts/resources-hierarchy.md#owner).
 
 {% note info %}
 

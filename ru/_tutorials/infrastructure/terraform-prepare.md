@@ -84,4 +84,4 @@
 
 ### Настройте провайдер {#configure-provider}
 
-{% include [terraform-configure-provider](../_tutorials_includes//terraform-configure-provider.md) %}
+{% include [terraform-configure-provider](../_tutorials_includes/terraform-configure-provider.md) %}

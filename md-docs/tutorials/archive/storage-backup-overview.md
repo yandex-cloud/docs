@@ -12,5 +12,4 @@
 * [Резервное копирование в Yandex Object Storage с помощью Bacula](backup-with-bacula.md)
 * [Резервное копирование в Yandex Object Storage с помощью Veritas Backup Exec](object-storage-veritas.md)
 * [Резервное копирование в Yandex Object Storage с помощью Veeam Backup](backup-with-veeam.md)
-* [Резервное копирование ВМ с помощью «Хайстекс Акура — Система резервного копирования»](../infrastructure-management/hystax-backup.md)
 * [Резервное копирование кластера Managed Service for Kubernetes в Yandex Object Storage](kubernetes-backup.md)

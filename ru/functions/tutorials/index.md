@@ -17,6 +17,7 @@ description: В этом разделе собраны практические 
 * [{#T}](connect-to-ydb-nodejs.md)
 * [{#T}](canary-release.md)
 * [{#T}](serverless-live-debug.md)
+* [{#T}](sourcecraft-sites-web-app.md)
 
 ## Боты на Serverless {#bots}
 

@@ -3,14 +3,15 @@
 
 {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-Чтобы создать вашу первую инфраструктуру в {{ yandex-cloud }} с помощью {{ TF }}:
+Чтобы создать первую инфраструктуру в {{ yandex-cloud }} с помощью {{ TF }}:
+
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Установите {{ TF }}](#install-terraform).
 1. [Получите данные для аутентификации](#get-credentials).
 1. [Создайте файл конфигурации {{ TF }}](#configure-terraform).
 1. [Настройте провайдер](#configure-provider).
 1. [Подготовьте план инфраструктуры](#prepare-plan).
-1. [Проверьте и отформатируйте файлы конфигурации](#check-resources).
+1. [Проверьте и отформатируйте файлы конфигураций](#check-resources).
 1. [Создайте ресурсы](#create-resources).
 
 Если ресурсы больше вам не нужны, [удалите их](#delete-resources).
@@ -21,7 +22,8 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры, разворачиваемой через {{ TF }} в этом руководстве, входят:
+В стоимость поддержки инфраструктуры, которую вы создадите с помощью {{ TF }}, входят:
+
 * плата за постоянно запущенные [виртуальные машины](../../compute/concepts/vm.md) ([тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование динамических [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
@@ -31,7 +33,7 @@
 
 ## Получите данные для аутентификации {#get-credentials}
 
-Для аутентификации и управления инфраструктурой {{ yandex-cloud }} вы можете использовать {{ TF }} от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) или пользовательских аккаунтов: [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративного аккаунта](../../iam/concepts/users/accounts.md#saml-federation) и [локального пользователя](../../iam/concepts/users/accounts.md#local).
+Для аутентификации в {{ yandex-cloud }} и управления инфраструктурой используйте {{ TF }} от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) или пользователя: [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративного аккаунта](../../iam/concepts/users/accounts.md#saml-federation) или [локального пользователя](../../iam/concepts/users/accounts.md#local).
 
 {% list tabs group=authentication %}
 
@@ -55,27 +57,27 @@
 
 ## Подготовьте план инфраструктуры {#prepare-plan}
 
-С помощью {{ TF }} в {{ yandex-cloud }} можно создавать облачные ресурсы всех типов: ВМ, [диски](../../compute/concepts/disk.md), [образы](../../compute/concepts/image.md) и т. д. Подробнее о ресурсах, создающихся с помощью {{ TF }}, в [документации провайдера]({{ tf-provider-link }}).
+С помощью {{ TF }} в {{ yandex-cloud }} можно создавать облачные ресурсы разных типов, например ВМ, [диски](../../compute/concepts/disk.md) и [образы](../../compute/concepts/image.md). Полный список ресурсов приведен в [документации провайдера]({{ tf-provider-link }}).
 
-Для создания ресурса необходимо указать набор обязательных и опциональных параметров, определяющих свойства ресурса. Такие описания ресурсов составляют план инфраструктуры.
+Для каждого ресурса укажите обязательные и необязательные параметры, которые определяют его свойства. Описания ресурсов составляют план инфраструктуры.
 
-По плану будут созданы две ВМ: `terraform1` и `terraform2`, а также [облачная сеть](../../vpc/concepts/network.md#network) `network-1` с [подсетью](../../vpc/concepts/network.md#subnet) `subnet-1`.
+План включает две ВМ (`terraform1` и `terraform2`), [облачную сеть](../../vpc/concepts/network.md#network) `network1` и [подсеть](../../vpc/concepts/network.md#subnet) `subnet1`.
 
 Имена ресурсов должны соответствовать следующим требованиям:
 
 {% include [names](../../_includes/name-format.md) %}
 
-У ВМ будут разные [количества ядер и объемы памяти](../../compute/concepts/vm.md#types): 2 ядра и 2 ГБ оперативной памяти у `terraform1` и 4 ядра и 4 ГБ оперативной памяти у `terraform2`. ВМ автоматически получат публичные и [приватные IP-адреса](../../vpc/concepts/address.md#internal-addresses) из диапазона `192.168.10.0/24` в подсети `subnet-1`, находящейся в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d` и принадлежащей облачной сети `network-1`. На ВМ будет установлена операционная система Ubuntu и размещена публичная часть ключа для доступа к ВМ по [SSH](../../glossary/ssh-keygen.md).
+ВМ будут различаться количеством ядер и объемом памяти: у `terraform1` будет два ядра и 2 ГБ оперативной памяти, а у `terraform2` — четыре ядра и 4 ГБ оперативной памяти. Обе ВМ автоматически получат публичные и [внутренние IP-адреса](../../vpc/concepts/address.md#internal-addresses) из диапазона `192.168.10.0/24`. Подсеть `subnet1` находится в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d` и принадлежит сети `network1`. Для ВМ используйте образ Ubuntu.
 
-В конфигурации ВМ вам потребуется указать идентификатор образа загрузочного диска. Список доступных публичных образов можно получить командой [CLI](../../cli/quickstart.md):
+В конфигурации ВМ укажите идентификатор образа загрузочного диска. Получите список доступных публичных образов с помощью команды [CLI](../../cli/quickstart.md):
 
 ```bash
 yc compute image list --folder-id standard-images
 ```
 
-Для доступа к ВМ через SSH [сгенерируйте пару SSH-ключей](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) и передайте публичную часть ключа на ВМ в параметре `ssh-keys` блока `metadata`.
+Для доступа к ВМ по SSH [сгенерируйте пару SSH-ключей](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) и укажите путь к публичной части ключа в параметре `ssh-keys` блока `metadata`.
 
-Конфигурации ресурсов задаются сразу после конфигурации провайдера:
+Ниже приведены фрагменты конфигурации провайдера и одной ВМ для разных регионов. Полные конфигурации ресурсов приведены во вкладках Linux и Windows ниже.
 
 
 ```hcl
@@ -132,7 +134,7 @@ resource "yandex_compute_instance" "vm-1" {
 
 {% include [create-resources](../../_tutorials/_tutorials_includes/terraform-create-resources.md) %}
 
-## Как удалить созданные ресурсы {#delete-resources}
+## Удалите созданные ресурсы {#delete-resources}
 
 {% include [delete-resources](../../_tutorials/_tutorials_includes/terraform-delete-resources.md) %}
 

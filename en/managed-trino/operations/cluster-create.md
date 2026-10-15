@@ -48,7 +48,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
             Make sure to assign the `managed-trino.integrationProvider` and `storage.editor` roles to the service account.
 
-        1. Select the {{ TR }} version.
+        1. Select a [{{ TR }} version](../concepts/versions.md#available-versions).
 
             {% include [change-version-note](../../_includes/managed-trino/change-version-note.md) %}
 
@@ -56,6 +56,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         1. Select a [network](../../vpc/operations/network-create.md), [subnet](../../vpc/operations/subnet-create.md), and [security group](../../vpc/concepts/security-groups.md) for the cluster.
         1. Optionally, enable the **{{ ui-key.yacloud.trino.label_private-access }}** parameter to make the cluster accessible only via a [service connection](../concepts/network.md#private-endpoint).
+
+            {% include [unchangeable-private-access](../../_includes/managed-trino/unchangeable-private-access.md) %}
 
     1. Optionally, under **Retry policy**, specify the [fault-tolerant query execution](../concepts/retry-policy.md) parameters:
 
@@ -73,7 +75,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         1. Select **{{ ui-key.yacloud.trino.field_retry-storage-type }}** for Exchange Manager:
 
             * `serviceS3`: Service bucket on the {{ mtr-name }} side.
-            * `s3`: User [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md). In the **{{ ui-key.yacloud.trino.field_retry-storage-s3-bucket }}** field, enter a name for the bucket. Make sure to grant the [storage.editor](../../storage/security/index.md#storage-editor) role for the bucket to the cluster [service account](../../iam/concepts/users/service-accounts.md).
+            * `s3`: User's [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md). In the **{{ ui-key.yacloud.trino.field_retry-storage-s3-bucket }}** field, enter a name for the bucket. Make sure to grant the [storage.editor](../../storage/security/index.md#storage-editor) role to the cluster's [service account](../../iam/concepts/users/service-accounts.md).
 
             For more on storage types, see [{#T}](../concepts/retry-policy.md#exchange-manager-storage).
 
@@ -177,6 +179,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         * `--subnet-ids`: List of subnet IDs.
         * `--security-group-ids`: List of security group IDs.
         * `--private-access`: Private access to the cluster. Use this parameter to make the cluster accessible only via a [service connection](../concepts/network.md#private-endpoint).
+
+          {% include [unchangeable-private-access](../../_includes/managed-trino/unchangeable-private-access.md) %}
+
         * `--coordinator`: [Coordinator](../concepts/index.md#coordinator) configuration.
 
             * `resource-preset-id`: [Class of the coordinator's computing resources](../concepts/instance-types.md).
@@ -246,8 +251,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         * `--retry-policy-additional-properties`: Additional query retry parameters in `<key>=<value>` format. Learn more about parameters in [this {{ TR }} guide]({{ tr.docs }}/admin/fault-tolerant-execution.html#advanced-configuration).
         * Exchange Manager storage parameters. Specify either of these two parameters:
 
-            * `--retry-policy-exchange-manager-service-s3`: Use a service bucket on the {{ mtr-name }} side.
-            * `--retry-policy-exchange-manager-s3-bucket`: Use a custom [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md). Name the bucket. Make sure to grant the [storage.editor](../../storage/security/index.md#storage-editor) role for the bucket to the cluster [service account](../../iam/concepts/users/service-accounts.md).
+            * `--retry-policy-exchange-manager-service-s3`: Employ a service bucket on the {{ mtr-name }} side.
+            * `--retry-policy-exchange-manager-s3-bucket`: Employ the user's [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md). Name the bucket. Make sure to grant the [storage.editor](../../storage/security/index.md#storage-editor) role to the cluster's [service account](../../iam/concepts/users/service-accounts.md).
 
             For more on storage types, see [{#T}](../concepts/retry-policy.md#exchange-manager-storage).
 
@@ -339,7 +344,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -469,10 +474,10 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                * `exchangeManager.storage`: Bucket type used as Exchange Manager storage. Specify either of these two parameters:
 
-                  * `serviceS3`: Use a service bucket on the {{ mtr-name }} side. Leave the object empty: `"serviceS3": {}`.
-                  * `s3.bucket`: Name of the custom [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md). Make sure to grant the [storage.editor](../../storage/security/index.md#storage-editor) role for the bucket to the cluster [service account](../../iam/concepts/users/service-accounts.md).
+                  * `serviceS3`: Use a service bucket on the {{ mtr-name }} side. `"serviceS3": {}`: Leave the object empty.
+                  * `s3.bucket`: The name of the user's [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md). Make sure to grant the [storage.editor](../../storage/security/index.md#storage-editor) role to the cluster's [service account](../../iam/concepts/users/service-accounts.md).
 
-                  For more on storage types, see [{#T}](../concepts/retry-policy.md#exchange-manager-storage).
+                  Lear more about storage types [{#T}](../concepts/retry-policy.md#exchange-manager-storage)here.
 
                * `exchangeManager.additionalProperties`: Additional Exchange Manager storage parameters in `key: value` format. Learn more about parameters in [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
@@ -503,6 +508,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `subnetIds`: List of subnet IDs.
             * `securityGroupIds`: List of security group IDs.
             * `privateAccess.enabled`: Private access to the cluster, `true` or `false`. Enable this parameter to make the cluster accessible only via a [service connection](../../managed-trino/concepts/network.md#private-endpoint).
+
+               {% include [unchangeable-private-access](../../_includes/managed-trino/unchangeable-private-access.md) %}
 
         * `deletionProtection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 
@@ -666,10 +673,10 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                * `exchange_manager.storage`: Bucket type used as Exchange Manager storage. Specify either of these two parameters:
 
-                  * `service_s3`: Use a service bucket on the {{ mtr-name }} side. Leave `"service_s3": ""` empty.
-                  * `s3.bucket`: Name of the custom [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md). Make sure to grant the [storage.editor](../../storage/security/index.md#storage-editor) role for the bucket to the cluster [service account](../../iam/concepts/users/service-accounts.md).
+                  * `service_s3`: Use a service bucket on the {{ mtr-name }} side. `"service_s3": ""`: Leave empty.
+                  * `s3.bucket`: The name of the user's [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md). Make sure to grant the [storage.editor](../../storage/security/index.md#storage-editor) role to the cluster's [service account](../../iam/concepts/users/service-accounts.md).
 
-                  For more on storage types, see [{#T}](../concepts/retry-policy.md#exchange-manager-storage).
+                  Lear more about storage types [{#T}](../concepts/retry-policy.md#exchange-manager-storage).
 
                * `exchange_manager.additional_properties`: Additional Exchange Manager storage parameters in `key: value` format. Learn more about parameters in [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
@@ -700,6 +707,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `subnet_ids`: List of subnet IDs.
             * `security_group_ids`: List of security group IDs.
             * `private_access.enabled`: Private access to the cluster, `true` or `false`. Enable this parameter to make the cluster accessible only via a [service connection](../../managed-trino/concepts/network.md#private-endpoint).
+
+               {% include [unchangeable-private-access](../../_includes/managed-trino/unchangeable-private-access.md) %}
 
         * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 

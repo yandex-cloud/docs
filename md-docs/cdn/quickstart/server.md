@@ -133,6 +133,12 @@
     http://cdn.example.com/index.html
     ```
 
+{% note tip %}
+
+Чтобы подготовить ресурс к недоступности основного [источника](../concepts/origins.md), воспользуйтесь [рекомендациями](../concepts/fault-tolerance.md).
+
+{% endnote %}
+
 #### Полезные ссылки {#see-also}
 
 * [Создание CDN-ресурса с источником-бакетом Yandex Object Storage](bucket.md)

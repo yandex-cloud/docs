@@ -30,9 +30,16 @@ apiPlayground:
           type: string
           enum:
             - TYPE_UNSPECIFIED
-            - IMMEDIATE
-            - NEXT_AVAILABLE_WINDOW
-            - SPECIFIC_TIME
+            - RESOURCE_NOT_FOUND
+            - CHANGE_FREEZE_NOT_FOUND
+            - EXCEEDS_YEARLY_LIMIT
+            - EXCEEDS_MAX_DURATION
+            - INSUFFICIENT_GAP
+            - OVERLAPPING_CHANGE_FREEZE
+            - INVALID_TIME_RANGE
+            - START_TIME_IN_PAST
+            - START_TIME_TOO_FAR
+            - CANNOT_DELETE_PAST_PERIOD
         scheduledAt:
           description: |-
             **string** (date-time)

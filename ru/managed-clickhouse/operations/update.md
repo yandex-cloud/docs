@@ -15,7 +15,6 @@ description: Следуя данной инструкции, вы сможете
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
 * [Переместить кластер](#move-cluster) в другой каталог.
 * [Изменить группы безопасности кластера](#change-sg-set).
-* [Изменить настройки гибридного хранилища](#change-hybrid-storage).
 
 Подробнее о других изменениях кластера:
 
@@ -23,6 +22,7 @@ description: Следуя данной инструкции, вы сможете
 * [Перенос кластера в другую зону доступности](host-migration.md).
 * [Настройка серверов {{ CH }}](change-server-level-settings.md) согласно [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings).
 * [Изменение настроек {{ CH }} на уровне запроса](change-query-level-settings.md).
+* [Изменение настроек гибридного хранилища](hybrid-storage.md#change-hybrid-storage).
 
 
 ## Изменить настройки сервисного аккаунта {#change-service-account}
@@ -1216,28 +1216,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-
-### {{ connection-manager-name }} {#conn-man}
-
-Если в кластере не включена интеграция с сервисом {{ connection-manager-name }}, включите опцию **{{ ui-key.yacloud.mdb.forms.additional-field-connman }}**. Она доступна только в [консоли управления]({{ link-console-main }}).
-
-Для каждого пользователя БД будут созданы:
-
-* [Подключение](../../metadata-hub/concepts/connection-manager.md) {{ connection-manager-name }} с информацией о соединении с БД.
-
-* [Секрет {{ lockbox-name }}](../../metadata-hub/concepts/secret.md), в котором хранится пароль пользователя. Хранение паролей в сервисе {{ lockbox-name }} обеспечивает их безопасность.
-
-  Подключение и секрет создаются для каждого нового пользователя БД. Чтобы увидеть все подключения, на странице кластера выберите вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
-
-  Для просмотра информации о подключении требуется роль `connection-manager.viewer`. Вы можете [настраивать доступ к подключениям в {{ connection-manager-name }}](../../metadata-hub/operations/connection-access.md).
-
-  {% note info %}
-
-  Использование сервиса {{ connection-manager-name }} и секретов, созданных с его помощью, не тарифицируется.
-
-  {% endnote %}
-
-
 ## Переместить кластер {#move-cluster}
 
 {% list tabs group=instructions %}
@@ -1528,140 +1506,6 @@ description: Следуя данной инструкции, вы сможете
 {% endnote %}
 
 
-## Изменить настройки гибридного хранилища {#change-hybrid-storage}
 
-{% list tabs group=instructions %}
-
-- CLI {#cli}
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-  Чтобы изменить [настройки гибридного хранилища](../concepts/storage.md#hybrid-storage-settings):
-
-  1. Посмотрите описание команды CLI для изменения кластера:
-
-      ```bash
-      {{ yc-mdb-ch }} cluster update --help
-      ```
-
-  1. Если гибридное хранилище в кластере выключено, включите его:
-
-      ```bash
-      {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \
-          --cloud-storage=true
-      ```
-
-      {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
-
-  1. Передайте список настроек, которые хотите изменить:
-
-      ```bash
-      {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \
-          --cloud-storage-data-cache=<хранение_файлов> \
-          --cloud-storage-data-cache-max-size=<объем_памяти_в_байтах> \
-          --cloud-storage-move-factor=<доля_свободного_места> \
-          --cloud-storage-prefer-not-to-merge=<слияние_кусков_данных>
-      ```
-
-      Вы можете изменить следующие настройки:
-
-      {% include [Hybrid Storage settings CLI](../../_includes/mdb/mch/hybrid-storage-settings-cli.md) %}
-
-- REST API {#api}
-
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
-
-        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
-
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
-
-        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
-
-        ```bash
-        curl \
-            --request PATCH \
-            --header "Authorization: Bearer $IAM_TOKEN" \
-            --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
-            --data '{
-                      "updateMask": "<перечень_изменяемых_настроек>",
-                      "configSpec": {
-                        "cloudStorage": {
-                          "enabled": <использование_гибридного_хранилища>,
-                          "moveFactor": "<доля_свободного_места>",
-                          "dataCacheEnabled": <временное_хранение_файлов>,
-                          "dataCacheMaxSize": "<максимальный_объем_памяти_для_хранения_файлов>",
-                          "preferNotToMerge": <отключение_слияния_кусков_данных>
-                        }
-                      }
-                    }'
-        ```
-
-        Где:
-
-        * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
-
-        * `configSpec.cloudStorage` — настройки гибридного хранилища:
-
-            {% include [rest-cloud-storage-settings](../../_includes/mdb/mch/api/rest-cloud-storage-settings.md) %}
-
-        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
-
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.operation).
-
-- gRPC API {#grpc-api}
-
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
-
-        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
-
-    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
-
-        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
-
-        ```bash
-        grpcurl \
-            -format json \
-            -import-path ~/cloudapi/ \
-            -import-path ~/cloudapi/third_party/googleapis/ \
-            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
-            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-            -d '{
-                  "cluster_id": "<идентификатор_кластера>",
-                  "update_mask": {
-                    "paths": [
-                      <перечень_изменяемых_настроек>
-                    ]
-                  },
-                  "config_spec": {
-                    "cloud_storage": {
-                      "enabled": <использование_гибридного_хранилища>,
-                      "move_factor": "<доля_свободного_места>",
-                      "data_cache_enabled": <временное_хранение_файлов>,
-                      "data_cache_max_size": "<максимальный_объем_памяти_для_хранения_файлов>",
-                      "prefer_not_to_merge": <отключение_слияния_кусков_данных>
-                    }
-                  }
-                }' \
-            {{ api-host-mdb }}:{{ port-https }} \
-            yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
-        ```
-
-        Где:
-        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
-
-        * `config_spec.cloud_storage` — настройки гибридного хранилища:
-
-            {% include [grpc-cloud-storage-settings](../../_includes/mdb/mch/api/grpc-cloud-storage-settings.md) %}
-
-        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
-
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
-
-{% endlist %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

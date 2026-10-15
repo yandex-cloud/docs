@@ -8,6 +8,8 @@
 
 Чтобы предоставить пользователю доступ к ресурсам в [облаке](../../concepts/resources-hierarchy.md#cloud), назначьте ему [роль](../../../iam/concepts/access-control/roles.md) на это облако.
 
+Для назначения ролей у вас должна быть роль [resource-manager.admin](../../security/index.md#resource-manager-admin) или [admin](../../../iam/roles-reference.md#admin) на это облако, либо роль с более широкими разрешениями. Назначать роль [resource-manager.clouds.owner](../../security/index.md#resource-manager-clouds-owner) может только владелец облака.
+
 ## Назначить роль на облако {#access-to-user}
 
 {% list tabs group=instructions %}
@@ -88,7 +90,7 @@
 
       Где:
 
-      * `--role` — идентификатор роли, которую нужно назначить, например `{{ roles-cloud-owner }}`.
+      * `--role` — идентификатор роли, которую нужно назначить, например `resource-manager.clouds.owner`.
       * `--subject` — обозначение [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
           {% cut "Обозначения субъектов" %}
@@ -420,7 +422,7 @@
 
       Где:
 
-      * `--role` — идентификатор роли, которую нужно назначить, например `{{ roles-cloud-owner }}`.
+      * `--role` — идентификатор роли, которую нужно назначить, например `resource-manager.clouds.owner`.
       * `--service-account-id` — идентификатор сервисного аккаунта. Также вы можете использовать параметр `--service-account-name` и указать имя сервисного аккаунта вместо идентификатора.
 
 - {{ TF }} {#tf}

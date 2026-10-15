@@ -86,6 +86,8 @@ items:
             href: operations/extensions/pgcrypto.md
           - name: postgresql_anonymizer
             href: operations/extensions/pg_anon.md
+          - name: vector
+            href: operations/extensions/vector.md
           - name: Словари от Hunspell для полнотекстового поиска
             href: operations/extensions/hunspell.md
       - name: Логи и мониторинг
@@ -176,6 +178,8 @@ items:
           Выполнение аналитических запросов в {{ mpg-name }} с обработкой в {{
           mch-name }}
         href: tutorials/mpg-pg-clickhouse-extension.md
+      - name: Выполнение векторного поиска в {{ mpg-full-name }} с помощью pgvector
+        href: tutorials/mpg-vector-extension.md
       - name: Репликация и миграция
         items:
           - name: Логическая репликация {{ PG }}

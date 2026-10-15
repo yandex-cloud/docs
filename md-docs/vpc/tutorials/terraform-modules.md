@@ -443,7 +443,7 @@ export PATH=$PATH:/path/to/terraform
    - Windows {#windows}
 
      ```powershell
-     mv $env:APPDATA/terraform.rc $env:APPDATA/terraform.rc.old
+     Move-Item $env:APPDATA\terraform.rc $env:APPDATA\terraform.rc.old
      ```
 
    {% endlist %}
@@ -511,7 +511,7 @@ export PATH=$PATH:/path/to/terraform
 
    Где:
    
-   * `source` — глобальный [адрес источника](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses) провайдера.
+   * `source` — глобальный [адрес источника](https://developer.hashicorp.com/terraform/language/providers/requirements#source-addresses) провайдера.
    * `required_version` — минимальная версия Terraform, с которой совместим провайдер.
    * `provider` — название провайдера.
    * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), в которой по умолчанию будут создаваться все облачные ресурсы.
@@ -642,11 +642,10 @@ module "kube" {
    terraform fmt
    ```
 
-   Результат:
+   Команда выводит список отформатированных файлов, например:
 
    ```text
    main.tf
-   variables.tf
    ```
 
 ## Создайте ресурсы {#create-resources}
@@ -657,7 +656,7 @@ module "kube" {
    terraform plan
    ```
 
-   В терминале будет выведен список ресурсов с параметрами. Это проверочный этап: ресурсы не будут созданы. Если в конфигурации есть ошибки, Terraform на них укажет.
+   Терминал выведет список ресурсов и их параметров. На этом этапе ресурсы не создаются. Если конфигурация содержит ошибки, Terraform укажет на них.
 
    {% note alert %}
 
@@ -673,25 +672,35 @@ module "kube" {
 
 1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-   Terraform создаст все требуемые ресурсы, а в терминале будут указаны [IP-адреса](../concepts/address.md) созданных [виртуальных машин](../../compute/concepts/vm.md). Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+   Terraform создаст ресурсы и выведет в терминале [IP-адреса](../concepts/address.md) созданных [виртуальных машин](../../compute/concepts/vm.md). Проверьте наличие ресурсов и их настройки в [консоли управления](https://console.yandex.cloud).
 
 ## Как удалить созданные ресурсы {#delete-resources}
 
 Чтобы удалить ресурсы, созданные с помощью Terraform:
-1. Выполните команду:
+
+1. Удалите из конфигурации блоки `resource` и `module`, относящиеся к этой инфраструктуре, а также источники данных и выходные значения `output`, которые на них ссылаются. Сохраните блоки `terraform` и `provider`.
+
+1. Проверьте план удаления:
 
    ```bash
-   terraform destroy
+   terraform plan
    ```
 
    {% note alert %}
 
-   Terraform удалит все ресурсы, созданные в текущей конфигурации: кластеры, [сети](../concepts/network.md#network), [подсети](../concepts/network.md#subnet), [виртуальные машины](../../compute/concepts/vm.md) и т. д.
+   Terraform удалит ресурсы, для которых вы убрали описания из конфигурации: кластеры, [сети](../concepts/network.md#network), [подсети](../concepts/network.md#subnet), [виртуальные машины](../../compute/concepts/vm.md) и другие ресурсы.
 
    {% endnote %}
 
-   После выполнения команды в терминал будет выведен список удаляемых ресурсов.
-1. Введите слово `yes` и нажмите **Enter**.
+   Проверьте список ресурсов, которые Terraform собирается удалить.
+
+1. Примените изменения:
+
+   ```bash
+   terraform apply
+   ```
+
+1. Подтвердите удаление: введите `yes` и нажмите **Enter**.
 
 ## Полезные ссылки {#see-also}
 

@@ -2,16 +2,34 @@
 
 # Посмотреть список сервисов и квот
 
+В большинстве сервисов квоты действуют на уровне облака. В Resource Manager, Cloud Video и некоторых других сервисах квоты действуют на уровне организации. В IAM есть квоты обоих уровней.
+
+Интерфейсы управления квотами:
+* [Cloud Center](https://center.yandex.cloud/quotas) — уровень организации;
+* [консоль управления](https://console.yandex.cloud/cloud?section=quotas) — уровень облака;
+* [CLI](../cli-ref/index.md) и [API](../api-ref/authentication.md) — уровень организации и облака.
+
+Для просмотра квот [назначьте учетной записи](../../iam/operations/roles/grant.md) роль [quota-manager.viewer](../security/index.md#quota-manager-viewer) или [quota-manager.requestOperator](../security/index.md#quota-manager-requestoperator). Назначьте роль на облако или организацию, к которым относятся квоты.
+
 ## Посмотреть список сервисов, для которых есть квоты {#list-services}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) слева выберите облако.
-  1. Выберите вкладку **Квоты**.
-     
-     На странице отобразится список сервисов, для которых есть квоты.
+  Чтобы посмотреть список сервисов с квотами в облаке:
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите облако и на панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **Квоты**.
+
+     На вкладке **Список квот** отобразится список сервисов в группах **Сервисы с потреблением** и **Сервисы без потребления**.
+
+- Интерфейс Cloud Center {#cloud-center}
+
+  Чтобы посмотреть список сервисов с квотами в организации:
+
+  1. В [Cloud Center](https://center.yandex.cloud) выберите организацию и на панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **Квоты**.
+
+     На вкладке **Список квот** отобразится список сервисов в группах **Сервисы с потреблением** и **Сервисы без потребления**.
 
 - CLI {#cli}
 
@@ -23,15 +41,15 @@
 
   Выполните команду:
 
-    ```bash
-    yc quota-manager quota-limit list-services --resource-type=<тип_ресурса>
-    ```
+  ```bash
+  yc quota-manager quota-limit list-services --resource-type=<тип_ресурса>
+  ```
 
-    Где `--resource-type` — [тип ресурса](../concepts/index.md#resources-types): `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
+  Где `--resource-type` — [тип ресурса](../concepts/index.md#resources-types): `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
 
 - API {#api}
 
-  Чтобы получить список сервисов, воспользуйтесь методом REST API [listServices](../api-ref/QuotaLimit/listServices.md) для ресурса [QuotaLimit](../api-ref/QuotaLimit/index.md) или вызовом gRPC API [QuotaLimitService/ListServices](../api-ref/grpc/QuotaLimit/listServices.md).
+    Чтобы получить список сервисов, воспользуйтесь методом REST API [listServices](../api-ref/QuotaLimit/listServices.md) для ресурса [QuotaLimit](../api-ref/QuotaLimit/index.md) или вызовом gRPC API [QuotaLimitService/ListServices](../api-ref/grpc/QuotaLimit/listServices.md).
 
 {% endlist %}
 
@@ -41,9 +59,23 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) слева выберите облако.
-  1. Выберите вкладку **Квоты**.
-  1. Откройте раздел сервиса, для которого хотите посмотреть квоты.
+  Чтобы посмотреть квоты для сервиса в облаке:
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите облако и на панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **Квоты**.
+
+  1. На вкладке **Список квот** введите в строку поиска название сервиса, название или идентификатор квоты.
+
+  1. В группе **Сервисы с потреблением** или **Сервисы без потребления** раскройте раздел нужного сервиса.
+
+- Интерфейс Cloud Center {#cloud-center}
+
+  Чтобы посмотреть квоты для сервиса в организации:
+
+  1. В [Cloud Center](https://center.yandex.cloud) выберите организацию и на панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **Квоты**.
+
+  1. На вкладке **Список квот** введите в строку поиска название сервиса, название или идентификатор квоты.
+
+  1. В группе **Сервисы с потреблением** или **Сервисы без потребления** раскройте раздел нужного сервиса.
 
 - CLI {#cli}
 
@@ -63,7 +95,8 @@
   ```
 
   Где:
-  * `--service` — название сервиса в [YC CLI](../../cli/cli-ref/index.md).
+
+  * `--service` — идентификатор сервиса, полученный при [просмотре списка сервисов](#list-services).
   * `--resource-id` — идентификатор [ресурса](../../resource-manager/concepts/resources-hierarchy.md): идентификатор облака, организации или платежного аккаунта.
   * `--resource-type` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
 
@@ -77,7 +110,7 @@
     --resource-id=b1gia87mbaom********
   ```
 
-  Будет выведен список квот для сервиса Compute Cloud для облака с идентификатором `b1gia87mbaom********`:
+  Будет выведен список квот сервиса Compute Cloud в облаке `b1gia87mbaom********`:
 
   ```bash
   resource:
@@ -96,21 +129,22 @@
     - quota_id: compute.disks.count
       limit: 64
       usage: 30
-  - quota_id: compute.filesystems.count
+    - quota_id: compute.filesystems.count
       limit: 100
       usage: 1
-  - quota_id: compute.hddDisks.size
+    - quota_id: compute.hddDisks.size
       limit: 1116691496960
       usage: 464930209792
   ...
   ```
 
   Где:
+
   * `limit` — значение квоты;
   * `usage` — потребление квоты.
 
 - API {#api}
 
-  Чтобы получить список квот для определенного сервиса, воспользуйтесь методом REST API [list](../api-ref/QuotaLimit/list.md) для ресурса [QuotaLimit](../api-ref/QuotaLimit/index.md) или вызовом gRPC API [QuotaLimitService/List](../api-ref/grpc/QuotaLimit/list.md).
+    Чтобы получить список квот для определенного сервиса, воспользуйтесь методом REST API [list](../api-ref/QuotaLimit/list.md) для ресурса [QuotaLimit](../api-ref/QuotaLimit/index.md) или вызовом gRPC API [QuotaLimitService/List](../api-ref/grpc/QuotaLimit/list.md).
 
 {% endlist %}

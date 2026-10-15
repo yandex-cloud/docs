@@ -6606,6 +6606,8 @@ default:
         label_title: Logging
       managed-ytsaurus:
         clusters:
+          NetworkSettingsForm:
+            field_cidr-blocks-whitelist_label_hL9Hc: Incoming traffic limitations
           YTSaurusClusterCreatePage:
             base-params-section_title_nfKo2: Basic parameters
             cluster-config-section_title_fPkN8: Cluster configuration

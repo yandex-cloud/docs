@@ -44,5 +44,4 @@ keywords:
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/hystax-backup.md)
-* [{#T}](../../tutorials/archive/vm-with-backup-policy/index.md)
+[{#T}](../../tutorials/archive/vm-with-backup-policy/index.md)

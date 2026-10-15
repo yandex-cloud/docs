@@ -27,6 +27,7 @@
 * [Настройка прав доступа к секрету, созданному Yandex Connection Manager, для пользователя Yandex Managed Service for PostgreSQL](conn-man-secret-access.md)
 * [Подключение к Managed Service for PostgreSQL из PySpark-задания в Yandex Managed Service for Apache Spark™ с использованием секрета Yandex Lockbox](job-pyspark-secret-access.md)
 * [Выполнение аналитических запросов в Yandex Managed Service for PostgreSQL с обработкой в Yandex Managed Service for ClickHouse® при помощи pg_clickhouse и Yandex Data Transfer](mpg-pg-clickhouse-extension.md)
+* [Выполнение векторного поиска в Yandex Managed Service for PostgreSQL с помощью vector](mpg-vector-extension.md)
 
 ## Репликация и миграция {#replication-and-migration}
 

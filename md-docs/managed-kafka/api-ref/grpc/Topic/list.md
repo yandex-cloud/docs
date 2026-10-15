@@ -367,7 +367,9 @@ to be considered successful (when a producer sets acks to "all"). ||
 
 This configuration controls the segment file size for the log. Retention and cleaning is always done a file
 at a time so a larger segment size means fewer files but less granular control over retention.
-This setting overrides the cluster-level [KafkaConfig4.log_segment_bytes](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level. ||
+This setting overrides the cluster-level [KafkaConfig4.log_segment_bytes](../Cluster/get.md#yandex.cloud.mdb.kafka.v1.KafkaConfig4) setting on the topic level.
+
+The minimum value is 1048576. ||
 || preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 True if we should preallocate the file on disk when creating a new log segment.

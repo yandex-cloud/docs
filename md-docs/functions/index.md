@@ -462,6 +462,8 @@
 
  - [Интерактивная отладка функций](tutorials/serverless-live-debug.md)
 
+ - [Веб-приложение на SourceCraft Sites и Cloud Functions](tutorials/sourcecraft-sites-web-app.md)
+
 ### Боты на Serverless
 
 #### Разработка Telegram-бота

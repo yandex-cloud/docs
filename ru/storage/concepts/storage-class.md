@@ -123,7 +123,6 @@ description: '{{ objstorage-name }} позволяет хранить объек
 
 * [{#T}](../tutorials/greenplum-yezzey.md)
 * [{#T}](../tutorials/log-ingestion.md)
-* [{#T}](../tutorials/hystax-backup.md)
 * [{#T}](../tutorials/clickhouse-hybrid-storage.md)
 
 

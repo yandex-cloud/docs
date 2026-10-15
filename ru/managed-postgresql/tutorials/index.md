@@ -30,6 +30,7 @@ description: Различные сценарии использования {{ m
 * [{#T}](conn-man-secret-access.md)
 * [{#T}](job-pyspark-secret-access.md)
 * [{#T}](mpg-pg-clickhouse-extension.md)
+* [{#T}](mpg-vector-extension.md)
 
 ## Репликация и миграция {#replication-and-migration}
 

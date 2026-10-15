@@ -5,6 +5,6 @@ description: Пошаговые инструкции по работе с кво
 
 # Пошаговые инструкции для {{ quota-manager-full-name }}
 
-- [{#T}](read-quotas.md)
-- [{#T}](list-quotas.md)
-- [{#T}](set-quotas.md)
+* [{#T}](read-quotas.md)
+* [{#T}](list-quotas.md)
+* [{#T}](set-quotas.md)

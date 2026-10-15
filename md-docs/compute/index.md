@@ -482,12 +482,6 @@
 
  - [Сборка образа ВМ с набором инфраструктурных инструментов с помощью Packer](tutorials/packer-custom-image.md)
 
- - [Миграция в Yandex Cloud с помощью Хайстекс Акура](tutorials/hystax-migration.md)
-
- - [Защита от сбоев с помощью Хайстекс Акура](tutorials/hystax-disaster-recovery.md)
-
- - [Резервное копирование ВМ с помощью Хайстекс Акура](tutorials/hystax-backup.md)
-
  - [Развертывание отказоустойчивой архитектуры с прерываемыми ВМ](tutorials/nodejs-cron-restart-vm.md)
 
 ### Привязка доменного имени к ВМ с веб-сервером

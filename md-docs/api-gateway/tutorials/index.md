@@ -14,6 +14,7 @@
 * [Развертывание веб-приложения с JWT-авторизацией в Yandex API Gateway и аутентификацией в Firebase](jwt-authorizer-firebase.md)
 * [Канареечный релиз функции Cloud Functions](canary-release.md)
 * [Интерактивная отладка функций Yandex Cloud Functions](serverless-live-debug.md)
+* [Веб-приложение на SourceCraft Sites и Yandex Cloud Functions](sourcecraft-sites-web-app.md)
 
 ## Боты на Serverless {#bots}
 

@@ -102,6 +102,8 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
 
  - [Настройка доступа к Object Storage](operations/s3-access.md)
 
+ - [Работа с гибридным хранилищем](operations/hybrid-storage.md)
+
 ### Шардирование
 
  - [Управление шардами](operations/shards.md)

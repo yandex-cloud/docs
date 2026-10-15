@@ -113,7 +113,7 @@
 
 ## Создайте таблицу {#create-table}
 
-Создайте таблицу `tutorial.hits_v1`, которая использует гибридное хранилище. Для этого выполните SQL-запрос, подставив вместо `<схема>` схему таблицы из [документации ClickHouse®](https://clickhouse.com/docs/ru/getting-started/example-datasets/star-schema#create-tables):
+Создайте таблицу `tutorial.hits_v1`, которая использует гибридное хранилище. Для этого выполните SQL-запрос, подставив вместо `<схема>` схему таблицы из [документации ClickHouse®](https://clickhouse.com/docs/ru/get-started/sample-datasets/anon-web-analytics-metrica#create-the-database-and-table):
 
 ```sql
 CREATE TABLE tutorial.hits_v1
@@ -290,17 +290,13 @@ SETTINGS index_granularity = 8192
    * если количество дней от текущей даты до `EventDate` меньше значения TTL (то есть время жизни еще не истекло), то эти данные остаются в хранилище на сетевых дисках;
    * если количество дней от текущей даты до `EventDate` больше или равно значению TTL (то есть время жизни уже истекло), то эти данные помещаются в объектное хранилище согласно политике `TO DISK 'object_storage'`;
 
-Указывать TTL для использования гибридного хранилища необязательно, однако это позволяет явно контролировать, какие данные будут находиться в Object Storage. Если не указывать TTL, то данные будут помещаться в объектное хранилище, только когда в хранилище на сетевых дисках закончится место. Подробнее в разделе [Хранилище в Managed Service for ClickHouse®](../../managed-clickhouse/concepts/storage.md).
-
 {% note info %}
 
 Сложность выражения для TTL в примере выше обусловлена выбранным тестовым набором данных: необходимо искусственно разделить давно собранные фиксированные данные на части для размещения на разных уровнях хранения. Для большинства таблиц, в которые постоянно поступают новые данные, будет достаточно более простого выражения для TTL, например, `EventDate + INTERVAL 5 DAY`: данные старше пяти дней будут перемещены в объектное хранилище.
 
 {% endnote %}
 
-Данные между хранилищем на сетевых дисках и объектным хранилищем перемещаются не построчно, а [кусками](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-multiple-volumes). Старайтесь выбирать выражение TTL и [ключ партиционирования](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/custom-partitioning-key) так, чтобы для всех строк куска данных TTL совпадал. Если этого не сделать, то могут возникнуть проблемы с перемещением данных в объектное хранилище по истечении TTL, если один кусок будет содержать данные, предназначенные для разных уровней хранения. В самом простом случае выражение для TTL должно использовать те же столбцы, что и в ключе партиционирования, как в примере выше, где используется столбец `EventDate`.
-
-Подробнее о настройке TTL смотрите в [документации ClickHouse®](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-ttl).
+Подробнее о TTL читайте в разделе [Хранилище в Managed Service for ClickHouse®](../../managed-clickhouse/concepts/storage.md#ttl).
 
 ## Наполните таблицу данными {#fill-table-with-data}
 
@@ -428,14 +424,20 @@ LIMIT 10
 
 Чтобы узнать, какой объем занимают куски таблиц [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree) в Object Storage, воспользуйтесь метрикой `ch_s3_disk_parts_size` в сервисе Yandex Monitoring:
 
-1. Откройте [консоль управления](https://console.yandex.cloud).
-1. [Перейдите](https://console.yandex.cloud/link/monitoring) в сервис **Monitoring**.
-1. Откройте раздел **Обзор метрик**.
-1. Выполните запрос:
+{% list tabs group=instructions %}
 
-    ```text
-    "ch_s3_disk_parts_size"{service="managed-clickhouse", resource_type="cluster", node="by_host", resource_id="<идентификатор_кластера>", subcluster_name="clickhouse_subcluster"}
-    ```
+- Консоль управления {#console}
+
+    1. Откройте [консоль управления](https://console.yandex.cloud).
+    1. [Перейдите](https://console.yandex.cloud/link/monitoring) в сервис **Monitoring**.
+    1. Откройте раздел **Обзор метрик**.
+    1. Выполните запрос:
+
+        ```text
+        "ch_s3_disk_parts_size"{service="managed-clickhouse", resource_type="cluster", node="by_host", resource_id="<идентификатор_кластера>", subcluster_name="clickhouse_subcluster"}
+        ```
+
+{% endlist %}
 
 ## Удалите созданные ресурсы {#clear-out}
 

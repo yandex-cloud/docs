@@ -50,6 +50,16 @@ blocks:
         controlPosition: content
         animated: false
       - type: basic-card
+        title: Настройка Cloud CDN при недоступности источника
+        text: >-
+          Настройка кеширования, экранирования и резервных источников для
+          доставки контента при недоступности основного источника.
+        urlTitle: Повышение отказоустойчивости ресурса Cloud CDN
+        url: cdn-fault-tolerance
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
         title: Развертывание веб-приложения в отказоустойчивой конфигурации
         text: >-
           Пример решения задачи по развертыванию веб-приложения в

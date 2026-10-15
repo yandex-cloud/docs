@@ -85,7 +85,9 @@ apiPlayground:
         maintenanceWindow:
           description: |-
             **[MaintenanceWindow](#yandex.cloud.mdb.kafka.v1.MaintenanceWindow)**
+            Deprecated. Use maintenance_windows instead.
             New maintenance window settings for the cluster.
+          deprecated: true
           $ref: '#/definitions/MaintenanceWindow'
         networkId:
           description: |-
@@ -100,6 +102,11 @@ apiPlayground:
           type: array
           items:
             type: string
+        maintenanceWindows:
+          description: |-
+            **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)**
+            Maintenance windows.
+          $ref: '#/definitions/MaintenanceWindows'
       additionalProperties: false
     definitions:
       Resources:
@@ -554,6 +561,7 @@ apiPlayground:
               **string** (int64)
               The maximum size of a single log file.
               This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.segmentBytes](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig4) setting.
+              The minimum value is 1048576.
             type: string
             format: int64
           socketSendBufferBytes:
@@ -874,6 +882,110 @@ apiPlayground:
               - anytime
           - required:
               - weeklyMaintenanceWindow
+      TimeOfDay:
+        type: object
+        properties:
+          hours:
+            description: |-
+              **integer** (int32)
+              Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+              to allow the value "24:00:00" for scenarios like business closing time.
+            type: integer
+            format: int32
+          minutes:
+            description: |-
+              **integer** (int32)
+              Minutes of hour of day. Must be from 0 to 59.
+            type: integer
+            format: int32
+          seconds:
+            description: |-
+              **integer** (int32)
+              Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+              allow the value 60 if it allows leap-seconds.
+            type: integer
+            format: int32
+          nanos:
+            description: |-
+              **integer** (int32)
+              Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+            type: integer
+            format: int32
+      MaintenanceWindowSlot:
+        type: object
+        properties:
+          day:
+            description: |-
+              **enum** (DayOfWeek)
+              Day of the week.
+              - `MONDAY`: The day-of-week of Monday.
+              - `TUESDAY`: The day-of-week of Tuesday.
+              - `WEDNESDAY`: The day-of-week of Wednesday.
+              - `THURSDAY`: The day-of-week of Thursday.
+              - `FRIDAY`: The day-of-week of Friday.
+              - `SATURDAY`: The day-of-week of Saturday.
+              - `SUNDAY`: The day-of-week of Sunday.
+            type: string
+            enum:
+              - DAY_OF_WEEK_UNSPECIFIED
+              - MONDAY
+              - TUESDAY
+              - WEDNESDAY
+              - THURSDAY
+              - FRIDAY
+              - SATURDAY
+              - SUNDAY
+          startTime:
+            description: |-
+              **[TimeOfDay](#google.type.TimeOfDay)**
+              Required field. Start time in UTC.
+            $ref: '#/definitions/TimeOfDay'
+          duration:
+            description: |-
+              **string** (duration)
+              Required field. Slot duration.
+            type: string
+            format: duration
+          allowTemporaryUnavailability:
+            description: |-
+              **boolean**
+              Allows maintenance operations that may cause temporary write unavailability.
+            type: boolean
+        required:
+          - startTime
+          - duration
+      WeeklyMaintenanceSchedule:
+        type: object
+        properties:
+          slots:
+            description: |-
+              **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+              Weekly time slots during which maintenance operations can be scheduled.
+              At least one slot is required.
+              The number of elements must be greater than 0.
+            type: array
+            items:
+              $ref: '#/definitions/MaintenanceWindowSlot'
+      MaintenanceWindows:
+        type: object
+        properties:
+          anytime:
+            description: |-
+              **object**
+              Maintenance operations can be scheduled anytime.
+              Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`.
+            $ref: '#/definitions/AnytimeMaintenanceWindow'
+          weeklyMaintenanceSchedule:
+            description: |-
+              **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+              Maintenance operations can be scheduled during the specified weekly slots.
+              Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`.
+            $ref: '#/definitions/WeeklyMaintenanceSchedule'
+        oneOf:
+          - required:
+              - anytime
+          - required:
+              - weeklyMaintenanceSchedule
 ---
 
 # Managed Service for Apache Kafka® API, REST: Cluster.Update
@@ -1053,7 +1165,27 @@ The maximum string length in characters is 50. ||
   "networkId": "string",
   "subnetIds": [
     "string"
-  ]
+  ],
+  "maintenanceWindows": {
+    // Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`
+    "anytime": "object",
+    "weeklyMaintenanceSchedule": {
+      "slots": [
+        {
+          "day": "string",
+          "startTime": {
+            "hours": "integer",
+            "minutes": "integer",
+            "seconds": "integer",
+            "nanos": "integer"
+          },
+          "duration": "string",
+          "allowTemporaryUnavailability": "boolean"
+        }
+      ]
+    }
+    // end of the list of possible fields
+  }
 }
 ```
 
@@ -1099,6 +1231,7 @@ User security groups ||
 Deletion Protection inhibits deletion of the cluster ||
 || maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.kafka.v1.MaintenanceWindow)**
 
+Deprecated. Use maintenance_windows instead.
 New maintenance window settings for the cluster. ||
 || networkId | **string**
 
@@ -1108,6 +1241,9 @@ The maximum string length in characters is 50. ||
 || subnetIds[] | **string**
 
 IDs of subnets where the hosts are located or a new host is being created ||
+|| maintenanceWindows | **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)**
+
+Maintenance windows. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.kafka.v1.ConfigSpec}
@@ -1453,7 +1589,9 @@ This is the global cluster-level setting that can be overridden on a topic level
 || logSegmentBytes | **string** (int64)
 
 The maximum size of a single log file.
-This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.segmentBytes](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig4) setting. ||
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.segmentBytes](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig4) setting.
+
+The minimum value is 1048576. ||
 || socketSendBufferBytes | **string** (int64)
 
 The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. ||
@@ -1592,6 +1730,86 @@ Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
 Hour of the day in UTC.
 
 Acceptable values are 1 to 24, inclusive. ||
+|#
+
+## MaintenanceWindows {#yandex.cloud.mdb.v1.MaintenanceWindows}
+
+Maintenance windows shared by all managed database services.
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+Maintenance operations can be scheduled anytime.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|| weeklyMaintenanceSchedule | **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+
+Maintenance operations can be scheduled during the specified weekly slots.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|#
+
+## WeeklyMaintenanceSchedule {#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule}
+
+#|
+||Field | Description ||
+|| slots[] | **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+
+Weekly time slots during which maintenance operations can be scheduled.
+At least one slot is required.
+
+The number of elements must be greater than 0. ||
+|#
+
+## MaintenanceWindowSlot {#yandex.cloud.mdb.v1.MaintenanceWindowSlot}
+
+#|
+||Field | Description ||
+|| day | **enum** (DayOfWeek)
+
+Day of the week.
+
+- `MONDAY`: The day-of-week of Monday.
+- `TUESDAY`: The day-of-week of Tuesday.
+- `WEDNESDAY`: The day-of-week of Wednesday.
+- `THURSDAY`: The day-of-week of Thursday.
+- `FRIDAY`: The day-of-week of Friday.
+- `SATURDAY`: The day-of-week of Saturday.
+- `SUNDAY`: The day-of-week of Sunday. ||
+|| startTime | **[TimeOfDay](#google.type.TimeOfDay)**
+
+Required field. Start time in UTC. ||
+|| duration | **string** (duration)
+
+Required field. Slot duration. ||
+|| allowTemporaryUnavailability | **boolean**
+
+Allows maintenance operations that may cause temporary write unavailability. ||
+|#
+
+## TimeOfDay {#google.type.TimeOfDay}
+
+Represents a time of day. The date and time zone are either not significant
+or are specified elsewhere. An API may choose to allow leap seconds. Related
+types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
+
+#|
+||Field | Description ||
+|| hours | **integer** (int32)
+
+Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+to allow the value "24:00:00" for scenarios like business closing time. ||
+|| minutes | **integer** (int32)
+
+Minutes of hour of day. Must be from 0 to 59. ||
+|| seconds | **integer** (int32)
+
+Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+allow the value 60 if it allows leap-seconds. ||
+|| nanos | **integer** (int32)
+
+Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

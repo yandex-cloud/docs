@@ -50,5 +50,4 @@
 
 ## Примеры использования {#examples}
 
-* [Резервное копирование ВМ с помощью «Хайстекс Акура — Система резервного копирования»](../tutorials/hystax-backup.md)
-* [Автоматическая привязка политики резервного копирования Yandex Cloud Backup к ВМ](../../tutorials/archive/vm-with-backup-policy/index.md)
+[Автоматическая привязка политики резервного копирования Yandex Cloud Backup к ВМ](../../tutorials/archive/vm-with-backup-policy/index.md)

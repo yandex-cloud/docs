@@ -22,11 +22,15 @@
 
 * [What do I do if I get an authentication error when connecting via kafkacat?](#kafkacat-authentication-error)
 
+* [How do I fix the `Failed authentication with /` error?](#failed-authentication)
+
 * [Will Karapace be available during maintenance?](#karapace-maintenance)
 
 * [Is Karapace's endpoint constant or does it vary depending on the broker?](#karapace-endpoint)
 
 * [What is the role of {{ mkf-short-name }} in database management and maintenance?](#services)
+
+* [How do I monitor the process of reading topics?](#process-read-topic)
 
 * [How do I track message loss in an {{ KF }} topic?](#lost-messages)
 

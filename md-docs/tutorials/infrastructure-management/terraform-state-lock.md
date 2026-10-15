@@ -121,7 +121,7 @@ Terraform распространяется под лицензией [Business S
 - Windows {#windows}
 
   Используйте один из способов:
-  * [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+  * [Скачайте дистрибутив Terraform](https://developer.hashicorp.com/terraform/downloads) и установите его согласно [инструкции](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli).
   * Установите Terraform с помощью пакетного менеджера [Chocolatey](https://chocolatey.org/install), используя команду:
 
     ```bash
@@ -130,12 +130,12 @@ Terraform распространяется под лицензией [Business S
 
 - Linux {#linux}
 
-  [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+  [Скачайте дистрибутив Terraform](https://developer.hashicorp.com/terraform/downloads) и установите его согласно [инструкции](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli).
 
 - macOS {#macos}
 
   Используйте один из способов:
-  * [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+  * [Скачайте дистрибутив Terraform](https://developer.hashicorp.com/terraform/downloads) и установите его согласно [инструкции](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli).
   * Установите Terraform с помощью пакетного менеджера [Homebrew](https://brew.sh), используя команду:
 
     ```bash
@@ -335,7 +335,7 @@ Terraform распространяется под лицензией [Business S
    - Windows {#windows}
 
      ```powershell
-     mv $env:APPDATA/terraform.rc $env:APPDATA/terraform.rc.old
+     Move-Item $env:APPDATA\terraform.rc $env:APPDATA\terraform.rc.old
      ```
 
    {% endlist %}
@@ -403,7 +403,7 @@ Terraform распространяется под лицензией [Business S
 
    Где:
    
-   * `source` — глобальный [адрес источника](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses) провайдера.
+   * `source` — глобальный [адрес источника](https://developer.hashicorp.com/terraform/language/providers/requirements#source-addresses) провайдера.
    * `required_version` — минимальная версия Terraform, с которой совместим провайдер.
    * `provider` — название провайдера.
    * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), в которой по умолчанию будут создаваться все облачные ресурсы.

@@ -1,6 +1,6 @@
 # Удаление каталога
 
-Чтобы удалить [каталог](../../concepts/resources-hierarchy.md#folder), у вас должна быть роль [{{ roles-resource-manager-editor }}](../../security/index.md#resource-manager-editor) или выше на этот каталог. Если вы не можете выполнить эту операцию, обратитесь к [администратору](../../../iam/roles-reference.md#admin) или [владельцу каталога](../../concepts/resources-hierarchy.md#owner).
+Чтобы удалить [каталог](../../concepts/resources-hierarchy.md#folder), у вас должна быть роль [resource-manager.editor](../../security/index.md#resource-manager-editor) или выше на этот каталог. Если вы не можете выполнить эту операцию, обратитесь к [администратору](../../../iam/roles-reference.md#admin) или [владельцу облака](../../concepts/resources-hierarchy.md#owner).
 
 {% note info %}
 

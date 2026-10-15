@@ -3,9 +3,9 @@ title: How to change a {{ TR }} cluster version in {{ mtr-name }}
 description: Follow this guide to change a {{ TR }} cluster version.
 ---
 
-# {{ TR }} version upgrade
+# {{ TR }} version update
 
-You can change the {{ TR }} version to any of the versions [supported](#available-versions) by {{ mtr-name }}. You can either upgrade or downgrade the version.
+In {{ mtr-name }}, you can upgrade or downgrade {{ TR }} to [any supported version](../concepts/versions.md#available-versions).
 
 Updates and fixes within a version are installed automatically during [maintenance](../concepts/maintenance.md).
 

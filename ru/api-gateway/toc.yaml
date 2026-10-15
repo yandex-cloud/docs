@@ -153,6 +153,8 @@ items:
             href: tutorials/canary-release.md
           - name: Интерактивная отладка функций {{ sf-name }}
             href: tutorials/serverless-live-debug.md
+          - name: Веб-приложение на {{ src-name }} Sites и {{ sf-name }}
+            href: tutorials/sourcecraft-sites-web-app.md
       - name: Боты на Serverless
         items:
           - name: Разработка Telegram-бота
