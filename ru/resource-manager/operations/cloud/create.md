@@ -7,6 +7,8 @@ description: Следуя данной инструкции, вы сможете
 
 [После регистрации](../../../billing/quickstart/index.md#create_billing_account) в {{ yandex-cloud }} и создания [организации](../../../organization/concepts/organization.md) вы создадите свое первое [облако](../../concepts/resources-hierarchy.md#cloud). Если вам потребуется дополнительное облако, вы сможете создать его, следуя этой же инструкции.
 
+Чтобы создать облако, у вас должна быть роль [resource-manager.editor](../../security/index.md#resource-manager-editor) или [editor](../../../iam/roles-reference.md#editor) на организацию, в которой вы создаете облако, либо роль с более широкими разрешениями. Если вы [создали организацию](../../../organization/quickstart.md#create-organization), у вас уже есть необходимые права как у ее владельца.
+
 {% note info %}
 
 При создании облака вы автоматически получите роль [владельца](../../concepts/resources-hierarchy.md#owner) в этом облаке.

@@ -92,7 +92,7 @@
 
 ## Создайте таблицу {#create-table}
 
-Создайте таблицу `tutorial.hits_v1`, которая использует гибридное хранилище. Для этого выполните SQL-запрос, подставив вместо `<схема>` схему таблицы из [документации {{ CH }}]({{ ch.docs }}{{ lang }}/getting-started/example-datasets/star-schema#create-tables):
+Создайте таблицу `tutorial.hits_v1`, которая использует гибридное хранилище. Для этого выполните SQL-запрос, подставив вместо `<схема>` схему таблицы из [документации {{ CH }}]({{ ch.docs }}{{ lang }}/get-started/sample-datasets/anon-web-analytics-metrica#create-the-database-and-table):
 
 ```sql
 CREATE TABLE tutorial.hits_v1
@@ -121,17 +121,13 @@ SETTINGS index_granularity = 8192
    * если количество дней от текущей даты до `EventDate` меньше значения TTL (то есть время жизни еще не истекло), то эти данные остаются в хранилище на сетевых дисках;
    * если количество дней от текущей даты до `EventDate` больше или равно значению TTL (то есть время жизни уже истекло), то эти данные помещаются в объектное хранилище согласно политике `TO DISK 'object_storage'`;
 
-Указывать TTL для использования гибридного хранилища необязательно, однако это позволяет явно контролировать, какие данные будут находиться в {{ objstorage-name }}. Если не указывать TTL, то данные будут помещаться в объектное хранилище, только когда в хранилище на сетевых дисках закончится место. Подробнее в разделе [{#T}](../../managed-clickhouse/concepts/storage.md).
-
 {% note info %}
 
 Сложность выражения для TTL в примере выше обусловлена выбранным тестовым набором данных: необходимо искусственно разделить давно собранные фиксированные данные на части для размещения на разных уровнях хранения. Для большинства таблиц, в которые постоянно поступают новые данные, будет достаточно более простого выражения для TTL, например, `EventDate + INTERVAL 5 DAY`: данные старше пяти дней будут перемещены в объектное хранилище.
 
 {% endnote %}
 
-Данные между хранилищем на сетевых дисках и объектным хранилищем перемещаются не построчно, а [кусками]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-multiple-volumes). Старайтесь выбирать выражение TTL и [ключ партиционирования]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/custom-partitioning-key) так, чтобы для всех строк куска данных TTL совпадал. Если этого не сделать, то могут возникнуть проблемы с перемещением данных в объектное хранилище по истечении TTL, если один кусок будет содержать данные, предназначенные для разных уровней хранения. В самом простом случае выражение для TTL должно использовать те же столбцы, что и в ключе партиционирования, как в примере выше, где используется столбец `EventDate`.
-
-Подробнее о настройке TTL смотрите в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-ttl).
+Подробнее о TTL читайте в разделе [Хранилище в {{ mch-name }}](../../managed-clickhouse/concepts/storage.md#ttl).
 
 ## Наполните таблицу данными {#fill-table-with-data}
 
@@ -257,16 +253,7 @@ LIMIT 10
 
 ## Отслеживайте объем, занимаемый данными в {{ objstorage-name }} (необязательный шаг) {#metrics}
 
-Чтобы узнать, какой объем занимают куски таблиц [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) в {{ objstorage-name }}, воспользуйтесь метрикой `ch_s3_disk_parts_size` в сервисе {{ monitoring-full-name }}:
-
-1. Откройте [консоль управления]({{ link-console-main }}).
-1. [Перейдите]({{ link-console-main }}/link/monitoring) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-1. Откройте раздел **Обзор метрик**.
-1. Выполните запрос:
-
-    ```text
-    "ch_s3_disk_parts_size"{service="managed-clickhouse", resource_type="cluster", node="by_host", resource_id="<идентификатор_кластера>", subcluster_name="clickhouse_subcluster"}
-    ```
+{% include [hybrid-storage-monitoring](../../_includes/mdb/mch/hybrid-storage-monitoring.md) %}
 
 ## Удалите созданные ресурсы {#clear-out}
 

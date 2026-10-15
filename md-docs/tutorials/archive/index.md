@@ -12,13 +12,10 @@
 * [Резервное копирование в Yandex Object Storage с помощью Duplicati](object-storage-duplicati.md)
 * [Резервное копирование в Yandex Object Storage с помощью Bacula](backup-with-bacula.md)
 * [Резервное копирование в Yandex Object Storage с помощью Veritas Backup Exec](object-storage-veritas.md)
-* [Резервное копирование ВМ с помощью «Хайстекс Акура — Система резервного копирования»](../infrastructure-management/hystax-backup.md)
 * [Резервное копирование кластера Managed Service for Kubernetes в Yandex Object Storage](kubernetes-backup.md)
 
 ## Другие руководства {#other}
 
-* [Миграция в Yandex Cloud с помощью Хайстекс Акура](../infrastructure-management/hystax-migration.md)
-* [Защита от сбоев с помощью Хайстекс Акура](../infrastructure-management/hystax-disaster-recovery.md)
 * [Однонодовый файловый сервер](single-node-file-server/index.md)
 * [Настройка SFTP-сервера на Centos 7](backup-and-archive-to-sftp.md)
 * [Развертывание параллельной файловой системы GlusterFS в высокодоступном режиме](ha-regional-glusterfs.md)

@@ -10,6 +10,7 @@ Actions are performed by making RPC calls. For more information about API archit
 
 #|
 ||Service | Description ||
+|| [ChangeFreeze](ChangeFreeze/index.md) |  ||
 || [Cluster](Cluster/index.md) | A set of methods for managing Apache Kafka® clusters. ||
 || [Connector](Connector/index.md) | A set of methods for managing Apache Kafka® connectors. ||
 || [Maintenance](Maintenance/index.md) | A set of methods for managing maintenances in a service. ||

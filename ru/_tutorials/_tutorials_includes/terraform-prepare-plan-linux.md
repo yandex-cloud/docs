@@ -1,7 +1,7 @@
 По плану будут созданы следующие ресурсы:
-* [Облачная сеть](../../vpc/concepts/network.md#network) `network-1` с [подсетью](../../vpc/concepts/network.md#subnet) `subnet-1` в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
+* [Облачная сеть](../../vpc/concepts/network.md#network) `network1` с [подсетью](../../vpc/concepts/network.md#subnet) `subnet1` в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
 * Две [виртуальные машины](../../compute/concepts/vm.md) Linux: `terraform1` (2 ядра и 2 ГБ оперативной памяти) и `terraform2` (4 ядра и 4 ГБ оперативной памяти). Они автоматически получат [публичные и внутренние IP-адреса](../../vpc/concepts/address.md#internal-addresses) из диапазона `192.168.10.0/24` в подсети `subnet-1`.
-1. Получите идентификатор [образа](../../compute/concepts/image.md) загрузочного диска из {{ marketplace-full-name }}, например [Ubuntu 16.04 LTS](/marketplace/products/yc/ubuntu-16-04-lts), который будет установлен на ВМ. Получите список доступных публичных образов, выполнив следующую команду [CLI](../../cli/):
+1. Выберите [образ](../../compute/concepts/image.md) загрузочного диска в {{ marketplace-full-name }}, например [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts). Получите список доступных публичных образов с помощью команды [CLI](../../cli/):
 
    ```bash
    yc compute image list --folder-id standard-images
@@ -22,7 +22,7 @@
      type     = "network-hdd"
      zone     = "{{ region-id }}-d"
      size     = "20"
-     image_id = "fd87va5cc00gaq2f5qfb"
+     image_id = "fd806c8slu9j********"
    }
 
    resource "yandex_compute_disk" "boot-disk-2" {
@@ -30,11 +30,12 @@
      type     = "network-hdd"
      zone     = "{{ region-id }}-d"
      size     = "20"
-     image_id = "fd87va5cc00gaq2f5qfb"
+     image_id = "fd806c8slu9j********"
    }
 
    resource "yandex_compute_instance" "vm-1" {
-     name = "terraform1"
+     name        = "terraform1"
+     platform_id = "standard-v3"
 
      resources {
        cores  = 2
@@ -56,7 +57,8 @@
    }
 
    resource "yandex_compute_instance" "vm-2" {
-     name = "terraform2"
+     name        = "terraform2"
+     platform_id = "standard-v3"
 
      resources {
        cores  = 4

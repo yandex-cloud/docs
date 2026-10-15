@@ -17,6 +17,7 @@ description: Различные сценарии использования {{ a
 * [{#T}](jwt-authorizer-firebase.md)
 * [{#T}](canary-release.md)
 * [{#T}](serverless-live-debug.md)
+* [{#T}](sourcecraft-sites-web-app.md)
 
 ## Боты на Serverless {#bots}
 

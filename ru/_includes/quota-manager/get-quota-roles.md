@@ -1,0 +1,1 @@
+Для просмотра квот [назначьте учетной записи](../../iam/operations/roles/grant.md) роль [quota-manager.viewer](../../quota-manager/security/index.md#quota-manager-viewer) или [quota-manager.requestOperator](../../quota-manager/security/index.md#quota-manager-requestoperator). Назначьте роль на облако или организацию, к которым относятся квоты.

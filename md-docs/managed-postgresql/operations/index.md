@@ -50,6 +50,7 @@
 * [Использование pgaudit](extensions/pgaudit.md)
 * [Использование pgcrypto](extensions/pgcrypto.md)
 * [Использование postgresql_anonymizer](extensions/pg_anon.md)
+* [Использование vector](extensions/vector.md)
 * [Использование словаря Hunspell для полнотекстового поиска](extensions/hunspell.md)
 
 ## Логи и мониторинг {#logs-and-monitoring}

@@ -28,7 +28,6 @@ description: На странице представлен список прак�
 * [{#T}](./storage-backup-rclone.md)
 * [{#T}](./backup-with-veeam.md)
 * [{#T}](./storage-backup-geesefs.md)
-* [{#T}](./hystax-backup.md)
 * [{#T}](./object-storage-duplicati.md)
 * [{#T}](./kubernetes-backup.md)
 * [{#T}](./object-storage-cloudberry.md)

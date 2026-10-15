@@ -124,7 +124,6 @@ Object Storage позволяет хранить объекты в хранил�
 
 * [Выгрузка данных Greenplum® в гибридное хранилище Yandex Object Storage](../tutorials/greenplum-yezzey.md)
 * [Хранение журналов работы приложения](../tutorials/log-ingestion.md)
-* [Резервное копирование ВМ с помощью «Хайстекс Акура — Система резервного копирования»](../tutorials/hystax-backup.md)
 * [Использование гибридного хранилища в Managed Service for ClickHouse®](../tutorials/clickhouse-hybrid-storage.md)
 
 

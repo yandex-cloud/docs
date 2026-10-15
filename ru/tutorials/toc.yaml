@@ -367,16 +367,10 @@ items:
               Резервное копирование в {{ objstorage-name }} с помощью Veeam
               Backup
             href: archive/backup-with-veeam.md
-          - name: Резервное копирование ВМ с помощью Хайстекс Акура
-            href: infrastructure-management/hystax-backup.md
           - name: >-
               Резервное копирование кластера {{ managed-k8s-name }} в {{
               objstorage-name }}
             href: archive/kubernetes-backup.md
-      - name: Миграция в {{ yandex-cloud }} с помощью Хайстекс Акура
-        href: infrastructure-management/hystax-migration.md
-      - name: Защита от сбоев с помощью Хайстекс Акура
-        href: infrastructure-management/hystax-disaster-recovery.md
       - name: Однонодовый файловый сервер
         items:
           - name: Обзор
@@ -1333,6 +1327,8 @@ items:
               Выполнение аналитических запросов в {{ mpg-name }} с обработкой в
               {{ mch-name }}
             href: dataplatform/mpg-pg-clickhouse-extension.md
+          - name: Выполнение векторного поиска в {{ mpg-name }} с помощью vector
+            href: dataplatform/mpg-vector-extension.md
       - name: '{{ VLK }}'
         items:
           - name: Миграция БД из стороннего кластера {{ VLK }} в {{ mrd-name }}
@@ -1780,7 +1776,7 @@ items:
             href: serverless/domain-identity-creating.md
           - name: Настройка Postfix для отправки через {{ postbox-full-name }}
             href: serverless/postfix-integration.md
-          - name: Веб-приложение на {{ src-name }} Sites и {{ sf-full-name }}
+          - name: Веб-приложение на {{ src-name }} Sites и {{ sf-name }}
             href: serverless/sourcecraft-sites-web-app.md
       - name: Боты на Serverless
         items:

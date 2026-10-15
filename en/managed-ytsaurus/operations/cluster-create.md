@@ -1,6 +1,6 @@
 ---
 title: Creating a {{ ytsaurus-name }} cluster
-description: Every {{ mtr-name }} cluster consists of a set of {{ ytsaurus-name }} components, each of which may have multiple instances. These instances may reside in different availability zones.
+description: Every {{ myt-name }} cluster consists of a set of {{ ytsaurus-name }} components, each of which may have multiple instances. These instances may reside in different availability zones.
 keywords:
   - creating an {{ ytsaurus-name }} cluster
   - '{{ ytsaurus-name }} cluster'
@@ -12,11 +12,13 @@ keywords:
 Each {{ myt-name }} cluster consists of a number of {{ ytsaurus-name }} components.
 
 Configurable components:
+
 * Exec and tablet nodes
 * Storages
 * HTTP and RPC proxies
 
 Non-configurable service components:
+
 * Master nodes
 * Storage nodes
 * System nodes
@@ -35,11 +37,11 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 {% note info %}
 
-Creating a {{ ytsaurus-name }} cluster takes a while, e.g., an hour or more depending on the selected configuration.
+Creating a {{ ytsaurus-name }} cluster takes an hour or more depending on the selected configuration.
 
 {% endnote %}
 
-In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.cluster-kind-card_demo_title_4B7zu }}](#demo-cluster) with the minimum operational configuration to test the service or a [{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.cluster-kind-card_production_title_dVEmq }}](#production-cluster) supporting manual cluster setup. 
+In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.cluster-kind-card_demo_title_4B7zu }}](#demo-cluster) with the minimum operational configuration to test the service or a [{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.cluster-kind-card_production_title_dVEmq }}](#production-cluster) supporting manual cluster setup.
 
 ### Demo cluster {#demo-cluster}
 
@@ -65,7 +67,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
         * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
-        Here is an example of the configuration file structure:
+        Configuration file structure example:
 
         ```hcl
         resource "yandex_ytsaurus_cluster" "<cluster_name>" {
@@ -75,6 +77,10 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
           zone_id            = yandex_vpc_subnet.<subnet_name>.zone
           subnet_id          = yandex_vpc_subnet.<subnet_name>.id
           security_group_ids = [<list_of_security_group_IDs>]
+
+          cidr_blocks_whitelist = {
+            v4_cidr_blocks = ["<allowed_range>"]
+          }
 
           spec = {
             storage = {
@@ -139,9 +145,13 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
             {% note warning %}
 
-            You cannot edit any network settings after you create a cluster.
+            Once your cluster is created, you cannot change its availability zone, subnet, and security groups.
 
             {% endnote %}
+
+        * `cidr_blocks_whitelist.v4_cidr_blocks`: List of allowed IPv4 address ranges, in CIDR format, to access the cluster from the internet, e.g., `203.0.113.0/24`. This is an optional parameter.
+
+            {% include [cidr-blocks-whitelist](../../_includes/managed-ytsaurus/cidr-blocks-whitelist.md) %}
 
         * `spec`: Configuration of {{ ytsaurus-name }} cluster components:
 
@@ -202,7 +212,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+        This will create all the resources you need in the specified folder. You can check the new resources and their settings in the [management console]({{ link-console-main }}).
 
 - REST API {#api}
 
@@ -220,6 +230,9 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
           "zoneId": "<availability_zone>",
           "subnetId": "<subnet_ID>",
           "securityGroupIds": [ <list_of_security_group_IDs> ],
+          "cidrBlocksWhitelist": {
+            "v4CidrBlocks": ["<allowed_range>"]
+          },
           "spec": {
             "storage": {
               "hdd": {
@@ -275,9 +288,13 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
             {% note warning %}
 
-            You cannot edit any network settings after you create a cluster.
+            Once your cluster is created, you cannot change its availability zone, subnet, and security groups.
 
             {% endnote %}
+
+        * `cidrBlocksWhitelist.v4CidrBlocks`: List of allowed IPv4 address ranges, in CIDR format, to access the cluster from the internet, e.g., `203.0.113.0/24`. This is an optional parameter.
+
+            {% include [cidr-blocks-whitelist](../../_includes/managed-ytsaurus/cidr-blocks-whitelist.md) %}
 
         * `spec`: Configuration of {{ ytsaurus-name }} cluster components:
 
@@ -328,13 +345,13 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
                 * `http.count`: Number of HTTP proxies.
                 * `rpc.count`: Number of RPC proxies.
 
-    1. Call the [Cluster.Create](../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+    1. Call the [create](../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-ytsaurus }}/ytsaurus/v1/clusters'
+            --url 'https://{{ api-host-ytsaurus }}/ytsaurus/v1/clusters' \
             --data '@body.json'
         ```
 
@@ -358,6 +375,9 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
           "zone_id": "<availability_zone>",
           "subnet_id": "<subnet_ID>",
           "security_group_ids": [ <list_of_security_group_IDs> ],
+          "cidr_blocks_whitelist": {
+            "v4_cidr_blocks": ["<allowed_range>"]
+          },
           "spec": {
             "storage": {
               "hdd": {
@@ -413,9 +433,13 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
             {% note warning %}
 
-            You cannot edit any network settings after you create a cluster.
+            Once your cluster is created, you cannot change its availability zone, subnet, and security groups.
 
             {% endnote %}
+
+        * `cidr_blocks_whitelist.v4_cidr_blocks`: List of allowed IPv4 address ranges, in CIDR format, to access the cluster from the internet, e.g., `203.0.113.0/24`. This is an optional parameter.
+
+            {% include [cidr-blocks-whitelist](../../_includes/managed-ytsaurus/cidr-blocks-whitelist.md) %}
 
         * `spec`: Configuration of {{ ytsaurus-name }} cluster components:
 
@@ -496,61 +520,71 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Select **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.cluster-kind-card_production_title_dVEmq }}** to create a cluster with manual setup.
     1. Under **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.base-params-section_title_nfKo2 }}**:
+
         1. Give the cluster a name. The name must be unique within the folder.
         1. Optionally, enter a description for the cluster.
         1. Optionally, create [labels](../../resource-manager/concepts/labels.md):
+
             1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
             1. Enter a label in `key: value` format.
             1. Press **Enter**.
 
     1. Under **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.net-settings-section_title_wo42X }}**, select:
+
        * [Availability zone](../../overview/concepts/geo-scope.md) for the cluster.
        * [Subnet](../../vpc/operations/subnet-create.md).
        * [Security group](../../vpc/concepts/security-groups.md) for the cluster’s network traffic. This is an optional setting.
 
-       {% note warning %}
-       
-       You cannot edit any network settings after you create a cluster.
-       
-       {% endnote %}
+            {% note warning %}
+
+            Once your cluster is created, you cannot change its availability zone, subnet, and security groups.
+
+            {% endnote %}
+
+       * Optionally, in the **{{ ui-key.yacloud.managed-ytsaurus.clusters.NetworkSettingsForm.field_cidr-blocks-whitelist_label_hL9Hc }}** field, specify the allowed IPv4 address ranges, in CIDR format, to access the cluster from the internet, e.g., `203.0.113.0/24`.
+
+           {% include [cidr-blocks-whitelist](../../_includes/managed-ytsaurus/cidr-blocks-whitelist.md) %}
 
     1. Under **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.filestore-section_title_tYMR7 }}**, click **{{ ui-key.yacloud.common.add }}** and select the disk type, size, and number.
 
        The type you select determines the increments for changing the disk size:
+
           * Network HDD and SSD storage: In increments of 1 GB.
           * Non-replicated SSD storage: In increments of 93 GB.
 
        The `HDD` storage is required and added by default. Edit the disk number and size as appropriate.
 
        {% note warning %}
-       
+
        You cannot change the disk type or size for a {{ ytsaurus-name }} cluster once you create it.
-       
+
        {% endnote %}
-    
+
     1. Under **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.exec-node-configuration-section_title_mfa54 }}**, specify:
+
        * Number of nodes.
        * [Computing resource configuration](../concepts/component-types.md#exec-node).
        * Type and size of the storage you will use to run jobs.
 
     1. Under **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.tablet-node-configuration-section_title_fHZeX }}**, specify:
+
        * Number of nodes.
        * [Computing resource configuration](../concepts/component-types.md#tablet-node).
 
        To use tablet nodes, add an `SSD` or `non-replicated SSD` storage.
 
        {% note warning %}
-       
+
        You cannot edit the number of tablet nodes after you create a cluster.
-       
+
        {% endnote %}
-    
+
     1. Under **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.http-config-section_title_kMdci }}** and **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.rpc-config-section_title_tGACF }}**, set the number of proxies.
 
        {% note warning %}
-       
+
        You cannot edit the number of proxy nodes after you create a cluster.
-       
+
        {% endnote %}
 
     1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -572,7 +606,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
         * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
-        Here is an example of the configuration file structure:
+        Configuration file structure example:
 
         ```hcl
         resource "yandex_ytsaurus_cluster" "<cluster_name>" {
@@ -582,6 +616,10 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
           zone_id            = yandex_vpc_subnet.<subnet_name>.zone
           subnet_id          = yandex_vpc_subnet.<subnet_name>.id
           security_group_ids = [<list_of_security_group_IDs>]
+
+          cidr_blocks_whitelist = {
+            v4_cidr_blocks = ["<allowed_range>"]
+          }
 
           labels = {
             <label_list>
@@ -654,11 +692,15 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
             {% note warning %}
 
-            You cannot edit any network settings after you create a cluster.
+            Once your cluster is created, you cannot change its availability zone, subnet, and security groups.
 
             {% endnote %}
 
         * `labels`: List of labels Provide labels in `<key> = "<value>"` format.
+        * `cidr_blocks_whitelist.v4_cidr_blocks`: List of allowed IPv4 address ranges, in CIDR format, to access the cluster from the internet, e.g., `203.0.113.0/24`. This is an optional parameter.
+
+            {% include [cidr-blocks-whitelist](../../_includes/managed-ytsaurus/cidr-blocks-whitelist.md) %}
+
         * `spec`: Configuration of {{ ytsaurus-name }} cluster components:
 
             * `storage`: Storage parameters:
@@ -733,7 +775,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+        This will create all the resources you need in the specified folder. You can check the new resources and their settings in the [management console]({{ link-console-main }}).
 
 - REST API {#api}
 
@@ -752,6 +794,9 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
           "zoneId": "<availability_zone>",
           "subnetId": "<subnet_ID>",
           "securityGroupIds": [ <list_of_security_group_IDs> ],
+          "cidrBlocksWhitelist": {
+            "v4CidrBlocks": ["<allowed_range>"]
+          },
           "spec": {
             "storage": {
               "hdd": {
@@ -812,9 +857,13 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
             {% note warning %}
 
-            You cannot edit any network settings after you create a cluster.
+            Once your cluster is created, you cannot change its availability zone, subnet, and security groups.
 
             {% endnote %}
+
+        * `cidrBlocksWhitelist.v4CidrBlocks`: List of allowed IPv4 address ranges, in CIDR format, to access the cluster from the internet, e.g., `203.0.113.0/24`. This is an optional parameter.
+
+            {% include [cidr-blocks-whitelist](../../_includes/managed-ytsaurus/cidr-blocks-whitelist.md) %}
 
         * `spec`: Configuration of {{ ytsaurus-name }} cluster components:
 
@@ -880,7 +929,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
             * `odin.checksTtl`: Frequency of checks by Odin, an internal monitoring tool. Specify it in seconds (`s`), e.g., `1209600s` (2 weeks).
 
-    1. Call the [Cluster.Create](../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+    1. Call the [create](../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -911,6 +960,9 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
           "zone_id": "<availability_zone>",
           "subnet_id": "<subnet_ID>",
           "security_group_ids": [ <list_of_security_group_IDs> ],
+          "cidr_blocks_whitelist": {
+            "v4_cidr_blocks": ["<allowed_range>"]
+          },
           "spec": {
             "storage": {
               "hdd": {
@@ -961,7 +1013,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
         Where:
 
-        * `folderId`: Folder ID. You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        * `folder_id`: Folder ID. You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
         * `name`: Cluster name.
         * `description`: Cluster description.
         * `labels`: List of labels provided in `"<key>": "<value>"` format.
@@ -971,9 +1023,13 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
 
             {% note warning %}
 
-            You cannot edit any network settings after you create a cluster.
+            Once your cluster is created, you cannot change its availability zone, subnet, and security groups.
 
             {% endnote %}
+
+        * `cidr_blocks_whitelist.v4_cidr_blocks`: List of allowed IPv4 address ranges, in CIDR format, to access the cluster from the internet, e.g., `203.0.113.0/24`. This is an optional parameter.
+
+            {% include [cidr-blocks-whitelist](../../_includes/managed-ytsaurus/cidr-blocks-whitelist.md) %}
 
         * `spec`: Configuration of {{ ytsaurus-name }} cluster components:
 

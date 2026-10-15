@@ -86,7 +86,26 @@ Error message:
 SASL authentication error: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
 ```
 
-This error occurs when you attempt to connect via `kafkacat` to a cluster with {{ KF }} version 4.0 or higher. `kafkacat` is deprecated and incompatible with new versions. If your cluster runs {{ KF }} version 4.0 or higher, use [kafkactl](../../managed-kafka/operations/connect/clients.md#kafkactl) instead.
+This error occurs when you attempt to connect via `kafkacat` to a cluster with {{ KF }} version 4.0 or higher. `kafkacat` is deprecated and incompatible with new versions. For clusters running {{ KF }} 4.0 or later, use [kafkactl](../../managed-kafka/operations/connect/clients.md#kafkactl).
+
+#### How to fix the `Failed authentication with /` error? {#failed-authentication}
+
+You see the following errors in {{ mkf-full-name }} cluster logs:
+
+```
+{
+ hostname: "[rc1c-sjg**************.mdb.yandexcloud.net](http://rc1c-sjg**************.mdb.yandexcloud.net/)",
+ message: "\[SocketServer listenerType=ZK_BROKER, nodeId=1\]
+ Failed authentication with /10..X.X (channelId=10.X.X.X:9091-10.X.X.Y:43598-3694)
+ (SSL handshake failed) (org.apache.kafka.common.network.Selector)",
+ origin: "kafka_server",
+ severity: "INFO"
+ }
+```
+
+Such errors mean there are connection issues on the application side. Check the logs and settings of the application running on the `10.X.X.X` host for errors.
+
+Typical causes involve incorrect protocol configuration, certificate, or authentication secrets for the {{ KF }} cluster. For example, the `SSL handshake failed` error points to SSL or TLS certificate issues.
 
 #### Will Karapace be available during maintenance? {#karapace-maintenance}
 
@@ -99,6 +118,43 @@ This error occurs when you attempt to connect via `kafkacat` to a cluster with {
 #### What is the role of {{ mkf-short-name }} in database management and maintenance? {#services}
 
 {% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
+
+#### How do I monitor the process of reading topics? {#process-read-topic}
+
+If consumers read messages slower than producers write them to the topic, a lag accumulates. For every section, it is calculated as a difference between the current topic section offset and the consumer group offset:
+
+* If the lag increases, the message reading speed is lower than the writing speed. This may indicate consumer performance issues.
+* If the topic is receiving new messages, but the lag is not decreasing and the registered offset is not changing, consumers may be inoperable.
+
+If unread messages are deleted from the topic in line with their storage settings, consumers will not be able to receive them.
+
+You can monitor the reading process using these two methods:
+
+* Create a chart for the `kafka_group_topic_partition_lag` [metric](../../managed-kafka/metrics.md) in {{ monitoring-full-name }}.
+* Use the `kafka-consumer-groups.sh` command line tool that comes with the {{ KF }} distribution file. [Pre-configure a connection](../../managed-kafka/operations/connect/clients.md#with-ssl) to the cluster.
+
+  To get the list of consumer groups, run this command:
+
+  ```bash
+  <Apache_Kafka_directory_path>/bin/kafka-consumer-groups.sh \
+    --command-config <path_to_file_with_connection_parameters> \
+    --bootstrap-server <broker_FQDN>:9091 \
+    --list
+  ```
+
+  To view consumer group info, run this command:
+
+  ```bash
+  <Apache_Kafka_directory_path>/bin/kafka-consumer-groups.sh \
+    --command-config <path_to_file_with_connection_parameters> \
+    --bootstrap-server <broker_FQDN>:9091 \
+    --group <consumer_group_name> \
+    --describe
+  ```
+
+  The lag for each topic section is shown in the `LAG` field.
+
+* Use the built-in {{ kafka-ui }} that allows you to monitor the consumer group status. Learn more about its features in [{#T}](../../managed-kafka/concepts/kafka-ui.md).
 
 #### How do I track message loss in an {{ KF }} topic? {#lost-messages}
 

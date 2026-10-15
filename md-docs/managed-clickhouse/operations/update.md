@@ -12,7 +12,6 @@
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
 * [Переместить кластер](#move-cluster) в другой каталог.
 * [Изменить группы безопасности кластера](#change-sg-set).
-* [Изменить настройки гибридного хранилища](#change-hybrid-storage).
 
 Подробнее о других изменениях кластера:
 
@@ -20,6 +19,7 @@
 * [Перенос кластера в другую зону доступности](host-migration.md).
 * [Настройка серверов ClickHouse®](change-server-level-settings.md) согласно [документации ClickHouse®](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings).
 * [Изменение настроек ClickHouse® на уровне запроса](change-query-level-settings.md).
+* [Изменение настроек гибридного хранилища](hybrid-storage.md#change-hybrid-storage).
 
 
 ## Изменить настройки сервисного аккаунта {#change-service-account}
@@ -1811,28 +1811,6 @@
 
 {% endlist %}
 
-
-### Connection Manager {#conn-man}
-
-Если в кластере не включена интеграция с сервисом Connection Manager, включите опцию **Использовать Connection Manager**. Она доступна только в [консоли управления](https://console.yandex.cloud).
-
-Для каждого пользователя БД будут созданы:
-
-* [Подключение](../../metadata-hub/concepts/connection-manager.md) Connection Manager с информацией о соединении с БД.
-
-* [Секрет Yandex Lockbox](../../metadata-hub/concepts/secret.md), в котором хранится пароль пользователя. Хранение паролей в сервисе Yandex Lockbox обеспечивает их безопасность.
-
-  Подключение и секрет создаются для каждого нового пользователя БД. Чтобы увидеть все подключения, на странице кластера выберите вкладку **Подключения**.
-
-  Для просмотра информации о подключении требуется роль `connection-manager.viewer`. Вы можете [настраивать доступ к подключениям в Connection Manager](../../metadata-hub/operations/connection-access.md).
-
-  {% note info %}
-
-  Использование сервиса Connection Manager и секретов, созданных с его помощью, не тарифицируется.
-
-  {% endnote %}
-
-
 ## Переместить кластер {#move-cluster}
 
 {% list tabs group=instructions %}
@@ -2272,226 +2250,6 @@
 {% endnote %}
 
 
-## Изменить настройки гибридного хранилища {#change-hybrid-storage}
 
-{% list tabs group=instructions %}
-
-- CLI {#cli}
-
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
-
-  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
-  
-  Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
-
-  Чтобы изменить [настройки гибридного хранилища](../concepts/storage.md#hybrid-storage-settings):
-
-  1. Посмотрите описание команды CLI для изменения кластера:
-
-      ```bash
-      yc managed-clickhouse cluster update --help
-      ```
-
-  1. Если гибридное хранилище в кластере выключено, включите его:
-
-      ```bash
-      yc managed-clickhouse cluster update <имя_или_идентификатор_кластера> \
-          --cloud-storage=true
-      ```
-
-      {% note warning %}
-      
-      Включенное гибридное хранилище нельзя отключить.
-      
-      {% endnote %}
-
-  1. Передайте список настроек, которые хотите изменить:
-
-      ```bash
-      yc managed-clickhouse cluster update <имя_или_идентификатор_кластера> \
-          --cloud-storage-data-cache=<хранение_файлов> \
-          --cloud-storage-data-cache-max-size=<объем_памяти_в_байтах> \
-          --cloud-storage-move-factor=<доля_свободного_места> \
-          --cloud-storage-prefer-not-to-merge=<слияние_кусков_данных>
-      ```
-
-      Вы можете изменить следующие настройки:
-
-      * `--cloud-storage-data-cache` — разрешает временное хранение файлов в кластерном хранилище. По умолчанию — `true` (разрешено).
-      * `--cloud-storage-data-cache-max-size` — определяет максимальный объем памяти (в байтах), выделяемый в кластерном хранилище для временного хранения файлов. Если значение параметра не задано, максимальный объем памяти по умолчанию равен половине объема кластерного хранилища.
-      * `--cloud-storage-move-factor` — устанавливает минимальную долю свободного места в кластерном хранилище. Если доля свободного места меньше этого значения, данные переносятся в Yandex Object Storage. Минимальное значение — `0`, максимальное — `1`, по умолчанию — `0.01`.
-      * `--cloud-storage-prefer-not-to-merge` — отключает [слияние кусков данных](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/custom-partitioning-key) в кластерном и объектном хранилищах. Чтобы отключить слияние, укажите значение `true` или передайте параметр без значения. Чтобы оставить слияние включенным, укажите значение `false` или не передавайте параметр в команде CLI при создании кластера.
-
-- REST API {#api}
-
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
-
-        ```bash
-        export IAM_TOKEN="<IAM-токен>"
-        ```
-
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
-
-        {% note warning %}
-        
-        Метод API переопределит все параметры изменяемого объекта, которые не были явно переданы в запросе, на значения по умолчанию. Чтобы избежать этого, перечислите настройки, которые вы хотите изменить, в параметре `updateMask` (одной строкой через запятую).
-        
-        {% endnote %}
-
-        ```bash
-        curl \
-            --request PATCH \
-            --header "Authorization: Bearer $IAM_TOKEN" \
-            --header "Content-Type: application/json" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
-            --data '{
-                      "updateMask": "<перечень_изменяемых_настроек>",
-                      "configSpec": {
-                        "cloudStorage": {
-                          "enabled": <использование_гибридного_хранилища>,
-                          "moveFactor": "<доля_свободного_места>",
-                          "dataCacheEnabled": <временное_хранение_файлов>,
-                          "dataCacheMaxSize": "<максимальный_объем_памяти_для_хранения_файлов>",
-                          "preferNotToMerge": <отключение_слияния_кусков_данных>
-                        }
-                      }
-                    }'
-        ```
-
-        Где:
-
-        * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
-
-        * `configSpec.cloudStorage` — настройки гибридного хранилища:
-
-            * `enabled` — включить гибридное хранилище в кластере, если оно выключено: `true` или `false`. Значение по умолчанию — `false` (выключено).
-            
-                {% note warning %}
-                
-                Включенное гибридное хранилище нельзя отключить.
-                
-                {% endnote %}
-            
-            * `moveFactor` — минимальная доля свободного места в кластерном хранилище. Если доля свободного места меньше этого значения, данные переносятся в Yandex Object Storage.
-            
-                Минимальное значение — `0`, максимальное — `1`, по умолчанию — `0.01`.
-            
-            * `dataCacheEnabled` — разрешить временное хранение файлов в кластерном хранилище: `true` или `false`.
-            
-                По умолчанию — `true` (разрешено).
-            
-            * `dataCacheMaxSize` — максимальный объем памяти (в байтах), выделяемый в кластерном хранилище для временного хранения файлов.
-                
-                Если значение параметра не задано, максимальный объем памяти по умолчанию равен половине объема кластерного хранилища.
-            
-            * `preferNotToMerge` — отключить [слияние кусков данных](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/custom-partitioning-key) в кластерном и объектном хранилищах: `true` или `false`.
-            
-                Чтобы отключить слияние, укажите значение `true`. Чтобы оставить слияние включенным, укажите значение `false`.
-
-        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.operation).
-
-- gRPC API {#grpc-api}
-
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
-
-        ```bash
-        export IAM_TOKEN="<IAM-токен>"
-        ```
-
-    1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
-       
-       ```bash
-       cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
-       ```
-       
-       Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
-
-        {% note warning %}
-        
-        Метод API переопределит все параметры изменяемого объекта, которые не были явно переданы в запросе, на значения по умолчанию. Чтобы избежать этого, перечислите настройки, которые вы хотите изменить, в параметре `update_mask` (в виде массива строк `paths[]`).
-        
-        {% cut "Формат перечисления настроек" %}
-        
-        ```yaml
-        "update_mask": {
-            "paths": [
-                "<настройка_1>",
-                "<настройка_2>",
-                ...
-                "<настройка_N>"
-            ]
-        }
-        ```
-        
-        {% endcut %}
-        
-        {% endnote %}
-
-        ```bash
-        grpcurl \
-            -format json \
-            -import-path ~/cloudapi/ \
-            -import-path ~/cloudapi/third_party/googleapis/ \
-            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
-            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-            -d '{
-                  "cluster_id": "<идентификатор_кластера>",
-                  "update_mask": {
-                    "paths": [
-                      <перечень_изменяемых_настроек>
-                    ]
-                  },
-                  "config_spec": {
-                    "cloud_storage": {
-                      "enabled": <использование_гибридного_хранилища>,
-                      "move_factor": "<доля_свободного_места>",
-                      "data_cache_enabled": <временное_хранение_файлов>,
-                      "data_cache_max_size": "<максимальный_объем_памяти_для_хранения_файлов>",
-                      "prefer_not_to_merge": <отключение_слияния_кусков_данных>
-                    }
-                  }
-                }' \
-            mdb.api.cloud.yandex.net:443 \
-            yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
-        ```
-
-        Где:
-        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
-
-        * `config_spec.cloud_storage` — настройки гибридного хранилища:
-
-            * `enabled` — включить гибридное хранилище в кластере, если оно выключено: `true` или `false`. Значение по умолчанию — `false` (выключено).
-            
-                {% note warning %}
-                
-                Включенное гибридное хранилище нельзя отключить.
-                
-                {% endnote %}
-            
-            * `move_factor` — минимальная доля свободного места в кластерном хранилище. Если доля свободного места меньше этого значения, данные переносятся в Yandex Object Storage.
-            
-                Минимальное значение — `0`, максимальное — `1`, по умолчанию — `0.01`.
-            
-            * `data_cache_enabled` — разрешить временное хранение файлов в кластерном хранилище: `true` или `false`.
-            
-                По умолчанию — `true` (разрешено).
-            
-            * `data_cache_max_size` — максимальный объем памяти (в байтах), выделяемый в кластерном хранилище для временного хранения файлов.
-            
-                Если значение параметра не задано, максимальный объем памяти по умолчанию равен половине объема кластерного хранилища.
-            
-            * `prefer_not_to_merge` — отключить [слияние кусков данных](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/custom-partitioning-key) в кластерном и объектном хранилищах: `true` или `false`.
-            
-                Чтобы отключить слияние, укажите значение `true`. Чтобы оставить слияние включенным, укажите значение `false`.
-
-        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
-
-{% endlist %}
 
 _ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

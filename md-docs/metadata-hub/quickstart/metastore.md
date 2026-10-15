@@ -83,7 +83,7 @@
 
 1. [Создайте бакет Object Storage](../../storage/operations/buckets/create.md) для работы с кластером Yandex Data Processing.
 
-1. В созданной ранее сети [создайте кластер Yandex Data Processing](../../data-proc/operations/cluster-create.md#create-cluster). В настройках задайте:
+1. В созданной ранее сети [создайте кластер Yandex Data Processing](../../data-proc/operations/cluster-create.md#create). В настройках задайте:
 
    * Сервисы `SPARK` и `YARN`.
    * Сервисный аккаунт, созданный ранее.

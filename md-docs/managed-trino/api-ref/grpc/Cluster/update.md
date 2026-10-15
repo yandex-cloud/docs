@@ -393,7 +393,11 @@ Updates configuration of the specified Trino cluster.
       "trusted_certificates": [
         "string"
       ]
-    }
+    },
+    "event_listeners": {
+      "data_catalog": "DataCatalogEventListener"
+    },
+    "additional_properties": "map<string, string>"
   },
   "network_spec": {
     "security_group_ids": [
@@ -498,6 +502,14 @@ Configuration for cluster resource management, specifying the resource groups. |
 || tls | **[TLSConfig](#yandex.cloud.trino.v1.TLSConfig)**
 
 Configuration for TLS. ||
+|| event_listeners | **[UpdateEventListenersSpec](#yandex.cloud.trino.v1.UpdateEventListenersSpec)**
+
+Configuration for event listeners. ||
+|| additional_properties | **object** (map<**string**, **string**>)
+
+Additional Trino configuration properties as key-value pairs.
+
+The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. No more than 256 per resource. ||
 |#
 
 ## UpdateCoordinatorConfig {#yandex.cloud.trino.v1.UpdateCoordinatorConfig}
@@ -1303,6 +1315,22 @@ Trusted CA-certificates. Each element should contain single self-signed CA-certi
 chain of CA-certificates where first certificate is the leaf and last certificate is the self-signed root.
 
 The maximum string length in characters for each value is 8192. The maximum number of elements is 8. ||
+|#
+
+## UpdateEventListenersSpec {#yandex.cloud.trino.v1.UpdateEventListenersSpec}
+
+#|
+||Field | Description ||
+|| data_catalog | **[DataCatalogEventListener](#yandex.cloud.trino.v1.DataCatalogEventListener)**
+
+Configuration of the Data Catalog event listener. ||
+|#
+
+## DataCatalogEventListener {#yandex.cloud.trino.v1.DataCatalogEventListener}
+
+#|
+||Field | Description ||
+|| Empty | > ||
 |#
 
 ## UpdateNetworkConfigSpec {#yandex.cloud.trino.v1.UpdateNetworkConfigSpec}

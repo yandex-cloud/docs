@@ -1,5 +1,7 @@
 # Документы перестали поступать в систему ЭДО
 
+{% include [kz-preview](../../../_includes/kz-preview.md) %}
+
 
 ## Описание проблемы {#issue-description}
 

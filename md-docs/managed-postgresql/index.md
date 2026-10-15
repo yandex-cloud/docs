@@ -98,6 +98,8 @@ Managed Service for PostgreSQL помогает разворачивать и п
 
  - [postgresql_anonymizer](operations/extensions/pg_anon.md)
 
+ - [vector](operations/extensions/vector.md)
+
  - [Словари от Hunspell для полнотекстового поиска](operations/extensions/hunspell.md)
 
 ### Логи и мониторинг
@@ -169,6 +171,8 @@ Managed Service for PostgreSQL помогает разворачивать и п
  - [Настройка прав доступа к секрету, созданному Connection Manager, для пользователя Managed Service for PostgreSQL](tutorials/conn-man-secret-access.md)
 
  - [Выполнение аналитических запросов в Managed Service for PostgreSQL с обработкой в Managed Service for ClickHouse®](tutorials/mpg-pg-clickhouse-extension.md)
+
+ - [Выполнение векторного поиска в Yandex Managed Service for PostgreSQL с помощью pgvector](tutorials/mpg-vector-extension.md)
 
 ### Репликация и миграция
 

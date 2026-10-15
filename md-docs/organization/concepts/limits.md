@@ -34,6 +34,8 @@
 `organization-manager.federationCertificates.count` | 100 ||
 || Количество пользователей во всех федерациях в организации
 `organization-manager.federationUsers.count` | 1 000 ||
+|| Количество приложений-ссылок в организации
+`organization-manager.linkedApplications.count` | 100 ||
 || Максимальное количество сертификатов в федерации | 100 ||
 || Максимальное количество субъектов в федерации | 10 000 ||
 || Максимальное количество облаков в организации | 5 ||

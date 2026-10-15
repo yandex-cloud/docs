@@ -64,7 +64,7 @@
 
 ## Загрузка и поставка данных {#loading-delivery}
 
-Практические руководства описывают архитектурные шаблоны для построения потоков данных: от источников (внешние базы, файлы, логи, брокеры) к хранилищам и обратно. Рассмотрены сценарии потоковой передачи через YDS, доставки событий из Apache Kafka® и RabbitMQ, пакетной загрузки и сквозного трансфера с помощью Data Transfer. 
+Практические руководства описывают архитектурные шаблоны для построения потоков данных: от источников (внешние базы, файлы, логи, брокеры) к хранилищам и обратно. Рассмотрены сценарии потоковой передачи через YDS, доставки событий из Apache Kafka® и RabbitMQ, пакетной загрузки и сквозного трансфера с помощью Data Transfer.
 
 {% cut "Полный перечень руководств" %}
 
@@ -103,7 +103,6 @@
 * [Передача данных из топика Yandex Managed Service for Apache Kafka® в таблицу Apache Iceberg™ в Yandex Object Storage](kafka-iceberg-s3-connect.md)
 
 {% endcut %}
-
 
 ## Интеграция и обмен между системами хранения и обработки данных {#integration}
 
@@ -261,6 +260,7 @@ Schema Registry — сервис для хранения и управления
 * [Создание внешней таблицы на базе таблицы из бакета Yandex Object Storage с помощью конфигурационного файла](mgp-config-server-for-s3.md)
 * [Монтирование бакетов Yandex Object Storage к файловой системе хостов Yandex Data Processing](data-processing-init-actions-geesefs.md)
 * [Создание кластера PostgreSQL для «1С:Предприятия»](1c-postgresql.md)
+* [Выполнение векторного поиска в Yandex Managed Service for PostgreSQL с помощью vector](mpg-vector-extension.md)
 * [Использование кластера Yandex Managed Service for Valkey™ в качестве хранилища сессий PHP](valkey-as-php-sessions-storage.md)
 * [Настройка Yandex Managed Service for ClickHouse® для Graphite](clickhouse-for-graphite.md)
 * [Получение данных из внешних источников с помощью именованных запросов](pxf-named-queries.md)

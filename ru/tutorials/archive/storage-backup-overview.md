@@ -15,5 +15,4 @@ description: На странице представлен список прак�
 * [Резервное копирование в {{ objstorage-full-name }} с помощью Bacula](backup-with-bacula.md)
 * [Резервное копирование в {{ objstorage-full-name }} с помощью Veritas Backup Exec](object-storage-veritas.md)
 * [Резервное копирование в {{ objstorage-full-name }} с помощью Veeam Backup](./backup-with-veeam.md)
-* [Резервное копирование ВМ с помощью «Хайстекс Акура — Система резервного копирования»](../infrastructure-management/hystax-backup.md)
 * [Резервное копирование кластера {{ managed-k8s-name }} в {{ objstorage-full-name }}](kubernetes-backup.md)

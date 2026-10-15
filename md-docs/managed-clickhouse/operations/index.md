@@ -46,6 +46,8 @@
 * [Настройка доступа к Object Storage](s3-access.md)
 
 
+* [Работа с гибридным хранилищем](hybrid-storage.md)
+
 ## Шардирование {#sharding}
 
 * [Управление шардами](shards.md)

@@ -436,7 +436,7 @@ You can:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -575,7 +575,7 @@ Specify the MirrorMaker connector parameters as follows:
 
       {% note info %}
 
-      Topics in the target cluster will be created with the specified prefix.
+      In the management console, make sure you specified both source and target cluster aliases. The replicated topic name in the target cluster will have this format: `<source_cluster_alias>.<topic_name>`. To preserve original topic names, create a connector using the CLI.
 
       {% endnote %}
 
@@ -623,9 +623,10 @@ Specify the MirrorMaker connector parameters as follows:
         * `egress`: For a source cluster.
 
     * `--tasks-max`: Maximum number of concurrently running connector tasks.
-    * `--properties`: Comma-separated list of additional connector settings in `<key>:<value>` format. Here are some examples of keys:
+    * `--properties`: Comma-separated list of additional connector settings in `<key>=<value>` format. Here are some examples of keys:
 
         * `key.converter`
+        * `replication.policy.separator`
         * `value.converter`
 
         For the list of general connector settings, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
@@ -649,6 +650,20 @@ Specify the MirrorMaker connector parameters as follows:
         * `sasl-username`: Username for the connector to access the external cluster.
         * `sasl-password`: User password for the connector to access the external cluster.
         * `ssl-truststore-certificates`: List of PEM certificates.
+
+    To preserve the original topic names during replication, provide empty aliases for the source and target clusters, as well as an empty separator:
+
+    ```bash
+    {{ yc-mdb-kf }} connector-mirrormaker create <connector_name> \
+       --cluster-name=<cluster_name> \
+       --direction=<connector_direction> \
+       --tasks-max=<task_limit> \
+       --properties=replication.policy.separator='' \
+       --replication-factor=<replication_factor> \
+       --topics=<topic_pattern> \
+       --this-cluster-alias='' \
+       --external-cluster alias='',bootstrap-servers=<list_of_broker_host_FQDNs>,security-protocol=<security_protocol>,sasl-mechanism=<authentication_mechanism>,sasl-username=<username>,sasl-password=<user_password>
+    ```
 
 - {{ TF }} {#tf}
 
@@ -846,6 +861,7 @@ Specify the S3 Sink connector parameters as follows:
 
      * **topics**: Pattern for selecting topics to replicate. List topic names separated by commas or `|`. You can also use a regular expression (`.*`), e.g., `analysis.*`. To migrate all topics, specify `.*`.
      * **file_max_records**: Maximum number of records that can be written to a single file in an S3-compatible storage.
+
      * **s3_connection**: S3-compatible storage connection parameters:
 
         * **bucket_name**: Name of the bucket to write data to.
@@ -1325,7 +1341,7 @@ Specify the Iceberg Sink connector parameters as follows:
 
        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1671,7 +1687,7 @@ You can import the existing connectors to manage them with {{ TF }}.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

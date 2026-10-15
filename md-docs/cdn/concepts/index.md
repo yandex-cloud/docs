@@ -55,6 +55,12 @@ Yandex Cloud CDN предоставляет разработчикам веб-с
 
 Ознакомьтесь также с [общей иерархией ресурсов](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud.
 
+{% note tip %}
+
+Чтобы подготовить ресурс к недоступности основного [источника](origins.md), воспользуйтесь [рекомендациями](fault-tolerance.md).
+
+{% endnote %}
+
 #### Полезные ссылки {#see-also}
 
 * [Yandex SWS и CDN: защита и ускорение сайтов для компаний любого масштаба](https://yandex.cloud/ru/blog/sws-cdn-cloudflare-alternative)

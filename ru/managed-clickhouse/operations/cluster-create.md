@@ -20,15 +20,7 @@ description: Следуя данной инструкции, вы сможете
 {% include [note-pricing-zk-ck](../../_includes/mdb/mch/note-pricing-zk-ck.md) %}
 
 
-Подключениями к БД кластера управляет сервис {{ connection-manager-name }}. Вместе с кластером автоматически создаются:
-
-* [Подключение {{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) с информацией о соединении с БД.
-
-* [Секрет {{ lockbox-name }}](../../metadata-hub/concepts/secret.md), в котором хранится пароль пользователя — владельца БД.
-
-Подключение и секрет создаются для каждого нового пользователя БД. Чтобы увидеть все подключения, на странице кластера выберите вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**. Для просмотра информации о подключении требуется роль `connection-manager.viewer`.
-
-Использование сервиса {{ connection-manager-name }} и секретов, созданных с его помощью, не тарифицируется.
+{% include [Connection Manager](../../_includes/mdb/connman-cluster-create.md) %}
 
 
 
@@ -186,7 +178,9 @@ description: Следуя данной инструкции, вы сможете
 
         Движок задается при создании базы данных и не может быть изменен для этой базы.
 
-      * При необходимости включите для кластера [гибридное хранилище](../concepts/storage.md#hybrid-storage-features).
+      * При необходимости включите для кластера [гибридное хранилище](../concepts/storage.md#hybrid-storage-features) и задайте его настройки:
+
+        {% include [hybrid-storage-settings-console](../../_includes/mdb/mch/hybrid-storage-settings-console.md) %}
 
         {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
 
@@ -367,22 +361,20 @@ description: Следуя данной инструкции, вы сможете
 
          * Передайте настройки гибридного хранилища в соответствующих параметрах:
 
+            ```bash
+            {{ yc-mdb-ch }} cluster create \
+               ...
+               --cloud-storage=true \
+               --cloud-storage-data-cache=<хранение_файлов> \
+               --cloud-storage-data-cache-max-size=<объем_памяти_в_байтах> \
+               --cloud-storage-move-factor=<доля_свободного_места> \
+               --cloud-storage-prefer-not-to-merge=<слияние_кусков_данных>
+              ...
+            ```
+
+            Где:
+
             {% include [Hybrid Storage settings CLI](../../_includes/mdb/mch/hybrid-storage-settings-cli.md) %}
-
-         ```bash
-         {{ yc-mdb-ch }} cluster create \
-            ...
-            --cloud-storage=true \
-            --cloud-storage-data-cache=<хранение_файлов> \
-            --cloud-storage-data-cache-max-size=<объем_памяти_в_байтах> \
-            --cloud-storage-move-factor=<доля_свободного_места> \
-            --cloud-storage-prefer-not-to-merge=<слияние_кусков_данных>
-           ...
-         ```
-
-         Где:
-         * `--cloud-storage-data-cache` — хранение файлов в кластерном хранилище: `true` или `false`.
-         * `--cloud-storage-prefer-not-to-merge` — отключает слияние кусков данных в кластерном и объектном хранилищах: `true` или `false`.
 
       1. Чтобы задать настройки автоматического увеличения размера хранилища {{ CH }}, используйте флаг `--disk-size-autoscaling`:
 
@@ -650,6 +642,27 @@ description: Следуя данной инструкции, вы сможете
 
           Подробнее о шифровании дисков читайте в разделе [Хранилище](../concepts/storage.md#disk-encryption).
 
+       1. Чтобы включить [гибридное хранилище](../concepts/storage.md#hybrid-storage-settings) и задать его настройки, добавьте блок `cloud_storage`:
+
+          ```hcl
+          resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
+            ...
+            cloud_storage = {
+              enabled             = true
+              move_factor         = <доля_свободного_места>
+              data_cache_enabled  = <кешировать_данные>
+              data_cache_max_size = <максимальный_объем_памяти_в_байтах>
+              prefer_not_to_merge = <отключить_слияние_кусков_данных>
+            }
+          }
+          ```
+
+          Где:
+
+          * `enabled` — включает гибридное хранилище.
+
+          {% include [tf-hybrid-storage-settings](../../_includes/mdb/mch/api/grpc-cloud-storage-settings.md) %}
+
        Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, читайте в [документации провайдера]({{ tf-provider-mch }}).
 
     1. Проверьте корректность файлов конфигурации {{ TF }}:
@@ -831,6 +844,10 @@ description: Следуя данной инструкции, вы сможете
                     {% include [rest-access-settings](../../_includes/mdb/mch/api/rest-access-settings.md) %}
 
                 * `cloudStorage` — настройки [гибридного хранилища](../concepts/storage.md#hybrid-storage-features):
+
+                    * `enabled` — включить гибридное хранилище в кластере, если оно выключено: `true` или `false`. Значение по умолчанию — `false` (выключено).
+
+                        {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
 
                     {% include [rest-cloud-storage-settings](../../_includes/mdb/mch/api/rest-cloud-storage-settings.md) %}
 
@@ -1081,6 +1098,10 @@ description: Следуя данной инструкции, вы сможете
 
                 * `cloud_storage` — настройки [гибридного хранилища](../concepts/storage.md#hybrid-storage-features):
 
+                    * `enabled` — включить гибридное хранилище в кластере, если оно выключено: `true` или `false`. Значение по умолчанию — `false` (выключено).
+
+                        {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
+
                     {% include [grpc-cloud-storage-settings](../../_includes/mdb/mch/api/grpc-cloud-storage-settings.md) %}
 
                 * `sql...` и `admin_password` — группа настроек для управления пользователями и базами данных через SQL:
@@ -1293,7 +1314,9 @@ description: Следуя данной инструкции, вы сможете
 
         Движок задается при создании базы данных и не может быть изменен для этой базы.
 
-      * При необходимости включите для кластера [гибридное хранилище](../concepts/storage.md#hybrid-storage-features).
+      * При необходимости включите для кластера [гибридное хранилище](../concepts/storage.md#hybrid-storage-features) и задайте его настройки:
+
+        {% include [hybrid-storage-settings-console](../../_includes/mdb/mch/hybrid-storage-settings-console.md) %}
 
         {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
 
@@ -1468,22 +1491,20 @@ description: Следуя данной инструкции, вы сможете
 
          * Передайте настройки гибридного хранилища в соответствующих параметрах:
 
+            ```bash
+            {{ yc-mdb-ch }} cluster create \
+               ...
+               --cloud-storage=true \
+               --cloud-storage-data-cache=<хранение_файлов> \
+               --cloud-storage-data-cache-max-size=<объем_памяти_в_байтах> \
+               --cloud-storage-move-factor=<доля_свободного_места> \
+               --cloud-storage-prefer-not-to-merge=<слияние_кусков_данных>
+              ...
+            ```
+
+            Где:
+
             {% include [Hybrid Storage settings CLI](../../_includes/mdb/mch/hybrid-storage-settings-cli.md) %}
-
-         ```bash
-         {{ yc-mdb-ch }} cluster create \
-            ...
-            --cloud-storage=true \
-            --cloud-storage-data-cache=<хранение_файлов> \
-            --cloud-storage-data-cache-max-size=<объем_памяти_в_байтах> \
-            --cloud-storage-move-factor=<доля_свободного_места> \
-            --cloud-storage-prefer-not-to-merge=<слияние_кусков_данных>
-           ...
-         ```
-
-         Где:
-         * `--cloud-storage-data-cache` — хранение файлов в кластерном хранилище: `true` или `false`.
-         * `--cloud-storage-prefer-not-to-merge` — отключает слияние кусков данных в кластерном и объектном хранилищах: `true` или `false`.
 
       1. Чтобы задать настройки автоматического увеличения размера хранилищ {{ CH }} и {{ ZK }}, используйте флаг `--disk-size-autoscaling`:
 
@@ -1748,6 +1769,27 @@ description: Следуя данной инструкции, вы сможете
 
           Подробнее о шифровании дисков читайте в разделе [Хранилище](../concepts/storage.md#disk-encryption).
 
+       1. Чтобы включить [гибридное хранилище](../concepts/storage.md#hybrid-storage-settings) и задать его настройки, добавьте блок `cloud_storage`:
+
+          ```hcl
+          resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
+            ...
+            cloud_storage = {
+              enabled             = true
+              move_factor         = <доля_свободного_места>
+              data_cache_enabled  = <кешировать_данные>
+              data_cache_max_size = <максимальный_объем_памяти_в_байтах>
+              prefer_not_to_merge = <отключить_слияние_кусков_данных>
+            }
+          }
+          ```
+
+          Где:
+
+          * `enabled` — включает гибридное хранилище.
+
+          {% include [tf-hybrid-storage-settings](../../_includes/mdb/mch/api/grpc-cloud-storage-settings.md) %}
+
        Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, читайте в [документации провайдера]({{ tf-provider-mch }}).
 
     1. Проверьте корректность файлов конфигурации {{ TF }}:
@@ -1945,6 +1987,10 @@ description: Следуя данной инструкции, вы сможете
                     {% include [rest-access-settings](../../_includes/mdb/mch/api/rest-access-settings.md) %}
 
                 * `cloudStorage` — настройки [гибридного хранилища](../concepts/storage.md#hybrid-storage-features):
+
+                    * `enabled` — включить гибридное хранилище в кластере, если оно выключено: `true` или `false`. Значение по умолчанию — `false` (выключено).
+
+                        {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
 
                     {% include [rest-cloud-storage-settings](../../_includes/mdb/mch/api/rest-cloud-storage-settings.md) %}
 
@@ -2207,6 +2253,10 @@ description: Следуя данной инструкции, вы сможете
                     {% include [grpc-access-settings](../../_includes/mdb/mch/api/grpc-access-settings.md) %}
 
                 * `cloud_storage` — настройки [гибридного хранилища](../concepts/storage.md#hybrid-storage-features):
+
+                    * `enabled` — включить гибридное хранилище в кластере, если оно выключено: `true` или `false`. Значение по умолчанию — `false` (выключено).
+
+                        {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
 
                     {% include [grpc-cloud-storage-settings](../../_includes/mdb/mch/api/grpc-cloud-storage-settings.md) %}
 

@@ -25,7 +25,6 @@
 * [Резервное копирование в Yandex Object Storage с помощью rclone](storage-backup-rclone.md)
 * [Резервное копирование в Object Storage с помощью Veeam Backup](backup-with-veeam.md)
 * [Резервное копирование в Yandex Object Storage с помощью GeeseFS](storage-backup-geesefs.md)
-* [Резервное копирование ВМ с помощью «Хайстекс Акура — Система резервного копирования»](hystax-backup.md)
 * [Резервное копирование в Yandex Object Storage с помощью Duplicati](object-storage-duplicati.md)
 * [Резервное копирование кластера Managed Service for Kubernetes в Object Storage](kubernetes-backup.md)
 * [Резервное копирование в Yandex Object Storage с помощью MSP360 Backup (CloudBerry Desktop Backup)](object-storage-cloudberry.md)

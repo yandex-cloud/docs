@@ -29,7 +29,7 @@ For a step-by-step guide on using connectors, see [{#T}](../operations/cluster-c
 
 A worker accesses the broker hosts of a {{ mkf-name }} cluster and replicates the topics specified in the connector filtering template. Depending on the connector's replication factor, it connects to one or more brokers.
 
-Topic names in the target cluster cluster match those in the source cluster.
+By default, the names of topics in the target cluster are in `<target_cluster_alias>.<topic_name>` format. To preserve original topic names, create a connector using the CLI and [configure a transfer without prefixes](../operations/cluster-connector.md#settings-mm2).
 
 For more on how MirrorMaker transfers data, see [this {{ KF }} guide](https://kafka.apache.org/42/operations/geo-replication-cross-cluster-data-mirroring/).
 

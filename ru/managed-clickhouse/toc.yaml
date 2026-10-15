@@ -84,6 +84,8 @@ items:
             href: operations/ml-models.md
           - name: Настройка доступа к {{ objstorage-name }}
             href: operations/s3-access.md
+          - name: Работа с гибридным хранилищем
+            href: operations/hybrid-storage.md
       - name: Шардирование
         items:
           - name: Управление шардами

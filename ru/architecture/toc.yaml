@@ -14,6 +14,8 @@ items:
         hidden: true
       - name: Перенос образа диска в стороннее S3-хранилище
         href: disk-migration-to-external-s3.md
+      - name: Настройка {{ cdn-name }} при недоступности источника
+        href: cdn-fault-tolerance.md
       - name: >-
           Развертывание веб-приложения в отказоустойчивой конфигурации в {{
           yandex-cloud }}

@@ -98,7 +98,6 @@ _Возможность находится на стадии [Preview](../../ove
 * [{#T}](../tutorials/packer-quickstart.md)
 * [{#T}](../tutorials/packer-custom-image.md)
 * [{#T}](../tutorials/bind-domain-vm/index.md)
-* [{#T}](../tutorials/hystax-migration.md)
 
 ## Смотрите также {#see-also}
 

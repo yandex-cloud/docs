@@ -123,7 +123,6 @@ If you work with {{ objstorage-name }} via an [Amazon S3-compatible API](../s3/i
 
 * [{#T}](../tutorials/greenplum-yezzey.md)
 * [{#T}](../tutorials/log-ingestion.md)
-* [{#T}](../tutorials/hystax-backup.md)
 * [{#T}](../tutorials/clickhouse-hybrid-storage.md)
 
 

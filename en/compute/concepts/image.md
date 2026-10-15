@@ -96,7 +96,6 @@ By default, optimized images have a zero [quota](../concepts/limits.md#compute-q
 * [{#T}](../tutorials/packer-quickstart.md)
 * [{#T}](../tutorials/packer-custom-image.md)
 * [{#T}](../tutorials/bind-domain-vm/index.md)
-* [{#T}](../tutorials/hystax-migration.md)
 
 ## See also {#see-also}
 
