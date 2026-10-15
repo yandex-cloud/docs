@@ -8,7 +8,7 @@
 
 Источники данных доступны только для чтения — это гарантирует, что вы не измените внешние ресурсы.
 
-Получим с помощью источников данных Terraform идентификатора образа [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts) из Cloud Marketplace.
+Получим с помощью источников данных Terraform идентификатор образа [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts) из Cloud Marketplace.
 
 Чтобы получить идентификатор образа `Ubuntu 22.04 LTS` с помощью Terraform:
 
@@ -38,7 +38,7 @@
 - Windows {#windows}
 
   Используйте один из способов:
-  * [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+  * [Скачайте дистрибутив Terraform](https://developer.hashicorp.com/terraform/downloads) и установите его согласно [инструкции](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli).
   * Установите Terraform с помощью пакетного менеджера [Chocolatey](https://chocolatey.org/install), используя команду:
 
     ```bash
@@ -47,12 +47,12 @@
 
 - Linux {#linux}
 
-  [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+  [Скачайте дистрибутив Terraform](https://developer.hashicorp.com/terraform/downloads) и установите его согласно [инструкции](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli).
 
 - macOS {#macos}
 
   Используйте один из способов:
-  * [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+  * [Скачайте дистрибутив Terraform](https://developer.hashicorp.com/terraform/downloads) и установите его согласно [инструкции](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli).
   * Установите Terraform с помощью пакетного менеджера [Homebrew](https://brew.sh), используя команду:
 
     ```bash
@@ -252,7 +252,7 @@
    - Windows {#windows}
 
      ```powershell
-     mv $env:APPDATA/terraform.rc $env:APPDATA/terraform.rc.old
+     Move-Item $env:APPDATA\terraform.rc $env:APPDATA\terraform.rc.old
      ```
 
    {% endlist %}
@@ -320,7 +320,7 @@
 
    Где:
    
-   * `source` — глобальный [адрес источника](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses) провайдера.
+   * `source` — глобальный [адрес источника](https://developer.hashicorp.com/terraform/language/providers/requirements#source-addresses) провайдера.
    * `required_version` — минимальная версия Terraform, с которой совместим провайдер.
    * `provider` — название провайдера.
    * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), в которой по умолчанию будут создаваться все облачные ресурсы.
@@ -371,12 +371,12 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
 
     * `data "yandex_compute_image"` — описание образа диска в качестве источника данных:
         * `family` — [семейство образов](../../compute/concepts/image.md#family).
-    * `output "resource_active"` — выходная переменная, которая содержит информацию о текущем идентификаторе образа для указанного семейства:
+    * `output "my_image_id"` — выходная переменная, которая содержит информацию о текущем идентификаторе образа для указанного семейства:
         * `value` — возвращаемое значение.
 
     Подробнее о параметрах источника данных `yandex_compute_image` смотрите в [документации провайдера](../data-sources/compute_image.md).
 
-1. Создайте ресурсы:
+1. Примените конфигурацию:
 
     1. В терминале перейдите в директорию с конфигурационным файлом.
     1. Проверьте корректность конфигурации с помощью команды:
@@ -397,7 +397,7 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
        terraform plan
        ```
     
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+       В терминале будет выведен список планируемых изменений: ресурсы и/или выходные переменные. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
     1. Примените изменения конфигурации:
     
        ```bash
@@ -406,7 +406,7 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
     
     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-    Terraform создаст все требуемые ресурсы и отобразит значения выходных переменных в терминале.
+    Terraform сохранит значения выходных переменных в состоянии и отобразит их в терминале. Ресурсы при этом не создаются: в конфигурации описан только источник данных.
 
 ## Проверьте результат {#check}
 
@@ -419,7 +419,7 @@ terraform output
 Результат:
 
 ```text
-my_image_id = "fd8li2lvvfc6bdj4c787"
+my_image_id = "fd8iej0ml2ku********"
 ```
 
 Далее вы можете использовать полученный идентификатор для [создания ВМ](../../compute/operations/images-with-pre-installed-software/create.md), например:

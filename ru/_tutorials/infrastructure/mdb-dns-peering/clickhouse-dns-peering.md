@@ -15,9 +15,9 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mch-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mch-name }}](../../../managed-clickhouse/pricing.md)).
-* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы {{ compute-full-name }}](../../../compute/pricing.md)).
-* Публичные DNS-запросы и зоны DNS ([тарифы {{ dns-name }}](../../../dns/pricing.md)).
+* Плата за кластер {{ mch-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mch-name }}](../../../managed-clickhouse/pricing.md)).
+* Плата за виртуальную машину: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы {{ compute-full-name }}](../../../compute/pricing.md)).
+* Плата за публичные DNS-запросы и зоны DNS ([тарифы {{ dns-name }}](../../../dns/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -34,15 +34,15 @@
         1. В сети `mch-net` [создайте кластер](../../../managed-clickhouse/operations/cluster-create.md) {{ mch-name }} любой подходящей конфигурации с хостами без публичного доступа.
         1. (Опционально) В сети `mch-net` [создайте виртуальную машину на базе Linux](../../../compute/operations/vm-create/create-linux-vm.md) с именем `mch-net-vm`. При создании укажите подготовленный ранее публичный SSH-ключ.
         1. В сети `another-net` [создайте виртуальную машину на базе Linux](../../../compute/operations/vm-create/create-linux-vm.md) с именем `another-net-vm`. При создании укажите подготовленный ранее публичный SSH-ключ.
-        1. Настройте правила групп безопасности кластера и ВМ [по инструкции](../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups)
+        1. Настройте правила групп безопасности кластера и ВМ [по инструкции](../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
     - С помощью {{ TF }}
+
 
         1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
         1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
         1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
         1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
-
         1. Скачайте в ту же рабочую директорию файл конфигурации [nets-vm-mch.tf](https://github.com/yandex-cloud-examples/yc-dns-for-managed-clickhouse/blob/main/nets-vm-mch.tf).
 
             В этом файле описаны:
@@ -62,22 +62,13 @@
             * `image_id` — идентификатор публичного образа виртуальной машины. О том, как получить список доступных образов, смотрите в [инструкции](../../../compute/operations/images-with-pre-installed-software/get-list.md).
             * `vm_username` — имя пользователя виртуальной машины.
             * `vm_ssh_key_path` — абсолютный путь к публичному ключу для виртуальных машин, который вы подготовили ранее.
-            * `create_optional_vm` — параметр, который отвечает за создание виртуальной машины в той же сети, в которой расположен кластер. Установите `1`, чтобы в дальнейшем проверить доступность кластера из той же сети (опционально).
+            * `create_optional_vm` — параметр, который отвечает за создание виртуальной машины в той же сети, в которой расположен кластер. Если в дальнейшем потребуется проверить доступность кластера из той же сети, установите `1`.
 
-        1. Выполните команду `terraform init` в директории с конфигурационными файлами. Эта команда инициализирует провайдер, указанный в конфигурационном файле, и позволяет работать с ресурсами и источниками данных провайдера.
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+        1. Создайте ресурсы:
 
-            ```bash
-            terraform validate
-            ```
+           {% include [terraform-validate-plan-apply](../../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Создайте необходимую инфраструктуру:
-
-            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-            {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
+        {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
 
     {% endlist %}
 
@@ -98,17 +89,9 @@
 
         1. Укажите в файле `nets-vm-mch.tf` значение `1` для параметра `create_zone`.
 
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+        1. Создайте ресурсы:
 
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Создайте необходимую инфраструктуру:
-
-            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+           {% include [terraform-validate-plan-apply](../../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
     {% endlist %}
 
@@ -116,7 +99,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится зона DNS.
     1. [Перейдите]({{ link-console-main }}/link/dns) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
-    1. Выберите зону из списка.
+    1. Выберите ранее созданную зону.
     1. Убедитесь, что в списке записей есть запись вида: `c-<идентификатор_кластера>.rw.{{ dns-zone }}.`.
 
 ## Проверьте доступность кластера из другой облачной сети {#check-cluster-availability}
@@ -126,7 +109,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы перестать платить за созданные ресурсы, удалите их:
 
 {% list tabs %}
 

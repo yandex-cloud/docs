@@ -130,6 +130,8 @@
 
  - [Ресурс](concepts/resource.md)
 
+ - [Настройка Cloud CDN при недоступности источника](concepts/fault-tolerance.md)
+
  - [Источники и их группы](concepts/origins.md)
 
 ### Обмен данными между клиентами и CDN

@@ -2,7 +2,7 @@
 
 # Переименование облака
 
-Чтобы переименовать облако, у вас должна быть роль [`editor`](../../../iam/roles-reference.md#editor) или выше на это облако. Переименовать заблокированное облако нельзя. Если вы не можете выполнить эту операцию, обратитесь к [администратору](../../../iam/roles-reference.md#admin) или [владельцу облака](../../concepts/resources-hierarchy.md#owner).
+Чтобы переименовать облако, у вас должна быть роль [resource-manager.editor](../../security/index.md#resource-manager-editor) или [editor](../../../iam/roles-reference.md#editor) на это облако, либо роль с более широкими разрешениями. Переименовать заблокированное облако нельзя. Если вы не можете выполнить эту операцию, обратитесь к [администратору](../../../iam/roles-reference.md#admin) или [владельцу облака](../../concepts/resources-hierarchy.md#owner).
 
 {% list tabs group=instructions %}
 

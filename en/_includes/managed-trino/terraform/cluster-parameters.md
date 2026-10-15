@@ -1,4 +1,4 @@
-Here is an example of the configuration file structure:
+Configuration file structure example:
 
 ```hcl
 resource "yandex_trino_cluster" "<cluster_name>" {
@@ -41,6 +41,9 @@ Where:
 * `subnet_ids`: List of subnet IDs.
 * `security_group_ids`: List of security group IDs.
 * `private_access`: Private access to the cluster, `true` or `false`. Enable this parameter to make the cluster accessible only via a [service connection](../../../managed-trino/concepts/network.md#private-endpoint).
+
+    {% include [unchangeable-private-access](../unchangeable-private-access.md) %}
+
 * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
     Even with deletion protection on, one can still connect to the cluster manually and delete it.

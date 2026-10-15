@@ -320,7 +320,6 @@ default:
   link-console-ai: https://aistudio.yandex.ru/platform
   link-console-billing: https://center.yandex.cloud/billing/accounts
   link-console-cloud: https://console.yandex.cloud/cloud
-  link-console-iam-users: https://console.yandex.cloud/iam?section=users
   link-console-main: https://console.yandex.cloud
   link-console-postbox-statistics: https://console.yandex.cloud/link/postbox/statistics
   link-console-quotas: https://console.yandex.cloud/cloud?section=quotas
@@ -1272,7 +1271,6 @@ default:
   roles-organization-admin: organization-manager.admin
   roles-organization-owner: organization-manager.organizations.owner
   roles-resource-manager-admin: resource-manager.admin
-  roles-resource-manager-editor: resource-manager.editor
   roles-serverless-containers-invoker: serverless-containers.containerInvoker
   roles-speechkit-stt: ai.speechkit-stt.user
   roles-speechsense-data-editor: Data editor
@@ -2582,6 +2580,9 @@ default:
         title_secrets-scanning_qjZ4J: Предупреждения сканирования секретов
         title_security-risks_mkLFM: Уровень критичности проблемы
       cicd:
+        action_start_7MWxe: Запустить
+        action_start-workflow_njaSz: Новый запуск
+        title_cicd_qoXmk: Автоматизации
         value_status-created_9AAET: В очереди
         value_succeeded_3Dd8C: Успех
       lib:
@@ -2589,6 +2590,7 @@ default:
         organizations_5CjkW: Организации
         repositories_vLJYc: Репозитории
         settings_cwUYS: Настройки
+        value_role-org-admin_sTd3t: Администратор организации
         value_role-org-owner_f9UaR: Владелец организации
       mainApp:
         route_create-repository_4e8Ef: Создать репозиторий
@@ -2601,6 +2603,7 @@ default:
       repo:
         action_cicd_4jypo: CI/CD
         action_commit_brj4B: Сохранить изменения
+        action_edit_ahQT7: Редактировать
         button_commit_si86H: Сохранить изменения
         button_use-template_ttBnP: Использовать шаблон
         field_after-commit-action_mKjo4: Действие после сохранения изменений
@@ -2638,7 +2641,6 @@ default:
       search:
         common:
           action_search-in-documentation: Искать в документации
-          title_suggestion-quotas: Увеличить квоты
       tariff-plans:
         info:
           action_go: Перейти
@@ -2852,7 +2854,6 @@ default:
             label_quota-name-iam:
               serviceAccounts:
                 count: Количество сервисных аккаунтов
-            value_status-error: Почти израсходованы
         folder:
           dashboard:
             label_compute: Compute Cloud
@@ -2900,8 +2901,10 @@ default:
         withReserve: Есть
       fileinput:
         button_attach-file: Прикрепить файл
-      helpfeedbackdialog:
-        button_close: Закрыть обращение
+      iam:
+        cloud:
+          quotas:
+            action_close_request: Закрыть запрос
       labelset:
         button_add-label: Добавить метку
       marketplace:
@@ -2925,7 +2928,14 @@ default:
           add: Добавить
           create: Создать новую организацию
       Quota-manager:
+        action_submit_tFxrh: Отправить
         column_usage_jynXV: Использование
+        label_history-tab_n8GVs: История запросов
+        label_quotas-tab_323nV: Список квот
+        label_quotas-with-usage_dWfzm: Сервисы с потреблением
+        label_quotas-without-usage_nAfZB: Сервисы без потребления
+        value_request-status-processing_jiepM: В обработке
+        value_usage-status-almost-expired_9NhmR: Почти закончились
       revoke-access-dialog:
         action_revoke-all: Отозвать все
       search:
@@ -3539,6 +3549,12 @@ default:
           action_create-organization_j1Yin: Создать организацию
         SwitchAccountAside:
           action_switch-account_1aB2c: Сменить аккаунт
+      center:
+        navigation:
+          label_quotas: Квоты
+        quotas:
+          tab_history: История запросов
+          tab_quotas: Список квот
       cloud-components:
         AclDashboard:
           action_assign-roles_41Nj1: Назначить роли
@@ -3546,6 +3562,8 @@ default:
           action-generate-new-certificate: Сгенерировать новый сертификат
           table:
             column-active: Активный
+        QuotaManager:
+          button_action_request_n3PCx: Запросить изменение
       common:
         apply: Применить
         columns:
@@ -4493,13 +4511,10 @@ default:
         SearchActionButtonBlock:
           save: Сохранить
       support:
-        switch_tickets: Обращения
         tickets:
           common:
             label_ticket-type-v2-high-problem: Проблема
           label_search-placeholder: Опишите проблему или задайте вопрос
-          table:
-            label_column_ticket_type: Тип обращения
       ui:
         label_access-analyzer_4bfVo: Access Analyzer
         label_cspm_amGv8: Контроль облачной конфигурации
@@ -4622,6 +4637,11 @@ default:
             count: Количество SAML-сертификатов для федераций
           federationUsers:
             count: Количество пользователей во всех федерациях в организации
+          linkedApplications:
+            count: Количество приложений-ссылок в организации
+        serverless:
+          triggers:
+            count: Количество триггеров
         storage:
           volume:
             size-key-value: Объём хранилища
@@ -4699,9 +4719,6 @@ default:
             count: Количество статических маршрутов
           subnets:
             count: Количество подсетей
-        yq:
-          streamingQuery:
-            count: Количество одновременно работающих потоковых запросов
     yacloud_video:
       channels:
         action_add-domain: Добавить домен
@@ -5434,6 +5451,9 @@ default:
           add_shard-btn: Добавить шард
           databases:
             popup-add_button_add: Создать
+          field_cloud-storage-data-cache: Кеширование данных
+          field_cloud-storage-data-cache-max-size: Объём кеша
+          field_cloud-storage-move-factor: Мин. доля свободного места на дисках кластера
           field_cluster-sharding: Шардирование кластера
           field_shard-resources-type: Конфигурация
           format-schemas:
@@ -7360,6 +7380,8 @@ default:
           tab_personal-terms: Персональные условия
       mdb-core:
         entities:
+          ClusterPreset:
+            label_section_1nfw1: Конфигурация кластера
           Subnetwork:
             label_title_c4P8n: Подсеть
           Zone:

@@ -75,6 +75,8 @@ items:
         href: concepts/index.md
       - name: Networking in {{ mtr-name }}
         href: concepts/network.md
+      - name: Versioning in {{ mtr-name }}
+        href: concepts/versions.md
       - name: Impersonation
         href: concepts/impersonation.md
       - name: Fault-tolerant query execution
@@ -87,7 +89,7 @@ items:
         href: concepts/resource-groups.md
       - name: Maintenance
         href: concepts/maintenance.md
-      - name: Connector {{ GP }}
+      - name: '{{ GP }} connector'
         href: concepts/greenplum-connector.md
   - name: CLI reference
     items:
@@ -361,6 +363,20 @@ items:
                 href: api-ref/grpc/Catalog/update.md
               - name: Delete
                 href: api-ref/grpc/Catalog/delete.md
+          - name: ChangeFreeze
+            items:
+              - name: Overview
+                href: api-ref/grpc/ChangeFreeze/index.md
+              - name: Create
+                href: api-ref/grpc/ChangeFreeze/create.md
+              - name: Get
+                href: api-ref/grpc/ChangeFreeze/get.md
+              - name: List
+                href: api-ref/grpc/ChangeFreeze/list.md
+              - name: Terminate
+                href: api-ref/grpc/ChangeFreeze/terminate.md
+              - name: GetLimits
+                href: api-ref/grpc/ChangeFreeze/getLimits.md
           - name: Cluster
             items:
               - name: Overview
@@ -423,6 +439,20 @@ items:
                 href: api-ref/Catalog/update.md
               - name: Delete
                 href: api-ref/Catalog/delete.md
+          - name: ChangeFreeze
+            items:
+              - name: Overview
+                href: api-ref/ChangeFreeze/index.md
+              - name: Create
+                href: api-ref/ChangeFreeze/create.md
+              - name: Get
+                href: api-ref/ChangeFreeze/get.md
+              - name: List
+                href: api-ref/ChangeFreeze/list.md
+              - name: Terminate
+                href: api-ref/ChangeFreeze/terminate.md
+              - name: GetLimits
+                href: api-ref/ChangeFreeze/getLimits.md
           - name: Cluster
             items:
               - name: Overview
@@ -479,4 +509,6 @@ items:
     href: at-ref.md
   - name: Release notes
     href: release-notes.md
+  - name: FAQ
+    href: qa/general.md
 path: en/managed-trino/toc.yaml

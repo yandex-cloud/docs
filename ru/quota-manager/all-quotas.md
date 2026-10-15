@@ -5,15 +5,13 @@ description: Во многих сервисах {{ yandex-cloud }} действ�
 
 # Квоты для сервисов {{ yandex-cloud }}
 
-Сервис {{ quota-manager-name }} позволяет управлять квотами ваших сервисов {{ yandex-cloud }} с помощью различных интерфейсов. 
-
-В этом разделе собраны квоты для сервисов, которые доступны в {{ quota-manager-short-name }}. В таблице с квотами приведены названия и идентификаторы, которые позволяют управлять квотами через {{ quota-manager-short-name }}. Если идентификатор не указан, квота недоступна для просмотра и изменения через {{ quota-manager-short-name }}.
+В этом разделе собраны квоты сервисов, доступных в {{ quota-manager-name }}. В таблицах приведены названия квот и идентификаторы для управления через CLI и API. Квоты без идентификатора недоступны для просмотра и изменения через {{ quota-manager-short-name }}.
 
 Для квот приведены значения по умолчанию, которые совпадают с квотами на время [пробного периода](../getting-started/free-trial/concepts/quickstart.md). Ограничения действуют на ресурсы всего [облака](../resource-manager/concepts/resources-hierarchy.md#cloud), если не указано иное.
 
 ## {{ api-gw-full-name }} {#api-gw}
 
-Для сервисов {{ api-gw-name }}, {{ sf-name }} и {{ serverless-containers-name }} действует общая квота — `Количество триггеров в одном облаке` (`serverless.triggers.count`). Квота находится в списке квот сервиса [{{ sf-name }}](#sf).
+Для сервисов {{ api-gw-name }}, {{ sf-name }} и {{ serverless-containers-name }} действует общая квота — **{{ ui-key.yacloud_quotas.quotas.serverless.triggers.count }}** (`serverless.triggers.count`) в одном облаке. Квота находится в списке квот сервиса [{{ sf-name }}](#sf).
 
 ## {{ alb-full-name }} {#alb}
 
@@ -124,7 +122,7 @@ description: Во многих сервисах {{ yandex-cloud }} действ�
 
 ## {{ iam-full-name }} {#iam}
 
-Сервис — `iam`, тип ресурса — `resource-manager.cloud`.
+Сервис — `iam`, тип ресурса — `resource-manager.cloud` или `organization-manager.organization`.
 
 {% include notitle [iam-quotas](../_includes/iam/iam-limits.md#iam-quotas) %}
 

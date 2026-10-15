@@ -2,6 +2,8 @@
 
 Чтобы изменить имя и описание [каталога](../../concepts/resources-hierarchy.md#folder), используйте консоль управления, CLI, API или {{ TF }}.
 
+Для изменения каталога у вас должна быть роль [resource-manager.editor](../../security/index.md#resource-manager-editor) или [editor](../../../iam/roles-reference.md#editor) на этот каталог, либо роль с более широкими разрешениями.
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

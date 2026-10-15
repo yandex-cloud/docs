@@ -44,5 +44,4 @@ To enable backups on a VM, [connect](../../backup/concepts/vm-connection/compute
 
 ## Use cases {#examples}
 
-* [{#T}](../tutorials/hystax-backup.md)
-* [{#T}](../../tutorials/archive/vm-with-backup-policy/index.md)
+[{#T}](../../tutorials/archive/vm-with-backup-policy/index.md)

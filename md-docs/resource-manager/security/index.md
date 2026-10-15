@@ -175,9 +175,9 @@ resource-manager.clouds.member --> resource-manager.clouds.owner
 Просмотр информации о каталоге или облаке | `get`, `list` | `resource-manager.viewer` на каталог или облако
 Просмотр метаинформации о каталоге или облаке | `get`, `list` | `resource-manager.auditor` на каталог или облако
 **Управление ресурсами** | |
-[Создание облака](../operations/cloud/create.md) | | Для создания первого облака роли не требуются, только аутентификация (так как пользователю автоматически назначается роль `resource-manager.clouds.owner` в созданной организации). В дальнейшем требуется роль `resource-manager.editor` или `editor` на организацию
+[Создание облака](../operations/cloud/create.md) | `create` | `resource-manager.editor` или `editor` на организацию. Создатель организации получает необходимые права как ее владелец
 [Изменение облака](../operations/cloud/update.md) | `update` | `editor` или `resource-manager.editor` на облако
-[Удаление облака](../operations/cloud/delete.md) | `delete` | `resource-manager.clouds.owner` на облако
+[Удаление облака](../operations/cloud/delete.md) | `delete` | `resource-manager.editor` или `editor` на облако
 [Создание каталога в облаке](../operations/folder/create.md) | `create` | `editor` или `resource-manager.editor` на облако
 [Изменение каталога](../operations/folder/update.md) | `update` | `editor` или `resource-manager.editor` на каталог
 [Удаление каталога](../operations/folder/delete.md) | `delete` | `editor` или `resource-manager.editor` на каталог
@@ -185,7 +185,7 @@ resource-manager.clouds.member --> resource-manager.clouds.owner
 Приглашение нового пользователя в организацию | | `organization-manager.admin` |
 [Сделать нового пользователя владельцем облака](../operations/cloud/set-access-bindings.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` на это облако
 Просмотр назначенных ролей на ресурс | `listAccessBindings` | `viewer` на этот ресурс
-Просмотр назначенных ролей на каталог или облако | `listAccessBindings` | `resource-manager.viewer` на каталог или облако
+Просмотр назначенных ролей на каталог или облако | `listAccessBindings` | `resource-manager.auditor` на каталог или облако
 [Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) на каталог или облако | `setAccessBindings`, `updateAccessBindings` | `admin` или `resource-manager.admin` на каталог или облако
 
 #### Что дальше {#what-is-next}

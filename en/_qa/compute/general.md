@@ -18,7 +18,7 @@ Cloud infrastructure is easier to manage, so you can focus on your business task
 * Use only the computing capacity you really need. You do not have to buy expensive, powerful equipment for every business task that requires it. Instead, you can create a {{ yandex-cloud }} VM and use it if and when required.
 * Quickly [scale computing power](../../compute/tutorials/vm-autoscale/index.md) up or down as needed. You can start additional VMs during peak periods and stop them when the load drops.
 * Use VMs to deploy applications that must [always be available](../../tutorials/infrastructure-management/fault-tolerance.md). You do not need to worry about guaranteeing server uptime: {{ yandex-cloud }} will keep it running smoothly. Focus on building your software.
-* [Configure backups](../../compute/tutorials/hystax-backup.md) to easily recover your data in the event of data loss.
+* [Configure backups](../../compute/concepts/backups.md) to easily recover your data in the event of data loss.
 * Create and distribute VM [disk images](../../compute/concepts/image.md). You can use images to quickly deploy your software on other VMs.
 * Automate VM management using the API and scripts in the CLI.
 

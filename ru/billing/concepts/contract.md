@@ -6,7 +6,7 @@
 
 * {{ ui-key.yacloud_org.billing.account.dashboard-info.contract_label_offer }} — это документ, который находится в свободном доступе в сети и не требует подписания обеими сторонами.
 
-* {{ ui-key.yacloud_org.billing.account.dashboard-info.contract_label_general }} — это договор, который был подписан обеими сторонами либо в ЭДО (доступно для резидентов РФ), либо на бумаге.
+* {{ ui-key.yacloud_org.billing.account.dashboard-info.contract_label_general }} — это договор, который был подписан обеими сторонами либо в [ЭДО](./edo.md) (доступно только в [регионе Россия](../../overview/concepts/region.md) для резидентов РФ), либо на бумаге.
 
 ## Резидентам Российской Федерации{#residents}
 

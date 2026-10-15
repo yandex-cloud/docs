@@ -2,15 +2,13 @@
 
 # Квоты для сервисов Yandex Cloud
 
-Сервис Cloud Quota Manager позволяет управлять квотами ваших сервисов Yandex Cloud с помощью различных интерфейсов. 
-
-В этом разделе собраны квоты для сервисов, которые доступны в Quota Manager. В таблице с квотами приведены названия и идентификаторы, которые позволяют управлять квотами через Quota Manager. Если идентификатор не указан, квота недоступна для просмотра и изменения через Quota Manager.
+В этом разделе собраны квоты сервисов, доступных в Cloud Quota Manager. В таблицах приведены названия квот и идентификаторы для управления через CLI и API. Квоты без идентификатора недоступны для просмотра и изменения через Quota Manager.
 
 Для квот приведены значения по умолчанию, которые совпадают с квотами на время [пробного периода](../getting-started/free-trial/concepts/quickstart.md). Ограничения действуют на ресурсы всего [облака](../resource-manager/concepts/resources-hierarchy.md#cloud), если не указано иное.
 
 ## Yandex API Gateway {#api-gw}
 
-Для сервисов API Gateway, Cloud Functions и Serverless Containers действует общая квота — `Количество триггеров в одном облаке` (`serverless.triggers.count`). Квота находится в списке квот сервиса [Cloud Functions](#sf).
+Для сервисов API Gateway, Cloud Functions и Serverless Containers действует общая квота — **Количество триггеров** (`serverless.triggers.count`) в одном облаке. Квота находится в списке квот сервиса [Cloud Functions](#sf).
 
 ## Yandex Application Load Balancer {#alb}
 
@@ -893,7 +891,7 @@ ZIP-архив через S3 бакет | 128 МБ
 
 ## Yandex Identity and Access Management {#iam}
 
-Сервис — `iam`, тип ресурса — `resource-manager.cloud`.
+Сервис — `iam`, тип ресурса — `resource-manager.cloud` или `organization-manager.organization`.
 
 #### Квоты {#iam-quotas}
 
@@ -950,6 +948,8 @@ ZIP-архив через S3 бакет | 128 МБ
 `organization-manager.federationCertificates.count` | 100 ||
 || Количество пользователей во всех федерациях в организации
 `organization-manager.federationUsers.count` | 1 000 ||
+|| Количество приложений-ссылок в организации
+`organization-manager.linkedApplications.count` | 100 ||
 || Максимальное количество сертификатов в федерации | 100 ||
 || Максимальное количество субъектов в федерации | 10 000 ||
 || Максимальное количество облаков в организации | 5 ||

@@ -4,6 +4,8 @@
 
 _Каталог_  — это пространство, в котором создаются и [группируются ресурсы](../../concepts/resources-hierarchy.md) Yandex Cloud.
 
+Чтобы создать каталог, у вас должна быть роль [resource-manager.editor](../../security/index.md#resource-manager-editor) или [editor](../../../iam/roles-reference.md#editor) на облако, в котором вы создаете каталог, либо роль с более широкими разрешениями.
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

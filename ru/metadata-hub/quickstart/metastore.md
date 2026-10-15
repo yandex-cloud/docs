@@ -66,7 +66,7 @@ description: В сервисе {{ metadata-hub-name }} вы можете соз�
 
 1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md) для работы с кластером {{ dataproc-name }}.
 
-1. В созданной ранее сети [создайте кластер {{ dataproc-name }}](../../data-proc/operations/cluster-create.md#create-cluster). В настройках задайте:
+1. В созданной ранее сети [создайте кластер {{ dataproc-name }}](../../data-proc/operations/cluster-create.md#create). В настройках задайте:
 
    * Сервисы `SPARK` и `YARN`.
    * Сервисный аккаунт, созданный ранее.

@@ -12,5 +12,4 @@
 * [Резервное копирование с помощью Bacula](backup-with-bacula.md)
 * [Резервное копирование с помощью Veritas Backup Exec](object-storage-veritas.md)
 * [Резервное копирование с помощью Veeam Backup](backup-with-veeam.md)
-* [Резервное копирование ВМ с помощью «Хайстекс Акура — Система резервного копирования»](hystax-backup.md)
 * [Резервное копирование кластера Managed Service for Kubernetes](kubernetes-backup.md)

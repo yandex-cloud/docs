@@ -349,16 +349,10 @@ items:
             href: archive/object-storage-veritas.md
           - name: Backing up to {{ objstorage-name }} with Veeam Backup
             href: archive/backup-with-veeam.md
-          - name: Backing up a VM with Hystax Acura Backup
-            href: infrastructure-management/hystax-backup.md
           - name: >-
               Backing up a {{ managed-k8s-name }} cluster to {{ objstorage-name
               }}
             href: archive/kubernetes-backup.md
-      - name: Migrating to {{ yandex-cloud }} with Hystax Acura
-        href: infrastructure-management/hystax-migration.md
-      - name: Fault protection with Hystax Acura
-        href: infrastructure-management/hystax-disaster-recovery.md
       - name: Single-node file server
         items:
           - name: Overview

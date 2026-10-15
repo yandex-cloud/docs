@@ -54,8 +54,4 @@
 
 * **Pipeline orchestration**. Pipeline orchestration and dependency management; {{ lockbox-full-name }} secret policies; code reviews of configurations.
 
-{% note info %}
-
-If a customer lacks the expertise to independently perform actions within their control, they can contact their account manager.
-
-{% endnote %}
+{% include [responsibilities-support](../../_includes/overview/responsibilities-support.md) %}

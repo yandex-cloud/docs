@@ -9,14 +9,15 @@ Terraform распространяется под лицензией [Business S
 
 Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](index.md).
 
-Чтобы создать вашу первую инфраструктуру в Yandex Cloud с помощью Terraform:
+Чтобы создать первую инфраструктуру в Yandex Cloud с помощью Terraform:
+
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Установите Terraform](#install-terraform).
 1. [Получите данные для аутентификации](#get-credentials).
 1. [Создайте файл конфигурации Terraform](#configure-terraform).
 1. [Настройте провайдер](#configure-provider).
 1. [Подготовьте план инфраструктуры](#prepare-plan).
-1. [Проверьте и отформатируйте файлы конфигурации](#check-resources).
+1. [Проверьте и отформатируйте файлы конфигураций](#check-resources).
 1. [Создайте ресурсы](#create-resources).
 
 Если ресурсы больше вам не нужны, [удалите их](#delete-resources).
@@ -33,7 +34,8 @@ Terraform распространяется под лицензией [Business S
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры, разворачиваемой через Terraform в этом руководстве, входят:
+В стоимость поддержки инфраструктуры, которую вы создадите с помощью Terraform, входят:
+
 * плата за постоянно запущенные [виртуальные машины](../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../compute/pricing.md));
 * плата за использование динамических [публичных IP-адресов](../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../vpc/pricing.md)).
 
@@ -85,7 +87,7 @@ export PATH=$PATH:/path/to/terraform
 
 ## Получите данные для аутентификации {#get-credentials}
 
-Для аутентификации и управления инфраструктурой Yandex Cloud вы можете использовать Terraform от имени [сервисного аккаунта](../iam/concepts/users/service-accounts.md) или пользовательских аккаунтов: [аккаунта на Яндексе](../iam/concepts/users/accounts.md#passport), [федеративного аккаунта](../iam/concepts/users/accounts.md#saml-federation) и [локального пользователя](../iam/concepts/users/accounts.md#local).
+Для аутентификации в Yandex Cloud и управления инфраструктурой используйте Terraform от имени [сервисного аккаунта](../iam/concepts/users/service-accounts.md) или пользователя: [аккаунта на Яндексе](../iam/concepts/users/accounts.md#passport), [федеративного аккаунта](../iam/concepts/users/accounts.md#saml-federation) или [локального пользователя](../iam/concepts/users/accounts.md#local).
 
 {% list tabs group=authentication %}
 
@@ -273,7 +275,7 @@ export PATH=$PATH:/path/to/terraform
    - Windows {#windows}
 
      ```powershell
-     mv $env:APPDATA/terraform.rc $env:APPDATA/terraform.rc.old
+     Move-Item $env:APPDATA\terraform.rc $env:APPDATA\terraform.rc.old
      ```
 
    {% endlist %}
@@ -341,7 +343,7 @@ export PATH=$PATH:/path/to/terraform
 
    Где:
    
-   * `source` — глобальный [адрес источника](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses) провайдера.
+   * `source` — глобальный [адрес источника](https://developer.hashicorp.com/terraform/language/providers/requirements#source-addresses) провайдера.
    * `required_version` — минимальная версия Terraform, с которой совместим провайдер.
    * `provider` — название провайдера.
    * `zone` — [зона доступности](../overview/concepts/geo-scope.md), в которой по умолчанию будут создаваться все облачные ресурсы.
@@ -370,11 +372,11 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
 
 ## Подготовьте план инфраструктуры {#prepare-plan}
 
-С помощью Terraform в Yandex Cloud можно создавать облачные ресурсы всех типов: ВМ, [диски](../compute/concepts/disk.md), [образы](../compute/concepts/image.md) и т. д. Подробнее о ресурсах, создающихся с помощью Terraform, в [документации провайдера](index.md).
+С помощью Terraform в Yandex Cloud можно создавать облачные ресурсы разных типов, например ВМ, [диски](../compute/concepts/disk.md) и [образы](../compute/concepts/image.md). Полный список ресурсов приведен в [документации провайдера](index.md).
 
-Для создания ресурса необходимо указать набор обязательных и опциональных параметров, определяющих свойства ресурса. Такие описания ресурсов составляют план инфраструктуры.
+Для каждого ресурса укажите обязательные и необязательные параметры, которые определяют его свойства. Описания ресурсов составляют план инфраструктуры.
 
-По плану будут созданы две ВМ: `terraform1` и `terraform2`, а также [облачная сеть](../vpc/concepts/network.md#network) `network-1` с [подсетью](../vpc/concepts/network.md#subnet) `subnet-1`.
+План включает две ВМ (`terraform1` и `terraform2`), [облачную сеть](../vpc/concepts/network.md#network) `network1` и [подсеть](../vpc/concepts/network.md#subnet) `subnet1`.
 
 Имена ресурсов должны соответствовать следующим требованиям:
 
@@ -382,17 +384,17 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
 * может содержать строчные буквы латинского алфавита, цифры и дефисы;
 * первый символ — буква, последний — не дефис.
 
-У ВМ будут разные [количества ядер и объемы памяти](../compute/concepts/vm.md#types): 2 ядра и 2 ГБ оперативной памяти у `terraform1` и 4 ядра и 4 ГБ оперативной памяти у `terraform2`. ВМ автоматически получат публичные и [приватные IP-адреса](../vpc/concepts/address.md#internal-addresses) из диапазона `192.168.10.0/24` в подсети `subnet-1`, находящейся в [зоне доступности](../overview/concepts/geo-scope.md) `ru-central1-d` и принадлежащей облачной сети `network-1`. На ВМ будет установлена операционная система Ubuntu и размещена публичная часть ключа для доступа к ВМ по [SSH](../glossary/ssh-keygen.md).
+ВМ будут различаться количеством ядер и объемом памяти: у `terraform1` будет два ядра и 2 ГБ оперативной памяти, а у `terraform2` — четыре ядра и 4 ГБ оперативной памяти. Обе ВМ автоматически получат публичные и [внутренние IP-адреса](../vpc/concepts/address.md#internal-addresses) из диапазона `192.168.10.0/24`. Подсеть `subnet1` находится в [зоне доступности](../overview/concepts/geo-scope.md) `ru-central1-d` и принадлежит сети `network1`. Для ВМ используйте образ Ubuntu.
 
-В конфигурации ВМ вам потребуется указать идентификатор образа загрузочного диска. Список доступных публичных образов можно получить командой [CLI](../cli/quickstart.md):
+В конфигурации ВМ укажите идентификатор образа загрузочного диска. Получите список доступных публичных образов с помощью команды [CLI](../cli/quickstart.md):
 
 ```bash
 yc compute image list --folder-id standard-images
 ```
 
-Для доступа к ВМ через SSH [сгенерируйте пару SSH-ключей](../compute/operations/vm-connect/ssh.md#creating-ssh-keys) и передайте публичную часть ключа на ВМ в параметре `ssh-keys` блока `metadata`.
+Для доступа к ВМ по SSH [сгенерируйте пару SSH-ключей](../compute/operations/vm-connect/ssh.md#creating-ssh-keys) и укажите путь к публичной части ключа в параметре `ssh-keys` блока `metadata`.
 
-Конфигурации ресурсов задаются сразу после конфигурации провайдера:
+Ниже приведены фрагменты конфигурации провайдера и одной ВМ для разных регионов. Полные конфигурации ресурсов приведены во вкладках Linux и Windows ниже.
 
 
 ```hcl
@@ -420,9 +422,9 @@ resource "yandex_compute_instance" "vm-1" {
 - Создание ВМ Linux {#linux}
 
   По плану будут созданы следующие ресурсы:
-  * [Облачная сеть](../vpc/concepts/network.md#network) `network-1` с [подсетью](../vpc/concepts/network.md#subnet) `subnet-1` в [зоне доступности](../overview/concepts/geo-scope.md) `ru-central1-d`.
+  * [Облачная сеть](../vpc/concepts/network.md#network) `network1` с [подсетью](../vpc/concepts/network.md#subnet) `subnet1` в [зоне доступности](../overview/concepts/geo-scope.md) `ru-central1-d`.
   * Две [виртуальные машины](../compute/concepts/vm.md) Linux: `terraform1` (2 ядра и 2 ГБ оперативной памяти) и `terraform2` (4 ядра и 4 ГБ оперативной памяти). Они автоматически получат [публичные и внутренние IP-адреса](../vpc/concepts/address.md#internal-addresses) из диапазона `192.168.10.0/24` в подсети `subnet-1`.
-  1. Получите идентификатор [образа](../compute/concepts/image.md) загрузочного диска из Yandex Cloud Marketplace, например [Ubuntu 16.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-16-04-lts), который будет установлен на ВМ. Получите список доступных публичных образов, выполнив следующую команду [CLI](../cli/index.md):
+  1. Выберите [образ](../compute/concepts/image.md) загрузочного диска в Yandex Cloud Marketplace, например [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts). Получите список доступных публичных образов с помощью команды [CLI](../cli/index.md):
   
      ```bash
      yc compute image list --folder-id standard-images
@@ -443,7 +445,7 @@ resource "yandex_compute_instance" "vm-1" {
        type     = "network-hdd"
        zone     = "ru-central1-d"
        size     = "20"
-       image_id = "fd87va5cc00gaq2f5qfb"
+       image_id = "fd806c8slu9j********"
      }
   
      resource "yandex_compute_disk" "boot-disk-2" {
@@ -451,11 +453,12 @@ resource "yandex_compute_instance" "vm-1" {
        type     = "network-hdd"
        zone     = "ru-central1-d"
        size     = "20"
-       image_id = "fd87va5cc00gaq2f5qfb"
+       image_id = "fd806c8slu9j********"
      }
   
      resource "yandex_compute_instance" "vm-1" {
-       name = "terraform1"
+       name        = "terraform1"
+       platform_id = "standard-v3"
   
        resources {
          cores  = 2
@@ -477,7 +480,8 @@ resource "yandex_compute_instance" "vm-1" {
      }
   
      resource "yandex_compute_instance" "vm-2" {
-       name = "terraform2"
+       name        = "terraform2"
+       platform_id = "standard-v3"
   
        resources {
          cores  = 4
@@ -532,7 +536,7 @@ resource "yandex_compute_instance" "vm-1" {
 
   По плану будут созданы следующие ресурсы:
   * [Облачная сеть](../vpc/concepts/network.md#network) `ya-network` с [подсетью](../vpc/concepts/network.md#subnet) `ya-network` в [зоне доступности](../overview/concepts/geo-scope.md), указанной по умолчанию.
-  * [Виртуальная машина](../compute/concepts/vm.md) Windows: `terraform1` (2 ядра и 4 Гб оперативной памяти) и `terraform2` (4 ядра и 4 Гб оперативной памяти). Она автоматически получит публичные и [внутренние IP-адреса](../vpc/concepts/address.md#internal-addresses) из диапазона `192.168.10.0/24` в подсети `ya-network`.
+  * Две [виртуальные машины](../compute/concepts/vm.md) Windows: `terraform1` (2 ядра и 4 ГБ оперативной памяти) и `terraform2` (4 ядра и 4 ГБ оперативной памяти). Они автоматически получат публичные и [внутренние IP-адреса](../vpc/concepts/address.md#internal-addresses) из диапазона `192.168.10.0/16` в подсети `ya-network`.
   
   Создайте следующие файлы:
   1. `main.tf` — основной файл с описанием инфраструктуры.
@@ -549,7 +553,7 @@ resource "yandex_compute_instance" "vm-1" {
       }
   
       provider "yandex" {
-        zone      = var.zone
+        zone = var.zone
       }
   
       resource "yandex_vpc_network" "default" {
@@ -576,14 +580,15 @@ resource "yandex_compute_instance" "vm-1" {
         }
       }
   
-      resource "yandex_compute_instance" "default" {
-        name     = var.name
-        hostname = var.name
-        zone     = var.zone
+      resource "yandex_compute_instance" "vm-1" {
+        name        = "terraform1"
+        hostname    = "terraform1"
+        zone        = var.zone
+        platform_id = "standard-v3"
   
         resources {
-          cores  = var.cores
-          memory = var.memory
+          cores = 2
+          memory = 4
         }
   
         boot_disk {
@@ -609,12 +614,54 @@ resource "yandex_compute_instance" "vm-1" {
         }
       }
   
-      output "name" {
-        value = yandex_compute_instance.default.name
+      resource "yandex_compute_instance" "vm-2" {
+        name        = "terraform2"
+        hostname    = "terraform2"
+        zone        = var.zone
+        platform_id = "standard-v3"
+  
+        resources {
+          cores = 4
+          memory = 4
+        }
+  
+        boot_disk {
+          initialize_params {
+            image_id = data.yandex_compute_image.default.id
+            size = var.disk_size
+            type     = var.disk_type
+          }
+        }
+  
+        network_interface {
+          subnet_id = yandex_vpc_subnet.default.id
+          nat       = var.nat
+        }
+  
+        metadata = {
+          user-data = data.template_file.default.rendered
+        }
+  
+        timeouts {
+          create = var.timeout_create
+          delete = var.timeout_delete
+        }
       }
   
-      output "address" {
-        value = yandex_compute_instance.default.network_interface.0.nat_ip_address
+      output "internal_ip_address_vm_1" {
+        value = yandex_compute_instance.vm-1.network_interface.0.ip_address
+      }
+  
+      output "internal_ip_address_vm_2" {
+        value = yandex_compute_instance.vm-2.network_interface.0.ip_address
+      }
+  
+      output "external_ip_address_vm_1" {
+        value = yandex_compute_instance.vm-1.network_interface.0.nat_ip_address
+      }
+  
+      output "external_ip_address_vm_2" {
+        value = yandex_compute_instance.vm-2.network_interface.0.nat_ip_address
       }
       ```
   
@@ -655,20 +702,6 @@ resource "yandex_compute_instance" "vm-1" {
         default = "windows-2019-dc-gvlk"
       }
   
-      variable "name" {
-        type    = string
-      }
-  
-      variable "cores" {
-        type    = number
-        default = 2
-      }
-  
-      variable "memory" {
-        type    = number
-        default = 4
-      }
-  
       variable "disk_size" {
         type    = number
         default = 50
@@ -680,18 +713,18 @@ resource "yandex_compute_instance" "vm-1" {
       }
   
       variable "user_name" {
-        default = ""
         type    = string
+        default = ""
       }
   
       variable "user_pass" {
-        default = ""
         type    = string
+        default = ""
       }
   
       variable "admin_pass" {
-        default = ""
         type    = string
+        default = ""
       }
   
       variable "timeout_create" {
@@ -703,20 +736,19 @@ resource "yandex_compute_instance" "vm-1" {
       }
       ```
   
-     {% endcut %}
+      {% endcut %}
   
-  1. `terraform.tfvars` — файл, где хранятся значения переменных для создаваемых внутри ВМ учетных записей и токены доступа.
+  1. `terraform.tfvars` — файл, где хранятся значения переменных для создаваемых внутри ВМ учетных записей.
   
       {% cut "Файл terraform.tfvars" %}
   
       ```hcl
-      name       = "<my_server_name>"
       user_name  = "<my_user>"
       user_pass  = "<my_password>"
       admin_pass = "<my_password>"
       ```
   
-     {% endcut %}
+      {% endcut %}
 
 {% endlist %}
 
@@ -822,11 +854,10 @@ resource "yandex_compute_instance" "vm-1" {
    terraform fmt
    ```
 
-   Результат:
+   Команда выводит список отформатированных файлов, например:
 
    ```text
    main.tf
-   variables.tf
    ```
 
 ## Создайте ресурсы {#create-resources}
@@ -837,7 +868,7 @@ resource "yandex_compute_instance" "vm-1" {
    terraform plan
    ```
 
-   В терминале будет выведен список ресурсов с параметрами. Это проверочный этап: ресурсы не будут созданы. Если в конфигурации есть ошибки, Terraform на них укажет.
+   Терминал выведет список ресурсов и их параметров. На этом этапе ресурсы не создаются. Если конфигурация содержит ошибки, Terraform укажет на них.
 
    {% note alert %}
 
@@ -853,25 +884,35 @@ resource "yandex_compute_instance" "vm-1" {
 
 1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-   Terraform создаст все требуемые ресурсы, а в терминале будут указаны [IP-адреса](../vpc/concepts/address.md) созданных [виртуальных машин](../compute/concepts/vm.md). Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+   Terraform создаст ресурсы и выведет в терминале [IP-адреса](../vpc/concepts/address.md) созданных [виртуальных машин](../compute/concepts/vm.md). Проверьте наличие ресурсов и их настройки в [консоли управления](https://console.yandex.cloud).
 
-## Как удалить созданные ресурсы {#delete-resources}
+## Удалите созданные ресурсы {#delete-resources}
 
 Чтобы удалить ресурсы, созданные с помощью Terraform:
-1. Выполните команду:
+
+1. Удалите из конфигурации блоки `resource` и `module`, относящиеся к этой инфраструктуре, а также источники данных и выходные значения `output`, которые на них ссылаются. Сохраните блоки `terraform` и `provider`.
+
+1. Проверьте план удаления:
 
    ```bash
-   terraform destroy
+   terraform plan
    ```
 
    {% note alert %}
 
-   Terraform удалит все ресурсы, созданные в текущей конфигурации: кластеры, [сети](../vpc/concepts/network.md#network), [подсети](../vpc/concepts/network.md#subnet), [виртуальные машины](../compute/concepts/vm.md) и т. д.
+   Terraform удалит ресурсы, для которых вы убрали описания из конфигурации: кластеры, [сети](../vpc/concepts/network.md#network), [подсети](../vpc/concepts/network.md#subnet), [виртуальные машины](../compute/concepts/vm.md) и другие ресурсы.
 
    {% endnote %}
 
-   После выполнения команды в терминал будет выведен список удаляемых ресурсов.
-1. Введите слово `yes` и нажмите **Enter**.
+   Проверьте список ресурсов, которые Terraform собирается удалить.
+
+1. Примените изменения:
+
+   ```bash
+   terraform apply
+   ```
+
+1. Подтвердите удаление: введите `yes` и нажмите **Enter**.
 
 Проверить удаление ресурсов можно в [консоли управления](https://console.yandex.cloud).
 

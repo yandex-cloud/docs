@@ -8,7 +8,7 @@ To connect to an {{ mtr-name }} cluster:
    export TRINO_PASSWORD=$(yc iam create-token)
    ```
 
-   This IAM token in `TRINO_PASSWORD` will be your password to the {{ mtr-name }} cluster. To enable it, specify the `--password` flag upon connection.
+   This IAM token in `TRINO_PASSWORD` will be your password to the {{ mtr-name }} cluster. To enable it, specify the `--password` parameter upon connection.
 
 1. Connect to the {{ mtr-name }} cluster:
 

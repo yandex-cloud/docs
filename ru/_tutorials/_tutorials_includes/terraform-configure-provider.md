@@ -17,7 +17,7 @@
    - Windows {#windows}
 
      ```powershell
-     mv $env:APPDATA/terraform.rc $env:APPDATA/terraform.rc.old
+     Move-Item $env:APPDATA\terraform.rc $env:APPDATA\terraform.rc.old
      ```
 
    {% endlist %}
@@ -81,7 +81,7 @@
 
    Где:
    
-   * `source` — глобальный [адрес источника](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses) провайдера.
+   * `source` — глобальный [адрес источника](https://developer.hashicorp.com/terraform/language/providers/requirements#source-addresses) провайдера.
    * `required_version` — минимальная версия {{ TF }}, с которой совместим провайдер.
    * `provider` — название провайдера.
    * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), в которой по умолчанию будут создаваться все облачные ресурсы.
