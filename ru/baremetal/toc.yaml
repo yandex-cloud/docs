@@ -229,161 +229,6 @@ items:
             items:
               - name: Overview
                 href: cli-ref/index.md
-              - name: boot-image
-                items:
-                  - name: Overview
-                    href: cli-ref/boot-image/index.md
-                  - name: create
-                    href: cli-ref/boot-image/create.md
-                  - name: delete
-                    href: cli-ref/boot-image/delete.md
-                  - name: get
-                    href: cli-ref/boot-image/get.md
-                  - name: list
-                    href: cli-ref/boot-image/list.md
-                  - name: list-operations
-                    href: cli-ref/boot-image/list-operations.md
-                  - name: update
-                    href: cli-ref/boot-image/update.md
-              - name: configuration
-                items:
-                  - name: Overview
-                    href: cli-ref/configuration/index.md
-                  - name: get
-                    href: cli-ref/configuration/get.md
-                  - name: list
-                    href: cli-ref/configuration/list.md
-                  - name: list-configuration-network-interface
-                    href: >-
-                      cli-ref/configuration/list-configuration-network-interface.md
-              - name: hardware-pool
-                items:
-                  - name: Overview
-                    href: cli-ref/hardware-pool/index.md
-                  - name: get
-                    href: cli-ref/hardware-pool/get.md
-                  - name: list
-                    href: cli-ref/hardware-pool/list.md
-              - name: mounted-image
-                items:
-                  - name: Overview
-                    href: cli-ref/mounted-image/index.md
-                  - name: create
-                    href: cli-ref/mounted-image/create.md
-                  - name: delete
-                    href: cli-ref/mounted-image/delete.md
-                  - name: get
-                    href: cli-ref/mounted-image/get.md
-              - name: private-cloud-connection
-                items:
-                  - name: Overview
-                    href: cli-ref/private-cloud-connection/index.md
-                  - name: create
-                    href: cli-ref/private-cloud-connection/create.md
-                  - name: delete
-                    href: cli-ref/private-cloud-connection/delete.md
-                  - name: get
-                    href: cli-ref/private-cloud-connection/get.md
-                  - name: list
-                    href: cli-ref/private-cloud-connection/list.md
-                  - name: update
-                    href: cli-ref/private-cloud-connection/update.md
-              - name: private-subnet
-                items:
-                  - name: Overview
-                    href: cli-ref/private-subnet/index.md
-                  - name: create
-                    href: cli-ref/private-subnet/create.md
-                  - name: delete
-                    href: cli-ref/private-subnet/delete.md
-                  - name: get
-                    href: cli-ref/private-subnet/get.md
-                  - name: list
-                    href: cli-ref/private-subnet/list.md
-                  - name: list-operations
-                    href: cli-ref/private-subnet/list-operations.md
-                  - name: update
-                    href: cli-ref/private-subnet/update.md
-              - name: public-prefix-pool
-                items:
-                  - name: Overview
-                    href: cli-ref/public-prefix-pool/index.md
-                  - name: get
-                    href: cli-ref/public-prefix-pool/get.md
-                  - name: list
-                    href: cli-ref/public-prefix-pool/list.md
-                  - name: list-operations
-                    href: cli-ref/public-prefix-pool/list-operations.md
-                  - name: update
-                    href: cli-ref/public-prefix-pool/update.md
-              - name: public-subnet
-                items:
-                  - name: Overview
-                    href: cli-ref/public-subnet/index.md
-                  - name: create
-                    href: cli-ref/public-subnet/create.md
-                  - name: delete
-                    href: cli-ref/public-subnet/delete.md
-                  - name: get
-                    href: cli-ref/public-subnet/get.md
-                  - name: list
-                    href: cli-ref/public-subnet/list.md
-                  - name: list-operations
-                    href: cli-ref/public-subnet/list-operations.md
-                  - name: update
-                    href: cli-ref/public-subnet/update.md
-              - name: rental-period
-                items:
-                  - name: Overview
-                    href: cli-ref/rental-period/index.md
-                  - name: list
-                    href: cli-ref/rental-period/list.md
-              - name: server
-                items:
-                  - name: Overview
-                    href: cli-ref/server/index.md
-                  - name: batch-create
-                    href: cli-ref/server/batch-create.md
-                  - name: create
-                    href: cli-ref/server/create.md
-                  - name: get
-                    href: cli-ref/server/get.md
-                  - name: list
-                    href: cli-ref/server/list.md
-                  - name: list-operations
-                    href: cli-ref/server/list-operations.md
-                  - name: power-off
-                    href: cli-ref/server/power-off.md
-                  - name: power-on
-                    href: cli-ref/server/power-on.md
-                  - name: prolongate-ended-rent
-                    href: cli-ref/server/prolongate-ended-rent.md
-                  - name: reboot
-                    href: cli-ref/server/reboot.md
-                  - name: reinstall
-                    href: cli-ref/server/reinstall.md
-                  - name: start-prolongation
-                    href: cli-ref/server/start-prolongation.md
-                  - name: stop-prolongation
-                    href: cli-ref/server/stop-prolongation.md
-                  - name: update
-                    href: cli-ref/server/update.md
-              - name: standard-image
-                items:
-                  - name: Overview
-                    href: cli-ref/standard-image/index.md
-                  - name: get
-                    href: cli-ref/standard-image/get.md
-                  - name: list
-                    href: cli-ref/standard-image/list.md
-              - name: storage
-                items:
-                  - name: Overview
-                    href: cli-ref/storage/index.md
-                  - name: batch-get-default
-                    href: cli-ref/storage/batch-get-default.md
-                  - name: get-default
-                    href: cli-ref/storage/get-default.md
               - name: v0
                 items:
                   - name: Overview
@@ -932,6 +777,161 @@ items:
                         href: cli-ref/v2/zone/get.md
                       - name: list
                         href: cli-ref/v2/zone/list.md
+              - name: boot-image
+                items:
+                  - name: Overview
+                    href: cli-ref/boot-image/index.md
+                  - name: create
+                    href: cli-ref/boot-image/create.md
+                  - name: delete
+                    href: cli-ref/boot-image/delete.md
+                  - name: get
+                    href: cli-ref/boot-image/get.md
+                  - name: list
+                    href: cli-ref/boot-image/list.md
+                  - name: list-operations
+                    href: cli-ref/boot-image/list-operations.md
+                  - name: update
+                    href: cli-ref/boot-image/update.md
+              - name: configuration
+                items:
+                  - name: Overview
+                    href: cli-ref/configuration/index.md
+                  - name: get
+                    href: cli-ref/configuration/get.md
+                  - name: list
+                    href: cli-ref/configuration/list.md
+                  - name: list-configuration-network-interface
+                    href: >-
+                      cli-ref/configuration/list-configuration-network-interface.md
+              - name: hardware-pool
+                items:
+                  - name: Overview
+                    href: cli-ref/hardware-pool/index.md
+                  - name: get
+                    href: cli-ref/hardware-pool/get.md
+                  - name: list
+                    href: cli-ref/hardware-pool/list.md
+              - name: mounted-image
+                items:
+                  - name: Overview
+                    href: cli-ref/mounted-image/index.md
+                  - name: create
+                    href: cli-ref/mounted-image/create.md
+                  - name: delete
+                    href: cli-ref/mounted-image/delete.md
+                  - name: get
+                    href: cli-ref/mounted-image/get.md
+              - name: private-cloud-connection
+                items:
+                  - name: Overview
+                    href: cli-ref/private-cloud-connection/index.md
+                  - name: create
+                    href: cli-ref/private-cloud-connection/create.md
+                  - name: delete
+                    href: cli-ref/private-cloud-connection/delete.md
+                  - name: get
+                    href: cli-ref/private-cloud-connection/get.md
+                  - name: list
+                    href: cli-ref/private-cloud-connection/list.md
+                  - name: update
+                    href: cli-ref/private-cloud-connection/update.md
+              - name: private-subnet
+                items:
+                  - name: Overview
+                    href: cli-ref/private-subnet/index.md
+                  - name: create
+                    href: cli-ref/private-subnet/create.md
+                  - name: delete
+                    href: cli-ref/private-subnet/delete.md
+                  - name: get
+                    href: cli-ref/private-subnet/get.md
+                  - name: list
+                    href: cli-ref/private-subnet/list.md
+                  - name: list-operations
+                    href: cli-ref/private-subnet/list-operations.md
+                  - name: update
+                    href: cli-ref/private-subnet/update.md
+              - name: public-prefix-pool
+                items:
+                  - name: Overview
+                    href: cli-ref/public-prefix-pool/index.md
+                  - name: get
+                    href: cli-ref/public-prefix-pool/get.md
+                  - name: list
+                    href: cli-ref/public-prefix-pool/list.md
+                  - name: list-operations
+                    href: cli-ref/public-prefix-pool/list-operations.md
+                  - name: update
+                    href: cli-ref/public-prefix-pool/update.md
+              - name: public-subnet
+                items:
+                  - name: Overview
+                    href: cli-ref/public-subnet/index.md
+                  - name: create
+                    href: cli-ref/public-subnet/create.md
+                  - name: delete
+                    href: cli-ref/public-subnet/delete.md
+                  - name: get
+                    href: cli-ref/public-subnet/get.md
+                  - name: list
+                    href: cli-ref/public-subnet/list.md
+                  - name: list-operations
+                    href: cli-ref/public-subnet/list-operations.md
+                  - name: update
+                    href: cli-ref/public-subnet/update.md
+              - name: rental-period
+                items:
+                  - name: Overview
+                    href: cli-ref/rental-period/index.md
+                  - name: list
+                    href: cli-ref/rental-period/list.md
+              - name: server
+                items:
+                  - name: Overview
+                    href: cli-ref/server/index.md
+                  - name: batch-create
+                    href: cli-ref/server/batch-create.md
+                  - name: create
+                    href: cli-ref/server/create.md
+                  - name: get
+                    href: cli-ref/server/get.md
+                  - name: list
+                    href: cli-ref/server/list.md
+                  - name: list-operations
+                    href: cli-ref/server/list-operations.md
+                  - name: power-off
+                    href: cli-ref/server/power-off.md
+                  - name: power-on
+                    href: cli-ref/server/power-on.md
+                  - name: prolongate-ended-rent
+                    href: cli-ref/server/prolongate-ended-rent.md
+                  - name: reboot
+                    href: cli-ref/server/reboot.md
+                  - name: reinstall
+                    href: cli-ref/server/reinstall.md
+                  - name: start-prolongation
+                    href: cli-ref/server/start-prolongation.md
+                  - name: stop-prolongation
+                    href: cli-ref/server/stop-prolongation.md
+                  - name: update
+                    href: cli-ref/server/update.md
+              - name: standard-image
+                items:
+                  - name: Overview
+                    href: cli-ref/standard-image/index.md
+                  - name: get
+                    href: cli-ref/standard-image/get.md
+                  - name: list
+                    href: cli-ref/standard-image/list.md
+              - name: storage
+                items:
+                  - name: Overview
+                    href: cli-ref/storage/index.md
+                  - name: batch-get-default
+                    href: cli-ref/storage/batch-get-default.md
+                  - name: get-default
+                    href: cli-ref/storage/get-default.md
               - name: vrf
                 items:
                   - name: Overview

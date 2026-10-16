@@ -8,7 +8,7 @@ Update Clickhouse source
 
 Syntax:
 
-`yc datatransfer endpoint update clickhouse-source [<ENDPOINT-ID>] [Flags...] [Global Flags...]`
+`yc datatransfer v0 endpoint update clickhouse-source [<ENDPOINT-ID>] [Flags...] [Global Flags...]`
 
 #### Flags
 
@@ -26,7 +26,7 @@ Endpoint description ||
 || `--labels` | `key=value[,key=value...]`
 
 A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. ||
-|| `--host` | `value[,value]`
+|| `--host` | `[]string`
 
 Clickhouse server host name or IP address. The format is {shard_name}:{hostname_or_ip_address}, where {shard_name} is an arbitrary shard name this host belongs to. The colon itself is specified as \:, and the backslash is specified as \\. ||
 || `--http-port` | `int`
@@ -56,16 +56,16 @@ Path to the file containing password ||
 || `--subnet-id` | `string`
 
 Yandex Virtual Private Cloud subnet ID to access the ClickHouse server through ||
-|| `--security-group` | `value[,value]`
+|| `--security-group` | `[]string`
 
 Yandex Virtual Private Cloud security group ID to associate with the endpoint ||
 || `--cluster-name` | `string`
 
 Name of the ClickHouse cluster. For Managed ClickHouse that is name of ShardGroup ||
-|| `--include-table` | `value[,value]`
+|| `--include-table` | `[]string`
 
 Do not transfer tables other than these ||
-|| `--exclude-table` | `value[,value]`
+|| `--exclude-table` | `[]string`
 
 Do not transfer these tables ||
 |#
@@ -76,15 +76,10 @@ Do not transfer these tables ||
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
-|| `--debug` | Debug logging. ||
-|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
-|| `--no-user-output` | Disable printing user intended output to stderr. ||
-|| `--retry` | `int`
+Set the custom profile. ||
+|| `--region` | `string`
 
-Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
-Pass 0 to disable retries. Pass any negative value for infinite retries.
-Even infinite retries are capped with 2 minutes timeout. ||
+Set the region. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -94,21 +89,47 @@ Set the ID of the folder to use. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
 
-Set the Cloud API endpoint (host:port). ||
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
 || `--token` | `string`
 
 Set the OAuth token to use. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

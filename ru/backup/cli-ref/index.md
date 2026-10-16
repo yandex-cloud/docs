@@ -17,6 +17,10 @@ Syntax:
 
 #### Command Tree
 
+- [yc backup v0](v0/index.md) — Manage Yandex Cloud Backup resources
+
+
+
 - [yc backup agent](agent/index.md) — Manage backup agents
 
   - [yc backup agent debug-info](agent/debug-info.md) — Displays backup agent installation logs. Attention! This command could be executed only on instances with oslogin support. This command will execute ssh connection on given instance, and fetch agent logs.
@@ -64,10 +68,6 @@ Syntax:
 - [yc backup provider](provider/index.md) — Manage backup provider
 
   - [yc backup provider activate](provider/activate.md) — Activate backup provider
-
-- [yc backup v0](v0/index.md) — Manage Yandex Cloud Backup resources
-
-
 
 - [yc backup vm](vm/index.md) — Manage resources
 

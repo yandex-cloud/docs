@@ -1,6 +1,6 @@
 # Действие DeleteEndpoint
 
-Удаляет [эндпоинт для Push-уведомлений](../concepts/index.md#mobile-endpoints).
+Удаляет [эндпоинт для Push-уведомлений](../concepts/push.md#mobile-endpoints).
 
 ## HTTP-запрос {#request}
 

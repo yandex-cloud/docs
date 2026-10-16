@@ -87,14 +87,14 @@
 
    * Для запросов на чтение — на поле `responseLength` (в логах отображается как `reslen`).
    * Для запросов на запись — на количество затронутых документов.
-       В логах кластера они выводятся в полях `nModified`, `keysInserted`, `keysDeleted`. На странице [мониторинга кластера](../../storedoc/operations/monitoring.md#cluster) изучите графики **Documents affected on primary**, **Documents affected on secondaries**, **Documents affected per host**.
+       В логах кластера они выводятся в полях `nModified`, `keysInserted`, `keysDeleted`. На странице [мониторинга кластера](../../storedoc/operations/monitoring.md#monitoring-cluster) изучите графики **Documents affected on primary**, **Documents affected on secondaries**, **Documents affected per host**.
 * Изучите данные [профилировщика](../../storedoc/operations/tools.md#explore-profiler). Выведите долго выполняемые запросы (регулируется [настройкой СУБД `slowOpThreshold`](../../storedoc/concepts/settings-list.md#setting-slow-op-threshold)).
 
 ## Устранение проблем с неэффективными запросами {#optimize}
 
 Каждый отдельный запрос можно проанализировать с точки зрения его плана (query plan).
 
-Изучите графики на странице [мониторинга кластера](../../storedoc/operations/monitoring.md#cluster):
+Изучите графики на странице [мониторинга кластера](../../storedoc/operations/monitoring.md#monitoring-cluster):
 
 * **Index size on primary, top 5 indexes**,
 * **Scan and order per host**,
@@ -120,7 +120,7 @@ Yandex StoreDoc не предоставляет подробной информ�
 
 * Обратите внимание на большие или растущие значения `db.serverStatus().metrics.operation.writeConflicts` — они могут говорить о высоком write contention на каких-то документах.
 
-* Изучите большие или растущие значения на графике **Write conflicts per hosts** на странице [мониторинга кластера](../../storedoc/operations/monitoring.md#cluster).
+* Изучите большие или растущие значения на графике **Write conflicts per hosts** на странице [мониторинга кластера](../../storedoc/operations/monitoring.md#monitoring-cluster).
 
 * В момент падения производительности внимательно изучите [список текущих запросов](../../storedoc/operations/tools.md#list-running-queries):
 
@@ -173,7 +173,7 @@ Yandex StoreDoc не предоставляет подробной информ�
 
 Если кластер демонстрирует низкую производительность в сочетании с малым объемом свободного дискового пространства, возможно, для одного или нескольких хостов кластера [активировался режим <q>только чтение</q>](../../storedoc/concepts/storage.md#manage-storage-space).
 
-Объем занятого пространства в хранилище отображается на странице [мониторинга кластера](../../storedoc/operations/monitoring.md#cluster) на графиках **Disk space usage per host, top 5 hosts**.
+Объем занятого пространства в хранилище отображается на странице [мониторинга кластера](../../storedoc/operations/monitoring.md#monitoring-cluster) на графиках **Disk space usage per host, top 5 hosts**.
 
 Чтобы отслеживать степень заполнения хранилища на хостах кластера, [настройте алерт](../../storedoc/operations/monitoring.md#read-only-alert).
 

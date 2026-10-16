@@ -174,17 +174,18 @@ description: Вы можете отслеживать состояние кла�
 
 Рекомендуемые значения порогов для некоторых метрик:
 
-| Метрика                               | Обозначение                | `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}`                   | `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}`                 |
-|---------------------------------------|:--------------------------:|:-------------------------:|:-------------------------:|
-| Задержка репликации                   | `postgres-replication_lag` | `60`                      | `5`                       |
-| Количество работоспособных хостов     | `postgres-is_alive`        | `<количество_хостов> - 2` | `<количество_хостов> - 1` |
-| Среднее время выполнения запросов     | `pooler-avg_query_time`    | —                         | `2000`                    |
-| Размер использованного хранилища      | `disk.used_bytes`          | 90% от размера хранилища  | 80% от размера хранилища  |
+#|
+|| Метрика | Обозначение | `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` | `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` ||
+|| Задержка репликации | `postgres-replication_lag` | `60` | `5` ||
+|| Количество работоспособных хостов | `postgres-is_alive` | `<количество_хостов> - 2` | `<количество_хостов> - 1` ||
+|| Среднее время выполнения запросов | `pooler-avg_query_time` | — | `2000` ||
+|| Размер использованного хранилища | `disk.used_bytes` | 90% от размера хранилища | 80% от размера хранилища ||
+|#
 
-Для метрики `disk.used_bytes` значения порогов `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` и `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` задаются только в байтах. Например, рекомендуемые значения для диска размером в 100 ГБ:
+Для метрики `disk.used_bytes` значения порогов `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` и `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` задаются только в байтах. Например, рекомендуемые значения для диска размером в 100 ГБ:
 
-* `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` — `96636764160` байтов (90%).
-* `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` — `85899345920` байтов (80%).
+* `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` — `96636764160` байтов (90%).
+* `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` — `85899345920` байтов (80%).
 
 Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик вы найдете в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/managed-postgresql-ref.md).
 

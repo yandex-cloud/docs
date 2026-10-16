@@ -82,7 +82,7 @@ keywords:
       1. Выберите [класс хостов](concepts/instance-types.md). Он определяет технические характеристики [виртуальных машин](../compute/concepts/vm.md), на которых будут развернуты [хосты](concepts/index.md) кластера.
       1. В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
 
-          1. Выберите [тип диска](concepts/storage.md#storage-type-selection).
+          1. Выберите [тип диска](concepts/storage.md).
           1. Задайте размер [хранилища](concepts/storage.md).
 
       1. В блоке **{{ ui-key.yacloud.spqr.section_hosts }}** укажите зоны доступности и подсети для хостов, которые будут созданы вместе с кластером.

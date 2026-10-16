@@ -77,7 +77,7 @@ description: Высокая доступность — это способнос
 * осталось менее 500 МБ свободного места (если размер хранилища хоста менее 600 ГБ);
 * осталось менее 5 ГБ свободного места (если размер хранилища хоста 600 ГБ или более).
 
-Чтобы хосты кластера оставались доступными на запись, регулярно [проверяйте график Disk space usage per host](../operations/monitoring.md#cluster) или [создайте алерт с метрикой disk.free_bytes](../operations/monitoring.md#monitoring-integration).
+Чтобы хосты кластера оставались доступными на запись, регулярно [проверяйте график Disk space usage per host](../operations/monitoring.md#monitoring-cluster) или [создайте алерт с метрикой disk.free_bytes](../operations/monitoring.md#monitoring-integration).
 
 ## Тип конфигурации хостов {#host-type}
 

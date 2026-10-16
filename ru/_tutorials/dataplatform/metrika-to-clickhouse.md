@@ -95,7 +95,7 @@ noIndex: true
 
 Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
-1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete-transfer).
+1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
 1. [Удалите кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
 1. Удалите счетчик {{ metrika }} из личного кабинета [Метрики Про]({{ link-yandex }}/support/metrica/pro/intro.html).

@@ -34,4 +34,4 @@ Monium Metrics позволяет выгружать метрики объект
 
 Подробнее читайте в разделе [Мониторинг состояния кластера Managed Service for Kubernetes](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-get-stats.md).
 
-Описание метрик приводится в [Справочнике](../metrics-ref/index.md#managed-kubernetes).
+Описание метрик приводится в [Справочнике](../metrics-ref/index.md).

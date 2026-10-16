@@ -319,7 +319,7 @@
 
 - Вручную {#manual}
 
-  1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete-transfer).
+  1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
   1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
   1. [Удалите кластеры Managed Service for Apache Kafka®](../operations/cluster-delete.md).
 

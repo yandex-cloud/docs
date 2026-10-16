@@ -19,7 +19,7 @@
 
 Чтобы настроить автоматическое [сканирование](../../concepts/vulnerability-scanner.md) [Docker-образов](index.md) на наличие уязвимостей при загрузке в [Yandex Container Registry](../../index.md) с помощью Terraform:
 
-1. [Подготовьте облако к работе](#before-you-begin).
+1. [Подготовьте облако к работе](#before-begin).
 1. [Подготовьте окружение](#prepare).
 1. [Создайте инфраструктуру](#deploy).
 1. [Загрузите Docker-образ](#download-image).

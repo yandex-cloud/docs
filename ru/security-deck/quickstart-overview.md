@@ -12,7 +12,7 @@ description: В данном разделе описано, как начать 
 Чтобы начать работать с {{ sd-name }} в {{ yandex-cloud }}:
 
 1. Если вы еще не зарегистрированы в {{ yandex-cloud }}, перейдите в [консоль управления]({{ link-console-main }}) и следуйте инструкциям.
-1. В [сервисе {{ billing-name }}]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в [статусе](../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+1. В [сервисе {{ billing-name }}]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в [статусе](../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md).
 1. Если у вас еще нет [каталога](../resource-manager/concepts/resources-hierarchy.md#folder), [создайте его](../resource-manager/operations/folder/create.md).
 1. Убедитесь, что у вас есть необходимые [права](./security/index.md) для работы с модулями {{ sd-name }}. Оптимальные роли для работы:
 

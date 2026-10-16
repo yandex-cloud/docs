@@ -556,7 +556,7 @@ kubectl describe svc <имя_сервиса_типа_LoadBalancer> \
 | grep 'External Traffic Policy'
 ```
 
-Подробнее в разделе [Параметры сервиса типа LoadBalancer](../operations/create-load-balancer.md#advanced).
+Подробнее в разделе [Параметры сервиса типа LoadBalancer](../operations/create-load-balancer.md#create-lb).
 
 #### Почему созданный PersistentVolumeClaim остается в статусе Pending? {#pvc-pending}
 
@@ -794,7 +794,7 @@ Failed to pull image "cr.yandex/***": rpc error: code = Unknown desc = Error res
 
 {% note info %}
 
-Если вы назначили публичные IP-адреса узлам кластера и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее читайте в [документации сервиса Yandex Virtual Private Cloud](../../vpc/concepts/routing.md#internet-routes).
+Если вы назначили публичные IP-адреса узлам кластера и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее читайте в [документации сервиса Yandex Virtual Private Cloud](../../vpc/concepts/routing.md).
 
 {% endnote %}
 
@@ -1030,7 +1030,7 @@ DaemonSet применяет настройки только на узлах, н
 
 #### Что делать, если я удалил сетевой балансировщик нагрузки или целевые группы Yandex Network Load Balancer, автоматически созданные для сервиса типа LoadBalancer? {#deleted-loadbalancer-service}
 
-Восстановить сетевой балансировщик или целевые группы Network Load Balancer вручную нельзя. [Пересоздайте](../operations/create-load-balancer.md#lb-create) сервис типа `LoadBalancer` — балансировщик и целевые группы будут созданы автоматически.
+Восстановить сетевой балансировщик или целевые группы Network Load Balancer вручную нельзя. [Пересоздайте](../operations/create-load-balancer.md#create-lb) сервис типа `LoadBalancer` — балансировщик и целевые группы будут созданы автоматически.
 
 #### Ошибка при подключении виртуальной машины Yandex Compute Cloud в качестве внешнего узла Managed Service for Kubernetes {#vm-as-external-node}
 

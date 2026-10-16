@@ -28,6 +28,6 @@
 * `--filter-some-cloud-ids`: List of cloud IDs. The system will be logging management events for all resources in those clouds, in the organization specified in `--filter-from-organisation-id`.
 
     This parameter can only be used together with `--filter-from-organisation-id`.
-* `--filter-from-organisation-id`: ID of the organization housing the clouds specified under `--filter-some-folder-ids`.
+* `--filter-from-organisation-id`: ID of the organization housing the clouds specified under `--filter-some-cloud-ids`.
 
     This parameter can only be used together with `--filter-some-cloud-ids`.

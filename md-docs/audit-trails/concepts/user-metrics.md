@@ -12,7 +12,7 @@
 | --- | --- |
 service | Идентификатор сервиса: `audit-trails`
 trail | Идентификатор [трейла](trail.md) |
-status | [Статус](trail.md#status) трейла |
+status | [Статус](diagnostics.md) трейла |
 event_type | Тип события |
 event_source | Сервис-источник события |
 destination_type | [Объект назначения](trail.md#target) |

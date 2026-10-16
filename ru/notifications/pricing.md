@@ -27,6 +27,8 @@ editable: false
 
 {% include [vat](../_includes/vat.md) %}
 
+{% include [payg-model](../_includes/payg-model.md) %}
+
 
 ### События отправки push-уведомлений {#push}
 

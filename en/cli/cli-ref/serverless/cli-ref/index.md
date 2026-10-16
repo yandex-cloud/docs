@@ -21,6 +21,10 @@ Aliases:
 
 #### Command Tree
 
+- [yc serverless v0](v0/index.md) — Manage Serverless resources.
+
+
+
 - [yc serverless api-gateway](api-gateway/index.md) — Manage API Gateways
 
   - [yc serverless api-gateway add-access-binding](api-gateway/add-access-binding.md) — Add access binding for the specified API Gateway
@@ -204,10 +208,6 @@ Aliases:
   - [yc serverless trigger remove-labels](trigger/remove-labels.md) — Remove labels from specified trigger
 
   - [yc serverless trigger resume](trigger/resume.md) — Resume the specified trigger
-
-- [yc serverless v0](v0/index.md) — Manage Serverless resources.
-
-
 
 - [yc serverless workflow](workflow/index.md) — Manage workflows
 

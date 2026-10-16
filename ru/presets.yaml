@@ -8,6 +8,7 @@ default:
   ad-sync-agent-windowslink: https://storage.yandexcloud.net/yc-identityhub-sync/install.ps1
   adv-ddos-protection: Advanced Yandex DDoS Protection
   AF: Apache Airflow™
+  agent-core-name: Agent Core
   agents-atelier-name: Agent Atelier
   ai-playground: AI Playground
   ai-search-name: AI Search
@@ -4577,9 +4578,6 @@ default:
           section_title_packages: Состав продукта
           section_title_resource-spec: Необходимые ресурсы
           version-table_action_create: Создать версию
-      page:
-        authorization:
-          button_enter: Войти
       portal:
         products: Продукты
         publisher-users: Управление доступом
@@ -6259,6 +6257,9 @@ default:
         label_connections: Подключения
         label_create-connection-action: Создать подключение
         label_dependences: Зависимости
+      containers:
+        WelcomeApp:
+          button_open-console_cdPPo: Открыть консоль
       cr:
         image:
           label_last-scan-time: Дата последнего сканирования
@@ -9315,8 +9316,6 @@ default:
                     GreenplumTarget:
                       cleanup_policy:
                         title: Политика очистки
-                      connection:
-                        title: Настройки подключения
                       title: Параметры эндпоинта
                     OnPremiseGreenplum:
                       ca_certificate:

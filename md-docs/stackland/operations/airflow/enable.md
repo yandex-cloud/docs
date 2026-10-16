@@ -4,6 +4,8 @@
 
 Компонент [Managed Service for Apache Airflow™](../../concepts/components/airflow.md) по умолчанию отключен. Чтобы создавать кластеры Apache Airflow™, администратор установки должен включить его через ресурс `ManagedAirflowConfig main`.
 
+В стандартной конфигурации консоли переключение этого компонента недоступно. Выполните подготовку через CLI, после чего пользователи смогут создавать кластеры в консоли управления.
+
 ## Через CLI {#enable}
 
 1. Включите [Managed Service for PostgreSQL](../../concepts/components/postgresql.md) и дождитесь готовности компонента:

@@ -57,7 +57,6 @@ blocks:
 
 {% include [vat](../_includes/vat.md) %}
 
-
 ## Из чего складывается стоимость использования {{ objstorage-short-name }} {#rules}
 
 Расчет стоимости использования {{ objstorage-name }} учитывает:

@@ -297,7 +297,7 @@
 [Профиль ARL](../../smartwebsecurity/concepts/arl.md) | Идентификатор, имя, метки, описание
 [Профиль WAF](../../smartwebsecurity/concepts/waf.md) | Идентификатор, имя, метки, описание
 [Профиль безопасности](../../smartwebsecurity/concepts/profiles.md) | Идентификатор, имя, метки, описание
-[Список совпадений](../../smartwebsecurity/concepts/conditions.md#match-list) | Идентификатор, имя, метки, описание
+[Список совпадений](../../smartwebsecurity/concepts/lists.md) | Идентификатор, имя, метки, описание
 
 ### Yandex SmartCaptcha {#captcha}
 

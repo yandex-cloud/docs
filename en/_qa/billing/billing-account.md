@@ -18,16 +18,11 @@ To get a billing account's ID:
 
 You cannot change your billing account [type](../../billing/concepts/billing-account.md#ba-types) once it is created, but you can [create a new account](../../billing/operations/create-new-account.md) of the type you need.
 
-#### I have created a new business billing account, but it is suspended. Why? {#blocked-account}
-
-Most likely, you had previously created a business billing account for which a trial period was activated. Your billing account gets the initial grant as part of the trial period. As the initial grant can only be issued to one billing account, you cannot use the trial period after you register a new account. As a result, your new billing account gets `SUSPENDED`.
-To reactivate your new billing account, [upgrade to the paid version](../../billing/operations/activate-commercial.md) and [top up your personal account](../../billing/operations/pay-the-bill.md) to the minimum amount. You can check the minimum amount in the **{{ ui-key.yacloud_billing.billing.account.dashboard.button_refill }}** window.
 
 #### How do I reactivate a billing account suspended due to suspicious activity? {#verification-payment}
 
 If your billing account was suspended due to suspicious activity, you need to make a verification payment. [Top up your personal account](../../billing/operations/pay-the-bill.md) to the minimum amount required for your {{ yandex-cloud }} billing currency.
 
-Once your [initial grant](../../billing/concepts/bonus-account.md#start) expires, you can use these funds to continue using your cloud resources. After you reactivate your account, [your personal account funds](../../billing/payment/index.md) will not be used for payment until the initial grant is fully spent or expires.
 
 To request a full or partial refund of any positive balance in your account, contact [support]({{ link-console-support }}) and specify the refund amount.
 
@@ -58,11 +53,6 @@ To resolve the issue, try linking a different bank card or, if you are a legal e
 
 {% include [initial-payment-amount](../../_includes/billing/initial-payment-amount.md) %}
 
-{% note warning %}
-
-If you have not linked a bank card when creating your account, you will not be eligible for the [initial grant](../../billing/concepts/bonus-account.md), even if you link a card later.
-
-{% endnote %}
 
 #### How many clouds can I link to my billing account? {#clouds-amount}
 
@@ -76,6 +66,8 @@ To change the billing account of a cloud, you simply need to [link](../../billin
 
 If your billing account is added to an organization, you can only link to it the resources that are in the same organization. You may not have [permissions to work](../../billing/operations/pin-cloud.md#bind-roles) with this cloud or billing account. Ask your [organization](../../billing/concepts/organization.md) administrator to [grant you the roles you need](../../billing/security/index.md#set-role).
 Roles can be issued either directly to the billing account and cloud, or to the organization they reside in.
+
+The `PROHIBITED_BILLING_ACCOUNT_USAGE_STATUS` error occurs when you try to re-link your cloud or service from a billing account for paid usage to an account using a trial. [Upgrade your billing account to the paid version](../../getting-started/free-trial/concepts/upgrade-to-paid.md) and try linking the cloud or service again.
 
 #### I deleted a cloud accidentally. Why cannot I restore it? {#cloud-delete-cancel}
 
@@ -131,6 +123,6 @@ For more information, see [Managing a billing account in an organization](../../
 #### How do I stop using the platform and delete my billing account? {#delete-account}
 
 
-Delete all [clouds](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folders](../../resource-manager/concepts/resources-hierarchy.md#folder), and resources within them, pay the outstanding balance, and select **{{ ui-key.yacloud_billing.billing.account.dashboard.label_inactivation }}** on the billing account page in [**{{ billing-name }}**]({{ link-console-billing }}). For more information, see [{#T}](../../billing/operations/delete-account.md).
+Delete all [clouds](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folders](../../resource-manager/concepts/resources-hierarchy.md#folder), and resources within them, pay the outstanding balance, and select **{{ ui-key.yacloud_billing.billing.account.dashboard.label_inactivation }}** on the billing account page in [**{{ billing-name }}**]({{ link-console-billing }}). For details, see [{#T}](../../billing/operations/delete-account.md).
 
 

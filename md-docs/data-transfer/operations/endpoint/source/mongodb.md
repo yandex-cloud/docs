@@ -146,7 +146,7 @@ Data Transfer поддерживает трансферы с MongoDB, начин
 
 {% note warning %}
 
-Для создания или редактирования эндпоинта управляемой базы данных вам потребуется [роль `managed-mongodb.viewer`](../../../../storedoc/security/index.md#mmg-viewer) или примитивная [роль `viewer`](../../../../iam/roles-reference.md#viewer), выданная на каталог кластера этой управляемой базы данных.
+Для создания или редактирования эндпоинта управляемой базы данных вам потребуется [роль `managed-mongodb.viewer`](../../../../storedoc/security/index.md#managed-mongodb-viewer) или примитивная [роль `viewer`](../../../../iam/roles-reference.md#viewer), выданная на каталог кластера этой управляемой базы данных.
 
 {% endnote %}
 

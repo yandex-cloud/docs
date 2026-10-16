@@ -12,6 +12,10 @@ Syntax:
 
 #### Command Tree
 
+- [yc managed-zonalshift v0](v0/index.md) — Manage zonal shift configurations and tasks for Managed Databases.
+
+
+
 - [yc managed-zonalshift config](config/index.md) — Manage zonal shift configurations.
 
   - [yc managed-zonalshift config create](config/create.md) — Create a zonal shift configuration.
@@ -33,10 +37,6 @@ Syntax:
   - [yc managed-zonalshift task cancel](task/cancel.md) — Cancel an active zonal shift task.
 
   - [yc managed-zonalshift task list](task/list.md) — List tasks of a zonal shift configuration.
-
-- [yc managed-zonalshift v0](v0/index.md) — Manage zonal shift configurations and tasks for Managed Databases.
-
-
 
 #### Global Flags
 

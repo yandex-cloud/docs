@@ -65,7 +65,7 @@ Managed Service for PostgreSQL позволяет [получить фрагме
         * `--format` — формат, в котором будут представлены записи логов (`text`, `yaml`, `json` или `json-rest`).
         * `--service-type` — тип сервиса, для которого требуется вывести записи (`postgresql` или `pooler`).
         * `--columns` — список колонок для вывода информации:
-            * `hostname` — [имя хоста](hosts.md#list-hosts).
+            * `hostname` — [имя хоста](hosts.md#list).
             * `db` — [имя базы данных](databases.md#list-db).
             * `level` — уровень логирования, например `info`.
             * `pid` — идентификатор серверного процесса текущей сессии.
@@ -115,7 +115,7 @@ Managed Service for PostgreSQL позволяет [получить фрагме
 
      * `columnFilter` — название колонки для вывода информации:
 
-       * `hostname` — [имя хоста](hosts.md#list-hosts).
+       * `hostname` — [имя хоста](hosts.md#list).
        * `db` — [имя базы данных](databases.md#list-db).
        * `level` — уровень логирования, например `info`.
        * `pid` — идентификатор серверного процесса текущей сессии.
@@ -182,7 +182,7 @@ Managed Service for PostgreSQL позволяет [получить фрагме
 
      * `column_filter` — список колонок для вывода информации:
 
-       * `hostname` — [имя хоста](hosts.md#list-hosts).
+       * `hostname` — [имя хоста](hosts.md#list).
        * `db` — [имя базы данных](databases.md#list-db).
        * `level` — уровень логирования, например `info`.
        * `pid` — идентификатор серверного процесса текущей сессии.
@@ -255,7 +255,7 @@ Managed Service for PostgreSQL позволяет [получить фрагме
 
      * `columnFilter` — название колонки для вывода информации:
 
-       * `hostname` — [имя хоста](hosts.md#list-hosts).
+       * `hostname` — [имя хоста](hosts.md#list).
        * `db` — [имя базы данных](databases.md#list-db).
        * `level` — уровень логирования, например `info`.
        * `pid` — идентификатор серверного процесса текущей сессии.
@@ -319,7 +319,7 @@ Managed Service for PostgreSQL позволяет [получить фрагме
 
      * `column_filter` — список колонок для вывода информации:
 
-       * `hostname` — [имя хоста](hosts.md#list-hosts).
+       * `hostname` — [имя хоста](hosts.md#list).
        * `db` — [имя базы данных](databases.md#list-db).
        * `level` — уровень логирования, например `info`.
        * `pid` — идентификатор серверного процесса текущей сессии.

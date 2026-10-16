@@ -232,7 +232,11 @@
 
 ### Синхронизация с внешними службами каталогов
 
- - [Active Directory](operations/sync-ad.md)
+ - [Обзор](operations/sync-external/index.md)
+
+ - [Active Directory](operations/sync-external/sync-ad.md)
+
+ - [LDAP-совместимые службы каталогов](operations/sync-external/sync-ldap.md)
 
  - [Управлять тарификацией Yandex Identity Hub](operations/manage-billing.md)
 
@@ -392,9 +396,11 @@
 
 ### Синхронизация с внешними службами каталогов
 
- - [Обзор](concepts/ad-sync/index.md)
+ - [Обзор](concepts/sync-external/index.md)
 
- - [Агент синхронизации Yandex Identity Hub Sync Agent](concepts/ad-sync/sync-agent.md)
+ - [Microsoft Active Directory](concepts/sync-external/ad-sync.md)
+
+ - [LDAP-совместимые службы каталогов](concepts/sync-external/ldap-sync.md)
 
  - [Квоты и лимиты](concepts/limits.md)
 
@@ -415,420 +421,6 @@
 ## Справочник CLI (англ.)
 
  - [Overview](cli-ref/index.md)
-
-### federation
-
- - [Overview](cli-ref/federation/index.md)
-
-#### group-mapping
-
- - [Overview](cli-ref/federation/group-mapping/index.md)
-
- - [add-mapping-items](cli-ref/federation/group-mapping/add-mapping-items.md)
-
- - [create](cli-ref/federation/group-mapping/create.md)
-
- - [delete](cli-ref/federation/group-mapping/delete.md)
-
- - [get](cli-ref/federation/group-mapping/get.md)
-
- - [list-mapping-items](cli-ref/federation/group-mapping/list-mapping-items.md)
-
- - [remove-mapping-items](cli-ref/federation/group-mapping/remove-mapping-items.md)
-
- - [update](cli-ref/federation/group-mapping/update.md)
-
-#### saml
-
- - [Overview](cli-ref/federation/saml/index.md)
-
- - [add-domain](cli-ref/federation/saml/add-domain.md)
-
- - [add-labels](cli-ref/federation/saml/add-labels.md)
-
- - [add-user-accounts](cli-ref/federation/saml/add-user-accounts.md)
-
-##### certificate
-
- - [Overview](cli-ref/federation/saml/certificate/index.md)
-
- - [create](cli-ref/federation/saml/certificate/create.md)
-
- - [delete](cli-ref/federation/saml/certificate/delete.md)
-
- - [get](cli-ref/federation/saml/certificate/get.md)
-
- - [list](cli-ref/federation/saml/certificate/list.md)
-
- - [list-operations](cli-ref/federation/saml/certificate/list-operations.md)
-
- - [update](cli-ref/federation/saml/certificate/update.md)
-
- - [create](cli-ref/federation/saml/create.md)
-
- - [delete](cli-ref/federation/saml/delete.md)
-
- - [delete-domain](cli-ref/federation/saml/delete-domain.md)
-
- - [delete-user-accounts](cli-ref/federation/saml/delete-user-accounts.md)
-
- - [get](cli-ref/federation/saml/get.md)
-
- - [get-domain](cli-ref/federation/saml/get-domain.md)
-
- - [list](cli-ref/federation/saml/list.md)
-
- - [list-domains](cli-ref/federation/saml/list-domains.md)
-
- - [list-operations](cli-ref/federation/saml/list-operations.md)
-
- - [list-user-accounts](cli-ref/federation/saml/list-user-accounts.md)
-
- - [reactivate-user-accounts](cli-ref/federation/saml/reactivate-user-accounts.md)
-
- - [remove-labels](cli-ref/federation/saml/remove-labels.md)
-
- - [suspend-user-accounts](cli-ref/federation/saml/suspend-user-accounts.md)
-
- - [update](cli-ref/federation/saml/update.md)
-
- - [validate-domain](cli-ref/federation/saml/validate-domain.md)
-
-### group
-
- - [Overview](cli-ref/group/index.md)
-
- - [add-access-binding](cli-ref/group/add-access-binding.md)
-
- - [add-labels](cli-ref/group/add-labels.md)
-
- - [add-members](cli-ref/group/add-members.md)
-
- - [create](cli-ref/group/create.md)
-
- - [delete](cli-ref/group/delete.md)
-
- - [get](cli-ref/group/get.md)
-
- - [list](cli-ref/group/list.md)
-
- - [list-access-bindings](cli-ref/group/list-access-bindings.md)
-
- - [list-effective](cli-ref/group/list-effective.md)
-
- - [list-members](cli-ref/group/list-members.md)
-
- - [list-operations](cli-ref/group/list-operations.md)
-
- - [remove-access-binding](cli-ref/group/remove-access-binding.md)
-
- - [remove-labels](cli-ref/group/remove-labels.md)
-
- - [remove-members](cli-ref/group/remove-members.md)
-
- - [set-access-bindings](cli-ref/group/set-access-bindings.md)
-
- - [update](cli-ref/group/update.md)
-
-### idp
-
- - [Overview](cli-ref/idp/index.md)
-
-#### application
-
- - [Overview](cli-ref/idp/application/index.md)
-
-##### oauth
-
- - [Overview](cli-ref/idp/application/oauth/index.md)
-
-###### application
-
- - [Overview](cli-ref/idp/application/oauth/application/index.md)
-
- - [add-access-bindings](cli-ref/idp/application/oauth/application/add-access-bindings.md)
-
- - [add-assignments](cli-ref/idp/application/oauth/application/add-assignments.md)
-
- - [create](cli-ref/idp/application/oauth/application/create.md)
-
- - [delete](cli-ref/idp/application/oauth/application/delete.md)
-
- - [get](cli-ref/idp/application/oauth/application/get.md)
-
- - [list](cli-ref/idp/application/oauth/application/list.md)
-
- - [list-access-bindings](cli-ref/idp/application/oauth/application/list-access-bindings.md)
-
- - [list-assignments](cli-ref/idp/application/oauth/application/list-assignments.md)
-
- - [list-operations](cli-ref/idp/application/oauth/application/list-operations.md)
-
- - [reactivate](cli-ref/idp/application/oauth/application/reactivate.md)
-
- - [remove-access-bindings](cli-ref/idp/application/oauth/application/remove-access-bindings.md)
-
- - [remove-assignments](cli-ref/idp/application/oauth/application/remove-assignments.md)
-
- - [set-access-bindings](cli-ref/idp/application/oauth/application/set-access-bindings.md)
-
- - [suspend](cli-ref/idp/application/oauth/application/suspend.md)
-
- - [update](cli-ref/idp/application/oauth/application/update.md)
-
-##### saml
-
- - [Overview](cli-ref/idp/application/saml/index.md)
-
-###### application
-
- - [Overview](cli-ref/idp/application/saml/application/index.md)
-
- - [add-access-bindings](cli-ref/idp/application/saml/application/add-access-bindings.md)
-
- - [add-assignments](cli-ref/idp/application/saml/application/add-assignments.md)
-
- - [create](cli-ref/idp/application/saml/application/create.md)
-
- - [delete](cli-ref/idp/application/saml/application/delete.md)
-
- - [get](cli-ref/idp/application/saml/application/get.md)
-
- - [list](cli-ref/idp/application/saml/application/list.md)
-
- - [list-access-bindings](cli-ref/idp/application/saml/application/list-access-bindings.md)
-
- - [list-assignments](cli-ref/idp/application/saml/application/list-assignments.md)
-
- - [list-operations](cli-ref/idp/application/saml/application/list-operations.md)
-
- - [list-supported-attribute-values](cli-ref/idp/application/saml/application/list-supported-attribute-values.md)
-
- - [reactivate](cli-ref/idp/application/saml/application/reactivate.md)
-
- - [remove-access-bindings](cli-ref/idp/application/saml/application/remove-access-bindings.md)
-
- - [remove-assignments](cli-ref/idp/application/saml/application/remove-assignments.md)
-
- - [set-access-bindings](cli-ref/idp/application/saml/application/set-access-bindings.md)
-
- - [suspend](cli-ref/idp/application/saml/application/suspend.md)
-
- - [update](cli-ref/idp/application/saml/application/update.md)
-
- - [update-assignments](cli-ref/idp/application/saml/application/update-assignments.md)
-
-###### signature-certificate
-
- - [Overview](cli-ref/idp/application/saml/signature-certificate/index.md)
-
- - [create](cli-ref/idp/application/saml/signature-certificate/create.md)
-
- - [delete](cli-ref/idp/application/saml/signature-certificate/delete.md)
-
- - [get](cli-ref/idp/application/saml/signature-certificate/get.md)
-
- - [list](cli-ref/idp/application/saml/signature-certificate/list.md)
-
- - [update](cli-ref/idp/application/saml/signature-certificate/update.md)
-
-#### synchronization-session
-
- - [Overview](cli-ref/idp/synchronization-session/index.md)
-
- - [get](cli-ref/idp/synchronization-session/get.md)
-
- - [list](cli-ref/idp/synchronization-session/list.md)
-
-#### synchronization-settings
-
- - [Overview](cli-ref/idp/synchronization-settings/index.md)
-
- - [create](cli-ref/idp/synchronization-settings/create.md)
-
- - [delete](cli-ref/idp/synchronization-settings/delete.md)
-
- - [get](cli-ref/idp/synchronization-settings/get.md)
-
- - [list-supported-attributes](cli-ref/idp/synchronization-settings/list-supported-attributes.md)
-
- - [reset-replication-token](cli-ref/idp/synchronization-settings/reset-replication-token.md)
-
- - [update](cli-ref/idp/synchronization-settings/update.md)
-
-#### user
-
- - [Overview](cli-ref/idp/user/index.md)
-
- - [convert-to-external](cli-ref/idp/user/convert-to-external.md)
-
- - [create](cli-ref/idp/user/create.md)
-
- - [delete](cli-ref/idp/user/delete.md)
-
- - [generate-password](cli-ref/idp/user/generate-password.md)
-
- - [get](cli-ref/idp/user/get.md)
-
- - [get-password-metadata](cli-ref/idp/user/get-password-metadata.md)
-
- - [list](cli-ref/idp/user/list.md)
-
- - [reactivate](cli-ref/idp/user/reactivate.md)
-
- - [reset-password](cli-ref/idp/user/reset-password.md)
-
- - [resolve-external-ids](cli-ref/idp/user/resolve-external-ids.md)
-
- - [set-own-password](cli-ref/idp/user/set-own-password.md)
-
- - [set-password](cli-ref/idp/user/set-password.md)
-
- - [set-password-hash](cli-ref/idp/user/set-password-hash.md)
-
- - [suspend](cli-ref/idp/user/suspend.md)
-
- - [update](cli-ref/idp/user/update.md)
-
-#### userpool
-
- - [Overview](cli-ref/idp/userpool/index.md)
-
- - [create](cli-ref/idp/userpool/create.md)
-
- - [delete](cli-ref/idp/userpool/delete.md)
-
-##### domain
-
- - [Overview](cli-ref/idp/userpool/domain/index.md)
-
- - [add](cli-ref/idp/userpool/domain/add.md)
-
- - [delete](cli-ref/idp/userpool/domain/delete.md)
-
- - [get](cli-ref/idp/userpool/domain/get.md)
-
- - [list](cli-ref/idp/userpool/domain/list.md)
-
- - [validate](cli-ref/idp/userpool/domain/validate.md)
-
- - [get](cli-ref/idp/userpool/get.md)
-
- - [list](cli-ref/idp/userpool/list.md)
-
- - [list-access-bindings](cli-ref/idp/userpool/list-access-bindings.md)
-
- - [list-operations](cli-ref/idp/userpool/list-operations.md)
-
- - [set-access-bindings](cli-ref/idp/userpool/set-access-bindings.md)
-
- - [update](cli-ref/idp/userpool/update.md)
-
- - [update-access-bindings](cli-ref/idp/userpool/update-access-bindings.md)
-
-### mfa-enforcement
-
- - [Overview](cli-ref/mfa-enforcement/index.md)
-
- - [activate](cli-ref/mfa-enforcement/activate.md)
-
- - [create](cli-ref/mfa-enforcement/create.md)
-
- - [deactivate](cli-ref/mfa-enforcement/deactivate.md)
-
- - [delete](cli-ref/mfa-enforcement/delete.md)
-
- - [get](cli-ref/mfa-enforcement/get.md)
-
- - [list](cli-ref/mfa-enforcement/list.md)
-
- - [list-audience](cli-ref/mfa-enforcement/list-audience.md)
-
- - [list-excluded-audience](cli-ref/mfa-enforcement/list-excluded-audience.md)
-
- - [update](cli-ref/mfa-enforcement/update.md)
-
- - [update-audience](cli-ref/mfa-enforcement/update-audience.md)
-
- - [update-excluded-audience](cli-ref/mfa-enforcement/update-excluded-audience.md)
-
-### organization
-
- - [Overview](cli-ref/organization/index.md)
-
- - [add-access-binding](cli-ref/organization/add-access-binding.md)
-
- - [add-labels](cli-ref/organization/add-labels.md)
-
- - [bind-access-policy](cli-ref/organization/bind-access-policy.md)
-
- - [get](cli-ref/organization/get.md)
-
- - [leave](cli-ref/organization/leave.md)
-
- - [list](cli-ref/organization/list.md)
-
- - [list-access-bindings](cli-ref/organization/list-access-bindings.md)
-
- - [list-access-policy-bindings](cli-ref/organization/list-access-policy-bindings.md)
-
- - [list-operations](cli-ref/organization/list-operations.md)
-
- - [remove-access-binding](cli-ref/organization/remove-access-binding.md)
-
- - [remove-labels](cli-ref/organization/remove-labels.md)
-
- - [set-access-bindings](cli-ref/organization/set-access-bindings.md)
-
- - [unbind-access-policy](cli-ref/organization/unbind-access-policy.md)
-
- - [update](cli-ref/organization/update.md)
-
-### oslogin
-
- - [Overview](cli-ref/oslogin/index.md)
-
- - [get-settings](cli-ref/oslogin/get-settings.md)
-
-#### profile
-
- - [Overview](cli-ref/oslogin/profile/index.md)
-
- - [create](cli-ref/oslogin/profile/create.md)
-
- - [delete](cli-ref/oslogin/profile/delete.md)
-
- - [get](cli-ref/oslogin/profile/get.md)
-
- - [list](cli-ref/oslogin/profile/list.md)
-
- - [set-default](cli-ref/oslogin/profile/set-default.md)
-
- - [update](cli-ref/oslogin/profile/update.md)
-
- - [update-settings](cli-ref/oslogin/update-settings.md)
-
-#### user-ssh-key
-
- - [Overview](cli-ref/oslogin/user-ssh-key/index.md)
-
- - [create](cli-ref/oslogin/user-ssh-key/create.md)
-
- - [delete](cli-ref/oslogin/user-ssh-key/delete.md)
-
- - [get](cli-ref/oslogin/user-ssh-key/get.md)
-
- - [list](cli-ref/oslogin/user-ssh-key/list.md)
-
- - [update](cli-ref/oslogin/user-ssh-key/update.md)
-
-### user
-
- - [Overview](cli-ref/user/index.md)
-
- - [list](cli-ref/user/list.md)
-
- - [remove](cli-ref/user/remove.md)
 
 ### v0
 
@@ -1247,6 +839,420 @@
  - [list](cli-ref/v0/user/list.md)
 
  - [remove](cli-ref/v0/user/remove.md)
+
+### federation
+
+ - [Overview](cli-ref/federation/index.md)
+
+#### group-mapping
+
+ - [Overview](cli-ref/federation/group-mapping/index.md)
+
+ - [add-mapping-items](cli-ref/federation/group-mapping/add-mapping-items.md)
+
+ - [create](cli-ref/federation/group-mapping/create.md)
+
+ - [delete](cli-ref/federation/group-mapping/delete.md)
+
+ - [get](cli-ref/federation/group-mapping/get.md)
+
+ - [list-mapping-items](cli-ref/federation/group-mapping/list-mapping-items.md)
+
+ - [remove-mapping-items](cli-ref/federation/group-mapping/remove-mapping-items.md)
+
+ - [update](cli-ref/federation/group-mapping/update.md)
+
+#### saml
+
+ - [Overview](cli-ref/federation/saml/index.md)
+
+ - [add-domain](cli-ref/federation/saml/add-domain.md)
+
+ - [add-labels](cli-ref/federation/saml/add-labels.md)
+
+ - [add-user-accounts](cli-ref/federation/saml/add-user-accounts.md)
+
+##### certificate
+
+ - [Overview](cli-ref/federation/saml/certificate/index.md)
+
+ - [create](cli-ref/federation/saml/certificate/create.md)
+
+ - [delete](cli-ref/federation/saml/certificate/delete.md)
+
+ - [get](cli-ref/federation/saml/certificate/get.md)
+
+ - [list](cli-ref/federation/saml/certificate/list.md)
+
+ - [list-operations](cli-ref/federation/saml/certificate/list-operations.md)
+
+ - [update](cli-ref/federation/saml/certificate/update.md)
+
+ - [create](cli-ref/federation/saml/create.md)
+
+ - [delete](cli-ref/federation/saml/delete.md)
+
+ - [delete-domain](cli-ref/federation/saml/delete-domain.md)
+
+ - [delete-user-accounts](cli-ref/federation/saml/delete-user-accounts.md)
+
+ - [get](cli-ref/federation/saml/get.md)
+
+ - [get-domain](cli-ref/federation/saml/get-domain.md)
+
+ - [list](cli-ref/federation/saml/list.md)
+
+ - [list-domains](cli-ref/federation/saml/list-domains.md)
+
+ - [list-operations](cli-ref/federation/saml/list-operations.md)
+
+ - [list-user-accounts](cli-ref/federation/saml/list-user-accounts.md)
+
+ - [reactivate-user-accounts](cli-ref/federation/saml/reactivate-user-accounts.md)
+
+ - [remove-labels](cli-ref/federation/saml/remove-labels.md)
+
+ - [suspend-user-accounts](cli-ref/federation/saml/suspend-user-accounts.md)
+
+ - [update](cli-ref/federation/saml/update.md)
+
+ - [validate-domain](cli-ref/federation/saml/validate-domain.md)
+
+### group
+
+ - [Overview](cli-ref/group/index.md)
+
+ - [add-access-binding](cli-ref/group/add-access-binding.md)
+
+ - [add-labels](cli-ref/group/add-labels.md)
+
+ - [add-members](cli-ref/group/add-members.md)
+
+ - [create](cli-ref/group/create.md)
+
+ - [delete](cli-ref/group/delete.md)
+
+ - [get](cli-ref/group/get.md)
+
+ - [list](cli-ref/group/list.md)
+
+ - [list-access-bindings](cli-ref/group/list-access-bindings.md)
+
+ - [list-effective](cli-ref/group/list-effective.md)
+
+ - [list-members](cli-ref/group/list-members.md)
+
+ - [list-operations](cli-ref/group/list-operations.md)
+
+ - [remove-access-binding](cli-ref/group/remove-access-binding.md)
+
+ - [remove-labels](cli-ref/group/remove-labels.md)
+
+ - [remove-members](cli-ref/group/remove-members.md)
+
+ - [set-access-bindings](cli-ref/group/set-access-bindings.md)
+
+ - [update](cli-ref/group/update.md)
+
+### idp
+
+ - [Overview](cli-ref/idp/index.md)
+
+#### application
+
+ - [Overview](cli-ref/idp/application/index.md)
+
+##### oauth
+
+ - [Overview](cli-ref/idp/application/oauth/index.md)
+
+###### application
+
+ - [Overview](cli-ref/idp/application/oauth/application/index.md)
+
+ - [add-access-bindings](cli-ref/idp/application/oauth/application/add-access-bindings.md)
+
+ - [add-assignments](cli-ref/idp/application/oauth/application/add-assignments.md)
+
+ - [create](cli-ref/idp/application/oauth/application/create.md)
+
+ - [delete](cli-ref/idp/application/oauth/application/delete.md)
+
+ - [get](cli-ref/idp/application/oauth/application/get.md)
+
+ - [list](cli-ref/idp/application/oauth/application/list.md)
+
+ - [list-access-bindings](cli-ref/idp/application/oauth/application/list-access-bindings.md)
+
+ - [list-assignments](cli-ref/idp/application/oauth/application/list-assignments.md)
+
+ - [list-operations](cli-ref/idp/application/oauth/application/list-operations.md)
+
+ - [reactivate](cli-ref/idp/application/oauth/application/reactivate.md)
+
+ - [remove-access-bindings](cli-ref/idp/application/oauth/application/remove-access-bindings.md)
+
+ - [remove-assignments](cli-ref/idp/application/oauth/application/remove-assignments.md)
+
+ - [set-access-bindings](cli-ref/idp/application/oauth/application/set-access-bindings.md)
+
+ - [suspend](cli-ref/idp/application/oauth/application/suspend.md)
+
+ - [update](cli-ref/idp/application/oauth/application/update.md)
+
+##### saml
+
+ - [Overview](cli-ref/idp/application/saml/index.md)
+
+###### application
+
+ - [Overview](cli-ref/idp/application/saml/application/index.md)
+
+ - [add-access-bindings](cli-ref/idp/application/saml/application/add-access-bindings.md)
+
+ - [add-assignments](cli-ref/idp/application/saml/application/add-assignments.md)
+
+ - [create](cli-ref/idp/application/saml/application/create.md)
+
+ - [delete](cli-ref/idp/application/saml/application/delete.md)
+
+ - [get](cli-ref/idp/application/saml/application/get.md)
+
+ - [list](cli-ref/idp/application/saml/application/list.md)
+
+ - [list-access-bindings](cli-ref/idp/application/saml/application/list-access-bindings.md)
+
+ - [list-assignments](cli-ref/idp/application/saml/application/list-assignments.md)
+
+ - [list-operations](cli-ref/idp/application/saml/application/list-operations.md)
+
+ - [list-supported-attribute-values](cli-ref/idp/application/saml/application/list-supported-attribute-values.md)
+
+ - [reactivate](cli-ref/idp/application/saml/application/reactivate.md)
+
+ - [remove-access-bindings](cli-ref/idp/application/saml/application/remove-access-bindings.md)
+
+ - [remove-assignments](cli-ref/idp/application/saml/application/remove-assignments.md)
+
+ - [set-access-bindings](cli-ref/idp/application/saml/application/set-access-bindings.md)
+
+ - [suspend](cli-ref/idp/application/saml/application/suspend.md)
+
+ - [update](cli-ref/idp/application/saml/application/update.md)
+
+ - [update-assignments](cli-ref/idp/application/saml/application/update-assignments.md)
+
+###### signature-certificate
+
+ - [Overview](cli-ref/idp/application/saml/signature-certificate/index.md)
+
+ - [create](cli-ref/idp/application/saml/signature-certificate/create.md)
+
+ - [delete](cli-ref/idp/application/saml/signature-certificate/delete.md)
+
+ - [get](cli-ref/idp/application/saml/signature-certificate/get.md)
+
+ - [list](cli-ref/idp/application/saml/signature-certificate/list.md)
+
+ - [update](cli-ref/idp/application/saml/signature-certificate/update.md)
+
+#### synchronization-session
+
+ - [Overview](cli-ref/idp/synchronization-session/index.md)
+
+ - [get](cli-ref/idp/synchronization-session/get.md)
+
+ - [list](cli-ref/idp/synchronization-session/list.md)
+
+#### synchronization-settings
+
+ - [Overview](cli-ref/idp/synchronization-settings/index.md)
+
+ - [create](cli-ref/idp/synchronization-settings/create.md)
+
+ - [delete](cli-ref/idp/synchronization-settings/delete.md)
+
+ - [get](cli-ref/idp/synchronization-settings/get.md)
+
+ - [list-supported-attributes](cli-ref/idp/synchronization-settings/list-supported-attributes.md)
+
+ - [reset-replication-token](cli-ref/idp/synchronization-settings/reset-replication-token.md)
+
+ - [update](cli-ref/idp/synchronization-settings/update.md)
+
+#### user
+
+ - [Overview](cli-ref/idp/user/index.md)
+
+ - [convert-to-external](cli-ref/idp/user/convert-to-external.md)
+
+ - [create](cli-ref/idp/user/create.md)
+
+ - [delete](cli-ref/idp/user/delete.md)
+
+ - [generate-password](cli-ref/idp/user/generate-password.md)
+
+ - [get](cli-ref/idp/user/get.md)
+
+ - [get-password-metadata](cli-ref/idp/user/get-password-metadata.md)
+
+ - [list](cli-ref/idp/user/list.md)
+
+ - [reactivate](cli-ref/idp/user/reactivate.md)
+
+ - [reset-password](cli-ref/idp/user/reset-password.md)
+
+ - [resolve-external-ids](cli-ref/idp/user/resolve-external-ids.md)
+
+ - [set-own-password](cli-ref/idp/user/set-own-password.md)
+
+ - [set-password](cli-ref/idp/user/set-password.md)
+
+ - [set-password-hash](cli-ref/idp/user/set-password-hash.md)
+
+ - [suspend](cli-ref/idp/user/suspend.md)
+
+ - [update](cli-ref/idp/user/update.md)
+
+#### userpool
+
+ - [Overview](cli-ref/idp/userpool/index.md)
+
+ - [create](cli-ref/idp/userpool/create.md)
+
+ - [delete](cli-ref/idp/userpool/delete.md)
+
+##### domain
+
+ - [Overview](cli-ref/idp/userpool/domain/index.md)
+
+ - [add](cli-ref/idp/userpool/domain/add.md)
+
+ - [delete](cli-ref/idp/userpool/domain/delete.md)
+
+ - [get](cli-ref/idp/userpool/domain/get.md)
+
+ - [list](cli-ref/idp/userpool/domain/list.md)
+
+ - [validate](cli-ref/idp/userpool/domain/validate.md)
+
+ - [get](cli-ref/idp/userpool/get.md)
+
+ - [list](cli-ref/idp/userpool/list.md)
+
+ - [list-access-bindings](cli-ref/idp/userpool/list-access-bindings.md)
+
+ - [list-operations](cli-ref/idp/userpool/list-operations.md)
+
+ - [set-access-bindings](cli-ref/idp/userpool/set-access-bindings.md)
+
+ - [update](cli-ref/idp/userpool/update.md)
+
+ - [update-access-bindings](cli-ref/idp/userpool/update-access-bindings.md)
+
+### mfa-enforcement
+
+ - [Overview](cli-ref/mfa-enforcement/index.md)
+
+ - [activate](cli-ref/mfa-enforcement/activate.md)
+
+ - [create](cli-ref/mfa-enforcement/create.md)
+
+ - [deactivate](cli-ref/mfa-enforcement/deactivate.md)
+
+ - [delete](cli-ref/mfa-enforcement/delete.md)
+
+ - [get](cli-ref/mfa-enforcement/get.md)
+
+ - [list](cli-ref/mfa-enforcement/list.md)
+
+ - [list-audience](cli-ref/mfa-enforcement/list-audience.md)
+
+ - [list-excluded-audience](cli-ref/mfa-enforcement/list-excluded-audience.md)
+
+ - [update](cli-ref/mfa-enforcement/update.md)
+
+ - [update-audience](cli-ref/mfa-enforcement/update-audience.md)
+
+ - [update-excluded-audience](cli-ref/mfa-enforcement/update-excluded-audience.md)
+
+### organization
+
+ - [Overview](cli-ref/organization/index.md)
+
+ - [add-access-binding](cli-ref/organization/add-access-binding.md)
+
+ - [add-labels](cli-ref/organization/add-labels.md)
+
+ - [bind-access-policy](cli-ref/organization/bind-access-policy.md)
+
+ - [get](cli-ref/organization/get.md)
+
+ - [leave](cli-ref/organization/leave.md)
+
+ - [list](cli-ref/organization/list.md)
+
+ - [list-access-bindings](cli-ref/organization/list-access-bindings.md)
+
+ - [list-access-policy-bindings](cli-ref/organization/list-access-policy-bindings.md)
+
+ - [list-operations](cli-ref/organization/list-operations.md)
+
+ - [remove-access-binding](cli-ref/organization/remove-access-binding.md)
+
+ - [remove-labels](cli-ref/organization/remove-labels.md)
+
+ - [set-access-bindings](cli-ref/organization/set-access-bindings.md)
+
+ - [unbind-access-policy](cli-ref/organization/unbind-access-policy.md)
+
+ - [update](cli-ref/organization/update.md)
+
+### oslogin
+
+ - [Overview](cli-ref/oslogin/index.md)
+
+ - [get-settings](cli-ref/oslogin/get-settings.md)
+
+#### profile
+
+ - [Overview](cli-ref/oslogin/profile/index.md)
+
+ - [create](cli-ref/oslogin/profile/create.md)
+
+ - [delete](cli-ref/oslogin/profile/delete.md)
+
+ - [get](cli-ref/oslogin/profile/get.md)
+
+ - [list](cli-ref/oslogin/profile/list.md)
+
+ - [set-default](cli-ref/oslogin/profile/set-default.md)
+
+ - [update](cli-ref/oslogin/profile/update.md)
+
+ - [update-settings](cli-ref/oslogin/update-settings.md)
+
+#### user-ssh-key
+
+ - [Overview](cli-ref/oslogin/user-ssh-key/index.md)
+
+ - [create](cli-ref/oslogin/user-ssh-key/create.md)
+
+ - [delete](cli-ref/oslogin/user-ssh-key/delete.md)
+
+ - [get](cli-ref/oslogin/user-ssh-key/get.md)
+
+ - [list](cli-ref/oslogin/user-ssh-key/list.md)
+
+ - [update](cli-ref/oslogin/user-ssh-key/update.md)
+
+### user
+
+ - [Overview](cli-ref/user/index.md)
+
+ - [list](cli-ref/user/list.md)
+
+ - [remove](cli-ref/user/remove.md)
 
  - [Справочник Terraform](tf-ref.md)
 

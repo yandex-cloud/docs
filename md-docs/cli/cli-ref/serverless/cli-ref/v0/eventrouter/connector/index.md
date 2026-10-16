@@ -36,8 +36,6 @@ Syntax:
 
 - [yc serverless v0 eventrouter connector create](create/index.md) — Create connector
 
-  - [yc serverless v0 eventrouter connector create audit-trails](create/audit-trails.md) — Create an audit trails connector
-
   - [yc serverless v0 eventrouter connector create data-stream](create/data-stream.md) — Create a data stream connector
 
   - [yc serverless v0 eventrouter connector create event-service](create/event-service.md) — Create an event service connector

@@ -14,9 +14,28 @@ The history of transfer operations is available on the operations page.
 
 ## Operations initiated by users {#user-operations}
 
-* **Activate** when [activating](../operations/transfer.md#activate) a transfer.
-* **Deactivate** when [deactivating](../operations/transfer.md#deactivate) a transfer.
-* **Restart** when editing the settings of an endpoint of the transfer in the {{ dt-status-repl }} status.
+* **Activate**: [Activates](../operations/transfer.md#activate) the transfer. Activation is required for each new transfer, except for an `INCREMENT_ONLY` or `SNAPSHOT_AND_INCREMENT` transfer [created](../operations/transfer.md#create) using Terraform.
+
+  Upon activation, the system provisions resources for the transfer. The actions depend on the transfer type:
+
+    * {{ dt-type-copy }}: Initiates a full data copy.
+    * {{ dt-type-repl }}: Starts replication of changes without prior copying.
+    * {{ dt-type-copy-repl }}: Creates a replication slot, makes a full data copy, and runs replication of changes.
+
+  For transfers with periodic copying, each run triggers either full data copy or incremental copy, if this mode is configured for tables.
+
+* **Deactivate**: Deactivates the transfer.
+
+  During transfer [deactivation](../operations/transfer.md#deactivate), the system cleans up run artifacts. For example:
+
+    * For {{ dt-type-copy-repl }} transfers, disables the replication slot on the source.
+    * Deletes temporary data transfer logs.
+    * Synchronizes the target:
+
+        * Transfers the source data schema objects for the final deactivation stage.
+        * Creates indexes.
+
+
 * **UpdateTransfer** when editing the settings of the transfer in the {{ dt-status-repl }} status.
 
 ## Operations initiated by a transfer {#transfer-operations}

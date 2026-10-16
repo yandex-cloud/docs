@@ -46,7 +46,7 @@
 
         Эту настройку нельзя изменить после создания кластера. 
         
-        При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../pricing/index.md#dedicated-hosts).
+        При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../compute/pricing.md#dedicated-hosts) и [наценки Yandex MPP Analytics for PostgreSQL](../pricing/index.md#rules-hosts-uptime).
 
 
     1. В блоке **Сетевые настройки** выберите:
@@ -161,7 +161,7 @@
         * Количество хостов-сегментов.
         * [Количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
 
-            Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/instance-types.md#select-class-segment-hosts) на максимальный объем памяти, выделенный на каждый серверный процесс Yandex MPP Analytics for PostgreSQL. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
+            Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/calculate-specs.md#segment) на максимальный объем памяти, выделенный на каждый серверный процесс Yandex MPP Analytics for PostgreSQL. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
 
         * [Класс хоста](../concepts/instance-types.md) — определяет технические характеристики виртуальных машин, на которых будут развернуты хосты-сегменты кластера.
         * В блоке **Хранилище** выберите [тип диска](../concepts/storage.md) и укажите его размер. Доступные типы диска [зависят](../concepts/storage.md) от выбранного класса хостов.
@@ -248,7 +248,7 @@
         * `--master-config` и `--segment-config` — конфигурация хостов-мастеров и хостов-сегментов:
             * `resource-id` — [класс хоста](../concepts/instance-types.md).
 
-                Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/instance-types.md#select-class-segment-hosts) на максимальный объем памяти, выделенный на каждый серверный процесс Yandex MPP Analytics for PostgreSQL. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
+                Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/calculate-specs.md#segment) на максимальный объем памяти, выделенный на каждый серверный процесс Yandex MPP Analytics for PostgreSQL. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
 
             * `disk-size` — объем хранилища в гигабайтах.
             * `disk-type` — [тип диска](../concepts/storage.md):
@@ -297,7 +297,7 @@
 
         Эту настройку нельзя изменить после создания кластера. 
         
-        При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../pricing/index.md#dedicated-hosts).
+        При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../compute/pricing.md#dedicated-hosts) и [наценки Yandex MPP Analytics for PostgreSQL](../pricing/index.md#rules-hosts-uptime).
 
 
     1. Чтобы настроить время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), передайте нужное значение в параметре `--maintenance-window` при создании кластера:
@@ -472,7 +472,7 @@
       * `segment_host_count` — количество хостов-сегментов: от 2 до 32.
       * `segment_in_host` — [количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
 
-          Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/instance-types.md#select-class-segment-hosts) на максимальный объем памяти, выделенный на каждый серверный процесс Yandex MPP Analytics for PostgreSQL. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
+          Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/calculate-specs.md#segment) на максимальный объем памяти, выделенный на каждый серверный процесс Yandex MPP Analytics for PostgreSQL. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
 
       
       * `access.data_lens` — доступ к кластеру из сервиса [Yandex DataLens](../../datalens/concepts/index.md): `true` или `false`.
@@ -509,7 +509,7 @@
 
       Эту настройку нельзя изменить после создания кластера. 
       
-      При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../pricing/index.md#dedicated-hosts).
+      При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../compute/pricing.md#dedicated-hosts) и [наценки Yandex MPP Analytics for PostgreSQL](../pricing/index.md#rules-hosts-uptime).
 
   1. Чтобы включить [передачу логов в сервис Yandex Cloud Logging](mgp-to-cloud-logging.md), укажите параметры:
 
@@ -721,7 +721,7 @@
         * `segmentHostCount` — количество хостов-сегментов: от `2` до `32`.
         * `segmentInHost` — [количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
 
-            Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/instance-types.md#select-class-segment-hosts) на максимальный объем памяти, выделенный на каждый серверный процесс Yandex MPP Analytics for PostgreSQL. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
+            Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/calculate-specs.md#segment) на максимальный объем памяти, выделенный на каждый серверный процесс Yandex MPP Analytics for PostgreSQL. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
 
         * `userName` — имя пользователя.
         * `userPassword` — пароль пользователя.
@@ -757,7 +757,7 @@
 
             Эту настройку нельзя изменить после создания кластера. 
             
-            При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../pricing/index.md#dedicated-hosts).
+            При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../compute/pricing.md#dedicated-hosts) и [наценки Yandex MPP Analytics for PostgreSQL](../pricing/index.md#rules-hosts-uptime).
 
         * `serviceAccountId` — идентификатор сервисного аккаунта.
         * `logging` — настройки [передачи логов в сервис Yandex Cloud Logging](mgp-to-cloud-logging.md):
@@ -927,7 +927,7 @@
         * `segment_host_count` — количество хостов-сегментов: от `2` до `32`.
         * `segment_in_host` — [количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
 
-            Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/instance-types.md#select-class-segment-hosts) на максимальный объем памяти, выделенный на каждый серверный процесс Yandex MPP Analytics for PostgreSQL. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
+            Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/calculate-specs.md#segment) на максимальный объем памяти, выделенный на каждый серверный процесс Yandex MPP Analytics for PostgreSQL. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
 
         * `user_name` — имя пользователя.
         * `user_password` — пароль пользователя.
@@ -963,7 +963,7 @@
 
             Эту настройку нельзя изменить после создания кластера. 
             
-            При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../pricing/index.md#dedicated-hosts).
+            При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../compute/pricing.md#dedicated-hosts) и [наценки Yandex MPP Analytics for PostgreSQL](../pricing/index.md#rules-hosts-uptime).
 
         * `service_account_id` — идентификатор сервисного аккаунта.
         * `logging` — настройки [передачи логов в сервис Yandex Cloud Logging](mgp-to-cloud-logging.md):

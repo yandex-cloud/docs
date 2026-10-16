@@ -33,5 +33,6 @@ Yandex Cloud Detection and Response — это сервис для монито�
 
 #### Полезные ссылки {#see-also}
 
+* [Изменение ландшафта киберугроз в первом полугодии 2026 года по данным Yandex Cloud](https://yandex.cloud/ru/blog/reflected-attacks-h1-20266)
 * [Закрываем уязвимости интерфейсов прикладных служб и веб-приложений Linux-инфраструктур](https://yandex.cloud/ru/blog/linux-vulnerability-june-2026)
 * [Анализ киберугроз в облачной среде за второе полугодие 2025 года](https://yandex.cloud/ru/blog/reflected-attacks-2025)

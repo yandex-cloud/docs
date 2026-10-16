@@ -54,6 +54,16 @@ Syntax:
 
 #### Command Tree
 
+- [yc config v0](v0/index.md) — Manage Yandex Cloud CLI configuration
+
+  - [yc config v0 get](v0/get.md) — Get value for the specified configuration property
+
+  - [yc config v0 list](v0/list.md) — List configuration values
+
+  - [yc config v0 set](v0/set.md) — Set value for the specified configuration property
+
+  - [yc config v0 unset](v0/unset.md) — Unset value for the specified configuration property
+
 - [yc config get](get.md) — Get value for the specified configuration property
 
 - [yc config list](list.md) — List configuration values
@@ -73,16 +83,6 @@ Syntax:
   - [yc config profile get](profile/get.md) — List values for the specified configuration profile
 
   - [yc config profile list](profile/list.md) — List configuration profiles
-
-- [yc config v0](v0/index.md) — Manage Yandex Cloud CLI configuration
-
-  - [yc config v0 get](v0/get.md) — Get value for the specified configuration property
-
-  - [yc config v0 list](v0/list.md) — List configuration values
-
-  - [yc config v0 set](v0/set.md) — Set value for the specified configuration property
-
-  - [yc config v0 unset](v0/unset.md) — Unset value for the specified configuration property
 
 #### Global Flags
 

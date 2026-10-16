@@ -17,7 +17,6 @@ spec:
       enabled: true
       replicas: 2
       retention: 15d
-      ingressEnabled: true
       storage:
         size: "10Gi"
       resources:
@@ -34,7 +33,6 @@ spec:
       enabled: true
       replicas: 3
       retention: "240h"
-      ingressEnabled: true
       storage:
         enabled: true
         size: "1Gi"

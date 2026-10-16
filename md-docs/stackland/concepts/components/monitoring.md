@@ -65,7 +65,6 @@ spec:
       enabled: true
       replicas: 2
       retention: 15d
-      ingressEnabled: true
       storage:
         size: "10Gi"
       resources:
@@ -82,7 +81,6 @@ spec:
       enabled: true
       replicas: 3
       retention: "240h"
-      ingressEnabled: true
       storage:
         enabled: true
         size: "1Gi"
@@ -149,12 +147,13 @@ clusterIssuer: stackland-default
 
 #### Alertmanager {#alertmanager}
 
+Компонент Monitoring не создаёт Ingress для Alertmanager.
+
 ```yaml
 alertmanager:
   enabled: true
   replicas: 3
   retention: "240h"
-  ingressEnabled: true
   storage:
     enabled: true
     storageClass: stackland-ssd
@@ -174,7 +173,6 @@ alertmanager:
 * `storage.enabled` — включает PVC для состояния Alertmanager. По умолчанию хранилище включено.
 * `storage.storageClass` — StorageClass для PVC. Если параметр не указан, используется StorageClass кластера по умолчанию.
 * `storage.size` — размер PVC. Если параметр не указан, используется `1Gi`.
-* `ingressEnabled` — открывает доступ к Alertmanager через Ingress.
 * `resources` — требования к ресурсам.
 
 Поля `storage.enabled`, `storage.storageClass` и `storage.size` нельзя изменить после создания `MonitoringConfig`. Для изменения хранилища пересоздайте ресурс.
@@ -216,12 +214,13 @@ grafanaOperator:
 
 #### Prometheus {#prometheus}
 
+Компонент Monitoring не создаёт Ingress для Prometheus.
+
 ```yaml
 prometheus:
   enabled: true
   replicas: 2
   retention: 15d
-  ingressEnabled: true
   storage:
     storageClass: stackland-ssd
     size: "10Gi"
@@ -240,7 +239,6 @@ prometheus:
 * `enabled` — включает Prometheus.
 * `replicas` — количество реплик Prometheus.
 * `retention` — срок хранения данных Prometheus.
-* `ingressEnabled` — открывает доступ к Prometheus через Ingress.
 * `resources` — требования к ресурсам.
 * `storage.storageClass` — StorageClass для PVC. Если параметр не указан, используется StorageClass кластера по умолчанию.
 * `storage.size` — размер PVC; локальная глубина истории ограничивается автоматически как 80% от размера PVC.

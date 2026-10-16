@@ -17,7 +17,7 @@ Container Storage Interface позволяет динамически резер
 ## Подготовка рабочего окружения {#create-environment}
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с [ролью](../../../iam/concepts/access-control/roles.md) `storage.editor`.
-1. [Создайте статический ключ доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) для [сервисного аккаунта](../../../iam/concepts/index.md#sa). Сохраните идентификатор ключа и секретный ключ — они понадобятся при установке Container Storage Interface.
+1. [Создайте статический ключ доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md). Сохраните идентификатор ключа и секретный ключ — они понадобятся при установке Container Storage Interface.
 1. [Создайте бакет](../../../storage/operations/buckets/create.md) Object Storage, который будет смонтирован к `PersistentVolume`. Сохраните имя бакета — оно понадобится при установке Container Storage Interface.
 1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
 
@@ -36,7 +36,7 @@ Container Storage Interface позволяет динамически резер
 
 - Yandex Cloud Marketplace {#marketplace}
 
-  Установите приложение Container Storage Interface для S3 с помощью [пошаговой инструкции](../applications/csi-s3.md#install-fb-marketplace). При установке приложения укажите параметры:
+  Установите приложение Container Storage Interface для S3 с помощью [пошаговой инструкции](../applications/csi-s3.md#marketplace-install). При установке приложения укажите параметры:
 
   * **Пространство имен** — `kube-system`.
   * **Идентификатор ключа S3** — скопируйте в это поле идентификатор ключа [созданного сервисного аккаунта](#create-environment).

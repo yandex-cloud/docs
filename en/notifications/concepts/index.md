@@ -1,9 +1,11 @@
+---
+title: '{{ cns-full-name }} overview'
+description: '{{ cns-name }} ({{ cns-short-name }}): Service for multichannel user notifications. Its HTTP API is compatible with the Amazon SNS API.'
+---
+
 # {{ cns-full-name }} overview
 
 {% include [about-service](../../_includes/notifications/about-service.md) %}
-
-
-{% include [ask-for-turning-on](../../_includes/notifications/ask-for-turning-on.md) %}
 
 Compatibility with the Amazon SNS API enables you to work with the service using the existing tools, such as the [AWS CLI](../tools/aws-cli.md) and AWS SDK.
 

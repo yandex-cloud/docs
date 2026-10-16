@@ -112,30 +112,6 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [Overview](cli-ref/index.md)
 
-### trail
-
- - [Overview](cli-ref/trail/index.md)
-
- - [add-access-binding](cli-ref/trail/add-access-binding.md)
-
- - [create](cli-ref/trail/create.md)
-
- - [delete](cli-ref/trail/delete.md)
-
- - [get](cli-ref/trail/get.md)
-
- - [list](cli-ref/trail/list.md)
-
- - [list-access-bindings](cli-ref/trail/list-access-bindings.md)
-
- - [list-operations](cli-ref/trail/list-operations.md)
-
- - [remove-access-binding](cli-ref/trail/remove-access-binding.md)
-
- - [set-access-bindings](cli-ref/trail/set-access-bindings.md)
-
- - [update](cli-ref/trail/update.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -163,6 +139,30 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [set-access-bindings](cli-ref/v0/trail/set-access-bindings.md)
 
  - [update](cli-ref/v0/trail/update.md)
+
+### trail
+
+ - [Overview](cli-ref/trail/index.md)
+
+ - [add-access-binding](cli-ref/trail/add-access-binding.md)
+
+ - [create](cli-ref/trail/create.md)
+
+ - [delete](cli-ref/trail/delete.md)
+
+ - [get](cli-ref/trail/get.md)
+
+ - [list](cli-ref/trail/list.md)
+
+ - [list-access-bindings](cli-ref/trail/list-access-bindings.md)
+
+ - [list-operations](cli-ref/trail/list-operations.md)
+
+ - [remove-access-binding](cli-ref/trail/remove-access-binding.md)
+
+ - [set-access-bindings](cli-ref/trail/set-access-bindings.md)
+
+ - [update](cli-ref/trail/update.md)
 
  - [Справочник Terraform](tf-ref.md)
 

@@ -20,6 +20,14 @@ Aliases:
 
 #### Command Tree
 
+- [yc cloud-registry v0](v0/index.md) — (legacy command tree) Manage Cloud Registry resources
+
+  - [yc cloud-registry v0 configure-docker](v0/configure-docker.md) — 
+
+- [yc cloud-registry v1](v1/index.md) — Manage Cloud Registry resources
+
+  - [yc cloud-registry v1 configure-docker](v1/configure-docker.md) — Configure the Docker credential helper for Cloud Registry.
+
 - [yc cloud-registry configure-docker](configure-docker.md) — Configure the Docker credential helper for Cloud Registry.
 
 - [yc cloud-registry artifact](artifact/index.md) — A set of methods for managing Artifacts.
@@ -95,14 +103,6 @@ Aliases:
 - [yc cloud-registry tools](tools/index.md) — 
 
 
-
-- [yc cloud-registry v0](v0/index.md) — (legacy command tree) Manage Cloud Registry resources
-
-  - [yc cloud-registry v0 configure-docker](v0/configure-docker.md) — 
-
-- [yc cloud-registry v1](v1/index.md) — Manage Cloud Registry resources
-
-  - [yc cloud-registry v1 configure-docker](v1/configure-docker.md) — Configure the Docker credential helper for Cloud Registry.
 
 #### Global Flags
 

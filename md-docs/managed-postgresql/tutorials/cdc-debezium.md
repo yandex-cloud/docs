@@ -245,7 +245,7 @@
     * `name` — логическое имя коннектора Debezium. Используется для внутренних нужд коннектора.
     * `database.hostname` — [особый FQDN](../operations/connect/fqdn.md#fqdn-master) для подключения к хосту-мастеру кластера-источника.
 
-        Идентификатор кластера можно получить со [списком кластеров в каталоге](../operations/cluster-list.md#list).
+        Идентификатор кластера можно получить со [списком кластеров в каталоге](../operations/cluster-list.md#list-clusters).
 
     * `database.user` — имя пользователя PostgreSQL.
     * `database.dbname` — имя базы данных PostgreSQL.

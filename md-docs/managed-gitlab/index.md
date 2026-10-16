@@ -100,24 +100,6 @@
 
  - [Overview](cli-ref/index.md)
 
-### instance
-
- - [Overview](cli-ref/instance/index.md)
-
- - [create](cli-ref/instance/create.md)
-
- - [delete](cli-ref/instance/delete.md)
-
- - [get](cli-ref/instance/get.md)
-
- - [list](cli-ref/instance/list.md)
-
- - [start](cli-ref/instance/start.md)
-
- - [stop](cli-ref/instance/stop.md)
-
- - [update](cli-ref/instance/update.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -139,6 +121,24 @@
  - [stop](cli-ref/v0/instance/stop.md)
 
  - [update](cli-ref/v0/instance/update.md)
+
+### instance
+
+ - [Overview](cli-ref/instance/index.md)
+
+ - [create](cli-ref/instance/create.md)
+
+ - [delete](cli-ref/instance/delete.md)
+
+ - [get](cli-ref/instance/get.md)
+
+ - [list](cli-ref/instance/list.md)
+
+ - [start](cli-ref/instance/start.md)
+
+ - [stop](cli-ref/instance/stop.md)
+
+ - [update](cli-ref/instance/update.md)
 
  - [Справочник Terraform](tf-ref.md)
 

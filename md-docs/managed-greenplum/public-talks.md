@@ -10,6 +10,12 @@
 
   * [Запись трансляции](https://www.youtube.com/live/2GlBcMbEN48).
 
+### 2026: Статьи {#article-2026}
+
+* Apache Cloudberry™: что это за СУБД и почему её называют преемником Greenplum®.
+
+  * [Текст статьи](https://yandex.cloud/ru/blog/apache-cloudberry-overview).
+
 ### 2025: Статьи {#article-2025}
 
 * Как Data Warehouse помогает бизнесу экономить деньги и принимать решения.

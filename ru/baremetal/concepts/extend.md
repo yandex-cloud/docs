@@ -20,3 +20,4 @@ description: Из статьи вы узнаете о линейке проду�
 #### См. также {#see-also}
 
 * [{#T}](./integrations.md)
+* [Помогаем бизнесу быстрее запускать новые сервисы: представляем {{ baremetal-full-name }} Extend](https://yandex.cloud/ru/blog/yandex-baremetal-extend)

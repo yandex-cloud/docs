@@ -9,7 +9,7 @@
 
 Чтобы подключение к Cloud Backup работало корректно, привяжите к серверу [сервисный аккаунт](#sa) с ролями [`baremetal.editor`](../../../baremetal/security/index.md#baremetal-editor) и [`backup.user`](../../security/index.md#backup-user) или выше и настройте [сетевой доступ](#vm-network-access).
 
-После подключения к Cloud Backup [привяжите](../../operations/policy-vm/attach-and-detach-vm.md#attach-vm) сервер BareMetal к [политике резервного копирования](../policy.md).
+После подключения к Cloud Backup [привяжите](../../operations/policy-vm/attach-and-detach-vm.md) сервер BareMetal к [политике резервного копирования](../policy.md).
 
 {% note info %}
 

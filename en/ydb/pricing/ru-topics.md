@@ -88,9 +88,9 @@ The data writes are calculated in a similar way; the only difference is that the
 The SQS API (SQS over Topics) is used when accessing a topic via the interface compatible with Amazon Simple Queue Service (SQS). This interface does not support streaming read and write methods. Therefore, to transfer each data block, you need to call a separate unary method (request-response). The cost of calling these methods in RUs is calculated as explained below:
 
 1. Each SQS API method call costs you 2 RUs.
-1. Write (`SendMessage` and `SendMessageBatch`) and read (`ReceiveMessage`) methods also include additional charges based on the size of data blocks sent in a write request or returned returned in a read call. The block sizes for reads and writes are different:
+1. Write (`SendMessage` and `SendMessageBatch`) and read (`ReceiveMessage`) methods also include additional charges based on the size of data blocks sent in a write request or returned by in a read call. The block sizes for reads and writes are different:
 
-    Direction | Block size
+    Type | Block size
     --- | ---
     Reads | 8KB
     Writes | 4KB

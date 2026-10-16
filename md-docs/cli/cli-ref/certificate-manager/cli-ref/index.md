@@ -20,6 +20,10 @@ Aliases:
 
 #### Command Tree
 
+- [yc certificate-manager v0](v0/index.md) — Manage Certificate Manager resources
+
+
+
 - [yc certificate-manager certificate](certificate/index.md) — Manage certificates
 
   - [yc certificate-manager certificate add-access-binding](certificate/add-access-binding.md) — Add access binding for the specified certificate
@@ -45,10 +49,6 @@ Aliases:
   - [yc certificate-manager certificate set-access-bindings](certificate/set-access-bindings.md) — Set access bindings for the specified certificate and delete all existing access bindings if there were any
 
   - [yc certificate-manager certificate update](certificate/update.md) — Update the specified certificate
-
-- [yc certificate-manager v0](v0/index.md) — Manage Certificate Manager resources
-
-
 
 #### Global Flags
 

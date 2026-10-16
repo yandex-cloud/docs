@@ -18,6 +18,10 @@ Aliases:
 
 #### Command Tree
 
+- [yc managed-ytsaurus v0](v0/index.md) — Manage YTsaurus clusters.
+
+
+
 - [yc managed-ytsaurus cluster](cluster/index.md) — Manage YTsaurus clusters.
 
   - [yc managed-ytsaurus cluster delete](cluster/delete.md) — Delete the specified YTsaurus clusters.
@@ -31,10 +35,6 @@ Aliases:
   - [yc managed-ytsaurus cluster start](cluster/start.md) — Start the specified YTsaurus clusters.
 
   - [yc managed-ytsaurus cluster stop](cluster/stop.md) — Stop the specified YTsaurus clusters.
-
-- [yc managed-ytsaurus v0](v0/index.md) — Manage YTsaurus clusters.
-
-
 
 #### Global Flags
 

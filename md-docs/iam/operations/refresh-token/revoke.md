@@ -84,4 +84,4 @@ Refresh-токены автоматически добавляются в про
 
 {% endlist %}
 
-Refresh-токены также автоматически удаляются через семь дней после истечения [срока их действия](../../concepts/authorization/refresh-token.md#lifetime).
+Refresh-токены также автоматически удаляются через семь дней после истечения [срока их действия](../../concepts/authorization/refresh-token.md#token-lifetime).

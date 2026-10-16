@@ -1,6 +1,6 @@
 # Действие DeletePlatformApplication
 
-Удаляет [канал мобильных Push-уведомлений](../concepts/push.md), а также все связанные с ним [эндпоинты](../concepts/index.md#mobile-endpoints).
+Удаляет [канал мобильных Push-уведомлений](../concepts/push.md), а также все связанные с ним [эндпоинты](../concepts/push.md#mobile-endpoints).
 
 ## HTTP-запрос {#request}
 

@@ -29,7 +29,7 @@ Cloud Registry поддерживает подпись метаданных Debi
 
 #### Полезные ссылки {#see-also}
 
-* [Поддерживаемые типы артефактов](index.md#artifacts)
+* [Поддерживаемые типы артефактов](index.md)
 * [Настроить менеджер пакетов APT](../../operations/debian/installation.md)
 * [Загрузить Debian-пакет в реестр](../../operations/debian/push.md)
 * [Скачать Debian-пакет из реестра](../../operations/debian/pull.md)

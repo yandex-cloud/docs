@@ -14,7 +14,7 @@ description: К маршрутизации сообщений можно отн�
 
 - `input` — [вход](index.md#inputs):
   - `plugin` — плагин [входа](inputs.md);
-  - `config` — конфигурация [входа](#inputs);
+  - `config` — конфигурация [входа](inputs.md);
   - `flow_control` — конфигурация механизма создания сессий входа.
 - `channel` — [канал](index.md#channels):
   - `pipe` — цепочка обработки:

@@ -115,7 +115,7 @@ Yandex StoreDoc позволяет использовать сетевые и л
    {% endnote %}
 
 * [Принудительно синхронизируйте](../operations/hosts.md#resetup) данные между хостами. Это поможет, если из кластера был удален большой объем данных, но дисковое пространство не было освобождено (т. е. помечено как доступное к переиспользованию).
-* Примените команду `compact`. Предварительно [добавьте](../operations/cluster-users.md#updateuser) пользователю [роль mdbDbAdmin](users-and-roles.md#mdbdbadmin). 
+* Примените команду `compact`. Предварительно [добавьте](../operations/cluster-users.md#updateuser) пользователю [роль mdbDbAdmin](users-and-roles.md#db-user-roles). 
 
 ### Автоматическое увеличение размера хранилища {#auto-rescale}
 

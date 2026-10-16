@@ -141,7 +141,8 @@ description: Из статьи вы узнаете, как работать с {
 
 ## Синхронизация пользователей и групп с внешними службами каталогов {#sync-external}
 
-* [{#T}](./sync-ad.md)
+* [{#T}](./sync-external/sync-ad.md)
+* [{#T}](./sync-external/sync-ldap.md)
 
 ## Управление тарификацией {{ org-full-name }} {#manage-billing}
 

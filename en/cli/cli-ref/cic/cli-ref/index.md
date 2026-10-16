@@ -19,6 +19,14 @@ Syntax:
 
 #### Command Tree
 
+- [yc cic v0](v0/index.md) — (legacy command tree) Manage Cloud Interconnect resources
+
+
+
+- [yc cic v1](v1/index.md) — Manage Interconnect resources
+
+
+
 - [yc cic partner](partner/index.md) — A set of methods for managing Partner resources.
 
   - [yc cic partner get](partner/get.md) — Returns the specified Partner resource.
@@ -100,14 +108,6 @@ Syntax:
   - [yc cic trunk-connection-ticket list](trunk-connection-ticket/list.md) — Lists TrunkConnectionTicket resources in the specified folder.
 
   - [yc cic trunk-connection-ticket revoke](trunk-connection-ticket/revoke.md) — Revokes a TrunkConnectionTicket and closes the underlying support ticket.
-
-- [yc cic v0](v0/index.md) — (legacy command tree) Manage Cloud Interconnect resources
-
-
-
-- [yc cic v1](v1/index.md) — Manage Interconnect resources
-
-
 
 #### Global Flags
 

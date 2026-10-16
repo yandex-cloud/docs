@@ -89,7 +89,7 @@
       * **Количество разделов** — `1`.
       * **Фактор репликации** — `1`.
 
-   1. [Создайте пользователя Apache Kafka®](../operations/cluster-accounts.md#create-user) с параметрами:
+   1. [Создайте пользователя Apache Kafka®](../operations/cluster-accounts.md#create-account) с параметрами:
 
       * **Имя** — `user1`.
       * **Пароль** — `password1`.

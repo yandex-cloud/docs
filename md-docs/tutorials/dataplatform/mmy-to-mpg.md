@@ -50,7 +50,7 @@
 
     1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним:
 
-        * [Managed Service for MySQL®](../../managed-mysql/operations/connect/index.md#configuring-security-groups).
+        * [Managed Service for MySQL®](../../managed-mysql/operations/connect/index.md#configure-security-groups).
         * [Managed Service for PostgreSQL](../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
 
 - Terraform {#tf}

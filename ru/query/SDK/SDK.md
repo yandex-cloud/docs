@@ -21,7 +21,7 @@ C помощью {{ ydb-short-name }} SDK возможно использова�
 
 ## Аутентификация {#auth}
 
-{{ yq-full-name }} является полностью управляемым сервисом и для аутентификации использует [механизмы {{ iam-short-name }}](../../iam/concepts/authorization/#authentication).
+{{ yq-full-name }} является полностью управляемым сервисом и для аутентификации использует [механизмы {{ iam-short-name }}](../../iam/concepts/authorization/index.md).
 
 Аутентификация может быть выполнена с помощью:
 * [Авторизованных ключей](../../iam/concepts/authorization/key.md).

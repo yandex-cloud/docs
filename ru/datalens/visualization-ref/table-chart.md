@@ -51,9 +51,9 @@ description: Из статьи вы узнаете, как в {{ datalens-full-n
 {% endlist %}
 
 * [Особенности (Что надо знать)](#what-to-know)
-* [Секции в визарде](#секции-в-визарде-wizard-sections)
-* [Как создать таблицу](#как-создать-таблицу-create-diagram)
-* [Дополнительные настройки](#дополнительные-настройки-additional-settings)
+* [Секции в визарде](#wizard-sections)
+* [Как создать таблицу](#create-diagram)
+* [Дополнительные настройки](#additional-settings)
 
 ## Секции в визарде {#wizard-sections}
 

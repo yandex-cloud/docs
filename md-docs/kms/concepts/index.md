@@ -70,3 +70,8 @@ Key Management Service — сервис для создания ключей ш�
 * Субъект (аккаунт в Yandex Cloud или сервисный аккаунт).
 
 Чтобы получить аудитные логи, обратитесь в [службу технической поддержки](https://center.yandex.cloud/support).
+
+
+#### Полезные ссылки {#see-also}
+
+* [Рыбно‑пузырьковая энтропия в Yandex Key Management Service](https://yandex.cloud/ru/blog/entropy-kms)

@@ -156,6 +156,18 @@ items:
                 href: operations/airflow/get-admin-credentials.md
               - name: Открыть веб-интерфейс {{ AF }}
                 href: operations/airflow/connect-ui.md
+              - name: Загрузить DAG-файлы в {{ AF }}
+                href: operations/airflow/upload-dags.md
+              - name: Запустить DAG в {{ AF }}
+                href: operations/airflow/run-dag.md
+              - name: Посмотреть результаты и логи задач {{ AF }}
+                href: operations/airflow/view-logs.md
+              - name: Настроить Connections в {{ AF }}
+                href: operations/airflow/manage-connections.md
+              - name: Настроить Variables в {{ AF }}
+                href: operations/airflow/manage-variables.md
+              - name: Сохранить и восстановить Connections и Variables в {{ AF }}
+                href: operations/airflow/export-settings.md
               - name: Приостановить или возобновить кластер {{ AF }}
                 href: operations/airflow/pause-resume.md
               - name: Удалить кластер {{ AF }}

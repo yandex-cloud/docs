@@ -15,6 +15,8 @@ editable: false
 
 {% include [vat](../_includes/vat.md) %}
 
+{% include [payg-model](../_includes/payg-model.md) %}
+
 ## Из чего складывается стоимость использования {{ cloud-logging-name }} {#rules}
 
 В рамках сервиса {{ cloud-logging-name }} тарифицируются объем записываемых данных и время их хранения.

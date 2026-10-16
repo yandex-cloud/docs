@@ -410,7 +410,7 @@
 
         * `network` — сетевые настройки:
           * `subnetIds` — список идентификаторов подсетей.
-          * `securityGroupIds` — список идентификаторов [групп безопасности](../../../vpc/concepts/network.md#security-groups).
+          * `securityGroupIds` — список идентификаторов [групп безопасности](../../../vpc/concepts/security-groups.md).
 
         * `maintenanceWindow` — настройки времени [технического обслуживания](../../concepts/metastore-maintenance.md) (в т. ч. для выключенных кластеров). В `maintenanceWindow` передайте один из двух параметров:
           
@@ -532,7 +532,7 @@
 
         * `network` — сетевые настройки:
             * `subnet_ids` — список идентификаторов подсетей.
-            * `security_group_ids` — список идентификаторов [групп безопасности](../../../vpc/concepts/network.md#security-groups).
+            * `security_group_ids` — список идентификаторов [групп безопасности](../../../vpc/concepts/security-groups.md).
 
         * `maintenance_window` — настройки времени [технического обслуживания](../../concepts/metastore-maintenance.md) (в т. ч. для выключенных кластеров). В `maintenance_window` передайте один из двух параметров:
           

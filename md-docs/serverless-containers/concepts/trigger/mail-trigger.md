@@ -10,7 +10,7 @@
 
 ## Роли, необходимые для корректной работы триггера для почты {#roles}
 
-* Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user), [editor](../../../iam/concepts/access-control/roles.md#editor) и выше.
+* Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/roles-reference.md#iam-serviceAccounts-user), [editor](../../../iam/roles-reference.md#editor) и выше.
 * Для работы триггера сервисному аккаунту необходима роль `serverless.containers.invoker` на контейнер, которую вызывает триггер.
 * Для сохранения вложений в [бакет](../../../storage/concepts/bucket.md) Object Storage сервисному аккаунту необходима роль [storage.uploader](../../../storage/security/index.md#storage-uploader).
 

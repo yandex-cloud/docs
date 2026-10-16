@@ -88,7 +88,7 @@
 
 {% endlist %}
 
-#### Создайте снимки {#create}
+#### Создайте снимки {#create-snapshot-operation}
 
 Чтобы [создать](../disk-control/create-snapshot.md) снимок диска:
 

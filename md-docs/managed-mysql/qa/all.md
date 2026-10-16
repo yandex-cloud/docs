@@ -396,7 +396,7 @@ Managed Service for MySQL® поддерживает MySQL® 5.7 и MySQL® 8.
 
 #### Как подключиться к кластеру? {#how-to-connect}
 
-Посмотрите примеры подключения в [документации](../operations/connect/index.md#connection-string) или на странице кластера в [консоли управления](https://console.yandex.cloud) (нажмите кнопку **Подключиться** на панели сверху).
+Посмотрите примеры подключения в [документации](../operations/connect/code-examples.md#connection-string) или на странице кластера в [консоли управления](https://console.yandex.cloud) (нажмите кнопку **Подключиться** на панели сверху).
 
 Хосты MySQL® с публичным доступом поддерживают только соединения с [SSL-сертификатом](../operations/connect/index.md#get-ssl-cert).
 

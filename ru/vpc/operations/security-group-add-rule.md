@@ -82,7 +82,7 @@ description: Добавлять правила можно через консо�
 
      Вы можете использовать `predefined=self_security_group`, чтобы задействовать правило для машин внутри изменяемой группы безопасности.
 
-     Подробнее о правиле `Self` читайте в [видах правил групп безопасности](../concepts/security-groups.md#rules-types).
+     Подробнее о правиле `Self` читайте в [видах правил групп безопасности](../concepts/security-groups.md#security-groups-rules).
 
      {% endnote %}
 

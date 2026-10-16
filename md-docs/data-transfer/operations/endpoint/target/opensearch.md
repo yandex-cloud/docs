@@ -404,7 +404,7 @@
 
 {% note warning %}
 
-Для создания или редактирования эндпоинта управляемой базы данных вам потребуется [роль `managed-opensearch.viewer`](../../../../managed-opensearch/security/index.md#mos-viewer) или примитивная [роль `viewer`](../../../../iam/roles-reference.md#viewer), выданная на каталог кластера этой управляемой базы данных.
+Для создания или редактирования эндпоинта управляемой базы данных вам потребуется [роль `managed-opensearch.viewer`](../../../../managed-opensearch/security/index.md#managed-opensearch-viewer) или примитивная [роль `viewer`](../../../../iam/roles-reference.md#viewer), выданная на каталог кластера этой управляемой базы данных.
 
 {% endnote %}
 
@@ -541,7 +541,7 @@
 
 ## Решение проблем, возникающих при переносе данных {#troubleshooting}
 
-* [Прерывание трансфера с ошибкой](#ambiguous-resolution-es)
+* [Прерывание трансфера с ошибкой](#ambiguous-resolution-os)
 * [Дублирование документов на приемнике](#duplication)
 * [Превышение лимита максимального количества полей](#exceeding-fields-limit)
 * [Прерывание трансфера с ошибкой mapper_parsing_exception](#data-types)

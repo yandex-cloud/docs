@@ -41,7 +41,7 @@
             
             {% endnote %}
 
-        1. Если вы используете группы безопасности в кластере, убедитесь, что они настроены правильно и допускают подключение к кластеру [Managed Service for OpenSearch](../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
+        1. Если вы используете группы безопасности в кластере, убедитесь, что они настроены правильно и допускают подключение к кластеру [Managed Service for OpenSearch](../../managed-opensearch/operations/connect/index.md#security-groups).
 
     - С помощью Terraform {#tf}
 

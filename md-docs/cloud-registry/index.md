@@ -166,146 +166,6 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [Overview](cli-ref/index.md)
 
-### artifact
-
- - [Overview](cli-ref/artifact/index.md)
-
- - [add-access-binding](cli-ref/artifact/add-access-binding.md)
-
- - [delete](cli-ref/artifact/delete.md)
-
- - [get](cli-ref/artifact/get.md)
-
- - [get-by-path](cli-ref/artifact/get-by-path.md)
-
- - [list](cli-ref/artifact/list.md)
-
- - [list-access-bindings](cli-ref/artifact/list-access-bindings.md)
-
- - [remove-access-binding](cli-ref/artifact/remove-access-binding.md)
-
-#### scanner
-
- - [Overview](cli-ref/artifact/scanner/index.md)
-
- - [get-last-scan-result](cli-ref/artifact/scanner/get-last-scan-result.md)
-
- - [get-scan-result](cli-ref/artifact/scanner/get-scan-result.md)
-
- - [list-scan-results](cli-ref/artifact/scanner/list-scan-results.md)
-
- - [list-vulnerabilities](cli-ref/artifact/scanner/list-vulnerabilities.md)
-
- - [scan](cli-ref/artifact/scanner/scan.md)
-
- - [set-access-bindings](cli-ref/artifact/set-access-bindings.md)
-
- - [update-access-bindings](cli-ref/artifact/update-access-bindings.md)
-
- - [upsert](cli-ref/artifact/upsert.md)
-
- - [configure-docker](cli-ref/configure-docker.md)
-
-### migration
-
- - [Overview](cli-ref/migration/index.md)
-
- - [get-cloud-migration-status-dashboard](cli-ref/migration/get-cloud-migration-status-dashboard.md)
-
- - [get-folder-migration-status-dashboard](cli-ref/migration/get-folder-migration-status-dashboard.md)
-
- - [start-cloud](cli-ref/migration/start-cloud.md)
-
- - [start-folder](cli-ref/migration/start-folder.md)
-
- - [toggle-cloud-redirects](cli-ref/migration/toggle-cloud-redirects.md)
-
- - [toggle-folder-redirects](cli-ref/migration/toggle-folder-redirects.md)
-
- - [toggle-registry-redirects](cli-ref/migration/toggle-registry-redirects.md)
-
-### registry
-
- - [Overview](cli-ref/registry/index.md)
-
- - [add-access-binding](cli-ref/registry/add-access-binding.md)
-
- - [add-ip-permissions](cli-ref/registry/add-ip-permissions.md)
-
- - [create](cli-ref/registry/create.md)
-
- - [delete](cli-ref/registry/delete.md)
-
- - [force-delete](cli-ref/registry/force-delete.md)
-
- - [get](cli-ref/registry/get.md)
-
-#### lifecycle-policy
-
- - [Overview](cli-ref/registry/lifecycle-policy/index.md)
-
- - [change-state](cli-ref/registry/lifecycle-policy/change-state.md)
-
- - [create](cli-ref/registry/lifecycle-policy/create.md)
-
- - [delete](cli-ref/registry/lifecycle-policy/delete.md)
-
- - [dry-run](cli-ref/registry/lifecycle-policy/dry-run.md)
-
- - [get](cli-ref/registry/lifecycle-policy/get.md)
-
- - [get-dry-run-result](cli-ref/registry/lifecycle-policy/get-dry-run-result.md)
-
- - [list](cli-ref/registry/lifecycle-policy/list.md)
-
- - [list-dry-run-artifacts](cli-ref/registry/lifecycle-policy/list-dry-run-artifacts.md)
-
- - [list-dry-run-results](cli-ref/registry/lifecycle-policy/list-dry-run-results.md)
-
- - [update](cli-ref/registry/lifecycle-policy/update.md)
-
- - [list](cli-ref/registry/list.md)
-
- - [list-access-bindings](cli-ref/registry/list-access-bindings.md)
-
- - [list-artifacts](cli-ref/registry/list-artifacts.md)
-
- - [list-ip-permissions](cli-ref/registry/list-ip-permissions.md)
-
- - [remove-access-binding](cli-ref/registry/remove-access-binding.md)
-
- - [remove-ip-permissions](cli-ref/registry/remove-ip-permissions.md)
-
-#### scan-policy
-
- - [Overview](cli-ref/registry/scan-policy/index.md)
-
- - [create](cli-ref/registry/scan-policy/create.md)
-
- - [delete](cli-ref/registry/scan-policy/delete.md)
-
- - [get](cli-ref/registry/scan-policy/get.md)
-
- - [get-by-registry](cli-ref/registry/scan-policy/get-by-registry.md)
-
- - [update](cli-ref/registry/scan-policy/update.md)
-
- - [set-access-bindings](cli-ref/registry/set-access-bindings.md)
-
- - [set-ip-permissions](cli-ref/registry/set-ip-permissions.md)
-
- - [update](cli-ref/registry/update.md)
-
-### tools
-
- - [Overview](cli-ref/tools/index.md)
-
-#### debian
-
- - [Overview](cli-ref/tools/debian/index.md)
-
- - [reindex-packages](cli-ref/tools/debian/reindex-packages.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -567,6 +427,146 @@ Yandex Cloud Registry — сервис для безопасного хране�
  - [Overview](cli-ref/v1/tools/debian/index.md)
 
  - [reindex-packages](cli-ref/v1/tools/debian/reindex-packages.md)
+
+### artifact
+
+ - [Overview](cli-ref/artifact/index.md)
+
+ - [add-access-binding](cli-ref/artifact/add-access-binding.md)
+
+ - [delete](cli-ref/artifact/delete.md)
+
+ - [get](cli-ref/artifact/get.md)
+
+ - [get-by-path](cli-ref/artifact/get-by-path.md)
+
+ - [list](cli-ref/artifact/list.md)
+
+ - [list-access-bindings](cli-ref/artifact/list-access-bindings.md)
+
+ - [remove-access-binding](cli-ref/artifact/remove-access-binding.md)
+
+#### scanner
+
+ - [Overview](cli-ref/artifact/scanner/index.md)
+
+ - [get-last-scan-result](cli-ref/artifact/scanner/get-last-scan-result.md)
+
+ - [get-scan-result](cli-ref/artifact/scanner/get-scan-result.md)
+
+ - [list-scan-results](cli-ref/artifact/scanner/list-scan-results.md)
+
+ - [list-vulnerabilities](cli-ref/artifact/scanner/list-vulnerabilities.md)
+
+ - [scan](cli-ref/artifact/scanner/scan.md)
+
+ - [set-access-bindings](cli-ref/artifact/set-access-bindings.md)
+
+ - [update-access-bindings](cli-ref/artifact/update-access-bindings.md)
+
+ - [upsert](cli-ref/artifact/upsert.md)
+
+ - [configure-docker](cli-ref/configure-docker.md)
+
+### migration
+
+ - [Overview](cli-ref/migration/index.md)
+
+ - [get-cloud-migration-status-dashboard](cli-ref/migration/get-cloud-migration-status-dashboard.md)
+
+ - [get-folder-migration-status-dashboard](cli-ref/migration/get-folder-migration-status-dashboard.md)
+
+ - [start-cloud](cli-ref/migration/start-cloud.md)
+
+ - [start-folder](cli-ref/migration/start-folder.md)
+
+ - [toggle-cloud-redirects](cli-ref/migration/toggle-cloud-redirects.md)
+
+ - [toggle-folder-redirects](cli-ref/migration/toggle-folder-redirects.md)
+
+ - [toggle-registry-redirects](cli-ref/migration/toggle-registry-redirects.md)
+
+### registry
+
+ - [Overview](cli-ref/registry/index.md)
+
+ - [add-access-binding](cli-ref/registry/add-access-binding.md)
+
+ - [add-ip-permissions](cli-ref/registry/add-ip-permissions.md)
+
+ - [create](cli-ref/registry/create.md)
+
+ - [delete](cli-ref/registry/delete.md)
+
+ - [force-delete](cli-ref/registry/force-delete.md)
+
+ - [get](cli-ref/registry/get.md)
+
+#### lifecycle-policy
+
+ - [Overview](cli-ref/registry/lifecycle-policy/index.md)
+
+ - [change-state](cli-ref/registry/lifecycle-policy/change-state.md)
+
+ - [create](cli-ref/registry/lifecycle-policy/create.md)
+
+ - [delete](cli-ref/registry/lifecycle-policy/delete.md)
+
+ - [dry-run](cli-ref/registry/lifecycle-policy/dry-run.md)
+
+ - [get](cli-ref/registry/lifecycle-policy/get.md)
+
+ - [get-dry-run-result](cli-ref/registry/lifecycle-policy/get-dry-run-result.md)
+
+ - [list](cli-ref/registry/lifecycle-policy/list.md)
+
+ - [list-dry-run-artifacts](cli-ref/registry/lifecycle-policy/list-dry-run-artifacts.md)
+
+ - [list-dry-run-results](cli-ref/registry/lifecycle-policy/list-dry-run-results.md)
+
+ - [update](cli-ref/registry/lifecycle-policy/update.md)
+
+ - [list](cli-ref/registry/list.md)
+
+ - [list-access-bindings](cli-ref/registry/list-access-bindings.md)
+
+ - [list-artifacts](cli-ref/registry/list-artifacts.md)
+
+ - [list-ip-permissions](cli-ref/registry/list-ip-permissions.md)
+
+ - [remove-access-binding](cli-ref/registry/remove-access-binding.md)
+
+ - [remove-ip-permissions](cli-ref/registry/remove-ip-permissions.md)
+
+#### scan-policy
+
+ - [Overview](cli-ref/registry/scan-policy/index.md)
+
+ - [create](cli-ref/registry/scan-policy/create.md)
+
+ - [delete](cli-ref/registry/scan-policy/delete.md)
+
+ - [get](cli-ref/registry/scan-policy/get.md)
+
+ - [get-by-registry](cli-ref/registry/scan-policy/get-by-registry.md)
+
+ - [update](cli-ref/registry/scan-policy/update.md)
+
+ - [set-access-bindings](cli-ref/registry/set-access-bindings.md)
+
+ - [set-ip-permissions](cli-ref/registry/set-ip-permissions.md)
+
+ - [update](cli-ref/registry/update.md)
+
+### tools
+
+ - [Overview](cli-ref/tools/index.md)
+
+#### debian
+
+ - [Overview](cli-ref/tools/debian/index.md)
+
+ - [reindex-packages](cli-ref/tools/debian/reindex-packages.md)
 
  - [Справочник Terraform](tf-ref.md)
 

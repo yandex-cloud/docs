@@ -82,7 +82,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 * [Yandex SpeechSense](events.md#speechsense)
 * [Yandex Virtual Private Cloud](events.md#vpc)
 * [Yandex WebSQL](events.md#websql)
-* [Yandex Workflows](events.md#workflows)
+* [Yandex Workflows](events.md#ai-studio)
 
 ## Yandex API Gateway {#api-gateway}
 

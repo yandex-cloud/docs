@@ -18,7 +18,7 @@ Managed Service for ClickHouse® работает только с моделям
 1. [Подключите сервисный аккаунт к кластеру](s3-access.md#connect-service-account). С помощью [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) вы настроите доступ к файлу модели.
 1. [Назначьте роль](s3-access.md#configure-acl) `storage.viewer` сервисному аккаунту.
 1. В ACL бакета [добавьте разрешение](../../storage/operations/buckets/edit-acl.md) `READ` сервисному аккаунту.
-1. [Получите ссылку](s3-access.md#get-link-to-object) на файл модели.
+1. [Получите ссылку](../../storage/operations/objects/link-for-download.md) на файл модели.
 
 
 ## Получить список моделей в кластере {#list}
@@ -432,7 +432,7 @@ Managed Service for ClickHouse® не отслеживает изменения 
 
 
 1. [Загрузите файл](../../storage/operations/objects/upload.md) с актуальной моделью в Yandex Object Storage.
-1. [Получите ссылку](s3-access.md#get-link-to-object) на этот файл.
+1. [Получите ссылку](../../storage/operations/objects/link-for-download.md) на этот файл.
 1. Измените параметры модели, подключенной к Managed Service for ClickHouse®, передав новую ссылку на файл с моделью.
 
 

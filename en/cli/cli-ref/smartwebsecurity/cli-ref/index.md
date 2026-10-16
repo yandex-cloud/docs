@@ -25,6 +25,10 @@ Aliases:
 
 #### Command Tree
 
+- [yc smartwebsecurity v0](v0/index.md) — (legacy command tree) Manage SmartWebSecurity resources
+
+
+
 - [yc smartwebsecurity advanced-rate-limiter](advanced-rate-limiter/index.md) — Manage Advanced Rate Limiter profiles
 
 
@@ -52,10 +56,6 @@ Aliases:
   - [yc smartwebsecurity security-profile list](security-profile/list.md) — Retrieves the list of SecurityProfile resources in the specified folder.
 
   - [yc smartwebsecurity security-profile update](security-profile/update.md) — Updates the specified security profile.
-
-- [yc smartwebsecurity v0](v0/index.md) — (legacy command tree) Manage SmartWebSecurity resources
-
-
 
 - [yc smartwebsecurity waf](waf/index.md) — Manage WAF profiles and rule set descriptors
 

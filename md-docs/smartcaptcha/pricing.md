@@ -57,6 +57,8 @@ blocks:
 
 Все цены в рублях и тенге указаны с НДС, все цены в долларах — без НДС.
 
+При расчете стоимости использования сервиса применяется модель [Pay as you go](../billing/concepts/payg.md) (PAYG) — оплата за фактическое потребление ресурсов.
+
 ## Из чего складывается стоимость использования Yandex SmartCaptcha {#rules}
 
 Тарифицируются [запросы к API SmartCaptcha](quickstart.md#check-answer) по адресу `https://smartcaptcha.cloud.yandex.ru/validate`. Тарифицируются только [корректные запросы](concepts/validation.md#service-response), на которые API вернул статус `ok`. Для этого запросы должны удовлетворять следующим условиям:

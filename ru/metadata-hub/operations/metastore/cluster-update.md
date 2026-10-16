@@ -149,7 +149,7 @@ description: Следуя данной инструкции, вы сможете
         {% include [REST cluster parameters description](../../../_includes/metadata-hub/metastore-cluster-parameters-rest.md) %}
 
         * `networkSpec` — сетевые настройки:
-          * `securityGroupIds` — список идентификаторов [групп безопасности](../../../vpc/concepts/network.md#security-groups).
+          * `securityGroupIds` — список идентификаторов [групп безопасности](../../../vpc/concepts/security-groups.md).
 
         * {% include [metastore-maintenance-window-rest](../../../_includes/metadata-hub/metastore-maintenance-window-rest.md) %}
 
@@ -244,7 +244,7 @@ description: Следуя данной инструкции, вы сможете
           {% include [gRPC cluster parameters description](../../../_includes/metadata-hub/metastore-cluster-parameters-grpc.md) %}
 
           * `network_spec` — сетевые настройки:
-            * `security_group_ids` — список идентификаторов [групп безопасности](../../../vpc/concepts/network.md#security-groups).
+            * `security_group_ids` — список идентификаторов [групп безопасности](../../../vpc/concepts/security-groups.md).
 
           * {% include [metastore-maintenance-window-grpc](../../../_includes/metadata-hub/metastore-maintenance-window-grpc.md) %}
 

@@ -1,6 +1,6 @@
 #### Как подключиться к кластеру? {#how-to-connect}
 
-Посмотрите примеры подключения в [документации](../../managed-mysql/operations/connect/index.md#connection-string) или на странице кластера в [консоли управления]({{ link-console-main }}) (нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}** на панели сверху).
+Посмотрите примеры подключения в [документации](../../managed-mysql/operations/connect/code-examples.md#connection-string) или на странице кластера в [консоли управления]({{ link-console-main }}) (нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}** на панели сверху).
 
 Хосты {{ MY }} с публичным доступом поддерживают только соединения с [SSL-сертификатом](../../managed-mysql/operations/connect/index.md#get-ssl-cert).
 

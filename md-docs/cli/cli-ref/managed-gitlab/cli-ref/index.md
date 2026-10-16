@@ -18,6 +18,10 @@ Aliases:
 
 #### Command Tree
 
+- [yc managed-gitlab v0](v0/index.md) — Manage Gitlab resources.
+
+
+
 - [yc managed-gitlab instance](instance/index.md) — Manage Gitlab instances.
 
   - [yc managed-gitlab instance create](instance/create.md) — Create Gitlab instance
@@ -33,10 +37,6 @@ Aliases:
   - [yc managed-gitlab instance stop](instance/stop.md) — Stop the specified Gitlab instance
 
   - [yc managed-gitlab instance update](instance/update.md) — Update the specified Gitlab instance
-
-- [yc managed-gitlab v0](v0/index.md) — Manage Gitlab resources.
-
-
 
 #### Global Flags
 

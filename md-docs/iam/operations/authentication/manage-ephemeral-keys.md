@@ -2,7 +2,7 @@
 
 # Управление эфемерными ключами доступа
 
-[Часть сервисов](../../concepts/authorization/ephemeral-keys.md#supported-services) Yandex Cloud поддерживает аутентификацию с помощью [эфемерных ключей доступа](../../concepts/authorization/ephemeral-keys.md).
+[Часть сервисов](../../concepts/authorization/ephemeral-keys.md) Yandex Cloud поддерживает аутентификацию с помощью [эфемерных ключей доступа](../../concepts/authorization/ephemeral-keys.md).
 
 Эфемерные ключи доступа создаются для [аккаунтов на Яндексе](../../concepts/users/accounts.md#passport), [федеративных аккаунтов](../../concepts/users/accounts.md#saml-federation), [локальных пользователей](../../concepts/users/accounts.md#local) и [сервисных аккаунтов](../../concepts/users/service-accounts.md).
 

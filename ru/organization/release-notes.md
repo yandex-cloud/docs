@@ -25,7 +25,7 @@ description: В разделе представлена история изме�
 * Для [SAML-приложений](concepts/applications/saml.md#saml-attributes) добавлена возможность трансформировать значения атрибутов перед отправкой SAML-ответа.
 * В [настройки брендирования](concepts/branding.md#login-options) добавлены новые параметры: текст приветствия и подсказки, скрытие поля ввода логина и автоматическое перенаправление через федерацию.
 * В [парольных политиках](operations/user-pools/set-password-policy.md) добавлена настройка истории паролей, которая запрещает пользователю повторно использовать  пароли за период.
-* Добавлена [обратная запись паролей](concepts/ad-sync/index.md#password-writeback) пользователей в {{ microsoft-idp.ad-short }} при синхронизации с {{ org-full-name }}.
+* Добавлена [обратная запись паролей](concepts/sync-external/ad-sync.md#password-writeback) пользователей в {{ microsoft-idp.ad-short }} при синхронизации с {{ org-full-name }}.
 
 ## Июнь 2026 {#june-2026}
 
@@ -86,7 +86,7 @@ description: В разделе представлена история изме�
 * Добавлено [управление](operations/applications/saml-create.md) SAML-приложениями.
 * Добавлено [управление](operations/user-pools/manage-domain.md) доменами.
 * Добавлена возможность [деактивации](operations/user-pools/deactivate-user.md) федеративных пользователей.
-* Добавлена функциональность [синхронизации пользователей и групп с {{ microsoft-idp.ad-short }}](operations/sync-ad.md).
+* Добавлена функциональность [синхронизации пользователей и групп с {{ microsoft-idp.ad-short }}](operations/sync-external/sync-ad.md).
 
 
 ## Октябрь 2025 {#october-2025}

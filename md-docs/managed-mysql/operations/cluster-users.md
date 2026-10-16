@@ -6,7 +6,7 @@
 
 {% note warning %}
 
-Чтобы изменить права пользователей на уровне [всего кластера](../concepts/settings-list.md#setting-administrative-priveleges) или [отдельной базы данных](grant.md#grant-privilege), используйте интерфейсы Yandex Cloud. Изменения, внесенные командами SQL, не сохраняются.
+Чтобы изменить права пользователей на уровне [всего кластера](../concepts/settings-list.md#setting-administrative-privileges) или [отдельной базы данных](grant.md#grant-privilege), используйте интерфейсы Yandex Cloud. Изменения, внесенные командами SQL, не сохраняются.
 
 Подробнее в разделе [Права пользователей в Managed Service for MySQL®](../concepts/user-rights.md).
 

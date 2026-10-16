@@ -20,7 +20,7 @@
 ## Настройка эндпоинта-источника Managed Service for YTsaurus {#endpoint-settings}
 
 
-При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта задайте настройки доступа к [кластеру Managed Service for YTsaurus](#cluster):
+При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта задайте настройки доступа к [кластеру Managed Service for YTsaurus](#endpoint-settings):
 
 
 {% list tabs group=instructions %}

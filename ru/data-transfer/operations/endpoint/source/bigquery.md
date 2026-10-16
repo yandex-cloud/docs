@@ -21,7 +21,7 @@
 
 {% include [prepare bigquery db](../../../../_includes/data-transfer/endpoints/sources/bigquery-prepare.md) %}
 
-## Настройка эндпоинта-источника BigQuery {#settings}
+## Настройка эндпоинта-источника BigQuery {#endpoint-settings}
 
 {% list tabs group=instructions %}
 

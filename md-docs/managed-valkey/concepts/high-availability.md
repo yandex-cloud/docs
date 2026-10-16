@@ -32,7 +32,7 @@
 
 На доступность кластера влияют способ и настройки подключения:
 * Используйте для подключения только [рекомендованные клиенты](supported-clients.md).
-* [Настройте группы безопасности](../operations/connect/index.md#configuring-security-groups).
+* [Настройте группы безопасности](../operations/connect/index.md#configure-security-groups).
 * Задайте значения настроек Valkey™ [Timeout](settings-list.md#settings-timeout), [Maxmemory policy](settings-list.md#settings-maxmemory-policy), [Maxmemory percent](settings-list.md#settings-maxmemory-percent), [Client output buffer limit normal](settings-list.md#settings-limit-normal) и [Client output buffer limit pubsub](settings-list.md#settings-limit-pubsub) таким образом, чтобы в штатных режимах работы не наблюдались отказы операций записи и массовые разрывы соединений.
 
 ## Настройки хранилища {#storage-settings}

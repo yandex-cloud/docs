@@ -70,7 +70,7 @@ Managed Service for Apache Kafka® имеет встроенную поддер�
 
         
     1. В той же сети, что и кластер Managed Service for Apache Kafka®, [создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с [Ubuntu 20.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts) и публичным IP-адресом.
-    1. Если вы используете группы безопасности, [настройте их](../operations/connect/index.md#configure-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером Managed Service for Apache Kafka® и виртуальной машиной.
+    1. Если вы используете группы безопасности, [настройте их](../operations/connect/index.md#configuring-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером Managed Service for Apache Kafka® и виртуальной машиной.
 
 
 - Terraform {#tf}

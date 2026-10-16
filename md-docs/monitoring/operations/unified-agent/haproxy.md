@@ -4,7 +4,7 @@
 
 Yandex Unified Agent поддерживает сбор метрик в формате Prometheus и конвертацию метрик в формат Yandex Monitoring. При помощи Unified Agent вы сможете собирать метрики любых приложений, которые предоставляют метрики в формате Prometheus.
 
-Для поставки в Yandex Monitoring метрик сторонних приложений используется [вход metrics_pull](../../concepts/data-collection/unified-agent/configuration.md#metrics_pull_input), который периодически опрашивает напрямую стороннее приложение (если оно поддерживает метрики в формате Prometheus) или специальное приложение-экспортер, реализующее интеграцию с Prometheus.
+Для поставки в Yandex Monitoring метрик сторонних приложений используется [вход metrics_pull](../../concepts/data-collection/unified-agent/inputs.md#metrics_pull_input), который периодически опрашивает напрямую стороннее приложение (если оно поддерживает метрики в формате Prometheus) или специальное приложение-экспортер, реализующее интеграцию с Prometheus.
 
 Для примера рассмотрим поставку в Yandex Monitoring метрик [HAProxy](https://www.haproxy.org).
 

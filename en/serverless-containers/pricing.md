@@ -6,15 +6,6 @@ editable: false
 
 # {{ serverless-containers-name }} pricing policy
 
-::: page-constructor
-blocks:
-  - type: card-layout-block
-    animated: false
-    colSizes:
-      all: 12
-      sm: 4
-    children: []
-:::
 
 
 

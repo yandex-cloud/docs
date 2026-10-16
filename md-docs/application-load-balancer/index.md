@@ -342,132 +342,6 @@ Yandex Application Load Balancer служит для распределения 
 
  - [Overview](cli-ref/index.md)
 
-### backend-group
-
- - [Overview](cli-ref/backend-group/index.md)
-
- - [add-grpc-backend](cli-ref/backend-group/add-grpc-backend.md)
-
- - [add-http-backend](cli-ref/backend-group/add-http-backend.md)
-
- - [add-stream-backend](cli-ref/backend-group/add-stream-backend.md)
-
- - [create](cli-ref/backend-group/create.md)
-
- - [delete](cli-ref/backend-group/delete.md)
-
- - [delete-grpc-backend](cli-ref/backend-group/delete-grpc-backend.md)
-
- - [delete-http-backend](cli-ref/backend-group/delete-http-backend.md)
-
- - [delete-stream-backend](cli-ref/backend-group/delete-stream-backend.md)
-
- - [get](cli-ref/backend-group/get.md)
-
- - [list](cli-ref/backend-group/list.md)
-
- - [update](cli-ref/backend-group/update.md)
-
- - [update-grpc-backend](cli-ref/backend-group/update-grpc-backend.md)
-
- - [update-http-backend](cli-ref/backend-group/update-http-backend.md)
-
- - [update-stream-backend](cli-ref/backend-group/update-stream-backend.md)
-
-### http-router
-
- - [Overview](cli-ref/http-router/index.md)
-
- - [create](cli-ref/http-router/create.md)
-
- - [delete](cli-ref/http-router/delete.md)
-
- - [get](cli-ref/http-router/get.md)
-
- - [list](cli-ref/http-router/list.md)
-
- - [update](cli-ref/http-router/update.md)
-
-### load-balancer
-
- - [Overview](cli-ref/load-balancer/index.md)
-
- - [add-listener](cli-ref/load-balancer/add-listener.md)
-
- - [add-location](cli-ref/load-balancer/add-location.md)
-
- - [add-sni](cli-ref/load-balancer/add-sni.md)
-
- - [add-stream-listener](cli-ref/load-balancer/add-stream-listener.md)
-
- - [add-stream-sni](cli-ref/load-balancer/add-stream-sni.md)
-
- - [autoscale](cli-ref/load-balancer/autoscale.md)
-
- - [cancel-zonal-shift](cli-ref/load-balancer/cancel-zonal-shift.md)
-
- - [create](cli-ref/load-balancer/create.md)
-
- - [delete](cli-ref/load-balancer/delete.md)
-
- - [disable-traffic](cli-ref/load-balancer/disable-traffic.md)
-
- - [disable-zones](cli-ref/load-balancer/disable-zones.md)
-
- - [enable-traffic](cli-ref/load-balancer/enable-traffic.md)
-
- - [enable-zones](cli-ref/load-balancer/enable-zones.md)
-
- - [get](cli-ref/load-balancer/get.md)
-
- - [list](cli-ref/load-balancer/list.md)
-
- - [list-operations](cli-ref/load-balancer/list-operations.md)
-
- - [logging](cli-ref/load-balancer/logging.md)
-
- - [remove-listener](cli-ref/load-balancer/remove-listener.md)
-
- - [remove-location](cli-ref/load-balancer/remove-location.md)
-
- - [remove-sni](cli-ref/load-balancer/remove-sni.md)
-
- - [start](cli-ref/load-balancer/start.md)
-
- - [start-zonal-shift](cli-ref/load-balancer/start-zonal-shift.md)
-
- - [stop](cli-ref/load-balancer/stop.md)
-
- - [target-states](cli-ref/load-balancer/target-states.md)
-
- - [update](cli-ref/load-balancer/update.md)
-
- - [update-listener](cli-ref/load-balancer/update-listener.md)
-
- - [update-sni](cli-ref/load-balancer/update-sni.md)
-
- - [update-stream-listener](cli-ref/load-balancer/update-stream-listener.md)
-
- - [update-stream-sni](cli-ref/load-balancer/update-stream-sni.md)
-
-### target-group
-
- - [Overview](cli-ref/target-group/index.md)
-
- - [add-targets](cli-ref/target-group/add-targets.md)
-
- - [create](cli-ref/target-group/create.md)
-
- - [delete](cli-ref/target-group/delete.md)
-
- - [get](cli-ref/target-group/get.md)
-
- - [list](cli-ref/target-group/list.md)
-
- - [remove-targets](cli-ref/target-group/remove-targets.md)
-
- - [update](cli-ref/target-group/update.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -631,6 +505,132 @@ Yandex Application Load Balancer служит для распределения 
  - [update-grpc-route](cli-ref/v0/virtual-host/update-grpc-route.md)
 
  - [update-http-route](cli-ref/v0/virtual-host/update-http-route.md)
+
+### backend-group
+
+ - [Overview](cli-ref/backend-group/index.md)
+
+ - [add-grpc-backend](cli-ref/backend-group/add-grpc-backend.md)
+
+ - [add-http-backend](cli-ref/backend-group/add-http-backend.md)
+
+ - [add-stream-backend](cli-ref/backend-group/add-stream-backend.md)
+
+ - [create](cli-ref/backend-group/create.md)
+
+ - [delete](cli-ref/backend-group/delete.md)
+
+ - [delete-grpc-backend](cli-ref/backend-group/delete-grpc-backend.md)
+
+ - [delete-http-backend](cli-ref/backend-group/delete-http-backend.md)
+
+ - [delete-stream-backend](cli-ref/backend-group/delete-stream-backend.md)
+
+ - [get](cli-ref/backend-group/get.md)
+
+ - [list](cli-ref/backend-group/list.md)
+
+ - [update](cli-ref/backend-group/update.md)
+
+ - [update-grpc-backend](cli-ref/backend-group/update-grpc-backend.md)
+
+ - [update-http-backend](cli-ref/backend-group/update-http-backend.md)
+
+ - [update-stream-backend](cli-ref/backend-group/update-stream-backend.md)
+
+### http-router
+
+ - [Overview](cli-ref/http-router/index.md)
+
+ - [create](cli-ref/http-router/create.md)
+
+ - [delete](cli-ref/http-router/delete.md)
+
+ - [get](cli-ref/http-router/get.md)
+
+ - [list](cli-ref/http-router/list.md)
+
+ - [update](cli-ref/http-router/update.md)
+
+### load-balancer
+
+ - [Overview](cli-ref/load-balancer/index.md)
+
+ - [add-listener](cli-ref/load-balancer/add-listener.md)
+
+ - [add-location](cli-ref/load-balancer/add-location.md)
+
+ - [add-sni](cli-ref/load-balancer/add-sni.md)
+
+ - [add-stream-listener](cli-ref/load-balancer/add-stream-listener.md)
+
+ - [add-stream-sni](cli-ref/load-balancer/add-stream-sni.md)
+
+ - [autoscale](cli-ref/load-balancer/autoscale.md)
+
+ - [cancel-zonal-shift](cli-ref/load-balancer/cancel-zonal-shift.md)
+
+ - [create](cli-ref/load-balancer/create.md)
+
+ - [delete](cli-ref/load-balancer/delete.md)
+
+ - [disable-traffic](cli-ref/load-balancer/disable-traffic.md)
+
+ - [disable-zones](cli-ref/load-balancer/disable-zones.md)
+
+ - [enable-traffic](cli-ref/load-balancer/enable-traffic.md)
+
+ - [enable-zones](cli-ref/load-balancer/enable-zones.md)
+
+ - [get](cli-ref/load-balancer/get.md)
+
+ - [list](cli-ref/load-balancer/list.md)
+
+ - [list-operations](cli-ref/load-balancer/list-operations.md)
+
+ - [logging](cli-ref/load-balancer/logging.md)
+
+ - [remove-listener](cli-ref/load-balancer/remove-listener.md)
+
+ - [remove-location](cli-ref/load-balancer/remove-location.md)
+
+ - [remove-sni](cli-ref/load-balancer/remove-sni.md)
+
+ - [start](cli-ref/load-balancer/start.md)
+
+ - [start-zonal-shift](cli-ref/load-balancer/start-zonal-shift.md)
+
+ - [stop](cli-ref/load-balancer/stop.md)
+
+ - [target-states](cli-ref/load-balancer/target-states.md)
+
+ - [update](cli-ref/load-balancer/update.md)
+
+ - [update-listener](cli-ref/load-balancer/update-listener.md)
+
+ - [update-sni](cli-ref/load-balancer/update-sni.md)
+
+ - [update-stream-listener](cli-ref/load-balancer/update-stream-listener.md)
+
+ - [update-stream-sni](cli-ref/load-balancer/update-stream-sni.md)
+
+### target-group
+
+ - [Overview](cli-ref/target-group/index.md)
+
+ - [add-targets](cli-ref/target-group/add-targets.md)
+
+ - [create](cli-ref/target-group/create.md)
+
+ - [delete](cli-ref/target-group/delete.md)
+
+ - [get](cli-ref/target-group/get.md)
+
+ - [list](cli-ref/target-group/list.md)
+
+ - [remove-targets](cli-ref/target-group/remove-targets.md)
+
+ - [update](cli-ref/target-group/update.md)
 
 ### virtual-host
 

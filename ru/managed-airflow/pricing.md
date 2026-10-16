@@ -50,6 +50,8 @@ blocks:
 
 {% include [vat](../_includes/vat.md) %}
 
+{% include [payg-model](../_includes/payg-model.md) %}
+
 ## Из чего складывается стоимость использования {{ maf-name }} {#rules}
 
 При работе с {{ maf-name }} вы оплачиваете:

@@ -3,11 +3,7 @@ title: How to get started with browser push notifications in {{ cns-full-name }}
 description: With {{ cns-name }}, you can send push notifications to users' browsers.
 ---
 
-
 # How to get started with browser push notifications in {{ cns-full-name }}
-
-
-{% include [ask-for-turning-on](../_includes/notifications/ask-for-turning-on.md) %}
 
 {% include [about-service](../_includes/notifications/about-service.md) %}
 

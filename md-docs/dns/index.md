@@ -128,70 +128,6 @@ Yandex Cloud DNS служит для управления зонами DNS (Doma
 
  - [Overview](cli-ref/index.md)
 
-### bind-file
-
- - [Overview](cli-ref/bind-file/index.md)
-
- - [migrate-to-terraform](cli-ref/bind-file/migrate-to-terraform.md)
-
-### firewall
-
- - [Overview](cli-ref/firewall/index.md)
-
- - [add-access-binding](cli-ref/firewall/add-access-binding.md)
-
- - [add-labels](cli-ref/firewall/add-labels.md)
-
- - [create](cli-ref/firewall/create.md)
-
- - [delete](cli-ref/firewall/delete.md)
-
- - [get](cli-ref/firewall/get.md)
-
- - [list](cli-ref/firewall/list.md)
-
- - [list-access-bindings](cli-ref/firewall/list-access-bindings.md)
-
- - [list-operations](cli-ref/firewall/list-operations.md)
-
- - [move](cli-ref/firewall/move.md)
-
- - [remove-access-binding](cli-ref/firewall/remove-access-binding.md)
-
- - [remove-labels](cli-ref/firewall/remove-labels.md)
-
- - [set-access-bindings](cli-ref/firewall/set-access-bindings.md)
-
- - [update](cli-ref/firewall/update.md)
-
-### inbound-endpoint
-
- - [Overview](cli-ref/inbound-endpoint/index.md)
-
- - [add-access-binding](cli-ref/inbound-endpoint/add-access-binding.md)
-
- - [add-labels](cli-ref/inbound-endpoint/add-labels.md)
-
- - [create](cli-ref/inbound-endpoint/create.md)
-
- - [delete](cli-ref/inbound-endpoint/delete.md)
-
- - [get](cli-ref/inbound-endpoint/get.md)
-
- - [list](cli-ref/inbound-endpoint/list.md)
-
- - [list-access-bindings](cli-ref/inbound-endpoint/list-access-bindings.md)
-
- - [list-operations](cli-ref/inbound-endpoint/list-operations.md)
-
- - [remove-access-binding](cli-ref/inbound-endpoint/remove-access-binding.md)
-
- - [remove-labels](cli-ref/inbound-endpoint/remove-labels.md)
-
- - [set-access-bindings](cli-ref/inbound-endpoint/set-access-bindings.md)
-
- - [update](cli-ref/inbound-endpoint/update.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -299,6 +235,70 @@ Yandex Cloud DNS служит для управления зонами DNS (Doma
  - [update](cli-ref/v0/zone/update.md)
 
  - [update-private-networks](cli-ref/v0/zone/update-private-networks.md)
+
+### bind-file
+
+ - [Overview](cli-ref/bind-file/index.md)
+
+ - [migrate-to-terraform](cli-ref/bind-file/migrate-to-terraform.md)
+
+### firewall
+
+ - [Overview](cli-ref/firewall/index.md)
+
+ - [add-access-binding](cli-ref/firewall/add-access-binding.md)
+
+ - [add-labels](cli-ref/firewall/add-labels.md)
+
+ - [create](cli-ref/firewall/create.md)
+
+ - [delete](cli-ref/firewall/delete.md)
+
+ - [get](cli-ref/firewall/get.md)
+
+ - [list](cli-ref/firewall/list.md)
+
+ - [list-access-bindings](cli-ref/firewall/list-access-bindings.md)
+
+ - [list-operations](cli-ref/firewall/list-operations.md)
+
+ - [move](cli-ref/firewall/move.md)
+
+ - [remove-access-binding](cli-ref/firewall/remove-access-binding.md)
+
+ - [remove-labels](cli-ref/firewall/remove-labels.md)
+
+ - [set-access-bindings](cli-ref/firewall/set-access-bindings.md)
+
+ - [update](cli-ref/firewall/update.md)
+
+### inbound-endpoint
+
+ - [Overview](cli-ref/inbound-endpoint/index.md)
+
+ - [add-access-binding](cli-ref/inbound-endpoint/add-access-binding.md)
+
+ - [add-labels](cli-ref/inbound-endpoint/add-labels.md)
+
+ - [create](cli-ref/inbound-endpoint/create.md)
+
+ - [delete](cli-ref/inbound-endpoint/delete.md)
+
+ - [get](cli-ref/inbound-endpoint/get.md)
+
+ - [list](cli-ref/inbound-endpoint/list.md)
+
+ - [list-access-bindings](cli-ref/inbound-endpoint/list-access-bindings.md)
+
+ - [list-operations](cli-ref/inbound-endpoint/list-operations.md)
+
+ - [remove-access-binding](cli-ref/inbound-endpoint/remove-access-binding.md)
+
+ - [remove-labels](cli-ref/inbound-endpoint/remove-labels.md)
+
+ - [set-access-bindings](cli-ref/inbound-endpoint/set-access-bindings.md)
+
+ - [update](cli-ref/inbound-endpoint/update.md)
 
 ### zone
 

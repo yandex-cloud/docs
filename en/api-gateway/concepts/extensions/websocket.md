@@ -5,7 +5,11 @@ description: To connect to an API gateway via WebSocket, client applications nee
 
 # WebSocket protocol support
 
-{% include [note-preview-pricing.md](../../../_includes/mdb/mgp/cloud-storage-preview.md) %}
+{% note info %}
+
+This feature is at the [Preview](../../../overview/concepts/launch-stages.md) stage and free of charge.
+
+{% endnote %}
 
 To connect to an API gateway via WebSocket, client applications need to send a [GET request](https://www.rfc-editor.org/rfc/rfc6455#section-1.3) to the URI for which integrations are set up in the OpenAPI specification. Integrations are invoked when the following operations are performed:
 * `x-yc-apigateway-websocket-connect`: Opening a connection.

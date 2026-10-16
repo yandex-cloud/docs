@@ -8,7 +8,7 @@
 
 {% endnote %}
 
-Чтобы создать [мультидатасетный чарт](../../concepts/chart/index.md#multi-dataset-charts):
+Чтобы создать [мультидатасетный чарт](../../concepts/chart/multidataset-chart.md):
 
 
 {% note warning %}

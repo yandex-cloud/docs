@@ -45,6 +45,10 @@ Yandex Security Deck — это комплексный сервис CNAPP, мо�
 
 #### Полезные ссылки {#see-also}
 
+* [Yandex Security: запускаем направление для защиты любой инфраструктуры](https://yandex.cloud/ru/blog/yandex-security-scale-2026)
+* [Запустили AI-SPM: инструмент для комплексной защиты ИИ-систем компаний](https://yandex.cloud/ru/blog/security-deck-ai-spm)
+* [Как автоматизировать безопасность облака: от комплаенса до Kubernetes®](https://yandex.cloud/ru/blog/security-deck-cloud-security-automation)
+* [Как выстроить процесс управления уязвимостями в Yandex Security Deck](https://yandex.cloud/ru/blog/vulnerability-management-process)
 * [Yandex Security Deck: как собрать все воедино в облачной безопасности](https://yandex.cloud/ru/blog/security-deck-guide)
 * [Защита облаков в России: основные тенденции и тренды киберугроз в 2025 году](https://yandex.cloud/ru/blog/posts/2025/04/cloud-protection)
 * [Как защитить конфиденциальные данные в облаке с помощью Yandex Security Deck](https://yandex.cloud/ru/blog/how-to-yandex-security-deck)

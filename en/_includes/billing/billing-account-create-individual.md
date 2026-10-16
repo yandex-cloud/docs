@@ -21,11 +21,6 @@ To create a billing account:
 
       * Link your credit or debit card. If the user account already has credit/debit cards linked to it, you can select one of them without adding a new one.
 
-        After successfully adding your card, you will receive an [initial grant](../../billing/concepts/bonus-account.md) provided you are a first-time user of {{ yandex-cloud }}.
-
-        {% include [bonus-account](bonus-account.md) %}
-
-        {% include [no-card](create-ba-without-card.md) %}
 
         {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
                 

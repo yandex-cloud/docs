@@ -11,7 +11,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-Чтобы создать [мультидатасетный чарт](../../concepts/chart/index.md#multi-dataset-charts):
+Чтобы создать [мультидатасетный чарт](../../concepts/chart/multidataset-chart.md):
 
 
 {% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}

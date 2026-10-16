@@ -17,7 +17,7 @@ The trial period terms of termination differ for individual and business account
 
  - Individual account
   
-   The trial period ends automatically when you use up the entire grant or one of its [parts](../../../getting-started/usage-grant.md), or when the grant expires.
+   The trial period ends automatically when you use up the entire grant or one of its parts, or when the grant expires.
 
  - Business account
   
@@ -26,7 +26,7 @@ The trial period terms of termination differ for individual and business account
    Payment method | Terms of termination
    ----- | -----  
    Wire transfer | The grant was used up or expired.
-   Credit or debit card  | The grant or one of its [parts](../../../getting-started/usage-grant.md) was used up, or the grant expired.
+   Credit or debit card  | The grant or one of its parts was used up, or the grant expired.
    
 {% endlist %}
 

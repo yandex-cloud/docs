@@ -29,4 +29,4 @@ https://registry.yandexcloud.net/binaries/cn15fqbr806r********/sample-package/3.
 
 #### Полезные ссылки {#see-also}
 
-[Поддерживаемые типы артефактов](index.md#artifacts)
+[Поддерживаемые типы артефактов](index.md)

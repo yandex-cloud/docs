@@ -17,3 +17,4 @@
 #### См. также {#see-also}
 
 * [Интеграции с другими сервисами Yandex Cloud](integrations.md)
+* [Помогаем бизнесу быстрее запускать новые сервисы: представляем Yandex BareMetal Extend](https://yandex.cloud/ru/blog/yandex-baremetal-extend)

@@ -5,9 +5,8 @@ description: In this tutorial, you will learn how to create a billing account fo
 
 # Creating a billing account
 
-A billing account is required even if your plan is to use only free services. When creating your first billing account linked to your user account, you will get your [initial grant](../usage-grant.md).
+A billing account is required even if your plan is to use only free services. 
 
-![quickstart](../../_assets/overview/individuals-paid-version.svg)
 
 ## Create a billing account {#create-billing-account}
 

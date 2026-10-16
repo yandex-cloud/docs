@@ -195,7 +195,7 @@
       example.com. A <IP-адрес_ВМ>
       ```
 
-  1. Создайте [CNAME](../../../dns/concepts/resource-record.md#CNAME) с именем `www` и значением `example.com`.    
+  1. Создайте [CNAME](../../../dns/concepts/resource-record.md#cname) с именем `www` и значением `example.com`.
 
       Если вы пользуетесь [Yandex Cloud DNS](../../../dns/index.md), настройте запись по следующей инструкции:
 

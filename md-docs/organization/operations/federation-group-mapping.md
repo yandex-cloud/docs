@@ -4,8 +4,8 @@
 
 Чтобы настроить права доступа пользователей к ресурсам Yandex Cloud с помощью [сопоставления групп](../concepts/add-federation.md#group-mapping):
 
-1. [Создайте группы пользователей](#create-group) в Yandex Identity Hub.
-1. [Настройте права доступа](#access) этих групп к ресурсам Yandex Cloud.
+1. [Создайте группы пользователей](create-group.md) в Yandex Identity Hub.
+1. [Настройте права доступа](access-manage-group.md) этих групп к ресурсам Yandex Cloud.
 1. Создайте группы пользователей в вашем [поставщике удостоверений](../concepts/add-federation.md#federation-usage) и добавьте в них пользователей.
 
     {% note info %}

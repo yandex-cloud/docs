@@ -32,4 +32,4 @@ https://{{ cloud-registry }}/binaries/cn15fqbr806r********/sample-package/3.5.4/
 
 #### Полезные ссылки {#see-also}
 
-[Поддерживаемые типы артефактов](./index.md#artifacts)
+[Поддерживаемые типы артефактов](./index.md)

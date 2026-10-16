@@ -29,7 +29,7 @@ NYC Taxi and Limousine Commission (TLC):
 ## Подготовьтесь к работе {#before-you-begin}
 
 1. Войдите в [консоль управления](https://console.yandex.cloud) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
+1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md).
 1. Если у вас еще нет каталога, [создайте его](../../resource-manager/operations/folder/create.md).
 1. Подключение к потоку данных будет выполняться от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md). [Создайте](../../iam/operations/sa/create.md#create-sa) сервисный аккаунт с именем `datastream-connection-account` и ролью `ydb.editor`.
 1. Потоки данных используют Yandex Managed Service for YDB. [Создайте](../../ydb/quickstart.md#serverless) бессерверную базу данных.
@@ -99,5 +99,5 @@ NYC Taxi and Limousine Commission (TLC):
 
 * [Оператор HOP. Параметры окон в потоковой обработке данных](../concepts/stream-processing-windows.md)
 * [Агрегатные функции. Синтаксис YQL](https://ydb.tech/docs/ru//yql/reference/builtins/aggregation)
-* [Формат SQL-выражения](../sources-and-sinks/data-streams-binding.md#model-dannyh)
+* [Формат SQL-выражения](../sources-and-sinks/data-streams-binding.md#data-model)
 * [Потоковый анализ данных](../concepts/stream-processing.md)

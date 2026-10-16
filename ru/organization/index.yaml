@@ -72,7 +72,7 @@ blocks:
         title: "Синхронизация с Active\_Directory"
         text: "Синхронизация пользователей и групп с Microsoft\_Active\_Directory"
         urlTitle: "Синхронизация пользователей и групп с Microsoft\_Active\_Directory"
-        url: concepts/ad-sync
+        url: concepts/sync-external
         centered: true
         animated: false
         size: s

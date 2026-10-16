@@ -17,7 +17,7 @@
 
 {% note info %}
 
-Значение настройки [Max server memory usage](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#max_server_memory_usage) нельзя изменять напрямую. Managed Service for ClickHouse® выставляет для нее значение автоматически в зависимости от объема оперативной памяти хостов ClickHouse®. Чтобы изменить значение настройки, [измените класс хостов ClickHouse®](#change-resource-preset). Подробнее в разделе [Управление памятью](../concepts/memory-management.md).
+Значение настройки [Max server memory usage](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#max_server_memory_usage) нельзя изменять напрямую. Managed Service for ClickHouse® выставляет для нее значение автоматически в зависимости от объема оперативной памяти хостов ClickHouse®. Чтобы изменить значение настройки, [измените класс хостов ClickHouse®](update.md#change-resource-preset). Подробнее в разделе [Управление памятью](../concepts/memory-management.md).
 
 {% endnote %}
 

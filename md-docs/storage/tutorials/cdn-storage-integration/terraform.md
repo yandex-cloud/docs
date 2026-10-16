@@ -45,6 +45,7 @@ Terraform распространяется под лицензией [Business S
 Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
 Для создания инфраструктуры с помощью Terraform:
+
 1. [Установите Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
 
@@ -59,9 +60,10 @@ Terraform распространяется под лицензией [Business S
          ```
 
       1. Перейдите в папку с репозиторием. В ней должны появиться следующие файлы:
+
           * `cdn-storage-integration-config.tf` — файл конфигурации создаваемой инфраструктуры.
           * `cdn-storage-integration.auto.tfvars` — файл со значениями пользовательских переменных.
-          * `index.html` — тестовый файл сервиса, используемый при проверке работоспособности решения.
+          * `index.html` — тестовый файл сервиса, который используется при проверке работоспособности решения.
 
     - Вручную {#manual}
 
@@ -406,7 +408,7 @@ Terraform распространяется под лицензией [Business S
     * [Группа безопасности](../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group](../../../terraform/resources/vpc_security_group.md).
     * [DNS-зона](../../../dns/concepts/dns-zone.md) — [yandex_dns_zone](../../../terraform/resources/dns_zone.md).
     * [Ресурсная запись DNS](../../../dns/concepts/resource-record.md) — [yandex_dns_recordset](../../../terraform/resources/dns_recordset.md).
-    * [TLS-Сертификат](../../../certificate-manager/concepts/managed-certificate.md) — [yandex_cm_certificate](../../../terraform/resources/cm_certificate.md).
+    * [TLS-сертификат](../../../certificate-manager/concepts/managed-certificate.md) — [yandex_cm_certificate](../../../terraform/resources/cm_certificate.md).
     * [Бакет](../../concepts/bucket.md) — [yandex_storage_bucket](../../../terraform/resources/storage_bucket.md).
     * [Объект](../../concepts/object.md) — [yandex_storage_object](../../../terraform/resources/storage_object.md).
     * [Группа источников](../../../cdn/concepts/origins.md#groups) — [yandex_cdn_origin_group](../../../terraform/resources/cdn_origin_group.md).
@@ -417,11 +419,13 @@ Terraform распространяется под лицензией [Business S
     * [L7-балансировщик нагрузки](../../../application-load-balancer/concepts/application-load-balancer.md) — [yandex_alb_load_balancer](../../../terraform/resources/alb_load_balancer.md).
 
 1. В файле `cdn-storage-integration.auto.tfvars` задайте значения пользовательских переменных:
+
     * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
     * `bucket_name` — имя бакета в соответствии с [правилами именования](../../concepts/bucket.md#naming).
     * `domain_name` — имя домена, на котором будет размещен тестовый сервис.
 
         Чтобы получить доступ к именам из публичной зоны, вам нужно делегировать домен. Укажите адреса серверов `ns1.yandexcloud.net` и `ns2.yandexcloud.net` в личном кабинете вашего регистратора доменных имен.
+
     * `index_file_path` — локальный путь к файлу `index.html` с содержимым тестового сервиса. Например: `/Users/MyUser/Repos/cdn-storage-integration/index.html`.
 
 1. Создайте ресурсы:

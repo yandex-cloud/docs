@@ -8,15 +8,6 @@ Billing accounts are used to identify users paying for {{ yandex-cloud }} resour
 
 To activate a billing account, we ask you to link a bank card to make sure you are a human, not a robot. As soon as you link a card, a small amount will be debited from it and promptly returned. That is how we verify that your card is real.
 
-### Questions about the initial grant {#grant}
-
-#### I have not used up the initial grant, but my cloud is blocked. What should I do? {#cloud-blocked-during-trial}
-
-Make sure that a valid card is linked to your account. If you linked the card and then deleted it, your account may be blocked.
-
-#### I was unable to use up the initial grant within 60 days. Can I use {{ yandex-cloud }}? {#initial-grant-expiring}
-
-Yes, usage charges will be debited from the card linked to your account. For more information, see [Billing cycle for individuals](../../billing/payment/billing-cycle-individual.md).
 
 ### Questions about documents {#documents}
 

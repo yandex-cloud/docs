@@ -14,6 +14,10 @@ Syntax:
 
 #### Command Tree
 
+- [yc audit-trails v0](v0/index.md) — Manage Audit Trails resources
+
+
+
 - [yc audit-trails trail](trail/index.md) — Manage trails
 
   - [yc audit-trails trail add-access-binding](trail/add-access-binding.md) — Add access binding for the specified trail
@@ -35,10 +39,6 @@ Syntax:
   - [yc audit-trails trail set-access-bindings](trail/set-access-bindings.md) — Set access bindings for the specified trail and delete all existing access bindings if there were any
 
   - [yc audit-trails trail update](trail/update.md) — Update the specified trail
-
-- [yc audit-trails v0](v0/index.md) — Manage Audit Trails resources
-
-
 
 #### Global Flags
 

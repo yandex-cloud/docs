@@ -24,8 +24,8 @@
   ```
 
   Подробнее:
-  - [FIXED, INCLUDE, EXCLUDE](native-functions.md#syntax-lod)
-  - [BEFORE FILTER BY](native-functions.md#syntax-before-filter-by)
+  - [FIXED, INCLUDE, EXCLUDE](native-functions.md#lod-expr)
+  - [BEFORE FILTER BY](native-functions.md#before-filter-by)
 
 {% endlist %}
 

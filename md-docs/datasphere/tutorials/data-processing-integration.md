@@ -384,7 +384,7 @@ Yandex Data Processing запустит операцию создания кла
 
 {% endnote %}
 
-Подробнее о запуске вычислений на кластерах Yandex Data Processing в DataSphere смотрите в [концепции](../concepts/data-processing.md#existing-clusters).
+Подробнее о запуске вычислений на кластерах Yandex Data Processing в DataSphere смотрите в [концепции](../concepts/data-processing-operations.md).
 
 ## Удалите созданные ресурсы {#clear-out}
 

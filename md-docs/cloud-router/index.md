@@ -96,46 +96,6 @@ Yandex Cloud Router — сервис для управления сетевым�
 
  - [Overview](cli-ref/index.md)
 
-### routing-instance
-
- - [Overview](cli-ref/routing-instance/index.md)
-
- - [add-labels](cli-ref/routing-instance/add-labels.md)
-
- - [add-private-connection](cli-ref/routing-instance/add-private-connection.md)
-
- - [create](cli-ref/routing-instance/create.md)
-
- - [delete](cli-ref/routing-instance/delete.md)
-
- - [get](cli-ref/routing-instance/get.md)
-
- - [get-by-cic-private-connection-id](cli-ref/routing-instance/get-by-cic-private-connection-id.md)
-
- - [get-by-vpc-network-id](cli-ref/routing-instance/get-by-vpc-network-id.md)
-
- - [list](cli-ref/routing-instance/list.md)
-
- - [list-operations](cli-ref/routing-instance/list-operations.md)
-
- - [move](cli-ref/routing-instance/move.md)
-
- - [move-prefix](cli-ref/routing-instance/move-prefix.md)
-
- - [remove-labels](cli-ref/routing-instance/remove-labels.md)
-
- - [remove-prefixes](cli-ref/routing-instance/remove-prefixes.md)
-
- - [remove-private-connection](cli-ref/routing-instance/remove-private-connection.md)
-
- - [update](cli-ref/routing-instance/update.md)
-
- - [update-networks](cli-ref/routing-instance/update-networks.md)
-
- - [update-prefix-mask](cli-ref/routing-instance/update-prefix-mask.md)
-
- - [upsert-prefixes](cli-ref/routing-instance/upsert-prefixes.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -223,6 +183,86 @@ Yandex Cloud Router — сервис для управления сетевым�
  - [update-prefix-mask](cli-ref/v1/routing-instance/update-prefix-mask.md)
 
  - [upsert-prefixes](cli-ref/v1/routing-instance/upsert-prefixes.md)
+
+### v2
+
+ - [Overview](cli-ref/v2/index.md)
+
+#### peering
+
+ - [Overview](cli-ref/v2/peering/index.md)
+
+ - [create](cli-ref/v2/peering/create.md)
+
+ - [delete](cli-ref/v2/peering/delete.md)
+
+ - [get](cli-ref/v2/peering/get.md)
+
+ - [list](cli-ref/v2/peering/list.md)
+
+ - [list-operations](cli-ref/v2/peering/list-operations.md)
+
+ - [move](cli-ref/v2/peering/move.md)
+
+ - [update](cli-ref/v2/peering/update.md)
+
+#### routing-instance
+
+ - [Overview](cli-ref/v2/routing-instance/index.md)
+
+ - [create](cli-ref/v2/routing-instance/create.md)
+
+ - [delete](cli-ref/v2/routing-instance/delete.md)
+
+ - [get](cli-ref/v2/routing-instance/get.md)
+
+ - [list](cli-ref/v2/routing-instance/list.md)
+
+ - [list-operations](cli-ref/v2/routing-instance/list-operations.md)
+
+ - [move](cli-ref/v2/routing-instance/move.md)
+
+ - [update](cli-ref/v2/routing-instance/update.md)
+
+### routing-instance
+
+ - [Overview](cli-ref/routing-instance/index.md)
+
+ - [add-labels](cli-ref/routing-instance/add-labels.md)
+
+ - [add-private-connection](cli-ref/routing-instance/add-private-connection.md)
+
+ - [create](cli-ref/routing-instance/create.md)
+
+ - [delete](cli-ref/routing-instance/delete.md)
+
+ - [get](cli-ref/routing-instance/get.md)
+
+ - [get-by-cic-private-connection-id](cli-ref/routing-instance/get-by-cic-private-connection-id.md)
+
+ - [get-by-vpc-network-id](cli-ref/routing-instance/get-by-vpc-network-id.md)
+
+ - [list](cli-ref/routing-instance/list.md)
+
+ - [list-operations](cli-ref/routing-instance/list-operations.md)
+
+ - [move](cli-ref/routing-instance/move.md)
+
+ - [move-prefix](cli-ref/routing-instance/move-prefix.md)
+
+ - [remove-labels](cli-ref/routing-instance/remove-labels.md)
+
+ - [remove-prefixes](cli-ref/routing-instance/remove-prefixes.md)
+
+ - [remove-private-connection](cli-ref/routing-instance/remove-private-connection.md)
+
+ - [update](cli-ref/routing-instance/update.md)
+
+ - [update-networks](cli-ref/routing-instance/update-networks.md)
+
+ - [update-prefix-mask](cli-ref/routing-instance/update-prefix-mask.md)
+
+ - [upsert-prefixes](cli-ref/routing-instance/upsert-prefixes.md)
 
 ## Справочник API
 

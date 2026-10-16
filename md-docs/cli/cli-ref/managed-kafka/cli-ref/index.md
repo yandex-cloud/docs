@@ -16,6 +16,10 @@ Aliases:
 
 #### Command Tree
 
+- [yc managed-kafka v0](v0/index.md) — Manage Apache Kafka clusters, brokers, topics, users and connectors.
+
+
+
 - [yc managed-kafka change-freeze](change-freeze/index.md) — Manage change freezes.
 
   - [yc managed-kafka change-freeze create](change-freeze/create.md) — Create a change freeze for the specified resource.
@@ -127,10 +131,6 @@ Aliases:
   - [yc managed-kafka user revoke-permission](user/revoke-permission.md) — Revoke permission from the specified Kafka user.
 
   - [yc managed-kafka user update](user/update.md) — Modify attributes of a Kafka user.
-
-- [yc managed-kafka v0](v0/index.md) — Manage Apache Kafka clusters, brokers, topics, users and connectors.
-
-
 
 #### Global Flags
 

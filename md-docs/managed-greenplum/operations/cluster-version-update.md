@@ -85,7 +85,7 @@
     * [История изменений Greenplum®](https://github.com/open-gpdb/gpdb/releases).
     * [История изменений Apache Cloudberry™](https://cloudberry.apache.org/blog/announce-apache-cloudberry-2.1.0/).
 
-1. Попробуйте обновить версию на тестовом кластере. Его можно [развернуть из резервной копии](cluster-backups.md#restore) основного кластера, если версия базы данных в резервной копии [поддерживается](#version-supported) в Yandex MPP Analytics for PostgreSQL.
+1. Попробуйте обновить версию на тестовом кластере. Его можно [развернуть из резервной копии](cluster-backups.md#restore) основного кластера, если версия базы данных в резервной копии [поддерживается](#versions-list) в Yandex MPP Analytics for PostgreSQL.
 1. [Создайте резервную копию](cluster-backups.md#create-backup) основного кластера непосредственно перед обновлением версии.
 
 

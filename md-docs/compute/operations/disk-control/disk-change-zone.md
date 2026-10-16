@@ -73,7 +73,7 @@
 
 {% endlist %}
 
-### Создайте снимки {#create}
+### Создайте снимки {#create-snapshot-operation}
 
 Чтобы [создать](create-snapshot.md) снимок диска:
 

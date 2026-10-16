@@ -49,7 +49,7 @@
    - Yandex MPP Analytics for PostgreSQL
 
       * **Кластер** — выберите существующий кластер Yandex MPP Analytics for PostgreSQL или создайте новый.
-      * **Сервисный аккаунт** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) Yandex MPP Analytics for PostgreSQL или создайте новый с ролью [`managed-greenplum.viewer`](../../managed-greenplum/security/index.md#mgp-viewer), от имени которого будет выполняться подключение к кластерам `Yandex MPP Analytics for PostgreSQL`.
+      * **Сервисный аккаунт** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) Yandex MPP Analytics for PostgreSQL или создайте новый с ролью [`managed-greenplum.viewer`](../../managed-greenplum/security/index.md#managed-greenplum-viewer), от имени которого будет выполняться подключение к кластерам `Yandex MPP Analytics for PostgreSQL`.
       * **База данных**  — выберите базу данных, которая будет использоваться при работе с кластером Greenplum®.
       * **Схема**  — укажите [пространство имен](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/admin_guide-ddl-ddl-schema.html), которое будет использоваться при работе с базой данных Greenplum®.
       * **Логин**  — имя пользователя, которое будет использоваться для подключения к базам данных Greenplum®.

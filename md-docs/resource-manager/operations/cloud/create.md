@@ -2,7 +2,7 @@
 
 # Создание нового облака
 
-[После регистрации](../../../billing/quickstart/index.md#create_billing_account) в Yandex Cloud и создания [организации](../../../organization/concepts/organization.md) вы создадите свое первое [облако](../../concepts/resources-hierarchy.md#cloud). Если вам потребуется дополнительное облако, вы сможете создать его, следуя этой же инструкции.
+[После регистрации](../../../billing/quickstart/index.md) в Yandex Cloud и создания [организации](../../../organization/concepts/organization.md) вы создадите свое первое [облако](../../concepts/resources-hierarchy.md#cloud). Если вам потребуется дополнительное облако, вы сможете создать его, следуя этой же инструкции.
 
 Чтобы создать облако, у вас должна быть роль [resource-manager.editor](../../security/index.md#resource-manager-editor) или [editor](../../../iam/roles-reference.md#editor) на организацию, в которой вы создаете облако, либо роль с более широкими разрешениями. Если вы [создали организацию](../../../organization/quickstart.md#create-organization), у вас уже есть необходимые права как у ее владельца.
 
@@ -18,7 +18,7 @@
 
 - Консоль управления {#console}
 
-  1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что [платежный аккаунт](../../../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account) или попросите вашего администратора назначить вам роль `billing.accounts.member` на платежный аккаунт.
+  1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что [платежный аккаунт](../../../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) или попросите вашего администратора назначить вам роль `billing.accounts.member` на платежный аккаунт.
   1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужную [организацию](../../../organization/concepts/organization.md).
   1. Справа от названия организации нажмите ![image](../../../_assets/console-icons/ellipsis.svg).
   1. Выберите ![image](../../../_assets/console-icons/plus.svg) **Создать облако**.

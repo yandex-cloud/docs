@@ -17,6 +17,10 @@ Syntax:
 
 #### Command Tree
 
+- [yc billing v1](v1/index.md) — Manage Billing resources
+
+
+
 - [yc billing consumption-core](consumption-core/index.md) — Service for detailed consumption and usage reporting.
 
   - [yc billing consumption-core get-billing-account-usage-report](consumption-core/get-billing-account-usage-report.md) — Returns aggregated usage report for a single specified billing account,
@@ -46,10 +50,6 @@ Syntax:
   - [yc billing metadata get-service-instance](metadata/get-service-instance.md) — GetServiceInstance returns service instance usage metadata for a specific billing account and date range.
 
   - [yc billing metadata get-usage](metadata/get-usage.md) — GetUsage returns usage metadata including available clouds, services, SKUs, label keys, and date ranges
-
-- [yc billing v1](v1/index.md) — Manage Billing resources
-
-
 
 #### Global Flags
 

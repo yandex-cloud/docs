@@ -154,116 +154,6 @@
 
  - [Overview](cli-ref/index.md)
 
-### auth-settings
-
- - [Overview](cli-ref/auth-settings/index.md)
-
- - [get](cli-ref/auth-settings/get.md)
-
- - [update](cli-ref/auth-settings/update.md)
-
-### backup
-
- - [Overview](cli-ref/backup/index.md)
-
- - [get](cli-ref/backup/get.md)
-
- - [list](cli-ref/backup/list.md)
-
-### change-freeze
-
- - [Overview](cli-ref/change-freeze/index.md)
-
- - [create](cli-ref/change-freeze/create.md)
-
- - [get](cli-ref/change-freeze/get.md)
-
- - [get-limits](cli-ref/change-freeze/get-limits.md)
-
- - [list](cli-ref/change-freeze/list.md)
-
- - [terminate](cli-ref/change-freeze/terminate.md)
-
-### cluster
-
- - [Overview](cli-ref/cluster/index.md)
-
- - [add-access-binding](cli-ref/cluster/add-access-binding.md)
-
- - [backup](cli-ref/cluster/backup.md)
-
- - [create](cli-ref/cluster/create.md)
-
- - [delete](cli-ref/cluster/delete.md)
-
- - [get](cli-ref/cluster/get.md)
-
- - [list](cli-ref/cluster/list.md)
-
- - [list-access-bindings](cli-ref/cluster/list-access-bindings.md)
-
- - [list-backups](cli-ref/cluster/list-backups.md)
-
- - [move](cli-ref/cluster/move.md)
-
- - [remove-access-binding](cli-ref/cluster/remove-access-binding.md)
-
- - [restart-opensearch](cli-ref/cluster/restart-opensearch.md)
-
- - [restore](cli-ref/cluster/restore.md)
-
- - [set-access-bindings](cli-ref/cluster/set-access-bindings.md)
-
- - [start](cli-ref/cluster/start.md)
-
- - [stop](cli-ref/cluster/stop.md)
-
- - [switch-master](cli-ref/cluster/switch-master.md)
-
- - [update](cli-ref/cluster/update.md)
-
-### extension
-
- - [Overview](cli-ref/extension/index.md)
-
- - [create](cli-ref/extension/create.md)
-
- - [delete](cli-ref/extension/delete.md)
-
- - [get](cli-ref/extension/get.md)
-
- - [list](cli-ref/extension/list.md)
-
- - [update](cli-ref/extension/update.md)
-
-### maintenance
-
- - [Overview](cli-ref/maintenance/index.md)
-
- - [get](cli-ref/maintenance/get.md)
-
- - [list](cli-ref/maintenance/list.md)
-
- - [reschedule](cli-ref/maintenance/reschedule.md)
-
-### node-group
-
- - [Overview](cli-ref/node-group/index.md)
-
- - [add](cli-ref/node-group/add.md)
-
- - [delete](cli-ref/node-group/delete.md)
-
- - [update](cli-ref/node-group/update.md)
-
-### plugin
-
- - [Overview](cli-ref/plugin/index.md)
-
- - [add](cli-ref/plugin/add.md)
-
- - [delete](cli-ref/plugin/delete.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -309,6 +199,10 @@
  - [create](cli-ref/v0/cluster/create.md)
 
  - [delete](cli-ref/v0/cluster/delete.md)
+
+ - [disable-protection](cli-ref/v0/cluster/disable-protection.md)
+
+ - [enable-protection](cli-ref/v0/cluster/enable-protection.md)
 
  - [get](cli-ref/v0/cluster/get.md)
 
@@ -377,6 +271,120 @@
  - [add](cli-ref/v0/plugin/add.md)
 
  - [delete](cli-ref/v0/plugin/delete.md)
+
+### auth-settings
+
+ - [Overview](cli-ref/auth-settings/index.md)
+
+ - [get](cli-ref/auth-settings/get.md)
+
+ - [update](cli-ref/auth-settings/update.md)
+
+### backup
+
+ - [Overview](cli-ref/backup/index.md)
+
+ - [get](cli-ref/backup/get.md)
+
+ - [list](cli-ref/backup/list.md)
+
+### change-freeze
+
+ - [Overview](cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/change-freeze/terminate.md)
+
+### cluster
+
+ - [Overview](cli-ref/cluster/index.md)
+
+ - [add-access-binding](cli-ref/cluster/add-access-binding.md)
+
+ - [backup](cli-ref/cluster/backup.md)
+
+ - [create](cli-ref/cluster/create.md)
+
+ - [delete](cli-ref/cluster/delete.md)
+
+ - [disable-protection](cli-ref/cluster/disable-protection.md)
+
+ - [enable-protection](cli-ref/cluster/enable-protection.md)
+
+ - [get](cli-ref/cluster/get.md)
+
+ - [list](cli-ref/cluster/list.md)
+
+ - [list-access-bindings](cli-ref/cluster/list-access-bindings.md)
+
+ - [list-backups](cli-ref/cluster/list-backups.md)
+
+ - [move](cli-ref/cluster/move.md)
+
+ - [remove-access-binding](cli-ref/cluster/remove-access-binding.md)
+
+ - [restart-opensearch](cli-ref/cluster/restart-opensearch.md)
+
+ - [restore](cli-ref/cluster/restore.md)
+
+ - [set-access-bindings](cli-ref/cluster/set-access-bindings.md)
+
+ - [start](cli-ref/cluster/start.md)
+
+ - [stop](cli-ref/cluster/stop.md)
+
+ - [switch-master](cli-ref/cluster/switch-master.md)
+
+ - [update](cli-ref/cluster/update.md)
+
+### extension
+
+ - [Overview](cli-ref/extension/index.md)
+
+ - [create](cli-ref/extension/create.md)
+
+ - [delete](cli-ref/extension/delete.md)
+
+ - [get](cli-ref/extension/get.md)
+
+ - [list](cli-ref/extension/list.md)
+
+ - [update](cli-ref/extension/update.md)
+
+### maintenance
+
+ - [Overview](cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/maintenance/reschedule.md)
+
+### node-group
+
+ - [Overview](cli-ref/node-group/index.md)
+
+ - [add](cli-ref/node-group/add.md)
+
+ - [delete](cli-ref/node-group/delete.md)
+
+ - [update](cli-ref/node-group/update.md)
+
+### plugin
+
+ - [Overview](cli-ref/plugin/index.md)
+
+ - [add](cli-ref/plugin/add.md)
+
+ - [delete](cli-ref/plugin/delete.md)
 
  - [Справочник Terraform](tf-ref.md)
 

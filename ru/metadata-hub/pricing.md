@@ -48,6 +48,8 @@ blocks:
 
 {% include [vat](../_includes/vat.md) %}
 
+{% include [payg-model](../_includes/payg-model.md) %}
+
 ## Тарификация кластеров {{ metastore-full-name }} {#metastore}
 
 {% note info %}

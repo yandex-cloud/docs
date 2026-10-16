@@ -79,7 +79,7 @@
       * **{{ ui-key.yacloud.kafka.label_partitions }}** — `1`.
       * **{{ ui-key.yacloud.kafka.label_replication-factor }}** — `1`.
 
-   1. [Создайте пользователя {{ KF }}](../../../managed-kafka/operations/cluster-accounts.md#create-user) с параметрами:
+   1. [Создайте пользователя {{ KF }}](../../../managed-kafka/operations/cluster-accounts.md#create-account) с параметрами:
 
       * **Имя** — `user1`.
       * **Пароль** — `password1`.

@@ -16,7 +16,7 @@ description: 'В данном разделе вы научитесь работ�
 
 ## Перед началом работы {#before-begin}
 
-1. В [сервисе {{ billing-name }}]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
+1. В [сервисе {{ billing-name }}]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md).
 1. [Получите](../../organization/operations/organization-get-id.md) идентификатор [организации](../../organization/quickstart.md), в которой вы будете создавать канал.
 
 Чтобы воспользоваться примерами, установите утилиты:

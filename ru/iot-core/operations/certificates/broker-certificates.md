@@ -13,7 +13,7 @@ description: Из статьи вы узнаете, как получить сп
 
 {% include [pass-priority-note](../../../_includes/iot-core/pass-priority-note.md) %}
 
-* [Посмотреть список сертификатов брокера](broker-certificates.md#list-cert)
+* [Посмотреть список сертификатов брокера](broker-certificates.md#broker-certificates-list)
 * [Добавить сертификат брокеру](broker-certificates.md#add-cert)
 * [Удалить сертификат брокера](broker-certificates.md#delete-cert)
 

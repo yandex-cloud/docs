@@ -8,7 +8,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. [Перейдите]({{ link-console-main }}/link/smartcaptcha) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha_ru }}**.
-    1. Нажмите на имя капчи или [создайте](../quickstart.md#creat-captcha) новую капчу.
+    1. Нажмите на имя капчи или [создайте](../quickstart.md#create-captcha) новую капчу.
     1. На вкладке **{{ ui-key.yacloud.common.overview }}** скопируйте значения полей **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** и **{{ ui-key.yacloud.smartcaptcha.label_server-key }}**.
 
        ![step4-get-keys](../../_assets/smartcaptcha/quickstart/step4-get-keys.png)

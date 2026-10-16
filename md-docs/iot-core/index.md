@@ -162,150 +162,6 @@
 
  - [Overview](cli-ref/index.md)
 
-### broker
-
- - [Overview](cli-ref/broker/index.md)
-
- - [add-labels](cli-ref/broker/add-labels.md)
-
-#### certificate
-
- - [Overview](cli-ref/broker/certificate/index.md)
-
- - [add](cli-ref/broker/certificate/add.md)
-
- - [delete](cli-ref/broker/certificate/delete.md)
-
- - [list](cli-ref/broker/certificate/list.md)
-
- - [create](cli-ref/broker/create.md)
-
- - [delete](cli-ref/broker/delete.md)
-
- - [get](cli-ref/broker/get.md)
-
- - [list](cli-ref/broker/list.md)
-
- - [logs](cli-ref/broker/logs.md)
-
-#### password
-
- - [Overview](cli-ref/broker/password/index.md)
-
- - [add](cli-ref/broker/password/add.md)
-
- - [delete](cli-ref/broker/password/delete.md)
-
- - [list](cli-ref/broker/password/list.md)
-
- - [remove-labels](cli-ref/broker/remove-labels.md)
-
- - [update](cli-ref/broker/update.md)
-
-### device
-
- - [Overview](cli-ref/device/index.md)
-
- - [add-topic-aliases](cli-ref/device/add-topic-aliases.md)
-
-#### certificate
-
- - [Overview](cli-ref/device/certificate/index.md)
-
- - [add](cli-ref/device/certificate/add.md)
-
- - [delete](cli-ref/device/certificate/delete.md)
-
- - [list](cli-ref/device/certificate/list.md)
-
- - [create](cli-ref/device/create.md)
-
- - [delete](cli-ref/device/delete.md)
-
- - [get](cli-ref/device/get.md)
-
- - [list](cli-ref/device/list.md)
-
- - [logs](cli-ref/device/logs.md)
-
-#### password
-
- - [Overview](cli-ref/device/password/index.md)
-
- - [add](cli-ref/device/password/add.md)
-
- - [delete](cli-ref/device/password/delete.md)
-
- - [list](cli-ref/device/password/list.md)
-
- - [remove-topic-aliases](cli-ref/device/remove-topic-aliases.md)
-
- - [update](cli-ref/device/update.md)
-
-### mqtt
-
- - [Overview](cli-ref/mqtt/index.md)
-
- - [publish](cli-ref/mqtt/publish.md)
-
- - [subscribe](cli-ref/mqtt/subscribe.md)
-
-### registry
-
- - [Overview](cli-ref/registry/index.md)
-
- - [add-labels](cli-ref/registry/add-labels.md)
-
-#### certificate
-
- - [Overview](cli-ref/registry/certificate/index.md)
-
- - [add](cli-ref/registry/certificate/add.md)
-
- - [delete](cli-ref/registry/certificate/delete.md)
-
- - [list](cli-ref/registry/certificate/list.md)
-
- - [create](cli-ref/registry/create.md)
-
- - [delete](cli-ref/registry/delete.md)
-
- - [disable](cli-ref/registry/disable.md)
-
- - [enable](cli-ref/registry/enable.md)
-
- - [get](cli-ref/registry/get.md)
-
- - [list](cli-ref/registry/list.md)
-
- - [list-device-topic-aliases](cli-ref/registry/list-device-topic-aliases.md)
-
- - [logs](cli-ref/registry/logs.md)
-
-#### password
-
- - [Overview](cli-ref/registry/password/index.md)
-
- - [add](cli-ref/registry/password/add.md)
-
- - [delete](cli-ref/registry/password/delete.md)
-
- - [list](cli-ref/registry/password/list.md)
-
- - [remove-labels](cli-ref/registry/remove-labels.md)
-
- - [update](cli-ref/registry/update.md)
-
-#### yds-export
-
- - [Overview](cli-ref/registry/yds-export/index.md)
-
- - [add](cli-ref/registry/yds-export/add.md)
-
- - [delete](cli-ref/registry/yds-export/delete.md)
-
- - [list](cli-ref/registry/yds-export/list.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -453,6 +309,150 @@
  - [delete](cli-ref/v0/registry/yds-export/delete.md)
 
  - [list](cli-ref/v0/registry/yds-export/list.md)
+
+### broker
+
+ - [Overview](cli-ref/broker/index.md)
+
+ - [add-labels](cli-ref/broker/add-labels.md)
+
+#### certificate
+
+ - [Overview](cli-ref/broker/certificate/index.md)
+
+ - [add](cli-ref/broker/certificate/add.md)
+
+ - [delete](cli-ref/broker/certificate/delete.md)
+
+ - [list](cli-ref/broker/certificate/list.md)
+
+ - [create](cli-ref/broker/create.md)
+
+ - [delete](cli-ref/broker/delete.md)
+
+ - [get](cli-ref/broker/get.md)
+
+ - [list](cli-ref/broker/list.md)
+
+ - [logs](cli-ref/broker/logs.md)
+
+#### password
+
+ - [Overview](cli-ref/broker/password/index.md)
+
+ - [add](cli-ref/broker/password/add.md)
+
+ - [delete](cli-ref/broker/password/delete.md)
+
+ - [list](cli-ref/broker/password/list.md)
+
+ - [remove-labels](cli-ref/broker/remove-labels.md)
+
+ - [update](cli-ref/broker/update.md)
+
+### device
+
+ - [Overview](cli-ref/device/index.md)
+
+ - [add-topic-aliases](cli-ref/device/add-topic-aliases.md)
+
+#### certificate
+
+ - [Overview](cli-ref/device/certificate/index.md)
+
+ - [add](cli-ref/device/certificate/add.md)
+
+ - [delete](cli-ref/device/certificate/delete.md)
+
+ - [list](cli-ref/device/certificate/list.md)
+
+ - [create](cli-ref/device/create.md)
+
+ - [delete](cli-ref/device/delete.md)
+
+ - [get](cli-ref/device/get.md)
+
+ - [list](cli-ref/device/list.md)
+
+ - [logs](cli-ref/device/logs.md)
+
+#### password
+
+ - [Overview](cli-ref/device/password/index.md)
+
+ - [add](cli-ref/device/password/add.md)
+
+ - [delete](cli-ref/device/password/delete.md)
+
+ - [list](cli-ref/device/password/list.md)
+
+ - [remove-topic-aliases](cli-ref/device/remove-topic-aliases.md)
+
+ - [update](cli-ref/device/update.md)
+
+### mqtt
+
+ - [Overview](cli-ref/mqtt/index.md)
+
+ - [publish](cli-ref/mqtt/publish.md)
+
+ - [subscribe](cli-ref/mqtt/subscribe.md)
+
+### registry
+
+ - [Overview](cli-ref/registry/index.md)
+
+ - [add-labels](cli-ref/registry/add-labels.md)
+
+#### certificate
+
+ - [Overview](cli-ref/registry/certificate/index.md)
+
+ - [add](cli-ref/registry/certificate/add.md)
+
+ - [delete](cli-ref/registry/certificate/delete.md)
+
+ - [list](cli-ref/registry/certificate/list.md)
+
+ - [create](cli-ref/registry/create.md)
+
+ - [delete](cli-ref/registry/delete.md)
+
+ - [disable](cli-ref/registry/disable.md)
+
+ - [enable](cli-ref/registry/enable.md)
+
+ - [get](cli-ref/registry/get.md)
+
+ - [list](cli-ref/registry/list.md)
+
+ - [list-device-topic-aliases](cli-ref/registry/list-device-topic-aliases.md)
+
+ - [logs](cli-ref/registry/logs.md)
+
+#### password
+
+ - [Overview](cli-ref/registry/password/index.md)
+
+ - [add](cli-ref/registry/password/add.md)
+
+ - [delete](cli-ref/registry/password/delete.md)
+
+ - [list](cli-ref/registry/password/list.md)
+
+ - [remove-labels](cli-ref/registry/remove-labels.md)
+
+ - [update](cli-ref/registry/update.md)
+
+#### yds-export
+
+ - [Overview](cli-ref/registry/yds-export/index.md)
+
+ - [add](cli-ref/registry/yds-export/add.md)
+
+ - [delete](cli-ref/registry/yds-export/delete.md)
+
+ - [list](cli-ref/registry/yds-export/list.md)
 
  - [Справочник Terraform](tf-ref.md)
 

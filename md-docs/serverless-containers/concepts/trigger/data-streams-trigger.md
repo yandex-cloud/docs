@@ -10,7 +10,7 @@
 
 ## Роли, необходимые для корректной работы триггера для Data Streams {#roles}
 
-* Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user), [editor](../../../iam/concepts/access-control/roles.md#editor) и выше.
+* Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/roles-reference.md#iam-serviceAccounts-user), [editor](../../../iam/roles-reference.md#editor) и выше.
 * Для работы триггера сервисным аккаунтам необходимы роли:
     * `serverless.containers.invoker` на контейнер, который вызывает триггер.
     * `yds.admin` на поток, при отправке данных в который вызывается триггер.

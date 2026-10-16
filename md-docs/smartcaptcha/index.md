@@ -84,24 +84,6 @@ Yandex SmartCaptcha позволяет определить, кем являет
 
  - [Overview](cli-ref/index.md)
 
-### captcha
-
- - [Overview](cli-ref/captcha/index.md)
-
- - [create](cli-ref/captcha/create.md)
-
- - [delete](cli-ref/captcha/delete.md)
-
- - [get](cli-ref/captcha/get.md)
-
- - [get-keys](cli-ref/captcha/get-keys.md)
-
- - [get-secret-key](cli-ref/captcha/get-secret-key.md)
-
- - [list](cli-ref/captcha/list.md)
-
- - [update](cli-ref/captcha/update.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -141,6 +123,24 @@ Yandex SmartCaptcha позволяет определить, кем являет
  - [list](cli-ref/v1/captcha/list.md)
 
  - [update](cli-ref/v1/captcha/update.md)
+
+### captcha
+
+ - [Overview](cli-ref/captcha/index.md)
+
+ - [create](cli-ref/captcha/create.md)
+
+ - [delete](cli-ref/captcha/delete.md)
+
+ - [get](cli-ref/captcha/get.md)
+
+ - [get-keys](cli-ref/captcha/get-keys.md)
+
+ - [get-secret-key](cli-ref/captcha/get-secret-key.md)
+
+ - [list](cli-ref/captcha/list.md)
+
+ - [update](cli-ref/captcha/update.md)
 
  - [Справочник Terraform](tf-ref.md)
 

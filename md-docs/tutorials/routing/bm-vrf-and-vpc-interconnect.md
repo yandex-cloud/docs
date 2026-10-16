@@ -53,7 +53,7 @@
 
 Создайте необходимую инфраструктуру Yandex Cloud, в которой вы будете организовывать сетевую связность.
 
-Для настройки Cloud Interconnect в сервисе BareMetal понадобятся приватная маршрутизируемая [подсеть](../../baremetal/concepts/private-network.md#private-subnet) и [VRF](../../baremetal/concepts/private-network.md#vrf-segment) в BareMetal, [облачная сеть](../../vpc/concepts/network.md#network) с одной или более [подсетями](../../vpc/concepts/network.md#subnet) Virtual Private Cloud, а также виртуальный маршрутизатор, в составе которого будут [анонсированы](../../interconnect/concepts/priv-con.md#prc-announce) один или несколько префиксов приватных подсетей VPC.
+Для настройки Cloud Interconnect в сервисе BareMetal понадобятся приватная маршрутизируемая [подсеть](../../baremetal/concepts/private-network.md#private-subnet) и [VRF](../../baremetal/concepts/private-network.md#vrf-segment) в BareMetal, [облачная сеть](../../vpc/concepts/network.md#network) с одной или более [подсетями](../../vpc/concepts/network.md#subnet) Virtual Private Cloud, а также виртуальный маршрутизатор, в составе которого будут [анонсированы](../../cloud-router/concepts/announces.md#prc-announce) один или несколько префиксов приватных подсетей VPC.
 
 Для проверки сетевой связности понадобятся сервер BareMetal и виртуальная машина Compute Cloud.
 
@@ -289,7 +289,7 @@
 
           Вы также можете выбрать вариант `Выбрать из каталога`. В этом случае в появившемся списке выберите нужный `Routing Instance`.
 
-          В результате в форме отобразятся CIDR подсетей Virtual Private Cloud, которые будут [анонсироваться](../../interconnect/concepts/priv-con.md#prc-announce) в Cloud Interconnect.
+          В результате в форме отобразятся CIDR подсетей Virtual Private Cloud, которые будут [анонсироваться](../../cloud-router/concepts/announces.md#prc-announce) в Cloud Interconnect.
 
           {% note warning %}
           

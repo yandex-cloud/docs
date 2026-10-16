@@ -35,7 +35,7 @@ description: При создании дашборда в {{ datalens-full-name }
 
 #### Добавление таблиц {#ui-join}
 
-В интерфейсе создания датасета можно [объединять данные](../dataset/create-dataset.md#links), перетаскивая таблицы на рабочую область и настраивая связи между ними через [оператор JOIN](../dataset/data-model.md#source). Пример объединения данных с помощью добавления таблиц смотрите в [сценарии](../tutorials/data-from-ch-visualization.md#step2).
+В интерфейсе создания датасета можно [объединять данные](../dataset/create-dataset.md#links), перетаскивая таблицы на рабочую область и настраивая связи между ними через [оператор JOIN](../dataset/data-model.md#source). Пример объединения данных с помощью добавления таблиц смотрите в [сценарии](../tutorials/data-from-ch-visualization.md#create-dataset).
 
 {% include [data-join-duplicate-fields-note](../../_includes/datalens/datalens-data-join-duplicate-fields-note.md) %}
 
@@ -51,12 +51,12 @@ description: При создании дашборда в {{ datalens-full-name }
 
 #### QL-чарт {#sql-chart}
 
-[QL-чарты](chart/index.md#sql-charts) — чарты, созданные на основе подключения, если источник подключения — БД. При выполнении SQL-запроса отдельный объект Датасет не создается, он генерируется сразу и отображается на панели превью. Подробнее в инструкции [{#T}](../operations/chart/create-sql-chart.md).
+[QL-чарты](chart/ql-charts.md) — чарты, созданные на основе подключения, если источник подключения — БД. При выполнении SQL-запроса отдельный объект Датасет не создается, он генерируется сразу и отображается на панели превью. Подробнее в инструкции [{#T}](../operations/chart/create-sql-chart.md).
 
 
 #### Мультидатасетные чарты {#datasets-chart}
 
-[Мультидатасетные чарты](chart/index.md#multi-dataset-charts) — чарты, которые отображают данные из разных датасетов. Запросы для каждого датасета отрабатываются независимо друг от друга. Подробнее в инструкции [{#T}](../operations/chart/create-multidataset-chart.md).
+[Мультидатасетные чарты](chart/multidataset-chart.md) — чарты, которые отображают данные из разных датасетов. Запросы для каждого датасета отрабатываются независимо друг от друга. Подробнее в инструкции [{#T}](../operations/chart/create-multidataset-chart.md).
 
 
 ### На уровне связей селекторов {#selector-join}

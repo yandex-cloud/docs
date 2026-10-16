@@ -5,16 +5,14 @@ description: '{{ yandex-cloud }} Billing uses the following key terms: grant, ag
 
 # All concepts
 
-{{ billing-name }} uses the following concepts:
+{{ billing-name }} uses the following basic terms:
 * [{#T}](promo-code.md)
 * [{#T}](billing-threshold.md)
 * [{#T}](billing-account.md)
 * [{#T}](personal-account.md)
 * [{#T}](bonus-account.md)
-* [{#T}](trial-period.md)
 * [{#T}](organization.md)
 * [{#T}](reporting-period.md)
-* [{#T}](cvos.md)
 * [{#T}](serverless-free-tier.md)
 * [{#T}](budget.md)
 * [{#T}](contract.md)

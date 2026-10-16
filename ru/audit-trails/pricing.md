@@ -13,6 +13,8 @@ editable: false
 
 {% include [vat](../_includes/vat.md) %}
 
+{% include [payg-model](../_includes/payg-model.md) %}
+
 Тарифицируются доставленные события [уровня сервисов](./concepts/events-data-plane.md).
 
 События [уровня конфигурации](./concepts/events.md) в настоящий момент не тарифицируются.

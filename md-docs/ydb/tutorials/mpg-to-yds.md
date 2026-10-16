@@ -52,7 +52,7 @@
 
     1. [Выдайте роль](../../managed-postgresql/operations/grant.md#grant-privilege) `mdb_replication` пользователю `pg-user`.
 
-    1. [Создайте базу данных Managed Service for YDB](../operations/manage-databases.md#create-db) с именем `ydb-example` любой подходящей конфигурации.
+    1. [Создайте базу данных Managed Service for YDB](../operations/manage-databases.md#create-db-serverless) с именем `ydb-example` любой подходящей конфигурации.
 
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с именем `yds-sa` и ролью `yds.editor`. Трансфер будет использовать его для доступа к Data Streams.
 

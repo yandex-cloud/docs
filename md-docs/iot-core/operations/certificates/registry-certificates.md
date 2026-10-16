@@ -18,7 +18,7 @@
 
 {% endnote %}
 
-- [Посмотреть список сертификатов реестра](registry-certificates.md#list-cert)
+- [Посмотреть список сертификатов реестра](registry-certificates.md#registry-certificates-list)
 - [Добавить сертификат реестру](registry-certificates.md#add-cert)
 - [Удалить сертификат реестра](registry-certificates.md#delete-cert)
 

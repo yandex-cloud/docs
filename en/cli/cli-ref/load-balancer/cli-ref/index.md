@@ -23,6 +23,10 @@ Aliases:
 
 #### Command Tree
 
+- [yc load-balancer v0](v0/index.md) — Manage Yandex Load Balancer resources
+
+
+
 - [yc load-balancer network-load-balancer](network-load-balancer/index.md) — Manage network load balancer
 
   - [yc load-balancer network-load-balancer add-listener](network-load-balancer/add-listener.md) — Adds a listener to the specified network load balancer.
@@ -72,10 +76,6 @@ Aliases:
   - [yc load-balancer target-group remove-targets](target-group/remove-targets.md) — Remove targets from the specified target group
 
   - [yc load-balancer target-group update](target-group/update.md) — Update the specified target group
-
-- [yc load-balancer v0](v0/index.md) — Manage Yandex Load Balancer resources
-
-
 
 #### Global Flags
 

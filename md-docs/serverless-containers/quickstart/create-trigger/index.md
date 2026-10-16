@@ -40,5 +40,5 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Пошаговые инструкции по созданию триггеров](../../operations/index.md#trigger-create)
+* [Пошаговые инструкции по созданию триггеров](../../operations/index.md#create-trigger)
 * [Обзор триггеров в Yandex Serverless Containers](../../concepts/trigger/index.md)

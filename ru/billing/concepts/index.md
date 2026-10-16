@@ -13,6 +13,7 @@ description: В Billing {{ yandex-cloud }} используются следую
 * [{#T}](bonus-account.md)
 * [{#T}](organization.md)
 * [{#T}](reporting-period.md)
+* [{#T}](payg.md)
 * [{#T}](serverless-free-tier.md)
 * [{#T}](budget.md)
 * [{#T}](contract.md)

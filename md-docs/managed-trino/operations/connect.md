@@ -159,7 +159,7 @@
      1. Укажите параметры подключения на вкладке **General**:
         * **Host** — `c-<идентификатор_кластера>.trino.yandexcloud.net`.
 
-            Если вы подключаетесь к кластеру Managed Service for Trino через [сервисное подключение](../concepts/network.md#сервисное-подключение-private-endpoint), то в качестве адреса хоста укажите `c-<идентификатор_кластера>.trino.pe.yandexcloud.net`.
+            Если вы подключаетесь к кластеру Managed Service for Trino через [сервисное подключение](../concepts/network.md#private-endpoint), то в качестве адреса хоста укажите `c-<идентификатор_кластера>.trino.pe.yandexcloud.net`.
 
         * **Port** — `443`.
         * **User** — `iam`.
@@ -176,7 +176,7 @@
      1. Укажите параметры подключения на вкладке **Главное**:
         * **Хост** — `c-<идентификатор_кластера>.trino.yandexcloud.net`.
 
-            Если вы подключаетесь к кластеру Managed Service for Trino через [сервисное подключение](../concepts/network.md#сервисное-подключение-private-endpoint), то в качестве адреса хоста укажите `c-<идентификатор_кластера>.trino.pe.yandexcloud.net`.
+            Если вы подключаетесь к кластеру Managed Service for Trino через [сервисное подключение](../concepts/network.md#private-endpoint), то в качестве адреса хоста укажите `c-<идентификатор_кластера>.trino.pe.yandexcloud.net`.
 
         * **Порт** — `443`.
         * В блоке **Аутентификация** укажите:
@@ -252,7 +252,7 @@
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-     Если вы подключаетесь к кластеру Managed Service for Trino через [сервисное подключение](../concepts/network.md#сервисное-подключение-private-endpoint), то в качестве адреса хоста укажите `c-<идентификатор_кластера>.trino.pe.yandexcloud.net`.
+     Если вы подключаетесь к кластеру Managed Service for Trino через [сервисное подключение](../concepts/network.md#private-endpoint), то в качестве адреса хоста укажите `c-<идентификатор_кластера>.trino.pe.yandexcloud.net`.
 
   1. Подключение:
 
@@ -399,7 +399,7 @@
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-      Если вы подключаетесь к кластеру Managed Service for Trino через [сервисное подключение](../concepts/network.md#сервисное-подключение-private-endpoint), то в качестве адреса хоста укажите `c-<идентификатор_кластера>.trino.pe.yandexcloud.net`.
+      Если вы подключаетесь к кластеру Managed Service for Trino через [сервисное подключение](../concepts/network.md#private-endpoint), то в качестве адреса хоста укажите `c-<идентификатор_кластера>.trino.pe.yandexcloud.net`.
 
   1. Сборка и подключение:
 
@@ -451,7 +451,7 @@
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-    Если вы подключаетесь к кластеру Managed Service for Trino через [сервисное подключение](../concepts/network.md#сервисное-подключение-private-endpoint), то в качестве адреса хоста укажите `c-<идентификатор_кластера>.trino.pe.yandexcloud.net`.
+    Если вы подключаетесь к кластеру Managed Service for Trino через [сервисное подключение](../concepts/network.md#private-endpoint), то в качестве адреса хоста укажите `c-<идентификатор_кластера>.trino.pe.yandexcloud.net`.
 
 {% endlist %}
 

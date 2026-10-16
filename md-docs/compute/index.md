@@ -776,472 +776,6 @@
 
  - [Overview](cli-ref/index.md)
 
- - [connect-to-serial-port](cli-ref/connect-to-serial-port.md)
-
-### disk
-
- - [Overview](cli-ref/disk/index.md)
-
- - [add-access-binding](cli-ref/disk/add-access-binding.md)
-
- - [add-labels](cli-ref/disk/add-labels.md)
-
- - [create](cli-ref/disk/create.md)
-
- - [delete](cli-ref/disk/delete.md)
-
- - [get](cli-ref/disk/get.md)
-
- - [list](cli-ref/disk/list.md)
-
- - [list-access-bindings](cli-ref/disk/list-access-bindings.md)
-
- - [list-operations](cli-ref/disk/list-operations.md)
-
- - [move](cli-ref/disk/move.md)
-
- - [relocate](cli-ref/disk/relocate.md)
-
- - [remove-access-binding](cli-ref/disk/remove-access-binding.md)
-
- - [remove-labels](cli-ref/disk/remove-labels.md)
-
- - [resize](cli-ref/disk/resize.md)
-
- - [set-access-bindings](cli-ref/disk/set-access-bindings.md)
-
- - [update](cli-ref/disk/update.md)
-
-### disk-placement-group
-
- - [Overview](cli-ref/disk-placement-group/index.md)
-
- - [add-access-binding](cli-ref/disk-placement-group/add-access-binding.md)
-
- - [add-labels](cli-ref/disk-placement-group/add-labels.md)
-
- - [create](cli-ref/disk-placement-group/create.md)
-
- - [delete](cli-ref/disk-placement-group/delete.md)
-
- - [get](cli-ref/disk-placement-group/get.md)
-
- - [list](cli-ref/disk-placement-group/list.md)
-
- - [list-access-bindings](cli-ref/disk-placement-group/list-access-bindings.md)
-
- - [list-disks](cli-ref/disk-placement-group/list-disks.md)
-
- - [list-operations](cli-ref/disk-placement-group/list-operations.md)
-
- - [remove-access-binding](cli-ref/disk-placement-group/remove-access-binding.md)
-
- - [remove-labels](cli-ref/disk-placement-group/remove-labels.md)
-
- - [set-access-bindings](cli-ref/disk-placement-group/set-access-bindings.md)
-
- - [update](cli-ref/disk-placement-group/update.md)
-
-### disk-type
-
- - [Overview](cli-ref/disk-type/index.md)
-
- - [get](cli-ref/disk-type/get.md)
-
- - [list](cli-ref/disk-type/list.md)
-
-### filesystem
-
- - [Overview](cli-ref/filesystem/index.md)
-
- - [add-access-binding](cli-ref/filesystem/add-access-binding.md)
-
- - [add-labels](cli-ref/filesystem/add-labels.md)
-
- - [create](cli-ref/filesystem/create.md)
-
- - [delete](cli-ref/filesystem/delete.md)
-
- - [get](cli-ref/filesystem/get.md)
-
- - [list](cli-ref/filesystem/list.md)
-
- - [list-access-bindings](cli-ref/filesystem/list-access-bindings.md)
-
- - [list-operations](cli-ref/filesystem/list-operations.md)
-
- - [remove-access-binding](cli-ref/filesystem/remove-access-binding.md)
-
- - [remove-labels](cli-ref/filesystem/remove-labels.md)
-
- - [resize](cli-ref/filesystem/resize.md)
-
- - [set-access-bindings](cli-ref/filesystem/set-access-bindings.md)
-
- - [update](cli-ref/filesystem/update.md)
-
-### gpu-cluster
-
- - [Overview](cli-ref/gpu-cluster/index.md)
-
- - [add-access-binding](cli-ref/gpu-cluster/add-access-binding.md)
-
- - [add-labels](cli-ref/gpu-cluster/add-labels.md)
-
- - [create](cli-ref/gpu-cluster/create.md)
-
- - [delete](cli-ref/gpu-cluster/delete.md)
-
- - [get](cli-ref/gpu-cluster/get.md)
-
- - [list](cli-ref/gpu-cluster/list.md)
-
- - [list-access-bindings](cli-ref/gpu-cluster/list-access-bindings.md)
-
- - [list-instances](cli-ref/gpu-cluster/list-instances.md)
-
- - [list-operations](cli-ref/gpu-cluster/list-operations.md)
-
- - [remove-access-binding](cli-ref/gpu-cluster/remove-access-binding.md)
-
- - [remove-labels](cli-ref/gpu-cluster/remove-labels.md)
-
- - [set-access-bindings](cli-ref/gpu-cluster/set-access-bindings.md)
-
- - [update](cli-ref/gpu-cluster/update.md)
-
-### host-group
-
- - [Overview](cli-ref/host-group/index.md)
-
- - [add-access-binding](cli-ref/host-group/add-access-binding.md)
-
- - [add-labels](cli-ref/host-group/add-labels.md)
-
- - [create](cli-ref/host-group/create.md)
-
- - [delete](cli-ref/host-group/delete.md)
-
- - [get](cli-ref/host-group/get.md)
-
- - [list](cli-ref/host-group/list.md)
-
- - [list-access-bindings](cli-ref/host-group/list-access-bindings.md)
-
- - [list-hosts](cli-ref/host-group/list-hosts.md)
-
- - [list-instances](cli-ref/host-group/list-instances.md)
-
- - [list-operations](cli-ref/host-group/list-operations.md)
-
- - [remove-access-binding](cli-ref/host-group/remove-access-binding.md)
-
- - [remove-labels](cli-ref/host-group/remove-labels.md)
-
- - [set-access-bindings](cli-ref/host-group/set-access-bindings.md)
-
- - [update](cli-ref/host-group/update.md)
-
- - [update-host](cli-ref/host-group/update-host.md)
-
-### host-type
-
- - [Overview](cli-ref/host-type/index.md)
-
- - [get](cli-ref/host-type/get.md)
-
- - [list](cli-ref/host-type/list.md)
-
-### image
-
- - [Overview](cli-ref/image/index.md)
-
- - [add-access-binding](cli-ref/image/add-access-binding.md)
-
- - [add-labels](cli-ref/image/add-labels.md)
-
- - [create](cli-ref/image/create.md)
-
- - [delete](cli-ref/image/delete.md)
-
- - [get](cli-ref/image/get.md)
-
- - [get-latest-from-family](cli-ref/image/get-latest-from-family.md)
-
- - [list](cli-ref/image/list.md)
-
- - [list-access-bindings](cli-ref/image/list-access-bindings.md)
-
- - [list-operations](cli-ref/image/list-operations.md)
-
- - [remove-access-binding](cli-ref/image/remove-access-binding.md)
-
- - [remove-labels](cli-ref/image/remove-labels.md)
-
- - [set-access-bindings](cli-ref/image/set-access-bindings.md)
-
- - [update](cli-ref/image/update.md)
-
-### instance
-
- - [Overview](cli-ref/instance/index.md)
-
- - [add-access-binding](cli-ref/instance/add-access-binding.md)
-
- - [add-labels](cli-ref/instance/add-labels.md)
-
- - [add-metadata](cli-ref/instance/add-metadata.md)
-
- - [add-one-to-one-nat](cli-ref/instance/add-one-to-one-nat.md)
-
- - [attach-disk](cli-ref/instance/attach-disk.md)
-
- - [attach-filesystem](cli-ref/instance/attach-filesystem.md)
-
- - [attach-network-interface](cli-ref/instance/attach-network-interface.md)
-
- - [create](cli-ref/instance/create.md)
-
- - [create-with-container](cli-ref/instance/create-with-container.md)
-
- - [delete](cli-ref/instance/delete.md)
-
- - [detach-disk](cli-ref/instance/detach-disk.md)
-
- - [detach-filesystem](cli-ref/instance/detach-filesystem.md)
-
- - [detach-network-interface](cli-ref/instance/detach-network-interface.md)
-
- - [get](cli-ref/instance/get.md)
-
- - [get-serial-port-output](cli-ref/instance/get-serial-port-output.md)
-
- - [list](cli-ref/instance/list.md)
-
- - [list-access-bindings](cli-ref/instance/list-access-bindings.md)
-
- - [list-operations](cli-ref/instance/list-operations.md)
-
- - [move](cli-ref/instance/move.md)
-
- - [relocate](cli-ref/instance/relocate.md)
-
- - [remove-access-binding](cli-ref/instance/remove-access-binding.md)
-
- - [remove-labels](cli-ref/instance/remove-labels.md)
-
- - [remove-metadata](cli-ref/instance/remove-metadata.md)
-
- - [remove-one-to-one-nat](cli-ref/instance/remove-one-to-one-nat.md)
-
- - [restart](cli-ref/instance/restart.md)
-
- - [set-access-bindings](cli-ref/instance/set-access-bindings.md)
-
- - [simulate-maintenance-event](cli-ref/instance/simulate-maintenance-event.md)
-
- - [start](cli-ref/instance/start.md)
-
- - [stop](cli-ref/instance/stop.md)
-
- - [update](cli-ref/instance/update.md)
-
- - [update-container](cli-ref/instance/update-container.md)
-
- - [update-network-interface](cli-ref/instance/update-network-interface.md)
-
-### instance-group
-
- - [Overview](cli-ref/instance-group/index.md)
-
- - [add-access-binding](cli-ref/instance-group/add-access-binding.md)
-
- - [add-labels](cli-ref/instance-group/add-labels.md)
-
- - [add-metadata](cli-ref/instance-group/add-metadata.md)
-
- - [create](cli-ref/instance-group/create.md)
-
- - [delete](cli-ref/instance-group/delete.md)
-
- - [delete-instances](cli-ref/instance-group/delete-instances.md)
-
- - [disable-zones](cli-ref/instance-group/disable-zones.md)
-
- - [enable-zones](cli-ref/instance-group/enable-zones.md)
-
- - [get](cli-ref/instance-group/get.md)
-
- - [list](cli-ref/instance-group/list.md)
-
- - [list-access-bindings](cli-ref/instance-group/list-access-bindings.md)
-
- - [list-instances](cli-ref/instance-group/list-instances.md)
-
- - [list-logs](cli-ref/instance-group/list-logs.md)
-
- - [list-operations](cli-ref/instance-group/list-operations.md)
-
- - [remove-access-binding](cli-ref/instance-group/remove-access-binding.md)
-
- - [remove-labels](cli-ref/instance-group/remove-labels.md)
-
- - [remove-metadata](cli-ref/instance-group/remove-metadata.md)
-
- - [rolling-recreate](cli-ref/instance-group/rolling-recreate.md)
-
- - [rolling-restart](cli-ref/instance-group/rolling-restart.md)
-
- - [set-access-bindings](cli-ref/instance-group/set-access-bindings.md)
-
- - [start](cli-ref/instance-group/start.md)
-
- - [stop](cli-ref/instance-group/stop.md)
-
- - [stop-instances](cli-ref/instance-group/stop-instances.md)
-
- - [update](cli-ref/instance-group/update.md)
-
-### maintenance
-
- - [Overview](cli-ref/maintenance/index.md)
-
- - [get](cli-ref/maintenance/get.md)
-
- - [list](cli-ref/maintenance/list.md)
-
- - [reschedule](cli-ref/maintenance/reschedule.md)
-
-### placement-group
-
- - [Overview](cli-ref/placement-group/index.md)
-
- - [add-access-binding](cli-ref/placement-group/add-access-binding.md)
-
- - [add-labels](cli-ref/placement-group/add-labels.md)
-
- - [create](cli-ref/placement-group/create.md)
-
- - [delete](cli-ref/placement-group/delete.md)
-
- - [get](cli-ref/placement-group/get.md)
-
- - [list](cli-ref/placement-group/list.md)
-
- - [list-access-bindings](cli-ref/placement-group/list-access-bindings.md)
-
- - [list-instances](cli-ref/placement-group/list-instances.md)
-
- - [list-operations](cli-ref/placement-group/list-operations.md)
-
- - [remove-access-binding](cli-ref/placement-group/remove-access-binding.md)
-
- - [remove-labels](cli-ref/placement-group/remove-labels.md)
-
- - [set-access-bindings](cli-ref/placement-group/set-access-bindings.md)
-
- - [update](cli-ref/placement-group/update.md)
-
-### reserved-instance-pool
-
- - [Overview](cli-ref/reserved-instance-pool/index.md)
-
- - [create](cli-ref/reserved-instance-pool/create.md)
-
- - [delete](cli-ref/reserved-instance-pool/delete.md)
-
- - [get](cli-ref/reserved-instance-pool/get.md)
-
- - [list](cli-ref/reserved-instance-pool/list.md)
-
- - [list-instances](cli-ref/reserved-instance-pool/list-instances.md)
-
- - [list-operations](cli-ref/reserved-instance-pool/list-operations.md)
-
- - [update](cli-ref/reserved-instance-pool/update.md)
-
-### snapshot
-
- - [Overview](cli-ref/snapshot/index.md)
-
- - [add-access-binding](cli-ref/snapshot/add-access-binding.md)
-
- - [add-labels](cli-ref/snapshot/add-labels.md)
-
- - [create](cli-ref/snapshot/create.md)
-
- - [delete](cli-ref/snapshot/delete.md)
-
- - [get](cli-ref/snapshot/get.md)
-
- - [list](cli-ref/snapshot/list.md)
-
- - [list-access-bindings](cli-ref/snapshot/list-access-bindings.md)
-
- - [list-operations](cli-ref/snapshot/list-operations.md)
-
- - [remove-access-binding](cli-ref/snapshot/remove-access-binding.md)
-
- - [remove-labels](cli-ref/snapshot/remove-labels.md)
-
- - [set-access-bindings](cli-ref/snapshot/set-access-bindings.md)
-
- - [update](cli-ref/snapshot/update.md)
-
-### snapshot-schedule
-
- - [Overview](cli-ref/snapshot-schedule/index.md)
-
- - [add-access-binding](cli-ref/snapshot-schedule/add-access-binding.md)
-
- - [add-disks](cli-ref/snapshot-schedule/add-disks.md)
-
- - [add-labels](cli-ref/snapshot-schedule/add-labels.md)
-
- - [add-snapshot-labels](cli-ref/snapshot-schedule/add-snapshot-labels.md)
-
- - [create](cli-ref/snapshot-schedule/create.md)
-
- - [delete](cli-ref/snapshot-schedule/delete.md)
-
- - [disable](cli-ref/snapshot-schedule/disable.md)
-
- - [enable](cli-ref/snapshot-schedule/enable.md)
-
- - [get](cli-ref/snapshot-schedule/get.md)
-
- - [list](cli-ref/snapshot-schedule/list.md)
-
- - [list-access-bindings](cli-ref/snapshot-schedule/list-access-bindings.md)
-
- - [list-disks](cli-ref/snapshot-schedule/list-disks.md)
-
- - [list-operations](cli-ref/snapshot-schedule/list-operations.md)
-
- - [list-snapshots](cli-ref/snapshot-schedule/list-snapshots.md)
-
- - [remove-access-binding](cli-ref/snapshot-schedule/remove-access-binding.md)
-
- - [remove-disks](cli-ref/snapshot-schedule/remove-disks.md)
-
- - [remove-labels](cli-ref/snapshot-schedule/remove-labels.md)
-
- - [remove-snapshot-labels](cli-ref/snapshot-schedule/remove-snapshot-labels.md)
-
- - [set-access-bindings](cli-ref/snapshot-schedule/set-access-bindings.md)
-
- - [update](cli-ref/snapshot-schedule/update.md)
-
-### ssh
-
- - [Overview](cli-ref/ssh/index.md)
-
-#### certificate
-
- - [Overview](cli-ref/ssh/certificate/index.md)
-
- - [export](cli-ref/ssh/certificate/export.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -1719,6 +1253,472 @@
  - [get](cli-ref/v0/zone/get.md)
 
  - [list](cli-ref/v0/zone/list.md)
+
+ - [connect-to-serial-port](cli-ref/connect-to-serial-port.md)
+
+### disk
+
+ - [Overview](cli-ref/disk/index.md)
+
+ - [add-access-binding](cli-ref/disk/add-access-binding.md)
+
+ - [add-labels](cli-ref/disk/add-labels.md)
+
+ - [create](cli-ref/disk/create.md)
+
+ - [delete](cli-ref/disk/delete.md)
+
+ - [get](cli-ref/disk/get.md)
+
+ - [list](cli-ref/disk/list.md)
+
+ - [list-access-bindings](cli-ref/disk/list-access-bindings.md)
+
+ - [list-operations](cli-ref/disk/list-operations.md)
+
+ - [move](cli-ref/disk/move.md)
+
+ - [relocate](cli-ref/disk/relocate.md)
+
+ - [remove-access-binding](cli-ref/disk/remove-access-binding.md)
+
+ - [remove-labels](cli-ref/disk/remove-labels.md)
+
+ - [resize](cli-ref/disk/resize.md)
+
+ - [set-access-bindings](cli-ref/disk/set-access-bindings.md)
+
+ - [update](cli-ref/disk/update.md)
+
+### disk-placement-group
+
+ - [Overview](cli-ref/disk-placement-group/index.md)
+
+ - [add-access-binding](cli-ref/disk-placement-group/add-access-binding.md)
+
+ - [add-labels](cli-ref/disk-placement-group/add-labels.md)
+
+ - [create](cli-ref/disk-placement-group/create.md)
+
+ - [delete](cli-ref/disk-placement-group/delete.md)
+
+ - [get](cli-ref/disk-placement-group/get.md)
+
+ - [list](cli-ref/disk-placement-group/list.md)
+
+ - [list-access-bindings](cli-ref/disk-placement-group/list-access-bindings.md)
+
+ - [list-disks](cli-ref/disk-placement-group/list-disks.md)
+
+ - [list-operations](cli-ref/disk-placement-group/list-operations.md)
+
+ - [remove-access-binding](cli-ref/disk-placement-group/remove-access-binding.md)
+
+ - [remove-labels](cli-ref/disk-placement-group/remove-labels.md)
+
+ - [set-access-bindings](cli-ref/disk-placement-group/set-access-bindings.md)
+
+ - [update](cli-ref/disk-placement-group/update.md)
+
+### disk-type
+
+ - [Overview](cli-ref/disk-type/index.md)
+
+ - [get](cli-ref/disk-type/get.md)
+
+ - [list](cli-ref/disk-type/list.md)
+
+### filesystem
+
+ - [Overview](cli-ref/filesystem/index.md)
+
+ - [add-access-binding](cli-ref/filesystem/add-access-binding.md)
+
+ - [add-labels](cli-ref/filesystem/add-labels.md)
+
+ - [create](cli-ref/filesystem/create.md)
+
+ - [delete](cli-ref/filesystem/delete.md)
+
+ - [get](cli-ref/filesystem/get.md)
+
+ - [list](cli-ref/filesystem/list.md)
+
+ - [list-access-bindings](cli-ref/filesystem/list-access-bindings.md)
+
+ - [list-operations](cli-ref/filesystem/list-operations.md)
+
+ - [remove-access-binding](cli-ref/filesystem/remove-access-binding.md)
+
+ - [remove-labels](cli-ref/filesystem/remove-labels.md)
+
+ - [resize](cli-ref/filesystem/resize.md)
+
+ - [set-access-bindings](cli-ref/filesystem/set-access-bindings.md)
+
+ - [update](cli-ref/filesystem/update.md)
+
+### gpu-cluster
+
+ - [Overview](cli-ref/gpu-cluster/index.md)
+
+ - [add-access-binding](cli-ref/gpu-cluster/add-access-binding.md)
+
+ - [add-labels](cli-ref/gpu-cluster/add-labels.md)
+
+ - [create](cli-ref/gpu-cluster/create.md)
+
+ - [delete](cli-ref/gpu-cluster/delete.md)
+
+ - [get](cli-ref/gpu-cluster/get.md)
+
+ - [list](cli-ref/gpu-cluster/list.md)
+
+ - [list-access-bindings](cli-ref/gpu-cluster/list-access-bindings.md)
+
+ - [list-instances](cli-ref/gpu-cluster/list-instances.md)
+
+ - [list-operations](cli-ref/gpu-cluster/list-operations.md)
+
+ - [remove-access-binding](cli-ref/gpu-cluster/remove-access-binding.md)
+
+ - [remove-labels](cli-ref/gpu-cluster/remove-labels.md)
+
+ - [set-access-bindings](cli-ref/gpu-cluster/set-access-bindings.md)
+
+ - [update](cli-ref/gpu-cluster/update.md)
+
+### host-group
+
+ - [Overview](cli-ref/host-group/index.md)
+
+ - [add-access-binding](cli-ref/host-group/add-access-binding.md)
+
+ - [add-labels](cli-ref/host-group/add-labels.md)
+
+ - [create](cli-ref/host-group/create.md)
+
+ - [delete](cli-ref/host-group/delete.md)
+
+ - [get](cli-ref/host-group/get.md)
+
+ - [list](cli-ref/host-group/list.md)
+
+ - [list-access-bindings](cli-ref/host-group/list-access-bindings.md)
+
+ - [list-hosts](cli-ref/host-group/list-hosts.md)
+
+ - [list-instances](cli-ref/host-group/list-instances.md)
+
+ - [list-operations](cli-ref/host-group/list-operations.md)
+
+ - [remove-access-binding](cli-ref/host-group/remove-access-binding.md)
+
+ - [remove-labels](cli-ref/host-group/remove-labels.md)
+
+ - [set-access-bindings](cli-ref/host-group/set-access-bindings.md)
+
+ - [update](cli-ref/host-group/update.md)
+
+ - [update-host](cli-ref/host-group/update-host.md)
+
+### host-type
+
+ - [Overview](cli-ref/host-type/index.md)
+
+ - [get](cli-ref/host-type/get.md)
+
+ - [list](cli-ref/host-type/list.md)
+
+### image
+
+ - [Overview](cli-ref/image/index.md)
+
+ - [add-access-binding](cli-ref/image/add-access-binding.md)
+
+ - [add-labels](cli-ref/image/add-labels.md)
+
+ - [create](cli-ref/image/create.md)
+
+ - [delete](cli-ref/image/delete.md)
+
+ - [get](cli-ref/image/get.md)
+
+ - [get-latest-from-family](cli-ref/image/get-latest-from-family.md)
+
+ - [list](cli-ref/image/list.md)
+
+ - [list-access-bindings](cli-ref/image/list-access-bindings.md)
+
+ - [list-operations](cli-ref/image/list-operations.md)
+
+ - [remove-access-binding](cli-ref/image/remove-access-binding.md)
+
+ - [remove-labels](cli-ref/image/remove-labels.md)
+
+ - [set-access-bindings](cli-ref/image/set-access-bindings.md)
+
+ - [update](cli-ref/image/update.md)
+
+### instance
+
+ - [Overview](cli-ref/instance/index.md)
+
+ - [add-access-binding](cli-ref/instance/add-access-binding.md)
+
+ - [add-labels](cli-ref/instance/add-labels.md)
+
+ - [add-metadata](cli-ref/instance/add-metadata.md)
+
+ - [add-one-to-one-nat](cli-ref/instance/add-one-to-one-nat.md)
+
+ - [attach-disk](cli-ref/instance/attach-disk.md)
+
+ - [attach-filesystem](cli-ref/instance/attach-filesystem.md)
+
+ - [attach-network-interface](cli-ref/instance/attach-network-interface.md)
+
+ - [create](cli-ref/instance/create.md)
+
+ - [create-with-container](cli-ref/instance/create-with-container.md)
+
+ - [delete](cli-ref/instance/delete.md)
+
+ - [detach-disk](cli-ref/instance/detach-disk.md)
+
+ - [detach-filesystem](cli-ref/instance/detach-filesystem.md)
+
+ - [detach-network-interface](cli-ref/instance/detach-network-interface.md)
+
+ - [get](cli-ref/instance/get.md)
+
+ - [get-serial-port-output](cli-ref/instance/get-serial-port-output.md)
+
+ - [list](cli-ref/instance/list.md)
+
+ - [list-access-bindings](cli-ref/instance/list-access-bindings.md)
+
+ - [list-operations](cli-ref/instance/list-operations.md)
+
+ - [move](cli-ref/instance/move.md)
+
+ - [relocate](cli-ref/instance/relocate.md)
+
+ - [remove-access-binding](cli-ref/instance/remove-access-binding.md)
+
+ - [remove-labels](cli-ref/instance/remove-labels.md)
+
+ - [remove-metadata](cli-ref/instance/remove-metadata.md)
+
+ - [remove-one-to-one-nat](cli-ref/instance/remove-one-to-one-nat.md)
+
+ - [restart](cli-ref/instance/restart.md)
+
+ - [set-access-bindings](cli-ref/instance/set-access-bindings.md)
+
+ - [simulate-maintenance-event](cli-ref/instance/simulate-maintenance-event.md)
+
+ - [start](cli-ref/instance/start.md)
+
+ - [stop](cli-ref/instance/stop.md)
+
+ - [update](cli-ref/instance/update.md)
+
+ - [update-container](cli-ref/instance/update-container.md)
+
+ - [update-network-interface](cli-ref/instance/update-network-interface.md)
+
+### instance-group
+
+ - [Overview](cli-ref/instance-group/index.md)
+
+ - [add-access-binding](cli-ref/instance-group/add-access-binding.md)
+
+ - [add-labels](cli-ref/instance-group/add-labels.md)
+
+ - [add-metadata](cli-ref/instance-group/add-metadata.md)
+
+ - [create](cli-ref/instance-group/create.md)
+
+ - [delete](cli-ref/instance-group/delete.md)
+
+ - [delete-instances](cli-ref/instance-group/delete-instances.md)
+
+ - [disable-zones](cli-ref/instance-group/disable-zones.md)
+
+ - [enable-zones](cli-ref/instance-group/enable-zones.md)
+
+ - [get](cli-ref/instance-group/get.md)
+
+ - [list](cli-ref/instance-group/list.md)
+
+ - [list-access-bindings](cli-ref/instance-group/list-access-bindings.md)
+
+ - [list-instances](cli-ref/instance-group/list-instances.md)
+
+ - [list-logs](cli-ref/instance-group/list-logs.md)
+
+ - [list-operations](cli-ref/instance-group/list-operations.md)
+
+ - [remove-access-binding](cli-ref/instance-group/remove-access-binding.md)
+
+ - [remove-labels](cli-ref/instance-group/remove-labels.md)
+
+ - [remove-metadata](cli-ref/instance-group/remove-metadata.md)
+
+ - [rolling-recreate](cli-ref/instance-group/rolling-recreate.md)
+
+ - [rolling-restart](cli-ref/instance-group/rolling-restart.md)
+
+ - [set-access-bindings](cli-ref/instance-group/set-access-bindings.md)
+
+ - [start](cli-ref/instance-group/start.md)
+
+ - [stop](cli-ref/instance-group/stop.md)
+
+ - [stop-instances](cli-ref/instance-group/stop-instances.md)
+
+ - [update](cli-ref/instance-group/update.md)
+
+### maintenance
+
+ - [Overview](cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/maintenance/reschedule.md)
+
+### placement-group
+
+ - [Overview](cli-ref/placement-group/index.md)
+
+ - [add-access-binding](cli-ref/placement-group/add-access-binding.md)
+
+ - [add-labels](cli-ref/placement-group/add-labels.md)
+
+ - [create](cli-ref/placement-group/create.md)
+
+ - [delete](cli-ref/placement-group/delete.md)
+
+ - [get](cli-ref/placement-group/get.md)
+
+ - [list](cli-ref/placement-group/list.md)
+
+ - [list-access-bindings](cli-ref/placement-group/list-access-bindings.md)
+
+ - [list-instances](cli-ref/placement-group/list-instances.md)
+
+ - [list-operations](cli-ref/placement-group/list-operations.md)
+
+ - [remove-access-binding](cli-ref/placement-group/remove-access-binding.md)
+
+ - [remove-labels](cli-ref/placement-group/remove-labels.md)
+
+ - [set-access-bindings](cli-ref/placement-group/set-access-bindings.md)
+
+ - [update](cli-ref/placement-group/update.md)
+
+### reserved-instance-pool
+
+ - [Overview](cli-ref/reserved-instance-pool/index.md)
+
+ - [create](cli-ref/reserved-instance-pool/create.md)
+
+ - [delete](cli-ref/reserved-instance-pool/delete.md)
+
+ - [get](cli-ref/reserved-instance-pool/get.md)
+
+ - [list](cli-ref/reserved-instance-pool/list.md)
+
+ - [list-instances](cli-ref/reserved-instance-pool/list-instances.md)
+
+ - [list-operations](cli-ref/reserved-instance-pool/list-operations.md)
+
+ - [update](cli-ref/reserved-instance-pool/update.md)
+
+### snapshot
+
+ - [Overview](cli-ref/snapshot/index.md)
+
+ - [add-access-binding](cli-ref/snapshot/add-access-binding.md)
+
+ - [add-labels](cli-ref/snapshot/add-labels.md)
+
+ - [create](cli-ref/snapshot/create.md)
+
+ - [delete](cli-ref/snapshot/delete.md)
+
+ - [get](cli-ref/snapshot/get.md)
+
+ - [list](cli-ref/snapshot/list.md)
+
+ - [list-access-bindings](cli-ref/snapshot/list-access-bindings.md)
+
+ - [list-operations](cli-ref/snapshot/list-operations.md)
+
+ - [remove-access-binding](cli-ref/snapshot/remove-access-binding.md)
+
+ - [remove-labels](cli-ref/snapshot/remove-labels.md)
+
+ - [set-access-bindings](cli-ref/snapshot/set-access-bindings.md)
+
+ - [update](cli-ref/snapshot/update.md)
+
+### snapshot-schedule
+
+ - [Overview](cli-ref/snapshot-schedule/index.md)
+
+ - [add-access-binding](cli-ref/snapshot-schedule/add-access-binding.md)
+
+ - [add-disks](cli-ref/snapshot-schedule/add-disks.md)
+
+ - [add-labels](cli-ref/snapshot-schedule/add-labels.md)
+
+ - [add-snapshot-labels](cli-ref/snapshot-schedule/add-snapshot-labels.md)
+
+ - [create](cli-ref/snapshot-schedule/create.md)
+
+ - [delete](cli-ref/snapshot-schedule/delete.md)
+
+ - [disable](cli-ref/snapshot-schedule/disable.md)
+
+ - [enable](cli-ref/snapshot-schedule/enable.md)
+
+ - [get](cli-ref/snapshot-schedule/get.md)
+
+ - [list](cli-ref/snapshot-schedule/list.md)
+
+ - [list-access-bindings](cli-ref/snapshot-schedule/list-access-bindings.md)
+
+ - [list-disks](cli-ref/snapshot-schedule/list-disks.md)
+
+ - [list-operations](cli-ref/snapshot-schedule/list-operations.md)
+
+ - [list-snapshots](cli-ref/snapshot-schedule/list-snapshots.md)
+
+ - [remove-access-binding](cli-ref/snapshot-schedule/remove-access-binding.md)
+
+ - [remove-disks](cli-ref/snapshot-schedule/remove-disks.md)
+
+ - [remove-labels](cli-ref/snapshot-schedule/remove-labels.md)
+
+ - [remove-snapshot-labels](cli-ref/snapshot-schedule/remove-snapshot-labels.md)
+
+ - [set-access-bindings](cli-ref/snapshot-schedule/set-access-bindings.md)
+
+ - [update](cli-ref/snapshot-schedule/update.md)
+
+### ssh
+
+ - [Overview](cli-ref/ssh/index.md)
+
+#### certificate
+
+ - [Overview](cli-ref/ssh/certificate/index.md)
+
+ - [export](cli-ref/ssh/certificate/export.md)
 
 ### zone
 

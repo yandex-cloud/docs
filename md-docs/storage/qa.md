@@ -103,7 +103,7 @@ Yandex Object Storage — это универсальное масштабиру
 Проверьте, что сервисному аккаунту назначена [роль](security/index.md#roles-list) для доступа в бакет.
 
 
-Если у бакета включено [шифрование](concepts/encryption.md), назначьте сервисному аккаунту [роль](../kms/security/index.md#service) `kms.keys.encrypterDecrypter` на [ключ KMS](../kms/concepts/key.md), которым зашифрован бакет. Это можно сделать, например, с помощью команды CLI:
+Если у бакета включено [шифрование](concepts/encryption.md), назначьте сервисному аккаунту [роль](../kms/security/index.md#service-roles) `kms.keys.encrypterDecrypter` на [ключ KMS](../kms/concepts/key.md), которым зашифрован бакет. Это можно сделать, например, с помощью команды CLI:
 
 ```bash
 yc kms symmetric-key add-access-binding \
@@ -182,7 +182,7 @@ yc kms symmetric-key add-access-binding \
 
 1. [Настройте](operations/hosting/setup.md) бакет в качестве хостинга.
 
-1. [Создайте](operations/hosting/own-domain.md#domain-support) на своем DNS-сервере CNAME-запись, чтобы привязать ваш домен к бакету.
+1. [Создайте](operations/hosting/own-domain.md) на своем DNS-сервере CNAME-запись, чтобы привязать ваш домен к бакету.
 
 1. (опционально) [Добавьте](../certificate-manager/operations/index.md) свой сертификат в Certificate Manager или [выпустите](../certificate-manager/operations/managed/cert-create.md) бесплатный сертификат от Let's Encrypt.
 

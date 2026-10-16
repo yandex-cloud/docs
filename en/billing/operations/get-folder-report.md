@@ -223,10 +223,10 @@ The table contains the following columns:
 * `pricing_unit`: Product consumption unit.
 * `cost`: Total cost of consumption. The decimal separator is a period.
 * `credit`: Total discounts. Not included in the total cost of consumption (`credit`). Always negative. The decimal separator is a period.
-* `monetary_grant_credit`: Grant discount, including the platform introduction grant. The decimal separator is a period.
+* `monetary_grant_credit`: Grant discount. The decimal separator is a period.
 * `volume_incentive_credit`: Consumption volume discount. The decimal separator is a period.
-* `cud_credit`: Discount for the [committed](../concepts/cvos.md) resource volume. The cost of the consumption volume above the committed one equals the sum of the `cost` and `credit` column values. The decimal separator is a period.
-* `misc_credit`: Other types of discounts, including discounts for consumption after the platform introduction grant expires but before switching to the paid version. The decimal separator is a period.
+ 
+* `misc_credit`: Other types of discounts. The decimal separator is a period.
 * `label.user_labels.<label_name>`: Labels added to the resources. For information about how to manage labels, see [{#T}](../../resource-manager/operations/manage-labels.md).
 * `locale`: Language of each exported line. This field's value determines the `sku_name` column language. The possible values are `en` and `ru`.
 * `updated_at`: Date and time of the last line update in [Unix Timestamp](https://www.unixtimestamp.com) format.

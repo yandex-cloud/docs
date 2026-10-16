@@ -7,7 +7,7 @@ description: Из этой инструкции вы узнаете, как из
 
 {% note info %}
 
- Для внесения изменений, [активируйте](./deactivate-activate.md#acticate) окружение.
+ Для внесения изменений, [активируйте](./deactivate-activate.md#activate) окружение.
 
 {% endnote %}
 

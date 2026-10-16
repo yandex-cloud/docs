@@ -46,19 +46,6 @@ You can view your grants in {{ billing-name }} or in the management console widg
 {% endlist %}
 
 
-## Initial grant {#start}
-
-{% include [grant-amount](../../getting-started/_includes/grant-amount.md) %}
-
-For more information about the terms of use of the initial grant, see [Getting started](../../getting-started/usage-grant.md).
-
-{% note info %}
-
-Each individual, sole proprietor, or business can be given only one initial grant.
-
-{% endnote %}
-
-
 ## Additional grants {#additional}
 
 Additional grants can be provided on {{ yandex-cloud }} manager's decision or under a content program, referral program, or [Yandex Cloud Boost program](../../../cloud-boost). You can view the amount of additional grants and their validity period in {{ billing-name }}.

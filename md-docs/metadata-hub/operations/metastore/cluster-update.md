@@ -238,7 +238,7 @@
           * `minLevel` — минимальный уровень логирования. Возможные значения: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` и `FATAL`.
 
         * `networkSpec` — сетевые настройки:
-          * `securityGroupIds` — список идентификаторов [групп безопасности](../../../vpc/concepts/network.md#security-groups).
+          * `securityGroupIds` — список идентификаторов [групп безопасности](../../../vpc/concepts/security-groups.md).
 
         * `maintenanceWindow` — настройки времени [технического обслуживания](../../concepts/metastore-maintenance.md) (в т. ч. для выключенных кластеров). В `maintenanceWindow` передайте один из двух параметров:
           
@@ -383,7 +383,7 @@
             * `min_level` — минимальный уровень логирования. Возможные значения: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` и `FATAL`.
 
           * `network_spec` — сетевые настройки:
-            * `security_group_ids` — список идентификаторов [групп безопасности](../../../vpc/concepts/network.md#security-groups).
+            * `security_group_ids` — список идентификаторов [групп безопасности](../../../vpc/concepts/security-groups.md).
 
           * `maintenance_window` — настройки времени [технического обслуживания](../../concepts/metastore-maintenance.md) (в т. ч. для выключенных кластеров). В `maintenance_window` передайте один из двух параметров:
             

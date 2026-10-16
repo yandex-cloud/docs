@@ -6,7 +6,7 @@
 
 {% note info %}
 
-Прежде чем создавать приватное соединение, убедитесь, что в вашем каталоге есть [VRF](../concepts/private-network.md#vrf-segment) c одной или более маршрутизируемыми подсетями в BareMetal, а также Routing Instance, в составе которого [анонсированы](../../interconnect/concepts/priv-con.md#prc-announce) один или несколько префиксов приватных подсетей VPC. [Заказать](../tutorials/bm-vrf-and-vpc-interconnect.md#request-ri) Routing Instance вы можете через [обращение](https://center.yandex.cloud/support/tickets/create) в службу технической поддержки.
+Прежде чем создавать приватное соединение, убедитесь, что в вашем каталоге есть [VRF](../concepts/private-network.md#vrf-segment) c одной или более маршрутизируемыми подсетями в BareMetal, а также Routing Instance, в составе которого [анонсированы](../../cloud-router/concepts/announces.md#prc-announce) один или несколько префиксов приватных подсетей VPC. [Заказать](../tutorials/bm-vrf-and-vpc-interconnect.md#request-ri) Routing Instance вы можете через [обращение](https://center.yandex.cloud/support/tickets/create) в службу технической поддержки.
 
 {% endnote %}
 
@@ -25,7 +25,7 @@
 
           Вы также можете выбрать вариант `Выбрать из каталога`. В этом случае в появившемся списке выберите нужный `Routing Instance`.
 
-          В результате в форме отобразятся CIDR подсетей Virtual Private Cloud, которые будут [анонсироваться](../../interconnect/concepts/priv-con.md#prc-announce) в Cloud Interconnect.
+          В результате в форме отобразятся CIDR подсетей Virtual Private Cloud, которые будут [анонсироваться](../../cloud-router/concepts/announces.md#prc-announce) в Cloud Interconnect.
 
           {% note warning %}
           

@@ -72,8 +72,8 @@
 
 Чтобы мигрировать кластер Managed Service for Kubernetes из одной зоны доступности в другую:
 
-* [Перенесите мастер](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md#transfer-a-master).
-* [Перенесите группу узлов и рабочую нагрузку в подах](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md#transfer-a-node-group).
+* [Перенесите мастер](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md).
+* [Перенесите группу узлов и рабочую нагрузку в подах](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md).
 
 ### Network Load Balancer {#nlb}
 

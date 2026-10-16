@@ -4,16 +4,9 @@ _Организация_ — это высший ресурс в иерархи�
 
 При работе с сервисами {{ yandex-cloud }} вы создаете ресурсы: кластеры управляемых баз данных, виртуальные машины, диски, сети и другие. Большинство сервисов хранит ресурсы в [каталогах](../resource-manager/concepts/resources-hierarchy.md#folder). Каталоги принадлежат [облакам](../resource-manager/concepts/resources-hierarchy.md#cloud), а облака — организациям. Облако может принадлежать только одной организации, но вы можете переносить облака из одной организации в другую. Облаками и каталогами управляет сервис [{{ resmgr-full-name }}](../resource-manager/concepts/resources-hierarchy.md), а организациями управляет сервис {{ org-full-name }}. Контроль доступа к ресурсам {{ yandex-cloud }} осуществляется с помощью ролей.
 
-
 Схема организации {{ yandex-cloud }}:
 
 ![users-and-resources](../_assets/overview/users-resources.svg "Users and resources hierarchy")
-
-## Перед началом работы {#before-you-begin}
-
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или [зарегистрируйтесь](../getting-started/), если вы еще не зарегистрированы.
-1. Примите пользовательское соглашение.
-1. В сервисе [{{ billing-name }}]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
 
 ## Создайте организацию {#create-organization}
 
@@ -21,11 +14,11 @@ _Организация_ — это высший ресурс в иерархи�
 
 - Интерфейс {{ cloud-center }} {#cloud-center}
 
-  {% include [create-new-org](../_includes/organization/create-new-org.md) %}
+  {% include [create-org](../_includes/organization/create-first-org.md) %}
 
 {% endlist %}
 
-После регистрации вы станете владельцем организации и сможете управлять аккаунтами сотрудников, подключать и отключать сервисы.
+После регистрации вы станете владельцем организации и сможете управлять аккаунтами сотрудников, подключать и отключать сервисы. Для оплаты потребляемых ресурсов [создайте](../billing/quickstart/index.md) платежный аккаунт — он автоматически привяжется к организации.
 
 ## Управляйте пользователями {#manage-users}
 

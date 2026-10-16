@@ -51,7 +51,7 @@
         
         {% endnote %}
 
-    1. Если вы используете группы безопасности в кластере, убедитесь, что они настроены правильно и допускают подключение к кластеру [Managed Service for OpenSearch](../operations/connect/index.md#configuring-security-groups).
+    1. Если вы используете группы безопасности в кластере, убедитесь, что они настроены правильно и допускают подключение к кластеру [Managed Service for OpenSearch](../operations/connect/index.md#security-groups).
 
     1. [Получите SSL-сертификат](../operations/connect/index.md#ssl-certificate) для подключения к кластеру Managed Service for OpenSearch.
 

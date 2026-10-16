@@ -95,126 +95,6 @@ items:
     items:
       - name: Overview
         href: cli-ref/index.md
-      - name: catalog
-        items:
-          - name: Overview
-            href: cli-ref/catalog/index.md
-          - name: create
-            items:
-              - name: Overview
-                href: cli-ref/catalog/create/index.md
-              - name: clickhouse
-                href: cli-ref/catalog/create/clickhouse.md
-              - name: delta-lake
-                href: cli-ref/catalog/create/delta-lake.md
-              - name: greenplum
-                href: cli-ref/catalog/create/greenplum.md
-              - name: hive
-                href: cli-ref/catalog/create/hive.md
-              - name: hudi
-                href: cli-ref/catalog/create/hudi.md
-              - name: iceberg
-                href: cli-ref/catalog/create/iceberg.md
-              - name: mysql
-                href: cli-ref/catalog/create/mysql.md
-              - name: oracle
-                href: cli-ref/catalog/create/oracle.md
-              - name: postgresql
-                href: cli-ref/catalog/create/postgresql.md
-              - name: sqlserver
-                href: cli-ref/catalog/create/sqlserver.md
-              - name: tpcds
-                href: cli-ref/catalog/create/tpcds.md
-              - name: tpch
-                href: cli-ref/catalog/create/tpch.md
-          - name: delete
-            href: cli-ref/catalog/delete.md
-          - name: get
-            href: cli-ref/catalog/get.md
-          - name: list
-            href: cli-ref/catalog/list.md
-          - name: update
-            items:
-              - name: Overview
-                href: cli-ref/catalog/update/index.md
-              - name: clickhouse
-                href: cli-ref/catalog/update/clickhouse.md
-              - name: delta-lake
-                href: cli-ref/catalog/update/delta-lake.md
-              - name: greenplum
-                href: cli-ref/catalog/update/greenplum.md
-              - name: hive
-                href: cli-ref/catalog/update/hive.md
-              - name: hudi
-                href: cli-ref/catalog/update/hudi.md
-              - name: iceberg
-                href: cli-ref/catalog/update/iceberg.md
-              - name: mysql
-                href: cli-ref/catalog/update/mysql.md
-              - name: oracle
-                href: cli-ref/catalog/update/oracle.md
-              - name: postgresql
-                href: cli-ref/catalog/update/postgresql.md
-              - name: sqlserver
-                href: cli-ref/catalog/update/sqlserver.md
-              - name: tpcds
-                href: cli-ref/catalog/update/tpcds.md
-              - name: tpch
-                href: cli-ref/catalog/update/tpch.md
-      - name: change-freeze
-        items:
-          - name: Overview
-            href: cli-ref/change-freeze/index.md
-          - name: create
-            href: cli-ref/change-freeze/create.md
-          - name: get
-            href: cli-ref/change-freeze/get.md
-          - name: get-limits
-            href: cli-ref/change-freeze/get-limits.md
-          - name: list
-            href: cli-ref/change-freeze/list.md
-          - name: terminate
-            href: cli-ref/change-freeze/terminate.md
-      - name: cluster
-        items:
-          - name: Overview
-            href: cli-ref/cluster/index.md
-          - name: add-access-binding
-            href: cli-ref/cluster/add-access-binding.md
-          - name: create
-            href: cli-ref/cluster/create.md
-          - name: delete
-            href: cli-ref/cluster/delete.md
-          - name: get
-            href: cli-ref/cluster/get.md
-          - name: get-access-control
-            href: cli-ref/cluster/get-access-control.md
-          - name: get-resource-groups
-            href: cli-ref/cluster/get-resource-groups.md
-          - name: list
-            href: cli-ref/cluster/list.md
-          - name: list-access-bindings
-            href: cli-ref/cluster/list-access-bindings.md
-          - name: list-operations
-            href: cli-ref/cluster/list-operations.md
-          - name: remove-access-binding
-            href: cli-ref/cluster/remove-access-binding.md
-          - name: remove-access-control
-            href: cli-ref/cluster/remove-access-control.md
-          - name: remove-resource-groups
-            href: cli-ref/cluster/remove-resource-groups.md
-          - name: set-access-bindings
-            href: cli-ref/cluster/set-access-bindings.md
-          - name: set-access-control
-            href: cli-ref/cluster/set-access-control.md
-          - name: set-resource-groups
-            href: cli-ref/cluster/set-resource-groups.md
-          - name: start
-            href: cli-ref/cluster/start.md
-          - name: stop
-            href: cli-ref/cluster/stop.md
-          - name: update
-            href: cli-ref/cluster/update.md
       - name: v0
         items:
           - name: Overview
@@ -339,6 +219,126 @@ items:
                 href: cli-ref/v0/cluster/stop.md
               - name: update
                 href: cli-ref/v0/cluster/update.md
+      - name: catalog
+        items:
+          - name: Overview
+            href: cli-ref/catalog/index.md
+          - name: create
+            items:
+              - name: Overview
+                href: cli-ref/catalog/create/index.md
+              - name: clickhouse
+                href: cli-ref/catalog/create/clickhouse.md
+              - name: delta-lake
+                href: cli-ref/catalog/create/delta-lake.md
+              - name: greenplum
+                href: cli-ref/catalog/create/greenplum.md
+              - name: hive
+                href: cli-ref/catalog/create/hive.md
+              - name: hudi
+                href: cli-ref/catalog/create/hudi.md
+              - name: iceberg
+                href: cli-ref/catalog/create/iceberg.md
+              - name: mysql
+                href: cli-ref/catalog/create/mysql.md
+              - name: oracle
+                href: cli-ref/catalog/create/oracle.md
+              - name: postgresql
+                href: cli-ref/catalog/create/postgresql.md
+              - name: sqlserver
+                href: cli-ref/catalog/create/sqlserver.md
+              - name: tpcds
+                href: cli-ref/catalog/create/tpcds.md
+              - name: tpch
+                href: cli-ref/catalog/create/tpch.md
+          - name: delete
+            href: cli-ref/catalog/delete.md
+          - name: get
+            href: cli-ref/catalog/get.md
+          - name: list
+            href: cli-ref/catalog/list.md
+          - name: update
+            items:
+              - name: Overview
+                href: cli-ref/catalog/update/index.md
+              - name: clickhouse
+                href: cli-ref/catalog/update/clickhouse.md
+              - name: delta-lake
+                href: cli-ref/catalog/update/delta-lake.md
+              - name: greenplum
+                href: cli-ref/catalog/update/greenplum.md
+              - name: hive
+                href: cli-ref/catalog/update/hive.md
+              - name: hudi
+                href: cli-ref/catalog/update/hudi.md
+              - name: iceberg
+                href: cli-ref/catalog/update/iceberg.md
+              - name: mysql
+                href: cli-ref/catalog/update/mysql.md
+              - name: oracle
+                href: cli-ref/catalog/update/oracle.md
+              - name: postgresql
+                href: cli-ref/catalog/update/postgresql.md
+              - name: sqlserver
+                href: cli-ref/catalog/update/sqlserver.md
+              - name: tpcds
+                href: cli-ref/catalog/update/tpcds.md
+              - name: tpch
+                href: cli-ref/catalog/update/tpch.md
+      - name: change-freeze
+        items:
+          - name: Overview
+            href: cli-ref/change-freeze/index.md
+          - name: create
+            href: cli-ref/change-freeze/create.md
+          - name: get
+            href: cli-ref/change-freeze/get.md
+          - name: get-limits
+            href: cli-ref/change-freeze/get-limits.md
+          - name: list
+            href: cli-ref/change-freeze/list.md
+          - name: terminate
+            href: cli-ref/change-freeze/terminate.md
+      - name: cluster
+        items:
+          - name: Overview
+            href: cli-ref/cluster/index.md
+          - name: add-access-binding
+            href: cli-ref/cluster/add-access-binding.md
+          - name: create
+            href: cli-ref/cluster/create.md
+          - name: delete
+            href: cli-ref/cluster/delete.md
+          - name: get
+            href: cli-ref/cluster/get.md
+          - name: get-access-control
+            href: cli-ref/cluster/get-access-control.md
+          - name: get-resource-groups
+            href: cli-ref/cluster/get-resource-groups.md
+          - name: list
+            href: cli-ref/cluster/list.md
+          - name: list-access-bindings
+            href: cli-ref/cluster/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/cluster/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/cluster/remove-access-binding.md
+          - name: remove-access-control
+            href: cli-ref/cluster/remove-access-control.md
+          - name: remove-resource-groups
+            href: cli-ref/cluster/remove-resource-groups.md
+          - name: set-access-bindings
+            href: cli-ref/cluster/set-access-bindings.md
+          - name: set-access-control
+            href: cli-ref/cluster/set-access-control.md
+          - name: set-resource-groups
+            href: cli-ref/cluster/set-resource-groups.md
+          - name: start
+            href: cli-ref/cluster/start.md
+          - name: stop
+            href: cli-ref/cluster/stop.md
+          - name: update
+            href: cli-ref/cluster/update.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

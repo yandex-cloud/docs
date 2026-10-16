@@ -151,7 +151,7 @@
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/object-storage.md#objstorage-name) типа `Object Storage` со следующими настройками:
+1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/object-storage.md#endpoint-settings) типа `Object Storage` со следующими настройками:
 
     * **Тип базы данных** — `Object Storage`.
     * **Бакет** — имя бакета в Object Storage.
@@ -173,7 +173,7 @@
 
     Остальные параметры оставьте по умолчанию.
 
-1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/greenplum.md#gp) типа `Greenplum®` и укажите в нем параметры подключения к кластеру:
+1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/greenplum.md#managed-service) типа `Greenplum®` и укажите в нем параметры подключения к кластеру:
 
     * **Тип подключения** — `Кластер`.
     * **Кластер** — `<имя_кластера_приемника_Greenplum®>` из выпадающего списка.

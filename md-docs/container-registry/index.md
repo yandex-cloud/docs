@@ -166,172 +166,6 @@
 
  - [Overview](cli-ref/index.md)
 
-### cluster
-
- - [Overview](cli-ref/cluster/index.md)
-
- - [add-access-binding](cli-ref/cluster/add-access-binding.md)
-
- - [add-labels](cli-ref/cluster/add-labels.md)
-
- - [create](cli-ref/cluster/create.md)
-
- - [delete](cli-ref/cluster/delete.md)
-
- - [get](cli-ref/cluster/get.md)
-
- - [get-credentials](cli-ref/cluster/get-credentials.md)
-
- - [list](cli-ref/cluster/list.md)
-
- - [list-access-bindings](cli-ref/cluster/list-access-bindings.md)
-
- - [list-node-groups](cli-ref/cluster/list-node-groups.md)
-
- - [list-nodes](cli-ref/cluster/list-nodes.md)
-
- - [list-operations](cli-ref/cluster/list-operations.md)
-
- - [remove-access-binding](cli-ref/cluster/remove-access-binding.md)
-
- - [remove-labels](cli-ref/cluster/remove-labels.md)
-
- - [reschedule-maintenance](cli-ref/cluster/reschedule-maintenance.md)
-
- - [set-access-bindings](cli-ref/cluster/set-access-bindings.md)
-
- - [start](cli-ref/cluster/start.md)
-
- - [stop](cli-ref/cluster/stop.md)
-
- - [update](cli-ref/cluster/update.md)
-
-### image
-
- - [Overview](cli-ref/image/index.md)
-
- - [delete](cli-ref/image/delete.md)
-
- - [get](cli-ref/image/get.md)
-
- - [get-last-scan-result](cli-ref/image/get-last-scan-result.md)
-
- - [get-scan-result](cli-ref/image/get-scan-result.md)
-
- - [list](cli-ref/image/list.md)
-
- - [list-scan-results](cli-ref/image/list-scan-results.md)
-
- - [list-vulnerabilities](cli-ref/image/list-vulnerabilities.md)
-
- - [scan](cli-ref/image/scan.md)
-
-### node-group
-
- - [Overview](cli-ref/node-group/index.md)
-
- - [add-labels](cli-ref/node-group/add-labels.md)
-
- - [add-metadata](cli-ref/node-group/add-metadata.md)
-
- - [add-node-labels](cli-ref/node-group/add-node-labels.md)
-
- - [create](cli-ref/node-group/create.md)
-
- - [delete](cli-ref/node-group/delete.md)
-
- - [get](cli-ref/node-group/get.md)
-
- - [list](cli-ref/node-group/list.md)
-
- - [list-nodes](cli-ref/node-group/list-nodes.md)
-
- - [list-operations](cli-ref/node-group/list-operations.md)
-
- - [remove-labels](cli-ref/node-group/remove-labels.md)
-
- - [remove-metadata](cli-ref/node-group/remove-metadata.md)
-
- - [remove-node-labels](cli-ref/node-group/remove-node-labels.md)
-
- - [update](cli-ref/node-group/update.md)
-
-### registry
-
- - [Overview](cli-ref/registry/index.md)
-
- - [add-access-binding](cli-ref/registry/add-access-binding.md)
-
- - [add-ip-permissions](cli-ref/registry/add-ip-permissions.md)
-
- - [add-labels](cli-ref/registry/add-labels.md)
-
- - [configure-docker](cli-ref/registry/configure-docker.md)
-
- - [create](cli-ref/registry/create.md)
-
- - [delete](cli-ref/registry/delete.md)
-
- - [force-delete](cli-ref/registry/force-delete.md)
-
- - [get](cli-ref/registry/get.md)
-
- - [list](cli-ref/registry/list.md)
-
- - [list-access-bindings](cli-ref/registry/list-access-bindings.md)
-
- - [list-ip-permissions](cli-ref/registry/list-ip-permissions.md)
-
- - [remove-access-binding](cli-ref/registry/remove-access-binding.md)
-
- - [remove-ip-permissions](cli-ref/registry/remove-ip-permissions.md)
-
- - [remove-labels](cli-ref/registry/remove-labels.md)
-
- - [set-access-bindings](cli-ref/registry/set-access-bindings.md)
-
- - [set-ip-permissions](cli-ref/registry/set-ip-permissions.md)
-
- - [update](cli-ref/registry/update.md)
-
-### repository
-
- - [Overview](cli-ref/repository/index.md)
-
- - [add-access-binding](cli-ref/repository/add-access-binding.md)
-
- - [get](cli-ref/repository/get.md)
-
-#### lifecycle-policy
-
- - [Overview](cli-ref/repository/lifecycle-policy/index.md)
-
- - [create](cli-ref/repository/lifecycle-policy/create.md)
-
- - [delete](cli-ref/repository/lifecycle-policy/delete.md)
-
- - [dry-run](cli-ref/repository/lifecycle-policy/dry-run.md)
-
- - [get](cli-ref/repository/lifecycle-policy/get.md)
-
- - [get-dry-run-result](cli-ref/repository/lifecycle-policy/get-dry-run-result.md)
-
- - [list](cli-ref/repository/lifecycle-policy/list.md)
-
- - [list-dry-run-affected-images](cli-ref/repository/lifecycle-policy/list-dry-run-affected-images.md)
-
- - [list-dry-run-results](cli-ref/repository/lifecycle-policy/list-dry-run-results.md)
-
- - [update](cli-ref/repository/lifecycle-policy/update.md)
-
- - [list](cli-ref/repository/list.md)
-
- - [list-access-bindings](cli-ref/repository/list-access-bindings.md)
-
- - [remove-access-binding](cli-ref/repository/remove-access-binding.md)
-
- - [set-access-bindings](cli-ref/repository/set-access-bindings.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -501,6 +335,172 @@
  - [remove-access-binding](cli-ref/v0/repository/remove-access-binding.md)
 
  - [set-access-bindings](cli-ref/v0/repository/set-access-bindings.md)
+
+### cluster
+
+ - [Overview](cli-ref/cluster/index.md)
+
+ - [add-access-binding](cli-ref/cluster/add-access-binding.md)
+
+ - [add-labels](cli-ref/cluster/add-labels.md)
+
+ - [create](cli-ref/cluster/create.md)
+
+ - [delete](cli-ref/cluster/delete.md)
+
+ - [get](cli-ref/cluster/get.md)
+
+ - [get-credentials](cli-ref/cluster/get-credentials.md)
+
+ - [list](cli-ref/cluster/list.md)
+
+ - [list-access-bindings](cli-ref/cluster/list-access-bindings.md)
+
+ - [list-node-groups](cli-ref/cluster/list-node-groups.md)
+
+ - [list-nodes](cli-ref/cluster/list-nodes.md)
+
+ - [list-operations](cli-ref/cluster/list-operations.md)
+
+ - [remove-access-binding](cli-ref/cluster/remove-access-binding.md)
+
+ - [remove-labels](cli-ref/cluster/remove-labels.md)
+
+ - [reschedule-maintenance](cli-ref/cluster/reschedule-maintenance.md)
+
+ - [set-access-bindings](cli-ref/cluster/set-access-bindings.md)
+
+ - [start](cli-ref/cluster/start.md)
+
+ - [stop](cli-ref/cluster/stop.md)
+
+ - [update](cli-ref/cluster/update.md)
+
+### image
+
+ - [Overview](cli-ref/image/index.md)
+
+ - [delete](cli-ref/image/delete.md)
+
+ - [get](cli-ref/image/get.md)
+
+ - [get-last-scan-result](cli-ref/image/get-last-scan-result.md)
+
+ - [get-scan-result](cli-ref/image/get-scan-result.md)
+
+ - [list](cli-ref/image/list.md)
+
+ - [list-scan-results](cli-ref/image/list-scan-results.md)
+
+ - [list-vulnerabilities](cli-ref/image/list-vulnerabilities.md)
+
+ - [scan](cli-ref/image/scan.md)
+
+### node-group
+
+ - [Overview](cli-ref/node-group/index.md)
+
+ - [add-labels](cli-ref/node-group/add-labels.md)
+
+ - [add-metadata](cli-ref/node-group/add-metadata.md)
+
+ - [add-node-labels](cli-ref/node-group/add-node-labels.md)
+
+ - [create](cli-ref/node-group/create.md)
+
+ - [delete](cli-ref/node-group/delete.md)
+
+ - [get](cli-ref/node-group/get.md)
+
+ - [list](cli-ref/node-group/list.md)
+
+ - [list-nodes](cli-ref/node-group/list-nodes.md)
+
+ - [list-operations](cli-ref/node-group/list-operations.md)
+
+ - [remove-labels](cli-ref/node-group/remove-labels.md)
+
+ - [remove-metadata](cli-ref/node-group/remove-metadata.md)
+
+ - [remove-node-labels](cli-ref/node-group/remove-node-labels.md)
+
+ - [update](cli-ref/node-group/update.md)
+
+### registry
+
+ - [Overview](cli-ref/registry/index.md)
+
+ - [add-access-binding](cli-ref/registry/add-access-binding.md)
+
+ - [add-ip-permissions](cli-ref/registry/add-ip-permissions.md)
+
+ - [add-labels](cli-ref/registry/add-labels.md)
+
+ - [configure-docker](cli-ref/registry/configure-docker.md)
+
+ - [create](cli-ref/registry/create.md)
+
+ - [delete](cli-ref/registry/delete.md)
+
+ - [force-delete](cli-ref/registry/force-delete.md)
+
+ - [get](cli-ref/registry/get.md)
+
+ - [list](cli-ref/registry/list.md)
+
+ - [list-access-bindings](cli-ref/registry/list-access-bindings.md)
+
+ - [list-ip-permissions](cli-ref/registry/list-ip-permissions.md)
+
+ - [remove-access-binding](cli-ref/registry/remove-access-binding.md)
+
+ - [remove-ip-permissions](cli-ref/registry/remove-ip-permissions.md)
+
+ - [remove-labels](cli-ref/registry/remove-labels.md)
+
+ - [set-access-bindings](cli-ref/registry/set-access-bindings.md)
+
+ - [set-ip-permissions](cli-ref/registry/set-ip-permissions.md)
+
+ - [update](cli-ref/registry/update.md)
+
+### repository
+
+ - [Overview](cli-ref/repository/index.md)
+
+ - [add-access-binding](cli-ref/repository/add-access-binding.md)
+
+ - [get](cli-ref/repository/get.md)
+
+#### lifecycle-policy
+
+ - [Overview](cli-ref/repository/lifecycle-policy/index.md)
+
+ - [create](cli-ref/repository/lifecycle-policy/create.md)
+
+ - [delete](cli-ref/repository/lifecycle-policy/delete.md)
+
+ - [dry-run](cli-ref/repository/lifecycle-policy/dry-run.md)
+
+ - [get](cli-ref/repository/lifecycle-policy/get.md)
+
+ - [get-dry-run-result](cli-ref/repository/lifecycle-policy/get-dry-run-result.md)
+
+ - [list](cli-ref/repository/lifecycle-policy/list.md)
+
+ - [list-dry-run-affected-images](cli-ref/repository/lifecycle-policy/list-dry-run-affected-images.md)
+
+ - [list-dry-run-results](cli-ref/repository/lifecycle-policy/list-dry-run-results.md)
+
+ - [update](cli-ref/repository/lifecycle-policy/update.md)
+
+ - [list](cli-ref/repository/list.md)
+
+ - [list-access-bindings](cli-ref/repository/list-access-bindings.md)
+
+ - [remove-access-binding](cli-ref/repository/remove-access-binding.md)
+
+ - [set-access-bindings](cli-ref/repository/set-access-bindings.md)
 
  - [Справочник Terraform](tf-ref.md)
 

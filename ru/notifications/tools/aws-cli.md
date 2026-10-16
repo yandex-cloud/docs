@@ -111,7 +111,7 @@ aws sns list-platform-applications
 
 ## Создайте эндпоинт {#create-endpoint}
 
-Чтобы создать [мобильный эндпоинт](../concepts/index.md#mobile-endpoints), выполните команду:
+Чтобы создать [мобильный эндпоинт](../concepts/push.md#mobile-endpoints), выполните команду:
 
 {% include [endpoint-create-aws](../../_includes/notifications/endpoint-create-aws.md) %}
 

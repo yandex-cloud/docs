@@ -29,4 +29,4 @@ description: Сервис {{ monitoring-full-name }} позволяет соби
 
 {% include [metrics-k8s-tools](../../_includes/managed-kubernetes/metrics-k8s-tools.md) %}
 
-Описание метрик приводится в [Справочнике](../metrics-ref/index.md#managed-kubernetes).
+Описание метрик приводится в [Справочнике](../metrics-ref/index.md).

@@ -2,7 +2,7 @@
 
 # Действие GetEndpointAttributes
 
-Получает атрибуты [эндпоинта для Push-уведомлений](../concepts/index.md#mobile-endpoints).
+Получает атрибуты [эндпоинта для Push-уведомлений](../concepts/push.md#mobile-endpoints).
 
 ## HTTP-запрос {#request}
 

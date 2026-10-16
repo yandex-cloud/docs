@@ -29,7 +29,7 @@
 
 Подробнее в [документации Airbyte®](https://docs.airbyte.com/integrations/sources/bigquery).
 
-## Настройка эндпоинта-источника BigQuery {#settings}
+## Настройка эндпоинта-источника BigQuery {#endpoint-settings}
 
 {% list tabs group=instructions %}
 

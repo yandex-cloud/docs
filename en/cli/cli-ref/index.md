@@ -85,7 +85,7 @@ Syntax:
 
 - [yc managed-mysql](managed-mysql/cli-ref/index.md) — Manage MySQL clusters, hosts, databases, backups and users.
 
-- [yc managed-opensearch](managed-opensearch/cli-ref/index.md) — Managed OpenSearch clusters, hosts, indexes and backups.
+- [yc managed-opensearch](managed-opensearch/cli-ref/index.md) — Manage OpenSearch clusters, hosts, indexes and backups
 
 - [yc managed-postgresql](managed-postgresql/cli-ref/index.md) — Manage PostgreSQL clusters, hosts, databases, backups and users.
 

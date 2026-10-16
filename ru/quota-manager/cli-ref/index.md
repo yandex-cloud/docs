@@ -17,6 +17,10 @@ Syntax:
 
 #### Command Tree
 
+- [yc quota-manager v0](v0/index.md) — Manage Yandex Quota Manager resources
+
+
+
 - [yc quota-manager quota-limit](quota-limit/index.md) — Manage quota limits
 
   - [yc quota-manager quota-limit get](quota-limit/get.md) — Show information about the specified quota
@@ -36,10 +40,6 @@ Syntax:
   - [yc quota-manager quota-request list](quota-request/list.md) — List quota requests
 
   - [yc quota-manager quota-request list-operations](quota-request/list-operations.md) — List operations for the specified quota request
-
-- [yc quota-manager v0](v0/index.md) — Manage Yandex Quota Manager resources
-
-
 
 #### Global Flags
 

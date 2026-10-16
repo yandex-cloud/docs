@@ -51,7 +51,7 @@
 
   1. Чтобы удалить субтитры, нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
 
-  1. Чтобы изменить [нейроперевод](../../concepts/videos.md#translation), удалите старые языки и добавьте новые:
+  1. Чтобы изменить [нейроперевод](../../concepts/videos.md#stranslation), удалите старые языки и добавьте новые:
       
       1. В блоке **Нейроперевод** нажмите ![image](../../../_assets/console-icons/ellipsis.svg) справа от языка нейроперевода.
       1. Нажмите ![image](../../../_assets/console-icons/trash-bin.svg) **Удалить**.

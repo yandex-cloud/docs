@@ -159,146 +159,6 @@ items:
     items:
       - name: Overview
         href: cli-ref/index.md
-      - name: artifact
-        items:
-          - name: Overview
-            href: cli-ref/artifact/index.md
-          - name: add-access-binding
-            href: cli-ref/artifact/add-access-binding.md
-          - name: delete
-            href: cli-ref/artifact/delete.md
-          - name: get
-            href: cli-ref/artifact/get.md
-          - name: get-by-path
-            href: cli-ref/artifact/get-by-path.md
-          - name: list
-            href: cli-ref/artifact/list.md
-          - name: list-access-bindings
-            href: cli-ref/artifact/list-access-bindings.md
-          - name: remove-access-binding
-            href: cli-ref/artifact/remove-access-binding.md
-          - name: scanner
-            items:
-              - name: Overview
-                href: cli-ref/artifact/scanner/index.md
-              - name: get-last-scan-result
-                href: cli-ref/artifact/scanner/get-last-scan-result.md
-              - name: get-scan-result
-                href: cli-ref/artifact/scanner/get-scan-result.md
-              - name: list-scan-results
-                href: cli-ref/artifact/scanner/list-scan-results.md
-              - name: list-vulnerabilities
-                href: cli-ref/artifact/scanner/list-vulnerabilities.md
-              - name: scan
-                href: cli-ref/artifact/scanner/scan.md
-          - name: set-access-bindings
-            href: cli-ref/artifact/set-access-bindings.md
-          - name: update-access-bindings
-            href: cli-ref/artifact/update-access-bindings.md
-          - name: upsert
-            href: cli-ref/artifact/upsert.md
-      - name: configure-docker
-        href: cli-ref/configure-docker.md
-      - name: migration
-        items:
-          - name: Overview
-            href: cli-ref/migration/index.md
-          - name: get-cloud-migration-status-dashboard
-            href: cli-ref/migration/get-cloud-migration-status-dashboard.md
-          - name: get-folder-migration-status-dashboard
-            href: cli-ref/migration/get-folder-migration-status-dashboard.md
-          - name: start-cloud
-            href: cli-ref/migration/start-cloud.md
-          - name: start-folder
-            href: cli-ref/migration/start-folder.md
-          - name: toggle-cloud-redirects
-            href: cli-ref/migration/toggle-cloud-redirects.md
-          - name: toggle-folder-redirects
-            href: cli-ref/migration/toggle-folder-redirects.md
-          - name: toggle-registry-redirects
-            href: cli-ref/migration/toggle-registry-redirects.md
-      - name: registry
-        items:
-          - name: Overview
-            href: cli-ref/registry/index.md
-          - name: add-access-binding
-            href: cli-ref/registry/add-access-binding.md
-          - name: add-ip-permissions
-            href: cli-ref/registry/add-ip-permissions.md
-          - name: create
-            href: cli-ref/registry/create.md
-          - name: delete
-            href: cli-ref/registry/delete.md
-          - name: force-delete
-            href: cli-ref/registry/force-delete.md
-          - name: get
-            href: cli-ref/registry/get.md
-          - name: lifecycle-policy
-            items:
-              - name: Overview
-                href: cli-ref/registry/lifecycle-policy/index.md
-              - name: change-state
-                href: cli-ref/registry/lifecycle-policy/change-state.md
-              - name: create
-                href: cli-ref/registry/lifecycle-policy/create.md
-              - name: delete
-                href: cli-ref/registry/lifecycle-policy/delete.md
-              - name: dry-run
-                href: cli-ref/registry/lifecycle-policy/dry-run.md
-              - name: get
-                href: cli-ref/registry/lifecycle-policy/get.md
-              - name: get-dry-run-result
-                href: cli-ref/registry/lifecycle-policy/get-dry-run-result.md
-              - name: list
-                href: cli-ref/registry/lifecycle-policy/list.md
-              - name: list-dry-run-artifacts
-                href: cli-ref/registry/lifecycle-policy/list-dry-run-artifacts.md
-              - name: list-dry-run-results
-                href: cli-ref/registry/lifecycle-policy/list-dry-run-results.md
-              - name: update
-                href: cli-ref/registry/lifecycle-policy/update.md
-          - name: list
-            href: cli-ref/registry/list.md
-          - name: list-access-bindings
-            href: cli-ref/registry/list-access-bindings.md
-          - name: list-artifacts
-            href: cli-ref/registry/list-artifacts.md
-          - name: list-ip-permissions
-            href: cli-ref/registry/list-ip-permissions.md
-          - name: remove-access-binding
-            href: cli-ref/registry/remove-access-binding.md
-          - name: remove-ip-permissions
-            href: cli-ref/registry/remove-ip-permissions.md
-          - name: scan-policy
-            items:
-              - name: Overview
-                href: cli-ref/registry/scan-policy/index.md
-              - name: create
-                href: cli-ref/registry/scan-policy/create.md
-              - name: delete
-                href: cli-ref/registry/scan-policy/delete.md
-              - name: get
-                href: cli-ref/registry/scan-policy/get.md
-              - name: get-by-registry
-                href: cli-ref/registry/scan-policy/get-by-registry.md
-              - name: update
-                href: cli-ref/registry/scan-policy/update.md
-          - name: set-access-bindings
-            href: cli-ref/registry/set-access-bindings.md
-          - name: set-ip-permissions
-            href: cli-ref/registry/set-ip-permissions.md
-          - name: update
-            href: cli-ref/registry/update.md
-      - name: tools
-        items:
-          - name: Overview
-            href: cli-ref/tools/index.md
-          - name: debian
-            items:
-              - name: Overview
-                href: cli-ref/tools/debian/index.md
-              - name: reindex-packages
-                href: cli-ref/tools/debian/reindex-packages.md
       - name: v0
         items:
           - name: Overview
@@ -563,6 +423,146 @@ items:
                     href: cli-ref/v1/tools/debian/index.md
                   - name: reindex-packages
                     href: cli-ref/v1/tools/debian/reindex-packages.md
+      - name: artifact
+        items:
+          - name: Overview
+            href: cli-ref/artifact/index.md
+          - name: add-access-binding
+            href: cli-ref/artifact/add-access-binding.md
+          - name: delete
+            href: cli-ref/artifact/delete.md
+          - name: get
+            href: cli-ref/artifact/get.md
+          - name: get-by-path
+            href: cli-ref/artifact/get-by-path.md
+          - name: list
+            href: cli-ref/artifact/list.md
+          - name: list-access-bindings
+            href: cli-ref/artifact/list-access-bindings.md
+          - name: remove-access-binding
+            href: cli-ref/artifact/remove-access-binding.md
+          - name: scanner
+            items:
+              - name: Overview
+                href: cli-ref/artifact/scanner/index.md
+              - name: get-last-scan-result
+                href: cli-ref/artifact/scanner/get-last-scan-result.md
+              - name: get-scan-result
+                href: cli-ref/artifact/scanner/get-scan-result.md
+              - name: list-scan-results
+                href: cli-ref/artifact/scanner/list-scan-results.md
+              - name: list-vulnerabilities
+                href: cli-ref/artifact/scanner/list-vulnerabilities.md
+              - name: scan
+                href: cli-ref/artifact/scanner/scan.md
+          - name: set-access-bindings
+            href: cli-ref/artifact/set-access-bindings.md
+          - name: update-access-bindings
+            href: cli-ref/artifact/update-access-bindings.md
+          - name: upsert
+            href: cli-ref/artifact/upsert.md
+      - name: configure-docker
+        href: cli-ref/configure-docker.md
+      - name: migration
+        items:
+          - name: Overview
+            href: cli-ref/migration/index.md
+          - name: get-cloud-migration-status-dashboard
+            href: cli-ref/migration/get-cloud-migration-status-dashboard.md
+          - name: get-folder-migration-status-dashboard
+            href: cli-ref/migration/get-folder-migration-status-dashboard.md
+          - name: start-cloud
+            href: cli-ref/migration/start-cloud.md
+          - name: start-folder
+            href: cli-ref/migration/start-folder.md
+          - name: toggle-cloud-redirects
+            href: cli-ref/migration/toggle-cloud-redirects.md
+          - name: toggle-folder-redirects
+            href: cli-ref/migration/toggle-folder-redirects.md
+          - name: toggle-registry-redirects
+            href: cli-ref/migration/toggle-registry-redirects.md
+      - name: registry
+        items:
+          - name: Overview
+            href: cli-ref/registry/index.md
+          - name: add-access-binding
+            href: cli-ref/registry/add-access-binding.md
+          - name: add-ip-permissions
+            href: cli-ref/registry/add-ip-permissions.md
+          - name: create
+            href: cli-ref/registry/create.md
+          - name: delete
+            href: cli-ref/registry/delete.md
+          - name: force-delete
+            href: cli-ref/registry/force-delete.md
+          - name: get
+            href: cli-ref/registry/get.md
+          - name: lifecycle-policy
+            items:
+              - name: Overview
+                href: cli-ref/registry/lifecycle-policy/index.md
+              - name: change-state
+                href: cli-ref/registry/lifecycle-policy/change-state.md
+              - name: create
+                href: cli-ref/registry/lifecycle-policy/create.md
+              - name: delete
+                href: cli-ref/registry/lifecycle-policy/delete.md
+              - name: dry-run
+                href: cli-ref/registry/lifecycle-policy/dry-run.md
+              - name: get
+                href: cli-ref/registry/lifecycle-policy/get.md
+              - name: get-dry-run-result
+                href: cli-ref/registry/lifecycle-policy/get-dry-run-result.md
+              - name: list
+                href: cli-ref/registry/lifecycle-policy/list.md
+              - name: list-dry-run-artifacts
+                href: cli-ref/registry/lifecycle-policy/list-dry-run-artifacts.md
+              - name: list-dry-run-results
+                href: cli-ref/registry/lifecycle-policy/list-dry-run-results.md
+              - name: update
+                href: cli-ref/registry/lifecycle-policy/update.md
+          - name: list
+            href: cli-ref/registry/list.md
+          - name: list-access-bindings
+            href: cli-ref/registry/list-access-bindings.md
+          - name: list-artifacts
+            href: cli-ref/registry/list-artifacts.md
+          - name: list-ip-permissions
+            href: cli-ref/registry/list-ip-permissions.md
+          - name: remove-access-binding
+            href: cli-ref/registry/remove-access-binding.md
+          - name: remove-ip-permissions
+            href: cli-ref/registry/remove-ip-permissions.md
+          - name: scan-policy
+            items:
+              - name: Overview
+                href: cli-ref/registry/scan-policy/index.md
+              - name: create
+                href: cli-ref/registry/scan-policy/create.md
+              - name: delete
+                href: cli-ref/registry/scan-policy/delete.md
+              - name: get
+                href: cli-ref/registry/scan-policy/get.md
+              - name: get-by-registry
+                href: cli-ref/registry/scan-policy/get-by-registry.md
+              - name: update
+                href: cli-ref/registry/scan-policy/update.md
+          - name: set-access-bindings
+            href: cli-ref/registry/set-access-bindings.md
+          - name: set-ip-permissions
+            href: cli-ref/registry/set-ip-permissions.md
+          - name: update
+            href: cli-ref/registry/update.md
+      - name: tools
+        items:
+          - name: Overview
+            href: cli-ref/tools/index.md
+          - name: debian
+            items:
+              - name: Overview
+                href: cli-ref/tools/debian/index.md
+              - name: reindex-packages
+                href: cli-ref/tools/debian/reindex-packages.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

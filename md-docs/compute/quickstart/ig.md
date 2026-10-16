@@ -13,7 +13,7 @@
 ## Перед началом работы {#before-you-begin}
 
 1. Войдите в [консоль управления](https://console.yandex.cloud) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
+1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md).
 1. Если у вас еще нет [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), [создайте его](../../resource-manager/operations/folder/create.md).
 
 ## Создайте группу ВМ {#create-ig}
@@ -61,7 +61,7 @@
     * В блоке **Вычислительные ресурсы** выберите одну из готовых конфигураций ВМ или перейдите на вкладку **Своя конфигурация**, чтобы создать собственную конфигурацию.
     * В блоке **Сетевые настройки**:
 
-        * Выберите [облачную сеть](../concepts/vm.md#network) и [подсеть](../concepts/network.md#subnet). Если подсети нет, создайте ее:
+        * Выберите [облачную сеть](../concepts/vm.md#network) и [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее:
 
             * Разверните раскрывающийся список и нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Создать подсеть**.
             * Введите имя и описание новой подсети, укажите зону доступности и CIDR.

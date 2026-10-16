@@ -14,6 +14,10 @@ Syntax:
 
 #### Command Tree
 
+- [yc kms v0](v0/index.md) — Manage Key Management Service resources (compatible command tree)
+
+
+
 - [yc kms asymmetric-encryption-crypto](asymmetric-encryption-crypto/index.md) — Perform asymmetric encryption crypto operations
 
   - [yc kms asymmetric-encryption-crypto decrypt](asymmetric-encryption-crypto/decrypt.md) — Decrypt data with specified asymmetric encryption key
@@ -113,10 +117,6 @@ Syntax:
   - [yc kms symmetric-key set-primary-version](symmetric-key/set-primary-version.md) — Set primary version of the specified symmetric key
 
   - [yc kms symmetric-key update](symmetric-key/update.md) — Update the specified symmetric key
-
-- [yc kms v0](v0/index.md) — Manage Key Management Service resources (compatible command tree)
-
-
 
 #### Global Flags
 

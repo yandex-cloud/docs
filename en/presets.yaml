@@ -7,6 +7,7 @@ default:
   ad-sync-agent-windowslink: https://storage.yandexcloud.net/yc-identityhub-sync/install.ps1
   adv-ddos-protection: Advanced Yandex DDoS Protection
   AF: Apache Airflow™
+  agent-core-name: Agent Core
   agents-atelier-name: Agent Atelier
   ai-playground: AI Playground
   ai-studio-full-name: Yandex Cloud AI Studio
@@ -2176,7 +2177,6 @@ default:
         filter_label-labels-all: All labels
         filter_label-products-all: All products
         filter_label-services-all: All services
-        label_credit-cudCredit: Committed use discount
         label_credit-monetaryGrantCredit: Grant
         label_credit-volumeIncentiveCredit: Volume incentive credit
         label_deselected-all: Clear
@@ -2255,7 +2255,6 @@ default:
             title_section-billable: Linked clouds and services
           dashboard:
             button_go-pay: Upgrade to paid version
-            button_refill: Top up account
             card_label_threshold-description: Detailed
             label_inactivation: Delete
             label_rename: Rename
@@ -2308,7 +2307,6 @@ default:
             account-data_label_organization: Organization
             card_label_edit: Change bank card
             company_label_rs: Billing account
-            payment-type_label_card: Bank card
             payment-type_label_invoice: Wire transfer
             section_account-data: General information
             section_contract: Information about the agreement

@@ -18,6 +18,10 @@ Aliases:
 
 #### Command Tree
 
+- [yc managed-spark v0](v0/index.md) — Manage Spark clusters.
+
+
+
 - [yc managed-spark change-freeze](change-freeze/index.md) — Manage change freezes.
 
   - [yc managed-spark change-freeze create](change-freeze/create.md) — Create a change freeze for the specified resource.
@@ -71,10 +75,6 @@ Aliases:
   - [yc managed-spark job list](job/list.md) — List Spark jobs for a cluster.
 
   - [yc managed-spark job log](job/log.md) — List logs for Spark job.
-
-- [yc managed-spark v0](v0/index.md) — Manage Spark clusters.
-
-
 
 #### Global Flags
 

@@ -13,7 +13,6 @@
     1. [Получите исходные данные](#get-source-data).
 1. [Настройте окружение](#prepare-project).
 1. [Создайте файл конфигурации](#create-config).
-1. [Подготовьте код скрипта](#prepare-code).
 1. [Создайте ВМ с помощью скрипта](#run-code).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
@@ -33,8 +32,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки ВМ, созданной с помощью SDK, входят:
-* плата за вычислительные ресурсы ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md#prices-instance-resources));
-* плата за диски ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md#prices-storage));
+* плата за вычислительные ресурсы ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md#instance-resources));
+* плата за диски ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md#disk));
 * плата за использование динамического внешнего IP-адреса ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 ### Создайте сервисный аккаунт {#create-sa}

@@ -28,30 +28,6 @@ items:
     items:
       - name: Overview
         href: cli-ref/index.md
-      - name: quota-limit
-        items:
-          - name: Overview
-            href: cli-ref/quota-limit/index.md
-          - name: get
-            href: cli-ref/quota-limit/get.md
-          - name: list
-            href: cli-ref/quota-limit/list.md
-          - name: list-services
-            href: cli-ref/quota-limit/list-services.md
-      - name: quota-request
-        items:
-          - name: Overview
-            href: cli-ref/quota-request/index.md
-          - name: cancel
-            href: cli-ref/quota-request/cancel.md
-          - name: create
-            href: cli-ref/quota-request/create.md
-          - name: get
-            href: cli-ref/quota-request/get.md
-          - name: list
-            href: cli-ref/quota-request/list.md
-          - name: list-operations
-            href: cli-ref/quota-request/list-operations.md
       - name: v0
         items:
           - name: Overview
@@ -80,6 +56,30 @@ items:
                 href: cli-ref/v0/quota-request/list.md
               - name: list-operations
                 href: cli-ref/v0/quota-request/list-operations.md
+      - name: quota-limit
+        items:
+          - name: Overview
+            href: cli-ref/quota-limit/index.md
+          - name: get
+            href: cli-ref/quota-limit/get.md
+          - name: list
+            href: cli-ref/quota-limit/list.md
+          - name: list-services
+            href: cli-ref/quota-limit/list-services.md
+      - name: quota-request
+        items:
+          - name: Overview
+            href: cli-ref/quota-request/index.md
+          - name: cancel
+            href: cli-ref/quota-request/cancel.md
+          - name: create
+            href: cli-ref/quota-request/create.md
+          - name: get
+            href: cli-ref/quota-request/get.md
+          - name: list
+            href: cli-ref/quota-request/list.md
+          - name: list-operations
+            href: cli-ref/quota-request/list-operations.md
   - name: API reference
     items:
       - name: API authentication

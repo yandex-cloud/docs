@@ -45,7 +45,7 @@ description: Следуя данной инструкции, вы сможете
   1. Введите имя профиля.
   1. (Опционально) Введите описание профиля.
   1. В блоке **{{ ui-key.yacloud.smart-web-security.SolidWallProfileForm.titleRpsLimit_b67eQ }}** выберите [полосу RPS](../concepts/solidwall-waf.md#tariffs) — количество запросов в секунду. Учитывайте суммарную нагрузку на все приложения профиля и ориентируйтесь на пиковый суточный RPS.
-  1. В блоке **{{ ui-key.yacloud.smart-web-security.SolidWallProfileForm.titleTariff_6j471 }}** выберите [тариф](../tutorials/solidwall-waf.md#select-tariff).
+  1. В блоке **{{ ui-key.yacloud.smart-web-security.SolidWallProfileForm.titleTariff_6j471 }}** выберите [тариф](../concepts/solidwall-waf.md#tariffs).
 
 
   1. Проверьте выбранный тариф и нагрузку в калькуляторе стоимости справа от формы.

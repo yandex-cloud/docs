@@ -50,7 +50,7 @@ By default, usage details show the cost of consumed resources. Details in consum
 
 - Workspaces {#instances}
 
-  You can view the usage details for one or more clouds, [workspaces](../../organization/concepts/organization.md#service-management), and additional agreements, e.g., adjustments and [CVoS](../concepts/cvos.md).
+  You can view the usage details for one or more clouds, [workspaces](../../organization/concepts/organization.md#service-management), and additional agreements, e.g., adjustments.
   
   By default, the displayed information covers all clouds, workspaces, and additional agreements associated with your billing account. To cover only some of them, select the clouds, services, and additional agreements you want displayed in the **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_service_instances }}** list.
   
@@ -130,10 +130,9 @@ By default, usage details show the cost of consumed resources. Details in consum
   1. Next to the total discount amount, click ![image](../../_assets/console-icons/circle-question.svg).
   1. A pop-up window will display the details.
   
-     * `{{ ui-key.yacloud_billing_account.billing-account-detail.label_credit-monetaryGrantCredit }}`: [Grant](../concepts/bonus-account.md) discount, including the platform introduction grant.
+     * `{{ ui-key.yacloud_billing_account.billing-account-detail.label_credit-monetaryGrantCredit }}`: [Grant discount](../concepts/bonus-account.md).
      * `{{ ui-key.yacloud_billing_account.billing-account-detail.label_credit-volumeIncentiveCredit }}`: Direct discount on current resource consumption, excluding long-term commitments.
-     * `{{ ui-key.yacloud_billing_account.billing-account-detail.label_credit-cudCredit }}`: [Discount](../concepts/cvos.md) on service resource usage with a 6-month, 12-month, or longer commitment.
-     * `Other discounts`: Other types of discounts, including discounts for consumption after the platform introduction grant expires but before switching to the paid version.
+     * `Other discounts`: Other types of discounts.
 
 {% endlist %}
 
@@ -178,12 +177,4 @@ Name | Description
 {{ ui-key.yacloud_billing.billing.account.detail.column_credit }} | Discount amount in the contract currency (excluding VAT or other taxes and fees). The discount for a committed volume of services is applied and displayed as soon as you start consuming the resources.
 {{ ui-key.yacloud_billing.billing.account.detail.column_expense }} | Total cost of consumed resources after discount.
 
-
-## Displaying the committed volume of services {#cvos}
-
-When using the [committed volume of services](../concepts/cvos.md) (CVoS):
-
-* The CVoS discount is applied and displayed as soon as you start consuming the resources.
-* The CVoS cost is distributed among individual resources. The details show the base resource cost and the applied discount.
-* The remaining unused CVoS is displayed separately.
-* Final CVoS balances are calculated at the end of the month to make sure the reports indicate the correct amounts.
+ 

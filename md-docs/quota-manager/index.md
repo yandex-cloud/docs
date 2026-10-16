@@ -32,30 +32,6 @@ Yandex Cloud Quota Manager позволяет управлять квотами 
 
  - [Overview](cli-ref/index.md)
 
-### quota-limit
-
- - [Overview](cli-ref/quota-limit/index.md)
-
- - [get](cli-ref/quota-limit/get.md)
-
- - [list](cli-ref/quota-limit/list.md)
-
- - [list-services](cli-ref/quota-limit/list-services.md)
-
-### quota-request
-
- - [Overview](cli-ref/quota-request/index.md)
-
- - [cancel](cli-ref/quota-request/cancel.md)
-
- - [create](cli-ref/quota-request/create.md)
-
- - [get](cli-ref/quota-request/get.md)
-
- - [list](cli-ref/quota-request/list.md)
-
- - [list-operations](cli-ref/quota-request/list-operations.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -83,6 +59,30 @@ Yandex Cloud Quota Manager позволяет управлять квотами 
  - [list](cli-ref/v0/quota-request/list.md)
 
  - [list-operations](cli-ref/v0/quota-request/list-operations.md)
+
+### quota-limit
+
+ - [Overview](cli-ref/quota-limit/index.md)
+
+ - [get](cli-ref/quota-limit/get.md)
+
+ - [list](cli-ref/quota-limit/list.md)
+
+ - [list-services](cli-ref/quota-limit/list-services.md)
+
+### quota-request
+
+ - [Overview](cli-ref/quota-request/index.md)
+
+ - [cancel](cli-ref/quota-request/cancel.md)
+
+ - [create](cli-ref/quota-request/create.md)
+
+ - [get](cli-ref/quota-request/get.md)
+
+ - [list](cli-ref/quota-request/list.md)
+
+ - [list-operations](cli-ref/quota-request/list-operations.md)
 
 ## Справочник API
 

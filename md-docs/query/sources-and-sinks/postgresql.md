@@ -38,7 +38,7 @@ SELECT * FROM postgresql_mdb_connection.my_table
    1. В блоке **Параметры типа соединения**:
 
       * **Кластер** — выберите существующий кластер Managed Service for PostgreSQL или создайте новый.
-      * **Сервисный аккаунт** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) Managed Service for PostgreSQL или создайте новый с ролью [`managed-postgresql.viewer`](../../managed-postgresql/security/index.md#mpg-viewer), от имени которого будет выполняться подключение к кластерам Managed Service for PostgreSQL.
+      * **Сервисный аккаунт** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) Managed Service for PostgreSQL или создайте новый с ролью [`managed-postgresql.viewer`](../../managed-postgresql/security/index.md#managed-postgresql-viewer), от имени которого будет выполняться подключение к кластерам Managed Service for PostgreSQL.
 
         Чтобы использовать сервисный аккаунт, пользователю нужна [роль](../../iam/security/index.md#iam-serviceAccounts-user) `iam.serviceAccounts.user`.
 

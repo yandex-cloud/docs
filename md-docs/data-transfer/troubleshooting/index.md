@@ -34,7 +34,7 @@
 | Источник проблемы | Проблема | Решение |
 |-------------------|----------|---------|
 | Эндпоинт | Отсутствие сетевой доступности или прав доступа к эндпоинту | Проверьте чтение из источника с помощью графиков: [Maximum data transfer delay](../operations/monitoring.md#sinker.pusher.time.row_max_lag_sec), [Number of source events](../operations/monitoring.md#publisher.data.changeitems) и [Reads](../operations/monitoring.md#publisher.data.bytes).</br>Проверьте запись в приемник с помощью графиков: [Maximum data transfer delay](../operations/monitoring.md#sinker.pusher.time.row_max_lag_sec), [Number of source events](../operations/monitoring.md#publisher.data.changeitems), [Number of target events](../operations/monitoring.md#sinker.pusher.data.changeitems) и [Reads](../operations/monitoring.md#publisher.data.bytes).</br>Если данные читаются и записываются, проверьте [ограничения на работу с СУБД](../operations/transfer.md).</br>Уточните требования для [подготовки](../operations/prepare.md) и [настройки](../operations/index.md) эндпоинта.</br>Поищите уже готовое [решение проблемы](#common). |
-| Эндпоинт или трансфер | Недостаток физических ресурсов трансфера или эндпоинтов | Если данные читаются и записываются, проверьте, достаточно ли физических ресурсов на графиках: [CPU](../operations/monitoring.md#proc.cpu%7Cproc.guarantee.cpu) и [RAM](../operations/monitoring.md#proc.ram%7Cproc.guarantee.mem).</br>Ознакомьтесь с рекомендациями по диагностике СУБД. Например, [MySQL®](../../managed-mysql/operations/performance-diagnostics.md), [MongoDB](../../storedoc/operations/performance-diagnostics.md) или [PostgreSQL](../../managed-postgresql/operations/performance-diagnostics.md). |
+| Эндпоинт или трансфер | Недостаток физических ресурсов трансфера или эндпоинтов | Если данные читаются и записываются, проверьте, достаточно ли физических ресурсов на графиках: CPU и RAM.</br>Ознакомьтесь с рекомендациями по диагностике СУБД. Например, [MySQL®](../../managed-mysql/operations/performance-diagnostics.md), [MongoDB](../../storedoc/operations/performance-diagnostics.md) или [PostgreSQL](../../managed-postgresql/operations/performance-diagnostics.md). |
 | Данные | Неактуальные данные из-за изменений в схеме данных | Ознакомьтесь с различными сценариями передачи данных в разделе [Практические руководства Data Transfer](../tutorials/index.md). |
 | Данные | Неактуальные данные из-за большого объема данных | Увеличьте количество воркеров для [параллельного копирования](../concepts/sharded.md) или [репликации](../operations/transfer.md#create).</br>Разделите таблицы на несколько трансферов. |
 
@@ -1221,7 +1221,7 @@ ERROR: all replication slots are in use
 * Создайте таблицы в базе-приемнике вручную.
 
     1\. Создайте в базе-приемнике новые таблицы с `Primary Key` и без `Foreign key`.
-    2\. Добавьте новые таблицы в **Список включенных таблиц** в [параметрах эндпоинта-источника](../operations/endpoint/source/postgresql.md#additional-setting).
+    2\. Добавьте новые таблицы в **Список включенных таблиц** в [параметрах эндпоинта-источника](../operations/endpoint/source/postgresql.md#additional-settings).
     3\. Перенесите дамп с историческими данными в базу-приемник.
     4\. При появлении в логах ошибок решите их согласно конкретной ошибке.
     5\. Если ошибок нет, но логи пусты, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру для снятия дампа горутин. Это может помочь восстановить репликацию без повторного запуска трансфера.
@@ -1233,7 +1233,7 @@ ERROR: all replication slots are in use
 
 Ошибка возникает в трансферах типа _**Репликация**_ или _**Копирование и репликация**_ из-за отсутствия нужных частей Write-Ahead Log (WAL). Это происходит, когда отставание логической репликации WAL с текущего мастера на реплику превышает доступный объем WAL на других хостах. Поэтому при переключении мастера на эту реплику слот репликации не может синхронизироваться с WAL на новом мастере.
 
-**Решение:** увеличьте лимит в [дополнительном параметре эндпоинта-источника](../operations/endpoint/source/postgresql.md#additional-setting) **Максимальный размер WAL для слота репликации** и [активируйте](../operations/transfer.md#activate) трансфер повторно.
+**Решение:** увеличьте лимит в [дополнительном параметре эндпоинта-источника](../operations/endpoint/source/postgresql.md#additional-settings) **Максимальный размер WAL для слота репликации** и [активируйте](../operations/transfer.md#activate) трансфер повторно.
 
 ### Не хватает истории в WAL для продолжения репликации при смене хоста-мастера {#no-wal-story}
 

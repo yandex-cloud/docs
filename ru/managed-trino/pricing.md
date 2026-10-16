@@ -50,6 +50,8 @@ blocks:
 
 {% include [vat](../_includes/vat.md) %}
 
+{% include [payg-model](../_includes/payg-model.md) %}
+
 ## Статус кластера {#running-stopped}
 
 В зависимости от статуса кластера тарифы применяются различным образом:

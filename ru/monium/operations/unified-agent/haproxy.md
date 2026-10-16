@@ -2,7 +2,7 @@
 
 {{ unified-agent-full-name }} поддерживает сбор метрик в формате {{ prometheus-name }} и конвертацию метрик в формат {{ monitoring-full-name }}. При помощи {{ unified-agent-short-name }} вы сможете собирать метрики любых приложений, которые предоставляют метрики в формате {{ prometheus-name }}.
 
-Для поставки в {{ monitoring-full-name }} метрик сторонних приложений используется [вход metrics_pull](../../concepts/data-collection/unified-agent/configuration.md#metrics_pull_input), который периодически опрашивает напрямую стороннее приложение (если оно поддерживает метрики в формате {{ prometheus-name }}) или специальное приложение-экспортер, реализующее интеграцию с {{ prometheus-name }}.
+Для поставки в {{ monitoring-full-name }} метрик сторонних приложений используется [вход metrics_pull](../../concepts/data-collection/unified-agent/inputs.md#metrics_pull_input), который периодически опрашивает напрямую стороннее приложение (если оно поддерживает метрики в формате {{ prometheus-name }}) или специальное приложение-экспортер, реализующее интеграцию с {{ prometheus-name }}.
 
 Для примера рассмотрим поставку в {{ monitoring-full-name }} метрик [HAProxy](https://www.haproxy.org).
 

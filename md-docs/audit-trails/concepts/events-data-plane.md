@@ -51,7 +51,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 * [Yandex Virtual Private Cloud](events-data-plane.md#vpc)
 * [Яндекс Вики](events-data-plane.md#wiki)
 * [Yandex WebSQL](events-data-plane.md#websql)
-* [Yandex Workflows](events-data-plane.md#workflows)
+* [Yandex Workflows](events-data-plane.md#ai-studio)
 
 ## Yandex Application Load Balancer {#alb}
 

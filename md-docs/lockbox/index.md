@@ -92,48 +92,6 @@ Yandex Lockbox — сервис для хранения секретов.
 
  - [Overview](cli-ref/index.md)
 
-### payload
-
- - [Overview](cli-ref/payload/index.md)
-
- - [get](cli-ref/payload/get.md)
-
-### secret
-
- - [Overview](cli-ref/secret/index.md)
-
- - [activate](cli-ref/secret/activate.md)
-
- - [add-access-binding](cli-ref/secret/add-access-binding.md)
-
- - [add-version](cli-ref/secret/add-version.md)
-
- - [cancel-version-destruction](cli-ref/secret/cancel-version-destruction.md)
-
- - [create](cli-ref/secret/create.md)
-
- - [deactivate](cli-ref/secret/deactivate.md)
-
- - [delete](cli-ref/secret/delete.md)
-
- - [get](cli-ref/secret/get.md)
-
- - [list](cli-ref/secret/list.md)
-
- - [list-access-bindings](cli-ref/secret/list-access-bindings.md)
-
- - [list-operations](cli-ref/secret/list-operations.md)
-
- - [list-versions](cli-ref/secret/list-versions.md)
-
- - [remove-access-binding](cli-ref/secret/remove-access-binding.md)
-
- - [schedule-version-destruction](cli-ref/secret/schedule-version-destruction.md)
-
- - [set-access-bindings](cli-ref/secret/set-access-bindings.md)
-
- - [update](cli-ref/secret/update.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -179,6 +137,48 @@ Yandex Lockbox — сервис для хранения секретов.
  - [set-access-bindings](cli-ref/v0/secret/set-access-bindings.md)
 
  - [update](cli-ref/v0/secret/update.md)
+
+### payload
+
+ - [Overview](cli-ref/payload/index.md)
+
+ - [get](cli-ref/payload/get.md)
+
+### secret
+
+ - [Overview](cli-ref/secret/index.md)
+
+ - [activate](cli-ref/secret/activate.md)
+
+ - [add-access-binding](cli-ref/secret/add-access-binding.md)
+
+ - [add-version](cli-ref/secret/add-version.md)
+
+ - [cancel-version-destruction](cli-ref/secret/cancel-version-destruction.md)
+
+ - [create](cli-ref/secret/create.md)
+
+ - [deactivate](cli-ref/secret/deactivate.md)
+
+ - [delete](cli-ref/secret/delete.md)
+
+ - [get](cli-ref/secret/get.md)
+
+ - [list](cli-ref/secret/list.md)
+
+ - [list-access-bindings](cli-ref/secret/list-access-bindings.md)
+
+ - [list-operations](cli-ref/secret/list-operations.md)
+
+ - [list-versions](cli-ref/secret/list-versions.md)
+
+ - [remove-access-binding](cli-ref/secret/remove-access-binding.md)
+
+ - [schedule-version-destruction](cli-ref/secret/schedule-version-destruction.md)
+
+ - [set-access-bindings](cli-ref/secret/set-access-bindings.md)
+
+ - [update](cli-ref/secret/update.md)
 
  - [Справочник Terraform](tf-ref.md)
 

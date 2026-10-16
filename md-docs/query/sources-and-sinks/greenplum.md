@@ -38,7 +38,7 @@ SELECT * FROM greenplum_mdb_connection.my_table
    1. В блоке **Параметры типа соединения**:
 
       * **Кластер** — выберите существующий кластер Yandex MPP Analytics for PostgreSQL или создайте новый.
-      * **Сервисный аккаунт** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) Yandex MPP Analytics for PostgreSQL или создайте новый с ролью [`managed-greenplum.viewer`](../../managed-greenplum/security/index.md#mgp-viewer), от имени которого будет выполняться подключение к кластерам Yandex MPP Analytics for PostgreSQL.
+      * **Сервисный аккаунт** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) Yandex MPP Analytics for PostgreSQL или создайте новый с ролью [`managed-greenplum.viewer`](../../managed-greenplum/security/index.md#managed-greenplum-viewer), от имени которого будет выполняться подключение к кластерам Yandex MPP Analytics for PostgreSQL.
 
         Чтобы использовать сервисный аккаунт, пользователю нужна [роль](../../iam/security/index.md#iam-serviceAccounts-user) `iam.serviceAccounts.user`.
 

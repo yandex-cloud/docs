@@ -260,7 +260,7 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создали [поток данных](../../data-streams/concepts/glossary.md#stream-concepts), [трансфер](../concepts/index.md##transfer) и [бакет](../../storage/concepts/bucket.md).
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создали [поток данных](../../data-streams/concepts/glossary.md#stream-concepts), [трансфер](../concepts/index.md#transfer) и [бакет](../../storage/concepts/bucket.md).
   1. [Перейдите](https://console.yandex.cloud/link/data-streams) в сервис **Data Streams**.
   1. Выберите поток данных `logs-stream`.
   1. Откройте вкладку **Мониторинг** и посмотрите графики активности потока.

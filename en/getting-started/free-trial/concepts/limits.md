@@ -6,6 +6,14 @@ editable: false
 
 # Trial period restrictions
 
+{% note warning %}
+
+Currently, the trial period and introduction grant are unavailable for new clients.
+
+Please proceed to [upgrading to the paid version](./upgrade-to-paid.md).
+
+{% endnote %}
+
 {% include [free-trial-invoice-only](../../../_includes/billing/free-trial-invoice-only.md) %}
 
 During the trial period, you can use {{ yandex-cloud }} resources with some restrictions.
@@ -26,7 +34,7 @@ Technical support is provided in full during the trial period. For more informat
 
 ## {{ marketplace-full-name }} {#marketplace}
 
-During the trial period, no {{ marketplace-full-name }} paid products are available. However, once your paid consumption starts, you will be able to use the balance of your starting grant to pay for them.
+During the trial period, no {{ marketplace-full-name }} paid products are available.
 
 
 ## Service quotas and limits {#quotes-and-limits}

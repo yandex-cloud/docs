@@ -256,246 +256,6 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
 
  - [Overview](cli-ref/index.md)
 
-### backup
-
- - [Overview](cli-ref/backup/index.md)
-
- - [delete](cli-ref/backup/delete.md)
-
- - [get](cli-ref/backup/get.md)
-
- - [list](cli-ref/backup/list.md)
-
-### change-freeze
-
- - [Overview](cli-ref/change-freeze/index.md)
-
- - [create](cli-ref/change-freeze/create.md)
-
- - [get](cli-ref/change-freeze/get.md)
-
- - [get-limits](cli-ref/change-freeze/get-limits.md)
-
- - [list](cli-ref/change-freeze/list.md)
-
- - [terminate](cli-ref/change-freeze/terminate.md)
-
-### cluster
-
- - [Overview](cli-ref/cluster/index.md)
-
- - [add-access-binding](cli-ref/cluster/add-access-binding.md)
-
- - [add-extension](cli-ref/cluster/add-extension.md)
-
- - [add-external-dictionary](cli-ref/cluster/add-external-dictionary.md)
-
- - [add-graphite-rollup](cli-ref/cluster/add-graphite-rollup.md)
-
- - [add-labels](cli-ref/cluster/add-labels.md)
-
- - [add-zookeeper](cli-ref/cluster/add-zookeeper.md)
-
- - [backup](cli-ref/cluster/backup.md)
-
- - [clear-compression](cli-ref/cluster/clear-compression.md)
-
- - [clear-query-masking-rules](cli-ref/cluster/clear-query-masking-rules.md)
-
- - [create](cli-ref/cluster/create.md)
-
- - [delete](cli-ref/cluster/delete.md)
-
- - [get](cli-ref/cluster/get.md)
-
- - [get-extension](cli-ref/cluster/get-extension.md)
-
- - [list](cli-ref/cluster/list.md)
-
- - [list-access-bindings](cli-ref/cluster/list-access-bindings.md)
-
- - [list-backups](cli-ref/cluster/list-backups.md)
-
- - [list-extensions](cli-ref/cluster/list-extensions.md)
-
- - [list-external-dictionaries](cli-ref/cluster/list-external-dictionaries.md)
-
- - [list-logs](cli-ref/cluster/list-logs.md)
-
- - [list-operations](cli-ref/cluster/list-operations.md)
-
- - [migrate-to-keeper](cli-ref/cluster/migrate-to-keeper.md)
-
- - [move](cli-ref/cluster/move.md)
-
- - [remove-access-binding](cli-ref/cluster/remove-access-binding.md)
-
- - [remove-extension](cli-ref/cluster/remove-extension.md)
-
- - [remove-external-dictionary](cli-ref/cluster/remove-external-dictionary.md)
-
- - [remove-graphite-rollup](cli-ref/cluster/remove-graphite-rollup.md)
-
- - [remove-labels](cli-ref/cluster/remove-labels.md)
-
- - [reschedule-maintenance](cli-ref/cluster/reschedule-maintenance.md)
-
- - [restore](cli-ref/cluster/restore.md)
-
- - [set-access-bindings](cli-ref/cluster/set-access-bindings.md)
-
- - [set-compression](cli-ref/cluster/set-compression.md)
-
- - [set-query-masking-rules](cli-ref/cluster/set-query-masking-rules.md)
-
- - [start](cli-ref/cluster/start.md)
-
- - [stop](cli-ref/cluster/stop.md)
-
- - [update](cli-ref/cluster/update.md)
-
- - [update-config](cli-ref/cluster/update-config.md)
-
- - [update-extension](cli-ref/cluster/update-extension.md)
-
- - [update-external-dictionary](cli-ref/cluster/update-external-dictionary.md)
-
- - [connect](cli-ref/connect.md)
-
-### database
-
- - [Overview](cli-ref/database/index.md)
-
- - [create](cli-ref/database/create.md)
-
- - [delete](cli-ref/database/delete.md)
-
- - [get](cli-ref/database/get.md)
-
- - [list](cli-ref/database/list.md)
-
-### extension
-
- - [Overview](cli-ref/extension/index.md)
-
- - [get](cli-ref/extension/get.md)
-
- - [list](cli-ref/extension/list.md)
-
-### format-schema
-
- - [Overview](cli-ref/format-schema/index.md)
-
- - [create](cli-ref/format-schema/create.md)
-
- - [delete](cli-ref/format-schema/delete.md)
-
- - [get](cli-ref/format-schema/get.md)
-
- - [list](cli-ref/format-schema/list.md)
-
- - [update](cli-ref/format-schema/update.md)
-
-### hosts
-
- - [Overview](cli-ref/hosts/index.md)
-
- - [add](cli-ref/hosts/add.md)
-
- - [delete](cli-ref/hosts/delete.md)
-
- - [list](cli-ref/hosts/list.md)
-
- - [restart](cli-ref/hosts/restart.md)
-
- - [update](cli-ref/hosts/update.md)
-
-### maintenance
-
- - [Overview](cli-ref/maintenance/index.md)
-
- - [get](cli-ref/maintenance/get.md)
-
- - [list](cli-ref/maintenance/list.md)
-
- - [reschedule](cli-ref/maintenance/reschedule.md)
-
-### ml-model
-
- - [Overview](cli-ref/ml-model/index.md)
-
- - [create](cli-ref/ml-model/create.md)
-
- - [delete](cli-ref/ml-model/delete.md)
-
- - [get](cli-ref/ml-model/get.md)
-
- - [list](cli-ref/ml-model/list.md)
-
- - [update](cli-ref/ml-model/update.md)
-
-### resource-preset
-
- - [Overview](cli-ref/resource-preset/index.md)
-
- - [get](cli-ref/resource-preset/get.md)
-
- - [list](cli-ref/resource-preset/list.md)
-
-### shard-groups
-
- - [Overview](cli-ref/shard-groups/index.md)
-
- - [create](cli-ref/shard-groups/create.md)
-
- - [delete](cli-ref/shard-groups/delete.md)
-
- - [get](cli-ref/shard-groups/get.md)
-
- - [list](cli-ref/shard-groups/list.md)
-
- - [update](cli-ref/shard-groups/update.md)
-
-### shards
-
- - [Overview](cli-ref/shards/index.md)
-
- - [add](cli-ref/shards/add.md)
-
- - [delete](cli-ref/shards/delete.md)
-
- - [get](cli-ref/shards/get.md)
-
- - [list](cli-ref/shards/list.md)
-
- - [update](cli-ref/shards/update.md)
-
- - [update-config](cli-ref/shards/update-config.md)
-
-### user
-
- - [Overview](cli-ref/user/index.md)
-
- - [add-quota](cli-ref/user/add-quota.md)
-
- - [create](cli-ref/user/create.md)
-
- - [delete](cli-ref/user/delete.md)
-
- - [get](cli-ref/user/get.md)
-
- - [grant-permission](cli-ref/user/grant-permission.md)
-
- - [list](cli-ref/user/list.md)
-
- - [remove-quota](cli-ref/user/remove-quota.md)
-
- - [revoke-permission](cli-ref/user/revoke-permission.md)
-
- - [update](cli-ref/user/update.md)
-
- - [update-quota](cli-ref/user/update-quota.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -745,6 +505,246 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
  - [Overview](cli-ref/v0/version/index.md)
 
  - [list](cli-ref/v0/version/list.md)
+
+### backup
+
+ - [Overview](cli-ref/backup/index.md)
+
+ - [delete](cli-ref/backup/delete.md)
+
+ - [get](cli-ref/backup/get.md)
+
+ - [list](cli-ref/backup/list.md)
+
+### change-freeze
+
+ - [Overview](cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/change-freeze/terminate.md)
+
+### cluster
+
+ - [Overview](cli-ref/cluster/index.md)
+
+ - [add-access-binding](cli-ref/cluster/add-access-binding.md)
+
+ - [add-extension](cli-ref/cluster/add-extension.md)
+
+ - [add-external-dictionary](cli-ref/cluster/add-external-dictionary.md)
+
+ - [add-graphite-rollup](cli-ref/cluster/add-graphite-rollup.md)
+
+ - [add-labels](cli-ref/cluster/add-labels.md)
+
+ - [add-zookeeper](cli-ref/cluster/add-zookeeper.md)
+
+ - [backup](cli-ref/cluster/backup.md)
+
+ - [clear-compression](cli-ref/cluster/clear-compression.md)
+
+ - [clear-query-masking-rules](cli-ref/cluster/clear-query-masking-rules.md)
+
+ - [create](cli-ref/cluster/create.md)
+
+ - [delete](cli-ref/cluster/delete.md)
+
+ - [get](cli-ref/cluster/get.md)
+
+ - [get-extension](cli-ref/cluster/get-extension.md)
+
+ - [list](cli-ref/cluster/list.md)
+
+ - [list-access-bindings](cli-ref/cluster/list-access-bindings.md)
+
+ - [list-backups](cli-ref/cluster/list-backups.md)
+
+ - [list-extensions](cli-ref/cluster/list-extensions.md)
+
+ - [list-external-dictionaries](cli-ref/cluster/list-external-dictionaries.md)
+
+ - [list-logs](cli-ref/cluster/list-logs.md)
+
+ - [list-operations](cli-ref/cluster/list-operations.md)
+
+ - [migrate-to-keeper](cli-ref/cluster/migrate-to-keeper.md)
+
+ - [move](cli-ref/cluster/move.md)
+
+ - [remove-access-binding](cli-ref/cluster/remove-access-binding.md)
+
+ - [remove-extension](cli-ref/cluster/remove-extension.md)
+
+ - [remove-external-dictionary](cli-ref/cluster/remove-external-dictionary.md)
+
+ - [remove-graphite-rollup](cli-ref/cluster/remove-graphite-rollup.md)
+
+ - [remove-labels](cli-ref/cluster/remove-labels.md)
+
+ - [reschedule-maintenance](cli-ref/cluster/reschedule-maintenance.md)
+
+ - [restore](cli-ref/cluster/restore.md)
+
+ - [set-access-bindings](cli-ref/cluster/set-access-bindings.md)
+
+ - [set-compression](cli-ref/cluster/set-compression.md)
+
+ - [set-query-masking-rules](cli-ref/cluster/set-query-masking-rules.md)
+
+ - [start](cli-ref/cluster/start.md)
+
+ - [stop](cli-ref/cluster/stop.md)
+
+ - [update](cli-ref/cluster/update.md)
+
+ - [update-config](cli-ref/cluster/update-config.md)
+
+ - [update-extension](cli-ref/cluster/update-extension.md)
+
+ - [update-external-dictionary](cli-ref/cluster/update-external-dictionary.md)
+
+ - [connect](cli-ref/connect.md)
+
+### database
+
+ - [Overview](cli-ref/database/index.md)
+
+ - [create](cli-ref/database/create.md)
+
+ - [delete](cli-ref/database/delete.md)
+
+ - [get](cli-ref/database/get.md)
+
+ - [list](cli-ref/database/list.md)
+
+### extension
+
+ - [Overview](cli-ref/extension/index.md)
+
+ - [get](cli-ref/extension/get.md)
+
+ - [list](cli-ref/extension/list.md)
+
+### format-schema
+
+ - [Overview](cli-ref/format-schema/index.md)
+
+ - [create](cli-ref/format-schema/create.md)
+
+ - [delete](cli-ref/format-schema/delete.md)
+
+ - [get](cli-ref/format-schema/get.md)
+
+ - [list](cli-ref/format-schema/list.md)
+
+ - [update](cli-ref/format-schema/update.md)
+
+### hosts
+
+ - [Overview](cli-ref/hosts/index.md)
+
+ - [add](cli-ref/hosts/add.md)
+
+ - [delete](cli-ref/hosts/delete.md)
+
+ - [list](cli-ref/hosts/list.md)
+
+ - [restart](cli-ref/hosts/restart.md)
+
+ - [update](cli-ref/hosts/update.md)
+
+### maintenance
+
+ - [Overview](cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/maintenance/reschedule.md)
+
+### ml-model
+
+ - [Overview](cli-ref/ml-model/index.md)
+
+ - [create](cli-ref/ml-model/create.md)
+
+ - [delete](cli-ref/ml-model/delete.md)
+
+ - [get](cli-ref/ml-model/get.md)
+
+ - [list](cli-ref/ml-model/list.md)
+
+ - [update](cli-ref/ml-model/update.md)
+
+### resource-preset
+
+ - [Overview](cli-ref/resource-preset/index.md)
+
+ - [get](cli-ref/resource-preset/get.md)
+
+ - [list](cli-ref/resource-preset/list.md)
+
+### shard-groups
+
+ - [Overview](cli-ref/shard-groups/index.md)
+
+ - [create](cli-ref/shard-groups/create.md)
+
+ - [delete](cli-ref/shard-groups/delete.md)
+
+ - [get](cli-ref/shard-groups/get.md)
+
+ - [list](cli-ref/shard-groups/list.md)
+
+ - [update](cli-ref/shard-groups/update.md)
+
+### shards
+
+ - [Overview](cli-ref/shards/index.md)
+
+ - [add](cli-ref/shards/add.md)
+
+ - [delete](cli-ref/shards/delete.md)
+
+ - [get](cli-ref/shards/get.md)
+
+ - [list](cli-ref/shards/list.md)
+
+ - [update](cli-ref/shards/update.md)
+
+ - [update-config](cli-ref/shards/update-config.md)
+
+### user
+
+ - [Overview](cli-ref/user/index.md)
+
+ - [add-quota](cli-ref/user/add-quota.md)
+
+ - [create](cli-ref/user/create.md)
+
+ - [delete](cli-ref/user/delete.md)
+
+ - [get](cli-ref/user/get.md)
+
+ - [grant-permission](cli-ref/user/grant-permission.md)
+
+ - [list](cli-ref/user/list.md)
+
+ - [remove-quota](cli-ref/user/remove-quota.md)
+
+ - [revoke-permission](cli-ref/user/revoke-permission.md)
+
+ - [update](cli-ref/user/update.md)
+
+ - [update-quota](cli-ref/user/update-quota.md)
 
 ### version
 

@@ -128,7 +128,7 @@
 
 При помощи команд `BACKUP` и `RESTORE` и бакета Object Storage вы можете перенести из стороннего кластера ClickHouse® как отдельные таблицы, так и базу данных целиком:
 
-1. [Создайте кластер-приемник Managed Service for ClickHouse®](../../managed-clickhouse/operations/cluster-create.md#create-cluster) с включенным [управлением пользователями через SQL](../../managed-clickhouse/operations/cluster-users.md#sql-user-management).
+1. [Создайте кластер-приемник Managed Service for ClickHouse®](../../managed-clickhouse/operations/cluster-create.md#create-cluster) с включенным [управлением пользователями через SQL](../../managed-clickhouse/concepts/user-access-rights.md#sql-user-management).
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с ролью `storage.editor`.
 1. [Создайте статический ключ](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта.
 

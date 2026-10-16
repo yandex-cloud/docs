@@ -9,7 +9,7 @@
 ## Перед началом работы {#before-you-begin}
 
 1. Войдите в [консоль управления](https://console.yandex.cloud) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md).
 1. Если у вас еще нет каталога, [создайте его](../resource-manager/operations/folder/create.md).
 1. Заранее [создайте](../compute/quickstart/quick-create-linux.md) несколько виртуальных машин, которые войдут в целевую группу, подключенную к сетевому балансировщику. Для тестирования можно использовать недорогие [прерываемые ВМ](../compute/concepts/preemptible-vm.md).
 
@@ -83,7 +83,7 @@
 
 ## Проверьте состояния ресурсов {#health-check}
 
-Чтобы проверить [состояние сетевого балансировщика](concepts/index.md#lb-statuses) и ресурсов в подключенной целевой группе:
+Чтобы проверить [состояние сетевого балансировщика](concepts/health-check.md#nlb-status) и ресурсов в подключенной целевой группе:
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где требуется создать балансировщик.
 1. [Перейдите](https://console.yandex.cloud/link/network-load-balancer/) в сервис **Network Load Balancer**.

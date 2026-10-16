@@ -44,7 +44,7 @@
         * **Имя пользователя** — `mmy-user`.
         * **Пароль** — `<пароль_пользователя>`.
 
-    1. [Назначьте пользователю MySQL® роль](../../managed-mysql/operations/grant.md#grant-role) `ALL_PRIVILEGES` для базы-приемника.
+    1. [Назначьте пользователю MySQL® роль](../../managed-mysql/operations/grant.md#grant-privilege) `ALL_PRIVILEGES` для базы-приемника.
 
 - Terraform {#tf}
 

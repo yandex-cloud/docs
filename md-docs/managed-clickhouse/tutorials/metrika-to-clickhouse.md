@@ -103,7 +103,7 @@
 
 Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
-1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete-transfer).
+1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
 1. [Удалите кластер Managed Service for ClickHouse®](../operations/cluster-delete.md).
 1. Удалите счетчик Яндекс Метрика из личного кабинета [Метрики Про](https://yandex.ru/support/metrica/pro/intro.html).

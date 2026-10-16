@@ -494,102 +494,6 @@
 
  - [Overview](cli-ref/index.md)
 
-### bucket
-
- - [Overview](cli-ref/bucket/index.md)
-
- - [create](cli-ref/bucket/create.md)
-
- - [create-inventory-configuration](cli-ref/bucket/create-inventory-configuration.md)
-
- - [delete](cli-ref/bucket/delete.md)
-
- - [delete-https](cli-ref/bucket/delete-https.md)
-
- - [delete-inventory-configuration](cli-ref/bucket/delete-inventory-configuration.md)
-
- - [get](cli-ref/bucket/get.md)
-
- - [get-https](cli-ref/bucket/get-https.md)
-
- - [get-inventory-configuration](cli-ref/bucket/get-inventory-configuration.md)
-
- - [list](cli-ref/bucket/list.md)
-
- - [list-inventory-configurations](cli-ref/bucket/list-inventory-configurations.md)
-
- - [set-https](cli-ref/bucket/set-https.md)
-
- - [stats](cli-ref/bucket/stats.md)
-
- - [update](cli-ref/bucket/update.md)
-
-### s3
-
- - [Overview](cli-ref/s3/index.md)
-
- - [cp](cli-ref/s3/cp.md)
-
- - [mv](cli-ref/s3/mv.md)
-
- - [presign](cli-ref/s3/presign.md)
-
- - [rm](cli-ref/s3/rm.md)
-
-### s3api
-
- - [Overview](cli-ref/s3api/index.md)
-
- - [abort-multipart-upload](cli-ref/s3api/abort-multipart-upload.md)
-
- - [complete-multipart-upload](cli-ref/s3api/complete-multipart-upload.md)
-
- - [copy-object](cli-ref/s3api/copy-object.md)
-
- - [create-multipart-upload](cli-ref/s3api/create-multipart-upload.md)
-
- - [delete-object](cli-ref/s3api/delete-object.md)
-
- - [delete-object-tagging](cli-ref/s3api/delete-object-tagging.md)
-
- - [delete-objects](cli-ref/s3api/delete-objects.md)
-
- - [get-bucket-acl](cli-ref/s3api/get-bucket-acl.md)
-
- - [get-object](cli-ref/s3api/get-object.md)
-
- - [get-object-acl](cli-ref/s3api/get-object-acl.md)
-
- - [get-object-legal-hold](cli-ref/s3api/get-object-legal-hold.md)
-
- - [get-object-retention](cli-ref/s3api/get-object-retention.md)
-
- - [get-object-tagging](cli-ref/s3api/get-object-tagging.md)
-
- - [head-object](cli-ref/s3api/head-object.md)
-
- - [list-multipart-uploads](cli-ref/s3api/list-multipart-uploads.md)
-
- - [list-objects](cli-ref/s3api/list-objects.md)
-
- - [list-parts](cli-ref/s3api/list-parts.md)
-
- - [put-bucket-acl](cli-ref/s3api/put-bucket-acl.md)
-
- - [put-object](cli-ref/s3api/put-object.md)
-
- - [put-object-acl](cli-ref/s3api/put-object-acl.md)
-
- - [put-object-legal-hold](cli-ref/s3api/put-object-legal-hold.md)
-
- - [put-object-retention](cli-ref/s3api/put-object-retention.md)
-
- - [put-object-tagging](cli-ref/s3api/put-object-tagging.md)
-
- - [upload-part](cli-ref/s3api/upload-part.md)
-
- - [upload-part-copy](cli-ref/s3api/upload-part-copy.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -689,6 +593,102 @@
  - [upload-part](cli-ref/v0/s3api/upload-part.md)
 
  - [upload-part-copy](cli-ref/v0/s3api/upload-part-copy.md)
+
+### bucket
+
+ - [Overview](cli-ref/bucket/index.md)
+
+ - [create](cli-ref/bucket/create.md)
+
+ - [create-inventory-configuration](cli-ref/bucket/create-inventory-configuration.md)
+
+ - [delete](cli-ref/bucket/delete.md)
+
+ - [delete-https](cli-ref/bucket/delete-https.md)
+
+ - [delete-inventory-configuration](cli-ref/bucket/delete-inventory-configuration.md)
+
+ - [get](cli-ref/bucket/get.md)
+
+ - [get-https](cli-ref/bucket/get-https.md)
+
+ - [get-inventory-configuration](cli-ref/bucket/get-inventory-configuration.md)
+
+ - [list](cli-ref/bucket/list.md)
+
+ - [list-inventory-configurations](cli-ref/bucket/list-inventory-configurations.md)
+
+ - [set-https](cli-ref/bucket/set-https.md)
+
+ - [stats](cli-ref/bucket/stats.md)
+
+ - [update](cli-ref/bucket/update.md)
+
+### s3
+
+ - [Overview](cli-ref/s3/index.md)
+
+ - [cp](cli-ref/s3/cp.md)
+
+ - [mv](cli-ref/s3/mv.md)
+
+ - [presign](cli-ref/s3/presign.md)
+
+ - [rm](cli-ref/s3/rm.md)
+
+### s3api
+
+ - [Overview](cli-ref/s3api/index.md)
+
+ - [abort-multipart-upload](cli-ref/s3api/abort-multipart-upload.md)
+
+ - [complete-multipart-upload](cli-ref/s3api/complete-multipart-upload.md)
+
+ - [copy-object](cli-ref/s3api/copy-object.md)
+
+ - [create-multipart-upload](cli-ref/s3api/create-multipart-upload.md)
+
+ - [delete-object](cli-ref/s3api/delete-object.md)
+
+ - [delete-object-tagging](cli-ref/s3api/delete-object-tagging.md)
+
+ - [delete-objects](cli-ref/s3api/delete-objects.md)
+
+ - [get-bucket-acl](cli-ref/s3api/get-bucket-acl.md)
+
+ - [get-object](cli-ref/s3api/get-object.md)
+
+ - [get-object-acl](cli-ref/s3api/get-object-acl.md)
+
+ - [get-object-legal-hold](cli-ref/s3api/get-object-legal-hold.md)
+
+ - [get-object-retention](cli-ref/s3api/get-object-retention.md)
+
+ - [get-object-tagging](cli-ref/s3api/get-object-tagging.md)
+
+ - [head-object](cli-ref/s3api/head-object.md)
+
+ - [list-multipart-uploads](cli-ref/s3api/list-multipart-uploads.md)
+
+ - [list-objects](cli-ref/s3api/list-objects.md)
+
+ - [list-parts](cli-ref/s3api/list-parts.md)
+
+ - [put-bucket-acl](cli-ref/s3api/put-bucket-acl.md)
+
+ - [put-object](cli-ref/s3api/put-object.md)
+
+ - [put-object-acl](cli-ref/s3api/put-object-acl.md)
+
+ - [put-object-legal-hold](cli-ref/s3api/put-object-legal-hold.md)
+
+ - [put-object-retention](cli-ref/s3api/put-object-retention.md)
+
+ - [put-object-tagging](cli-ref/s3api/put-object-tagging.md)
+
+ - [upload-part](cli-ref/s3api/upload-part.md)
+
+ - [upload-part-copy](cli-ref/s3api/upload-part-copy.md)
 
  - [Справочник Terraform](tf-ref.md)
 

@@ -3,11 +3,7 @@ title: Getting started with push notifications in {{ cns-full-name }}
 description: 'With {{ cns-name }}, you can send push notifications to apps registered in the following services: Apple Push Notification service (APNs), Firebase Cloud Messaging (FCM), Huawei Mobile Services (HMS).'
 ---
 
-
 # Getting started with push notifications in {{ cns-full-name }}
-
-
-{% include [ask-for-turning-on](../_includes/notifications/ask-for-turning-on.md) %}
 
 {% include [about-service](../_includes/notifications/about-service.md) %}
 
@@ -73,7 +69,7 @@ To create an endpoint:
 - Management console {#console}
 
   1. Select the endpoint you previously created.
-  1. In the notification sending window, enter a message in JSON format according to the notification platform API. The API link is provided above the editor.
+  1. In the notification window, enter the message in JSON format as per the notification platform's API. The API link is above the editor.
   1. Click **{{ ui-key.yacloud.cns.action_send-msg }}**.
   
   Each sent notification is assigned a unique ID. To save it, click **{{ ui-key.yacloud.cns.action_copy-msg-id }}**.

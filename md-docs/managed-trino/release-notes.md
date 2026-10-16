@@ -36,7 +36,7 @@
 ## Ноябрь 2025 {#november-2025}
 
 * [Доступен новый коннектор](concepts/index.md#connector): MySQL®.
-* Добавлена возможность загрузить пользовательские сертификаты (параметры TLS) при [создании](operations/cluster-create.md) и [изменении](operations/cluster-update.md#change-version) кластера.
+* Добавлена возможность загрузить пользовательские сертификаты (параметры TLS) при [создании](operations/cluster-create.md) и [изменении](operations/cluster-update.md) кластера.
 * Доступна новая версия Trino [476](https://trino.io/docs/current/release/release-476.html).
 
 ## Октябрь 2025 {#october-2025}
@@ -54,7 +54,7 @@
 
 ## Сентябрь 2025 {#september-2025}
 
-Добавлена возможность выбора версии Trino при [создании](operations/cluster-create.md) и [изменении](operations/cluster-update.md#change-version) кластера.
+Добавлена возможность выбора версии Trino при [создании](operations/cluster-create.md) и [изменении](operations/cluster-update.md) кластера.
 
 ## Август 2025 {#august-2025}
 

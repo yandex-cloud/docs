@@ -165,7 +165,7 @@ description: Следуя данной инструкции, вы научите
 1. [Подключите сервисный аккаунт к кластеру](s3-access.md#connect-service-account). С помощью сервисного аккаунта вы настроите доступ к файлу схемы.
 1. [Назначьте роль](s3-access.md#configure-acl) `storage.viewer` сервисному аккаунту.
 1. В ACL бакета [добавьте разрешение](../../storage/operations/buckets/edit-acl.md) `READ` сервисному аккаунту.
-1. [Получите ссылку](s3-access.md#get-link-to-object) на файл схемы.
+1. [Получите ссылку](../../storage/operations/objects/link-for-download.md) на файл схемы.
 
 
 ### Подключите схему формата данных {#create-format-schema}
@@ -320,7 +320,7 @@ description: Следуя данной инструкции, вы научите
 
 
 1. [Загрузите файл](../../storage/operations/objects/upload.md) с актуальной схемой формата данных в {{ objstorage-full-name }}.
-1. [Получите ссылку](s3-access.md#get-link-to-object) на этот файл.
+1. [Получите ссылку](../../storage/operations/objects/link-for-download.md) на этот файл.
 1. Измените параметры схемы формата данных, подключенной к {{ mch-name }}, передав новую ссылку на файл со схемой формата.
 
 

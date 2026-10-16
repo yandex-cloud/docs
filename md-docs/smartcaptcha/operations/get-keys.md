@@ -10,7 +10,7 @@
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
     1. [Перейдите](https://console.yandex.cloud/link/smartcaptcha) в сервис **Yandex SmartCaptcha**.
-    1. Нажмите на имя капчи или [создайте](../quickstart.md#creat-captcha) новую капчу.
+    1. Нажмите на имя капчи или [создайте](../quickstart.md#create-captcha) новую капчу.
     1. На вкладке **Обзор** скопируйте значения полей **Ключ клиента** и **Ключ сервера**.
 
        ![step4-get-keys](../../_assets/smartcaptcha/quickstart/step4-get-keys.png)

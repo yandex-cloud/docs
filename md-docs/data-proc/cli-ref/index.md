@@ -14,6 +14,10 @@ Syntax:
 
 #### Command Tree
 
+- [yc dataproc v0](v0/index.md) — Manage data processing clusters
+
+
+
 - [yc dataproc change-freeze](change-freeze/index.md) — Manage change freezes.
 
   - [yc dataproc change-freeze create](change-freeze/create.md) — Create a change freeze for the specified resource.
@@ -95,10 +99,6 @@ Syntax:
   - [yc dataproc subcluster list](subcluster/list.md) — List subclusters in a cluster.
 
   - [yc dataproc subcluster update](subcluster/update.md) — Modify configuration or attributes of a subcluster.
-
-- [yc dataproc v0](v0/index.md) — Manage data processing clusters
-
-
 
 #### Global Flags
 

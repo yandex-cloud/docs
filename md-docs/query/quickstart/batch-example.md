@@ -28,7 +28,7 @@ NYC Taxi and Limousine Commission (TLC):
 ## Подготовьтесь к работе {#before-you-begin}
 
 1. Войдите в [консоль управления](https://console.yandex.cloud) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
+1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md).
 1. Если у вас еще нет каталога, [создайте его](../../resource-manager/operations/folder/create.md).
 
 ## Подключитесь к данным {#create-binding}
@@ -123,5 +123,5 @@ Kind: AdaptiveWard Bins: 100 WeightsSum: 140151844.000 Min: -531231.000 Max: 436
 
 * [Именованные выражения. Синтаксис YQL](https://ydb.tech/docs/ru/yql/reference/syntax/expressions#named-nodes)
 * [HISTOGRAM. Встроенные функции YQL](https://ydb.tech/docs/ru/yql/reference/builtins/aggregation#histogram)
-* [Формат SQL-выражения](../sources-and-sinks/object-storage-binding.md#model-dannyh)
+* [Формат SQL-выражения](../sources-and-sinks/object-storage-binding.md#data-model)
 * [Аналитическая обработка данных](../concepts/batch-processing.md)

@@ -45,7 +45,7 @@
 1. [Подключите сервисный аккаунт к кластеру](s3-access.md#connect-service-account). С помощью [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) вы настроите доступ к архиву геобазы.
 1. [Назначьте роль](s3-access.md#configure-acl) `storage.viewer` сервисному аккаунту.
 1. В ACL бакета [добавьте разрешение](../../storage/operations/buckets/edit-acl.md) `READ` сервисному аккаунту.
-1. [Получите ссылку](s3-access.md#get-link-to-object) на архив с геобазой.
+1. [Получите ссылку](../../storage/operations/objects/link-for-download.md) на архив с геобазой.
 
 
 ## Подключить геобазу к кластеру {{ CH }} {#add}

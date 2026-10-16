@@ -16,6 +16,10 @@ Aliases:
 
 #### Command Tree
 
+- [yc managed-mysql v0](v0/index.md) — Manage MySQL clusters, hosts, databases, backups and users.
+
+  - [yc managed-mysql v0 connect](v0/connect.md) — Connect to MySQL cluster with iam-auth
+
 - [yc managed-mysql connect](connect.md) — Connect to MySQL cluster with iam-auth
 
 - [yc managed-mysql backup](backup/index.md) — Manage MySQL backups
@@ -145,10 +149,6 @@ Aliases:
   - [yc managed-mysql user revoke-permission](user/revoke-permission.md) — Revoke permission from the specified MySQL user
 
   - [yc managed-mysql user update](user/update.md) — Update the specified MySQL user
-
-- [yc managed-mysql v0](v0/index.md) — Manage MySQL clusters, hosts, databases, backups and users.
-
-  - [yc managed-mysql v0 connect](v0/connect.md) — Connect to MySQL cluster with iam-auth
 
 #### Global Flags
 

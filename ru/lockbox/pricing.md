@@ -13,6 +13,8 @@ editable: false
 
 {% include [vat](../_includes/vat.md) %}
 
+{% include [payg-model](../_includes/payg-model.md) %}
+
 Расчет стоимости использования {{ lockbox-name }} складывается из:
 
 * Количества версий секретов.

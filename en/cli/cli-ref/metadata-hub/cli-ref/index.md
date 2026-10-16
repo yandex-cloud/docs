@@ -21,11 +21,11 @@ Aliases:
 
 #### Command Tree
 
-- [yc metadata-hub connection-manager](connection-manager/index.md) — Manage Connection Manager connections.
-
-
-
 - [yc metadata-hub v0](v0/index.md) — Manage Metadata Hub resources.
+
+
+
+- [yc metadata-hub connection-manager](connection-manager/index.md) — Manage Connection Manager connections.
 
 
 

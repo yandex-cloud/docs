@@ -12,7 +12,8 @@
 Чтобы настроить хранение состояний {{ TF }} в {{ objstorage-name }} и использовать его для создания новых ресурсов:
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Необходимые платные ресурсы](#paid-resources).
-1. [Установите и настройте {{ TF }}](#install-terraform).
+1. [Создайте сервисный аккаунт и статический ключ доступа](#create-service-account).
+1. [Установите и настройте {{ TF }}](#prepare-terraform).
 1. [Настройте бэкенд](#set-up-backend).
 1. [Разверните конфигурацию](#deploy).
 1. [Проверьте сохраненное состояние](#check-condition).
@@ -29,15 +30,15 @@
 В стоимость поддержки инфраструктуры для загрузки состояний {{ TF }} в {{ objstorage-full-name }} входит плата за хранение данных ([тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-storage)).
 
 В качестве примера инфраструктуры, разворачиваемой через {{ TF }}, в руководстве будут созданы три [ВМ](../../compute/concepts/vm.md) с [публичными IP-адресами](../../vpc/concepts/address.md#public-addresses), виртуальная [сеть](../../vpc/concepts/network.md#network) и две [подсети](../../vpc/concepts/network.md#subnet). В стоимость поддержки этой инфраструктуры входят:
-* Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за использование динамических публичных IP-адресов ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные ВМ ([тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование динамических публичных IP-адресов ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 ## Создайте сервисный аккаунт и статический ключ доступа {#create-service-account}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с [ролью](../../iam/concepts/access-control/roles.md) [editor](../../iam/roles-reference.md#editor) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), указанный в настройках провайдера.
 1. [Получите статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key). Сохраните идентификатор ключа и секретный ключ — они понадобятся в следующих разделах инструкции.
 
-### Создайте бакет {#create-service-account}
+### Создайте бакет {#create-bucket}
 
 [Создайте бакет](../../storage/operations/buckets/create.md) с ограниченным доступом. В нем будет храниться файл состояния {{ TF }}.
 
@@ -107,7 +108,7 @@
 
 
 
-   Подробнее о бэкенде для хранения состояний читайте на [сайте {{ TF }}](https://www.terraform.io/docs/backends/types/s3.html).
+   Подробнее о бэкенде для хранения состояний — в [документации {{ TF }}](https://www.terraform.io/docs/backends/types/s3.html).
 1. В папке с конфигурационным файлом выполните команду:
 
    ```bash
@@ -152,7 +153,7 @@
 
        skip_region_validation      = true
        skip_credentials_validation = true
-       skip_requesting_account_id  = true # Необходимая опция при описании бэкенда для Terraform версии старше 1.6.1.
+       skip_requesting_account_id  = true # Необходимая опция при описании бэкенда для {{ TF }} версии 1.6.1 и старше.
 
        access_key = "<идентификатор_ключа>"
        secret_key = "<секретный_ключ>"
@@ -199,8 +200,8 @@
 
    Где:
    * `bucket` — имя бакета.
-   * `key` — ключ объекта в бакете: путь и имя к файлу состояния {{ TF }} в бакете.
-   * `access_key` — [идентификатор секретного ключа](#create-service-account) [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), для доступа к бакету.
+   * `key` — ключ объекта в бакете: путь и имя файла состояния {{ TF }} в бакете.
+   * `access_key` — [идентификатор статического ключа доступа](#create-service-account) [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) для доступа к бакету.
    * `secret_key` — значение секретного ключа сервисного аккаунта.
 1. Выполните команду `terraform init`.
 1. Выполните команду `terraform plan`. В терминале должен отобразиться план создания одной ВМ.

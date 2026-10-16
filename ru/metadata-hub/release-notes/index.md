@@ -162,7 +162,7 @@ index: 1
 
 #### Новые возможности {#new-features-august25}
 
-* В [{{ connection-manager-name }}](../concepts/connection-manager.md) добавлена возможность управлять подключениями с пользовательскими инсталляциями [{{ KF }}](../operations/create-connection.md#kafka) и [кластерами {{ mkf-name }}](../operations/create-connection.md#mdb-kafka), а также поддержаны [шардированные кластеры](../../managed-clickhouse/concepts/sharding.md) в {{ CH }}.
+* В [{{ connection-manager-name }}](../concepts/connection-manager.md) добавлена возможность управлять подключениями с пользовательскими инсталляциями [{{ KF }}](../operations/create-connection.md#kafka-on-premise) и [кластерами {{ mkf-name }}](../operations/create-connection.md#mdb-kafka), а также поддержаны [шардированные кластеры](../../managed-clickhouse/concepts/sharding.md) в {{ CH }}.
 
 #### Решенные проблемы {#problems-solved-august25}
 

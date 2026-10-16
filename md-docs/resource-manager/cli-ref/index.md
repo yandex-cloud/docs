@@ -18,6 +18,10 @@ Aliases:
 
 #### Command Tree
 
+- [yc resource-manager v0](v0/index.md) — Manage Yandex Cloud Resource Manager resources
+
+
+
 - [yc resource-manager cloud](cloud/index.md) — Manage clouds
 
   - [yc resource-manager cloud add-access-binding](cloud/add-access-binding.md) — Add access binding for the specified cloud
@@ -81,10 +85,6 @@ Aliases:
   - [yc resource-manager folder unbind-access-policy](folder/unbind-access-policy.md) — Unbind access policy from the specified folder
 
   - [yc resource-manager folder update](folder/update.md) — Update the specified folder
-
-- [yc resource-manager v0](v0/index.md) — Manage Yandex Cloud Resource Manager resources
-
-
 
 #### Global Flags
 

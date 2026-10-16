@@ -8,22 +8,47 @@ description: In this tutorial, you will learn about what a trail is, its setting
 
 A trail is an {{ at-name }} resource that collects audit logs of {{ yandex-cloud }} resources and writes them to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md), {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md), or {{ yds-name }} [data flow](../../data-streams/concepts/glossary.md#stream-concepts).
 
-## Audit log collection scope {#collecting-area}
+## Collecting and filtering events {#event-filters}
 
-In the trail settings, you can choose where to collect audit logs from:
-* Organization: Audit logs of resources of the services in selected clouds of the organization.
-* Cloud: Audit logs of resources of the services residing in selected folders of the cloud.
-* Folder: Audit logs of the folder.
+When [creating](../operations/create-trail.md) or [updating](../operations/manage-trail.md) a trail, you can select which events it should write to the [destination object](#target).
 
-The trail will collect logs of all the [resources](./events.md) within the specified scope, including those added to the scope after the trail was created.
+### Collection scope {#collecting-area}
 
-For resources added to the audit log collection scope after the trail was created, collecting audit logs will start automatically.
+The collection scope determines the source of events for a trail:
 
-For [management events](./control-plane-vs-data-plane.md#control-plane-events), the collection scope includes all supported [{{ yandex-cloud }} services](../../overview/concepts/services.md#list).
+* Organization: All clouds or selected clouds within the current organization.
+* Cloud: All or selected folders of the current cloud.
+* Folder: Current folder.
 
-For [data events](./control-plane-vs-data-plane.md#data-plane-events), the collection scope is configured on a per-service basis.
+New resources created in the selected scope are automatically included in event collection. The same collection conditions apply to their events.
 
-You can disable collecting all management or data events for any single service or multiple services whenever you need to.
+### Collecting management events {#control-plane-collection}
+
+[Management events](./control-plane-vs-data-plane.md#control-plane-events) capture operations related to setting up cloud resources, e.g., creating a VM or deleting a database cluster.
+
+For this level, you only need to define the collection scope. Within this scope, the system automatically collects events from all the [supported services](events.md), without filtering for specific services or event names. You can enable or disable collection as a whole.
+
+### Collecting data events {#data-plane-collection}
+
+For [data events](./control-plane-vs-data-plane.md#data-plane-events), you can select services, and for each service, define the collection scope and conditions. You can disable collection globally or for individual services.
+
+There are three event collection types:
+
+* **{{ ui-key.yacloud.audit-trails.label_resource-manager_events-filter_all }}**: Collect all current and future events.
+* **{{ ui-key.yacloud.audit-trails.label_resource-manager_events-filter_include }}** (`included_events`): Only collect events with the specified names. New names are not added to the list automatically.
+* **{{ ui-key.yacloud.audit-trails.label_resource-manager_events-filter_exclude }}** (`excluded_events`): Collect all events except those specified. New events will be collected automatically.
+
+In a single filter, you can only specify event names in one of the sections: `included_events` or `excluded_events`. If both of the sections are empty, all data events will be collected based on the other filtering conditions.
+
+You can find the event names in the [data event reference](events-data-plane.md). In the CLI, {{ TF }}, or API, use a full name from the `event_type` field of the audit log, e.g., `yandex.cloud.audit.iam.CreateIamToken`.
+
+#### Field value conditions {#filter-examples}
+
+When using the CLI, {{ TF }} , and API, you can add field value conditions to the data event filter, e.g., to exclude events of a specific user. These conditions apply together with the selected collection scope and event names.
+
+{% include [field-filter-rules](../../_includes/audit-trails/field-filter-rules.md) %}
+
+For filter examples, see [{#T}](../operations/create-trail.md#filter-examples).
 
 ## Pre-installed events {#default}
 
@@ -75,11 +100,12 @@ Each destination object has its advantages:
 * **{{ ui-key.yacloud.audit-trails.label_cloudLogging }}**: Helps respond to events and analyze logs in real time.
 * **{{ ui-key.yacloud.audit-trails.label_dataStream }}**: Enables streaming data to other services and systems.
 
-When uploading audit logs to a bucket, {{ at-name }} generates audit log files approximately once every 5 minutes. The trail will write all the [events](./events.md) that occurred to the cloud resources during that period to one or more files. If no events occurred during the period, no files are generated.
+When uploading audit logs to a bucket, {{ at-name }} generates files about once every 5 minutes. Filtered events from the selected collection scope will be saved into one or multiple files. If there are no matching events during this period, files will not be generated.
 
 {{ at-name }} uploads audit logs to log groups and data stream in near real time.
 
 The type of destination object determines the structure and content of the message used by {{ at-name }} to transmit audit logs:
+
 * If the destination object is a bucket, the message is a file containing a [JSON object](./format.md#scheme) array of the audit log.
 * If the destination object is a log group, the message includes a single JSON object of the audit log.
 * If the destination object is a data stream, the messages containing JSON objects of the audit log are sent to the stream.
@@ -90,7 +116,8 @@ Each trail runs independently of one another. Using multiple trails, you can dif
 
 ## Trail settings {#trail-settings}
 
-The trail contains all the audit log settings:
+In the management console, the following trail settings are available:
+
 * **{{ ui-key.yacloud.common.name }}**: Required parameter.
 * **{{ ui-key.yacloud.common.description }}**: Optional parameter.
 * **{{ ui-key.yacloud.audit-trails.label_destination }}** section:
@@ -119,13 +146,13 @@ The trail contains all the audit log settings:
         * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}**: Name of the folder hosting the trail. The value is populated automatically.
 * **{{ ui-key.yacloud.audit-trails.label_data-plane-collection-new }}** section:
     * **Status**: Toggles the collection of data event audit logs.
-    * List of [services](events-data-plane.md#services), each configured individually for:
+    * List of [services](events-data-plane.md), each configured individually for:
         * Data event audit log collection [scope](trail.md#collecting-area).
         * Event filter type:
             * `Receive all`: To receive all events within the service.
             * `Selected`: To only receive the selected events.
             * `Exclude`: To receive all events except for the selected ones.
-        * List of [events](events-data-plane.md#dns) is `Selected` or `Exclude` filter type is selected.
+        * List of [events](events-data-plane.md) is `Selected` or `Exclude` filter type is selected.
 
 
 ## Use cases {#examples}

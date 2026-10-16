@@ -79,7 +79,7 @@ description: Алерт в {{ monitoring-short-name }} — периодичес�
 
 #### Функция сравнения {#comparison}
 
-Функция сравнения применяется к результату вычисления [функции агрегации](#aggregation) и пороговым значениям [{{ ui-key.yacloud_monitoring.alert.status_warn }}](#warn) и [{{ ui-key.yacloud_monitoring.alert.status_alarm }}](#alarm). Если агрегированное значение удовлетворяет пороговому, {{ monitoring-name }} изменяет статус алерта.
+Функция сравнения применяется к результату вычисления [функции агрегации](#aggregation) и пороговым значениям [{{ ui-key.yacloud_monitoring.alert.status_warn }}](#warning) и [{{ ui-key.yacloud_monitoring.alert.status_alarm }}](#alarm). Если агрегированное значение удовлетворяет пороговому, {{ monitoring-name }} изменяет статус алерта.
 
 #### {{ ui-key.yacloud_monitoring.alert.status_warn }} {#warning}
 

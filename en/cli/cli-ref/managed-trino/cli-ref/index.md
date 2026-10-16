@@ -21,6 +21,10 @@ Aliases:
 
 #### Command Tree
 
+- [yc managed-trino v0](v0/index.md) — Manage Trino clusters
+
+
+
 - [yc managed-trino catalog](catalog/index.md) — Manage Trino catalogs
 
   - [yc managed-trino catalog delete](catalog/delete.md) — Delete the specified Trino catalog
@@ -78,10 +82,6 @@ Aliases:
   - [yc managed-trino cluster stop](cluster/stop.md) — Stop the specified Trino cluster
 
   - [yc managed-trino cluster update](cluster/update.md) — Update the specified Trino cluster
-
-- [yc managed-trino v0](v0/index.md) — Manage Trino clusters
-
-
 
 #### Global Flags
 

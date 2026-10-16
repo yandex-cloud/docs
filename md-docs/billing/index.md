@@ -98,6 +98,8 @@ Yandex Cloud Billing позволяет получать информацию о
 
  - [Отчетный период](concepts/reporting-period.md)
 
+ - [Pay as you go](concepts/payg.md)
+
  - [Free tier](concepts/serverless-free-tier.md)
 
  - [Бюджет](concepts/budget.md)
@@ -170,13 +172,15 @@ Yandex Cloud Billing позволяет получать информацию о
 
  - [Вопросы о договоре](qa/contract.md)
 
- - [Вопросы по оплате](qa/payment.md)
+ - [Вопросы об оплате](qa/payment.md)
+
+ - [Вопросы о списаниях](qa/charges.md)
 
  - [Вопросы о платежном аккаунте](qa/billing-account.md)
 
  - [Вопросы о регулярном экспорте детализации](qa/export.md)
 
- - [Вопросы по работе с нерезидентами](qa/non-resident.md)
+ - [Вопросы о работе с нерезидентами](qa/non-resident.md)
 
  - [Справочник Terraform](tf-ref.md)
 

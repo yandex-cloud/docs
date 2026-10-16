@@ -18,7 +18,7 @@ C помощью YDB SDK возможно использование Yandex Quer
 
 ## Аутентификация {#auth}
 
-Yandex Query является полностью управляемым сервисом и для аутентификации использует [механизмы IAM](../../iam/concepts/authorization/index.md#authentication).
+Yandex Query является полностью управляемым сервисом и для аутентификации использует [механизмы IAM](../../iam/concepts/authorization/index.md).
 
 Аутентификация может быть выполнена с помощью:
 * [Авторизованных ключей](../../iam/concepts/authorization/key.md).

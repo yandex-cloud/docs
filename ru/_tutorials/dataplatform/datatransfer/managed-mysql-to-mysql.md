@@ -10,17 +10,32 @@
 
         1. [Создайте эндпоинт для источника](../../../data-transfer/operations/endpoint/index.md#create):
 
+            * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** — `{{ ui-key.yacloud.data-transfer.forms.label_source-type }}`.
+            * Укажите имя эндпоинта.
             * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `MySQL`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.title }}**:
 
-                Укажите идентификатор кластера-источника.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}`.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
+                * **Кластер управляемой БД** — выберите кластер-источник из списка.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — укажите имя базы данных в выбранном кластере.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}** — укажите имя пользователя, под которым сервис {{ data-transfer-name }} будет подключаться к базе данных.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}** — укажите пароль пользователя.
 
         1. [Создайте эндпоинт для приемника](../../../data-transfer/operations/endpoint/index.md#create):
 
+            * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** — `{{ ui-key.yacloud.data-transfer.forms.label_target-type }}`.
+            * Укажите имя эндпоинта.
             * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `MySQL`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.on_premise.title }}`.
-                
-                Укажите параметры подключения к кластеру-приемнику.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.title }}**:
+
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}`.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.connection.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.on_premise.title }}`.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.OnPremiseMysql.host.title }}** — укажите IP-адрес или FQDN хоста, к которому необходимо подключиться.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.OnPremiseMysql.port.title }}** — укажите номер порта для подключения к кластеру-приемнику.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — укажите имя базы данных в пользовательской инсталляции.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}** — укажите имя пользователя, под которым сервис {{ data-transfer-name }} будет подключаться к базе данных.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}** — укажите пароль пользователя.
 
         1. [Создайте трансфер](../../../data-transfer/operations/transfer.md#create) типа _{{ dt-type-copy-repl }}_, использующий созданные эндпоинты.
 
@@ -67,21 +82,7 @@
 1. Дождитесь перехода трансфера в статус {{ dt-status-repl }}.
 1. Переведите кластер-источник в режим <q>только чтение</q> и переключите нагрузку на кластер-приемник.
 1. На странице [мониторинга трансфера](../../../data-transfer/operations/monitoring.md) дождитесь снижения до нуля характеристики **Maximum data transfer delay**. Это значит, что в кластер-приемник перенесены все изменения, произошедшие в кластере-источнике после завершения копирования данных.
-1. [Деактивируйте](../../../data-transfer/operations/transfer.md#deactivate-transfer) трансфер и дождитесь его перехода в статус {{ dt-status-stopped }}.
+1. [Деактивируйте](../../../data-transfer/operations/transfer.md#deactivate) трансфер и дождитесь его перехода в статус {{ dt-status-stopped }}.
 
     Подробнее о статусах трансфера смотрите в разделе [Жизненный цикл трансфера](../../../data-transfer/concepts/transfer-lifecycle.md#statuses).
 
-1. Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
-
-    {% list tabs group=instructions %}
-
-    - Вручную {#manual}
-
-      1. [Удалите остановленный трансфер](../../../data-transfer/operations/transfer.md#delete).
-      1. [Удалите эндпоинты для источника и приемника](../../../data-transfer/operations/endpoint/index.md#delete).
-
-    - {{ TF }} {#tf}
-
-      {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
-
-    {% endlist %}

@@ -2,7 +2,7 @@
 
 # Действие SetEndpointAttributes
 
-Задает атрибуты [эндпоинта для Push-уведомлений](../concepts/index.md#mobile-endpoints).
+Задает атрибуты [эндпоинта для Push-уведомлений](../concepts/push.md#mobile-endpoints).
 
 ## HTTP-запрос {#request}
 

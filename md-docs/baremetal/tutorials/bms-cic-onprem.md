@@ -208,7 +208,7 @@ IP-префиксы on-premises поступают в виртуальный м�
 
           Вы также можете выбрать вариант `Выбрать из каталога`. В этом случае в появившемся списке выберите нужный `Routing Instance`.
 
-          В результате в форме отобразятся CIDR подсетей Virtual Private Cloud, которые будут [анонсироваться](../../interconnect/concepts/priv-con.md#prc-announce) в Cloud Interconnect.
+          В результате в форме отобразятся CIDR подсетей Virtual Private Cloud, которые будут [анонсироваться](../../cloud-router/concepts/announces.md#prc-announce) в Cloud Interconnect.
 
           {% note warning %}
           

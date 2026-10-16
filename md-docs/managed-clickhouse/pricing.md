@@ -88,7 +88,7 @@ blocks:
 
 {% note warning %}
 
-В кластерах с выключенной поддержкой [ClickHouse® Keeper](concepts/replication.md#ck) и с двумя или более хостами ClickHouse® автоматически создается 3 хоста ZooKeeper минимального класса, которые обеспечивают репликацию и [высокую доступность](concepts/high-availability.md).
+В кластерах с выключенной поддержкой [ClickHouse® Keeper](concepts/coordination-system.md#ck) и с двумя или более хостами ClickHouse® автоматически создается 3 хоста ZooKeeper минимального класса, которые обеспечивают репликацию и [высокую доступность](concepts/high-availability.md).
 
 {% endnote %}
 

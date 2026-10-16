@@ -6,16 +6,9 @@ _Организация_ — это высший ресурс в иерархи�
 
 При работе с сервисами Yandex Cloud вы создаете ресурсы: кластеры управляемых баз данных, виртуальные машины, диски, сети и другие. Большинство сервисов хранит ресурсы в [каталогах](../resource-manager/concepts/resources-hierarchy.md#folder). Каталоги принадлежат [облакам](../resource-manager/concepts/resources-hierarchy.md#cloud), а облака — организациям. Облако может принадлежать только одной организации, но вы можете переносить облака из одной организации в другую. Облаками и каталогами управляет сервис [Yandex Resource Manager](../resource-manager/concepts/resources-hierarchy.md), а организациями управляет сервис Yandex Identity Hub. Контроль доступа к ресурсам Yandex Cloud осуществляется с помощью ролей.
 
-
 Схема организации Yandex Cloud:
 
 ![users-and-resources](../_assets/overview/users-resources.svg "Users and resources hierarchy")
-
-## Перед началом работы {#before-you-begin}
-
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или [зарегистрируйтесь](../getting-started/index.md), если вы еще не зарегистрированы.
-1. Примите пользовательское соглашение.
-1. В сервисе [Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
 
 ## Создайте организацию {#create-organization}
 
@@ -23,17 +16,14 @@ _Организация_ — это высший ресурс в иерархи�
 
 - Интерфейс Cloud Center {#cloud-center}
 
-  1. Перейдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-  
-  1. Ознакомьтесь с условиями использования Yandex Cloud и нажмите кнопку **Войти**.
-  
+  1. Перейдите в [Cloud Center](https://center.yandex.cloud), затем войдите в Yandex Cloud или [зарегистрируйтесь](../getting-started/index.md), если вы еще не зарегистрированы.
+  1. Нажмите ![plus](../_assets/console-icons/plus.svg) **Создать новую организацию**.
   1. Введите название и описание организации.
-  
-  1. Нажмите кнопку **Создать новую организацию**.
+  1. Нажмите **Создать новую организацию**.
 
 {% endlist %}
 
-После регистрации вы станете владельцем организации и сможете управлять аккаунтами сотрудников, подключать и отключать сервисы.
+После регистрации вы станете владельцем организации и сможете управлять аккаунтами сотрудников, подключать и отключать сервисы. Для оплаты потребляемых ресурсов [создайте](../billing/quickstart/index.md) платежный аккаунт — он автоматически привяжется к организации.
 
 ## Управляйте пользователями {#manage-users}
 

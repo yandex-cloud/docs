@@ -25,7 +25,7 @@
 
 Чтобы запустить группы узлов с GPU, необходимы кластер Managed Service for Kubernetes, ВМ с GPU и трафик. Поэтому тарификация состоит из следующих частей:
 * Использование [мастера Managed Service for Kubernetes](../index.md#master) оплачивается по [правилам Managed Service for Kubernetes](../../pricing.md).
-* ВМ с GPU — по [правилам Yandex Compute Cloud](../../../compute/pricing.md#prices-instance-resources).
+* ВМ с GPU — по [правилам Yandex Compute Cloud](../../../compute/pricing.md#instance-resources).
 * Исходящий трафик — по [правилам Yandex Virtual Private Cloud](../../../vpc/pricing.md).
 
 ## Примеры использования {#examples}

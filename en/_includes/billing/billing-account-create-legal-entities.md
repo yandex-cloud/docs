@@ -20,14 +20,13 @@ To create a billing account:
    1. {% include [create-ba-import-egrul-step](../../billing/_includes/create-ba-import-egrul-step.md) %}
    1. Select **{{ ui-key.yacloud_billing_account.create-account.section_payment_method }}**: wire transfer or linked credit or debit card.
 
-      The payment method you select will affect the size of the [initial grant](../../billing/concepts/bonus-account.md) and [its terms of use](../../getting-started/usage-grant.md#business).
 
       * Select **{{ ui-key.yacloud_billing_account.create-account.label_payment_invoice }}**. After you create an account, you will get an email with verification instructions. Until you pass the verification, paid resources will be unavailable.
 
       * Link a corporate bank card you are authorized to use. If the user account already has credit/debit cards linked to it, you can select one of them without adding a new one.
 
         {% include [payment-card-types](../../_includes/billing/payment-card-types-business.md) %}
-
+        
         {% include [payment-card-validation](../../_includes/billing/payment-card-validation.md) %}
 
    1. Click **{{ ui-key.yacloud.common.create }}**.

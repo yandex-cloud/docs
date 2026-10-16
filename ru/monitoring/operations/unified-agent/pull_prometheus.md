@@ -2,7 +2,7 @@
 
 {{ unified-agent-full-name }} собирает метрики в формате {{ prometheus-name }} и конвертирует их в формат {{ monitoring-full-name }}. При помощи {{ unified-agent-short-name }} вы сможете собирать метрики любых приложений, которые предоставляют метрики в формате {{ prometheus-name }}.
 
-Для поставки в {{ monitoring-full-name }} метрик пользовательских приложений используется [вход metrics_pull](../../concepts/data-collection/unified-agent/configuration.md#metrics_pull_input), который периодически опрашивает приложение по HTTP, ожидая получить метрики в формате {{ prometheus-name }}.
+Для поставки в {{ monitoring-full-name }} метрик пользовательских приложений используется [вход metrics_pull](../../concepts/data-collection/unified-agent/inputs.md#metrics_pull_input), который периодически опрашивает приложение по HTTP, ожидая получить метрики в формате {{ prometheus-name }}.
 
 Для примера рассмотрим поставку метрик тестового приложения на Python. Тестовое приложение и {{ unified-agent-short-name }} могут быть запущены как на разных виртуальных машинах, так и на одной. Если ВМ разные, используемые ими [группы безопасности](../../../vpc/concepts/security-groups.md) должны разрешать входящий и исходящий трафик на порт `8000` по протоколу `TCP`.
 

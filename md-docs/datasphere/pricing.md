@@ -59,7 +59,7 @@
 
 [Хранение моделей](concepts/models/index.md) и [Docker-образов](concepts/docker.md) в DataSphere оплачивается отдельно. Тарификация зависит от размера модели, размер рассчитывается в ГБ и округляется до целого значения в большую сторону.
 
-Хранение Docker-образов в Yandex Container Registry оплачивается по тарифам [Container Registry](../container-registry/pricing.md#prices-storage). 
+Хранение Docker-образов в Yandex Container Registry оплачивается по тарифам [Container Registry](../container-registry/pricing.md#rules-storage).
 
 Во всех расчетах 1 ГБ = 2<sup>30</sup> байт, 1 МБ = 2<sup>20</sup> байт.
 

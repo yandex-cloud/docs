@@ -150,62 +150,6 @@ items:
     items:
       - name: Overview
         href: cli-ref/index.md
-      - name: agent
-        items:
-          - name: Overview
-            href: cli-ref/agent/index.md
-          - name: debug-info
-            href: cli-ref/agent/debug-info.md
-          - name: install
-            href: cli-ref/agent/install.md
-          - name: install-external
-            href: cli-ref/agent/install-external.md
-          - name: reinstall
-            href: cli-ref/agent/reinstall.md
-      - name: backup
-        items:
-          - name: Overview
-            href: cli-ref/backup/index.md
-          - name: batch-delete
-            href: cli-ref/backup/batch-delete.md
-          - name: delete
-            href: cli-ref/backup/delete.md
-          - name: get
-            href: cli-ref/backup/get.md
-          - name: list
-            href: cli-ref/backup/list.md
-          - name: list-archives
-            href: cli-ref/backup/list-archives.md
-          - name: recover
-            href: cli-ref/backup/recover.md
-      - name: policy
-        items:
-          - name: Overview
-            href: cli-ref/policy/index.md
-          - name: apply
-            href: cli-ref/policy/apply.md
-          - name: create
-            href: cli-ref/policy/create.md
-          - name: delete
-            href: cli-ref/policy/delete.md
-          - name: execute
-            href: cli-ref/policy/execute.md
-          - name: get
-            href: cli-ref/policy/get.md
-          - name: list
-            href: cli-ref/policy/list.md
-          - name: list-applications
-            href: cli-ref/policy/list-applications.md
-          - name: revoke
-            href: cli-ref/policy/revoke.md
-          - name: update
-            href: cli-ref/policy/update.md
-      - name: provider
-        items:
-          - name: Overview
-            href: cli-ref/provider/index.md
-          - name: activate
-            href: cli-ref/provider/activate.md
       - name: v0
         items:
           - name: Overview
@@ -282,6 +226,62 @@ items:
                 href: cli-ref/v0/vm/list-policies.md
               - name: list-tasks
                 href: cli-ref/v0/vm/list-tasks.md
+      - name: agent
+        items:
+          - name: Overview
+            href: cli-ref/agent/index.md
+          - name: debug-info
+            href: cli-ref/agent/debug-info.md
+          - name: install
+            href: cli-ref/agent/install.md
+          - name: install-external
+            href: cli-ref/agent/install-external.md
+          - name: reinstall
+            href: cli-ref/agent/reinstall.md
+      - name: backup
+        items:
+          - name: Overview
+            href: cli-ref/backup/index.md
+          - name: batch-delete
+            href: cli-ref/backup/batch-delete.md
+          - name: delete
+            href: cli-ref/backup/delete.md
+          - name: get
+            href: cli-ref/backup/get.md
+          - name: list
+            href: cli-ref/backup/list.md
+          - name: list-archives
+            href: cli-ref/backup/list-archives.md
+          - name: recover
+            href: cli-ref/backup/recover.md
+      - name: policy
+        items:
+          - name: Overview
+            href: cli-ref/policy/index.md
+          - name: apply
+            href: cli-ref/policy/apply.md
+          - name: create
+            href: cli-ref/policy/create.md
+          - name: delete
+            href: cli-ref/policy/delete.md
+          - name: execute
+            href: cli-ref/policy/execute.md
+          - name: get
+            href: cli-ref/policy/get.md
+          - name: list
+            href: cli-ref/policy/list.md
+          - name: list-applications
+            href: cli-ref/policy/list-applications.md
+          - name: revoke
+            href: cli-ref/policy/revoke.md
+          - name: update
+            href: cli-ref/policy/update.md
+      - name: provider
+        items:
+          - name: Overview
+            href: cli-ref/provider/index.md
+          - name: activate
+            href: cli-ref/provider/activate.md
       - name: vm
         items:
           - name: Overview

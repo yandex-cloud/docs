@@ -69,6 +69,12 @@ Service: `serverless-functions`, resource type: `resource-manager.cloud`.
 
 {% include notitle [functions-quotas](../_includes/functions-limits.md#functions-quotas) %}
 
+## {{ interconnect-full-name }} {#interconnect}
+
+Service: `interconnect`, resource type: `organization-manager.organization`.
+
+{% include notitle [interconnect-quotas](../_includes/interconnect-limits.md#interconnect-quotas) %}
+
 ## {{ cloud-logging-full-name }} {#logging}
 
 Service: `logging`, resource type: `resource-manager.cloud`.
@@ -82,6 +88,18 @@ Service: `postbox`, resource type: `resource-manager.cloud`.
 
 {% include notitle [postbox-quotas](../_includes/postbox/postbox-limits.md#postbox-quotas) %}
 
+## {{ cloud-router-full-name }} {#cloud-router}
+
+Service: `cloud-router`, resource type: `organization-manager.organization`.
+
+{% include notitle [cloud-router-quotas](../_includes/cloud-router-limits.md#cloud-router-quotas) %}
+
+## {{ video-full-name }} {#video}
+
+Service: `video`, resource type: `organization-manager.organization`.
+
+{% include notitle [video-limits](../_includes/video-limits.md#quotas) %}
+
 ## {{ compute-full-name }} {#compute}
 
 Service: `compute`, resource type: `resource-manager.cloud`.
@@ -94,11 +112,9 @@ Service: `container-registry`, resource type: `resource-manager.cloud`.
 
 {% include notitle [container-registry-quotas](../_includes/container-registry-limits.md#container-registry-quotas) %}
 
-
 ## {{ dataproc-full-name }} {#dataproc}
 
 {% include notitle [data-processing-quotas](../_includes/data-processing/data-processing-limits.md#dataproc-quotas) %}
-
 
 ## {{ data-transfer-full-name }} {#data-transfer}
 

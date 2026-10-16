@@ -123,70 +123,6 @@ items:
     items:
       - name: Overview
         href: cli-ref/index.md
-      - name: bind-file
-        items:
-          - name: Overview
-            href: cli-ref/bind-file/index.md
-          - name: migrate-to-terraform
-            href: cli-ref/bind-file/migrate-to-terraform.md
-      - name: firewall
-        items:
-          - name: Overview
-            href: cli-ref/firewall/index.md
-          - name: add-access-binding
-            href: cli-ref/firewall/add-access-binding.md
-          - name: add-labels
-            href: cli-ref/firewall/add-labels.md
-          - name: create
-            href: cli-ref/firewall/create.md
-          - name: delete
-            href: cli-ref/firewall/delete.md
-          - name: get
-            href: cli-ref/firewall/get.md
-          - name: list
-            href: cli-ref/firewall/list.md
-          - name: list-access-bindings
-            href: cli-ref/firewall/list-access-bindings.md
-          - name: list-operations
-            href: cli-ref/firewall/list-operations.md
-          - name: move
-            href: cli-ref/firewall/move.md
-          - name: remove-access-binding
-            href: cli-ref/firewall/remove-access-binding.md
-          - name: remove-labels
-            href: cli-ref/firewall/remove-labels.md
-          - name: set-access-bindings
-            href: cli-ref/firewall/set-access-bindings.md
-          - name: update
-            href: cli-ref/firewall/update.md
-      - name: inbound-endpoint
-        items:
-          - name: Overview
-            href: cli-ref/inbound-endpoint/index.md
-          - name: add-access-binding
-            href: cli-ref/inbound-endpoint/add-access-binding.md
-          - name: add-labels
-            href: cli-ref/inbound-endpoint/add-labels.md
-          - name: create
-            href: cli-ref/inbound-endpoint/create.md
-          - name: delete
-            href: cli-ref/inbound-endpoint/delete.md
-          - name: get
-            href: cli-ref/inbound-endpoint/get.md
-          - name: list
-            href: cli-ref/inbound-endpoint/list.md
-          - name: list-access-bindings
-            href: cli-ref/inbound-endpoint/list-access-bindings.md
-          - name: list-operations
-            href: cli-ref/inbound-endpoint/list-operations.md
-          - name: remove-access-binding
-            href: cli-ref/inbound-endpoint/remove-access-binding.md
-          - name: remove-labels
-            href: cli-ref/inbound-endpoint/remove-labels.md
-          - name: set-access-bindings
-            href: cli-ref/inbound-endpoint/set-access-bindings.md
-          - name: update
-            href: cli-ref/inbound-endpoint/update.md
       - name: v0
         items:
           - name: Overview
@@ -295,6 +231,70 @@ items:
                 href: cli-ref/v0/zone/update.md
               - name: update-private-networks
                 href: cli-ref/v0/zone/update-private-networks.md
+      - name: bind-file
+        items:
+          - name: Overview
+            href: cli-ref/bind-file/index.md
+          - name: migrate-to-terraform
+            href: cli-ref/bind-file/migrate-to-terraform.md
+      - name: firewall
+        items:
+          - name: Overview
+            href: cli-ref/firewall/index.md
+          - name: add-access-binding
+            href: cli-ref/firewall/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/firewall/add-labels.md
+          - name: create
+            href: cli-ref/firewall/create.md
+          - name: delete
+            href: cli-ref/firewall/delete.md
+          - name: get
+            href: cli-ref/firewall/get.md
+          - name: list
+            href: cli-ref/firewall/list.md
+          - name: list-access-bindings
+            href: cli-ref/firewall/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/firewall/list-operations.md
+          - name: move
+            href: cli-ref/firewall/move.md
+          - name: remove-access-binding
+            href: cli-ref/firewall/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/firewall/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/firewall/set-access-bindings.md
+          - name: update
+            href: cli-ref/firewall/update.md
+      - name: inbound-endpoint
+        items:
+          - name: Overview
+            href: cli-ref/inbound-endpoint/index.md
+          - name: add-access-binding
+            href: cli-ref/inbound-endpoint/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/inbound-endpoint/add-labels.md
+          - name: create
+            href: cli-ref/inbound-endpoint/create.md
+          - name: delete
+            href: cli-ref/inbound-endpoint/delete.md
+          - name: get
+            href: cli-ref/inbound-endpoint/get.md
+          - name: list
+            href: cli-ref/inbound-endpoint/list.md
+          - name: list-access-bindings
+            href: cli-ref/inbound-endpoint/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/inbound-endpoint/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/inbound-endpoint/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/inbound-endpoint/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/inbound-endpoint/set-access-bindings.md
+          - name: update
+            href: cli-ref/inbound-endpoint/update.md
       - name: zone
         items:
           - name: Overview

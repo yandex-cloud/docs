@@ -34,7 +34,7 @@
 
 ## Опубликовать объект {#how-to-publish}
 
-Как предоставить к объекту публичный доступ, зависит от его [расположения](./publishing-and-embedding.md#object-location) — в [воркбуке](../workbooks-collections/index.md#enable-workbooks) или в папке:
+Как предоставить к объекту публичный доступ, зависит от его [расположения](./publishing-and-embedding.md#object-location) — в воркбуке или в папке:
 
 
 {% list tabs %}

@@ -18,6 +18,10 @@ Aliases:
 
 #### Command Tree
 
+- [yc managed-metastore v0](v0/index.md) — Manage Metastore clusters.
+
+
+
 - [yc managed-metastore change-freeze](change-freeze/index.md) — Manage change freezes.
 
   - [yc managed-metastore change-freeze create](change-freeze/create.md) — Create a change freeze for the specified resource.
@@ -59,10 +63,6 @@ Aliases:
   - [yc managed-metastore cluster stop](cluster/stop.md) — Stop the specified Metastore cluster
 
   - [yc managed-metastore cluster update](cluster/update.md) — Update the specified Metastore cluster
-
-- [yc managed-metastore v0](v0/index.md) — Manage Metastore clusters.
-
-
 
 #### Global Flags
 

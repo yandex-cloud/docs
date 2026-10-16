@@ -213,7 +213,7 @@ _Taints_ — это особые политики, которые присваи
 
 {% note tip %}
 
-С помощью Terraform вы можете [добавить](../operations/node-group/node-group-update.md#assign-taints) или [удалить](../operations/node-group/node-group-update.md#remove-taint) taint-политики для Terraform-ресурса группы узлов, однако при этом сама группа узлов будет удалена и создана заново с новой конфигурацией.
+С помощью Terraform вы можете [добавить](../operations/node-group/node-group-update.md#assign-taint) или [удалить](../operations/node-group/node-group-update.md#remove-taint) taint-политики для Terraform-ресурса группы узлов, однако при этом сама группа узлов будет удалена и создана заново с новой конфигурацией.
 
 {% endnote %}
 

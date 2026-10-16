@@ -39,5 +39,5 @@
 * выбранный [тип дисков хранилища](storage.md);
 * [классы хостов](instance-types.md);
 * [квоты и лимиты](limits.md);
-* [настройка групп безопасности](../operations/connect/index.md#configuring-security-groups);
+* [настройка групп безопасности](../operations/connect/index.md#configure-security-groups);
 * настройки MySQL® [Max connections](settings-list.md#setting-max-connections) и [Sync binlog](settings-list.md#setting-sync-binlog).

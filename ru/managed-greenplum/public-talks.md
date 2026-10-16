@@ -13,6 +13,12 @@ description: Видеозаписи конференций и вебинаров
 
   * [Запись трансляции](https://www.youtube.com/live/2GlBcMbEN48).
 
+### 2026: Статьи {#article-2026}
+
+* {{ CB }}: что это за СУБД и почему её называют преемником {{ GP }}.
+
+  * [Текст статьи](https://yandex.cloud/ru/blog/apache-cloudberry-overview).
+
 ### 2025: Статьи {#article-2025}
 
 * Как Data Warehouse помогает бизнесу экономить деньги и принимать решения.

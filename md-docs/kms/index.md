@@ -120,118 +120,6 @@ Yandex Key Management Service — сервис для создания и упр
 
  - [Overview](cli-ref/index.md)
 
-### asymmetric-encryption-crypto
-
- - [Overview](cli-ref/asymmetric-encryption-crypto/index.md)
-
- - [decrypt](cli-ref/asymmetric-encryption-crypto/decrypt.md)
-
- - [get-public-key](cli-ref/asymmetric-encryption-crypto/get-public-key.md)
-
-### asymmetric-encryption-key
-
- - [Overview](cli-ref/asymmetric-encryption-key/index.md)
-
- - [add-access-binding](cli-ref/asymmetric-encryption-key/add-access-binding.md)
-
- - [create](cli-ref/asymmetric-encryption-key/create.md)
-
- - [delete](cli-ref/asymmetric-encryption-key/delete.md)
-
- - [get](cli-ref/asymmetric-encryption-key/get.md)
-
- - [list](cli-ref/asymmetric-encryption-key/list.md)
-
- - [list-access-bindings](cli-ref/asymmetric-encryption-key/list-access-bindings.md)
-
- - [list-operations](cli-ref/asymmetric-encryption-key/list-operations.md)
-
- - [remove-access-binding](cli-ref/asymmetric-encryption-key/remove-access-binding.md)
-
- - [set-access-bindings](cli-ref/asymmetric-encryption-key/set-access-bindings.md)
-
- - [update](cli-ref/asymmetric-encryption-key/update.md)
-
-### asymmetric-signature-crypto
-
- - [Overview](cli-ref/asymmetric-signature-crypto/index.md)
-
- - [get-public-key](cli-ref/asymmetric-signature-crypto/get-public-key.md)
-
- - [sign](cli-ref/asymmetric-signature-crypto/sign.md)
-
- - [sign-hash](cli-ref/asymmetric-signature-crypto/sign-hash.md)
-
-### asymmetric-signature-key
-
- - [Overview](cli-ref/asymmetric-signature-key/index.md)
-
- - [add-access-binding](cli-ref/asymmetric-signature-key/add-access-binding.md)
-
- - [create](cli-ref/asymmetric-signature-key/create.md)
-
- - [delete](cli-ref/asymmetric-signature-key/delete.md)
-
- - [get](cli-ref/asymmetric-signature-key/get.md)
-
- - [list](cli-ref/asymmetric-signature-key/list.md)
-
- - [list-access-bindings](cli-ref/asymmetric-signature-key/list-access-bindings.md)
-
- - [list-operations](cli-ref/asymmetric-signature-key/list-operations.md)
-
- - [remove-access-binding](cli-ref/asymmetric-signature-key/remove-access-binding.md)
-
- - [set-access-bindings](cli-ref/asymmetric-signature-key/set-access-bindings.md)
-
- - [update](cli-ref/asymmetric-signature-key/update.md)
-
-### symmetric-crypto
-
- - [Overview](cli-ref/symmetric-crypto/index.md)
-
- - [decrypt](cli-ref/symmetric-crypto/decrypt.md)
-
- - [encrypt](cli-ref/symmetric-crypto/encrypt.md)
-
- - [generate-data-key](cli-ref/symmetric-crypto/generate-data-key.md)
-
- - [re-encrypt](cli-ref/symmetric-crypto/re-encrypt.md)
-
-### symmetric-key
-
- - [Overview](cli-ref/symmetric-key/index.md)
-
- - [add-access-binding](cli-ref/symmetric-key/add-access-binding.md)
-
- - [cancel-version-destruction](cli-ref/symmetric-key/cancel-version-destruction.md)
-
- - [create](cli-ref/symmetric-key/create.md)
-
- - [delete](cli-ref/symmetric-key/delete.md)
-
- - [get](cli-ref/symmetric-key/get.md)
-
- - [list](cli-ref/symmetric-key/list.md)
-
- - [list-access-bindings](cli-ref/symmetric-key/list-access-bindings.md)
-
- - [list-operations](cli-ref/symmetric-key/list-operations.md)
-
- - [list-versions](cli-ref/symmetric-key/list-versions.md)
-
- - [remove-access-binding](cli-ref/symmetric-key/remove-access-binding.md)
-
- - [rotate](cli-ref/symmetric-key/rotate.md)
-
- - [schedule-version-destruction](cli-ref/symmetric-key/schedule-version-destruction.md)
-
- - [set-access-bindings](cli-ref/symmetric-key/set-access-bindings.md)
-
- - [set-primary-version](cli-ref/symmetric-key/set-primary-version.md)
-
- - [update](cli-ref/symmetric-key/update.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -347,6 +235,118 @@ Yandex Key Management Service — сервис для создания и упр
  - [set-primary-version](cli-ref/v0/symmetric-key/set-primary-version.md)
 
  - [update](cli-ref/v0/symmetric-key/update.md)
+
+### asymmetric-encryption-crypto
+
+ - [Overview](cli-ref/asymmetric-encryption-crypto/index.md)
+
+ - [decrypt](cli-ref/asymmetric-encryption-crypto/decrypt.md)
+
+ - [get-public-key](cli-ref/asymmetric-encryption-crypto/get-public-key.md)
+
+### asymmetric-encryption-key
+
+ - [Overview](cli-ref/asymmetric-encryption-key/index.md)
+
+ - [add-access-binding](cli-ref/asymmetric-encryption-key/add-access-binding.md)
+
+ - [create](cli-ref/asymmetric-encryption-key/create.md)
+
+ - [delete](cli-ref/asymmetric-encryption-key/delete.md)
+
+ - [get](cli-ref/asymmetric-encryption-key/get.md)
+
+ - [list](cli-ref/asymmetric-encryption-key/list.md)
+
+ - [list-access-bindings](cli-ref/asymmetric-encryption-key/list-access-bindings.md)
+
+ - [list-operations](cli-ref/asymmetric-encryption-key/list-operations.md)
+
+ - [remove-access-binding](cli-ref/asymmetric-encryption-key/remove-access-binding.md)
+
+ - [set-access-bindings](cli-ref/asymmetric-encryption-key/set-access-bindings.md)
+
+ - [update](cli-ref/asymmetric-encryption-key/update.md)
+
+### asymmetric-signature-crypto
+
+ - [Overview](cli-ref/asymmetric-signature-crypto/index.md)
+
+ - [get-public-key](cli-ref/asymmetric-signature-crypto/get-public-key.md)
+
+ - [sign](cli-ref/asymmetric-signature-crypto/sign.md)
+
+ - [sign-hash](cli-ref/asymmetric-signature-crypto/sign-hash.md)
+
+### asymmetric-signature-key
+
+ - [Overview](cli-ref/asymmetric-signature-key/index.md)
+
+ - [add-access-binding](cli-ref/asymmetric-signature-key/add-access-binding.md)
+
+ - [create](cli-ref/asymmetric-signature-key/create.md)
+
+ - [delete](cli-ref/asymmetric-signature-key/delete.md)
+
+ - [get](cli-ref/asymmetric-signature-key/get.md)
+
+ - [list](cli-ref/asymmetric-signature-key/list.md)
+
+ - [list-access-bindings](cli-ref/asymmetric-signature-key/list-access-bindings.md)
+
+ - [list-operations](cli-ref/asymmetric-signature-key/list-operations.md)
+
+ - [remove-access-binding](cli-ref/asymmetric-signature-key/remove-access-binding.md)
+
+ - [set-access-bindings](cli-ref/asymmetric-signature-key/set-access-bindings.md)
+
+ - [update](cli-ref/asymmetric-signature-key/update.md)
+
+### symmetric-crypto
+
+ - [Overview](cli-ref/symmetric-crypto/index.md)
+
+ - [decrypt](cli-ref/symmetric-crypto/decrypt.md)
+
+ - [encrypt](cli-ref/symmetric-crypto/encrypt.md)
+
+ - [generate-data-key](cli-ref/symmetric-crypto/generate-data-key.md)
+
+ - [re-encrypt](cli-ref/symmetric-crypto/re-encrypt.md)
+
+### symmetric-key
+
+ - [Overview](cli-ref/symmetric-key/index.md)
+
+ - [add-access-binding](cli-ref/symmetric-key/add-access-binding.md)
+
+ - [cancel-version-destruction](cli-ref/symmetric-key/cancel-version-destruction.md)
+
+ - [create](cli-ref/symmetric-key/create.md)
+
+ - [delete](cli-ref/symmetric-key/delete.md)
+
+ - [get](cli-ref/symmetric-key/get.md)
+
+ - [list](cli-ref/symmetric-key/list.md)
+
+ - [list-access-bindings](cli-ref/symmetric-key/list-access-bindings.md)
+
+ - [list-operations](cli-ref/symmetric-key/list-operations.md)
+
+ - [list-versions](cli-ref/symmetric-key/list-versions.md)
+
+ - [remove-access-binding](cli-ref/symmetric-key/remove-access-binding.md)
+
+ - [rotate](cli-ref/symmetric-key/rotate.md)
+
+ - [schedule-version-destruction](cli-ref/symmetric-key/schedule-version-destruction.md)
+
+ - [set-access-bindings](cli-ref/symmetric-key/set-access-bindings.md)
+
+ - [set-primary-version](cli-ref/symmetric-key/set-primary-version.md)
+
+ - [update](cli-ref/symmetric-key/update.md)
 
  - [Справочник Terraform](tf-ref.md)
 

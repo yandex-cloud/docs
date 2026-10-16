@@ -14,6 +14,10 @@ Syntax:
 
 #### Command Tree
 
+- [yc iot v0](v0/index.md) — Manage IoT Core resources
+
+
+
 - [yc iot broker](broker/index.md) — Manage IoT brokers
 
   - [yc iot broker add-labels](broker/add-labels.md) — Add labels to specified broker
@@ -79,10 +83,6 @@ Syntax:
   - [yc iot registry remove-labels](registry/remove-labels.md) — Remove labels from specified registry
 
   - [yc iot registry update](registry/update.md) — Update specified registry
-
-- [yc iot v0](v0/index.md) — Manage IoT Core resources
-
-
 
 #### Global Flags
 
