@@ -29,7 +29,7 @@
 
 ## Поддерживаемые инструменты {#supported-tools}
 
-Для выполнения шагов можно использовать различные поддерживаемые инструменты. Бо́льшую часть шагов можно выполнить с помощью любого из стандартных инструментов: [консоли управления](https://console.yandex.cloud), интерфейсов командной строки [Yandex Cloud CLI](../../../cli/index.md) и [API Yandex Cloud](../../../api-design-guide/index.md). В каждом шаге перечислены поддерживаемые для него инструменты.
+Для выполнения шагов можно использовать различные поддерживаемые инструменты: [консоль управления](https://console.yandex.cloud), интерфейс командной строки [Yandex Cloud CLI](../../../cli/index.md) и [API Yandex Cloud](../../../api-design-guide/index.md). В каждом шаге перечислены поддерживаемые для него инструменты.
 
 Некоторые инструменты поддерживаются не для всех шагов: через Yandex Cloud CLI сейчас нельзя [создать группу бэкендов в Application Load Balancer с бакетами в качестве бэкендов](#create-l7backend).
 
@@ -189,13 +189,13 @@
 
     - Консоль управления {#console}
 
-        1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-        1. [Перейдите](https://console.yandex.cloud/link/certificate-manager) в сервис **Certificate Manager**.
-        1. В списке сертификатов выберите `mymanagedcert`.
-        1. В открывшемся окне в блоке **Проверка прав на домены** выберите `CNAME-запись` и ниже в секции с вашим доменом нажмите **Создать запись**.
-        1. В открывшемся окне подтвердите создание ресурсной записи.
+      1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
+      1. [Перейдите](https://console.yandex.cloud/link/certificate-manager) в сервис **Certificate Manager**.
+      1. В списке сертификатов выберите `mymanagedcert`.
+      1. В открывшемся окне в блоке **Проверка прав на домены** выберите `CNAME-запись` и ниже в секции с вашим доменом нажмите **Создать запись**.
+      1. В открывшемся окне подтвердите создание ресурсной записи.
 
-        Проверка прав на домен может занять от нескольких минут до нескольких дней — дождитесь ее успешного завершения. В результате сертификат будет выпущен и перейдет в статус `Issued`.
+      Проверка прав на домен может занять от нескольких минут до нескольких дней — дождитесь ее успешного завершения. В результате сертификат будет выпущен и перейдет в статус `Issued`.
 
     - Yandex Cloud CLI {#cli}
 
@@ -447,16 +447,16 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
   1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/shield.svg) **Группы безопасности**.
-  1. На панели сверху нажмите кнопку **Создать группу безопасности**.
+  1. Нажмите кнопку **Создать группу безопасности**.
   1. В поле **Имя** укажите `example-sg`.
   1. В поле **Сеть** выберите `example-network`.
   1. В блоке **Правила** создайте следующие правила [по инструкции](../../../vpc/operations/security-group-create.md):
-   
-      | Направление<br/>трафика | Описание | Диапазон портов | Протокол | Источник /<br/>назначение | IPv4 CIDR |
+
+      | Направление<br/>трафика | Диапазон портов | Протокол | Источник /<br/>назначение | IPv4 CIDR | Описание |
       | --- | --- | --- | --- | --- | --- |
-      | `Исходящий` | `any` | `Весь` | `Любой` | `Диапазон адресов` | `0.0.0.0/0` |
-      | `Входящий` | `ext-http` | `80` | `TCP` | `Диапазон адресов` | `0.0.0.0/0` |
-      | `Входящий` | `ext-https` | `443` | `TCP` | `Диапазон адресов` | `0.0.0.0/0` |
+      | `Исходящий` | `Весь` | `Любой` | `Диапазон адресов` | `0.0.0.0/0` | `any` |
+      | `Входящий` | `80` | `TCP` | `Диапазон адресов` | `0.0.0.0/0` | `ext-http` |
+      | `Входящий` | `443` | `TCP` | `Диапазон адресов` | `0.0.0.0/0` | `ext-https` |
 
   1. Нажмите кнопку **Создать**.
 
@@ -471,9 +471,9 @@
     --rule "direction=ingress,port=80,protocol=tcp,v4-cidrs=[0.0.0.0/0]" \
     --rule "direction=ingress,port=443,protocol=tcp,v4-cidrs=[0.0.0.0/0]"
   ```
-  
+
   Результат:
-  
+
   ```text
   id: enp9dpfa774h********
   folder_id: b1gt6g8ht345********
@@ -586,11 +586,11 @@
     
     - Консоль управления {#console}
 
-        1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-        1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
-        1. Выберите бакет, созданный ранее.
-        1. Нажмите кнопку ![arrow-up-from-line](../../../_assets/console-icons/arrow-up-from-line.svg) **Загрузить** и выберите для загрузки файл `index.html`.
-        1. В открывшемся окне с подтверждением загрузки нажмите **Загрузить**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
+      1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
+      1. Выберите бакет, созданный ранее.
+      1. Нажмите кнопку ![arrow-up-from-line](../../../_assets/console-icons/arrow-up-from-line.svg) **Загрузить** и выберите для загрузки файл `index.html`.
+      1. В открывшемся окне с подтверждением загрузки нажмите **Загрузить**.
 
     - Yandex Cloud CLI {#cli}
 
@@ -618,22 +618,22 @@
 
       Подробнее о команде `yc storage s3api put-object` читайте в [справочнике CLI](../../../storage/cli-ref/s3api/put-object.md).
 
-   - API {#api}
-   
-     Воспользуйтесь методом REST API [upload](../../../storage/s3/api-ref/object/upload.md).
+    - API {#api}
 
-   {% endlist %}
+      Воспользуйтесь методом REST API [upload](../../../storage/s3/api-ref/object/upload.md).
+
+    {% endlist %}
 
 ## Создайте группу бэкендов в Application Load Balancer {#create-l7backend}
 
 {% list tabs group=instructions %}
-   
+
 - Консоль управления {#console}
-   
+
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
   1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов**.
-  1. На панели сверху нажмите кнопку **Создать группу бэкендов**.
+  1. Нажмите кнопку **Создать группу бэкендов**.
   1. В поле **Имя** укажите `example-bg`.
   1. В поле **Тип** выберите [тип группы бэкендов](../../../application-load-balancer/concepts/backend-group.md#group-types) `HTTP`.
   1. В блоке **Бэкенды** нажмите кнопку **Добавить** и задайте настройки бэкенда:
@@ -652,8 +652,8 @@
 - API {#api}
 
   Воспользуйтесь методом REST API [create](../../../application-load-balancer/api-ref/BackendGroup/create.md) для ресурса [BackendGroup](../../../application-load-balancer/api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/Create](../../../application-load-balancer/api-ref/grpc/BackendGroup/create.md).
-     
-{% endlist %} 
+
+{% endlist %}
 
 ## Создайте HTTP-роутер и виртуальный хост {#create-route-hosts}
 
@@ -664,43 +664,43 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
   1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/route.svg) **HTTP-роутеры**.
-  1. На панели сверху нажмите кнопку **Создать HTTP-роутер**.
+  1. Нажмите кнопку **Создать HTTP-роутер**.
   1. В поле **Имя** укажите `example-router`.
   1. Создайте виртуальный хост `example-vh`:
-  
-     1. В блоке **Виртуальные хосты** нажмите кнопку **Добавить виртуальный хост**.
-     1. В поле **Имя** укажите `example-vh`.
-     1. В поле **Authority** укажите имя вашего домена. Например: `example.com`.
-     1. Нажмите кнопку **Добавить маршрут**.
-     1. В поле **Имя** укажите `example-route`.
-     1. В поле **Путь** выберите `Начинается с` и укажите путь `/`.
-     1. В списке **Методы HTTP** выберите `GET`.
-     1. В поле **Действие** оставьте `Маршрутизация`.
-     1. В списке **Группа бэкендов** выберите `example-bg`.
+
+      1. В блоке **Виртуальные хосты** нажмите кнопку **Добавить виртуальный хост**.
+      1. В поле **Имя** укажите `example-vh`.
+      1. В поле **Authority** укажите имя вашего домена. Например: `example.com`.
+      1. Нажмите кнопку **Добавить маршрут**.
+      1. В поле **Имя** укажите `example-route`.
+      1. В поле **Путь** выберите `Начинается с` и укажите путь `/`.
+      1. В списке **Методы HTTP** выберите `GET`.
+      1. В поле **Действие** оставьте `Маршрутизация`.
+      1. В списке **Группа бэкендов** выберите `example-bg`.
 
   1. Остальные настройки оставьте без изменений и нажмите кнопку **Создать**.
-  
+
 - Yandex Cloud CLI {#cli}
 
   1. Создайте HTTP-роутер `example-router`:
-  
+
       ```bash
       yc alb http-router create example-router
       ```
-      
+
       Результат:
-      
+
       ```text
       id: ds78i77j8lg0********
       name: example-router
       folder_id: b1gt6g8ht345********
       created_at: "2026-02-05T13:09:27.917359782Z"
       ```
-      
+
       Подробнее о команде `yc alb http-router create` читайте в [справочнике CLI](../../../cli/cli-ref/application-load-balancer/cli-ref/http-router/create.md).
 
   1. Создайте виртуальный хост `example-vh`:
-  
+
       ```bash
       yc alb virtual-host create example-vh \
         --http-router-name example-router \
@@ -708,20 +708,20 @@
       ```
 
       Где `<имя_домена>` — имя вашего домена. Например: `example.com`.
-      
+
       Результат:
-      
+
       ```text
       done (1s)
       name: example-vh
       authority:
         - example.com
       ```
-      
+
       Подробнее о команде `yc alb virtual-host create` читайте в [справочнике CLI](../../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/create.md).
-     
+
   1. Создайте маршрут `example-route` в виртуальном хосте `example-vh`:
-  
+
       ```bash
       yc alb virtual-host append-http-route example-route \
         --http-router-name example-router \
@@ -729,9 +729,9 @@
         --prefix-path-match "/" \
         --backend-group-name example-bg
       ```
-      
+
       Результат:
-      
+
       ```text
       done (1s)
       name: example-vh
@@ -764,28 +764,28 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
   1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
-  1. На панели сверху нажмите кнопку **Создать L7-балансировщик** и выберите **Вручную**.
+  1. Нажмите кнопку **Создать L7-балансировщик** и выберите **Вручную**.
   1. В поле **Имя** укажите `example-balancer`.
   1. В блоке **Сетевые настройки**:
 
-     1. В поле **Сеть** выберите `example-network`.
-     1. В поле **Группы безопасности** выберите `Из списка` и в появившемся списке выберите созданную ранее группу безопасности `example-sg`.
-      
+      1. В поле **Сеть** выберите `example-network`.
+      1. В поле **Группы безопасности** выберите `Из списка` и в появившемся списке выберите созданную ранее группу безопасности `example-sg`.
+
   1. В блоке **Размещение** выберите три подсети для узлов балансировщика — `example-subnet-ru-central1-a`, `example-subnet-ru-central1-b` и `example-subnet-ru-central1-d` — и включите передачу трафика в эти подсети.
   1. В блоке **Обработчики** нажмите кнопку **Добавить обработчик** и задайте настройки обработчика:
-  
-     1. В поле **Имя** укажите `example-listener`.
-     1. В блоке **Публичный IP-адрес**:
-        * В поле **Порт** укажите `80`.
-        * В поле **Тип** выберите `Автоматически`.
-      
+
+      1. В поле **Имя** укажите `example-listener`.
+      1. В блоке **Публичный IP-адрес**:
+          * В поле **Порт** укажите `80`.
+          * В поле **Тип** выберите `Автоматически`.
+
   1. В поле **HTTP-роутер** выберите `example-router`.
   1. Нажмите кнопку **Создать**.
-  
+
 - Yandex Cloud CLI {#cli}
 
   1. Создайте балансировщик `example-balancer`:
-  
+
       ```bash
       yc alb load-balancer create example-balancer \
         --network-name example-network \
@@ -799,9 +799,9 @@
 
       * `--security-group-id` — идентификатор группы безопасности, сохраненный ранее при ее создании.
       * `subnet-id` — идентификаторы подсетей в трех зонах доступности, сохраненные ранее при их создании.
-        
+
       Результат:
-      
+
       ```text
       done (7m17s)
       id: ds790ardig7r********
@@ -822,11 +822,11 @@
         - enp9dpfa774h********
       created_at: "2026-02-05T13:30:25.695763710Z"
       ```
-      
+
       Подробнее о команде `yc alb load-balancer create` читайте в [справочнике CLI](../../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/create.md).
-     
+
   1. Добавьте к балансировщику обработчик:
-  
+
       ```bash
       yc alb load-balancer add-listener \
         --name example-balancer \
@@ -834,9 +834,9 @@
         --external-ipv4-endpoint port=80 \
         --http-router-name example-router
       ```
-      
+
       Результат:
-      
+
       ```text
       done (9m53s)
       id: ds790ardig7r********
@@ -875,7 +875,7 @@
 - API {#api}
 
   Чтобы создать L7-балансировщик, воспользуйтесь методом REST API [create](../../../application-load-balancer/api-ref/LoadBalancer/create.md) для ресурса [LoadBalancer](../../../application-load-balancer/api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Create](../../../application-load-balancer/api-ref/grpc/LoadBalancer/create.md).
-          
+
 {% endlist %}
 
 ## Создайте CDN-ресурс {#create-cdn-resource}
@@ -889,28 +889,28 @@
   1. Нажмите кнопку **Создать ресурс**.
   1. Задайте основные настройки CDN-ресурса:
 
-      * В блоке **Контент**:
+      1. В блоке **Контент**:
 
-          * Включите **Доступ к контенту**.
-          * В поле **Запрос контента** выберите `Из одного источника`.
-          * В поле **Тип источника** выберите `L7-балансировщик` и в появившемся поле **L7-балансировщик** выберите `example-balancer`.
-          * В поле **IP-адрес** выберите IP-адрес, назначенный балансировщику (будет единственным в списке).
-          * В поле **Протокол для источников** выберите `HTTP`.
-          * В поле **Доменное имя** укажите имя вашего домена. Например: `example.com`.
+         * Включите опцию **Доступ к контенту**.
+         * В поле **Запрос контента** выберите `Из одного источника`.
+         * В поле **Тип источника** выберите `L7-балансировщик` и в появившемся поле **L7-балансировщик** выберите `example-balancer`.
+         * В поле **IP-адрес** выберите IP-адрес, назначенный балансировщику (будет единственным в списке).
+         * В поле **Протокол для источников** выберите `HTTP`.
+         * В поле **Заголовок Host** выберите `Как у клиента`.
+         * В поле **Доменное имя** укажите имя вашего домена. Например: `example.com`.
 
-              {% note alert %}
+             {% note alert %}
 
-              Указанное доменное имя станет основным, и его будет невозможно изменить после создания CDN-ресурса.
+             Указанное доменное имя станет основным, и его будет невозможно изменить после создания CDN-ресурса.
 
-              {% endnote %}
+             {% endnote %}
 
-      * В блоке **Дополнительно**:
+      1. В блоке **Дополнительно** в поле **Тип сертификата** укажите `Сертификат из Certificate Manager` и выберите [сертификат](#add-certificate) `mymanagedcert`, который вы создали ранее для вашего доменного имени.
+      1. В блоке **Безопасность** в поле **Переадресация клиентов** выберите `С HTTP на HTTPS`.
 
-          * В поле **Переадресация клиентов** выберите `С HTTP на HTTPS`.
-          * В поле **Тип сертификата** укажите `Сертификат из Certificate Manager` и выберите [сертификат](#add-certificate) `mymanagedcert`, который вы создали ранее для вашего доменного имени.
-          * В поле **Заголовок Host** выберите `Как у клиента`.
   1. Нажмите **Продолжить**.
-  1. В разделах **Кеширование**, **HTTP-заголовки и методы** и **Дополнительно** оставьте настройки по умолчанию и нажмите **Продолжить**.
+  1. В разделах **Кеширование** и **HTTP-заголовки и методы** оставьте настройки по умолчанию и нажмите **Создать и продолжить**.
+  1. В разделе **Дополнительно** оставьте настройки по умолчанию и нажмите **Продолжить**.
 
 - Yandex Cloud CLI {#cli}
 
@@ -942,7 +942,7 @@
       Подробнее о команде `yc cdn origin-group create` читайте в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/origin-group/create.md).
 
   1. Создайте CDN-ресурс:
-  
+
       ```bash
       yc cdn resource create \
         --cname <имя_домена> \
@@ -1027,7 +1027,7 @@
 - API {#api}
 
   Чтобы создать CDN-ресурс, воспользуйтесь методом REST API [create](../../../cdn/api-ref/Resource/create.md) для ресурса [Resource](../../../cdn/api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Create](../../../cdn/api-ref/grpc/Resource/create.md).
-  
+
 {% endlist %}
 
 ## Создайте ресурсную запись CNAME для CDN-ресурса {#create-cdn-cname-record}
@@ -1042,9 +1042,9 @@
   1. Нажмите **Создать запись**.
   1. Задайте параметры записи:
 
-        * В поле **Имя** выберите `Совпадает с именем зоны (@)`.
-        * В поле **Тип** выберите [тип записи](../../../dns/concepts/resource-record.md#rr-types) `CNAME`.
-        * В поле **Значение** укажите значение [доменного имени](../../../cdn/operations/resources/get-resources-info.md#get-cname) провайдера CDN.
+      * В поле **Имя** выберите `Совпадает с именем зоны (@)`.
+      * В поле **Тип** выберите [тип записи](../../../dns/concepts/resource-record.md) `CNAME`.
+      * В поле **Значение** укажите значение [доменного имени](../../../cdn/operations/resources/get-resources-info.md#get-cname) провайдера CDN.
 
   1. Нажмите **Создать**.
 
@@ -1104,7 +1104,7 @@
 
 Чтобы остановить работу инфраструктуры и перестать платить за созданные ресурсы:
 
-1. Если вы настраивали CNAME-записи в Cloud DNS, [удалите](../../../dns/operations/zone-delete.md) зону DNS `example-dns-zone`.
+1. Если вы настраивали CNAME-записи в Cloud DNS, [удалите](../../../dns/operations/zone-delete.md) зону DNS `my-domain-zone`.
 1. [Удалите](../../../cdn/operations/resources/delete-resource.md) CDN-ресурс с основным доменным именем `example.com`.
 1. [Удалите](../../../application-load-balancer/operations/application-load-balancer-delete.md) L7-балансировщик `example-balancer`.
 1. [Удалите](../../../storage/operations/objects/delete.md) все объекты из бакета.

@@ -387,6 +387,19 @@ automatic removal of query_metric_log data based on time is disabled.
 
   Default value: **2592000000** (30 days).
 
+- `automatically_detached_data_parts_retention_time`: The maximum time that automatically detached data parts with a non-empty reason will be retained before removal.
+The retention period starts when a data part is moved to the detached directory. If set to **0**,
+automatic removal of these data parts is disabled.
+
+  Default value: **2592000000** (30 days).
+
+- `manually_detached_data_parts_retention_time`: The maximum time that manually detached data parts with an empty reason will be retained before removal.
+These data parts are detached using **ALTER TABLE DETACH PARTITION\|PART**.
+The retention period starts when a data part is moved to the detached directory. If set to **0**,
+automatic removal of these data parts is disabled.
+
+  Default value: **0**.
+
 - `access_control_improvements.select_from_system_db_requires_grant`: Sets whether **SELECT * FROM system.&lt;table&gt;** requires any grants and can be executed by any user.
 If set to true then this query requires **GRANT SELECT ON system.&lt;table&gt;** just as for non-system tables.
 

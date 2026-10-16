@@ -42,22 +42,6 @@
 
  - [Overview](cli-ref/index.md)
 
-### cluster
-
- - [Overview](cli-ref/cluster/index.md)
-
- - [delete](cli-ref/cluster/delete.md)
-
- - [get](cli-ref/cluster/get.md)
-
- - [get-configuration](cli-ref/cluster/get-configuration.md)
-
- - [list](cli-ref/cluster/list.md)
-
- - [start](cli-ref/cluster/start.md)
-
- - [stop](cli-ref/cluster/stop.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -77,6 +61,22 @@
  - [start](cli-ref/v0/cluster/start.md)
 
  - [stop](cli-ref/v0/cluster/stop.md)
+
+### cluster
+
+ - [Overview](cli-ref/cluster/index.md)
+
+ - [delete](cli-ref/cluster/delete.md)
+
+ - [get](cli-ref/cluster/get.md)
+
+ - [get-configuration](cli-ref/cluster/get-configuration.md)
+
+ - [list](cli-ref/cluster/list.md)
+
+ - [start](cli-ref/cluster/start.md)
+
+ - [stop](cli-ref/cluster/stop.md)
 
  - [Справочник Terraform](tf-ref.md)
 

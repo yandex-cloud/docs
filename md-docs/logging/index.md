@@ -102,60 +102,6 @@
 
  - [Overview](cli-ref/index.md)
 
-### group
-
- - [Overview](cli-ref/group/index.md)
-
- - [add-access-binding](cli-ref/group/add-access-binding.md)
-
- - [create](cli-ref/group/create.md)
-
- - [delete](cli-ref/group/delete.md)
-
- - [get](cli-ref/group/get.md)
-
- - [list](cli-ref/group/list.md)
-
- - [list-access-bindings](cli-ref/group/list-access-bindings.md)
-
- - [list-operations](cli-ref/group/list-operations.md)
-
- - [list-resources](cli-ref/group/list-resources.md)
-
- - [remove-access-binding](cli-ref/group/remove-access-binding.md)
-
- - [set-access-bindings](cli-ref/group/set-access-bindings.md)
-
- - [stats](cli-ref/group/stats.md)
-
- - [update](cli-ref/group/update.md)
-
- - [read](cli-ref/read.md)
-
-### sink
-
- - [Overview](cli-ref/sink/index.md)
-
- - [add-access-binding](cli-ref/sink/add-access-binding.md)
-
- - [create](cli-ref/sink/create.md)
-
- - [delete](cli-ref/sink/delete.md)
-
- - [get](cli-ref/sink/get.md)
-
- - [list](cli-ref/sink/list.md)
-
- - [list-access-bindings](cli-ref/sink/list-access-bindings.md)
-
- - [list-operations](cli-ref/sink/list-operations.md)
-
- - [remove-access-binding](cli-ref/sink/remove-access-binding.md)
-
- - [set-access-bindings](cli-ref/sink/set-access-bindings.md)
-
- - [update](cli-ref/sink/update.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -215,6 +161,60 @@
  - [update](cli-ref/v0/sink/update.md)
 
  - [write](cli-ref/v0/write.md)
+
+### group
+
+ - [Overview](cli-ref/group/index.md)
+
+ - [add-access-binding](cli-ref/group/add-access-binding.md)
+
+ - [create](cli-ref/group/create.md)
+
+ - [delete](cli-ref/group/delete.md)
+
+ - [get](cli-ref/group/get.md)
+
+ - [list](cli-ref/group/list.md)
+
+ - [list-access-bindings](cli-ref/group/list-access-bindings.md)
+
+ - [list-operations](cli-ref/group/list-operations.md)
+
+ - [list-resources](cli-ref/group/list-resources.md)
+
+ - [remove-access-binding](cli-ref/group/remove-access-binding.md)
+
+ - [set-access-bindings](cli-ref/group/set-access-bindings.md)
+
+ - [stats](cli-ref/group/stats.md)
+
+ - [update](cli-ref/group/update.md)
+
+ - [read](cli-ref/read.md)
+
+### sink
+
+ - [Overview](cli-ref/sink/index.md)
+
+ - [add-access-binding](cli-ref/sink/add-access-binding.md)
+
+ - [create](cli-ref/sink/create.md)
+
+ - [delete](cli-ref/sink/delete.md)
+
+ - [get](cli-ref/sink/get.md)
+
+ - [list](cli-ref/sink/list.md)
+
+ - [list-access-bindings](cli-ref/sink/list-access-bindings.md)
+
+ - [list-operations](cli-ref/sink/list-operations.md)
+
+ - [remove-access-binding](cli-ref/sink/remove-access-binding.md)
+
+ - [set-access-bindings](cli-ref/sink/set-access-bindings.md)
+
+ - [update](cli-ref/sink/update.md)
 
  - [write](cli-ref/write.md)
 

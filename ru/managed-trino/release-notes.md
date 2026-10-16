@@ -39,7 +39,7 @@ description: В разделе представлена история изме�
 ## Ноябрь 2025 {#november-2025}
 
 * [Доступен новый коннектор](concepts/index.md#connector): {{ MY }}.
-* Добавлена возможность загрузить пользовательские сертификаты (параметры TLS) при [создании](operations/cluster-create.md) и [изменении](operations/cluster-update.md#change-version) кластера.
+* Добавлена возможность загрузить пользовательские сертификаты (параметры TLS) при [создании](operations/cluster-create.md) и [изменении](operations/cluster-update.md) кластера.
 * Доступна новая версия {{ TR }} [476](https://trino.io/docs/current/release/release-476.html).
 
 ## Октябрь 2025 {#october-2025}
@@ -57,7 +57,7 @@ description: В разделе представлена история изме�
 
 ## Сентябрь 2025 {#september-2025}
 
-Добавлена возможность выбора версии {{ TR }} при [создании](operations/cluster-create.md) и [изменении](operations/cluster-update.md#change-version) кластера.
+Добавлена возможность выбора версии {{ TR }} при [создании](operations/cluster-create.md) и [изменении](operations/cluster-update.md) кластера.
 
 ## Август 2025 {#august-2025}
 

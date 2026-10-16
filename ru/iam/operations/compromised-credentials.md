@@ -71,7 +71,7 @@ OAuth-токен можно отозвать. При этом IAM-токены, 
 
 ### Серверный ключ {{ captcha-name }} {#captcha-server-key}
 
-[Создайте новую капчу](../../smartcaptcha/quickstart.md#creat-captcha) и на странице сайта замените ей старую капчу, [серверный ключ](../../smartcaptcha/concepts/keys.md) которой попал в открытый доступ.
+[Создайте новую капчу](../../smartcaptcha/quickstart.md#create-captcha) и на странице сайта замените ей старую капчу, [серверный ключ](../../smartcaptcha/concepts/keys.md) которой попал в открытый доступ.
 
 ### Cookie {#cookie-invalidation}
 

@@ -77,7 +77,7 @@ kubectl describe svc <имя_сервиса_типа_LoadBalancer> \
 | grep 'External Traffic Policy'
 ```
 
-Подробнее в разделе [Параметры сервиса типа LoadBalancer](../../managed-kubernetes/operations/create-load-balancer.md#advanced).
+Подробнее в разделе [Параметры сервиса типа LoadBalancer](../../managed-kubernetes/operations/create-load-balancer.md#create-lb).
 
 #### Почему созданный PersistentVolumeClaim остается в статусе Pending? {#pvc-pending}
 
@@ -311,7 +311,7 @@ Failed to pull image "{{ registry }}/***": rpc error: code = Unknown desc = Erro
 
 {% note info %}
 
-Если вы назначили публичные IP-адреса узлам кластера и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее читайте в [документации сервиса {{ vpc-full-name }}](../../vpc/concepts/routing.md#internet-routes).
+Если вы назначили публичные IP-адреса узлам кластера и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее читайте в [документации сервиса {{ vpc-full-name }}](../../vpc/concepts/routing.md).
 
 {% endnote %}
 
@@ -511,7 +511,7 @@ DaemonSet применяет настройки только на узлах, н
 
 #### Что делать, если я удалил сетевой балансировщик нагрузки или целевые группы {{ network-load-balancer-full-name }}, автоматически созданные для сервиса типа LoadBalancer? {#deleted-loadbalancer-service}
 
-Восстановить сетевой балансировщик или целевые группы {{ network-load-balancer-name }} вручную нельзя. [Пересоздайте](../../managed-kubernetes/operations/create-load-balancer.md#lb-create) сервис типа `LoadBalancer` — балансировщик и целевые группы будут созданы автоматически.
+Восстановить сетевой балансировщик или целевые группы {{ network-load-balancer-name }} вручную нельзя. [Пересоздайте](../../managed-kubernetes/operations/create-load-balancer.md#create-lb) сервис типа `LoadBalancer` — балансировщик и целевые группы будут созданы автоматически.
 
 #### Ошибка при подключении виртуальной машины {{ compute-full-name }} в качестве внешнего узла {{ managed-k8s-name }} {#vm-as-external-node}
 

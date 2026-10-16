@@ -18,7 +18,6 @@ To get started with the management console:
 1. To view the account info, click **Account** in the bottom-left corner.
 1. [Create a billing account](../../billing/operations/create-new-account.md). The `cloud-<Yandex_ID>` cloud will be linked to it automatically.
 
-    When you create your first billing account, you get an [initial grant](../../getting-started/usage-grant.md) to get started with the platform.
 
 1. Create your first resource, e.g., a [Linux VM](../../compute/quickstart/quick-create-linux.md).
 
@@ -31,7 +30,7 @@ To get started with the management console:
 1. Main pages for your selected service.
 1. Additional management console features and settings:
 
-   * ![ai-assistant](../../_assets/console/ai-assistant.svg) [**AI assistant**](../operations/ai-assistant.md): Your smart assistant for managing {{ yandex-cloud }} resources. You can use the assistant to:
+   * ![ai-assistant](../../_assets/console/ai-assistant.svg) [**AI assistant**](../operations/ai-assistant.md): Your smart assistant for managing {{ yandex-cloud }} resources. It is able and willing to help you with:
      * Get advice on working with cloud services and resources.
      * Analyze your folder infrastructure and get optimization tips.
      * Create and delete resources based on plain-text instructions.

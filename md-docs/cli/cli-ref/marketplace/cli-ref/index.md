@@ -18,11 +18,11 @@ Aliases:
 
 #### Command Tree
 
-- [yc marketplace reset-password](reset-password.md) — Reset password via Yandex Cloud Guest Agent
-
 - [yc marketplace v0](v0/index.md) — Manage Yandex Marketplace resources
 
   - [yc marketplace v0 reset-password](v0/reset-password.md) — Reset password via Yandex Cloud Guest Agent
+
+- [yc marketplace reset-password](reset-password.md) — Reset password via Yandex Cloud Guest Agent
 
 #### Global Flags
 

@@ -2,7 +2,7 @@
 
 # Арендовать сервер в своей конфигурации
 
-Вы можете сами [сконфигурировать](../../concepts/server-configurations.md#custom) ваш сервер. Для этого:
+Вы можете сами [сконфигурировать](../../concepts/server-custom-configurations.md#custom) ваш сервер. Для этого:
 
 ## Перед началом работы {#before-you-begin}
 

@@ -1384,6 +1384,10 @@ items:
               Загрузка данных из {{ ydb-name }} в {{ objstorage-name }} с
               помощью {{ data-transfer-name }}
             href: dataplatform/ydb-to-object-storage.md
+          - name: >-
+              Развертывание кластера {{ ydb-short-name }} во внешней
+              инфраструктуре
+            href: dataplatform/deploy-ydb-cluster-on-premise.md
       - name: '{{ dns-full-name }}'
         items:
           - name: >-

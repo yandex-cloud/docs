@@ -12,7 +12,7 @@ description: В этой инструкции вы научитесь созда
 * [Создайте кластер](#cluster-create).
 * [Подготовьте задание PySpark](#prepare-task).
 * [Запустите задание в кластере](#run-task).
-* [Проверьте выполнение задания](#check-task).
+* [Проверьте выполнение задания](#check_task).
 
 ## Необходимые платные ресурсы {#paid-resources}
 
@@ -47,12 +47,12 @@ description: В этой инструкции вы научитесь созда
 
    1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
    1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-      1. Откройте [созданный ранее](#create-s3-bucket) бакет.
+      1. Откройте [созданный ранее](#prepare-infrastructure) бакет.
       1. Перейдите в раздел **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
       1. Нажмите ![image](../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
       1. В открывшемся окне **{{ ui-key.yacloud.component.acl-dialog.label_title }}**:
 
-         1. Начните вводить имя [созданного ранее](#before-you-begin) сервисного аккаунта и выберите его из выпадающего списка.
+         1. Начните вводить имя [созданного ранее](#prepare-infrastructure) сервисного аккаунта и выберите его из выпадающего списка.
          1. Выберите права доступа {{ ui-key.yacloud.storage.dialog.StorageAclDialog.label_role-write_sGmJW }}.
          1. Нажмите **{{ ui-key.yacloud.common.add }}**.
          1. Нажмите **{{ ui-key.yacloud.common.save }}**.
@@ -67,7 +67,7 @@ description: В этой инструкции вы научитесь созда
   1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
   1. Нажмите **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Задайте имя кластера.
-  1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** выберите [созданный ранее](#before-you-begin) сервисный аккаунт.
+  1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** выберите [созданный ранее](#prepare-infrastructure) сервисный аккаунт.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите сеть, подсеть и группу безопасности для кластера.
   1. Задайте вычислительные ресурсы для хостов, на которых будут запускаться драйверы и исполнители.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** настройте логирование:
@@ -86,7 +86,7 @@ description: В этой инструкции вы научитесь созда
 
 1. Сохраните на локальный компьютер файл с кодом задания [pi.py](https://github.com/apache/spark/blob/master/examples/src/main/python/pi.py) из репозитория {{ SPRK }}. Этот код вычисляет приблизительное значение числа Пи методом Монте-Карло.
 
-1. Загрузите файл в [созданный ранее](#before-you-begin) бакет {{ objstorage-name }}.
+1. Загрузите файл в [созданный ранее](#prepare-infrastructure) бакет {{ objstorage-name }}.
 
 ## Запустите задание PySpark {#run-task}
 

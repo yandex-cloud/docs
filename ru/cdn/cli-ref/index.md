@@ -17,6 +17,10 @@ Syntax:
 
 #### Command Tree
 
+- [yc cdn v0](v0/index.md) — Manage CDN resources
+
+
+
 - [yc cdn cache](cache/index.md) — Manage CDN resources cache
 
   - [yc cdn cache prefetch](cache/prefetch.md) — Prefetch CDN resource paths
@@ -66,10 +70,6 @@ Syntax:
   - [yc cdn resource list](resource/list.md) — List resources in the specified folder
 
   - [yc cdn resource update](resource/update.md) — Update resource
-
-- [yc cdn v0](v0/index.md) — Manage CDN resources
-
-
 
 #### Global Flags
 

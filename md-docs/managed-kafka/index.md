@@ -174,136 +174,6 @@
 
  - [Overview](cli-ref/index.md)
 
-### change-freeze
-
- - [Overview](cli-ref/change-freeze/index.md)
-
- - [create](cli-ref/change-freeze/create.md)
-
- - [get](cli-ref/change-freeze/get.md)
-
- - [get-limits](cli-ref/change-freeze/get-limits.md)
-
- - [list](cli-ref/change-freeze/list.md)
-
- - [terminate](cli-ref/change-freeze/terminate.md)
-
-### cluster
-
- - [Overview](cli-ref/cluster/index.md)
-
- - [add-access-binding](cli-ref/cluster/add-access-binding.md)
-
- - [create](cli-ref/cluster/create.md)
-
- - [delete](cli-ref/cluster/delete.md)
-
- - [get](cli-ref/cluster/get.md)
-
- - [list](cli-ref/cluster/list.md)
-
- - [list-access-bindings](cli-ref/cluster/list-access-bindings.md)
-
- - [list-hosts](cli-ref/cluster/list-hosts.md)
-
- - [list-logs](cli-ref/cluster/list-logs.md)
-
- - [list-operations](cli-ref/cluster/list-operations.md)
-
- - [move](cli-ref/cluster/move.md)
-
- - [remove-access-binding](cli-ref/cluster/remove-access-binding.md)
-
- - [reschedule-maintenance](cli-ref/cluster/reschedule-maintenance.md)
-
- - [set-access-bindings](cli-ref/cluster/set-access-bindings.md)
-
- - [start](cli-ref/cluster/start.md)
-
- - [stop](cli-ref/cluster/stop.md)
-
- - [update](cli-ref/cluster/update.md)
-
-### connector
-
- - [Overview](cli-ref/connector/index.md)
-
- - [delete](cli-ref/connector/delete.md)
-
- - [get](cli-ref/connector/get.md)
-
- - [list](cli-ref/connector/list.md)
-
- - [pause](cli-ref/connector/pause.md)
-
- - [resume](cli-ref/connector/resume.md)
-
-### connector-iceberg-sink
-
- - [Overview](cli-ref/connector-iceberg-sink/index.md)
-
- - [create](cli-ref/connector-iceberg-sink/create.md)
-
- - [update](cli-ref/connector-iceberg-sink/update.md)
-
-### connector-mirrormaker
-
- - [Overview](cli-ref/connector-mirrormaker/index.md)
-
- - [create](cli-ref/connector-mirrormaker/create.md)
-
- - [update](cli-ref/connector-mirrormaker/update.md)
-
-### connector-s3-sink
-
- - [Overview](cli-ref/connector-s3-sink/index.md)
-
- - [create](cli-ref/connector-s3-sink/create.md)
-
- - [update](cli-ref/connector-s3-sink/update.md)
-
-### maintenance
-
- - [Overview](cli-ref/maintenance/index.md)
-
- - [get](cli-ref/maintenance/get.md)
-
- - [list](cli-ref/maintenance/list.md)
-
- - [reschedule](cli-ref/maintenance/reschedule.md)
-
-### topic
-
- - [Overview](cli-ref/topic/index.md)
-
- - [create](cli-ref/topic/create.md)
-
- - [delete](cli-ref/topic/delete.md)
-
- - [get](cli-ref/topic/get.md)
-
- - [list](cli-ref/topic/list.md)
-
- - [update](cli-ref/topic/update.md)
-
-### user
-
- - [Overview](cli-ref/user/index.md)
-
- - [create](cli-ref/user/create.md)
-
- - [delete](cli-ref/user/delete.md)
-
- - [get](cli-ref/user/get.md)
-
- - [grant-permission](cli-ref/user/grant-permission.md)
-
- - [list](cli-ref/user/list.md)
-
- - [revoke-permission](cli-ref/user/revoke-permission.md)
-
- - [update](cli-ref/user/update.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -437,6 +307,136 @@
  - [revoke-permission](cli-ref/v0/user/revoke-permission.md)
 
  - [update](cli-ref/v0/user/update.md)
+
+### change-freeze
+
+ - [Overview](cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/change-freeze/terminate.md)
+
+### cluster
+
+ - [Overview](cli-ref/cluster/index.md)
+
+ - [add-access-binding](cli-ref/cluster/add-access-binding.md)
+
+ - [create](cli-ref/cluster/create.md)
+
+ - [delete](cli-ref/cluster/delete.md)
+
+ - [get](cli-ref/cluster/get.md)
+
+ - [list](cli-ref/cluster/list.md)
+
+ - [list-access-bindings](cli-ref/cluster/list-access-bindings.md)
+
+ - [list-hosts](cli-ref/cluster/list-hosts.md)
+
+ - [list-logs](cli-ref/cluster/list-logs.md)
+
+ - [list-operations](cli-ref/cluster/list-operations.md)
+
+ - [move](cli-ref/cluster/move.md)
+
+ - [remove-access-binding](cli-ref/cluster/remove-access-binding.md)
+
+ - [reschedule-maintenance](cli-ref/cluster/reschedule-maintenance.md)
+
+ - [set-access-bindings](cli-ref/cluster/set-access-bindings.md)
+
+ - [start](cli-ref/cluster/start.md)
+
+ - [stop](cli-ref/cluster/stop.md)
+
+ - [update](cli-ref/cluster/update.md)
+
+### connector
+
+ - [Overview](cli-ref/connector/index.md)
+
+ - [delete](cli-ref/connector/delete.md)
+
+ - [get](cli-ref/connector/get.md)
+
+ - [list](cli-ref/connector/list.md)
+
+ - [pause](cli-ref/connector/pause.md)
+
+ - [resume](cli-ref/connector/resume.md)
+
+### connector-iceberg-sink
+
+ - [Overview](cli-ref/connector-iceberg-sink/index.md)
+
+ - [create](cli-ref/connector-iceberg-sink/create.md)
+
+ - [update](cli-ref/connector-iceberg-sink/update.md)
+
+### connector-mirrormaker
+
+ - [Overview](cli-ref/connector-mirrormaker/index.md)
+
+ - [create](cli-ref/connector-mirrormaker/create.md)
+
+ - [update](cli-ref/connector-mirrormaker/update.md)
+
+### connector-s3-sink
+
+ - [Overview](cli-ref/connector-s3-sink/index.md)
+
+ - [create](cli-ref/connector-s3-sink/create.md)
+
+ - [update](cli-ref/connector-s3-sink/update.md)
+
+### maintenance
+
+ - [Overview](cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/maintenance/reschedule.md)
+
+### topic
+
+ - [Overview](cli-ref/topic/index.md)
+
+ - [create](cli-ref/topic/create.md)
+
+ - [delete](cli-ref/topic/delete.md)
+
+ - [get](cli-ref/topic/get.md)
+
+ - [list](cli-ref/topic/list.md)
+
+ - [update](cli-ref/topic/update.md)
+
+### user
+
+ - [Overview](cli-ref/user/index.md)
+
+ - [create](cli-ref/user/create.md)
+
+ - [delete](cli-ref/user/delete.md)
+
+ - [get](cli-ref/user/get.md)
+
+ - [grant-permission](cli-ref/user/grant-permission.md)
+
+ - [list](cli-ref/user/list.md)
+
+ - [revoke-permission](cli-ref/user/revoke-permission.md)
+
+ - [update](cli-ref/user/update.md)
 
  - [Справочник Terraform](tf-ref.md)
 

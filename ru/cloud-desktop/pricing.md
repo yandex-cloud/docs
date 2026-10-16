@@ -49,6 +49,8 @@ blocks:
 
 {% include [vat](../_includes/vat.md) %}
 
+{% include [payg-model](../_includes/payg-model.md) %}
+
 ## Из чего складывается стоимость использования {{ cloud-desktop-name }} {#rules}
 
 Расчет стоимости использования {{ cloud-desktop-name }} учитывает:

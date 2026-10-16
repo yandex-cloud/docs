@@ -159,7 +159,7 @@ index: 1
 
 #### Новые возможности {#new-features-august25}
 
-* В [Connection Manager](../concepts/connection-manager.md) добавлена возможность управлять подключениями с пользовательскими инсталляциями [Apache Kafka®](../operations/create-connection.md#kafka) и [кластерами Managed Service for Apache Kafka®](../operations/create-connection.md#mdb-kafka), а также поддержаны [шардированные кластеры](../../managed-clickhouse/concepts/sharding.md) в ClickHouse®.
+* В [Connection Manager](../concepts/connection-manager.md) добавлена возможность управлять подключениями с пользовательскими инсталляциями [Apache Kafka®](../operations/create-connection.md#kafka-on-premise) и [кластерами Managed Service for Apache Kafka®](../operations/create-connection.md#mdb-kafka), а также поддержаны [шардированные кластеры](../../managed-clickhouse/concepts/sharding.md) в ClickHouse®.
 
 #### Решенные проблемы {#problems-solved-august25}
 

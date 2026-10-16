@@ -7,7 +7,7 @@
 
 Чтобы создать платежный аккаунт:
 
-1. Войдите в свой Яндекс ID или аккаунт в Яндекс 360. Если у вас еще нет аккаунта — [зарегистрируйтесь](https://yandex.ru/support/id/authorization/registration.html). После этого перейдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization) и создайте [организацию](../../organization/quickstart.md), в которой вы будете работать. Если для входа на Яндекс вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
+1. Войдите в свой Яндекс ID или аккаунт в Яндекс 360. Если у вас еще нет аккаунта — [зарегистрируйтесь](https://yandex.ru/support/id/authorization/registration.html). После этого перейдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization) и [создайте](../../organization/quickstart.md) организацию, в которой вы будете работать. Если для входа на Яндекс вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
 
    При создании организации укажите ее имя, например, `Example organization`. В организации будет автоматически создан новый каталог с именем `default`.
    

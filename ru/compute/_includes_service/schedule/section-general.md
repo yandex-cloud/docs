@@ -4,4 +4,4 @@
     {% include [name-format](../../../_includes/name-format.md) %}
 
 * Укажите описание расписания.
-* Добавьте [метки](../../../overview/concepts/services.md#labels) расписания.
+* Добавьте [метки](../../../resource-manager/concepts/labels.md) расписания.

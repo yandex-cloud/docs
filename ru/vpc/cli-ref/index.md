@@ -17,6 +17,10 @@ Syntax:
 
 #### Command Tree
 
+- [yc vpc v0](v0/index.md) — Manage Yandex Virtual Private Cloud resources
+
+
+
 - [yc vpc address](address/index.md) — Manage addresses.
 
   - [yc vpc address create](address/create.md) — Create an address.
@@ -166,10 +170,6 @@ Syntax:
   - [yc vpc subnet remove-range](subnet/remove-range.md) — Remove CIDR range from a subnet.
 
   - [yc vpc subnet update](subnet/update.md) — Modify configuration or attributes of a subnet.
-
-- [yc vpc v0](v0/index.md) — Manage Yandex Virtual Private Cloud resources
-
-
 
 #### Global Flags
 

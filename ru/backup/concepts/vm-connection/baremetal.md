@@ -12,7 +12,7 @@ description: Из этой статьи вы узнаете, как подклю
 
 Чтобы подключение к {{ backup-name }} работало корректно, привяжите к серверу [сервисный аккаунт](#sa) с ролями [`baremetal.editor`](../../../baremetal/security/index.md#baremetal-editor) и [`backup.user`](../../security/index.md#backup-user) или выше и настройте [сетевой доступ](#vm-network-access).
 
-После подключения к {{ backup-name }} [привяжите](../../operations/policy-vm/attach-and-detach-vm.md#attach-vm) сервер {{ baremetal-name }} к [политике резервного копирования](../policy.md).
+После подключения к {{ backup-name }} [привяжите](../../operations/policy-vm/attach-and-detach-vm.md) сервер {{ baremetal-name }} к [политике резервного копирования](../policy.md).
 
 {% note info %}
 

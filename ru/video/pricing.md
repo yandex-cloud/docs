@@ -11,6 +11,8 @@ editable: false
 
 {% include [vat](../_includes/vat.md) %}
 
+{% include [payg-model](../_includes/payg-model.md) %}
+
 ## Из чего складывается стоимость использования {{ video-name }} {#rules}
 
 При использовании сервиса {{ video-name }} оплачиваются услуги:

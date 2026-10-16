@@ -23,7 +23,7 @@ description: Из статьи вы узнаете, как задать наст
 ## Настройка эндпоинта-источника {{ myt-name }} {#endpoint-settings}
 
 
-При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта задайте настройки доступа к [кластеру {{ myt-name }}](#cluster):
+При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта задайте настройки доступа к [кластеру {{ myt-name }}](#endpoint-settings):
 
 
 {% list tabs group=instructions %}

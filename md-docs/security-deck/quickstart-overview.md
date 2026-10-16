@@ -9,7 +9,7 @@
 Чтобы начать работать с Security Deck в Yandex Cloud:
 
 1. Если вы еще не зарегистрированы в Yandex Cloud, перейдите в [консоль управления](https://console.yandex.cloud) и следуйте инструкциям.
-1. В [сервисе Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в [статусе](../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+1. В [сервисе Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в [статусе](../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md).
 1. Если у вас еще нет [каталога](../resource-manager/concepts/resources-hierarchy.md#folder), [создайте его](../resource-manager/operations/folder/create.md).
 1. Убедитесь, что у вас есть необходимые [права](security/index.md) для работы с модулями Security Deck. Оптимальные роли для работы:
 

@@ -1,6 +1,6 @@
 # Настройка дашбордов и алертов в {{ monitoring-full-name }}
 
-Из руководства вы узнаете, как отслеживать состояние [трейлов](../../audit-trails/concepts/trail.md) с помощью [дашбордов](../../monitoring/concepts/visualization/dashboard.md) и [алертов](../../monitoring/concepts/alerting.md#alert) [{{ monitoring-full-name }}](../../monitoring/).
+Из руководства вы узнаете, как отслеживать состояние [трейлов](../../audit-trails/concepts/trail.md) с помощью [дашбордов](../../monitoring/concepts/visualization/dashboard.md) и [алертов](../../monitoring/concepts/alerting/alert.md) [{{ monitoring-full-name }}](../../monitoring/).
 
 Руководство предполагает, что у вас уже развернута инфраструктура: 
 
@@ -37,7 +37,7 @@
 
 Вы можете настроить один или несколько алертов.
 
-Более подробная информация о порядке [создания алерта](../../monitoring/operations/alert/create-alert.md) и о [параметрах алерта](../../monitoring/concepts/alerting.md#alert-parameters) приведена в документации {{ monitoring-full-name }}.
+Более подробная информация о порядке [создания алерта](../../monitoring/operations/alert/create-alert.md) и о [параметрах алерта](../../monitoring/concepts/alerting/alert.md#alert-parameters) приведена в документации {{ monitoring-full-name }}.
 
 #### Переход трейла в неактивное состояние {#deactivating-trail}
 

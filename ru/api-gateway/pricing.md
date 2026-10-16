@@ -61,6 +61,8 @@ blocks:
 
 {% include [vat](../_includes/vat.md) %}
 
+{% include [payg-model](../_includes/payg-model.md) %}
+
 ## Из чего складывается стоимость использования {{ api-gw-name }} {#rules}
 
 В рамках сервиса {{ api-gw-name }} тарифицируется количество запросов к созданным API-шлюзам и исходящий трафик. 

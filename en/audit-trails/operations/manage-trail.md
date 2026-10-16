@@ -6,9 +6,11 @@ description: Follow this tutorial to update or delete {{ at-full-name }}.
 # Managing a trail
 
 
-You can update the [destination object](../concepts/trail.md#target), event [types](../concepts/control-plane-vs-data-plane.md) to collect, audit log [collection scopes](../concepts/trail.md#collecting-area), and [other trail settings](../concepts/trail.md#trail-settings), as well as [delete](#delete-trail) the trail.
+You can update the [destination object](../concepts/trail.md#target), event [levels](../concepts/control-plane-vs-data-plane.md), audit log [collection scopes](../concepts/trail.md#collecting-area), and [other trail settings](../concepts/trail.md#trail-settings) or [delete](#delete-trail) the trail.
 
 ## Updating a trail {#update-trail}
+
+You can add [conditions based on field values](../concepts/trail.md#field-filters) to data event filters using the CLI, {{ TF }}, or API. When updating your filter policy, provide it fully with the other relevant filters preserved.
 
 {% list tabs group=instructions %}
 
@@ -28,7 +30,7 @@ You can update the [destination object](../concepts/trail.md#target), event [typ
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  See the description of the [CLI](../../cli/) trail editing command for details about the arguments you can use:
+  See the description of the CLI command for updating a trail:
 
   ```bash
   yc audit-trails trail update --help
@@ -38,11 +40,12 @@ You can update the [destination object](../concepts/trail.md#target), event [typ
 
   {% cut "In the YAML specification" %}
 
-  Create a YAML specification containing the updated trail parameters and specify this file in the command for creating the trail.
+  Create a YAML specification containing the updated trail parameters and specify this file in the trail update command.
   
-  This method simplifies working with trail parameters and reduces the probability of error. In addition, you can only customize the registration of [data events](../concepts/control-plane-vs-data-plane.md#data-plane-events) using the YAML specification.
+  This method simplifies working with trail parameters and reduces error probability. In addition, you can only customize the registration of [data events](../concepts/control-plane-vs-data-plane.md#data-plane-events) using the YAML specification.
 
-  1. [Create a YAML specification](prepare-spec.md#spec-for-update) with an updated trail configuration.
+  1. [Draft the YAML specification](prepare-spec.md) based on the current trail settings and update the parameters as needed.
+  1. {% include [field-filter-cli](../../_includes/audit-trails/field-filter-cli.md) %}
   1. To update a trail, run this command:
 
       ```bash
@@ -51,7 +54,7 @@ You can update the [destination object](../concepts/trail.md#target), event [typ
 
   {% endcut %}
 
-  {% cut "In the command arguments:" %}
+  {% cut "In command parameters" %}
 
   Use this method if your trail configuration is simple and contains few parameters.
   
@@ -61,36 +64,20 @@ You can update the [destination object](../concepts/trail.md#target), event [typ
 
   {% endnote %}
 
-  To update a trail, run this command:
+  In the command, specify only the parameters you want to update. For example, to update the trail name, run this command:
 
   ```bash
   yc audit-trails trail update \
     --name <trail_name> \
-    --new-name <new_trail_name> \
-    --description <trail_description> \
-    --labels <label_list> \
-    --service-account-id <service_account_ID> \
-    --destination-bucket <bucket_name> \
-    --destination-bucket-object-prefix <prefix_for_objects> \
-    --destination-log-group-id <log_group_ID> \
-    --destination-yds-stream <YDS_name> \
-    --destination-yds-database-id <YDS_database_ID> \
-    --destination-yds-codec <event_compression_method> \
-    --filter-all-folder-id <folder_ID> \
-    --filter-all-cloud-id <cloud_ID> \
-    --filter-all-organisation-id <organization_ID> \
-    --filter-some-folder-ids <cloud_folder_list> \
-    --filter-from-cloud-id <cloud_ID_with_selected_folders> \
-    --filter-some-cloud-ids <list_of_clouds_in_organization> \
-    --filter-from-organisation-id <organization_ID_with_selected_clouds>
-    ```
+    --new-name <new_trail_name>
+  ```
 
-    Where:
-    
-    * `--name`: Name of the trail you need to update. Instead of a name, you can provide the trail ID in the `--id` parameter.
-    * `--new-name`: New trail name. The name must be unique within the folder. This is an optional setting.
+  Command parameters:
 
-    {% include [trail-cli-flag-desc](../../_includes/audit-trails/trail-cli-flag-desc.md) %}
+  * `--name`: Name of the trail you need to update. Instead of a name, you can provide the trail ID in the `--id` parameter.
+  * `--new-name`: New trail name. The name must be unique within the folder. This is an optional parameter.
+
+  {% include [trail-cli-flag-desc](../../_includes/audit-trails/trail-cli-flag-desc.md) %}
 
   {% endcut %}
 
@@ -114,11 +101,13 @@ You can update the [destination object](../concepts/trail.md#target), event [typ
 
       For more on the properties of the `yandex_audit_trails_trail` resource, see [this provider guide]({{ tf-provider-resources-link }}/audit_trails_trail).
 
-  1. Create the resources:
+  1. {% include [field-filter-tf](../../_includes/audit-trails/field-filter-tf.md) %}
+
+  1. Apply the changes:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources and their settings either in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/) command:
+      Check the trail settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
      ```bash
      yc audit-trails trail get <trail_name>
@@ -126,11 +115,16 @@ You can update the [destination object](../concepts/trail.md#target), event [typ
 
 - API {#api}
 
-  To update a trail, use the [update](../api-ref/Trail/update.md) REST API method for the [Trail](../api-ref/Trail/index.md) resource or the [TrailService/Update](../api-ref/grpc/Trail/update.md) gRPC API call.
+    1. [Get authenticated](../api-ref/authentication.md) in the API and use the [get](../api-ref/Trail/get.md) REST API method or the [TrailService/Get](../api-ref/grpc/Trail/get.md) gRPC API call to get the trail settings.
+    1. Update the trail parameters as needed.
+    1. {% include [field-filter-api](../../_includes/audit-trails/field-filter-api.md) %}
+    1. Use the [update](../api-ref/Trail/update.md) REST API method for the [Trail](../api-ref/Trail/index.md) resource or the [TrailService/Update](../api-ref/grpc/Trail/update.md) gRPC API call to update the trail. Provide the trail ID, updated parameters, and update mask.
 
-  To make it easier to create a trail specification, you can get trail parameters using the [get](../api-ref/Trail/get.md) REST API method for the [Trail](../api-ref/Trail/index.md) resource or the [TrailService/Get](../api-ref/grpc/Trail/get.md) gRPC API call.
+        If updating the filtering policy, enable `filteringPolicy` in `updateMask` for the REST API or `filtering_policy` in `update_mask.paths` for the gRPC API.
 
 {% endlist %}
+
+Examples of filters from the [guide on creating a trail](create-trail.md#filter-examples) can also be used to update a trail.
 
 ## Deleting a trail {#delete-trail}
 

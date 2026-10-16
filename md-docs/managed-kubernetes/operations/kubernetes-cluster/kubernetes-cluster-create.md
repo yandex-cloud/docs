@@ -14,7 +14,7 @@
 - Консоль управления {#console}
 
   1. Войдите в [консоль управления](https://console.yandex.cloud). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-  1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account).
+  1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md).
   1. Если у вас еще нет [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), [создайте его](../../../resource-manager/operations/folder/create.md).
   1. Убедитесь, что у [аккаунта](../../../iam/concepts/users/accounts.md), с помощью которого вы собираетесь создавать кластер Managed Service for Kubernetes, есть [необходимые для этого роли](../../security/index.md#required-roles).
   1. Убедитесь, что у вас достаточно [свободных ресурсов в облаке](../../concepts/limits.md).
@@ -140,7 +140,7 @@
        * `Ежедневно` — укажите начало и длительность интервала времени в UTC, в течение которого запустится обновление. Параметр не связан с длительностью самого обновления и временем его окончания.
        * `В выбранные дни` — укажите день, начало и длительность интервала времени в UTC, в течение которого запустится обновление. Параметр не связан с длительностью самого обновления и временем его окончания.
   1. В блоке **Сетевые настройки кластера**:
-     * (Опционально) Выберите [контроллер сетевых политик](../../concepts/network-policy.md#policy-controllers):
+     * (Опционально) Выберите [контроллер сетевых политик](../../concepts/network-policy.md):
   
        Эту настройку невозможно изменить после создания кластера.
   
@@ -226,7 +226,7 @@
 
        Эту настройку невозможно изменить после создания кластера.
 
-     * `--release-channel` — [релизный канал](../../concepts/release-channels-and-updates.md#release-channels).
+     * `--release-channel` — [релизный канал](../../concepts/release-channels-and-updates.md#updates).
 
        Эту настройку невозможно изменить после создания кластера.
 
@@ -321,7 +321,7 @@
 
   1. Чтобы включить отправку логов в [Yandex Cloud Logging](../../../logging/index.md):
 
-     1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [logging.writer](../../../logging/security/index.md#loggingwriter).
+     1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [logging.writer](../../../logging/security/index.md#logging-writer).
      1. Передайте настройки отправки в команде создания кластера, в параметре `--master-logging`:
 
         ```bash
@@ -498,7 +498,7 @@
 
      Чтобы включить отправку логов в [Yandex Cloud Logging](../../../logging/index.md):
 
-     1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [logging.writer](../../../logging/security/index.md#loggingwriter).
+     1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [logging.writer](../../../logging/security/index.md#logging-writer).
      1. Добавьте к описанию кластера Managed Service for Kubernetes блок `master_logging`:
 
         >```hcl
@@ -629,7 +629,7 @@
 
   Чтобы использовать для защиты секретов [ключ шифрования Yandex Key Management Service](../../concepts/encryption.md), передайте его идентификатор в параметре `kmsProvider.keyId`.
 
-  Чтобы включить отправку логов в [Yandex Cloud Logging](../../../logging/index.md), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [logging.writer](../../../logging/security/index.md#loggingwriter) и передайте настройки отправки в параметре `masterSpec.masterLogging`.
+  Чтобы включить отправку логов в [Yandex Cloud Logging](../../../logging/index.md), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [logging.writer](../../../logging/security/index.md#logging-writer) и передайте настройки отправки в параметре `masterSpec.masterLogging`.
 
   Чтобы добавить [облачную метку](../../concepts/index.md#cluster-labels), передайте ее имя и значение в параметре `labels`.
 

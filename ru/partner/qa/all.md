@@ -17,10 +17,3 @@ description: На странице представлены вопросы и о
 
 {% include notitle [bonuses](../../_qa/partner/bonuses.md) %}
 
-## Стартовый грант {#start-grant}
-
-{% include notitle [start-grant](../../_qa/partner/start-grant.md) %}
-
-## Дополнительные гранты в партнерской программе {#additional-grants}
-
-{% include notitle [additional-grants](../../_qa/partner/additional-grants.md) %}

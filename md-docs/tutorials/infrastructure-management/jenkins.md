@@ -34,7 +34,7 @@
 
 В стоимость поддержки инфраструктуры входят:
 * Плата за постоянно запущенные ВМ ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за хранение созданных образов ([тарифы Compute Cloud](../../compute/pricing.md#prices-storage)).
+* Плата за хранение созданных образов ([тарифы Compute Cloud](../../compute/pricing.md#disk)).
 * Плата за использование динамических [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Настройте окружение {#prepare}

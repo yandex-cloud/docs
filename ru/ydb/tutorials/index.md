@@ -35,3 +35,4 @@ description: Различные сценарии использования {{ y
 * [{#T}](websocket-app.md)
 * [{#T}](maxpatrol/index.md)
 * [{#T}](postbox-webhook.md)
+* [{#T}](deploy-ydb-cluster-on-premise.md)

@@ -82,6 +82,8 @@ items:
         href: release-notes/index.md
       - name: API
         href: api/index.md
+  - name: Для партнеров On-premises
+    href: on-premises.md
   - name: Термины и определения
     href: terms.md
   - name: Вопросы и ответы
@@ -92,8 +94,6 @@ items:
         href: qa/contracts.md
       - name: Схема премирования партнеров
         href: qa/bonuses.md
-      - name: Дополнительные гранты в партнерской программе
-        href: qa/additional-grants.md
       - name: Все вопросы на одной странице
         href: qa/all.md
 path: ru/partner/toc.yaml

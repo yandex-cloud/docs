@@ -92,13 +92,6 @@ ClickHouse® поддерживает только добавление и чт�
 SET allow_experimental_object_type=1;
 ```
 
-{% note info %}
-
-Запросы `SET` [не поддерживаются](../operations/web-sql-query.md#query-restrictions-in-the-management-console) при подключении к кластеру через консоль управления. Для выполнения этого запроса используйте другой способ подключения к кластеру, например, [через clickhouse-client](../operations/connect/clients.md#clickhouse-client).
-
-Убедитесь, что у вас установлена актуальная версия клиента.
-
-{% endnote %}
 
 Подробная информация в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/data-types/newjson).
 

@@ -4,7 +4,7 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создали [поток данных](../../data-streams/concepts/glossary.md#stream-concepts), [трансфер](../../data-transfer/concepts/index.md##transfer) и [бакет](../../storage/concepts/bucket.md).
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создали [поток данных](../../data-streams/concepts/glossary.md#stream-concepts), [трансфер](../../data-transfer/concepts/index.md#transfer) и [бакет](../../storage/concepts/bucket.md).
   1. [Перейдите]({{ link-console-main }}/link/data-streams) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
   1. Выберите поток данных `logs-stream`.
   1. Откройте вкладку **{{ ui-key.yacloud.common.monitoring }}** и посмотрите графики активности потока.

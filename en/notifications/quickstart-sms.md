@@ -5,9 +5,6 @@ description: With {{ cns-name }}, you can send text messages (SMS) using SMS not
 
 # Getting started with SMS in {{ cns-full-name }}
 
-
-{% include [ask-for-turning-on](../_includes/notifications/ask-for-turning-on.md) %}
-
 {% include [about-service](../_includes/notifications/about-service.md) %}
 
 {% include [sms-short-description](../_includes/notifications/sms-short-description.md) %}
@@ -112,7 +109,7 @@ Once the ticket is approved, you will be able to send SMS messages to any Russia
 
 #### Useful links {#see-also}
 
-* [Getting started with push notifications](quickstart-sms.md)
+* [Getting started with push notifications](quickstart-push.md)
 * [Getting started with the service via the AWS CLI](./tools/aws-cli.md)
 * [Service overview](./concepts/index.md)
 * [SMS notification channel](./concepts/sms.md)

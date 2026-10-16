@@ -1160,7 +1160,7 @@ Data Transfer взаимодействует с Greenplum® по-разному 
 
        После старта трансфер подключится к приемнику от имени этого пользователя.
 
-    1. Если в кластере включено [управление пользователями через SQL](../../managed-clickhouse/operations/cluster-users.md#sql-user-management), выдайте созданному пользователю права:
+    1. Если в кластере включено [управление пользователями через SQL](../../managed-clickhouse/concepts/user-access-rights.md#sql-user-management), выдайте созданному пользователю права:
 
         ```sql
         GRANT CLUSTER ON *.* TO <имя_пользователя>

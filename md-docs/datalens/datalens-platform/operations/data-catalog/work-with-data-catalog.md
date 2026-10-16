@@ -15,7 +15,7 @@
 1. Нажмите ![image](../../../../_assets/console-icons/funnel.svg) и выберите типы объектов для отображения в дереве, чтобы сузить выборку.
 1. Раскройте структуру дерева, чтобы исследовать метаданные конкретного объекта данных.
 
-   На правой панели показаны метаданные выбранного объекта: его тип, структура, присвоенные [домены](../../concepts/data-catalog/index.md#domains), [теги](../../concepts/data-catalog/index.md#classifications-and-tags) или [термины](../../concepts/data-catalog/index.md#glossaries-and-terms), [связи](metadata-linage.md) с другими данными и версии этого объекта.
+   На правой панели показаны метаданные выбранного объекта: его тип, структура, присвоенные [домены](metadata-markup.md#domains), [теги](metadata-markup.md#classifications-and-tags) или [термины](metadata-markup.md#glossaries-and-terms), [связи](metadata-linage.md) с другими данными и версии этого объекта.
 
 Для каждого объекта вы можете настроить или изменить [разметку метаданных](metadata-markup.md#specific-markup) или перейти в [редактор SQL](../sql/work-with-sql.md) для создания запросов и формирования выборки данных для анализа.
 

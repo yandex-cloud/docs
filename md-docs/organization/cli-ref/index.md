@@ -14,6 +14,10 @@ Syntax:
 
 #### Command Tree
 
+- [yc organization-manager v0](v0/index.md) — Manage Yandex Cloud Organization Manager resources
+
+
+
 - [yc organization-manager federation](federation/index.md) — Manage federations
 
 
@@ -121,10 +125,6 @@ Syntax:
   - [yc organization-manager user list](user/list.md) — List user accounts of the specified organization
 
   - [yc organization-manager user remove](user/remove.md) — Remove user accounts from the specified organization
-
-- [yc organization-manager v0](v0/index.md) — Manage Yandex Cloud Organization Manager resources
-
-
 
 #### Global Flags
 

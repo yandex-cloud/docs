@@ -21,9 +21,6 @@ description: This page covers questions and answers about {{ billing-name }}.
 
 {% include notitle [billing-account](../../_qa/billing/billing-account.md) %}
 
-## Questions about the trial period and paid version {#trial-commercial}
-
-{% include notitle [trial-commercial](../../_qa/billing/trial-commercial.md) %}
 
 ## Questions about regular export of details {#export}
 

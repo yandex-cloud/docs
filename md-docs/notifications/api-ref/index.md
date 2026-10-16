@@ -34,7 +34,7 @@ HTTP API сервиса Cloud Notification Service совместим с [Amazon
 
 | Действие | Описание |
 | --- | --- |
-| [Create](create-platform-endpoint.md) | Создать [эндпоинт для push-уведомлений](../concepts/index.md#mobile-endpoints) (подписать пользователя на push-уведомления). |
+| [Create](create-platform-endpoint.md) | Создать [эндпоинт для push-уведомлений](../concepts/push.md#mobile-endpoints) (подписать пользователя на push-уведомления). |
 | [GetAttributes](get-endpoint-attributes.md) | Получить параметры эндпоинта. |
 | [SetAttributes](set-endpoint-attributes.md) | Задать параметры эндпоинта. |
 | [List](list-endpoints.md) | Получить список эндпоинтов. |

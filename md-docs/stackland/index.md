@@ -160,6 +160,18 @@ Stackland базируется на Kubernetes®, что позволяет ра
 
  - [Открыть веб-интерфейс Apache Airflow™](operations/airflow/connect-ui.md)
 
+ - [Загрузить DAG-файлы в Apache Airflow™](operations/airflow/upload-dags.md)
+
+ - [Запустить DAG в Apache Airflow™](operations/airflow/run-dag.md)
+
+ - [Посмотреть результаты и логи задач Apache Airflow™](operations/airflow/view-logs.md)
+
+ - [Настроить Connections в Apache Airflow™](operations/airflow/manage-connections.md)
+
+ - [Настроить Variables в Apache Airflow™](operations/airflow/manage-variables.md)
+
+ - [Сохранить и восстановить Connections и Variables в Apache Airflow™](operations/airflow/export-settings.md)
+
  - [Приостановить или возобновить кластер Apache Airflow™](operations/airflow/pause-resume.md)
 
  - [Удалить кластер Apache Airflow™](operations/airflow/delete-cluster.md)

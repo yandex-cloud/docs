@@ -60,7 +60,7 @@
 
         Где:
 
-        * `cluster-id` — идентификатор кластера. Его можно получить со [списком кластеров в каталоге](../cluster-list.md#list-cluster).
+        * `cluster-id` — идентификатор кластера. Его можно получить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
         * `driver` — класс JDBC-драйвера в Java. Возможные значения:
 
             * `com.clickhouse.jdbc.ClickHouseDriver`

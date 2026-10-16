@@ -271,7 +271,7 @@ description: Следуя данной инструкции, вы сможете
 
         * `network` — сетевые настройки:
           * `subnetIds` — список идентификаторов подсетей.
-          * `securityGroupIds` — список идентификаторов [групп безопасности](../../../vpc/concepts/network.md#security-groups).
+          * `securityGroupIds` — список идентификаторов [групп безопасности](../../../vpc/concepts/security-groups.md).
 
         * {% include [metastore-maintenance-window-rest](../../../_includes/metadata-hub/metastore-maintenance-window-rest.md) %}
 
@@ -343,7 +343,7 @@ description: Следуя данной инструкции, вы сможете
 
         * `network` — сетевые настройки:
             * `subnet_ids` — список идентификаторов подсетей.
-            * `security_group_ids` — список идентификаторов [групп безопасности](../../../vpc/concepts/network.md#security-groups).
+            * `security_group_ids` — список идентификаторов [групп безопасности](../../../vpc/concepts/security-groups.md).
 
         * {% include [metastore-maintenance-window-grpc](../../../_includes/metadata-hub/metastore-maintenance-window-grpc.md) %}
 

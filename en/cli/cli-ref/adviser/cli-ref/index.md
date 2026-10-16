@@ -23,6 +23,10 @@ Aliases:
 
 #### Command Tree
 
+- [yc adviser v1](v1/index.md) — Manage recommendations for managed database clusters
+
+
+
 - [yc adviser issue](issue/index.md) — A set of methods for working with issues detected by Advisor on cloud resources.
 
   - [yc adviser issue dismiss](issue/dismiss.md) — Dismisses the specified issue for the specified period of time.
@@ -30,10 +34,6 @@ Aliases:
   - [yc adviser issue get-dismissal-info](issue/get-dismissal-info.md) — Returns the specified dismissal.
 
   - [yc adviser issue list](issue/list.md) — List issues detected on the resources of the specified cloud, folder or resource
-
-- [yc adviser v1](v1/index.md) — Manage recommendations for managed database clusters
-
-
 
 #### Global Flags
 

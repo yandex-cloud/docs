@@ -19,12 +19,14 @@ editable: false
 
 
 
+{% endnote %}
+
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 
-{% endnote %}
-
 {% include [vat](../_includes/vat.md) %}
+
+{% include [payg-model](../_includes/payg-model.md) %}
 
 Стоимость использования {{ kms-name }} складывается из:
 

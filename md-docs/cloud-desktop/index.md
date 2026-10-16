@@ -92,74 +92,6 @@ Yandex Cloud Desktop — сервис для управления виртуал
 
  - [Overview](cli-ref/index.md)
 
-### desktop
-
- - [Overview](cli-ref/desktop/index.md)
-
- - [create](cli-ref/desktop/create.md)
-
- - [delete](cli-ref/desktop/delete.md)
-
- - [get](cli-ref/desktop/get.md)
-
- - [get-rdp-file](cli-ref/desktop/get-rdp-file.md)
-
- - [list](cli-ref/desktop/list.md)
-
- - [list-operations](cli-ref/desktop/list-operations.md)
-
- - [reset-password](cli-ref/desktop/reset-password.md)
-
- - [restart](cli-ref/desktop/restart.md)
-
- - [start](cli-ref/desktop/start.md)
-
- - [stop](cli-ref/desktop/stop.md)
-
- - [update](cli-ref/desktop/update.md)
-
- - [update-properties](cli-ref/desktop/update-properties.md)
-
-### group
-
- - [Overview](cli-ref/group/index.md)
-
- - [add-access-bindings](cli-ref/group/add-access-bindings.md)
-
- - [create](cli-ref/group/create.md)
-
- - [delete](cli-ref/group/delete.md)
-
- - [get](cli-ref/group/get.md)
-
- - [list](cli-ref/group/list.md)
-
- - [list-access-bindings](cli-ref/group/list-access-bindings.md)
-
- - [list-desktops](cli-ref/group/list-desktops.md)
-
- - [list-operations](cli-ref/group/list-operations.md)
-
- - [remove-access-bindings](cli-ref/group/remove-access-bindings.md)
-
- - [set-access-bindings](cli-ref/group/set-access-bindings.md)
-
- - [update](cli-ref/group/update.md)
-
-### image
-
- - [Overview](cli-ref/image/index.md)
-
- - [copy](cli-ref/image/copy.md)
-
- - [delete](cli-ref/image/delete.md)
-
- - [get](cli-ref/image/get.md)
-
- - [list](cli-ref/image/list.md)
-
- - [update](cli-ref/image/update.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -231,6 +163,74 @@ Yandex Cloud Desktop — сервис для управления виртуал
  - [list](cli-ref/v0/image/list.md)
 
  - [update](cli-ref/v0/image/update.md)
+
+### desktop
+
+ - [Overview](cli-ref/desktop/index.md)
+
+ - [create](cli-ref/desktop/create.md)
+
+ - [delete](cli-ref/desktop/delete.md)
+
+ - [get](cli-ref/desktop/get.md)
+
+ - [get-rdp-file](cli-ref/desktop/get-rdp-file.md)
+
+ - [list](cli-ref/desktop/list.md)
+
+ - [list-operations](cli-ref/desktop/list-operations.md)
+
+ - [reset-password](cli-ref/desktop/reset-password.md)
+
+ - [restart](cli-ref/desktop/restart.md)
+
+ - [start](cli-ref/desktop/start.md)
+
+ - [stop](cli-ref/desktop/stop.md)
+
+ - [update](cli-ref/desktop/update.md)
+
+ - [update-properties](cli-ref/desktop/update-properties.md)
+
+### group
+
+ - [Overview](cli-ref/group/index.md)
+
+ - [add-access-bindings](cli-ref/group/add-access-bindings.md)
+
+ - [create](cli-ref/group/create.md)
+
+ - [delete](cli-ref/group/delete.md)
+
+ - [get](cli-ref/group/get.md)
+
+ - [list](cli-ref/group/list.md)
+
+ - [list-access-bindings](cli-ref/group/list-access-bindings.md)
+
+ - [list-desktops](cli-ref/group/list-desktops.md)
+
+ - [list-operations](cli-ref/group/list-operations.md)
+
+ - [remove-access-bindings](cli-ref/group/remove-access-bindings.md)
+
+ - [set-access-bindings](cli-ref/group/set-access-bindings.md)
+
+ - [update](cli-ref/group/update.md)
+
+### image
+
+ - [Overview](cli-ref/image/index.md)
+
+ - [copy](cli-ref/image/copy.md)
+
+ - [delete](cli-ref/image/delete.md)
+
+ - [get](cli-ref/image/get.md)
+
+ - [list](cli-ref/image/list.md)
+
+ - [update](cli-ref/image/update.md)
 
 ## Справочник API
 

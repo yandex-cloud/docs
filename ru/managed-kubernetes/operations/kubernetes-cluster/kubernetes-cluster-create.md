@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-  1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account).
+  1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md).
   1. Если у вас еще нет [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), [создайте его](../../../resource-manager/operations/folder/create.md).
   1. Убедитесь, что у [аккаунта](../../../iam/concepts/users/accounts.md), с помощью которого вы собираетесь создавать кластер {{ managed-k8s-name }}, есть [необходимые для этого роли](../../security/index.md#required-roles).
   1. Убедитесь, что у вас достаточно [свободных ресурсов в облаке](../../concepts/limits.md).
@@ -91,7 +91,7 @@ description: Следуя данной инструкции, вы сможете
 
        {% include [write-once-setting](../../../_includes/managed-kubernetes/write-once-setting.md) %}
 
-     * `--release-channel` — [релизный канал](../../concepts/release-channels-and-updates.md#release-channels).
+     * `--release-channel` — [релизный канал](../../concepts/release-channels-and-updates.md#updates).
 
        {% include [write-once-setting](../../../_includes/managed-kubernetes/write-once-setting.md) %}
 
@@ -174,7 +174,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Чтобы включить отправку логов в [{{ cloud-logging-full-name }}](../../../logging/):
 
-     1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [{{ roles-logging-writer }}](../../../logging/security/index.md#loggingwriter).
+     1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [{{ roles-logging-writer }}](../../../logging/security/index.md#logging-writer).
      1. Передайте настройки отправки в команде создания кластера, в параметре `--master-logging`:
 
         ```bash
@@ -325,7 +325,7 @@ description: Следуя данной инструкции, вы сможете
 
      Чтобы включить отправку логов в [{{ cloud-logging-full-name }}](../../../logging/):
 
-     1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [{{ roles-logging-writer }}](../../../logging/security/index.md#loggingwriter).
+     1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [{{ roles-logging-writer }}](../../../logging/security/index.md#logging-writer).
      1. Добавьте к описанию кластера {{ managed-k8s-name }} блок `master_logging`:
 
         {% include [master-logging-tf.md](../../../_includes/managed-kubernetes/master-logging-tf.md) %}
@@ -379,7 +379,7 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы использовать для защиты секретов [ключ шифрования {{ kms-full-name }}](../../concepts/encryption.md), передайте его идентификатор в параметре `kmsProvider.keyId`.
 
-  Чтобы включить отправку логов в [{{ cloud-logging-full-name }}](../../../logging/), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [{{ roles-logging-writer }}](../../../logging/security/index.md#loggingwriter) и передайте настройки отправки в параметре `masterSpec.masterLogging`.
+  Чтобы включить отправку логов в [{{ cloud-logging-full-name }}](../../../logging/), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [{{ roles-logging-writer }}](../../../logging/security/index.md#logging-writer) и передайте настройки отправки в параметре `masterSpec.masterLogging`.
 
   Чтобы добавить [облачную метку](../../concepts/index.md#cluster-labels), передайте ее имя и значение в параметре `labels`.
 

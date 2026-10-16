@@ -62,4 +62,4 @@
 
 #### Полезные ссылки {#see-also}
 
-[Поддерживаемые типы артефактов](../concepts/artifacts/index.md#artifacts)
+[Поддерживаемые типы артефактов](../concepts/artifacts/index.md)

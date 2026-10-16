@@ -140,15 +140,23 @@
 
 На сервере OpenVPN заранее создан пользователь `openvpn` с административными правами. Пароль генерируется автоматически при создании [виртуальной машины](../../compute/concepts/vm.md).
 
-Получите пароль в [выводе последовательного порта](../../compute/operations/vm-info/get-serial-port-output.md) или в серийной консоли. Пароль отобразится в строке:
+Получите пароль в [выводе последовательного порта](../../compute/operations/vm-info/get-serial-port-output.md). Пароль отобразится в строках:
 
 ```text
-To login please use the "openvpn" account with <пароль> password.
+Admin URL: https://<IP-адрес>:943/admin/
+Username: openvpn
+Password: <пароль>
 ```
 
-Где `<пароль>` — пароль пользователя `openvpn`.
+В строке `Password` указан пароль пользователя `openvpn`.
 
 Для первого входа в административную панель используйте логин `openvpn` и полученный пароль.
+
+{% note info %}
+
+В образе из Yandex Cloud Marketplace настроен редирект с порта 443 на порт 943, поэтому панели доступны по адресам без порта.
+
+{% endnote %}
 
 Если вы не получили пароль после первого [запуска сервера VPN](#create-vpn-server), необходимо заново создать ВМ с [OpenVPN Access Server](https://yandex.cloud/ru/marketplace/products/yc/openvpn-access-server). При перезапусках пароль не отображается.
 
@@ -162,7 +170,7 @@ To login please use the "openvpn" account with <пароль> password.
 
 Чтобы активировать лицензию:
 
-1. Создайте учетную запись на [сайте openvpn.net](https://myaccount.openvpn.com/signup).
+1. Создайте аккаунт на [сайте openvpn.net](https://myaccount.openvpn.com/signup).
 1. Введите код подтверждения, полученный по электронной почте.
 1. В окне **Where would you like to Go?** отметьте опцию **Remember my choice** и выберите продукт **Access server**.
 1. В окне **Tell us more** выберите назначение: **Business use** или **Personal Use**.
@@ -170,7 +178,7 @@ To login please use the "openvpn" account with <пароль> password.
 1. На экране отобразится ваша подписка: **Subscription 1**.
 1. Чтобы скопировать ключ активации, нажмите кнопку **Copy Key** в блоке **Subscription Key**.
 
-Дождитесь перехода ВМ в статус `RUNNING` и введите ключ активации в административной панели по адресу `https://<публичный_IP-адрес_ВМ>/admin/`. 
+Дождитесь перехода ВМ в статус `RUNNING` и введите ключ активации в административной панели по адресу `https://<публичный_IP-адрес_ВМ>/admin/`.
 
 Публичный IP-адрес ВМ можно узнать в [консоли управления](https://console.yandex.cloud) в поле **Публичный IPv4-адрес** блока **Сеть** на странице ВМ.
 
@@ -190,10 +198,10 @@ OpenVPN Access Server предоставляет два веб-интерфей�
 Чтобы создать пользователя, войдите в административную панель:
 
 1. Откройте в браузере URL вида `https://<публичный_IP-адрес_ВМ>/admin/`.
-1. Введите имя пользователя `openvpn` и пароль (смотрите раздел [про получение пароля администратора](#get-admin-password)).
-1. Ознакомьтесь с лицензионным соглашением и нажмите кнопку **Agree**. Откроется главный экран административной панели OpenVPN.
+1. Введите имя пользователя `openvpn` и пароль. Как получить пароль администратора, описано в разделе [Получите пароль администратора](#get-admin-password).
+1. При первом входе откроется мастер первичной настройки: **Welcome to OpenVPN Access Server** → **Define Global Access Rules** (выбор full tunnel или specific resources) → **Connect Your Device** → **Waiting for your device to connect**. Завершите или пропустите шаги мастера, чтобы перейти в классический интерфейс административной панели.
 1. Разверните вкладку **User management** и выберите пункт **User permissions**.
-1. В списке пользователей в поле **New Username** введите имя нового пользователя. Например: `test-user`.
+1. В списке пользователей в поле **New Username** введите имя нового пользователя, например `test-user`.
 1. В столбце **More Settings** нажмите значок карандаша и в поле **Password** введите пароль нового пользователя.
 1. Нажмите кнопку **Save settings**.
 1. Нажмите кнопку **Update running server**.

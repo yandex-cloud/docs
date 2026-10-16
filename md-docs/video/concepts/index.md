@@ -17,7 +17,7 @@ Yandex Cloud Video — сервис для организации потоков
 
 Подробнее о монетизации в разделе [Настроить канал и монетизацию](../operations/channels/settings.md).
 
-Дополнительно в Cloud Video можно воспользоваться технологиями Яндекса по [суммаризации](videos.md#summarization), [нейропереводу](videos.md#translation) и генерации субтитров.
+Дополнительно в Cloud Video можно воспользоваться технологиями Яндекса по [суммаризации](videos.md#summarization), [нейропереводу](videos.md#stranslation) и генерации субтитров.
 
 ## Каналы {#channels}
 

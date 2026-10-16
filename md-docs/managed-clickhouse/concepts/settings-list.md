@@ -2424,7 +2424,7 @@
 
 ### Пользовательские настройки {#custom-settings}
 
-[Пользовательские настройки](https://clickhouse.com/docs/ru/operations/settings#custom_settings) можно переопределять как переменные в [профиле настроек](https://clickhouse.com/docs/ru/operations/access-rights#settings-profiles-management), сессии или запросе. Работа с профилями настроек доступна, если для кластера включено [управление пользователями через SQL](../operations/cluster-users.md#sql-user-management).
+[Пользовательские настройки](https://clickhouse.com/docs/ru/operations/settings#custom_settings) можно переопределять как переменные в [профиле настроек](https://clickhouse.com/docs/ru/operations/access-rights#settings-profiles-management), сессии или запросе. Работа с профилями настроек доступна, если для кластера включено [управление пользователями через SQL](user-access-rights.md#sql-user-management).
 
 Название пользовательской настройки в Managed Service for ClickHouse® должно начинаться с предопределенного префикса `custom_`. Префикс фиксированный — пользователь не может его менять.
 

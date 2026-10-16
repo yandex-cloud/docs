@@ -5,15 +5,8 @@ description: In this tutorial, you will learn how to create a billing account fo
 
 # Creating a billing account
 
-A billing account is required even if your plan is to use only free services. When creating your first billing account linked to your user account, you will get your [initial grant](../usage-grant.md).
+A billing account is required even if your plan is to use only free services.
 
-{% note warning %}
-
-The initial grant will be credited only if you link a credit/debit card to the billing account when creating it.
-
-{% endnote %}
-
-![quickstart](../../_assets/overview/legal-entity-trial-period.svg)
 
 {% include [start-for-legal-entities](../../_includes/billing/billing-account-create-legal-entities.md) %}
 

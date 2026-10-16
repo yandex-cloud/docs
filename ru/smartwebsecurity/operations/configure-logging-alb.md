@@ -32,7 +32,7 @@ description: Следуя данной инструкции, вы сможете
 
       1. Включите опцию **{{ ui-key.yacloud.alb.label_log-requests }}**.
       1. Выберите или создайте [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, в которую будут записываться логи балансировщика.
-      1. Нажмите **{{ ui-key.yacloud.alb.button_add-discard-rule }}** и настройте его [параметры](../../application-load-balancer/concepts/application-load-balancer.md#discard-logs-rules).
+      1. Нажмите **{{ ui-key.yacloud.alb.button_add-discard-rule }}** и настройте его [параметры](../../application-load-balancer/concepts/monitoring.md#discard-logs-rules).
 
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 

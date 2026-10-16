@@ -63,7 +63,7 @@
             * **Группы безопасности** — выберите ту же группу безопасности, что и для кластера Yandex Managed Service for Valkey™.
 
     
-    1. Если вы используете группы безопасности Virtual Private Cloud, [настройте их](../../managed-valkey/operations/connect/index.md#configuring-security-groups).
+    1. Если вы используете группы безопасности Virtual Private Cloud, [настройте их](../../managed-valkey/operations/connect/index.md#configure-security-groups).
 
 
 - Terraform {#tf}

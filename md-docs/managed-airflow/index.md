@@ -116,48 +116,6 @@
 
  - [Overview](cli-ref/index.md)
 
-### change-freeze
-
- - [Overview](cli-ref/change-freeze/index.md)
-
- - [create](cli-ref/change-freeze/create.md)
-
- - [get](cli-ref/change-freeze/get.md)
-
- - [get-limits](cli-ref/change-freeze/get-limits.md)
-
- - [list](cli-ref/change-freeze/list.md)
-
- - [terminate](cli-ref/change-freeze/terminate.md)
-
-### cluster
-
- - [Overview](cli-ref/cluster/index.md)
-
- - [add-access-binding](cli-ref/cluster/add-access-binding.md)
-
- - [create](cli-ref/cluster/create.md)
-
- - [delete](cli-ref/cluster/delete.md)
-
- - [get](cli-ref/cluster/get.md)
-
- - [list](cli-ref/cluster/list.md)
-
- - [list-access-bindings](cli-ref/cluster/list-access-bindings.md)
-
- - [list-operations](cli-ref/cluster/list-operations.md)
-
- - [remove-access-binding](cli-ref/cluster/remove-access-binding.md)
-
- - [set-access-bindings](cli-ref/cluster/set-access-bindings.md)
-
- - [start](cli-ref/cluster/start.md)
-
- - [stop](cli-ref/cluster/stop.md)
-
- - [update](cli-ref/cluster/update.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -203,6 +161,48 @@
  - [stop](cli-ref/v0/cluster/stop.md)
 
  - [update](cli-ref/v0/cluster/update.md)
+
+### change-freeze
+
+ - [Overview](cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/change-freeze/terminate.md)
+
+### cluster
+
+ - [Overview](cli-ref/cluster/index.md)
+
+ - [add-access-binding](cli-ref/cluster/add-access-binding.md)
+
+ - [create](cli-ref/cluster/create.md)
+
+ - [delete](cli-ref/cluster/delete.md)
+
+ - [get](cli-ref/cluster/get.md)
+
+ - [list](cli-ref/cluster/list.md)
+
+ - [list-access-bindings](cli-ref/cluster/list-access-bindings.md)
+
+ - [list-operations](cli-ref/cluster/list-operations.md)
+
+ - [remove-access-binding](cli-ref/cluster/remove-access-binding.md)
+
+ - [set-access-bindings](cli-ref/cluster/set-access-bindings.md)
+
+ - [start](cli-ref/cluster/start.md)
+
+ - [stop](cli-ref/cluster/stop.md)
+
+ - [update](cli-ref/cluster/update.md)
 
  - [Справочник Terraform](tf-ref.md)
 

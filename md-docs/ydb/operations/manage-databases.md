@@ -84,7 +84,7 @@
       monitoring_config: {}
       ```
 
-  Все параметры можно будет [изменить](#update-db-serverles) в дальнейшем командой `update` Yandex Cloud CLI или в консоли управления. Подробнее в разделе [Параметры Serverless базы данных](../concepts/serverless-and-dedicated.md#serverless-options).
+  Все параметры можно будет [изменить](#update-db-serverless) в дальнейшем командой `update` Yandex Cloud CLI или в консоли управления. Подробнее в разделе [Параметры Serverless базы данных](../concepts/serverless-and-dedicated.md#serverless-options).
 
   Любая создаваемая Serverless БД является георезервированной в трех [зонах доступности](../../overview/concepts/geo-scope.md).
 

@@ -234,6 +234,24 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
 
  - [Overview](cli-ref/index.md)
 
+### v0
+
+ - [Overview](cli-ref/v0/index.md)
+
+#### security-profile
+
+ - [Overview](cli-ref/v0/security-profile/index.md)
+
+ - [create](cli-ref/v0/security-profile/create.md)
+
+ - [delete](cli-ref/v0/security-profile/delete.md)
+
+ - [get](cli-ref/v0/security-profile/get.md)
+
+ - [list](cli-ref/v0/security-profile/list.md)
+
+ - [update](cli-ref/v0/security-profile/update.md)
+
 ### advanced-rate-limiter
 
  - [Overview](cli-ref/advanced-rate-limiter/index.md)
@@ -337,24 +355,6 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
  - [list](cli-ref/security-profile/list.md)
 
  - [update](cli-ref/security-profile/update.md)
-
-### v0
-
- - [Overview](cli-ref/v0/index.md)
-
-#### security-profile
-
- - [Overview](cli-ref/v0/security-profile/index.md)
-
- - [create](cli-ref/v0/security-profile/create.md)
-
- - [delete](cli-ref/v0/security-profile/delete.md)
-
- - [get](cli-ref/v0/security-profile/get.md)
-
- - [list](cli-ref/v0/security-profile/list.md)
-
- - [update](cli-ref/v0/security-profile/update.md)
 
 ### waf
 

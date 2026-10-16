@@ -2,7 +2,7 @@
 
 # Действие ListEndpointsByPlatformApplication
 
-Получает список [эндпоинтов для мобильных Push-уведомлений](../concepts/index.md#mobile-endpoints) или [Push-уведомлений в браузере](../concepts/browser.md).
+Получает список [эндпоинтов для мобильных Push-уведомлений](../concepts/push.md#mobile-endpoints) или [Push-уведомлений в браузере](../concepts/browser.md).
 
 ## HTTP-запрос {#request}
 

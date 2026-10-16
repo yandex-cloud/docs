@@ -21,7 +21,7 @@
 
 * В модуле [CSPM](concepts/cspm.md):
   * Появился собственный интерфейс, в котором можно [отслеживать](operations/cspm/use-cspm.md) алерты, правила с нарушениями, ошибки модуля, [запустить](operations/cspm/check-environment.md) проверку окружения и [посмотреть](operations/cspm/work-with-results.md#view) и [скачать](operations/cspm/work-with-results.md#download) историю таких проверок.
-  * Обновился список правил проверки инфраструктуры на соответствие стандартам безопасности. Новые правила регламентируют [информирование](rules-reference/cspm.md#leaked-secrets-detection.md) администратора о компрометации секретов облака, наличие [политик безопасности](rules-reference/cspm.md#cis.md) кластеров Kubernetes, [реагирование](rules-reference/cspm.md#audit-trails-reactions.md) на события безопасности.
+  * Обновился список правил проверки инфраструктуры на соответствие стандартам безопасности. Новые правила регламентируют [информирование](rules-reference/cspm.md#leaked-secrets-detection) администратора о компрометации секретов облака, наличие [политик безопасности](rules-reference/cspm.md#cis) кластеров Kubernetes, [реагирование](rules-reference/cspm.md#audit-trails-reactions) на события безопасности.
 * В модуле [KSPM](concepts/kspm.md) реализованы [правила инвентаризации](concepts/standard-compliance/inventory-k8s-rules.md), с помощью которых можно собрать информацию и выполнить аудит операционной системы рабочих узлов Kubernetes.
 * В модуле [Управление уязвимостями](concepts/vulnerability-management.md) реализована настройка, позволяющая сканировать только [актуальные версии образов](operations/vulnerability-management/enable-vulnerability-management.md).
 * Модуль [DSPM](concepts/dspm.md) интегрировался с сервисом Yandex Object Storage. Бакеты теперь можно [сканировать](../storage/operations/buckets/sensitive-data-search.md) в интерфейсе Object Storage, [просматривать](../storage/operations/buckets/sensitive-data-search.md#view) результаты сканирований и [скачивать](../storage/operations/buckets/sensitive-data-search.md#download) их.
@@ -32,7 +32,7 @@
 * Появилась [возможность](operations/alerts/view.md) фильтровать алерты по расширенному набору атрибутов.
 * Использование модуля [Управление уязвимостями](concepts/vulnerability-management.md) перешло в платное потребление. Подробнее в [правилах тарификации](pricing.md#modules-rules).
 * В модуле [KSPM](concepts/kspm.md) реализован [блокирующий режим](operations/kspm/manage-rule-modes.md) для правил типа `admission`, который позволяет запрещать развертывание нагрузок, нарушающих политики безопасности.
-* В модуле [CSPM](concepts/cspm.md) появился новый [набор правил](concepts/standard-compliance/ransomware-prevention.md) для снижения рисков атак программ-шифровальщиков (ransomware) и пополнился список правил проверки инфраструктуры на соответствие стандартам безопасности. Новые правила регламентируют [парольную политику](rules-reference/cspm.md#password-policy.pci-dss.md) и контроль [исходящего доступа в интернет](rules-reference/cspm.md#check-outgoing-internet-connection.md).
+* В модуле [CSPM](concepts/cspm.md) появился новый [набор правил](concepts/standard-compliance/ransomware-prevention.md) для снижения рисков атак программ-шифровальщиков (ransomware) и пополнился список правил проверки инфраструктуры на соответствие стандартам безопасности. Новые правила регламентируют [парольную политику](rules-reference/cspm.md#pci-dss) и контроль [исходящего доступа в интернет](rules-reference/cspm.md#check-outgoing-internet-connection).
 * В модуле [DSPM](concepts/dspm.md):
   * теперь можно подключать [пользовательские словари](concepts/dspm.md#custom-dictionaries) для поиска специфичных чувствительных данных;
   * появились [подписки](pricing.md#starter-rules) с фиксированной стоимостью, которую можно оформить вместо оплаты фактического потребления ресурсов;
@@ -54,7 +54,7 @@
 
 * В модуле [CSPM](concepts/cspm.md) появился новый [набор правил](concepts/standard-compliance/yc-gost-57580.md) на соответствие стандарту ГОСТ Р 57580 — национальному стандарту безопасности банковских и финансовых операций. 
 * В модуле [DSPM](concepts/dspm.md) появилась возможность создавать [области сканирования](operations/dspm/create-data-source.md#change-scaning) из результатов предварительного анализа и непрерывно [отслеживать](concepts/dspm.md#change-scaning) области на предмет появления или изменения чувствительных данных.  
-* Расширилась тарифная сетка — теперь вы можете приобрести ежемесячную [подписку](pricing.md#starter-pricing) на модули [CSPM](concepts/cspm.md) и [Threat Detection](concepts/threat-detector.md).
+* Расширилась тарифная сетка — теперь вы можете приобрести ежемесячную [подписку](pricing.md#starter-rules) на модули [CSPM](concepts/cspm.md) и [Threat Detection](concepts/threat-detector.md).
 * Все [ошибки](diagnostics/index.md) модулей теперь отображаются в общем интерфейсе ошибок.
 * Функциональность поиска чувствительных данных на дисках Яндекс 360 с помощью модуля [DSPM](concepts/dspm.md) стала доступна всем пользователям. Ранее функциональность была доступна только по запросу.
 
@@ -71,12 +71,12 @@
 * В модуле [DSPM](concepts/dspm.md) появилась возможность предварительного [анализа данных](concepts/dspm.md#discovery-mode), хранящихся в бакетах Object Storage в пределах окружения.
 * Алерты теперь можно [группировать](operations/alerts/view.md#search) по типу и фильтровать по новым атрибутам.
 * В модуле [KSPM](concepts/kspm.md) в [исключениях](operations/kspm/manage-exceptions.md) теперь можно указать объекты через поиск по пространству имен.
-* В модуле [CSPM](concepts/cspm.md) появились новые правила проверки инфраструктуры на соответствие стандартам безопасности. Новые правила регламентируют [назначение](rules-reference/cspm.md#check-privileged-roles) привилегированных ролей, [защиту](rules-reference/cspm.md#appsec-ddos-protection-l3) от DDoS-атак на сетевом уровне, [доступ](rules-reference/cspm.md#access) сервисных аккаунтов к кластерам Kubernetes® и избыточные роли сервисных аккаунтов на уровне [организации](rules-reference/cspm.md#sa-privileges-org-roles) и [сервиса](rules-reference/cspm.md#sa-privileges-service-roles). 
+* В модуле [CSPM](concepts/cspm.md) появились новые правила проверки инфраструктуры на соответствие стандартам безопасности. Новые правила регламентируют [назначение](rules-reference/cspm.md#check-privileged-roles) привилегированных ролей, [защиту](rules-reference/cspm.md#l3) от DDoS-атак на сетевом уровне, [доступ](rules-reference/cspm.md#access) сервисных аккаунтов к кластерам Kubernetes® и избыточные роли сервисных аккаунтов на уровне [организации](rules-reference/cspm.md#sa-privileges-org-roles) и [сервиса](rules-reference/cspm.md#sa-privileges-service-roles).
 
 ## Февраль 2026 {#february-2026}
 
 * Модули [DSPM](concepts/dspm.md), [CSPM](concepts/cspm.md), [KSPM](concepts/kspm.md) и AI-ассистент стали доступны на стадии [Preview](../overview/concepts/launch-stages.md).
-* С 2 февраля 2025 года использование модуля [KSPM](concepts/kspm.md) тарифицируется в соответствии с [правилами тарификации](pricing.md#kspm-rules).
+* С 2 февраля 2025 года использование модуля [KSPM](concepts/kspm.md) тарифицируется в соответствии с [правилами тарификации](pricing.md#modules-rules).
 * В модуле [CSPM](concepts/cspm.md) поддержаны новые [стандарты безопасности](concepts/cspm.md#standards) — PCI DSS (Payment Card Industry Data Security Standard) и Требования ФСТЭК (Приказ № 21) для защиты персональных данных. 
 * В модуле [CSPM](concepts/cspm.md) реализованы новые правила соответствия всем поддержанным в модуле стандартам безопасности.
 
@@ -86,8 +86,8 @@
 
 ## IV квартал 2025 {#q4-2025}
 
-* Добавлена поддержка дисков [Яндекс 360](https://360.yandex.ru/) как [источника сканирования](operations/dspm/create-scan.md#yandex-360) в DSPM.
-* Сканирование изображений в модуле [DSPM](concepts/dspm.md) теперь тарифицируется в соответствии с [правилами тарификации](pricing.md#dspm-rules).
+* Добавлена поддержка дисков [Яндекс 360](https://360.yandex.ru/) как [источника сканирования](operations/dspm/create-data-source.md) в DSPM.
+* Сканирование изображений в модуле [DSPM](concepts/dspm.md) теперь тарифицируется в соответствии с [правилами тарификации](pricing.md#modules-rules).
 * Добавлен [интерфейс проверки соответствия требованиям](concepts/standard-compliance/index.md).
 
 ## III квартал 2025 {#q3-2025}

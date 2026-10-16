@@ -1,4 +1,4 @@
-# Общие вопросы про сервис {{ billing-name }}
+# Общие вопросы о сервисе {{ billing-name }}
 
 {% include [os-license](../../_includes/qa/os-license.md) %}
 

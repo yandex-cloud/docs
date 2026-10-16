@@ -75,14 +75,22 @@ noIndex: true
    1. Запустите скрипт:
 
       ```bash
-      WAL_G_BIN=wal-g-gp ./s3_test_script.sh */etc/wal-g/wal-g.yaml*
+      WAL_G_BIN=wal-g-gp ./s3_test_script.sh /etc/wal-g/wal-g.yaml
       ```
    
       При необходимости укажите директорию:
 
       ```bash
-      WAL_G_BIN=wal-g-gp ./s3_test_script.sh */etc/wal-g/wal-g.yaml* basebackups_005 # проверяет копии
-      WAL_G_BIN=wal-g-gp ./s3_test_script.sh */etc/wal-g/wal-g.yaml* wal_005 # проверяет WAL
+      WAL_G_BIN=wal-g-gp ./s3_test_script.sh /etc/wal-g/wal-g.yaml basebackups_005 # проверяет метаданные резервной копии
+      WAL_G_BIN=wal-g-gp ./s3_test_script.sh /etc/wal-g/wal-g.yaml segments_005/  # проверяет сегменты
+      ```
+      
+      Для проверки отдельных сегментов:
+
+      ```bash
+      WAL_G_BIN=wal-g-gp ./s3_test_script.sh /etc/wal-g/wal-g.yaml segments_005/seg0/  # проверяет сегмент seg0
+      WAL_G_BIN=wal-g-gp ./s3_test_script.sh /etc/wal-g/wal-g.yaml segments_005/seg-1/  # проверяет мастер-сегмент
+      WAL_G_BIN=wal-g-gp ./s3_test_script.sh /etc/wal-g/wal-g.yaml segments_005/seg999/  # проверяет сегмент seg999 
       ```
 
       Пример вывода:

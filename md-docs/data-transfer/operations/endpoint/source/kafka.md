@@ -72,7 +72,7 @@
 
 {% endlist %}
 
-## Настройка эндпоинта-источника Apache Kafka®
+## Настройка эндпоинта-источника Apache Kafka® {#endpoint-settings}
 
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта вы можете задать:
 
@@ -84,7 +84,7 @@
 
 {% note warning %}
 
-Для создания или редактирования эндпоинта управляемой базы данных вам потребуется [роль `managed-kafka.viewer`](../../../../managed-kafka/security/index.md#mkf-viewer) или примитивная [роль `viewer`](../../../../iam/roles-reference.md#viewer), выданная на каталог кластера этой управляемой базы данных.
+Для создания или редактирования эндпоинта управляемой базы данных вам потребуется [роль `managed-kafka.viewer`](../../../../managed-kafka/security/index.md#managed-kafka-viewer) или примитивная [роль `viewer`](../../../../iam/roles-reference.md#viewer), выданная на каталог кластера этой управляемой базы данных.
 
 {% endnote %}
 

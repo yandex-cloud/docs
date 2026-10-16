@@ -16,7 +16,7 @@
 
 ## Поддерживаемые инструменты {#supported-tools}
 
-Для выполнения шагов можно использовать различные поддерживаемые инструменты. Бо́льшую часть шагов можно выполнить с помощью любого из стандартных инструментов: [консоли управления]({{ link-console-main }}), интерфейсов командной строки [{{ yandex-cloud }} CLI](../../cli/index.yaml) и [API {{ yandex-cloud }}](../../api-design-guide/index.yaml). В каждом шаге перечислены поддерживаемые для него инструменты.
+Для выполнения шагов можно использовать различные поддерживаемые инструменты: [консоль управления]({{ link-console-main }}), интерфейс командной строки [{{ yandex-cloud }} CLI](../../cli/index.yaml) и [API {{ yandex-cloud }}](../../api-design-guide/index.yaml). В каждом шаге перечислены поддерживаемые для него инструменты.
 
 Некоторые инструменты поддерживаются не для всех шагов: через {{ yandex-cloud }} CLI сейчас нельзя [создать группу бэкендов в {{ alb-name }} с бакетами в качестве бэкендов](#create-l7backend).
 
@@ -161,13 +161,13 @@
 
     - Консоль управления {#console}
 
-        1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-        1. [Перейдите]({{ link-console-main }}/link/certificate-manager) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
-        1. В списке сертификатов выберите `mymanagedcert`.
-        1. В открывшемся окне в блоке **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** выберите `CNAME-запись` и ниже в секции с вашим доменом нажмите **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
-        1. В открывшемся окне подтвердите создание ресурсной записи.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+      1. [Перейдите]({{ link-console-main }}/link/certificate-manager) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+      1. В списке сертификатов выберите `mymanagedcert`.
+      1. В открывшемся окне в блоке **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** выберите `CNAME-запись` и ниже в секции с вашим доменом нажмите **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
+      1. В открывшемся окне подтвердите создание ресурсной записи.
 
-        Проверка прав на домен может занять от нескольких минут до нескольких дней — дождитесь ее успешного завершения. В результате сертификат будет выпущен и перейдет в статус `Issued`.
+      Проверка прав на домен может занять от нескольких минут до нескольких дней — дождитесь ее успешного завершения. В результате сертификат будет выпущен и перейдет в статус `Issued`.
 
     - {{ yandex-cloud }} CLI {#cli}
 
@@ -419,16 +419,16 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
-  1. На панели сверху нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** укажите `example-sg`.
   1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите `example-network`.
   1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}** создайте следующие правила [по инструкции](../../vpc/operations/security-group-create.md):
-   
-      | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Источник /<br/>назначение | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+
+      | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Источник /<br/>назначение | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} |
       | --- | --- | --- | --- | --- | --- |
-      | `Исходящий` | `any` | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | `Входящий` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | `Входящий` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | `Исходящий` | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `any` |
+      | `Входящий` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `ext-http` |
+      | `Входящий` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `ext-https` |
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
@@ -443,9 +443,9 @@
     --rule "direction=ingress,port=80,protocol=tcp,v4-cidrs=[0.0.0.0/0]" \
     --rule "direction=ingress,port=443,protocol=tcp,v4-cidrs=[0.0.0.0/0]"
   ```
-  
+
   Результат:
-  
+
   ```text
   id: enp9dpfa774h********
   folder_id: b1gt6g8ht345********
@@ -546,11 +546,11 @@
     
     - Консоль управления {#console}
 
-        1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-        1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-        1. Выберите бакет, созданный ранее.
-        1. Нажмите кнопку ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** и выберите для загрузки файл `index.html`.
-        1. В открывшемся окне с подтверждением загрузки нажмите **{{ ui-key.yacloud.storage.button_upload }}**.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+      1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. Выберите бакет, созданный ранее.
+      1. Нажмите кнопку ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** и выберите для загрузки файл `index.html`.
+      1. В открывшемся окне с подтверждением загрузки нажмите **{{ ui-key.yacloud.storage.button_upload }}**.
 
     - {{ yandex-cloud }} CLI {#cli}
 
@@ -578,22 +578,22 @@
 
       Подробнее о команде `yc storage s3api put-object` читайте в [справочнике CLI](../../storage/cli-ref/s3api/put-object.md).
 
-   - API {#api}
-   
-     Воспользуйтесь методом REST API [upload](../../storage/s3/api-ref/object/upload.md).
+    - API {#api}
 
-   {% endlist %}
+      Воспользуйтесь методом REST API [upload](../../storage/s3/api-ref/object/upload.md).
+
+    {% endlist %}
 
 ## Создайте группу бэкендов в {{ alb-name }} {#create-l7backend}
 
 {% list tabs group=instructions %}
-   
+
 - Консоль управления {#console}
-   
+
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
-  1. На панели сверху нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите `example-bg`.
   1. В поле **{{ ui-key.yacloud.alb.label_backend-type }}** выберите [тип группы бэкендов](../../application-load-balancer/concepts/backend-group.md#group-types) `{{ ui-key.yacloud.alb.label_proto-http }}`.
   1. В блоке **{{ ui-key.yacloud.alb.label_backends }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}** и задайте настройки бэкенда:
@@ -612,8 +612,8 @@
 - API {#api}
 
   Воспользуйтесь методом REST API [create](../../application-load-balancer/api-ref/BackendGroup/create.md) для ресурса [BackendGroup](../../application-load-balancer/api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/Create](../../application-load-balancer/api-ref/grpc/BackendGroup/create.md).
-     
-{% endlist %} 
+
+{% endlist %}
 
 ## Создайте HTTP-роутер и виртуальный хост {#create-route-hosts}
 
@@ -624,43 +624,43 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
-  1. На панели сверху нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите `example-router`.
   1. Создайте виртуальный хост `example-vh`:
-  
-     1. В блоке **{{ ui-key.yacloud.alb.label_virtual-hosts }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
-     1. В поле **{{ ui-key.yacloud.common.name }}** укажите `example-vh`.
-     1. В поле **{{ ui-key.yacloud.alb.label_authority }}** укажите имя вашего домена. Например: `example.com`.
-     1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-route }}**.
-     1. В поле **{{ ui-key.yacloud.common.name }}** укажите `example-route`.
-     1. В поле **{{ ui-key.yacloud.alb.label_path }}** выберите `{{ ui-key.yacloud.alb.label_match-prefix }}` и укажите путь `/`.
-     1. В списке **{{ ui-key.yacloud.alb.label_http-methods }}** выберите `GET`.
-     1. В поле **{{ ui-key.yacloud.alb.label_route-action }}** оставьте `{{ ui-key.yacloud.alb.label_route-action-route }}`.
-     1. В списке **{{ ui-key.yacloud.alb.label_backend-group }}** выберите `example-bg`.
+
+      1. В блоке **{{ ui-key.yacloud.alb.label_virtual-hosts }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
+      1. В поле **{{ ui-key.yacloud.common.name }}** укажите `example-vh`.
+      1. В поле **{{ ui-key.yacloud.alb.label_authority }}** укажите имя вашего домена. Например: `example.com`.
+      1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-route }}**.
+      1. В поле **{{ ui-key.yacloud.common.name }}** укажите `example-route`.
+      1. В поле **{{ ui-key.yacloud.alb.label_path }}** выберите `{{ ui-key.yacloud.alb.label_match-prefix }}` и укажите путь `/`.
+      1. В списке **{{ ui-key.yacloud.alb.label_http-methods }}** выберите `GET`.
+      1. В поле **{{ ui-key.yacloud.alb.label_route-action }}** оставьте `{{ ui-key.yacloud.alb.label_route-action-route }}`.
+      1. В списке **{{ ui-key.yacloud.alb.label_backend-group }}** выберите `example-bg`.
 
   1. Остальные настройки оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-  
+
 - {{ yandex-cloud }} CLI {#cli}
 
   1. Создайте HTTP-роутер `example-router`:
-  
+
       ```bash
       yc alb http-router create example-router
       ```
-      
+
       Результат:
-      
+
       ```text
       id: ds78i77j8lg0********
       name: example-router
       folder_id: b1gt6g8ht345********
       created_at: "2026-02-05T13:09:27.917359782Z"
       ```
-      
+
       Подробнее о команде `yc alb http-router create` читайте в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/http-router/create.md).
 
   1. Создайте виртуальный хост `example-vh`:
-  
+
       ```bash
       yc alb virtual-host create example-vh \
         --http-router-name example-router \
@@ -668,20 +668,20 @@
       ```
 
       Где `<имя_домена>` — имя вашего домена. Например: `example.com`.
-      
+
       Результат:
-      
+
       ```text
       done (1s)
       name: example-vh
       authority:
         - example.com
       ```
-      
+
       Подробнее о команде `yc alb virtual-host create` читайте в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/create.md).
-     
+
   1. Создайте маршрут `example-route` в виртуальном хосте `example-vh`:
-  
+
       ```bash
       yc alb virtual-host append-http-route example-route \
         --http-router-name example-router \
@@ -689,9 +689,9 @@
         --prefix-path-match "/" \
         --backend-group-name example-bg
       ```
-      
+
       Результат:
-      
+
       ```text
       done (1s)
       name: example-vh
@@ -724,28 +724,28 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. [Перейдите]({{ link-console-main }}/link/application-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. На панели сверху нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}** и выберите **{{ ui-key.yacloud.alb.label_alb-create-form }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}** и выберите **{{ ui-key.yacloud.alb.label_alb-create-form }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите `example-balancer`.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
 
-     1. В поле **{{ ui-key.yacloud.mdb.forms.label_network }}** выберите `example-network`.
-     1. В поле **{{ ui-key.yacloud.mdb.forms.field_security-group }}** выберите `{{ ui-key.yacloud.component.security-group-field.label_sg-from-list }}` и в появившемся списке выберите созданную ранее группу безопасности `example-sg`.
-      
+      1. В поле **{{ ui-key.yacloud.mdb.forms.label_network }}** выберите `example-network`.
+      1. В поле **{{ ui-key.yacloud.mdb.forms.field_security-group }}** выберите `{{ ui-key.yacloud.component.security-group-field.label_sg-from-list }}` и в появившемся списке выберите созданную ранее группу безопасности `example-sg`.
+
   1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** выберите три подсети для узлов балансировщика — `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b` и `example-subnet-{{ region-id }}-d` — и включите передачу трафика в эти подсети.
   1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}** и задайте настройки обработчика:
-  
-     1. В поле **{{ ui-key.yacloud.common.name }}** укажите `example-listener`.
-     1. В блоке **{{ ui-key.yacloud.alb.section_external-address-specs }}**:
-        * В поле **{{ ui-key.yacloud.alb.label_port }}** укажите `80`.
-        * В поле **{{ ui-key.yacloud.common.type }}** выберите `{{ ui-key.yacloud.alb.label_address-auto }}`.
-      
+
+      1. В поле **{{ ui-key.yacloud.common.name }}** укажите `example-listener`.
+      1. В блоке **{{ ui-key.yacloud.alb.section_external-address-specs }}**:
+          * В поле **{{ ui-key.yacloud.alb.label_port }}** укажите `80`.
+          * В поле **{{ ui-key.yacloud.common.type }}** выберите `{{ ui-key.yacloud.alb.label_address-auto }}`.
+
   1. В поле **{{ ui-key.yacloud.alb.label_http-router }}** выберите `example-router`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-  
+
 - {{ yandex-cloud }} CLI {#cli}
 
   1. Создайте балансировщик `example-balancer`:
-  
+
       ```bash
       yc alb load-balancer create example-balancer \
         --network-name example-network \
@@ -759,9 +759,9 @@
 
       * `--security-group-id` — идентификатор группы безопасности, сохраненный ранее при ее создании.
       * `subnet-id` — идентификаторы подсетей в трех зонах доступности, сохраненные ранее при их создании.
-        
+
       Результат:
-      
+
       ```text
       done (7m17s)
       id: ds790ardig7r********
@@ -782,11 +782,11 @@
         - enp9dpfa774h********
       created_at: "2026-02-05T13:30:25.695763710Z"
       ```
-      
+
       Подробнее о команде `yc alb load-balancer create` читайте в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/create.md).
-     
+
   1. Добавьте к балансировщику обработчик:
-  
+
       ```bash
       yc alb load-balancer add-listener \
         --name example-balancer \
@@ -794,9 +794,9 @@
         --external-ipv4-endpoint port=80 \
         --http-router-name example-router
       ```
-      
+
       Результат:
-      
+
       ```text
       done (9m53s)
       id: ds790ardig7r********
@@ -835,7 +835,7 @@
 - API {#api}
 
   Чтобы создать L7-балансировщик, воспользуйтесь методом REST API [create](../../application-load-balancer/api-ref/LoadBalancer/create.md) для ресурса [LoadBalancer](../../application-load-balancer/api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Create](../../application-load-balancer/api-ref/grpc/LoadBalancer/create.md).
-          
+
 {% endlist %}
 
 ## Создайте CDN-ресурс {#create-cdn-resource}
@@ -849,28 +849,28 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
   1. Задайте основные настройки CDN-ресурса:
 
-      * В блоке **{{ ui-key.yacloud.cdn.label_section-content }}**:
+      1. В блоке **{{ ui-key.yacloud.cdn.label_section-content }}**:
 
-          * Включите **{{ ui-key.yacloud.cdn.label_access }}**.
-          * В поле **{{ ui-key.yacloud.cdn.label_content-query-type }}** выберите `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
-          * В поле **{{ ui-key.yacloud.cdn.label_source-type }}** выберите `{{ ui-key.yacloud.cdn.value_source-type-balancer }}` и в появившемся поле **{{ ui-key.yacloud.cdn.label_balancer }}** выберите `example-balancer`.
-          * В поле **{{ ui-key.yacloud.cdn.label_ip-address }}** выберите IP-адрес, назначенный балансировщику (будет единственным в списке).
-          * В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите `{{ ui-key.yacloud.common.label_http }}`.
-          * В поле **{{ ui-key.yacloud.cdn.label_personal-domain }}** укажите имя вашего домена. Например: `example.com`.
+         * Включите опцию **{{ ui-key.yacloud.cdn.label_access }}**.
+         * В поле **{{ ui-key.yacloud.cdn.label_content-query-type }}** выберите `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
+         * В поле **{{ ui-key.yacloud.cdn.label_source-type }}** выберите `{{ ui-key.yacloud.cdn.value_source-type-balancer }}` и в появившемся поле **{{ ui-key.yacloud.cdn.label_balancer }}** выберите `example-balancer`.
+         * В поле **{{ ui-key.yacloud.cdn.label_ip-address }}** выберите IP-адрес, назначенный балансировщику (будет единственным в списке).
+         * В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите `{{ ui-key.yacloud.common.label_http }}`.
+         * В поле **{{ ui-key.yacloud.cdn.label_host-header }}** выберите `{{ ui-key.yacloud.cdn.value_host-header-resend }}`.
+         * В поле **{{ ui-key.yacloud.cdn.label_personal-domain }}** укажите имя вашего домена. Например: `example.com`.
 
-              {% note alert %}
+             {% note alert %}
 
-              Указанное доменное имя станет основным, и его будет невозможно изменить после создания CDN-ресурса.
+             Указанное доменное имя станет основным, и его будет невозможно изменить после создания CDN-ресурса.
 
-              {% endnote %}
+             {% endnote %}
 
-      * В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}**:
+      1. В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}** в поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** укажите `{{ ui-key.yacloud.cdn.value_certificate-custom }}` и выберите [сертификат](#add-certificate) `mymanagedcert`, который вы создали ранее для вашего доменного имени.
+      1. В блоке **{{ ui-key.yacloud.cdn.label_resource-security }}** в поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}`.
 
-          * В поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}`.
-          * В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** укажите `{{ ui-key.yacloud.cdn.value_certificate-custom }}` и выберите [сертификат](#add-certificate) `mymanagedcert`, который вы создали ранее для вашего доменного имени.
-          * В поле **{{ ui-key.yacloud.cdn.label_host-header }}** выберите `{{ ui-key.yacloud.cdn.value_host-header-resend }}`.
   1. Нажмите **{{ ui-key.yacloud.common.continue }}**.
-  1. В разделах **{{ ui-key.yacloud.cdn.label_resource-cache }}**, **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** и **{{ ui-key.yacloud.cdn.value_stepper-additional }}** оставьте настройки по умолчанию и нажмите **{{ ui-key.yacloud.common.continue }}**.
+  1. В разделах **{{ ui-key.yacloud.cdn.label_resource-cache }}** и **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** оставьте настройки по умолчанию и нажмите **{{ ui-key.yacloud.cdn.button_wizard-create }}**.
+  1. В разделе **{{ ui-key.yacloud.cdn.value_stepper-additional }}** оставьте настройки по умолчанию и нажмите **{{ ui-key.yacloud.common.continue }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -902,7 +902,7 @@
       Подробнее о команде `yc cdn origin-group create` читайте в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/origin-group/create.md).
 
   1. Создайте CDN-ресурс:
-  
+
       ```bash
       yc cdn resource create \
         --cname <имя_домена> \
@@ -987,7 +987,7 @@
 - API {#api}
 
   Чтобы создать CDN-ресурс, воспользуйтесь методом REST API [create](../../cdn/api-ref/Resource/create.md) для ресурса [Resource](../../cdn/api-ref/Resource/index.md) или вызовом gRPC API [ResourceService/Create](../../cdn/api-ref/grpc/Resource/create.md).
-  
+
 {% endlist %}
 
 ## Создайте ресурсную запись CNAME для CDN-ресурса {#create-cdn-cname-record}
@@ -1002,9 +1002,9 @@
   1. Нажмите **{{ ui-key.yacloud.dns.button_record-set-create }}**.
   1. Задайте параметры записи:
 
-        * В поле **{{ ui-key.yacloud.common.name }}** выберите `{{ ui-key.yacloud.dns.label_fqdn-equal-to-zone }}`.
-        * В поле **{{ ui-key.yacloud.common.type }}** выберите [тип записи](../../dns/concepts/resource-record.md#rr-types) `CNAME`.
-        * В поле **{{ ui-key.yacloud.dns.label_records }}** укажите значение [доменного имени](../../cdn/operations/resources/get-resources-info.md#get-cname) провайдера CDN.
+      * В поле **{{ ui-key.yacloud.common.name }}** выберите `{{ ui-key.yacloud.dns.label_fqdn-equal-to-zone }}`.
+      * В поле **{{ ui-key.yacloud.common.type }}** выберите [тип записи](../../dns/concepts/resource-record.md) `CNAME`.
+      * В поле **{{ ui-key.yacloud.dns.label_records }}** укажите значение [доменного имени](../../cdn/operations/resources/get-resources-info.md#get-cname) провайдера CDN.
 
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
@@ -1052,7 +1052,7 @@
 
 Чтобы остановить работу инфраструктуры и перестать платить за созданные ресурсы:
 
-1. Если вы настраивали CNAME-записи в {{ dns-name }}, [удалите](../../dns/operations/zone-delete.md) зону DNS `example-dns-zone`.
+1. Если вы настраивали CNAME-записи в {{ dns-name }}, [удалите](../../dns/operations/zone-delete.md) зону DNS `my-domain-zone`.
 1. [Удалите](../../cdn/operations/resources/delete-resource.md) CDN-ресурс с основным доменным именем `example.com`.
 1. [Удалите](../../application-load-balancer/operations/application-load-balancer-delete.md) L7-балансировщик `example-balancer`.
 1. [Удалите](../../storage/operations/objects/delete.md) все объекты из бакета.

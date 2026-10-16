@@ -15,7 +15,7 @@
 
 {% endnote %}
 
-После подключения к Cloud Backup [привяжите](../../operations/policy-vm/attach-and-detach-vm.md#attach-vm) виртуальную машину к [политике резервного копирования](../policy.md).
+После подключения к Cloud Backup [привяжите](../../operations/policy-vm/attach-and-detach-vm.md) виртуальную машину к [политике резервного копирования](../policy.md).
 
 {% note info %}
 

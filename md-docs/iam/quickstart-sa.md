@@ -18,7 +18,7 @@
 
 * [Создавать сервисные аккаунты и назначать им роли](#create-sa).
 * [Выполнять операции в CLI](#run-operation-from-sa).
-* [Удалять сервисные аккаунты](#delete-sa).
+* [Удалять сервисные аккаунты](#disable-or-delete-sa).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -33,7 +33,7 @@
         * владельца (`organization-manager.organizations.owner`) или администратора (`organization-manager.admin`) организации;
         * владельца (`resource-manager.clouds.owner`) или администратора (`admin`) облака.
 
-1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md).
 
 ## Создайте сервисный аккаунт {#create-sa}
 

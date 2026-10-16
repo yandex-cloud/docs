@@ -59,7 +59,7 @@ Managed Service for Kubernetes поддерживает два режима по
 
 В Managed Service for Kubernetes можно использовать объекты `PersistentVolumes` на основе дисков Yandex Compute Cloud. Тип используемого диска и другие параметры можно установить с помощью соответствующих [классов хранилищ](../operations/volumes/manage-storage-class.md).
 
-В Managed Service for Kubernetes доступны следующие [типы дисков](../../compute/concepts/disk.md##disks-types): {#disks-types}
+В Managed Service for Kubernetes доступны следующие [типы дисков](../../compute/concepts/disk.md#disks-types): {#disks-types}
 
 * Сетевой SSD-диск (`network-ssd`) — быстрый сетевой диск, сетевое блочное хранилище на SSD-накопителе.
 * Сетевой HDD-диск (`network-hdd`) — стандартный сетевой диск, сетевое блочное хранилище на HDD-накопителе.

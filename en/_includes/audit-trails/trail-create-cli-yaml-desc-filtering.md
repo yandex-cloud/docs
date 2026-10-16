@@ -25,14 +25,14 @@
 
         ```yaml
         resource_scopes:
-        # Collecting logs from all of cloud 1
-        - id: <ID_of_cloud_1>
+          # Collecting logs from all of cloud 1
+          - id: <ID_of_cloud_1>
             type: resource-manager.cloud
-        # Collecting logs from folder 1 of cloud 2
-        - id: <folder_1_ID>
+          # Collecting logs from folder 1 of cloud 2
+          - id: <folder_1_ID>
             type: resource-manager.folder
-        # Collecting logs from folder 2 of cloud 2
-        - id: <folder_2_ID>
+          # Collecting logs from folder 2 of cloud 2
+          - id: <folder_2_ID>
             type: resource-manager.folder
         ```
 
@@ -46,15 +46,23 @@
 
         * `resource_scopes`: Places to collect data events from. You can configure this parameter the same way as the management event filter.
 
-        * `*_events`: Data event filters.
+        * `*_events`: Full names of events to collect or exclude:
 
             * `included_events.event_types`: Collect only specified events.
             * `excluded_events.event_types`: Collect all events other than the specified ones.
 
-            You can get a list of events from the [data event reference](../../audit-trails/concepts/events-data-plane.md).
+            To exclude events, replace the `included_events` section in the template:
 
-            {% note warning %}
+            ```yaml
+            excluded_events:
+              event_types:
+                - <full_event_name>
+            ```
 
-            The `included_events` and `excluded_events` filters are mutually exclusive, so only one of them should be set up. If neither filter is set up, all events will be collected.
+            Use the full name from the `event_type` field of the audit log. For example, `yandex.cloud.audit.iam.CreateIamToken` corresponds to the `CreateIamToken` event from the [reference](../../audit-trails/concepts/events-data-plane.md).
 
-            {% endnote %}
+        {% note warning %}
+
+        For filters by event name, the `included_events` and `excluded_events` sections are mutually exclusive. If they are not specified, all events are recorded. You can additionally set [field value conditions](../../audit-trails/concepts/trail.md#field-filters) in the same filter.
+
+        {% endnote %}

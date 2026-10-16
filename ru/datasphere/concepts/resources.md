@@ -14,7 +14,7 @@
 * [Docker-образы](docker.md)
 * [Датасеты](dataset.md)
 * [Коннекторы S3](s3-connector.md)
-* [Ноды и алиасы](deploy/index.md#python-nodes)
+* [Ноды и алиасы](deploy/index.md#node)
 * [Шаблоны {{ dataproc-name }}](data-processing-template.md)
 * [Коннекторы Spark](spark-connector.md)
 * [Модели](models/index.md)

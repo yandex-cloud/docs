@@ -4,7 +4,7 @@
 
 Чтобы начать работу с сервисом:
 1. [Создайте кластер Managed Service for Trino](#cluster-create).
-1. [Подключитесь к кластеру Managed Service for Trino](#connect).
+1. [Подключитесь к кластеру Managed Service for Trino](#connect-to-trino).
 1. [Отправьте запросы к кластеру Yandex Managed Service for PostgreSQL через Trino](#query-mpg-via-trino).
 1. [Проверьте запросы в кластере Managed Service for PostgreSQL](#check-queries-in-psql).
 

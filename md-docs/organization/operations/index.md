@@ -138,7 +138,8 @@
 
 ## Синхронизация пользователей и групп с внешними службами каталогов {#sync-external}
 
-* [Синхронизировать пользователей и группы с Microsoft Active Directory](sync-ad.md)
+* [Синхронизировать пользователей и группы с Microsoft Active Directory](sync-external/sync-ad.md)
+* [Синхронизировать пользователей и группы с LDAP-совместимыми каталогами](sync-external/sync-ldap.md)
 
 ## Управление тарификацией Yandex Identity Hub {#manage-billing}
 

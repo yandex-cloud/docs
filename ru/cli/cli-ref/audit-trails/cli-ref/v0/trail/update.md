@@ -38,6 +38,9 @@ Specifies the name of the destination bucket. ||
 || `--destination-bucket-object-prefix` | `string`
 
 Specifies the prefix for uploaded results of the trail. Requires specifying 'destination-bucket'. ||
+|| `--destination-bucket-aggregation-period` | `duration`
+
+Target interval between the starts of exports to Object Storage, from 1m to 1h inclusive. If omitted, the server default is 5m. Requires specifying 'destination-bucket'. ||
 || `--destination-log-group-id` | `string`
 
 Specifies the ID of the destination log group. ||

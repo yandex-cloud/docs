@@ -44,6 +44,7 @@
 
 Этапы миграции:
 
+1. [Подготовьте инфраструктуру](#prepare-infra-logical).
 1. [Настройте кластер-источник](#source-setup).
 1. [Экспортируйте схему БД в кластере-источнике](#source-schema-export).
 1. [Восстановите схему БД в кластере-приемнике](#restore-schema).
@@ -53,14 +54,18 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out-logical).
 
+### Перед началом работы {#before-you-begin-logical}
 
-### Необходимые платные ресурсы {#paid-resources}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+
+#### Необходимые платные ресурсы {#paid-resources-logical}
 
 * Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 
 
-### Перед началом работы {#before-you-begin-logical}
+### Подготовьте инфраструктуру {#prepare-infra-logical}
 
 Создайте необходимые ресурсы:
 
@@ -332,21 +337,26 @@ pg_restore -h <IP-адрес_или_FQDN_хоста-мастера_класте�
 
 Этапы миграции:
 
+1. [Подготовьте инфраструктуру](#prepare-infra-backup).
 1. [Создайте дамп переносимой базы](#dump).
 1. [(Опционально) Создайте виртуальную машину в {{ yandex-cloud }} и загрузите дамп БД на нее](#create-vm).
 1. [Восстановите данные из дампа в кластер-приемник](#restore).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out-backup).
 
+### Перед началом работы {#before-you-begin-backup}
 
-### Необходимые платные ресурсы {#paid-resources}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+
+#### Необходимые платные ресурсы {#paid-resources-backup}
 
 * Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 * Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы {{ compute-name }}](../../compute/pricing.md)).
 
 
-### Перед началом работы {#before-you-begin-backup}
+### Подготовьте инфраструктуру {#prepare-infra-backup}
 
 Создайте необходимые ресурсы:
 
@@ -375,7 +385,7 @@ pg_restore -h <IP-адрес_или_FQDN_хоста-мастера_класте�
             * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` или один адрес из списка зарезервированных IP-адресов.
 
     
-    1. Если вы используете группы безопасности для промежуточной виртуальной машины и кластера {{ mpg-name }}, [настройте их](../../managed-postgresql/operations/connect/index.md#configure-security-groups).
+    1. Если вы используете группы безопасности для промежуточной виртуальной машины и кластера {{ mpg-name }}, [настройте их](../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
 
 
 - {{ TF }} {#tf}

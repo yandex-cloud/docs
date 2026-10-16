@@ -103,8 +103,8 @@
 
 1. С помощью [DataSphere Jobs](concepts/jobs/index.md) стало возможным использовать облачные вычислительные ресурсы в рамках DataSphere из локальной среды пользователя.
 1. У проектов DataSphere появился новый тип ресурсов — [Модели](concepts/models/index.md).
-1. В JupyterLab 3 (доступен в режиме [Dedicated](concepts/project.md#dedicated)) добавлены расширения, повышающие удобство работы.
-1. На стадии [Preview](../overview/concepts/launch-stages.md) доступно [дообучение модели YandexGPT](concepts/models/foundation-models.md#yagpt-tuning).
+1. В JupyterLab 3 (доступном в режиме [Dedicated](concepts/project.md#mode)) добавлены расширения, повышающие удобство работы.
+1. На стадии [Preview](../overview/concepts/launch-stages.md) доступно дообучение модели YandexGPT.
 1. Исправлены ошибки и добавлены небольшие улучшения в работе платформы.
 
 ## Релиз 18.09.2023 {#180923}
@@ -132,7 +132,7 @@
 
 ## Релиз 23.05.2023 {#230523}
 
-1. В DataSphere появился новый режим работы [Dedicated](concepts/project.md#dedicated).
+1. В DataSphere появился новый режим работы [Dedicated](concepts/project.md#mode).
 1. В режиме Dedicated обновлена версия IDE до JupyterLab 3.5.3.
 1. Улучшен выбор организации.
 1. Работа с участниками сообществ и проектов стала проще.
@@ -164,8 +164,8 @@
 
 Значительно улучшили работу с кластерами Apache Spark™:
 1. В DataSphere появился новый тип ресурсов — [шаблоны Yandex Data Processing](concepts/data-processing-template.md).
-1. Появилась возможность [конфигурировать livy-сессию](concepts/data-processing.md#session) при работе с кластерами Yandex Data Processing.
-1. Теперь DataSphere поддерживает [работу с библиотекой Spark SQL](concepts/data-processing.md#sql).
+1. Появилась возможность [конфигурировать livy-сессию](concepts/data-processing-operations.md#session) при работе с кластерами Yandex Data Processing.
+1. Теперь DataSphere поддерживает [работу с библиотекой Spark SQL](concepts/data-processing-operations.md#sql).
 
 ## Релиз 23.09.2022 {#230922}
 

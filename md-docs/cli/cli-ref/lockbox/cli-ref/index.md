@@ -14,6 +14,10 @@ Syntax:
 
 #### Command Tree
 
+- [yc lockbox v0](v0/index.md) — Manage Yandex Lockbox resources
+
+
+
 - [yc lockbox payload](payload/index.md) — Access secret payload
 
   - [yc lockbox payload get](payload/get.md) — Get payload of the specified secret
@@ -51,10 +55,6 @@ Syntax:
   - [yc lockbox secret set-access-bindings](secret/set-access-bindings.md) — Set access bindings for the specified secret and delete all existing access bindings if there were any
 
   - [yc lockbox secret update](secret/update.md) — Update the specified secret
-
-- [yc lockbox v0](v0/index.md) — Manage Yandex Lockbox resources
-
-
 
 #### Global Flags
 

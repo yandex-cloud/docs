@@ -32,3 +32,4 @@
 * [Создание интерактивного serverless-приложения с использованием WebSocket](websocket-app.md)
 * [Загрузка аудитных логов в MaxPatrol SIEM](maxpatrol/index.md)
 * [Интеграция Yandex Cloud Postbox с внешними системами с помощью вебхуков](postbox-webhook.md)
+* [Развертывание кластера YDB во внешней инфраструктуре](deploy-ydb-cluster-on-premise.md)

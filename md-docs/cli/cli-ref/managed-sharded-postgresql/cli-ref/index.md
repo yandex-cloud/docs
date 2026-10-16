@@ -18,6 +18,10 @@ Aliases:
 
 #### Command Tree
 
+- [yc managed-sharded-postgresql v0](v0/index.md) — Manage Sharded PostgreSQL clusters, hosts, databases, backups and users.
+
+  - [yc managed-sharded-postgresql v0 resource-preset](v0/resource-preset.md) — Manage Sharded PostgreSQL resource presets
+
 - [yc managed-sharded-postgresql resource-preset](resource-preset.md) — Manage Sharded PostgreSQL resource presets
 
 - [yc managed-sharded-postgresql backup](backup/index.md) — Manage Sharded PostgreSQL backups
@@ -111,10 +115,6 @@ Aliases:
   - [yc managed-sharded-postgresql user list](user/list.md) — List users for the specified Sharded PostgreSQL cluster
 
   - [yc managed-sharded-postgresql user update](user/update.md) — Update the specified Sharded PostgreSQL user
-
-- [yc managed-sharded-postgresql v0](v0/index.md) — Manage Sharded PostgreSQL clusters, hosts, databases, backups and users.
-
-  - [yc managed-sharded-postgresql v0 resource-preset](v0/resource-preset.md) — Manage Sharded PostgreSQL resource presets
 
 #### Global Flags
 

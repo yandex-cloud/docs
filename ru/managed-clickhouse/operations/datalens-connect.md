@@ -145,6 +145,6 @@ description: Из статьи вы узнаете, как подключить�
 
 {% endcut %}
 
-Если для пользователя задана [настройка **Read only**](cluster-users.md#setting-readonly), убедитесь, что значение настройки — `0` или `2`. В противном случае подключение работать не будет.
+Если для пользователя задана [настройка **Read only**](../concepts/settings-list.md#setting-readonly), убедитесь, что значение настройки — `0` или `2`. В противном случае подключение работать не будет.
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

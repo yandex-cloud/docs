@@ -87,7 +87,7 @@ YDB CLI — инструмент для управления вашими дан
 Выберите один из режимов аутентификации:
 
 * [IAM-токен](../../iam/concepts/authorization/iam-token.md) — рекомендуется для выполнения разовых операций от имени [аккаунта в Yandex Cloud](../../iam/concepts/users/accounts.md#passport) или [федеративного аккаунта](../../iam/concepts/users/accounts.md#saml-federation). Время жизни токена не более 12 часов.
-* [Авторизованный ключ доступа](../../iam/concepts/authorization/key.md) — рекомендуется для выполнения команд YDB CLI снаружи Yandex Cloud от имени [сервисного аккаунта](../../iam/concepts/index.md#sa).
+* [Авторизованный ключ доступа](../../iam/concepts/authorization/key.md) — рекомендуется для выполнения команд YDB CLI снаружи Yandex Cloud от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
 * [Сервис метаданных](../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm) — наиболее безопасный и производительный режим. Применяется при выполнении команд на виртуальных машинах внутри Yandex Cloud. Также поддерживается сервисом [Yandex Cloud Functions](../../functions/index.md).
 
 Настройте выбранный режим:

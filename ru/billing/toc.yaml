@@ -92,6 +92,8 @@ items:
         href: concepts/organization.md
       - name: Отчетный период
         href: concepts/reporting-period.md
+      - name: Pay as you go
+        href: concepts/payg.md
       - name: Free tier
         href: concepts/serverless-free-tier.md
       - name: Бюджет
@@ -170,13 +172,15 @@ items:
         href: qa/common.md
       - name: Вопросы о договоре
         href: qa/contract.md
-      - name: Вопросы по оплате
+      - name: Вопросы об оплате
         href: qa/payment.md
+      - name: Вопросы о списаниях
+        href: qa/charges.md
       - name: Вопросы о платежном аккаунте
         href: qa/billing-account.md
       - name: Вопросы о регулярном экспорте детализации
         href: qa/export.md
-      - name: Вопросы по работе с нерезидентами
+      - name: Вопросы о работе с нерезидентами
         href: qa/non-resident.md
   - name: Справочник {{ TF }}
     href: tf-ref.md

@@ -32,6 +32,6 @@
 
 ## Пользовательские метрики {#metrics}
 
-Чтобы перейти к работе с [метриками](../../../monitoring/concepts/data-model.md#metric), [дашбордами](../../../monitoring/concepts/visualization/dashboard.md) и [алертами](../../../monitoring/concepts/alerting.md#alert) в сервисе Monitoring, в правом верхнем углу нажмите кнопку **Открыть в Monium**. 
+Чтобы перейти к работе с [метриками](../../../monitoring/concepts/data-model.md#metric), [дашбордами](../../../monitoring/concepts/visualization/dashboard.md) и [алертами](../../../monitoring/concepts/alerting/alert.md) в сервисе Monitoring, в правом верхнем углу нажмите кнопку **Открыть в Monium**. 
 
 Описание метрик приведено в [справочнике](../../metrics.md).

@@ -151,7 +151,7 @@
      * `folder_id` — [идентификатор](../resource-manager/operations/folder/get-id.md) [каталога](../resource-manager/concepts/resources-hierarchy.md#folder) в котором будет создан секрет. Необязательный параметр.
      * `kms_key_id` — идентификатор [ключа шифрования Key Management Service](../kms/concepts/key.md). Указанный ключ Key Management Service используется для шифрования секрета. Если не указывать ключ Key Management Service, секрет будет зашифрован специальным системным ключом. Необязательный параметр.
      * `deletion_protection` — флаг защиты от удаления. Для включения защиты укажите значение `true`. Для отключения защиты — `false`. Значение по умолчанию `false`. Необязательный параметр.
-     * `labels` — [метка](../overview/concepts/services.md#labels) ресурса в формате `<ключ>:"<значение>"`. Необязательный параметр.
+     * `labels` — [метка](../resource-manager/concepts/labels.md) ресурса в формате `<ключ>:"<значение>"`. Необязательный параметр.
 
      Более подробную информацию о параметрах ресурса `yandex_lockbox_secret` в Terraform, смотрите в [документации провайдера](../terraform/resources/lockbox_secret.md).
   

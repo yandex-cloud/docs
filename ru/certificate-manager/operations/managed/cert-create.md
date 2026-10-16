@@ -85,7 +85,7 @@ description: Следуя этой инструкции, вы сможете д�
      * `domains` — список доменов, для которых нужно создать сертификат.
      * `challenge_type` — [тип проверки прав на домен](../../concepts/challenges.md), которую нужно [пройти](cert-validate.md) владельцу домена. Возможные значения:
        
-       * `DNS_CNAME` — необходимо создать [DNS-запись](../../../dns/concepts/resource-record.md) в формате [CNAME](../../../dns/concepts/resource-record.md#cname-cname) с указанным значением. Рекомендуемый способ для автоматического продления сертификата.
+       * `DNS_CNAME` — необходимо создать [DNS-запись](../../../dns/concepts/resource-record.md) в формате [CNAME](../../../dns/concepts/resource-record.md#cname) с указанным значением. Рекомендуемый способ для автоматического продления сертификата.
        * `DNS_TXT` — необходимо создать DNS-запись в формате [TXT](../../../dns/concepts/resource-record.md#txt) с указанным значением.
        * `HTTP` — необходимо поместить указанное значение в указанный URL.
 

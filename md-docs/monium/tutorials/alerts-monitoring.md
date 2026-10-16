@@ -2,7 +2,7 @@
 
 # Настройка дашбордов и алертов в Monium Metrics
 
-Из руководства вы узнаете, как отслеживать состояние [трейлов](../../audit-trails/concepts/trail.md) с помощью [дашбордов](../../monitoring/concepts/visualization/dashboard.md) и [алертов](../../monitoring/concepts/alerting.md#alert) [Monium Metrics](../../monitoring/index.md).
+Из руководства вы узнаете, как отслеживать состояние [трейлов](../../audit-trails/concepts/trail.md) с помощью [дашбордов](../../monitoring/concepts/visualization/dashboard.md) и [алертов](../../monitoring/concepts/alerting/alert.md) [Monium Metrics](../../monitoring/index.md).
 
 Руководство предполагает, что у вас уже развернута инфраструктура: 
 
@@ -39,7 +39,7 @@
 
 Вы можете настроить один или несколько алертов.
 
-Более подробная информация о порядке [создания алерта](../../monitoring/operations/alert/create-alert.md) и о [параметрах алерта](../../monitoring/concepts/alerting.md#alert-parameters) приведена в документации Monium Metrics.
+Более подробная информация о порядке [создания алерта](../../monitoring/operations/alert/create-alert.md) и о [параметрах алерта](../../monitoring/concepts/alerting/alert.md#alert-parameters) приведена в документации Monium Metrics.
 
 #### Переход трейла в неактивное состояние {#deactivating-trail}
 

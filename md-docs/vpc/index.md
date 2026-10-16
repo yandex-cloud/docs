@@ -272,170 +272,6 @@ Yandex Virtual Private Cloud служит для управления облач
 
  - [Overview](cli-ref/index.md)
 
-### address
-
- - [Overview](cli-ref/address/index.md)
-
- - [create](cli-ref/address/create.md)
-
- - [delete](cli-ref/address/delete.md)
-
- - [get](cli-ref/address/get.md)
-
- - [list](cli-ref/address/list.md)
-
- - [list-by-subnet](cli-ref/address/list-by-subnet.md)
-
- - [list-operations](cli-ref/address/list-operations.md)
-
- - [move](cli-ref/address/move.md)
-
- - [update](cli-ref/address/update.md)
-
-### gateway
-
- - [Overview](cli-ref/gateway/index.md)
-
- - [add-labels](cli-ref/gateway/add-labels.md)
-
- - [create](cli-ref/gateway/create.md)
-
- - [delete](cli-ref/gateway/delete.md)
-
- - [get](cli-ref/gateway/get.md)
-
- - [list](cli-ref/gateway/list.md)
-
- - [list-operations](cli-ref/gateway/list-operations.md)
-
- - [move](cli-ref/gateway/move.md)
-
- - [remove-labels](cli-ref/gateway/remove-labels.md)
-
- - [update](cli-ref/gateway/update.md)
-
-### network
-
- - [Overview](cli-ref/network/index.md)
-
- - [add-labels](cli-ref/network/add-labels.md)
-
- - [create](cli-ref/network/create.md)
-
- - [delete](cli-ref/network/delete.md)
-
- - [get](cli-ref/network/get.md)
-
- - [list](cli-ref/network/list.md)
-
- - [list-operations](cli-ref/network/list-operations.md)
-
- - [list-route-tables](cli-ref/network/list-route-tables.md)
-
- - [list-security-groups](cli-ref/network/list-security-groups.md)
-
- - [list-subnets](cli-ref/network/list-subnets.md)
-
- - [move](cli-ref/network/move.md)
-
- - [remove-labels](cli-ref/network/remove-labels.md)
-
- - [update](cli-ref/network/update.md)
-
-### private-endpoint
-
- - [Overview](cli-ref/private-endpoint/index.md)
-
- - [create](cli-ref/private-endpoint/create.md)
-
- - [delete](cli-ref/private-endpoint/delete.md)
-
- - [get](cli-ref/private-endpoint/get.md)
-
- - [list](cli-ref/private-endpoint/list.md)
-
- - [list-operations](cli-ref/private-endpoint/list-operations.md)
-
- - [update](cli-ref/private-endpoint/update.md)
-
-### route-table
-
- - [Overview](cli-ref/route-table/index.md)
-
- - [add-labels](cli-ref/route-table/add-labels.md)
-
- - [create](cli-ref/route-table/create.md)
-
- - [delete](cli-ref/route-table/delete.md)
-
- - [get](cli-ref/route-table/get.md)
-
- - [list](cli-ref/route-table/list.md)
-
- - [list-operations](cli-ref/route-table/list-operations.md)
-
- - [move](cli-ref/route-table/move.md)
-
- - [remove-labels](cli-ref/route-table/remove-labels.md)
-
- - [update](cli-ref/route-table/update.md)
-
-### security-group
-
- - [Overview](cli-ref/security-group/index.md)
-
- - [add-labels](cli-ref/security-group/add-labels.md)
-
- - [create](cli-ref/security-group/create.md)
-
- - [delete](cli-ref/security-group/delete.md)
-
- - [get](cli-ref/security-group/get.md)
-
- - [list](cli-ref/security-group/list.md)
-
- - [list-operations](cli-ref/security-group/list-operations.md)
-
- - [move](cli-ref/security-group/move.md)
-
- - [remove-labels](cli-ref/security-group/remove-labels.md)
-
- - [update](cli-ref/security-group/update.md)
-
- - [update-rule-meta](cli-ref/security-group/update-rule-meta.md)
-
- - [update-rules](cli-ref/security-group/update-rules.md)
-
-### subnet
-
- - [Overview](cli-ref/subnet/index.md)
-
- - [add-labels](cli-ref/subnet/add-labels.md)
-
- - [add-range](cli-ref/subnet/add-range.md)
-
- - [create](cli-ref/subnet/create.md)
-
- - [delete](cli-ref/subnet/delete.md)
-
- - [get](cli-ref/subnet/get.md)
-
- - [list](cli-ref/subnet/list.md)
-
- - [list-operations](cli-ref/subnet/list-operations.md)
-
- - [list-used-addresses](cli-ref/subnet/list-used-addresses.md)
-
- - [move](cli-ref/subnet/move.md)
-
- - [relocate](cli-ref/subnet/relocate.md)
-
- - [remove-labels](cli-ref/subnet/remove-labels.md)
-
- - [remove-range](cli-ref/subnet/remove-range.md)
-
- - [update](cli-ref/subnet/update.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -603,6 +439,170 @@ Yandex Virtual Private Cloud служит для управления облач
  - [remove-range](cli-ref/v0/subnet/remove-range.md)
 
  - [update](cli-ref/v0/subnet/update.md)
+
+### address
+
+ - [Overview](cli-ref/address/index.md)
+
+ - [create](cli-ref/address/create.md)
+
+ - [delete](cli-ref/address/delete.md)
+
+ - [get](cli-ref/address/get.md)
+
+ - [list](cli-ref/address/list.md)
+
+ - [list-by-subnet](cli-ref/address/list-by-subnet.md)
+
+ - [list-operations](cli-ref/address/list-operations.md)
+
+ - [move](cli-ref/address/move.md)
+
+ - [update](cli-ref/address/update.md)
+
+### gateway
+
+ - [Overview](cli-ref/gateway/index.md)
+
+ - [add-labels](cli-ref/gateway/add-labels.md)
+
+ - [create](cli-ref/gateway/create.md)
+
+ - [delete](cli-ref/gateway/delete.md)
+
+ - [get](cli-ref/gateway/get.md)
+
+ - [list](cli-ref/gateway/list.md)
+
+ - [list-operations](cli-ref/gateway/list-operations.md)
+
+ - [move](cli-ref/gateway/move.md)
+
+ - [remove-labels](cli-ref/gateway/remove-labels.md)
+
+ - [update](cli-ref/gateway/update.md)
+
+### network
+
+ - [Overview](cli-ref/network/index.md)
+
+ - [add-labels](cli-ref/network/add-labels.md)
+
+ - [create](cli-ref/network/create.md)
+
+ - [delete](cli-ref/network/delete.md)
+
+ - [get](cli-ref/network/get.md)
+
+ - [list](cli-ref/network/list.md)
+
+ - [list-operations](cli-ref/network/list-operations.md)
+
+ - [list-route-tables](cli-ref/network/list-route-tables.md)
+
+ - [list-security-groups](cli-ref/network/list-security-groups.md)
+
+ - [list-subnets](cli-ref/network/list-subnets.md)
+
+ - [move](cli-ref/network/move.md)
+
+ - [remove-labels](cli-ref/network/remove-labels.md)
+
+ - [update](cli-ref/network/update.md)
+
+### private-endpoint
+
+ - [Overview](cli-ref/private-endpoint/index.md)
+
+ - [create](cli-ref/private-endpoint/create.md)
+
+ - [delete](cli-ref/private-endpoint/delete.md)
+
+ - [get](cli-ref/private-endpoint/get.md)
+
+ - [list](cli-ref/private-endpoint/list.md)
+
+ - [list-operations](cli-ref/private-endpoint/list-operations.md)
+
+ - [update](cli-ref/private-endpoint/update.md)
+
+### route-table
+
+ - [Overview](cli-ref/route-table/index.md)
+
+ - [add-labels](cli-ref/route-table/add-labels.md)
+
+ - [create](cli-ref/route-table/create.md)
+
+ - [delete](cli-ref/route-table/delete.md)
+
+ - [get](cli-ref/route-table/get.md)
+
+ - [list](cli-ref/route-table/list.md)
+
+ - [list-operations](cli-ref/route-table/list-operations.md)
+
+ - [move](cli-ref/route-table/move.md)
+
+ - [remove-labels](cli-ref/route-table/remove-labels.md)
+
+ - [update](cli-ref/route-table/update.md)
+
+### security-group
+
+ - [Overview](cli-ref/security-group/index.md)
+
+ - [add-labels](cli-ref/security-group/add-labels.md)
+
+ - [create](cli-ref/security-group/create.md)
+
+ - [delete](cli-ref/security-group/delete.md)
+
+ - [get](cli-ref/security-group/get.md)
+
+ - [list](cli-ref/security-group/list.md)
+
+ - [list-operations](cli-ref/security-group/list-operations.md)
+
+ - [move](cli-ref/security-group/move.md)
+
+ - [remove-labels](cli-ref/security-group/remove-labels.md)
+
+ - [update](cli-ref/security-group/update.md)
+
+ - [update-rule-meta](cli-ref/security-group/update-rule-meta.md)
+
+ - [update-rules](cli-ref/security-group/update-rules.md)
+
+### subnet
+
+ - [Overview](cli-ref/subnet/index.md)
+
+ - [add-labels](cli-ref/subnet/add-labels.md)
+
+ - [add-range](cli-ref/subnet/add-range.md)
+
+ - [create](cli-ref/subnet/create.md)
+
+ - [delete](cli-ref/subnet/delete.md)
+
+ - [get](cli-ref/subnet/get.md)
+
+ - [list](cli-ref/subnet/list.md)
+
+ - [list-operations](cli-ref/subnet/list-operations.md)
+
+ - [list-used-addresses](cli-ref/subnet/list-used-addresses.md)
+
+ - [move](cli-ref/subnet/move.md)
+
+ - [relocate](cli-ref/subnet/relocate.md)
+
+ - [remove-labels](cli-ref/subnet/remove-labels.md)
+
+ - [remove-range](cli-ref/subnet/remove-range.md)
+
+ - [update](cli-ref/subnet/update.md)
 
  - [Справочник Terraform](tf-ref.md)
 

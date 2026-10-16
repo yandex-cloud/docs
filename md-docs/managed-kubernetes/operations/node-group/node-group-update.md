@@ -89,7 +89,7 @@ yc managed-kubernetes node-group list
 
   * `--new-name` — изменить имя.
   * `--description` — изменить описание.
-  * `--service-account-id`, `--service-account-name` — изменить [сервисный аккаунт](../../../iam/concepts/index.md#sa) для ресурсов.
+  * `--service-account-id`, `--service-account-name` — изменить [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для ресурсов.
   * `--node-service-account-id`, `--node-service-account-name` — изменить сервисный аккаунт для узлов Managed Service for Kubernetes.
   * `--version` — изменить версию Kubernetes.
   * `--network-interface` — настройки [сети](../../../vpc/concepts/network.md#network):
@@ -107,7 +107,7 @@ yc managed-kubernetes node-group list
     
     Чтобы обеспечить узлам доступ в интернет, назначьте им публичный IP-адрес и [настройте](../connect/security-groups.md#rules-internal-nodegroup) группу безопасности. Также в качестве альтернативы публичным IP-адресам можно создать и настроить в подсети узлов [NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) или [NAT-инстанс](../../../vpc/tutorials/nat-instance/index.md).
     
-    Если вы назначили узлам кластера публичные IP-адреса и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее читайте в [документации Yandex Virtual Private Cloud](../../../vpc/concepts/routing.md#internet-routes).
+    Если вы назначили узлам кластера публичные IP-адреса и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее читайте в [документации Yandex Virtual Private Cloud](../../../vpc/concepts/routing.md).
 
   * `--network-acceleration-type` — выбор типа [ускорения сети](../../../compute/concepts/software-accelerated-network.md):
     * `standard` — без ускорения.
@@ -475,7 +475,7 @@ yc managed-kubernetes node-group list
 
 Чтобы обеспечить узлам доступ в интернет, назначьте им публичный IP-адрес и [настройте](../connect/security-groups.md#rules-internal-nodegroup) группу безопасности. Также в качестве альтернативы публичным IP-адресам можно создать и настроить в подсети узлов [NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) или [NAT-инстанс](../../../vpc/tutorials/nat-instance/index.md).
 
-Если вы назначили узлам кластера публичные IP-адреса и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее читайте в [документации Yandex Virtual Private Cloud](../../../vpc/concepts/routing.md#internet-routes).
+Если вы назначили узлам кластера публичные IP-адреса и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее читайте в [документации Yandex Virtual Private Cloud](../../../vpc/concepts/routing.md).
 
 {% list tabs group=instructions %}
 

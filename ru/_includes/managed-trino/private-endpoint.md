@@ -1,1 +1,1 @@
-Если вы подключаетесь к кластеру {{ mtr-name }} через [сервисное подключение](../../managed-trino/concepts/network.md#сервисное-подключение-private-endpoint), то в качестве адреса хоста укажите `c-<идентификатор_кластера>.trino.pe.yandexcloud.net`.
+Если вы подключаетесь к кластеру {{ mtr-name }} через [сервисное подключение](../../managed-trino/concepts/network.md#private-endpoint), то в качестве адреса хоста укажите `c-<идентификатор_кластера>.trino.pe.yandexcloud.net`.

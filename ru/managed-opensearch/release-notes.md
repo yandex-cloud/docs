@@ -36,7 +36,7 @@ description: В разделе представлена история изме�
 
 ## Декабрь 2025 {#dec-2025}
 
-* Добавлены [детальные метрики](operations/monitoring.md#hosts) использования дисков в хостах кластера.
+* Добавлены [детальные метрики](operations/monitoring.md#monitoring-hosts) использования дисков в хостах кластера.
 * Добавлена детализация выполнения [операций над кластером](operations/cluster-list.md#list-operations).
 * В [обновленных](operations/cluster-version-update.md) версиях {{ OS }} [3.3.2](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-3.3.2.md) и [3.4.0](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-3.4.0.md) улучшена производительность запросов с агрегацией и исправлен ряд ошибок, в том числе [ошибка NPE при выполнении bulk-запросов](https://github.com/opensearch-project/k-NN/issues/2852).
 

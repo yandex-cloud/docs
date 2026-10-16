@@ -1,10 +1,14 @@
-{% note warning %}
-
-Only one destination must be specified: `storage_destination`, `logging_destination`, or `data_stream_destination`.
-
-{% endnote %}
+Specify only one destination: `storage_destination`, `logging_destination`, or `data_stream_destination`.
 
 * `logging_destination`: Uploading logs to a {{ cloud-logging-full-name }} [group](../../logging/concepts/log-group.md).
+
+    Replace the `storage_destination` section in the template:
+
+    ```hcl
+    logging_destination {
+      log_group_id = "<log_group_ID>"
+    }
+    ```
 
     * `log_group_id`: [ID of the log group](../../logging/operations/get-group.md) for the trail to save audit logs to.
 * `storage_destination`: Uploading logs to a {{ objstorage-full-name }} [bucket](../../storage/concepts/bucket.md):
@@ -15,6 +19,16 @@ Only one destination must be specified: `storage_destination`, `logging_destinat
         {% include [note-bucket-prefix](note-bucket-prefix.md) %}
 
 * `data_stream_destination`: Uploading logs to a [data stream](../../data-streams/concepts/glossary.md#stream-concepts) in {{ yds-full-name }}:
+
+    Replace the `storage_destination` section in the template:
+
+    ```hcl
+    data_stream_destination {
+      database_id = "<database_ID>"
+      stream_name = "<data_stream_name>"
+      codec       = "RAW"
+    }
+    ```
 
     * `stream_name`: Name of the data stream for the trail to save audit logs to.
     * `database_id`: ID of the {{ ydb-full-name }} database used by {{ yds-name }}.

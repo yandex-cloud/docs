@@ -29,7 +29,7 @@
 
             {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
-        1. Если вы используете группы безопасности в кластере, убедитесь, что они [настроены правильно](../../managed-opensearch/operations/connect/index.md#configuring-security-groups) и допускают подключение к кластеру.
+        1. Если вы используете группы безопасности в кластере, убедитесь, что они [настроены правильно](../../managed-opensearch/operations/connect/index.md#security-groups) и допускают подключение к кластеру.
 
     * С помощью {{ TF }} {#tf}
 

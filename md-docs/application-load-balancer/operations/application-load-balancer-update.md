@@ -33,7 +33,7 @@
       1. В блоке **Настройки логов**:
 
           1. Измените [лог-группу](../../logging/concepts/log-group.md) Cloud Logging, в которую будут записываться логи балансировщика.
-          1. Измените [правила отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules):
+          1. Измените [правила отбрасывания логов](../concepts/monitoring.md#discard-logs-rules):
     
               * **HTTP-коды** — измените HTTP-коды.
               * **Классы HTTP-кодов** — измените классы HTTP-кодов.
@@ -120,7 +120,7 @@
           Где:
 
           * `--log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md).
-          * `--discard` — [правило отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules). Параметры правила:
+          * `--discard` — [правило отбрасывания логов](../concepts/monitoring.md#discard-logs-rules). Параметры правила:
             
             * `codes` — HTTP-коды, классы HTTP-кодов или gRPC-коды.
             * `percent` — доля отбрасываемых логов в процентах.

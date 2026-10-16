@@ -253,6 +253,24 @@ items:
     items:
       - name: Overview
         href: cli-ref/index.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: security-profile
+            items:
+              - name: Overview
+                href: cli-ref/v0/security-profile/index.md
+              - name: create
+                href: cli-ref/v0/security-profile/create.md
+              - name: delete
+                href: cli-ref/v0/security-profile/delete.md
+              - name: get
+                href: cli-ref/v0/security-profile/get.md
+              - name: list
+                href: cli-ref/v0/security-profile/list.md
+              - name: update
+                href: cli-ref/v0/security-profile/update.md
       - name: advanced-rate-limiter
         items:
           - name: Overview
@@ -363,24 +381,6 @@ items:
             href: cli-ref/security-profile/list.md
           - name: update
             href: cli-ref/security-profile/update.md
-      - name: v0
-        items:
-          - name: Overview
-            href: cli-ref/v0/index.md
-          - name: security-profile
-            items:
-              - name: Overview
-                href: cli-ref/v0/security-profile/index.md
-              - name: create
-                href: cli-ref/v0/security-profile/create.md
-              - name: delete
-                href: cli-ref/v0/security-profile/delete.md
-              - name: get
-                href: cli-ref/v0/security-profile/get.md
-              - name: list
-                href: cli-ref/v0/security-profile/list.md
-              - name: update
-                href: cli-ref/v0/security-profile/update.md
       - name: waf
         items:
           - name: Overview

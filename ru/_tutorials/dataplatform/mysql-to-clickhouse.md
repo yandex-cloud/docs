@@ -45,7 +45,7 @@
     
     1. Если вы используете группы безопасности в кластерах, настройте их так, чтобы к кластерам можно было подключаться из интернета:
 
-        * [{{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configuring-security-groups).
+        * [{{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configure-security-groups).
         * [{{ mch-name }}](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
 
@@ -264,7 +264,7 @@ WHERE __data_transfer_delete_time == 0;
 
 - Вручную {#manual}
 
-    1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete-transfer).
+    1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
     1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
     1. [Удалите кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
     1. [Удалите кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).

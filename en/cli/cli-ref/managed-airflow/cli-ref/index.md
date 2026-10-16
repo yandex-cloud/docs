@@ -19,6 +19,10 @@ Aliases:
 
 #### Command Tree
 
+- [yc managed-airflow v0](v0/index.md) — Manage Airflow clusters.
+
+
+
 - [yc managed-airflow change-freeze](change-freeze/index.md) — Manage change freezes.
 
   - [yc managed-airflow change-freeze create](change-freeze/create.md) — Create a change freeze for the specified resource.
@@ -56,10 +60,6 @@ Aliases:
   - [yc managed-airflow cluster stop](cluster/stop.md) — Stop the specified Airflow cluster
 
   - [yc managed-airflow cluster update](cluster/update.md) — Update the specified Airflow cluster
-
-- [yc managed-airflow v0](v0/index.md) — Manage Airflow clusters.
-
-
 
 #### Global Flags
 

@@ -73,15 +73,15 @@ index: 1
 
 ## Декабрь 2025 {#dec-2025}
 
-* Добавлены [детальные метрики](operations/monitoring.md#hosts) использования дисков в хостах кластера.
-* Улучшена реализация методов `stats` и `Persistent Watches` в [ClickHouse® Keeper](concepts/replication.md#ck) для поддержки протокола совместимого с ZooKeeper.
+* Добавлены [детальные метрики](operations/monitoring.md#monitoring-hosts) использования дисков в хостах кластера.
+* Улучшена реализация методов `stats` и `Persistent Watches` в [ClickHouse® Keeper](concepts/coordination-system.md#ck) для поддержки протокола совместимого с ZooKeeper.
 * Оптимизирован механизм восстановления [реплик](concepts/replication.md). Процесс восстановления больших (от 2 ТБ и более) нереплицируемых дисков стал быстрее.
-* Сервис координации ClickHouse® Keeper при использовании на отдельных хостах [тарифицируется](pricing.md#prices-keeper). Он работает быстрее ZooKeeper и использует алгоритм консенсуса [Raft](https://ru.wikipedia.org/wiki/Raft_(алгоритм)). Такая конфигурация рекомендуется для production-среды.
+* Сервис координации ClickHouse® Keeper при использовании на отдельных хостах тарифицируется. Он работает быстрее ZooKeeper и использует алгоритм консенсуса [Raft](https://ru.wikipedia.org/wiki/Raft_(алгоритм)). Такая конфигурация рекомендуется для production-среды.
 * Доступна новая версия ClickHouse® [25.11](https://clickhouse.com/blog/clickhouse-release-25-11).
 
 ## Ноябрь 2025 {#nov-2025}
 
-* Сервис координации ClickHouse® Keeper теперь доступен всем пользователям Managed Service for ClickHouse® и используется по умолчанию в новых кластерах. Также добавлена возможность создавать в кластере отдельные хосты с ClickHouse® Keeper. Подробнее о ClickHouse® Keeper в разделе [Репликация](concepts/replication.md#ck).
+* Сервис координации ClickHouse® Keeper теперь доступен всем пользователям Managed Service for ClickHouse® и используется по умолчанию в новых кластерах. Также добавлена возможность создавать в кластере отдельные хосты с ClickHouse® Keeper. Подробнее о ClickHouse® Keeper в разделе [Сервис координации](concepts/coordination-system.md#ck).
 * Добавлена роль `managed-clickhouse.restorer`, позволяющая восстанавливать кластеры из резервных копий. Подробнее в разделе [Управление доступом](security.md#managed-clickhouse-restorer).
 * Удалена настройка СУБД **Kafka topics**, позволявшая задавать параметры аутентификации на уровне топиков для [интеграции с Apache Kafka®](https://clickhouse.com/docs/ru/engines/table-engines/integrations/kafka).
 * Доступны новые версии ClickHouse®: [25.8](https://clickhouse.com/blog/clickhouse-release-25-08), [25.9](https://clickhouse.com/blog/clickhouse-release-25-09) и [25.10](https://clickhouse.com/blog/clickhouse-release-25-10).

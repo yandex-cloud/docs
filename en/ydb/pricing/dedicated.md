@@ -9,25 +9,15 @@ editable: false
 ::: page-constructor
 blocks:
   - type: card-layout-block
-    animated: false
     colSizes:
       all: 12
-      sm: 4
-    children: []
-:::
-
-
-::: page-constructor
-blocks:
-  - type: card-layout-block
-    animated: false
-    colSizes:
-      all: 6
+      md: 6
     children:
       - type: basic-card
         title: Price calculator
         text: Calculate the cost of the service based on your needs
-        icon: ../../_assets/console-icons/calculator.svg
+        gravityIcon: Calculator
+        iconPosition: left
         urlTitle: Price calculator
         url: https://yandex.cloud/en/prices?state=02fcbc53c755#calculator
         size: s
@@ -39,7 +29,8 @@ blocks:
       - type: basic-card
         title: Price list
         text: Current prices of all our services
-        icon: ../../_assets/console-icons/circle-ruble.svg
+        gravityIcon: CircleRuble
+        iconPosition: left
         urlTitle: Price list
         url: https://yandex.cloud/en/price-list?services=dn2ydbtgqogjqcrlbehu%2Cdn2kcipi3i3av4ej1fsv
         size: s

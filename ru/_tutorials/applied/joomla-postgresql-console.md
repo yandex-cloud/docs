@@ -182,7 +182,7 @@ ns1.{{ dns-ns-host-sld }}.
   1. Выберите созданную ранее DNS-зону `joomla-zone` и нажмите **{{ ui-key.yacloud.dns.button_record-set-create }}**.
   1. Задайте параметры записи:
       1. В поле **{{ ui-key.yacloud.common.name }}** выберите `{{ ui-key.yacloud.dns.label_fqdn-equal-to-zone }}`.
-      1. В поле **{{ ui-key.yacloud.common.type }}** выберите [тип записи](../../dns/concepts/resource-record.md#rr-types) `A`.
+      1. В поле **{{ ui-key.yacloud.common.type }}** выберите [тип записи](../../dns/concepts/resource-record.md) `A`.
       1. В поле **{{ ui-key.yacloud.dns.label_records }}** укажите [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) созданной ранее ВМ с веб-сервером.
 
           Узнать IP-адрес ВМ можно в [консоли управления]({{ link-console-main }}) на странице ВМ в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}**.

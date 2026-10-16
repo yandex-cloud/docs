@@ -90,34 +90,6 @@ Yandex Certificate Manager — сервис для получения и обн�
 
  - [Overview](cli-ref/index.md)
 
-### certificate
-
- - [Overview](cli-ref/certificate/index.md)
-
- - [add-access-binding](cli-ref/certificate/add-access-binding.md)
-
- - [content](cli-ref/certificate/content.md)
-
- - [create](cli-ref/certificate/create.md)
-
- - [delete](cli-ref/certificate/delete.md)
-
- - [get](cli-ref/certificate/get.md)
-
- - [list](cli-ref/certificate/list.md)
-
- - [list-access-bindings](cli-ref/certificate/list-access-bindings.md)
-
- - [list-operations](cli-ref/certificate/list-operations.md)
-
- - [remove-access-binding](cli-ref/certificate/remove-access-binding.md)
-
- - [request](cli-ref/certificate/request.md)
-
- - [set-access-bindings](cli-ref/certificate/set-access-bindings.md)
-
- - [update](cli-ref/certificate/update.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -149,6 +121,34 @@ Yandex Certificate Manager — сервис для получения и обн�
  - [set-access-bindings](cli-ref/v0/certificate/set-access-bindings.md)
 
  - [update](cli-ref/v0/certificate/update.md)
+
+### certificate
+
+ - [Overview](cli-ref/certificate/index.md)
+
+ - [add-access-binding](cli-ref/certificate/add-access-binding.md)
+
+ - [content](cli-ref/certificate/content.md)
+
+ - [create](cli-ref/certificate/create.md)
+
+ - [delete](cli-ref/certificate/delete.md)
+
+ - [get](cli-ref/certificate/get.md)
+
+ - [list](cli-ref/certificate/list.md)
+
+ - [list-access-bindings](cli-ref/certificate/list-access-bindings.md)
+
+ - [list-operations](cli-ref/certificate/list-operations.md)
+
+ - [remove-access-binding](cli-ref/certificate/remove-access-binding.md)
+
+ - [request](cli-ref/certificate/request.md)
+
+ - [set-access-bindings](cli-ref/certificate/set-access-bindings.md)
+
+ - [update](cli-ref/certificate/update.md)
 
  - [Справочник Terraform](tf-ref.md)
 

@@ -114,7 +114,7 @@ Managed Service for ClickHouse® позволяет управлять поль�
 
 - SQL {#sql}
 
-  1. [Подключитесь](connect/clients.md) к кластеру, используя [учетную запись `admin`](#sql-user-management).
+  1. [Подключитесь](connect/clients.md) к кластеру, используя [учетную запись `admin`](../concepts/user-access-rights.md#sql-user-management).
   1. Получите список пользователей:
 
       ```sql
@@ -472,7 +472,7 @@ Managed Service for ClickHouse® позволяет управлять поль�
 
 - SQL {#sql}
 
-  1. [Подключитесь](connect/clients.md) к кластеру, используя [учетную запись `admin`](#sql-user-management).
+  1. [Подключитесь](connect/clients.md) к кластеру, используя [учетную запись `admin`](../concepts/user-access-rights.md#sql-user-management).
   1. Создайте пользователя:
 
       ```sql
@@ -1074,7 +1074,7 @@ Managed Service for ClickHouse® позволяет управлять поль�
 
      Команда изменит только те настройки, которые явно указаны в параметре `--settings`. Например, команда с параметром `--settings="readonly=1"` изменит только настройку `readonly` и не сбросит значения остальных. Этим изменение настроек ClickHouse® отличается от изменения настроек квот.
 
-     С помощью этой команды невозможно удалить сделанную настройку, допустимо только явно присвоить ей значение по умолчанию (оно указано для [каждой настройки](#clickhouse-settings)).
+     С помощью этой команды невозможно удалить сделанную настройку, допустимо только явно присвоить ей значение по умолчанию (оно указано для [каждой настройки](../concepts/settings-list.md#dbms-user-settings)).
 
 
 - Terraform {#tf}
@@ -1335,7 +1335,7 @@ Managed Service for ClickHouse® позволяет управлять поль�
 
 - SQL {#sql}
 
-  1. [Подключитесь](connect/clients.md) к кластеру, используя [учетную запись `admin`](#sql-user-management).
+  1. [Подключитесь](connect/clients.md) к кластеру, используя [учетную запись `admin`](../concepts/user-access-rights.md#sql-user-management).
   1. Чтобы изменить набор привилегий и ролей пользователя, используйте запросы [GRANT](https://clickhouse.com/docs/ru/sql-reference/statements/grant) и [REVOKE](https://clickhouse.com/docs/ru/sql-reference/statements/revoke). Например, выдайте пользователю права на чтение всех объектов в определенной базе данных:
 
       ```sql
@@ -1488,7 +1488,7 @@ Managed Service for ClickHouse® позволяет управлять поль�
 
 - SQL {#sql}
 
-  1. [Подключитесь](connect/clients.md) к кластеру, используя [учетную запись `admin`](#sql-user-management).
+  1. [Подключитесь](connect/clients.md) к кластеру, используя [учетную запись `admin`](../concepts/user-access-rights.md#sql-user-management).
   1. Удалите пользователя:
 
       ```sql
@@ -1681,7 +1681,7 @@ Managed Service for ClickHouse® позволяет управлять поль�
 
 - SQL {#sql}
 
-  1. [Подключитесь](connect/clients.md) к кластеру `mych`, используя [учетную запись `admin`](#sql-user-management).
+  1. [Подключитесь](connect/clients.md) к кластеру `mych`, используя [учетную запись `admin`](../concepts/user-access-rights.md#sql-user-management).
   1. Создайте пользователя:
 
       ```sql

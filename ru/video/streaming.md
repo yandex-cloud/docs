@@ -5,7 +5,7 @@ description: Чтобы запустить видеотрансляцию {{ vid
 
 # Как начать работать с видеотрансляцией в {{ video-full-name }}
 
-Чтобы провести [трансляцию](./concepts/index.md#streams) на [канале](./concepts/index.md#channels) сервиса:
+Чтобы провести [трансляцию](./concepts/streams.md#streams) на [канале](./concepts/index.md#channels) сервиса:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте канал](#create-channel).

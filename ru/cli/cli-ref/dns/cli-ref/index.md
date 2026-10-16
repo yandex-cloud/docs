@@ -17,6 +17,10 @@ Syntax:
 
 #### Command Tree
 
+- [yc dns v0](v0/index.md) — Manage DNS resources
+
+
+
 - [yc dns bind-file](bind-file/index.md) — Manage bind file
 
   - [yc dns bind-file migrate-to-terraform](bind-file/migrate-to-terraform.md) — Writes terraform specification to stdout
@@ -74,10 +78,6 @@ Syntax:
   - [yc dns inbound-endpoint set-access-bindings](inbound-endpoint/set-access-bindings.md) — Set access bindings of the specified dns inbound endpoint.
 
   - [yc dns inbound-endpoint update](inbound-endpoint/update.md) — Modify configuration or attributes of a dns inbound endpoint.
-
-- [yc dns v0](v0/index.md) — Manage DNS resources
-
-
 
 - [yc dns zone](zone/index.md) — Manage dns zones
 

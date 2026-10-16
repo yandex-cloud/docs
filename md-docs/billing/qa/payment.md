@@ -1,6 +1,6 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Billing](../index.md) > Вопросы и ответы > Вопросы по оплате
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Billing](../index.md) > Вопросы и ответы > Вопросы об оплате
 
-# Вопросы по оплате
+# Вопросы об оплате
 
 #### Где посмотреть стоимость? {#where-to-see}
 

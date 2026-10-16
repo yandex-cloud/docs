@@ -29,8 +29,6 @@ items:
         href: legal-entity/create-vm.md
       - name: What's next?
         href: legal-entity/what-is-next.md
-  - name: Initial grant
-    href: usage-grant.md
   - name: Trial period
     items:
       - name: How to use the free trial

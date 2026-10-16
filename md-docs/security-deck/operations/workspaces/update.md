@@ -4,7 +4,7 @@
 
 {% note info %}
 
- Для внесения изменений, [активируйте](deactivate-activate.md#acticate) окружение.
+ Для внесения изменений, [активируйте](deactivate-activate.md#activate) окружение.
 
 {% endnote %}
 

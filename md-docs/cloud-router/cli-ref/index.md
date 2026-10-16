@@ -16,6 +16,18 @@ Syntax:
 
 #### Command Tree
 
+- [yc cloudrouter v0](v0/index.md) — (legacy command tree) Manage Cloud Router resources
+
+
+
+- [yc cloudrouter v1](v1/index.md) — Manage Cloud Router resources
+
+
+
+- [yc cloudrouter v2](v2/index.md) — [PREVIEW] Manage Cloud Router resources
+
+
+
 - [yc cloudrouter routing-instance](routing-instance/index.md) — A set of methods for managing RoutingInstance resources.
 
   - [yc cloudrouter routing-instance add-labels](routing-instance/add-labels.md) — Assign labels to a routingInstance.
@@ -53,14 +65,6 @@ Syntax:
   - [yc cloudrouter routing-instance update-prefix-mask](routing-instance/update-prefix-mask.md) — Removes specified PrivateConnection from a RoutingInstance resource.
 
   - [yc cloudrouter routing-instance upsert-prefixes](routing-instance/upsert-prefixes.md) — Upsert announced VPC network prefixes to the routingInstance.
-
-- [yc cloudrouter v0](v0/index.md) — (legacy command tree) Manage Cloud Router resources
-
-
-
-- [yc cloudrouter v1](v1/index.md) — Manage Cloud Router resources
-
-
 
 #### Global Flags
 

@@ -183,52 +183,6 @@ items:
         items:
           - name: Overview
             href: cli-ref/index.md
-          - name: change-freeze
-            items:
-              - name: Overview
-                href: cli-ref/change-freeze/index.md
-              - name: create
-                href: cli-ref/change-freeze/create.md
-              - name: get
-                href: cli-ref/change-freeze/get.md
-              - name: get-limits
-                href: cli-ref/change-freeze/get-limits.md
-              - name: list
-                href: cli-ref/change-freeze/list.md
-              - name: terminate
-                href: cli-ref/change-freeze/terminate.md
-          - name: cluster
-            items:
-              - name: Overview
-                href: cli-ref/cluster/index.md
-              - name: add-access-binding
-                href: cli-ref/cluster/add-access-binding.md
-              - name: create
-                href: cli-ref/cluster/create.md
-              - name: delete
-                href: cli-ref/cluster/delete.md
-              - name: export-data
-                href: cli-ref/cluster/export-data.md
-              - name: get
-                href: cli-ref/cluster/get.md
-              - name: import-data
-                href: cli-ref/cluster/import-data.md
-              - name: list
-                href: cli-ref/cluster/list.md
-              - name: list-access-bindings
-                href: cli-ref/cluster/list-access-bindings.md
-              - name: list-operations
-                href: cli-ref/cluster/list-operations.md
-              - name: remove-access-binding
-                href: cli-ref/cluster/remove-access-binding.md
-              - name: set-access-bindings
-                href: cli-ref/cluster/set-access-bindings.md
-              - name: start
-                href: cli-ref/cluster/start.md
-              - name: stop
-                href: cli-ref/cluster/stop.md
-              - name: update
-                href: cli-ref/cluster/update.md
           - name: v0
             items:
               - name: Overview
@@ -279,6 +233,52 @@ items:
                     href: cli-ref/v0/cluster/stop.md
                   - name: update
                     href: cli-ref/v0/cluster/update.md
+          - name: change-freeze
+            items:
+              - name: Overview
+                href: cli-ref/change-freeze/index.md
+              - name: create
+                href: cli-ref/change-freeze/create.md
+              - name: get
+                href: cli-ref/change-freeze/get.md
+              - name: get-limits
+                href: cli-ref/change-freeze/get-limits.md
+              - name: list
+                href: cli-ref/change-freeze/list.md
+              - name: terminate
+                href: cli-ref/change-freeze/terminate.md
+          - name: cluster
+            items:
+              - name: Overview
+                href: cli-ref/cluster/index.md
+              - name: add-access-binding
+                href: cli-ref/cluster/add-access-binding.md
+              - name: create
+                href: cli-ref/cluster/create.md
+              - name: delete
+                href: cli-ref/cluster/delete.md
+              - name: export-data
+                href: cli-ref/cluster/export-data.md
+              - name: get
+                href: cli-ref/cluster/get.md
+              - name: import-data
+                href: cli-ref/cluster/import-data.md
+              - name: list
+                href: cli-ref/cluster/list.md
+              - name: list-access-bindings
+                href: cli-ref/cluster/list-access-bindings.md
+              - name: list-operations
+                href: cli-ref/cluster/list-operations.md
+              - name: remove-access-binding
+                href: cli-ref/cluster/remove-access-binding.md
+              - name: set-access-bindings
+                href: cli-ref/cluster/set-access-bindings.md
+              - name: start
+                href: cli-ref/cluster/start.md
+              - name: stop
+                href: cli-ref/cluster/stop.md
+              - name: update
+                href: cli-ref/cluster/update.md
       - name: Справочник {{ TF }}
         href: metastore-tf-ref.md
       - name: Справочник API

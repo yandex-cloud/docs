@@ -142,62 +142,6 @@
 
  - [Overview](cli-ref/index.md)
 
-### agent
-
- - [Overview](cli-ref/agent/index.md)
-
- - [debug-info](cli-ref/agent/debug-info.md)
-
- - [install](cli-ref/agent/install.md)
-
- - [install-external](cli-ref/agent/install-external.md)
-
- - [reinstall](cli-ref/agent/reinstall.md)
-
-### backup
-
- - [Overview](cli-ref/backup/index.md)
-
- - [batch-delete](cli-ref/backup/batch-delete.md)
-
- - [delete](cli-ref/backup/delete.md)
-
- - [get](cli-ref/backup/get.md)
-
- - [list](cli-ref/backup/list.md)
-
- - [list-archives](cli-ref/backup/list-archives.md)
-
- - [recover](cli-ref/backup/recover.md)
-
-### policy
-
- - [Overview](cli-ref/policy/index.md)
-
- - [apply](cli-ref/policy/apply.md)
-
- - [create](cli-ref/policy/create.md)
-
- - [delete](cli-ref/policy/delete.md)
-
- - [execute](cli-ref/policy/execute.md)
-
- - [get](cli-ref/policy/get.md)
-
- - [list](cli-ref/policy/list.md)
-
- - [list-applications](cli-ref/policy/list-applications.md)
-
- - [revoke](cli-ref/policy/revoke.md)
-
- - [update](cli-ref/policy/update.md)
-
-### provider
-
- - [Overview](cli-ref/provider/index.md)
-
- - [activate](cli-ref/provider/activate.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -273,6 +217,62 @@
  - [list-policies](cli-ref/v0/vm/list-policies.md)
 
  - [list-tasks](cli-ref/v0/vm/list-tasks.md)
+
+### agent
+
+ - [Overview](cli-ref/agent/index.md)
+
+ - [debug-info](cli-ref/agent/debug-info.md)
+
+ - [install](cli-ref/agent/install.md)
+
+ - [install-external](cli-ref/agent/install-external.md)
+
+ - [reinstall](cli-ref/agent/reinstall.md)
+
+### backup
+
+ - [Overview](cli-ref/backup/index.md)
+
+ - [batch-delete](cli-ref/backup/batch-delete.md)
+
+ - [delete](cli-ref/backup/delete.md)
+
+ - [get](cli-ref/backup/get.md)
+
+ - [list](cli-ref/backup/list.md)
+
+ - [list-archives](cli-ref/backup/list-archives.md)
+
+ - [recover](cli-ref/backup/recover.md)
+
+### policy
+
+ - [Overview](cli-ref/policy/index.md)
+
+ - [apply](cli-ref/policy/apply.md)
+
+ - [create](cli-ref/policy/create.md)
+
+ - [delete](cli-ref/policy/delete.md)
+
+ - [execute](cli-ref/policy/execute.md)
+
+ - [get](cli-ref/policy/get.md)
+
+ - [list](cli-ref/policy/list.md)
+
+ - [list-applications](cli-ref/policy/list-applications.md)
+
+ - [revoke](cli-ref/policy/revoke.md)
+
+ - [update](cli-ref/policy/update.md)
+
+### provider
+
+ - [Overview](cli-ref/provider/index.md)
+
+ - [activate](cli-ref/provider/activate.md)
 
 ### vm
 

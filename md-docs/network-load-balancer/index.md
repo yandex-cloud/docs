@@ -162,60 +162,6 @@ Yandex Network Load Balancer (NLB) предназначен для постро�
 
  - [Overview](cli-ref/index.md)
 
-### network-load-balancer
-
- - [Overview](cli-ref/network-load-balancer/index.md)
-
- - [add-listener](cli-ref/network-load-balancer/add-listener.md)
-
- - [attach-target-group](cli-ref/network-load-balancer/attach-target-group.md)
-
- - [create](cli-ref/network-load-balancer/create.md)
-
- - [delete](cli-ref/network-load-balancer/delete.md)
-
- - [detach-target-group](cli-ref/network-load-balancer/detach-target-group.md)
-
- - [disable-zones](cli-ref/network-load-balancer/disable-zones.md)
-
- - [enable-zones](cli-ref/network-load-balancer/enable-zones.md)
-
- - [get](cli-ref/network-load-balancer/get.md)
-
- - [list](cli-ref/network-load-balancer/list.md)
-
- - [list-operations](cli-ref/network-load-balancer/list-operations.md)
-
- - [remove-listener](cli-ref/network-load-balancer/remove-listener.md)
-
- - [start](cli-ref/network-load-balancer/start.md)
-
- - [stop](cli-ref/network-load-balancer/stop.md)
-
- - [target-states](cli-ref/network-load-balancer/target-states.md)
-
- - [update](cli-ref/network-load-balancer/update.md)
-
-### target-group
-
- - [Overview](cli-ref/target-group/index.md)
-
- - [add-targets](cli-ref/target-group/add-targets.md)
-
- - [create](cli-ref/target-group/create.md)
-
- - [delete](cli-ref/target-group/delete.md)
-
- - [get](cli-ref/target-group/get.md)
-
- - [list](cli-ref/target-group/list.md)
-
- - [list-operations](cli-ref/target-group/list-operations.md)
-
- - [remove-targets](cli-ref/target-group/remove-targets.md)
-
- - [update](cli-ref/target-group/update.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -273,6 +219,60 @@ Yandex Network Load Balancer (NLB) предназначен для постро�
  - [remove-targets](cli-ref/v0/target-group/remove-targets.md)
 
  - [update](cli-ref/v0/target-group/update.md)
+
+### network-load-balancer
+
+ - [Overview](cli-ref/network-load-balancer/index.md)
+
+ - [add-listener](cli-ref/network-load-balancer/add-listener.md)
+
+ - [attach-target-group](cli-ref/network-load-balancer/attach-target-group.md)
+
+ - [create](cli-ref/network-load-balancer/create.md)
+
+ - [delete](cli-ref/network-load-balancer/delete.md)
+
+ - [detach-target-group](cli-ref/network-load-balancer/detach-target-group.md)
+
+ - [disable-zones](cli-ref/network-load-balancer/disable-zones.md)
+
+ - [enable-zones](cli-ref/network-load-balancer/enable-zones.md)
+
+ - [get](cli-ref/network-load-balancer/get.md)
+
+ - [list](cli-ref/network-load-balancer/list.md)
+
+ - [list-operations](cli-ref/network-load-balancer/list-operations.md)
+
+ - [remove-listener](cli-ref/network-load-balancer/remove-listener.md)
+
+ - [start](cli-ref/network-load-balancer/start.md)
+
+ - [stop](cli-ref/network-load-balancer/stop.md)
+
+ - [target-states](cli-ref/network-load-balancer/target-states.md)
+
+ - [update](cli-ref/network-load-balancer/update.md)
+
+### target-group
+
+ - [Overview](cli-ref/target-group/index.md)
+
+ - [add-targets](cli-ref/target-group/add-targets.md)
+
+ - [create](cli-ref/target-group/create.md)
+
+ - [delete](cli-ref/target-group/delete.md)
+
+ - [get](cli-ref/target-group/get.md)
+
+ - [list](cli-ref/target-group/list.md)
+
+ - [list-operations](cli-ref/target-group/list-operations.md)
+
+ - [remove-targets](cli-ref/target-group/remove-targets.md)
+
+ - [update](cli-ref/target-group/update.md)
 
  - [Справочник Terraform](tf-ref.md)
 

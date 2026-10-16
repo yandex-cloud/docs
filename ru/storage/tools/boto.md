@@ -29,7 +29,7 @@ description: Из статьи вы узнаете, что такое boto3 и b
 
 - {{ sf-full-name }} {#functions}
   
-  В функцию {{ sf-name }} [добавьте переменные окружения](../../functions/operations/function/version-manage#version-env):
+  В функцию {{ sf-name }} [добавьте переменные окружения](../../functions/concepts/runtime/environment-variables.md):
 
   * `AWS_ACCESS_KEY_ID` — идентификатор статического ключа сервисного аккаунта.
   * `AWS_SECRET_ACCESS_KEY` — секретный ключ.

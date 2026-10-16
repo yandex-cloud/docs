@@ -1,1 +1,1 @@
-Для отправки логов в {{ cloud-logging-full-name }} [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [{{ roles-logging-writer }}](../../logging/security/index.md#loggingwriter).
+Для отправки логов в {{ cloud-logging-full-name }} [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [{{ roles-logging-writer }}](../../logging/security/index.md#logging-writer).

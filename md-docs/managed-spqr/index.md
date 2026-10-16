@@ -84,114 +84,6 @@ SPQR (Stateless Postgres Query Router) — это система горизон�
 
  - [Overview](cli-ref/index.md)
 
-### backup
-
- - [Overview](cli-ref/backup/index.md)
-
- - [delete](cli-ref/backup/delete.md)
-
- - [get](cli-ref/backup/get.md)
-
- - [list](cli-ref/backup/list.md)
-
-### change-freeze
-
- - [Overview](cli-ref/change-freeze/index.md)
-
- - [create](cli-ref/change-freeze/create.md)
-
- - [get](cli-ref/change-freeze/get.md)
-
- - [get-limits](cli-ref/change-freeze/get-limits.md)
-
- - [list](cli-ref/change-freeze/list.md)
-
- - [terminate](cli-ref/change-freeze/terminate.md)
-
-### cluster
-
- - [Overview](cli-ref/cluster/index.md)
-
- - [add-labels](cli-ref/cluster/add-labels.md)
-
- - [add-subcluster](cli-ref/cluster/add-subcluster.md)
-
- - [backup](cli-ref/cluster/backup.md)
-
- - [create](cli-ref/cluster/create.md)
-
- - [delete](cli-ref/cluster/delete.md)
-
- - [get](cli-ref/cluster/get.md)
-
- - [list](cli-ref/cluster/list.md)
-
- - [list-backups](cli-ref/cluster/list-backups.md)
-
- - [list-logs](cli-ref/cluster/list-logs.md)
-
- - [list-operations](cli-ref/cluster/list-operations.md)
-
- - [remove-labels](cli-ref/cluster/remove-labels.md)
-
- - [reschedule-maintenance](cli-ref/cluster/reschedule-maintenance.md)
-
- - [restore](cli-ref/cluster/restore.md)
-
- - [update](cli-ref/cluster/update.md)
-
- - [update-config](cli-ref/cluster/update-config.md)
-
-### database
-
- - [Overview](cli-ref/database/index.md)
-
- - [create](cli-ref/database/create.md)
-
- - [delete](cli-ref/database/delete.md)
-
- - [get](cli-ref/database/get.md)
-
- - [list](cli-ref/database/list.md)
-
-### hosts
-
- - [Overview](cli-ref/hosts/index.md)
-
- - [add](cli-ref/hosts/add.md)
-
- - [delete](cli-ref/hosts/delete.md)
-
- - [list](cli-ref/hosts/list.md)
-
- - [update](cli-ref/hosts/update.md)
-
-### maintenance
-
- - [Overview](cli-ref/maintenance/index.md)
-
- - [get](cli-ref/maintenance/get.md)
-
- - [list](cli-ref/maintenance/list.md)
-
- - [reschedule](cli-ref/maintenance/reschedule.md)
-
- - [resource-preset](cli-ref/resource-preset.md)
-
-### user
-
- - [Overview](cli-ref/user/index.md)
-
- - [create](cli-ref/user/create.md)
-
- - [delete](cli-ref/user/delete.md)
-
- - [get](cli-ref/user/get.md)
-
- - [list](cli-ref/user/list.md)
-
- - [update](cli-ref/user/update.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -303,6 +195,114 @@ SPQR (Stateless Postgres Query Router) — это система горизон�
  - [list](cli-ref/v0/user/list.md)
 
  - [update](cli-ref/v0/user/update.md)
+
+### backup
+
+ - [Overview](cli-ref/backup/index.md)
+
+ - [delete](cli-ref/backup/delete.md)
+
+ - [get](cli-ref/backup/get.md)
+
+ - [list](cli-ref/backup/list.md)
+
+### change-freeze
+
+ - [Overview](cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/change-freeze/terminate.md)
+
+### cluster
+
+ - [Overview](cli-ref/cluster/index.md)
+
+ - [add-labels](cli-ref/cluster/add-labels.md)
+
+ - [add-subcluster](cli-ref/cluster/add-subcluster.md)
+
+ - [backup](cli-ref/cluster/backup.md)
+
+ - [create](cli-ref/cluster/create.md)
+
+ - [delete](cli-ref/cluster/delete.md)
+
+ - [get](cli-ref/cluster/get.md)
+
+ - [list](cli-ref/cluster/list.md)
+
+ - [list-backups](cli-ref/cluster/list-backups.md)
+
+ - [list-logs](cli-ref/cluster/list-logs.md)
+
+ - [list-operations](cli-ref/cluster/list-operations.md)
+
+ - [remove-labels](cli-ref/cluster/remove-labels.md)
+
+ - [reschedule-maintenance](cli-ref/cluster/reschedule-maintenance.md)
+
+ - [restore](cli-ref/cluster/restore.md)
+
+ - [update](cli-ref/cluster/update.md)
+
+ - [update-config](cli-ref/cluster/update-config.md)
+
+### database
+
+ - [Overview](cli-ref/database/index.md)
+
+ - [create](cli-ref/database/create.md)
+
+ - [delete](cli-ref/database/delete.md)
+
+ - [get](cli-ref/database/get.md)
+
+ - [list](cli-ref/database/list.md)
+
+### hosts
+
+ - [Overview](cli-ref/hosts/index.md)
+
+ - [add](cli-ref/hosts/add.md)
+
+ - [delete](cli-ref/hosts/delete.md)
+
+ - [list](cli-ref/hosts/list.md)
+
+ - [update](cli-ref/hosts/update.md)
+
+### maintenance
+
+ - [Overview](cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/maintenance/reschedule.md)
+
+ - [resource-preset](cli-ref/resource-preset.md)
+
+### user
+
+ - [Overview](cli-ref/user/index.md)
+
+ - [create](cli-ref/user/create.md)
+
+ - [delete](cli-ref/user/delete.md)
+
+ - [get](cli-ref/user/get.md)
+
+ - [list](cli-ref/user/list.md)
+
+ - [update](cli-ref/user/update.md)
 
  - [Справочник Terraform](tf-ref.md)
 

@@ -71,7 +71,7 @@ blocks:
 ## Тарифы отдельных сервисов {#billable}
 
 
-Стоимость тарифицируемых сервисов рассчитывается на основе количества потребленных ресурсов и времени потребления. Каждый сервис реализует собственную логику подсчета потребленных ресурсов.
+Для большинства сервисов Yandex Cloud используется модель оплаты [Pay as you go](concepts/payg.md). Стоимость тарифицируемых сервисов рассчитывается на основе количества потребленных ресурсов и времени потребления. Каждый сервис реализует собственную логику подсчета потребленных ресурсов.
 
 Окончательная сумма рассчитывается в течение 7 дней после завершения [отчетного периода](concepts/reporting-period.md). Указанные суммы предварительные и могут быть скорректированы. Итоговая сумма к оплате будет указана в [отчетных документах](payment/documents.md).
 
@@ -106,10 +106,10 @@ blocks:
 * [Yandex Cloud Stackland](../stackland/pricing.md)
 * [Yandex Cloud Video](../video/pricing.md)
 * [Yandex Compute Cloud](../compute/pricing.md)
-    * [Вычислительные ресурсы ВМ](../compute/pricing.md#prices-instance-resources)
-    * [Кластеры GPU](../compute/pricing.md#prices-gpu-clusters)
-    * [Диски, снимки и образы](../compute/pricing.md#prices-storage)
-    * [Файловые хранилища](../compute/pricing.md#prices-nfs)
+    * [Вычислительные ресурсы ВМ](../compute/pricing.md#instance-resources)
+    * [Кластеры GPU](../compute/pricing.md#prices)
+    * [Диски, снимки и образы](../compute/pricing.md#disk)
+    * [Файловые хранилища](../compute/pricing.md#prices)
 * [Yandex Container Registry](../container-registry/pricing.md)
 * [Yandex Data Processing](../data-proc/pricing.md)
 * [Yandex Data Streams](../data-streams/pricing.md)
@@ -137,8 +137,8 @@ blocks:
 * [Yandex Message Queue](../message-queue/pricing.md)
 * [Yandex MetaData Hub](../metadata-hub/pricing.md)
 * [Yandex Monitoring](../monitoring/pricing.md)
-    * [Monitoring API](../monitoring/pricing.md#monitoring-api)
-    * [Prometheus Remote API](../monitoring/pricing.md#prometheus-remote-api)
+    * [Monitoring API](../monitoring/pricing.md#rules)
+    * [Prometheus Remote API](../monitoring/pricing.md#rules)
 * [Yandex Network Load Balancer](../network-load-balancer/pricing.md)
 * [Yandex MPP Analytics for PostgreSQL](../managed-greenplum/pricing/index.md)
 * [Yandex Object Storage](../storage/pricing.md)

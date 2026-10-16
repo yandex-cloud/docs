@@ -242,9 +242,9 @@ vpc:
 Где:
 * `folder_id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога.
 * `vpc_net_id` — [идентификатор](../operations/network-get-info.md) облачной сети.
-* `vpc_subnets` — список [анонсируемых](../../interconnect/concepts/priv-con.md#prc-announce) адресных префиксов для каждой из [зон доступности](../../overview/concepts/geo-scope.md). Например, для созданной ранее подсети VPC вы укажете `ru-central1-b: [192.168.11.0/24]`.
+* `vpc_subnets` — список [анонсируемых](../../cloud-router/concepts/announces.md#prc-announce) адресных префиксов для каждой из [зон доступности](../../overview/concepts/geo-scope.md). Например, для созданной ранее подсети VPC вы укажете `ru-central1-b: [192.168.11.0/24]`.
 
-    Допускается анонсирование адресных префиксов с [агрегированием](../../interconnect/concepts/priv-con.md#agg-subnets).
+    Допускается анонсирование адресных префиксов с [агрегированием](../../cloud-router/concepts/aggregates.md#agg-subnets).
 
 {% note info %}
 
@@ -300,7 +300,7 @@ vpc:
 
           Вы также можете выбрать вариант `Выбрать из каталога`. В этом случае в появившемся списке выберите нужный `Routing Instance`.
 
-          В результате в форме отобразятся CIDR подсетей Virtual Private Cloud, которые будут [анонсироваться](../../interconnect/concepts/priv-con.md#prc-announce) в Cloud Interconnect.
+          В результате в форме отобразятся CIDR подсетей Virtual Private Cloud, которые будут [анонсироваться](../../cloud-router/concepts/announces.md#prc-announce) в Cloud Interconnect.
 
           {% note warning %}
           

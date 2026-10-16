@@ -1,17 +1,6 @@
----
-title: OpenVPN. Создание VPN-соединения
-keywords:
-  - openvpn
-  - openvpn настроить
-  - open vpn
-  - vpn server setup
-  - vpn connection
-  - vpn соединение
----
-
 # Соединение с облачной сетью при помощи OpenVPN
 
-С помощью туннелей на порт TCP или UDP и асимметричного шифрования можно создавать виртуальные сети. [VPN](../../glossary/vpn.md) может быть использован, например, чтобы:
+С помощью туннелей на порт TCP или UDP и асимметричного шифрования можно создавать виртуальные сети. Например, [VPN](../../glossary/vpn.md) позволяет:
 
 * объединить территориально удаленные сети;
 * подключить внештатных сотрудников к офисной сети;
@@ -19,7 +8,7 @@ keywords:
 
 Продукт [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) совместим с [открытой версией](https://github.com/OpenVPN) OpenVPN и построен на ее основе. Он предоставляет клиенты для Windows, Mac, Android и iOS, а также позволяет управлять подключениями с помощью веб-интерфейса.
 
-Ниже показан пример настройки автоподключения, а также по логину и паролю. Чтобы создать виртуальную сеть:
+Ниже показан пример настройки VPN-подключения двумя способами: автоматически и по логину с паролем. Чтобы создать виртуальную сеть:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте подсети и тестовую ВМ](#create-environment).
@@ -46,7 +35,7 @@ keywords:
 
 ## Создайте подсети и тестовую ВМ {#create-environment}
 
-Для связи облачных ресурсов с интернетом необходимо иметь созданные [сети](../../vpc/operations/network-create.md) и [подсети](../../vpc/operations/subnet-create.md).
+Для связи облачных ресурсов с интернетом [создайте сеть](../../vpc/operations/network-create.md) и [подсеть](../../vpc/operations/subnet-create.md).
 
 Создайте тестовую [виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) без публичного IP-адреса и подключите ее к подсети.
 
@@ -107,8 +96,8 @@ keywords:
 
 ## Подключитесь к VPN {#test-vpn}
 
-В панели пользователя можно загрузить [OpenVPN Connect](https://openvpn.net/vpn-client/) для Windows, Linux, MacOS, Android, iOS. Также для подключения можно использовать [OpenSource-клиенты](https://openvpn.net/source-code/).
- 
+В панели пользователя можно загрузить [OpenVPN Connect](https://openvpn.net/vpn-client/) для Windows, Linux, macOS, Android, iOS. Также для подключения можно использовать [OpenSource-клиенты](https://openvpn.net/source-code/).
+
 Чтобы убедиться, что соединение устанавливается и работает, подключитесь к VPN и выполните команду `ping` для внутреннего адреса тестовой ВМ:
 
 {% list tabs group=operating_system %}
@@ -138,7 +127,7 @@ keywords:
       * Откройте в браузере панель пользователя по адресу `https://<публичный_IP-адрес_ВМ>/`.
       * Войдите с помощью логина `test-user` и пароля.
       * В блоке **Available Connection Profiles** нажмите **Yourself (autologin profile)** и загрузите файл `profile-1.ovpn`.
-      * Также файл конфигурации можно скачать в панели администратора по адресу `https://<<публичный_IP-адрес_ВМ>/admin/`.
+      * Также файл конфигурации можно скачать в панели администратора по адресу `https://<публичный_IP-адрес_ВМ>/admin/`.
 
    1. Загрузите профиль конфигурации на машину с Linux:
 
@@ -152,15 +141,15 @@ keywords:
       sudo mv /home/user/profile-1.ovpn /etc/openvpn
       ```
 
-   1. Поменяйте расширение файла `ovpn` на `conf`:
+   1. Измените расширение файла профиля конфигурации с `ovpn` на `conf`:
 
       ```bash
       sudo mv /etc/openvpn/profile-1.ovpn /etc/openvpn/profile-1.conf
       ```
 
    1. Закройте доступ к файлу:
- 
-      ```bash
+
+       ```bash
       sudo chown root:root /etc/openvpn/profile-1.conf
       sudo chmod 600 /etc/openvpn/profile-1.conf
       ```
@@ -172,7 +161,7 @@ keywords:
       ```
 
       Результат:
-   
+
       ```text
       2022-04-05 15:35:49 DEPRECATED OPTION: --cipher set to 'AES-256-CBC' but missing in --data-ciphers (AES-256-GCM:AES-128-GCM). Future OpenVPN version will ignore --cipher for cipher negotiations. Add 'AES-256-CBC' to --data-ciphers or change --cipher 'AES-256-CBC' to --data-ciphers-fallback 'AES-256-CBC' to silence this warning.
       2022-04-05 15:35:49 OpenVPN 2.5.1 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [LZ4] [EPOLL] [PKCS11] [MH/PKTINFO] [AEAD] built on May 14 2021
@@ -197,7 +186,7 @@ keywords:
 
       Если команда выполняется, доступ к ВМ через VPN есть.
 
-   1. Чтобы прервать подключение, установленное вручную, нажмите  **Ctrl** + **C**.
+   1. Чтобы прервать подключение, установленное вручную, нажмите **Ctrl** + **C**.
 
 - Windows {#windows}
 
@@ -227,7 +216,7 @@ keywords:
 
    1. VPN-соединение включится автоматически, если в профиле пользователя разрешен автоматический вход.
 
-   1. В приложение можно импортировать новый профиль конфигурации. Для этого укажите адрес `https://<<публичный_IP-адрес_ВМ>/` или выберите файл с профилем.
+   1. В приложение можно импортировать новый профиль конфигурации. Для этого укажите адрес `https://<публичный_IP-адрес_ВМ>/` или выберите файл с профилем.
 
    1. Откройте терминал и выполните команду `ping <внутренний_IP-адрес_тестовой_ВМ>`. Если команда выполняется, доступ к ВМ через VPN есть.
 
@@ -245,5 +234,4 @@ keywords:
 * [OpenVPN Project Wiki](https://community.openvpn.net/openvpn/wiki)
 * [{#T}](../../certificate-manager/operations/managed/cert-get-content.md)
 * [Connecting to Access Server](https://openvpn.net/vpn-server-resources/connecting-to-access-server-with-linux/#openvpn-open-source-openvpn-cli-program)
-
 

@@ -24,7 +24,7 @@ description: Следуя данной инструкции, вы сможете
         * **{{ ui-key.yacloud.dns.label_create-subdomain }}** — укажите доменное имя записи.
         * **{{ ui-key.yacloud.dns.label_fqdn-equal-to-zone }}** — используйте, если хотите, чтобы имя совпадало с именем зоны.
      1. (Опционально) Добавьте описание.
-     1. Выберите [тип записи](../concepts/resource-record.md#rr-types) в выпадающем списке.
+     1. Выберите [тип записи](../concepts/resource-record.md) в выпадающем списке.
      1. Введите **{{ ui-key.yacloud.dns.label_records }}** записи.
      1. В поле **{{ ui-key.yacloud.dns.label_form-ttl }}** укажите время жизни записи или выберите из предложенных.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.

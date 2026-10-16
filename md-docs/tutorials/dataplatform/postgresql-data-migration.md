@@ -39,8 +39,18 @@
 # Миграция данных с использованием сервиса Yandex Data Transfer {#data-transfer}
 
 
+### Перед началом работы {#before-you-begin-dt}
 
-### Необходимые платные ресурсы {#paid-resources}
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+
+#### Необходимые платные ресурсы {#paid-resources-dt}
 
 * Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
@@ -60,17 +70,32 @@
         1. [Подготовьте кластер-приемник](../../data-transfer/operations/prepare.md#target-pg).
         1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create) со следующими параметрами:
 
+             * **Направление** — `Источник`.
+             * Укажите имя эндпоинта.
              * **Тип базы данных** — `PostgreSQL`.
-             * **Параметры эндпоинта** → **Настройки подключения** — `Пользовательская инсталляция`.
+             * **Параметры эндпоинта**:
 
-           Укажите параметры подключения к кластеру-источнику.
+                 * **Тип подключения** — выберите `Ручная настройка`.
+                 * **Настройки подключения** — выберите `Пользовательская инсталляция`.
+                 * **Хост** — укажите IP-адрес или FQDN хоста-мастера кластера-источника.
+                 * **Порт** — укажите номер порта для подключения к кластеру-источнику.
+                 * **База данных** — укажите имя БД.
+                 * **Пользователь** — укажите имя пользователя БД.
+                 * **Пароль** — укажите пароль пользователя.
 
         1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create) со следующими параметрами:
 
+             * **Направление** — `Приёмник`.
+             * Укажите имя эндпоинта.
              * **Тип базы данных** — `PostgreSQL`.
-             * **Параметры эндпоинта** → **Настройки подключения** — `Кластер Managed Service for PostgreSQL`.
+             * **Параметры эндпоинта**:
 
-           Укажите идентификатор кластера-приемника.
+                 * **Тип подключения** — выберите `Ручная настройка`.
+                 * **Настройки подключения** — выберите `Кластер Managed Service for PostgreSQL`.
+                 * **Кластер управляемой БД** — выберите кластер-приемник из списка.
+                 * **База данных** — укажите имя нужной БД.
+                 * **Пользователь** — укажите имя пользователя БД.
+                 * **Пароль** — укажите пароль пользователя.
 
         1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа _**Копирование и репликация**_, использующий созданные эндпоинты.
         1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate).
@@ -153,39 +178,41 @@
     Подробнее о статусах трансфера смотрите в разделе [Жизненный цикл трансфера](../../data-transfer/concepts/transfer-lifecycle.md#statuses).
 
 
-1. Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
+### Удалите созданные ресурсы {#clear-out-dt}
 
-    {% list tabs group=instructions %}
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
-    - Ресурсы созданы вручную {#manual}
+{% list tabs group=instructions %}
 
-        1. [Удалите кластер Managed Service for PostgreSQL](../../managed-postgresql/operations/cluster-delete.md).
-        1. [Удалите остановленный трансфер](../../data-transfer/operations/transfer.md#delete).
-        1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
+- Ресурсы созданы вручную {#manual}
 
-    - Ресурсы созданы с помощью Terraform {#tf}
+    1. [Удалите](../../data-transfer/operations/transfer.md#delete) остановленный трансфер.
+    1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
+    1. [Удалите кластер Managed Service for PostgreSQL](../../managed-postgresql/operations/cluster-delete.md).
 
-        1. В терминале перейдите в директорию с планом инфраструктуры.
-        
-            {% note warning %}
-        
-            Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
-        
-            {% endnote %}
-        
-        1. Удалите ресурсы:
-        
-            1. Выполните команду:
-        
-                ```bash
-                terraform destroy
-                ```
-        
-            1. Подтвердите удаление ресурсов и дождитесь завершения операции.
-        
-            Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+- Ресурсы созданы с помощью Terraform {#tf}
 
-    {% endlist %}
+    1. В терминале перейдите в директорию с планом инфраструктуры.
+    
+        {% note warning %}
+    
+        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+    
+        {% endnote %}
+    
+    1. Удалите ресурсы:
+    
+        1. Выполните команду:
+    
+            ```bash
+            terraform destroy
+            ```
+    
+        1. Подтвердите удаление ресурсов и дождитесь завершения операции.
+    
+        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+
+{% endlist %}
 
 ## Перенос данных с помощью логической репликации {#logical-replication}
 
@@ -195,6 +222,7 @@
 
 Этапы миграции:
 
+1. [Подготовьте инфраструктуру](#prepare-infra-logical).
 1. [Настройте кластер-источник](#source-setup).
 1. [Экспортируйте схему БД в кластере-источнике](#source-schema-export).
 1. [Восстановите схему БД в кластере-приемнике](#restore-schema).
@@ -204,14 +232,24 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out-logical).
 
+### Перед началом работы {#before-you-begin-logical}
 
-### Необходимые платные ресурсы {#paid-resources}
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+
+#### Необходимые платные ресурсы {#paid-resources-logical}
 
 * Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
 
-### Перед началом работы {#before-you-begin-logical}
+### Подготовьте инфраструктуру {#prepare-infra-logical}
 
 Создайте необходимые ресурсы:
 
@@ -518,21 +556,32 @@ pg_restore -h <IP-адрес_или_FQDN_хоста-мастера_класте�
 
 Этапы миграции:
 
+1. [Подготовьте инфраструктуру](#prepare-infra-backup).
 1. [Создайте дамп переносимой базы](#dump).
 1. [(Опционально) Создайте виртуальную машину в Yandex Cloud и загрузите дамп БД на нее](#create-vm).
 1. [Восстановите данные из дампа в кластер-приемник](#restore).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out-backup).
 
+### Перед началом работы {#before-you-begin-backup}
 
-### Необходимые платные ресурсы {#paid-resources}
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+
+#### Необходимые платные ресурсы {#paid-resources-backup}
 
 * Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 * Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы Compute Cloud](../../compute/pricing.md)).
 
 
-### Перед началом работы {#before-you-begin-backup}
+### Подготовьте инфраструктуру {#prepare-infra-backup}
 
 Создайте необходимые ресурсы:
 
@@ -547,7 +596,7 @@ pg_restore -h <IP-адрес_или_FQDN_хоста-мастера_класте�
 
             {% note info %}
             
-            Вы можете использовать различные имена пользователей для источника и приемника, но это может привести к ошибке при восстановлении дампа. Подробнее читайте в разделе [Перемещение и восстановление кластера PostgreSQL](../../managed-postgresql/qa/backup.md#backup-error)
+            Вы можете использовать различные имена пользователей для источника и приемника, но это может привести к ошибке при восстановлении дампа. Подробнее читайте в разделе [Сообщения об ошибках в Managed Service for PostgreSQL](../../managed-postgresql/qa/errors.md#backup-error)
             
             {% endnote %}
 
@@ -565,7 +614,7 @@ pg_restore -h <IP-адрес_или_FQDN_хоста-мастера_класте�
             * **Публичный IP-адрес** — выберите `Автоматически` или один адрес из списка зарезервированных IP-адресов.
 
     
-    1. Если вы используете группы безопасности для промежуточной виртуальной машины и кластера Managed Service for PostgreSQL, [настройте их](../../managed-postgresql/operations/connect/index.md#configure-security-groups).
+    1. Если вы используете группы безопасности для промежуточной виртуальной машины и кластера Managed Service for PostgreSQL, [настройте их](../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
 
 
 - Terraform {#tf}
@@ -596,7 +645,7 @@ pg_restore -h <IP-адрес_или_FQDN_хоста-мастера_класте�
 
                 {% note info %}
                 
-                Вы можете использовать различные имена пользователей для источника и приемника, но это может привести к ошибке при восстановлении дампа. Подробнее читайте в разделе [Перемещение и восстановление кластера PostgreSQL](../../managed-postgresql/qa/backup.md#backup-error)
+                Вы можете использовать различные имена пользователей для источника и приемника, но это может привести к ошибке при восстановлении дампа. Подробнее читайте в разделе [Сообщения об ошибках в Managed Service for PostgreSQL](../../managed-postgresql/qa/errors.md#backup-error)
                 
                 {% endnote %}
 

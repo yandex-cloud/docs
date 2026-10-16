@@ -145,7 +145,7 @@ noIndex: true
 
       ```bash
       WAL_G_BIN=wal-g-mongo ./s3_test_script.sh */etc/wal-g/wal-g.yaml* basebackups_005 # проверяет копии
-      WAL_G_BIN=wal-g-mongo ./s3_test_script.sh */etc/wal-g/wal-g.yaml* wal_005 # проверяет WAL
+      WAL_G_BIN=wal-g-mongo ./s3_test_script.sh */etc/wal-g/wal-g.yaml* oplog_005 # проверяет архив журнала операций
       ```
 
       Пример вывода:

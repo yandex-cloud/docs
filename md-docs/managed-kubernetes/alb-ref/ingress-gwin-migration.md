@@ -22,7 +22,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Для работы скрипта конвертации в кластере должны быть описаны все [custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) из группы API `ingress.alb.yc.io`. Убедитесь, что установленный Helm-чарт с Ingress-контроллером имеет версию `0.2.9` или выше, либо установите [актуальные конфигурации ресурсов](index.md#ingress) вручную.
+Для работы скрипта конвертации в кластере должны быть описаны все [custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) из группы API `ingress.alb.yc.io`. Убедитесь, что установленный Helm-чарт с Ingress-контроллером имеет версию `0.2.9` или выше, либо установите [актуальные конфигурации ресурсов](ingress-controller/index.md) вручную.
 
 ## Установите Gwin {#gwin-install}
 

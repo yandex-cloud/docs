@@ -2,7 +2,7 @@
 
 # Настройка дашбордов и алертов в Yandex Monitoring
 
-Из руководства вы узнаете, как отслеживать состояние [трейлов](../../audit-trails/concepts/trail.md) с помощью [дашбордов](../concepts/visualization/dashboard.md) и [алертов](../concepts/alerting.md#alert) [Yandex Monitoring](../index.md).
+Из руководства вы узнаете, как отслеживать состояние [трейлов](../../audit-trails/concepts/trail.md) с помощью [дашбордов](../concepts/visualization/dashboard.md) и [алертов](../concepts/alerting/alert.md) [Yandex Monitoring](../index.md).
 
 Руководство предполагает, что у вас уже развернута инфраструктура: 
 
@@ -39,7 +39,7 @@
 
 Вы можете настроить один или несколько алертов.
 
-Более подробная информация о порядке [создания алерта](../operations/alert/create-alert.md) и о [параметрах алерта](../concepts/alerting.md#alert-parameters) приведена в документации Yandex Monitoring.
+Более подробная информация о порядке [создания алерта](../operations/alert/create-alert.md) и о [параметрах алерта](../concepts/alerting/alert.md#alert-parameters) приведена в документации Yandex Monitoring.
 
 #### Переход трейла в неактивное состояние {#deactivating-trail}
 

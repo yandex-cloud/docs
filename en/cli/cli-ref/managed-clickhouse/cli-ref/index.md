@@ -19,6 +19,10 @@ Aliases:
 
 #### Command Tree
 
+- [yc managed-clickhouse v0](v0/index.md) — Manage ClickHouse clusters, hosts, databases, backups, users and ml-models.
+
+  - [yc managed-clickhouse v0 connect](v0/connect.md) — Connect to ClickHouse cluster with iam-auth
+
 - [yc managed-clickhouse connect](connect.md) — Connect to ClickHouse cluster with iam-auth
 
 - [yc managed-clickhouse backup](backup/index.md) — Manage ClickHouse backups.
@@ -232,10 +236,6 @@ Aliases:
   - [yc managed-clickhouse user update](user/update.md) — Modify attributes of a ClickHouse user.
 
   - [yc managed-clickhouse user update-quota](user/update-quota.md) — Update ClickHouse user quota by interval.
-
-- [yc managed-clickhouse v0](v0/index.md) — Manage ClickHouse clusters, hosts, databases, backups, users and ml-models.
-
-  - [yc managed-clickhouse v0 connect](v0/connect.md) — Connect to ClickHouse cluster with iam-auth
 
 - [yc managed-clickhouse version](version/index.md) — Manage available ClickHouse versions.
 

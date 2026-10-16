@@ -196,7 +196,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
     1. Create a configuration file with a description of your transfer.
 
-       Here is an example of the configuration file structure:
+       Configuration file structure example:
 
        ```hcl
        resource "yandex_datatransfer_transfer" "<transer_name_in_{{ TF }}>" {
@@ -211,7 +211,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
        Where:
        
-       * `type`: Transfer type. The possible values are as follows:
+       * `type`: Transfer type. The possible values are:
          
          * `SNAPSHOT_ONLY`: Copying.
          * `INCREMENT_ONLY`: Replication.
@@ -318,7 +318,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -333,7 +333,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
     * Transfer name in the `name` parameter.
     * Source endpoint ID in the `sourceId` parameter.
     * Target endpoint ID in the `targetId` parameter.
-    * Transfer type in the `type` parameter. The possible values are as follows:
+    * Transfer type in the `type` parameter. The possible values are:
       
       * `SNAPSHOT_ONLY`: Copying.
       * `INCREMENT_ONLY`: Replication.
@@ -356,7 +356,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
     * Transfer name in the `name` parameter.
     * Source endpoint ID in the `source_id` parameter.
     * Target endpoint ID in the `target_id` parameter.
-    * Transfer type in the `type` parameter. The possible values are as follows:
+    * Transfer type in the `type` parameter. The possible values are:
       
       * `SNAPSHOT_ONLY`: Copying.
       * `INCREMENT_ONLY`: Replication.
@@ -484,7 +484,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -556,6 +556,8 @@ When updating a transfer, its settings are applied immediately. Editing {{ dt-ty
 
 ## Activating a transfer {#activate}
 
+Each new transfer needs activation, except for an `INCREMENT_ONLY` or `SNAPSHOT_AND_INCREMENT` type transfer [created](../operations/transfer.md#create) using Terraform.
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -593,13 +595,13 @@ When updating a transfer, its settings are applied immediately. Editing {{ dt-ty
 
 ## Deactivating a transfer {#deactivate}
 
-During transfer deactivation:
+During transfer deactivation, the system performs actions to clean up the execution artifacts. For example:
 
-* The replication slot on the source is disabled.
-* Temporary data transfer logs are deleted.
-* The target is brought into the aligned state:
-    * The data schema objects of the source are transferred for the final stage.
-    * Indexes are created.
+* Disables the replication slot on the source (for the {{ dt-type-copy-repl }} type).
+* Deletes temporary data transfer logs.
+* Synchronizes the target:
+    * Transfers the data schema objects of the source for the final deactivation stage.
+    * Creates indexes.
 
 {% list tabs group=instructions %}
 
@@ -645,6 +647,7 @@ For more information, see [{#T}](../concepts/transfer-lifecycle.md).
 
 
 {% include [use-mobile-app](../../_includes/data-transfer/use-mobile-app.md) %}
+
 
 
 ## Deleting a transfer {#delete}

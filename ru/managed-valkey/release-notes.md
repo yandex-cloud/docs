@@ -42,7 +42,7 @@ description: В разделе представлена история изме�
 
 ## Декабрь 2025 {#dec-2025}
 
-* Добавлены [детальные метрики](operations/monitoring.md#hosts) использования дисков в хостах кластера.
+* Добавлены [детальные метрики](operations/monitoring.md#monitoring-hosts) использования дисков в хостах кластера.
 * Добавлена детализация выполнения [операций над кластером](operations/cluster-list.md#list-operations).
 * Все новые кластеры по умолчанию создаются с [подключением {{ connection-manager-name }}](../metadata-hub/concepts/connection-manager.md).
 
@@ -93,7 +93,7 @@ description: В разделе представлена история изме�
 ## I квартал 2023 {#q1-2023}
 
 * Доступна новая версия Redis 7.0. Информация об изменениях приведена в [документации Redis](https://raw.githubusercontent.com/redis/redis/7.0/00-RELEASENOTES).
-* Добавлена интеграция агента `rdsync`, повышающего [отказоустойчивость](concepts/replication.md#availability) кластеров с Redis версии 7.0.
+* Добавлена интеграция агента `rdsync`, повышающего [отказоустойчивость](concepts/replication.md#rdsync) кластеров с Redis версии 7.0.
 
 ## II квартал 2022 {#q2-2022}
 

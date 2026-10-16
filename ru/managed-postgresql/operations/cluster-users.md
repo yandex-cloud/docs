@@ -112,7 +112,7 @@ description: Из статьи вы узнаете, как добавлять и
 
            * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}** — ввести свой пароль. Длина пароля — от 8 до 128 символов.
 
-           * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — сгенерировать пароль с помощью сервиса [{{ connection-manager-name }}](cluster-create.md#conn-man).
+           * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — сгенерировать пароль с помощью сервиса [{{ connection-manager-name }}](update.md#conn-man).
 
            Чтобы увидеть пароль, на странице кластера выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нового пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
@@ -165,7 +165,7 @@ description: Из статьи вы узнаете, как добавлять и
   * `password` — пароль для пользователя. Длина пароля — от 8 до 128 символов.
 
       
-      Пароль также можно сгенерировать с помощью сервиса [{{ connection-manager-name }}](cluster-create.md#conn-man). Для этого вместо `--password=<пароль>` укажите `--generate-password`.
+      Пароль также можно сгенерировать с помощью сервиса [{{ connection-manager-name }}](update.md#conn-man). Для этого вместо `--password=<пароль>` укажите `--generate-password`.
 
       Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите нужный кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нового пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
@@ -272,7 +272,7 @@ description: Из статьи вы узнаете, как добавлять и
      * `password` — пароль пользователя. Длина пароля — от 8 до 128 символов.
 
         
-        Пароль также можно сгенерировать с помощью сервиса [{{ connection-manager-name }}](cluster-create.md#conn-man). Для этого вместо `"password": "<пароль_пользователя>"` укажите `"generatePassword": true`.
+        Пароль также можно сгенерировать с помощью сервиса [{{ connection-manager-name }}](update.md#conn-man). Для этого вместо `"password": "<пароль_пользователя>"` укажите `"generatePassword": true`.
 
         Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите нужный кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нового пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
@@ -377,7 +377,7 @@ description: Из статьи вы узнаете, как добавлять и
 
       * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}** — ввести свой пароль. Длина пароля — от 8 до 128 символов.
 
-      * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — сгенерировать пароль с помощью сервиса [{{ connection-manager-name }}](cluster-create.md#conn-man).
+      * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — сгенерировать пароль с помощью сервиса [{{ connection-manager-name }}](update.md#conn-man).
 
 
   1. (Опционально) Выберите протокол проверки пароля. Возможные значения:
@@ -410,7 +410,7 @@ description: Из статьи вы узнаете, как добавлять и
     Длина пароля — от 8 до 128 символов.
 
     
-    Новый пароль также можно сгенерировать с помощью сервиса [{{ connection-manager-name }}](cluster-create.md#conn-man). Для этого вместо `--password=<новый_пароль>` укажите `--generate-password`.
+    Новый пароль также можно сгенерировать с помощью сервиса [{{ connection-manager-name }}](update.md#conn-man). Для этого вместо `--password=<новый_пароль>` укажите `--generate-password`.
 
     Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
@@ -443,7 +443,7 @@ description: Из статьи вы узнаете, как добавлять и
       Длина пароля — от 8 до 128 символов.
 
       
-      Новый пароль также можно сгенерировать с помощью сервиса [Connection Manager](cluster-create.md#conn-man). Для этого вместо `password = "<новый_пароль>"` укажите `generate_password = true`.
+      Новый пароль также можно сгенерировать с помощью сервиса [Connection Manager](update.md#conn-man). Для этого вместо `password = "<новый_пароль>"` укажите `generate_password = true`.
 
       Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
@@ -493,7 +493,7 @@ description: Из статьи вы узнаете, как добавлять и
      * `password` — новый пароль. Длина пароля — от 8 до 128 символов.
 
        
-       Пароль также можно сгенерировать с помощью сервиса [{{ connection-manager-name }}](cluster-create.md#conn-man). Для этого измените содержимое поля `data`:
+       Пароль также можно сгенерировать с помощью сервиса [{{ connection-manager-name }}](update.md#conn-man). Для этого измените содержимое поля `data`:
 
           ```bash
           {
@@ -559,7 +559,7 @@ description: Из статьи вы узнаете, как добавлять и
      * `password` — новый пароль. Длина пароля — от 8 до 128 символов.
 
        
-       Пароль также можно сгенерировать с помощью сервиса [{{ connection-manager-name }}](cluster-create.md#conn-man). Для этого измените содержимое параметра `d`:
+       Пароль также можно сгенерировать с помощью сервиса [{{ connection-manager-name }}](update.md#conn-man). Для этого измените содержимое параметра `d`:
 
           ```bash
           {
@@ -640,7 +640,7 @@ description: Из статьи вы узнаете, как добавлять и
      * `cluster-name` — имя кластера.
      * `permissions` — список баз, к которым пользователь должен иметь доступ.
 
-     Имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
+     Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
      Эта команда предоставляет пользователю доступ к базам данных, указанным в списке.
 
@@ -659,7 +659,7 @@ description: Из статьи вы узнаете, как добавлять и
 
      Чтобы изменить лимит подключений пользователя, используйте параметр `--conn-limit`.
 
-     Имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
+     Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
 - {{ TF }} {#tf}

@@ -7,16 +7,25 @@ description: Следуя данной инструкции, вы сможете
 
 {{ console-name }} предоставляет интерфейс, в котором вы можете управлять облаком, каталогом и ресурсами сервисов, а также настраивать уведомления и обращаться в службу поддержки.
 
+Для работы с сервисами {{ yandex-cloud }} необходимо [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud).
+
 Чтобы начать работать с консолью управления:
 
 1. Создайте аккаунт [Яндекс ID]({{ link-yandex }}/support/passport/authorization/registration.html).
 
-1. Войдите в [консоль управления]({{ link-console-main }}).
+1. Войдите в [консоль управления]({{ link-console-main }}):
 
-   При первом входе в консоль управления автоматически создаются [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) `cloud-<Яндекс_ID>`, [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) `default` и [сеть](../../vpc/concepts/network.md#network) `default`.
+   1. В открывшемся окне в поле **{{ ui-key.yacloud.page.welcome.field_organization }}** выберите [организацию](../../organization/concepts/organization.md), в которой будет создано облако, или создайте новую.
+   1. В поле **{{ ui-key.yacloud.page.welcome.field_cloud-name }}** введите название облака, например `cloud-<Яндекс_ID>`.
+      
+      Если вы создаете организацию вместе с облаком, их названия будут частично совпадать, например `organization-<Яндекс_ID>` и `cloud-<Яндекс_ID>`.
+
+   1. Нажмите **{{ ui-key.yacloud.containers.WelcomeApp.button_open-console_cdPPo }}**.
+
+   При первом входе в консоль управления в облаке автоматически создаются [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) `default`, [сеть](../../vpc/concepts/network.md#network) `default` с  подсетями в нескольких [зонах доступности](../../overview/concepts/geo-scope.md) и [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group) `Default`.
 
 1. Для просмотра информации об аккаунте в левом нижнем углу нажмите **Учетная запись**.
-1. [Создайте платежный аккаунт](../../billing/operations/create-new-account.md). К нему автоматически привяжется облако `cloud-<Яндекс_ID>`.
+1. [Создайте](../../billing/operations/create-new-account.md) платежный аккаунт и [привяжите](../../billing/operations/pin-cloud.md) к нему облако `cloud-<Яндекс_ID>`.
 
 
 1. Создайте свой первый ресурс, например [виртуальную машину Linux](../../compute/quickstart/quick-create-linux.md).
@@ -32,6 +41,7 @@ description: Следуя данной инструкции, вы сможете
 1. Дополнительные функции и настройки консоли управления:
 
    * ![ai-assistant](../../_assets/console/ai-assistant.svg) [**AI-ассистент**](../operations/ai-assistant.md) — интеллектуальный помощник для управления ресурсами {{ yandex-cloud }}. С его помощью вы можете:
+     
      * Получать консультации по работе с сервисами и ресурсами.
      * Анализировать инфраструктуру в каталоге и получать советы по оптимизации.
      * Создавать и удалять ресурсы в свободной текстовой форме.
@@ -49,14 +59,18 @@ description: Следуя данной инструкции, вы сможете
 
    * ![star](../../_assets/console-icons/star.svg) **Избранное** — быстрый доступ к ресурсам.
    * ![bell](../../_assets/console-icons/bell.svg) **Уведомления** — центр уведомлений пользователя:
+     
      * системные оповещения;
      * ответы от технической поддержки;
      * статусы операций;
      * анонсы.
+   
    * ![circle-question](../../_assets/console-icons/circle-question.svg) **Центр поддержки** — помощь в работе с сервисами {{ yandex-cloud }}:
+     
      * документация;
      * история изменений сервисов;
      * техподдержка.
+   
    * ![gear](../../_assets/console-icons/gear.svg) **Настройки** — персональные [настройки](../operations/update.md) консоли управления.
    * **Учетная запись** — управление аутентификацией: смена пользователя и организации.
 

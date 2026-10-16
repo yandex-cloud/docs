@@ -275,7 +275,7 @@ Managed Service for PostgreSQL поддерживает PostgreSQL 14, 15, 16, 1
 | `network-ssd`               | 32      | 1000/1000                          | 15/15                                         |
 | `network-ssd-nonreplicated`, `network-ssd-io-m3` | 93      | 28000/5600                         | 110/82                                        |
 
-Чтобы увеличить максимальные значения IOPS и bandwidth и снизить вероятность троттлинга, расширьте размер хранилища при [изменении кластера](../operations/update.md#change-disk-size).
+Чтобы увеличить максимальные значения IOPS и bandwidth и снизить вероятность троттлинга, расширьте размер хранилища при [изменении кластера](../operations/storage-space.md#change-disk-size).
 
 Если вы используете хранилище с типом диска `network-hdd`, рассмотрите возможность перехода на `network-ssd` или `network-ssd-nonreplicated` путем [восстановления кластера](../operations/cluster-backups.md#restore) из резервной копии.
 

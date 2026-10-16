@@ -7,7 +7,7 @@ Yandex Managed Service for Prometheus® позволяет добавить пр
 Для использования алертинга:
 
 * [Добавьте правила алертинга](#alerting-rule-add).
-* [Настройте Alert Manager](#alert-manager-set) для обработки и доставки уведомлений.
+* [Настройте Alert Manager](#alert-manager-create) для обработки и доставки уведомлений.
 
 В этом разделе описаны особенности работы с правилами алертинга и конфигурацией Alert Manager. Управление файлами — в разделе [Правила записи](recording-rules.md).
 

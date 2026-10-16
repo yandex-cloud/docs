@@ -48,7 +48,7 @@
   1. (Опционально) В блоке **Настройки логов**:
      1. Включите опцию **Запись логов**.
      1. Выберите [лог-группу](../../logging/concepts/log-group.md) [Yandex Cloud Logging](../../logging/index.md), в которую будут записываться логи балансировщика.
-     1. Нажмите кнопку **Добавить правило** и настройте его [параметры](../concepts/application-load-balancer.md#discard-logs-rules):
+     1. Нажмите кнопку **Добавить правило** и настройте его [параметры](../concepts/monitoring.md#discard-logs-rules):
         * **HTTP-коды** — добавьте HTTP-коды.
         * **Классы HTTP-кодов** — добавьте классы HTTP-кодов.
         * **gRPC-коды** — добавьте gRPC-коды.
@@ -188,7 +188,7 @@
         yc alb load-balancer logging --help
         ```
 
-     1. Привяжите лог-группу к балансировщику и настройте [правило отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules):
+     1. Привяжите лог-группу к балансировщику и настройте [правило отбрасывания логов](../concepts/monitoring.md#discard-logs-rules):
 
         ```bash
         yc alb load-balancer logging <имя_балансировщика> \
@@ -483,7 +483,7 @@
       * `log_options` — (опционально) параметры записи [логов](../logs-ref.md) в [Yandex Cloud Logging](../../logging/index.md):
 
           * `log_group_id` — идентификатор [лог-группы](../../logging/concepts/log-group.md).
-          * `discard_rule` — [правило отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules):
+          * `discard_rule` — [правило отбрасывания логов](../concepts/monitoring.md#discard-logs-rules):
 
             * `http_codes` — HTTP-коды.
             * `http_code_intervals` — классы HTTP-кодов.

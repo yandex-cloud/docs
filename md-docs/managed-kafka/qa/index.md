@@ -50,7 +50,7 @@
 
 Ошибка вызвана тем, что сегменты логов ваших топиков занимают больше места, чем есть в хранилище брокеров. Подробнее о расчете необходимого места смотрите в разделе [Минимальный размер хранилища](../concepts/storage.md#minimal-storage-size).
 
-Для решения проблемы можно [увеличить размер дискового хранилища](../operations/cluster-update.md#change-disk-size) или уменьшить размер сегмента для [топиков](../operations/cluster-topics.md#update-topic) или [всего кластера](../operations/cluster-update.md#change-kafka-settings).
+Для решения проблемы можно [увеличить размер дискового хранилища](../operations/storage-space.md#change-disk-size) или уменьшить размер сегмента для [топиков](../operations/cluster-topics.md#update-topic) или [всего кластера](../operations/cluster-update.md#change-kafka-settings).
 
 #### Я могу получить логи моей работы в сервисах? {#logs}
 

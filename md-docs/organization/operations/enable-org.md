@@ -13,13 +13,10 @@
 
 - Интерфейс Cloud Center {#cloud-center}
 
-  1. Перейдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-  
-  1. Ознакомьтесь с условиями использования Yandex Cloud и нажмите кнопку **Войти**.
-  
+  1. Перейдите в [Cloud Center](https://center.yandex.cloud), затем войдите в Yandex Cloud или [зарегистрируйтесь](../../getting-started/index.md), если вы еще не зарегистрированы.
+  1. Нажмите ![plus](../../_assets/console-icons/plus.svg) **Создать новую организацию**.
   1. Введите название и описание организации.
-  
-  1. Нажмите кнопку **Создать новую организацию**.
+  1. Нажмите **Создать новую организацию**.
 
 {% endlist %}
 

@@ -43,7 +43,7 @@ description: С помощью инструкции вы сможете посм
 
   1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.button.apply-and-parse }}**.
 
-  1. Чтобы отобразить на графике модифицированную метрику, в строке ![image](../../_assets/monitoring/function.svg) выберите [функции](../concepts/querying.md#functions).
+  1. Чтобы отобразить на графике модифицированную метрику, в строке ![image](../../_assets/monitoring/function.svg) выберите [функции](../concepts/querying-functions.md).
   
   1. Чтобы отобразить на графике еще одну метрику, нажмите кнопку **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}** и введите значения метрик и меток.
    

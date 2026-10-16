@@ -14,6 +14,10 @@ Syntax:
 
 #### Command Tree
 
+- [yc desktops v0](v0/index.md) — Manage Desktop resources
+
+
+
 - [yc desktops desktop](desktop/index.md) — Manage desktop instances
 
   - [yc desktops desktop create](desktop/create.md) — Create a desktop
@@ -75,10 +79,6 @@ Syntax:
   - [yc desktops image list](image/list.md) — List desktop images
 
   - [yc desktops image update](image/update.md) — Update the specified desktop image
-
-- [yc desktops v0](v0/index.md) — Manage Desktop resources
-
-
 
 #### Global Flags
 

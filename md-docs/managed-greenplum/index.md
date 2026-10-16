@@ -236,192 +236,6 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
 
  - [Overview](cli-ref/index.md)
 
-### backup
-
- - [Overview](cli-ref/backup/index.md)
-
- - [delete](cli-ref/backup/delete.md)
-
- - [get](cli-ref/backup/get.md)
-
- - [list](cli-ref/backup/list.md)
-
-### change-freeze
-
- - [Overview](cli-ref/change-freeze/index.md)
-
- - [create](cli-ref/change-freeze/create.md)
-
- - [get](cli-ref/change-freeze/get.md)
-
- - [get-limits](cli-ref/change-freeze/get-limits.md)
-
- - [list](cli-ref/change-freeze/list.md)
-
- - [terminate](cli-ref/change-freeze/terminate.md)
-
-### cluster
-
- - [Overview](cli-ref/cluster/index.md)
-
- - [add-access-binding](cli-ref/cluster/add-access-binding.md)
-
- - [add-labels](cli-ref/cluster/add-labels.md)
-
- - [backup](cli-ref/cluster/backup.md)
-
- - [create](cli-ref/cluster/create.md)
-
- - [delete](cli-ref/cluster/delete.md)
-
- - [expand](cli-ref/cluster/expand.md)
-
- - [get](cli-ref/cluster/get.md)
-
- - [list](cli-ref/cluster/list.md)
-
- - [list-access-bindings](cli-ref/cluster/list-access-bindings.md)
-
- - [list-backups](cli-ref/cluster/list-backups.md)
-
- - [list-logs](cli-ref/cluster/list-logs.md)
-
- - [list-operations](cli-ref/cluster/list-operations.md)
-
- - [move](cli-ref/cluster/move.md)
-
- - [remove-access-binding](cli-ref/cluster/remove-access-binding.md)
-
- - [remove-labels](cli-ref/cluster/remove-labels.md)
-
- - [reschedule-maintenance](cli-ref/cluster/reschedule-maintenance.md)
-
- - [restore](cli-ref/cluster/restore.md)
-
- - [set-access-bindings](cli-ref/cluster/set-access-bindings.md)
-
- - [start](cli-ref/cluster/start.md)
-
- - [stop](cli-ref/cluster/stop.md)
-
- - [update](cli-ref/cluster/update.md)
-
- - [update-config](cli-ref/cluster/update-config.md)
-
- - [connect](cli-ref/connect.md)
-
-### hba-rules
-
- - [Overview](cli-ref/hba-rules/index.md)
-
- - [batch-update](cli-ref/hba-rules/batch-update.md)
-
- - [create](cli-ref/hba-rules/create.md)
-
- - [delete](cli-ref/hba-rules/delete.md)
-
- - [get](cli-ref/hba-rules/get.md)
-
- - [list](cli-ref/hba-rules/list.md)
-
- - [update](cli-ref/hba-rules/update.md)
-
-### hosts
-
- - [Overview](cli-ref/hosts/index.md)
-
-#### list
-
- - [Overview](cli-ref/hosts/list/index.md)
-
- - [master](cli-ref/hosts/list/master.md)
-
- - [segment](cli-ref/hosts/list/segment.md)
-
-### maintenance
-
- - [Overview](cli-ref/maintenance/index.md)
-
- - [get](cli-ref/maintenance/get.md)
-
- - [list](cli-ref/maintenance/list.md)
-
- - [reschedule](cli-ref/maintenance/reschedule.md)
-
-### pxf-datasource
-
- - [Overview](cli-ref/pxf-datasource/index.md)
-
-#### create
-
- - [Overview](cli-ref/pxf-datasource/create/index.md)
-
- - [jdbc](cli-ref/pxf-datasource/create/jdbc.md)
-
- - [s3](cli-ref/pxf-datasource/create/s3.md)
-
- - [delete](cli-ref/pxf-datasource/delete.md)
-
- - [get](cli-ref/pxf-datasource/get.md)
-
- - [list](cli-ref/pxf-datasource/list.md)
-
-#### update
-
- - [Overview](cli-ref/pxf-datasource/update/index.md)
-
- - [jdbc](cli-ref/pxf-datasource/update/jdbc.md)
-
- - [s3](cli-ref/pxf-datasource/update/s3.md)
-
-### resource-groups
-
- - [Overview](cli-ref/resource-groups/index.md)
-
- - [create](cli-ref/resource-groups/create.md)
-
- - [delete](cli-ref/resource-groups/delete.md)
-
- - [get](cli-ref/resource-groups/get.md)
-
- - [list](cli-ref/resource-groups/list.md)
-
- - [update](cli-ref/resource-groups/update.md)
-
-### resource-preset
-
- - [Overview](cli-ref/resource-preset/index.md)
-
-#### get
-
- - [Overview](cli-ref/resource-preset/get/index.md)
-
- - [master](cli-ref/resource-preset/get/master.md)
-
- - [segment](cli-ref/resource-preset/get/segment.md)
-
-#### list
-
- - [Overview](cli-ref/resource-preset/list/index.md)
-
- - [master](cli-ref/resource-preset/list/master.md)
-
- - [segment](cli-ref/resource-preset/list/segment.md)
-
-### users
-
- - [Overview](cli-ref/users/index.md)
-
- - [create](cli-ref/users/create.md)
-
- - [delete](cli-ref/users/delete.md)
-
- - [get](cli-ref/users/get.md)
-
- - [list](cli-ref/users/list.md)
-
- - [update](cli-ref/users/update.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -611,6 +425,192 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
  - [list](cli-ref/v0/users/list.md)
 
  - [update](cli-ref/v0/users/update.md)
+
+### backup
+
+ - [Overview](cli-ref/backup/index.md)
+
+ - [delete](cli-ref/backup/delete.md)
+
+ - [get](cli-ref/backup/get.md)
+
+ - [list](cli-ref/backup/list.md)
+
+### change-freeze
+
+ - [Overview](cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/change-freeze/terminate.md)
+
+### cluster
+
+ - [Overview](cli-ref/cluster/index.md)
+
+ - [add-access-binding](cli-ref/cluster/add-access-binding.md)
+
+ - [add-labels](cli-ref/cluster/add-labels.md)
+
+ - [backup](cli-ref/cluster/backup.md)
+
+ - [create](cli-ref/cluster/create.md)
+
+ - [delete](cli-ref/cluster/delete.md)
+
+ - [expand](cli-ref/cluster/expand.md)
+
+ - [get](cli-ref/cluster/get.md)
+
+ - [list](cli-ref/cluster/list.md)
+
+ - [list-access-bindings](cli-ref/cluster/list-access-bindings.md)
+
+ - [list-backups](cli-ref/cluster/list-backups.md)
+
+ - [list-logs](cli-ref/cluster/list-logs.md)
+
+ - [list-operations](cli-ref/cluster/list-operations.md)
+
+ - [move](cli-ref/cluster/move.md)
+
+ - [remove-access-binding](cli-ref/cluster/remove-access-binding.md)
+
+ - [remove-labels](cli-ref/cluster/remove-labels.md)
+
+ - [reschedule-maintenance](cli-ref/cluster/reschedule-maintenance.md)
+
+ - [restore](cli-ref/cluster/restore.md)
+
+ - [set-access-bindings](cli-ref/cluster/set-access-bindings.md)
+
+ - [start](cli-ref/cluster/start.md)
+
+ - [stop](cli-ref/cluster/stop.md)
+
+ - [update](cli-ref/cluster/update.md)
+
+ - [update-config](cli-ref/cluster/update-config.md)
+
+ - [connect](cli-ref/connect.md)
+
+### hba-rules
+
+ - [Overview](cli-ref/hba-rules/index.md)
+
+ - [batch-update](cli-ref/hba-rules/batch-update.md)
+
+ - [create](cli-ref/hba-rules/create.md)
+
+ - [delete](cli-ref/hba-rules/delete.md)
+
+ - [get](cli-ref/hba-rules/get.md)
+
+ - [list](cli-ref/hba-rules/list.md)
+
+ - [update](cli-ref/hba-rules/update.md)
+
+### hosts
+
+ - [Overview](cli-ref/hosts/index.md)
+
+#### list
+
+ - [Overview](cli-ref/hosts/list/index.md)
+
+ - [master](cli-ref/hosts/list/master.md)
+
+ - [segment](cli-ref/hosts/list/segment.md)
+
+### maintenance
+
+ - [Overview](cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/maintenance/reschedule.md)
+
+### pxf-datasource
+
+ - [Overview](cli-ref/pxf-datasource/index.md)
+
+#### create
+
+ - [Overview](cli-ref/pxf-datasource/create/index.md)
+
+ - [jdbc](cli-ref/pxf-datasource/create/jdbc.md)
+
+ - [s3](cli-ref/pxf-datasource/create/s3.md)
+
+ - [delete](cli-ref/pxf-datasource/delete.md)
+
+ - [get](cli-ref/pxf-datasource/get.md)
+
+ - [list](cli-ref/pxf-datasource/list.md)
+
+#### update
+
+ - [Overview](cli-ref/pxf-datasource/update/index.md)
+
+ - [jdbc](cli-ref/pxf-datasource/update/jdbc.md)
+
+ - [s3](cli-ref/pxf-datasource/update/s3.md)
+
+### resource-groups
+
+ - [Overview](cli-ref/resource-groups/index.md)
+
+ - [create](cli-ref/resource-groups/create.md)
+
+ - [delete](cli-ref/resource-groups/delete.md)
+
+ - [get](cli-ref/resource-groups/get.md)
+
+ - [list](cli-ref/resource-groups/list.md)
+
+ - [update](cli-ref/resource-groups/update.md)
+
+### resource-preset
+
+ - [Overview](cli-ref/resource-preset/index.md)
+
+#### get
+
+ - [Overview](cli-ref/resource-preset/get/index.md)
+
+ - [master](cli-ref/resource-preset/get/master.md)
+
+ - [segment](cli-ref/resource-preset/get/segment.md)
+
+#### list
+
+ - [Overview](cli-ref/resource-preset/list/index.md)
+
+ - [master](cli-ref/resource-preset/list/master.md)
+
+ - [segment](cli-ref/resource-preset/list/segment.md)
+
+### users
+
+ - [Overview](cli-ref/users/index.md)
+
+ - [create](cli-ref/users/create.md)
+
+ - [delete](cli-ref/users/delete.md)
+
+ - [get](cli-ref/users/get.md)
+
+ - [list](cli-ref/users/list.md)
+
+ - [update](cli-ref/users/update.md)
 
  - [Справочник Terraform](tf-ref.md)
 

@@ -105,7 +105,7 @@ description: Из статьи вы узнаете, как управлять п
 
 - SQL {#sql}
 
-  1. [Подключитесь](connect/clients.md) к кластеру, используя [учетную запись `admin`](#sql-user-management).
+  1. [Подключитесь](connect/clients.md) к кластеру, используя [учетную запись `admin`](../concepts/user-access-rights.md#sql-user-management).
   1. Получите список пользователей:
 
       ```sql
@@ -405,7 +405,7 @@ description: Из статьи вы узнаете, как управлять п
 
 - SQL {#sql}
 
-  1. [Подключитесь](connect/clients.md) к кластеру, используя [учетную запись `admin`](#sql-user-management).
+  1. [Подключитесь](connect/clients.md) к кластеру, используя [учетную запись `admin`](../concepts/user-access-rights.md#sql-user-management).
   1. Создайте пользователя:
 
       ```sql
@@ -869,7 +869,7 @@ description: Из статьи вы узнаете, как управлять п
 
      Команда изменит только те настройки, которые явно указаны в параметре `--settings`. Например, команда с параметром `--settings="readonly=1"` изменит только настройку `readonly` и не сбросит значения остальных. Этим изменение настроек {{ CH }} отличается от изменения настроек квот.
 
-     С помощью этой команды невозможно удалить сделанную настройку, допустимо только явно присвоить ей значение по умолчанию (оно указано для [каждой настройки](#clickhouse-settings)).
+     С помощью этой команды невозможно удалить сделанную настройку, допустимо только явно присвоить ей значение по умолчанию (оно указано для [каждой настройки](../concepts/settings-list.md#dbms-user-settings)).
 
 
 - {{ TF }} {#tf}
@@ -1073,7 +1073,7 @@ description: Из статьи вы узнаете, как управлять п
 
 - SQL {#sql}
 
-  1. [Подключитесь](connect/clients.md) к кластеру, используя [учетную запись `admin`](#sql-user-management).
+  1. [Подключитесь](connect/clients.md) к кластеру, используя [учетную запись `admin`](../concepts/user-access-rights.md#sql-user-management).
   1. Чтобы изменить набор привилегий и ролей пользователя, используйте запросы [GRANT]({{ ch.docs }}{{ lang }}/sql-reference/statements/grant) и [REVOKE]({{ ch.docs }}{{ lang }}/sql-reference/statements/revoke). Например, выдайте пользователю права на чтение всех объектов в определенной базе данных:
 
       ```sql
@@ -1190,7 +1190,7 @@ description: Из статьи вы узнаете, как управлять п
 
 - SQL {#sql}
 
-  1. [Подключитесь](connect/clients.md) к кластеру, используя [учетную запись `admin`](#sql-user-management).
+  1. [Подключитесь](connect/clients.md) к кластеру, используя [учетную запись `admin`](../concepts/user-access-rights.md#sql-user-management).
   1. Удалите пользователя:
 
       ```sql
@@ -1349,7 +1349,7 @@ description: Из статьи вы узнаете, как управлять п
 
 - SQL {#sql}
 
-  1. [Подключитесь](connect/clients.md) к кластеру `mych`, используя [учетную запись `admin`](#sql-user-management).
+  1. [Подключитесь](connect/clients.md) к кластеру `mych`, используя [учетную запись `admin`](../concepts/user-access-rights.md#sql-user-management).
   1. Создайте пользователя:
 
       ```sql

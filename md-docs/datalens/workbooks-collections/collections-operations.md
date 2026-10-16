@@ -4,7 +4,7 @@
 
 В этом разделе вы узнаете, как работать с коллекцией:
 
-* [Создать коллекцию](#create-collection)
+* [Создать коллекцию](#create-collections)
 * [Редактировать коллекцию](#edit-collections)
 * [Переместить коллекцию](#move-collections)
 * [Настроить доступ к коллекции](#security)
@@ -23,7 +23,7 @@
    
    {% note info %}
    
-   Если вы не видите на панели слева ![collections](../../_assets/console-icons/rectangles-4.svg) **Коллекции и воркбуки**, попросите пользователя с ролью `datalens.admin` [включить воркбуки и коллекции](index.md#enable-workbooks) в вашей организации.
+   Если вы не видите на панели слева ![collections](../../_assets/console-icons/rectangles-4.svg) **Коллекции и воркбуки**, попросите пользователя с ролью `datalens.admin` включить воркбуки и коллекции в вашей организации.
    
    {% endnote %}
 

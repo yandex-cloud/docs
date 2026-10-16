@@ -27,7 +27,7 @@ _Сервис_ — это [объект API Kubernetes (Service)](https://kubern
 
 Чтобы [опубликовать приложение](../operations/create-load-balancer.md), используйте сервис типа `LoadBalancer` на основе [сетевого балансировщика нагрузки](../../network-load-balancer/concepts/index.md) с публичным или внутренним IP-адресом.
 
-Если необходима [защита от DDoS](../../vpc/ddos-protection/index.md), [зарезервируйте](../../vpc/operations/enable-ddos-protection.md) публичный IP-адрес со включенной защитой и [укажите](../operations/create-load-balancer.md#advanced) его с помощью опции `loadBalancerIP`.
+Если необходима [защита от DDoS](../../vpc/ddos-protection/index.md), [зарезервируйте](../../vpc/operations/enable-ddos-protection.md) публичный IP-адрес со включенной защитой и [укажите](../operations/create-load-balancer.md#create-lb) его с помощью опции `loadBalancerIP`.
 
 Подробнее о типах сервисов читайте в [документации Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types).
 

@@ -186,66 +186,6 @@
 
  - [Overview](cli-ref/index.md)
 
-### cache
-
- - [Overview](cli-ref/cache/index.md)
-
- - [prefetch](cli-ref/cache/prefetch.md)
-
- - [purge](cli-ref/cache/purge.md)
-
-### origin
-
- - [Overview](cli-ref/origin/index.md)
-
- - [create](cli-ref/origin/create.md)
-
- - [delete](cli-ref/origin/delete.md)
-
- - [get](cli-ref/origin/get.md)
-
- - [list](cli-ref/origin/list.md)
-
- - [update](cli-ref/origin/update.md)
-
-### origin-group
-
- - [Overview](cli-ref/origin-group/index.md)
-
- - [create](cli-ref/origin-group/create.md)
-
- - [delete](cli-ref/origin-group/delete.md)
-
- - [get](cli-ref/origin-group/get.md)
-
- - [list](cli-ref/origin-group/list.md)
-
- - [update](cli-ref/origin-group/update.md)
-
-### provider
-
- - [Overview](cli-ref/provider/index.md)
-
- - [activate](cli-ref/provider/activate.md)
-
- - [list-activated](cli-ref/provider/list-activated.md)
-
-### resource
-
- - [Overview](cli-ref/resource/index.md)
-
- - [create](cli-ref/resource/create.md)
-
- - [delete](cli-ref/resource/delete.md)
-
- - [get](cli-ref/resource/get.md)
-
- - [get-provider-cname](cli-ref/resource/get-provider-cname.md)
-
- - [list](cli-ref/resource/list.md)
-
- - [update](cli-ref/resource/update.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -309,6 +249,66 @@
  - [list](cli-ref/v0/resource/list.md)
 
  - [update](cli-ref/v0/resource/update.md)
+
+### cache
+
+ - [Overview](cli-ref/cache/index.md)
+
+ - [prefetch](cli-ref/cache/prefetch.md)
+
+ - [purge](cli-ref/cache/purge.md)
+
+### origin
+
+ - [Overview](cli-ref/origin/index.md)
+
+ - [create](cli-ref/origin/create.md)
+
+ - [delete](cli-ref/origin/delete.md)
+
+ - [get](cli-ref/origin/get.md)
+
+ - [list](cli-ref/origin/list.md)
+
+ - [update](cli-ref/origin/update.md)
+
+### origin-group
+
+ - [Overview](cli-ref/origin-group/index.md)
+
+ - [create](cli-ref/origin-group/create.md)
+
+ - [delete](cli-ref/origin-group/delete.md)
+
+ - [get](cli-ref/origin-group/get.md)
+
+ - [list](cli-ref/origin-group/list.md)
+
+ - [update](cli-ref/origin-group/update.md)
+
+### provider
+
+ - [Overview](cli-ref/provider/index.md)
+
+ - [activate](cli-ref/provider/activate.md)
+
+ - [list-activated](cli-ref/provider/list-activated.md)
+
+### resource
+
+ - [Overview](cli-ref/resource/index.md)
+
+ - [create](cli-ref/resource/create.md)
+
+ - [delete](cli-ref/resource/delete.md)
+
+ - [get](cli-ref/resource/get.md)
+
+ - [get-provider-cname](cli-ref/resource/get-provider-cname.md)
+
+ - [list](cli-ref/resource/list.md)
+
+ - [update](cli-ref/resource/update.md)
 
  - [Справочник Terraform](tf-ref.md)
 

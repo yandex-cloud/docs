@@ -2,7 +2,7 @@
 
 # Действие Publish
 
-Отправляет [Push-уведомление](../concepts/push.md) в [эндпоинт](../concepts/index.md#mobile-endpoints) или [SMS](../concepts/sms.md) на телефонный номер.
+Отправляет [Push-уведомление](../concepts/push.md) в [эндпоинт](../concepts/push.md#mobile-endpoints) или [SMS](../concepts/sms.md) на телефонный номер.
 
 ## HTTP-запрос {#request}
 

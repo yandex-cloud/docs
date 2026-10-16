@@ -96,100 +96,6 @@ Yandex Cloud Interconnect позволяет организовать выдел
 
  - [Overview](cli-ref/index.md)
 
-### partner
-
- - [Overview](cli-ref/partner/index.md)
-
- - [get](cli-ref/partner/get.md)
-
- - [list](cli-ref/partner/list.md)
-
-### point-of-presence
-
- - [Overview](cli-ref/point-of-presence/index.md)
-
- - [get](cli-ref/point-of-presence/get.md)
-
- - [list](cli-ref/point-of-presence/list.md)
-
-### private-connection
-
- - [Overview](cli-ref/private-connection/index.md)
-
- - [add-labels](cli-ref/private-connection/add-labels.md)
-
- - [batch-get](cli-ref/private-connection/batch-get.md)
-
- - [create](cli-ref/private-connection/create.md)
-
- - [delete](cli-ref/private-connection/delete.md)
-
- - [get](cli-ref/private-connection/get.md)
-
- - [list](cli-ref/private-connection/list.md)
-
- - [list-operations](cli-ref/private-connection/list-operations.md)
-
- - [move](cli-ref/private-connection/move.md)
-
- - [remove-labels](cli-ref/private-connection/remove-labels.md)
-
- - [remove-static-routes](cli-ref/private-connection/remove-static-routes.md)
-
- - [update](cli-ref/private-connection/update.md)
-
- - [upsert-static-routes](cli-ref/private-connection/upsert-static-routes.md)
-
-### public-connection
-
- - [Overview](cli-ref/public-connection/index.md)
-
- - [get](cli-ref/public-connection/get.md)
-
- - [list](cli-ref/public-connection/list.md)
-
- - [list-operations](cli-ref/public-connection/list-operations.md)
-
- - [move](cli-ref/public-connection/move.md)
-
-### trunk-connection
-
- - [Overview](cli-ref/trunk-connection/index.md)
-
- - [add-labels](cli-ref/trunk-connection/add-labels.md)
-
- - [batch-get](cli-ref/trunk-connection/batch-get.md)
-
- - [delete](cli-ref/trunk-connection/delete.md)
-
- - [get](cli-ref/trunk-connection/get.md)
-
- - [list](cli-ref/trunk-connection/list.md)
-
- - [list-operations](cli-ref/trunk-connection/list-operations.md)
-
- - [list-private-connections](cli-ref/trunk-connection/list-private-connections.md)
-
- - [list-public-connections](cli-ref/trunk-connection/list-public-connections.md)
-
- - [move](cli-ref/trunk-connection/move.md)
-
- - [remove-labels](cli-ref/trunk-connection/remove-labels.md)
-
- - [update](cli-ref/trunk-connection/update.md)
-
-### trunk-connection-ticket
-
- - [Overview](cli-ref/trunk-connection-ticket/index.md)
-
- - [create](cli-ref/trunk-connection-ticket/create.md)
-
- - [get](cli-ref/trunk-connection-ticket/get.md)
-
- - [list](cli-ref/trunk-connection-ticket/list.md)
-
- - [revoke](cli-ref/trunk-connection-ticket/revoke.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -373,6 +279,100 @@ Yandex Cloud Interconnect позволяет организовать выдел
  - [list](cli-ref/v1/trunk-connection-ticket/list.md)
 
  - [revoke](cli-ref/v1/trunk-connection-ticket/revoke.md)
+
+### partner
+
+ - [Overview](cli-ref/partner/index.md)
+
+ - [get](cli-ref/partner/get.md)
+
+ - [list](cli-ref/partner/list.md)
+
+### point-of-presence
+
+ - [Overview](cli-ref/point-of-presence/index.md)
+
+ - [get](cli-ref/point-of-presence/get.md)
+
+ - [list](cli-ref/point-of-presence/list.md)
+
+### private-connection
+
+ - [Overview](cli-ref/private-connection/index.md)
+
+ - [add-labels](cli-ref/private-connection/add-labels.md)
+
+ - [batch-get](cli-ref/private-connection/batch-get.md)
+
+ - [create](cli-ref/private-connection/create.md)
+
+ - [delete](cli-ref/private-connection/delete.md)
+
+ - [get](cli-ref/private-connection/get.md)
+
+ - [list](cli-ref/private-connection/list.md)
+
+ - [list-operations](cli-ref/private-connection/list-operations.md)
+
+ - [move](cli-ref/private-connection/move.md)
+
+ - [remove-labels](cli-ref/private-connection/remove-labels.md)
+
+ - [remove-static-routes](cli-ref/private-connection/remove-static-routes.md)
+
+ - [update](cli-ref/private-connection/update.md)
+
+ - [upsert-static-routes](cli-ref/private-connection/upsert-static-routes.md)
+
+### public-connection
+
+ - [Overview](cli-ref/public-connection/index.md)
+
+ - [get](cli-ref/public-connection/get.md)
+
+ - [list](cli-ref/public-connection/list.md)
+
+ - [list-operations](cli-ref/public-connection/list-operations.md)
+
+ - [move](cli-ref/public-connection/move.md)
+
+### trunk-connection
+
+ - [Overview](cli-ref/trunk-connection/index.md)
+
+ - [add-labels](cli-ref/trunk-connection/add-labels.md)
+
+ - [batch-get](cli-ref/trunk-connection/batch-get.md)
+
+ - [delete](cli-ref/trunk-connection/delete.md)
+
+ - [get](cli-ref/trunk-connection/get.md)
+
+ - [list](cli-ref/trunk-connection/list.md)
+
+ - [list-operations](cli-ref/trunk-connection/list-operations.md)
+
+ - [list-private-connections](cli-ref/trunk-connection/list-private-connections.md)
+
+ - [list-public-connections](cli-ref/trunk-connection/list-public-connections.md)
+
+ - [move](cli-ref/trunk-connection/move.md)
+
+ - [remove-labels](cli-ref/trunk-connection/remove-labels.md)
+
+ - [update](cli-ref/trunk-connection/update.md)
+
+### trunk-connection-ticket
+
+ - [Overview](cli-ref/trunk-connection-ticket/index.md)
+
+ - [create](cli-ref/trunk-connection-ticket/create.md)
+
+ - [get](cli-ref/trunk-connection-ticket/get.md)
+
+ - [list](cli-ref/trunk-connection-ticket/list.md)
+
+ - [revoke](cli-ref/trunk-connection-ticket/revoke.md)
 
 ## Справочник API
 

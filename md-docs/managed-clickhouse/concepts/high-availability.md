@@ -32,7 +32,7 @@
 * не менее двух хостов ClickHouse® в каждом шарде, расположенных в разных [зонах доступности](../../overview/concepts/geo-scope.md);
 * не менее трех хостов ZooKeeper или ClickHouse® Keeper, расположенных в разных [зонах доступности](../../overview/concepts/geo-scope.md).
 
-[Подробнее о влиянии шардирования на доступность кластера](sharding.md#high-availability).
+[Подробнее о репликации в шардированном кластере](sharding.md#sharding-replication).
 
 ## Настройки хранилища {#storage-settings}
 

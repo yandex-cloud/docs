@@ -273,5 +273,6 @@ description: На странице представлен список прак�
 * [{#T}](1c-valkey-locks.md)
 * [{#T}](../infrastructure-management/yc-valkey-as-1c-cache-storage.md)
 * [{#T}](valkey-rag-search.md)
+* [{#T}](deploy-ydb-cluster-on-premise.md)
 
 {% endcut %}

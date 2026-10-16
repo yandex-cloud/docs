@@ -11,7 +11,7 @@
 
 - Интерфейс {{ cloud-center }} {#cloud-center}
 
-  {% include [create-new-org](../../_includes/organization/create-new-org.md) %}
+  {% include [create-org](../../_includes/organization/create-first-org.md) %}
 
 {% endlist %}
 

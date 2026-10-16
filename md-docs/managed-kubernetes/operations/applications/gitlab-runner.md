@@ -17,7 +17,7 @@
 
 1. Откройте в браузере административную панель GitLab:
    * Если GitLab развернут на [виртуальной машине](../../../compute/concepts/vm.md) [Yandex Compute Cloud](../../../compute/index.md), используйте ее [публичный IP-адрес](../../../compute/concepts/network.md#public-ip).
-   * Если GitLab развернут в [сервисе Yandex Managed Service for GitLab](../../../managed-gitlab/index.md), используйте [FQDN инстанса](../../../compute/concepts/network.md##hostname).
+   * Если GitLab развернут в [сервисе Yandex Managed Service for GitLab](../../../managed-gitlab/index.md), используйте [FQDN инстанса](../../../compute/concepts/network.md#hostname).
 1. Получите токен аутентификации GitLab Runner (Runner authentication token):
    * Для настройки GitLab Runner для всего [инстанса GitLab](../../../managed-gitlab/concepts/index.md#instance) (требуются права администратора GitLab):
      1. Нажмите кнопку **Admin area** и выберите пункт **CI/CD** → **Runners**.

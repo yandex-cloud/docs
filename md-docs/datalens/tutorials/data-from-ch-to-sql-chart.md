@@ -299,4 +299,4 @@ SQL-запросы работают только с базами данных. F
 - [Добавление чарта на дашборд в Yandex DataLens](../operations/dashboard/add-chart.md)
 - [Добавление селектора на дашборд в Yandex DataLens](../operations/dashboard/add-selector.md)
 - [Создание QL-чарта в Yandex DataLens](../operations/chart/create-sql-chart.md)
-- [QL-чарты](../concepts/chart/index.md#sql-charts)
+- [QL-чарты](../concepts/chart/ql-charts.md)

@@ -7,7 +7,7 @@ description: В этой инструкции вы научитесь созда
 
 Чтобы начать работу с сервисом:
 1. [Создайте кластер {{ mtr-name }}](#cluster-create).
-1. [Подключитесь к кластеру {{ mtr-name }}](#connect).
+1. [Подключитесь к кластеру {{ mtr-name }}](#connect-to-trino).
 1. [Отправьте запросы к кластеру {{ mpg-full-name }} через {{ TR }}](#query-mpg-via-trino).
 1. [Проверьте запросы в кластере {{ mpg-name }}](#check-queries-in-psql).
 

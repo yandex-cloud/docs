@@ -24,7 +24,7 @@ description: Из статьи вы узнаете про группы узло�
 
 Чтобы запустить группы узлов с GPU, необходимы кластер {{ managed-k8s-name }}, ВМ с GPU и трафик. Поэтому тарификация состоит из следующих частей:
 * Использование [мастера {{ managed-k8s-name }}](../index.md#master) оплачивается по [правилам {{ managed-k8s-name }}](../../pricing.md).
-* ВМ с GPU — по [правилам {{ compute-full-name }}](../../../compute/pricing.md#prices-instance-resources).
+* ВМ с GPU — по [правилам {{ compute-full-name }}](../../../compute/pricing.md#instance-resources).
 * Исходящий трафик — по [правилам {{ vpc-full-name }}](../../../vpc/pricing.md).
 
 ## Примеры использования {#examples}

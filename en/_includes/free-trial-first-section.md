@@ -1,6 +1,6 @@
 You can enable the trial period only when [creating your first billing account](../billing/quickstart/index.md) for a legal entity in {{ billing-name }}.
 
-During the trial period, you can use {{ yandex-cloud }} resources for free with limitations on the trial duration and [initial grant](../billing/concepts/bonus-account.md#start) amount. You can view the info on applicable usage restrictions and grant amount in the [management console]({{ link-console-main }}) or agree them upon in supplemental agreements.
+During the trial period, you can use {{ yandex-cloud }} resources for free with certain limitations. You can view the info on applicable usage restrictions and grant amount in the [management console]({{ link-console-main }}) or agree them upon in supplemental agreements.
 
 Resource usage costs are deducted from your initial grant. Yandex calculates service usage costs based on the pricing policy published on our website or in accordance with custom rates defined in your agreement. This way, you know exactly when your [trial period ends](../getting-started/free-trial/concepts/trial-ending.md) or your initial grant runs out.
 

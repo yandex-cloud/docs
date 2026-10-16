@@ -91,7 +91,7 @@
 
 Дефицит ресурсов — одна из вероятных причин падения производительности кластера. Дефицит ресурсов виден по графикам [мониторинга кластера](../../managed-postgresql/operations/monitoring.md) (CPU, дисковые операции I/O, сетевые соединения). Если график использования ресурса постоянно рос, а потом вышел на плато, нагрузка на ресурс достигла [лимита](../../managed-postgresql/concepts/limits.md) или выходит за границы гарантированного уровня обслуживания.
 
-В большинстве случаев высокая утилизация CPU и дискового I/O связана с неоптимальными индексами или большой нагрузкой на хосты. Изучите данные о [сессиях](../../managed-postgresql/operations/performance-diagnostics.md#get-sessions) и [запросах](../../managed-postgresql/operations/performance-diagnostics.md#get-queryes), собранные инструментом [диагностики производительности](../../managed-postgresql/operations/performance-diagnostics.md).
+В большинстве случаев высокая утилизация CPU и дискового I/O связана с неоптимальными индексами или большой нагрузкой на хосты. Изучите данные о [сессиях](../../managed-postgresql/operations/performance-diagnostics.md#get-sessions) и [запросах](../../managed-postgresql/operations/performance-diagnostics.md#get-queries), собранные инструментом [диагностики производительности](../../managed-postgresql/operations/performance-diagnostics.md).
 
 
 ## Устранение проблем с дефицитом ресурсов {#solving-cpu-io-deficit}

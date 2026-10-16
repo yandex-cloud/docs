@@ -15,8 +15,6 @@ Syntax:
 
 #### Command Tree
 
-- [yc serverless v0 eventrouter connector create audit-trails](audit-trails.md) — Create an audit trails connector
-
 - [yc serverless v0 eventrouter connector create data-stream](data-stream.md) — Create a data stream connector
 
 - [yc serverless v0 eventrouter connector create event-service](event-service.md) — Create an event service connector

@@ -1,7 +1,7 @@
 # Работа с историей запросов
 
 В сервисе {{ websql-full-name }} доступна [история запросов](../concepts/index.md#query-log). Вы можете:
-   * [просмотреть выполненные запросы](#view-executed-queries);
+   * [просмотреть выполненные запросы](#view-executed-query);
    * [повторить запрос](#re-run-query);
    * [опубликовать запрос](#publish-query);
    * [настроить права доступа для опубликованного запроса](#set-access-rights-to-published-query);

@@ -17,7 +17,7 @@
 
 Подробнее об установке агента Cloud Backup на ВМ или сервер, расположенные за пределами Yandex Cloud, читайте в разделе [Подключить к Cloud Backup виртуальную машину или сервер, расположенные за пределами Yandex Cloud](../../operations/external/connect.md).
 
-После установки агента Cloud Backup [привяжите](../../operations/policy-vm/attach-and-detach-vm.md#attach-vm) ВМ или сервер к [политике резервного копирования](../policy.md).
+После установки агента Cloud Backup [привяжите](../../operations/policy-vm/attach-and-detach-vm.md) ВМ или сервер к [политике резервного копирования](../policy.md).
 
 ## Поддерживаемые операционные системы {#supported-oss}
 

@@ -116,6 +116,8 @@ Yandex Managed Service for YDB помогает разворачивать и п
 
  - [Интеграция Yandex Cloud Postbox с внешними системами через вебхуки](tutorials/postbox-webhook.md)
 
+ - [Развертывание кластера YDB во внешней инфраструктуре](tutorials/deploy-ydb-cluster-on-premise.md)
+
 ## Концепции
 
  - [Обзор](concepts/index.md)
@@ -159,76 +161,6 @@ Yandex Managed Service for YDB помогает разворачивать и п
 ## Справочник CLI (англ.)
 
  - [Overview](cli-ref/index.md)
-
-### backup
-
- - [Overview](cli-ref/backup/index.md)
-
- - [add-access-binding](cli-ref/backup/add-access-binding.md)
-
- - [delete](cli-ref/backup/delete.md)
-
- - [get](cli-ref/backup/get.md)
-
- - [list](cli-ref/backup/list.md)
-
- - [list-access-bindings](cli-ref/backup/list-access-bindings.md)
-
- - [remove-access-binding](cli-ref/backup/remove-access-binding.md)
-
- - [set-access-bindings](cli-ref/backup/set-access-bindings.md)
-
-### database
-
- - [Overview](cli-ref/database/index.md)
-
- - [add-access-binding](cli-ref/database/add-access-binding.md)
-
- - [add-labels](cli-ref/database/add-labels.md)
-
- - [backup](cli-ref/database/backup.md)
-
- - [create](cli-ref/database/create.md)
-
- - [delete](cli-ref/database/delete.md)
-
- - [get](cli-ref/database/get.md)
-
- - [list](cli-ref/database/list.md)
-
- - [list-access-bindings](cli-ref/database/list-access-bindings.md)
-
- - [move](cli-ref/database/move.md)
-
- - [remove-access-binding](cli-ref/database/remove-access-binding.md)
-
- - [remove-labels](cli-ref/database/remove-labels.md)
-
- - [restore](cli-ref/database/restore.md)
-
- - [set-access-bindings](cli-ref/database/set-access-bindings.md)
-
- - [start](cli-ref/database/start.md)
-
- - [stop](cli-ref/database/stop.md)
-
- - [update](cli-ref/database/update.md)
-
-### resource-preset
-
- - [Overview](cli-ref/resource-preset/index.md)
-
- - [get](cli-ref/resource-preset/get.md)
-
- - [list](cli-ref/resource-preset/list.md)
-
-### storage-type
-
- - [Overview](cli-ref/storage-type/index.md)
-
- - [get](cli-ref/storage-type/get.md)
-
- - [list](cli-ref/storage-type/list.md)
 
 ### v0
 
@@ -303,6 +235,76 @@ Yandex Managed Service for YDB помогает разворачивать и п
  - [get](cli-ref/v0/storage-type/get.md)
 
  - [list](cli-ref/v0/storage-type/list.md)
+
+### backup
+
+ - [Overview](cli-ref/backup/index.md)
+
+ - [add-access-binding](cli-ref/backup/add-access-binding.md)
+
+ - [delete](cli-ref/backup/delete.md)
+
+ - [get](cli-ref/backup/get.md)
+
+ - [list](cli-ref/backup/list.md)
+
+ - [list-access-bindings](cli-ref/backup/list-access-bindings.md)
+
+ - [remove-access-binding](cli-ref/backup/remove-access-binding.md)
+
+ - [set-access-bindings](cli-ref/backup/set-access-bindings.md)
+
+### database
+
+ - [Overview](cli-ref/database/index.md)
+
+ - [add-access-binding](cli-ref/database/add-access-binding.md)
+
+ - [add-labels](cli-ref/database/add-labels.md)
+
+ - [backup](cli-ref/database/backup.md)
+
+ - [create](cli-ref/database/create.md)
+
+ - [delete](cli-ref/database/delete.md)
+
+ - [get](cli-ref/database/get.md)
+
+ - [list](cli-ref/database/list.md)
+
+ - [list-access-bindings](cli-ref/database/list-access-bindings.md)
+
+ - [move](cli-ref/database/move.md)
+
+ - [remove-access-binding](cli-ref/database/remove-access-binding.md)
+
+ - [remove-labels](cli-ref/database/remove-labels.md)
+
+ - [restore](cli-ref/database/restore.md)
+
+ - [set-access-bindings](cli-ref/database/set-access-bindings.md)
+
+ - [start](cli-ref/database/start.md)
+
+ - [stop](cli-ref/database/stop.md)
+
+ - [update](cli-ref/database/update.md)
+
+### resource-preset
+
+ - [Overview](cli-ref/resource-preset/index.md)
+
+ - [get](cli-ref/resource-preset/get.md)
+
+ - [list](cli-ref/resource-preset/list.md)
+
+### storage-type
+
+ - [Overview](cli-ref/storage-type/index.md)
+
+ - [get](cli-ref/storage-type/get.md)
+
+ - [list](cli-ref/storage-type/list.md)
 
 ## Document API, совместимый с Amazon DynamoDB
 

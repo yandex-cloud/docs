@@ -8,7 +8,7 @@
 
 ## Роли, необходимые для корректной работы триггера для Telegram {#roles}
 
-* Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user), [{{ roles-editor }}](../../../iam/concepts/access-control/roles.md#editor) и выше.
+* Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/roles-reference.md#iam-serviceAccounts-user), [{{ roles-editor }}](../../../iam/roles-reference.md#editor) и выше.
 * Для работы триггера сервисному аккаунту необходима роль `{{ roles-functions-invoker }}` на функцию, которую вызывает триггер.
 
 ## Формат сообщения от триггера для Telegram {#format}

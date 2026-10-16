@@ -5,9 +5,6 @@ description: In {{ cns-name }}, you can send notifications to different endpoint
 
 # Getting started with topics in {{ cns-full-name }}
 
-
-{% include [ask-for-turning-on](../_includes/notifications/ask-for-turning-on.md) %}
-
 {% include [about-service](../_includes/notifications/about-service.md) %}
 
 To send messages to different endpoints at the same time, use topics. You can subscribe the endpoints to a _topic_ and send notifications to all of them at once.
@@ -15,18 +12,18 @@ To send messages to different endpoints at the same time, use topics. You can su
 To get started with topics:
 
 1. [Get your cloud ready](#before-you-begin).
-1. Create notification channels and endpoints: 
-   
+1. Create notification channels and endpoints:
    * [Mobile push notifications](quickstart-push.md)
    * [In-browser push notifications](quickstart-browser.md)
-   * [SMS](quickstart-sms.md) 
-      For SMS notifications, you may add phone numbers directly to the topic rather than the channel.
+   * [SMS](quickstart-sms.md)
+
+     For SMS notifications, you may add phone numbers directly to the topic rather than the channel.
 
 1. [Create a topic](#create-topic).
 1. [Subscribe endpoints to the topic](#subscribe-endpoints).
 1. [Send a notification to the topic](#send-message).
 
-# Get your cloud ready {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
 

@@ -3,7 +3,7 @@
 # Создать резервную копию защищаемого ресурса
 
 
-Чтобы создать резервную копию [защищаемого ресурса](../../concepts/index.md#protected-resources), [подключите](../../concepts/vm-connection/index.md) его к Cloud Backup и [привяжите](../policy-vm/attach-and-detach-vm.md#attach-vm) хотя бы к одной [политике резервного копирования](../../concepts/policy.md). Все резервные копии создаются только в рамках политик.
+Чтобы создать резервную копию [защищаемого ресурса](../../concepts/index.md#protected-resources), [подключите](../../concepts/vm-connection/index.md) его к Cloud Backup и [привяжите](../policy-vm/attach-and-detach-vm.md) хотя бы к одной [политике резервного копирования](../../concepts/policy.md). Все резервные копии создаются только в рамках политик.
 
 Резервные копии в Cloud Backup создаются автоматически по расписанию, указанному в политике.
 

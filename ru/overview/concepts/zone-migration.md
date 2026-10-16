@@ -70,8 +70,8 @@
 
 Чтобы мигрировать кластер {{ managed-k8s-name }} из одной зоны доступности в другую:
 
-* [Перенесите мастер](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md#transfer-a-master).
-* [Перенесите группу узлов и рабочую нагрузку в подах](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md#transfer-a-node-group).
+* [Перенесите мастер](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md).
+* [Перенесите группу узлов и рабочую нагрузку в подах](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md).
 
 ### {{ network-load-balancer-name }} {#nlb}
 

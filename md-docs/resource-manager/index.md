@@ -80,74 +80,6 @@
 
  - [Overview](cli-ref/index.md)
 
-### cloud
-
- - [Overview](cli-ref/cloud/index.md)
-
- - [add-access-binding](cli-ref/cloud/add-access-binding.md)
-
- - [add-labels](cli-ref/cloud/add-labels.md)
-
- - [bind-access-policy](cli-ref/cloud/bind-access-policy.md)
-
- - [create](cli-ref/cloud/create.md)
-
- - [delete](cli-ref/cloud/delete.md)
-
- - [get](cli-ref/cloud/get.md)
-
- - [list](cli-ref/cloud/list.md)
-
- - [list-access-bindings](cli-ref/cloud/list-access-bindings.md)
-
- - [list-access-policy-bindings](cli-ref/cloud/list-access-policy-bindings.md)
-
- - [list-operations](cli-ref/cloud/list-operations.md)
-
- - [remove-access-binding](cli-ref/cloud/remove-access-binding.md)
-
- - [remove-labels](cli-ref/cloud/remove-labels.md)
-
- - [set-access-bindings](cli-ref/cloud/set-access-bindings.md)
-
- - [unbind-access-policy](cli-ref/cloud/unbind-access-policy.md)
-
- - [update](cli-ref/cloud/update.md)
-
-### folder
-
- - [Overview](cli-ref/folder/index.md)
-
- - [add-access-binding](cli-ref/folder/add-access-binding.md)
-
- - [add-labels](cli-ref/folder/add-labels.md)
-
- - [bind-access-policy](cli-ref/folder/bind-access-policy.md)
-
- - [create](cli-ref/folder/create.md)
-
- - [delete](cli-ref/folder/delete.md)
-
- - [get](cli-ref/folder/get.md)
-
- - [list](cli-ref/folder/list.md)
-
- - [list-access-bindings](cli-ref/folder/list-access-bindings.md)
-
- - [list-access-policy-bindings](cli-ref/folder/list-access-policy-bindings.md)
-
- - [list-operations](cli-ref/folder/list-operations.md)
-
- - [remove-access-binding](cli-ref/folder/remove-access-binding.md)
-
- - [remove-labels](cli-ref/folder/remove-labels.md)
-
- - [set-access-bindings](cli-ref/folder/set-access-bindings.md)
-
- - [unbind-access-policy](cli-ref/folder/unbind-access-policy.md)
-
- - [update](cli-ref/folder/update.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -219,6 +151,74 @@
  - [unbind-access-policy](cli-ref/v0/folder/unbind-access-policy.md)
 
  - [update](cli-ref/v0/folder/update.md)
+
+### cloud
+
+ - [Overview](cli-ref/cloud/index.md)
+
+ - [add-access-binding](cli-ref/cloud/add-access-binding.md)
+
+ - [add-labels](cli-ref/cloud/add-labels.md)
+
+ - [bind-access-policy](cli-ref/cloud/bind-access-policy.md)
+
+ - [create](cli-ref/cloud/create.md)
+
+ - [delete](cli-ref/cloud/delete.md)
+
+ - [get](cli-ref/cloud/get.md)
+
+ - [list](cli-ref/cloud/list.md)
+
+ - [list-access-bindings](cli-ref/cloud/list-access-bindings.md)
+
+ - [list-access-policy-bindings](cli-ref/cloud/list-access-policy-bindings.md)
+
+ - [list-operations](cli-ref/cloud/list-operations.md)
+
+ - [remove-access-binding](cli-ref/cloud/remove-access-binding.md)
+
+ - [remove-labels](cli-ref/cloud/remove-labels.md)
+
+ - [set-access-bindings](cli-ref/cloud/set-access-bindings.md)
+
+ - [unbind-access-policy](cli-ref/cloud/unbind-access-policy.md)
+
+ - [update](cli-ref/cloud/update.md)
+
+### folder
+
+ - [Overview](cli-ref/folder/index.md)
+
+ - [add-access-binding](cli-ref/folder/add-access-binding.md)
+
+ - [add-labels](cli-ref/folder/add-labels.md)
+
+ - [bind-access-policy](cli-ref/folder/bind-access-policy.md)
+
+ - [create](cli-ref/folder/create.md)
+
+ - [delete](cli-ref/folder/delete.md)
+
+ - [get](cli-ref/folder/get.md)
+
+ - [list](cli-ref/folder/list.md)
+
+ - [list-access-bindings](cli-ref/folder/list-access-bindings.md)
+
+ - [list-access-policy-bindings](cli-ref/folder/list-access-policy-bindings.md)
+
+ - [list-operations](cli-ref/folder/list-operations.md)
+
+ - [remove-access-binding](cli-ref/folder/remove-access-binding.md)
+
+ - [remove-labels](cli-ref/folder/remove-labels.md)
+
+ - [set-access-bindings](cli-ref/folder/set-access-bindings.md)
+
+ - [unbind-access-policy](cli-ref/folder/unbind-access-policy.md)
+
+ - [update](cli-ref/folder/update.md)
 
  - [Справочник Terraform](tf-ref.md)
 

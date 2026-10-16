@@ -20,7 +20,7 @@
 ## Подготовьтесь к работе {#before-you-begin}
 
 1. Войдите в [консоль управления]({{ link-console-main }}) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
+1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md).
 1. Если у вас еще нет каталога, [создайте его](../../resource-manager/operations/folder/create.md).
 
 ## Подключитесь к данным {#create-binding}
@@ -106,5 +106,5 @@ Kind: AdaptiveWard Bins: 100 WeightsSum: 140151844.000 Min: -531231.000 Max: 436
 
 * [Именованные выражения. Синтаксис YQL]({{ ydb.docs }}yql/reference/syntax/expressions#named-nodes)
 * [HISTOGRAM. Встроенные функции YQL]({{ ydb.docs }}yql/reference/builtins/aggregation#histogram)
-* [Формат SQL-выражения](../sources-and-sinks/object-storage-binding.md#model-dannyh)
+* [Формат SQL-выражения](../sources-and-sinks/object-storage-binding.md#data-model)
 * [{#T}](../concepts/batch-processing.md)

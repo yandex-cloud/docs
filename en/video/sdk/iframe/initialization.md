@@ -201,6 +201,7 @@ The possible values are:
 * `be`: Belarusian
 * `id`: Indonesian
 * `kk`: Kazakh
+* `ky`: Kirghiz
 * `tr`: Turkish
 * `tt`: Tatar
 * `uk`: Ukrainian

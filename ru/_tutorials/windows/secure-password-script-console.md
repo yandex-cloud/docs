@@ -275,7 +275,7 @@
      1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ, например, `win-test`.
      1. В блоке **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** укажите данные для доступа на ВМ:
-         * Выберите [сервисный аккаунт](../../iam/concepts/index.md#sa) `win-secret-sa`.
+         * Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) `win-secret-sa`.
          * Разрешите доступ к [серийной консоли](../../compute/concepts/serial-console.md).
      1. В блоке **{{ ui-key.yacloud.common.metadata }}**:
          * В поле **{{ ui-key.yacloud.component.key-values-input.label_key }}** укажите `user-data`.

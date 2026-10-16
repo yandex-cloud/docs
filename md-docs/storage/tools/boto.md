@@ -102,7 +102,7 @@
 
 - Yandex Cloud Functions {#functions}
   
-  В функцию Cloud Functions [добавьте переменные окружения](../../functions/operations/function/version-manage.md#version-env):
+  В функцию Cloud Functions [добавьте переменные окружения](../../functions/concepts/runtime/environment-variables.md):
 
   * `AWS_ACCESS_KEY_ID` — идентификатор статического ключа сервисного аккаунта.
   * `AWS_SECRET_ACCESS_KEY` — секретный ключ.

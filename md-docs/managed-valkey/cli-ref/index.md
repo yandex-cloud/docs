@@ -16,6 +16,10 @@ Aliases:
 
 #### Command Tree
 
+- [yc managed-redis v0](v0/index.md) — Manage Redis clusters, hosts, databases, backups and users.
+
+
+
 - [yc managed-redis backup](backup/index.md) — Manage Redis backups
 
   - [yc managed-redis backup delete](backup/delete.md) — Delete Redis backup.
@@ -139,10 +143,6 @@ Aliases:
   - [yc managed-redis user list](user/list.md) — List users for the specified Redis cluster
 
   - [yc managed-redis user update](user/update.md) — Update the specified Redis user
-
-- [yc managed-redis v0](v0/index.md) — Manage Redis clusters, hosts, databases, backups and users.
-
-
 
 #### Global Flags
 

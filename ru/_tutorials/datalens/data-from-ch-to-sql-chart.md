@@ -225,4 +225,4 @@ SQL-запросы работают только с базами данных. F
 - [{#T}](../../datalens/operations/dashboard/add-chart.md)
 - [{#T}](../../datalens/operations/dashboard/add-selector.md)
 - [{#T}](../../datalens/operations/chart/create-sql-chart.md)
-- [QL-чарты](../../datalens/concepts/chart/index.md#sql-charts)
+- [QL-чарты](../../datalens/concepts/chart/ql-charts.md)

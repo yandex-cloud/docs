@@ -15,6 +15,8 @@ editable: false
 
 {% include [vat.md](../_includes/vat.md) %}
 
+{% include [payg-model](../_includes/payg-model.md) %}
+
 Стоимость использования {{ data-transfer-name }} зависит от объема использованных вычислительных ресурсов и количества переданных строк данных трансферами, которые находятся на стадии [GA](../overview/concepts/launch-stages.md): 
 
 * [{{ PG }}](operations/endpoint/source/postgresql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ PG }}](operations/endpoint/target/postgresql.md);

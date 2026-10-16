@@ -129,7 +129,7 @@ yc managed-kubernetes cluster list
        * `events-enabled` — флаг отправки событий Kubernetes: `true` или `false`.
        * `audit-enabled` — флаг отправки событий аудита: `true` или `false`.
 
-       Для отправки логов в Yandex Cloud Logging [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [logging.writer](../../../logging/security/index.md#loggingwriter).
+       Для отправки логов в Yandex Cloud Logging [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [logging.writer](../../../logging/security/index.md#logging-writer).
 
        Если отправка логов включена, но не указаны ни `log-group-id`, ни `folder-id`, логи будут отправляться в каталог, где находится [кластер Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster), в лог-группу по умолчанию. Указывать одновременно `log-group-id` и `folder-id` нельзя.
 
@@ -187,7 +187,7 @@ yc managed-kubernetes cluster list
      * `events_enabled` — флаг отправки событий Kubernetes: `true` или `false`.
      * `audit_enabled` — флаг отправки событий аудита: `true` или `false`.
 
-       Для отправки логов в Yandex Cloud Logging [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [logging.writer](../../../logging/security/index.md#loggingwriter).
+       Для отправки логов в Yandex Cloud Logging [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [logging.writer](../../../logging/security/index.md#logging-writer).
 
        Если отправка логов включена, но не указаны ни `log-group-id`, ни `folder-id`, логи будут отправляться в каталог, где находится [кластер Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster), в лог-группу по умолчанию. Указывать одновременно `log-group-id` и `folder-id` нельзя.
 
@@ -255,7 +255,7 @@ yc managed-kubernetes cluster list
 
   Чтобы изменить настройки отправки логов в Cloud Logging, измените их значения в параметре `masterSpec.masterLogging` для REST API или `master_spec.master_logging` для gRPC API.
 
-  Для отправки логов в Yandex Cloud Logging [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [logging.writer](../../../logging/security/index.md#loggingwriter).
+  Для отправки логов в Yandex Cloud Logging [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [logging.writer](../../../logging/security/index.md#logging-writer).
 
 {% endlist %}
 

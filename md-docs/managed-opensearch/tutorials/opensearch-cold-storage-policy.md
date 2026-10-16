@@ -46,7 +46,7 @@
             * Две или более группы хостов с ролью `DATA`. Двум группам присвойте имена `hot` и `cold`.
             * Публичный доступ к любой группе хостов.
 
-        1. Если вы используете группы безопасности в кластере, убедитесь, что они допускают подключение к кластеру [Managed Service for OpenSearch](../operations/connect/index.md#configuring-security-groups).
+        1. Если вы используете группы безопасности в кластере, убедитесь, что они допускают подключение к кластеру [Managed Service for OpenSearch](../operations/connect/index.md#security-groups).
 
     - С помощью Terraform {#tf}
 

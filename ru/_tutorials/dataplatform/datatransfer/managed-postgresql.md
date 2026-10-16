@@ -1,8 +1,12 @@
 # Миграция данных с использованием сервиса {{ data-transfer-full-name }} {#data-transfer}
 
 
+### Перед началом работы {#before-you-begin-dt}
 
-### Необходимые платные ресурсы {#paid-resources}
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+
+#### Необходимые платные ресурсы {#paid-resources-dt}
 
 * Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
@@ -22,17 +26,32 @@
         1. [Подготовьте кластер-приемник](../../../data-transfer/operations/prepare.md#target-pg).
         1. [Создайте эндпоинт для источника](../../../data-transfer/operations/endpoint/index.md#create) со следующими параметрами:
 
+             * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** — `{{ ui-key.yacloud.data-transfer.forms.label_source-type }}`.
+             * Укажите имя эндпоинта.
              * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `PostgreSQL`.
-             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.on_premise.title }}`.
+             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.title }}**:
 
-           Укажите параметры подключения к кластеру-источнику.
+                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}`.
+                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.connection.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.on_premise.title }}`.
+                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.OnPremisePostgres.host.title }}** — укажите IP-адрес или FQDN хоста-мастера кластера-источника.
+                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.OnPremisePostgres.port.title }}** — укажите номер порта для подключения к кластеру-источнику.
+                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — укажите имя БД.
+                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}** — укажите имя пользователя БД.
+                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}** — укажите пароль пользователя.
 
         1. [Создайте эндпоинт для приемника](../../../data-transfer/operations/endpoint/index.md#create) со следующими параметрами:
 
+             * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** — `{{ ui-key.yacloud.data-transfer.forms.label_target-type }}`.
+             * Укажите имя эндпоинта.
              * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ PG }}`.
-             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
+             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.title }}**:
 
-           Укажите идентификатор кластера-приемника.
+                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}`.
+                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.connection.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
+                 * **Кластер управляемой БД** — выберите кластер-приемник из списка.
+                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — укажите имя нужной БД.
+                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}** — укажите имя пользователя БД.
+                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}** — укажите пароль пользователя.
 
         1. [Создайте трансфер](../../../data-transfer/operations/transfer.md#create) типа _{{ dt-type-copy-repl }}_, использующий созданные эндпоинты.
         1. [Активируйте трансфер](../../../data-transfer/operations/transfer.md#activate).
@@ -98,18 +117,20 @@
     Подробнее о статусах трансфера смотрите в разделе [Жизненный цикл трансфера](../../../data-transfer/concepts/transfer-lifecycle.md#statuses).
 
 
-1. Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
+### Удалите созданные ресурсы {#clear-out-dt}
 
-    {% list tabs group=instructions %}
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
-    - Ресурсы созданы вручную {#manual}
+{% list tabs group=instructions %}
 
-        1. [Удалите кластер {{ mpg-name }}](../../../managed-postgresql/operations/cluster-delete.md).
-        1. [Удалите остановленный трансфер](../../../data-transfer/operations/transfer.md#delete).
-        1. [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
+- Ресурсы созданы вручную {#manual}
 
-    - Ресурсы созданы с помощью {{ TF }} {#tf}
+    1. [Удалите](../../../data-transfer/operations/transfer.md#delete) остановленный трансфер.
+    1. [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
+    1. [Удалите кластер {{ mpg-name }}](../../../managed-postgresql/operations/cluster-delete.md).
 
-        {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
+- Ресурсы созданы с помощью {{ TF }} {#tf}
 
-    {% endlist %}
+    {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
+
+{% endlist %}

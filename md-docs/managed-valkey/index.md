@@ -173,148 +173,6 @@ Yandex Managed Service for Valkey™ часто используется, что
 
  - [Overview](cli-ref/index.md)
 
-### backup
-
- - [Overview](cli-ref/backup/index.md)
-
- - [delete](cli-ref/backup/delete.md)
-
- - [get](cli-ref/backup/get.md)
-
- - [list](cli-ref/backup/list.md)
-
-### backup-retention-policy
-
- - [Overview](cli-ref/backup-retention-policy/index.md)
-
- - [create](cli-ref/backup-retention-policy/create.md)
-
- - [delete](cli-ref/backup-retention-policy/delete.md)
-
- - [list](cli-ref/backup-retention-policy/list.md)
-
-### change-freeze
-
- - [Overview](cli-ref/change-freeze/index.md)
-
- - [create](cli-ref/change-freeze/create.md)
-
- - [get](cli-ref/change-freeze/get.md)
-
- - [get-limits](cli-ref/change-freeze/get-limits.md)
-
- - [list](cli-ref/change-freeze/list.md)
-
- - [terminate](cli-ref/change-freeze/terminate.md)
-
-### cluster
-
- - [Overview](cli-ref/cluster/index.md)
-
- - [add-access-binding](cli-ref/cluster/add-access-binding.md)
-
- - [add-labels](cli-ref/cluster/add-labels.md)
-
- - [backup](cli-ref/cluster/backup.md)
-
- - [create](cli-ref/cluster/create.md)
-
- - [delete](cli-ref/cluster/delete.md)
-
- - [enable-sharding](cli-ref/cluster/enable-sharding.md)
-
- - [get](cli-ref/cluster/get.md)
-
- - [list](cli-ref/cluster/list.md)
-
- - [list-access-bindings](cli-ref/cluster/list-access-bindings.md)
-
- - [list-backups](cli-ref/cluster/list-backups.md)
-
- - [list-logs](cli-ref/cluster/list-logs.md)
-
- - [list-operations](cli-ref/cluster/list-operations.md)
-
- - [move](cli-ref/cluster/move.md)
-
- - [rebalance](cli-ref/cluster/rebalance.md)
-
- - [remove-access-binding](cli-ref/cluster/remove-access-binding.md)
-
- - [remove-labels](cli-ref/cluster/remove-labels.md)
-
- - [reschedule-maintenance](cli-ref/cluster/reschedule-maintenance.md)
-
- - [restore](cli-ref/cluster/restore.md)
-
- - [set-access-bindings](cli-ref/cluster/set-access-bindings.md)
-
- - [start](cli-ref/cluster/start.md)
-
- - [start-failover](cli-ref/cluster/start-failover.md)
-
- - [stop](cli-ref/cluster/stop.md)
-
- - [update](cli-ref/cluster/update.md)
-
- - [update-config](cli-ref/cluster/update-config.md)
-
-### hosts
-
- - [Overview](cli-ref/hosts/index.md)
-
- - [add](cli-ref/hosts/add.md)
-
- - [delete](cli-ref/hosts/delete.md)
-
- - [list](cli-ref/hosts/list.md)
-
- - [update](cli-ref/hosts/update.md)
-
-### maintenance
-
- - [Overview](cli-ref/maintenance/index.md)
-
- - [get](cli-ref/maintenance/get.md)
-
- - [list](cli-ref/maintenance/list.md)
-
- - [reschedule](cli-ref/maintenance/reschedule.md)
-
-### resource-preset
-
- - [Overview](cli-ref/resource-preset/index.md)
-
- - [get](cli-ref/resource-preset/get.md)
-
- - [list](cli-ref/resource-preset/list.md)
-
-### shards
-
- - [Overview](cli-ref/shards/index.md)
-
- - [add](cli-ref/shards/add.md)
-
- - [delete](cli-ref/shards/delete.md)
-
- - [get](cli-ref/shards/get.md)
-
- - [list](cli-ref/shards/list.md)
-
-### user
-
- - [Overview](cli-ref/user/index.md)
-
- - [create](cli-ref/user/create.md)
-
- - [delete](cli-ref/user/delete.md)
-
- - [get](cli-ref/user/get.md)
-
- - [list](cli-ref/user/list.md)
-
- - [update](cli-ref/user/update.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -460,6 +318,148 @@ Yandex Managed Service for Valkey™ часто используется, что
  - [list](cli-ref/v0/user/list.md)
 
  - [update](cli-ref/v0/user/update.md)
+
+### backup
+
+ - [Overview](cli-ref/backup/index.md)
+
+ - [delete](cli-ref/backup/delete.md)
+
+ - [get](cli-ref/backup/get.md)
+
+ - [list](cli-ref/backup/list.md)
+
+### backup-retention-policy
+
+ - [Overview](cli-ref/backup-retention-policy/index.md)
+
+ - [create](cli-ref/backup-retention-policy/create.md)
+
+ - [delete](cli-ref/backup-retention-policy/delete.md)
+
+ - [list](cli-ref/backup-retention-policy/list.md)
+
+### change-freeze
+
+ - [Overview](cli-ref/change-freeze/index.md)
+
+ - [create](cli-ref/change-freeze/create.md)
+
+ - [get](cli-ref/change-freeze/get.md)
+
+ - [get-limits](cli-ref/change-freeze/get-limits.md)
+
+ - [list](cli-ref/change-freeze/list.md)
+
+ - [terminate](cli-ref/change-freeze/terminate.md)
+
+### cluster
+
+ - [Overview](cli-ref/cluster/index.md)
+
+ - [add-access-binding](cli-ref/cluster/add-access-binding.md)
+
+ - [add-labels](cli-ref/cluster/add-labels.md)
+
+ - [backup](cli-ref/cluster/backup.md)
+
+ - [create](cli-ref/cluster/create.md)
+
+ - [delete](cli-ref/cluster/delete.md)
+
+ - [enable-sharding](cli-ref/cluster/enable-sharding.md)
+
+ - [get](cli-ref/cluster/get.md)
+
+ - [list](cli-ref/cluster/list.md)
+
+ - [list-access-bindings](cli-ref/cluster/list-access-bindings.md)
+
+ - [list-backups](cli-ref/cluster/list-backups.md)
+
+ - [list-logs](cli-ref/cluster/list-logs.md)
+
+ - [list-operations](cli-ref/cluster/list-operations.md)
+
+ - [move](cli-ref/cluster/move.md)
+
+ - [rebalance](cli-ref/cluster/rebalance.md)
+
+ - [remove-access-binding](cli-ref/cluster/remove-access-binding.md)
+
+ - [remove-labels](cli-ref/cluster/remove-labels.md)
+
+ - [reschedule-maintenance](cli-ref/cluster/reschedule-maintenance.md)
+
+ - [restore](cli-ref/cluster/restore.md)
+
+ - [set-access-bindings](cli-ref/cluster/set-access-bindings.md)
+
+ - [start](cli-ref/cluster/start.md)
+
+ - [start-failover](cli-ref/cluster/start-failover.md)
+
+ - [stop](cli-ref/cluster/stop.md)
+
+ - [update](cli-ref/cluster/update.md)
+
+ - [update-config](cli-ref/cluster/update-config.md)
+
+### hosts
+
+ - [Overview](cli-ref/hosts/index.md)
+
+ - [add](cli-ref/hosts/add.md)
+
+ - [delete](cli-ref/hosts/delete.md)
+
+ - [list](cli-ref/hosts/list.md)
+
+ - [update](cli-ref/hosts/update.md)
+
+### maintenance
+
+ - [Overview](cli-ref/maintenance/index.md)
+
+ - [get](cli-ref/maintenance/get.md)
+
+ - [list](cli-ref/maintenance/list.md)
+
+ - [reschedule](cli-ref/maintenance/reschedule.md)
+
+### resource-preset
+
+ - [Overview](cli-ref/resource-preset/index.md)
+
+ - [get](cli-ref/resource-preset/get.md)
+
+ - [list](cli-ref/resource-preset/list.md)
+
+### shards
+
+ - [Overview](cli-ref/shards/index.md)
+
+ - [add](cli-ref/shards/add.md)
+
+ - [delete](cli-ref/shards/delete.md)
+
+ - [get](cli-ref/shards/get.md)
+
+ - [list](cli-ref/shards/list.md)
+
+### user
+
+ - [Overview](cli-ref/user/index.md)
+
+ - [create](cli-ref/user/create.md)
+
+ - [delete](cli-ref/user/delete.md)
+
+ - [get](cli-ref/user/get.md)
+
+ - [list](cli-ref/user/list.md)
+
+ - [update](cli-ref/user/update.md)
 
  - [Справочник Terraform](tf-ref.md)
 

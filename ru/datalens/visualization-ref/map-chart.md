@@ -60,7 +60,7 @@ description: Из статьи вы узнаете, как в {{ datalens-full-n
 
 {% note info %}
 
-Создание карт не поддерживается в [QL-чартах](../concepts/chart/index.md#sql-charts).
+Создание карт не поддерживается в [QL-чартах](../concepts/chart/ql-charts.md).
 
 {% endnote %}
 

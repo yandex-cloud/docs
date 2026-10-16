@@ -66,9 +66,9 @@
 
 1. [Создайте виртуальную машину](bm-vrf-and-vpc-interconnect.md#create-vm).
 
-1. [Создайте Routing Instance](bm-vrf-and-vpc-interconnect.md#request-routing-instance).
+1. [Создайте Routing Instance](bm-vrf-and-vpc-interconnect.md#request-ri).
 
-1. [Создайте приватное соединение](bm-vrf-and-vpc-interconnect.md#create-private-connection).
+1. [Создайте приватное соединение](bm-vrf-and-vpc-interconnect.md#create-prc).
 
 ## Создание внешней группы узлов {#node-group-create}
 

@@ -14,39 +14,6 @@ Create a [Telegram trigger](../../concepts/trigger/telegram-trigger.md) that sen
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
-
-    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
-
-    1. [Navigate]({{ link-console-main }}/link/api-gateway) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-
-    1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
-
-    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
-
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
-
-        * Optionally, enter a trigger name and description.
-
-        * {% include [triggers-labels-step](../../../_includes/functions/triggers-labels-step.md) %}
-
-        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `Telegram`.
-
-    1. Under **Telegram settings**, specify the Telegram bot token you received from [@BotFather](https://core.telegram.org/bots/features#botfather).
-
-    1. {% include [batch-settings](../../../_includes/functions/batch-settings.md) %}
-
-    1. Under **Targets**:
-
-        1. In the **Target type** field, select `API gateway`.
-
-        1. {% include [api-gateway-settings](../../../_includes/api-gateway/api-gateway-settings.md) %}
-
-        1. {% include [trigger-console-filter](../../../_includes/functions/trigger-console-filter.md) %}
-
-        1. {% include [trigger-console-template](../../../_includes/functions/trigger-console-template.md) %}
-
-    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - {{ TF }} {#tf}
 

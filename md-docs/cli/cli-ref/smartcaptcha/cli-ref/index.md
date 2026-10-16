@@ -22,6 +22,14 @@ Aliases:
 
 #### Command Tree
 
+- [yc smartcaptcha v0](v0/index.md) — (legacy command tree) Manage SmartCaptcha resources
+
+
+
+- [yc smartcaptcha v1](v1/index.md) — Manage SmartCaptcha resources
+
+
+
 - [yc smartcaptcha captcha](captcha/index.md) — A set of methods for managing Captcha resources.
 
   - [yc smartcaptcha captcha create](captcha/create.md) — Creates a captcha in the specified folder using the data specified in the request.
@@ -37,14 +45,6 @@ Aliases:
   - [yc smartcaptcha captcha list](captcha/list.md) — Retrieves the list of Captcha resources in the specified folder.
 
   - [yc smartcaptcha captcha update](captcha/update.md) — Updates the specified captcha.
-
-- [yc smartcaptcha v0](v0/index.md) — (legacy command tree) Manage SmartCaptcha resources
-
-
-
-- [yc smartcaptcha v1](v1/index.md) — Manage SmartCaptcha resources
-
-
 
 #### Global Flags
 

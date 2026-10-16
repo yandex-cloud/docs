@@ -14,7 +14,7 @@ Yandex DataSphere — среда для ML-разработки полного �
 ## Перед началом работы {#before-you-begin}
 
 1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь, если вы еще не зарегистрированы.
-1. Перейдите в сервис [Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts) и убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+1. Перейдите в сервис [Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts) и убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md).
 1. Откройте [главную страницу](https://datasphere.yandex.cloud) DataSphere.
 1. Примите пользовательское соглашение.
 1. Выберите организацию, в которой вы будете работать с DataSphere, или создайте новую.

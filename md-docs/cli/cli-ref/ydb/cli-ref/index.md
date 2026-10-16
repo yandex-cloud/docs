@@ -14,6 +14,10 @@ Syntax:
 
 #### Command Tree
 
+- [yc ydb v0](v0/index.md) — Manage YDB databases
+
+
+
 - [yc ydb backup](backup/index.md) — Manage YDB backups.
 
   - [yc ydb backup add-access-binding](backup/add-access-binding.md) — Add access binding for the specified YDB backup.
@@ -75,10 +79,6 @@ Syntax:
   - [yc ydb storage-type get](storage-type/get.md) — Get information about the specified YDB storage type preset.
 
   - [yc ydb storage-type list](storage-type/list.md) — List YDB storage types.
-
-- [yc ydb v0](v0/index.md) — Manage YDB databases
-
-
 
 #### Global Flags
 

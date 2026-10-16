@@ -13,7 +13,7 @@
 Если у вас уже есть пользовательский аккаунт, создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
 
 1. Перейдите в сервис [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
-1. Войдите в свой Яндекс ID или аккаунт в Яндекс 360. Если у вас еще нет аккаунта — [зарегистрируйтесь](https://yandex.ru/support/id/authorization/registration.html). После этого перейдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization) и создайте [организацию](../../organization/quickstart.md), в которой вы будете работать. Если для входа на Яндекс вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
+1. Войдите в свой Яндекс ID или аккаунт в Яндекс 360. Если у вас еще нет аккаунта — [зарегистрируйтесь](https://yandex.ru/support/id/authorization/registration.html). После этого перейдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization) и [создайте](../../organization/quickstart.md) организацию, в которой вы будете работать. Если для входа на Яндекс вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
 1. Чтобы создать ваш первый платежный аккаунт, на вкладке ![image](../../_assets/console-icons/flag.svg) **Аккаунт** нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **Создать аккаунт**.
 
    Чтобы создать еще один платежный аккаунт в дополнение к уже имеющимся, в верхней части экрана рядом с именем существующего платежного аккаунта нажмите на значок ![circle-plus-fill](../../_assets/console-icons/circle-plus-fill.svg).

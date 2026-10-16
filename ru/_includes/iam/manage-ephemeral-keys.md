@@ -1,4 +1,4 @@
-[Часть сервисов](../../iam/concepts/authorization/ephemeral-keys.md#supported-services) {{ yandex-cloud }} поддерживает аутентификацию с помощью [эфемерных ключей доступа](../../iam/concepts/authorization/ephemeral-keys.md).
+[Часть сервисов](../../iam/concepts/authorization/ephemeral-keys.md) {{ yandex-cloud }} поддерживает аутентификацию с помощью [эфемерных ключей доступа](../../iam/concepts/authorization/ephemeral-keys.md).
 
 Эфемерные ключи доступа создаются для [аккаунтов на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../iam/concepts/users/accounts.md#saml-federation), [локальных пользователей](../../iam/concepts/users/accounts.md#local) и [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md).
 

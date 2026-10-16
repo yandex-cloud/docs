@@ -69,7 +69,7 @@ blocks:
 ## Тарифы отдельных сервисов {#billable}
 
 
-Стоимость тарифицируемых сервисов рассчитывается на основе количества потребленных ресурсов и времени потребления. Каждый сервис реализует собственную логику подсчета потребленных ресурсов.
+Для большинства сервисов {{ yandex-cloud }} используется модель оплаты [Pay as you go](concepts/payg.md). Стоимость тарифицируемых сервисов рассчитывается на основе количества потребленных ресурсов и времени потребления. Каждый сервис реализует собственную логику подсчета потребленных ресурсов.
 
 {% include [final-payment-info](../_includes/billing/final-payment-info.md) %}
 
@@ -104,10 +104,10 @@ blocks:
 * [{{ stackland-full-name }}](../stackland/pricing.md)
 * [{{ video-full-name }}](../video/pricing.md)
 * [{{ compute-full-name }}](../compute/pricing.md)
-    * [Вычислительные ресурсы ВМ](../compute/pricing.md#prices-instance-resources)
-    * [Кластеры GPU](../compute/pricing.md#prices-gpu-clusters)
-    * [Диски, снимки и образы](../compute/pricing.md#prices-storage)
-    * [Файловые хранилища](../compute/pricing.md#prices-nfs)
+    * [Вычислительные ресурсы ВМ](../compute/pricing.md#instance-resources)
+    * [Кластеры GPU](../compute/pricing.md#prices)
+    * [Диски, снимки и образы](../compute/pricing.md#disk)
+    * [Файловые хранилища](../compute/pricing.md#prices)
 * [{{ container-registry-full-name }}](../container-registry/pricing.md)
 * [{{ dataproc-full-name }}](../data-proc/pricing.md)
 * [{{ yds-full-name }}](../data-streams/pricing.md)
@@ -135,8 +135,8 @@ blocks:
 * [{{ message-queue-full-name }}](../message-queue/pricing.md)
 * [{{ metadata-hub-full-name }}](../metadata-hub/pricing.md)
 * [{{ monitoring-full-name }}](../monitoring/pricing.md)
-    * [{{ monitoring-short-name }} API](../monitoring/pricing.md#monitoring-api)
-    * [{{ prometheus-name }} Remote API](../monitoring/pricing.md#prometheus-remote-api)
+    * [{{ monitoring-short-name }} API](../monitoring/pricing.md#rules)
+    * [{{ prometheus-name }} Remote API](../monitoring/pricing.md#rules)
 * [{{ network-load-balancer-full-name }}](../network-load-balancer/pricing.md)
 * [{{ mgp-full-name }}](../managed-greenplum/pricing/index.md)
 * [{{ objstorage-full-name }}](../storage/pricing.md)

@@ -61,6 +61,8 @@ blocks:
 
 {% include [vat](../_includes/vat.md) %}
 
+{% include [payg-model](../_includes/payg-model.md) %}
+
 ## Из чего складывается стоимость использования {{ sf-name }} {#rules}
 
 В рамках сервиса {{ sf-name }} тарифицируется количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, время простоя [подготовленных экземпляров](concepts/function.md#provisioned-instances) и исходящий трафик.
@@ -114,7 +116,7 @@ blocks:
 * функцию вызывает [платформа Яндекс Диалоги](https://yandex.ru/dev/dialogs/);
 * навык Алисы создан по [инструкции](https://yandex.ru/dev/dialogs/alice/doc/deploy-ycloud-function.html#deploy-ycloud-function__register).
 
-При этом если функция использует другие ресурсы {{ yandex-cloud }}, они тарифицируются. Например, если функция делает запросы к очереди {{ message-queue-name }}, за них взимается плата в соответствии с [тарифами](../message-queue/pricing.md#requests-to-queues).
+При этом если функция использует другие ресурсы {{ yandex-cloud }}, они тарифицируются. Например, если функция делает запросы к очереди {{ message-queue-name }}, за них взимается плата в соответствии с [тарифами](../message-queue/pricing.md).
 
 ## Цены для региона Россия {#prices}
 

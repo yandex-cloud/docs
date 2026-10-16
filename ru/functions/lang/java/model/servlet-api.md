@@ -52,7 +52,7 @@
 Чтобы создать функцию:
 1. Создайте файл `Handler.java` по пути `/src/main/java/Handler.java` и файл `pom.xml`.
 1. Добавьте в ZIP-архив директорию `/src` и файл `pom.xml`.
-1. [Загрузите](../../../operations/function/version-manage.md#func-version-create) ZIP-архив в {{ sf-name }}.
+1. [Загрузите](../../../operations/function/version-manage.md#version-create) ZIP-архив в {{ sf-name }}.
 
 Файл `pom.xml`:
 

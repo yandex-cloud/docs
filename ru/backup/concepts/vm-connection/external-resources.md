@@ -20,7 +20,7 @@ description: Из этой статьи вы узнаете, как подклю
 
 Подробнее об установке агента {{ backup-name }} на ВМ или сервер, расположенные за пределами {{ yandex-cloud }}, читайте в разделе [{#T}](../../operations/external/connect.md).
 
-После установки агента {{ backup-name }} [привяжите](../../operations/policy-vm/attach-and-detach-vm.md#attach-vm) ВМ или сервер к [политике резервного копирования](../policy.md).
+После установки агента {{ backup-name }} [привяжите](../../operations/policy-vm/attach-and-detach-vm.md) ВМ или сервер к [политике резервного копирования](../policy.md).
 
 ## Поддерживаемые операционные системы {#supported-oss}
 

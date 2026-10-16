@@ -14,7 +14,7 @@ _Артефакт Python_ — это файл пакета, содержащий
 
 #### Полезные ссылки {#see-also}
 
-* [Поддерживаемые типы артефактов](./index.md#artifacts)
+* [Поддерживаемые типы артефактов](./index.md)
 * [{#T}](../../operations/pypi/installation.md)
 * [{#T}](../../operations/pypi/pull.md)
 * [{#T}](../../tutorials/lifecycle-policy-examples.md)

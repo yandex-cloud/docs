@@ -396,106 +396,6 @@
 
  - [Overview](cli-ref/index.md)
 
-### cluster
-
- - [Overview](cli-ref/cluster/index.md)
-
- - [add-access-binding](cli-ref/cluster/add-access-binding.md)
-
- - [add-labels](cli-ref/cluster/add-labels.md)
-
- - [create](cli-ref/cluster/create.md)
-
- - [delete](cli-ref/cluster/delete.md)
-
- - [get](cli-ref/cluster/get.md)
-
- - [get-credentials](cli-ref/cluster/get-credentials.md)
-
- - [list](cli-ref/cluster/list.md)
-
- - [list-access-bindings](cli-ref/cluster/list-access-bindings.md)
-
- - [list-node-groups](cli-ref/cluster/list-node-groups.md)
-
- - [list-nodes](cli-ref/cluster/list-nodes.md)
-
- - [list-operations](cli-ref/cluster/list-operations.md)
-
- - [remove-access-binding](cli-ref/cluster/remove-access-binding.md)
-
- - [remove-labels](cli-ref/cluster/remove-labels.md)
-
- - [reschedule-maintenance](cli-ref/cluster/reschedule-maintenance.md)
-
- - [set-access-bindings](cli-ref/cluster/set-access-bindings.md)
-
- - [start](cli-ref/cluster/start.md)
-
- - [stop](cli-ref/cluster/stop.md)
-
- - [update](cli-ref/cluster/update.md)
-
- - [create-token](cli-ref/create-token.md)
-
- - [list-versions](cli-ref/list-versions.md)
-
-### marketplace
-
- - [Overview](cli-ref/marketplace/index.md)
-
-#### helm-release
-
- - [Overview](cli-ref/marketplace/helm-release/index.md)
-
- - [get](cli-ref/marketplace/helm-release/get.md)
-
- - [install](cli-ref/marketplace/helm-release/install.md)
-
- - [list](cli-ref/marketplace/helm-release/list.md)
-
- - [uninstall](cli-ref/marketplace/helm-release/uninstall.md)
-
- - [update](cli-ref/marketplace/helm-release/update.md)
-
-### node-group
-
- - [Overview](cli-ref/node-group/index.md)
-
- - [add-labels](cli-ref/node-group/add-labels.md)
-
- - [add-metadata](cli-ref/node-group/add-metadata.md)
-
- - [add-node-labels](cli-ref/node-group/add-node-labels.md)
-
- - [create](cli-ref/node-group/create.md)
-
- - [delete](cli-ref/node-group/delete.md)
-
- - [get](cli-ref/node-group/get.md)
-
- - [list](cli-ref/node-group/list.md)
-
- - [list-nodes](cli-ref/node-group/list-nodes.md)
-
- - [list-operations](cli-ref/node-group/list-operations.md)
-
- - [remove-labels](cli-ref/node-group/remove-labels.md)
-
- - [remove-metadata](cli-ref/node-group/remove-metadata.md)
-
- - [remove-node-labels](cli-ref/node-group/remove-node-labels.md)
-
- - [update](cli-ref/node-group/update.md)
-
-### resource-preset
-
- - [Overview](cli-ref/resource-preset/index.md)
-
- - [get](cli-ref/resource-preset/get.md)
-
- - [list](cli-ref/resource-preset/list.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -599,6 +499,106 @@
  - [get](cli-ref/v0/resource-preset/get.md)
 
  - [list](cli-ref/v0/resource-preset/list.md)
+
+### cluster
+
+ - [Overview](cli-ref/cluster/index.md)
+
+ - [add-access-binding](cli-ref/cluster/add-access-binding.md)
+
+ - [add-labels](cli-ref/cluster/add-labels.md)
+
+ - [create](cli-ref/cluster/create.md)
+
+ - [delete](cli-ref/cluster/delete.md)
+
+ - [get](cli-ref/cluster/get.md)
+
+ - [get-credentials](cli-ref/cluster/get-credentials.md)
+
+ - [list](cli-ref/cluster/list.md)
+
+ - [list-access-bindings](cli-ref/cluster/list-access-bindings.md)
+
+ - [list-node-groups](cli-ref/cluster/list-node-groups.md)
+
+ - [list-nodes](cli-ref/cluster/list-nodes.md)
+
+ - [list-operations](cli-ref/cluster/list-operations.md)
+
+ - [remove-access-binding](cli-ref/cluster/remove-access-binding.md)
+
+ - [remove-labels](cli-ref/cluster/remove-labels.md)
+
+ - [reschedule-maintenance](cli-ref/cluster/reschedule-maintenance.md)
+
+ - [set-access-bindings](cli-ref/cluster/set-access-bindings.md)
+
+ - [start](cli-ref/cluster/start.md)
+
+ - [stop](cli-ref/cluster/stop.md)
+
+ - [update](cli-ref/cluster/update.md)
+
+ - [create-token](cli-ref/create-token.md)
+
+ - [list-versions](cli-ref/list-versions.md)
+
+### marketplace
+
+ - [Overview](cli-ref/marketplace/index.md)
+
+#### helm-release
+
+ - [Overview](cli-ref/marketplace/helm-release/index.md)
+
+ - [get](cli-ref/marketplace/helm-release/get.md)
+
+ - [install](cli-ref/marketplace/helm-release/install.md)
+
+ - [list](cli-ref/marketplace/helm-release/list.md)
+
+ - [uninstall](cli-ref/marketplace/helm-release/uninstall.md)
+
+ - [update](cli-ref/marketplace/helm-release/update.md)
+
+### node-group
+
+ - [Overview](cli-ref/node-group/index.md)
+
+ - [add-labels](cli-ref/node-group/add-labels.md)
+
+ - [add-metadata](cli-ref/node-group/add-metadata.md)
+
+ - [add-node-labels](cli-ref/node-group/add-node-labels.md)
+
+ - [create](cli-ref/node-group/create.md)
+
+ - [delete](cli-ref/node-group/delete.md)
+
+ - [get](cli-ref/node-group/get.md)
+
+ - [list](cli-ref/node-group/list.md)
+
+ - [list-nodes](cli-ref/node-group/list-nodes.md)
+
+ - [list-operations](cli-ref/node-group/list-operations.md)
+
+ - [remove-labels](cli-ref/node-group/remove-labels.md)
+
+ - [remove-metadata](cli-ref/node-group/remove-metadata.md)
+
+ - [remove-node-labels](cli-ref/node-group/remove-node-labels.md)
+
+ - [update](cli-ref/node-group/update.md)
+
+### resource-preset
+
+ - [Overview](cli-ref/resource-preset/index.md)
+
+ - [get](cli-ref/resource-preset/get.md)
+
+ - [list](cli-ref/resource-preset/list.md)
 
  - [Справочник Terraform](tf-ref.md)
 

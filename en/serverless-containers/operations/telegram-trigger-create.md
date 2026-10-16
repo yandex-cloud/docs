@@ -28,45 +28,6 @@ To create a trigger, you will need:
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
-
-    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
-
-    1. [Navigate]({{ link-console-main }}/link/serverless-containers) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
-
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
-
-    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
-
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
-
-        * Optionally, enter a trigger name and description.
-
-        * {% include [triggers-labels-step](../../_includes/functions/triggers-labels-step.md) %}
-
-        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `Telegram`.
-
-    1. Under **Telegram settings**, specify the Telegram bot token you received from [@BotFather](https://core.telegram.org/bots/features#botfather).
-
-    1. {% include [batch-settings](../../_includes/functions/batch-settings.md) %}
-
-    1. Under **Targets**:
-
-        1. In the **Target type** field, select `Container`.
-
-        1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
-
-        1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
-
-            {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
-
-        1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a service account with write permissions for that queue.
-
-        1. {% include [trigger-console-filter](../../_includes/functions/trigger-console-filter.md) %}
-
-        1. {% include [trigger-console-template](../../_includes/functions/trigger-console-template.md) %}
-
-    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - {{ TF }} {#tf}
 

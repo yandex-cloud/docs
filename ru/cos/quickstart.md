@@ -72,7 +72,7 @@ description: Следуя данной инструкции, вы сможете
 
      * `--name` — имя ВМ.
      * `--zone` — зона доступности.
-     * `--ssh-key` — содержимое файла [открытого ключа](../compute/quickstart/quick-create-linux.md#create-ssh).
+     * `--ssh-key` — содержимое файла [открытого ключа](../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
      * `--service-account-name` — имя сервисного аккаунта.
      * `--create-boot-disk size` — размер загрузочного диска.
 

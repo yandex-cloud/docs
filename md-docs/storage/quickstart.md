@@ -14,7 +14,7 @@
 ## Перед началом работы {#before-you-begin}
 
 1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь, если вы еще не зарегистрированы.
-1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md).
 1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud [роль](../iam/roles-reference.md#editor) `editor` или выше. Роль должна быть назначена на [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете работать, или на [облако](../resource-manager/concepts/resources-hierarchy.md#cloud), которому принадлежит этот каталог.
 
     {% note info %}

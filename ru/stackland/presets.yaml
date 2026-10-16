@@ -46,6 +46,7 @@ default:
   KF: Apache Kafka®
   kraft-name: Apache Kafka® Raft
   kraft-short-name: KRaft
+  kubernetes-version: v1.34.1
   lang: ru
   maf-full-name: Yandex Managed Service for Apache Airflow™
   maf-name: Managed Service for Apache Airflow™
@@ -93,7 +94,7 @@ default:
   TF: Terraform
   TF-full: HashiCorp Terraform
   TR: Trino
-  version: 26.3.0
+  version: 26.3.1
   VLK: Valkey™
   ya-360: Яндекс 360 для бизнеса
   yandex-cloud: Yandex Cloud

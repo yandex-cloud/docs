@@ -70,6 +70,8 @@ blocks:
 
 {% include [vat](../_includes/vat.md) %}
 
+{% include [payg-model](../_includes/payg-model.md) %}
+
 ## Из чего складывается стоимость использования {{ mgl-name }} {#rules}
 
 При работе с {{ mgl-name }} вы оплачиваете:

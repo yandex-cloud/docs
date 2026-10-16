@@ -2,7 +2,7 @@
 
 В этом примере будут созданы две [виртуальные машины](../../compute/concepts/vm.md): `terraform1` и `terraform2`. Они будут подключены к [подсети](../../vpc/concepts/network.md#subnet) `subnet-1` в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`. Подсеть будет принадлежать [облачной сети](../../vpc/concepts/network.md#network) `network-1`.
 
-У ВМ будут разные [количества ядер и объемы памяти](../../compute/concepts/vm-platforms.md): 1 ядро и 2 ГБ оперативной памяти у `terraform1` и 2 ядра и 4 ГБ оперативной памяти у `terraform2`. ВМ автоматически получат [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses) и [внутренние IP-адреса](../../vpc/concepts/address.md#internal-addresses) из диапазона `192.168.10.0/24` в подсети `subnet-1`. На ВМ будет установлена операционная система Ubuntu и размещена публичная часть ключа для доступа к ВМ по [SSH](../../glossary/ssh-keygen.md).
+У ВМ будут разные [объемы памяти](../../compute/concepts/vm-platforms.md): 2 ГБ оперативной памяти у `terraform1` и 4 ГБ оперативной памяти у `terraform2`. ВМ автоматически получат [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses) и [внутренние IP-адреса](../../vpc/concepts/address.md#internal-addresses) из диапазона `192.168.10.0/24` в подсети `subnet-1`. На ВМ будет установлена операционная система Ubuntu и размещена публичная часть ключа для доступа к ВМ по [SSH](../../glossary/ssh-keygen.md).
 1. Сохраните следующую конфигурацию в файл `example.tf`:
 
    ```hcl
@@ -15,7 +15,7 @@
 
      backend "s3" {
        endpoints = {
-         s3 = "{{ s3-storage-host }}"
+         s3 = "https://{{ s3-storage-host }}"
        }
        bucket = "<имя_бакета>"
        region = "{{ region-id }}"

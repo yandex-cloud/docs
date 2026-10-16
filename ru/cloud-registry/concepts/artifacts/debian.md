@@ -32,7 +32,7 @@ _Артефакт Debian_ — это файл пакета `*.deb`, содерж
 
 #### Полезные ссылки {#see-also}
 
-* [Поддерживаемые типы артефактов](./index.md#artifacts)
+* [Поддерживаемые типы артефактов](./index.md)
 * [{#T}](../../operations/debian/installation.md)
 * [{#T}](../../operations/debian/push.md)
 * [{#T}](../../operations/debian/pull.md)

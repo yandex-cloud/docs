@@ -16,7 +16,7 @@
 
 Для развертывания минимального кластера потребуется:
 
-* Один бастионный хост на Ubuntu 22.04 или выше. На нем запускается `sladm`, выполняется доступ к кластеру и обеспечивается выход узлов в интернет.
+* Один бастионный хост на Ubuntu 22.04 или выше. На нем запускается `sladm` и выполняется доступ к кластеру. Для выхода узлов в интернет в примере ниже используется NAT-шлюз Yandex Cloud.
 * Не менее трех виртуальных машин для будущего кластера Stackland. Все машины должны находиться в одной облачной сети и одной подсети.
 * Пользовательский образ диска, созданный из raw-образа Stackland.
 * На каждой виртуальной машине: один загрузочный диск из пользовательского образа и один отдельный диск для данных.
@@ -24,24 +24,46 @@
 
 Рекомендуемые ресурсы для узлов кластера см. в разделе [Инфраструктура](../quickstart.md#infrastructure).
 
+В приведенном ниже CLI-примере три узла используют суммарно 96 vCPU, 192 ГБ памяти и 2850 ГБ дисков `network-ssd`. Бастионный хост требует еще 2 vCPU, 4 ГБ памяти и диск 20 ГБ. Перед созданием виртуальных машин проверьте квоты каталога, прежде всего квоту на диски `network-ssd`.
+
 {% note info "Note" %}
 
 В ссылках на релизные артефакты используется переменная `$VERSION`. Замените ее на актуальную версию Stackland.
 
 {% endnote %}
 
-В примерах CLI ниже используются переменные. Перед выполнением команд задайте их значения:
+Команды `yc` выполняйте на рабочей станции, а команды `sladm` и `kubectl` — на бастионном хосте. Для работы с бастионом используйте отдельный терминал с SSH-сессией.
+
+На рабочей станции [установите и инициализируйте CLI для Yandex Cloud](../../cli/quickstart.md#install).
+
+По умолчанию используется каталог, указанный в активном профиле CLI. Чтобы изменить каталог по умолчанию, выполните команду:
 
 ```bash
-export VERSION=26.3.0
+yc config set folder-id <идентификатор_каталога>
+```
+
+Также для любой команды можно указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+
+Если вы обращаетесь к ресурсу по имени, поиск выполняется в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск выполняется во всех каталогах с учетом прав доступа.
+
+Также установите на рабочей станции `jq`.
+
+В примерах CLI ниже используются переменные. На рабочей станции задайте их значения:
+
+```bash
+export VERSION=26.3.1
+export IMAGE_NAME="stackland-${VERSION//./-}"
 export ZONE=ru-central1-d
 export NETWORK_NAME=stackland-network
 export SUBNET_NAME=stackland-subnet
 export SUBNET_CIDR=10.130.0.0/24
+export NAT_GATEWAY_NAME=stackland-nat
+export ROUTE_TABLE_NAME=stackland-routes
 export SECURITY_GROUP_NAME=stackland-sg
 export DNS_ZONE_NAME=stackland-internal
 export BASE_DOMAIN=stackland.internal
 export CLUSTER_NAME=main
+export BASTION_NAME=stackland-bastion
 ```
 
 ## Подготовьте облачную сеть {#prepare-network}
@@ -53,9 +75,7 @@ export CLUSTER_NAME=main
 * Все виртуальные машины кластера должны находиться в одной подсети. Это упрощает работу Network Load Balancer и целевой группы.
 * Виртуальные машины кластера должны иметь стабильные внутренние IP-адреса.
 * Бастионный хост должен иметь доступ в интернет и сетевой доступ к виртуальным машинам кластера.
-* Узлы кластера должны иметь доступ в интернет через бастионный хост, NAT или другой сетевой механизм вашей инфраструктуры.
-
-Создайте DNS-зону для будущего кластера. В примерах ниже используется домен `stackland.internal`.
+* Узлы кластера должны иметь доступ в интернет через NAT-шлюз или другой сетевой механизм вашей инфраструктуры.
 
 Если вы используете CLI, выполните команды:
 
@@ -69,7 +89,26 @@ yc vpc subnet create \
   --network-name $NETWORK_NAME
 
 NETWORK_ID=$(yc vpc network get $NETWORK_NAME --format json | jq -r '.id')
+```
 
+Для выхода узлов в интернет через NAT-шлюз создайте шлюз, таблицу маршрутов и привяжите ее к подсети:
+
+```bash
+yc vpc gateway create --name $NAT_GATEWAY_NAME
+
+GATEWAY_ID=$(yc vpc gateway get $NAT_GATEWAY_NAME --format json | jq -r '.id')
+
+yc vpc route-table create \
+  --name $ROUTE_TABLE_NAME \
+  --network-name $NETWORK_NAME \
+  --route destination=0.0.0.0/0,gateway-id=$GATEWAY_ID
+
+yc vpc subnet update $SUBNET_NAME --route-table-name $ROUTE_TABLE_NAME
+```
+
+Для адресации внутри кластера создайте приватную DNS-зону. В примерах ниже используется домен `stackland.internal`:
+
+```bash
 yc dns zone create \
   --name $DNS_ZONE_NAME \
   --zone $BASE_DOMAIN. \
@@ -87,13 +126,15 @@ yc vpc security-group create \
 SECURITY_GROUP_ID=$(yc vpc security-group get $SECURITY_GROUP_NAME --format json | jq -r '.id')
 
 yc vpc security-group update-rules $SECURITY_GROUP_ID \
-  --add-rule "direction=ingress,protocol=any,predefined=self_security_group" \
+  --add-rule "direction=ingress,protocol=any,port=any,predefined=self_security_group" \
   --add-rule "direction=ingress,protocol=tcp,port=22,v4-cidrs=<ip_адрес_администратора>/32" \
   --add-rule "direction=ingress,protocol=tcp,from-port=30000,to-port=32767,v4-cidrs=0.0.0.0/0" \
-  --add-rule "direction=egress,protocol=any,v4-cidrs=0.0.0.0/0"
+  --add-rule "direction=egress,protocol=any,port=any,v4-cidrs=0.0.0.0/0"
 ```
 
 Правило для диапазона `30000-32767` нужно для доступа Network Load Balancer к NodePort-портам системного ingress. В примере указан стандартный диапазон NodePort в Kubernetes. Если в вашей конфигурации задан другой диапазон, укажите его в правиле группы безопасности. Для production-стендов ограничьте источник трафика в этом правиле согласно сетевой политике вашей организации.
+
+В правилах с `protocol=any` укажите `port=any`: без поля порта команда `yc vpc security-group update-rules` возвращает ошибку `for rule spec port or [from/to]-port fields is required`. Если внешний IP администратора изменится, обновите SSH-правило с его новым адресом `/32`.
 
 ## Подготовьте сервисный аккаунт {#service-account}
 
@@ -102,13 +143,13 @@ yc vpc security-group update-rules $SECURITY_GROUP_ID \
 * `load-balancer.admin` — для создания и удаления сетевых балансировщиков и целевых групп.
 * `vpc.user` — для работы с ресурсами облачной сети.
 
-Выполните команды:
+Выполните команды. Идентификатор каталога для назначения ролей получите из созданного сервисного аккаунта: так роли будут назначены в том же каталоге, даже если при создании вы указали `--folder-id` или `--folder-name`:
 
 ```bash
 yc iam service-account create --name stackland-yc-lb
 
 SA_ID=$(yc iam service-account get stackland-yc-lb --format json | jq -r '.id')
-FOLDER_ID=$(yc config get folder-id)
+FOLDER_ID=$(yc iam service-account get "$SA_ID" --format json | jq -r '.folder_id')
 
 yc resource-manager folder add-access-binding "$FOLDER_ID" \
   --role load-balancer.admin \
@@ -133,7 +174,7 @@ https://storage.yandexcloud.net/stackland-public/stackland/$VERSION/images/stack
 
 ```bash
 yc compute image create \
-  --name stackland-$VERSION \
+  --name "$IMAGE_NAME" \
   --source-uri https://storage.yandexcloud.net/stackland-public/stackland/$VERSION/images/stackland-amd64-$VERSION.raw \
   --os-type linux \
   --min-disk-size 150GB
@@ -145,6 +186,38 @@ yc compute image create \
 
 Создайте виртуальную машину с Ubuntu 22.04 или выше в той же подсети, где будут размещены узлы кластера.
 
+Пример для Ubuntu 24.04 с публичным IP-адресом и SSH-ключом администратора:
+
+```bash
+yc compute instance create \
+  --name $BASTION_NAME \
+  --zone $ZONE \
+  --platform standard-v3 \
+  --cores 2 \
+  --memory 4GB \
+  --create-boot-disk name=$BASTION_NAME-boot,image-folder-id=standard-images,image-family=ubuntu-2404-lts,type=network-ssd,size=20,auto-delete=true \
+  --network-interface subnet-name=$SUBNET_NAME,ipv4-address=10.130.0.10,nat-ip-version=ipv4,security-group-ids=$SECURITY_GROUP_ID \
+  --ssh-key "$HOME/.ssh/id_ed25519.pub"
+
+BASTION_IP=$(yc compute instance get $BASTION_NAME --format json | jq -r '.network_interfaces[0].primary_v4_address.one_to_one_nat.address')
+printf '%s\n' "$BASTION_IP"
+```
+
+Если ваш публичный SSH-ключ находится в другом файле, измените путь в параметре `--ssh-key`. Дождитесь завершения первоначальной настройки Ubuntu перед установкой утилит.
+
+В отдельном терминале на рабочей станции подключитесь к бастионному хосту, подставив полученный адрес вместо `<ip_бастиона>`:
+
+```bash
+ssh "yc-user@<ip_бастиона>"
+```
+
+Переменные рабочей станции не передаются в SSH-сессию автоматически. На бастионном хосте задайте ту же версию Stackland и тот же домен кластера:
+
+```bash
+export VERSION=26.3.1
+export BASE_DOMAIN=stackland.internal
+```
+
 На бастионном хосте установите необходимые утилиты:
 
 ```bash
@@ -152,25 +225,31 @@ sudo apt update
 sudo apt install unzip jq curl wget -y
 ```
 
-Установите `kubectl`: он понадобится для проверки состояния кластера после установки. Например:
+Установите `kubectl`: он понадобится для проверки состояния кластера после установки. Для релиза `26.3.1` используйте `v1.34.1` — версию Kubernetes в этом релизе. Согласно [правилам совместимости Kubernetes](https://kubernetes.io/releases/version-skew-policy/), версия `kubectl` может отличаться от версии API-сервера не более чем на один минорный выпуск.
 
 ```bash
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+KUBECTL_VERSION="v1.34.1"
+curl -fsSLO "https://dl.k8s.io/release/$KUBECTL_VERSION/bin/linux/amd64/kubectl"
+curl -fsSLO "https://dl.k8s.io/release/$KUBECTL_VERSION/bin/linux/amd64/kubectl.sha256"
+echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
+```
+
+Только после успешной проверки контрольной суммы установите бинарный файл:
+
+```bash
 chmod +x kubectl
 sudo mv kubectl /usr/local/bin/
 ```
 
-Установите и настройте [CLI для Yandex Cloud](../../cli/quickstart.md).
-
-Если узлы кластера выходят в интернет через бастионный хост, включите IPv4-маршрутизацию и NAT. Пример настройки NAT приведен в руководстве [Установка Stackland на Yandex BareMetal](install-on-yc-bms.md#net-settings).
+Если вместо NAT-шлюза узлы выходят в интернет через бастионный хост, включите на нем IPv4-маршрутизацию и NAT, а маршрут `0.0.0.0/0` направьте на его внутренний IP-адрес. Пример настройки NAT приведен в руководстве [Установка Stackland на Yandex BareMetal](install-on-yc-bms.md#net-settings).
 
 ## Создайте виртуальные машины кластера {#create-vms}
 
-Создайте не менее трех виртуальных машин для кластера Stackland.
+Вернитесь в терминал рабочей станции с настроенным CLI для Yandex Cloud. Создайте не менее трех виртуальных машин для кластера Stackland.
 
 Для каждой виртуальной машины задайте следующие параметры:
 
-* Загрузочный диск — из пользовательского образа `stackland-$VERSION`.
+* Загрузочный диск — из пользовательского образа `$IMAGE_NAME`.
 * Дополнительный диск для данных — не менее требуемого объема по [минимальным требованиям](../quickstart.md#infrastructure).
 * Сервисный аккаунт — созданный ранее сервисный аккаунт.
 * Подсеть — та же подсеть, где находится бастионный хост.
@@ -206,7 +285,7 @@ yc compute instance create \
   --memory 64GB \
   --core-fraction 100 \
   --labels cluster-name=$CLUSTER_NAME \
-  --create-boot-disk name=node1-boot,image-name=stackland-$VERSION,type=network-ssd,size=150,auto-delete=true \
+  --create-boot-disk name=node1-boot,image-name=$IMAGE_NAME,type=network-ssd,size=150,auto-delete=true \
   --create-disk name=node1-data,type=network-ssd,size=800,device-name=data,auto-delete=true \
   --network-interface subnet-name=$SUBNET_NAME,ipv4-address=10.130.0.11,security-group-ids=$SECURITY_GROUP_ID \
   --service-account-name stackland-yc-lb
@@ -222,9 +301,20 @@ yc compute instance create \
 * Имя загрузочного диска внутри гостевой ОС. Обычно это `/dev/vda`, но проверьте значение для вашей конфигурации.
 * Имя диска для данных внутри гостевой ОС. Обычно это `/dev/vdb`, если к виртуальной машине подключен один дополнительный диск.
 
+IP- и MAC-адреса сетевых интерфейсов можно получить через CLI:
+
+```bash
+for node in node1 node2 node3; do
+  yc compute instance get "$node" --format json |
+    jq -r --arg node "$node" '.network_interfaces[] | [$node, .primary_v4_address.address, .mac_address] | @tsv'
+done
+```
+
+Перенесите полученные MAC-адреса в `StacklandHostsList`: значения в примере конфигурации ниже предназначены только для иллюстрации.
+
 ## Настройте DNS {#dns}
 
-Настройте DNS-записи для домена кластера.
+На рабочей станции настройте DNS-записи для домена кластера.
 
 Для узлов кластера создайте A-записи, которые указывают на внутренние IP-адреса виртуальных машин:
 
@@ -259,14 +349,7 @@ yc dns zone add-records $DNS_ZONE_NAME \
   --record "api.sys 300 A 10.130.0.13"
 ```
 
-После установки получите внешний IP-адрес Network Load Balancer и добавьте wildcard-запись:
-
-```bash
-INGRESS_IP=$(kubectl get svc -n stackland-ingress ingress-controller -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
-
-yc dns zone add-records $DNS_ZONE_NAME \
-  --record "*.sys 300 A $INGRESS_IP"
-```
+После установки получите внешний IP-адрес Network Load Balancer на бастионном хосте и добавьте wildcard-запись с рабочей станции, как описано в разделе [Проверьте установку](#check-installation).
 
 ## Подготовьте конфигурацию Stackland {#prepare-config}
 
@@ -319,8 +402,13 @@ spec:
       resolvers:
         - 10.130.0.2
       timeservers:
-        - 10.130.0.2
+        - 0.ru.pool.ntp.org
+        - ntp0.NL.net
 ```
+
+В подсети `10.130.0.0/24` облачный [DNS-резолвер](../../dns/concepts/dns-resolver.md) доступен по адресу `10.130.0.2`. Если используете другую подсеть, укажите адрес ее DNS-резолвера в `resolvers`. Он должен разрешать имена в созданной приватной DNS-зоне.
+
+Для синхронизации времени в примере используются публичные NTP-серверы из [рекомендованного списка Yandex Cloud](../../compute/tutorials/ntp.md). Обеспечьте узлам доступ к ним по UDP/123 через NAT-шлюз. Если используете собственные NTP-серверы, укажите их адреса в `timeservers`.
 
 В Compute Cloud сетевые диски виртуальных машин отображаются как VirtIO-устройства. Stackland относит такие диски к Storage Class `stackland-other`, поэтому для этого сценария укажите `defaultStorageClass: stackland-other`.
 
@@ -380,7 +468,7 @@ chmod +x sladm
 
 ## Подготовьте секреты {#prepare-secrets}
 
-Сгенерируйте ресурс `StacklandSecretsConfig`:
+Поместите файл с лицензионным ключом на бастионный хост в рабочую директорию `sladm` под именем `key.json`. На бастионном хосте сгенерируйте ресурс `StacklandSecretsConfig`:
 
 ```bash
 ./sladm secrets add --out config/secrets.yaml --license-key key.json
@@ -390,7 +478,7 @@ chmod +x sladm
 
 ## Установите кластер {#install}
 
-Проверьте конфигурацию перед установкой:
+На бастионном хосте проверьте конфигурацию перед установкой:
 
 ```bash
 ./sladm validate --config config/
@@ -399,6 +487,7 @@ chmod +x sladm
 Запустите установку:
 
 ```bash
+set -o pipefail
 ./sladm install --config config/ --installation-timeout 2h 2>&1 | tee install-$(date +%y%m%d-%H%M).log
 ```
 
@@ -482,26 +571,24 @@ export KUBECONFIG=./_out/kubeconfig
 
    ```bash
    kubectl get ingress -A
-   kubectl get svc -n stackland-ingress ingress-controller -o wide
+   kubectl get svc -n stackland-ingress envoy -o wide
    ```
 
    В поле `ADDRESS` у ingress-ресурсов должен быть внешний IP-адрес Network Load Balancer.
 
-Проверьте, что доступны системные эндпоинты:
-
-* `https://console.sys.$baseDomain` — консоль управления кластером.
-* `https://dashboard.sys.$baseDomain` — дашборд кластера.
-* `https://grafana.sys.$baseDomain` — графики кластера в Grafana.
-* `https://prometheus.sys.$baseDomain` — метрики кластера в Prometheus.
-* `https://alertmanager.sys.$baseDomain` — алерты кластера в Alertmanager.
-
 Если wildcard-запись `*.sys.$baseDomain` еще не указывает на адрес Network Load Balancer, получите адрес созданного балансировщика и обновите DNS-запись.
 
-Например:
+На бастионном хосте получите адрес балансировщика:
 
 ```bash
-INGRESS_IP=$(kubectl get svc -n stackland-ingress ingress-controller -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+INGRESS_IP=$(kubectl get svc -n stackland-ingress envoy -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+printf '%s\n' "$INGRESS_IP"
+```
 
+На рабочей станции задайте `INGRESS_IP`, подставив выведенный адрес вместо `<ip_балансировщика>`, и создайте DNS-запись:
+
+```bash
+export INGRESS_IP="<ip_балансировщика>"
 yc dns zone add-records $DNS_ZONE_NAME \
   --record "*.sys 300 A $INGRESS_IP"
 ```
@@ -512,13 +599,22 @@ yc dns zone add-records $DNS_ZONE_NAME \
 <ip_балансировщика> console.sys.stackland.internal auth.sys.stackland.internal kubeconfig.sys.stackland.internal grafana.sys.stackland.internal docs.sys.stackland.internal
 ```
 
+Публичная DNS-зона для установки не требуется: приватная зона доступна внутри подключенной облачной сети. Если рабочая станция находится вне этой сети, используйте VPN с доступом к приватному DNS или записи `hosts` для нужных имен. Wildcard-запись через `hosts` задать нельзя, поэтому каждый проверяемый эндпоинт нужно перечислить отдельно.
+
+Системные HTTPS-эндпоинты могут использовать сертификат внутреннего удостоверяющего центра Stackland. Если рабочая станция не доверяет этому центру, браузер покажет предупреждение, а `curl` вернет ошибку проверки сертификата. Для штатного доступа добавьте корневой сертификат центра в доверенные на рабочей станции или настройте домен с доверенным сертификатом. Флаг `-k` в команде ниже нужен только для проверки сетевой доступности.
+
 {% note info "Note" %}
 
 Если открыть IP-адрес Network Load Balancer напрямую в браузере, ingress вернет ответ `default backend - 404`. Это ожидаемое поведение: маршрутизация выполняется по имени хоста. Открывайте консоль по адресу `https://console.sys.$baseDomain`.
 
 {% endnote %}
 
-Проверьте доступ к консоли управления:
+Проверьте, что доступны системные эндпоинты:
+
+* `https://console.sys.$baseDomain` — консоль управления кластером.
+* `https://grafana.sys.$baseDomain` — графики кластера в Grafana.
+
+На рабочей станции проверьте доступ к консоли управления:
 
 ```bash
 curl -I --max-time 10 -H "Host: console.sys.$BASE_DOMAIN" http://$INGRESS_IP
@@ -532,7 +628,7 @@ curl -kI --max-time 10 \
 * HTTP-запрос возвращает редирект на HTTPS.
 * HTTPS-запрос возвращает редирект на страницу входа или саму страницу входа с кодом `200`.
 
-Проверьте состояние целевой группы балансировщика:
+На рабочей станции проверьте состояние целевой группы балансировщика:
 
 ```bash
 yc load-balancer network-load-balancer list
@@ -546,7 +642,7 @@ yc load-balancer network-load-balancer target-states <имя_или_id_бала�
 Если узлы остаются в состоянии `UNHEALTHY`, проверьте доступность NodePort-порта ingress с бастионного хоста:
 
 ```bash
-INGRESS_HTTP_NODEPORT=$(kubectl get svc -n stackland-ingress ingress-controller -o jsonpath='{.spec.ports[?(@.port==80)].nodePort}')
+INGRESS_HTTP_NODEPORT=$(kubectl get svc -n stackland-ingress envoy -o jsonpath='{.spec.ports[?(@.port==80)].nodePort}')
 
 for ip in <ip_узла_1> <ip_узла_2> <ip_узла_3>; do
   timeout 3 bash -c "</dev/tcp/$ip/$INGRESS_HTTP_NODEPORT" && \
@@ -560,7 +656,7 @@ done
 * правила групп безопасности для входящего трафика от Network Load Balancer к NodePort-портам узлов;
 * сетевые ACL, маршруты и NAT-правила, которые могут влиять на обратный трафик от узлов к проверкам состояния Network Load Balancer;
 * что в целевой группе указаны внутренние IP-адреса всех узлов;
-* что сервис `stackland-ingress/ingress-controller` использует те же NodePort-порты, что и Network Load Balancer.
+* что сервис `stackland-ingress/envoy` использует те же NodePort-порты, что и Network Load Balancer.
 
 Для дополнительной проверки ingress из подсети выполните с бастионного хоста:
 
@@ -577,14 +673,14 @@ curl -I --max-time 10 -H "Host: console.sys.$BASE_DOMAIN" \
 
 ### `yandexcloud-lb` перезапускается с ошибкой metadata-сервиса {#yandexcloud-lb-metadata}
 
-Если установка останавливается на компонентах `load-balancer` или `ingress`, проверьте поды компонента балансировщика:
+Если установка останавливается на компонентах `load-balancer` или `ingress`, на бастионном хосте проверьте поды компонента балансировщика:
 
 ```bash
 kubectl get pod -n stackland-load-balancer
 kubectl logs -n stackland-load-balancer deploy/yandexcloud-lb --tail=100
 ```
 
-Если в логах есть ошибка `failed to get cluster name from metadata: metadata service returned status 404`, проверьте, что у всех виртуальных машин кластера есть метка `cluster-name`, совпадающая с `metadata.name` в ресурсе `StacklandClusterConfig`:
+Если в логах есть ошибка `failed to get cluster name from metadata: metadata service returned status 404`, на рабочей станции проверьте, что у всех виртуальных машин кластера есть метка `cluster-name`, совпадающая с `metadata.name` в ресурсе `StacklandClusterConfig`:
 
 ```bash
 yc compute instance add-labels node1 --labels cluster-name=$CLUSTER_NAME
@@ -592,7 +688,7 @@ yc compute instance add-labels node2 --labels cluster-name=$CLUSTER_NAME
 yc compute instance add-labels node3 --labels cluster-name=$CLUSTER_NAME
 ```
 
-После добавления метки перезапустите под `yandexcloud-lb`:
+После добавления метки на бастионном хосте перезапустите под `yandexcloud-lb`:
 
 ```bash
 kubectl delete pod -n stackland-load-balancer -l app.kubernetes.io/name=yandexcloud-lb
@@ -600,14 +696,18 @@ kubectl delete pod -n stackland-load-balancer -l app.kubernetes.io/name=yandexcl
 
 ### PVC остаются в состоянии `Pending` {#pending-pvc}
 
-Если установка останавливается на компонентах `iam`, `logging` или `storage`, а в событиях подов есть сообщение `did not have enough free storage`, проверьте Storage Class и емкость TopoLVM:
+Если установка останавливается на компонентах `iam`, `logging` или `storage`, а в событиях подов есть сообщение `did not have enough free storage`, на бастионном хосте проверьте Storage Class и емкость TopoLVM:
 
 ```bash
-kubectl get nodes -o custom-columns=NAME:.metadata.name,OTHER:.status.capacity.capacity\.topolvm\.io/stackland-other,SSD:.status.capacity.capacity\.topolvm\.io/stackland-ssd
+kubectl get nodes -o json | jq -r '.items[] | [
+  .metadata.name,
+  .metadata.annotations["capacity.topolvm.io/stackland-other"],
+  .metadata.annotations["capacity.topolvm.io/stackland-ssd"]
+] | @tsv'
 kubectl get pvc -A
 ```
 
-Для виртуальных машин в Compute Cloud емкость должна быть доступна в `capacity.topolvm.io/stackland-other`. В конфигурации установки должен быть указан параметр:
+Команда выводит имя узла и свободную емкость для Storage Class `stackland-other` и `stackland-ssd`. TopoLVM хранит эти значения в аннотациях узлов. Для виртуальных машин в Compute Cloud емкость должна быть доступна в аннотации `capacity.topolvm.io/stackland-other`. В конфигурации установки должен быть указан параметр:
 
 ```yaml
 storage:

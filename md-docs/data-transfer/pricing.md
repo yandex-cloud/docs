@@ -11,6 +11,8 @@
 
 Все цены в рублях и тенге указаны с НДС, все цены в долларах — без НДС.
 
+При расчете стоимости использования сервиса применяется модель [Pay as you go](../billing/concepts/payg.md) (PAYG) — оплата за фактическое потребление ресурсов.
+
 Стоимость использования Data Transfer зависит от объема использованных вычислительных ресурсов и количества переданных строк данных трансферами, которые находятся на стадии [GA](../overview/concepts/launch-stages.md): 
 
 * [PostgreSQL](operations/endpoint/source/postgresql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [PostgreSQL](operations/endpoint/target/postgresql.md);

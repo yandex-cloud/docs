@@ -1128,6 +1128,8 @@
 
  - [Загрузка данных из Managed Service for YDB в Object Storage с помощью Data Transfer](dataplatform/ydb-to-object-storage.md)
 
+ - [Развертывание кластера YDB во внешней инфраструктуре](dataplatform/deploy-ydb-cluster-on-premise.md)
+
 ### Yandex Cloud DNS
 
  - [Настройка Cloud DNS для доступа к кластеру Managed Service for ClickHouse® из других облачных сетей](dataplatform/clickhouse-dns-peering.md)

@@ -18,6 +18,10 @@ Aliases:
 
 #### Command Tree
 
+- [yc application-load-balancer v0](v0/index.md) — Manage Yandex Application Load Balancer resources
+
+
+
 - [yc application-load-balancer backend-group](backend-group/index.md) — Manage application load balancer backend groups
 
   - [yc application-load-balancer backend-group add-grpc-backend](backend-group/add-grpc-backend.md) — Add gRPC backend to the backend group
@@ -135,10 +139,6 @@ Aliases:
   - [yc application-load-balancer target-group remove-targets](target-group/remove-targets.md) — Remove targets from the specified target group
 
   - [yc application-load-balancer target-group update](target-group/update.md) — Update the specified target group
-
-- [yc application-load-balancer v0](v0/index.md) — Manage Yandex Application Load Balancer resources
-
-
 
 - [yc application-load-balancer virtual-host](virtual-host/index.md) — Manage http router virtual host
 

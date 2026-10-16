@@ -6,7 +6,7 @@
 
 {% include [pass-priority-note](../../../_includes/iot-core/pass-priority-note.md) %}
 
-* [Посмотреть список сертификатов устройства](device-certificates.md#list-cert)
+* [Посмотреть список сертификатов устройства](device-certificates.md#device-certificates-list)
 * [Добавить сертификат устройству](device-certificates.md#add-cert)
 * [Удалить сертификат устройства](device-certificates.md#delete-cert)
 

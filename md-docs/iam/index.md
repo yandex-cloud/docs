@@ -220,168 +220,6 @@
 
  - [Overview](cli-ref/index.md)
 
-### access-analyzer
-
- - [Overview](cli-ref/access-analyzer/index.md)
-
- - [list-subject-access-bindings](cli-ref/access-analyzer/list-subject-access-bindings.md)
-
-### access-key
-
- - [Overview](cli-ref/access-key/index.md)
-
- - [create](cli-ref/access-key/create.md)
-
- - [delete](cli-ref/access-key/delete.md)
-
- - [get](cli-ref/access-key/get.md)
-
- - [issue-ephemeral](cli-ref/access-key/issue-ephemeral.md)
-
- - [list](cli-ref/access-key/list.md)
-
-### access-policy-template
-
- - [Overview](cli-ref/access-policy-template/index.md)
-
- - [list](cli-ref/access-policy-template/list.md)
-
-### api-key
-
- - [Overview](cli-ref/api-key/index.md)
-
- - [create](cli-ref/api-key/create.md)
-
- - [delete](cli-ref/api-key/delete.md)
-
- - [get](cli-ref/api-key/get.md)
-
- - [list](cli-ref/api-key/list.md)
-
- - [list-scopes](cli-ref/api-key/list-scopes.md)
-
- - [update](cli-ref/api-key/update.md)
-
- - [create-id-token](cli-ref/create-id-token.md)
-
- - [create-token](cli-ref/create-token.md)
-
-### key
-
- - [Overview](cli-ref/key/index.md)
-
- - [create](cli-ref/key/create.md)
-
- - [delete](cli-ref/key/delete.md)
-
- - [get](cli-ref/key/get.md)
-
- - [list](cli-ref/key/list.md)
-
-### oauth-client
-
- - [Overview](cli-ref/oauth-client/index.md)
-
- - [create](cli-ref/oauth-client/create.md)
-
- - [delete](cli-ref/oauth-client/delete.md)
-
- - [get](cli-ref/oauth-client/get.md)
-
- - [list](cli-ref/oauth-client/list.md)
-
- - [list-profiles](cli-ref/oauth-client/list-profiles.md)
-
- - [update](cli-ref/oauth-client/update.md)
-
-### oauth-client-secret
-
- - [Overview](cli-ref/oauth-client-secret/index.md)
-
- - [create](cli-ref/oauth-client-secret/create.md)
-
- - [delete](cli-ref/oauth-client-secret/delete.md)
-
- - [get](cli-ref/oauth-client-secret/get.md)
-
- - [list](cli-ref/oauth-client-secret/list.md)
-
-### refresh-token
-
- - [Overview](cli-ref/refresh-token/index.md)
-
- - [list](cli-ref/refresh-token/list.md)
-
- - [revoke](cli-ref/refresh-token/revoke.md)
-
- - [revoke-token](cli-ref/revoke-token.md)
-
-### role
-
- - [Overview](cli-ref/role/index.md)
-
- - [get](cli-ref/role/get.md)
-
- - [list](cli-ref/role/list.md)
-
-### service-account
-
- - [Overview](cli-ref/service-account/index.md)
-
- - [add-access-binding](cli-ref/service-account/add-access-binding.md)
-
- - [add-labels](cli-ref/service-account/add-labels.md)
-
- - [create](cli-ref/service-account/create.md)
-
- - [delete](cli-ref/service-account/delete.md)
-
- - [get](cli-ref/service-account/get.md)
-
- - [list](cli-ref/service-account/list.md)
-
- - [list-access-bindings](cli-ref/service-account/list-access-bindings.md)
-
- - [list-operations](cli-ref/service-account/list-operations.md)
-
- - [reactivate](cli-ref/service-account/reactivate.md)
-
- - [remove-access-binding](cli-ref/service-account/remove-access-binding.md)
-
- - [remove-labels](cli-ref/service-account/remove-labels.md)
-
- - [set-access-bindings](cli-ref/service-account/set-access-bindings.md)
-
- - [suspend](cli-ref/service-account/suspend.md)
-
- - [update](cli-ref/service-account/update.md)
-
-### service-control
-
- - [Overview](cli-ref/service-control/index.md)
-
- - [disable](cli-ref/service-control/disable.md)
-
- - [enable](cli-ref/service-control/enable.md)
-
- - [get](cli-ref/service-control/get.md)
-
- - [list](cli-ref/service-control/list.md)
-
-### subject-details
-
- - [Overview](cli-ref/subject-details/index.md)
-
- - [get](cli-ref/subject-details/get.md)
-
- - [list](cli-ref/subject-details/list.md)
-
-### user-account
-
- - [Overview](cli-ref/user-account/index.md)
-
- - [get](cli-ref/user-account/get.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -599,6 +437,168 @@
  - [set-access-bindings](cli-ref/v0/workload-identity/oidc/federation/set-access-bindings.md)
 
  - [update](cli-ref/v0/workload-identity/oidc/federation/update.md)
+
+### access-analyzer
+
+ - [Overview](cli-ref/access-analyzer/index.md)
+
+ - [list-subject-access-bindings](cli-ref/access-analyzer/list-subject-access-bindings.md)
+
+### access-key
+
+ - [Overview](cli-ref/access-key/index.md)
+
+ - [create](cli-ref/access-key/create.md)
+
+ - [delete](cli-ref/access-key/delete.md)
+
+ - [get](cli-ref/access-key/get.md)
+
+ - [issue-ephemeral](cli-ref/access-key/issue-ephemeral.md)
+
+ - [list](cli-ref/access-key/list.md)
+
+### access-policy-template
+
+ - [Overview](cli-ref/access-policy-template/index.md)
+
+ - [list](cli-ref/access-policy-template/list.md)
+
+### api-key
+
+ - [Overview](cli-ref/api-key/index.md)
+
+ - [create](cli-ref/api-key/create.md)
+
+ - [delete](cli-ref/api-key/delete.md)
+
+ - [get](cli-ref/api-key/get.md)
+
+ - [list](cli-ref/api-key/list.md)
+
+ - [list-scopes](cli-ref/api-key/list-scopes.md)
+
+ - [update](cli-ref/api-key/update.md)
+
+ - [create-id-token](cli-ref/create-id-token.md)
+
+ - [create-token](cli-ref/create-token.md)
+
+### key
+
+ - [Overview](cli-ref/key/index.md)
+
+ - [create](cli-ref/key/create.md)
+
+ - [delete](cli-ref/key/delete.md)
+
+ - [get](cli-ref/key/get.md)
+
+ - [list](cli-ref/key/list.md)
+
+### oauth-client
+
+ - [Overview](cli-ref/oauth-client/index.md)
+
+ - [create](cli-ref/oauth-client/create.md)
+
+ - [delete](cli-ref/oauth-client/delete.md)
+
+ - [get](cli-ref/oauth-client/get.md)
+
+ - [list](cli-ref/oauth-client/list.md)
+
+ - [list-profiles](cli-ref/oauth-client/list-profiles.md)
+
+ - [update](cli-ref/oauth-client/update.md)
+
+### oauth-client-secret
+
+ - [Overview](cli-ref/oauth-client-secret/index.md)
+
+ - [create](cli-ref/oauth-client-secret/create.md)
+
+ - [delete](cli-ref/oauth-client-secret/delete.md)
+
+ - [get](cli-ref/oauth-client-secret/get.md)
+
+ - [list](cli-ref/oauth-client-secret/list.md)
+
+### refresh-token
+
+ - [Overview](cli-ref/refresh-token/index.md)
+
+ - [list](cli-ref/refresh-token/list.md)
+
+ - [revoke](cli-ref/refresh-token/revoke.md)
+
+ - [revoke-token](cli-ref/revoke-token.md)
+
+### role
+
+ - [Overview](cli-ref/role/index.md)
+
+ - [get](cli-ref/role/get.md)
+
+ - [list](cli-ref/role/list.md)
+
+### service-account
+
+ - [Overview](cli-ref/service-account/index.md)
+
+ - [add-access-binding](cli-ref/service-account/add-access-binding.md)
+
+ - [add-labels](cli-ref/service-account/add-labels.md)
+
+ - [create](cli-ref/service-account/create.md)
+
+ - [delete](cli-ref/service-account/delete.md)
+
+ - [get](cli-ref/service-account/get.md)
+
+ - [list](cli-ref/service-account/list.md)
+
+ - [list-access-bindings](cli-ref/service-account/list-access-bindings.md)
+
+ - [list-operations](cli-ref/service-account/list-operations.md)
+
+ - [reactivate](cli-ref/service-account/reactivate.md)
+
+ - [remove-access-binding](cli-ref/service-account/remove-access-binding.md)
+
+ - [remove-labels](cli-ref/service-account/remove-labels.md)
+
+ - [set-access-bindings](cli-ref/service-account/set-access-bindings.md)
+
+ - [suspend](cli-ref/service-account/suspend.md)
+
+ - [update](cli-ref/service-account/update.md)
+
+### service-control
+
+ - [Overview](cli-ref/service-control/index.md)
+
+ - [disable](cli-ref/service-control/disable.md)
+
+ - [enable](cli-ref/service-control/enable.md)
+
+ - [get](cli-ref/service-control/get.md)
+
+ - [list](cli-ref/service-control/list.md)
+
+### subject-details
+
+ - [Overview](cli-ref/subject-details/index.md)
+
+ - [get](cli-ref/subject-details/get.md)
+
+ - [list](cli-ref/subject-details/list.md)
+
+### user-account
+
+ - [Overview](cli-ref/user-account/index.md)
+
+ - [get](cli-ref/user-account/get.md)
 
  - [whoami](cli-ref/whoami.md)
 

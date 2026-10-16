@@ -16,6 +16,18 @@ Syntax:
 
 #### Command Tree
 
+- [yc baremetal v0](v0/index.md) — Manage Baremetal resources
+
+
+
+- [yc baremetal v1alpha](v1alpha/index.md) — Manage Baremetal resources
+
+
+
+- [yc baremetal v2](v2/index.md) — (preview) V2 Manage Baremetal resources
+
+
+
 - [yc baremetal boot-image](boot-image/index.md) — A set of methods for managing BootImage resources.
 
   - [yc baremetal boot-image create](boot-image/create.md) — Creates a BootImage in the specified folder.
@@ -145,18 +157,6 @@ Syntax:
   - [yc baremetal storage batch-get-default](storage/batch-get-default.md) — Returns the default storages for the specified configurations.
 
   - [yc baremetal storage get-default](storage/get-default.md) — Returns the default storage for the specified configuration.
-
-- [yc baremetal v0](v0/index.md) — Manage Baremetal resources
-
-
-
-- [yc baremetal v1alpha](v1alpha/index.md) — Manage Baremetal resources
-
-
-
-- [yc baremetal v2](v2/index.md) — (preview) V2 Manage Baremetal resources
-
-
 
 - [yc baremetal vrf](vrf/index.md) — A set of methods for managing VRF resources.
 

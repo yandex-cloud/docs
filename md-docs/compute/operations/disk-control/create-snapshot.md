@@ -60,7 +60,7 @@ _Снимок диска_ — это копия файловой системы 
 
 {% endlist %}
 
-## Создание снимка {#create}
+## Создание снимка {#create-snapshot-operation}
 
 {% note info %}
 

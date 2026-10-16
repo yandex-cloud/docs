@@ -320,82 +320,6 @@ Data Transfer поддерживает несколько сценариев п�
 
  - [Overview](cli-ref/index.md)
 
-### endpoint
-
- - [Overview](cli-ref/endpoint/index.md)
-
-#### create
-
- - [Overview](cli-ref/endpoint/create/index.md)
-
- - [clickhouse-source](cli-ref/endpoint/create/clickhouse-source.md)
-
- - [clickhouse-target](cli-ref/endpoint/create/clickhouse-target.md)
-
- - [mongo-source](cli-ref/endpoint/create/mongo-source.md)
-
- - [mongo-target](cli-ref/endpoint/create/mongo-target.md)
-
- - [mysql-source](cli-ref/endpoint/create/mysql-source.md)
-
- - [mysql-target](cli-ref/endpoint/create/mysql-target.md)
-
- - [postgres-source](cli-ref/endpoint/create/postgres-source.md)
-
- - [postgres-target](cli-ref/endpoint/create/postgres-target.md)
-
- - [yds-source](cli-ref/endpoint/create/yds-source.md)
-
- - [yds-target](cli-ref/endpoint/create/yds-target.md)
-
- - [delete](cli-ref/endpoint/delete.md)
-
- - [get](cli-ref/endpoint/get.md)
-
- - [list](cli-ref/endpoint/list.md)
-
-#### update
-
- - [Overview](cli-ref/endpoint/update/index.md)
-
- - [clickhouse-source](cli-ref/endpoint/update/clickhouse-source.md)
-
- - [clickhouse-target](cli-ref/endpoint/update/clickhouse-target.md)
-
- - [mongo-source](cli-ref/endpoint/update/mongo-source.md)
-
- - [mongo-target](cli-ref/endpoint/update/mongo-target.md)
-
- - [mysql-source](cli-ref/endpoint/update/mysql-source.md)
-
- - [mysql-target](cli-ref/endpoint/update/mysql-target.md)
-
- - [postgres-source](cli-ref/endpoint/update/postgres-source.md)
-
- - [postgres-target](cli-ref/endpoint/update/postgres-target.md)
-
- - [yds-source](cli-ref/endpoint/update/yds-source.md)
-
- - [yds-target](cli-ref/endpoint/update/yds-target.md)
-
-### transfer
-
- - [Overview](cli-ref/transfer/index.md)
-
- - [activate](cli-ref/transfer/activate.md)
-
- - [create](cli-ref/transfer/create.md)
-
- - [deactivate](cli-ref/transfer/deactivate.md)
-
- - [delete](cli-ref/transfer/delete.md)
-
- - [get](cli-ref/transfer/get.md)
-
- - [list](cli-ref/transfer/list.md)
-
- - [update](cli-ref/transfer/update.md)
-
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -475,6 +399,82 @@ Data Transfer поддерживает несколько сценариев п�
  - [list](cli-ref/v0/transfer/list.md)
 
  - [update](cli-ref/v0/transfer/update.md)
+
+### endpoint
+
+ - [Overview](cli-ref/endpoint/index.md)
+
+#### create
+
+ - [Overview](cli-ref/endpoint/create/index.md)
+
+ - [clickhouse-source](cli-ref/endpoint/create/clickhouse-source.md)
+
+ - [clickhouse-target](cli-ref/endpoint/create/clickhouse-target.md)
+
+ - [mongo-source](cli-ref/endpoint/create/mongo-source.md)
+
+ - [mongo-target](cli-ref/endpoint/create/mongo-target.md)
+
+ - [mysql-source](cli-ref/endpoint/create/mysql-source.md)
+
+ - [mysql-target](cli-ref/endpoint/create/mysql-target.md)
+
+ - [postgres-source](cli-ref/endpoint/create/postgres-source.md)
+
+ - [postgres-target](cli-ref/endpoint/create/postgres-target.md)
+
+ - [yds-source](cli-ref/endpoint/create/yds-source.md)
+
+ - [yds-target](cli-ref/endpoint/create/yds-target.md)
+
+ - [delete](cli-ref/endpoint/delete.md)
+
+ - [get](cli-ref/endpoint/get.md)
+
+ - [list](cli-ref/endpoint/list.md)
+
+#### update
+
+ - [Overview](cli-ref/endpoint/update/index.md)
+
+ - [clickhouse-source](cli-ref/endpoint/update/clickhouse-source.md)
+
+ - [clickhouse-target](cli-ref/endpoint/update/clickhouse-target.md)
+
+ - [mongo-source](cli-ref/endpoint/update/mongo-source.md)
+
+ - [mongo-target](cli-ref/endpoint/update/mongo-target.md)
+
+ - [mysql-source](cli-ref/endpoint/update/mysql-source.md)
+
+ - [mysql-target](cli-ref/endpoint/update/mysql-target.md)
+
+ - [postgres-source](cli-ref/endpoint/update/postgres-source.md)
+
+ - [postgres-target](cli-ref/endpoint/update/postgres-target.md)
+
+ - [yds-source](cli-ref/endpoint/update/yds-source.md)
+
+ - [yds-target](cli-ref/endpoint/update/yds-target.md)
+
+### transfer
+
+ - [Overview](cli-ref/transfer/index.md)
+
+ - [activate](cli-ref/transfer/activate.md)
+
+ - [create](cli-ref/transfer/create.md)
+
+ - [deactivate](cli-ref/transfer/deactivate.md)
+
+ - [delete](cli-ref/transfer/delete.md)
+
+ - [get](cli-ref/transfer/get.md)
+
+ - [list](cli-ref/transfer/list.md)
+
+ - [update](cli-ref/transfer/update.md)
 
  - [Справочник Terraform](tf-ref.md)
 
