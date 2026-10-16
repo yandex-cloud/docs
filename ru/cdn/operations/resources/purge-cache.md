@@ -64,7 +64,7 @@ description: Следуя данной инструкции, вы сможете
       options:
         edge_cache_settings:
           enabled: true
-          default value: "345600"
+          default_value: "345600"
         cache_http_headers:
           enabled: true
           value:
