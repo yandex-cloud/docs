@@ -94,7 +94,7 @@
     The recommended value depends on the number of [broker hosts](../../../managed-kafka/concepts/brokers.md):
 
     * For clusters with one broker host: `1`.
-    * For clusters with three or more broker hosts: `2`. This value is used to ensure high cluster availability. For more information, see [{#T}](../../../managed-kafka/concepts/ha-cluster.md#three-or-more-hosts).
+    * For clusters with three or more broker hosts: `2`. This value is used to ensure high cluster availability. For more details, see [{#T}](../../../managed-kafka/concepts/ha-cluster.md#three-or-more-hosts).
 
     In the management console, this setting appears as **{{ ui-key.yacloud.kafka.label_min-insync-replicas }}**.
 
@@ -160,7 +160,11 @@
 
     Segment files are saved and cleared file-by-file. A smaller segment size results in more log files but offers more flexible storage management.
 
-    The minimum value is `14` and the default is `1073741824` (1 GB).
+    The minimum value for {{ KF }} 3.x is `14` bytes; for {{ KF }} 4.x (starting with version 4.0), `1048576` bytes (1 MiB).
+
+    The default value is `1073741824` (1 GiB).
+
+    The limit is checked when creating or updating a topic. If the value is less than the minimum, the API returns the `INVALID_ARGUMENT` error.
 
     For more information, see the description of the [Log segment bytes](#settings-log-segment-bytes) cluster-level setting.
 

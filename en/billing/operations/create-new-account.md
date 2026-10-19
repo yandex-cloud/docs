@@ -7,6 +7,8 @@ description: Follow this guide to create a new billing account.
 
 Cloud members can create one or more [billing accounts](../concepts/billing-account.md).
 
+{% include [billing-account-required-role](../../_includes/billing/billing-account-required-role.md) %}
+
 {% list tabs group=customers %}
 
 - Individuals {#individuals}

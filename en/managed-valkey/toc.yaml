@@ -83,8 +83,17 @@ items:
         href: tutorials/valkey-as-php-sessions-storage.md
       - name: Migrating a database to {{ mrd-name }}
         href: tutorials/data-migration.md
+      - name: >-
+          Using {{ mrd-name }} with the Search module and {{
+          foundation-models-full-name }} models for vector search in a RAG
+          system
+        href: tutorials/valkey-rag-search.md
       - name: Distributed locks for 1C:Enterprise in a {{ mrd-name }} cluster
         href: tutorials/1c-valkey-locks.md
+      - name: >-
+          Using a {{ mrd-name }} cluster as a cache storage for 1C-Bitrix: Site
+          Management
+        href: tutorials/yc-valkey-as-1c-cache-storage.md
   - name: Concepts
     items:
       - name: Resource relationships

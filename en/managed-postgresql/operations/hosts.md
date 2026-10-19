@@ -601,6 +601,7 @@ If you are deleting the master host, {{ mpg-short-name }} will automatically pro
 
   You can get the host name with the [list of cluster hosts](#list), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
   To delete a host from a cluster:
@@ -619,6 +620,7 @@ If you are deleting the master host, {{ mpg-short-name }} will automatically pro
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

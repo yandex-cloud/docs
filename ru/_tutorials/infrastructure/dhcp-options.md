@@ -1,9 +1,9 @@
 # Настройки DHCP для работы с корпоративным DNS-сервером
 
 
-Если вам необходимо, чтобы виртуальные машины разрешали имена в приватной корпоративной зоне DNS, используйте [опции DHCP](../../vpc/concepts/dhcp-options.md) в конфигурации [подсетей](../../vpc/operations/subnet-create.md). Например, для узлов подсети можно указать DNS-суффикс и DNS-сервер.
+Чтобы виртуальные машины разрешали имена в приватной корпоративной зоне DNS, используйте [опции DHCP](../../vpc/concepts/dhcp-options.md) в конфигурации [подсетей](../../vpc/operations/subnet-create.md). Например, для узлов подсети можно указать DNS-суффикс и DNS-сервер.
 
-Для выполнения данного сценария у вас уже должен быть развернут корпоративный DNS-сервер, доступный для виртуальных машин в облаке. Вы можете также выполнить развертывание Active Directory, чтобы создать инфраструктуру с DNS-сервером:
+Для выполнения этого сценария у вас уже должен быть развернут корпоративный DNS-сервер, доступный для виртуальных машин в облаке. Также вы можете развернуть Active Directory, чтобы создать инфраструктуру с DNS-сервером:
 
 * Облачную сеть `ad-network` с подсетями в разных [зонах доступности](../../overview/concepts/geo-scope.md):
     * `ad-subnet-a` (10.1.0.0/16);
@@ -28,7 +28,7 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-Чтобы полностью пройти данный сценарий, необходимо развернуть Active Directory. Если вы используете собственные DNS-серверы, доступные для виртуальных машин облака, указывайте в сценарии свои значения DNS-суффикса и IP-адресов.
+Чтобы полностью пройти этот сценарий, необходимо развернуть Active Directory. Если вы используете собственные DNS-серверы, доступные для виртуальных машин облака, указывайте в сценарии свои значения DNS-суффикса и IP-адресов.
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -41,29 +41,31 @@
 
 ## Создайте подсеть {#create-subnet}
 
-Чтобы создать новую подсеть с настройками DHCP, выполните следующее:
+Чтобы создать новую подсеть с настройками DHCP:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  Чтобы создать подсеть:
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. Выберите облачную сеть `ad-network`.
-  1. Нажмите кнопку **Добавить подсеть**.
-  1. Заполните форму:
-      * Укажите название подсети: `test-subnet-1`. Выберите зону доступности `{{ region-id }}-a`.
-      * Введите CIDR подсети: `10.128.0.0/24`. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../../vpc/concepts/network.md).
-  1. Задайте **Настройки DHCP**:
-      * В поле **Доменное имя** укажите DNS-суффикс: `yantoso.net`.
-      * В поле **Серверы доменных имен** нажмите кнопку **Добавить DNS-сервер** и укажите адрес [DNS-сервера](../../glossary/dns.md): `10.1.0.3`. Повторите то же для адреса `10.2.0.3`.
-  1. Нажмите кнопку **Создать подсеть**.
+  1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+  1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.button_action-create }}**.
+  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** укажите название подсети: `test-subnet-1`.
+  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** выберите зону доступности `{{ region-id }}-a`.
+  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** выберите облачную сеть `ad-network`.
+  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** укажите `10.128.0.0/24`. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../../vpc/concepts/network.md).
+  1. Задайте **{{ ui-key.yacloud.vpc.subnetworks.create.section_dhcp-options }}**:
+     
+     1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name }}** укажите DNS-суффикс: `yantoso.net`.
+     1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name-servers }}** нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-domain-name-server }}** и укажите адрес [DNS-сервера](../../glossary/dns.md): `10.1.0.3`. Повторите то же для адреса `10.2.0.3`.
+
+  1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
 - CLI {#cli}
 
   {% include [include](../../_includes/cli-install.md) %}
 
-  Выполните следующую команду:
+  Выполните команду:
 
   ```
   yc vpc subnet create --name test-subnet-1 \
@@ -131,7 +133,7 @@
     
       {% include [include](../../_includes/cli-install.md) %}
     
-      Чтобы установить на виртуальной машине пароль, подготовьте файл metadata.yaml со следующим содержимым:
+      Чтобы установить на виртуальной машине пароль, подготовьте файл `metadata.yaml` с содержимым:
 
       ```
       #ps1
@@ -151,7 +153,7 @@
         --create-boot-disk image-id=<идентификатор_образа>
       ```
 
-      Где `<идентификатор_образа>` — идентификатор вашего образа с Windows Server, который используется для создания ВМ.
+      Где `<идентификатор_образа>` — идентификатор образа с Windows Server, который используется для создания ВМ.
 
       {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
@@ -224,7 +226,7 @@
       Autoconfiguration Enabled . . . . : Yes
     ```
 
-1. Проверьте, есть ли связь с контроллером домена `yantoso.net`. 
+1. Проверьте, есть ли связь с контроллером домена `yantoso.net`.
 
     Для этого выполните команду:
 
@@ -251,56 +253,9 @@
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы перестать платить за созданные ресурсы:
 
-1. Удалите виртуальную машину `vm-for-tests-in-subnet`.
-
-    {% list tabs group=instructions %}
-
-    - Консоль управления {#console}
-
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ. 
-      1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. Выберите виртуальную машину → нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) → выберите пункт **Удалить**.
-      1. Подтвердите удаление.
-
-    - CLI {#cli}
-    
-      {% include [include](../../_includes/cli-install.md) %}
-
-      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-      Для удаления ВМ выполните:
-
-      ```
-      yc compute instance delete vm-for-tests-in-subnet
-      ```
-
-    {% endlist %}
-
-1. Удалите подсеть `test-subnet-1`.
-
-    {% list tabs group=instructions %}
-
-    - Консоль управления {#console}
-    
-      1. Откройте раздел **{{ vpc-name }}** в каталоге, где требуется удалить подсеть.
-      1. Нажмите на имя облачной сети, в которой находится подсеть: `ad-network`.
-      1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке подсети `test-subnet-1`.
-      1. В открывшемся меню нажмите кнопку **Удалить**.
-      1. Подтвердите действие нажатием кнопки **Удалить**.
-
-    - CLI {#cli}
-
-      {% include [include](../../_includes/cli-install.md) %}
-
-      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-      Чтобы удалить подсеть, выполните:
-
-      ```
-      yc vpc subnet delete --name test-subnet-1
-      ```
-
-    {% endlist %}
+1. [Удалите](../../compute/operations/vm-control/vm-delete.md) виртуальную машину `vm-for-tests-in-subnet`.
+1. [Удалите](../../vpc/operations/subnet-delete.md) подсеть.
+1. [Удалите](../../vpc/operations/network-delete.md) облачную сеть.
 

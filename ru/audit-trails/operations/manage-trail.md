@@ -22,6 +22,13 @@ description: Следуя данной инструкции, вы сможете
   1. [Перейдите]({{ link-console-main }}/link/audit-trails) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. В строке с нужным трейлом нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Измените параметры трейла. Список настроек трейла, которые можно изменить, приведен в разделе [{#T}](../concepts/trail.md#trail-settings).
+
+      {% note info %}
+
+      Период агрегации событий при выгрузке в бакет {{ objstorage-name }} можно настроить только через CLI, {{ TF }} или API.
+
+      {% endnote %}
+
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}

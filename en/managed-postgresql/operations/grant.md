@@ -66,6 +66,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 
   You can get the cluster name from the [folder’s cluster list](cluster-list.md) and the username from the [list of users](cluster-users.md#list-users).
 
+
 - {{ TF }} {#tf}
 
   To assign roles to a cluster user:
@@ -95,6 +96,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
     1. Confirm updating the resources.
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 - REST API {#api}
 
@@ -229,6 +231,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
     1. [Connect](connect/index.md) to the database using the owner's account.
     1. Run the `GRANT` command. For full command syntax, see [this {{ PG }} guide](https://www.postgresql.org/docs/current/sql-grant.html).
 
+
 - {{ TF }} {#tf}
 
     {% note warning %}
@@ -314,9 +317,10 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
   
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 {% endlist %}
 
@@ -328,6 +332,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 
     1. [Connect](connect/index.md) to the database using the owner's account.
     1. Run the `REVOKE` command. For full command syntax, see [this {{ PG }} guide](https://www.postgresql.org/docs/current/sql-revoke.html).
+
 
 - {{ TF }} {#tf}
 
@@ -342,9 +347,10 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
   
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 {% endlist %}
 

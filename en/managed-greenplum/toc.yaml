@@ -81,6 +81,8 @@ items:
             href: operations/pxf/settings.md
       - name: Connecting to an external file server (gpfdist)
         href: operations/gpfdist/connect.md
+      - name: Access from {{ TR }}
+        href: operations/gpfdist/trino-access.md
       - name: Extensions
         items:
           - name: Managing extensions
@@ -137,7 +139,7 @@ items:
         href: tutorials/greenplum-to-clickhouse.md
       - name: Migrating a database from {{ MY }} to {{ GP }}
         href: tutorials/mmy-to-mgp.md
-      - name: Exporting {{ GP }} data to a cold storage in {{ objstorage-name }}
+      - name: Exporting {{ GP }} data to a hybrid storage in {{ objstorage-name }}
         href: tutorials/yezzey.md
       - name: >-
           Loading data from {{ objstorage-name }} to {{ mgp-name }} using {{

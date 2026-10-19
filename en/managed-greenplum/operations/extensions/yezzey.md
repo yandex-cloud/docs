@@ -7,7 +7,7 @@ description: This guide describes how to use hybrid storage in {{ mgp-name }}.
 
 The {{ YZ }} extension allows you to use hybrid storage in a {{ mgp-name }} cluster for storing [append-optimized tables](../../concepts/tables.md).
 
-You can [export](#offload-relation) rarely used tables of this type to cold storage and continue working with them as with ordinary tables. You can [upload tables back](#load-relation) to the cluster storage if you need to.
+You can [export](#offload-relation) rarely used tables of this type to a hybrid storage and continue working with them as with ordinary tables. You can [upload tables back](#load-relation) to the cluster storage if you need to.
 
 For more information about storage types and the {{ YZ }} extension, see [Hybrid storage](../../concepts/hybrid-storage.md).
 
@@ -35,7 +35,7 @@ For more information about storage types and the {{ YZ }} extension, see [Hybrid
 
 ## Getting a table's location info {#describe-relation}
 
-To learn where a table or its segment files are placed (in cluster storage or cold storage):
+To learn the location of a table or its segment files (cluster storage or hybrid storage):
 
 1. [Connect](../connect/index.md) to the database as the owner or a user with the `SELECT` permission for the database.
 
@@ -62,8 +62,8 @@ To learn where a table or its segment files are placed (in cluster storage or co
     | `offload_reloid` | OID. |
     | `segindex` | Shard ID. `-1` indicates the master. |
     | `local_bytes` | Size of data in the cluster storage. If `0`, the table is offloaded. |
-    | `external_bytes` | Size of data offloaded to cold storage. If all column values are zero, the table is in the cluster storage. If the column contains non-zero values, the table is in the cold storage.|
-    | `external_bloat_bytes` | Size of data offloaded to cold storage that is no longer in use but not yet deleted. |
+    | `external_bytes` | Size of data offloaded to hybrid storage. If all column values are zero, the table is in the cluster storage. If the column contains non-zero values, the table is in hybrid storage.|
+    | `external_bloat_bytes` | Size of data which is no longer used but not yet deleted offloaded to hybrid storage. |
 
 1. Send one of the following requests to learn where the table's segment files are:
 
@@ -80,12 +80,12 @@ To learn where a table or its segment files are placed (in cluster storage or co
         ```
 
     You will get information about each of the table's segment files. Review the `external_bytes` column:
-    * If all column values are null, the files are in cluster storage.
-    * If the column contains values other than null, the files are in cold storage.
+    * If all column values are zero, the files are in cluster storage.
+    * If the column contains non-zero values, the files are in hybrid storage.
 
-## Figuring out how a table is placed in cold storage {#describe-relation-objstorage}
+## Finding how a table is placed in hybrid storage {#describe-relation-objstorage}
 
-If the table [is in cold storage](#describe-relation), its segment files are stored in a service bucket.
+If the table [is in hybrid storage](#describe-relation), its segment files are stored in a service bucket.
 
 To get info on how the table's segment files are placed in the bucket:
 
@@ -114,12 +114,12 @@ To get info on how the table's segment files are placed in the bucket:
 
         The path to the segment file is generated automatically. It depends on the table structure and the number of segments in the {{ mgp-name }} cluster.
 
-    * `local_bytes` and `local_commited_bytes`: Number of segment file bytes in the cluster storage. The values must be null.
+    * `local_bytes` and `local_commited_bytes`: Number of segment file bytes in the cluster storage. The values must be zero.
     * `external_bytes`: Segment file size.
 
-## Offloading a table from cluster storage to cold storage {#offload-relation}
+## Offloading a table from cluster storage to hybrid storage {#offload-relation}
 
-If the table is in cluster storage, you can offload it to cold storage. To figure out where the table is, [get its location info](#describe-relation).
+If a table is in cluster storage, you can offload it to hybrid storage. To figure out where the table is, [get its location info](#describe-relation).
 
 {% note info %}
 
@@ -163,9 +163,9 @@ The offloading time depends on the table size and the number of segment files. D
     INFO:  yezzey: relation segment reached external storage (blkno=...), up to logical eof ...  (segX sliceY ... pid=...)
     ```
 
-## Loading a table from a cold storage to the cluster storage {#load-relation}
+## Loading a table from hybrid storage to cluster storage {#load-relation}
 
-If the table is in cold storage, you can load it to the cluster storage. To figure out where the table is, [get its location info](#describe-relation).
+If a table is in hybrid storage, you can load it to cluster storage. To figure out where the table is, [get its location info](#describe-relation).
 
 {% note info %}
 

@@ -334,7 +334,11 @@ items:
           - name: Open WebUI
             href: tutorials/single-sign-on/oidc-open-webui.md
           - name: Selectel
-            href: tutorials/single-sign-on/saml-selectel.md
+            items:
+              - name: SAML
+                href: tutorials/single-sign-on/saml-selectel.md
+              - name: OpenID Connect
+                href: tutorials/single-sign-on/oidc-selectel.md
           - name: Sentry
             href: tutorials/single-sign-on/saml-sentry.md
           - name: SonarQube

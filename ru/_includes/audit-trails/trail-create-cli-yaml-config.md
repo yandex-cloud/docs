@@ -5,6 +5,7 @@ destination:
   object_storage:
     bucket_id: <имя_бакета>
     object_prefix: <префикс_для_объектов>
+    aggregation_period: <период_агрегации>
 service_account_id: <идентификатор_сервисного_аккаунта>
 filtering_policy:
   management_events_filter:

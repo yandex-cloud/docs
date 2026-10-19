@@ -27,11 +27,10 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
 
   1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Select the bucket to upload the object into.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. Select the bucket to upload the object into and go to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
   1. If you want to upload an object to the bucket for the first time, click **{{ ui-key.yacloud.storage.bucket.button_empty-create }}**.
-  1. If you want to upload the object to a specific folder, navigate to that folder by clicking its name. If you need to create a new folder, click **{{ ui-key.yacloud.storage.bucket.button_create }}**.
-  1. Within the folder you need, click ![image](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** on the top panel.
+  1. If you want to upload the object to a specific folder, navigate to that folder by clicking its name. If you need to create a new folder, click **{{ ui-key.yacloud.storage.bucket.button_create }}** in the top panel.
+  1. Once you are in the right directory, click ![image](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** in the top panel.
   1. In the window that opens, select the files and click **Open**.
   1. The management console will display all the objects you selected for uploading and prompt you to select a [storage class](../../concepts/storage-class.md). The [bucket configuration](../../concepts/bucket.md#bucket-settings) determines the default storage class.
   1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
@@ -162,11 +161,10 @@ For a bucket with enabled [versioning](../buckets/versioning.md) and [object loc
 
   1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Select the bucket to upload the object into.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. Select the bucket to upload the object into and go to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
   1. If you want to upload an object to the bucket for the first time, click **{{ ui-key.yacloud.storage.bucket.button_empty-create }}**.
-  1. If you want to upload the object to a specific folder, navigate to that folder by clicking its name. If you want to create a new folder, click **{{ ui-key.yacloud.storage.bucket.button_create }}** on the top panel.
-  1. Within the folder you need, click ![image](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** on the top panel.
+  1. If you want to upload the object to a specific folder, navigate to that folder by clicking its name. If you need to create a new folder, click **{{ ui-key.yacloud.storage.bucket.button_create }}** in the top panel.
+  1. Once you are in the right directory, click ![image](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** in the top panel.
   1. In the window that opens, select the files and click **Open**.
   1. The management console will display all the objects you selected for uploading and prompt you to select a [storage class](../../concepts/storage-class.md) (`STANDARD`, `COLD`, `INTELLIGENT_TIERING`, or `ICE`). The [bucket configuration](../../concepts/bucket.md#bucket-settings) determines the default storage class.
   1. To configure locks for the objects you are uploading, select the lock type from the **{{ ui-key.yacloud.storage.title_object-lock }}** drop-down list:

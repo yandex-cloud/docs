@@ -72,11 +72,11 @@ The user cannot modify or delete system plugins.
 {{ managed-k8s-name }} uses the following system plugins managed by {{ yandex-cloud }}:
 
 * **csi-driver**: A `DaemonSet` resource deployed on all cluster nodes to enable [csi-driver](https://kubernetes-csi.github.io/docs/csi-driver-object.html).
-* **[kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/)**: Maintains network rules on nodes. These rules allow networking with pods from from network sessions inside and outside the cluster.
+* **[kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/)**: Maintains network rules on nodes. These rules allow network communication with pods both from inside and from outside the cluster.
 * **[coreDNS](https://coredns.io/)**: Primary DNS server responsible for name resolution inside the {{ k8s }} cluster.
 * **[calico](https://github.com/projectcalico/calico)**: Manages [network policies](../../managed-kubernetes/concepts/network-policy.md) and maintains networking between pods.
 * **[cilium](https://cilium.io/)**: Manages [network policies](../../managed-kubernetes/concepts/network-policy.md). It includes `cilium-cni`, `cilium-agent`, `cilium-operator`, and `hubble`. When deployed, replaces `kube-proxy`.
-* **[cluster-autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler)**: Manages node group [autoscaling](../../managed-kubernetes/concepts/autoscale.md#ca).
+* **[cluster-autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler)**: A node group [autoscaling](../../managed-kubernetes/concepts/autoscale.md#ca) manager.
 * **[metrics-server](https://github.com/kubernetes-sigs/metrics-server)**: Collects resource (CPU, RAM) utilization metrics from nodes, pods, and, to a limited extent, masters.
 * **node-problem-detector**: Detects and reports cluster node issues.
 * **nvidia-device-plugin**: Enables cluster nodes to automatically allocate and manage GPUs for containerized applications.
@@ -182,3 +182,5 @@ The user can:
    * Scan and update container images of user applications.
    * Fix vulnerabilities in user code and dependencies.
    * Apply pod security policies or equivalents to limit pod privileges.
+
+{% include [responsibilities-support](../../_includes/overview/responsibilities-support.md) %}

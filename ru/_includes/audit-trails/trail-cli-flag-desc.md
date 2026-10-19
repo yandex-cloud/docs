@@ -8,6 +8,8 @@
 
     {% include [note-bucket-prefix](./note-bucket-prefix.md) %}
 
+* `--destination-bucket-aggregation-period` — период агрегации событий при выгрузке в бакет {{ objstorage-full-name }}. Задает интервал между выгрузками накопленных событий в бакет. Например, при значении `10m` сервис выгружает события примерно раз в десять минут. Необязательный параметр. Допустимые значения: от `1m` до `1h` включительно. По умолчанию `5m`.
+
 * `--destination-log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}, в которую будут загружаться аудитные логи.
 
     С этим параметром нельзя использовать параметры `--destination-bucket` и `--destination-yds-stream`.

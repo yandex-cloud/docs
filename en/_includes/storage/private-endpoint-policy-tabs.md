@@ -13,19 +13,18 @@ In addition, a bucket configured this way still supports [server-side copy](../.
   1. In the [management console]({{ link-console-main }}), select the folder where you configured the {{ vpc-short-name }} service connection.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket from the list.
-  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab.
-  1. Select **{{ ui-key.yacloud.storage.bucket.switch_policy }}**.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_policy }}**.
   1. Click **{{ ui-key.yacloud.storage.bucket.policy.button_policy-edit }}**.
-  1. Enter a bucket policy ID, e.g., `private-endpoint-policy`.
+  1. Set an ID for the bucket policy, e.g., `private-endpoint-policy`.
   1. Set up a rule:
 
-     1. Enter a rule ID, e.g., `private-endpoint-rule`.
-     1. Configure rule settings:
-        * **{{ ui-key.yacloud.storage.bucket.policy.field_effect }}**: Enable.
-        * **{{ ui-key.yacloud.storage.bucket.policy.field_principal-type }}**: Include users.
-        * **{{ ui-key.yacloud.storage.bucket.policy.field_user }}**: All users.
-        * **{{ ui-key.yacloud.storage.bucket.policy.field_action }}**: Select the **{{ ui-key.yacloud.storage.bucket.policy.label_all-actions }}** option.
-        * **{{ ui-key.yacloud.storage.bucket.policy.field_resource }}** — `<bucket_name>/*`.
+      1. Set an ID for the rule, e.g., `private-endpoint-rule`.
+      1. Configure rule settings:
+          * **{{ ui-key.yacloud.storage.bucket.policy.field_effect }}**: Enable.
+          * **{{ ui-key.yacloud.storage.bucket.policy.field_principal-type }}**: Include users.
+          * **{{ ui-key.yacloud.storage.bucket.policy.field_user }}**: All users.
+          * **{{ ui-key.yacloud.storage.bucket.policy.field_action }}**: Select the **{{ ui-key.yacloud.storage.bucket.policy.label_all-actions }}** option.
+          * **{{ ui-key.yacloud.storage.bucket.policy.field_resource }}**: `<bucket_name>/*`.
 
           Click **{{ ui-key.yacloud.storage.bucket.policy.button_add-resource }}** and enter `<bucket_name>`.
 

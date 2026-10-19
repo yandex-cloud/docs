@@ -35,6 +35,8 @@ items:
             href: operations/cluster-access.md
           - name: Configuring access to Object Storage
             href: operations/s3-access.md
+          - name: Maintenance
+            href: operations/cluster-maintenance.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
       - name: Connection
@@ -49,7 +51,7 @@ items:
             href: operations/connect/code-examples.md
           - name: Configuring SAML authentication
             href: operations/saml-authentication.md
-      - name: Managing users
+      - name: User management
         href: operations/cluster-users.md
       - name: Logs and monitoring
         items:

@@ -3,7 +3,7 @@
 # Самостоятельная организация сетевой связности с помощью IPsec-шлюзов средствами Yandex Cloud
 
 
-Вы можете самостоятельно реализовать защищенное соединение между облачной инфраструктурой и условным корпоративным ЦОД с помощью IPsec-шлюзов по [схеме](index.md):
+Вы можете самостоятельно реализовать защищенное соединение между облачной инфраструктурой и условным корпоративным ЦОД с помощью IPsec-шлюзов по [схеме организации защищенного соединения](index.md):
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Настройте облачную площадку](#cloud-setup).
@@ -230,13 +230,13 @@
 
     Подробнее об этом читайте в [документации strongSwan](https://docs.strongswan.org/docs/5.9/howtos/forwarding.html#_hosts_on_the_lan).
 
-1. Создайте резервную копию файла конфигурации `swanctl.conf`:
-
-    ```bash
-    sudo mv /etc/swanctl/swanctl.conf /etc/swanctl/swanctl.orig
-    ```
-
 1. Создайте конфигурацию для основного IPsec-шлюза в файле `/etc/swanctl/swanctl.conf`:
+
+    {% note info %}
+
+    В образе `IPSec-инстанс` исходный файл `swanctl.conf` может отсутствовать, а файл `swanctl.orig` — уже быть предустановленным. В этом случае пропустите создание резервной копии и переходите к созданию новой конфигурации.
+
+    {% endnote %}
 
     ```bash
     sudo nano /etc/swanctl/swanctl.conf
@@ -303,6 +303,13 @@
 
     ```bash
     sudo swanctl --load-all
+    ```
+
+1. Остановите службу `strongswan-starter`, чтобы она не занимала порты `500` и `4500`, используемые службой `strongswan`:
+
+    ```bash
+    sudo systemctl stop strongswan-starter
+    sudo systemctl disable strongswan-starter
     ```
 
 1. Перезапустите strongSwan:
@@ -481,13 +488,13 @@
 
     Подробнее об этом читайте в [документации strongSwan](https://docs.strongswan.org/docs/5.9/howtos/forwarding.html#_hosts_on_the_lan).
 
-1. Создайте резервную копию файла конфигурации `swanctl.conf`:
-
-    ```bash
-    sudo mv /etc/swanctl/swanctl.conf /etc/swanctl/swanctl.orig
-    ```
-
 1. Создайте конфигурацию для удаленного IPsec-шлюза в файле `/etc/swanctl/swanctl.conf`:
+
+    {% note info %}
+
+    В образе `IPSec-инстанс` исходный файл `swanctl.conf` может отсутствовать, а файл `swanctl.orig` — уже быть предустановленным. В этом случае пропустите создание резервной копии и переходите к созданию новой конфигурации.
+
+    {% endnote %}
 
     ```bash
     sudo nano /etc/swanctl/swanctl.conf
@@ -554,6 +561,13 @@
 
     ```bash
     sudo swanctl --load-all
+    ```
+
+1. Остановите службу `strongswan-starter`, чтобы она не занимала порты `500` и `4500`, используемые службой `strongswan`:
+
+    ```bash
+    sudo systemctl stop strongswan-starter
+    sudo systemctl disable strongswan-starter
     ```
 
 1. Перезапустите strongSwan:
@@ -667,22 +681,12 @@ IPsec-шлюзы на основной и удаленной площадках 
         Результат:
 
         ```bash
-        cloud-to-remote-site: IKEv1/2, reauthentication every 3060s, no rekeying, dpd delay 30s
-          local:  %any
-          remote: <x2.x2.x2.x2>
-          local pre-shared key authentication:
-            id: <x1.x1.x1.x1>
-          remote pre-shared key authentication:
-            id: <x2.x2.x2.x2>
-          cloud-to-remote-site: TUNNEL, rekeying every 28260s, dpd action is restart
-            local:  172.16.1.0/24
-            remote: 10.10.0.0/16
         cloud-ipsec: IKEv2, no reauthentication, rekeying every 14400s, dpd delay 10s
           local:  172.16.0.10
           remote: <x2.x2.x2.x2>
           local pre-shared key authentication:
           remote pre-shared key authentication:
-          cloud-ipsec: TUNNEL, rekeying every 3600s, dpd action is clear
+          cloud-ipsec: TUNNEL, rekeying every 3600s, dpd action is none
             local:  172.16.1.0/24 172.16.2.0/24
             remote: 10.10.0.0/16
         ```
@@ -732,22 +736,12 @@ IPsec-шлюзы на основной и удаленной площадках 
         Результат:
 
         ```bash
-        remote-site-to-cloud: IKEv1/2, reauthentication every 3060s, no rekeying, dpd delay 30s
-          local:  %any
-          remote: <x1.x1.x1.x1>
-          local pre-shared key authentication:
-            id: <x2.x2.x2.x2>
-          remote pre-shared key authentication:
-            id: <x1.x1.x1.x1>
-          remote-site-to-cloud: TUNNEL, rekeying every 28260s, dpd action is restart
-            local:  10.10.0.0/16
-            remote: 172.16.1.0/24
         cloud-ipsec: IKEv2, no reauthentication, rekeying every 14400s, dpd delay 10s
           local:  10.10.20.20
           remote: <x1.x1.x1.x1>
           local pre-shared key authentication:
           remote pre-shared key authentication:
-          cloud-ipsec: TUNNEL, rekeying every 3600s, dpd action is clear
+          cloud-ipsec: TUNNEL, rekeying every 3600s, dpd action is none
             local:  10.10.0.0/16
             remote: 172.16.1.0/24 172.16.2.0/24
         ```

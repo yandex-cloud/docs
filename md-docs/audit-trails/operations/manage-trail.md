@@ -19,6 +19,13 @@
   1. [Перейдите](https://console.yandex.cloud/link/audit-trails) в сервис **Audit Trails**.
   1. В строке с нужным трейлом нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. Измените параметры трейла. Список настроек трейла, которые можно изменить, приведен в разделе [Настройки трейла](../concepts/trail.md#trail-settings).
+
+      {% note info %}
+
+      Период агрегации событий при выгрузке в бакет Object Storage можно настроить только через CLI, Terraform или API.
+
+      {% endnote %}
+
   1. Нажмите **Сохранить**.
 
 - CLI {#cli}
@@ -90,6 +97,8 @@
       
       {% endnote %}
   
+  * `--destination-bucket-aggregation-period` — период агрегации событий при выгрузке в бакет Yandex Object Storage. Задает интервал между выгрузками накопленных событий в бакет. Например, при значении `10m` сервис выгружает события примерно раз в десять минут. Необязательный параметр. Допустимые значения: от `1m` до `1h` включительно. По умолчанию `5m`.
+  
   * `--destination-log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md) Yandex Cloud Logging, в которую будут загружаться аудитные логи.
   
       С этим параметром нельзя использовать параметры `--destination-bucket` и `--destination-yds-stream`.
@@ -142,8 +151,9 @@
         service_account_id = "<идентификатор_сервисного_аккаунта>"
       
         storage_destination {
-          bucket_name   = "<имя_бакета>"
-          object_prefix = "<префикс>"
+          bucket_name        = "<имя_бакета>"
+          object_prefix      = "<префикс>"
+          aggregation_period = "<период_агрегации>"
         }
       
         filtering_policy {
@@ -205,6 +215,8 @@
               Используйте [префикс](../../storage/concepts/object.md#key), если вы храните аудитные логи и сторонние данные в одном и том же бакете. Не используйте одинаковый префикс для логов и других объектов в бакете, так как в этом случае логи и сторонние объекты могут перезаписать друг друга.
               
               {% endnote %}
+      
+          * `aggregation_period` — период агрегации событий при выгрузке в бакет Yandex Object Storage. Задает интервал между выгрузками накопленных событий в бакет. Например, при значении `10m` сервис выгружает события примерно раз в десять минут. Необязательный параметр. Допустимые значения: от `1m` до `1h` включительно. По умолчанию `5m`.
       
       * `data_stream_destination` — загружать логи в [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) Yandex Data Streams:
       
@@ -338,8 +350,9 @@
         service_account_id = "<идентификатор_сервисного_аккаунта>"
       
         storage_destination {
-          bucket_name   = "<имя_бакета>"
-          object_prefix = "<префикс>"
+          bucket_name        = "<имя_бакета>"
+          object_prefix      = "<префикс>"
+          aggregation_period = "<период_агрегации>"
         }
       
         filtering_policy {

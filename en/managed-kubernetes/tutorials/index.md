@@ -77,3 +77,8 @@ You can use {{ managed-k8s-name }} to deploy, scale, and manage your containeriz
 * [{#T}](marketplace/thumbor.md)
 * [{#T}](marketplace/istio.md)
 * [{#T}](marketplace/hashicorp-vault.md)
+
+## Migrating to {{ managed-k8s-name }} {#migration}
+
+* [{#T}](migration/index.md)
+* [{#T}](migration/migration-from-cloud.md)

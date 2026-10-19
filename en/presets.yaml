@@ -1989,6 +1989,8 @@ default:
   tf-provider-mpg: https://yandex.cloud/en/docs/terraform/resources/mdb_postgresql_cluster
   tf-provider-mrd: https://yandex.cloud/en/docs/terraform/resources/mdb_redis_cluster_v2
   tf-provider-msp: https://yandex.cloud/en/docs/terraform/resources/spark_cluster
+  tf-provider-mspqr: >-
+    https://yandex.cloud/ru/docs/terraform/resources/mdb_sharded_postgresql_cluster
   tf-provider-mtr: https://yandex.cloud/en/docs/terraform/resources/trino_cluster
   tf-provider-mtr-access: https://yandex.cloud/ru/docs/terraform/resources/trino_access_control
   tf-provider-resources-link: https://yandex.cloud/en/docs/terraform/resources
@@ -3550,6 +3552,14 @@ default:
             ts:
               action-add-tags_kUsL6: Add tags
         comp:
+          CompSetPage:
+            urn_off_checking_button: Disable verification
+          CompSetPageLayout:
+            turn_on_checking_button_bWBXb: Enable verification
+          CompSetsPage:
+            create_set_button: Create set
+          RulesFormSection:
+            title_uUdpa: Security control rules
           SetsTable:
             action_disable_5hgkz: Disable verification
             action_enable_9LUFt: Enable verification
@@ -4168,6 +4178,7 @@ default:
       ai-assistant:
         label_ai-assistant-open: AI Assistant
       airflow:
+        action_button-load-config-from-file: Load from file
         button_create-cluster: Create a cluster
         cluster:
           overview:
@@ -5124,9 +5135,11 @@ default:
           label_value: Value
         label-set:
           button_add-label: Add label
+          button_add-label_6byGW: Add label
           label_enter-keyboard-key: Enter
           label_labels: Labels
           label_labels_1qrKA: Labels
+          label_labels_kbb4Z: Labels
         maintenance-alert:
           button_reschedule: Reschedule
           value_next-available-window: Next window
@@ -6788,6 +6801,7 @@ default:
             label_title: Overview
             label_version: Version
             label_web-server-url: Go to web server
+            label_websql-service: WebSQL
             section_additional: Advanced settings
             section_configuration: Configuration
             section_resource: Resources
@@ -7787,8 +7801,6 @@ default:
             field_access-read: Read objects
             field_class: Storage class
             field_name: ' Name'
-            field_size-limit: Max size
-            label_size-limit-disabled: No limit
           switch_cors: CORS
           switch_encryption: Encryption
           switch_file-versions: Show versions
@@ -7851,6 +7863,8 @@ default:
           SizeLimitField:
             field_size-limit-enabled_hPy7f: Set the maximum bucket size
         form:
+          AccessSection:
+            section_label-access_2cHmW: Access
           BucketObjectLockFormContent:
             field_default-rules-enabled_qtmC8: Default locks for new versions
             field_mode_61kxf: Default lock type

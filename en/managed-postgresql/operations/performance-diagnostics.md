@@ -40,6 +40,7 @@ To learn how to identify and resolve cluster performance issues, see [Performanc
     - `sessions-sampling-interval`: From `1` to `86400` seconds.
     - `statements-sampling-interval`: From `1` to `86400` seconds.
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
@@ -59,6 +60,7 @@ To learn how to identify and resolve cluster performance issues, see [Performanc
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
         {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

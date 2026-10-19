@@ -26,18 +26,18 @@ The upgrades will run automatically during maintenance [windows](./maintenance.m
 
 For every {{ VLK }} version that has a [compatible](./index.md#compatibility-warranty) version in the {{ yandex-cloud }} implementation, the service maintains its support for no less than the support duration of the latest compatible version as per the official {{ VLK }} lifecycle.
 
-| Version stage                    | Description and key [actions](#actions-available) | Period | Current value |
-|:------------------------------------|:-------------|:----------------------------|:------------------------------------------------|
-| Full support (`Supported`)      | The version is fully supported. **Recommended for new projects.** | Lasts until the support for the latest compatible version is discontinued, but no less than the official {{ VLK }} support for this version. | {{ mdb-versions.valkey-version.supported }} |
-| `Deprecated`         | Support for the version will be discontinued soon. **Creating new clusters is unavailable. The existing clusters operate normally.** | Six months | N/A |
-| Legacy (`Legacy`)               | Support for the version was officially discontinued. **Clusters operate normally, but are billed at an increased rate. Technical support is limited.** | Six months | N/A |
-|  End of Life (`EOL`) | Discontinued version. **Technical support is not provided. Clusters operate normally, but are billed at an increased rate.** | N/A |
+| Version stage                                         | Description and key [actions](#actions-available) | Period | Current value |
+|:---------------------------------------------------------|:-------------|:----------------------------|:------------------------------------------------|
+| `Supported`                             | The version is fully supported. **Recommended for new projects.** | Lasts until the support for the latest compatible version is discontinued, but no less than the official {{ VLK }} support for this version. | {{ mdb-versions.valkey-version.supported }} |
+| `Deprecated`                                | Support for the version will be discontinued soon. **Creating new clusters is unavailable. The existing clusters operate normally.** | Six months | N/A |
+| `Legacy Extra Paid` | Support for the version was officially discontinued. **Clusters operate normally, but are billed at an increased rate. Technical support is limited.** | Six months | N/A |
+| End of Life (`EOL`)                       | Discontinued version. **Technical support is not provided. Clusters operate normally, but are billed at an increased rate.** | N/A | N/A |
 
 ### Features for each version stage {#actions-available}
 
 #|
 ||
-**Action** | **Full support (`Supported`)** {align="center"} | **`Deprecated`** {align="center"} | **`Legacy`** {align="center"} | **End of life (`EOL`)** {align="center"}
+**Action** | **`Supported`** {align="center"} | **`Deprecated`** {align="center"} | **`Legacy Extra Paid`** {align="center"} | **`EOL`** {align="center"}
 ||
 ||
 Creating new clusters | ![yes](../../_assets/common/yes.svg) {align="center"} | ![no](../../_assets/common/no.svg) {align="center"} | ![no](../../_assets/common/no.svg) {align="center"} | ![no](../../_assets/common/no.svg) {align="center"}
@@ -112,12 +112,12 @@ Updates of the DBMS implementation are discontinued once it becomes impossible t
 
 ## Notifications {#notifications}
 
-{{ mrd-full-name }} will notify you in advance about upcoming changes related to the cluster’s current {{ VLK }} version switching to another [stage](#lifecycle-stages):
+{{ mrd-full-name }} will notify you in advance about upcoming changes related to the cluster’s current {{ VLK }} version getting a different [status](#lifecycle-stages):
 
-* When your cluster's {{ VLK }} version switches to **Deprecated** (and the limitations start to apply), the service will notify you 90 days in advance that creating new clusters with this version will no longer be available and will offer you to schedule an upgrade of the existing clusters to the {{ VLK }} version compatible with the newer fully supported version.
-* When your cluster's {{ VLK }} version switches to **Legacy** (and the increase billing rate starts to apply), the service will notify you 90 days in advance about the upcoming version support expiry and the application of an increased billing rate to such clusters.
+* When the cluster's {{ VLK }} version goes **Deprecated** (limits kick in), the service will notify you 90 days in advance that you will no longer be able to create new clusters using this version and will offer you to schedule an upgrade of your existing clusters to a {{ VLK }} version compatible with the newer fully supported version.
+* When the cluster's {{ VLK }} version goes **Legacy Extra Paid** (increased rate kicks in), the service will notify you 90 days in advance about the upcoming end of support for the version, and that such clusters are now going to be billed at an increased rate.
 
-Users will get such update notifications according to their [notification settings](../../console/operations/update.md#notifications).
+Users will be receiving such notifications according to their [notification settings](../../console/operations/update.md#notifications).
 
 ### Notifications about scheduled operations {#notifications-on-operations}
 

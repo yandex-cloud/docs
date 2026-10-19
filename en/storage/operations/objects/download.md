@@ -22,8 +22,8 @@ To download an object group with a specified prefix (a [folder](../../concepts/o
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket from which you want to download an object.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** and find the object in the list.
-  1. Next to the object you want to download, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.bucket.button_download }}** or open the object and click ![image](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.storage.bucket.button_download }}** in the top panel.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab and locate the object in the list.
+  1. Next to the object you want to download, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![arrow-down-to-line](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.storage.bucket.button_download }}** or open the object and click ![arrow-down-to-line](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.storage.bucket.button_download }}** in the top panel.
 
   {% note info %}
 

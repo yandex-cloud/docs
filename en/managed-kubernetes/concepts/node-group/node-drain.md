@@ -20,11 +20,9 @@ Specifics for evicting pods from nodes:
 * Configure the `PodDisruptionBudgets` policy to prohibit eviction of too many pods at once, but allow eviction of at least one pod.
 * Pod eviction is subject to the node stop timeout (7 minutes). The node will be stopped even if not all pods are evicted over this time period.
 * When you scale down a node group to evict pods and then delete the node, the nodes without pods are drained and deleted first. If a group has a fixed number of nodes, a random node will be deleted.
-* You can manually drain the nodes you no longer need in an autoscaling node group. To do this, before scaling it down:
-  1. Disable the creation of new pods on the relevant node with the `kubectl cordon` command.
-  1. Evict the pods from the node using `kubectl drain`.
+* You can manually drain the nodes you no longer need in an autoscaling node group. To do it, use the `kubectl drain` command before you scale the group down.
 
-  When reducing the group size, the drained node will be deleted first.
+  When you downscale the group, the drained node will be deleted first.
 * The nodes to drain and stop are labeled as `Unschedulable`. This helps you avoid creating new pods on them.
 * Nodes in the group are drained one at a time.
 * Nodes are not drained when deleting a node group. If pods on the nodes to delete receive requests, they will not processed until {{ k8s }} checks the nodes as unhealthy and creates pods on the running nodes. To avoid this, change the size of the node group to zero, wait for the operation to complete, and delete the node group.

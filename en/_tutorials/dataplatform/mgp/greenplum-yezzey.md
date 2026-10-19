@@ -1,21 +1,13 @@
-# Exporting {{ GP }} data to a cold storage
+# Exporting {{ GP }} data to a hybrid storage
 
 
-In a {{ GP }} cluster, you can enable [hybrid storage](../../../managed-greenplum/concepts/hybrid-storage.md) for [append-optimized (AO) and append-optimized column-oriented (AOCO) tables](../../../managed-greenplum/concepts/tables.md). With this done, the [{{ YZ }} extension](../../../managed-greenplum/operations/extensions/yezzey.md) can transfer data in such tables from a cluster storage to a cold storage.
+In a {{ GP }} cluster, you can enable [hybrid storage](../../../managed-greenplum/concepts/hybrid-storage.md) for [append-optimized (AO) and append-optimized column-oriented (AOCO) tables](../../../managed-greenplum/concepts/tables.md). Then you can use the [{{ YZ }} extension](../../../managed-greenplum/operations/extensions/yezzey.md) to transfer such tables' data from a cluster storage to a hybrid storage.
 
-Cold storage is a convenient option if you need to store your data for a long time without using it much. This will make data storage [less costly](../../../managed-greenplum/pricing/index.md#rules-storage).
+Hybrid storage is a convenient option if you need to store your data for a long time without using it much. This will make data storage [less costly](../../../managed-greenplum/pricing/index.md#rules-storage).
 
+To transfer your data from a cluster storage to a hybrid storage:
 
-{% note info %}
-
-This feature is at the [Preview](../../../overview/concepts/launch-stages.md) stage and free of charge.
-
-{% endnote %}
-
-
-To transfer your data from a cluster storage to a cold storage:
-
-1. [Export the {{ GP }} table to a cold storage](#transfer).
+1. [Export the {{ GP }} table to a hybrid storage](#transfer).
 1. [Check the result](#check).
 
 You can also [transfer your data back](#offload-to-local-storage) to a cluster storage.
@@ -26,6 +18,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Required paid resources {#paid-resources}
 
 * {{ mgp-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
+* {{ objstorage-full-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
 
 
@@ -45,7 +38,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    {% include [ide-ssl-cert](../../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
-## Export the {{ GP }} table to a cold storage {#transfer}
+## Export the {{ GP }} table to a hybrid storage {#transfer}
 
 1. Connect to the cluster:
 
@@ -92,7 +85,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    INSERT INTO ao_table SELECT * FROM GENERATE_SERIES(1, 10000);
    ```
 
-1. Transfer the `ao_table` data to a cold storage:
+1. Transfer `ao_table` data to a hybrid storage:
 
    ```bash
    SELECT yezzey_define_offload_policy('ao_table');
@@ -100,7 +93,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Check the result {#check}
 
-1. Check how much of the cluster local cache and cold storage is used by:
+1. Check how much space in the cluster local cache and hybrid storage is used by:
 
    * `ao_table`:
 
@@ -108,15 +101,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
       SELECT * FROM yezzey_offload_relation_status('ao_table');
       ```
 
-   * Each segment file in `ao_table`:
+   * Each segment file of `ao_table`:
 
       ```bash
       SELECT * FROM yezzey_offload_relation_status_per_filesegment('ao_table');
       ```
 
-   If there are non-zero values in each `external_bytes` column in the command output, the table was successfully transferred to a cold storage.
+   If there are non-zero values in the `external_bytes` column of the command output, the table was successfully transferred to a hybrid storage.
 
-1. Check which table segment files are now in the cold storage:
+1. Check which table segment files are now in the hybrid storage:
 
    ```bash
    SELECT * FROM yezzey_relation_describe_external_storage_structure('ao_table');
@@ -160,9 +153,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
       (1 row)
       ```
 
-## Move the table from the cold storage to the cluster storage {#offload-to-local-storage}
+## Move a table from a hybrid storage to a cluster storage {#offload-to-local-storage}
 
-To move `ao_table` from the cold storage back to the cluster storage, run this command:
+To move the table named `ao_table` from a hybrid storage back to a cluster storage, run this command:
 
 ```bash
 SELECT yezzey_load_relation('ao_table');

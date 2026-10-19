@@ -38,11 +38,11 @@ To apply or update a bucket policy:
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket to configure an access policy in.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}** and go to the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_policy }}**.
   1. Click **{{ ui-key.yacloud.storage.bucket.policy.button_policy-edit }}**.
-  1. Enter a bucket policy ID.
+  1. Set an ID for the bucket policy.
   1. Set up a rule:
-     1. Enter a rule ID.
+     1. Set an ID for the rule.
      1. Configure rule settings:
         * **{{ ui-key.yacloud.storage.bucket.policy.field_effect }}**: Allow or deny.
         * **{{ ui-key.yacloud.storage.bucket.policy.field_principal-type }}**: Include or exclude users.
@@ -349,7 +349,7 @@ To delete a rule from an access policy:
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket to configure an access policy in.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}** and go to the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_policy }}**.
   1. Click **{{ ui-key.yacloud.storage.bucket.policy.button_policy-edit }}**.
   1. Next to the rule, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
 
@@ -376,7 +376,7 @@ To view the bucket policy applied to a bucket:
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket from the list.
-  1. In the left-hand menu, select **{{ ui-key.yacloud.storage.bucket.switch_security }}** and go to the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_policy }}**.
 
 - AWS CLI {#aws-cli}
 
@@ -417,9 +417,9 @@ To delete a bucket policy:
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket from the list.
-  1. In the left-hand menu, select **{{ ui-key.yacloud.storage.bucket.switch_security }}** and go to the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab.
-  1. Click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.bucket.policy.button_policy-delete }}**.
-  1. Click **{{ ui-key.yacloud.common.delete }}** and confirm deletion.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_policy }}**.
+  1. Click ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.storage.bucket.policy.button_policy-delete }}**.
+  1. In the window that opens, confirm the deletion.
 
 - AWS CLI {#aws-cli}
 

@@ -92,7 +92,7 @@ Optionally, you add the following metadata fields to the configuration:
 * `LAST_MODIFIED_DATE`: Creation or last modification date.
 * `ETAG`: Hash.
 * `STORAGE_CLASS`: [Storage class](./storage-class.md).
-* `INTELLIGENT_TIERING_ACCESS_TIER`: Access tier of an object in [Intelligent-Tiering storage class](./storage-class.md#features-intelligent-tiering).
+* `INTELLIGENT_TIERING_ACCESS_TIER`: Access tier of an object in [intelligent storage](./storage-class.md#features-intelligent-tiering).
 * `IS_MULTIPART_UPLOADED`: Multipart upload indicator.
 * `ENCRYPTION_STATUS`: [Encryption](./encryption.md) status.
 * `OBJECT_LOCK_RETAIN_UNTIL_DATE`: [Version lock](./object-lock.md) expiration date.

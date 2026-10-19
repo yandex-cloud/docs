@@ -24,10 +24,9 @@ To set or configure an object lock:
 
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Select the bucket you want to configure an object lock for.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. Select the bucket you want to configure an object lock for and go to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
   1. To show all object versions in the list, enable **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}** to the right of the object search field in the bucket.
-  1. In the list of objects, select the one you need, click ![image](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.storage.bucket.button_object-lock }}**.
+  1. In the object list, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) in the row with the object of interest and select ![lock](../../../_assets/console-icons/lock.svg) **{{ ui-key.yacloud.storage.bucket.button_object-lock }}**.
   1. In the window that opens, enable **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**.
   1. Select **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_mode_61kxf }}**:
      * **{{ ui-key.yacloud.storage.file.value_object-lock-mode-governance }}**: User with the `storage.admin` role can bypass the lock, change its expiration date, or remove it.
@@ -117,10 +116,9 @@ To remove retention:
 
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Select the bucket from the list.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. Select the bucket from the list and go to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
   1. To show all object versions in the list, enable **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}** to the right of the object search field in the bucket.
-  1. In the list of objects, select the one you need, click ![image](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.storage.bucket.button_object-lock }}**.
+  1. In the object list, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) in the row with the object of interest and select ![lock](../../../_assets/console-icons/lock.svg) **{{ ui-key.yacloud.storage.bucket.button_object-lock }}**.
   1. In the window that opens, disable **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -200,10 +198,9 @@ To set or remove legal hold:
 
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Select the bucket from the list.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. Select the bucket from the list and go to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
   1. To show all object versions in the list, enable **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}** to the right of the object search field in the bucket.
-  1. In the list of objects, select the one you need, click ![image](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.storage.bucket.button_object-lock }}**.
+  1. In the object list, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) in the row with the object of interest and select ![lock](../../../_assets/console-icons/lock.svg) **{{ ui-key.yacloud.storage.bucket.button_object-lock }}**.
   1. In the window that opens, enable or disable **{{ ui-key.yacloud.storage.field_perm-object-lock-enabled }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 

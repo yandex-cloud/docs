@@ -143,9 +143,13 @@
 
     This setting determines the segment size for log files, in bytes.
 
-    Segment files are saved and cleared file-by-file. A smaller segment size results in more log files but offers more flexible storage management. 
+    Segment files are saved and cleared file-by-file. A smaller segment size results in more log files but offers more flexible storage management.
 
-    The minimum value is `14`; the maximum value is `2147483647`. The default value is `1073741824` (1 GB).
+    The minimum value for {{ KF }} 3.x is `14` bytes; for {{ KF }} 4.x (starting with version 4.0), `1048576` bytes (1 MiB).
+
+    The maximum value is `2147483647`; the default value is `1073741824` (1 GiB).
+
+    The limit is checked when creating or updating a cluster. If the value is less than the minimum, the API returns the `INVALID_ARGUMENT` error.
 
     This is a global cluster-level setting. You can override it at the [topic level](#settings-topic-segment-bytes).
 

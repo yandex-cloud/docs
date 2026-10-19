@@ -37,8 +37,7 @@ To log bucket access:
       1. In the [management console]({{ link-console-main }}), select a folder.
       1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Select the bucket you want to configure logging for.
-      1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-      1. Select the **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}** tab.
+      1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
       1. Enable **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_server-logs_mfGpj }}**.
       1. Select **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_target-bucket_jEJ5E }}**.
       1. In the **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_prefix_4JTZG }}** field, specify the prefix for log storage.
@@ -165,8 +164,7 @@ To get the target bucket name and the log object key prefix, follow these steps:
    1. In the [management console]({{ link-console-main }}), select a folder.
    1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Select the original bucket.
-   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}** tab.
+   1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
    1. The **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_target-bucket_jEJ5E }}** list contains the name of the target bucket.
    1. The **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_prefix_4JTZG }}** field contains the prefix used for log storage.
 
@@ -295,8 +293,7 @@ To disable logging, follow these steps:
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to disable logging for.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Select the **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
   1. Disable **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_server-logs_mfGpj }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 

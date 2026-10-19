@@ -9,7 +9,8 @@ After creating a cluster, you can:
 
 * [Change the cluster name and description](#change-name-and-description).
 * [Change the public access setting](#change-public-access).
-* [Change additional cluster settings](#change-additional-settings).
+* [Configure advanced cluster settings](#change-additional-settings).
+* [Enabling access from {{ TR }}](gpfdist/trino-access.md).
 * [Change the scheduled maintenance operation settings](#change-background-settings).
 * [Update the DBMS settings](#change-gp-settings).
 * [Change the PXF protocol settings to optimize external data operations](./pxf/settings.md).
@@ -322,10 +323,6 @@ If you enabled public access to the cluster but cannot access it from the inter
 
             {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
 
-            
-            {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
-
-
         * **{{ ui-key.yacloud.mdb.forms.section_pooler }}**: Operation mode and [connection pooler](../concepts/pooling.md) settings:
 
             {% include [Pooling mode](../../_includes/mdb/mgp/pooling-mode.md) %}
@@ -440,13 +437,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
         * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters):
 
-            * `type`: Maintenance type. The possible values include:
-                * `ANYTIME`: Any time.
-                * `WEEKLY`: On a schedule.
-            * `day`: Day of week for the `WEEKLY` type, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-            * `hour`: UTC hour interval for the `WEEKLY` type, from `1` to `24`.
-
-              > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
+            {% include [terraform-maintenance-window](../../_includes/mdb/mgp/terraform-maintenance-window.md) %}
 
         
         * `access.data_lens`: Access to the cluster from [{{ datalens-full-name }}](../../datalens/concepts/index.md), `true` or `false`.
@@ -464,10 +455,6 @@ If you enabled public access to the cluster but cannot access it from the inter
             Set to `true` to enable hybrid storage. You cannot disable hybrid storage after you save your cluster settings.
 
             {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
-
-            
-            {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
-
 
         * `pooler_config`: [Connection pooler](../concepts/pooling.md) settings:
 
@@ -580,13 +567,9 @@ If you enabled public access to the cluster but cannot access it from the inter
             * `clientIdleTimeout`: Idle timeout for a client connection, in seconds.
             * `idleInTransactionTimeout`: Idle timeout for a client connection with an open transaction (in seconds).
 
-        * `cloudStorage.enable`: Use of hybrid storage. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloudStorage.enable`: Use of hybrid storage. Set to `true` to enable {{ yandex-cloud }}'s [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in the cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks in the {{ mgp-name }} cluster to a hybrid storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
             You cannot disable hybrid storage after you save your cluster settings.
-
-            
-            {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
-
 
     1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
@@ -713,13 +696,9 @@ If you enabled public access to the cluster but cannot access it from the inter
             * `client_idle_timeout`: Idle timeout for a client connection, in seconds.
             * `pool_idle_in_transaction_timeout`: Idle timeout for a client connection with an open transaction (in seconds).
 
-        * `cloud_storage.enable`: Use of hybrid storage. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloud_storage.enable`: Use of hybrid storage. Set to `true` to enable {{ yandex-cloud }}'s [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in the cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks in the {{ mgp-name }} cluster to a hybrid storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
             You cannot disable hybrid storage after you save your cluster settings.
-
-            
-            {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
-
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 

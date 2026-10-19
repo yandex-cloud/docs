@@ -108,6 +108,20 @@ items:
           - name: Working with a dashboard
             href: >-
               operations/vulnerability-management/use-vulnerability-management.md
+      - name: Custom rule sets
+        items:
+          - name: Overview
+            href: operations/custom-rules-sets/index.md
+          - name: Viewing a list of custom rule sets
+            href: operations/custom-rules-sets/view-set.md
+          - name: Creating a custom rule set
+            href: operations/custom-rules-sets/create-set.md
+          - name: Updating a custom rule set
+            href: operations/custom-rules-sets/update-set.md
+          - name: Enabling and disabling a check under a custom rule set
+            href: operations/custom-rules-sets/enable-disable-set.md
+          - name: Deleting a custom rule set
+            href: operations/custom-rules-sets/delete-set.md
   - name: Concepts
     items:
       - name: Overview
@@ -134,6 +148,8 @@ items:
             href: concepts/standard-compliance/yc-pci-dss.md
           - name: "Requirements of the GOST\_R\_57580 standard"
             href: concepts/standard-compliance/yc-gost-57580.md
+          - name: Auditing processes and applications
+            href: concepts/standard-compliance/inventory-k8s-rules.md
       - name: '{{ dspm-full-name }} ({{ dspm-name }})'
         href: concepts/dspm.md
       - name: '{{ kspm-full-name }} ({{ kspm-name }})'

@@ -27,7 +27,7 @@ Based on these factors, the total required storage size for all segment hosts is
 Storage size = <amount_of_uncompressed_data> × 2 ÷ 3 ÷ 0.7 = <amount_of_uncompressed_data> × 0.95
 ```
 
-When calculating the {{ mgp-name }} storage size, you do not need to take into account the amount of data you plan to store in a cold storage using the [{{ YZ }}](../operations/extensions/yezzey.md) module.
+When calculating the {{ mgp-name }} storage size, you do not need to take into account the amount of data you intend to store in a hybrid storage using the [{{ YZ }}](../operations/extensions/yezzey.md) module.
 
 For more information about disk types used for storage, see [Disk types](./storage.md).
 

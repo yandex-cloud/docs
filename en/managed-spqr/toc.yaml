@@ -53,6 +53,8 @@ items:
         href: concepts/backup.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: Maintenance
+        href: concepts/maintenance.md
       - name: '{{ SPQR }} settings'
         href: concepts/settings-list.md
       - name: '{{ SPQR }} versioning policy'

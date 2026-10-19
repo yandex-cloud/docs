@@ -103,7 +103,7 @@ You pay for the following:
 
   * You can only order non-replicated SSD (`network-ssd-nonreplicated`) storage for clusters with two master hosts, in increments of 93 GB.
 
-  To pay less for storage, export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. The data will be stored in a service bucket in compressed and encrypted form, which is more cost-efficient. The cost of such storage is calculated based on the [{{ objstorage-name }} pricing policy](../../storage/pricing.md).
+  To save money, you can [export your AO and AOCO tables](../tutorials/yezzey.md) from {{ mgp-name }} cluster disks to a hybrid storage in {{ objstorage-full-name }}. The data will be stored in a service bucket in compressed and encrypted form, which is more cost-efficient. The cost of such storage is calculated based on the [{{ objstorage-name }} pricing policy](../../storage/pricing.md).
 
 {% include [pricing-backup-general](../../_includes/mdb/pricing-backup-ch-os-gp.md) %} 
 

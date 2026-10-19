@@ -231,7 +231,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
        "maintenanceWindow": {
          "weeklyMaintenanceWindow": {
            "day": "<day_of_week>",
-           "hour": "<hour>"
+           "hour": "<sequence_number_of_hour_interval>"
          }
        }
      }
@@ -344,10 +344,15 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
        * `shardName`: Shard name.
        * `mdbPostgresql.clusterId`: {{ mpg-name }} cluster ID within the shard.
 
-     * `maintenanceWindow`: Maintenance window settings:
+     * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including for disabled clusters. Provide one of these two properties:
 
-       * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
-       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. The valid values range from `1` to `24`.
+         * `anytime`: Maintenance takes place at any time.
+         * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
+
+             * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+             * `hour`: UTC hour interval, from `1` to `24`.
+
+               > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
   1. Call the [Cluster.Create](../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
@@ -506,7 +511,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
        "maintenance_window": {
          "weekly_maintenance_window": {
            "day": "<day_of_week>",
-           "hour": "<hour>"
+           "hour": "<sequence_number_of_hour_interval>"
          }
        }
      }
@@ -615,10 +620,15 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
        * `shard_name`: Shard name.
        * `mdb_postgresql.cluster_id`: {{ mpg-name }} cluster ID within the shard.
 
-     * `maintenance_window`: Maintenance window settings:
+     * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, including for disabled clusters. Provide one of these two properties:
 
-       * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
-       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. The valid values range from `1` to `24`.
+         * `anytime`: Maintenance takes place at any time.
+         * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
+
+             * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+             * `hour`: UTC hour interval, from `1` to `24`.
+
+               > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
   1. Call the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 

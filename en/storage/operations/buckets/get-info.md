@@ -16,10 +16,10 @@ To view full information about a [bucket](../../concepts/bucket.md):
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket from the list.
-  1. In the left-hand panel, select the appropriate section with bucket information.
-     * ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**: List of objects stored in the bucket.
-     * ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**: Main bucket settings, information about website hosting in the bucket, versioning, logging, and lifecycles of bucket objects.
-     * ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**: Description of access permissions and policy in the bucket, information about HTTPS and CORS configurations, object locks and object encryption in the bucket.
+  1. In the top panel, select the bucket information tab:
+     * **{{ ui-key.yacloud.storage.bucket.switch_files }}**: List of objects stored in the bucket.
+     * **{{ ui-key.yacloud.storage.bucket.switch_settings }}**: Main bucket settings, information about website hosting in the bucket, versioning, logging, and lifecycles of bucket objects.
+     * **{{ ui-key.yacloud.storage.bucket.switch_security }}**: Description of access permissions and policy in the bucket, information about HTTPS and CORS configurations, object locks and object encryption in the bucket.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -79,7 +79,7 @@ To view bucket statistics:
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket from the list.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
+  1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab.
   1. On the page that opens, you can view bucket statistics for a certain period:
      
      {% include [storage-monitoring-dashboards](../../_includes_service/storage-monitoring-dashboards.md) %}

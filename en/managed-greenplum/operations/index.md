@@ -53,6 +53,7 @@ description: This page features step-by-step guides for {{ mgp-name }}.
 ## Using `gpfdist` {#gpfdist}
 
 * [{#T}](gpfdist/connect.md)
+* [{#T}](gpfdist/trino-access.md)
 
 ## Extensions {#extensions}
 

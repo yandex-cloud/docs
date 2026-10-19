@@ -363,4 +363,5 @@ You can find metrics description in [{#T}](../../managed-kubernetes/metrics.md).
 
 #### Useful links {#see-also}
 
+* [Patching the SCTPhantom vulnerability: Escalating privileges and exiting a Linux kernel container](https://yandex.cloud/ru/blog/vulnerability-sctphantom)
 * [{{ k8s }}: Why use it, how it works, and what makes it an industry standard](https://yandex.cloud/ru/blog/posts/2025/03/kubernetes-guide)

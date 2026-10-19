@@ -11,9 +11,9 @@ You can only connect to public {{ CH }} cluster hosts using [SSL certificates](i
 * Located in the `{{ crt-local-dir }}` directory (for Ubuntu).
 * Imported to the trusted root certificate store (for Windows).
 
-Connecting without SSL certificates is only supported for non-public hosts. If this is the case, internal virtual network traffic will not be encrypted for database connections.
+Connecting without SSL certificates is only supported for non-public hosts. If this is the case, internal virtual network traffic will not be encrypted when connecting to a database.
 
-Before connecting, [configure security groups](index.md#configure-security-groups) for the cluster, if required.
+Before connecting, [configure security groups](index.md#configuring-security-groups) for the cluster, if required.
 
 
 If your cluster connection and test query are successful, you will see the {{ CH }} version.
@@ -155,7 +155,7 @@ sudo apt update && sudo apt install --yes golang git
 
 {% endlist %}
 
-To learn how to get a host’s FQDN, see [this guide](fqdn.md).
+For how to get a host FQDN, see [this guide](fqdn.md).
 
 **Connecting**:
 
@@ -335,7 +335,7 @@ go run connect.go
 
 {% endlist %}
 
-To learn how to get a host’s FQDN, see [this guide](fqdn.md).
+For how to get a host FQDN, see [this guide](fqdn.md).
 
 **Connecting**:
 
@@ -438,7 +438,7 @@ npm install querystring
 
 {% endlist %}
 
-To learn how to get a host’s FQDN, see [this guide](fqdn.md).
+For how to get a host FQDN, see [this guide](fqdn.md).
 
 **Connecting**:
 
@@ -538,7 +538,7 @@ Setup methods for [Linux](#odbc-linux) and [Windows](#odbc-windows) are differen
 
 {% endlist %}
 
-To learn how to get a host’s FQDN, see [this guide](fqdn.md).
+For how to get a host FQDN, see [this guide](fqdn.md).
 
 **Connecting**:
 
@@ -556,7 +556,7 @@ Once connected to the DBMS, run the `SELECT version();` command.
 1. Select the {{ CH }} driver with suitable encoding and click **Done**.
 1. Specify the parameters for connecting to the {{ CH }} cluster:
 
-   {% list tabs group=connection %}
+    {% list tabs group=connection %}
 
     - Connecting without SSL {#without-ssl}
 
@@ -577,7 +577,7 @@ Once connected to the DBMS, run the `SELECT version();` command.
         * **User**: Database user name
         * **Password**: Database user password
 
-   {% endlist %}
+    {% endlist %}
 
 1. Click **OK**.
 1. Connect to the {{ CH }} cluster via ODBC, e.g., using Microsoft Excel.
@@ -675,7 +675,7 @@ Once connected to the DBMS, run the `SELECT version();` command.
 
 {% endlist %}
 
-To learn how to get a host’s FQDN, see [this guide](fqdn.md).
+For how to get a host FQDN, see [this guide](fqdn.md).
 
 **Connecting**:
 
@@ -729,7 +729,7 @@ pip3 install clickhouse-driver
 
 {% endlist %}
 
-To learn how to get a host’s FQDN, see [this guide](fqdn.md).
+For how to get a host FQDN, see [this guide](fqdn.md).
 
 **Connecting**:
 
@@ -793,7 +793,7 @@ pip3 install requests
 
 {% endlist %}
 
-To learn how to get a host’s FQDN, see [this guide](fqdn.md).
+For how to get a host FQDN, see [this guide](fqdn.md).
 
 **Connecting**:
 
@@ -875,7 +875,7 @@ sudo apt update && sudo apt install --yes ruby
 
 {% endlist %}
 
-To learn how to get a host’s FQDN, see [this guide](fqdn.md).
+For how to get a host FQDN, see [this guide](fqdn.md).
 
 **Connecting**:
 

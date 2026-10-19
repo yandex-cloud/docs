@@ -52,3 +52,4 @@ VMs are stopped and restarted at the scheduled time. However, users may [resched
 #### Useful links {#see-also}
 
 * [{#T}](../operations/vm-control/gpus-maintenance.md)
+* [{{ managed-k8s-name }} node maintenance with zero resource loss](../../managed-kubernetes/operations/node-group/node-group-gpu-maintenance.md)

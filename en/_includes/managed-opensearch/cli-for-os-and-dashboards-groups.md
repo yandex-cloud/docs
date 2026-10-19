@@ -23,10 +23,8 @@
       ```
 
 
-   * `roles`: [Host roles](../../managed-opensearch/concepts/host-roles.md). The possible values are:
+   * `roles`: [Host roles](../../managed-opensearch/concepts/host-roles.md). The possible values are `data`, `manager`, `warm`, or `ingest`. You can specify more than one roles separated by `+`. Here are some examples: `data`, `data+manager`, `manager+data`.
 
-      * `data`: Assigns the `DATA` role only.
-      * `manager`: Assigns the `MANAGER` role only.
-      * `data+manager` or `manager+data`: Assigns both roles.
+      {% include [note-warm-storage](note-warm-storage.md) %}
 
 * `--dashboards-node-group`: `Dashboards` host group configuration. It is configured just as the `{{ OS }}` host group, except for the host roles. You do not need to set up any roles for the `Dashboards` group.

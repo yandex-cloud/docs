@@ -1,6 +1,6 @@
 ---
 title: Step-by-step guides for {{ mos-full-name }}
-description: This page provides a list of step-by-step guides for {{ mos-name }}.
+description: This page features step-by-step guides for {{ mos-name }}.
 ---
 
 # Step-by-step guides for {{ mos-name }}
@@ -18,6 +18,7 @@ description: This page provides a list of step-by-step guides for {{ mos-name }}
 * [Managing backups](cluster-backups.md)
 * [Managing cluster access](cluster-access.md)
 * [Configuring access to {{ objstorage-name }}](s3-access.md)
+* [Maintenance](cluster-maintenance.md)
 * [Deleting a cluster](cluster-delete.md)
 
 ## Connecting to a cluster

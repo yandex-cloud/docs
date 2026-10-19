@@ -504,7 +504,7 @@ For more on setting up a service account, see [Configuring access to {{ objstora
 
     * `--maintenance`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters):
 
-        * `anytime`: Any time. 
+        * `anytime`: Any time (default). 
         * `weekly`: On a schedule. For this value, also specify the following: 
 
             * `weekday`: Day of week (`mon`, `tue`, `wed`, `thu`, `fry`, `sat`, `sun`). 
@@ -540,16 +540,7 @@ For more on setting up a service account, see [Configuring access to {{ objstora
 
         Where:
 
-        * `type`: Maintenance type. The possible values include: 
-
-            * `ANYTIME`: Any time.
-            * `WEEKLY`: Every week.
-
-        * `hour`: UTC hour interval, from `1` to `24`.
-
-          > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
-
-        * `day`: Day of week (`MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`).
+        {% include [terraform-maintenance-window](../../_includes/mdb/mos/terraform/maintenance-window-params.md) %}
 
     1. To activate cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to the cluster description:
 

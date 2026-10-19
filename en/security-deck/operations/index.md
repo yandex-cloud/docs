@@ -57,3 +57,11 @@ description: In this article, you will learn how to work with {{ sd-name }} in {
 
 * [{#T}](./vulnerability-management/enable-vulnerability-management.md)
 * [{#T}](./vulnerability-management/use-vulnerability-management.md)
+
+## Custom rule sets {#custom-rules-sets}
+
+* [{#T}](./custom-rules-sets/view-set.md)
+* [{#T}](./custom-rules-sets/create-set.md)
+* [{#T}](./custom-rules-sets/update-set.md)
+* [{#T}](./custom-rules-sets/enable-disable-set.md)
+* [{#T}](./custom-rules-sets/delete-set.md)

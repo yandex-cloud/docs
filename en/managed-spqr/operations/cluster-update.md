@@ -400,7 +400,7 @@ After creating a cluster, you can edit its basic and advanced settings.
          "maintenanceWindow": {
            "weeklyMaintenanceWindow": {
              "day": "<day_of_week>",
-             "hour": "<hour>"
+             "hour": "<sequence_number_of_hour_interval>"
            }
          }
        }
@@ -480,10 +480,15 @@ After creating a cluster, you can edit its basic and advanced settings.
 
        * `backupRetainPeriodDays`: Number of days to retain the cluster backup. Possible values: between `7` and `60` days.
 
-     * `maintenanceWindow`: Maintenance window settings:
+     * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings:
 
-        * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
-        * `hour`: Hour of day, in `HH` format, for scheduled maintenance. The valid values range from `1` to `24`.
+         * `anytime`: Maintenance takes place at any time.
+         * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
+
+             * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+             * `hour`: UTC hour interval, from `1` to `24`.
+
+               > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
   1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
@@ -585,7 +590,7 @@ After creating a cluster, you can edit its basic and advanced settings.
        "maintenance_window": {
          "weekly_maintenance_window": {
            "day": "<day_of_week>",
-           "hour": "<hour>"
+           "hour": "<sequence_number_of_hour_interval>"
          }
        }
      }
@@ -680,10 +685,15 @@ After creating a cluster, you can edit its basic and advanced settings.
 
        * `backup_retain_period_days`: Number of days to retain the cluster backup. Possible values: between `7` and `60` days.
 
-     * `maintenance_window`: Maintenance window settings:
+     * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings:
 
-       * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
-       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. The valid values range from `1` to `24`.
+         * `anytime`: Maintenance takes place at any time.
+         * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
+
+             * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+             * `hour`: UTC hour interval, from `1` to `24`.
+
+               > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
   1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 

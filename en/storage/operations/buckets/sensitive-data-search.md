@@ -34,7 +34,7 @@ The {{ objstorage-name }} UI allows you to scan individual buckets for sensitive
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click the name of the bucket you want to create a scan for.
-  1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** → **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}**.
   1. Click **{{ ui-key.yacloud.storage.Bucket.BucketSecuritySensitiveDataTab.button_run_scan_af4cy }}**.
 
       {% note info %}
@@ -69,7 +69,7 @@ The {{ objstorage-name }} UI allows you to scan individual buckets for sensitive
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click the name of the bucket in question.
-  1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** → **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}**.
   1. Sensitive data found during the scan, if any, will be displayed on the **{{ ui-key.yacloud.storage.Bucket.BucketSecuritySensitiveDataTab.sub_tab_results }}** tab. The information about each detected object is presented in the following columns:
 
       * `{{ ui-key.yacloud_org.dspm.scan.label_data-type }}`: Search category of the data, e.g., `FULL-NAME-RU-ML`: Full name.
@@ -90,8 +90,8 @@ The {{ objstorage-name }} UI allows you to scan individual buckets for sensitive
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click the name of the bucket in question.
-  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** → **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}** tab.
-  1. Click ![image](../../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageActions.button_more_sGEBS }}** → **{{ ui-key.yacloud.storage.Bucket.BucketSecuritySensitiveDataTab.button_download_hR9sN }}**.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}**.
+  1. Click **{{ ui-key.yacloud.shared.layout.PageActions.button_more_sGEBS }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) and select ![arrow-down-to-line](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.storage.Bucket.BucketSecuritySensitiveDataTab.button_download_hR9sN }}**.
   1. In the window that opens, specify how to display names, contact information, and other personal data, then click **{{ ui-key.yacloud_components.security.dspm.action_button_apply }}**.
 
 {% endlist %}
@@ -108,8 +108,8 @@ The {{ objstorage-name }} UI allows you to scan individual buckets for sensitive
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click the name of the bucket in question.
-  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** → **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}** tab.
-  1. Click ![image](../../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageActions.button_more_sGEBS }}** → **{{ ui-key.yacloud.storage.Bucket.BucketSecuritySensitiveDataTab.button_export_gQ8rM }}**.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}**.
+  1. Click **{{ ui-key.yacloud.shared.layout.PageActions.button_more_sGEBS }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) and select ![folder-arrow-up-in](../../../_assets/console-icons/folder-arrow-up-in.svg) **{{ ui-key.yacloud.storage.Bucket.BucketSecuritySensitiveDataTab.button_export_gQ8rM }}**.
   1. In the window that opens, set the export settings:
 
       * In the **{{ ui-key.yacloud_components.security.dspm.label_field_bucket }}** field, select the bucket to save the results to.
@@ -131,7 +131,7 @@ The {{ objstorage-name }} UI allows you to scan individual buckets for sensitive
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click the name of the bucket in question.
-  1. Navigate to **{{ ui-key.yacloud.storage.bucket.switch_security }}** → **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}** → **{{ ui-key.yacloud.storage.Bucket.BucketSecuritySensitiveDataTab.sub_tab_issues }}**.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_sensitive-data-search }}**, and then to **{{ ui-key.yacloud.storage.Bucket.BucketSecuritySensitiveDataTab.sub_tab_issues }}**.
 
 {% endlist %}
 

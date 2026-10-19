@@ -39,6 +39,8 @@ An image is treated as a resource, similar to a disk. Images are created in fold
 
 Images consume storage space and are retained indefinitely. Storing images is charged separately. To avoid unnecessary costs, delete unused images. For more information, see [{#T}](../pricing.md).
 
+The use of specific images to create virtual machines can be restricted at the [folder](*folders), [cloud](*clouds), or [organization](*organizations) level using the `compute.restrictImage` authorization policy. For more information, see [{#T}](../security/index.md#access-policies).
+
 ## Image family {#family}
 
 If you regularly update your images, you can group them into families. You can use the family name to find the latest image in the family.
@@ -100,7 +102,13 @@ By default, optimized images have a zero [quota](../concepts/limits.md#compute-q
 ## See also {#see-also}
 
 * Learn how to create a VM from a [custom](../operations/vm-create/create-from-user-image.md) or [public](../operations/images-with-pre-installed-software/create.md) image.
-* [{#T}](../operations/image-create/custom-image.md)
-* [{#T}](../operations/image-control/import.md)
-* [{#T}](../operations/image-control/access.md)
-* [{#T}](../qa/disks.md)
+* [{#T}](../operations/image-create/custom-image.md).
+* [{#T}](../operations/image-control/import.md).
+* [{#T}](../operations/image-control/access.md).
+* [{#T}](../qa/disks.md).
+
+[*folders]: {% include [folder-definition](../../_popups/resource-manager/folder-definition.md) %}
+
+[*clouds]: {% include [cloud-definition](../../_popups/resource-manager/cloud-definition.md) %}
+
+[*organizations]: {% include [organization-definition](../../_popups/identity-hub/organization-definition.md) %}

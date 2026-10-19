@@ -110,9 +110,8 @@ Set up a static website for the bucket and link it to your main `example.com` do
       1. In the [management console]({{ link-console-main }}), select a folder.
       1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Select the bucket you want to configure hosting for.
-      1. In the left-hand panel, select ![image](../../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-      1. Select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
-      1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**:
+      1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+      1. Select the `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}` mode and specify:
           * In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify the absolute path to the file in the bucket for the website home page, e.g., `index.html`.
       
             {% include [static-site-index-restriction](../../../../_includes/storage/static-site-index-restriction.md) %}
@@ -142,19 +141,19 @@ Set up a static website for the bucket and link it to your main `example.com` do
 
           {% note warning %}
 
-          {{ dns-name }} is a billable service; for more information, see [this pricing page](../../../../dns/pricing.md).
+          {{ dns-name }} is a billable service; for more information, see [{#T}](../../../../dns/pricing.md).
 
           {% endnote %}
 
           1. In the [management console]({{ link-console-main }}), select a folder.
           1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
           1. Select the bucket you want to use your own domain for.
-          1. In the left-hand panel, select ![image](../../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}** and go to the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
-          1. In **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**, under **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}**, click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
+          1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+          1. Select the `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}` mode. Under **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}**, click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
 
               {% note info %}
 
-              Under **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}** in the **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** section, you can only see those domains that were created directly through this interface. Records created in [{{ dns-name }}](../../../../dns/quickstart.md) will not be shown.
+              The **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}** section in the `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}` mode settings only displays domains created via this interface. Records created in [{{ dns-name }}](../../../../dns/quickstart.md) will not be shown.
 
               {% endnote %}
 
@@ -232,9 +231,8 @@ For the bucket with the additional `example2.com` domain name:
       1. In the [management console]({{ link-console-main }}), select a folder.
       1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Select the bucket you want to redirect all requests for.
-      1. In the left-hand panel, select ![image](../../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-      1. Select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
-      1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_redirect }}**, specify:
+      1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+      1. Select `{{ ui-key.yacloud.storage.bucket.website.switch_redirect }}` and specify the following:
           * **{{ ui-key.yacloud.storage.bucket.website.field_hostname }}**: Domain name to which all requests will be redirected, e.g., `example.com`.
           * **{{ ui-key.yacloud.storage.bucket.website.field_protocol }}**: **{{ ui-key.yacloud.common.label_https }}**.
       1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.

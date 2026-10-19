@@ -22,9 +22,8 @@ By default, [bucket](../../concepts/bucket.md) [access](../../concepts/bucket.md
   1. In the [management console]({{ link-console-main }}), open a folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket to configure public access for.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Select the **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}** tab.
-  1. Enable public access for the operation types you need.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}**.
+  1. Under **{{ ui-key.yacloud.storage.form.AccessSection.section_label-access_2cHmW }}**, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}` for the operation types you need.
   1. Click **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -162,9 +161,8 @@ You will not be able to open public access if a restrictive [access policy](../.
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket to disable public access for.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Select the **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}** tab.
-  1. Enable restricted access for the operation types you need.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}**.
+  1. Under **{{ ui-key.yacloud.storage.form.AccessSection.section_label-access_2cHmW }}**, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}` for the operation types you need.
   1. Click **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}

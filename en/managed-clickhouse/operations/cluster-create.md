@@ -441,13 +441,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
          * `type`: Maintenance window type. Valid values:
 
-           * `anytime`: Any time (default).
-           * `weekly`: On schedule. To use this value, you need to provide `hour` and `day`.
-
-         * `day`: Day of week for the `weekly` type. The valid values are `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, and `SUN`.
-         * `hour`: UTC hour interval, from `1` to `24`.
-
-           > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.         
+           {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
 
 - {{ TF }} {#tf}
@@ -1546,13 +1540,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
          * `type`: Maintenance window type. Valid values:
 
-           * `anytime`: Any time (default).
-           * `weekly`: On a schedule. To use this value, you need to provide `hour` and `day`.
-
-         * `day`: Day of week for the `weekly` type. The valid values are `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, and `SUN`.
-         * `hour`: UTC hour interval. The valid values range from `1` to `24`.
-
-            > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.         
+           {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}        
 
 
 - {{ TF }} {#tf}

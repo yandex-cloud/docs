@@ -301,6 +301,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
      To allow access to the cluster from [{{ yq-full-name }}](../../query/index.yaml), provide `--yandexquery-access=true`. This feature is in the [Preview](../../overview/concepts/launch-stages.md) stage and can be enabled upon request.
 
 
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
@@ -452,6 +453,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -852,6 +854,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 {% endnote %}
 
 
+
 ## Creating a cluster copy {#duplicate}
 
 You can create a {{ PG }} cluster with the settings of another one created earlier. Do this by importing the original {{ PG }} cluster configuration into {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. The import feature is handy when the original {{ PG }} cluster has a lot of settings and you need to create a similar one.
@@ -928,6 +931,7 @@ To create a {{ PG }} cluster copy:
 
 {% endlist %}
 
+
 ## Examples {#examples}
 
 ### Creating a single-host cluster {#creating-a-single-host-cluster}
@@ -969,6 +973,7 @@ To create a {{ PG }} cluster copy:
      --security-group-ids {{ security-group }} \
      --deletion-protection
   ```
+
 
 
 - {{ TF }} {#tf}
@@ -1058,5 +1063,6 @@ To create a {{ PG }} cluster copy:
   }
   ```
 
+- 
 
 {% endlist %}

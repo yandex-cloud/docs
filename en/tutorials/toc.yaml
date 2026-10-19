@@ -1069,7 +1069,7 @@ items:
           }}
         href: dataplatform/data-transfer-direct-to-mch.md
       - name: >-
-          Loading data from {{ objstorage-name }} to {{ mch-name }} using {{
+          Loading data from {{ objstorage-name }} to {{ mch-name }} with {{
           data-transfer-name }}
         href: dataplatform/object-storage-to-clickhouse.md
       - name: >-
@@ -1077,7 +1077,7 @@ items:
           change using {{ data-transfer-name }}
         href: dataplatform/opensearch-to-clickhouse.md
       - name: >-
-          Loading data from {{ ydb-name }} to {{ mch-name }} using {{
+          Loading data from {{ ydb-name }} to {{ mch-name }} with {{
           data-transfer-name }}
         href: dataplatform/ydb-to-clickhouse.md
       - name: >-
@@ -1214,7 +1214,7 @@ items:
           using {{ data-transfer-name }}
         href: dataplatform/mos-migration-from-standalone.md
       - name: >-
-          Loading data from {{ mos-name }} to {{ objstorage-name }} using {{
+          Loading data from {{ mos-name }} to {{ objstorage-name }} with {{
           data-transfer-name }}
         href: dataplatform/opensearch-to-object-storage.md
       - name: >-
@@ -1305,10 +1305,10 @@ items:
         href: dataplatform/greenplum-to-clickhouse.md
       - name: Migrating a database from {{ GP }} to {{ PG }}
         href: dataplatform/greenplum-to-postgresql.md
-      - name: Exporting {{ GP }} data to a cold storage in {{ objstorage-name }}
+      - name: Exporting {{ GP }} data to a hybrid storage in {{ objstorage-name }}
         href: dataplatform/greenplum-yezzey.md
       - name: >-
-          Loading data from {{ objstorage-name }} to {{ mgp-name }} using {{
+          Loading data from {{ objstorage-name }} to {{ mgp-name }} with {{
           data-transfer-name }}
         href: dataplatform/object-storage-to-greenplum.md
       - name: >-
@@ -1327,8 +1327,17 @@ items:
         href: dataplatform/valkey-data-migration.md
       - name: Using a {{ mrd-name }} cluster as a PHP session storage
         href: dataplatform/valkey-as-php-sessions-storage.md
+      - name: >-
+          Using {{ mrd-name }} with the Search module and {{
+          foundation-models-full-name }} models for vector search in a RAG
+          system
+        href: dataplatform/valkey-rag-search.md
       - name: Distributed locks for 1C:Enterprise in a {{ mrd-name }} cluster
         href: dataplatform/1c-valkey-locks.md
+      - name: >-
+          Using a {{ mrd-name }} cluster as a cache storage for 1C-Bitrix: Site
+          Management
+        href: infrastructure-management/yc-valkey-as-1c-cache-storage.md
       - name: >-
           Delivering data from {{ ydb-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
@@ -1350,11 +1359,11 @@ items:
         href: dataplatform/mpg-ydb-replication.md
         hidden: true
       - name: >-
-          Loading data from {{ objstorage-name }} to {{ ydb-name }} using {{
+          Loading data from {{ objstorage-name }} to {{ ydb-name }} with {{
           data-transfer-name }}
         href: dataplatform/object-storage-to-ydb.md
       - name: >-
-          Loading data from {{ ydb-name }} to {{ objstorage-name }} using {{
+          Loading data from {{ ydb-name }} to {{ objstorage-name }} with {{
           data-transfer-name }}
         href: dataplatform/ydb-to-object-storage.md
       - name: Processing {{ at-name }} events
@@ -1377,7 +1386,7 @@ items:
         href: dataplatform/yds-obj-migration.md
       - name: >-
           Migrating data from a third-party {{ GP }} or {{ PG }} cluster to {{
-          mgp-name }} using {{ data-transfer-name }}
+          mgp-name }} with {{ data-transfer-name }}
         href: dataplatform/managed-greenplum.md
       - name: Migrating {{ mmg-name }} clusters
         href: dataplatform/storedoc.md
@@ -1934,4 +1943,9 @@ items:
             href: ml-ai/ai-model-ide-integration.md
           - name: Integrating the AI data analyst with {{ data-catalog-name }}
             href: ml-ai/data-catalog-integration.md
+          - name: >-
+              Using {{ mrd-name }} with the Search module and {{
+              foundation-models-full-name }} models for vector search in a RAG
+              system
+            href: dataplatform/valkey-rag-search.md
 path: en/tutorials/toc.yaml

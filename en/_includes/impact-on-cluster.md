@@ -1,4 +1,4 @@
-Depending on its type, maintenance can impact your cluster as follows:
+Depending on its type, maintenance can affect the cluster in different ways:
 
 * Show little to no impact on database users.
 * Break database connections in place, forcing clients to re-establish their connections.

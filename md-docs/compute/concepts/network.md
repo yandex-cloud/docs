@@ -28,7 +28,7 @@ IP-адреса, FQDN и другую информацию можно узнат
 
 {% note info %}
 
-Создание ВМ с несколькими сетевыми интерфейсами, а также привязка к сетевым интерфейсам публичных IP-адресов могут быть запрещены на уровне [каталога](*folders), [облака](*clouds) или [организации](*organizations) с помощью политик авторизации `compute.denySerialPortEnabling` и `compute.denyPublicIpAssigning`. Подробнее читайте в разделе [Политики авторизации](../security/index.md#access-policies).
+Создание ВМ с несколькими сетевыми интерфейсами, а также привязка к сетевым интерфейсам публичных IP-адресов могут быть запрещены на уровне [каталога](*folders), [облака](*clouds) или [организации](*organizations) с помощью политик авторизации `compute.denyMultipleNic` и `compute.denyPublicIpAssigning`. Подробнее читайте в разделе [Политики авторизации](../security/index.md#access-policies).
 
 {% endnote %}
 
