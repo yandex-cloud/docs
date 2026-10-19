@@ -58,6 +58,7 @@
 
       {% include [backup-policy-create-settings](../../_includes/mdb/cli/backup-policy-create-settings.md) %}
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
@@ -91,11 +92,12 @@
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
         For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_postgresql_backup_retention_policy).
+
 
 - REST API {#api}
 
@@ -302,6 +304,7 @@
 
       You can get the cluster ID from the [list of clusters](cluster-list.md#list-clusters), and the policy ID from the [list of policies](#list-policies).
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
@@ -314,9 +317,10 @@
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 - REST API {#api}
 

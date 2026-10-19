@@ -44,6 +44,7 @@ description: Follow this guide to migrate {{ PG }} cluster hosts to a different 
 
       You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the target availability zone for your hosts.
 
+     
    - {{ TF }} {#tf}
 
       1. Add the host manifest to the {{ TF }} configuration file describing your infrastructure:
@@ -68,6 +69,7 @@ description: Follow this guide to migrate {{ PG }} cluster hosts to a different 
       1. Confirm updating the resources.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
    - REST API {#api}
 
@@ -161,7 +163,7 @@ description: Follow this guide to migrate {{ PG }} cluster hosts to a different 
       ```bash
       {{ yc-mdb-pg }} host delete <host_FQDN> --cluster-name <cluster_name>
       ```
-
+     
    - {{ TF }} {#tf}
 
       1. In your {{ TF }} infrastructure configuration file, locate your cluster description and delete the `host` sections with the source availability zone.
@@ -172,6 +174,7 @@ description: Follow this guide to migrate {{ PG }} cluster hosts to a different 
       1. Type `yes` and press **Enter**.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
    - REST API {#api}
 

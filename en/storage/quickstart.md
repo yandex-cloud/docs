@@ -56,7 +56,7 @@ To upload an object to a bucket:
 1. In the [management console]({{ link-console-main }}), select a folder.
 1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Click the name of the bucket you need.
-1. To upload files to the bucket, drag them to the bucket screen or click ![bucket](../_assets/storage/upload.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** and confirm the upload of the files.
+1. To upload files to the bucket, drag them to the bucket screen or click ![bucket](../_assets/storage/upload.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** and confirm the upload.
 
 ## Getting a file download link {#get-link}
 

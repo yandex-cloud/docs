@@ -21,7 +21,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. In the bucket row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
 
-      Alternatively, you can click the bucket name, then, on the page that opens, click ![image](../../../_assets/console-icons/ellipsis.svg) at the top right and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
+      Alternatively, you can click the bucket name, then click ![image](../../../_assets/console-icons/ellipsis.svg) in the top panel on the page that opens and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
 
       {% include [acl-edit-console](../../../_includes/storage/acl-edit-console.md) %}
 

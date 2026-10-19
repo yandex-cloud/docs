@@ -70,10 +70,6 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
 
-        
-        {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
-
-
     1. Specify the admin user credentials. This special user is required for managing the cluster and cannot be deleted. For more information, see [Users and roles](../concepts/cluster-users.md).
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** may contain Latin letters, numbers, hyphens, and underscores, but cannot start with a hyphen. It must be from 1 to 32 characters long.
@@ -265,7 +261,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
            ...
            --maintenance-window type=<maintenance_type>,`
                                `day=<day_of_week>,`
-                               `hour=<time_interval_ordinal_number> \
+                               `hour=<sequence_number_of_hour_interval> \
         ```
 
         Where `type` is the maintenance type:
@@ -486,15 +482,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
       }
       ```
 
-      Where `type` is the maintenance type:
+      Where:
 
-      * `ANYTIME`: Any time (default).
-      * `WEEKLY`: On a schedule. For this value, also specify the following:
-        
-          * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-          * `hour`: UTC hour interval, from `1` to `24`.
-
-            > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
+      {% include [terraform-maintenance-window](../../_includes/mdb/mgp/terraform-maintenance-window.md) %}
 
 
   1. Make sure the {{ TF }} configuration files are correct:
@@ -647,13 +637,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `clientIdleTimeout`: Idle timeout for a client connection, in seconds.
             * `idleInTransactionTimeout`: Idle timeout for a client connection with an open transaction (in seconds).
 
-        * `cloudStorage.enable`: Use of hybrid storage. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloudStorage.enable`: Use of hybrid storage. Set to `true` to enable {{ yandex-cloud }}'s [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in the cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks in the {{ mgp-name }} cluster to a hybrid storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
             You cannot disable hybrid storage after you save your cluster settings.
-
-            
-            {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
-
 
         
         * `masterHostGroupIds` and `segmentHostGroupIds`: Optionally, IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master and segment hosts.
@@ -843,13 +829,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `client_idle_timeout`: Idle timeout for a client connection, in seconds.
             * `idle_in_transaction_timeout`: Idle timeout for a client connection with an open transaction (in seconds).
 
-        * `cloud_storage.enable`: Use of hybrid storage. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloud_storage.enable`: Use of hybrid storage. Set to `true` to enable {{ yandex-cloud }}'s [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in the cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks in the {{ mgp-name }} cluster to a hybrid storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
             You cannot disable hybrid storage after you save your cluster settings.
-
-            
-            {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
-
 
         
         * `master_host_group_ids` and `segment_host_group_ids`: Optionally, IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master and segment hosts.

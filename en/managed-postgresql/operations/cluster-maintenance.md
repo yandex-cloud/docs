@@ -240,12 +240,6 @@ If necessary, you can run a maintenance job with the **{{ ui-key.yacloud.mdb.mai
 
 By default, maintenance can be scheduled for any time. You can choose a specific day of week and hour interval for the start of the maintenance. For example, you can specify the least busy time interval for the cluster.
 
-{% note warning %}
-
-When you select a new maintenance window, any scheduled maintenance that does not fall within it will be automatically canceled.
-
-{% endnote %}
-
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -284,6 +278,7 @@ When you select a new maintenance window, any scheduled maintenance that does no
 
   You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
@@ -303,6 +298,7 @@ When you select a new maintenance window, any scheduled maintenance that does no
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
       {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -340,7 +336,7 @@ When you select a new maintenance window, any scheduled maintenance that does no
      * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. In `maintenanceWindow`, provide one of these two parameters:
 
        * `anytime`: Maintenance can be scheduled for any time.
-       * `weeklyMaintenanceWindow`: Maintenance can only be scheduled for a specific day of week and a sequence number of an hour interval:
+       * `weekly_maintenance_window`: Maintenance can only be scheduled for a specific day of week and a sequence number of an hour interval:
 
          * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
          * `hour`: UTC hour interval in `HH` format, from `1` to `24`.

@@ -240,12 +240,6 @@ If necessary, you can run a maintenance job with the **{{ ui-key.yacloud.mdb.mai
 
 By default, maintenance can be scheduled for any time. You can choose a specific day of week and hour interval for the start of the maintenance. For example, you can specify the least busy time interval for the cluster.
 
-{% note warning %}
-
-If a scheduled maintenance does not fall within the new interval, it will be automatically canceled.
-
-{% endnote %}
-
 {% list tabs group=instructions %}
 
 - Management console {#console}

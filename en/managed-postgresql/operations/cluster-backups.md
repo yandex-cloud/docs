@@ -136,6 +136,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
           * `network-ssd-nonreplicated`          * `network-ssd-io-m3`
 
 
+
 - {{ TF }} {#tf}
 
   Use {{ TF }} to restore:
@@ -228,11 +229,12 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+   1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
   {{ TF }} will create the new cluster. The databases and users will be deployed from the backup.
+
 
 - REST API {#api}
 
@@ -711,6 +713,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
      --backup-window-start 11:25:00
   ```
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
@@ -749,6 +752,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
         {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -882,6 +886,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
   You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
@@ -917,6 +922,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
         {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

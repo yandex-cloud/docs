@@ -123,6 +123,7 @@ To disable read-only mode:
             --disk-size <storage_size_in_GB>
         ```
 
+
 - {{ TF }} {#tf}
 
     To change the disk type and expand the storage size for a cluster:
@@ -157,6 +158,7 @@ To disable read-only mode:
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
         {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -311,6 +313,7 @@ To disable read-only mode:
         If you have configured storage scaling during a maintenance window, [set the maintenance schedule](cluster-maintenance.md#set-maintenance-window).
 
         Learn more about the storage expansion criteria [here](../concepts/storage.md#auto-rescale).
+
         
 - {{ TF }} {#tf}
 
@@ -341,6 +344,7 @@ To disable read-only mode:
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
         {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

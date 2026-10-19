@@ -296,7 +296,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
       {{ yc-mdb-gp }} cluster update <cluster_name_or_ID> \
         --maintenance-window type=<maintenance_type>,`
                             `day=<day_of_week>,`
-                            `hour=<time_interval_ordinal_number>
+                            `hour=<sequence_number_of_hour_interval>
       ```
     
       Where `type` is the maintenance type:
@@ -328,15 +328,9 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
       }
       ```
 
-      Where `type` is the maintenance type:
-
-      * `ANYTIME`: Any time (default).
-      * `WEEKLY`: On a schedule. For this value, also specify the following:
-        
-        * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-        * `hour`: UTC hour interval, from `1` to `24`.
-
-          > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
+      Where:
+      
+      {% include [terraform-maintenance-window](../../_includes/mdb/mgp/terraform-maintenance-window.md) %}
 
   1. Make sure the settings are correct.
 

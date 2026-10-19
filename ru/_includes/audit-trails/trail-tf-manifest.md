@@ -9,8 +9,9 @@ resource "yandex_audit_trails_trail" "basic_trail" {
   service_account_id = "<идентификатор_сервисного_аккаунта>"
 
   storage_destination {
-    bucket_name   = "<имя_бакета>"
-    object_prefix = "<префикс>"
+    bucket_name        = "<имя_бакета>"
+    object_prefix      = "<префикс>"
+    aggregation_period = "<период_агрегации>"
   }
 
   filtering_policy {

@@ -16,9 +16,8 @@ For example, if your service enables users to upload objects to {{ objstorage-na
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket to limit the maximum size for.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Select the **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}** tab.
-  1. Set the value of the **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** field.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}**.
+  1. To set a limit, enable **{{ ui-key.yacloud.storage.form-components.SizeLimitField.field_size-limit-enabled_hPy7f }}** and specify the desired size in the fields that appear.
 
       {% include [storage-no-max-limit](../../_includes_service/storage-no-max-limit.md) %}
       

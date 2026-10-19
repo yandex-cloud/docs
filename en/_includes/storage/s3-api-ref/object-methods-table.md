@@ -9,6 +9,7 @@
 || [DeleteObjects](../../../storage/s3/api-ref/object/deletemultipleobjects.md) | Deletes objects based on a list. ||
 || [options](../../../storage/s3/api-ref/object/options.md) | Checks whether a [CORS request](../../../storage/concepts/cors.md) to an object can be made. ||
 || [SelectObjectContent](../../../storage/s3/api-ref/object/select.md) | Filters and returns the contents of an object using an SQL query. ||
+|| [RestoreObject](../../../storage/s3/api-ref/object/restore-object.md) | Registers an object access event within an intelligent-tiering storage. ||
 || [PutObjectTagging](../../../storage/s3/api-ref/object/putobjecttagging.md) | Adds [labels](../../../storage/concepts/tags.md) to an object. ||
 || [GetObjectTagging](../../../storage/s3/api-ref/object/getobjecttagging.md) | Returns object labels. ||
 || [DeleteObjectTagging](../../../storage/s3/api-ref/object/deleteobjecttagging.md) | Deletes object labels. ||

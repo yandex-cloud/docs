@@ -42,8 +42,7 @@ The bucket becomes accessible over HTTPS within 30 minutes of uploading the cert
     1. In the [management console]({{ link-console-main }}), select a folder.
     1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Select the bucket from the list.
-    1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
-    1. Select the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
+    1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
     1. Click **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
     1. In the **{{ ui-key.yacloud.storage.bucket.https.field_source }}** field, select **{{ ui-key.yacloud.storage.bucket.https.value_method-certificate-manager }}**.
     1. In the **{{ ui-key.yacloud.storage.bucket.https.field_certificate }}** field, select the certificate from the list that opens. 
@@ -150,8 +149,7 @@ To upload a certificate:
    1. In the [management console]({{ link-console-main }}), select a folder.
    1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Select the bucket from the list.
-   1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
-   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
+   1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
    1. Click **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
    1. In the **{{ ui-key.yacloud.storage.bucket.https.field_source }}** field, select **{{ ui-key.yacloud.storage.bucket.https.value_method-custom }}**.
    1. Add **{{ ui-key.yacloud.storage.bucket.https.field_certificate }}** and **{{ ui-key.yacloud.storage.bucket.https.field_private-key }}**.

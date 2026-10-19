@@ -11,7 +11,7 @@ description: This section contains the {{ mgp-name }} release notes.
 * Added the **Recommendations** tab to the management console. It features checks for CPU load, ZSTD memory tracking, and memory allocation.
 * Updated the dashboard for tracking [PXF metrics](metrics.md#managed-greenplum-pxf-metrics).
 * Added a public API [method to list available DBMS versions](api-ref/Versions/list.md).
-* Added one-click Terraform code export within the management console when creating or updating cluster settings. This option is also supported for existing service resources.
+* Added the option to export Terraform code in a single click when creating or editing cluster settings in the management console. This option also works for existing resources of the service.
 
 ## May 2026 {#may-2026}
 
@@ -72,7 +72,7 @@ Added the ability to partially [restore a cluster](./operations/cluster-backups.
 
 ## January 2024 {#jan-2024}
 
-* A new version is out: {{ GP }} 6.25. It features [cold storage integration](tutorials/yezzey.md) tools and a [command center](./concepts/command-center.md) by default.
+* A new version is out: {{ GP }} 6.25. It features [hybrid storage integration](tutorials/yezzey.md) tools and a [command center](./concepts/command-center.md) by default.
 * You can now [configure PXF](operations/pxf/settings.md) for accessing external tables on your own. Previously, users had to contact support to configure PXF.
 
 ## Q3 2023 {#q3-2023}
@@ -94,8 +94,8 @@ Added the ability to partially [restore a cluster](./operations/cluster-backups.
 
 * You can now [expand a cluster](operations/cluster-expand.md) via the CLI and API by adding new segment hosts with data redistribution across all segments.
 * You can now view cluster backups, recover from backups, and modify public access to the cluster via the CLI. For more information, see [YC CLI releases](../cli/release-notes.md#version0.100.0).
-* Added the `mdb_toolkit.table_privileges()` function that allows users with the `mdb_admin` role to view the history of granting and revoking privileges in the cluster. For more details, see [this {{ PG }} guide]({{ pg.docs.org }}/current/infoschema-table-privileges.html).
-* Added the `mdb_toolkit.gp_workfile_usage_per_query()` function that allows users with the `mdb_admin` role to view information about active queries from all users. For more details, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-gp_toolkit.html#topic34).
+* Added the `mdb_toolkit.table_privileges()` function that allows users with the `mdb_admin` role to view the history of granting and revoking privileges in the cluster. For more information, see [this {{ PG }} guide]({{ pg.docs.org }}/current/infoschema-table-privileges.html).
+* Added the `mdb_toolkit.gp_workfile_usage_per_query()` function that allows users with the `mdb_admin` role to view information about active queries from all users. For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-gp_toolkit.html#topic34).
 * Improved the algorithm for creating clusters via the wizard:
     * The cluster size cannot exceed `<maximum_number_of_hosts> × <maximum_disk_size_per_host>`.
     * You can select groups of dedicated hosts to deploy the cluster.

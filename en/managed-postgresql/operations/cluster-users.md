@@ -131,7 +131,7 @@ While you can use SQL commands to assign user privileges, you cannot use them to
   
   1. Select the deletion protection option.
 
-     The possible values are:
+     Possible values:
      - **Same as cluster**
      - **Enabled**
      - **Disabled**
@@ -180,6 +180,7 @@ While you can use SQL commands to assign user privileges, you cannot use them to
   To configure the user’s DBMS settings, use the parameters described in [User settings](../concepts/settings-list.md#dbms-user-settings).
 
   You can get the cluster name from the [list of clusters in your folder](cluster-list.md).
+
 
 - {{ TF }} {#tf}
 
@@ -230,6 +231,7 @@ While you can use SQL commands to assign user privileges, you cannot use them to
   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 - REST API {#api}
 
@@ -417,6 +419,7 @@ Newly created users only get the `CONNECT` privilege for selected databases and 
 
   You can get the cluster name from the [list of clusters in your folder](cluster-list.md).
 
+
 - {{ TF }} {#tf}
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
@@ -458,6 +461,7 @@ Newly created users only get the `CONNECT` privilege for selected databases and 
   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 - REST API {#api}
 
@@ -657,6 +661,7 @@ To learn how to assign privileges and roles to a user, see [this article](grant.
 
      You can get the cluster name with the [list of clusters in the folder](#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
@@ -705,6 +710,7 @@ To learn how to assign privileges and roles to a user, see [this article](grant.
     1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 - REST API {#api}
 
@@ -802,6 +808,7 @@ To learn how to assign privileges and roles to a user, see [this article](grant.
   1. Configure user deletion protection by selecting the relevant value in the **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** field.
   1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
@@ -825,6 +832,7 @@ To learn how to assign privileges and roles to a user, see [this article](grant.
     1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 - REST API {#api}
 
@@ -943,6 +951,7 @@ A user account can have deletion protection enabled. To delete such a user, [dis
 
   You can get the cluster name with the [list of clusters in the folder](cluster-list.md).
 
+
 - {{ TF }} {#tf}
 
   To delete a user:
@@ -962,6 +971,7 @@ A user account can have deletion protection enabled. To delete such a user, [dis
   1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 - REST API {#api}
 

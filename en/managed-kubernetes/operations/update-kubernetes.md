@@ -61,6 +61,8 @@ For more information, see [{#T}](../concepts/release-channels-and-updates.md).
 
 Select auto update mode for your {{ managed-k8s-name }} cluster and set the update schedule:
 
+{% include [kz-auto-upgrade-warning](../../_includes/managed-kubernetes/kz-auto-upgrade-warning.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

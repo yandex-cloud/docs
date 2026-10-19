@@ -1,12 +1,11 @@
-1. In the [management console]({{ link-console-main }}), select a folder.
+1. In the [management console]({{ link-console-main }}), select the folder.
 1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Select the bucket you want to configure hosting for.
-1. In the left-hand panel, select ![image](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}** tab.
+1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}**.
 1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** and **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** fields, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
 1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
-1. Select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
-1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**:
+1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
+1. Select `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}` mode and specify:
     * In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify the absolute path to the file in the bucket for the website home page, e.g., `index.html`.
 
       {% include [static-site-index-restriction](static-site-index-restriction.md) %}

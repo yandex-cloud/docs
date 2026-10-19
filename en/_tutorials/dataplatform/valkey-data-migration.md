@@ -341,9 +341,9 @@ Delete the resources you no longer need to avoid paying for them:
 
 - Manually {#manual}
 
-    * [Delete the {{ mrd-full-name }} cluster](../../managed-valkey/operations/cluster-delete.md).
-    * If you created a staging virtual machine, [delete it](../../compute/operations/vm-control/vm-delete.md).
-    * If you reserved public static IP addresses, release and [delete them](../../vpc/operations/address-delete.md).
+    1. [Delete the {{ mrd-full-name }} cluster](../../managed-valkey/operations/cluster-delete.md).
+    1. If you created a staging virtual machine, [delete it](../../compute/operations/vm-control/vm-delete.md).
+    1. If you reserved public static IP addresses, release and [delete them](../../vpc/operations/address-delete.md).
 
 - {{ TF }} {#tf}
 

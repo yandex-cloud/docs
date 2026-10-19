@@ -122,7 +122,10 @@ To create a host group:
 
         * [Group type](../concepts/host-roles.md): `{{ OS }}` or `Dashboards`.
         * Name. It must be unique within the cluster.
-        * For an `{{ OS }}` host group, select the [host role](../concepts/host-roles.md).
+        * For an `{{ OS }}` host group, select [host roles](../concepts/host-roles.md).
+          
+            {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
+
         * Platform, host type, and host class.
 
             The host class defines the specifications of virtual machines {{ OS }} nodes will be deployed on. All available options are listed under [Host classes](../concepts/instance-types.md).
@@ -218,7 +221,9 @@ To create a host group:
         Where:
 
         * `assign_public_ip`: Public access to the host, `true` or `false`.
-        * `roles`: Host roles, `DATA` and `MANAGER`.
+        * `roles`: List of [host roles](../concepts/host-roles.md). The possible values are `DATA`, `MANAGER`, `WARM`, or `INGEST`.
+          
+          {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
 
     1. To create a group of `Dashboards` hosts, add the `dashboards` section to `config`:
 
@@ -277,7 +282,7 @@ To create a host group:
                     "diskSize": "<storage_size_in_bytes>",
                     "diskTypeId": "<disk_type>"
                 },
-                "roles": ["<role_1>","<role_2>"],
+                "roles": ["<role_list>"],
                 "hostsCount": "<number_of_hosts>",
                 "zoneIds": [
                     "<availability_zone_1>",
@@ -309,7 +314,10 @@ To create a host group:
             * `diskSize`: Disk size, in bytes.
             * `diskTypeId`: [Disk type](../concepts/storage.md).
 
-        * `roles` (`{{ OS }}` hosts only): List of [host roles](../concepts/host-roles.md), `DATA` or `MANAGER`. You can assign one or both roles for a group.
+        * `roles` (`{{ OS }}` hosts only): List of [host roles](../concepts/host-roles.md). The possible values are `DATA`, `MANAGER`, `WARM`, or `INGEST`.
+          
+          {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
+
         * `hostsCount`: Number of hosts in the group. Minimum number of `DATA` and `Dashboards` hosts: one; minimum number of `MANAGER` hosts: three.
         * `zoneIds`: List of availability zones the cluster hosts are located in.
 
@@ -395,7 +403,7 @@ To create a host group:
                     "disk_size": "<storage_size_in_bytes>",
                     "disk_type_id": "<disk_type>"
                 },
-                "roles": ["<role_1>","<role_2>"],
+                "roles": ["<role_list>"],
                 "hosts_count": "<number_of_hosts>",
                 "zone_ids": [
                     "<availability_zone_1>",
@@ -427,7 +435,10 @@ To create a host group:
             * `disk_size`: Disk size, in bytes.
             * `disk_type_id`: [Disk type](../concepts/storage.md).
 
-        * `roles` (`{{ OS }}` hosts only): List of [host roles](../concepts/host-roles.md), `DATA` or `MANAGER`. You can assign one or both roles for a group.
+        * `roles` (`{{ OS }}` hosts only): List of [host roles](../concepts/host-roles.md). The possible values are `DATA`, `MANAGER`, `WARM`, or `INGEST`.
+          
+          {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
+          
         * `hosts_count`: Number of hosts in the group. Minimum number of `DATA` and `Dashboards` hosts: one; minimum number of `MANAGER` hosts: three.
         * `zone_ids`: List of availability zones the cluster hosts are located in.
 
@@ -513,6 +524,9 @@ To create a host group:
     1. Change the host group settings:
 
         * [Host roles](../concepts/host-roles.md) (for `{{ OS }}` host groups only).
+
+            {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
+            
         * Platform, host type, and host class.
 
             The host class defines the specifications of virtual machines {{ OS }} nodes will be deployed on. All available options are listed under [Host classes](../concepts/instance-types.md).
@@ -567,11 +581,9 @@ To create a host group:
     * `--resource-preset-id`: New host class. that defines the specifications of virtual machines the {{ OS }} nodes will be deployed on. All available options are listed under [Host classes](../concepts/instance-types.md).
     * `--disk-size`: New disk size, in bytes. The minimum and maximum values depend on the selected host class.
     * `--hosts-count`: New number of hosts in the group.
-    * `--roles`: New [host roles](../../managed-opensearch/concepts/host-roles.md). The possible values are:
+    * `--roles`: New [host roles](../../managed-opensearch/concepts/host-roles.md). The possible values are `data`, `manager`, `warm`, or `ingest`. You can specify more than one roles separated by `+`. Here are some examples: `data`, `data+manager`, `manager+data`.
 
-      * `data`: Assigns the `DATA` role only.
-      * `manager`: Assigns the `MANAGER` role only.
-      * `data+manager` or `manager+data`: Assigns both roles.
+      {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
 
 - {{ TF }} {#tf}
 
@@ -607,7 +619,9 @@ To create a host group:
         Where:
 
         * `assign_public_ip`: Public access to the host, `true` or `false`.
-        * `roles`: Host roles, `DATA` and `MANAGER`.
+        * `roles`: List of [host roles](../concepts/host-roles.md). The possible values are `DATA`, `MANAGER`, `WARM`, or `INGEST`.
+          
+          {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
 
     1. To update the configuration of a `Dashboards` host group, edit the `dashboards` section parameters:
 
@@ -661,6 +675,7 @@ To create a host group:
                     "diskSize": "<storage_size_in_bytes>",
                     "diskTypeId": "<disk_type>"
                 },
+                "roles": ["<role_list>"],
                 "hostsCount": "<number_of_hosts>",
                 "zoneIds": [
                     "<availability_zone_1>",
@@ -693,6 +708,10 @@ To create a host group:
                 * `resourcePresetId`: [Host class](../concepts/instance-types.md).
                 * `diskSize`: Disk size, in bytes.
                 * `diskTypeId`: [Disk type](../concepts/storage.md).
+
+            * `roles` (`{{ OS }}` hosts only): List of [host roles](../concepts/host-roles.md). The possible values are `DATA`, `MANAGER`, `WARM`, or `INGEST`.
+              
+              {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
 
             * `hostsCount`: Number of hosts in the group. Minimum number of `DATA` and `Dashboards` hosts: one; minimum number of `MANAGER` hosts: three.
             * `zoneIds`: List of availability zones the cluster hosts are located in.
@@ -791,6 +810,7 @@ To create a host group:
                     "disk_size": "<storage_size_in_bytes>",
                     "disk_type_id": "<disk_type>"
                 },
+                "roles": ["<role_list>"],
                 "hosts_count": "<number_of_hosts>",
                 "zone_ids": [
                     "<availability_zone_1>",
@@ -823,6 +843,10 @@ To create a host group:
                 * `resource_preset_id`: [Host class](../concepts/instance-types.md).
                 * `disk_size`: Disk size, in bytes.
                 * `disk_type_id`: [Disk type](../concepts/storage.md).
+
+            * `roles` (`{{ OS }}` hosts only): List of [host roles](../concepts/host-roles.md). The possible values are `DATA`, `MANAGER`, `WARM`, or `INGEST`.
+              
+              {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
 
             * `hosts_count`: Number of hosts in the group. Minimum number of `DATA` and `Dashboards` hosts: one; minimum number of `MANAGER` hosts: three.
             * `zone_ids`: List of availability zones the cluster hosts are located in.

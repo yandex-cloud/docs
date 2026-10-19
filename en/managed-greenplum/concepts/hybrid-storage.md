@@ -5,15 +5,7 @@ description: How hybrid storage works in a {{ mgp-name }} cluster.
 
 # Hybrid storage in {{ mgp-name }}
 
-
-{% note info %}
-
-This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and free of charge.
-
-{% endnote %}
-
-
-{{ mgp-name }} clusters support _hybrid storage_: some data can be stored in cluster storage and some in cold storage. By default, data is stored in cluster storage [on disks of the selected type](./storage.md). Data used rarely but meant to be stored for a long time can be moved from the cluster storage to a cold storage – to a {{ objstorage-full-name }} service bucket. This will make data storage [less costly](../pricing/index.md#rules-storage).
+{{ mgp-name }} clusters support _hybrid storage_: some data can be stored in cluster storage and some in hybrid storage. By default, data is stored in cluster storage [on disks of the selected type](./storage.md). Rarely used data meant to be stored for a long time can be moved from a cluster storage to a {{ objstorage-full-name }} service bucket in a hybrid storage. This will make data storage [less costly](../pricing/index.md#rules-storage).
 
 You can enable hybrid storage in {{ mgp-name }} clusters when [creating](../operations/cluster-create.md) or [updating](../operations/update.md#change-additional-settings) a cluster.
 
@@ -25,7 +17,7 @@ Once hybrid storage is enabled in a cluster, you cannot disable it.
 
 ## Hybrid storage scope of use {#usage-scope}
 
-You can use hybrid storage only for [append-optimized](./tables.md) tables. When you migrate data between cluster storage and cold storage, whole tables are migrated. Tables are processed using the [{{ YZ }}](https://github.com/open-gpdb/yezzey) extension by {{ yandex-cloud }}.
+You can use hybrid storage only for [append-optimized](./tables.md) tables. When data is migrated between cluster storage and hybrid storage, whole tables are transferred. Tables are processed using the [{{ YZ }}](https://github.com/open-gpdb/yezzey) extension by {{ yandex-cloud }}.
 
 The data of append-optimized tables is stored as a set of segment files, compressed and encrypted, in an {{ objstorage-name }} service bucket. The number of segment files depends on the number of segments in the cluster and on the table structure.
 
@@ -35,21 +27,21 @@ When running SQL queries against append-optimized tables, there are many request
 
 When data is stored in cluster storage, I/O request scheduling is performed by the operating system on the cluster hosts.
 
-When data is stored in cold storage, the operating system cannot schedule I/O requests to the {{ objstorage-name }} service bucket. Therefore, to avoid performance degradation, {{ mgp-name }} clusters use YProxy by {{ yandex-cloud }} to schedule such requests. Even if the table resides in a cold storage, the use of YProxy minimizes the impact on SQL query execution time.
+When data is stored in hybrid storage, the operating system cannot schedule I/O requests to the {{ objstorage-name }} service bucket. Therefore, to avoid performance degradation, {{ mgp-name }} clusters use YProxy by {{ yandex-cloud }} to schedule such requests. Even if the table is in a hybrid storage, the use of YProxy minimizes the impact on SQL query execution time.
 
-When accessing cold storage data, throughput is limited to 1 GB per second from a single segment host, regardless of the number of segments per host. For example, if you have 8 segment hosts in your cluster, the maximum throughput for cold storage data for the whole cluster will not exceed 8 GB per second.
+When accessing hybrid storage data, throughput is limited to 1 GB per second from a single segment host, regardless of the number of segments per host. For example, if you have 8 segment hosts in your cluster, the maximum throughput for hybrid storage data for the whole cluster will not exceed 8 GB per second.
 
 Learn more about hybrid storage architecture from [this Habr article](https://habr.com/en/companies/yandex_cloud_and_infra/articles/831780/). The article also provides performance tests for different types of storage.
 
 ## Hybrid storage cleanup {#storage-vacuum}
 
-For AO and AOCO tables in a hybrid storage, the `VACUUM` and `VACUUM FULL` operations are performed the same way as for similar tables in the cluster storage. However, cold storage data not being affected by the cleanup process, the following procedure is performed to automatically delete unnecessary segment files:
+For AO and AOCO tables in a hybrid storage, the `VACUUM` and `VACUUM FULL` operations are performed the same way as for similar tables in the cluster storage. However, hybrid storage data not being affected by the cleanup process, the following procedure is performed to automatically delete unnecessary segment files:
 
-1. When you run the `VACUUM` and `VACUUM FULL` operations for hybrid storage tables, the list of segment files in cold storage gets updated. Only the files containing the current table rows remain in the list.
+1. When you run the `VACUUM` and `VACUUM FULL` operations for hybrid storage tables, the list of segment files in hybrid storage gets updated. Only the files containing the current table rows remain in the list.
 1. {{ YZ }} saves the names of unlisted files and the time of the operation in a service table. These files become candidates for deletion.
 1. Independently of the cleanup operations, {{ YZ }} checks the entries in this service table on a weekly basis. If a file record is created earlier than the oldest automatic [backup](backup.md), the file gets deleted from the {{ objstorage-name }} service bucket to the _recycle bin_, and its record gets removed from the service table. After a week's time, the file gets deleted from the _recycle bin_.
 
-This procedure ensures that files required for recovery from a hybrid storage cluster backup are not deleted from cold storage.
+This procedure ensures that files required for recovery from a hybrid storage cluster backup are not deleted from hybrid storage.
 
 ## Use cases {#examples}
 

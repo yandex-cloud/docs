@@ -150,6 +150,8 @@ description: Следуя данной инструкции, вы сможете
 
                   {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
 
+              * `aggregation_period` — период агрегации событий при выгрузке в бакет {{ objstorage-full-name }}. Задает интервал между выгрузками накопленных событий в бакет. Например, при значении `10m` сервис выгружает события примерно раз в десять минут. Необязательный параметр. Допустимые значения: от `1m` до `1h` включительно. По умолчанию `5m`.
+
           * `cloud_logging` — загружать логи в [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}.
 
               Замените блок `destination` в шаблоне:
@@ -300,6 +302,7 @@ description: Следуя данной инструкции, вы сможете
       destination:
         object_storage:
           bucket_id: sample-logs-bucket
+          aggregation_period: 10m
       service_account_id: service0***
       filtering_policy:
         management_events_filter:
@@ -353,7 +356,8 @@ description: Следуя данной инструкции, вы сможете
         service_account_id = "service0***"
 
         storage_destination {
-          bucket_name = "sample-logs-bucket"
+          bucket_name        = "sample-logs-bucket"
+          aggregation_period = "10m"
         }
 
         filtering_policy {

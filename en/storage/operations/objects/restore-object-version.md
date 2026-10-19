@@ -25,10 +25,10 @@ To restore object versions, the bucket must be [versioned](../../concepts/versio
 
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Select the bucket from the list.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** and find the object in the list.
-  1. Select the object whose version you want to restore, click ![image](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.storage.bucket.menu_version-history }}**.
-  1. In the list of versions, click ![image](../../../_assets/console-icons/arrow-rotate-left.svg) **{{ ui-key.yacloud.storage.file.action_file-restore }}** in the row with the version you need. This will restore the selected version and make it the current one.
+  1. Select the bucket from the list and go to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
+  1. Select the object whose version you want to restore.
+  1. In the top panel, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![clock](../../../_assets/console-icons/clock.svg) **{{ ui-key.yacloud.storage.bucket.menu_version-history }}**.
+  1. In the list of versions, click ![clock-arrow-rotate-left](../../../_assets/console-icons/clock-arrow-rotate-left.svg) **{{ ui-key.yacloud.storage.file.action_file-restore }}** in the row with the version you need. This will restore the selected version and make it the current one.
 
   To view the change history of all listed objects, enable **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}**.
 

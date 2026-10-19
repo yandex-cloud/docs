@@ -23,7 +23,7 @@ description: '{{ mgp-name }} offers two types of table data storage: heap storag
 
     Column-oriented data storage reduces read and write overhead significantly when a query only accesses a small number of columns from the entire table field set. Column-oriented tables also get compressed better. When working with {{ mgp-name }}, we recommend using column-oriented tables with standard compression of level 1 as an analytical DBMS.
 
-    For AO and AOCO tables in {{ mgp-name }} clusters, [hybrid storage](./hybrid-storage.md) is available: with the [{{ YZ }} extension](../operations/extensions/yezzey.md), you can move some of your tables from the cluster storage to a cold storage, and vice versa. Cold storage is a convenient option if you need to store your table data for a long time without using it much. This will make data storage [less costly](../pricing/index.md#rules-storage).
+    For AO and AOCO tables in {{ mgp-name }} clusters, [hybrid storage](./hybrid-storage.md) is available: with the [{{ YZ }} extension](../operations/extensions/yezzey.md), you can move some of your tables from cluster storage to hybrid storage, and vice versa. Hybrid storage is a convenient option if you need to store your table data for a long time without using it much. This will make data storage [less costly](../pricing/index.md#rules-storage).
 
     For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-ddl-ddl-storage.html#topic38) and [this {{ CB }} guide]({{ gp.docs.cloudberry }}/operate-with-data/heap-and-ao-table-formats#append-optimized-storage).
 

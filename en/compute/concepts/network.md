@@ -16,6 +16,12 @@ You can also [add](../operations/vm-control/attach-network-interface.md) more ne
 
 If the network interfaces you added are inactive or you can no longer [connect](../operations/vm-connect/ssh.md) to your VM, see [Troubleshooting](../qa/troubleshooting.md).
 
+{% note info %}
+
+You can restrict creating a VM with multiple network interfaces and assigning public IP addresses to network interfaces at the [folder](*folders), [cloud](*clouds), or [organization](*organizations) level using the `compute.denyMultipleNic` and `compute.denyPublicIpAssigning` access policies. For more information, see [{#T}](../security/index.md#access-policies).
+
+{% endnote %}
+
 ### Recommendations {#best-practices}
 
 For stable network operation on a VM, follow these recommendations:
@@ -92,3 +98,9 @@ You can find out the MAC address from a VM or in the resource information using 
 * [{#T}](../tutorials/backup-and-archive-to-sftp.md)
 * [{#T}](../tutorials/bind-domain-vm/index.md)
 * [{#T}](../tutorials/rds-gw.md)
+
+[*folders]: {% include [folder-definition](../../_popups/resource-manager/folder-definition.md) %}
+
+[*clouds]: {% include [cloud-definition](../../_popups/resource-manager/cloud-definition.md) %}
+
+[*organizations]: {% include [organization-definition](../../_popups/identity-hub/organization-definition.md) %}

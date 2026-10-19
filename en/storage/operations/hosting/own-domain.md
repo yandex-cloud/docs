@@ -35,12 +35,12 @@ To use a custom domain:
       1. In the [management console]({{ link-console-main }}), select a folder.
       1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Select the bucket you want to use your own domain for.
-      1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}** and go to the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
-      1. In **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**, under **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}**, click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
+      1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+      1. Select the `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}` mode and click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}** under **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}**.
 
           {% note info %}
 
-          Under **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}** in the **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** section, you can only see those domains that were created directly through this interface. Records created in [{{ dns-name }}](../../../dns/quickstart.md) will not be shown.
+          The **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}** section in the `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}` mode settings only displays domains created via this interface. Records created in [{{ dns-name }}](../../../dns/quickstart.md) will not be shown.
 
           {% endnote %}
 
@@ -54,7 +54,7 @@ To use a custom domain:
 
       Delegating a domain and updating resource records may take a while.
 
-      You can also use {{ dns-name }}to [create a DNS zone](../../../dns/operations/zone-create-public.md) and [resource record](../../../dns/operations/resource-record-create).
+      You can also use {{ dns-name }}to [create a DNS zone](../../../dns/operations/zone-create-public.md) and [resource record](../../../dns/operations/resource-record-create.md).
       
       {% cut "Example of DNS zone and resource record parameters" %}
 

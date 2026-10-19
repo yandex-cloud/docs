@@ -197,6 +197,8 @@ items:
             href: tutorials/single-sign-on/oidc-open-webui.md
           - name: Настройка единого входа в Selectel по стандарту SAML
             href: tutorials/single-sign-on/saml-selectel.md
+          - name: Настройка единого входа в Selectel по стандарту OIDC
+            href: tutorials/single-sign-on/oidc-selectel.md
           - name: Настройка единого входа в Sentry по стандарту SAML
             href: tutorials/single-sign-on/saml-sentry.md
           - name: Настройка единого входа в SonarQube по стандарту SAML

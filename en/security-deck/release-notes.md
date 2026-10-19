@@ -5,13 +5,22 @@ description: This section contains the {{ sd-name }} release notes.
 
 # {{ sd-full-name }} release notes
 
+## August 2026 {#august-2026}
+
+* In [{{ cspm-name }}](./concepts/cspm.md):
+  * Released a native interface where you can [monitor](./operations/cspm/use-cspm.md) alerts, rules with violations, module errors, [run](./operations/cspm/check-environment.md) a workspace check, as well as [view](./operations/cspm/work-with-results.md#view) and [download](./operations/cspm/work-with-results.md#download) historical checks.
+  * Updated the list of infrastructure check rules for compliance with security standards. The new rules enforce administrator [alerting](./rules-reference/cspm.md#leaked-secrets-detection.md) on cloud secret exposure, mandatory [security policies](./rules-reference/cspm.md#cis.md) for Kubernetes clusters, and [response](./rules-reference/cspm.md#audit-trails-reactions.md) to security events.
+* In [{{ kspm-name }}](./concepts/kspm.md), implemented [inventory rules](./concepts/standard-compliance/inventory-k8s-rules.md) that help collect information and audit the OS of Kubernetes worker nodes.
+* In [{{ vuln-man-name }}](./concepts/vulnerability-management.md), added a setting to only scan [current image versions](./operations/vulnerability-management/enable-vulnerability-management.md).
+* [{{ dspm-name }}](./concepts/dspm.md) module is integrated with {{ objstorage-full-name }}. Now you can [scan](../storage/operations/buckets/sensitive-data-search.md) buckets in the {{ objstorage-name }} UI, [view](../storage/operations/buckets/sensitive-data-search.md#view) and [download](../storage/operations/buckets/sensitive-data-search.md#download) scanning results.
+
 ## July 2026 {#july-2026}
 
 * In the [{{ cspm-name }}](./concepts/cspm.md), [{{ kspm-name }}](./concepts/kspm.md), and [{{ td-full-name }}](./concepts/threat-detector.md) modules, you can now [configure the display and sorting of security control rules](./operations/cspm/view-rules.md#general-info).
 * Added the [option](./operations/alerts/view.md) to filter alerts by an extended set of attributes.
 * [{{ vuln-man-name }}](./concepts/vulnerability-management.md) was migrated to a paid plan. For more information, see the [pricing policy](pricing.md#modules-rules).
 * Implemented the [blocking mode](./operations/kspm/manage-rule-modes.md) for `admission`-type rules in [{{ kspm-name }}](./concepts/kspm.md), which allows you to prohibit deployment of loads that violate the security policy.
-* [{{ cspm-name }}](./concepts/cspm.md) got a new [rule set](./concepts/standard-compliance/ransomware-prevention.md) to minimize the risks of ransomware attacks and an extended list of rules for infrastructure security compliance verification. The new rules govern the password policy and outbound internet access control.
+* [{{ cspm-name }}](./concepts/cspm.md) got a new [rule set](./concepts/standard-compliance/ransomware-prevention.md) to minimize the risks of ransomware attacks and an extended list of rules for infrastructure security compliance verification. The new rules regulate the [password policy](./rules-reference/cspm.md#password-policy.pci-dss) and [outbound internet access](./rules-reference/cspm.md#check-outgoing-internet-connection) control.
 * In [{{ dspm-name }}](./concepts/dspm.md):
   * You can now hook up [custom dictionaries](./concepts/dspm.md#custom-dictionaries) to search for field-specific sensitive data.
   * Added fixed-price [subscriptions](pricing.md#starter-rules) you may prefer over your pay-as-you-go plan.
@@ -32,7 +41,7 @@ description: This section contains the {{ sd-name }} release notes.
 ## May 2026 {#may-2026}
 
 * [{{ cspm-name }}](./concepts/cspm.md) now includes a new [rule set](./concepts/standard-compliance/yc-gost-57580.md) aligned with GOST R 57580, the national security standard for banking and financial operations. 
-* [{{ dspm-name }}](./concepts/dspm.md) now supports creating [scan scopes](./operations/dspm/create-data-source.md#change-scaning) from preliminary analysis results and continuous [monitoring](./concepts/dspm.md#change-scaning) of those scopes for new or modified sensitive data.  
+* [{{ dspm-name }}](./concepts/dspm.md) now supports creating [scan scopes](./operations/dspm/create-data-source.md#change-scaning) from preliminary analysis results and continuous [monitoring](./concepts/dspm.md#change-scaning) of those scopes for new or modified sensitive data.
 * The pricing model has been expanded: you can now purchase monthly [subscriptions](pricing.md#starter-pricing) for the [{{ cspm-name }}](./concepts/cspm.md) and [Threat Detection](./concepts/threat-detector.md) modules.
 * All module [errors](./diagnostics/index.md) are now displayed in a single dedicated interface.
 * Scanning {{ yandex-360 }} disks for sensitive data using [{{ dspm-name }}](./concepts/dspm.md) is now available to all users. Previously, this feature was only available upon request.

@@ -59,18 +59,18 @@ The minimum billable storage duration of an object in ice storage is 12 months. 
 
 ### Intelligent-tiering storage {#features-intelligent-tiering}
 
-The `INTELLIGENT_TIERING` storage automatically optimizes costs by moving objects across access tiers based on access frequency. This allows you to save on storage if your data access frequency constantly varies or is hard to predict.
+`INTELLIGENT_TIERING` storage automatically optimizes costs by moving objects across access tiers based on access frequency. This allows you to save on storage if your data access frequency constantly varies or is hard to predict.
 
 Unlike the [lifecycles](lifecycles.md), this storage does not require manual configuration of rules and filters: you can set a default storage class for the entire bucket to automatically optimize storage properties for each object inside it. At the same time, intelligent-tiering storage not only tiers down objects, but also tiers them back up when access frequency increases.
 
-The intelligent-tiering storage comprises `FREQUENT`, `INFREQUENT`, and `ARCHIVE` access tiers. The objects are moved across them based on these rules:
+Intelligent-tiering storage comprises `FREQUENT`, `INFREQUENT`, and `ARCHIVE` access tiers. The objects are moved across them based on these rules:
 
 * New objects are uploaded to the `FREQUENT` tier.
 * `FREQUENT`-tier objects accessed less than 100 times per day for 30 days get automatically moved to `INFREQUENT`.
 * `INFREQUENT`-tier objects accessed less than 100 times per day for 90 days gets automatically moved to `ARCHIVE`.
 * If an object is accessed 100 times per day or more, it gets automatically restored to `FREQUENT`.
 
-Accessing an object means operations involving copying or downloading, i.e., [CopyObject](../s3/api-ref/object/copy.md), [GetObject](../s3/api-ref/object/get.md), RestoreObject, and [UploadPartCopy](../s3/api-ref/multipart/copypart.md). The interface you use to perform the operation is irrelevant. For example, [downloading an object](../operations/objects/download.md) via the management console and [copying](../operations/objects/copy.md) it using the {{ yandex-cloud }} CLI will both count as access.
+Accessing an object means operations involving copying or downloading, i.e., [CopyObject](../s3/api-ref/object/copy.md), [GetObject](../s3/api-ref/object/get.md), [RestoreObject](../s3/api-ref/object/restore-object.md), and [UploadPartCopy](../s3/api-ref/multipart/copypart.md). The interface you use to perform the operation is irrelevant. For example, [downloading an object](../operations/objects/download.md) via the management console and [copying](../operations/objects/copy.md) it using the {{ yandex-cloud }} CLI will both count as access.
 
 The operations of uploading new object versions or partial update, i.e., [PutObject](../s3/api-ref/object/upload.md) and [PatchObject](../s3/api-ref/object/patch.md), will have the same result as uploading a new object to the `FREQUENT` tier. Other operations do not affect moving the object across access tiers.
 

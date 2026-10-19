@@ -13,7 +13,7 @@ description: High availability is the ability of a system to continue to operate
 
 A {{ mos-name }} cluster consists of one or more host groups where each host assumes a [specific role](host-roles.md).
 
-Each `{{ OS }}` host group can include hosts with the [DATA](host-roles.md#data) or [MANAGER](host-roles.md#manager) roles. If a cluster has a single `{{ OS }}` group, its hosts will have both roles.
+Each `{{ OS }}` host group can contain hosts with the [DATA](host-roles.md#data), [MANAGER](host-roles.md#manager), [WARM](host-roles.md#warm), or [INGEST](host-roles.md#ingest) roles.
 
 For a cluster to be highly available and covered by a [service level agreement (SLA)](https://yandex.com/legal/cloud_sla_mdb/en/), it must include:
 

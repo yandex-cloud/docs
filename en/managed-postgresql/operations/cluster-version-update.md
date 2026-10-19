@@ -123,6 +123,7 @@ To upgrade a major version, the following must be free:
         --postgresql-version <new_version_number>
      ```
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
@@ -151,6 +152,7 @@ To upgrade a major version, the following must be free:
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
          {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

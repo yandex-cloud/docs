@@ -103,6 +103,7 @@ We recommend changing the host class only when the cluster is idle.
 
       {{ mpg-short-name }} will start updating the host class for your cluster.
 
+
 - {{ TF }} {#tf}
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
@@ -134,6 +135,7 @@ We recommend changing the host class only when the cluster is idle.
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
       {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -274,6 +276,7 @@ You can change the DBMS settings for the hosts in your cluster.
 
       {{ mpg-short-name }} will start updating the cluster settings.
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
@@ -308,6 +311,7 @@ You can change the DBMS settings for the hosts in your cluster.
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
         {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -507,6 +511,7 @@ Changing additional settings will restart the cluster. The only exceptions are t
 
     You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
@@ -602,6 +607,7 @@ Changing additional settings will restart the cluster. The only exceptions are t
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
       {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -931,6 +937,7 @@ To perform a master failover:
 
   You can get the replica name from the [cluster’s host list](hosts.md#list) and the cluster name from the [folder’s cluster list](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
@@ -959,6 +966,7 @@ To perform a master failover:
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
         {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -1052,6 +1060,7 @@ To perform a master failover:
 
         You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
@@ -1078,6 +1087,7 @@ To perform a master failover:
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

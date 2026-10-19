@@ -12,6 +12,7 @@ In this section, you will learn about:
 * [Resources you can assign a role for](#resources).
 * [Roles this service has](#roles-list).
 * [What roles are required to perform specific actions](#choosing-roles).
+* [Access policies available in the service](#access-policies).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -20,6 +21,8 @@ To assign a role for a resource, you need the `compute.admin` role or one of the
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
 {% include [role-note](../../_includes/compute/role-note.md) %}
+
+In addition to roles, {{ iam-full-name }} supports [access policies](#access-policies) which enable you to prohibit specific actions on {{ yandex-cloud }} resources even when such actions are explicitly allowed by a user’s roles.
 
 ## Which resources you can assign a role for {#resources}
 
@@ -133,7 +136,7 @@ The `compute.admin` role includes the [backup.user](../../backup/security/index.
 
 {% include [iam.serviceAccounts.user](../../_roles/iam/serviceAccounts/user.md) %}
 
-To learn more about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} guides.
+For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} guides.
 
 ### Primitive roles {#primitive-roles}
 
@@ -161,7 +164,7 @@ Viewing information about disk [snapshot](../concepts/snapshot.md) [schedules](.
 Using any resource | `compute.editor` for this resource
 Use of [disks](../concepts/disk.md) | `compute.disks.user`, `compute.snapshotSchedules.editor`, or `compute.editor` for the disk
 Use of [images](../concepts/image.md) | `compute.images.user` or `compute.editor` for the image
-**Managing resources** |
+**Resource management** |
 [Creating](../operations/vm-create/create-linux-vm.md) a VM | `compute.editor` for the folder
 Creating a VM with a [public IP address](../../vpc/concepts/address.md#public-addresses) | `compute.editor` and `vpc.publicAdmin` for the folder
 [Starting](../operations/vm-control/vm-stop-and-start.md#start), [stopping](../operations/vm-control/vm-stop-and-start.md#stop), and [restarting](../operations/vm-control/vm-stop-and-start.md#restart) virtual machines | `compute.operator` for the VM instance
@@ -204,9 +207,31 @@ Updating and [deleting](../operations/image-control/delete.md) an image | `compu
 **Managing resource access** |
 [Assigning](../../iam/operations/roles/grant.md) and [revoking](../../iam/operations/roles/revoke.md) access permissions for any resource | `compute.admin` for this resource
 
+## Access policies {#access-policies}
+
+[Access policies](*access_policies) complement the role system for more flexible access management in {{ yandex-cloud }}.
+
+{{ compute-name }} supports the following access policies:
+
+{% include [compute-access-no-param-policies](../../_includes/compute/compute-access-no-param-policies.md) %}
+
+{% include [compute-access-parametrized-policies](../../_includes/compute/compute-access-parametrized-policies.md) %}
+
+You can assign access policies to a [folder](*folders), [cloud](*clouds), or [organization](*organizations) to restrict certain actions within that scope. These restrictions apply even if the user was explicitly assigned [roles](#choosing-roles) that allow such operations.
+
+For more on how to create an access policy for a resource, see [{#T}](../../iam/operations/access-policies/assign.md).
+
 #### What's next {#what-is-next}
 
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
 * [Learn more about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+
+[*access_policies]: {% include [access-policy-definition](../../_popups/iam/access-policy-definition.md) %}
+
+[*folders]: {% include [folder-definition](../../_popups/resource-manager/folder-definition.md) %}
+
+[*clouds]: {% include [cloud-definition](../../_popups/resource-manager/cloud-definition.md) %}
+
+[*organizations]: {% include [organization-definition](../../_popups/identity-hub/organization-definition.md) %}

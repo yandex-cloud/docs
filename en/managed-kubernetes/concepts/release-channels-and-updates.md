@@ -14,6 +14,8 @@ description: In this article, you will learn about release channels and how to u
 
 When creating a [{{ managed-k8s-name }} cluster](index.md#kubernetes-cluster), specify one of the below release channels. You cannot change the channel after the {{ managed-k8s-name }} cluster is created. You can only recreate the cluster and specify a new release channel.
 
+{% include [kz-auto-upgrade-warning](../../_includes/managed-kubernetes/kz-auto-upgrade-warning.md) %}
+
 Channel | Auto updates | Channel description
 --- | --- | ---
 `RAPID` | Auto updates cannot be disabled. You can specify a time period for auto updates. | A channel receives updates with new features and improvements first.

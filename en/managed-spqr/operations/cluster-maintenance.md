@@ -5,7 +5,7 @@ description: Follow this guide to view the {{ SPQR }} cluster’s scheduled and 
 
 # {{ SPQR }} cluster maintenance
 
-You can manage {{ mspqr-name }} cluster maintenance, including the following:
+You can manage {{ mspqr-name }} cluster [maintenance](../concepts/maintenance.md), including the following:
 
 * [Getting a list of maintenance jobs](#list-maintenance)
 * [Getting cluster maintenance logs](#maintenance-logs)
@@ -119,7 +119,7 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Call the [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
+  1. Call the [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
      ```bash
      grpcurl \
@@ -221,7 +221,7 @@ If you need to, you can perform a maintenance with the **{{ ui-key.yacloud.mdb.m
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Call the [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
+  1. Call the [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
      ```bash
      grpcurl \
@@ -246,13 +246,7 @@ If you need to, you can perform a maintenance with the **{{ ui-key.yacloud.mdb.m
 
 ## Configuring a maintenance window {#set-maintenance-window}
 
-By default, maintenance can be scheduled for any time. You can choose a specific day of the week and hour to schedule maintenance. For example, you can specify the cluster's least busy time.
-
-{% note warning %}
-
-Selecting a new maintenance interval will automatically cancel any scheduled maintenance outside the new interval.
-
-{% endnote %}
+By default, maintenance can be scheduled for any time. You can choose a specific day of week and hour interval for the maintenance. For example, you can specify the cluster's least busy time.
 
 {% list tabs group=instructions %}
 
@@ -263,7 +257,7 @@ Selecting a new maintenance interval will automatically cancel any scheduled mai
   1. Click ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}**.
   1. In the window that opens:
      * To allow maintenance at any time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}**, which is also the default option.
-     * To allow weekly maintenance at a specific time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** and specify the day of the week and hour of the day in UTC.
+     * To allow weekly maintenance at a specific time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** and specify the day of the week and UTC time interval.
 
 - CLI {#cli}
 
@@ -283,7 +277,7 @@ Selecting a new maintenance interval will automatically cancel any scheduled mai
       yc managed-sharded-postgresql cluster update <cluster_name_or_ID> \
          --maintenance-window type=<maintenance_type>,`
                              `day=<day_of_week>,`
-                             `hour=<hour>
+                             `hour=<sequence_number_of_hour_interval>
       ```
 
       Where `type` is the maintenance type:
@@ -298,7 +292,7 @@ Selecting a new maintenance interval will automatically cancel any scheduled mai
 
       For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
-      For a complete list of configurable {{ mspqr-name }} cluster fields, see [this {{ TF }} provider guide](https://yandex.cloud/en/docs/terraform/resources/mdb_sharded_postgresql_cluster).
+      For the complete list of configurable {{ mspqr-name }} cluster fields, see [this {{ TF }} provider guide](https://yandex.cloud/en/docs/terraform/resources/mdb_sharded_postgresql_cluster).
 
   1. {% include [Maintenance window](../../_includes/mdb/mspqr/terraform/maintenance-window.md) %}
 
@@ -331,7 +325,7 @@ Selecting a new maintenance interval will automatically cancel any scheduled mai
                  "maintenanceWindow": {
                    "weeklyMaintenanceWindow": {
                      "day": "<day_of_week>",
-                     "hour": "<hour>"
+                     "hour": "<sequence_number_of_hour_interval>"
                    }
                  }
                }'
@@ -344,13 +338,15 @@ Selecting a new maintenance interval will automatically cancel any scheduled mai
 
        Here, we provide only one setting.
 
-     * `maintenanceWindow`: Maintenance window settings, applying to both running and stopped clusters. In `maintenanceWindow`, provide one of these two parameters:
+     * `maintenanceWindow`: [Maintenance](../concepts/maintenance.md) window settings, applying to both running and stopped clusters. Provide one of these two properties:
 
        * `anytime`: Maintenance can be scheduled for any time.
-       * `weeklyMaintenanceWindow`: Maintenance can only be scheduled for a specific day of week and hour:
+       * `weekly_maintenance_window`: Maintenance can only be scheduled for a specific day of week and a sequence number of an hour interval:
 
-         * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-         * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
+           * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+           * `hour`: UTC hour interval, from `1` to `24`.
+
+             > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -380,7 +376,7 @@ Selecting a new maintenance interval will automatically cancel any scheduled mai
              "maintenance_window": {
                "weekly_maintenance_window": {
                  "day": "<day_of_week>",
-                 "hour": "<hour>"
+                 "hour": "<sequence_number_of_hour_interval>"
                }
              }
            }' \
@@ -395,13 +391,15 @@ Selecting a new maintenance interval will automatically cancel any scheduled mai
 
        Here, we provide only one setting.
 
-     * `maintenance_window`: Maintenance window settings, applying to both running and stopped clusters. In `maintenance_window`, provide one of these two parameters:
+     * `maintenance_window`: [Maintenance](../concepts/maintenance.md) window settings, applying to both running and stopped clusters. Provide one of these two properties:
 
        * `anytime`: Maintenance can be scheduled for any time.
-       * `weekly_maintenance_window`: Maintenance can only be scheduled for a specific day of week and hour:
+       * `weekly_maintenance_window`: Maintenance can only be scheduled for a specific day of week and a sequence number of an hour interval:
 
-         * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-         * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
+           * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+           * `hour`: UTC hour interval, from `1` to `24`.
+
+             > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
   1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.spqr.v1.Cluster) to make sure your request was successful.
 

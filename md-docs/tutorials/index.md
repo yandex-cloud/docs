@@ -270,7 +270,11 @@
 
  - [Open WebUI](security/single-sign-on/oidc-open-webui.md)
 
- - [Selectel](security/single-sign-on/saml-selectel.md)
+#### Selectel
+
+ - [SAML](security/single-sign-on/saml-selectel.md)
+
+ - [OpenID Connect](security/single-sign-on/oidc-selectel.md)
 
  - [Sentry](security/single-sign-on/saml-sentry.md)
 

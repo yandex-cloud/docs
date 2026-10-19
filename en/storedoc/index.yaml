@@ -3,7 +3,7 @@ description:
   - >-
     The service helps you deploy and maintain {{ mmg-name }} server clusters
     (versions 6.0 and 7.0) in the {{ yandex-cloud }} infrastructure. {{ mmg-name
-    }} is a {{ MG }}-compatible, high-performance, open-source NoSQL DBMS.
+    }} is a {{ MG }}-compatible, high-performance NoSQL DBMS.
   - >-
     With {{ mmg-full-name }}, you can: <ul> <li>Build systems for processing and
     storing large volumes of semi-structured and unstructured data without a
@@ -66,8 +66,8 @@ links:
     description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Configure access permissions for the service
+    description: Configure access permissions to use this service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculation
+    description: Prices and cost calculation rules
     href: pricing

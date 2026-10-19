@@ -36,3 +36,7 @@ To manage maintenance tasks, you need the `managed-opensearch.maintenanceTask.ed
 In {{ mos-name }} single-host clusters, a single host undergoes maintenance. This means, if you restart such a cluster during maintenance, it will become unavailable.
 
 In multi-host clusters, hosts undergo maintenance one by one. Such hosts are queued randomly. Any host that requires a restart during maintenance will be unavailable until maintenance is complete. If you access a cluster using the [FQDN of the {{ OS }} host](../operations/connect/fqdn.md), the cluster may become unavailable. If your write request returns an error, repeat it later.
+
+## How maintenance impacts a cluster {#impact-on-cluster}
+
+{% include [impact-on-cluster](../../_includes/impact-on-cluster.md) %}

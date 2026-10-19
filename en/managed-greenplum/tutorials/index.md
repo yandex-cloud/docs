@@ -1,6 +1,6 @@
 ---
 title: '{{ mgp-full-name }} use cases'
-description: Different use cases for {{ mgp-full-name }} in {{ yandex-cloud }}.
+description: Various {{ mgp-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # {{ mgp-name }} tutorials
@@ -11,7 +11,7 @@ description: Different use cases for {{ mgp-full-name }} in {{ yandex-cloud }}.
 * [{#T}](./greenplum-to-postgresql.md)
 * [{#T}](./greenplum-to-clickhouse.md)
 * [{#T}](mmy-to-mgp.md)
-* [Exporting cluster data to a cold storage in {{ objstorage-full-name }}](yezzey.md)
+* [Exporting cluster data to a hybrid storage in {{ objstorage-full-name }} ](yezzey.md)
 * [{#T}](object-storage-to-greenplum.md)
 * [{#T}](opensearch-to-greenplum.md)
 * [{#T}](./managed-kafka-to-greenplum.md)

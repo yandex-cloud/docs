@@ -11,8 +11,7 @@ description: Follow this guide to get information about a bucket object in {{ ob
 
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Select the bucket from the list.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. Select the bucket from the list and go to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
   1. Click the name of the object you need.
 
 - {{ yandex-cloud }} CLI {#cli}

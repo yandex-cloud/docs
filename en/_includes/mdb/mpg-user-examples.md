@@ -6,11 +6,13 @@
 
 - SQL {#sql}
 
+    
     {% note alert %}
 
     Do not use this example if a user is created using {{ TF }}: subsequent changes made via {{ TF }} may cancel the user's privileges granted through SQL.
 
     {% endnote %}
+
 
     To add a new `user2` account with read-only access for the `db1` database to an existing cluster:
 
@@ -55,6 +57,7 @@
             The `ALTER DEFAULT PRIVILEGES` commands allow you to change the default access privileges for future objects, without affecting existing ones. In the example above, we change default privileges for new `myschema` tables and sequences.
 
             To update privileges for existing objects, use the `GRANT` and `REVOKE` statements.
+
 
 - {{ TF }} {#tf}
 
@@ -138,9 +141,10 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
+
 {% endlist %}
 
-### Revoking privileges {#revoke-access}
+### Revoking permissions {#revoke-access}
 
 {% list tabs group=instructions %}
 
@@ -175,6 +179,7 @@
             REVOKE USAGE ON SCHEMA myschema FROM user2;
             ```
 
+
 - {{ TF }} {#tf}
 
     1. Open the {{ TF }} configuration file used for [granting privileges](#user-readonly).
@@ -197,8 +202,9 @@
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 {% endlist %}

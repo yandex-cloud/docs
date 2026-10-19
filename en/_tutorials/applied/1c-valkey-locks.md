@@ -2,7 +2,7 @@
 
 You can use a {{ mrd-full-name }} cluster as a distributed lock storage for 1C:Enterprise, e.g., to prevent multiple users from editing the same catalog item at the same time.
 
-Integration is implemented via an intermediate HTTP server running on a {{ compute-full-name }} virtual machine. The server provides an HTTP API for managing locks and uses a {{ VLK }} cluster as its backend. A 1C:Enterprise module accesses the API through an external connection.
+Integration is implemented via an intermediate HTTP server running on a {{ compute-full-name }} virtual machine. The server provides an HTTP API for managing locks and uses a {{ VLK }} cluster as its backend. The 1C:Enterprise module accesses the API through an external connection.
 
 {% note info %}
 
@@ -25,7 +25,7 @@ To set up locks:
 
 ### Required paid resources {#paid-resources}
 
-* {{ mrd-name }} cluster: the host's computing resources and storage size (see [{{ mrd-name }} pricing](../../managed-valkey/pricing.md)).
+* {{ mrd-name }} cluster: host computing resources and storage size (see [{{ mrd-name }} pricing](../../managed-valkey/pricing.md)).
 * VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
 
@@ -105,7 +105,7 @@ To set up locks:
 
 ## Deploy your HTTP lock server {#deploy-lock-server}
 
-An HTTP lock server is a thin layer between a 1C:Enterprise server and a {{ mrd-name }} cluster. It exposes endpoints with the `lock` prefix:
+An HTTP lock server is a thin layer between the 1C:Enterprise server and the {{ mrd-name }} cluster. It exposes endpoints with the `lock` prefix:
 
 |Endpoint|Method|Purpose|
 |:---|:---|:---|
@@ -117,15 +117,15 @@ An HTTP lock server is a thin layer between a 1C:Enterprise server and a {{ mrd-
 
 How to work with your cluster:
 
-* To acquire a lock (`lock/acquire`), use the `SET` command with the `NX` argument and specify the key TTL (`PX`). The `NX` argument ensures the lock is only acquired when no such key exists, while the TTL prevents the lock from lasting indefinitely:
+* To acquire a lock (`lock/acquire`), use the `SET` command with the `NX` argument and specify the key TTL (`PX`). The `NX` argument ensures that the lock is acquired only when no such key exists, while the TTL prevents the lock from lasting indefinitely:
 
   ```text
   SET <key> <token> NX PX <ttl_in_milliseconds>
   ```
 
-* To release (`lock/release`) or renew (`lock/renew`) a lock, use the `EVAL` command to call Lua scripts. These scripts perform the following operations in {{ VLK }} sequentially:
+* To release (`lock/release`) or renew (`lock/renew`) a lock, use the `EVAL` command to call Lua scripts. The scripts performs the following operations in {{ VLK }} sequentially:
 
-   1. Get lock data by key.
+   1. Get the lock data by key.
    1. Compare the lock token with the request token.
    1. Delete the key or renew the lock.
 
@@ -152,7 +152,7 @@ To deploy your server:
 
 - Manually {#manual}
 
-    1. [Connect to your virtual machine over SSH](../../compute/operations/vm-connect/ssh.md).
+    1. [Connect to the virtual machine over SSH](../../compute/operations/vm-connect/ssh.md).
     1. Install [Go 1.26.2](https://go.dev/dl/) or higher.
     1. Clone the repository:
 
@@ -180,7 +180,7 @@ To deploy your server:
 
 - {{ TF }} {#tf}
 
-    The {{ TF }} configuration file contains all commands required to deploy the HTTP server. Once the infrastructure is created, the server is ready to use.
+    The {{ TF }} configuration file contains all commands required to deploy the HTTP server. Once the infrastructure is created, the server is fully ready to use.
 
     1. Update the server settings in the configuration file as needed:
 
@@ -205,11 +205,11 @@ To deploy your server:
 
 ## Configure the 1C:Enterprise module {#configure-1c}
 
-1C:Enterprise uses the **Catalog lock** module, which accesses the HTTP server through an external connection. The ready-to-use module code is in the container hosting the 1C:Enterprise test database in the [valkey/webinar-260624-1c-example](https://sourcecraft.dev/valkey/webinar-260624-1c-example/browse/1CExample) repository.
+1C:Enterprise uses the **Catalog lock** module, which accesses the HTTP server through an external connection. The container with the 1C:Enterprise test database in the [valkey/webinar-260624-1c-example](https://sourcecraft.dev/valkey/webinar-260624-1c-example/browse/1CExample) repository contains the ready-to-use module code.
 
 The module performs the following functions:
 
-* Sends HTTP requests to the server endpoints (`lock/acquire`, `lock/release`, `lock/status`, `lock/renew`, `lock/list`) depending on the action.
+* Sends HTTP requests to the server endpoints (`lock/acquire`, `lock/release`, `lock/status`, `lock/renew`, `lock/list`) based on the action.
 * Generates a lock key from the full catalog path (collection metadata) and the item ID. This ensures a unique lock for each catalog item.
 * In the module form, you can configure event handlers for catalogs:
    * On opening: Attempt to acquire the lock.
@@ -220,7 +220,7 @@ The module performs the following functions:
 To configure the module:
 
 1. Connect the database from the `1CExample` repository directory and copy the `CatalogLocks` common module to your 1C:Enterprise configuration.
-1. If methods are called from server form code, make sure server calls are enabled for the module.
+1. If methods are called from form server code, make sure server calls are enabled for the module.
 1. In the `HTTPRequest()` function, specify the HTTP lock server address:
 
    ```text
@@ -270,8 +270,8 @@ The module connection settings may vary depending on the 1C:Enterprise implement
 ## Test the locks {#test}
 
 1. Open 1C:Enterprise and go to a catalog, such as `Customers`.
-1. Open an item, such as `Roman`, for editing. The form will display the lock status as _acquired_, along with the lock TTL and token.
-1. Monitor the TTL for a while: it should decrease over time, e.g., from `41` to `31` seconds. When the renewal interval expires (30 seconds by default), 1C:Enterprise automatically renews the lock.
+1. Open an item, such as `Roman`, for editing. The form will display the lock status as acquired, along with the lock TTL and token.
+1. Observe the TTL: it should decrease over time, e.g., from `41` to `31` seconds. When the renewal interval expires (30 seconds by default), 1C:Enterprise automatically renews the lock.
 
 1. Make sure the lock appears in the cluster:
 
@@ -285,13 +285,13 @@ The module connection settings may vary depending on the 1C:Enterprise implement
 
        {% note info %}
 
-       Due to encoding limitations, {{ websql-name }} may display the key name incorrectly. To verify lock ownership, check whether the key exists and look at its value (token), rather than checking whether the key name is readable.
+       Due to encoding limitations, {{ websql-name }} may display the key name incorrectly. To verify lock ownership, check whether the key exists and its value (token) rather than whether the key name is readable.
 
        {% endnote %}
 
    - SQL {#sql}
 
-       [Connect to the {{ mrd-name }} cluster](../../managed-valkey/operations/connect/clients.md#valkey-cli) and run this command:
+       [Connect the {{ mrd-name }} cluster](../../managed-valkey/operations/connect/clients.md#valkey-cli) and run this command:
 
        ```bash
        KEYS <lock_key_prefix>:*

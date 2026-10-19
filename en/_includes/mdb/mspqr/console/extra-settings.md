@@ -4,7 +4,7 @@
 
 * **{{ ui-key.yacloud.mdb.forms.backup-retain-period }}**: Automatic backups will be stored for this many days. The default value is seven days.
 
-* **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}**: Maintenance window settings:
+* **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}**: [Maintenance](../../../../managed-spqr/concepts/maintenance.md) window settings:
 
     {% include [Maintenance window](../../console/maintenance-window-description.md) %}
 

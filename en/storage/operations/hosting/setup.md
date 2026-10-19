@@ -136,9 +136,8 @@ For more information, see [{#T}](../../security/overview.md).
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to redirect all requests for.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
-  1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_redirect }}**, specify:
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+  1. Select `{{ ui-key.yacloud.storage.bucket.website.switch_redirect }}` and specify the following:
       * **{{ ui-key.yacloud.storage.bucket.website.field_hostname }}** of the host to act as the redirect target for all requests to the bucket.
       * Optionally, **{{ ui-key.yacloud.storage.bucket.website.field_protocol }}** if the specified host accepts requests only over a specific protocol.
   1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
@@ -263,9 +262,8 @@ For more information, see [{#T}](../../security/overview.md).
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to configure conditional request redirects for.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
-  1. In **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**, under **{{ ui-key.yacloud.storage.bucket.website.title_redirect }}**, click **{{ ui-key.yacloud.storage.bucket.website.button_add-routing-rule }}**.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+  1. Select the `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}` mode and click **{{ ui-key.yacloud.storage.bucket.website.button_add-routing-rule }}** under **{{ ui-key.yacloud.storage.bucket.website.title_redirect }}**.
   1. Under **{{ ui-key.yacloud.storage.bucket.website.label_routing-condition }}**, specify at least one condition for redirects:
       * **{{ ui-key.yacloud.storage.bucket.website.field_http-redirect-code }}**: HTTP code that {{ objstorage-name }} would have returned for the request without a redirect.
       * **{{ ui-key.yacloud.storage.bucket.website.select_condition_prefix }}**: Object key prefix in the request. You can learn more about keys and how static websites work [here](#static-site-information).

@@ -15,7 +15,7 @@
 
 В правиле может быть от одного до 64 условий, в каждом списке — до 64 правил.
 
-Состав полей приведен в [справочнике](../../audit-trails/events-ref/index.md) зависит от типа события и приведен в справочнике, например для [ObjectCreate](../../audit-trails/audit/storage/events-ref/ObjectCreate.md). Поля `request_parameters` и `response` и их содержимое недоступны для фильтрации.
+Состав полей зависит от типа события и приведен в [справочнике](../../audit-trails/events-ref/index.md), например для [ObjectCreate](../../audit-trails/audit/storage/events-ref/ObjectCreate.md). Поля `request_parameters` и `response` и их содержимое недоступны для фильтрации.
 
 Имена и регистр ключей в пути должны совпадать с фактическим JSON [аудитного лога](../../audit-trails/concepts/format-data-plane.md#scheme). Например, используйте `$.event_type` и `$.request_metadata.remote_address`, хотя в справочнике эти поля называются `eventType` и `requestMetadata.remoteAddress`.
 

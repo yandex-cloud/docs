@@ -66,7 +66,9 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
       1. Enter a name for the host group. It must be unique within the cluster.
 
-      1. Select the `DATA` and `MANAGER` [host roles](../concepts/host-roles.md).
+      1. Select the [host roles](../concepts/host-roles.md).
+
+          {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
 
       1. Select the platform, host type, and host class.
 
@@ -201,7 +203,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
       * `--maintenance`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Provide one of these two properties:
 
-          * `anytime`: Any time. 
+          * `anytime`: Any time (default). 
           * `weekly`: On a schedule. For this value, also specify the following: 
 
               * `weekday`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
@@ -338,15 +340,13 @@ When creating a cluster, you need to specify individual parameters for each [hos
         {% include [Superuser](../../_includes/mdb/mos/superuser.md) %}
 
       * `assign_public_ip`: Public access to the host, `true` or `false`.
-      * `roles`: Host roles, `DATA` and `MANAGER`.
+      * `roles`: List of [host roles](../concepts/host-roles.md). The possible values are `DATA`, `MANAGER`, `WARM`, or `INGEST`.
+          
+          {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
+
       * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) (for stopped clusters as well):
-          * `type`: Maintenance type. The possible values include:
-              * `ANYTIME`: Any time.
-              * `WEEKLY`: On a schedule.
-          * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-          * `hour`: UTC hour interval, from `1` to `24`.
-            
-            > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
+
+          {% include [terraform-maintenance-window](../../_includes/mdb/mos/terraform/maintenance-window-params.md) %}
             
       For a complete list of configurable {{ mos-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mos }}).
 
@@ -402,7 +402,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
                               "diskSize": "<storage_size_in_bytes>",
                               "diskTypeId": "<disk_type>"
                           },
-                          "roles": ["<role_1>","<role_2>"],
+                          "roles": ["<role_list>"],
                           "hostsCount": "<number_of_hosts>",
                           "zoneIds": [
                               "<availability_zone_1>",
@@ -497,7 +497,10 @@ When creating a cluster, you need to specify individual parameters for each [hos
                       * `diskSize`: Disk size, in bytes.
                       * `diskTypeId`: [Disk type](../concepts/storage.md).
 
-                  * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with two roles or multiple groups with different roles.
+                  * `roles`: List of [host roles](../concepts/host-roles.md). The possible values are `DATA`, `MANAGER`, `WARM`, or `INGEST`.
+                  
+                    {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
+
                   * `hostsCount`: Number of hosts in the group. Minimum number of `DATA` hosts: one; minimum number of `MANAGER` hosts: three.
                   * `zoneIds`: List of availability zones the cluster hosts are located in.
 
@@ -605,7 +608,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
                               "disk_size": "<storage_size_in_bytes>",
                               "disk_type_id": "<disk_type>"
                           },
-                          "roles": ["<role_1>","<role_2>"],
+                          "roles": ["<role_list>"],
                           "hosts_count": "<number_of_hosts>",
                           "zone_ids": [
                               "<availability_zone_1>",
@@ -699,7 +702,10 @@ When creating a cluster, you need to specify individual parameters for each [hos
                       * `disk_size`: Disk size, in bytes.
                       * `disk_type_id`: [Disk type](../concepts/storage.md).
 
-                  * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with two roles or multiple groups with different roles.
+                  * `roles`: List of [host roles](../concepts/host-roles.md). The possible values are `DATA`, `MANAGER`, `WARM`, or `INGEST`.
+                  
+                    {% include [note-warm-storage](../../_includes/managed-opensearch/note-warm-storage.md) %}
+                  
                   * `hosts_count`: Number of hosts in the group. Minimum number of `DATA` hosts: one; minimum number of `MANAGER` hosts: three.
                   * `zone_ids`: List of availability zones the cluster hosts are located in.
 

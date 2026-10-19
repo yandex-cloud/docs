@@ -24,7 +24,9 @@ Some extensions require shared libraries to be loaded. To load a library, specif
 * `pglogical`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
 * `timescaledb`: Required for [TimescaleDB](https://github.com/timescale/timescaledb) to function.
 
+
 To declare a library in the {{ TF }} manifest, specify its name in `SHARED_PRELOAD_LIBRARIES_<library_name>` format, e.g., `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`.
+
 
 {% note warning %}
 
@@ -39,7 +41,7 @@ Loading a shared library will cause {{ PG }} on the master host to restart.
 - Management console {#console}
 
   1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** section.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
   1. The **{{ ui-key.yacloud.mdb.cluster.databases.column_extensions }}** column will show the list of extensions loaded for each database.
 
 - CLI {#cli}
@@ -137,6 +139,7 @@ Loading a shared library will cause {{ PG }} on the master host to restart.
 
   You may get errors when installing multiple extensions. Learn more about possible causes of errors and how to troubleshoot them in [FAQ](../../qa/errors.md#cli-extensions-error).
 
+
 - {{ TF }} {#tf}
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
@@ -164,6 +167,7 @@ Loading a shared library will cause {{ PG }} on the master host to restart.
   1. Confirm updating the resources.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
 
 - REST API {#api}
 

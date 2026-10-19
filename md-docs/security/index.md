@@ -182,6 +182,8 @@
 
  - [Настройка единого входа в Selectel по стандарту SAML](tutorials/single-sign-on/saml-selectel.md)
 
+ - [Настройка единого входа в Selectel по стандарту OIDC](tutorials/single-sign-on/oidc-selectel.md)
+
  - [Настройка единого входа в Sentry по стандарту SAML](tutorials/single-sign-on/saml-sentry.md)
 
  - [Настройка единого входа в SonarQube по стандарту SAML](tutorials/single-sign-on/saml-sonarqube.md)

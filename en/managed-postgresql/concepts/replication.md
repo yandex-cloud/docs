@@ -31,12 +31,8 @@ In a cluster, you can combine automatic and manual management of replication str
 
 ### Automatic management of replication streams {#replication-auto}
 
-Once you create a {{ PG }} cluster with multiple hosts, it contains one master host and replicas. Replicas use the master host as a replication source.
+Once you create a {{ PG }} cluster with multiple hosts, it contains one master host and replicas. Replicas use the master host as a replication source. When the master changes, the replication source for all replica hosts automatically switches to the new master host. To learn more, see [Selecting a master during switching](#master-failover).
 
-Specifics of automatic replication in {{ mpg-name }}:
-
-* When the master host fails, its most recent replica becomes the new master.
-* When the master changes, the replication source for all replica hosts automatically switches to the new master host.
 
 ### Manual management of replication streams {#replication-manual}
 
@@ -55,6 +51,24 @@ Replicas, for which the replication source is specified manually, cannot:
 A replica with a manually specified replication source cannot confirm a write operation. Its data will be regarded as obsolete if the write operation was made to other replicas and the quorum confirmed the transaction. As the replica’s lag grows, its WAL will be automatically overwritten with the new data from the replication source.
 
 {% endnote %}
+
+
+### Selecting a master during switching {#master-failover}
+
+The new master is selected as follows:
+
+* After maintenance and cluster update operations that require hosts to restart, the host with the highest priority will become the new master. This may be the previous master. If multiple hosts have the highest priority, the one with the least lag behind the master will be selected.
+* If the master host fails, the host with the least lag behind the master will become the new master. If multiple hosts have the least lag behind the master, the one with the highest priority will be selected.
+
+You can set host priority when [creating](../operations/hosts.md#add) or [updating a host](../operations/hosts.md#update).
+
+A host cannot be selected as the new master if:
+
+* It is not part of the quorum.
+* Its status is other than `ALIVE`.
+* It has a lag of more than 240 seconds behind the master.
+* It has an unknown lag behind the master.
+
 
 ## Write sync and read consistency {#write-sync-and-read-consistency}
 

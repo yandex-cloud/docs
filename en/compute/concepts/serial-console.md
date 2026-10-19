@@ -13,6 +13,8 @@ This means you can use the serial console for things like troubleshooting the vi
 
 {% include [serial-console-roles](../../_includes/compute/serial-console-roles.md) %}
 
+VM serial console access management can be restricted at the [folder](*folders), [cloud](*clouds), or [organization](*organizations) level using the `compute.denySerialPortEnabling` authorization policy. For more information, see [{#T}](../security/index.md#access-policies).
+
 You can connect to the serial console of a Linux VM instance using the management console, standard SSH client, or {{ yandex-cloud }} CLI. For more information, see [{#T}](../operations/serial-console/connect-ssh.md).
 
 You can connect to the serial console of a Windows VM instance using the management console or {{ yandex-cloud }} CLI. For more information, see [{#T}](../operations/serial-console/windows-sac.md).
@@ -74,3 +76,9 @@ Check the specified files often. Download them only via HTTPS but first make sur
 * [{#T}](../operations/serial-console/index.md)
 * [{#T}](../operations/serial-console/connect-ssh.md)
 * [{#T}](../operations/serial-console/windows-sac.md)
+
+[*folders]: {% include [folder-definition](../../_popups/resource-manager/folder-definition.md) %}
+
+[*clouds]: {% include [cloud-definition](../../_popups/resource-manager/cloud-definition.md) %}
+
+[*organizations]: {% include [organization-definition](../../_popups/identity-hub/organization-definition.md) %}

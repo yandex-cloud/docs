@@ -103,7 +103,7 @@ Adds table functions that return sets of rows.
 || [tcn]({{ pg.docs.org }}/current/tcn.html)
 Adds a trigger function to notify subscribers about changes in tables.
 | 1.0 | 1.0 ||
-|| [try_convert](https://github.com/open-gpdb/gpdb/tree/OPENGPDB_STABLE/contrib/try_convert). {{ yandex-cloud }} extension.
+|| [try_convert](https://github.com/open-gpdb/gpdb/tree/OPENGPDB_STABLE/contrib/try_convert). {{ yandex-cloud }} extension
 
 Adds a function to convert data from one type to another. For more information, see [Using try_convert](try_convert.md).
 | 1.0 | — ||
@@ -116,16 +116,16 @@ Provides the `SYSTEM_TIME` table sampling method.
 || [unaccent]({{ pg.docs.org }}/current/unaccent.html)
 Adds a full-text search dictionary that removes diacritics.
 | 1.0 | 1.1 ||
-|| uuid-cb. {{ yandex-cloud }} extension.
+|| uuid-cb. {{ yandex-cloud }} extension
 
 Enables the generation and validation of unique IDs in compliance with the Russian Central Bank requirements. For more information, see [Using uuid-cb](./uuid-cb.md).
 | 1.0 | — ||
 || [uuid-ossp]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-modules-uuid-ossp.html)
 Provides functions for generating universally unique identifiers (UUIDs).
 | — | 1.1 ||
-|| [yezzey](./yezzey.md). {{ yandex-cloud }} extension.
+|| [yezzey](./yezzey.md). {{ yandex-cloud }} extension
 
-Enables moving [AO and AOCO tables](../../concepts/tables.md) from cluster storage to cold storage and vice versa. To use this extension, enable [hybrid storage](../../concepts/hybrid-storage.md) in your {{ mgp-name }} cluster.
+Enables moving [AO and AOCO tables](../../concepts/tables.md) from cluster storage to hybrid storage and vice versa. To use this extension, enable [hybrid storage](../../concepts/hybrid-storage.md) in your {{ mgp-name }} cluster.
 | 1.8 | 1.8.8 ||
 || [xml2]({{ pg.docs.org }}/current/xml2.html)
 Adds functions for XPath queries and XSLT transformations.
@@ -174,7 +174,7 @@ Connect to the selected database and run this command:
 CREATE EXTENSION <extension_name>;
 ```
 
-For more details, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-CREATE_EXTENSION.html).
+For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-CREATE_EXTENSION.html).
 
 {% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}
 

@@ -110,7 +110,9 @@ description: Различные сценарии использования по
     * [OpenVPN Access Server](./single-sign-on/saml-ovpn.md)
     * [OpenVPN Community Edition](./single-sign-on/oidc-ovpn.md)
 * [Open WebUI](./single-sign-on/oidc-open-webui.md)
-* [Selectel](./single-sign-on/saml-selectel.md)
+* Selectel
+    * [SAML](./single-sign-on/saml-selectel.md)
+    * [OpenID Connect](./single-sign-on/oidc-selectel.md)
 * [Sentry](./single-sign-on/saml-sentry.md)
 * [SonarQube](single-sign-on/saml-sonarqube.md)
 * Time

@@ -18,6 +18,8 @@
 
         {% include [note-bucket-prefix](note-bucket-prefix.md) %}
 
+    * `aggregation_period` — период агрегации событий при выгрузке в бакет {{ objstorage-full-name }}. Задает интервал между выгрузками накопленных событий в бакет. Например, при значении `10m` сервис выгружает события примерно раз в десять минут. Необязательный параметр. Допустимые значения: от `1m` до `1h` включительно. По умолчанию `5m`.
+
 * `data_stream_destination` — загружать логи в [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }}:
 
     Замените блок `storage_destination` в шаблоне:

@@ -326,7 +326,11 @@
 
  - [Open WebUI](tutorials/single-sign-on/oidc-open-webui.md)
 
- - [Selectel](tutorials/single-sign-on/saml-selectel.md)
+#### Selectel
+
+ - [SAML](tutorials/single-sign-on/saml-selectel.md)
+
+ - [OpenID Connect](tutorials/single-sign-on/oidc-selectel.md)
 
  - [Sentry](tutorials/single-sign-on/saml-sentry.md)
 

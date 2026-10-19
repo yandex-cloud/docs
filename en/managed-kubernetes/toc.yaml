@@ -165,6 +165,8 @@ items:
             href: operations/autoscale.md
           - name: Updating a node group
             href: operations/node-group/node-group-update.md
+          - name: Node maintenance with zero resource loss
+            href: operations/node-group/node-group-gpu-maintenance.md
           - name: Managing {{ k8s }} node labels
             href: operations/node-group/node-label-management.md
           - name: Deleting a node group
@@ -326,6 +328,12 @@ items:
             href: tutorials/marketplace/istio.md
           - name: Using HashiCorp Vault to store secrets
             href: tutorials/marketplace/hashicorp-vault.md
+      - name: Migrating to {{ managed-k8s-name }}
+        items:
+          - name: Overview
+            href: tutorials/migration/index.md
+          - name: Migrating from a cloud provider
+            href: tutorials/migration/migration-from-cloud.md
   - name: Concepts
     items:
       - name: Resource relationships

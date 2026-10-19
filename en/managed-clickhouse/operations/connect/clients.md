@@ -13,9 +13,9 @@ You can only connect to public {{ CH }} cluster hosts using [SSL certificates](i
 * Located in the `{{ crt-local-dir }}` directory (for Ubuntu).
 * Imported to the trusted root certificate store (for Windows).
 
-Connecting without SSL certificates is only supported for non-public hosts. If this is the case, internal virtual network traffic will not be encrypted for database connections.
+Connecting without SSL certificates is only supported for non-public hosts. If this is the case, internal virtual network traffic will not be encrypted when connecting to a database.
 
-Before connecting, [configure security groups](index.md#configure-security-groups) for the cluster, if required.
+Before connecting, [configure security groups](index.md#configuring-security-groups) for the cluster, if required.
 
 
 The examples for Linux were tested in the following environment:
@@ -74,7 +74,7 @@ The examples for Windows were tested in the following environment:
 
 {% endlist %}
 
-See [this guide](fqdn.md) to learn how to get a host FQDN.
+For how to get a host FQDN, see [this guide](fqdn.md).
 
 After running this command, enter the user password to complete your connection.
 
@@ -121,7 +121,7 @@ sudo apt update && sudo apt install --yes mysql-client
 
 {% endlist %}
 
-To learn how to get a host’s FQDN, see [this guide](fqdn.md).
+For how to get a host FQDN, see [this guide](fqdn.md).
 
 After running this command, enter the user password to complete your connection.
 
@@ -152,7 +152,7 @@ Once connected to the DBMS, run the `SELECT version();` command.
 
 {% endlist %}
 
-To learn how to get a host’s FQDN, see [this guide](fqdn.md).
+For how to get a host FQDN, see [this guide](fqdn.md).
 
 #### Windows (PowerShell) {#curl-powershell}
 
@@ -178,7 +178,7 @@ To learn how to get a host’s FQDN, see [this guide](fqdn.md).
 
 {% endlist %}
 
-To learn how to get a host’s FQDN, see [this guide](fqdn.md).
+For how to get a host FQDN, see [this guide](fqdn.md).
 
 ## Connecting from graphical IDEs {#ide}
 
@@ -246,7 +246,7 @@ To connect to a cluster host from the built-in SQL editor, specify the following
 https://<FQDN_of_any_{{ CH }}_host>:8443/play
 ```
 
-You can only connect to public cluster hosts. To learn how to get a host’s FQDN, see [this guide](fqdn.md).
+You can only connect to public cluster hosts. For how to get a host FQDN, see [this guide](fqdn.md).
 
 To connect to a cluster with [automatic selection of an available host](fqdn.md#auto), use the following URL:
 

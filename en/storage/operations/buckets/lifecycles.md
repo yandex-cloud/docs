@@ -16,8 +16,7 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to configure object lifecycles for.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Select the **{{ ui-key.yacloud.storage.bucket.switch_lifecycle }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_lifecycle }}**.
   1. Click **{{ ui-key.yacloud.storage.bucket.lifecycle.button_lifecycle_empty-create }}**.
   1. Fill out the form that opens. You can add, delete, and edit configuration rules.
 
@@ -138,7 +137,7 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
       * `abort_incomplete_multipart_upload`: Parameter of a rule for removing all parts of multipart uploads that were not complete within the specified number of days. This is an optional setting. It may contain:
           * `days_after_expiration`: Number of days after the object was uploaded. The minimum value is `1`. This is a required setting.
       * `noncurrent_delete_markers`: Parameter of a rule for deleting [non-current delete markers](*noncurrent-delete-markers). This is an optional setting. It may contain:
-          * `noncurrent_days`: Number of days that must elapse after the object version is marked with a delete marker before the rule takes effect. The minimum value is `0`. If set to `0`, all non-current delete markers currently existing in the bucket will be deleted. This is a required setting.
+          * `noncurrent_days`: Number of days that must elapse after the object version is marked with a delete marker before the rule takes effect. The minimum value is `0`. If set to `0`, all non-current delete markers within the bucket will be deleted. This is a required setting.
 
           {% include [noncurrent-delete-markers-note](../../../_includes/storage/noncurrent-delete-markers-note.md) %}
 

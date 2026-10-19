@@ -20,8 +20,8 @@ To view a full list of metrics, see [this reference](../../metrics.md).
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to get the statistics for.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
-  1. Select the statistics time interval: 1 hour, 3 hours, 1 day, 1 week, or 1 month. 
+  1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab.
+  1. Select the time period for which you want to view the statistics: 1 hour, 3 hours, 1 day, 1 week, or 1 month. 
 
       {% include [storage-monitoring-dashboards](../../_includes_service/storage-monitoring-dashboards.md) %}
 
@@ -33,9 +33,9 @@ To view a full list of metrics, see [this reference](../../metrics.md).
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/monitoring/concepts/visualization/legend-goto-chart.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
+  1. [Navigate]({{ link-monitoring }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. Select a folder from the menu at the top.
+  1. In the left-hand panel, select ![rectangle-pulse](../../../_assets/console-icons/rectangle-pulse.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
   1. In the query, specify the following:
       1. **{{ objstorage-name }}**.
       1. Metric you want to visualize.

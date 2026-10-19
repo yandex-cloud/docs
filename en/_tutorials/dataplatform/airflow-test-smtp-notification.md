@@ -1,12 +1,17 @@
 # Configuring an SMTP server to send e-mail notifications
 
-{% include [af-restriction-version](../../_includes/mdb/maf/af-restriction-version.md) %}
+Use a [directed acyclic graph (DAG)](../../managed-airflow/concepts/index.md#about-the-service) to configure your SMTP server to send e-mail notifications. In this setup, the SMTP server parameters are stored in the {{ AF }} configuration, while the sender's credentials are stored in a [{{ lockbox-full-name }} secret](../../lockbox/concepts/secret.md#secret).
 
-Use a [directed acyclic graph (DAG)](../../managed-airflow/concepts/index.md#about-the-service) to configure your SMTP server to send e-mail notifications. Data for connecting to the DB is stored in {{ lockbox-full-name }} and automatically inserted into the graph.
+This guide features Yandex Mail (`smtp.yandex.ru`) as the SMTP server. To verify notification delivery, a DAG file is used in which the task is intentionally made to fail. If an error occurs, a notification is sent to the email address specified in the DAG file.
 
-To configure an SMTP server to send e-mail notifications, follow these steps:
+Before sending notifications, prepare the sender's mailbox:
 
-1. [Set up your infrastructure](#create-infrastracture).
+* Allow access to the mailbox for email clients.
+* Create a password for external applications.
+
+To configure the SMTP server for sending email notifications:
+
+1. [Set up your infrastructure](#create-infrastructure).
 1. [Create a {{ lockbox-name }} secret](#create-lockbox-secret).
 1. [Prepare the DAG file and run the graph](#dag).
 1. [Check the result](#check-result).
@@ -25,7 +30,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * {{ lockbox-name }} secret: number of stored secret versions and requests to them (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
 
 
-## Set up your infrastructure {#create-infrastracture}
+## Set up your infrastructure {#create-infrastructure}
 
 1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `airflow-sa` with the following roles:
    * `{{ roles.maf.integrationProvider }}`
@@ -44,7 +49,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * **Bucket name**: Name of the new bucket.
    * **{{ ui-key.yacloud.airflow.field_lockbox }}**: Make sure to enable this option.
 
-   Under **{{ ui-key.yacloud.airflow.section_airflow-configuration }}**, set up [additional {{ AF }} properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) to configure the SMTP server:
+   Under **{{ ui-key.yacloud.airflow.section_airflow-configuration }}**, set up additional {{ AF }} properties to configure the SMTP server:
 
    | Key | Value |
    | ----- | ----- |
@@ -52,23 +57,43 @@ If you no longer need the resources you created, [delete them](#clear-out).
    | `smtp.smtp_port` | `465` |
    | `smtp.smtp_starttls` | `False` |
    | `smtp.smtp_ssl` | `True` |
-   | `smtp.smtp_mail_from` | `user@yandex.ru` |
+   | `smtp.smtp_mail_from` | `<sender_email_address>` |
 
-   Fill in the fields manually or import the settings from a configuration file (see a [configuration file example](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
+   Fill in the fields manually or upload a configuration from a file. To upload a configuration from a file, click **{{ ui-key.yacloud.airflow.action_button-load-config-from-file }}** and select the **{{ ui-key.yacloud.component.file-content-dialog.value_manual }}** uploading method. Copy the following configuration into the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field:
+   
+   {% cut "SMTP server configuration" %}
+
+   ```text
+   [smtp]
+   smtp_host = smtp.yandex.ru
+   smtp_port = 465
+   smtp_starttls = False
+   smtp_ssl = True
+   smtp_mail_from = <sender_email_address>
+   ```
+
+   {% endcut %}
+
+   Read more about the SMTP server configuration parameters in the [relevant {{ AF }} guide](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html#smtp).
+
+1. [Configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) for the {{ maf-name }} cluster's subnets.
 
 ## Create a {{ lockbox-name }} secret {#create-lockbox-secret}
 
-[Create a {{ lockbox-name }} secret](../../lockbox/operations/secret-create.md) named `airflow/connections/smtp_default`, containing `json.dumps(conn)`, where `conn` is a connection to an SMTP server.
+[Create a {{ lockbox-name }} secret](../../lockbox/operations/secret-create.md) with the following settings:
 
-```json
-conn = {
-         "conn_type": "smtp",
-         "login": "user@yandex.ru",
-         "password": "<password_for_external_apps>"
-}
-```
+* **{{ ui-key.yacloud.common.name }}**: `airflow/connections/smtp_default`.
+* **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}**: `Custom`.
+* **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}**: `conn`.
+* **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}**: Select **{{ ui-key.yacloud.lockbox.SecretVersionsInputs.value_payload-entry-value-type-text }}** and specify the following contents:
 
-The `airflow/connections/smtp_default` secret will store the data for connecting to the SMTP server.
+  ```json
+  {
+    "conn_type": "smtp",
+    "login": "<sender_email_address>",
+    "password": "<password_for_external_apps>"
+  }
+  ```
 
 ## Prepare the DAG file and run the graph {#dag}
 
@@ -78,7 +103,7 @@ The `airflow/connections/smtp_default` secret will store the data for connecting
    from airflow.decorators import dag, task
 
    default_args = {
-    "email": ["user@yandex.ru"],
+    "email": ["<recipient_email_address>"],
     "email_on_failure": True,
     "email_on_retry": True
    }
@@ -104,16 +129,31 @@ The `airflow/connections/smtp_default` secret will store the data for connecting
    It may take a few minutes to upload a DAG file from the bucket.
 
 1. To run the graph, click ![image](../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name.
+1. Wait for the task to fail. A notification will be sent to the specified email address.
+
+    {% note warning %}
+
+    If the SMTP server parameters specified in the {{ AF }} configuration are incorrect, notifications will not be sent.
+
+    {% endnote %}
 
 ## Check the result {#check-result}
 
-To check the result in the {{ AF }} web interface:
+To check the result in the {{ AF }} `2.11` web interface:
 
 1. In the **DAGs** section, open the `test_smtp_notification` graph.
-1. Go to the **Graph** section.
-1. Select **failing_task**.
-1. Go to **Logs**.
-1. Make sure the logs do not contain the `some test error` line. This means the query was successful.
+1. Select the `failing_task`.
+1. On the **Task Instance Duration** chart, select a task launch.
+1. Navigate to the **Logs** tab.
+1. Make sure the logs contain a `Sent an alert email to ['<recipient_email_address>']` line.
+
+To check the result in the {{ AF }} `3.1` web interface:
+
+1. In the **DAGs** section, open the `test_smtp_notification` graph.
+1. Navigate to the **Tasks** tab and select the `failing_task`.
+1. Navigate to the **Task Instances** tab and select a task launch.
+1. Navigate to the **Logs** tab.
+1. Make sure the logs contain a `Sent an alert email to ['<recipient_email_address>']` line.
 
 ## Delete the resources you created {#clear-out}
 

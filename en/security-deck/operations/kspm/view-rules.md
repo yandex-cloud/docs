@@ -42,7 +42,8 @@ To view active {{ k8s }} control rules:
 
               {% include [kspm-admission-modes](../../../_includes/security-deck/kspm-admission-modes.md) %}
 
-          * `HostSecurity`: Rule type from the [CIS Benchmark™](../../concepts/standard-compliance/cis-kubernetes-benchmark.md) standard that applies to components on {{ k8s }} worker nodes.
+          * `HostSecurity`: [CIS Benchmark™](../../concepts/standard-compliance/cis-kubernetes-benchmark.md) rule type applied to components on {{ k8s }} worker nodes.
+          * `Inventory`: Rule type applied to {{ k8s }} worker nodes. It is used for collecting information about components, parameters, and processes, and for auditing process executions. To analyze scan results, configure [event collection for Security Deck](../../../security-deck/at-ref.md) in {{ at-full-name }} with subsequent data export to SIEM/SOC systems.
 
       * **{{ ui-key.yacloud_org.security.controls.ExceptionDrawer.resources_field_id }}**: Rule ID in {{ yandex-cloud }}.
       * **{{ ui-key.yacloud_org.security.controls.rule-result.violations_q7AcU }}**: Number of detected rule violations.

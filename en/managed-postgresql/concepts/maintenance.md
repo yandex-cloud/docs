@@ -38,7 +38,7 @@ To manage maintenance tasks, you need the `managed-postgresql.maintenanceTask.ed
 
 In {{ mpg-name }} single-host clusters, a master host undergoes maintenance. Therefore, it may become unavailable in case it is restarted.
 
-In multi-host clusters, the maintenance is run as follows:
+In multi-host clusters, maintenance follows this procedure:
 
 1. [Replica hosts](replication.md) undergo maintenance one by one. The replicas are queued randomly. If a replica needs to be restarted during maintenance, it will become unavailable.
 1. Master host undergoes maintenance and gets updated. If the master host needs to restart and becomes unavailable, one of the replicas will assume its role.
@@ -47,11 +47,11 @@ In multi-host clusters, the maintenance is run as follows:
 
 More information on operations during maintenance:
 
-| Operation | Trigger | Process | Impact on application |
-| :--- | :--- | :--- | :--- |
-| Restart | {{ PG }} minor updates, system library updates | Each cluster node stops and starts in turn. The {{ PG }} process restarts on each node. | There is a brief connection drop on each host while the {{ PG }} process stops and restarts. It may last from a few seconds to several minutes depending on the load. To minimize downtime, a checkpoint runs right before the restart. Incomplete write operations will be aborted. |
-| Master switchover | Updates that require a server reboot | Each cluster node stops and reboots in turn. If the current master reboots, a replica is promoted to the new master. | Connections are terminated. Switchover is faster than a full server reboot. Your application must be able to handle a brief read-only state and search for a master. |
-| Forced version upgrade | Major upgrades of clusters on unsupported versions | The master stops, updates, and stays offline. Replicas are switched off and updated one by one. Updated replicas restart in read-only mode. The master turns back on after all replicas update. | Connections are terminated during the installation of updates. We recommend that you plan a manual cluster version [upgrade](../operations/cluster-version-update.md) before it reaches end-of-life. |
+| Operation | Trigger | Process                                                                                                                                                                                                             | Impact on application                                                                                                                                                                                                                                                                                                                    |
+| :--- | :--- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Restart | {{ PG }} minor updates, system library updates | Each cluster node stops and starts in turn. The {{ PG }} process restarts on each node.                                                                                                             | There is a brief connection drop on each host while the {{ PG }} process stops and restarts. It may last from a few seconds to several minutes depending on the load. To minimize downtime, a checkpoint is created immediately prior to the restart. Incomplete write operations will be aborted. |
+| Master switchover | Updates that require a server reboot | Each cluster node stops and reboots in turn. If the current master reboots, one of the replicas is promoted to the new master.                                                                               | Connections are terminated. Switchover is faster than a full server reboot. Your application must be able to handle a brief read-only state and search for a master.                                                                                                                                   |
+| Forced version upgrade | Major upgrades of clusters on unsupported versions | The master stops, updates, and stays offline. Replicas are switched off and updated one by one. Updated replicas restart in read-only mode. The master turns back on after all replicas update. | Connections are terminated during the installation of updates. We recommend that you plan a manual cluster version [upgrade](../operations/cluster-version-update.md) before it reaches end-of-life.                                                                                                                             |
 
 ## How maintenance impacts a cluster {#impact-on-cluster}
 

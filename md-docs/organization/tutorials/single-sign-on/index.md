@@ -29,7 +29,9 @@
     * [OpenVPN Access Server](saml-ovpn.md)
     * [OpenVPN Community Edition](oidc-ovpn.md)
 * [Open WebUI](oidc-open-webui.md)
-* [Selectel](saml-selectel.md)
+* Selectel
+    * [SAML](saml-selectel.md)
+    * [OpenID Connect](oidc-selectel.md)
 * [Sentry](saml-sentry.md)
 * [SonarQube](saml-sonarqube.md)
 * Time

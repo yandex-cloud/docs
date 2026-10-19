@@ -1,6 +1,6 @@
 ---
 title: Managing {{ SPQR }} cluster hosts
-description: In this tutorial, you will learn how to manage {{ SPQR }} cluster hosts. You can add and remove cluster hosts, as well as manage their settings via the management console, CLI, and API.
+description: In this tutorial, you will learn how to manage {{ SPQR }} cluster hosts. You can add and remove cluster hosts, as well as manage their settings via the management console, CLI, {{ TF }}, and API.
 ---
 
 # Managing {{ SPQR }} cluster hosts
@@ -176,6 +176,53 @@ The number of `INFRA`, `ROUTER`, and `COORDINATOR` hosts in the {{ mspqr-short-n
        * `true`: Public access enabled.
        * `false`: Public access disabled.
 
+
+- {{ TF }} {#tf}
+
+  To create a host:
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
+
+     To learn how to create this file, see [Creating a cluster](cluster-create.md).
+
+     For the complete list of configurable {{ mspqr-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mspqr }}).
+  1. Add a description of the new hosts to the `hosts` section.
+
+     ```hcl
+     resource "yandex_mdb_sharded_postgresql_cluster" "<cluster_name>" {
+       ...
+       hosts = {
+         ...
+         "<host_name>" = {
+           type             = "<host_type>"
+           zone             = "<availability_zone>"
+           subnet_id        = "<subnet_ID>"
+           assign_public_ip = <public_access_to_host>
+         }
+         ...
+       }
+     }
+     ```
+
+     Where:
+
+     * `type`: [Host type](../concepts/index.md#router), `infra` (for a cluster with standard sharding), `router`, or `coordinator` (for a cluster with advanced sharding).
+     * `zone`: Availability zone.
+     * `subnet_id`: Subnet ID.     
+     * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
+
+     The host name must be unique within the cluster.
+
+  1. Make sure the settings are correct.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm updating the resources.
+
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+     {% include [Terraform timeouts](../../_includes/mdb/mspqr/terraform/timeouts.md) %}
+
+
 - REST API {#api}
 
   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
@@ -297,6 +344,43 @@ You can change public access settings for any host in a {{ mspqr-short-name }} c
   * `assign-public-ip`: Public access to the host, `true` or `false`.
 
   You can get the host name with the [list of hosts in the cluster](#list).
+
+
+- {{ TF }} {#tf}
+
+  To change the cluster host settings:
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
+
+     To learn how to create this file, see [Creating a cluster](cluster-create.md).
+     
+  1. Under `hosts`, update the description of the host.
+
+     ```hcl
+     resource "yandex_mdb_sharded_postgresql_cluster" "<cluster_name>" {
+       ...
+       hosts = {
+         ...
+         "<host_name>" = {
+           ...
+           assign_public_ip = <public_access_to_host>
+         }
+         ...
+       }
+     }
+     ```
+
+     Where `assign_public_ip` is internet access to the host via a public IP address, `true` or `false`.
+
+  1. Make sure the settings are correct.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm updating the resources.
+
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+     {% include [Terraform timeouts](../../_includes/mdb/mspqr/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -425,6 +509,27 @@ You can remove an `INFRA`, `ROUTER`, or `COORDINATOR` type host from a {{ SPQR }
   You can get the host name with the [list of hosts in the cluster](#list).
 
   {% include [cluster-name](../../_includes/managed-spqr/cluster-name.md) %}
+
+
+- {{ TF }} {#tf}
+
+  To delete a host in a cluster:
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
+
+     To learn how to create this file, see [Creating a cluster](cluster-create.md).
+     
+  1. Remove the description of the host you want to delete from the `hosts` section.
+
+  1. Make sure the settings are correct.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm updating the resources.
+
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+     {% include [Terraform timeouts](../../_includes/mdb/mspqr/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
