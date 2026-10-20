@@ -10,6 +10,12 @@
 || Maximum number of organizations a subject may create | 10 ||
 || Maximum number of federations per organization 
 `organization-manager.federations.count` | 10 ||
+|| {{ ui-key.yacloud_quotas.quotas.organization-manager.authenticationPolicyRules.count }}
+`organization-manager.authenticationPolicyRules.count` | 10 ||
+|| {{ ui-key.yacloud_quotas.quotas.organization-manager.federationCertificates.count }}
+`organization-manager.federationCertificates.count` | 100 ||
+|| {{ ui-key.yacloud_quotas.quotas.organization-manager.federationUsers.count }}
+`organization-manager.federationUsers.count` | 1,000 ||
 || Maximum number of certificates per federation | 100 ||
 || Maximum number of subjects per federation | 10,000 ||
 || Maximum number of clouds per organization | 5 ||

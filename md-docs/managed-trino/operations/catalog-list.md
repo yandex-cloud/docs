@@ -48,7 +48,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Catalog.List](../api-ref/Catalog/list.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом REST API [list](../api-ref/Catalog/list.md) для ресурса [Catalog](../api-ref/Catalog/index.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
@@ -77,14 +77,14 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [CatalogService.List](../api-ref/grpc/Catalog/list.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом gRPC API [CatalogService/List](../api-ref/grpc/Catalog/list.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
             -format json \
             -import-path ~/cloudapi/ \
             -import-path ~/cloudapi/third_party/googleapis/ \
-            -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
+            -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d '{
                     "cluster_id": "<идентификатор_кластера>"
@@ -151,7 +151,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Catalog.Get](../api-ref/Catalog/get.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом REST API [get](../api-ref/Catalog/get.md) для ресурса [Catalog](../api-ref/Catalog/index.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
@@ -180,14 +180,14 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [CatalogService.Get](../api-ref/grpc/Catalog/get.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом gRPC API [CatalogService/Get](../api-ref/grpc/Catalog/get.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
             -format json \
             -import-path ~/cloudapi/ \
             -import-path ~/cloudapi/third_party/googleapis/ \
-            -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
+            -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d '{
                     "cluster_id": "<идентификатор_кластера>",

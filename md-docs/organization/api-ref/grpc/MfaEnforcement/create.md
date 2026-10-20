@@ -19,7 +19,10 @@ creates an MFA enforcement in the specified organization
   "apply_at": "google.protobuf.Timestamp",
   "enroll_window": "google.protobuf.Duration",
   "name": "string",
-  "description": "string"
+  "description": "string",
+  "sspr_policies": [
+    "string"
+  ]
 }
 ```
 
@@ -62,6 +65,12 @@ Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
 the MFA enforcement description
 
 The maximum string length in characters is 256. ||
+|| sspr_policies[] | **string**
+
+sspr_policies for the MFA enforcement. Accepted values: 'mfa', 'two-any',
+specification https://yandex.cloud/en/docs/organization/concepts/sspr
+
+The maximum string length in characters for each value is 50. The number of elements must be in the range 0-10. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

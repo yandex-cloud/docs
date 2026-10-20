@@ -29,7 +29,7 @@ resource "yandex_vpc_network" "<имя_сети>" {
 resource "yandex_vpc_subnet" "<имя_подсети>" {
   name           = "<имя_подсети>"
   zone           = "<зона_доступности>"
-  network_id     = "yandex_vpc_network.<имя_сети>.id"
+  network_id     = yandex_vpc_network.<имя_сети>.id
   v4_cidr_blocks = ["<диапазон>"]
 }
 ```

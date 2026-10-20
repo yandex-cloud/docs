@@ -4,6 +4,8 @@
 
 deactivates the specified MFA enforcement
 
+
+
 ## gRPC request
 
 **rpc Deactivate ([DeactivateMfaEnforcementRequest](#yandex.cloud.organizationmanager.v1.DeactivateMfaEnforcementRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**

@@ -554,7 +554,7 @@ Regardless of which option you select for setting up outbound internet access, b
      done
      ```
 
-  1. If an empty value is set in `NAT_GW` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to `Guides and solutions to use`.
+  1. If there is an empty value for `NAT_GW` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to `Guides and solutions to use`.
 
 {% endlist %}
 

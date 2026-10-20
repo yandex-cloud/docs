@@ -32,4 +32,6 @@ Monitoring — это сервис для сбора и хранения мет�
 
 ### Object Storage {#objstorage-integration}
 
-Object Storage — это сервис для хранения данных. Для взаимодействия Yandex Managed Service for Trino с бакетом Object Storage необходим кластер Apache Hive™ Metastore. Сервисным аккаунтам, привязанным к кластерам Managed Service for Trino и Apache Hive™ Metastore, нужно назначить роль `storage.editor`.
+Object Storage — это сервис для хранения данных. Для чтения и записи данных в бакете сервисному аккаунту кластера Managed Service for Trino нужно назначить роль `storage.editor`. Если для хранения метаданных используется кластер Apache Hive™ Metastore, эту роль также нужно назначить сервисному аккаунту кластера Apache Hive™ Metastore.
+
+Способ хранения метаданных зависит от коннектора: например, [коннектор Iceberg](../operations/catalog-create.md#iceberg) поддерживает Apache Hive™ Metastore и REST Catalog. Для использования бакета в качестве [хранилища промежуточных результатов Exchange Manager](retry-policy.md#exchange-manager-storage) кластер Apache Hive™ Metastore не требуется.

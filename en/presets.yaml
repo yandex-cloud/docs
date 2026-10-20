@@ -10,6 +10,7 @@ default:
   agent-core-name: Agent Core
   agents-atelier-name: Agent Atelier
   ai-playground: AI Playground
+  ai-search-name: AI Search
   ai-studio-full-name: Yandex Cloud AI Studio
   ai-studio-name: AI Studio
   airflow-service-address: 10.248.0.0/13
@@ -1309,6 +1310,7 @@ default:
   search-api-request-ch: 400 characters
   search-api-request-w: 40 words
   security-group: enp6saqnq4ie244g67sb
+  security-standard-ai-current-version: 1.0.0
   security-standard-current-version: 1.4.2
   serial-ssh-host: serialssh.cloud.yandex.net
   serverless-containers-full-name: Yandex Serverless Containers
@@ -3401,6 +3403,7 @@ default:
             field_login-requirements: Login requirements
             field_require-once: Request once on first login
             field_ttl: Duration
+            login-requirement_reauth_j8x8i: Re-authentication
             login-requirement_skip-mfa: Skip MFA
             login-requirement_step-up: Enforce step-up verification
             section_title: Result
@@ -3965,6 +3968,10 @@ default:
               [bindings](https://yandex.cloud/en/docs/iam/concepts/access-control/#access-bindings)
           accessKeys:
             count: Number of access keys
+          accessPolicyBindings:
+            count: >-
+              Number of assigned [authorization
+              policies](https://yandex.cloud/en/docs/iam/concepts/access-control/access-policies)
           apiKeys:
             count: Number of API keys
           authorizedKeys:
@@ -3984,6 +3991,13 @@ default:
             size: Amount of virtual memory
           ssd:
             size: SSD storage capacity
+        organization-manager:
+          authenticationPolicyRules:
+            count: Number of rules in the organization's authentication policies
+          federationCertificates:
+            count: Number of SAML certificates for federations
+          federationUsers:
+            count: Number of users in all federations in an organization
         vdi:
           desktopCores:
             count: Number of vCPU desktops

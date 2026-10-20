@@ -1,0 +1,1 @@
+Software dependencies, container images, model artifacts, datasets, prompts, agent configurations, and external services are verified separately under `AI-SUPPLY1` to `AI-SUPPLY6` and `AI-DATA-CHECK1`. Verifying one category does not confirm the security of another.

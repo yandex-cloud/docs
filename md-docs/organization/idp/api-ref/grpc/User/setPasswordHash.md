@@ -65,8 +65,7 @@ Supported by 389 DS, FreeIPA, ALD Pro.
 Timestamp when the password was created.
 For synchronized passwords, use the time when the password was last set in the source directory.
 If omitted, the current time is used.
-Used by [CreateUserRequest](create.md#yandex.cloud.organizationmanager.v1.idp.CreateUserRequest) and [SetPasswordHashRequest](#yandex.cloud.organizationmanager.v1.idp.SetPasswordHashRequest).
-This value is ignored if [CreateUserRequest.password_change_required](create.md#yandex.cloud.organizationmanager.v1.idp.CreateUserRequest) or [SetPasswordHashRequest.need_change](#yandex.cloud.organizationmanager.v1.idp.SetPasswordHashRequest) is true. ||
+Used by [CreateUserRequest](create.md#yandex.cloud.organizationmanager.v1.idp.CreateUserRequest) and [SetPasswordHashRequest](#yandex.cloud.organizationmanager.v1.idp.SetPasswordHashRequest). ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

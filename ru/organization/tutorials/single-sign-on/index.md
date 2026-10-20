@@ -43,6 +43,7 @@ description: Настройка интеграции {{ org-full-name }} с вн
 * [VK Cloud](./saml-vk-cloud.md)
 * [Warpgate](./oidc-warpgate.md)
 * [Zabbix](./saml-zabbix.md)
+* [МТС Линк](./saml-mts-link.md)
 * [Пассворк](./saml-passwork.md)
 * [{{ yandex-360 }}](./saml-yandex-360.md)
 * [Яндекс Браузер для организаций](./saml-ya-browser-corporate.md)

@@ -100,7 +100,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       The file is generated using the libraries of the [terraform-yc-vpc](https://github.com/terraform-yc-modules/terraform-yc-vpc) and [terraform-yc-kubernetes](https://github.com/terraform-yc-modules/terraform-yc-kubernetes) modules. For configuration details of resources you can create with these modules, see the relevant library pages.
 
-   1. Validate your {{ TF }} configuration files using this command:
+   1. Validate your {{ TF }} configuration using this command:
 
       ```bash
       terraform validate
@@ -161,7 +161,7 @@ As the {{ managed-k8s-name }} cluster has no internet access, you can only conne
          * Username to use for connecting to the VM over SSH.
          * Absolute path to the public part of the SSH key for connecting to the VM.
 
-      1. Validate your {{ TF }} configuration files using this command:
+      1. Validate your {{ TF }} configuration using this command:
 
          ```bash
          terraform validate
@@ -355,7 +355,7 @@ To configure certificate updates using DaemonSet, do the following on your VM:
                        update-ca-certificates 
 
                        echo "Restarting containerd"
-                       ps -x -o pid= -o comm= | awk '$2 ~ "^(containerd|dockerd)$" { print $1 }' | xargs kill
+                       { pgrep -x containerd; pgrep -x dockerd; } | xargs -r kill
                        #systemd will get them back less than a minute
                    else
                      echo "Doing Nothing as no certs has not been changed"

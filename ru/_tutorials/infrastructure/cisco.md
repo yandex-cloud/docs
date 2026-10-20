@@ -1,7 +1,7 @@
 # Установка виртуального роутера Cisco CSR 1000v
 
 
-В {{ yandex-cloud }} можно развернуть виртуальный роутер Cisco Cloud Services Router (CSR) 1000v из готового образа виртуальной машины. 
+В {{ yandex-cloud }} можно развернуть виртуальный роутер Cisco Cloud Services Router (CSR) 1000v из готового образа виртуальной машины.
 
 Чтобы установить CSR 1000v и настроить к нему доступ по [SSH](../../glossary/ssh-keygen.md):
 
@@ -98,7 +98,7 @@
       ```text
       cisco-router.{{ region-id }}.internal#configure terminal
       Enter configuration commands, one per line.  End with CNTL/Z.
-      cisco-router.ru-cent(config)#hostname cisco-router
+      cisco-router.{{ region-id }}(config)#hostname cisco-router
       ```
 
       Имя роутера в начале командной строки должно измениться на `cisco-router`.
@@ -123,19 +123,41 @@
 
 ## Настройте аутентификацию с помощью SSH-ключей {#enable-ssh}
 
-1. Если ваш публичный SSH-ключ длиннее 72 символов, разбейте ключ на части по 72 символа. Для этого на своем компьютере в терминале выполните команду:
+1. Если ваш публичный SSH-ключ длиннее 72 символов, разбейте ключ на части по 72 символа:
 
-   ```bash
-   fold -bw 72 <путь_к_файлу_с_публичным_ключом>
-   ```
+   {% list tabs group=operating_system %}
 
-   В результате будет выведен публичный SSH-ключ, разбитый на строки по 72 символа.
+   - Linux/macOS {#linux-macos}
+
+     В терминале выполните команду:
+
+     ```bash
+     fold -bw 72 <путь_к_файлу_с_публичным_ключом>
+     ```
+
+     В результате будет выведен публичный SSH-ключ, разбитый на строки по 72 символа.
+
+   - Windows 10/11 {#windows}
+
+     Выполните команду:
+
+     ```powershell
+     (Get-Content '<путь_к_файлу_с_публичным_ключом>' -Raw) -replace '.{72}', "$&`n"
+     ```
+
+     В результате будет выведен публичный SSH-ключ, разбитый на строки по 72 символа.
+
+   - Windows 7/8 {#windows7-8}
+
+     Откройте файл с публичным ключом в текстовом редакторе (например, Блокнот) и вручную разбейте ключ на строки по 72 символа.
+
+   {% endlist %}
 
 1. В серийной консоли включите доступ на ВМ по SSH:
 
    ```text
    cisco-router(config)#aaa new-model
-   cisco-router(config)#ip ssh server algorithm authentication publickey 
+   cisco-router(config)#ip ssh server algorithm authentication publickey
    cisco-router(config)#ip ssh pubkey-chain
    ```
 
@@ -159,7 +181,7 @@
    cisco-router#show run | beg ip ssh
    ip ssh pubkey-chain
      username test-user
-      key-hash ssh-rsa <хэш_ключа> <логин_связанный_с_этим_ключом>
+      key-hash ssh-rsa <хеш_ключа> <логин_связанный_с_этим_ключом>
    !
    !
    ...

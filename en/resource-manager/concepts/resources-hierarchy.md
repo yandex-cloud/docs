@@ -91,7 +91,13 @@ Once the delay period ends, the cloud/folder status will change to `DELETING`. T
 
 ### Reasons why a folder cannot be deleted {#inability-to-delete}
 
-The deletion of a folder in the `DELETING` status can be canceled by the system. The possible causes might include the following:
+The `resourceManager.denyFolderRemoval` [access policy](../../iam/concepts/access-control/access-policies.md) may restrict folder deletion if is created for the folder itself, its cloud, or organization. If the policy applies to at least one folder in the cloud, you will not be able to delete this cloud either. Read more about the policy scope in [resourceManager.denyFolderRemoval](../../iam/concepts/access-control/access-policies.md#resourceManager-denyFolderRemoval).
+
+There is also the [resourceManager.denyCloudRemoval](../../iam/concepts/access-control/access-policies.md#resourceManager-denyCloudRemoval) policy that prohibits deleting a cloud if created for it or its organization.
+
+The prohibition is checked when deletion is requested, before the resource status changes to `DELETING`. To delete a resource, delete the prohibiting policies on the relevant hierarchy levels first. For the policy deletion procedure, see the guides for [organization](../../organization/operations/manage-access-policies.md#revoke), [cloud](../operations/cloud/manage-access-policies.md#revoke), and [folder](../operations/folder/manage-access-policies.md#revoke).
+
+The deletion of a folder in the `DELETING` status can be canceled by the system. The possible causes may include the following:
 
 * The folder contains a {{ vpc-full-name }} [IP address](../../vpc/concepts/address.md) currently used by a [VM](../../compute/concepts/vm.md) in another folder.
 * The folder contains deletion protected managed database clusters.

@@ -6,6 +6,7 @@ editable: false
 
 updates specified MFA enforcement's excluded audience
 
+
 ## gRPC request
 
 **rpc UpdateExcludedAudience ([UpdateExcludedAudienceRequest](#yandex.cloud.organizationmanager.v1.UpdateExcludedAudienceRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**

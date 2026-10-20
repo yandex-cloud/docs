@@ -114,7 +114,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Catalog.Create](../api-ref/Catalog/create.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом REST API [create](../api-ref/Catalog/create.md) для ресурса [Catalog](../api-ref/Catalog/index.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
@@ -156,7 +156,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [CatalogService.Create](../api-ref/grpc/Catalog/create.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом gRPC API [CatalogService/Create](../api-ref/grpc/Catalog/create.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -311,7 +311,7 @@ Connection Manager позволяет создавать подключения 
       Чтобы узнать идентификатор подключения:
         1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
         1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-        1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.   
+        1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
     * `--connection-manager-database` — имя БД в кластере ClickHouse®.
     * `--connection-manager-connection-properties` — параметры клиента ClickHouse® в формате `ключ=значение`.
@@ -909,7 +909,7 @@ Connection Manager позволяет создавать подключения 
     
         * **Идентификатор ключа доступа** — идентификатор AWS-совместимого статического ключа доступа.
         * **Секретный ключ** — секретный ключ AWS-совместимого статического ключа доступа.
-        * **Эндпоинт** — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
+        * **Эндпоинт** — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
         * **Регион** — регион файлового хранилища, например `ru-central1`.
 
     * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/delta-lake.html).
@@ -949,7 +949,7 @@ Connection Manager позволяет создавать подключения 
     
     * `--filesystem-external-s3-aws-access-key` — идентификатор AWS-совместимого статического ключа доступа.
     * `--filesystem-external-s3-aws-secret-key` — секретный ключ AWS-совместимого статического ключа доступа.
-    * `--filesystem-external-s3-aws-endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
+    * `--filesystem-external-s3-aws-endpoint` — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
     * `--filesystem-external-s3-aws-region` — регион файлового хранилища, например `ru-central1`.
     
       {% note info %}
@@ -993,7 +993,7 @@ Connection Manager позволяет создавать подключения 
     
             * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
             * `aws_secret_key` — секретный ключ AWS-совместимого статического ключа доступа.
-            * `aws_endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
+            * `aws_endpoint` — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
             * `aws_region` — регион файлового хранилища, например `ru-central1`.
     
     * `metastore.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
@@ -1052,7 +1052,7 @@ Connection Manager позволяет создавать подключения 
     
             * `awsAccessKey` — идентификатор AWS-совместимого статического ключа доступа.
             * `awsSecretKey` — секретный ключ AWS-совместимого статического ключа доступа.
-            * `awsEndpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
+            * `awsEndpoint` — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
             * `awsRegion` — регион файлового хранилища, например `ru-central1`.
     
     * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
@@ -1117,7 +1117,7 @@ Connection Manager позволяет создавать подключения 
     
             * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
             * `aws_secret_key` — секретный ключ AWS-совместимого статического ключа доступа.
-            * `aws_endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
+            * `aws_endpoint` — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
             * `aws_region` — регион файлового хранилища, например `ru-central1`.
     
     * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
@@ -1696,7 +1696,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     
         * **Идентификатор ключа доступа** — идентификатор AWS-совместимого статического ключа доступа.
         * **Секретный ключ** — секретный ключ AWS-совместимого статического ключа доступа.
-        * **Эндпоинт** — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
+        * **Эндпоинт** — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
         * **Регион** — регион файлового хранилища, например `ru-central1`.
 
     * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/hive.html).
@@ -1736,7 +1736,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     
     * `--filesystem-external-s3-aws-access-key` — идентификатор AWS-совместимого статического ключа доступа.
     * `--filesystem-external-s3-aws-secret-key` — секретный ключ AWS-совместимого статического ключа доступа.
-    * `--filesystem-external-s3-aws-endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
+    * `--filesystem-external-s3-aws-endpoint` — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
     * `--filesystem-external-s3-aws-region` — регион файлового хранилища, например `ru-central1`.
     
       {% note info %}
@@ -1780,7 +1780,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     
             * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
             * `aws_secret_key` — секретный ключ AWS-совместимого статического ключа доступа.
-            * `aws_endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
+            * `aws_endpoint` — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
             * `aws_region` — регион файлового хранилища, например `ru-central1`.
     
     * `metastore.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
@@ -1839,7 +1839,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     
             * `awsAccessKey` — идентификатор AWS-совместимого статического ключа доступа.
             * `awsSecretKey` — секретный ключ AWS-совместимого статического ключа доступа.
-            * `awsEndpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
+            * `awsEndpoint` — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
             * `awsRegion` — регион файлового хранилища, например `ru-central1`.
     
     * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
@@ -1904,7 +1904,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     
             * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
             * `aws_secret_key` — секретный ключ AWS-совместимого статического ключа доступа.
-            * `aws_endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
+            * `aws_endpoint` — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
             * `aws_region` — регион файлового хранилища, например `ru-central1`.
     
     * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
@@ -1950,7 +1950,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     
         * **Идентификатор ключа доступа** — идентификатор AWS-совместимого статического ключа доступа.
         * **Секретный ключ** — секретный ключ AWS-совместимого статического ключа доступа.
-        * **Эндпоинт** — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
+        * **Эндпоинт** — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
         * **Регион** — регион файлового хранилища, например `ru-central1`.
 
     * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/hudi.html).
@@ -1990,7 +1990,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     
     * `--filesystem-external-s3-aws-access-key` — идентификатор AWS-совместимого статического ключа доступа.
     * `--filesystem-external-s3-aws-secret-key` — секретный ключ AWS-совместимого статического ключа доступа.
-    * `--filesystem-external-s3-aws-endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
+    * `--filesystem-external-s3-aws-endpoint` — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
     * `--filesystem-external-s3-aws-region` — регион файлового хранилища, например `ru-central1`.
     
       {% note info %}
@@ -2034,7 +2034,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     
             * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
             * `aws_secret_key` — секретный ключ AWS-совместимого статического ключа доступа.
-            * `aws_endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
+            * `aws_endpoint` — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
             * `aws_region` — регион файлового хранилища, например `ru-central1`.
     
     * `metastore.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
@@ -2093,7 +2093,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     
             * `awsAccessKey` — идентификатор AWS-совместимого статического ключа доступа.
             * `awsSecretKey` — секретный ключ AWS-совместимого статического ключа доступа.
-            * `awsEndpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
+            * `awsEndpoint` — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
             * `awsRegion` — регион файлового хранилища, например `ru-central1`.
     
     * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
@@ -2158,7 +2158,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     
             * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
             * `aws_secret_key` — секретный ключ AWS-совместимого статического ключа доступа.
-            * `aws_endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
+            * `aws_endpoint` — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
             * `aws_region` — регион файлового хранилища, например `ru-central1`.
     
     * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
@@ -2179,9 +2179,18 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
 
 ### Коннектор Iceberg {#iceberg}
 
+Выберите тип хранилища метаданных:
+
+* [Apache Hive™ Metastore](#iceberg-hive-metastore).
+* [REST Metastore](#iceberg-rest-metastore).
+
+#### Apache Hive™ Metastore {#iceberg-hive-metastore}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
+
+    * **Тип Metastore** — **Hive Metastore**.
 
     * **URI** — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
@@ -2204,7 +2213,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     
         * **Идентификатор ключа доступа** — идентификатор AWS-совместимого статического ключа доступа.
         * **Секретный ключ** — секретный ключ AWS-совместимого статического ключа доступа.
-        * **Эндпоинт** — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
+        * **Эндпоинт** — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
         * **Регион** — регион файлового хранилища, например `ru-central1`.
 
     * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/iceberg.html).
@@ -2218,10 +2227,6 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
       --cluster-id <идентификатор_кластера> \
       --metastore-hive-uri <URI_для_подключения> \
       --filesystem-native-s3 \
-      --filesystem-external-s3-aws-access-key <идентификатор_ключа_доступа> \
-      --filesystem-external-s3-aws-secret-key <секретный_ключ> \
-      --filesystem-external-s3-aws-endpoint <эндпоинт> \
-      --filesystem-external-s3-aws-region <регион> \
       --additional-properties <список_дополнительных_настроек>
     ```
 
@@ -2244,7 +2249,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     
     * `--filesystem-external-s3-aws-access-key` — идентификатор AWS-совместимого статического ключа доступа.
     * `--filesystem-external-s3-aws-secret-key` — секретный ключ AWS-совместимого статического ключа доступа.
-    * `--filesystem-external-s3-aws-endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
+    * `--filesystem-external-s3-aws-endpoint` — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
     * `--filesystem-external-s3-aws-region` — регион файлового хранилища, например `ru-central1`.
     
       {% note info %}
@@ -2288,7 +2293,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     
             * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
             * `aws_secret_key` — секретный ключ AWS-совместимого статического ключа доступа.
-            * `aws_endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
+            * `aws_endpoint` — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
             * `aws_region` — регион файлового хранилища, например `ru-central1`.
     
     * `metastore.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
@@ -2347,7 +2352,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     
             * `awsAccessKey` — идентификатор AWS-совместимого статического ключа доступа.
             * `awsSecretKey` — секретный ключ AWS-совместимого статического ключа доступа.
-            * `awsEndpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
+            * `awsEndpoint` — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
             * `awsRegion` — регион файлового хранилища, например `ru-central1`.
     
     * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
@@ -2412,7 +2417,7 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     
             * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
             * `aws_secret_key` — секретный ключ AWS-совместимого статического ключа доступа.
-            * `aws_endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
+            * `aws_endpoint` — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
             * `aws_region` — регион файлового хранилища, например `ru-central1`.
     
     * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
@@ -2425,6 +2430,219 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
         
         {% endnote %}
 
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/iceberg.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+{% endlist %}
+
+#### REST Metastore {#iceberg-rest-metastore}
+
+В примерах используется REST Catalog без аутентификации.
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    * **Тип Metastore** — **REST Metastore**.
+    * **URI** — URL для подключения к REST Catalog, например `https://<адрес_REST_Catalog>`.
+    * **Файловое хранилище** — тип файлового хранилища. Доступные варианты: [Yandex Object Storage](../../storage/quickstart/overview.md) и внешнее хранилище.
+
+        Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисному аккаунту кластера Managed Service for Trino.
+
+        Для внешнего хранилища необходимо указать:
+
+        * **Идентификатор ключа доступа** — идентификатор AWS-совместимого статического ключа доступа.
+        * **Секретный ключ** — секретный ключ AWS-совместимого статического ключа доступа.
+        * **Эндпоинт** — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
+        * **Регион** — регион файлового хранилища, например `ru-central1`.
+
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/iceberg.html).
+
+- CLI {#cli}
+
+    Пример команды:
+
+    ```bash
+    yc managed-trino catalog create iceberg <имя_каталога_Trino> \
+      --cluster-id <идентификатор_кластера> \
+      --metastore-rest-uri https://<адрес_REST_Catalog> \
+      --filesystem-native-s3 \
+      --additional-properties <список_дополнительных_настроек>
+    ```
+
+    Где:
+
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог Trino. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--metastore-rest-uri` — URL для подключения к REST Catalog.
+    * `--filesystem-native-s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
+
+      Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисному аккаунту кластера Managed Service for Trino.
+
+    * `--filesystem-external-s3-aws-access-key` — идентификатор AWS-совместимого статического ключа доступа.
+    * `--filesystem-external-s3-aws-secret-key` — секретный ключ AWS-совместимого статического ключа доступа.
+    * `--filesystem-external-s3-aws-endpoint` — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
+    * `--filesystem-external-s3-aws-region` — регион файлового хранилища, например `ru-central1`.
+
+      {% note info %}
+
+      Укажите либо параметр `--filesystem-native-s3`, чтобы использовать хранилище Object Storage, либо параметры группы `--filesystem-external-s3-aws`, чтобы использовать внешнее хранилище.
+
+      {% endnote %}
+
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/iceberg.html).
+
+- Terraform {#tf}
+
+    Пример конфигурации:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<имя_каталога_Trino>" {
+      ...
+      iceberg = {
+        file_system = {
+          s3 = {}
+        }
+        metastore = {
+          rest_uri = "https://<адрес_REST_Catalog>"
+        }
+        additional_properties = {
+          <список_дополнительных_настроек>
+        }
+      }
+    }
+    ```
+
+    Где:
+
+    * `file_system` — тип файлового хранилища. Доступные варианты:
+
+        * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
+
+            Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисному аккаунту кластера Managed Service for Trino.
+
+        * `external_s3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
+
+            * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
+            * `aws_secret_key` — секретный ключ AWS-совместимого статического ключа доступа.
+            * `aws_endpoint` — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
+            * `aws_region` — регион файлового хранилища, например `ru-central1`.
+
+    * `metastore.rest_uri` — URL для подключения к REST Catalog.
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/iceberg.html).
+
+- REST API {#api}
+
+    Пример команды:
+
+    ```bash
+    curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --data '{
+                  "catalog": {
+                    "name": "<имя_каталога_Trino>",
+                    "connector": {
+                      "iceberg": {
+                        "filesystem": {
+                          "s3": {}
+                        },
+                        "metastore": {
+                          "rest": {
+                            "uri": "https://<адрес_REST_Catalog>",
+                            "authorization": {
+                              "none": {}
+                            }
+                          }
+                        },
+                        "additionalProperties": {
+                          <список_дополнительных_настроек>
+                        }
+                      }
+                    }
+                  }
+                }'
+    ```
+
+    Где:
+
+    * `filesystem` — тип файлового хранилища. Доступные варианты:
+
+        * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
+
+            Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисному аккаунту кластера Managed Service for Trino.
+
+        * `externalS3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
+
+            * `awsAccessKey` — идентификатор AWS-совместимого статического ключа доступа.
+            * `awsSecretKey` — секретный ключ AWS-совместимого статического ключа доступа.
+            * `awsEndpoint` — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
+            * `awsRegion` — регион файлового хранилища, например `ru-central1`.
+
+    * `metastore.rest.uri` — URL для подключения к REST Catalog.
+    * `metastore.rest.authorization.none` — подключение к REST Catalog без аутентификации.
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/iceberg.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- gRPC API {#grpc-api}
+
+    Пример команды:
+
+    ```bash
+    grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cluster_id": "<идентификатор_кластера>",
+              "catalog": {
+                "name": "<имя_каталога_Trino>",
+                "connector": {
+                  "iceberg": {
+                    "filesystem": {
+                      "s3": {}
+                    },
+                    "metastore": {
+                      "rest": {
+                        "uri": "https://<адрес_REST_Catalog>",
+                        "authorization": {
+                          "none": {}
+                        }
+                      }
+                    },
+                    "additional_properties": {
+                      <список_дополнительных_настроек>
+                    }
+                  }
+                }
+              }
+            }' \
+        trino.api.cloud.yandex.net:443 \
+        yandex.cloud.trino.v1.CatalogService.Create
+    ```
+
+    Где:
+
+    * `filesystem` — тип файлового хранилища. Доступные варианты:
+
+        * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
+
+            Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисному аккаунту кластера Managed Service for Trino.
+
+        * `external_s3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
+
+            * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
+            * `aws_secret_key` — секретный ключ AWS-совместимого статического ключа доступа.
+            * `aws_endpoint` — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
+            * `aws_region` — регион файлового хранилища, например `ru-central1`.
+
+    * `metastore.rest.uri` — URL для подключения к REST Catalog.
+    * `metastore.rest.authorization.none` — подключение к REST Catalog без аутентификации.
     * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/iceberg.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -3714,12 +3932,12 @@ Connection Manager позволяет создавать подключения 
     yc managed-trino catalog create tpcds <имя_каталога_Trino> \
       --cluster-id <идентификатор_кластера> \
       --additional-properties <список_дополнительных_настроек>
-    ```  
+    ```
 
     Где:
 
     * `--cluster-id` — идентификатор кластера, в котором создается каталог Trino. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/tpcds.html).  
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/tpcds.html).
 
 - Terraform {#tf}
 
@@ -3818,12 +4036,12 @@ Connection Manager позволяет создавать подключения 
     yc managed-trino catalog create tpch <имя_каталога_Trino> \
       --cluster-id <идентификатор_кластера> \
       --additional-properties <список_дополнительных_настроек>
-    ```  
+    ```
 
     Где:
 
     * `--cluster-id` — идентификатор кластера, в котором создается каталог Trino. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/tpch.html).      
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/tpch.html).
 
 - Terraform {#tf}
 

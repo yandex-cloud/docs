@@ -38,7 +38,7 @@ description: 'При необходимости вы можете останов
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.stop](../api-ref/Cluster/stop.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом REST API [stop](../api-ref/Cluster/stop.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -59,7 +59,7 @@ description: 'При необходимости вы можете останов
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService/Stop](../api-ref/grpc/Cluster/stop.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом gRPC API [ClusterService/Stop](../api-ref/grpc/Cluster/stop.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -114,7 +114,7 @@ description: 'При необходимости вы можете останов
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.start](../api-ref/Cluster/start.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом REST API [start](../api-ref/Cluster/start.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -135,7 +135,7 @@ description: 'При необходимости вы можете останов
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService/Start](../api-ref/grpc/Cluster/start.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом gRPC API [ClusterService/Start](../api-ref/grpc/Cluster/start.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \

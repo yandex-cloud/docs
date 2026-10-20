@@ -17,11 +17,11 @@ description: Следуя данной инструкции, вы сможете
 
 - REST API {#api}
 
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную окружения:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Maintenance.List](../api-ref/Maintenance/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом REST API [list](../api-ref/Maintenance/list.md) для ресурса [Maintenance](../api-ref/Maintenance/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -38,12 +38,13 @@ description: Следуя данной инструкции, вы сможете
 
 - gRPC API {#grpc-api}
 
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную окружения:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Воспользуйтесь вызовом [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+    1. Воспользуйтесь вызовом gRPC API [MaintenanceService/List](../api-ref/grpc/Maintenance/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -73,11 +74,11 @@ description: Следуя данной инструкции, вы сможете
 
 - REST API {#api}
 
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную окружения:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Maintenance.List](../api-ref/Maintenance/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом REST API [list](../api-ref/Maintenance/list.md) для ресурса [Maintenance](../api-ref/Maintenance/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -94,12 +95,13 @@ description: Следуя данной инструкции, вы сможете
 
 - gRPC API {#grpc-api}
 
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную окружения:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Воспользуйтесь вызовом [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+    1. Воспользуйтесь вызовом gRPC API [MaintenanceService/List](../api-ref/grpc/Maintenance/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -137,11 +139,11 @@ description: Следуя данной инструкции, вы сможете
 
 - REST API {#api}
 
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную окружения:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Maintenance.List](../api-ref/Maintenance/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом REST API [list](../api-ref/Maintenance/list.md) для ресурса [Maintenance](../api-ref/Maintenance/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -150,18 +152,21 @@ description: Следуя данной инструкции, вы сможете
           --url 'https://{{ api-host-trino }}/managed-trino/v1/maintenances?resourceId=<идентификатор_кластера>'
         ```
 
-        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+        Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters).
+
+        Если в ответе есть `nextPageToken`, передайте его в следующем запросе в параметре `pageToken`, чтобы получить следующую страницу списка.
 
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
 
 - gRPC API {#grpc-api}
 
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную окружения:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Воспользуйтесь вызовом [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+    1. Воспользуйтесь вызовом gRPC API [MaintenanceService/List](../api-ref/grpc/Maintenance/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -177,7 +182,9 @@ description: Следуя данной инструкции, вы сможете
           yandex.cloud.trino.v1.MaintenanceService.List
         ```
 
-        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+        Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters).
+
+        Если в ответе есть `nextPageToken`, передайте его в следующем запросе в параметре `page_token`, чтобы получить следующую страницу списка.
 
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse).
 
@@ -187,13 +194,18 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+    1. [Откройте список обслуживаний](#list-cluster-maintenance) нужного кластера.
+    1. Нажмите на идентификатор нужного обслуживания.
+
 - REST API {#api}
 
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную окружения:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Maintenance.Get](../api-ref/Maintenance/get.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом REST API [get](../api-ref/Maintenance/get.md) для ресурса [Maintenance](../api-ref/Maintenance/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -202,18 +214,19 @@ description: Следуя данной инструкции, вы сможете
           --url 'https://{{ api-host-trino }}/managed-trino/v1/maintenances/<идентификатор_обслуживания>'
         ```
 
-        Идентификатор обслуживания можно запросить со [списком обслуживаний](#list-maintenance) в облаке, каталоге или кластере.
+        Идентификатор обслуживания можно получить со [списком обслуживаний](#list-maintenance) в облаке, каталоге или кластере.
 
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/get.md#yandex.cloud.maintenance.v2.Maintenance).
 
 - gRPC API {#grpc-api}
 
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную окружения:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Воспользуйтесь вызовом [MaintenanceService.Get](../api-ref/grpc/Maintenance/get.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+    1. Воспользуйтесь вызовом gRPC API [MaintenanceService/Get](../api-ref/grpc/Maintenance/get.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -229,7 +242,7 @@ description: Следуя данной инструкции, вы сможете
           yandex.cloud.trino.v1.MaintenanceService.Get
         ```
 
-        Идентификатор обслуживания можно запросить со [списком обслуживаний](#list-maintenance) в облаке, каталоге или кластере.
+        Идентификатор обслуживания можно получить со [списком обслуживаний](#list-maintenance) в облаке, каталоге или кластере.
 
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/get.md#yandex.cloud.maintenance.v2.Maintenance).
 
@@ -241,11 +254,11 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. [Перейдите]({{ link-console-main }}/link/managed-trino) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
-  1. Нажмите на идентификатор нужного обслуживания.
-  1. Нажмите ссылку **{{ ui-key.yacloud.mdb.maintenance.label_task-logs }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. [Перейдите]({{ link-console-main }}/link/managed-trino) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
+    1. Нажмите на идентификатор нужного обслуживания.
+    1. Нажмите ссылку **{{ ui-key.yacloud.mdb.maintenance.label_task-logs }}**.
 
 {% endlist %}
 
@@ -265,29 +278,28 @@ description: Следуя данной инструкции, вы сможете
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке обслуживания со статусом **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}**.
     1. В выпадающем меню выберите ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_change-task-time }}**.
     1. В открывшемся окне:
+
         * Чтобы перенести обслуживание вперед на следующее окно обслуживания, нажмите **{{ ui-key.yacloud.component.maintenance-alert.value_next-available-window }}** и затем **{{ ui-key.yacloud.component.maintenance-alert.button_reschedule }}**.
         * Чтобы перенести обслуживание вперед или назад на определенную дату и время по UTC, нажмите **{{ ui-key.yacloud.component.maintenance-alert.value_specific-time }}**, затем выберите новую дату и время и нажмите **{{ ui-key.yacloud.component.maintenance-alert.button_reschedule }}**.
 
 - REST API {#api}
 
-    Чтобы перенести обслуживание на новую дату и время:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную окружения:
 
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
-
-    1. Воспользуйтесь методом [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом REST API [reschedule](../api-ref/Maintenance/reschedule.md) для ресурса [Maintenance](../api-ref/Maintenance/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
-        --request POST \
-        --header "Authorization: Bearer $IAM_TOKEN" \
-        --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-trino }}/managed-trino/v1/maintenances/<идентификатор_обслуживания>:reschedule' \
-        --data '{
+          --request POST \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/maintenances/<идентификатор_обслуживания>:reschedule' \
+          --data '{
                     "rescheduleType": "<тип_переноса>",
                     "scheduledAt": "<временная_метка>"
-                }'
+                  }'
         ```
 
         Где `rescheduleType` — тип переноса, принимает одно из двух значений:
@@ -295,21 +307,21 @@ description: Следуя данной инструкции, вы сможете
         * `NEXT_AVAILABLE_WINDOW` — перенести обслуживание на ближайшее окно;
         * `SPECIFIC_TIME` — перенести обслуживание на определенную дату и время.
 
-        Временная метка должна иметь формат [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt), например: `2006-01-02T15:04:05Z`. При выборе типа переноса `NEXT_AVAILABLE_WINDOW` параметр `scheduledAt` указывать не нужно.
+        Временная метка должна иметь формат [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), например: `2006-01-02T15:04:05Z`. При выборе типа переноса `NEXT_AVAILABLE_WINDOW` параметр `scheduledAt` указывать не нужно.
 
-        Идентификатор обслуживания можно запросить со [списком обслуживаний](#list-maintenance) в облаке, каталоге или кластере.
+        Идентификатор обслуживания можно получить со [списком обслуживаний](#list-maintenance) в облаке, каталоге или кластере.
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/reschedule.md#yandex.cloud.operation.Operation).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/reschedule.md#yandex.cloud.operation.Operation). Дождитесь завершения [операции](../../api-design-guide/concepts/operation.md) и [получите информацию об обслуживании](#get-maintenance), чтобы проверить новое время.
 
 - gRPC API {#grpc-api}
 
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную окружения:
 
-       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом gRPC API [MaintenanceService/Reschedule](../api-ref/grpc/Maintenance/reschedule.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -332,11 +344,11 @@ description: Следуя данной инструкции, вы сможете
         * `NEXT_AVAILABLE_WINDOW` — перенести обслуживание на ближайшее окно;
         * `SPECIFIC_TIME` — перенести обслуживание на определенную дату и время.
 
-        Временная метка должна иметь формат [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt), например: `2006-01-02T15:04:05Z`. При выборе типа переноса `NEXT_AVAILABLE_WINDOW` параметр `scheduled_at` указывать не нужно.
+        Временная метка должна иметь формат [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), например: `2006-01-02T15:04:05Z`. При выборе типа переноса `NEXT_AVAILABLE_WINDOW` параметр `scheduled_at` указывать не нужно.
 
-        Идентификатор обслуживания можно запросить со [списком обслуживаний](#list-maintenance) в облаке, каталоге или кластере.
+        Идентификатор обслуживания можно получить со [списком обслуживаний](#list-maintenance) в облаке, каталоге или кластере.
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/reschedule.md#yandex.cloud.operation.Operation).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/reschedule.md#yandex.cloud.operation.Operation). Дождитесь завершения [операции](../../api-design-guide/concepts/operation.md) и [получите информацию об обслуживании](#get-maintenance), чтобы проверить новое время.
 
 {% endlist %}
 
@@ -358,36 +370,36 @@ description: Следуя данной инструкции, вы сможете
 
 - REST API {#api}
 
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную окружения:
 
-       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом REST API [reschedule](../api-ref/Maintenance/reschedule.md) для ресурса [Maintenance](../api-ref/Maintenance/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
-        --request POST \
-        --header "Authorization: Bearer $IAM_TOKEN" \
-        --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-trino }}/managed-trino/v1/maintenances/<идентификатор_обслуживания>:reschedule' \
-        --data '{
+          --request POST \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/maintenances/<идентификатор_обслуживания>:reschedule' \
+          --data '{
                     "rescheduleType": "IMMEDIATE"
-                }'
+                  }'
         ```
 
-       Идентификатор обслуживания можно запросить со [списком обслуживаний](#list-maintenance) в облаке, каталоге или кластере.
+        Идентификатор обслуживания можно получить со [списком обслуживаний](#list-maintenance) в облаке, каталоге или кластере.
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/reschedule.md#yandex.cloud.operation.Operation).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Maintenance/reschedule.md#yandex.cloud.operation.Operation). Чтобы проверить состояние задания, [получите информацию об обслуживании](#get-maintenance).
 
 - gRPC API {#grpc-api}
 
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную окружения:
 
-       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом gRPC API [MaintenanceService/Reschedule](../api-ref/grpc/Maintenance/reschedule.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -404,9 +416,9 @@ description: Следуя данной инструкции, вы сможете
           yandex.cloud.trino.v1.MaintenanceService.Reschedule
         ```
 
-       Идентификатор обслуживания можно запросить со [списком обслуживаний](#list-maintenance) в облаке, каталоге или кластере.
+        Идентификатор обслуживания можно получить со [списком обслуживаний](#list-maintenance) в облаке, каталоге или кластере.
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/reschedule.md#yandex.cloud.operation.Operation).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Maintenance/reschedule.md#yandex.cloud.operation.Operation). Чтобы проверить состояние задания, [получите информацию об обслуживании](#get-maintenance).
 
 {% endlist %}
 
@@ -418,33 +430,33 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. [Перейдите]({{ link-console-main }}/link/managed-trino) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
-  1. Нажмите кнопку ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}**.
-  1. В открывшемся окне:
-     * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** (по умолчанию).
-     * Чтобы разрешить проведение технического обслуживания раз в неделю в определенное время суток, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** и укажите день недели и интервал времени по UTC.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. [Перейдите]({{ link-console-main }}/link/managed-trino) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
+    1. Нажмите кнопку ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}**.
+    1. В открывшемся окне:
+
+        * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** (по умолчанию).
+        * Чтобы разрешить проведение технического обслуживания раз в неделю в определенное время суток, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** и укажите день недели и интервал времени по UTC.
 
 - CLI {#cli}
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы изменить настройки окна обслуживания:
+    Чтобы изменить настройки окна обслуживания:
 
-  1. Посмотрите описание команды CLI для изменения кластера:
+    1. Посмотрите описание команды CLI для изменения кластера:
 
-      ```bash
-      {{ yc-mdb-tr }} cluster update --help
-      ```
+        ```bash
+        {{ yc-mdb-tr }} cluster update --help
+        ```
 
-  1. Выполните команду:
+    1. Выполните команду:
 
         ```bash
         {{ yc-mdb-tr }} cluster update <имя_или_идентификатор_кластера> \
-          --deletion-protection \
           --maintenance-window type=<тип_технического_обслуживания>,`
                               `day=<день_недели>,`
                               `hour=<порядковый_номер_часового_интервала>
@@ -458,134 +470,133 @@ description: Следуя данной инструкции, вы сможете
 
 - {{ TF }} {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-     Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
+        Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
 
-  1. Чтобы изменить время технического обслуживания (в т. ч. для выключенных кластеров), добавьте к описанию кластера блок `maintenance_window`:
+    1. Чтобы изменить время технического обслуживания (в т. ч. для выключенных кластеров), добавьте к описанию кластера блок `maintenance_window`:
 
-     {% include [Terraform maintenance window parameters description](../../_includes/managed-trino/terraform/maintenance-window-parameters.md) %}
+        {% include [Terraform maintenance window parameters description](../../_includes/managed-trino/terraform/maintenance-window-parameters.md) %}
 
-     Имя кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+        Имя кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
-  1. Проверьте корректность настроек.
+    1. Проверьте корректность настроек.
 
-     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Подтвердите изменение ресурсов.
+    1. Подтвердите изменение ресурсов.
 
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
-  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную окружения:
 
-      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+    1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
-      ```json
-      {
-        "updateMask": "maintenanceWindow",
-        "maintenanceWindow": {
-          "weeklyMaintenanceWindow": {
-            "day": "<день_недели>",
-            "hour": "<порядковый_номер_часового_интервала>"
+        ```json
+        {
+          "updateMask": "maintenanceWindow",
+          "maintenanceWindow": {
+            "weeklyMaintenanceWindow": {
+              "day": "<день_недели>",
+              "hour": "<порядковый_номер_часового_интервала>"
+            }
           }
         }
-      }
-      ```
+        ```
 
-      Где:
+        Где:
 
-      * `updateMask` — перечень изменяемых параметров в строку через запятую.
+        * `updateMask` — перечень изменяемых параметров в строку через запятую.
 
-          В данном случае передается только один параметр.
+            В данном случае передается только один параметр.
 
-      * `maintenanceWindow` — настройки времени технического обслуживания (в т. ч. для выключенных кластеров). Передайте один из двух параметров:
+        * `maintenanceWindow` — настройки времени технического обслуживания (в т. ч. для выключенных кластеров). Передайте один из двух параметров:
 
-          * `anytime` — техническое обслуживание происходит в любое время.
-          * `weeklyMaintenanceWindow` — техническое обслуживание происходит раз в неделю в указанное время:
+            * `anytime` — техническое обслуживание происходит в любое время. Передайте пустой объект `{}`.
+            * `weeklyMaintenanceWindow` — техническое обслуживание происходит раз в неделю в указанное время:
 
-              * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
-              * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
+                * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
+                * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
 
-                  > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
+                    > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
-      ```bash
-      curl \
-        --request PATCH \
-        --header "Authorization: Bearer $IAM_TOKEN" \
-        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
-        --data '@body.json'
-      ```
+        ```bash
+        curl \
+          --request PATCH \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>' \
+          --data '@body.json'
+        ```
 
-      Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+        Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
-  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную окружения:
 
-      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+    1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
-      ```json
-      {
-        "cluster_id": "<идентификатор_кластера>",
-        "update_mask": {
-          "paths": ["maintenance_window"]
-        },
-        "maintenance_window": {
-          "weekly_maintenance_window": {
-            "day": "<день_недели>",
-            "hour": "<порядковый_номер_часового_интервала>"
+        ```json
+        {
+          "cluster_id": "<идентификатор_кластера>",
+          "update_mask": "maintenanceWindow",
+          "maintenance_window": {
+            "weekly_maintenance_window": {
+              "day": "<день_недели>",
+              "hour": "<порядковый_номер_часового_интервала>"
+            }
           }
         }
-      }
-      ```
+        ```
 
-      Где:
+        Где:
 
-      * `cluster_id` — идентификатор кластера.
+        * `cluster_id` — идентификатор кластера.
 
-          Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+            Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
-      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+        * `update_mask` — перечень изменяемых параметров в строку через запятую. В JSON названия параметров указываются в формате `lowerCamelCase`.
 
-          В данном случае передается только один параметр.
+            В данном случае передается только один параметр.
 
-      * `maintenance_window` — настройки окна технического обслуживания (в т. ч. для выключенных кластеров). Передайте один из двух параметров:
+        * `maintenance_window` — настройки окна технического обслуживания (в т. ч. для выключенных кластеров). Передайте один из двух параметров:
 
-          * `anytime` — техническое обслуживание происходит в любое время.
-          * `weekly_maintenance_window` — техническое обслуживание происходит раз в неделю в указанное время:
+            * `anytime` — техническое обслуживание происходит в любое время. Передайте пустой объект `{}`.
+            * `weekly_maintenance_window` — техническое обслуживание происходит раз в неделю в указанное время:
 
-            * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
-            * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
+                * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
+                * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
 
-              > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
+                    > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
-      ```bash
-      grpcurl \
-        -format json \
-        -import-path ~/cloudapi/ \
-        -import-path ~/cloudapi/third_party/googleapis/ \
-        -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
-        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-        -d @ \
-        {{ api-host-trino }}:{{ port-https }} \
-        yandex.cloud.trino.v1.ClusterService.Update \
-        < body.json
-      ```
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d @ \
+          {{ api-host-trino }}:{{ port-https }} \
+          yandex.cloud.trino.v1.ClusterService.Update \
+          < body.json
+        ```
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}

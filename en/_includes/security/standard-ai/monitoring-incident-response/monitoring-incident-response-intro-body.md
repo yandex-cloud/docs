@@ -1,0 +1,1 @@
+AI system observability consists of three layers: cloud-level management events and individual operations, runtime environment operational metrics, and application-level tracing of model or agent requests. Their connections and investigation signals are verified against `AI-MON-ANOMALY2` and `AI-MON-TRACE1`.

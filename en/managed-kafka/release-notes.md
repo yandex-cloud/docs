@@ -5,6 +5,10 @@ description: This section contains the {{ mkf-name }} release notes.
 
 # {{ mkf-full-name }} release notes
 
+## September 2026 {#september-2026}
+
+* For {{ KF }} 4.x (starting with version 4.0), the minimum value for the [Log segment bytes](concepts/settings-list.md#settings-log-segment-bytes) setting at the cluster level and the [Segment bytes](concepts/settings-list.md#settings-topic-segment-bytes) setting at the topic level has been increased to 1,048,576 bytes (1 MiB).
+
 ## June 2026 {#june-2026}
 
 * Now you can [change the disk type](operations/storage-space.md#change-disk-size) of broker hosts in a [highly available cluster](concepts/ha-cluster.md).
@@ -19,7 +23,7 @@ description: This section contains the {{ mkf-name }} release notes.
 * Added support for the [Iceberg Sink](operations/cluster-connector.md#settings-iceberg) connector.
 * Updated the cluster monitoring page: added the [Disk Metrics Details and Problematic partitions](operations/monitoring.md) metric groups.
 * Added support for local SSD storage for the AMD Zen 4 platform.
-* Now you can manage the `transactional.id.expiration.ms` broker setting. For more information, see [{#T}](concepts/settings-list.md#cluster-settings).
+* Now you can manage the `transactional.id.expiration.ms` broker setting. For more details, see [{#T}](concepts/settings-list.md#cluster-settings).
 
 
 ## March 2026 {#march-2026}

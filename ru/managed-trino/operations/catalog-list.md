@@ -47,7 +47,7 @@ description: Следуя этой инструкции, сможете полу
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Catalog.List](../api-ref/Catalog/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом REST API [list](../api-ref/Catalog/list.md) для ресурса [Catalog](../api-ref/Catalog/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -68,14 +68,14 @@ description: Следуя этой инструкции, сможете полу
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [CatalogService.List](../api-ref/grpc/Catalog/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом gRPC API [CatalogService/List](../api-ref/grpc/Catalog/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
             -format json \
             -import-path ~/cloudapi/ \
             -import-path ~/cloudapi/third_party/googleapis/ \
-            -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
+            -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d '{
                     "cluster_id": "<идентификатор_кластера>"
@@ -138,7 +138,7 @@ description: Следуя этой инструкции, сможете полу
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Catalog.Get](../api-ref/Catalog/get.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом REST API [get](../api-ref/Catalog/get.md) для ресурса [Catalog](../api-ref/Catalog/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -159,14 +159,14 @@ description: Следуя этой инструкции, сможете полу
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [CatalogService.Get](../api-ref/grpc/Catalog/get.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом gRPC API [CatalogService/Get](../api-ref/grpc/Catalog/get.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
             -format json \
             -import-path ~/cloudapi/ \
             -import-path ~/cloudapi/third_party/googleapis/ \
-            -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
+            -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d '{
                     "cluster_id": "<идентификатор_кластера>",

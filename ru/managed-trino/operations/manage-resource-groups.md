@@ -42,7 +42,7 @@ description: Вы можете получить информацию о конф
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.Get](../api-ref/Cluster/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -63,7 +63,7 @@ description: Вы можете получить информацию о конф
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService.Get](../api-ref/grpc/Cluster/get.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом gRPC API [ClusterService/Get](../api-ref/grpc/Cluster/get.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -236,7 +236,7 @@ description: Вы можете получить информацию о конф
                  "group": "<имя_ресурсной_группы>"
                },
                {
-                 <Правило_маршрутизации_2> 
+                 <Правило_маршрутизации_2>
                },
                ...
                {
@@ -255,20 +255,20 @@ description: Вы можете получить информацию о конф
 
      {% include [resources-params-cli-tf-rest](../../_includes/managed-trino/resources-params-cli-tf-rest.md) %}
 
-  1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
          --request POST \
          --header "Authorization: Bearer $IAM_TOKEN" \
-         --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters'
+         --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters' \
          --data '@body.json'
      ```
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
-  
+
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
@@ -333,7 +333,7 @@ description: Вы можете получить информацию о конф
                  "group": "<имя_ресурсной_группы>"
                },
                {
-                 <Правило_маршрутизации_2> 
+                 <Правило_маршрутизации_2>
                },
                ...
                {
@@ -354,7 +354,7 @@ description: Вы можете получить информацию о конф
 
      Доступные параметры кластера и их описания представлены в [инструкции](cluster-create.md#create-cluster).
 
-  1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -431,14 +431,14 @@ description: Вы можете получить информацию о конф
      --from-file resource-groups.yaml
   ```
 
-  Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.   
+  Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
 - {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-  
+
      Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
-  
+
   1. Если описание ресурсных групп и правил маршрутизации в кластере {{ mtr-name }} еще не задано, добавьте в описание кластера блок `resource_groups`:
 
      {% include [resources-syntax-tf](../../_includes/managed-trino/resources-syntax-tf.md) %}
@@ -535,7 +535,7 @@ description: Вы можете получить информацию о конф
                  "group": "<имя_ресурсной_группы>"
                },
                {
-                 <Правило_маршрутизации_2> 
+                 <Правило_маршрутизации_2>
                },
                ...
                {
@@ -562,13 +562,13 @@ description: Вы можете получить информацию о конф
 
      {% include [resources-params-cli-tf-rest](../../_includes/managed-trino/resources-params-cli-tf-rest.md) %}
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
+       --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>' \
        --data '@body.json'
      ```
 
@@ -645,7 +645,7 @@ description: Вы можете получить информацию о конф
                  "group": "<имя_ресурсной_группы>"
                },
                {
-                 <Правило_маршрутизации_2> 
+                 <Правило_маршрутизации_2>
                },
                ...
                {
@@ -688,7 +688,7 @@ description: Вы можете получить информацию о конф
 
      {% include [resources-params-grpc](../../_includes/managed-trino/resources-params-grpc.md) %}
 
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -742,17 +742,17 @@ description: Вы можете получить информацию о конф
 - {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-  
+
       Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
-  
+
   1. Чтобы удалить все ресурсные группы и правила маршрутизации, удалите из описания кластера параметр `resource_groups`.
 
   1. Проверьте корректность настроек.
-  
+
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-  
+
   1. Подтвердите изменение ресурсов.
-  
+
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
@@ -786,13 +786,13 @@ description: Вы можете получить информацию о конф
 
         * `resourceGroups` — описание ресурсных групп и правил маршрутизации.
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
           --request PATCH \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>' \
           --data '@body.json'
         ```
 
@@ -829,7 +829,7 @@ description: Вы можете получить информацию о конф
       Где:
 
       * `cluster_id` — идентификатор кластера.
-          
+
           Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
       * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
@@ -857,7 +857,7 @@ description: Вы можете получить информацию о конф
 
       * `resource_groups` — описание ресурсных групп и правил маршрутизации.
 
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \

@@ -10,15 +10,17 @@ To connect to a VM via {{ oslogin }} with an SSH certificate using a standard SS
 1. Connect to the VM:
 
     ```bash
-    ssh -i <certificate_file_path> \
-      -l <user_or_service_account_login> <VM_public_IP_address>
+    ssh -i <path_to_certificate_file> \
+      -l <user_or_service_account_login> <VM_public_IP_address> \
+      -p <port>
     ```
 
     Where:
 
-    * `<certificate_file_path>`: Path to the certificate’s `Identity` file you exported previously, e.g., `/home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername`.
+    * `<path_to_certificate_file>`: Path to the certificate’s `Identity` file you exported previously. Here is an example: `/home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername`.
     * `<user_or_service_account_login>`: Previously obtained user or [service account](../../iam/concepts/users/service-accounts.md) login, as set in the {{ oslogin }} profile.
     * `<VM_public_IP_address>`: VM public IP address you saved earlier.
+    * `-p`: Connection port; `22` by default. If using any other port, make sure it is specified in `/etc/ssh/sshd_config` on your VM, and the security group allows inbound traffic. This is an optional parameter.
 
     You can also view the command for VM connection in the [management console]({{ link-console-main }}). On the **{{ ui-key.yacloud.compute.instance.overview.label_title }}** page of the VM, under **{{ ui-key.yacloud.compute.instance.overview.field_access }}**, expand **{{ ui-key.yacloud.compute.instance.overview.label_ssh-connect-card-title }}** and select the **{{ ui-key.yacloud.compute.instance.overview.label_cert-connect-tab }}** tab.
 

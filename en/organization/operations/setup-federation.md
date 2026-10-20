@@ -504,7 +504,7 @@ To correctly provide user information to {{ org-full-name }}, you need to set up
 * `phones`
 * `mobile`
 ||
-|| Profile image | Displayed in {{ yandex-cloud }} services. Images are transmitted in [Base64]({{ link-base64 }}) encoding. Value length limit: {{ saml-limit-thumbnail-photo }}. |
+|| Profile image | Displayed in {{ yandex-cloud }} services. The `thumbnailPhoto` attribute provides a Base64-encoded image with the {{ saml-limit-thumbnail-photo }} value length limit, while the `photos` and `picture` attributes provide a link to the image. |
 * `thumbnailPhoto`
 * `photos`
 * `picture`

@@ -1,0 +1,6 @@
+| № | Metric | Scope | Owner | Data source | Verification artifact | N/A / zero denominator rule |
+|---|---|---|---|---|---|---|
+| 14 | **Guardrails activation rate** | Guardrails are used (`AI-CONTENT1`). | Product owner / content manager | Guardrail events, application logs | Record: category, action, date, session | If guardrails are not used as a security measure: `N/A` |
+| 15 | **Share of stopped agent loops** | The system runs agent scenarios. | Agent owner / orchestrator | Agent logs, orchestrator metrics | Record: reason for termination, step number, limit | If there are no agent scenarios: `N/A` |
+| 16 | **RAG ACL effectiveness** | RAG contains documents with different permissions. | RAG owner / developer | Automated test results for document authorization | Protocol: allowed and prohibited subject, result before model call | If RAG operates without access control: `N/A` |
+| 17 | **HITL rate** | The system identifies actions with significant consequences. | Agent / security owner | Confirmation logs, agent traces | Record: action, confirmation subject, parameter version | If there are no actions requiring HITL: `N/A` |

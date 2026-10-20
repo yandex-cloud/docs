@@ -1,0 +1,1 @@
+In this section, a subject may refer to a person, service account, agent, MCP client, or tool backend. The access model from `AI-IAM-LEASTPRIV1` binds the subject, operation, resource, role, or any other policy and assignment level. Permissions for a cloud resource do not replace application-layer user authorization within the AI system.

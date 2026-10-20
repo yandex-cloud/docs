@@ -11,7 +11,7 @@
 
 * `--filesystem-external-s3-aws-access-key` — идентификатор AWS-совместимого статического ключа доступа.
 * `--filesystem-external-s3-aws-secret-key` — секретный ключ AWS-совместимого статического ключа доступа.
-* `--filesystem-external-s3-aws-endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
+* `--filesystem-external-s3-aws-endpoint` — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
 * `--filesystem-external-s3-aws-region` — регион файлового хранилища, например `ru-central1`.
 
   {% note info %}

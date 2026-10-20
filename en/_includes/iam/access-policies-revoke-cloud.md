@@ -21,6 +21,20 @@ To delete an access policy created for a [cloud](../../resource-manager/concepts
       * `--access-policy-template-id`: ID of the access policy template you want to delete for the specified cloud.
   1. [Make sure](../../resource-manager/operations/cloud/manage-access-policies.md#view-assigned) the policy was deleted.
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../terraform-install.md) %}
+
+  1. In the configuration, locate the `yandex_resource_manager_cloud_iam_policy_binding` resource with the IDs of the policy template in `access_policy_template_id` and cloud in `cloud_id`.
+  1. Remove the section of that resource. The cloud resource itself should not be deleted.
+  1. Apply the configuration:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      Make sure the plan removes only the correct policy binding. These steps apply to the binding managed by the current {{ TF }} configuration.
+
 - API {#api}
 
   Use the [unbindAccessPolicy](../../resource-manager/api-ref/Cloud/unbindAccessPolicy.md) REST API method for the [Cloud](../../resource-manager/api-ref/Cloud/index.md) resource or the [CloudService/UnbindAccessPolicy](../../resource-manager/api-ref/grpc/Cloud/unbindAccessPolicy.md) gRPC API call.

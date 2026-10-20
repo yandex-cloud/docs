@@ -30,4 +30,6 @@ _Имперсонацией_ в {{ mtr-name }} называется выполн
 
 ### {{ objstorage-name }} {#objstorage-integration}
 
-{{ objstorage-name }} — это сервис для хранения данных. Для взаимодействия {{ mtr-full-name }} с бакетом {{ objstorage-name }} необходим кластер {{ metastore-full-name }}. Сервисным аккаунтам, привязанным к кластерам {{ mtr-name }} и {{ metastore-full-name }}, нужно назначить роль `storage.editor`.
+{{ objstorage-name }} — это сервис для хранения данных. Для чтения и записи данных в бакете сервисному аккаунту кластера {{ mtr-name }} нужно назначить роль `storage.editor`. Если для хранения метаданных используется кластер {{ metastore-full-name }}, эту роль также нужно назначить сервисному аккаунту кластера {{ metastore-name }}.
+
+Способ хранения метаданных зависит от коннектора: например, [коннектор Iceberg](../operations/catalog-create.md#iceberg) поддерживает {{ metastore-name }} и REST Catalog. Для использования бакета в качестве [хранилища промежуточных результатов Exchange Manager](retry-policy.md#exchange-manager-storage) кластер {{ metastore-name }} не требуется.

@@ -71,6 +71,16 @@ apiPlayground:
             the MFA enforcement description
             The maximum string length in characters is 256.
           type: string
+        ssprPolicies:
+          description: |-
+            **string**
+            sspr_policies for the MFA enforcement. Accepted values: 'mfa', 'two-any',
+            specification https://yandex.cloud/en/docs/organization/concepts/sspr
+            The maximum string length in characters for each value is 50. The number of elements must be in the range 0-10.
+          uniqueItems: true
+          type: array
+          items:
+            type: string
       required:
         - organizationId
         - acrId
@@ -103,7 +113,10 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/mfaEnfo
   "applyAt": "string",
   "enrollWindow": "string",
   "name": "string",
-  "description": "string"
+  "description": "string",
+  "ssprPolicies": [
+    "string"
+  ]
 }
 ```
 
@@ -153,6 +166,12 @@ Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
 the MFA enforcement description
 
 The maximum string length in characters is 256. ||
+|| ssprPolicies[] | **string**
+
+sspr_policies for the MFA enforcement. Accepted values: 'mfa', 'two-any',
+specification https://yandex.cloud/en/docs/organization/concepts/sspr
+
+The maximum string length in characters for each value is 50. The number of elements must be in the range 0-10. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

@@ -1,9 +1,9 @@
 ---
-title: Managing bucket action logging in {{ objstorage-full-name }}
-description: Follow this guide to use bucket action logging in {{ objstorage-name }}.
+title: Logging bucket actions in {{ objstorage-full-name }}
+description: Follow this guide to manage bucket action logging in {{ objstorage-name }}.
 ---
 
-# Managing bucket logging
+# Logging bucket actions
 
 
 To monitor [bucket](../../concepts/bucket.md) operations, enable [logging](../../concepts/server-logs.md).
@@ -14,7 +14,7 @@ Detailed information about requests to the _source_ bucket will be saved in an [
 
 By default, logging is disabled. After you enable it, {{ objstorage-name }} will log info about bucket operations once an hour.
 
-## Enabling logging {#enable}
+## Enable logging {#enable}
 
 To log bucket access:
 
@@ -34,7 +34,7 @@ To log bucket access:
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select a folder.
+      1. In the [management console]({{ link-console-main }}), select the folder.
       1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Select the bucket you want to configure logging for.
       1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
@@ -155,13 +155,13 @@ If you want to delete the target bucket, first [disable logging](#stop-logging) 
 
 ## Getting logging settings {#get-settings}
 
-To get the target bucket name and the log object key prefix, follow these steps:
+To get the target bucket name and the log object key prefix:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select a folder.
+   1. In the [management console]({{ link-console-main }}), select the folder.
    1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Select the original bucket.
    1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
@@ -260,7 +260,7 @@ To get logs, download the object prefixed with `logs/` from the target bucket:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the target bucket with logs.
   1. Go to the `logs/` directory.
@@ -290,7 +290,7 @@ To disable logging, follow these steps:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to disable logging for.
   1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.

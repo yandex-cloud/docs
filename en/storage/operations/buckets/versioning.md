@@ -1,9 +1,9 @@
 ---
-title: Managing bucket versioning in {{ objstorage-full-name }}
-description: Follow this guide to learn how to manage an {{ objstorage-name }} bucket versioning.
+title: Enabling and pausing bucket versioning in {{ objstorage-full-name }}
+description: Follow this guide to enable and pause bucket versioning in {{ objstorage-name }}.
 ---
 
-# Managing bucket versioning
+# Enabling and pausing bucket versioning
 
 Bucket [versioning](../../concepts/versioning.md) enables keeping a history of an object through its versions.
 
@@ -11,13 +11,13 @@ Bucket [versioning](../../concepts/versioning.md) enables keeping a history of a
 
 {% include [versioning-suspend-rule](../../../_includes/storage/versioning-suspend-rule.md) %}
 
-To enable bucket versioning:
+To enable or pause bucket versioning:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click the name of the bucket in question.
   1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_versioning }}**.
@@ -30,7 +30,7 @@ To enable bucket versioning:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command for editing a bucket ACL:
+  1. See the description of the CLI command for updating bucket settings:
 
      ```bash
      yc storage bucket update --help

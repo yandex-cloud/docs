@@ -19,7 +19,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. Navigate to the **{{ ui-key.yacloud.trino.title_catalogs }}** tab.
@@ -178,7 +178,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
     * **Connection ID**: Connection ID in {{ connection-manager-name }} for connection to the {{ CH }} cluster.
 
         To find out the connection ID:
-        1. In the [management console]({{ link-console-main }}), select a folder.
+        1. In the [management console]({{ link-console-main }}), select the folder.
         1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
         1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
@@ -208,7 +208,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
     * `--connection-manager-connection-id`: Connection ID in {{ connection-manager-name }} for connecting to the {{ CH }} cluster.
 
       To find out the connection ID:
-        1. In the [management console]({{ link-console-main }}), select a folder.
+        1. In the [management console]({{ link-console-main }}), select the folder.
         1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
         1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.   
 
@@ -248,7 +248,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
         * `connection_id`: Connection ID in {{ connection-manager-name }} for connecting to the {{ CH }} cluster.
 
             To find out the connection ID:
-            1. In the [management console]({{ link-console-main }}), select a folder.
+            1. In the [management console]({{ link-console-main }}), select the folder.
             1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
             1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
@@ -299,7 +299,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
         * `connectionId`: Connection ID in {{ connection-manager-name }} for connecting to the {{ CH }} cluster.
 
             To find out the connection ID:
-            1. In the [management console]({{ link-console-main }}), select a folder.
+            1. In the [management console]({{ link-console-main }}), select the folder.
             1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
             1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
@@ -356,7 +356,7 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
         * `connection_id`: Connection ID in {{ connection-manager-name }} for connecting to the {{ CH }} cluster.
 
             To find out the connection ID:
-            1. In the [management console]({{ link-console-main }}), select a folder.
+            1. In the [management console]({{ link-console-main }}), select the folder.
             1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
             1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
@@ -688,7 +688,7 @@ ALTER ROLE <{{ GP }}_username> CREATEEXTTABLE (type='writable');
 
 {% note warning %}
 
-Data transmitted between the {{ mtr-name }} and {{ mgp-name }} clusters over the GPFDIST protocol is unencrypted. To secure your connection, [configure cluster security groups](connect.md#security-groups-for-greenplum).
+Make sure to [enable access from {{ TR }}](../../managed-greenplum/operations/gpfdist/trino-access.md) in the {{ mgp-name }} cluster settings to ensure a secure connection over GPFDIST. Data between {{ GP }} segments and {{ TR }} workers is transmitted in encrypted form. Also, [configure cluster security groups](connect.md#security-groups-for-greenplum).
 
 {% endnote %}
 
@@ -1642,7 +1642,7 @@ Where the `hive.hive-views.run-as-invoker` parameter value is explicitly specifi
     * **Connection ID**: Connection ID in {{ connection-manager-name }} for connection to the {{ PG }} cluster.
 
         To find out the connection ID:
-        1. In the [management console]({{ link-console-main }}), select a folder.
+        1. In the [management console]({{ link-console-main }}), select the folder.
         1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
         1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
@@ -1668,7 +1668,7 @@ Where the `hive.hive-views.run-as-invoker` parameter value is explicitly specifi
     * `--connection-manager-connection-id`: Connection ID in {{ connection-manager-name }} for connecting to the {{ PG }} cluster.
 
         To find out the connection ID:
-        1. In the [management console]({{ link-console-main }}), select a folder.
+        1. In the [management console]({{ link-console-main }}), select the folder.
         1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
         1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
@@ -1708,7 +1708,7 @@ Where the `hive.hive-views.run-as-invoker` parameter value is explicitly specifi
         * `connection_id`: Connection ID in {{ connection-manager-name }} for connecting to the {{ PG }} cluster.
 
             To find out the connection ID:
-            1. In the [management console]({{ link-console-main }}), select a folder.
+            1. In the [management console]({{ link-console-main }}), select the folder.
             1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
             1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
@@ -1759,7 +1759,7 @@ Where the `hive.hive-views.run-as-invoker` parameter value is explicitly specifi
         * `connectionId`: Connection ID in {{ connection-manager-name }} for connecting to the {{ PG }} cluster.
 
             To find out the connection ID:
-            1. In the [management console]({{ link-console-main }}), select a folder.
+            1. In the [management console]({{ link-console-main }}), select the folder.
             1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
             1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
@@ -1816,7 +1816,7 @@ Where the `hive.hive-views.run-as-invoker` parameter value is explicitly specifi
         * `connection_id`: Connection ID in {{ connection-manager-name }} for connecting to the {{ PG }} cluster.
 
             To find out the connection ID:
-            1. In the [management console]({{ link-console-main }}), select a folder.
+            1. In the [management console]({{ link-console-main }}), select the folder.
             1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
             1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
@@ -1998,7 +1998,7 @@ Where the `hive.hive-views.run-as-invoker` parameter value is explicitly specifi
     * **Connection ID**: Connection ID in {{ connection-manager-name }} for connection to the {{ MY }} cluster.
 
         To find out the connection ID:
-        1. In the [management console]({{ link-console-main }}), select a folder.
+        1. In the [management console]({{ link-console-main }}), select the folder.
         1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
         1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
@@ -2026,7 +2026,7 @@ Where the `hive.hive-views.run-as-invoker` parameter value is explicitly specifi
     * `--connection-manager-connection-id`: Connection ID in {{ connection-manager-name }} for connecting to the {{ MY }} cluster.
 
         To find out the connection ID:
-        1. In the [management console]({{ link-console-main }}), select a folder.
+        1. In the [management console]({{ link-console-main }}), select the folder.
         1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
         1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
@@ -2064,7 +2064,7 @@ Where the `hive.hive-views.run-as-invoker` parameter value is explicitly specifi
         * `connection_id`: Connection ID in {{ connection-manager-name }} for connecting to the {{ MY }} cluster.
 
             To find out the connection ID:
-            1. In the [management console]({{ link-console-main }}), select a folder.
+            1. In the [management console]({{ link-console-main }}), select the folder.
             1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
             1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
@@ -2113,7 +2113,7 @@ Where the `hive.hive-views.run-as-invoker` parameter value is explicitly specifi
         * `connectionId`: Connection ID in {{ connection-manager-name }} for connecting to the {{ MY }} cluster.
 
             To find out the connection ID:
-            1. In the [management console]({{ link-console-main }}), select a folder.
+            1. In the [management console]({{ link-console-main }}), select the folder.
             1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
             1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
@@ -2168,7 +2168,7 @@ Where the `hive.hive-views.run-as-invoker` parameter value is explicitly specifi
         * `connection_id`: Connection ID in {{ connection-manager-name }} for connecting to the {{ MY }} cluster.
 
             To find out the connection ID:
-            1. In the [management console]({{ link-console-main }}), select a folder.
+            1. In the [management console]({{ link-console-main }}), select the folder.
             1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
             1. Click the cluster name and navigate to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 

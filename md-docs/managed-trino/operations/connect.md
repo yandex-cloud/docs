@@ -132,7 +132,7 @@
 1. Подключитесь к кластеру Managed Service for Trino:
 
    ```bash
-   ./trino c-<идентификатор_кластера>.trino.yandexcloud.net --user iam --password
+   ./trino https://c-<идентификатор_кластера>.trino.yandexcloud.net --user iam --password
    ```
 
    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -269,7 +269,7 @@
 1. Установите зависимости:
 
     ```bash
-    sudo apt update && sudo apt install --yes openjdk-21-jre maven
+    sudo apt update && sudo apt install --yes openjdk-21-jdk maven
     ```
 
 1. Создайте директорию для проекта Maven:
@@ -350,7 +350,7 @@
 
     ```
 
-    {% endcut %}  
+    {% endcut %}
 
 1. Создайте [IAM-токен](../../iam/concepts/authorization/iam-token.md) и поместите его в переменную окружения `TOKEN`:
 
@@ -378,7 +378,7 @@
           public static void main(String[] args) {
               String url = String.format("jdbc:trino://%s", COORDINATOR_URL);
               String iamToken = System.getenv("TOKEN");
-        
+
               Properties properties = new Properties();
               properties.setProperty("user", "iam");
               properties.setProperty("password", iamToken);
@@ -436,7 +436,7 @@
     "use strict";
     import {BasicAuth, Trino} from 'trino-client';
 
-    const COORDINATOR_URL = 'c-<идентификатор_кластера>.trino.yandexcloud.net'
+    const COORDINATOR_URL = 'https://c-<идентификатор_кластера>.trino.yandexcloud.net'
     let TOKEN = process.env.TOKEN
 
     async function get_version() {

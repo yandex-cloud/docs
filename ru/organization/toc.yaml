@@ -355,6 +355,8 @@ items:
             href: tutorials/single-sign-on/oidc-warpgate.md
           - name: Zabbix
             href: tutorials/single-sign-on/saml-zabbix.md
+          - name: МТС Линк
+            href: tutorials/single-sign-on/saml-mts-link.md
           - name: Пассворк
             href: tutorials/single-sign-on/saml-passwork.md
           - name: '{{ yandex-360 }}'

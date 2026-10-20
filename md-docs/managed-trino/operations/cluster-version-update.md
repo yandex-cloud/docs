@@ -15,7 +15,7 @@
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
     1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
     1. Выберите кластер и нажмите на панели сверху кнопку **Редактировать**. Откроется страница редактирования кластера.
-      
+
         Список доступных версий можно посмотреть в поле **Версия**.
 
 {% endlist %}
@@ -62,16 +62,16 @@
           --version <версия_Trino>
         ```
 
-        Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.   
+        Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
 - Terraform {#tf}
 
     1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
-        
+
     1. Измените в описании кластера значение параметра `version`:
-      
+
         ```hcl
         resource "yandex_trino_cluster" "<имя_кластера>" {
           ...
@@ -143,13 +143,13 @@
 
         * `trino.version` — версия Trino.
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
           --request PATCH \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>'
+          --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>' \
           --data '@body.json'
         ```
 
@@ -192,7 +192,7 @@
         Где:
 
         * `cluster_id` — идентификатор кластера.
-            
+
             Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
         * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
@@ -220,7 +220,7 @@
 
         * `version` — версия Trino.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \

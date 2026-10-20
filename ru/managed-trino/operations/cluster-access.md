@@ -38,7 +38,7 @@ description: Следуя данной инструкции, вы настрои
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.ListAccessBindings](../api-ref/Cluster/listAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом REST API [listAccessBindings](../api-ref/Cluster/listAccessBindings.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -57,7 +57,7 @@ description: Следуя данной инструкции, вы настрои
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService.ListAccessBindings](../api-ref/grpc/Cluster/listAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/ListAccessBindings](../api-ref/grpc/Cluster/listAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -131,7 +131,7 @@ description: Следуя данной инструкции, вы настрои
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.UpdateAccessBindings](../api-ref/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом REST API [updateAccessBindings](../api-ref/Cluster/updateAccessBindings.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -176,7 +176,7 @@ description: Следуя данной инструкции, вы настрои
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService.UpdateAccessBindings](../api-ref/grpc/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/UpdateAccessBindings](../api-ref/grpc/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -286,7 +286,7 @@ description: Следуя данной инструкции, вы настрои
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.SetAccessBindings](../api-ref/Cluster/setAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом REST API [setAccessBindings](../api-ref/Cluster/setAccessBindings.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -349,7 +349,7 @@ description: Следуя данной инструкции, вы настрои
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService.SetAccessBindings](../api-ref/grpc/Cluster/setAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/SetAccessBindings](../api-ref/grpc/Cluster/setAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -458,7 +458,7 @@ description: Следуя данной инструкции, вы настрои
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.UpdateAccessBindings](../api-ref/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом REST API [updateAccessBindings](../api-ref/Cluster/updateAccessBindings.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -503,7 +503,7 @@ description: Следуя данной инструкции, вы настрои
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService.UpdateAccessBindings](../api-ref/grpc/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/UpdateAccessBindings](../api-ref/grpc/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -611,7 +611,7 @@ description: Следуя данной инструкции, вы настрои
 
       Где `access_binding_deltas.subject.id` — идентификатор сервисного аккаунта, которому назначается роль.
 
-  1. Воспользуйтесь методом [Cluster.UpdateAccessBindings](../api-ref/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом REST API [updateAccessBindings](../api-ref/Cluster/updateAccessBindings.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \

@@ -2,6 +2,14 @@
 
 A virtual machine can have [one or more](./limits.md) network interfaces. When creating a VM, you need to configure at least one of its network interfaces by selecting the [subnet](../../vpc/concepts/network.md#subnet) to connect your VM to, configuring [internal](#internal-ip) and [public IP addresses](#public-ip), and adding the required [security groups](../../vpc/concepts/security-groups.md). This will allow the VM to connect to other services on the intranet and internet.
 
+{% note info %}
+
+The [Predictable Network Interface Names](https://systemd.io/PREDICTABLE_INTERFACE_NAMES/) naming schema is disabled in [public images](image.md#public). VM network interfaces are named in line with the standard schema: `eth0`, `eth1`, `...`, `ethN`, where N is the network interface number in the VM configuration, starting from zero. The numbering may contain gaps: for example, after deleting interface No. 1, the `eth0` and `eth2` names are retained.
+
+When [preparing](../operations/image-create/custom-image.md) a custom VM image, we recommend to disable this schema during the build stage. After disabling the schema, check the network setting bindings to interface names and update them if required. Reboot the VM and make sure all network interfaces are getting IP addresses via DHCP.
+
+{% endnote %}
+
 After the network interface is connected, the VM will be assigned an internal IP address in the subnet. A public IP address will be assigned only if you specified it in the network interface settings.
 
 You can find out the IP addresses, FQDNs, and other information in the management console by going to the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section on the virtual machine page. This data can be used to connect to the VM.

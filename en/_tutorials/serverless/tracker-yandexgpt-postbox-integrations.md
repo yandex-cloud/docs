@@ -37,7 +37,7 @@ The cost of support for the new infrastructure includes:
 
 * Fee for storing the [secret]({{ link-docs }}/lockbox/concepts/secret) and requests to the secret (see [{{ lockbox-name }} pricing]({{ link-docs }}/lockbox/pricing)).
 * Fee for using {{ ai-studio-full-name }} (see [{{ ai-studio-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)).
-* Fee for using {{ tracker-full-name }} (see [{{ tracker-name }} pricing]({{ link-tracker-cloudless }}pricing)).
+* Fee for using {{ tracker-full-name }} (see [{{ tracker-name }} pricing](https://yandex.ru/support/tracker/{{ lang }}/pricing)).
 * Fee for using {{ postbox-full-name }} (see [{{ postbox-name }} pricing]({{ link-docs }}/postbox/pricing)).
 
 ## Create a service account {#service-account}
@@ -568,7 +568,7 @@ To stop paying for the resources you created:
 
     {% endlist %}
 1. [Delete the secret]({{ link-docs }}/lockbox/operations/secret-delete).
-1. Delete the {{ tracker-name }} [issues]({{ link-tracker-cloudless }}user/ticket-cancel) and [queue]({{ link-tracker-cloudless }}manager/delete-queue).
+1. Delete the {{ tracker-name }} [issues](https://yandex.ru/support/tracker/{{ lang }}/user/ticket-cancel) and [queue]({{ link-tracker-cloudless }}manager/delete-queue).
 1. Optionally, delete the {{ postbox-name }} address:
 
     {% list tabs group=instructions %}

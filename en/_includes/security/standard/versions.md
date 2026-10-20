@@ -2,6 +2,18 @@
 
 ### Changes in version {{ security-standard-current-version }} {#current-version}
 
+Publication date: 16/09/2026.
+
+* **Updated the following items**:
+
+  * Clarified the roles for managing group composition in **1.4 Only appropriate administrators can manage {{ iam-short-name }} group membership**. Specified that the `{{ roles-editor }}` role does not allow managing group membership or assigning roles. The `organization-manager.groups.memberAdmin` role is recommended for managing the composition of a specific group.
+  * In **1.5 Service roles are used instead of primitive ones: {{ roles-admin }}, {{ roles-editor }}, {{ roles-viewer }}, {{ roles-auditor }}**, service roles are recommended for viewing the configuration and metadata. Added the `{{ roles-auditor }}` role to the primitive role checks in the management console and Bash.
+  * Added a warning to **1.6 The {{ roles-auditor }} role is used to prevent access to user data**: it is safer to use `auditor`-level service roles, and when assigning the primitive `{{ roles-auditor }}` role, restricting the set of resources and factoring in permission inheritance are required.
+  * In **1.17 Privileged roles are assigned only to trusted administrators**, service roles with the minimum required permissions are recommended instead of primitive roles. Specified the `billing.accounts.editor`, `billing.accounts.admin`, and `billing.accounts.viewer` roles for working with the billing account depending on the employee's tasks; updated the check for privileged assignments.
+  * In **1.19 Contractor and third-party access control is enabled**, service roles without data access are recommended instead of the primitive `{{ roles-auditor }}` role.
+
+### Changes in version 1.4.3 {#version-1-4-3}
+
 Publication date: 08/09/2026.
 
 * Added a footnote for requirements with compliance checks available in [CSPM](../../../security-deck/concepts/standard-compliance/yc-cloud-security-standard.md).

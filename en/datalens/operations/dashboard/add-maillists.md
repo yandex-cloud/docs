@@ -112,7 +112,7 @@ To add a mailing list for your dashboard:
    
      {% endcut %}
 
-   * Under **Email to**, specify the recipients.
+   * Under **To**, specify the mailing list recipients and choose who can subscribe to it: editor and administrator only (default) or any user.
 
      
      {% note info %}

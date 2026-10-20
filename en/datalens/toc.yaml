@@ -19,7 +19,7 @@ items:
         href: workbooks-collections/workbooks-operations.md
       - name: Operations with collections
         href: workbooks-collections/collections-operations.md
-      - name: Migrating objects to workbooks from directories
+      - name: Migrating objects to workbooks from folders
         href: workbooks-collections/migrations.md
       - name: Exporting and importing workbooks
         href: workbooks-collections/export-and-import.md
@@ -880,7 +880,7 @@ items:
         href: dashboard/markdown.md
       - name: Step-by-step guides
         items:
-          - name: Creating a dashboard
+          - name: Building a dashboard
             href: operations/dashboard/create.md
           - name: Dashboard widgets
             items:
@@ -966,6 +966,8 @@ items:
     items:
       - name: Overview
         href: concepts/maillists.md
+      - name: List of mailing lists
+        href: concepts/maillists-list.md
       - name: Mailing lists for dashboards
         href: operations/dashboard/add-maillists.md
       - name: Mailing lists for reports
@@ -986,7 +988,7 @@ items:
         href: security/embedded-objects.md
       - name: Sharing an object within an organization
         href: concepts/datalens-sharing.md
-      - name: Embedding via a JWT
+      - name: Embedding via JWT
         href: security/private-embedded-objects.md
   - name: Access management
     items:
@@ -1362,7 +1364,7 @@ items:
       - name: August 2026
         href: release-notes/index.md
       - name: July 2026
-        href: release-notes/index.md
+        href: release-notes/2607.md
       - name: June 2026
         href: release-notes/2606.md
       - name: May 2026
@@ -1522,7 +1524,7 @@ items:
       - name: File check failed
         hidden: true
         href: troubleshooting/errors/ERR-FILE-UNSUPPORTED_DOCUMENT.md
-      - name: Incorrect Yandex Documents link format
+      - name: Invalid Yandex Documents link format
         hidden: true
         href: >-
           troubleshooting/errors/ERR-FILE-INVALID_LINK-YADOCS_INVALID_PUBLIC_LINK_PREFIX.md
@@ -1675,7 +1677,7 @@ items:
       - name: Formula syntax error
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FORMULA-PARSE-UNEXPECTED_TOKEN.md
-      - name: Data type conversion error
+      - name: Data type cast error
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-TYPE_CAST-FAILED.md
       - name: Accessing a non-existent object

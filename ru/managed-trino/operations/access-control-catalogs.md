@@ -105,9 +105,9 @@ description: Правила описывают общий контроль до�
 - {{ TF }} {#tf}
 
   1. Создайте конфигурационный файл {{ TF }} с [планом инфраструктуры](cluster-create.md).
-  
+
   1. Добавьте в конфигурационный файл ресурс `yandex_trino_access_control`, содержащий список правил `catalogs`.
- 
+
      ```hcl
      resource "yandex_trino_cluster" "<имя_кластера>" {
        ...
@@ -138,7 +138,7 @@ description: Правила описывают общий контроль до�
              ids         = [
                yandex_trino_catalog.<имя_каталога_1>.id,
                yandex_trino_catalog.<имя_каталога_2>.id,
-               ... 
+               ...
                yandex_trino_catalog.<имя_каталога_N>.id
              ]
              name_regexp = "<регулярное_выражение>"
@@ -149,12 +149,12 @@ description: Правила описывают общий контроль до�
          },
          # Правило 2
          {
-           ... 
+           ...
          },
          ...
          # Правило N
          {
-           ... 
+           ...
          }
        ]
        ...
@@ -179,13 +179,13 @@ description: Правила описывают общий контроль до�
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
   1. Проверьте корректность настроек.
-  
+
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-  
+
   1. Подтвердите изменение ресурсов.
-  
+
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
- 
+
   Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mtr-access }}).
 
 - REST API {#api}
@@ -265,7 +265,7 @@ description: Правила описывают общий контроль до�
         * `ALL` — разрешены любые операции. В этом случае доступ пользователей к объектам каталога определяется более гранулярными правилами, например правилами для таблиц.
 
       * `catalog` — каталоги, на которые распространяется правило. Если блок `catalog` не указан, правило распространяется на все каталоги кластера.
-        * `names` — список имен каталогов. Каталоги должны создаваться в этом же вызове [Cluster.Create](../api-ref/Cluster/create.md).
+        * `names` — список имен каталогов. Каталоги должны создаваться в этом же вызове метода REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md).
         * `nameRegexp` — регулярное выражение. Правило распространяется на каталоги, имена которых соответствуют регулярному выражению.
 
         Блок `catalog` должен содержать либо вложенный блок `names`, либо параметр `nameRegexp`.
@@ -274,13 +274,13 @@ description: Правила описывают общий контроль до�
 
       Доступные параметры кластера и их описания представлены в [инструкции](cluster-create.md#create-cluster).
 
-  1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
           --request POST \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters'
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters' \
           --data '@body.json'
       ```
 
@@ -365,7 +365,7 @@ description: Правила описывают общий контроль до�
         * `ALL` — разрешены любые операции. В этом случае доступ пользователей к объектам каталога определяется более гранулярными правилами, например правилами для таблиц.
 
       * `catalog` — каталоги, на которые распространяется правило. Если блок `catalog` не указан, правило распространяется на все каталоги кластера.
-        * `names` — список имен каталогов. Каталоги должны создаваться в этом же вызове [ClusterService/Create](../api-ref/grpc/Cluster/create.md).
+        * `names` — список имен каталогов. Каталоги должны создаваться в этом же вызове gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md).
         * `name_regexp` — регулярное выражение. Правило распространяется на каталоги, имена которых соответствуют регулярному выражению.
 
         Блок `catalog` должен содержать либо вложенный блок `names`, либо параметр `name_regexp`.
@@ -374,7 +374,7 @@ description: Правила описывают общий контроль до�
 
       Доступные параметры кластера и их описания представлены в [инструкции](cluster-create.md#create-cluster).
 
-  1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -497,11 +497,11 @@ description: Правила описывают общий контроль до�
 - {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-  
+
       Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
-  
+
   1. Если правила доступа еще не заданы, добавьте ресурс `yandex_trino_access_control`, содержащий список правил `catalogs`.
- 
+
      ```hcl
      resource "yandex_trino_cluster" "<имя_кластера>" {
        ...
@@ -532,7 +532,7 @@ description: Правила описывают общий контроль до�
              ids         = [
                yandex_trino_catalog.<имя_каталога_1>.id,
                yandex_trino_catalog.<имя_каталога_2>.id,
-               ... 
+               ...
                yandex_trino_catalog.<имя_каталога_N>.id
              ]
              name_regexp = "<регулярное_выражение>"
@@ -543,12 +543,12 @@ description: Правила описывают общий контроль до�
          },
          # Правило 2
          {
-           ... 
+           ...
          },
          ...
          # Правило N
          {
-           ... 
+           ...
          }
        ]
        ...
@@ -579,13 +579,13 @@ description: Правила описывают общий контроль до�
      * удалить ненужные правила.
 
   1. Проверьте корректность настроек.
-  
+
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-  
+
   1. Подтвердите изменение ресурсов.
-  
+
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
- 
+
   Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mtr-access }}).
 
 - REST API {#api}
@@ -672,13 +672,13 @@ description: Правила описывают общий контроль до�
      * изменить параметры существующих правил;
      * удалить ненужные правила.
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
         --request PATCH \
         --header "Authorization: Bearer $IAM_TOKEN" \
-        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>' \
         --data '@body.json'
       ```
 
@@ -746,7 +746,7 @@ description: Правила описывают общий контроль до�
       Где:
 
       * `cluster_id` — идентификатор кластера.
-          
+
           Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
       * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
@@ -796,7 +796,7 @@ description: Правила описывают общий контроль до�
      * изменить параметры существующих правил;
      * удалить ненужные правила.
 
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \

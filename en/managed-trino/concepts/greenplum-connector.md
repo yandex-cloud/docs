@@ -55,6 +55,8 @@ The connector allows reading data directly from {{ GP }} segments via [GPFDIST s
 
 In a {{ TR }} cluster, you can create not more than eight catalogs with active GPFDIST servers.
 
+Make sure to enable **Access from Trino** in the {{ mgp-name }} cluster settings to be able to read data over GPFDIST. Data between {{ GP }} segments and {{ TR }} workers is transmitted in encrypted form. For details, see [Access from {{ TR }}](../../managed-greenplum/operations/gpfdist/trino-access.md).
+
 Direct reading from {{ GP }} segments follow these steps:
 
 1. The connector creates an external table giving the address of the {{ TR }} worker to read data:
@@ -62,7 +64,7 @@ Direct reading from {{ GP }} segments follow these steps:
     ```sql
     CREATE WRITABLE EXTERNAL TEMPORARY TABLE <external_table_name>
            ...
-           LOCATION('gpfdist://<{{ TR }}_worker_address>');
+           LOCATION('gpfdists://<{{ TR }}_worker_address>');
     ```
 
 1. The connector runs the following query:
@@ -84,7 +86,7 @@ sequenceDiagram
     participant s2 as Greenplum Segment 2
 
     activate w1
-    w1 ->> m : CREATE WRITABLE EXTERNAL TABLE ext_table <br>LOCATION ('gpfdist://worker1/table1')
+    w1 ->> m : CREATE WRITABLE EXTERNAL TABLE ext_table <br>LOCATION ('gpfdists://worker1/table1')
     activate m
     m -->> w1 : OK
     deactivate m
@@ -141,7 +143,7 @@ The connector's basic settings and their corresponding session properties match 
 | `greenplum.gpfdist.max-processing-threads` | Maximum size of thread pool for asynchronous GPFDIST query processing                                                                                                                                                                                                                                                                                                                               | `32`                          |
 | `greenplum.gpfdist.max-query-threads`      | Maximum size of thread pool creating external {{ GP }} tables and initiating data writes to an external table                                                                                                                                                                                                                                                                                                | `32`                          |
 | `greenplum.gpfdist.read.enabled`           | Enables reading data directly from {{ GP }} segments over the GPFDIST protocol                                                                                                                                                                                                                                                                                                                                           | `false`                       |
-| `greenplum.gpfdist.read.buffer-size`       | <p>Buffer size for GPFDIST data reads in [data size]({{ tr.docs }}/admin/properties.html#data-size) format. If the buffer overflows, the connector suspends data reception from {{ GP }} segments.</p><p>Matches the `gpfdist_read_buffer_size` session property</p>                                                                                                                        | `32MB`                        |
+| `greenplum.gpfdist.read.buffer-size`       | <p>Buffer size for GPFDIST data reads in [data size]({{ tr.docs }}/admin/properties.html#data-size) format. If the buffer overflows, the connector suspends data ingestion from {{ GP }} segments.</p><p>Matches the `gpfdist_read_buffer_size` session property</p>                                                                                                                        | `32MB`                        |
 | `greenplum.gpfdist.retry-timeout`          | <p>Maximum time a {{ GP }} segment will wait for a response to a GPFDIST query, in [duration]({{ tr.docs }}/admin/properties.html#duration) format.</p><p>If the value is other than `null`, this setting overrides the {{ GP }} [gpfdist_retry_timeout]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html#gpfdist_retry_timeout) property (300 seconds by default)</p> | `null`                        |
 | `greenplum.max-read-parallelism`           | <p>Maximum parallelism for data reads from {{ GP }}.</p><p>Matches the `max_read_parallelism` session property</p>                                                                                                                                                                                                                                                                                  | `1` (no parallelism) |
 | `greenplum.segment-fetch-required`         | <p>Decides the connector's behavior if it fails to get informed about the number of {{ GP }} segments:</p><p><ul><li>If `true`, the {{ TR }} query will fail.</li><li>If `false`, the level of parallelism will be equal to the `max_read_parallelism` session property value.</li></ul></p><p>Matches the `segment_fetch_required` session property</p>                             | `true`                        |

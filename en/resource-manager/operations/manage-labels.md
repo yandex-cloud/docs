@@ -1,6 +1,11 @@
+---
+title: Managing labels in {{ resmgr-full-name }}
+description: Adding, updating, or deleting resource labels using the management console, CLI, Terraform, and API in {{ resmgr-name }}.
+---
+
 # Managing labels
 
-You can add, delete, or update resource [labels](../concepts/labels.md#services) in the management console, {{ yandex-cloud }} CLI, and {{ TF }}.
+You can add, delete, or update resource [labels](../concepts/labels.md#services) in the management console, {{ yandex-cloud }} CLI, {{ TF }}, and API.
 
 Labels are supported in certain [services](../concepts/labels.md#services). Label management in some services, such as [{{ objstorage-name }}](../../storage/operations/buckets/tagging.md), may be different.
 
@@ -90,6 +95,17 @@ Labels are supported in certain [services](../concepts/labels.md#services). Labe
   > }
   > ```
 
+- API {#api}
+
+    To add a cloud or folder label, use one of these methods:
+
+    * For a cloud, use the [update](../api-ref/Cloud/update.md) REST API method for the [Cloud](../api-ref/Cloud/index.md) resource or the [CloudService/Update](../api-ref/grpc/Cloud/update.md) gRPC API call.
+    * For a folder, use the [update](../api-ref/Folder/update.md) REST API method for the [Folder](../api-ref/Folder/index.md) resource or the [FolderService/Update](../api-ref/grpc/Folder/update.md) gRPC API call.
+
+    Use the [Cloud.get](../api-ref/Cloud/get.md) or [Folder.get](../api-ref/Folder/get.md) method to get the current labels. Add a new key-value pair to the current set of labels.
+
+    In the update request, specify `updateMask: "labels"` and the complete final set of labels in `labels`, including those that need to be saved. The provided set replaces the existing resource labels.
+
 {% endlist %}
 
 You can create a label with multiple values. For example, create a label named `my-cloud` with multiple values:
@@ -99,7 +115,7 @@ You can create a label with multiple values. For example, create a label named `
 
 ## Updating a label {#update-label}
 
-You can only edit resource labels using the {{ yandex-cloud }} CLI and {{ TF }}.
+You can update resource labels using the {{ yandex-cloud }} CLI, {{ TF }}, and API.
 
 {% list tabs group=instructions %}
 
@@ -163,6 +179,17 @@ You can only edit resource labels using the {{ yandex-cloud }} CLI and {{ TF }}.
   yc <service_name> <resource_type> get <resource_name_or_ID>
   ```
 
+- API {#api}
+
+    To update a cloud or folder label, use one of these methods:
+
+    * For a cloud, use the [update](../api-ref/Cloud/update.md) REST API method for the [Cloud](../api-ref/Cloud/index.md) resource or the [CloudService/Update](../api-ref/grpc/Cloud/update.md) gRPC API call.
+    * For a folder, use the [update](../api-ref/Folder/update.md) REST API method for the [Folder](../api-ref/Folder/index.md) resource or the [FolderService/Update](../api-ref/grpc/Folder/update.md) gRPC API call.
+
+    Use the [Cloud.get](../api-ref/Cloud/get.md) or [Folder.get](../api-ref/Folder/get.md) method to get the current labels. Update the relevant key-value pair in the current set of labels.
+
+    In the update request, specify `updateMask: "labels"` and the complete final set of labels in `labels`, including those that need to be saved. The provided set replaces the existing resource labels.
+
 {% endlist %}
 
 ## Deleting a label {#remove-label}
@@ -178,7 +205,7 @@ You can only edit resource labels using the {{ yandex-cloud }} CLI and {{ TF }}.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Select the VM you need from the list.
   1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
-  1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, select the appropriate label and click ![cross](../../_assets/console-icons/xmark.svg) next to its name.
+  1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, select the label and click ![cross](../../_assets/console-icons/xmark.svg) next to its name.
 
 - CLI {#cli}
 
@@ -234,5 +261,16 @@ You can only edit resource labels using the {{ yandex-cloud }} CLI and {{ TF }}.
   ```
   yc <service_name> <resource_type> get <resource_name_or_ID>
   ```
+
+- API {#api}
+
+    To delete a cloud or folder label, use one of these methods:
+
+    * For a cloud, use the [update](../api-ref/Cloud/update.md) REST API method for the [Cloud](../api-ref/Cloud/index.md) resource or the [CloudService/Update](../api-ref/grpc/Cloud/update.md) gRPC API call.
+    * For a folder, use the [update](../api-ref/Folder/update.md) REST API method for the [Folder](../api-ref/Folder/index.md) resource or the [FolderService/Update](../api-ref/grpc/Folder/update.md) gRPC API call.
+
+    Use the [Cloud.get](../api-ref/Cloud/get.md) or [Folder.get](../api-ref/Folder/get.md) method to get the current labels. Exclude the label you are deleting from the current set. To delete all labels, provide the empty `labels` object.
+
+    In the update request, specify `updateMask: "labels"` and the complete final set of labels in `labels`, including those that need to be saved. The provided set replaces the existing resource labels.
 
 {% endlist %}

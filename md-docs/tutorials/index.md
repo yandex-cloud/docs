@@ -290,6 +290,8 @@
 
  - [Zabbix](security/single-sign-on/saml-zabbix.md)
 
+ - [МТС Линк](security/single-sign-on/saml-mts-link.md)
+
  - [Пассворк](security/single-sign-on/saml-passwork.md)
 
  - [Яндекс 360](security/single-sign-on/saml-yandex-360.md)

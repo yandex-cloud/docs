@@ -66,6 +66,8 @@ items:
             href: operations/copy-write-data.md
           - name: Управление базами данных
             href: operations/databases.md
+          - name: Перепаковка данных
+            href: operations/managed-pg_repack.md
       - name: Пользователи {{ PG }}
         items:
           - name: Управление пользователями БД

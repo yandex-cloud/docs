@@ -38,10 +38,11 @@ description: Следуя этой инструкции, вы измените �
 
         ```bash
         {{ yc-mdb-tr }} catalog update <тип_коннектора> <имя_каталога_{{ TR }}> \
+            --cluster-id <идентификатор_кластера> \
             --new-name <новое_имя_каталога_{{ TR }}>
         ```
 
-        Имя каталога {{ TR }} можно запросить со [списком каталогов {{ TR }} в кластере](catalog-list.md#list-catalogs).
+        Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters), имя каталога {{ TR }} — со [списком каталогов {{ TR }} в кластере](catalog-list.md#list-catalogs).
 
         В команде также можно передать настройки каталога {{ TR }}, которые зависят от типа коннектора. [Подробнее о настройках для разных типов коннекторов](catalog-create.md#catalog-settings).
 
@@ -78,7 +79,7 @@ description: Следуя этой инструкции, вы измените �
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Catalog.Update](../api-ref/Catalog/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом REST API [update](../api-ref/Catalog/update.md) для ресурса [Catalog](../api-ref/Catalog/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -117,7 +118,7 @@ description: Следуя этой инструкции, вы измените �
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [CatalogService.Update](../api-ref/grpc/Catalog/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом gRPC API [CatalogService/Update](../api-ref/grpc/Catalog/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 

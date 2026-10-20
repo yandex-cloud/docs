@@ -43,7 +43,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Get](../api-ref/Cluster/get.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
@@ -72,7 +72,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Get](../api-ref/grpc/Cluster/get.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом gRPC API [ClusterService/Get](../api-ref/grpc/Cluster/get.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -555,7 +555,7 @@
                  "group": "<имя_ресурсной_группы>"
                },
                {
-                 <Правило_маршрутизации_2> 
+                 <Правило_маршрутизации_2>
                },
                ...
                {
@@ -638,20 +638,20 @@
      
      Подробнее о дереве групп и правилах маршрутизации в разделе [Ресурсные группы в Managed Service for Trino](../concepts/resource-groups.md).
 
-  1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
          --request POST \
          --header "Authorization: Bearer $IAM_TOKEN" \
-         --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters'
+         --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters' \
          --data '@body.json'
      ```
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
-  
+
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
       ```bash
@@ -724,7 +724,7 @@
                  "group": "<имя_ресурсной_группы>"
                },
                {
-                 <Правило_маршрутизации_2> 
+                 <Правило_маршрутизации_2>
                },
                ...
                {
@@ -809,7 +809,7 @@
 
      Доступные параметры кластера и их описания представлены в [инструкции](cluster-create.md#create-cluster).
 
-  1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -1039,14 +1039,14 @@
      --from-file resource-groups.yaml
   ```
 
-  Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.   
+  Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
 - Terraform {#tf}
 
   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
-  
+
      Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
-  
+
   1. Если описание ресурсных групп и правил маршрутизации в кластере Managed Service for Trino еще не задано, добавьте в описание кластера блок `resource_groups`:
 
      ```hcl
@@ -1300,7 +1300,7 @@
                  "group": "<имя_ресурсной_группы>"
                },
                {
-                 <Правило_маршрутизации_2> 
+                 <Правило_маршрутизации_2>
                },
                ...
                {
@@ -1391,13 +1391,13 @@
      
      Подробнее о дереве групп и правилах маршрутизации в разделе [Ресурсные группы в Managed Service for Trino](../concepts/resource-groups.md).
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>'
+       --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>' \
        --data '@body.json'
      ```
 
@@ -1482,7 +1482,7 @@
                  "group": "<имя_ресурсной_группы>"
                },
                {
-                 <Правило_маршрутизации_2> 
+                 <Правило_маршрутизации_2>
                },
                ...
                {
@@ -1589,7 +1589,7 @@
      
      Подробнее о дереве групп и правилах маршрутизации в разделе [Ресурсные группы в Managed Service for Trino](../concepts/resource-groups.md).
 
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -1645,13 +1645,13 @@
 - Terraform {#tf}
 
   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
-  
+
       Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
-  
+
   1. Чтобы удалить все ресурсные группы и правила маршрутизации, удалите из описания кластера параметр `resource_groups`.
 
   1. Проверьте корректность настроек.
-  
+
       1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
@@ -1660,9 +1660,9 @@
          ```
       
          Если в файлах конфигурации есть ошибки, Terraform на них укажет.
-  
+
   1. Подтвердите изменение ресурсов.
-  
+
       1. Выполните команду для просмотра планируемых изменений:
       
          ```bash
@@ -1715,13 +1715,13 @@
 
         * `resourceGroups` — описание ресурсных групп и правил маршрутизации.
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
           --request PATCH \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>'
+          --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>' \
           --data '@body.json'
         ```
 
@@ -1766,7 +1766,7 @@
       Где:
 
       * `cluster_id` — идентификатор кластера.
-          
+
           Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
       * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
@@ -1794,7 +1794,7 @@
 
       * `resource_groups` — описание ресурсных групп и правил маршрутизации.
 
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \

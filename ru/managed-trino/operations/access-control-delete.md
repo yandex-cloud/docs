@@ -37,19 +37,19 @@ description: Вы можете за одну операцию удалить в�
 - {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-  
+
       Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
-  
+
   1. Удалите из описания ресурса `yandex_trino_access_control` ненужное правило.
 
   1. Проверьте корректность настроек.
-  
+
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-  
+
   1. Подтвердите изменение ресурсов.
-  
+
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
- 
+
   Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mtr-access }}).
 
 - REST API {#api}
@@ -60,13 +60,13 @@ description: Вы можете за одну операцию удалить в�
 
   1. Откройте существующий файл `body.json` с правилами и удалите из него ненужное правило.
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
+       --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>' \
        --data '@body.json'
      ```
 
@@ -84,7 +84,7 @@ description: Вы можете за одну операцию удалить в�
 
   1. Откройте существующий файл `body.json` с правилами и удалите из него ненужное правило.
 
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -126,19 +126,19 @@ description: Вы можете за одну операцию удалить в�
 - {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-  
+
       Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
-  
+
   1. Удалите из конфигурационного файла ресурс `yandex_trino_access_control`.
 
   1. Проверьте корректность настроек.
-  
+
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-  
+
   1. Подтвердите изменение ресурсов.
-  
+
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
- 
+
   Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mtr-access }}).
 
 - REST API {#api}
@@ -170,13 +170,13 @@ description: Вы можете за одну операцию удалить в�
 
       * `accessControl` — конфигурация прав доступа в рамках кластера.
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
+       --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>' \
        --data '@body.json'
      ```
 
@@ -211,7 +211,7 @@ description: Вы можете за одну операцию удалить в�
       Где:
 
       * `cluster_id` — идентификатор кластера.
-          
+
           Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
       * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
@@ -239,7 +239,7 @@ description: Вы можете за одну операцию удалить в�
 
       * `access_control` — конфигурация прав доступа в рамках кластера.
 
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \

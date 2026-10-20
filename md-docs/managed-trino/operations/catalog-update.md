@@ -37,10 +37,11 @@
 
         ```bash
         yc managed-trino catalog update <тип_коннектора> <имя_каталога_Trino> \
+            --cluster-id <идентификатор_кластера> \
             --new-name <новое_имя_каталога_Trino>
         ```
 
-        Имя каталога Trino можно запросить со [списком каталогов Trino в кластере](catalog-list.md#list-catalogs).
+        Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters), имя каталога Trino — со [списком каталогов Trino в кластере](catalog-list.md#list-catalogs).
 
         В команде также можно передать настройки каталога Trino, которые зависят от типа коннектора. [Подробнее о настройках для разных типов коннекторов](catalog-create.md#catalog-settings).
 
@@ -103,7 +104,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Catalog.Update](../api-ref/Catalog/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом REST API [update](../api-ref/Catalog/update.md) для ресурса [Catalog](../api-ref/Catalog/index.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -154,7 +155,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [CatalogService.Update](../api-ref/grpc/Catalog/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом gRPC API [CatalogService/Update](../api-ref/grpc/Catalog/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         

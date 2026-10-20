@@ -1,5 +1,5 @@
 ---
-title: Configuring cross-origin resource sharing (CORS) for objects in a {{ objstorage-full-name }} bucket
+title: Configuring cross-origin resource sharing (CORS) for objects in an {{ objstorage-full-name }} bucket
 description: Follow this guide to configure cross-origin resource sharing (CORS) for objects in an {{ objstorage-name }} bucket.
 ---
 
@@ -12,7 +12,7 @@ description: Follow this guide to configure cross-origin resource sharing (CORS)
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to configure CORS for.
   1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_cors }}**.

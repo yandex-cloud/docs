@@ -56,7 +56,10 @@ The maximum string length in characters is 50. ||
   "enrollWindow": "string",
   "name": "string",
   "description": "string",
-  "createdAt": "string"
+  "createdAt": "string",
+  "ssprPolicies": [
+    "string"
+  ]
 }
 ```
 
@@ -81,9 +84,9 @@ corresponding acr is regarded as satisfied ||
 
 MFA enforcement status
 
-- `MFA_ENFORCEMENT_STATUS_ACTIVE`
-- `MFA_ENFORCEMENT_STATUS_INACTIVE`
-- `MFA_ENFORCEMENT_STATUS_DELETING` ||
+- `MFA_ENFORCEMENT_STATUS_ACTIVE`: MFA is activated.
+- `MFA_ENFORCEMENT_STATUS_INACTIVE`: MFA is inactive.
+- `MFA_ENFORCEMENT_STATUS_DELETING`: MFA is deleting. ||
 || applyAt | **string** (date-time)
 
 the MFA enforcement application start time.
@@ -116,4 +119,8 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| ssprPolicies[] | **string**
+
+sspr_policies for the MFA enforcement. Accepted values: 'mfa', 'two-any',
+specification https://yandex.cloud/en/docs/organization/concepts/sspr ||
 |#

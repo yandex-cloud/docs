@@ -18,7 +18,7 @@ description: Следуя данной инструкции, вы сможете
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
     1. [Перейдите]({{ link-console-main }}/link/managed-trino) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Выберите кластер и нажмите на панели сверху кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**. Откроется страница редактирования кластера.
-      
+
         Список доступных версий можно посмотреть в поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}**.
 
 {% endlist %}
@@ -63,16 +63,16 @@ description: Следуя данной инструкции, вы сможете
           --version <версия_{{ TR }}>
         ```
 
-        Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.   
+        Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
         Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
-        
+
     1. Измените в описании кластера значение параметра `version`:
-      
+
         ```hcl
         resource "yandex_trino_cluster" "<имя_кластера>" {
           ...
@@ -118,13 +118,13 @@ description: Следуя данной инструкции, вы сможете
 
         * `trino.version` — версия {{ TR }}.
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
           --request PATCH \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>' \
           --data '@body.json'
         ```
 
@@ -159,7 +159,7 @@ description: Следуя данной инструкции, вы сможете
         Где:
 
         * `cluster_id` — идентификатор кластера.
-            
+
             Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
         * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
@@ -187,7 +187,7 @@ description: Следуя данной инструкции, вы сможете
 
         * `version` — версия {{ TR }}.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \

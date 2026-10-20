@@ -1,3 +1,11 @@
+title: Yandex Cloud CDN
+description:
+  - >-
+    {{ cdn-full-name }} enables you to deliver content to end users over a
+    content delivery network (CDN).
+  - >-
+    Caching on CDN servers reduces the load on data origins and speeds up
+    content delivery.
 meta:
   title: Yandex Cloud CDN
   description: >-

@@ -2,6 +2,8 @@
 
 # Добавить участников
 
+Чтобы добавить участников в [группу](../concepts/groups.md), у вас должна быть _минимальная_ [роль](../security/index.md#organization-manager-groups-memberAdmin) `organization-manager.groups.memberAdmin`, [назначенная на эту группу](access-manage-group.md) или на [организацию](../concepts/organization.md).
+
 {% list tabs group=instructions %}
 
 - Интерфейс Cloud Center {#cloud-center}

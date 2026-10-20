@@ -39,7 +39,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.stop](../api-ref/Cluster/stop.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом REST API [stop](../api-ref/Cluster/stop.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
@@ -68,7 +68,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService/Stop](../api-ref/grpc/Cluster/stop.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом gRPC API [ClusterService/Stop](../api-ref/grpc/Cluster/stop.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -127,7 +127,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.start](../api-ref/Cluster/start.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом REST API [start](../api-ref/Cluster/start.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
@@ -156,7 +156,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService/Start](../api-ref/grpc/Cluster/start.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом gRPC API [ClusterService/Start](../api-ref/grpc/Cluster/start.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \

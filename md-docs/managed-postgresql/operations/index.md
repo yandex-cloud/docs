@@ -36,6 +36,7 @@
 * [SQL-запросы в Yandex WebSQL](web-sql-query.md)
 * [Копирование и заполнение таблицы с локальной машины](copy-write-data.md)
 * [Управление базами данных](databases.md)
+* [Перепаковка данных](managed-pg_repack.md)
 
 ## Пользователи PostgreSQL {#users}
 

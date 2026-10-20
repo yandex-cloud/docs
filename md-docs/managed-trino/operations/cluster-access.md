@@ -39,7 +39,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.ListAccessBindings](../api-ref/Cluster/listAccessBindings.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом REST API [listAccessBindings](../api-ref/Cluster/listAccessBindings.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
@@ -66,7 +66,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.ListAccessBindings](../api-ref/grpc/Cluster/listAccessBindings.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/ListAccessBindings](../api-ref/grpc/Cluster/listAccessBindings.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -167,7 +167,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.UpdateAccessBindings](../api-ref/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом REST API [updateAccessBindings](../api-ref/Cluster/updateAccessBindings.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
@@ -243,7 +243,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.UpdateAccessBindings](../api-ref/grpc/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/UpdateAccessBindings](../api-ref/grpc/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -403,7 +403,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.SetAccessBindings](../api-ref/Cluster/setAccessBindings.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом REST API [setAccessBindings](../api-ref/Cluster/setAccessBindings.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
@@ -497,7 +497,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.SetAccessBindings](../api-ref/grpc/Cluster/setAccessBindings.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/SetAccessBindings](../api-ref/grpc/Cluster/setAccessBindings.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -656,7 +656,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.UpdateAccessBindings](../api-ref/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом REST API [updateAccessBindings](../api-ref/Cluster/updateAccessBindings.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
@@ -732,7 +732,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.UpdateAccessBindings](../api-ref/grpc/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/UpdateAccessBindings](../api-ref/grpc/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -865,7 +865,7 @@
 
       Где `access_binding_deltas.subject.id` — идентификатор сервисного аккаунта, которому назначается роль.
 
-  1. Воспользуйтесь методом [Cluster.UpdateAccessBindings](../api-ref/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом REST API [updateAccessBindings](../api-ref/Cluster/updateAccessBindings.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \

@@ -13,7 +13,7 @@
 1. Подключитесь к кластеру {{ mtr-name }}:
 
    ```bash
-   ./trino c-<идентификатор_кластера>.trino.yandexcloud.net --user iam --password
+   ./trino https://c-<идентификатор_кластера>.trino.yandexcloud.net --user iam --password
    ```
 
    Идентификатор кластера можно запросить со [списком кластеров в каталоге](../../managed-trino/operations/cluster-list.md#list-clusters).
