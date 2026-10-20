@@ -1,0 +1,1 @@
+The {{ mos-name }} and {{ ydb-short-name }} properties differ; therefore, they form two profiles. For another product, the owner creates a dedicated profile using the same ten fields; the generic entry named _other storage_ does not constitute evidence.

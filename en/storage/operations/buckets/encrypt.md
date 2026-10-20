@@ -1,18 +1,20 @@
 ---
-title: Bucket encryption in {{ objstorage-full-name }}
-description: Follow this guide to encrypt objects in a bucket.
+title: Configuring and disabling default encryption in a {{ objstorage-full-name }} bucket
+description: Follow this guide to configure and disable default encryption for new objects within a bucket.
 ---
 
-# Bucket encryption
+# Configuring and disabling default encryption in a bucket
 
 
 In {{ objstorage-short-name }}, you can encrypt objects in a bucket using [{{ kms-short-name }} keys](../../../kms/concepts/key.md) in any of the following ways:
-* [Set up encryption for the bucket](#add) to encrypt all new objects with the specified key.
+* [Set up default encryption](#add) to encrypt all new objects with the specified key.
 * Specify an encryption key when [uploading an object using the API](../../s3/api-ref/object/upload.md).
+
+This guide describes how to configure default encryption for new objects and [disable it](#del). Changing this setting has no effect on already uploaded objects.
 
 {% note alert %}
 
-{{ objstorage-short-name }} employs [envelope encryption](../../../kms/concepts/envelope.md) to secure data. Deleting a key is the same as deleting all data encrypted with that key.
+Data in {{ objstorage-short-name }} is subject to [envelope encryption](../../../kms/concepts/envelope.md). Deleting a key is the same as destroying all data encrypted with that key.
 
 {% endnote %}
 
@@ -20,14 +22,14 @@ In {{ objstorage-short-name }}, you can encrypt objects in a bucket using [{{ km
 {% include [encryption-roles](../../../_includes/storage/encryption-roles.md) %}
 
 
-## Setting up encryption for a bucket {#add}
+## Setting up default encryption {#add}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   To add a {{ kms-short-name }} key:
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to configure encryption for.
   1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
@@ -114,16 +116,18 @@ In {{ objstorage-short-name }}, you can encrypt objects in a bucket using [{{ km
 
 {% endlist %}
 
-## Removing bucket encryption {#del}
+## Disabling default encryption {#del}
+
+After disabling, new objects will not be encrypted automatically with the key specified in the bucket settings. Already encrypted objects will remain encrypted: save the {{ kms-short-name }} key to be able to decrypt them.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  To remove encryption, delete the {{ kms-short-name }} key:
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  To disable default encryption, remove the {{ kms-short-name }} key selection in the bucket settings:
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Select the bucket you want to remove encryption for.
+  1. Select the bucket you want to disable default encryption for.
   1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select **{{ ui-key.yacloud.component.symmetric-key-select.label_no-symmetric-key }}**.
   1. Click **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.

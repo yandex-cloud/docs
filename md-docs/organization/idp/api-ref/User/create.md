@@ -185,7 +185,6 @@ Timestamp when the password was created.
 For synchronized passwords, use the time when the password was last set in the source directory.
 If omitted, the current time is used.
 Used by [CreateUserRequest](#yandex.cloud.organizationmanager.v1.idp.CreateUserRequest) and [SetPasswordHashRequest](setPasswordHash.md#yandex.cloud.organizationmanager.v1.idp.SetPasswordHashRequest).
-This value is ignored if [CreateUserRequest.passwordChangeRequired](#yandex.cloud.organizationmanager.v1.idp.CreateUserRequest) or [SetPasswordHashRequest.needChange](setPasswordHash.md#yandex.cloud.organizationmanager.v1.idp.SetPasswordHashRequest) is true.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.

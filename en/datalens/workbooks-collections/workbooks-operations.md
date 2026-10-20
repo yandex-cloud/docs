@@ -14,6 +14,7 @@ In this section, you will learn how to use a workbook:
 * [Exporting a workbook](#export-workbook)
 * [Adding or removing embedding keys](#embedded-keys)
 * [Setting up access to a workbook](#security)
+* [Opening the list of mailing lists](#maillist-list)
 * [Deleting a workbook](#delete-workbook)
 * [Restoring workbook objects](#restore-objects)
 
@@ -142,6 +143,15 @@ To revoke access permissions for a workbook:
    {% endnote %}
 
 1. In the window that opens, click **Revoke role**.
+
+
+
+
+## Opening the list of mailing lists {#maillist-list}
+
+To open the [list of mailing lists](../concepts/maillists-list.md) for all dashboards and reports in the current workbook, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/envelope.svg) **Mailing lists** at the top of the workbook page.
+
+This will open the list of mailing lists with the **Object** filter for this workbook automatically applied.
 
 
 ## Deleting a workbook {#delete-workbook}

@@ -19,39 +19,39 @@ items:
             href: operations/buckets/create.md
           - name: Deleting a bucket
             href: operations/buckets/delete.md
-          - name: Limiting the maximum size of a bucket
+          - name: Limiting the maximum bucket size
             href: operations/buckets/limit-max-volume.md
-          - name: Encrypting a bucket
+          - name: Configuring and disabling default encryption
             href: operations/buckets/encrypt.md
-          - name: Managing object lifecycles
+          - name: Configuring object lifecycles
             href: operations/buckets/lifecycles.md
-          - name: Managing CORS configurations
+          - name: Configuring CORS
             href: operations/buckets/cors.md
           - name: Configuring access permissions using {{ iam-short-name }}
             href: operations/buckets/iam-access.md
-          - name: Editing a bucket's ACL
+          - name: Editing a bucket ACL
             href: operations/buckets/edit-acl.md
-          - name: Managing access policies
+          - name: Managing an access policy
             href: operations/buckets/policy.md
-          - name: Configuring public access to a bucket
+          - name: Enabling and disabling public access to a bucket
             href: operations/buckets/bucket-availability.md
           - name: Disabling access with static keys
             href: operations/buckets/disable-statickey-auth.md
           - name: Accessing a bucket using {{ sts-name }}
             href: operations/buckets/create-sts-key.md
-          - name: Accessing a bucket with an ephemeral access key
+          - name: Gaining access to a bucket using an ephemeral access key
             href: operations/buckets/manage-ephemeral-keys.md
           - name: >-
-              Accessing a bucket using a service connection from {{
+              Configuring access to a bucket using a service connection from {{
               vpc-short-name }}
             href: operations/buckets/access-via-vpc.md
           - name: Searching for sensitive data in a bucket
             href: operations/buckets/sensitive-data-search.md
-          - name: Managing bucket versioning
+          - name: Enabling and pausing bucket versioning
             href: operations/buckets/versioning.md
-          - name: Enabling logging
+          - name: Logging bucket actions
             href: operations/buckets/enable-logging.md
-          - name: Managing object locks
+          - name: Enabling and disabling object lock
             href: operations/buckets/configure-object-lock.md
           - name: Managing object metadata export
             href: operations/buckets/manage-s3-inventory.md
@@ -93,7 +93,7 @@ items:
             href: operations/objects/delete-all.md
           - name: Deleting a partially uploaded object
             href: operations/objects/deleting-multipart.md
-          - name: Editing an object ACL
+          - name: Edit an object’s ACL
             href: operations/objects/edit-acl.md
           - name: Managing object labels
             href: operations/objects/tagging.md
@@ -119,6 +119,54 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
+      - name: Website and web application hosting
+        items:
+          - name: Static website in {{ objstorage-full-name }}
+            items:
+              - name: Overview
+                href: tutorials/static/index.md
+              - name: Management console
+                href: tutorials/static/console.md
+              - name: Terraform
+                href: tutorials/static/terraform.md
+          - name: Hosting a static Gatsby website in {{ objstorage-name }}
+            href: tutorials/gatsby-static-website.md
+          - name: >-
+              Setting up static website hosting in a {{ objstorage-full-name }}
+              bucket with {{ cdn-full-name }} access
+            items:
+              - name: Overview
+                href: tutorials/cdn-hosting/index.md
+              - name: Management console, CLI, and API
+                href: tutorials/cdn-hosting/console.md
+              - name: '{{ TF }}'
+                href: tutorials/cdn-hosting/terraform.md
+          - name: >-
+              Integrating an L7 load balancer with a CDN and {{ objstorage-name
+              }}
+            items:
+              - name: Overview
+                href: tutorials/cdn-storage-integration/index.md
+              - name: Management console, CLI, and API
+                href: tutorials/cdn-storage-integration/console.md
+              - name: '{{ TF }}'
+                href: tutorials/cdn-storage-integration/terraform.md
+          - name: Deploying Nextcloud integrated with {{ objstorage-name }}
+            items:
+              - name: Overview
+                href: tutorials/integrate-nextcloud/index.md
+              - name: Deploying Nextcloud on a VM from a {{ coi }}
+                href: tutorials/integrate-nextcloud/coi-based.md
+              - name: Manually deploying Nextcloud on a VM or VM group
+                href: tutorials/integrate-nextcloud/fault-tolerant.md
+              - name: Deploying Nextcloud on a VM or VM group using {{ TF }}
+                href: tutorials/integrate-nextcloud/terraform.md
+          - name: Installing Ghost CMS High Availability using {{ cloud-apps-name }}
+            href: tutorials/ghost-cms-cloudapp.md
+          - name: Installing WordPress using {{ cloud-apps-name }}
+            href: tutorials/wordpress-cloudapp.md
+          - name: Installing WordPress High Availability using {{ cloud-apps-name }}
+            href: tutorials/wordpress-ha-cloudapp.md
       - name: Backups
         items:
           - name: Overview
@@ -143,249 +191,217 @@ items:
               Backing up a {{ managed-k8s-name }} cluster to {{ objstorage-name
               }}
             href: tutorials/kubernetes-backup.md
-      - name: Getting statistics on object queries with S3 Select
-        href: tutorials/server-logs.md
-      - name: Getting website traffic statistics with S3 Select
-        href: tutorials/user-agent-statistics.md
-      - name: Getting statistics on object queries using {{ yq-full-name }}
-        href: tutorials/server-logs-yq.md
-      - name: Cost analysis by resource
-        href: tutorials/billing-resource-detailing.md
-      - name: Server-side encryption
-        href: tutorials/server-side-encryption.md
-      - name: Integrating an L7 load balancer with a CDN and {{ objstorage-name }}
+      - name: Log collection and analysis
         items:
-          - name: Overview
-            href: tutorials/cdn-storage-integration/index.md
-          - name: Management console, CLI, and API
-            href: tutorials/cdn-storage-integration/console.md
-          - name: '{{ TF }}'
-            href: tutorials/cdn-storage-integration/terraform.md
-      - name: Blue-green and canary deployment of service versions
-        href: tutorials/blue-green-canary-deployment.md
-      - name: Analyzing logs in DataLens
-        href: tutorials/storage-logs-analysis.md
-      - name: Searching for events in audit logs
+          - name: Getting statistics on object queries with S3 Select
+            href: tutorials/server-logs.md
+          - name: Getting website traffic statistics with S3 Select
+            href: tutorials/user-agent-statistics.md
+          - name: Searching for events in audit logs
+            items:
+              - name: Overview
+                href: tutorials/search-events-audit-logs/index.md
+              - name: Audit log management tools
+                href: tutorials/search-events-audit-logs/tools.md
+              - name: Sample queries for event search
+                href: tutorials/search-events-audit-logs/examples.md
+              - name: Configuring {{ yq-full-name }}
+                href: tutorials/search-events-audit-logs/query.md
+          - name: Analyzing logs in DataLens
+            href: tutorials/storage-logs-analysis.md
+          - name: Getting statistics on object queries using {{ yq-full-name }}
+            href: tutorials/server-logs-yq.md
+          - name: Storing application runtime logs
+            href: tutorials/log-ingestion.md
+          - name: Searching for {{ yandex-cloud }} events in {{ objstorage-name }}
+            href: tutorials/search-events-bucket.md
+          - name: Uploading audit logs to ArcSight SIEM
+            href: tutorials/export-logs-to-arcsight.md
+          - name: Replicating logs to {{ objstorage-name }} using Fluent Bit
+            href: tutorials/replicate-logs-to-storage.md
+          - name: Replicating logs to {{ objstorage-name }} using {{ yds-name }}
+            href: tutorials/replicate-logs-to-storage-via-data-streams.md
+          - name: Uploading audit logs to Splunk SIEM
+            href: tutorials/export-logs-to-splunk.md
+          - name: Searching for {{ yandex-cloud }} events in {{ yq-full-name }}
+            href: tutorials/search-events-query.md
+      - name: Development and deployment of applications
         items:
-          - name: Overview
-            href: tutorials/search-events-audit-logs/index.md
-          - name: Audit log management tools
-            href: tutorials/search-events-audit-logs/tools.md
-          - name: Sample queries for event search
-            href: tutorials/search-events-audit-logs/examples.md
-          - name: Configuring {{ yq-full-name }}
-            href: tutorials/search-events-audit-logs/query.md
-      - name: Mounting buckets to {{ dataproc-full-name }} host filesystems
-        href: tutorials/data-processing-init-actions-geesefs.md
-      - name: Using {{ objstorage-name }} in {{ dataproc-name }}
-        href: tutorials/copy-files-from-object-storage.md
-      - name: >-
-          Importing, processing, and exporting {{ objstorage-name }} data to {{
-          mch-name }}
-        href: tutorials/s3-data-processing-ch.md
-      - name: Connecting a bucket as a disk in Windows
-        href: tutorials/s3-disk-connect.md
-      - name: >-
-          Migrating data from {{ yds-full-name }} using {{
-          data-transfer-full-name }}
-        href: tutorials/yds-obj-migration.md
-      - name: Using hybrid storage in {{ mch-full-name }}
-        href: tutorials/clickhouse-hybrid-storage.md
-      - name: >-
-          Loading data from {{ mos-full-name }} to {{ objstorage-full-name }}
-          using {{ data-transfer-full-name }}
-        href: tutorials/opensearch-to-object-storage.md
-      - name: Automatically copying objects from one bucket to another
-        href: tutorials/bucket-to-bucket.md
-      - name: Regular asynchronous recognition of audio files in a bucket
-        href: tutorials/batch-recognition-stt.md
-      - name: >-
-          Training a model in {{ ml-platform-full-name }} on data from {{
-          objstorage-name }}
-        href: tutorials/s3-to-datasphere.md
-      - name: Connecting to {{ objstorage-name }} from {{ vpc-short-name }}
-        href: tutorials/storage-vpc-access.md
-      - name: >-
-          Migrating data to {{ mpg-full-name }} using {{ data-transfer-full-name
-          }}
-        href: tutorials/object-storage-to-postgresql.md
-      - name: >-
-          Uploading data to {{ mgp-full-name }} using {{ data-transfer-full-name
-          }}
-        href: tutorials/object-storage-to-greenplum.md
-      - name: >-
-          Uploading data to {{ mch-full-name }} using {{ data-transfer-full-name
-          }}
-        href: tutorials/object-storage-to-clickhouse.md
-      - name: >-
-          Uploading data to {{ ydb-full-name }} using {{ data-transfer-full-name
-          }}
-        href: tutorials/object-storage-to-ydb.md
-      - name: >-
-          Exchanging data between {{ mch-full-name }} and {{ dataproc-full-name
-          }}
-        href: tutorials/dp-mch-data-exchange.md
-      - name: >-
-          Uploading data from {{ ydb-full-name }} using {{
-          data-transfer-full-name }}
-        href: tutorials/ydb-to-object-storage.md
-      - name: Hosting a static Gatsby website in {{ objstorage-name }}
-        href: tutorials/gatsby-static-website.md
-      - name: Installing WordPress High Availability using {{ cloud-apps-name }}
-        href: tutorials/wordpress-ha-cloudapp.md
-      - name: Installing WordPress using {{ cloud-apps-name }}
-        href: tutorials/wordpress-cloudapp.md
-      - name: Installing Ghost CMS High Availability using {{ cloud-apps-name }}
-        href: tutorials/ghost-cms-cloudapp.md
-      - name: Storing a static access key in a {{ lockbox-name }} secret
+          - name: Developing a Telegram bot
+            items:
+              - name: Overview
+                href: tutorials/telegram-bot-serverless/index.md
+              - name: Management console
+                href: tutorials/telegram-bot-serverless/console.md
+              - name: '{{ TF }}'
+                href: tutorials/telegram-bot-serverless/terraform.md
+          - name: URL shortener
+            items:
+              - name: Overview
+                href: tutorials/serverless-url-shortener/index.md
+              - name: Management console
+                href: tutorials/serverless-url-shortener/console.md
+              - name: '{{ TF }}'
+                href: tutorials/serverless-url-shortener/terraform.md
+          - name: Blue-green and canary deployment of service versions
+            href: tutorials/blue-green-canary-deployment.md
+          - name: Converting a video to a GIF in Python
+            items:
+              - name: Overview
+                href: tutorials/video-converting-queue/index.md
+              - name: Management console
+                href: tutorials/video-converting-queue/console.md
+              - name: '{{ TF }}'
+                href: tutorials/video-converting-queue/terraform.md
+          - name: Building a skill for Alice and a website with authorization
+            href: tutorials/alice-shareable-todolist.md
+          - name: Publishing game updates
+            href: tutorials/prefetch.md
+          - name: Developing a custom integration in {{ api-gw-name }}
+            href: tutorials/api-gw-integration.md
+          - name: Deploying a web application using the Java Servlet API
+            href: tutorials/java-servlet-todo-list.md
+          - name: Building an interactive serverless application using WebSocket
+            href: tutorials/websocket-app.md
+          - name: >-
+              Deploying a web app with JWT authorization in {{ api-gw-name }}
+              and Firebase authentication
+            href: tutorials/jwt-authorizer-firebase.md
+      - name: Security and access management
         items:
-          - name: Overview
-            href: tutorials/static-key-in-lockbox/index.md
-          - name: CLI
-            href: tutorials/static-key-in-lockbox/console.md
-          - name: '{{ TF }}'
-            href: tutorials/static-key-in-lockbox/terraform.md
-      - name: Migrating a database from {{ mpg-name }} to {{ objstorage-name }}
-        href: tutorials/mpg-to-objstorage.md
-      - name: >-
-          Exchanging data between {{ mch-full-name }} and {{ dataproc-full-name
-          }}
-        href: tutorials/dp-mch-data-exchange.md
-      - name: >-
-          Importing data from {{ mpg-full-name }} to {{ dataproc-full-name }}
-          using Sqoop
-        href: tutorials/sqoop-mpg.md
-      - name: >-
-          Importing data from {{ mmy-full-name }} to {{ dataproc-full-name }}
-          using Sqoop
-        href: tutorials/sqoop-mmy.md
-      - name: >-
-          Migrating data from {{ objstorage-full-name }} to {{ mmy-full-name }}
-          using {{ data-transfer-full-name }}
-        href: tutorials/objs-mmy-migration.md
-      - name: >-
-          Migrating a database from {{ mmy-full-name }} to {{
-          objstorage-full-name }}
-        href: tutorials/mmy-objs-migration.md
-      - name: >-
-          Exporting {{ GP }} data to a cold storage in {{ objstorage-full-name
-          }}
-        href: tutorials/greenplum-yezzey.md
-      - name: >-
-          Loading data from {{ yandex-direct }} to a {{ mch-full-name }} data
-          mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{
-          data-transfer-full-name }}
-        href: tutorials/data-transfer-direct-to-mch.md
-      - name: Uploading {{ TF }} states to {{ objstorage-name }}
-        href: tutorials/terraform-state-storage.md
-      - name: Locking {{ TF }} states using {{ ydb-name }}
-        href: tutorials/terraform-state-lock.md
-      - name: Static website in {{ objstorage-full-name }}
+          - name: Server-side encryption
+            href: tutorials/server-side-encryption.md
+          - name: Connecting to {{ objstorage-name }} from {{ vpc-short-name }}
+            href: tutorials/storage-vpc-access.md
+          - name: Storing a static access key in a {{ lockbox-name }} secret
+            items:
+              - name: Overview
+                href: tutorials/static-key-in-lockbox/index.md
+              - name: CLI
+                href: tutorials/static-key-in-lockbox/console.md
+              - name: '{{ TF }}'
+                href: tutorials/static-key-in-lockbox/terraform.md
+      - name: Working with file systems
         items:
-          - name: Overview
-            href: tutorials/static/index.md
-          - name: Management console
-            href: tutorials/static/console.md
-          - name: Terraform
-            href: tutorials/static/terraform.md
-      - name: Visualizing {{ yq-full-name }} data
-        href: tutorials/data-from-yandex-query-visualization.md
-      - name: Publishing game updates
-        href: tutorials/prefetch.md
-      - name: Developing a custom integration in {{ api-gw-name }}
-        href: tutorials/api-gw-integration.md
-      - name: URL shortener
+          - name: Connecting a bucket as a disk in Windows
+            href: tutorials/s3-disk-connect.md
+          - name: Mounting buckets to {{ dataproc-full-name }} host filesystems
+            href: tutorials/data-processing-init-actions-geesefs.md
+      - name: Data transfer and integration with databases
         items:
-          - name: Overview
-            href: tutorials/serverless-url-shortener/index.md
-          - name: Management console
-            href: tutorials/serverless-url-shortener/console.md
-          - name: '{{ TF }}'
-            href: tutorials/serverless-url-shortener/terraform.md
-      - name: Storing application runtime logs
-        href: tutorials/log-ingestion.md
-      - name: Building a skill for Alice and a website with authorization
-        href: tutorials/alice-shareable-todolist.md
-      - name: Building an interactive serverless application using WebSocket
-        href: tutorials/websocket-app.md
-      - name: Deploying a web application using the Java Servlet API
-        href: tutorials/java-servlet-todo-list.md
-      - name: Developing a Telegram bot
+          - name: Automatically copying objects from one bucket to another
+            href: tutorials/bucket-to-bucket.md
+          - name: Using hybrid storage in {{ mch-full-name }}
+            href: tutorials/clickhouse-hybrid-storage.md
+          - name: Migrating a database from {{ mpg-name }} to {{ objstorage-name }}
+            href: tutorials/mpg-to-objstorage.md
+          - name: >-
+              Exporting {{ GP }} data to a hybrid storage in {{
+              objstorage-full-name }}
+            href: tutorials/greenplum-yezzey.md
+          - name: >-
+              Loading data from {{ yandex-direct }} to a {{ mch-full-name }}
+              data mart using {{ sf-full-name }}, {{ objstorage-full-name }},
+              and {{ data-transfer-full-name }}
+            href: tutorials/data-transfer-direct-to-mch.md
+          - name: >-
+              Migrating data from {{ yds-full-name }} using {{
+              data-transfer-full-name }}
+            href: tutorials/yds-obj-migration.md
+          - name: >-
+              Migrating data to {{ mpg-full-name }} using {{
+              data-transfer-full-name }}
+            href: tutorials/object-storage-to-postgresql.md
+          - name: >-
+              Migrating a database from {{ mmy-full-name }} to {{
+              objstorage-full-name }}
+            href: tutorials/mmy-objs-migration.md
+          - name: >-
+              Loading data from {{ mos-full-name }} to {{ objstorage-full-name
+              }} with {{ data-transfer-full-name }}
+            href: tutorials/opensearch-to-object-storage.md
+          - name: >-
+              Uploading data from {{ ydb-full-name }} using {{
+              data-transfer-full-name }}
+            href: tutorials/ydb-to-object-storage.md
+          - name: >-
+              Uploading data to {{ mgp-full-name }} using {{
+              data-transfer-full-name }}
+            href: tutorials/object-storage-to-greenplum.md
+          - name: >-
+              Uploading data to {{ mch-full-name }} using {{
+              data-transfer-full-name }}
+            href: tutorials/object-storage-to-clickhouse.md
+          - name: >-
+              Migrating data from {{ objstorage-full-name }} to {{ mmy-full-name
+              }} using {{ data-transfer-full-name }}
+            href: tutorials/objs-mmy-migration.md
+          - name: Migrating databases from Google BigQuery to {{ mch-name }}
+            href: tutorials/bigquery-to-clickhouse.md
+          - name: >-
+              Uploading data to {{ ydb-full-name }} using {{
+              data-transfer-full-name }}
+            href: tutorials/object-storage-to-ydb.md
+      - name: Data processing and analysis
         items:
-          - name: Overview
-            href: tutorials/telegram-bot-serverless/index.md
-          - name: Management console
-            href: tutorials/telegram-bot-serverless/console.md
-          - name: '{{ TF }}'
-            href: tutorials/telegram-bot-serverless/terraform.md
-      - name: "Replicating logs to {{ objstorage-name }} using Fluent\_Bit"
-        href: tutorials/replicate-logs-to-storage.md
-      - name: Replicating logs to {{ objstorage-name }} using {{ yds-name }}
-        href: tutorials/replicate-logs-to-storage-via-data-streams.md
-      - name: Uploading audit logs to ArcSight SIEM
-        href: tutorials/export-logs-to-arcsight.md
-      - name: Uploading audit logs to Splunk SIEM
-        href: tutorials/export-logs-to-splunk.md
-      - name: Creating an MLFlow server for logging experiments and artifacts
-        href: tutorials/mlflow-datasphere.md
-      - name: Operations with data in {{ yq-full-name }}
-        href: tutorials/yq-storage.md
-      - name: Federated data queries using {{ yq-name }}
-        href: tutorials/yq-federative-queries.md
-      - name: Recognizing text in image archives using {{ vision-name }}
-        href: tutorials/archive-from-vision-to-object-storage.md
-      - name: >-
-          Scheduled image and PDF recognition in an {{ objstorage-short-name }}
-          bucket
-        href: tutorials/vision-ocrrecognizer-storage.md
-      - name: Converting a video to a GIF in Python
+          - name: Cost analysis by resource
+            href: tutorials/billing-resource-detailing.md
+          - name: Using {{ objstorage-name }} in {{ dataproc-name }}
+            href: tutorials/copy-files-from-object-storage.md
+          - name: >-
+              Importing, processing, and exporting {{ objstorage-name }} data to
+              {{ mch-name }}
+            href: tutorials/s3-data-processing-ch.md
+          - name: Operations with data in {{ yq-full-name }}
+            href: tutorials/yq-storage.md
+          - name: >-
+              Creating an external table from a bucket table using a
+              configuration file
+            href: tutorials/mgp-config-server-for-s3.md
+          - name: Task automation via {{ maf-short-name }}
+            href: tutorials/airflow-auto-tasks.md
+          - name: >-
+              Exchanging data between {{ mch-full-name }} and {{
+              dataproc-full-name }}
+            href: tutorials/dp-mch-data-exchange.md
+          - name: Processing files with usage details in {{ billing-name }}
+            href: tutorials/billing.md
+          - name: Using {{ objstorage-name }} in {{ msp-full-name }}
+            href: tutorials/spark-objstorage-integration.md
+          - name: >-
+              Importing data from {{ mmy-full-name }} to {{ dataproc-full-name
+              }} using Sqoop
+            href: tutorials/sqoop-mmy.md
+          - name: >-
+              Importing data from {{ mpg-full-name }} to {{ dataproc-full-name
+              }} using Sqoop
+            href: tutorials/sqoop-mpg.md
+          - name: Federated data queries using {{ yq-name }}
+            href: tutorials/yq-federative-queries.md
+          - name: Visualizing {{ yq-full-name }} data
+            href: tutorials/data-from-yandex-query-visualization.md
+      - name: Machine learning and artificial intelligence
         items:
-          - name: Overview
-            href: tutorials/video-converting-queue/index.md
-          - name: Management console
-            href: tutorials/video-converting-queue/console.md
-          - name: '{{ TF }}'
-            href: tutorials/video-converting-queue/terraform.md
-      - name: Task automation via {{ maf-short-name }}
-        href: tutorials/airflow-auto-tasks.md
-      - name: Processing files with usage details in {{ billing-name }}
-        href: tutorials/billing.md
-      - name: >-
-          Deploying a web app with JWT authorization in {{ api-gw-name }} and
-          Firebase authentication
-        href: tutorials/jwt-authorizer-firebase.md
-      - name: Searching for {{ yandex-cloud }} events in {{ yq-full-name }}
-        href: tutorials/search-events-query.md
-      - name: Searching for {{ yandex-cloud }} events in {{ objstorage-name }}
-        href: tutorials/search-events-bucket.md
-      - name: >-
-          Creating an external table from a bucket table using a configuration
-          file
-        href: tutorials/mgp-config-server-for-s3.md
-      - name: Migrating databases from Google BigQuery to {{ mch-name }}
-        href: tutorials/bigquery-to-clickhouse.md
-      - name: Deploying Nextcloud integrated with {{ objstorage-name }}
+          - name: >-
+              Training a model in {{ ml-platform-full-name }} on data from {{
+              objstorage-name }}
+            href: tutorials/s3-to-datasphere.md
+          - name: Regular asynchronous recognition of audio files in a bucket
+            href: tutorials/batch-recognition-stt.md
+          - name: >-
+              Scheduled image and PDF recognition in an {{ objstorage-short-name
+              }} bucket
+            href: tutorials/vision-ocrrecognizer-storage.md
+          - name: Recognizing text in image archives using {{ vision-name }}
+            href: tutorials/archive-from-vision-to-object-storage.md
+          - name: Creating an MLFlow server for logging experiments and artifacts
+            href: tutorials/mlflow-datasphere.md
+      - name: Managing infrastructure with {{ TF }}
         items:
-          - name: Overview
-            href: tutorials/integrate-nextcloud/index.md
-          - name: Deploying Nextcloud on a VM from a {{ coi }}
-            href: tutorials/integrate-nextcloud/coi-based.md
-          - name: Manually deploying Nextcloud on a VM or VM group
-            href: tutorials/integrate-nextcloud/fault-tolerant.md
-          - name: Deploying Nextcloud on a VM or VM group using {{ TF }}
-            href: tutorials/integrate-nextcloud/terraform.md
-      - name: >-
-          Setting up static website hosting in a {{ objstorage-full-name }}
-          bucket with {{ cdn-full-name }} access
-        items:
-          - name: Overview
-            href: tutorials/cdn-hosting/index.md
-          - name: Management console, CLI, and API
-            href: tutorials/cdn-hosting/console.md
-          - name: '{{ TF }}'
-            href: tutorials/cdn-hosting/terraform.md
-      - name: Using {{ objstorage-name }} in {{ msp-full-name }}
-        href: tutorials/spark-objstorage-integration.md
+          - name: Uploading {{ TF }} states to {{ objstorage-name }}
+            href: tutorials/terraform-state-storage.md
+          - name: Locking {{ TF }} states using {{ ydb-name }}
+            href: tutorials/terraform-state-lock.md
   - name: Concepts
     items:
       - name: Overview

@@ -29,9 +29,22 @@
 
   Пример:
 
-  Яндекс 360 | {{ dns-name }}
-  --- | ---
-  **Тип записи** — `CNAME`</br></br>**Значение записи** — `domain.mail.yandex.net.`</br></br>**TTL** — `600` | **{{ ui-key.yacloud.common.type }}** — `CNAME`</br></br>**{{ ui-key.yacloud.dns.label_records }}** — `domain.mail.yandex.net.`</br></br>**{{ ui-key.yacloud.dns.label_form-ttl }}** — `600`
+  #|
+  ||
+  Яндекс 360
+  |
+  {{ dns-name }}
+  ||
+  ||
+  **Тип записи** — `CNAME`
+  **Значение записи** — `mail.yandex.net.`
+  **TTL** — `600`
+  |
+  **{{ ui-key.yacloud.common.type }}** — `CNAME`
+  **{{ ui-key.yacloud.dns.label_records }}** — `mail.yandex.net.`
+  **{{ ui-key.yacloud.dns.label_form-ttl }}** — `600`
+  ||
+  |#
 
 - MX
 
@@ -40,10 +53,24 @@
   1. Укажите в поле **{{ ui-key.yacloud.dns.label_form-ttl }}** значение параметра TTL из Яндекс 360.
 
   Пример:
-  
-  Яндекс 360 | {{ dns-name }}
-  --- | ---
-  **Тип записи** — `MX`</br></br>**Значение записи** — `mx.yandex.net.`</br></br>**Приоритет** — `10`</br></br>**TTL** — `21600` | **{{ ui-key.yacloud.common.type }}** — `MX`</br></br>**{{ ui-key.yacloud.dns.label_records }}** — `10 mx.yandex.net.`</br></br>**{{ ui-key.yacloud.dns.label_form-ttl }}** — `21600`
+
+  #|
+  ||
+  Яндекс 360
+  |
+  {{ dns-name }}
+  ||
+  ||
+  **Тип записи** — `MX`
+  **Значение записи** — `mx.yandex.net.`
+  **Приоритет** — `10`
+  **TTL** — `21600`
+  |
+  **{{ ui-key.yacloud.common.type }}** — `MX`
+  **{{ ui-key.yacloud.dns.label_records }}** — `10 mx.yandex.net.`
+  **{{ ui-key.yacloud.dns.label_form-ttl }}** — `21600`
+  ||
+  |#
 
 - TXT
   
@@ -60,9 +87,26 @@
 
   Пример:
 
-  Яндекс 360 | {{ dns-name }}
-  --- | ---
-  **Тип записи** — `TXT`</br></br>**Значение записи** — `v=DMARC1; p=none;`</br>`sp=quarantine; pct=100;`</br>`rua=mailto: dmarcreports@example.com;`</br></br>**TTL** — `26000` | **{{ ui-key.yacloud.common.type }}** — `TXT`</br></br>**{{ ui-key.yacloud.dns.label_records }}** — `"v=DMARC1; p=none;`</br>`sp=quarantine; pct=100;`</br>`rua=mailto: dmarcreports@example.com;"`</br></br>**{{ ui-key.yacloud.dns.label_form-ttl }}** — `26000`
+  #|
+  ||
+  Яндекс 360
+  |
+  {{ dns-name }}
+  ||
+  ||
+  **Тип записи** — `TXT`
+  **Значение записи** — `v=DMARC1; p=none;`
+  `sp=quarantine; pct=100;`
+  `rua=mailto: dmarcreports@example.com;`
+  **TTL** — `26000`
+  |
+  **{{ ui-key.yacloud.common.type }}** — `TXT`
+  **{{ ui-key.yacloud.dns.label_records }}** — `"v=DMARC1; p=none;`
+  `sp=quarantine; pct=100;`
+  `rua=mailto: dmarcreports@example.com;"`
+  **{{ ui-key.yacloud.dns.label_form-ttl }}** — `26000`
+  ||
+  |#
 
 - SRV
 
@@ -73,12 +117,26 @@
 
   Пример:
 
-  Яндекс 360 | {{ dns-name }}
-  --- | ---
-  **Тип записи** — `SRV`</br></br>**Значение записи** — `86400 IN SRV 0 5 5060 _sip._tcp.example.com.`</br></br>**Приоритет** — `0`</br></br>**TTL** — `86400` | **{{ ui-key.yacloud.common.type }}** — `SRV`</br></br>**{{ ui-key.yacloud.dns.label_records }}** — `0 5 5060 _sip._tcp.example.com.`</br></br>**{{ ui-key.yacloud.dns.label_form-ttl }}** — `86400`
+  #|
+  ||
+  Яндекс 360
+  |
+  {{ dns-name }}
+  ||
+  ||
+  **Тип записи** — `SRV`
+  **Значение записи** — `86400 IN SRV 0 5 5060 _sip._tcp.example.com.`
+  **Приоритет** — `0`
+  **TTL** — `86400`
+  |
+  **{{ ui-key.yacloud.common.type }}** — `SRV`
+  **{{ ui-key.yacloud.dns.label_records }}** — `0 5 5060 _sip._tcp.example.com.`
+  **{{ ui-key.yacloud.dns.label_form-ttl }}** — `86400`
+  ||
+  |#
 
 {% endlist %}
 
 Подождите, пока изменения вступят в силу. Может потребоваться до 72 часов, чтобы DNS-серверы в интернете обменялись данными о новых DNS-записях.
 
-Подробнее о типах ресурсных записей, поддерживаемых сервисом, смотрите в разделе [{#T}](../../dns/concepts/resource-record.md).
+Подробнее о типах ресурсных записей, поддерживаемых сервисом в разделе [{#T}](../../dns/concepts/resource-record.md).

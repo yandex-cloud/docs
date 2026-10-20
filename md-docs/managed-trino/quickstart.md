@@ -35,7 +35,7 @@
 
 1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роли:
 
-    * [managed-trino.admin](security.md#managed-trino-admin) — чтобы создать кластер;
+    * [managed-trino.editor](security.md#managed-trino-editor) — чтобы создать кластер;
     * [vpc.user](../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../vpc/concepts/network.md#network) кластера;
     * [logging.reader](../logging/security/index.md#logging-reader) — чтобы просматривать логи кластера;
     * [logging.editor](../logging/security/index.md#logging-editor) — чтобы управлять настройками логирования кластера;
@@ -47,7 +47,7 @@
     
     {% endnote %}
 
-1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md#create-sa) с ролями `managed-trino.integrationProvider` и `storage.editor`.    
+1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md#create-sa) с ролями `managed-trino.integrationProvider` и `storage.editor`.
 
 1. [Создайте кластер](../managed-postgresql/operations/cluster-create.md#create-cluster) Yandex Managed Service for PostgreSQL, с которым будет работать Trino.
 
@@ -82,7 +82,7 @@
 
             * **Имя каталога** — `data`.
             * **Тип коннектора** — `TPC-H`.
-   
+
         Вы можете добавить каталоги как при создании кластера, так и после его создания.
 
     1. (Опционально) В блоке **Дополнительные настройки** настройте логирование:
@@ -115,7 +115,7 @@
 1. Подключитесь к кластеру Managed Service for Trino:
 
    ```bash
-   ./trino c-<идентификатор_кластера>.trino.yandexcloud.net --user iam --password
+   ./trino https://c-<идентификатор_кластера>.trino.yandexcloud.net --user iam --password
    ```
 
    Идентификатор кластера можно запросить со [списком кластеров в каталоге](operations/cluster-list.md#list-clusters).
@@ -163,9 +163,9 @@
    Ожидаемый ответ:
 
    ```sql
-     count  
+     count
    ---------
-    1000000 
+    1000000
    (1 row)
    ```
 
@@ -180,7 +180,7 @@ SELECT COUNT(*) FROM tpch_postgresql.customers;
 Ожидаемый ответ:
 
 ```sql
-  count  
+  count
 ---------
  1000000
 (1 row)

@@ -1,0 +1,3 @@
+Exceptions are allowed only for a specific requirement, resource, and term. The system owner must document the rationale, affected assets, risk assessment, compensatory measures, responsible employee, end date, and review conditions. An exception must be approved by a party authorized by the organization. Upon expiration of the term, the requirement must be reviewed again.
+
+A feature at the Preview stage or available upon request may be used as a control only after its availability to the organization has been confirmed. If it is unavailable, the owner chooses an alternative way of achieving the required state or requests an exception; the requirement remains applicable regardless of the availability of a specific product.

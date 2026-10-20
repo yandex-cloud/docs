@@ -1,0 +1,5 @@
+| № | Metric | Scope | Owner | Data source | Verification artifact | N/A / zero denominator rule |
+|---|---|---|---|---|---|---|
+| 18 | **Mean time to remediate critical vulnerabilities (MMTR Critical Vulns)** | Software images or dependencies are used | DevSecOps / application owner | Vulnerability scanner, issue tracker, release history | Record: vulnerability ID, detection date, fix date, release | If no critical vulnerabilities are found for the period: `N/A` (zero denominator) |
+| 19 | **Share of components with an up-to-date SBOM** | Organization requires to generate a SBOM for releases | Information security owner / DevSecOps | Release registry, SBOM manifests | Saved SBOM, connection with release digest | SBOM counts only where it is required by the policy; if not required, `N/A` |
+| 20 | **Incident response speed by vendors** | External components are used (models, data, libraries) | Information security owner / supply chain | Vendor notification registry, issue tracker | Record: notification, date of receipt, date of impact assessment, date of restrictive measures | If there are no external components: `N/A` |

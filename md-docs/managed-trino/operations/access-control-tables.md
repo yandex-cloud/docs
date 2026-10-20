@@ -943,7 +943,7 @@
      * `catalog`, `schema` и `table` — совместно определяют таблицы, к которым будет применяться правило. Каждый из параметров является опциональным.
 
        * `catalog` — каталоги, задаваемые одним из параметров:
-         * `names` — список имен каталогов. Каталоги должны создаваться в этом же вызове [Cluster.Create](../api-ref/Cluster/create.md).
+         * `names` — список имен каталогов. Каталоги должны создаваться в этом же вызове метода REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md).
          * `nameRegexp` — регулярное выражение для имен каталогов.
 
          Если блок `catalog` не указан, это равносильно регулярному выражению `.*`.
@@ -989,13 +989,13 @@
 
       Доступные параметры кластера и их описания представлены в [инструкции](cluster-create.md#create-cluster).
 
-  1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
           --request POST \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters'
+          --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters' \
           --data '@body.json'
       ```
 
@@ -1246,7 +1246,7 @@
       * `catalog`, `schema` и `table` — совместно определяют таблицы, к которым будет применяться правило. Каждый из параметров является опциональным.
 
         * `catalog` — каталоги, задаваемые одним из параметров:
-          * `names` — список имен каталогов. Каталоги должны создаваться в этом же вызове [ClusterService/Create](../api-ref/grpc/Cluster/create.md).
+          * `names` — список имен каталогов. Каталоги должны создаваться в этом же вызове gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md).
           * `name_regexp` — регулярное выражение для имен каталогов.
 
           Если блок `catalog` не указан, это равносильно регулярному выражению `.*`.
@@ -1292,7 +1292,7 @@
 
       Доступные параметры кластера и их описания представлены в [инструкции](cluster-create.md#create-cluster).
 
-  4. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  4. Воспользуйтесь вызовом gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -2305,13 +2305,13 @@
      * изменить параметры существующих правил;
      * удалить ненужные правила.
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
         --request PATCH \
         --header "Authorization: Bearer $IAM_TOKEN" \
-        --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>'
+        --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>' \
         --data '@body.json'
       ```
 
@@ -2635,7 +2635,7 @@
      * изменить параметры существующих правил;
      * удалить ненужные правила.
 
-  3. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  3. Воспользуйтесь вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \

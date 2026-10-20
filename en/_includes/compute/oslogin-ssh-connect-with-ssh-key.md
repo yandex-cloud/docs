@@ -11,14 +11,16 @@ To connect to a VM via {{ oslogin }} with an SSH key using a standard SSH client
 
     ```bash
     ssh -i <path_to_private_SSH_key_file> \
-      -l <user_or_service_account_login> <VM_public_IP_address>
+      -l <user_or_service_account_login> <VM_public_IP_address> \
+      -p <port>
     ```
 
     Where:
 
-    * `<path_to_private_SSH_key_file>`: Path to the private SSH key file, e.g., `/home/user1/.ssh/id_ed25519`. 
+    * `<path_to_private_SSH_key_file>`: Path to the private SSH key file. Here is an example: `/home/user1/.ssh/id_ed25519`. 
     * `<user_or_service_account_login>`: Previously obtained user or service account login, as set in the {{ oslogin }} profile.
     * `<VM_public_IP_address>`: VM public IP address you saved earlier.
+    * `-p`: Connection port; `22` by default. If using any other port, make sure it is specified in `/etc/ssh/sshd_config` on your VM and the security group allows inbound traffic. This is an optional parameter.
 
     If this is your first time connecting to the VM, you will get this unknown host warning:
 

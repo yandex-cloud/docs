@@ -4,6 +4,7 @@
 
 updates specified MFA enforcement's audience
 
+
 ## gRPC request
 
 **rpc UpdateAudience ([UpdateAudienceRequest](#yandex.cloud.organizationmanager.v1.UpdateAudienceRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**

@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ resmgr-full-name }}'
-description: This page provides information about the {{ TF }} provider’s resources and data sources that {{ resmgr-name }} supports.
+description: This page gives information about the {{ TF }} provider resources and data sources supported by {{ resmgr-name }}.
 ---
 
 # {{ TF }} reference for {{ resmgr-full-name }}
@@ -9,21 +9,23 @@ description: This page provides information about the {{ TF }} provider’s reso
 
 ## Resources {#resources}
 
-{{ resmgr-name }} supports the {{ TF }} provider’s following resources:
+{{ resmgr-name }} supports the following {{ TF }} provider resources:
 
 | **{{ TF }}** resource | **{{ yandex-cloud }}** resource |
 | --- | --- |
+| [yandex_resource_manager_cloud_iam_policy_binding]({{ tf-provider-resources-link }}/resource_manager_cloud_iam_policy_binding) | Assigning an [access policy](./operations/cloud/manage-access-policies.md) for a cloud |
+| [yandex_resource_manager_folder_iam_policy_binding]({{ tf-provider-resources-link }}/resource_manager_folder_iam_policy_binding) | Assigning an [access policy](./operations/folder/manage-access-policies.md) for a folder |
 | [yandex_resourcemanager_cloud]({{ tf-provider-resources-link }}/resourcemanager_cloud) | [Cloud](./concepts/resources-hierarchy.md#cloud) |
-| [yandex_resourcemanager_cloud_iam_binding]({{ tf-provider-resources-link }}/resourcemanager_cloud_iam_binding) | [Assigning](../iam/concepts/access-control/index.md#access-bindings) access permissions for a cloud. It has a limit of 1,000 bindings per resource. <br>We recommend using `yandex_resourcemanager_cloud_iam_member` instead of `yandex_resourcemanager_cloud_iam_binding`. |
+| [yandex_resourcemanager_cloud_iam_binding]({{ tf-provider-resources-link }}/resourcemanager_cloud_iam_binding) | [Assigning](../iam/concepts/access-control/index.md#access-bindings) access permissions for a cloud. Limited to 1,000 bindings per resource. <br>We recommend using `yandex_resourcemanager_cloud_iam_member` instead of `yandex_resourcemanager_cloud_iam_binding`. |
 | [yandex_resourcemanager_cloud_iam_member]({{ tf-provider-resources-link }}/resourcemanager_cloud_iam_member) | [Assigning](../iam/concepts/access-control/index.md#access-bindings) access permissions for a cloud |
 | [yandex_resourcemanager_folder]({{ tf-provider-resources-link }}/resourcemanager_folder) | [Folder](./concepts/resources-hierarchy.md#folder) |
-| [yandex_resourcemanager_folder_iam_binding]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_binding) | [Assigning](../iam/concepts/access-control/index.md#access-bindings) access permissions for a folder. It has a limit of 1,000 bindings per resource. <br>We recommend using `yandex_resourcemanager_cloud_iam_member` instead of `yandex_resourcemanager_cloud_iam_binding`. |
+| [yandex_resourcemanager_folder_iam_binding]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_binding) | [Assigning](../iam/concepts/access-control/index.md#access-bindings) access permissions for a folder. Limited to 1,000 bindings per resource. <br>We recommend using `yandex_resourcemanager_folder_iam_member` instead of `yandex_resourcemanager_folder_iam_binding`. |
 | [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member) | [Assigning](../iam/concepts/access-control/index.md#access-bindings) access permissions for a folder |
 | [yandex_resourcemanager_folder_iam_policy]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_policy) | Sets the folder access policy and replaces any specified policy. |
 
 ## Data sources {#data-sources}
 
-{{ resmgr-name }} supports the {{ TF }} provider’s following data sources:
+{{ resmgr-name }} supports the following {{ TF }} provider data sources:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |

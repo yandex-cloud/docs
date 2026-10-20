@@ -21,15 +21,17 @@ The {{ mtr-name }} cluster dedicates special IP addresses in its subnet. The clu
 
 By default, the cluster's IP addresses only work within the internal network. To give your cluster access to resources on the internet, [configure a NAT gateway](../../vpc/operations/create-nat-gateway.md).
 
-{{ mtr-name }} clusters use dynamic IP addresses which may change, e.g., during maintenance. So if you need to identify cluster addresses, use subnet ranges instead of specific IP addresses. For example, if you are using [{{ interconnect-full-name }}](../../interconnect/concepts/index.md) to connect a {{ mtr-name }} cluster to your on-prem infrastructure, we recommend whitelisting the whole subnet range in your firewall settings. 
+{{ mtr-name }} clusters use dynamic IP addresses which may change, e.g., during maintenance. So if you need to identify cluster addresses, use subnet ranges instead of specific IP addresses. For example, if you are using [{{ interconnect-full-name }}](../../interconnect/concepts/index.md) to connect a {{ mtr-name }} cluster to your on-prem infrastructure, we recommend whitelisting the whole subnet range in your firewall settings.
 
 ## Requirements for cluster subnets {#subnet-requirements}
 
 Make sure your {{ mtr-name }} cluster subnet meets the following conditions:
 
-* The cluster's IP range does not overlap with the {{ trino-service-address }} service IP range {{ yandex-cloud }} uses to manage {{ mtr-name }} cluster components.
+* The IP address ranges of all subnets in the cloud network (VPC) selected for the cluster must not overlap with the {{ trino-service-address }} service range {{ yandex-cloud }} uses to manage {{ mtr-name }} cluster components.
 
-    If this condition is not met, you will get an error when creating the cluster.
+    The restriction also applies to subnets that are not used by the {{ TR }} cluster and are designated for other resources. If at least one subnet in the selected VPC overlaps with the service range, the cluster creation will fail.
+
+    For example, you cannot create a cluster in the `10.45.0.0/16` subnet if another subnet, `10.250.0.0/24`, exists in the same VPC, as it falls within the service range. Selecting a different subnet within the same VPC will not resolve the overlap. To create the cluster, select or create a VPC without such overlaps.
 
     This requirement also applies to networks in your on-premise infrastructure if it is connected to the {{ mtr-name }} cluster via [{{ interconnect-full-name }}](../../interconnect/concepts/index.md). From a {{ TR }} cluster, you will not be able to connect to resources with IPs from the {{ trino-service-address }} range.
 
@@ -53,7 +55,7 @@ If you have not assigned any security group to your {{ mtr-name }} cluster, the 
 
 To protect your {{ mtr-name }} cluster from external access, you can use a [service connection](../../vpc/concepts/private-endpoint.md) (Private Endpoint). It allows you to connect to the cluster via [{{ vpc-short-name }} private IP addresses](../../vpc/concepts/address.md#internal-addresses) without internet access.
 
-The service connection for {{ mtr-name }} is [created](../../vpc/operations/private-endpoint-create.md) and configured in {{ vpc-full-name }}. When creating a service connection in {{ vpc-short-name }}, the following objects are automatically created:
+The service connection for {{ mtr-name }} is [created](../../vpc/operations/private-endpoint-create.md) and configured in {{ vpc-full-name }}. When creating a service connection in {{ vpc-short-name }}, the following actions are automatically performed:
 
 * The connection is assigned an internal IP address on the network for which the connection was created.
 * In the [service DNS zone](../../dns/concepts/dns-zone.md#service-zones), the `*.trino.pe.yandexcloud.net` and `trino.pe.yandexcloud.net` type A records are added to access the {{ mtr-name }} cluster endpoint. The DNS records contain the private IP address allocated for the service connection.

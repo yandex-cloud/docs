@@ -17,7 +17,7 @@ To view a full list of metrics, see [this reference](../../metrics.md).
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to get the statistics for.
   1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab.

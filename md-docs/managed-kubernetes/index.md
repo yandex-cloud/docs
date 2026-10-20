@@ -834,11 +834,9 @@
 
  - [DirectResponse](gwin-ref/directresponse.md)
 
- - [Gateway](gwin-ref/gateway.md)
-
  - [GatewayPolicy](gwin-ref/gatewaypolicy.md)
 
- - [GRPCRoute](gwin-ref/grpcroute.md)
+ - [Gateway](gwin-ref/gateway.md)
 
  - [HTTPRoute](gwin-ref/httproute.md)
 
@@ -846,19 +844,21 @@
 
  - [IngressBackendGroup](gwin-ref/ingressbackendgroup.md)
 
- - [IngressPolicy](gwin-ref/ingresspolicy.md)
-
- - [ListenerSet](gwin-ref/listenerset.md)
+ - [GRPCRoute](gwin-ref/grpcroute.md)
 
  - [ListenerSetPolicy](gwin-ref/listenersetpolicy.md)
 
- - [RoutePolicy](gwin-ref/routepolicy.md)
+ - [ListenerSet](gwin-ref/listenerset.md)
 
- - [ServicePolicy](gwin-ref/servicepolicy.md)
+ - [IngressPolicy](gwin-ref/ingresspolicy.md)
+
+ - [RoutePolicy](gwin-ref/routepolicy.md)
 
  - [Service](gwin-ref/service.md)
 
  - [YCCertificate](gwin-ref/yccertificate.md)
+
+ - [ServicePolicy](gwin-ref/servicepolicy.md)
 
  - [TLSRoute](gwin-ref/tlsroute.md)
 

@@ -2,6 +2,12 @@
 
 # Создать сканирование DSPM
 
+{% note info %}
+
+Регулярное сканирование бакетов сохранено в интерфейсе v1.0 для тех пользователей, которые уже работают с этой функцией. Для остальных пользователей функция недоступна.
+
+{% endnote %}
+
 [Модуль контроля данных](../../concepts/dspm.md) (Data Security Posture Management) находит чувствительную информацию в хранилищах с помощью сканирования [бакетов](../../../storage/concepts/bucket.md) Yandex Object Storage и [Яндекс Дисков](https://yandex.ru/support/yandex-360/business/disk/web/ru/index.html) в Яндекс 360.
 
 

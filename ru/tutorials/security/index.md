@@ -120,6 +120,7 @@ description: Различные сценарии использования по
     * [{#T}](./single-sign-on/time/oidc-time.md)
 * [{#T}](./single-sign-on/saml-vk-cloud.md)
 * [Zabbix](./single-sign-on/saml-zabbix.md)
+* [МТС Линк](./single-sign-on/saml-mts-link.md)
 * [Пассворк](./single-sign-on/saml-passwork.md)
 * [{{ yandex-360 }}](./single-sign-on/saml-yandex-360.md)
 * [Яндекс Браузер для организаций](./single-sign-on/saml-ya-browser-corporate.md)

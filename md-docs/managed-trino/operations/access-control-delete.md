@@ -36,13 +36,13 @@
 - Terraform {#tf}
 
   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
-  
+
       Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
-  
+
   1. Удалите из описания ресурса `yandex_trino_access_control` ненужное правило.
 
   1. Проверьте корректность настроек.
-  
+
       1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
@@ -51,9 +51,9 @@
          ```
       
          Если в файлах конфигурации есть ошибки, Terraform на них укажет.
-  
+
   1. Подтвердите изменение ресурсов.
-  
+
       1. Выполните команду для просмотра планируемых изменений:
       
          ```bash
@@ -72,7 +72,7 @@
       
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
- 
+
   Подробнее в [документации провайдера Terraform](../../terraform/resources/trino_access_control.md).
 
 - REST API {#api}
@@ -85,13 +85,13 @@
 
   1. Откройте существующий файл `body.json` с правилами и удалите из него ненужное правило.
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>'
+       --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>' \
        --data '@body.json'
      ```
 
@@ -117,7 +117,7 @@
 
   1. Откройте существующий файл `body.json` с правилами и удалите из него ненужное правило.
 
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -161,13 +161,13 @@
 - Terraform {#tf}
 
   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
-  
+
       Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
-  
+
   1. Удалите из конфигурационного файла ресурс `yandex_trino_access_control`.
 
   1. Проверьте корректность настроек.
-  
+
       1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
@@ -176,9 +176,9 @@
          ```
       
          Если в файлах конфигурации есть ошибки, Terraform на них укажет.
-  
+
   1. Подтвердите изменение ресурсов.
-  
+
       1. Выполните команду для просмотра планируемых изменений:
       
          ```bash
@@ -197,7 +197,7 @@
       
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
- 
+
   Подробнее в [документации провайдера Terraform](../../terraform/resources/trino_access_control.md).
 
 - REST API {#api}
@@ -231,13 +231,13 @@
 
       * `accessControl` — конфигурация прав доступа в рамках кластера.
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>'
+       --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>' \
        --data '@body.json'
      ```
 
@@ -280,7 +280,7 @@
       Где:
 
       * `cluster_id` — идентификатор кластера.
-          
+
           Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
       * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
@@ -308,7 +308,7 @@
 
       * `access_control` — конфигурация прав доступа в рамках кластера.
 
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \

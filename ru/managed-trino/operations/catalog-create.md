@@ -89,7 +89,7 @@ description: Следуя этой инструкции, вы создадите
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Catalog.Create](../api-ref/Catalog/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом REST API [create](../api-ref/Catalog/create.md) для ресурса [Catalog](../api-ref/Catalog/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -123,7 +123,7 @@ description: Следуя этой инструкции, вы создадите
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [CatalogService.Create](../api-ref/grpc/Catalog/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом gRPC API [CatalogService/Create](../api-ref/grpc/Catalog/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -210,7 +210,7 @@ description: Следуя этой инструкции, вы создадите
       Чтобы узнать идентификатор подключения:
         1. В [консоли управления]({{ link-console-main }}) выберите каталог.
         1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-        1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.   
+        1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
     * `--connection-manager-database` — имя БД в кластере {{ CH }}.
     * `--connection-manager-connection-properties` — параметры клиента {{ CH }} в формате `ключ=значение`.
@@ -1331,9 +1331,18 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
 ### Коннектор Iceberg {#iceberg}
 
+Выберите тип хранилища метаданных:
+
+* [{{ metastore-name }}](#iceberg-hive-metastore).
+* [REST Metastore](#iceberg-rest-metastore).
+
+#### {{ metastore-name }} {#iceberg-hive-metastore}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
+
+    * **Тип Metastore** — **Hive Metastore**.
 
     {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
 
@@ -1348,10 +1357,6 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
       --cluster-id <идентификатор_кластера> \
       --metastore-hive-uri <URI_для_подключения> \
       --filesystem-native-s3 \
-      --filesystem-external-s3-aws-access-key <идентификатор_ключа_доступа> \
-      --filesystem-external-s3-aws-secret-key <секретный_ключ> \
-      --filesystem-external-s3-aws-endpoint <эндпоинт> \
-      --filesystem-external-s3-aws-region <регион> \
       --additional-properties <список_дополнительных_настроек>
     ```
 
@@ -1468,6 +1473,219 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     {% include [connector-settings-grpc-api](../../_includes/managed-trino/api/connector-settings-grpc.md) %}
 
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/iceberg.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+{% endlist %}
+
+#### REST Metastore {#iceberg-rest-metastore}
+
+В примерах используется REST Catalog без аутентификации.
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    * **Тип Metastore** — **REST Metastore**.
+    * **URI** — URL для подключения к REST Catalog, например `https://<адрес_REST_Catalog>`.
+    * **Файловое хранилище** — тип файлового хранилища. Доступные варианты: [{{ objstorage-full-name }}](../../storage/quickstart/overview.md) и внешнее хранилище.
+
+        Для взаимодействия с {{ objstorage-name }} назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисному аккаунту кластера {{ mtr-name }}.
+
+        Для внешнего хранилища необходимо указать:
+
+        * **Идентификатор ключа доступа** — идентификатор AWS-совместимого статического ключа доступа.
+        * **Секретный ключ** — секретный ключ AWS-совместимого статического ключа доступа.
+        * **Эндпоинт** — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
+        * **Регион** — регион файлового хранилища, например `ru-central1`.
+
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/iceberg.html).
+
+- CLI {#cli}
+
+    Пример команды:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create iceberg <имя_каталога_{{ TR }}> \
+      --cluster-id <идентификатор_кластера> \
+      --metastore-rest-uri https://<адрес_REST_Catalog> \
+      --filesystem-native-s3 \
+      --additional-properties <список_дополнительных_настроек>
+    ```
+
+    Где:
+
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--metastore-rest-uri` — URL для подключения к REST Catalog.
+    * `--filesystem-native-s3` — хранилище [{{ objstorage-full-name }}](../../storage/quickstart/overview.md).
+
+      Для взаимодействия с {{ objstorage-name }} назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисному аккаунту кластера {{ mtr-name }}.
+
+    * `--filesystem-external-s3-aws-access-key` — идентификатор AWS-совместимого статического ключа доступа.
+    * `--filesystem-external-s3-aws-secret-key` — секретный ключ AWS-совместимого статического ключа доступа.
+    * `--filesystem-external-s3-aws-endpoint` — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
+    * `--filesystem-external-s3-aws-region` — регион файлового хранилища, например `ru-central1`.
+
+      {% note info %}
+
+      Укажите либо параметр `--filesystem-native-s3`, чтобы использовать хранилище {{ objstorage-name }}, либо параметры группы `--filesystem-external-s3-aws`, чтобы использовать внешнее хранилище.
+
+      {% endnote %}
+
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/iceberg.html).
+
+- {{ TF }} {#tf}
+
+    Пример конфигурации:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
+      ...
+      iceberg = {
+        file_system = {
+          s3 = {}
+        }
+        metastore = {
+          rest_uri = "https://<адрес_REST_Catalog>"
+        }
+        additional_properties = {
+          <список_дополнительных_настроек>
+        }
+      }
+    }
+    ```
+
+    Где:
+
+    * `file_system` — тип файлового хранилища. Доступные варианты:
+
+        * `s3` — хранилище [{{ objstorage-full-name }}](../../storage/quickstart/overview.md).
+
+            Для взаимодействия с {{ objstorage-name }} назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисному аккаунту кластера {{ mtr-name }}.
+
+        * `external_s3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
+
+            * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
+            * `aws_secret_key` — секретный ключ AWS-совместимого статического ключа доступа.
+            * `aws_endpoint` — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
+            * `aws_region` — регион файлового хранилища, например `ru-central1`.
+
+    * `metastore.rest_uri` — URL для подключения к REST Catalog.
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/iceberg.html).
+
+- REST API {#api}
+
+    Пример команды:
+
+    ```bash
+    curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --data '{
+                  "catalog": {
+                    "name": "<имя_каталога_{{ TR }}>",
+                    "connector": {
+                      "iceberg": {
+                        "filesystem": {
+                          "s3": {}
+                        },
+                        "metastore": {
+                          "rest": {
+                            "uri": "https://<адрес_REST_Catalog>",
+                            "authorization": {
+                              "none": {}
+                            }
+                          }
+                        },
+                        "additionalProperties": {
+                          <список_дополнительных_настроек>
+                        }
+                      }
+                    }
+                  }
+                }'
+    ```
+
+    Где:
+
+    * `filesystem` — тип файлового хранилища. Доступные варианты:
+
+        * `s3` — хранилище [{{ objstorage-full-name }}](../../storage/quickstart/overview.md).
+
+            Для взаимодействия с {{ objstorage-name }} назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисному аккаунту кластера {{ mtr-name }}.
+
+        * `externalS3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
+
+            * `awsAccessKey` — идентификатор AWS-совместимого статического ключа доступа.
+            * `awsSecretKey` — секретный ключ AWS-совместимого статического ключа доступа.
+            * `awsEndpoint` — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
+            * `awsRegion` — регион файлового хранилища, например `ru-central1`.
+
+    * `metastore.rest.uri` — URL для подключения к REST Catalog.
+    * `metastore.rest.authorization.none` — подключение к REST Catalog без аутентификации.
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/iceberg.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- gRPC API {#grpc-api}
+
+    Пример команды:
+
+    ```bash
+    grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cluster_id": "<идентификатор_кластера>",
+              "catalog": {
+                "name": "<имя_каталога_{{ TR }}>",
+                "connector": {
+                  "iceberg": {
+                    "filesystem": {
+                      "s3": {}
+                    },
+                    "metastore": {
+                      "rest": {
+                        "uri": "https://<адрес_REST_Catalog>",
+                        "authorization": {
+                          "none": {}
+                        }
+                      }
+                    },
+                    "additional_properties": {
+                      <список_дополнительных_настроек>
+                    }
+                  }
+                }
+              }
+            }' \
+        {{ api-host-trino }}:{{ port-https }} \
+        yandex.cloud.trino.v1.CatalogService.Create
+    ```
+
+    Где:
+
+    * `filesystem` — тип файлового хранилища. Доступные варианты:
+
+        * `s3` — хранилище [{{ objstorage-full-name }}](../../storage/quickstart/overview.md).
+
+            Для взаимодействия с {{ objstorage-name }} назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисному аккаунту кластера {{ mtr-name }}.
+
+        * `external_s3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
+
+            * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
+            * `aws_secret_key` — секретный ключ AWS-совместимого статического ключа доступа.
+            * `aws_endpoint` — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
+            * `aws_region` — регион файлового хранилища, например `ru-central1`.
+
+    * `metastore.rest.uri` — URL для подключения к REST Catalog.
+    * `metastore.rest.authorization.none` — подключение к REST Catalog без аутентификации.
     * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/iceberg.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -2509,12 +2727,12 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
     {{ yc-mdb-tr }} catalog create tpcds <имя_каталога_{{ TR }}> \
       --cluster-id <идентификатор_кластера> \
       --additional-properties <список_дополнительных_настроек>
-    ```  
+    ```
 
     Где:
 
     * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/tpcds.html).  
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/tpcds.html).
 
 - {{ TF }} {#tf}
 
@@ -2613,12 +2831,12 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
     {{ yc-mdb-tr }} catalog create tpch <имя_каталога_{{ TR }}> \
       --cluster-id <идентификатор_кластера> \
       --additional-properties <список_дополнительных_настроек>
-    ```  
+    ```
 
     Где:
 
     * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/tpch.html).      
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/tpch.html).
 
 - {{ TF }} {#tf}
 

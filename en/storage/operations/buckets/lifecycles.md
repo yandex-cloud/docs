@@ -1,11 +1,11 @@
 ---
-title: Managing object lifecycles in a {{ objstorage-full-name }} bucket
+title: Configuring object lifecycle in a {{ objstorage-full-name }} bucket
 description: Follow this guide to manage object lifecycles in an {{ objstorage-name }} bucket.
 ---
 
-# Managing bucket object lifecycles
+# Configuring object lifecycle in a bucket
 
-{{ objstorage-name }} enables managing bucket [object lifecycles](../../concepts/lifecycles.md).
+{{ objstorage-name }} allows you to manage bucket [object lifecycles](../../concepts/lifecycles.md).
 
 Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hours to complete.
 
@@ -13,7 +13,7 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to configure object lifecycles for.
   1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_lifecycle }}**.
@@ -137,7 +137,7 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
       * `abort_incomplete_multipart_upload`: Parameter of a rule for removing all parts of multipart uploads that were not complete within the specified number of days. This is an optional setting. It may contain:
           * `days_after_expiration`: Number of days after the object was uploaded. The minimum value is `1`. This is a required setting.
       * `noncurrent_delete_markers`: Parameter of a rule for deleting [non-current delete markers](*noncurrent-delete-markers). This is an optional setting. It may contain:
-          * `noncurrent_days`: Number of days that must elapse after the object version is marked with a delete marker before the rule takes effect. The minimum value is `0`. If set to `0`, all non-current delete markers within the bucket will be deleted. This is a required setting.
+          * `noncurrent_days`: Number of days that must elapse after the object version is marked with a delete marker before the rule takes effect. The minimum value is `0`. If set to `0`, all inactive delete markers within the bucket will be deleted. This is a required setting.
 
           {% include [noncurrent-delete-markers-note](../../../_includes/storage/noncurrent-delete-markers-note.md) %}
 
@@ -477,7 +477,7 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
      `noncurrent_version_transition` settings:
      * `days`: Number of days left until the non-current version is migrated to another storage class. The minimum value is `1`. This is a required setting.
      * `storage_class`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, `ICE`, or `INTELLIGENT_TIERING`. This is a required setting.
-     * `newer_noncurrent_versions`: Number of recent non-current object versions retained in the original storage class indefinitely. Versions beyond this number are migrated to another storage class after the period specified in `days`. This is an optional setting.
+     * `newer_noncurrent_versions`: Number of recent non-current object versions retained in the original storage class indefinitely. Versions beyond this number get migrated to another storage class after the period specified in `days`. This is an optional setting.
 
      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
 

@@ -1,9 +1,9 @@
 ---
-title: Managing object locks in a bucket
-description: Follow this guide to manage object locks in {{ objstorage-name }}.
+title: Enabling and disabling object lock
+description: Follow this guide to enable or disable object locks and configure default locks in an {{ objstorage-name }} bucket.
 ---
 
-# Managing object locks in a bucket
+# Enabling and disabling object lock
 
 You can set up _[object locks](../../concepts/object-lock.md)_ in [versioned](versioning.md) buckets. With object lock enabled, you can lock an object version so that it cannot be deleted or overwritten. You can also set default object locks for a bucket that will apply to all new object versions.
 
@@ -21,7 +21,7 @@ To enable object locks:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to configure encryption for.
   1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_object-lock }}**.
@@ -108,7 +108,7 @@ To set up default object locks:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to configure default locks for.
   1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_object-lock }}**.
@@ -237,7 +237,7 @@ To disable object locks:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to configure encryption for.
   1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_object-lock }}**.

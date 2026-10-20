@@ -1,0 +1,7 @@
+Active investigation of model or agent behavior is done only within the scope permitted in writing. The permission specifies systems and endpoints, time, responsible persons, allowed load, test data, prohibition on influencing other tenants, stop conditions, and recovery procedure. Production secrets and real personal data are not used unless specifically permitted or required for an approved purpose.
+
+Scenarios are derived from the system’s actual capabilities, trust limits, and the requirements of this standard, not from universal taxonomy undocumented for the project. For a text-based assistant, it can be attempts to extract a restricted document or bypass an output check; for an agent, to expand the purpose, call a forbidden tool, repeat an action, or bypass confirmation; for a self-hosted model, to additionally check the loader and execution limit.
+
+The organization defines the frequency, depth, and criteria of stops based on the risk, significant changes, and previous results. This standard does not set a universal frequency, severity scale, release threshold, or a single model limitation bypass criterion.
+
+The test result must link together the input condition, system version, observed action, affected limit, and the requirement of the standard. An unusual model response is not a violation by itself until it is demonstrated which required state or limit has been violated.

@@ -36,7 +36,7 @@
 ## Ноябрь 2025 {#november-2025}
 
 * [Доступен новый коннектор](concepts/index.md#connector): MySQL®.
-* Добавлена возможность загрузить пользовательские сертификаты (параметры TLS) при [создании](operations/cluster-create.md) и [изменении](operations/cluster-update.md) кластера.
+* Добавлена возможность загрузить пользовательские сертификаты (параметры TLS) при [создании](operations/cluster-create.md) и [изменении](operations/cluster-update.md#change-additional-settings) кластера.
 * Доступна новая версия Trino [476](https://trino.io/docs/current/release/release-476.html).
 
 ## Октябрь 2025 {#october-2025}
@@ -54,12 +54,12 @@
 
 ## Сентябрь 2025 {#september-2025}
 
-Добавлена возможность выбора версии Trino при [создании](operations/cluster-create.md) и [изменении](operations/cluster-update.md) кластера.
+Добавлена возможность выбора версии Trino при [создании](operations/cluster-create.md) и [изменении](operations/cluster-version-update.md#update) кластера.
 
 ## Август 2025 {#august-2025}
 
 Добавлена возможность [работать с каталогами в кластере Trino](operations/index.md#catalogs) с помощью методов [REST](api-ref/Catalog/index.md) и вызова [gRPC](api-ref/grpc/Catalog/index.md).
- 
+
 ## Июль 2025 {#july-2025}
 
 * 21 июля 2025 Managed Service for Trino перешел на стадию [General Availability](../overview/concepts/launch-stages.md), и за его использование начала взиматься плата в соответствии с [правилами тарификации](pricing.md).

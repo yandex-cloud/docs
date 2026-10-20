@@ -22,7 +22,7 @@ description: В этой инструкции вы научитесь созда
 
 1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли:
 
-    * [managed-trino.admin](security.md#managed-trino-admin) — чтобы создать кластер;
+    * [managed-trino.editor](security.md#managed-trino-editor) — чтобы создать кластер;
     * [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../vpc/concepts/network.md#network) кластера;
     * [{{ roles-logging-reader }}](../logging/security/index.md#logging-reader) — чтобы просматривать логи кластера;
     * [logging.editor](../logging/security/index.md#logging-editor) — чтобы управлять настройками логирования кластера;
@@ -30,7 +30,7 @@ description: В этой инструкции вы научитесь созда
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
-1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md#create-sa) с ролями `managed-trino.integrationProvider` и `storage.editor`.    
+1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md#create-sa) с ролями `managed-trino.integrationProvider` и `storage.editor`.
 
 1. [Создайте кластер](../managed-postgresql/operations/cluster-create.md#create-cluster) {{ mpg-full-name }}, с которым будет работать {{ TR }}.
 
@@ -65,7 +65,7 @@ description: В этой инструкции вы научитесь созда
 
             * **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}** — `data`.
             * **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}** — `TPC-H`.
-   
+
         Вы можете добавить каталоги как при создании кластера, так и после его создания.
 
     1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** настройте логирование:
@@ -128,9 +128,9 @@ description: В этой инструкции вы научитесь созда
    Ожидаемый ответ:
 
    ```sql
-     count  
+     count
    ---------
-    1000000 
+    1000000
    (1 row)
    ```
 
@@ -145,7 +145,7 @@ SELECT COUNT(*) FROM tpch_postgresql.customers;
 Ожидаемый ответ:
 
 ```sql
-  count  
+  count
 ---------
  1000000
 (1 row)

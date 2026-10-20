@@ -1,9 +1,9 @@
 ---
-title: Accessing a bucket using a service connection from {{ vpc-full-name }}
+title: Configuring access to a bucket using a service connection from {{ vpc-full-name }}
 description: Follow this guide to set up access to a bucket using a service connection from {{ vpc-name }}.
 ---
 
-# Accessing a bucket using a service connection from {{ vpc-full-name }}
+# Configuring access to a bucket using a service connection from {{ vpc-full-name }}
 
 {% include [intro-access-via-vpc](../../../_includes/storage/intro-access-via-vpc.md) %}
 

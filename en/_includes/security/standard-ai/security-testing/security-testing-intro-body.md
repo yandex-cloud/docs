@@ -1,0 +1,1 @@
+The check method must provide a reproducible answer to these three questions: whether the requirement applies, what state was observed, and what evidence proves it. The reviewer must never assume the existence of a resource, role, event, or function based on an architecture component name. They must verify the actual object and check it against the official documentation.

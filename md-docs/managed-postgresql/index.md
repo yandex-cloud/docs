@@ -78,6 +78,8 @@ Managed Service for PostgreSQL помогает разворачивать и п
 
  - [Управление базами данных](operations/databases.md)
 
+ - [Перепаковка данных](operations/managed-pg_repack.md)
+
 ### Пользователи PostgreSQL
 
  - [Управление пользователями БД](operations/cluster-users.md)

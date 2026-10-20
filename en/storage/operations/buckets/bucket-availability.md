@@ -1,9 +1,9 @@
 ---
-title: Configuring public access to a bucket in {{ objstorage-full-name }}
+title: Enabling and disabling public access to a bucket in {{ objstorage-full-name }}
 description: Follow this guide to configure public access to a bucket in {{ objstorage-name }}.
 ---
 
-# Configuring public access to a bucket
+# Enabling and disabling public access to a bucket
 
 {% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
 
@@ -85,7 +85,7 @@ By default, [bucket](../../concepts/bucket.md) [access](../../concepts/bucket.md
 
 
 
-  To open public access to bucket operations:
+  To enable public access to bucket operations:
 
   1. Open the {{ TF }} configuration file and add the `anonymous_access_flags` section to the bucket description.
 
@@ -142,13 +142,13 @@ By default, [bucket](../../concepts/bucket.md) [access](../../concepts/bucket.md
 
 - API {#api}
 
-  To open public access to bucket operations, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call.
+  To enable public access to bucket operations, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call.
 
 {% endlist %}
 
 {% note info %}
 
-You will not be able to open public access if a restrictive [access policy](../../operations/buckets/policy.md) is configured for the bucket. 
+You will not be able to allow public access if a deny [access policy](../../operations/buckets/policy.md) is configured for the bucket. 
 
 {% endnote %}
 
@@ -158,7 +158,7 @@ You will not be able to open public access if a restrictive [access policy](../.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket to disable public access for.
   1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}**.

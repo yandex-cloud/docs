@@ -41,8 +41,8 @@ To add a mailing list for your report:
      * **Format**: Export file format. Currently, the supported format is `PDF`.
      * **Pages**: Select the report pages to include into the mailing list:
        
-       * **All**: Choose to include all the pages.
-       * **Specific**: Specify one or multiple pages.
+       * **All**: Include all the pages.
+       * **Some**: Specify one or more pages.
 
      After saving the mailing list, you can edit the email content in the **Content** tab.
 
@@ -88,7 +88,7 @@ To add a mailing list for your report:
    
      {% endcut %}
 
-   * Under **Email to**, specify the recipients.
+   * Under **To**, specify the mailing list recipients and choose who can subscribe to it: editor and administrator only (default) or any user.
 
      
      {% note info %}
@@ -106,7 +106,9 @@ To add a mailing list for your report:
 
      {% cut "Mailing list recipients" %}
 
-     ![report-maillist-recipients](../../_assets/datalens/report/report-maillist-recipients.png =687x436)
+     
+     ![report-maillist-recipients-yc](../../_assets/datalens/report/report-maillist-recipients-yc.png =687x436)
+
 
      {% endcut %}
 

@@ -13,14 +13,16 @@ To connect to a VM via {{ oslogin }} with an SSH certificate using the {{ yandex
 
     ```bash
     yc compute ssh \
-      --name <VM_name>
-      --login <user_or_service_account_login>
-      --internal-address
+      --name <VM_name> \
+      --login <user_or_service_account_login> \
+      --internal-address \
+      -- -p <port>
     ```
 
     Where:
     * `--name`: Previously obtained VM name. You can specify the VM ID instead of its name by using the `--id` parameter.
     * `--login`: Previously obtained user or service account login, as set in the {{ oslogin }} profile. This is an optional parameter. If you do not set this parameter, the connection will use the SSH certificate of the user or service account currently authorized in the {{ yandex-cloud }} CLI profile.
     * `--internal-address`: To connect using an internal IP address. This is an optional parameter.
+    * `-p`: Connection port; `22` by default. If using any other port, make sure it is specified in `/etc/ssh/sshd_config` on your VM and the security group allows inbound traffic. This is an optional parameter.
 
     You can also view the command for VM connection in the [management console]({{ link-console-main }}). On the **{{ ui-key.yacloud.compute.instance.overview.label_title }}** page of the VM, under **{{ ui-key.yacloud.compute.instance.overview.field_access }}**, expand **{{ ui-key.yacloud.compute.instance.overview.label_cli-connect-card-title }}** and select the **{{ ui-key.yacloud.compute.instance.overview.label_cert-connect-tab }}** tab.

@@ -6,6 +6,10 @@
 `iam.accessBindings.count` | 1,000 ||
 || {{ ui-key.yacloud_quotas.quotas.iam.accessBindings.count }} in organization^1^
 `iam.accessBindings.count` | 2,000 ||
+|| {{ ui-key.yacloud_quotas.quotas.iam.accessPolicyBindings.count }} in cloud
+`iam.accessPolicyBindings.count` | 100 ||
+|| {{ ui-key.yacloud_quotas.quotas.iam.accessPolicyBindings.count }} in organization
+`iam.accessPolicyBindings.count` | 200 ||
 || {{ ui-key.yacloud_quotas.quotas.iam.oidcWLIFederations.count }}
 `iam.oidcWLIFederations.count` | 50 ||
 || {{ ui-key.yacloud_quotas.quotas.iam.saFederatedCredentials.count }}

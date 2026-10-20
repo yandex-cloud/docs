@@ -69,6 +69,38 @@ items:
         href: standard-360/encryption-data-protection.md
       - name: Integrations and third-party solutions
         href: standard-360/integrations.md
+  - name: >-
+      Security standard for implementing and operating AI systems in {{
+      yandex-cloud }}, version {{ security-standard-ai-current-version }}
+    items:
+      - name: All sections on one page
+        href: standard-ai/all.md
+      - name: Introduction
+        href: standard-ai/intro.md
+      - name: Secure architecture and development of AI applications
+        href: standard-ai/secure-architecture.md
+      - name: Data, training, models, and releases
+        href: standard-ai/data-training-models.md
+      - name: '{{ iam-short-name }}, network, encryption, secrets, and audit'
+        href: standard-ai/iam-network-crypto-secrets-audit.md
+      - name: Runtime, RAG stores, and decommissioning
+        href: standard-ai/runtime-rag-decom.md
+      - name: Monitoring and incident response
+        href: standard-ai/monitoring-incident-response.md
+      - name: Agents, tools, MCP, and agent RAG
+        href: standard-ai/agents-tools-mcp.md
+      - name: Supply chain
+        href: standard-ai/supply-chain.md
+      - name: Implementation profiles in {{ yandex-cloud }}
+        href: standard-ai/profiles.md
+      - name: Compliance and processing of personal and regulated data
+        href: standard-ai/compliance-pii.md
+      - name: Security check and security testing
+        href: standard-ai/security-testing.md
+      - name: Standard implementation and monitoring metrics
+        href: standard-ai/metrics.md
+      - name: AI security for fintech organizations
+        href: standard-ai/fintech.md
   - name: Tutorials
     items:
       - name: All tutorials

@@ -5,8 +5,6 @@ description: Sensitive data search is a tool hat helps to detect sensitive infor
 
 # Sensitive data search in {{ objstorage-name }}
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
 _Sensitive data search_ is a tool powered by [{{ dspm-full-name }}](../../security-deck/concepts/dspm.md) that helps you detect sensitive information stored in {{ objstorage-name }} [buckets](./bucket.md) for timely action to protect it through [access policies](./policy.md), anonymization, etc.
 
 You can [create](../operations/buckets/sensitive-data-search.md) bucket scanning tasks and manage scan results via the {{ objstorage-name }} interface in the [management console]({{ link-console-main }}).
@@ -33,7 +31,7 @@ Data categories available for scanning:
 
 After a scan is complete, the system displays its results available for you to [view](../operations/buckets/sensitive-data-search.md#view), [download](../operations/buckets/sensitive-data-search.md#download), or [export](../operations/buckets/sensitive-data-search.md#export).
 
-If an error occur during scanning, you can view diagnostic messages describing the issue under **Messages and errors**. For more information about errors, see [{#T}](limits.md).
+If an error occur during scanning, you can view diagnostic messages describing the issue under **Messages and errors**. For more information about errors, see [{#T}](../../security-deck/diagnostics/dspm-diagnostics.md).
 
 
 ## Centralized Data Security Posture Management {#centralized-control}

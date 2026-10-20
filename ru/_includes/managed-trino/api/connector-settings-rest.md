@@ -8,7 +8,7 @@
 
         * `awsAccessKey` — идентификатор AWS-совместимого статического ключа доступа.
         * `awsSecretKey` — секретный ключ AWS-совместимого статического ключа доступа.
-        * `awsEndpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
+        * `awsEndpoint` — эндпоинт файлового хранилища, например `https://storage.yandexcloud.net`.
         * `awsRegion` — регион файлового хранилища, например `ru-central1`.
 
 * `metastore.hive.uri` — URI для подключения к кластеру {{ metastore-name }} в формате `thrift://<IP-адрес_кластера>:9083`.

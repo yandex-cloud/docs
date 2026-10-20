@@ -24,9 +24,9 @@ description: Правила определяют, какие действия п
 Правила доступа к функциям можно назначить одновременно с созданием кластера {{ mtr-name }}.
 
 {% note warning %}
-  
+
 Указанные в правилах имена функций и схем не проверяются на валидность. Ошибка в имени функции или схемы приведет к некорректной работе правила.
-  
+
 {% endnote %}
 
 {% list tabs group=instructions %}
@@ -75,7 +75,7 @@ description: Правила определяют, какие действия п
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
@@ -164,9 +164,9 @@ description: Правила определяют, какие действия п
 - {{ TF }} {#tf}
 
   1. Создайте конфигурационный файл {{ TF }} с [планом инфраструктуры](cluster-create.md).
-  
+
   1. Добавьте в конфигурационный файл ресурс `yandex_trino_access_control`, содержащий список правил `functions`.
- 
+
      ```hcl
      resource "yandex_trino_cluster" "<имя_кластера>" {
        ...
@@ -197,7 +197,7 @@ description: Правила определяют, какие действия п
              ids         = [
                yandex_trino_catalog.<имя_каталога_1>.id,
                yandex_trino_catalog.<имя_каталога_2>.id,
-               ... 
+               ...
                yandex_trino_catalog.<имя_каталога_N>.id
              ]
              name_regexp = "<регулярное_выражение>"
@@ -216,12 +216,12 @@ description: Правила определяют, какие действия п
          },
          # Правило 2
          {
-           ... 
+           ...
          },
          ...
          # Правило N
          {
-           ... 
+           ...
          }
        ]
        ...
@@ -268,13 +268,13 @@ description: Правила определяют, какие действия п
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
   1. Проверьте корректность настроек.
-  
+
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-  
+
   1. Подтвердите изменение ресурсов.
-  
+
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
- 
+
   Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mtr-access }}).
 
 - REST API {#api}
@@ -376,7 +376,7 @@ description: Правила определяют, какие действия п
       * `catalog`, `schema` и `function` — совместно определяют функции, к которым будет применяться правило. Каждый из параметров является опциональным.
 
         * `catalog` — каталоги, задаваемые одним из параметров:
-          * `names` — список имен каталогов. Каталоги должны создаваться в этом же вызове [Cluster.Create](../api-ref/Cluster/create.md).
+          * `names` — список имен каталогов. Каталоги должны создаваться в этом же вызове метода REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md).
           * `nameRegexp` — регулярное выражение для имен каталогов.
 
           Если блок `catalog` не указан, это равносильно регулярному выражению `.*`.
@@ -403,20 +403,20 @@ description: Правила определяют, какие действия п
 
       Доступные параметры кластера и их описания представлены в [инструкции](cluster-create.md#create-cluster).
 
-  1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
           --request POST \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters'
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters' \
           --data '@body.json'
       ```
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
-  
+
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
@@ -516,7 +516,7 @@ description: Правила определяют, какие действия п
       * `catalog`, `schema` и `function` — совместно определяют функции, к которым будет применяться правило. Каждый из параметров является опциональным.
 
         * `catalog` — каталоги, задаваемые одним из параметров:
-          * `names` — список имен каталогов. Каталоги должны создаваться в этом же вызове [ClusterService/Create](../api-ref/grpc/Cluster/create.md).
+          * `names` — список имен каталогов. Каталоги должны создаваться в этом же вызове gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md).
           * `name_regexp` — регулярное выражение для имен каталогов.
 
           Если блок `catalog` не указан, это равносильно регулярному выражению `.*`.
@@ -543,7 +543,7 @@ description: Правила определяют, какие действия п
 
       Доступные параметры кластера и их описания представлены в [инструкции](cluster-create.md#create-cluster).
 
-  1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -567,9 +567,9 @@ description: Правила определяют, какие действия п
 Правила доступа к функциям можно назначить или обновить в уже существующем кластере {{ mtr-name }}.
 
 {% note warning %}
-  
+
 Указанные в правилах имена функций и схем не проверяются на валидность. Ошибка в имени функции или схемы приведет к некорректной работе правила.
-  
+
 {% endnote %}
 
 {% list tabs group=instructions %}
@@ -715,9 +715,9 @@ description: Правила определяют, какие действия п
 - {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-  
+
       Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
-  
+
   1. Если правила доступа еще не заданы, добавьте ресурс `yandex_trino_access_control`, содержащий список правил `functions`.
 
      ```hcl
@@ -750,7 +750,7 @@ description: Правила определяют, какие действия п
              ids         = [
                yandex_trino_catalog.<имя_каталога_1>.id,
                yandex_trino_catalog.<имя_каталога_2>.id,
-               ... 
+               ...
                yandex_trino_catalog.<имя_каталога_N>.id
              ]
              name_regexp = "<регулярное_выражение>"
@@ -769,12 +769,12 @@ description: Правила определяют, какие действия п
          },
          # Правило 2
          {
-           ... 
+           ...
          },
          ...
          # Правило N
          {
-           ... 
+           ...
          }
        ]
        ...
@@ -827,13 +827,13 @@ description: Правила определяют, какие действия п
      * удалить ненужные правила.
 
   1. Проверьте корректность настроек.
-  
+
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-  
+
   1. Подтвердите изменение ресурсов.
-  
+
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
- 
+
   Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mtr-access }}).
 
 - REST API {#api}
@@ -963,13 +963,13 @@ description: Правила определяют, какие действия п
      * изменить параметры существующих правил;
      * удалить ненужные правила.
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
         --request PATCH \
         --header "Authorization: Bearer $IAM_TOKEN" \
-        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>' \
         --data '@body.json'
       ```
 
@@ -1058,7 +1058,7 @@ description: Правила определяют, какие действия п
       Где:
 
       * `cluster_id` — идентификатор кластера.
-          
+
           Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
       * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
@@ -1130,7 +1130,7 @@ description: Правила определяют, какие действия п
      * изменить параметры существующих правил;
      * удалить ненужные правила.
 
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \

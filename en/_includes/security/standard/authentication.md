@@ -305,12 +305,14 @@ Set **Cookie lifetime** to 6 hours (21600 seconds) or less.
 
 #### 1.4 Only appropriate administrators can manage {{ iam-short-name }} group membership {#iam-admins}
 
-You can conveniently control access to resources via [user groups](../../../organization/operations/create-group.md). Make sure to control access to a group as a resource. Users with access permissions for a group can manage other users' membership in that group. Users get these permissions in the following cases:
+You can conveniently control access to resources via [user groups](../../../organization/operations/create-group.md). Control who can edit group membership: by adding a user to a group, you give them the permissions that group has.
 
-* User has the `organization-manager.groups.memberAdmin` role for the organization.
-* User has the `organization-manager.groups.memberAdmin` role for a specific group as a resource.
-* User has the `organization-manager.organizations.owner` or `{{ roles-admin }}` role or another privileged role for the whole organization.
-* User has the `{{ roles-admin }}` or `{{ roles-editor }}` role for a specific group as a resource (this is not recommended).
+You can edit group membership using the following roles:
+
+* `organization-manager.groups.memberAdmin`, `organization-manager.groups.admin`, or `{{ roles-admin }}` assigned for a specific group or organization.
+* `organization-manager.admin` or `organization-manager.organizations.owner` assigned for an organization.
+
+
 
 | Requirement ID | Severity |
 | --- | --- |
@@ -329,7 +331,7 @@ You can conveniently control access to resources via [user groups](../../../orga
 
 **Guides and solutions to use**:
 
-Remove the group access permissions from the accounts that do not require them.
+To manage group membership, [assign](../../../organization/operations/access-manage-group.md) the `organization-manager.groups.memberAdmin` role for the group only to users you want to be administrators. Remove the group membership management roles from the rest of the accounts. Inherited roles should be revoked on the same resource on which they were assigned.
 
 {% include [check-security-deck](../check-security-deck.md) %}
 
@@ -337,7 +339,7 @@ Remove the group access permissions from the accounts that do not require them.
 
 The [principle of least privilege](../../../iam/best-practices/using-iam-securely.md#restrict-access) requires assigning the minimum required roles. We do not recommend using primitive roles, such as `{{ roles-admin }}`, `{{ roles-editor }}`, `{{ roles-viewer }}`, and `{{ roles-auditor }}` that are valid for all services, because this contradicts the principle of least privilege. To ensure more selective access control and implementation of the principle of least privilege, use service roles that only contain permissions for a certain type of resources in a given service. You can see the list of all service roles in the [{{ yandex-cloud }} roll reference](../../../iam/roles-reference.md).
 
-Use the [{{ roles-auditor }}](../../../iam/roles-reference.md#auditor) role without data access wherever possible.
+To view configurations and metadata, use service roles without access to data, e.g., [compute.auditor](../../../iam/roles-reference.md#compute-auditor). Select roles only for the services and resources the user gets to deal with.
 
 | Requirement ID | Severity |
 | --- | --- |
@@ -349,11 +351,11 @@ Use the [{{ roles-auditor }}](../../../iam/roles-reference.md#auditor) role with
 
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to **All services** → **{{ org-full-name }}** → **Users**.
-  1. Make sure no accounts in the **Access permissions** column have these primitive roles: `{{ roles-admin }}`, `{{ roles-editor }}`, or `{{ roles-viewer }}`. Otherwise, proceed to "Guides and solutions to use".
+  1. If no accounts in the **Access permissions** column have the primitive roles of `{{ roles-admin }}`, `{{ roles-editor }}`, `{{ roles-viewer }}`, and `{{ roles-auditor }}`, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
   1. Next, go to the global cloud menu (click the cloud in the initial cloud menu). Select the **Access permissions** tab.
-  1. Make sure no accounts in the **Roles** column have these primitive roles: `{{ roles-admin }}`, `{{ roles-editor }}`, or `{{ roles-viewer }}`. Otherwise, proceed to "Guides and solutions to use".
+  1. If no accounts in the **Roles** column have the primitive roles of `{{ roles-admin }}`, `{{ roles-editor }}`, `{{ roles-viewer }}`, and `{{ roles-auditor }}`, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
   1. Next, go to each folder of each cloud and, similarly, navigate to the **Access permissions** tab.
-  1. Make sure no accounts in the **Roles** column have these primitive roles: `{{ roles-admin }}`, `{{ roles-editor }}`, or `{{ roles-viewer }}`. Otherwise, proceed to "Guides and solutions to use".
+  1. If no accounts in the Roles column have the primitive roles of `{{ roles-admin }}`, `{{ roles-editor }}`, `{{ roles-viewer }}`, and `{{ roles-auditor }}`, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
  
 - Performing a check via the CLI {#cli}
 
@@ -371,7 +373,7 @@ Use the [{{ roles-auditor }}](../../../iam/roles-reference.md#auditor) role with
       export ORG_ID=<organization_ID>
       yc organization-manager organization list-access-bindings \
         --id=${ORG_ID} \
-        --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="editor" or .role_id=="viewer")'
+        --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="editor" or .role_id=="viewer" or .role_id=="auditor")'
       ```
 
       {% endcut %}
@@ -408,7 +410,7 @@ Use the [{{ roles-auditor }}](../../../iam/roles-reference.md#auditor) role with
       ```bash
       export ORG_ID=<organization_ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do yc resource-manager cloud list-access-bindings --id=$CLOUD_ID --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="editor" or .role_id=="viewer")'
+      do yc resource-manager cloud list-access-bindings --id=$CLOUD_ID --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="editor" or .role_id=="viewer" or .role_id=="auditor")'
       done
       ```
 
@@ -448,7 +450,7 @@ Use the [{{ roles-auditor }}](../../../iam/roles-reference.md#auditor) role with
       export ORG_ID=<organization_ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
       do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
-      do yc resource-manager folder list-access-bindings --id=$FOLDER_ID --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="editor" or .role_id=="viewer")'
+      do yc resource-manager folder list-access-bindings --id=$FOLDER_ID --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="editor" or .role_id=="viewer" or .role_id=="auditor")'
       done;
       done
       ```
@@ -490,13 +492,21 @@ Use the [{{ roles-auditor }}](../../../iam/roles-reference.md#auditor) role with
 
 **Guides and solutions to use**:
 
-Analyze the accounts found with the `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-viewer }}` primitive roles assigned and replace them with [service granular roles](../../../iam/roles-reference.md) based on your role matrix.
+Analyze the accounts you found with the `{{ roles-admin }}`, `{{ roles-editor }}`, `{{ roles-viewer }}`, and `{{ roles-auditor }}` primitive roles assigned and replace these roles with [granular service roles](../../../iam/roles-reference.md) based on your role matrix.
 
 Follow [this guide](../../../security-deck/operations/ciem/view-permissions.md) to view the full list of a subject's access permissions.
 
 {% include [check-security-deck](../check-security-deck.md) %}
 
 #### 1.6 The {{ roles-auditor }} role is used to prevent access to user data {#roles-auditor}
+
+{% note warning %}
+
+Instead of the `{{ roles-auditor }}` primitive role, we recommend assigning `auditor`-level service roles, e.g., [compute.auditor](../../../iam/roles-reference.md#compute-auditor). This is a safer approach, as it allows you to limit access to resources of a particular service.
+
+If using the `{{ roles-auditor }}` primitive role, choose the resources you assign it for carefully. This role is valid across all services, and its permissions are inherited by nested resources. Assign it only for the bare minimum of resources.
+
+{% endnote %}
 
 Assign the `{{ roles-auditor }}` role to users who do not need access to data, e.g., external contractors or auditors.
 `{{ roles-auditor }}` is a role with least privilege without access to service data. It grants permission to read service configurations and metadata.
@@ -960,7 +970,7 @@ In addition to service account access permissions, you can define [scopes](../..
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and then select the required service account.
+  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and then select the service account.
   1. Under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_api_keys }}**, check the **{{ ui-key.yacloud.iam.folder.service-account.overview.column_key_scope }}** field in the table with your API keys’ details.
   1. If all API keys have their minimum required scopes specified, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
@@ -1429,7 +1439,7 @@ For a Yandex ID, set up 2FA using [this guide](https://yandex.com/support/id/au
 {{ yandex-cloud }} privileged users include accounts with the following roles:
 
 * `billing.accounts.owner`
-* `{{ roles-admin }}` assigned for a billing account
+* `billing.accounts.admin`, `billing.accounts.editor`, and `{{ roles-admin }}` assigned for a billing account
 * `organization-manager.organizations.owner`
 * `organization-manager.admin`
 * `{{ roles-cloud-owner }}`
@@ -1447,14 +1457,14 @@ The most appropriate approach would be to not use this account on a regular basi
 
 * Only use it for initial setup and updates.
 * When actively using this account, enable two-factor authentication (2FA) in Yandex ID.
-* After that, if you do not use the bank card payment method (only available for this role), set a strong password for this account (generated using specialized software), disable 2FA, and refrain from using this account unnecessarily.
+* Then, if you are not using the bank card payment method (only available for this role), set a strong password for this account (generated using specialized software), disable 2FA, and do not use this account unless you really have to.
 * Change the password to a newly generated one each time you use the account.
 
 We recommend disabling 2FA only for this account and if it is not assigned to a specific employee.<q></q> Thus you can avoid linking this critical account to a personal device.
 
-To manage a billing account, assign the `{{ roles-admin }}` or `{{ roles-editor }}` role for the billing account to a dedicated employee with a federated account.
+To manage a billing account, assign the [billing.accounts.editor](../../../billing/security/index.md#billing-accounts-editor) role for the billing account to a dedicated employee with a federated account. For an employee to manage access to a billing account, assign the [billing.accounts.admin](../../../billing/security/index.md#billing-accounts-admin) role.
 
-To view billing data, assign the `{{ roles-viewer }}` role for the billing account to a dedicated employee with a federated account.
+To view billing data, assign the [billing.accounts.viewer](../../../billing/security/index.md#billing-accounts-viewer) role for the billing account to a dedicated employee with a federated account.
 
 By default, the `organization-manager.organizations.owner` role is granted to the user who creates an organization: the organization owner. The role allows you to appoint organization owners and use all the administrator privileges.
 
@@ -1468,7 +1478,7 @@ Make sure to fully protect your federated account that is granted one of the pri
 * Disable authentication from devices beyond the company's control.
 * Configure login attempt monitoring and set alert thresholds.
 
-Assign federated accounts the `{{ roles-admin }}` roles for clouds, folders, and billing accounts. Minimize the number of accounts with these roles and regularly review the expedience of these roles for the accounts they are assigned to.
+For administrative tasks, assign service roles with the minimum required permissions to federated accounts. For example, use `billing.accounts.admin` to manage access to a billing account. Select the role assignment scope based on the task: an individual resource, folder, or cloud. Minimize the number of accounts with these roles and regularly review the expedience of these roles for the accounts they are assigned to.
 
 | Requirement ID | Severity |
 | --- | --- |
@@ -1482,7 +1492,7 @@ Assign federated accounts the `{{ roles-admin }}` roles for clouds, folders, and
 
   1. Open the {{ yandex-cloud }} management console in your browser.
   1. Go to [{{ billing-name }}]({{ link-console-billing }}).
-  1. Check who is granted the roles: `billing.accounts.owner` and `{{ roles-admin }}`.
+  1. Check who has the `billing.accounts.owner`, `billing.accounts.admin`, `billing.accounts.editor`, and `{{ roles-admin }}` roles.
 
   Checking roles for an organization:
 
@@ -1691,7 +1701,7 @@ If you grant third-party contractors access to your clouds, make sure to follow 
 * Where possible, create a separate account for third-party employees in your corporate IdP and assign the relevant policies to this account.
 * Require them to handle their account secrets with care.
 * Review the relevance of external user access to your cloud infrastructure.
-* Use the [{{ roles-auditor }}](../../../iam/roles-reference.md#auditor) role without data access wherever possible.
+* To view configurations and metadata, use service roles without access to data, e.g., [compute.auditor](../../../iam/roles-reference.md#compute-auditor). Select roles only for the services and resources the user gets to deal with.
 
 | Requirement ID | Severity |
 | --- | --- |
@@ -2049,7 +2059,7 @@ For example, to tag resources which handle personal data under Federal Law No. F
 
   The example below shows how to check if there is a label to a [{{ vpc-full-name }}](../../../vpc/) cloud network. You can perform similar checks for other resource labels.
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Check it for labels.
 

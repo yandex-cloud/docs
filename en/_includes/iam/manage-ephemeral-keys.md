@@ -50,6 +50,20 @@ To create an ephemeral access key, a user needs the `iam.serviceAccounts.ephemer
 
   1. Save `access_key_id`, the `secret` key, and `session_token`. You will not be able to get these values again.
 
+  To immediately save the key to the AWS profile instead of outputting it to the terminal, add these parameters:
+
+  ```bash
+  yc iam access-key issue-ephemeral \
+    --session-name <session_name> \
+    --aws-profile <profile_name> \
+    --aws-credentials-file <path_to_credentials_file>
+  ```
+
+  * `--aws-profile`: AWS profile name. If only `--aws-credentials-file` is specified, the `default` profile is used.
+  * `--aws-credentials-file`: Path to the credentials file. This is an optional setting. The default value is the one from the `AWS_SHARED_CREDENTIALS_FILE` environment variable or, if it is not set, `~/.aws/credentials`.
+
+  Optionally, also provide `--subject-id`, `--policy`, and `--duration` as in the example above. You can use the saved profile in the AWS CLI with the `--profile <profile_name>` parameter.
+
 - API {#api}
 
     Use the [createEphemeral](../../iam/awscompatibility/api-ref/TemporaryAccessKey/createEphemeral.md) REST API method for the [TemporaryAccessKey](../../iam/awscompatibility/api-ref/TemporaryAccessKey/index.md) resource or the [TemporaryAccessKeyService/CreateEphemeral](../../iam/awscompatibility/api-ref/grpc/TemporaryAccessKey/createEphemeral.md) gRPC API call.

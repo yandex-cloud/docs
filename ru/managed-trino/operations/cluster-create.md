@@ -15,7 +15,7 @@ keywords:
 
 Для создания кластера {{ mtr-name }} вашему аккаунту в {{ yandex-cloud }} нужны роли:
 
-* [managed-trino.admin](../security.md#managed-trino-admin) — чтобы создать кластер;
+* [managed-trino.editor](../security.md#managed-trino-editor) — чтобы создать кластер;
 * [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера;
 * [{{ roles-logging-reader }}](../../logging/security/index.md#logging-reader) — чтобы просматривать логи кластера;
 * [logging.editor](../../logging/security/index.md#logging-editor) — чтобы управлять настройками логирования кластера;
@@ -549,13 +549,13 @@ keywords:
 
                   > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
-    1. Воспользуйтесь методом [Cluster.create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters'
+            --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters' \
             --data '@body.json'
         ```
 
@@ -750,7 +750,7 @@ keywords:
 
                   > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
-    1. Выполните запрос [ClusterService/Create](../api-ref/grpc/Cluster/create.md), например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \

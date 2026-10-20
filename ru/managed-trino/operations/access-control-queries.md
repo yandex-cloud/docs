@@ -65,7 +65,7 @@ description: Правила определяют, какие действия п
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
@@ -97,7 +97,7 @@ description: Правила определяют, какие действия п
        * `VIEW` — просмотр информации о запросе.
        * `KILL` — отмена запроса.
        * `EXECUTE` — исполнение запроса.
-        
+
        {% include notitle [queries-privileges](../../_includes/managed-trino/access-control-src.md#queries-privileges) %}
 
      * `query_owners` — список идентификаторов владельцев запросов. Правило распространяется на запросы, владельцы которых перечислены в параметре `query_owners`. Если параметр не указан, правило распространяется на запросы всех пользователей.
@@ -123,9 +123,9 @@ description: Правила определяют, какие действия п
 - {{ TF }} {#tf}
 
   1. Создайте конфигурационный файл {{ TF }} с [планом инфраструктуры](cluster-create.md).
-  
+
   1. Добавьте в конфигурационный файл ресурс `yandex_trino_access_control`, содержащий список правил `queries`.
- 
+
      ```hcl
      resource "yandex_trino_cluster" "<имя_кластера>" {
        ...
@@ -145,12 +145,12 @@ description: Правила определяют, какие действия п
          },
          # Правило 2
          {
-           ... 
+           ...
          },
          ...
          # Правило N
          {
-           ... 
+           ...
          }
        ]
        ...
@@ -165,7 +165,7 @@ description: Правила определяют, какие действия п
        * `VIEW` — просмотр информации о запросе.
        * `KILL` — отмена запроса.
        * `EXECUTE` — исполнение запроса.
-        
+
        {% include notitle [queries-privileges](../../_includes/managed-trino/access-control-src.md#queries-privileges) %}
 
      * `query_owners` — список идентификаторов владельцев запросов. Правило распространяется на запросы, владельцы которых перечислены в параметре `query_owners`. Если параметр не указан, правило распространяется на запросы всех пользователей.
@@ -173,13 +173,13 @@ description: Правила определяют, какие действия п
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
   1. Проверьте корректность настроек.
-  
+
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-  
+
   1. Подтвердите изменение ресурсов.
-  
+
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
- 
+
   Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mtr-access }}).
 
 - REST API {#api}
@@ -244,13 +244,13 @@ description: Правила определяют, какие действия п
 
       Доступные параметры кластера и их описания представлены в [инструкции](cluster-create.md#create-cluster).
 
-  1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
           --request POST \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters'
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters' \
           --data '@body.json'
       ```
 
@@ -311,7 +311,7 @@ description: Правила определяют, какие действия п
         * `VIEW` — просмотр информации о запросе.
         * `KILL` — отмена запроса.
         * `EXECUTE` — исполнение запроса.
-        
+
         {% include notitle [queries-privileges](../../_includes/managed-trino/access-control-src.md#queries-privileges) %}
 
       * `query_owners` — список идентификаторов владельцев запросов. Правило распространяется на запросы, владельцы которых перечислены в параметре `query_owners`. Если параметр не указан, правило распространяется на запросы всех пользователей.
@@ -320,7 +320,7 @@ description: Правила определяют, какие действия п
 
       Доступные параметры кластера и их описания представлены в [инструкции](cluster-create.md#create-cluster).
 
-  1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -419,7 +419,7 @@ description: Правила определяют, какие действия п
        * `VIEW` — просмотр информации о запросе.
        * `KILL` — отмена запроса.
        * `EXECUTE` — исполнение запроса.
-        
+
        {% include notitle [queries-privileges](../../_includes/managed-trino/access-control-src.md#queries-privileges) %}
 
      * `query_owners` — список идентификаторов владельцев запросов. Правило распространяется на запросы, владельцы которых перечислены в параметре `query_owners`. Если параметр не указан, правило распространяется на запросы всех пользователей.
@@ -444,9 +444,9 @@ description: Правила определяют, какие действия п
 - {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-  
+
       Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
-  
+
   1. Если правила доступа еще не заданы, добавьте ресурс `yandex_trino_access_control`, содержащий список правил `queries`.
 
      ```hcl
@@ -468,12 +468,12 @@ description: Правила определяют, какие действия п
          },
          # Правило 2
          {
-           ... 
+           ...
          },
          ...
          # Правило N
          {
-           ... 
+           ...
          }
        ]
        ...
@@ -488,7 +488,7 @@ description: Правила определяют, какие действия п
        * `VIEW` — просмотр информации о запросе.
        * `KILL` — отмена запроса.
        * `EXECUTE` — исполнение запроса.
-        
+
        {% include notitle [queries-privileges](../../_includes/managed-trino/access-control-src.md#queries-privileges) %}
 
      * `query_owners` — список идентификаторов владельцев запросов. Правило распространяется на запросы, владельцы которых перечислены в параметре `query_owners`. Если параметр не указан, правило распространяется на запросы всех пользователей.
@@ -502,13 +502,13 @@ description: Правила определяют, какие действия п
      * удалить ненужные правила.
 
   1. Проверьте корректность настроек.
-  
+
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-  
+
   1. Подтвердите изменение ресурсов.
-  
+
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
- 
+
   Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mtr-access }}).
 
 - REST API {#api}
@@ -584,13 +584,13 @@ description: Правила определяют, какие действия п
      * изменить параметры существующих правил;
      * удалить ненужные правила.
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
         --request PATCH \
         --header "Authorization: Bearer $IAM_TOKEN" \
-        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>' \
         --data '@body.json'
       ```
 
@@ -650,7 +650,7 @@ description: Правила определяют, какие действия п
       Где:
 
       * `cluster_id` — идентификатор кластера.
-          
+
           Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
       * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
@@ -684,7 +684,7 @@ description: Правила определяют, какие действия п
         * `VIEW` — просмотр информации о запросе.
         * `KILL` — отмена запроса.
         * `EXECUTE` — исполнение запроса.
-        
+
         {% include notitle [queries-privileges](../../_includes/managed-trino/access-control-src.md#queries-privileges) %}
 
       * `query_owners` — список идентификаторов владельцев запросов. Правило распространяется на запросы, владельцы которых перечислены в параметре `query_owners`. Если параметр не указан, правило распространяется на запросы всех пользователей.
@@ -697,7 +697,7 @@ description: Правила определяют, какие действия п
      * изменить параметры существующих правил;
      * удалить ненужные правила.
 
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -738,7 +738,7 @@ description: Правила определяют, какие действия п
         - KILL
         - EXECUTE
 
-    - groups: 
+    - groups:
         - security_group_id
       query_owners:
         - suspicious_user_id
@@ -790,7 +790,7 @@ description: Правила определяют, какие действия п
             "privileges": [
               "VIEW",
               "KILL",
-              "EXECUTE"              
+              "EXECUTE"
             ],
             "groups": [
               "admins_group_id"
@@ -838,7 +838,7 @@ description: Правила определяют, какие действия п
             "privileges": [
               "VIEW",
               "KILL",
-              "EXECUTE"              
+              "EXECUTE"
             ],
             "groups": [
               "admins_group_id"

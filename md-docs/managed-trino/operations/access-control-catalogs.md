@@ -122,9 +122,9 @@
 - Terraform {#tf}
 
   1. Создайте конфигурационный файл Terraform с [планом инфраструктуры](cluster-create.md).
-  
+
   1. Добавьте в конфигурационный файл ресурс `yandex_trino_access_control`, содержащий список правил `catalogs`.
- 
+
      ```hcl
      resource "yandex_trino_cluster" "<имя_кластера>" {
        ...
@@ -155,7 +155,7 @@
              ids         = [
                yandex_trino_catalog.<имя_каталога_1>.id,
                yandex_trino_catalog.<имя_каталога_2>.id,
-               ... 
+               ...
                yandex_trino_catalog.<имя_каталога_N>.id
              ]
              name_regexp = "<регулярное_выражение>"
@@ -166,12 +166,12 @@
          },
          # Правило 2
          {
-           ... 
+           ...
          },
          ...
          # Правило N
          {
-           ... 
+           ...
          }
        ]
        ...
@@ -204,7 +204,7 @@
      * `description` — описание правила.
 
   1. Проверьте корректность настроек.
-  
+
       1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
@@ -213,9 +213,9 @@
          ```
       
          Если в файлах конфигурации есть ошибки, Terraform на них укажет.
-  
+
   1. Подтвердите изменение ресурсов.
-  
+
       1. Выполните команду для просмотра планируемых изменений:
       
          ```bash
@@ -234,7 +234,7 @@
       
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
- 
+
   Подробнее в [документации провайдера Terraform](../../terraform/resources/trino_access_control.md).
 
 - REST API {#api}
@@ -316,7 +316,7 @@
         * `ALL` — разрешены любые операции. В этом случае доступ пользователей к объектам каталога определяется более гранулярными правилами, например правилами для таблиц.
 
       * `catalog` — каталоги, на которые распространяется правило. Если блок `catalog` не указан, правило распространяется на все каталоги кластера.
-        * `names` — список имен каталогов. Каталоги должны создаваться в этом же вызове [Cluster.Create](../api-ref/Cluster/create.md).
+        * `names` — список имен каталогов. Каталоги должны создаваться в этом же вызове метода REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md).
         * `nameRegexp` — регулярное выражение. Правило распространяется на каталоги, имена которых соответствуют регулярному выражению.
 
         Блок `catalog` должен содержать либо вложенный блок `names`, либо параметр `nameRegexp`.
@@ -333,13 +333,13 @@
 
       Доступные параметры кластера и их описания представлены в [инструкции](cluster-create.md#create-cluster).
 
-  1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
           --request POST \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters'
+          --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters' \
           --data '@body.json'
       ```
 
@@ -432,7 +432,7 @@
         * `ALL` — разрешены любые операции. В этом случае доступ пользователей к объектам каталога определяется более гранулярными правилами, например правилами для таблиц.
 
       * `catalog` — каталоги, на которые распространяется правило. Если блок `catalog` не указан, правило распространяется на все каталоги кластера.
-        * `names` — список имен каталогов. Каталоги должны создаваться в этом же вызове [ClusterService/Create](../api-ref/grpc/Cluster/create.md).
+        * `names` — список имен каталогов. Каталоги должны создаваться в этом же вызове gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md).
         * `name_regexp` — регулярное выражение. Правило распространяется на каталоги, имена которых соответствуют регулярному выражению.
 
         Блок `catalog` должен содержать либо вложенный блок `names`, либо параметр `name_regexp`.
@@ -449,7 +449,7 @@
 
       Доступные параметры кластера и их описания представлены в [инструкции](cluster-create.md#create-cluster).
 
-  1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -592,11 +592,11 @@
 - Terraform {#tf}
 
   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
-  
+
       Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
-  
+
   1. Если правила доступа еще не заданы, добавьте ресурс `yandex_trino_access_control`, содержащий список правил `catalogs`.
- 
+
      ```hcl
      resource "yandex_trino_cluster" "<имя_кластера>" {
        ...
@@ -627,7 +627,7 @@
              ids         = [
                yandex_trino_catalog.<имя_каталога_1>.id,
                yandex_trino_catalog.<имя_каталога_2>.id,
-               ... 
+               ...
                yandex_trino_catalog.<имя_каталога_N>.id
              ]
              name_regexp = "<регулярное_выражение>"
@@ -638,12 +638,12 @@
          },
          # Правило 2
          {
-           ... 
+           ...
          },
          ...
          # Правило N
          {
-           ... 
+           ...
          }
        ]
        ...
@@ -682,7 +682,7 @@
      * удалить ненужные правила.
 
   1. Проверьте корректность настроек.
-  
+
       1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
@@ -691,9 +691,9 @@
          ```
       
          Если в файлах конфигурации есть ошибки, Terraform на них укажет.
-  
+
   1. Подтвердите изменение ресурсов.
-  
+
       1. Выполните команду для просмотра планируемых изменений:
       
          ```bash
@@ -712,7 +712,7 @@
       
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
- 
+
   Подробнее в [документации провайдера Terraform](../../terraform/resources/trino_access_control.md).
 
 - REST API {#api}
@@ -809,13 +809,13 @@
      * изменить параметры существующих правил;
      * удалить ненужные правила.
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
         --request PATCH \
         --header "Authorization: Bearer $IAM_TOKEN" \
-        --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>'
+        --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>' \
         --data '@body.json'
       ```
 
@@ -891,7 +891,7 @@
       Где:
 
       * `cluster_id` — идентификатор кластера.
-          
+
           Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
       * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
@@ -949,7 +949,7 @@
      * изменить параметры существующих правил;
      * удалить ненужные правила.
 
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \

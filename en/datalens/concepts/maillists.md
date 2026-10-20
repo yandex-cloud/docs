@@ -25,3 +25,5 @@ User permissions for the workbook are checked when you are added to the mailing 
 {% include [datdatalens-maillist-add-recipients](../../_includes/datalens/datalens-maillist-add-recipients.md) %}
 
 If you have access to the workbook (the `Limited Viewer` role at the minimum) where the newsletter is stored, you can subscribe to it.
+
+You can view [all mailing lists](./maillists-list.md) in {{ datalens-name }}.

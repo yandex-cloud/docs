@@ -27,6 +27,8 @@ description: Следуя данной инструкции, вы узнаете
 
 - Интерфейс v1.0 {#cloud-sd-v1}
 
+  {% include [note-interface-v1](../../../_includes/security-deck/note-interface-v1.md) %}
+
   [Источник данных](../../concepts/dspm.md#data-source) содержит информацию о хранилищах, в которых будет выполняться сканирование, а также дополнительные настройки. В качестве хранилищ доступны [бакеты](../../../storage/concepts/bucket.md) {{ objstorage-full-name }} и [диски]({{ link-yandex }}/support/yandex-360/business/disk/web/{{ lang }}/index.html) в {{ yandex-360 }}. В одном источнике данных нельзя одновременно использовать хранилища [{{ objstorage-name }}](../../../storage/) и [{{ yandex-360 }}]({{ link-yandex }}/support/yandex-360/business/admin/{{ lang }}/).
 
   Чтобы создать источник данных для {{ objstorage-name }} и {{ yandex-360 }}:

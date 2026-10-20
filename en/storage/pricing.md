@@ -68,15 +68,17 @@ The {{ objstorage-name }} usage cost includes:
 Storage usage is measured in GB per month. The amount of data stored for a month is calculated as the average value based on granular per-second data. The minimum billing unit is **1 hour of storing 1 MB of data**.
 
 
+
+When using an intelligent-tiering storage, the storage price depends both on the amount of data and its access tier. The access tier is selected automatically based on how frequently you access the object. [Learn more about access tiers](./concepts/storage-class.md#features-intelligent-tiering).
+
+
 ### Data operations {#rules-operations}
 
-Operations are any action you can perform on [objects](../storage/concepts/object.md) in buckets, e.g., uploading, downloading, or getting metadata.
+Operations encompass any actions performed on [objects](../storage/concepts/object.md) within a bucket, e.g., uploads, downloads, or metadata retrieval.
 
-Operation types can be GET, PUT, POST, and others. The type is defined by the [AWS S3 API](../storage/s3/api-ref/) method associated with the operation. The exception is LIST operations that return resource lists and TRANSITION operations that change storage class.
+Operations may have the GET, PUT, POST, and other types. The operation type depends on the corresponding [AWS S3 API](../storage/s3/api-ref/) method. The only exceptions are LIST operations, which return lists of resources, and TRANSITION operations, which modify the storage class.
 
-You pay for the actual number of operations. Billing does not depend on the interface you use.
-
-Nothing is charged for deleting data (the `DELETE` operation).
+You pay for the actual number of operations. The interface you use to perform the operation is irrelevant. For example, the price will be the same for downloading an object via the AWS S3 API, {{ yandex-cloud }} CLI, or the management console. Nothing is charged for deleting data (the `DELETE` operation).
 
 {% note warning %}
 

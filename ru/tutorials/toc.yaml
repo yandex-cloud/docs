@@ -314,6 +314,8 @@ items:
             href: security/single-sign-on/saml-vk-cloud.md
           - name: Zabbix
             href: security/single-sign-on/saml-zabbix.md
+          - name: МТС Линк
+            href: security/single-sign-on/saml-mts-link.md
           - name: Пассворк
             href: security/single-sign-on/saml-passwork.md
           - name: '{{ yandex-360 }}'

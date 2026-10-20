@@ -6,6 +6,8 @@ editable: false
 
 activates the specified MFA enforcement
 
+
+
 ## gRPC request
 
 **rpc Activate ([ActivateMfaEnforcementRequest](#yandex.cloud.organizationmanager.v1.ActivateMfaEnforcementRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**

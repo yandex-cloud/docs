@@ -8,7 +8,7 @@
 
 Для создания кластера Managed Service for Trino вашему аккаунту в Yandex Cloud нужны роли:
 
-* [managed-trino.admin](../security.md#managed-trino-admin) — чтобы создать кластер;
+* [managed-trino.editor](../security.md#managed-trino-editor) — чтобы создать кластер;
 * [vpc.user](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера;
 * [logging.reader](../../logging/security/index.md#logging-reader) — чтобы просматривать логи кластера;
 * [logging.editor](../../logging/security/index.md#logging-editor) — чтобы управлять настройками логирования кластера;
@@ -475,7 +475,7 @@
         resource "yandex_vpc_subnet" "<имя_подсети>" {
           name           = "<имя_подсети>"
           zone           = "<зона_доступности>"
-          network_id     = "yandex_vpc_network.<имя_сети>.id"
+          network_id     = yandex_vpc_network.<имя_сети>.id
           v4_cidr_blocks = ["<диапазон>"]
         }
         ```
@@ -1011,13 +1011,13 @@
 
                   > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
-    1. Воспользуйтесь методом [Cluster.create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters'
+            --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters' \
             --data '@body.json'
         ```
 
@@ -1283,7 +1283,7 @@
 
                   > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
-    1. Выполните запрос [ClusterService/Create](../api-ref/grpc/Cluster/create.md), например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \

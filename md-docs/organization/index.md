@@ -348,6 +348,8 @@
 
  - [Zabbix](tutorials/single-sign-on/saml-zabbix.md)
 
+ - [МТС Линк](tutorials/single-sign-on/saml-mts-link.md)
+
  - [Пассворк](tutorials/single-sign-on/saml-passwork.md)
 
  - [Яндекс 360](tutorials/single-sign-on/saml-yandex-360.md)

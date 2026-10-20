@@ -291,6 +291,5 @@ The number of elements must be in the range 1-1000. ||
 || subjectId | **string**
 
 The maximum string length in characters is 100. ||
-|#0. ||
-|#0. ||
+|#rs is 100. ||
 |#

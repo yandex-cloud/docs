@@ -30,19 +30,31 @@ _For information on supported {{ k8s }} versions in channels, see [this page](./
 
 When a release channel receives an update, you get a notification in the management console. You can install updates automatically or manually.
 
-* Automatic updates start without any user action. You can specify the starting point and duration of the UTC time interval during which the update will start. This setting is not related to the update duration or its completion time.
+#|
+|| Update type | Launch method | Update time | What is being updated ||
+|| [Automated](../operations/update-kubernetes.md#cluster-auto-upgrade) | Without user intervention |
 
-  Auto updates include new {{ managed-k8s-name }} features, improvements, and fixes as well as {{ k8s }} component fixes.
+During the interval specified when [creating](../operations/kubernetes-cluster/kubernetes-cluster-create.md) or [editing](../operations/kubernetes-cluster/kubernetes-cluster-update.md) the cluster. You can specify the start point and duration of the UTC time interval during which the update will start.
 
-* [Manual updates](../operations/update-kubernetes.md#cluster-manual-upgrade) can be initiated by the user at any time.
+This setting is not related to the update duration or its completion time.
 
-  They include {{ k8s }} minor version updates. Note that you can only update to one minor version at a time.
-  
-  > For example, from 1.31 to 1.32.
+|
 
-  The difference between the cluster and node group versions must not be more than two minor versions. The node group version cannot be higher than the cluster version.
+The update is performed within the scope of the {{ managed-k8s-name }} cluster's current minor version, e.g., between 1.28.9 and 1.28.10.
 
-  > For example, if the cluster version is 1.33, the node group version may be 1.33, 1.32, or 1.31
+Auto updates include new {{ managed-k8s-name }} features, improvements, and fixes as well as {{ k8s }} component fixes.
+
+||
+|| [Manual](../operations/update-kubernetes.md#cluster-manual-upgrade) | At the user's behest | At any time |
+
+They include {{ k8s }} minor version updates.
+
+Note that you can only update to one minor version at a time. For example, from 1.31 to 1.32.
+
+||
+|#
+
+The difference between the cluster and node group versions must not be more than two minor versions. The node group version cannot be higher than the cluster version. For example, if the cluster version is 1.33, the node group version may be 1.33, 1.32, or 1.31
 
 {% include [preflight-check](../../_includes/managed-kubernetes/preflight-check.md) %}
 
@@ -51,6 +63,7 @@ Read more about the [end of support for {{ k8s }}](#unsupported) versions and [h
 ### End of support for a {{ k8s }} version {#unsupported}
 
 When upgrading from a {{ k8s }} version that is no longer supported:
+
 * The {{ managed-k8s-name }} master is not auto updated, you need to do it manually.
 * Minor versions (e.g., 1.20 to 1.21) must be updated manually.
 * {{ managed-k8s-name }} node groups are updated automatically if auto updates are enabled. If auto updates are disabled, the old version of {{ k8s }} remains on the {{ managed-k8s-name }} node groups. In this case, the user has to deal with any issues with their {{ managed-k8s-name }} node group on their own, since the old version of {{ k8s }} is no longer supported.
@@ -62,6 +75,7 @@ The update process is different for a [{{ managed-k8s-name }} master](#master) a
 #### Master {#master}
 
 The amount of time a {{ managed-k8s-name }} master is unavailable during an update depends on the master type:
+
 * The basic master is unavailable during the update.
 * The highly available master maintains network connectivity during the update.
 
@@ -80,6 +94,7 @@ For more information, see [{#T}](../operations/node-group/node-group-update.md#c
 #### Certificates {#certificates}
 
 In accordance with the safety recommendations, [{{ managed-k8s-name }} cluster and node group certificates](https://kubernetes.io/docs/setup/best-practices/certificates/) are valid for one year. When a certificate expires, a {{ managed-k8s-name }} cluster or node group will be disabled. To avoid this, {{ managed-k8s-name }} automatically updates their certificates.
+
 * If automatic updates are enabled, certificates are auto updated whenever a {{ managed-k8s-name }} cluster or node group updates.
 * If automatic updates are disabled, a certificate update will be forced a week before they expire.
 
@@ -114,7 +129,7 @@ Features of a required update:
 
 For more information, see [Working with required updates](../operations/update-kubernetes.md#necessary-update).
 
-### Useful links {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./k8s-supported-versions.md)
 * [{#T}](../release-notes.md)

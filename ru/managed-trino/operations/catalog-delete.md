@@ -39,7 +39,7 @@ description: Следуя этой инструкции, вы удалите к�
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Catalog.Delete](../api-ref/Catalog/delete.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом REST API [delete](../api-ref/Catalog/delete.md) для ресурса [Catalog](../api-ref/Catalog/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -60,21 +60,21 @@ description: Следуя этой инструкции, вы удалите к�
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [CatalogService.Delete](../api-ref/grpc/Catalog/delete.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом gRPC API [CatalogService/Delete](../api-ref/grpc/Catalog/delete.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
             -format json \
             -import-path ~/cloudapi/ \
             -import-path ~/cloudapi/third_party/googleapis/ \
-            -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
+            -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d '{
                     "cluster_id": "<идентификатор_кластера>",
                     "catalog_id": "<идентификатор_каталога_{{ TR }}>"
                 }' \
             {{ api-host-trino }}:{{ port-https }} \
-            yandex.cloud.trino.v1.ClusterService.Delete
+            yandex.cloud.trino.v1.CatalogService.Delete
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), идентификатор каталога — со [списком каталогов {{ TR }} в кластере](catalog-list.md).

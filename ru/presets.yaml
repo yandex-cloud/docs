@@ -7905,9 +7905,11 @@ default:
         section_tracking-options: Настройки сбора статистики
       postgresql:
         cluster:
+          additional-field-managed-repack: Перепаковка данных
           additional-field-pooling_mode: Режим работы менеджера подключений
           switch_backup-policies: Политики резервного копирования
           switch_backups: Резервные копии
+          switch_data-repack: Перепаковка данных
           switch_databases: Базы данных
           switch_datalens: DataLens
           switch_diagnostics: Диагностика производительности
@@ -7919,6 +7921,17 @@ default:
         databases:
           dialog:
             button_submit: Изменить
+        DataRepack:
+          DataRepackPageContent:
+            title_active-repacks_hjUWj: Активные перепаковки
+            title_recomendations_vRLWf: Рекомендации
+          RunningRepacks:
+            action_goto-logs_5Ng11: Посмотреть логи
+          StartRepackFormDialog:
+            action_cancel_4wAmZ: Отменить
+            action_start-repack_tnJdP: Запустить перепаковку
+          TopBloatObjects:
+            action_start-repack_7ccLM: Запустить перепаковку
         hosts:
           dialog:
             button_choose: Сохранить

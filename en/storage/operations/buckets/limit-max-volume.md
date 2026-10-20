@@ -1,9 +1,9 @@
 ---
-title: Limiting the maximum size of a bucket in {{ objstorage-full-name }}
+title: Limiting the maximum bucket size in {{ objstorage-full-name }}
 description: Follow this guide to set the maximum size of a bucket in {{ objstorage-name }}.
 ---
 
-# Limiting the maximum size of a bucket
+# Limiting the maximum bucket size
 
 {{ objstorage-name }} enables limiting the maximum bucket size.
 
@@ -13,7 +13,7 @@ For example, if your service enables users to upload objects to {{ objstorage-na
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket to limit the maximum size for.
   1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}**.

@@ -73,6 +73,8 @@ In your [partnership application]({{ link-cloud-partners }}onboarding-new), prov
 
 If you have already provided a billing account at [Step 3](#step-3), proceed to the next step. If did not specify any payment account , you can create one at this step.
 
+{% include [billing-account-required-role](../_includes/billing/billing-account-required-role.md) %}
+
 The billing account requirements are as follows: {#restrictions}
 
 * Billing account type: [Business account](../billing/concepts/billing-account.md#ba-types).

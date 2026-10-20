@@ -24,9 +24,9 @@ description: Правила определяют, могут ли пользов
 Правила доступа к свойствам сессии каталога можно назначить одновременно с созданием кластера {{ mtr-name }}.
 
 {% note warning %}
-  
+
 Указанные в правилах имена свойств не проверяются на валидность. Ошибка в имени свойства приведет к некорректной работе правила.
-  
+
 {% endnote %}
 
 {% list tabs group=instructions %}
@@ -131,9 +131,9 @@ description: Правила определяют, могут ли пользов
 - {{ TF }} {#tf}
 
   1. Создайте конфигурационный файл {{ TF }} с [планом инфраструктуры](cluster-create.md).
-  
+
   1. Добавьте в конфигурационный файл ресурс `yandex_trino_access_control`, содержащий список правил `catalog_session_properties`.
- 
+
      ```hcl
      resource "yandex_trino_cluster" "<имя_кластера>" {
        ...
@@ -164,7 +164,7 @@ description: Правила определяют, могут ли пользов
              ids         = [
                yandex_trino_catalog.<имя_каталога_1>.id,
                yandex_trino_catalog.<имя_каталога_2>.id,
-               ... 
+               ...
                yandex_trino_catalog.<имя_каталога_N>.id
              ]
              name_regexp = "<регулярное_выражение>"
@@ -179,12 +179,12 @@ description: Правила определяют, могут ли пользов
          },
          # Правило 2
          {
-           ... 
+           ...
          },
          ...
          # Правило N
          {
-           ... 
+           ...
          }
        ]
        ...
@@ -214,13 +214,13 @@ description: Правила определяют, могут ли пользов
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
   1. Проверьте корректность настроек.
-  
+
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-  
+
   1. Подтвердите изменение ресурсов.
-  
+
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
- 
+
   Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mtr-access }}).
 
 - REST API {#api}
@@ -307,7 +307,7 @@ description: Правила определяют, могут ли пользов
         * `NO` — пользователю запрещено установить свойство.
 
       * `catalog` — каталоги, на которые распространяется правило. Если блок `catalog` не указан, правило распространяется на все каталоги кластера.
-        * `names` — список имен каталогов. Каталоги должны создаваться в этом же вызове [Cluster.Create](../api-ref/Cluster/create.md).
+        * `names` — список имен каталогов. Каталоги должны создаваться в этом же вызове метода REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md).
         * `nameRegexp` — регулярное выражение. Правило распространяется на каталоги, имена которых соответствуют регулярному выражению.
 
         Блок `catalog` должен содержать либо вложенный блок `names`, либо параметр `nameRegexp`.
@@ -322,13 +322,13 @@ description: Правила определяют, могут ли пользов
 
       Доступные параметры кластера и их описания представлены в [инструкции](cluster-create.md#create-cluster).
 
-  1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
           --request POST \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters'
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters' \
           --data '@body.json'
       ```
 
@@ -420,7 +420,7 @@ description: Правила определяют, могут ли пользов
         * `NO` — пользователю запрещено установить свойство.
 
       * `catalog` — каталоги, на которые распространяется правило. Если блок `catalog` не указан, правило распространяется на все каталоги кластера.
-        * `names` — список имен каталогов. Каталоги должны создаваться в этом же вызове [ClusterService/Create](../api-ref/grpc/Cluster/create.md).
+        * `names` — список имен каталогов. Каталоги должны создаваться в этом же вызове gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md).
         * `name_regexp` — регулярное выражение. Правило распространяется на каталоги, имена которых соответствуют регулярному выражению.
 
         Блок `catalog` должен содержать либо вложенный блок `names`, либо параметр `name_regexp`.
@@ -435,7 +435,7 @@ description: Правила определяют, могут ли пользов
 
       Доступные параметры кластера и их описания представлены в [инструкции](cluster-create.md#create-cluster).
 
-  1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -459,9 +459,9 @@ description: Правила определяют, могут ли пользов
 Правила доступа к свойствам сессии каталога можно назначить или обновить в уже существующем кластере {{ mtr-name }}.
 
 {% note warning %}
-  
+
 Указанные в правилах имена свойств не проверяются на валидность. Ошибка в имени свойства приведет к некорректной работе правила.
-  
+
 {% endnote %}
 
 {% list tabs group=instructions %}
@@ -543,7 +543,7 @@ description: Правила определяют, могут ли пользов
 
      Где:
 
-     * `system_session_properties` — список правил для свойств сессии каталога. Каждое правило включает в себя обязательный параметр `allow`, а также опциональные параметры: `catalog`, `property`, `groups`, `users` и `description`.
+     * `catalog_session_properties` — список правил для свойств сессии каталога. Каждое правило включает в себя обязательный параметр `allow`, а также опциональные параметры: `catalog`, `property`, `groups`, `users` и `description`.
 
      * `allow` — право установить свойство:
        * `YES` — пользователю разрешено установить свойство.
@@ -582,10 +582,10 @@ description: Правила определяют, могут ли пользов
 - {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-  
+
       Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
-  
-  1. Если правила доступа еще не заданы, добавьте ресурс `yandex_trino_access_control`, содержащий список правил `system_session_properties`.
+
+  1. Если правила доступа еще не заданы, добавьте ресурс `yandex_trino_access_control`, содержащий список правил `catalog_session_properties`.
 
      ```hcl
      resource "yandex_trino_cluster" "<имя_кластера>" {
@@ -617,7 +617,7 @@ description: Правила определяют, могут ли пользов
              ids         = [
                yandex_trino_catalog.<имя_каталога_1>.id,
                yandex_trino_catalog.<имя_каталога_2>.id,
-               ... 
+               ...
                yandex_trino_catalog.<имя_каталога_N>.id
              ]
              name_regexp = "<регулярное_выражение>"
@@ -632,12 +632,12 @@ description: Правила определяют, могут ли пользов
          },
          # Правило 2
          {
-           ... 
+           ...
          },
          ...
          # Правило N
          {
-           ... 
+           ...
          }
        ]
        ...
@@ -673,13 +673,13 @@ description: Правила определяют, могут ли пользов
      * удалить ненужные правила.
 
   1. Проверьте корректность настроек.
-  
+
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-  
+
   1. Подтвердите изменение ресурсов.
-  
+
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
- 
+
   Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mtr-access }}).
 
 - REST API {#api}
@@ -692,10 +692,10 @@ description: Правила определяют, могут ли пользов
 
       ```json
       {
-        "updateMask": "trino.accessControl.systemSessionProperties",
+        "updateMask": "trino.accessControl.catalogSessionProperties",
         "trino": {
           "accessControl": {
-            "systemSessionProperties": [
+            "catalogSessionProperties": [
               {
                 "allow": "<право_установить_свойство>",
                 "catalog": {
@@ -752,7 +752,7 @@ description: Правила определяют, могут ли пользов
 
       * `accessControl` — конфигурация прав доступа в рамках кластера.
 
-      * `systemSessionProperties` — список блоков правил для системных свойств сессии. Каждое правило включает в себя обязательный параметр `allow`, а также опциональные параметры: `property`, `groups`, `users` и `description`.
+      * `catalogSessionProperties` — список блоков правил для свойств сессии каталога. Каждое правило включает в себя обязательный параметр `allow`, а также опциональные параметры: `catalog`, `property`, `groups`, `users` и `description`.
 
       * `allow` — право установить свойство:
         * `YES` — пользователю разрешено установить свойство.
@@ -779,13 +779,13 @@ description: Правила определяют, могут ли пользов
      * изменить параметры существующих правил;
      * удалить ненужные правила.
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
         --request PATCH \
         --header "Authorization: Bearer $IAM_TOKEN" \
-        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>' \
         --data '@body.json'
       ```
 
@@ -861,7 +861,7 @@ description: Правила определяют, могут ли пользов
       Где:
 
       * `cluster_id` — идентификатор кластера.
-          
+
           Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
       * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
@@ -889,7 +889,7 @@ description: Правила определяют, могут ли пользов
 
       * `access_control` — конфигурация прав доступа в рамках кластера.
 
-      * `system_session_properties` — список блоков правил для свойств сессии каталога. Каждое правило включает в себя обязательный параметр `allow`, а также опциональные параметры: `catalog`, `property`, `groups`, `users` и `description`.
+      * `catalog_session_properties` — список блоков правил для свойств сессии каталога. Каждое правило включает в себя обязательный параметр `allow`, а также опциональные параметры: `catalog`, `property`, `groups`, `users` и `description`.
 
       * `allow` — право установить свойство:
         * `YES` — пользователю разрешено установить свойство.
@@ -916,7 +916,7 @@ description: Правила определяют, могут ли пользов
      * изменить параметры существующих правил;
      * удалить ненужные правила.
 
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -950,11 +950,11 @@ description: Правила определяют, могут ли пользов
 
   ```yaml
   catalog_session_properties:
-    - groups: 
+    - groups:
         - admins_group_id
       allow: YES
 
-    - groups: 
+    - groups:
         - data_engineers_group_id
       property:
         name_regexp: "parquet.*"
@@ -999,10 +999,10 @@ description: Правила определяют, могут ли пользов
 
   ```json
   {
-    "updateMask": "trino.accessControl.systemSessionProperties",
+    "updateMask": "trino.accessControl.catalogSessionProperties",
     "trino": {
       "accessControl": {
-        "systemSessionProperties": [
+        "catalogSessionProperties": [
           {
             "groups": [
               "admins_group_id"

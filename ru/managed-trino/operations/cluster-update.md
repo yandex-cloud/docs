@@ -57,7 +57,7 @@ keywords:
         ```bash
         {{ yc-mdb-tr }} cluster update <имя_или_идентификатор_кластера> \
           --new-name <имя_кластера> \
-          --description <описание_кластера> 
+          --description <описание_кластера>
         ```
 
         Где:
@@ -65,7 +65,7 @@ keywords:
         * `--new-name` — уникальное имя кластера в рамках облака.
         * `--description` — описание кластера.
 
-        Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.   
+        Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
 - {{ TF }} {#tf}
 
@@ -78,9 +78,9 @@ keywords:
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
         Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
-        
+
     1. Измените в описании кластера значение параметра `description`:
-      
+
         ```hcl
         resource "yandex_trino_cluster" "<имя_кластера>" {
           ...
@@ -128,13 +128,13 @@ keywords:
         * `name` — уникальное имя кластера в рамках облака.
         * `description` — описание кластера.
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
           --request PATCH \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>' \
           --data '@body.json'
         ```
 
@@ -168,7 +168,7 @@ keywords:
         Где:
 
         * `cluster_id` — идентификатор кластера.
-            
+
             Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
         * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
@@ -197,7 +197,7 @@ keywords:
         * `name` — уникальное имя кластера в рамках облака.
         * `description` — описание кластера.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -256,7 +256,7 @@ keywords:
 
         Где `--service-account-id` — идентификатор сервисного аккаунта.
 
-        Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.   
+        Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
 - {{ TF }} {#tf}
 
@@ -265,7 +265,7 @@ keywords:
         Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
 
     1. Измените в описании кластера значение параметра `service_account_id`:
-      
+
         ```hcl
         resource "yandex_trino_cluster" "<имя_кластера>" {
           ...
@@ -311,13 +311,13 @@ keywords:
 
         * `serviceAccountId` — идентификатор сервисного аккаунта.
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
+            --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>' \
             --data '@body.json'
         ```
 
@@ -350,7 +350,7 @@ keywords:
         Где:
 
         * `cluster_id` — идентификатор кластера.
-            
+
             Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
         * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
@@ -378,7 +378,7 @@ keywords:
 
         * `service_account_id` — идентификатор сервисного аккаунта.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -432,7 +432,7 @@ keywords:
 
         Где `--security-group-ids` — список идентификаторов групп безопасности.
 
-        Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.   
+        Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
 - {{ TF }} {#tf}
 
@@ -441,7 +441,7 @@ keywords:
         Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
 
     1. Измените в описании кластера значение параметра `security_group_ids`:
-      
+
         ```hcl
         resource "yandex_trino_cluster" "<имя_кластера>" {
           ...
@@ -490,16 +490,16 @@ keywords:
             {% endnote %}
 
         * `networkSpec` — сетевые настройки:
-          
+
             * `securityGroupIds` — список идентификаторов групп безопасности.
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
           --request PATCH \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>' \
           --data '@body.json'
         ```
 
@@ -534,7 +534,7 @@ keywords:
         Где:
 
         * `cluster_id` — идентификатор кластера.
-            
+
             Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
         * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
@@ -564,7 +564,7 @@ keywords:
 
             * `security_group_ids` — список идентификаторов групп безопасности.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -593,9 +593,9 @@ keywords:
     1. [Перейдите]({{ link-console-main }}/link/managed-trino) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В блоке **Политика перезапросов** измените параметры [отказоустойчивого выполнения запросов](../concepts/retry-policy.md):
-        
+
         * Измените **Тип объекта для перезапроса**.
-        
+
         * Добавьте или удалите в поле **Параметры перезапросов** дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
 
         * Добавьте или удалите в поле **{{ ui-key.yacloud.trino.field_retry-storage-properties }}** дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
@@ -627,7 +627,7 @@ keywords:
 
         ```bash
         {{ yc-mdb-tr }} cluster update <имя_или_идентификатор_кластера> \
-          --retry-policy-enabled \ 
+          --retry-policy-enabled \
           --retry-policy <тип_объекта_для_перезапроса> \
           --retry-policy-additional-properties <список_дополнительных_параметров> \
           --retry-policy-exchange-manager-service-s3 \
@@ -638,7 +638,7 @@ keywords:
         Где:
 
         * `--retry-policy-enabled` — включает политику перезапросов.
-          
+
         * `--retry-policy` — способ повторного выполнения запросов. Возможные значения:
 
             * `query` — повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
@@ -664,7 +664,7 @@ keywords:
         Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
 
     1. Чтобы включить политику [отказоустойчивого выполнения запросов](../concepts/retry-policy.md), добавьте к описанию кластера блок `retry_policy`:
-      
+
         {% include [Terraform retry policy parameters description](../../_includes/managed-trino/terraform/retry-policy-parameters.md) %}
 
     1. Проверьте корректность настроек.
@@ -732,13 +732,13 @@ keywords:
 
             * `additionalProperties` — дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
           --request PATCH \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>' \
           --data '@body.json'
         ```
 
@@ -785,7 +785,7 @@ keywords:
         Где:
 
         * `cluster_id` — идентификатор кластера.
-            
+
             Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
         * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
@@ -829,7 +829,7 @@ keywords:
 
             * `additional_properties` – дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -943,13 +943,13 @@ keywords:
 
           Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs}}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs}}/admin/properties-query-management.html).
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
           --request PATCH \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>' \
           --data '@body.json'
         ```
 
@@ -1006,7 +1006,7 @@ keywords:
 
           Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs}}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs}}/admin/properties-query-management.html).
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -1065,20 +1065,20 @@ keywords:
         Где:
 
         * `--coordinator` — конфигурация [координатора](../concepts/index.md#coordinator):
-            
+
             * `resource-preset-id` — [класс хостов](../concepts/instance-types.md) координатора.
-        
+
         * `--worker` — конфигурация [воркера](../concepts/index.md#workers):
 
             * `resource-preset-id` — [класс хостов](../concepts/instance-types.md) воркера.
-                
+
             * `count` — количество воркеров.
             * `min-count` — минимальное количество воркеров.
             * `max-count` — максимальное количество воркеров.
-                
+
             Чтобы количество воркеров автоматически изменялось в зависимости от нагрузки, используйте `min-count` и `max-count`. Если требуется задать фиксированное число воркеров, используйте `count`.
 
-        Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.   
+        Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
 - {{ TF }} {#tf}
 
@@ -1087,14 +1087,14 @@ keywords:
         Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
 
     1. Измените конфигурацию [координатора](../concepts/index.md#coordinator) и [воркеров](../concepts/index.md#workers) в блоках `coordinator` и `worker`:
-      
+
         ```hcl
         resource "yandex_trino_cluster" "<имя_кластера>" {
           ...
           coordinator = {
             resource_preset_id = "<класс_вычислительных_ресурсов>"
           }
-          
+
           worker = {
             fixed_scale = {
               count = <количество_экземпляров>
@@ -1108,26 +1108,26 @@ keywords:
           ...
         }
         ```
-        
+
         Где:
-        
+
         * `coordinator` — конфигурация [координатора](../concepts/index.md#coordinator):
-            
+
             * `resource_preset_id` — [класс хостов](../concepts/instance-types.md) координатора.
 
         * `worker` — конфигурация [воркера](../concepts/index.md#workers):
-        
+
             * `resource_preset_id` — [класс хостов](../concepts/instance-types.md) воркера.
-            
+
             * `fixed_scale` — фиксированное количество воркеров.
-                
+
                 * `count` — количество воркеров.
 
             * `auto_scale` — автоматическое масштабирование количества воркеров.
-                
+
                 * `min_count` — минимальное количество воркеров.
                 * `max_count` — максимальное количество воркеров.
-            
+
             Чтобы количество воркеров автоматически изменялось в зависимости от нагрузки, используйте блок `auto_scale` и задайте минимальное и максимальное значения. Для фиксированного числа воркеров используйте блок `fixed_scale` и укажите требуемое значение.
 
     1. Проверьте корректность настроек.
@@ -1186,13 +1186,13 @@ keywords:
         * `trino.coordinatorConfig` — конфигурация [координатора](../concepts/index.md#coordinator):
 
             * `resources.resourcePresetId` — [класс хостов](../concepts/instance-types.md) координатора.
-              
+
         * `trino.workerConfig` — конфигурация [воркера](../concepts/index.md#workers):
 
             * `resources.resourcePresetId` — [класс хостов](../concepts/instance-types.md) воркера.
 
             * `scalePolicy.fixedScale` — фиксированное количество воркеров.
-                
+
                 * `count` — количество воркеров.
 
             * `scalePolicy.autoScale` — автоматическое масштабирование количества воркеров.
@@ -1202,13 +1202,13 @@ keywords:
 
             Чтобы количество воркеров автоматически изменялось в зависимости от нагрузки, используйте настройку `scalePolicy.autoScale` и задайте минимальное и максимальное значения. Для фиксированного числа воркеров используйте настройку `scalePolicy.fixedScale` и укажите требуемое значение.
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
           --request PATCH \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>' \
           --data '@body.json'
         ```
 
@@ -1261,7 +1261,7 @@ keywords:
         Где:
 
         * `cluster_id` — идентификатор кластера.
-            
+
             Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
         * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
@@ -1290,13 +1290,13 @@ keywords:
         * `trino.coordinator_config"` — конфигурация [координатора](../concepts/index.md#coordinator):
 
             * `resources.resource_preset_id` — [класс хостов](../concepts/instance-types.md) координатора.
-              
+
         * `trino.worker_config` — конфигурация [воркера](../concepts/index.md#workers):
 
             * `resources.resource_preset_id` — [класс хостов](../concepts/instance-types.md) воркера.
 
             * `scale_policy.fixed_scale` — фиксированное количество воркеров.
-                
+
                 * `count` — количество воркеров.
 
             * `scale_policy.auto_scale` — автоматическое масштабирование количества воркеров.
@@ -1306,7 +1306,7 @@ keywords:
 
             Чтобы количество воркеров автоматически изменялось в зависимости от нагрузки, используйте настройку `scale_policy.auto_scale` и задайте минимальное и максимальное значения. Для фиксированного числа воркеров используйте настройку `scale_policy.fixed_scale` и укажите требуемое значение.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -1335,22 +1335,22 @@ keywords:
     1. [Перейдите]({{ link-console-main }}/link/managed-trino) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. Измените дополнительные настройки кластера:
-        
+
         * **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** — защита кластера от непреднамеренного удаления пользователем.
 
             Включенная защита кластера от удаления не помешает подключиться к нему вручную и удалить данные.
-        
+
         * **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** — настройки окна [технического обслуживания](../concepts/maintenance.md).
 
             {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
-        * **{{ ui-key.yacloud.logging.field_logging }}** — опция включает логирование. 
-        
+        * **{{ ui-key.yacloud.logging.field_logging }}** — опция включает логирование.
+
           * Выберите место записи логов:
             * **{{ ui-key.yacloud.common.folder }}** — выберите каталог из списка. Логи будут записываться в лог-группу по умолчанию выбранного каталога.
-                
+
             * **{{ ui-key.yacloud.logging.label_group }}** — выберите [лог-группу](../../logging/concepts/log-group.md) из списка или создайте новую.
-            
+
           * Выберите **{{ ui-key.yacloud.logging.label_minlevel }}** из списка.
 
           {% include [logging-roles](../../_includes/managed-trino/logging-roles.md) %}
@@ -1391,9 +1391,9 @@ keywords:
         Где:
 
         * `--deletion-protection` — включает защиту кластера от непреднамеренного удаления.
-          
+
             Включенная защита кластера от удаления не помешает подключиться к нему вручную и удалить данные.
-        
+
         * `--maintenance-window` — настройки окна [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), где `type` — тип технического обслуживания:
 
             {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
@@ -1407,11 +1407,11 @@ keywords:
             Вы можете указать только один из параметров: `--log-folder-id` или `--log-group-id`.
 
           * `--log-min-level` — минимальный уровень логирования. Возможные значения: `TRACE`, `DEBUG`, `INFO` (значение по умолчанию), `WARN`, `ERROR` и `FATAL`.
-        
+
           {% include [logging-roles](../../_includes/managed-trino/logging-roles.md) %}
-        
-        * `--trusted-certs-from-files` — список путей к файлам с доверенными сертификатами. 
-        
+
+        * `--trusted-certs-from-files` — список путей к файлам с доверенными сертификатами.
+
           Если вы хотите удалить все сертификаты, передайте параметр `--remove-trusted-certs`.
 
         Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
@@ -1423,7 +1423,7 @@ keywords:
         Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
 
     1. Чтобы включить защиту кластера от непреднамеренного удаления, добавьте параметр `deletion_protection = true`:
-        
+
         ```hcl
         resource "yandex_trino_cluster" "<имя_кластера>" {
           ...
@@ -1518,7 +1518,7 @@ keywords:
 
             * `anytime` — техническое обслуживание происходит в любое время.
             * `weeklyMaintenanceWindow` — техническое обслуживание происходит раз в неделю в указанное время:
-            
+
               * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
               * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
 
@@ -1531,16 +1531,16 @@ keywords:
            * `trustedCertificates` — список сертификатов, разделенных запятой.
 
               {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#cert-list) %}
-               
+
            {% include notitle [tls-pg-ch](../../_includes/managed-trino/cluster-settings.md#tls-pg-ch) %}
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
           --request PATCH \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>' \
           --data '@body.json'
         ```
 
@@ -1588,7 +1588,7 @@ keywords:
         Где:
 
         * `cluster_id` — идентификатор кластера.
-            
+
             Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
         * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
@@ -1634,12 +1634,12 @@ keywords:
 
             * `anytime` — техническое обслуживание происходит в любое время.
             * `weekly_maintenance_window` — техническое обслуживание происходит раз в неделю в указанное время:
-            
+
               * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
               * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
 
                 > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
-        
+
         * `tls` — параметры [TLS](../../glossary/tls.md).
 
           {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#tls) %}
@@ -1647,10 +1647,10 @@ keywords:
           * `trusted_certificates` — список сертификатов, разделенных запятой.
 
             {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#cert-list) %}
-               
+
           {% include notitle [tls-pg-ch](../../_includes/managed-trino/cluster-settings.md#tls-pg-ch) %}
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \

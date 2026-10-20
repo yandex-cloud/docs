@@ -76,9 +76,11 @@ description: Управление доступом в сервисе по соз
 
 ## Какие роли необходимы {#required-roles}
 
-Чтобы пользоваться сервисом, необходима роль `managed-trino.editor` или выше на каталог, в котором создается кластер. Роль `managed-trino.viewer` позволит только просматривать список кластеров.
+Чтобы выполнять запросы к {{ TR }} и использовать его веб-интерфейс, необходима роль [managed-trino.user](#managed-trino-user) на кластер или на каталог, в котором он находится.
 
-Чтобы создать кластер {{ mtr-name }}, нужны роли [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) и [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user), а также роль `managed-trino.admin` или выше.
+Чтобы просматривать информацию о кластерах, назначенных правах доступа, заданиях на техническое обслуживание и квотах сервиса, достаточно роли [managed-trino.viewer](#managed-trino-viewer) на соответствующие ресурсы.
+
+Чтобы создать кластер {{ mtr-name }}, нужна роль [managed-trino.editor](#managed-trino-editor) на каталог, а также роли [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) для работы с сетью и [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) для привязки сервисного аккаунта. Дополнительные роли для работы с логами приведены в [инструкции создания кластера](operations/cluster-create.md#roles).
 
 Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `managed-trino.admin` вместо `managed-trino.editor`.
 

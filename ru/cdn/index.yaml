@@ -1,3 +1,12 @@
+title: Yandex Cloud CDN
+description:
+  - >-
+    {{ cdn-full-name }} позволяет организовать доставку контента до конечных
+    пользователей с помощью сети распространения контента (Content Delivery
+    Network, CDN).
+  - >-
+    Кеширование на CDN-серверах снижает нагрузку на источники данных и сокращает
+    время доставки контента.
 meta:
   title: Yandex Cloud CDN
   description: >-
