@@ -2,57 +2,30 @@
 
 # Как начать работать с Yandex Cloud Quota Manager
 
-{% note info %}
+Cloud Quota Manager позволяет управлять квотами сервисов Yandex Cloud с помощью различных интерфейсов.
 
-Для работы с запросами на изменение квот через CLI и API обратитесь в [службу поддержки](https://center.yandex.cloud/support).
+_Квоты_ — ограничения на использование ресурсов. Их можно увеличить по запросу в пределах _лимитов_ — технических ограничений Yandex Cloud.
 
-{% endnote %}
+Интерфейсы управления квотами:
 
-Сервис Cloud Quota Manager позволяет управлять квотами с помощью различных интерфейсов. Некоторые сервисы, например SpeechKit, в Quota Manager недоступны.
-
-**Квоты** — ограничения на использование ресурсов в облаке или организации. Они помогают контролировать потребление ресурсов, избегать перерасхода и планировать бюджет.
-
-У квот есть два показателя:
-
-* **Значение квоты** или просто **квота** (quota limit) — текущее ограничение на ресурс для облака или организации.
-
-* **Потребление квоты** (quota usage) — объем фактически используемого ресурса.
-
-Квоты можно увеличить по запросу в пределах _лимитов_.
-
-**Лимиты** — технические ограничения, обусловленные особенностями архитектуры Yandex Cloud, физическими характеристиками оборудования или внешними ограничениями.
-
-![image](../_assets/quota-manager/quotas-limits.svg)
+* [Cloud Center](https://center.yandex.cloud/quotas) — уровень организации.
+* [Консоль управления](https://console.yandex.cloud/cloud?section=quotas) — уровень облака.
+* [CLI](cli-ref/index.md) и [API](api-ref/authentication.md) — уровень организации и облака. Для работы с запросами на изменение квот через CLI и API обратитесь в [службу поддержки](https://center.yandex.cloud/support).
 
 В большинстве сервисов квоты действуют на уровне облака. В Resource Manager, Cloud Video и некоторых других сервисах квоты действуют на уровне организации. В IAM есть квоты обоих уровней.
 
-Интерфейсы управления квотами:
-* [Cloud Center](https://center.yandex.cloud/quotas) — уровень организации;
-* [консоль управления](https://console.yandex.cloud/cloud?section=quotas) — уровень облака;
-* [CLI](cli-ref/index.md) и [API](api-ref/authentication.md) — уровень организации и облака.
-
-Для управления квотами ресурсов через CLI и API используйте их идентификаторы из раздела [Квоты для сервисов Yandex Cloud](all-quotas.md).
-
 ## Перед началом работы {#before-you-begin}
 
-Предполагается, что у вас уже есть ресурсы Yandex Cloud в облаке или организации.
-
-Убедитесь, что у пользователя или сервисного аккаунта есть [роли](../iam/concepts/access-control/roles.md):
+Убедитесь, что у пользователя или сервисного аккаунта есть нужная [роль](../iam/concepts/access-control/roles.md) на облако или организацию:
 
 * [quota-manager.viewer](security/index.md#quota-manager-viewer) — для просмотра квот.
 * [quota-manager.requestOperator](security/index.md#quota-manager-requestoperator) — для просмотра квот и создания запросов на их изменение.
 
-Назначьте роль на облако или организацию, к которым относятся квоты.
-
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Консоль управления или Cloud Center {#console}
 
-  Войдите в [консоль управления](https://console.yandex.cloud) и выберите облако.
-
-- Интерфейс Cloud Center {#cloud-center}
-
-  Войдите в [Cloud Center](https://center.yandex.cloud) и выберите организацию.
+  Дополнительная подготовка не требуется.
 
 - CLI {#cli}
 
@@ -67,140 +40,64 @@
     1. Установите утилиту [cURL](https://curl.haxx.se).
     1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) и [назначьте ему](../iam/operations/sa/assign-role-for-sa.md) одну из ролей, указанных выше.
     1. [Получите IAM-токен](../iam/operations/iam-token/create-for-sa.md) для созданного сервисного аккаунта.
+    1. Сохраните полученный IAM-токен в переменной окружения:
+
+       ```bash
+       export IAM_TOKEN=<iam_токен>
+       ```
 
 - gRPC API {#grpc-api}
 
     1. Установите утилиту [gRPCurl](https://github.com/fullstorydev/grpcurl).
     1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) и [назначьте ему](../iam/operations/sa/assign-role-for-sa.md) одну из ролей, указанных выше.
     1. [Получите IAM-токен](../iam/operations/iam-token/create-for-sa.md) для созданного сервисного аккаунта.
+    1. Сохраните полученный IAM-токен в переменной окружения:
+
+       ```bash
+       export IAM_TOKEN=<iam_токен>
+       ```
 
 {% endlist %}
 
 ## Получить информацию о квотах {#get-quota-info}
 
+Квоты действуют на уровне облака или организации. Если уровень неизвестен, посмотрите оба уровня и найдите нужный сервис.
+
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Консоль управления или Cloud Center {#console}
 
-  Чтобы получить информацию о квотах в облаке:
-
-  1. В [консоли управления](https://console.yandex.cloud) выберите облако и на панели слева откройте ![image](../_assets/console-icons/square-plus.svg) **Квоты**.
+  1. Выберите облако в [консоли управления](https://console.yandex.cloud) или организацию в [Cloud Center](https://center.yandex.cloud).
   
-  1. На вкладке **Список квот**:
-     
-     * Введите в строку поиска название сервиса, название или идентификатор квоты.
+  1. На панели слева откройте ![image](../_assets/console-icons/square-plus.svg) **Квоты**.
   
-     * В группе **Сервисы с потреблением** или **Сервисы без потребления** раскройте раздел нужного сервиса.
+  1. На вкладке **Список квот** введите в строку поиска название сервиса, название или идентификатор квоты.
   
-  1. В строке квоты посмотрите значение в столбце **Использование**:
+  1. Раскройте нужный сервис в одной из групп:
   
-     * Два числа — `потребление квоты / значение квоты`. Например, `2 / 20`.
-     * Одно число — `лимит`, изменить его нельзя.
+     * **Сервисы с потреблением** — потребление хотя бы одной квоты больше нуля.
+     * **Сервисы без потребления** — потребление всех квот равно нулю.
+  
+  1. В строке квоты посмотрите столбец **Использование**:
+  
+     * Числа — [потребление квоты](*quota-usage) / [значение квоты](*quota-limit).
+     * **Квота не выделена** — значение квоты не установлено.
   
   1. Чтобы показать только сервисы, в которых квоты близки к исчерпанию, вверху нажмите **Почти закончились**.
-
-- Интерфейс Cloud Center {#cloud-center}
-
-  Чтобы получить информацию о квотах в организации:
-
-  1. В [Cloud Center](https://center.yandex.cloud) выберите организацию и на панели слева откройте ![image](../_assets/console-icons/square-plus.svg) **Квоты**.
   
-  1. На вкладке **Список квот**:
-     
-     * Введите в строку поиска название сервиса, название или идентификатор квоты.
-  
-     * В группе **Сервисы с потреблением** или **Сервисы без потребления** раскройте раздел нужного сервиса.
-  
-  1. Посмотрите значение в столбце **Использование**:
-  
-     * Два числа — `потребление квоты / значение квоты`. Например, `2 / 20`.
-     * Одно число — `лимит`, изменить его нельзя.
-  
-  1. Чтобы показать только сервисы, в которых квоты близки к исчерпанию, вверху нажмите **Почти закончились**.
+  Если квоты близки к исчерпанию или не выделены, на этой же странице можно [запросить их изменение](operations/set-quotas.md#request-quota-change).
 
 - CLI {#cli}
 
-  1. Посмотрите список сервисов с квотами.
+  1. Посмотрите список сервисов с квотами на уровне облака:
 
      ```bash
-     yc quota-manager quota-limit list-services \
-       --resource-type <тип_ресурса>
+     yc quota-manager quota-limit list-services --resource-type resource-manager.cloud
      ```
-
-     Где `--resource-type` — [тип ресурса](concepts/index.md#resources-types):
-
-     * `resource-manager.cloud` — [облако](../resource-manager/concepts/resources-hierarchy.md#cloud);
-     * `organization-manager.organization` — [организация](../organization/concepts/organization.md);
-     * `billing.account` — [платежный аккаунт](../billing/concepts/billing-account.md).
-
-     Пример команды:
-
-     ```bash
-     yc quota-manager quota-limit list-services \
-       --resource-type resource-manager.cloud
-     ```
-
-     Будет выведен список сервисов с квотами на уровне облака.
-
-  1. Посмотрите значения и потребление всех квот для сервиса.
-
-     ```bash
-     yc quota-manager quota-limit list \
-       --service <имя_сервиса> \
-       --resource-type <тип_ресурса> \
-       --resource-id <идентификатор_ресурса>
-     ```
-
-     Где:
-
-     * `--service` — идентификатор сервиса, полученный на предыдущем шаге.
-     * `--resource-id` — идентификатор [ресурса](../resource-manager/concepts/resources-hierarchy.md): идентификатор облака, организации или платежного аккаунта.
-     * `--resource-type` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
-
-     Пример команды:
-
-     ```bash
-     yc quota-manager quota-limit list \
-       --service iam \
-       --resource-type resource-manager.cloud \
-       --resource-id <идентификатор_облака>
-     ```
-
-     Будут выведены идентификаторы квот, которые есть в сервисе IAM в облаке, а также значения и потребление этих квот:
      
-     ```text
-     resource:
-       id: b1gia87mbaom********
-       type: resource-manager.cloud
-     quota_limits:
-       - quota_id: iam.accessKeys.count
-         limit: 1001
-         usage: 33
-       - quota_id: iam.apiKeys.count
-         limit: 1000
-         usage: 14
-       - quota_id: iam.authorizedKeys.count
-         limit: 1000
-         usage: 44
-       ...
-     ```
+     Параметр `--resource-type` ([тип ресурса](concepts/index.md#resources-types)) определяет уровень просмотра квот. Для уровня организации укажите `organization-manager.organization`.
 
-  1. Посмотрите значение и потребление определенной квоты.
-
-     ```bash
-     yc quota-manager quota-limit get \
-       --quota-id <идентификатор_квоты> \
-       --resource-id <идентификатор_ресурса> \
-       --resource-type <тип_ресурса>
-     ```
-
-     Где:
-
-     * `--quota-id` — идентификатор квоты. Узнать идентификатор можно в разделе [Квоты для сервисов Yandex Cloud](all-quotas.md).
-     * `--resource-id` — идентификатор ресурса (облака, организации или платежного аккаунта).
-     * `--resource-type` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
-
-     Пример команды:
+  1. Посмотрите значение и потребление квоты `iam.accessKeys.count`:
 
      ```bash
      yc quota-manager quota-limit get \
@@ -209,313 +106,83 @@
        --resource-type resource-manager.cloud
      ```
 
-     Будут выведены значение и потребление квоты для количества статических ключей доступа в облаке:
-     
-     ```bash
-     quota_id: iam.accessKeys.count
-     limit: 1000
-     usage: 27
-     ```
-     
      Где:
-     * `limit` — значение квоты;
-     * `usage` — потребление квоты.
+
+     * `--resource-id` — идентификатор [облака](../resource-manager/operations/cloud/get-id.md) или [организации](../organization/operations/organization-get-id.md).
+     * `--quota-id` — идентификатор квоты из [справочника](all-quotas.md). В примере `iam.accessKeys.count` — количество статических ключей доступа в облаке.
+     * `--resource-type` — [тип ресурса](concepts/index.md#resources-types), определяющий уровень просмотра квот. Для уровня организации укажите `organization-manager.organization`.
+
+     В ответе `limit` — [значение квоты](*quota-limit), `usage` — [потребление квоты](*quota-usage). Сравните эти значения, чтобы оценить запас квоты.
+     
+     Чтобы найти другие квоты, [посмотрите список квот](operations/list-quotas.md#list-service-quotas) нужного сервиса.
 
 - REST API {#api}
 
-  1. Посмотрите список сервисов, для которых есть квоты.
+    1. Получите список сервисов с квотами на уровне облака методом [listServices](api-ref/QuotaLimit/listServices.md):
 
-     Воспользуйтесь методом REST API [listServices](api-ref/QuotaLimit/listServices.md) для ресурса [QuotaLimit](api-ref/QuotaLimit/index.md):
+       ```bash
+       curl \
+         --request GET \
+         --header "Authorization: Bearer ${IAM_TOKEN?}" \
+         'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits/services?resourceType=resource-manager.cloud'
+       ```
 
-     ```bash
-     curl \
-       --request GET \
-       --header "Authorization: Bearer <IAM-токен>" \
-       "https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits/services?resourceType=<тип_ресурса>"
-     ```
+       Параметр `resourceType` ([тип ресурса](concepts/index.md#resources-types)) определяет уровень просмотра квот. Для уровня организации укажите `organization-manager.organization`.
 
-     Где:
+       Если в ответе есть непустое поле `nextPageToken`, передайте его значение в параметре `pageToken` следующего запроса. Повторяйте запросы, пока не получите все сервисы.
 
-     * `<IAM-токен>` — IAM-токен для сервисного аккаунта или переменная окружения, в которой находится IAM-токен.
-     * `<тип_ресурса>` — [тип ресурса](concepts/index.md#resources-types): `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
+    1. Получите значение и потребление квоты `iam.accessKeys.count` методом [get](api-ref/QuotaLimit/get.md) для ресурса [QuotaLimit](api-ref/QuotaLimit/index.md):
 
-     Пример запроса:
+       ```bash
+       curl \
+         --request GET \
+         --header "Authorization: Bearer ${IAM_TOKEN?}" \
+         'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits/iam.accessKeys.count?resource.id=<идентификатор_облака>&resource.type=resource-manager.cloud'
+       ```
 
-     ```bash
-     curl \
-       --request GET \
-       --header "Authorization: Bearer ${IAM_TOKEN?}" \
-       'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits/services?resourceType=resource-manager.cloud'
-     ```
+       Где:
 
-     Пример ответа:
+       * `resource.id` — идентификатор [облака](../resource-manager/operations/cloud/get-id.md) или [организации](../organization/operations/organization-get-id.md).
+       * `iam.accessKeys.count` — идентификатор квоты на количество статических ключей доступа в облаке. Для другой квоты возьмите идентификатор из [справочника](all-quotas.md).
+       * `resource.type` — [тип ресурса](concepts/index.md#resources-types), определяющий уровень просмотра квот. Для уровня организации укажите `organization-manager.organization`.
 
-     ```json
-     {
-       "services": [
-         {
-           "id": "alb",
-           "name": "Application Load Balancer"
-         },
-         {
-           "id": "audit-trails",
-           "name": "Audit Trails"
-         },
-         ...
-         {
-           "id": "ylb",
-           "name": "Network Load Balancer"
-         },
-         {
-           "id": "yq",
-           "name": "Yandex Query"
-         }
-       ]
-     }
-     ```
-
-  1. Посмотрите значения и потребление всех квот для сервиса.
-
-     Воспользуйтесь методом REST API [list](api-ref/QuotaLimit/list.md) для ресурса [QuotaLimit](api-ref/QuotaLimit/index.md):
-
-     ```bash
-     curl \
-       --request GET \
-       --header "Authorization: Bearer <IAM-токен>" \
-       "https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits?service=<идентификатор_сервиса>&resource.id=<идентификатор_ресурса>&resource.type=<тип_ресурса>"
-     ```
-
-     Где:
-
-     * `<IAM-токен>` — IAM-токен для сервисного аккаунта или переменная окружения, в которой находится IAM-токен.
-     * `<идентификатор_сервиса>` — идентификатор сервиса, полученный на предыдущем шаге.
-     * `<идентификатор_ресурса>` — идентификатор ресурса: облака, организации или платежного аккаунта.
-     * `<тип_ресурса>` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
-
-     Пример запроса:
-
-     ```bash
-     curl \
-       --request GET \
-       --header "X-Request-Id: $(uuidgen -t)" \
-       --header "Authorization: Bearer ${IAM_TOKEN?}" \
-       'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits?service=iam&resource.id=<идентификатор_облака>&resource.type=resource-manager.cloud'
-     ```
-
-     Пример ответа:
-
-     ```json
-     {
-       "resource": {
-         "id": "b1gia87mbaom********",
-         "type": "resource-manager.cloud"
-       },
-       "quotaLimits": [
-         {
-           "quotaId": "iam.accessKeys.count",
-           "limit": 1000,
-           "usage": 34
-         },
-         {
-           "quotaId": "iam.apiKeys.count",
-           "limit": 1000,
-           "usage": 13
-         },
-         {
-           "quotaId": "iam.authorizedKeys.count",
-           "limit": 1000,
-           "usage": 43
-         },
-         ...
-       ]
-     }
-     ```
-
-  1. Посмотрите значение и потребление определенной квоты.
-
-     Воспользуйтесь методом REST API [get](api-ref/QuotaLimit/get.md) для ресурса [QuotaLimit](api-ref/QuotaLimit/index.md):
-
-     ```bash
-     curl \
-       --request GET \
-       --header "Authorization: Bearer <IAM-токен>" \
-       "https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits/<идентификатор_квоты>?resource.id=<идентификатор_ресурса>&resource.type=<тип_ресурса>"
-     ```
-
-     Где:
-
-     * `<IAM-токен>` — IAM-токен для сервисного аккаунта или переменная окружения, в которой находится IAM-токен.
-     * `<идентификатор_квоты>` — идентификатор квоты. Узнать идентификатор можно в разделе [Квоты для сервисов Yandex Cloud](all-quotas.md).
-     * `<идентификатор_ресурса>` — идентификатор ресурса (облака, организации или платежного аккаунта).
-     * `<тип_ресурса>` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
-
-     Пример запроса:
-
-     ```bash
-     curl \
-       --request GET \
-       --header "X-Request-Id: $(uuidgen -t)" \
-       --header "Authorization: Bearer ${IAM_TOKEN?}" \
-       'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits/iam.accessKeys.count?resource.id=<идентификатор_облака>&resource.type=resource-manager.cloud'
-     ```
-
-     Пример ответа:
-
-     ```json
-     {
-       "quotaId": "iam.accessKeys.count",
-       "limit": 1000,
-       "usage": 34
-     }
-     ```
+       В ответе `limit` — [значение квоты](*quota-limit), `usage` — [потребление квоты](*quota-usage). Сравните эти значения, чтобы оценить запас квоты.
+       
+       Чтобы найти другие квоты, [посмотрите список квот](operations/list-quotas.md#list-service-quotas) нужного сервиса.
 
 - gRPC API {#grpc-api}
 
-  1. Посмотрите список сервисов, для которых есть квоты.
+    1. Получите список сервисов с квотами на уровне облака с помощью вызова [QuotaLimitService/ListServices](api-ref/grpc/QuotaLimit/listServices.md):
 
-     Воспользуйтесь вызовом gRPC API [QuotaLimitService/ListServices](api-ref/grpc/QuotaLimit/listServices.md):
+       ```bash
+       grpcurl \
+         -H "Authorization: Bearer ${IAM_TOKEN?}" \
+         -d '{"resource_type": "resource-manager.cloud"}' \
+         quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaLimitService/ListServices
+       ```
 
-     ```bash
-     grpcurl \
-       -H "Authorization: Bearer <IAM-токен>" \
-       -d "{\"resource_type\": \"<тип_ресурса>\"}" \
-       quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaLimitService/ListServices
-     ```
+       Поле `resource_type` ([тип ресурса](concepts/index.md#resources-types)) определяет уровень просмотра квот. Для уровня организации укажите `organization-manager.organization`.
 
-     Где:
+       Если в ответе есть непустое поле `nextPageToken`, передайте его значение в поле `page_token` следующего запроса. Повторяйте запросы, пока не получите все сервисы.
 
-     * `<IAM-токен>` — IAM-токен для сервисного аккаунта или переменная окружения, в которой находится IAM-токен.
-     * `<тип_ресурса>` — [тип ресурса](concepts/index.md#resources-types): `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
+    1. Получите значение и потребление квоты `iam.accessKeys.count` с помощью вызова [QuotaLimitService/Get](api-ref/grpc/QuotaLimit/get.md):
 
-     Пример запроса:
+       ```bash
+       grpcurl \
+         -H "Authorization: Bearer ${IAM_TOKEN?}" \
+         -d '{"resource": {"id": "<идентификатор_облака>", "type": "resource-manager.cloud"}, "quota_id": "iam.accessKeys.count"}' \
+         quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaLimitService/Get
+       ```
 
-     ```bash
-     grpcurl \
-       -H "Authorization: Bearer ${IAM_TOKEN?}" \
-       -d "{\"resource_type\": \"resource-manager.cloud\"}" \
-       quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaLimitService/ListServices
-     ```
+       Где:
 
-     Пример ответа:
+       * `resource.id` — идентификатор [облака](../resource-manager/operations/cloud/get-id.md) или [организации](../organization/operations/organization-get-id.md).
+       * `quota_id` — идентификатор квоты из [справочника](all-quotas.md). В примере `iam.accessKeys.count` — количество статических ключей доступа в облаке.
+       * `resource.type` — [тип ресурса](concepts/index.md#resources-types), определяющий уровень просмотра квот. Для уровня организации укажите `organization-manager.organization`.
 
-     ```json
-     {
-       "services": [
-         {
-           "id": "alb",
-           "name": "Application Load Balancer"
-         },
-         {
-           "id": "audit-trails",
-           "name": "Audit Trails"
-         },
-         ...
-         {
-           "id": "ylb",
-           "name": "Network Load Balancer"
-         },
-         {
-           "id": "yq",
-           "name": "Yandex Query"
-         }
-       ]
-     }
-     ```
-
-  1. Посмотрите значения и потребление всех квот для сервиса.
-
-     Воспользуйтесь вызовом gRPC API [QuotaLimitService/List](api-ref/grpc/QuotaLimit/list.md):
-
-     ```bash
-     grpcurl \
-       -H "Authorization: Bearer <IAM-токен>" \
-       -d "{ \"resource\": { \"id\": \"<идентификатор_ресурса>\", \"type\": \"<тип_ресурса>\" }, \"service\": \"<идентификатор_сервиса>\"}" \
-       quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaLimitService/List
-     ```
-
-     Где:
-
-     * `<IAM-токен>` — IAM-токен для сервисного аккаунта или переменная окружения, в которой находится IAM-токен.
-     * `<идентификатор_ресурса>` — идентификатор ресурса: облака, организации или платежного аккаунта.
-     * `<тип_ресурса>` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
-     * `<идентификатор_сервиса>` — идентификатор сервиса, полученный на предыдущем шаге.
-
-     Пример запроса:
-
-     ```bash
-     grpcurl \
-       -H "X-Request-Id: $(uuidgen -t)" \
-       -H "Authorization: Bearer ${IAM_TOKEN?}" \
-       -d "{ \"resource\": { \"id\": \"<идентификатор_облака>\", \"type\": \"resource-manager.cloud\" }, \"service\": \"iam\"}" \
-       quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaLimitService/List
-     ```
-
-     Пример ответа:
-
-     ```json
-     {
-       "resource": {
-         "id": "b1gia87mbaom********",
-         "type": "resource-manager.cloud"
-       },
-       "quotaLimits": [
-         {
-           "quotaId": "iam.accessKeys.count",
-           "limit": 1000,
-           "usage": 34
-         },
-         {
-           "quotaId": "iam.apiKeys.count",
-           "limit": 1000,
-           "usage": 13
-         },
-         {
-           "quotaId": "iam.authorizedKeys.count",
-           "limit": 1000,
-           "usage": 43
-         },
-         ...
-       ]
-     }
-     ```
-
-  1. Посмотрите значение и потребление определенной квоты.
-
-     Воспользуйтесь вызовом gRPC API [QuotaLimitService/Get](api-ref/grpc/QuotaLimit/get.md):
-
-     ```bash
-     grpcurl \
-       -H "Authorization: Bearer <IAM-токен>" \
-       -d "{ \"resource\": { \"id\": \"<идентификатор_ресурса>\", \"type\": \"<тип_ресурса>\" }, \"quota_id\": \"<идентификатор_квоты>\"}" \
-       quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaLimitService/Get
-     ```
-
-     Где:
-
-     * `<IAM-токен>` — IAM-токен для сервисного аккаунта или переменная окружения, в которой находится IAM-токен.
-     * `<идентификатор_ресурса>` — идентификатор ресурса (облака, организации или платежного аккаунта).
-     * `<тип_ресурса>` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
-     * `<идентификатор_квоты>` — идентификатор квоты. Узнать идентификатор можно в разделе [Квоты для сервисов Yandex Cloud](all-quotas.md).
-
-     Пример запроса:
-
-     ```bash
-     grpcurl \
-       -H "X-Request-Id: $(uuidgen -t)" \
-       -H "Authorization: Bearer ${IAM_TOKEN?}" \
-       -d "{ \"resource\": { \"id\": \"<идентификатор_облака>\", \"type\": \"resource-manager.cloud\" }, \"quota_id\": \"iam.accessKeys.count\"}" \
-       quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaLimitService/Get
-     ```
-
-     Пример ответа:
-
-     ```json
-     {
-       "quotaId": "iam.accessKeys.count",
-       "limit": 1000,
-       "usage": 34
-     }
-     ```
+       В ответе `limit` — [значение квоты](*quota-limit), `usage` — [потребление квоты](*quota-usage). Сравните эти значения, чтобы оценить запас квоты.
+       
+       Чтобы найти другие квоты, [посмотрите список квот](operations/list-quotas.md#list-service-quotas) нужного сервиса.
 
 {% endlist %}
 
@@ -523,11 +190,11 @@
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Консоль управления или Cloud Center {#console}
 
-  Чтобы запросить увеличение квот облака:
+  1. Выберите облако в [консоли управления](https://console.yandex.cloud) или организацию в [Cloud Center](https://center.yandex.cloud).
   
-  1. В [консоли управления](https://console.yandex.cloud) выберите облако и на панели слева откройте ![image](../_assets/console-icons/square-plus.svg) **Квоты**.
+  1. На панели слева откройте ![image](../_assets/console-icons/square-plus.svg) **Квоты**.
   
   1. На вкладке **Список квот**:
   
@@ -538,457 +205,115 @@
   1. Отметьте квоты, которые хотите увеличить, и нажмите **Изменить**.
   
   1. Укажите новые значения квот и нажмите **Отправить**.
-
-- Интерфейс Cloud Center {#cloud-center}
-
-  Чтобы запросить увеличение квот организации:
   
-  1. В [Cloud Center](https://center.yandex.cloud) выберите организацию и на панели слева откройте ![image](../_assets/console-icons/square-plus.svg) **Квоты**.
-  
-  1. На вкладке **Список квот**:
-  
-     * Введите в строку поиска название сервиса, название или идентификатор квоты.
-  
-     * В группе **Сервисы с потреблением** или **Сервисы без потребления** раскройте раздел нужного сервиса.
-  
-  1. Отметьте квоты, которые хотите увеличить, и нажмите **Запросить изменение**.
-  
-  1. Укажите новые значения квот и нажмите **Отправить**.
+  1. Дождитесь рассмотрения запроса.
 
 - CLI {#cli}
 
-  1. Создайте запрос на изменение квоты.
-
-     [Посмотрите идентификатор квоты](../overview/concepts/quotas-limits.md#quotas-limits-default) и создайте запрос на ее изменение:
-     
-     ```bash
-     yc quota-manager quota-request create \
-       --resource-type <тип_ресурса> \
-       --resource-id <идентификатор_ресурса> \
-       --desired-limit quota-id=<идентификатор_квоты>,value=<новое_значение_квоты>
-     ```
-     
-     Где:
-     
-     * `--resource-type` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
-     * `--resource-id` — идентификатор ресурса (облака, организации или платежного аккаунта).
-     * `--desired-limit` — данные для изменения квоты:
-       * `quota-id` — идентификатор квоты.
-       * `value` — новое значение, которое нужно присвоить квоте.
-     
-     В одном запросе можно указать несколько квот. Для этого добавьте несколько параметров `--desired-limit`.
-
-     Пример команды:
+  1. Создайте запрос на изменение квоты:
 
      ```bash
      yc quota-manager quota-request create \
        --resource-id <идентификатор_облака> \
        --resource-type resource-manager.cloud \
-       --desired-limit quota-id=compute.placementGroups.count,value=5 \
-       --desired-limit quota-id=storage.buckets.count,value=30
+       --desired-limit quota-id=iam.accessKeys.count,value=1001
      ```
 
-     Будет создан запрос на увеличение квот:
-     * В сервисе Compute Cloud — количество групп размещения ВМ (`compute.placementGroups.count`), новое значение — `5`.
-     * В сервисе Object Storage — количество бакетов (`storage.buckets.count`), новое значение — `30`.
+     В примере запрашивается новое значение квоты `1001`, вы можете заменить его на другое.
 
-     Пример ответа:
+     Сохраните значение поля `id` из ответа — идентификатор запроса.
 
-     ```bash
-     id: atdogfioseaq********
-     resource:
-       id: b1gia87mbaom********
-       type: resource-manager.cloud
-     created_at: "2025-09-11T08:24:24.142277Z"
-     status: PENDING
-     quota_limits:
-       - quota_id: compute.placementGroups.count
-         desired_limit: 5
-         status: PROCESSING
-       - quota_id: storage.buckets.count
-         desired_limit: 30
-         status: REJECTED
-         message: значение квоты, которое вы запрашиваете, равно тому значению, которое уже используется
-     created_by: ajegtlf2q28a********
-     ```
-
-  1. Посмотрите список запросов на изменение квот.
-
-     ```bash
-     yc quota-manager quota-request list \
-       --resource-type <тип_ресурса> \
-       --resource-id <идентификатор_ресурса> \
-       --limit <количество_запросов>
-     ```
-     
-     Где:
-     * `--resource-type` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
-     * `--resource-id` — идентификатор ресурса (облака, организации или платежного аккаунта).
-     * `--limit` — количество запросов на странице.
-
-     Пример команды:
-
-     ```bash
-     yc quota-manager quota-request list \
-       --resource-id <идентификатор_облака> \
-       --resource-type resource-manager.cloud \
-       --limit 1
-     ```
-
-     Пример ответа:
-
-     ```bash
-     quota_requests:
-       - id: atdogfioseaq********
-         resource:
-           id: b1gia87mbaom********
-           type: resource-manager.cloud
-         created_at: "2025-09-11T08:24:24.142277Z"
-         status: PENDING
-         quota_limits:
-           - quota_id: storage.buckets.count
-             desired_limit: 30
-             status: REJECTED
-             message: значение квоты, которое вы запрашиваете, равно тому значению, которое уже используется
-           - quota_id: compute.placementGroups.count
-             desired_limit: 5
-             status: PROCESSING
-         created_by: ajegtlf2q28a********
-     ```
-
-  1. Посмотрите статус запроса на изменение квоты.
+  1. Проверьте статус запроса:
 
      ```bash
      yc quota-manager quota-request get \
        --id <идентификатор_запроса>
      ```
-     
-     Где `--id` — идентификатор запроса на изменение квоты.
 
-     Пример ответа:
+     В ответе поле `status` показывает состояние запроса, а результат изменения каждой квоты указан в списке `quota_limits`.
 
-     ```bash
-     id: atdogfioseaq********
-     resource:
-       id: b1gia87mbaom********
-       type: resource-manager.cloud
-     created_at: "2025-09-11T08:24:24.142277Z"
-     status: PENDING
-     quota_limits:
-       - quota_id: compute.placementGroups.count
-         desired_limit: 5
-         status: PROCESSING
-       - quota_id: storage.buckets.count
-         desired_limit: 30
-         status: REJECTED
-         message: значение квоты, которое вы запрашиваете, равно тому значению, которое уже используется
-     created_by: ajegtlf2q28a********
-     ```
+  Дождитесь рассмотрения запроса и проверьте [его статус и результат изменения каждой квоты](concepts/index.md#quota-request-statuses). После одобрения повторно [посмотрите значение квоты](quickstart.md#get-quota-info).
+  
+  Если нужно найти ранее созданный запрос, [посмотрите список запросов](operations/set-quotas.md#list-quota-requests). Подробные примеры приведены в разделе [Примеры запросов для работы с квотами](requests-examples.md).
 
 - REST API {#api}
 
-  1. Создайте запрос на изменение квоты.
+    1. Создайте запрос методом [create](api-ref/QuotaRequest/create.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md):
 
-     [Посмотрите идентификатор квоты](all-quotas.md) и воспользуйтесь методом REST API [create](api-ref/QuotaRequest/create.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md):
-
-     ```bash
-     curl \
-       --request POST \
-       --header "Authorization: Bearer <IAM-токен>" \
-       --data '{"resource": {"id": "<идентификатор_ресурса>", "type": "<тип_ресурса>"}, "desired_quota_limits": [{"quota_id": "<идентификатор_квоты>", "desired_limit": "<новое_значение_квоты>"}]}' \
+       ```bash
+       curl \
+         --request POST \
+         --header "Authorization: Bearer ${IAM_TOKEN?}" \
+         --header "Content-Type: application/json" \
+         --data '{"resource": {"id": "<идентификатор_облака>", "type": "resource-manager.cloud"}, "desiredQuotaLimits": [{"quotaId": "iam.accessKeys.count", "desiredLimit": "1001"}]}' \
          'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests'
-     ```
+       ```
 
-     Где:
+       В примере запрашивается итоговое значение квоты `1001`. Замените его на нужное значение.
 
-     * `<IAM-токен>` — IAM-токен для сервисного аккаунта или переменная окружения, в которой находится IAM-токен.
-     * `<идентификатор_ресурса>` — идентификатор ресурса (облака, организации или платежного аккаунта).
-     * `<тип_ресурса>` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
-     * `<идентификатор_квоты>` — идентификатор квоты, которую нужно изменить.
-     * `<новое_значение_квоты>` — новое значение, которое нужно присвоить выбранной квоте.
+       Сохраните значение `metadata.quotaRequestId` из ответа — идентификатор запроса. Поля `id` и `done` относятся к операции создания запроса, а не к его рассмотрению.
 
-     Пример запроса:
+    1. Проверьте статус запроса методом [get](api-ref/QuotaRequest/get.md):
 
-     ```bash
-     curl \
-       --request POST \
-       --header "X-Request-Id: $(uuidgen -t)" \
-       --header "Authorization: Bearer ${IAM_TOKEN?}" \
-       --data '{"resource": {"id": "<идентификатор_облака>", "type": "resource-manager.cloud"}, "desired_quota_limits": [{"quota_id": "iam.accessKeys.count", "desired_limit": "1001"}]}' \
-       'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests'
-     ```
+       ```bash
+       curl \
+         --request GET \
+         --header "Authorization: Bearer ${IAM_TOKEN?}" \
+         'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests/<идентификатор_запроса>'
+       ```
 
-     Пример ответа:
+       В ответе поле `status` показывает состояние запроса, а результат изменения каждой квоты указан в списке `quotaLimits`.
 
-     ```json
-     {
-       "done": false,
-       "metadata": {
-         "@type": "type.googleapis.com/yandex.cloud.quotamanager.v1.CreateQuotaRequestMetadata",
-         "quotaRequestId": "atdogfioseaq********"
-       },
-       "id": "atdlsk0hjt6r********",
-       "description": "Create quota request",
-       "createdAt": "2025-09-01T08:39:37.195600077Z",
-       "createdBy": "ajegtlf2q28a********",
-       "modifiedAt": "2025-09-01T08:39:37.195600077Z"
-     }
-     ```
-     
-     Значение `done: false` означает, что операция создания запроса еще не завершена. Чтобы узнать статус самого запроса, используйте его идентификатор из поля `metadata.quotaRequestId`.
-
-  1. Посмотрите список запросов на изменение квот.
-
-     Воспользуйтесь методом REST API [list](api-ref/QuotaRequest/list.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md):
-
-     ```bash
-     curl \
-       --request GET \
-       --header "Authorization: Bearer <IAM-токен>" \
-       'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests?page_size=<размер_страницы>&resource.id=<идентификатор_ресурса>&resource.type=<тип_ресурса>'
-     ```
-
-     Где:
-
-     * `<IAM-токен>` — IAM-токен для сервисного аккаунта или переменная окружения, в которой находится IAM-токен.
-     * `<размер_страницы>` — количество элементов на одной странице.
-     * `<идентификатор_ресурса>` — идентификатор ресурса (облака, организации или платежного аккаунта).
-     * `<тип_ресурса>` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
-
-     Пример запроса:
-
-     ```bash
-     curl \
-       --request GET \
-       --header "X-Request-Id: $(uuidgen -t)" \
-       --header "Authorization: Bearer ${IAM_TOKEN?}" \
-       'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests?page_size=100&resource.id=<идентификатор_облака>&resource.type=resource-manager.cloud'
-     ```
-
-     Пример ответа:
-
-     ```json
-     {
-       "quotaRequests": [
-         {
-           "resource": {
-             "id": "b1gia87mbaom********",
-             "type": "resource-manager.cloud"
-           },
-           "quotaLimits": [
-             {
-               "quotaId": "iam.accessKeys.count",
-               "desiredLimit": 1001,
-               "status": "PROCESSING"
-             }
-           ],
-           "id": "atdp0kd3799e********",
-           "createdAt": "2025-09-01T08:46:28.091109Z",
-           "status": "PROCESSING",
-           "createdBy": "ajegtlf2q28a********"
-         },
-         ...
-       ]
-     }
-     ```
-
-  1. Посмотрите статус запроса на изменение квоты.
-
-     Воспользуйтесь методом REST API [get](api-ref/QuotaRequest/get.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md):
-
-     ```bash
-     curl \
-       --request GET \
-       --header "Authorization: Bearer <IAM-токен>" \
-       'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests/<идентификатор_запроса>'
-     ```
-
-     Где:
-
-     * `<IAM-токен>` — IAM-токен для сервисного аккаунта или переменная окружения, в которой находится IAM-токен.
-     * `<идентификатор_запроса>` — идентификатор запроса на изменение квоты, полученный на предыдущем шаге.
-
-     Пример запроса:
-
-     ```bash
-     curl \
-       --request GET \
-       --header "X-Request-Id: $(uuidgen -t)" \
-       --header "Authorization: Bearer ${IAM_TOKEN?}" \
-       'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests/<идентификатор_запроса>'
-     ```
-
-     Пример ответа:
-
-     ```json
-     {
-       "resource": {
-         "id": "b1gia87mbaom********",
-         "type": "resource-manager.cloud"
-       },
-       "quotaLimits": [
-         {
-           "quotaId": "iam.accessKeys.count",
-           "desiredLimit": 1001,
-           "status": "PROCESSING"
-         }
-       ],
-       "id": "atdp0kd3799e********",
-       "createdAt": "2025-09-01T08:46:28.091109Z",
-       "status": "PENDING",
-       "createdBy": "ajegtlf2q28a********"
-     }
-     ```
+    Дождитесь рассмотрения запроса и проверьте [его статус и результат изменения каждой квоты](concepts/index.md#quota-request-statuses). После одобрения повторно [посмотрите значение квоты](quickstart.md#get-quota-info).
+    
+    Если нужно найти ранее созданный запрос, [посмотрите список запросов](operations/set-quotas.md#list-quota-requests). Подробные примеры приведены в разделе [Примеры запросов для работы с квотами](requests-examples.md).
 
 - gRPC API {#grpc-api}
 
-  1. Создайте запрос на изменение квоты.
+    1. Создайте запрос с помощью вызова [QuotaRequestService/Create](api-ref/grpc/QuotaRequest/create.md):
 
-     [Посмотрите идентификатор квоты](all-quotas.md) и создайте запрос с помощью вызова gRPC API [QuotaRequestService/Create](api-ref/grpc/QuotaRequest/create.md):
+       ```bash
+       grpcurl \
+         -H "Authorization: Bearer ${IAM_TOKEN?}" \
+         -d '{"resource": {"id": "<идентификатор_облака>", "type": "resource-manager.cloud"}, "desired_quota_limits": [{"quota_id": "iam.accessKeys.count", "desired_limit": "1001"}]}' \
+         quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Create
+       ```
 
-     ```bash
-     grpcurl \
-       -H "Authorization: Bearer <IAM-токен>" \
-       -d "{\"resource\": {\"id\": \"<идентификатор_ресурса>\", \"type\": \"<тип_ресурса>\"}, \"desired_quota_limits\": [{\"quota_id\": \"<идентификатор_квоты>\", \"desired_limit\": \"<новое_значение_квоты>\"}]}" \
-       quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Create
-     ```
+       В примере запрашивается итоговое значение квоты `1001`. Замените его на нужное значение.
 
-     Где:
+       Сохраните значение `metadata.quotaRequestId` из ответа — идентификатор запроса. Поля `id` и `done` относятся к операции создания запроса, а не к его рассмотрению.
 
-     * `<IAM-токен>` — IAM-токен для сервисного аккаунта или переменная окружения, в которой находится IAM-токен.
-     * `<идентификатор_ресурса>` — идентификатор ресурса (облака, организации или платежного аккаунта).
-     * `<тип_ресурса>` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
-     * `<идентификатор_квоты>` — идентификатор квоты, которую нужно изменить.
-     * `<новое_значение_квоты>` — новое значение, которое нужно присвоить выбранной квоте.
+    1. Проверьте статус запроса с помощью вызова [QuotaRequestService/Get](api-ref/grpc/QuotaRequest/get.md):
 
-     Пример запроса:
+       ```bash
+       grpcurl \
+         -H "Authorization: Bearer ${IAM_TOKEN?}" \
+         -d '{"quota_request_id": "<идентификатор_запроса>"}' \
+         quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Get
+       ```
 
-     ```bash
-     grpcurl \
-       -H "X-Request-Id: $(uuidgen -t)" \
-       -H "Authorization: Bearer ${IAM_TOKEN?}" \
-       -d "{\"resource\": {\"id\": \"<идентификатор_облака>\", \"type\": \"resource-manager.cloud\"}, \"desired_quota_limits\": [{\"quota_id\": \"iam.accessKeys.count\", \"desired_limit\": \"1001\"}]}" \
-       quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Create
-     ```
+       В ответе поле `status` показывает состояние запроса, а результат изменения каждой квоты указан в списке `quotaLimits`.
 
-     Пример ответа:
-
-     ```json
-     {
-       "id": "atdhrm4k26ar********",
-       "description": "Create quota request",
-       "createdAt": "2025-09-01T08:46:28.116514197Z",
-       "createdBy": "ajegtlf2q28a********",
-       "modifiedAt": "2025-09-01T08:46:28.116514197Z",
-       "metadata": {
-         "@type": "type.googleapis.com/yandex.cloud.quotamanager.v1.CreateQuotaRequestMetadata",
-         "quotaRequestId": "atdp0kd3799e********"
-       }
-     }
-     ```
-
-  1. Посмотрите список запросов на изменение квот.
-
-     Воспользуйтесь вызовом gRPC API [QuotaRequestService/List](api-ref/grpc/QuotaRequest/list.md):
-
-     ```bash
-     grpcurl \
-       -H "Authorization: Bearer <IAM-токен>" \
-       -d "{\"resource\": {\"id\": \"<идентификатор_ресурса>\", \"type\": \"<тип_ресурса>\"}}" \
-       quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/List
-     ```
-
-     Где:
-
-     * `<IAM-токен>` — IAM-токен для сервисного аккаунта или переменная окружения, в которой находится IAM-токен.
-     * `<идентификатор_ресурса>` — идентификатор ресурса (облака, организации или платежного аккаунта).
-     * `<тип_ресурса>` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
-
-     Пример запроса:
-
-     ```bash
-     grpcurl \
-       -H "X-Request-Id: $(uuidgen -t)" \
-       -H "Authorization: Bearer ${IAM_TOKEN?}" \
-       -d "{\"resource\": {\"id\": \"<идентификатор_облака>\", \"type\": \"resource-manager.cloud\"}}" \
-       quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/List
-     ```
-
-     Пример ответа:
-
-     ```json
-     {
-       "quotaRequests": [
-         {
-           "id": "atdp0kd3799e********",
-           "resource": {
-             "id": "b1gia87mbaom********",
-             "type": "resource-manager.cloud"
-           },
-           "createdAt": "2025-09-01T08:46:28.091109Z",
-           "status": "PROCESSING",
-           "quotaLimits": [
-             {
-               "quotaId": "iam.accessKeys.count",
-               "desiredLimit": 1001,
-               "status": "PROCESSING"
-             }
-           ],
-           "createdBy": "ajegtlf2q28a********"
-         },
-         ...
-       ]
-     }
-     ```
-
-  1. Посмотрите статус запроса на изменение квоты.
-
-     Воспользуйтесь вызовом gRPC API [QuotaRequestService/Get](api-ref/grpc/QuotaRequest/get.md):
-
-     ```bash
-     grpcurl \
-       -H "Authorization: Bearer <IAM-токен>" \
-       -d "{\"quota_request_id\": \"<идентификатор_запроса>\"}" \
-       quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Get
-     ```
-
-     Где:
-
-     * `<IAM-токен>` — IAM-токен для сервисного аккаунта или переменная окружения, в которой находится IAM-токен.
-     * `<идентификатор_запроса>` — идентификатор запроса на изменение квоты, полученный на предыдущем шаге.
-
-     Пример запроса:
-
-     ```bash
-     grpcurl \
-       -H "X-Request-Id: $(uuidgen -t)" \
-       -H "Authorization: Bearer ${IAM_TOKEN?}" \
-       -d "{\"quota_request_id\": \"<идентификатор_запроса>\"}" \
-       quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Get
-     ```
-
-     Пример ответа:
-
-     ```json
-     {
-       "id": "atdp0kd3799e********",
-       "resource": {
-         "id": "b1gia87mbaom********",
-         "type": "resource-manager.cloud"
-       },
-       "createdAt": "2025-09-01T08:46:28.091109Z",
-       "status": "PENDING",
-       "quotaLimits": [
-         {
-           "quotaId": "iam.accessKeys.count",
-           "desiredLimit": 1001,
-           "status": "PROCESSING"
-         }
-       ],
-       "createdBy": "ajegtlf2q28a********"
-     }
-     ```
+    Дождитесь рассмотрения запроса и проверьте [его статус и результат изменения каждой квоты](concepts/index.md#quota-request-statuses). После одобрения повторно [посмотрите значение квоты](quickstart.md#get-quota-info).
+    
+    Если нужно найти ранее созданный запрос, [посмотрите список запросов](operations/set-quotas.md#list-quota-requests). Подробные примеры приведены в разделе [Примеры запросов для работы с квотами](requests-examples.md).
 
 {% endlist %}
 
 Запросить увеличение квот можно и через [техническую поддержку](https://center.yandex.cloud/support), указав облако или организацию, квоты и желаемые значения.
+
+[*quota-usage]: #### {#quota-usage}
+                
+                Потребление квоты — объем фактически используемого ресурса. Подробнее в разделе [Концепции Cloud Quota Manager](concepts/index.md).
+                
+                #### {#quota-limit}
+                
+                Значение квоты — установленная верхняя граница потребления ресурса. Подробнее в разделе [Концепции Cloud Quota Manager](concepts/index.md).
+
+[*quota-limit]: #### {#quota-usage}
+                
+                Потребление квоты — объем фактически используемого ресурса. Подробнее в разделе [Концепции Cloud Quota Manager](concepts/index.md).
+                
+                #### {#quota-limit}
+                
+                Значение квоты — установленная верхняя граница потребления ресурса. Подробнее в разделе [Концепции Cloud Quota Manager](concepts/index.md).

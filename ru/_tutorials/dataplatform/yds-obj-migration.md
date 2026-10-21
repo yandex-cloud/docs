@@ -1,32 +1,33 @@
 
 
-С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из [потока {{ yds-name }}](../../data-streams/concepts/glossary.md#stream-concepts) в бакет {{ objstorage-full-name }}:
+С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из [потока {{ yds-name }}](../../data-streams/concepts/glossary.md#stream-concepts) в бакет {{ objstorage-full-name }}. Для этого:
 
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Подготовьте поток данных {{ yds-name }}](#prepare-source).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работоспособность трансфера](#verify-transfer).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+## Подготовьте облако к работе {#before-you-begin}
 
-## Необходимые платные ресурсы {#paid-resources}
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * База данных {{ ydb-name }} ([тарифы {{ ydb-name }}](../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
 
-	* Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
-  	* Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервные копии.
+  * Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
+  * Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервные копии.
 
 * Сервис {{ yds-name }} ([тарифы {{ yds-name }}](../../data-streams/pricing.md)). Стоимость зависит от режима тарификации:
 
-    * [По выделенным ресурсам](../../data-streams/pricing.md#rules) — оплачивается фиксированная почасовая ставка за установленный лимит пропускной способности и срок хранения сообщений, а также дополнительно количество единиц фактически записанных данных.
-    * [По фактическому использованию](../../data-streams/pricing.md#on-demand) (On-demand) — оплачиваются выполненные операции записи и чтения данных, объем считанных/записанных данных, а также объем фактически используемого хранилища для сообщений, по которым не истек срок хранения.
+  * [По выделенным ресурсам](../../data-streams/pricing.md#rules) — оплачивается фиксированная почасовая ставка за установленный лимит пропускной способности и срок хранения сообщений, а также дополнительно количество единиц фактически записанных данных.
+  * [По фактическому использованию](../../data-streams/pricing.md#on-demand) (On-demand) — оплачиваются выполненные операции записи и чтения данных, объем считанных/записанных данных, а также объем фактически используемого хранилища для сообщений, по которым не истек срок хранения.
 
 * Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../storage/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
-
-Подготовьте инфраструктуру:
+### Подготовьте инфраструктуру {#deploy}
 
 {% list tabs group=instructions %}
 
@@ -35,6 +36,7 @@
     1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
 
     1. [Создайте бакет в {{ objstorage-full-name }}](../../storage/operations/buckets/create.md).
+    1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями `yds.editor`, `storage.editor` и `storage.uploader`.
 
 - {{ TF }} {#tf}
 
@@ -107,7 +109,7 @@
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}** — выберите базу данных {{ ydb-name }} из списка.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}** — укажите имя потока {{ yds-name }}.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `yds.editor`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}** — выберите созданный ранее сервисный аккаунт.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
 
@@ -169,7 +171,7 @@
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.title }}**:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}** — укажите имя бакета в {{ objstorage-name }}.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `storage.uploader`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}** — выберите созданный ранее сервисный аккаунт.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}** — выберите `JSON` или `CSV`, если в расширенных настройках эндпоинта источника включили опцию **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**.
       
@@ -245,31 +247,29 @@
     1. Выберите бакет из списка.
     1. Проверьте, что бакет содержит файл `<имя_потока>/partition=0/<имя_потока>+0+1.raw` (`.json` или `.csv`, в зависимости от выбранного выходного формата) с первым сообщением.
 
-## Удалите созданные ресурсы {#clear-out}
+## Как удалить созданные ресурсы {#clear-out}
 
-{% note info %}
+Чтобы перестать платить за созданные ресурсы:
 
-Перед тем как удалить созданные ресурсы, [деактивируйте трансфер](../../data-transfer/operations/transfer.md#deactivate).
+{% list tabs group=instructions %}
 
-{% endnote %}
+- Вручную {#manual}
 
-Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
+    {% note info %}
 
-1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
-1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
-1. [Удалите объекты](../../storage/operations/objects/delete.md) из бакета {{ objstorage-name }}.
-1. Остальные ресурсы удалите в зависимости от способа их создания:
+    Перед тем как удалить созданные ресурсы, [деактивируйте трансфер](../../data-transfer/operations/transfer.md#deactivate).
 
-   {% list tabs group=instructions %}
+    {% endnote %}
 
-   - Вручную {#manual}
+    1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
+    1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
+    1. [Удалите объекты](../../storage/operations/objects/delete.md) из бакета {{ objstorage-name }}.
+    1. [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
+    1. [Удалите бакет в {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
+    1. Если при создании эндпоинтов вы создавали сервисные аккаунты, [удалите их](../../iam/operations/sa/delete.md).
 
-       1. [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
-       1. [Удалите бакет в {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
-       1. Если при создании эндпоинтов вы создавали сервисные аккаунты, [удалите их](../../iam/operations/sa/delete.md).
+- {{ TF }} {#tf}
 
-   - {{ TF }} {#tf}
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
-
-   {% endlist %}
+{% endlist %}

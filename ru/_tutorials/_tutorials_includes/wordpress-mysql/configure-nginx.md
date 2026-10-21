@@ -17,15 +17,14 @@
 
    - CentOS {#centos}
 
-     ```bash
-     sudo yum -y install epel-release
-     sudo yum -y install nginx
-     sudo rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
-     sudo yum -y --enablerepo=remi-php74 install php php-mysql php-xml php-soap php-xmlrpc php-mbstring php-json php-gd php-mcrypt
-     sudo yum -y --enablerepo=remi-php74 install php-fpm
-     sudo systemctl enable nginx
-     sudo systemctl enable php-fpm
-     ```
+      ```bash
+      sudo dnf -y install epel-release
+      sudo dnf module reset -y php
+      sudo dnf module enable -y php:8.1
+      sudo dnf -y install nginx php php-fpm php-mysqlnd php-xml php-soap php-mbstring php-json php-gd
+      sudo systemctl enable nginx
+      sudo systemctl enable php-fpm
+      ```
 
    {% endlist %}
 
@@ -65,7 +64,7 @@
           location ~ \.php$ {
             try_files $uri =404;
             fastcgi_split_path_info ^(.+\.php)(/.+)$;
-            fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+            fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
             fastcgi_index index.php;
             fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
             include fastcgi_params;
@@ -152,7 +151,7 @@
           location ~ \.php$ {
             try_files $uri =404;
             fastcgi_split_path_info ^(.+\.php)(/.+)$;
-            fastcgi_pass 127.0.0.1:9000;
+            fastcgi_pass unix:/run/php-fpm/www.sock;
             fastcgi_index index.php;
             fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
             include fastcgi_params;

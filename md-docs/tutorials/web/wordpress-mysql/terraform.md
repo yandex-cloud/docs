@@ -64,7 +64,7 @@ Terraform распространяется под лицензией [Business S
           required_providers {
             yandex = {
               source  = "yandex-cloud/yandex"
-              version = ">= 0.47.0"
+              version = ">= 0.96.0"
             }
           }
         }
@@ -98,7 +98,7 @@ Terraform распространяется под лицензией [Business S
         
           network_interface {
             subnet_id          = yandex_vpc_subnet.subnet-1.id
-            security_group_ids = ["${yandex_vpc_security_group.sg-1.id}"]
+            security_group_ids = [yandex_vpc_security_group.sg-1.id]
             nat                = true
           }
         
@@ -109,13 +109,13 @@ Terraform распространяется под лицензией [Business S
         
         resource "yandex_mdb_mysql_cluster" "wp-cluster" {
           name                = "wp-mysql-tutorial-db-cluster"
-          environment         = "PRESTABLE"
+          environment         = "PRODUCTION"
           network_id          = yandex_vpc_network.network-1.id
           version             = "8.0"
-          security_group_ids  = ["${yandex_vpc_security_group.sg-1.id}"]
+          security_group_ids  = [yandex_vpc_security_group.sg-1.id]
         
           resources {
-            resource_preset_id = "s2.small"
+            resource_preset_id = "s3-c2-m8"
             disk_type_id       = "network-ssd"
             disk_size          = "10"
           }
@@ -232,7 +232,7 @@ Terraform распространяется под лицензией [Business S
           name    = "example.com."
           ttl     = 600
           type    = "A"
-          data    = ["${yandex_compute_instance.vm-wordpress-mysql.network_interface.0.nat_ip_address}"]
+          data    = [yandex_compute_instance.vm-wordpress-mysql.network_interface.0.nat_ip_address]
         }
         
         resource "yandex_dns_recordset" "rs-2" {
@@ -255,16 +255,16 @@ Terraform распространяется под лицензией [Business S
     * [Группы безопасности](../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group](../../../terraform/resources/vpc_security_group.md).
     * [Виртуальная машина](../../../compute/concepts/vm.md) — [yandex_compute_instance](../../../terraform/resources/compute_instance.md).
     * [Кластер MySQL®](../../../managed-mysql/concepts/index.md) — [yandex_mdb_mysql_cluster](../../../terraform/resources/mdb_mysql_cluster.md).
-    * [БД PostgreSQL](../../../managed-mysql/index.md) — [yandex_mdb_mysql_database](../../../terraform/resources/mdb_mysql_database.md).
+    * [БД MySQL®](../../../managed-mysql/index.md) — [yandex_mdb_mysql_database](../../../terraform/resources/mdb_mysql_database.md).
     * [Пользователь БД](../../../managed-mysql/concepts/user-rights.md) — [yandex_mdb_mysql_user](../../../terraform/resources/mdb_mysql_user.md).
     * [Зона DNS](../../../dns/concepts/dns-zone.md) — [yandex_dns_zone](../../../terraform/resources/dns_zone.md).
     * [Ресурсная запись DNS](../../../dns/concepts/resource-record.md) — [yandex_dns_recordset](../../../terraform/resources/dns_recordset.md).
 
 1. В блоке `metadata` укажите [метаданные](../../../compute/concepts/vm-metadata.md) для создания ВМ `<имя_пользователя>:<содержимое_SSH-ключа>`. Указанное имя пользователя не играет роли, ключ будет присвоен пользователю, который задан в конфигурации образа. В разных образах это разные пользователи. Подробнее в разделе [Ключи, обрабатываемые в публичных образах Yandex Cloud](../../../compute/concepts/metadata/public-image-keys.md).
 1. В блоке `boot_disk` укажите идентификатор одного из [образов](../../../compute/operations/images-with-pre-installed-software/get-list.md) ВМ с нужным набором компонентов:
-   * [Debian 11](https://yandex.cloud/ru/marketplace/products/yc/debian-11).
-   * [Ubuntu 20.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts).
-   * [CentOS 7](https://yandex.cloud/ru/marketplace/products/yc/centos-7).
+   * [Debian 12](https://yandex.cloud/ru/marketplace/products/yc/debian-12).
+   * [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts).
+   * [CentOS Stream 9](https://yandex.cloud/ru/marketplace/products/yc/centos-stream-9).
 1. Создайте ресурсы:
 
    1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -317,15 +317,14 @@ Terraform распространяется под лицензией [Business S
 
    - CentOS {#centos}
 
-     ```bash
-     sudo yum -y install epel-release
-     sudo yum -y install nginx
-     sudo rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
-     sudo yum -y --enablerepo=remi-php74 install php php-mysql php-xml php-soap php-xmlrpc php-mbstring php-json php-gd php-mcrypt
-     sudo yum -y --enablerepo=remi-php74 install php-fpm
-     sudo systemctl enable nginx
-     sudo systemctl enable php-fpm
-     ```
+      ```bash
+      sudo dnf -y install epel-release
+      sudo dnf module reset -y php
+      sudo dnf module enable -y php:8.1
+      sudo dnf -y install nginx php php-fpm php-mysqlnd php-xml php-soap php-mbstring php-json php-gd
+      sudo systemctl enable nginx
+      sudo systemctl enable php-fpm
+      ```
 
    {% endlist %}
 
@@ -365,7 +364,7 @@ Terraform распространяется под лицензией [Business S
           location ~ \.php$ {
             try_files $uri =404;
             fastcgi_split_path_info ^(.+\.php)(/.+)$;
-            fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+            fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
             fastcgi_index index.php;
             fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
             include fastcgi_params;
@@ -452,7 +451,7 @@ Terraform распространяется под лицензией [Business S
           location ~ \.php$ {
             try_files $uri =404;
             fastcgi_split_path_info ^(.+\.php)(/.+)$;
-            fastcgi_pass 127.0.0.1:9000;
+            fastcgi_pass unix:/run/php-fpm/www.sock;
             fastcgi_index index.php;
             fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
             include fastcgi_params;
@@ -599,7 +598,7 @@ Terraform распространяется под лицензией [Business S
 
      ```bash
      sudo systemctl restart nginx.service
-     sudo systemctl restart php7.4-fpm.service
+     sudo systemctl restart php8.1-fpm.service
      ```
 
    - CentOS {#centos}
@@ -617,10 +616,12 @@ Terraform распространяется под лицензией [Business S
 1. Перейдите по адресу ВМ в браузере.
 1. Выберите язык и нажмите кнопку **Продолжить**.
 1. Заполните информацию для доступа к сайту:
+   
    * Укажите любое название сайта, например, `wp-your-project`.
    * Укажите имя пользователя, которое будет использоваться для входа в административную панель, например, `admin`.
    * Укажите пароль, который будет использоваться для входа в административную панель.
    * Укажите вашу электронную почту.
+
 1. Нажмите кнопку **Установить WordPress**.
 1. Если установка прошла успешно, нажмите кнопку **Войти**.
 1. Войдите на сайт, используя указанные на прошлых шагах имя пользователя и пароль. После этого откроется административная панель, в которой можно приступать к работе с вашим сайтом.
@@ -637,7 +638,7 @@ Terraform распространяется под лицензией [Business S
 
 Чтобы перестать платить за созданные ресурсы:
 
-1. Откройте конфигурационный файл `single-node-file-server.tf` и удалите описание создаваемой инфраструктуры из файла.
+1. Откройте конфигурационный файл `wordpress-mysql.tf` и удалите описание создаваемой инфраструктуры из файла.
 1. Примените изменения:
 
     1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -670,4 +671,4 @@ Terraform распространяется под лицензией [Business S
 
 #### Полезные ссылки {#see-also}
 
-* [Создание сайта на WordPress с кластером базы данных MySQL® с помощью консоли управления](console.md)
+[Создание сайта на WordPress с кластером базы данных MySQL® с помощью консоли управления](console.md)

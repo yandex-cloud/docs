@@ -5,8 +5,6 @@ description: Из статьи вы узнаете, как просматрив�
 
 # Управлять политиками авторизации организации
 
-{% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
-
 {% include [access-policies-instruction-intro](../../_includes/iam/access-policies-instruction-intro.md) %}
 
 Управлять политиками авторизации [организации](../concepts/organization.md) может пользователь, которому назначена роль [`organization-manager.admin`](../security/index.md#organization-manager-admin) или [`admin`](../../iam/roles-reference.md#admin) на эту организацию.

@@ -2,32 +2,27 @@
 
 # Изменить квоты
 
-{% note info %}
-
-Для работы с запросами на изменение квот через CLI и API обратитесь в [службу поддержки](https://center.yandex.cloud/support).
-
-{% endnote %}
-
-В большинстве сервисов квоты действуют на уровне облака. В Resource Manager, Cloud Video и некоторых других сервисах квоты действуют на уровне организации. В IAM есть квоты обоих уровней.
-
-Интерфейсы управления квотами:
-* [Cloud Center](https://center.yandex.cloud/quotas) — уровень организации;
-* [консоль управления](https://console.yandex.cloud/cloud?section=quotas) — уровень облака;
-* [CLI](../cli-ref/index.md) и [API](../api-ref/authentication.md) — уровень организации и облака.
-
 Квоты можно увеличить по запросу в пределах лимитов — технических ограничений платформы.
 
-Для просмотра квот и создания запросов на их изменение [назначьте учетной записи](../../iam/operations/roles/grant.md) роль [quota-manager.requestOperator](../security/index.md#quota-manager-requestoperator). Назначьте роль на облако или организацию, к которым относятся квоты.
+Чтобы запрашивать изменение квот, [назначьте учетной записи](../../iam/operations/roles/grant.md) роль [quota-manager.requestOperator](../security/index.md#quota-manager-requestoperator) на облако или организацию.
+
+Интерфейсы просмотра и запроса квот:
+
+* [Cloud Center](https://center.yandex.cloud/quotas) — ссылка на страницу квот последней выбранной организации.
+* [Консоль управления](https://console.yandex.cloud/cloud?section=quotas) — ссылка на страницу квот последнего выбранного облака.
+* [CLI](../cli-ref/index.md) и [API](../api-ref/authentication.md) — управление квотами организаций и облаков. Для работы с запросами на изменение квот обратитесь в [службу поддержки](https://center.yandex.cloud/support).
+
+В большинстве сервисов квоты действуют на уровне облака. В Resource Manager, Cloud Video и некоторых других сервисах квоты действуют на уровне организации. В IAM есть квоты обоих уровней.
 
 ## Запросить изменение квоты {#request-quota-change}
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Консоль управления или Cloud Center {#console}
 
-  Чтобы запросить увеличение квот облака:
+  1. Выберите облако в [консоли управления](https://console.yandex.cloud) или организацию в [Cloud Center](https://center.yandex.cloud).
   
-  1. В [консоли управления](https://console.yandex.cloud) выберите облако и на панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **Квоты**.
+  1. На панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **Квоты**.
   
   1. На вкладке **Список квот**:
   
@@ -38,26 +33,12 @@
   1. Отметьте квоты, которые хотите увеличить, и нажмите **Изменить**.
   
   1. Укажите новые значения квот и нажмите **Отправить**.
-
-- Интерфейс Cloud Center {#cloud-center}
-
-  Чтобы запросить увеличение квот организации:
   
-  1. В [Cloud Center](https://center.yandex.cloud) выберите организацию и на панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **Квоты**.
-  
-  1. На вкладке **Список квот**:
-  
-     * Введите в строку поиска название сервиса, название или идентификатор квоты.
-  
-     * В группе **Сервисы с потреблением** или **Сервисы без потребления** раскройте раздел нужного сервиса.
-  
-  1. Отметьте квоты, которые хотите увеличить, и нажмите **Запросить изменение**.
-  
-  1. Укажите новые значения квот и нажмите **Отправить**.
+  1. Дождитесь рассмотрения запроса.
 
 - CLI {#cli}
 
-  [Посмотрите идентификатор квоты](../../overview/concepts/quotas-limits.md#quotas-limits-default) и создайте запрос на ее изменение:
+  [Посмотрите идентификатор квоты](../all-quotas.md) и создайте запрос на ее изменение:
   
   ```bash
   yc quota-manager quota-request create \
@@ -68,11 +49,11 @@
   
   Где:
   
-  * `--resource-type` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
-  * `--resource-id` — идентификатор ресурса (облака, организации или платежного аккаунта).
+  * `--resource-type` ([тип ресурса](../concepts/index.md#resources-types)) определяет уровень изменения квот. Для уровня облака укажите `resource-manager.cloud`, для уровня организации — `organization-manager.organization`.
+  * `--resource-id` — идентификатор ресурса (облака или организации).
   * `--desired-limit` — данные для изменения квоты:
     * `quota-id` — идентификатор квоты.
-    * `value` — новое значение, которое нужно присвоить квоте.
+    * `value` — желаемое итоговое значение квоты.
   
   В одном запросе можно указать несколько квот. Для этого добавьте несколько параметров `--desired-limit`.
 
@@ -94,27 +75,25 @@
 
 ## Посмотреть статус и операции с запросом на изменение квоты {#view-request-status}
 
+Проверьте [статус запроса и результат изменения каждой квоты](../concepts/index.md#quota-request-statuses):
+
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Консоль управления или Cloud Center {#console}
 
-  Чтобы посмотреть статус и операции с запросом на изменение квоты для облака:
-
-  1. В [консоли управления](https://console.yandex.cloud) выберите облако и на панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **Квоты**.
-
+  1. Выберите облако в [консоли управления](https://console.yandex.cloud) или организацию в [Cloud Center](https://center.yandex.cloud).
+  
+  1. На панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **Квоты**.
+  
   1. Перейдите на вкладку **История запросов**. При необходимости используйте фильтр по статусу.
-
-  1. Откройте нужный запрос, чтобы посмотреть его статус, ответы службы поддержки и список операций.
-
-- Интерфейс Cloud Center {#cloud-center}
-
-  Чтобы посмотреть статус и операции с запросом на изменение квоты для организации:
-
-  1. В [Cloud Center](https://center.yandex.cloud) выберите организацию и на панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **Квоты**.
-
-  1. Перейдите на вкладку **История запросов**. При необходимости используйте фильтр по статусу.
-
-  1. Откройте нужный запрос, чтобы посмотреть его статус, ответы службы поддержки и список операций.
+  
+  1. Раскройте нужный запрос. Его статус указан рядом с номером, а в строке каждой квоты отображаются:
+  
+     * **Запрошено** — запрошенное итоговое значение квоты.
+     * **Утверждено** — значение, согласованное по результатам рассмотрения.
+     * **Статус** — [статус изменения квоты](../concepts/index.md#quota-change-statuses).
+  
+  1. Чтобы посмотреть ответы службы поддержки, нажмите **Перейти к обращению**.
 
 - CLI {#cli}
 
@@ -128,9 +107,12 @@
      ```
      
      Где:
-     * `--resource-type` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
-     * `--resource-id` — идентификатор ресурса (облака, организации или платежного аккаунта).
-     * `--limit` — количество запросов на странице.
+     
+     * `--resource-type` ([тип ресурса](../concepts/index.md#resources-types)) определяет уровень просмотра запросов на изменение квот. Для уровня облака укажите `resource-manager.cloud`, для уровня организации — `organization-manager.organization`.
+     * `--resource-id` — идентификатор ресурса (облака или организации).
+     * `--limit` — максимальное количество запросов в выводе.
+
+     В каждом запросе поле `status` содержит общий статус. В списке `quota_limits` для каждой квоты указаны `status` — статус изменения, `desired_limit` — запрошенное итоговое значение и `approved_limit` — утвержденное.
 
   1. Посмотрите список операций с запросом:
 
@@ -147,6 +129,8 @@
 
     Чтобы посмотреть статус запроса на изменение квот, воспользуйтесь методом REST API [get](../api-ref/QuotaRequest/get.md) для ресурса [QuotaRequest](../api-ref/QuotaRequest/index.md) или вызовом gRPC API [QuotaRequestService/Get](../api-ref/grpc/QuotaRequest/get.md).
 
+    В JSON-ответе поле `status` показывает статус запроса. В списке `quotaLimits` для каждой квоты указаны `status` — статус изменения, `desiredLimit` — запрошенное итоговое значение и `approvedLimit` — утвержденное.
+
     Чтобы посмотреть операции с запросом на изменение квот, воспользуйтесь методом REST API [listOperations](../api-ref/QuotaRequest/listOperations.md) для ресурса [QuotaRequest](../api-ref/QuotaRequest/index.md) или вызовом gRPC API [QuotaRequestService/ListOperations](../api-ref/grpc/QuotaRequest/listOperations.md).
 
 {% endlist %}
@@ -155,16 +139,12 @@
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Консоль управления или Cloud Center {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите облако и на панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **Квоты**.
-
-  1. Перейдите на вкладку **История запросов**. При необходимости используйте фильтры для поиска запросов.
-
-- Интерфейс Cloud Center {#cloud-center}
-
-  1. В [Cloud Center](https://center.yandex.cloud) выберите организацию и на панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **Квоты**.
-
+  1. Выберите облако в [консоли управления](https://console.yandex.cloud) или организацию в [Cloud Center](https://center.yandex.cloud).
+  
+  1. На панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **Квоты**.
+  
   1. Перейдите на вкладку **История запросов**. При необходимости используйте фильтры для поиска запросов.
 
 - CLI {#cli}
@@ -177,9 +157,10 @@
   ```
   
   Где:
-  * `--resource-type` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
-  * `--resource-id` — идентификатор ресурса (облака, организации или платежного аккаунта).
-  * `--limit` — количество запросов на странице.
+  
+  * `--resource-type` ([тип ресурса](../concepts/index.md#resources-types)) определяет уровень просмотра запросов на изменение квот. Для уровня облака укажите `resource-manager.cloud`, для уровня организации — `organization-manager.organization`.
+  * `--resource-id` — идентификатор ресурса (облака или организации).
+  * `--limit` — максимальное количество запросов в выводе.
 
 - API {#api}
 
@@ -189,26 +170,18 @@
 
 ## Отменить запрос на изменение квоты {#cancel-quota-request}
 
+В консоли управления и Cloud Center можно отменить запрос в статусе **В обработке** (`PROCESSING`). Через CLI и API можно отменить изменение отдельных квот в запросе.
+
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Консоль управления или Cloud Center {#console}
 
-  Чтобы отменить запрос на изменение квоты для облака:
-
-  1. В [консоли управления](https://console.yandex.cloud) выберите облако и на панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **Квоты**.
-
+  1. Выберите облако в [консоли управления](https://console.yandex.cloud) или организацию в [Cloud Center](https://center.yandex.cloud).
+  
+  1. На панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **Квоты**.
+  
   1. Перейдите на вкладку **История запросов** и отфильтруйте запросы со статусом **В обработке**.
-
-  1. Откройте нужный запрос и нажмите **Закрыть запрос**.
-
-- Интерфейс Cloud Center {#cloud-center}
-
-  Чтобы отменить запрос на изменение квоты для организации:
-
-  1. В [Cloud Center](https://center.yandex.cloud) выберите организацию и на панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **Квоты**.
-
-  1. Перейдите на вкладку **История запросов** и отфильтруйте запросы со статусом **В обработке**.
-
+  
   1. Откройте нужный запрос и нажмите **Закрыть запрос**.
 
 - CLI {#cli}
@@ -216,13 +189,16 @@
   ```bash
   yc quota-manager quota-request cancel --id <идентификатор_запроса> --quota-id=<идентификатор_квоты>
   ```
+  
   Где:
   
-  * `--id` — идентификатор запроса, который требуется отменить.
+  * `--id` — идентификатор запроса на изменение квот.
   * `--quota-id` — идентификатор квоты в запросе. Чтобы указать несколько квот, добавьте несколько параметров `--quota-id`.
 
 - API {#api}
 
     Чтобы отменить запрос на изменение квот, воспользуйтесь методом REST API [cancel](../api-ref/QuotaRequest/cancel.md) для ресурса [QuotaRequest](../api-ref/QuotaRequest/index.md) или вызовом gRPC API [QuotaRequestService/Cancel](../api-ref/grpc/QuotaRequest/cancel.md).
+
+    Передайте идентификатор запроса. В поле `quotaIds` для REST API или `quota_ids` для gRPC API укажите идентификаторы квот, изменение которых нужно отменить.
 
 {% endlist %}

@@ -1,1 +1,1 @@
-Для просмотра квот и создания запросов на их изменение [назначьте учетной записи](../../iam/operations/roles/grant.md) роль [quota-manager.requestOperator](../../quota-manager/security/index.md#quota-manager-requestoperator). Назначьте роль на облако или организацию, к которым относятся квоты.
+Чтобы запрашивать изменение квот, [назначьте учетной записи](../../iam/operations/roles/grant.md) роль [quota-manager.requestOperator](../../quota-manager/security/index.md#quota-manager-requestoperator) на облако или организацию.

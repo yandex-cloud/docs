@@ -63,7 +63,7 @@ description: С 12 октября 2026 года квоты на ресурсы {
 `compute.ssdFilesystems.size.ru-central1-*` | 170 ГБ ||
 |#
 
-В идентификаторах квот `*` — индекс зоны доступности: `a`, `b`, `d` или `e`. Например, `compute.instanceCores.count.ru-central1-d`.
+В идентификаторах квот `*` — индекс зоны доступности. Например, `compute.instanceCores.count.ru-central1-d`.
 
 ## Что важно учесть {#recommendations}
 

@@ -2,13 +2,14 @@
 
 Чтобы настроить перенос данных из базы [Amazon RDS for {{ PG }}](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html) в базу {{ mpg-name }} с помощью сервиса {{ data-transfer-name }}:
 
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Подготовьте тестовые данные](#prepare-data).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работоспособность трансфера](#verify-transfer).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-Перенос данных работает для версий {{ PG }}, начиная с 9.4. Версия {{ PG }} в {{ mpg-name }} должна быть не старше, чем версия {{ PG }} в Amazon RDS.
+Перенос данных работает для версий {{ PG }}, начиная с 9.4. Версия {{ PG }} в кластере {{ mpg-name }} должна быть не ниже версии {{ PG }} в инстансе Amazon RDS.
 
 {% note info %}
 
@@ -16,24 +17,24 @@
 
 {% endnote %}
 
+## Подготовьте облако к работе {#before-you-begin}
 
-## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
+### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mpg-name }}: вычислительные ресурсы хостов, объем хранилища и резервных копий ([тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
 * Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы {{ data-transfer-name }}](../../../data-transfer/pricing.md)).
-* NAT-шлюз: почасовое использование и исходящий через него трафик ([тарифы {{ vpc-name }}](../../../vpc/pricing.md#nat-gateways)).
+* NAT-шлюз: почасовое использование и исходящий трафик ([тарифы {{ vpc-name }}](../../../vpc/pricing.md#nat-gateways)).
 
 
-## Перед началом работы {#before-you-begin}
-
-Подготовьте инфраструктуру:
+### Подготовьте инфраструктуру {#deploy}
 
 {% list tabs group=instructions %}
 
 - Вручную {#manual}
 
-    1. Если у вас нет аккаунта AWS, [создайте](https://aws.amazon.com) его.
+    1. Если у вас нет аккаунта AWS, [создайте](https://aws.amazon.com/resources/create-account/) его.
     1. В Amazon RDS [создайте группу параметров](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithDBInstanceParamGroups.html) и установите в ней параметр `rds.logical_replication` в значение `1`. Остальные параметры можно оставить по умолчанию.
     1. [Создайте инстанс Amazon RDS for {{ PG }}](https://aws.amazon.com/ru/getting-started/hands-on/create-connect-postgresql-db/) (кластер-источник).
 
@@ -58,7 +59,7 @@
         {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
     1. Убедитесь, что группа безопасности кластера {{ mpg-name }} [настроена правильно](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups) и допускает подключение к кластеру через интернет.
-    1. Настройте [NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) в интернет для подсети, в которой расположен кластер-приемник.
+    1. Настройте [NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) для подсети, в которой расположен кластер-приемник, чтобы обеспечить кластеру доступ в интернет.
     1. [Скачайте сертификат AWS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html#UsingWithRDS.SSL.RegionCertificates) для региона, в котором расположен инстанс Amazon RDS for {{ PG }}.
 
 - {{ TF }} {#tf}
@@ -122,20 +123,12 @@
         * Путь к скачанному ранее сертификату AWS.
         * Пароли пользователей Amazon RDS for {{ PG }} и {{ mpg-name }}.
 
-    1. Выполните команду `terraform init` в директории с конфигурационным файлом. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    1. Выполните команду `terraform init` в директории с конфигурационным файлом. Эта команда инициализирует провайдеры, указанные в конфигурационных файлах, и позволяет работать с их ресурсами и источниками данных.
+    1. Создайте ресурсы:
 
-        ```bash
-        terraform validate
-        ```
+       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Создайте необходимую инфраструктуру:
-
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-        {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
+       {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
 
@@ -162,11 +155,11 @@
 
     {% note info %}
 
-    Подключение к инстансу через интернет может стать доступно не сразу, а в течение часа с момента создания.
+    Подключение к инстансу через интернет может стать доступным не сразу — в течение часа с момента создания.
 
     {% endnote %}
 
-1. Наполните базу тестовыми данными. В качестве примера используется простая таблица, содержащая информацию, поступающую от некоторых датчиков автомобиля.
+1. Наполните базу тестовыми данными. В качестве примера используется простая таблица с данными, поступающими от датчиков автомобиля.
 
     Создайте таблицу:
 
@@ -199,7 +192,7 @@
 
 - Вручную {#manual}
 
-    1. [Создайте эндпоинт-источник](../../../data-transfer/operations/endpoint/source/mysql.md) типа `{{ PG }}` и укажите в нем параметры подключения к кластеру:
+    1. [Создайте эндпоинт-источник](../../../data-transfer/operations/endpoint/source/postgresql.md) типа `{{ PG }}` и укажите в нем параметры подключения к инстансу Amazon RDS for {{ PG }}:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.on_premise.title }}`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.OnPremisePostgres.host.title }}** — URL хоста.
@@ -209,10 +202,10 @@
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}** — `postgres`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}** — `<пароль_пользователя>`.
 
-    1. [Создайте эндпоинт-приемник](../../../data-transfer/operations/endpoint/target/postgresql.md) типа `{{ PG }}` и укажите в нем параметры подключения к кластеру:
+    1. [Создайте эндпоинт-приемник](../../../data-transfer/operations/endpoint/target/postgresql.md) типа `{{ PG }}` и укажите в нем параметры подключения к кластеру-приемнику:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}** — `<имя_кластера_приемника>` из выпадающего списка.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}** — `<имя_кластера_приемника_{{ PG }}>` из выпадающего списка.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — `mpg_db`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}** — `mpg_user`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}** — `<пароль_пользователя>`.
@@ -236,7 +229,7 @@
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-    1. Трансфер активируется автоматически. Дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+    1. Трансфер активируется автоматически через 5-10 минут. Дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 {% endlist %}
 
@@ -290,19 +283,19 @@
 
     {% endnote %}
 
-## Удалите созданные ресурсы {#clear-out}
+## Как удалить созданные ресурсы {#clear-out}
 
-{% note info %}
-
-Перед тем как удалить созданные ресурсы, [деактивируйте трансфер](../../../data-transfer/operations/transfer.md#deactivate).
-
-{% endnote %}
-
-Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
+Чтобы перестать платить за созданные ресурсы:
 
 {% list tabs group=instructions %}
 
 - Вручную {#manual}
+
+    {% note info %}
+
+    Перед тем как удалить созданные ресурсы, [деактивируйте трансфер](../../../data-transfer/operations/transfer.md#deactivate).
+
+    {% endnote %}
 
     1. [Удалите трансфер](../../../data-transfer/operations/transfer.md#delete).
     1. [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete).

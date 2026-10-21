@@ -133,7 +133,7 @@
 
      ```bash
      sudo systemctl restart nginx.service
-     sudo systemctl restart php7.4-fpm.service
+     sudo systemctl restart php8.1-fpm.service
      ```
 
    - CentOS {#centos}

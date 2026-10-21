@@ -17,5 +17,3 @@ description: Следуя данной инструкции, вы сможете
 1. [Настройте NAT-шлюз и привяжите таблицу маршрутизации](../../vpc/operations/create-nat-gateway.md) к новой подсети.
 1. [Создайте кластер](cluster-create.md#create) в нужной зоне доступности.
 1. [Удалите кластер](cluster-delete.md) в первоначальной зоне.
-
-{% include [zone-d-host-restrictions](../../_includes/mdb/ru-central1-d-broadwell.md) %}

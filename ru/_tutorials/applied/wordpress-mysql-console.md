@@ -26,9 +26,10 @@
 
 - Консоль управления {#console}
 
-  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из публичных образов: [Debian 11](/marketplace/products/yc/debian-11), [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) или [CentOS 7](/marketplace/products/yc/centos-7).
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
+  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.dashboard.DashboardPage.ResourcesSection.create-resources_rGA1t }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `wp-mysql-tutorial-web`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из публичных образов: [Debian 12](/marketplace/products/yc/debian-12), [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) или [CentOS Stream 9](/marketplace/products/yc/centos-stream-9).
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_location }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
@@ -45,8 +46,6 @@
 
       * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, например: `yc-user`. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
-
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `wp-mysql-tutorial-web`.
 
       {% include [vm-no-public-ip-note](../../_includes/compute/vm-no-public-ip-note.md) %}
 
@@ -66,23 +65,35 @@
 
 - Консоль управления {#console}
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_managed-mysql }}**.
-  1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}** введите имя: `wp-mysql-tutorial-db-cluster`.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите `s3-c2-m8`.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}** укажите `10 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}**:
-     * В поле **{{ ui-key.yacloud.mdb.forms.database_field_name }}** введите `wp-mysql-tutorial-db`.
-     * В поле **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** введите `wordpress`.
-     * В поле **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** введите пароль, который вы будете использовать для доступа к БД.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите сеть, к которой будет подключен кластер.
+  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.dashboard.DashboardPage.ResourcesSection.create-resources_rGA1t }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_managed-mysql }}`.
+  1. В блоке **{{ ui-key.yacloud.mdb-core.entities.ClusterPreset.label_section_1nfw1 }}** выберите **{{ ui-key.yacloud.mdb-core.entities.ClusterPreset.title_custom-config_msdZ4 }}**.
+  1. В блоке **{{ ui-key.yacloud.mdb-core.label_common-section-title_54GvX }}**:
+     
+     1. В поле **{{ ui-key.yacloud.mdb-core.entities.Name.label_title_sF4Tc }}** введите имя: `wp-mysql-tutorial-db-cluster`.
+     1. В поле **{{ ui-key.yacloud.mdb-core.entities.Environment.label_title_mK9nQ }}** выберите `PRODUCTION`.
 
+  1. В блоке **{{ ui-key.yacloud.mdb-core.label_network-section-title_skKcG }}** в поле **{{ ui-key.yacloud.mdb-core.entities.Network.label_title_sF4Tc }}** выберите сеть, к которой будет подключен кластер.
+  1. В блоке **{{ ui-key.yacloud.mdb-core.label_resource-section-title_rMryC }}** в поле **{{ ui-key.yacloud.mdb-core.entities.Preset.label_title_x7hK2 }}** выберите `Intel Ice Lake` → `s3-c2-m8`.
+  1. В блоке **{{ ui-key.yacloud.mdb-core.label_disk-autoscaling-section-title_4Dmtk }}**:
+     
+     1. В поле **{{ ui-key.yacloud.mdb-core.entities.DiskAutoscaling.label_max-disk-size_Dl2pS }}** укажите `100 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+     1. В поле **{{ ui-key.yacloud.mysql.new.entities.Hosts.label_title_K2JG5 }}** выберите вариант отображения настроек ![blocks](../../_assets/console-icons/layout-split-rows.svg) и добавьте два [хоста](../../managed-mysql/concepts/instance-types.md) в разных зонах доступности. При создании хостов не включайте для них **{{ ui-key.yacloud.mysql.new.entities.AssignPublicIp.label_title_83mKk }}**.
 
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** добавьте еще два [хоста](../../managed-mysql/concepts/instance-types.md) в других зонах доступности. При создании хостов не включайте для них **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+  1. В блоке **{{ ui-key.yacloud.mdb-core.label_database-section-title_e6jDp }}**:
+     
+     * В поле **{{ ui-key.yacloud.mdb-core.entities.DatabaseName.label_title_k7mN2 }}** введите `wp-mysql-tutorial-db`.
+     * В поле **{{ ui-key.yacloud.mdb-core.entities.UserName.label_title_7mNp4 }}** введите `wordpress`.
 
+     
+     * В поле **{{ ui-key.yacloud.mdb-core.entities.Password.label_title_pQ7mK }}** выберите:
 
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
+       * **{{ ui-key.yacloud.mdb-core.entities.Password.label_connman-option_bF3yT }}** — чтобы сгенерировать пароль с помощью сервиса {{ connection-manager-name }}.
 
-     В поле **default_authentication_plugin** выберите пункт `mysql_native_password` и нажмите кнопку **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
+       * **{{ ui-key.yacloud.mdb-core.entities.Password.label_user-option_vJ6nD }}** — чтобы ввести свой пароль. Длина пароля — от 8 до 128 символов.
+
+       Чтобы увидеть пароль, после создания кластера выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
+  
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 {% endlist %}
@@ -114,6 +125,7 @@
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
+
 1. [Удалите](../../dns/operations/zone-delete.md) зону DNS.
 1. [Удалите](../../managed-mysql/operations/cluster-delete.md) кластер {{ MY }}.
 1. [Удалите](../../compute/operations/vm-control/vm-delete.md) ВМ.

@@ -22,6 +22,11 @@ links:
   - title: Начало работы
     description: Сконфигурируйте и разверните кластер {{ stackland-name }}
     href: quickstart
+  - title: Сборник рецептов администратора
+    description: >-
+      Установите {{ stackland-name }}, настройте доступ и безопасность и
+      подготовьте кластер к обновлению
+    href: cookbooks/
   - title: Пошаговые инструкции
     description: Узнайте, как выполнять основные операции в {{ stackland-name }}
     href: operations/

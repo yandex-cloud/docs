@@ -1,4 +1,4 @@
-```bash
+```text
 id: atdogfioseaq********
 resource:
   id: b1gia87mbaom********

@@ -10,12 +10,6 @@
 * Ниже описано, как перенести кластеры с файловой системой HDFS.
 * О миграции [легковесных кластеров](../concepts/index.md#light-weight-clusters) читайте в [инструкции](../operations/migration-to-an-availability-zone.md).
 
-{% note info %}
-
-Для кластеров, хосты которых располагаются в [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-d`, недоступно использование платформы Intel Broadwell.
-
-{% endnote %}
-
 Чтобы перенести кластер с файловой системой HDFS:
 
 1. [Создайте кластер через импорт в Terraform](#create).

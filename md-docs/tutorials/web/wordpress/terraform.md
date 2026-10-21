@@ -47,7 +47,7 @@ Terraform распространяется под лицензией [Business S
    - Готовый архив {#ready}
 
      1. Создайте папку для файлов.
-     1. Скачайте [архив](https://storage.yandexcloud.net/doc-files/wordpress.zip) (1 КБ).
+     1. Скачайте [архив](https://storage.yandexcloud.net/doc-files/wordpress.zip) (2 КБ).
      1. Разархивируйте архив в папку. В результате в ней должен появиться конфигурационный файл `wordpress.tf`.
 
    - Вручную {#manual}
@@ -62,7 +62,7 @@ Terraform распространяется под лицензией [Business S
           required_providers {
             yandex = {
               source  = "yandex-cloud/yandex"
-              version = ">= 0.47.0"
+              version = ">= 0.96.0"
             }
           }
         }
@@ -104,7 +104,7 @@ Terraform распространяется под лицензией [Business S
           }
         
           metadata = {
-            ssh-keys = "<имя_пользователя>:<содержимое_SSH-ключа>"
+            user-data = "#cloud-config\nusers:\n  - name: <имя_пользователя>\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - <содержимое_SSH-ключа>"
           }
         }
         
@@ -125,6 +125,13 @@ Terraform распространяется под лицензией [Business S
             description    = "ext-https"
             v4_cidr_blocks = ["0.0.0.0/0"]
             port           = 443
+          }
+        
+          ingress {
+            protocol       = "TCP"
+            description    = "ext-ssh"
+            v4_cidr_blocks = ["0.0.0.0/0"]
+            port           = 22
           }
         
           egress {
@@ -289,4 +296,4 @@ Terraform распространяется под лицензией [Business S
 
 #### Полезные ссылки {#see-also}
 
-* [Создание сайта на WordPress с помощью консоли управления](console.md).
+[Создание сайта на WordPress с помощью консоли управления](console.md)

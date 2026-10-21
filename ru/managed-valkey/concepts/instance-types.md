@@ -32,7 +32,6 @@ description: Класс хостов определяет вычислитель
 
 {% include [disk-flavor-dependencies](../../_includes/mdb/disk-flavor-dependencies.md) %}
 
-Например, в `{{ region-id }}-d` недоступно хранилище на локальных SSD-дисках при использовании платформы Intel Cascade Lake.
 
 Типы конфигураций:
 

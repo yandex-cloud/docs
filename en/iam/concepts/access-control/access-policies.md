@@ -5,8 +5,6 @@ description: In this article, you will learn about access policies in {{ iam-ful
 
 # Access policies
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
-
 _Access policies_ are a {{ iam-full-name }} mechanism that allows you to manage permissions for performing specific operations on [{{ yandex-cloud }} resources](../../../overview/roles-and-resources.md). Access policies complement the [role](./roles.md) system for more flexible [access management](./index.md).
 
 Access policies for [resources](#resources) are created based on access policy [templates](#supported-policies).

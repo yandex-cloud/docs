@@ -7,6 +7,7 @@ description: This section contains the {{ mgl-name }} release notes.
 
 ## Q1-Q3 2026 {#q1-q3-2026}
 
+* Added the [{{ src-name }} Security integration](./concepts/sourcecraft-security.md) for automatic secret scanning, software composition analysis, and static application security testing in repositories pertaining to a {{ GL }} instance. To enable the integration, follow [this guide](./operations/sourcecraft-security.md).
 * The feature enabling you to [store {{ GL }} data in {{ objstorage-full-name }}](./concepts/s3-integration.md) has entered the [General Availability](../overview/concepts/launch-stages.md) stage. You can now select data types to offload to object storage, reducing instance disk usage and preventing its overflow. To enable the integration, follow [this guide](./operations/objstorage-integration.md). This feature is billed based on the [pricing policy](./pricing.md).
 * Released [managed runners](./concepts/index.md#managed-runners) for [General Availability](../overview/concepts/launch-stages.md). You can now automatically deploy and scale VMs with {{ GL }} workers based on the load, customize their computing resources, disks, service accounts, and security groups. For more information on managed runners, see [this guide](./operations/runner.md) and [this tutorial](./tutorials/install-gitlab-runner.md#create-runner).
 
@@ -57,7 +58,7 @@ You can now monitor the state of your {{ GL }} instance from the {{ yandex-cloud
 
 ## September 2024 {#sep-2024}
 
-You can now manage {{ GLR }} agents using the {{ yandex-cloud }} management console. This feature is currently at the [Preview](../overview/concepts/launch-stages.md) stage. To gain access, contact [support]({{ link-console-support }}) or your account manager.
+You can now manage {{ GLR }} agents using the {{ yandex-cloud }} management console. This feature is currently at the [Preview](../overview/concepts/launch-stages.md) stage. To request access, contact [support]({{ link-console-support }}) or your account manager.
 
 ## July 2024 {#jul-2024}
 

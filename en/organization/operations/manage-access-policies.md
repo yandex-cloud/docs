@@ -5,8 +5,6 @@ description: In this tutorial, you will learn how to view {{ iam-full-name }} ac
 
 # Organization access policy management
 
-{% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
-
 {% include [access-policies-instruction-intro](../../_includes/iam/access-policies-instruction-intro.md) %}
 
 An [organization's](../concepts/organization.md) access policies can be managed by a user with the [`organization-manager.admin`](../security/index.md#organization-manager-admin) or [`admin`](../../iam/roles-reference.md#admin) role.

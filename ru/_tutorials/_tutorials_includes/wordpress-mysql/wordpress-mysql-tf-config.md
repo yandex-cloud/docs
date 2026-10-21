@@ -3,7 +3,7 @@ terraform {
   required_providers {
     yandex = {
       source  = "yandex-cloud/yandex"
-      version = ">= 0.47.0"
+      version = ">= 0.96.0"
     }
   }
 }
@@ -37,7 +37,7 @@ resource "yandex_compute_instance" "vm-wordpress-mysql" {
 
   network_interface {
     subnet_id          = yandex_vpc_subnet.subnet-1.id
-    security_group_ids = ["${yandex_vpc_security_group.sg-1.id}"]
+    security_group_ids = [yandex_vpc_security_group.sg-1.id]
     nat                = true
   }
 
@@ -48,13 +48,13 @@ resource "yandex_compute_instance" "vm-wordpress-mysql" {
 
 resource "yandex_mdb_mysql_cluster" "wp-cluster" {
   name                = "wp-mysql-tutorial-db-cluster"
-  environment         = "PRESTABLE"
+  environment         = "PRODUCTION"
   network_id          = yandex_vpc_network.network-1.id
   version             = "8.0"
-  security_group_ids  = ["${yandex_vpc_security_group.sg-1.id}"]
+  security_group_ids  = [yandex_vpc_security_group.sg-1.id]
 
   resources {
-    resource_preset_id = "s2.small"
+    resource_preset_id = "s3-c2-m8"
     disk_type_id       = "network-ssd"
     disk_size          = "10"
   }
@@ -171,7 +171,7 @@ resource "yandex_dns_recordset" "rs-1" {
   name    = "example.com."
   ttl     = 600
   type    = "A"
-  data    = ["${yandex_compute_instance.vm-wordpress-mysql.network_interface.0.nat_ip_address}"]
+  data    = [yandex_compute_instance.vm-wordpress-mysql.network_interface.0.nat_ip_address]
 }
 
 resource "yandex_dns_recordset" "rs-2" {

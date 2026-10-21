@@ -24,7 +24,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure support cost includes:
 
-* Fee for [disks](../../compute/concepts/disk.md) and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for a [disk](../../compute/concepts/disk.md) and continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for the number of {{ tracker-name }} users with full access if there are more than five of them (see [{{ tracker-name }} pricing](https://yandex.ru/support/tracker/{{ lang }}/pricing)).
 * Fee for using a [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 

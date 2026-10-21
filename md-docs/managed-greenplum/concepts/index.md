@@ -67,7 +67,7 @@ _Резервный_ хост-мастер (STANDBY) непрерывно реп
     Подробнее читайте в разделе [Выделенный хост](../../compute/concepts/dedicated-host.md).
 
 
-Все хосты кластера Yandex MPP Analytics for PostgreSQL размещаются в одной из зон доступности: `ru-central1-a`, `ru-central1-b` или `ru-central1-d`.
+Все хосты кластера Yandex MPP Analytics for PostgreSQL размещаются в одной [зоне доступности](../../overview/concepts/geo-scope.md).
 
 При создании кластера необходимо указывать:
 

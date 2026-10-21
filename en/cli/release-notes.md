@@ -7,11 +7,268 @@ description: This page presents CLI releases and their updates.
 
 ## Current version {#latest-release}
 
+### Version 1.35.1 (17/09/26) {#v-1-35-1}
+
+#### Changes to the CLI system commands {#v-1-35-1-yc}
+
+Fixed folder resolution when using the global `--folder-name` parameter.
+
+## Previous releases {#previous-release}
+
+### Version 1.35.0 (17/09/26) {#v-1-35-0}
+
+#### {{ compute-name }} {#v-1-35-0-compute-name}
+
+Added the `--subnets` parameter to the `yc compute gpu-cluster create` command to specify the subnet count for a GPU cluster.
+
+#### {{ iam-name }} {#v-1-35-0-iam-name}
+
+In the `yc iam subject-details get` command, replaced the `--subject-id` parameter with `--subject-ids` to provide a comma-separated list of IDs.
+
+#### {{ mch-name }} {#v-1-35-0-mch-name}
+
+* Added the `yc managed-clickhouse cluster migrate-to-keeper` command.
+* Added the `yc managed-clickhouse maintenance` command group for viewing scheduled maintenance and rescheduling it.
+* Added parameters for reading passwords from files (`--password-file`) and standard input (`--password-from-stdin`) to the following commands:
+
+  * `yc managed-clickhouse user create`
+  * `yc managed-clickhouse user update`
+
+* Fixed the role-based restriction when using IAM authentication for user accounts in the `yc managed-clickhouse connect` command.
+
+#### {{ mgp-name }} {#v-1-35-0-mgp-name}
+
+* Added the `yc managed-greenplum maintenance` command group for viewing scheduled maintenance and rescheduling it.
+* Added parameters for reading passwords from files (`--password-file`) and standard input (`--password-from-stdin`) to the following commands:
+
+  * `yc managed-greenplum user create`
+  * `yc managed-greenplum user update`
+
+#### {{ mkf-name }} {#v-1-35-0-mkf-name}
+
+Added the `yc managed-kafka maintenance` command group for viewing scheduled maintenance and rescheduling it.
+
+#### {{ mmg-name }} {#v-1-35-0-mmg-name}
+
+* Added the `yc managed-mongodb maintenance` command group for viewing scheduled maintenance and rescheduling it.
+* Added parameters for reading passwords from files (`--password-file`) and standard input (`--password-from-stdin`) to the following commands:
+
+  * `yc managed-mongodb user create`
+  * `yc managed-mongodb user update`
+
+#### {{ mmy-name }} {#v-1-35-0-mmy-name}
+
+Added the `yc managed-mysql maintenance` command group for viewing scheduled maintenance and rescheduling it.
+
+#### {{ mos-name }} {#v-1-35-0-mos-name}
+
+* Added the `yc managed-opensearch maintenance` command group for viewing scheduled maintenance and rescheduling it.
+
+#### {{ mpg-name }} {#v-1-35-0-mpg-name}
+
+* Added the `yc managed-postgresql maintenance` command group for viewing scheduled maintenance and rescheduling it.
+* Added parameters for reading passwords from files (`--password-file`) and standard input (`--password-from-stdin`) to the following commands:
+
+  * `yc managed-postgresql user create`
+  * `yc managed-postgresql user update`
+
+#### {{ mrd-name }} {#v-1-35-0-mrd-name}
+
+* Added the `yc managed-redis maintenance` command group for viewing scheduled maintenance and rescheduling it.
+* Added parameters for reading passwords from files (`--password-file`) and standard input (`--password-from-stdin`) to the following commands:
+
+  * `yc managed-redis user create`
+  * `yc managed-redis user update`
+
+#### {{ mspqr-name }} {#v-1-35-0-mspqr-name}
+
+* Added the `yc managed-sharded-postgresql maintenance` command group for viewing scheduled maintenance and rescheduling it.
+* Added parameters for reading passwords from files (`--password-file`) and standard input (`--password-from-stdin`) to the following commands:
+
+  * `yc managed-sharded-postgresql user create`
+  * `yc managed-sharded-postgresql user update`
+
+### Version 1.34.0 (10/09/26) {#v-1-34-0}
+
+#### {{ billing-name }} {#v-1-34-0-billing-name}
+
+* Added the `yc billing consumption-core` and `yc billing metadata` command groups for getting detailed reports on usage and costs for billing accounts, clouds, folders, services, SKUs, resources, service labels and instances, as well as metadata for report generation:
+  * `yc billing consumption-core get-billing-account-usage-report`
+  * `yc billing consumption-core get-cloud-usage-report`
+  * `yc billing consumption-core get-folder-usage-report`
+  * `yc billing consumption-core get-service-usage-report`
+  * `yc billing consumption-core get-sku-usage-report`
+  * `yc billing consumption-core get-resource-usage-report`
+  * `yc billing consumption-core get-label-key-usage-report`
+  * `yc billing consumption-core get-service-instance-usage-report`
+  * `yc billing metadata get-usage`
+  * `yc billing metadata get-service-instance`
+  * `yc billing metadata get-label`
+  * `yc billing metadata get-cloud`
+  * `yc billing metadata get-resources`
+
+#### {{ dataproc-name }} {#v-1-34-0-dataproc-name}
+
+* Added the `yc dataproc change-freeze` command group for managing change and maintenance freeze:
+  * `yc dataproc change-freeze create`
+  * `yc dataproc change-freeze get`
+  * `yc dataproc change-freeze list`
+  * `yc dataproc change-freeze terminate`
+  * `yc dataproc change-freeze get-limits`
+
+#### {{ iam-name }} {#v-1-34-0-iam-name}
+
+* The `yc iam subject-details get` command supports multiple IDs in positional arguments and the `--filter` parameter, thus replacing the `yc iam subject-details batch-get` command.
+
+#### {{ maf-name }} {#v-1-34-0-maf-name}
+
+* Added the `yc managed-airflow change-freeze` command group for managing change and maintenance freeze:
+  * `yc managed-airflow change-freeze create`
+  * `yc managed-airflow change-freeze get`
+  * `yc managed-airflow change-freeze list`
+  * `yc managed-airflow change-freeze terminate`
+  * `yc managed-airflow change-freeze get-limits`
+* Added the `username`, `password`, and `password-path` keys for the `--gitsync` parameter:
+  * `yc managed-airflow cluster create`
+  * `yc managed-airflow cluster update`
+
+#### {{ mch-name }} {#v-1-34-0-mch-name}
+
+* Added the `yc managed-clickhouse change-freeze` command group for managing change and maintenance freeze:
+  * `yc managed-clickhouse change-freeze create`
+  * `yc managed-clickhouse change-freeze get`
+  * `yc managed-clickhouse change-freeze list`
+  * `yc managed-clickhouse change-freeze terminate`
+  * `yc managed-clickhouse change-freeze get-limits`
+
+#### {{ metastore-name }} {#v-1-34-0-metastore-name}
+
+* Added the `yc managed-metastore change-freeze` command group for managing change and maintenance freeze:
+  * `yc managed-metastore change-freeze create`
+  * `yc managed-metastore change-freeze get`
+  * `yc managed-metastore change-freeze list`
+  * `yc managed-metastore change-freeze terminate`
+  * `yc managed-metastore change-freeze get-limits`
+
+#### {{ mgp-name }} {#v-1-34-0-mgp-name}
+
+* Added the `yc managed-greenplum change-freeze` command group for managing change and maintenance freeze:
+  * `yc managed-greenplum change-freeze create`
+  * `yc managed-greenplum change-freeze get`
+  * `yc managed-greenplum change-freeze list`
+  * `yc managed-greenplum change-freeze terminate`
+  * `yc managed-greenplum change-freeze get-limits`
+
+#### {{ mkf-name }} {#v-1-34-0-mkf-name}
+
+* Added the `yc managed-kafka change-freeze` command group for managing change and maintenance freeze:
+  * `yc managed-kafka change-freeze create`
+  * `yc managed-kafka change-freeze get`
+  * `yc managed-kafka change-freeze list`
+  * `yc managed-kafka change-freeze terminate`
+  * `yc managed-kafka change-freeze get-limits`
+
+#### {{ mmg-name }} {#v-1-34-0-mmg-name}
+
+* Added the `yc managed-mongodb change-freeze` command group for managing change and maintenance freeze:
+  * `yc managed-mongodb change-freeze create`
+  * `yc managed-mongodb change-freeze get`
+  * `yc managed-mongodb change-freeze list`
+  * `yc managed-mongodb change-freeze terminate`
+  * `yc managed-mongodb change-freeze get-limits`
+
+#### {{ mmy-name }} {#v-1-34-0-mmy-name}
+
+* Added the `yc managed-mysql change-freeze` command group for managing change and maintenance freeze:
+  * `yc managed-mysql change-freeze create`
+  * `yc managed-mysql change-freeze get`
+  * `yc managed-mysql change-freeze list`
+  * `yc managed-mysql change-freeze terminate`
+  * `yc managed-mysql change-freeze get-limits`
+* Fixed connection to a cluster under a service account using `yc managed-mysql cluster connect`.
+
+#### {{ mos-name }} {#v-1-34-0-mos-name}
+
+* Added the `yc managed-opensearch change-freeze` command group for managing change and maintenance freeze:
+  * `yc managed-opensearch change-freeze create`
+  * `yc managed-opensearch change-freeze get`
+  * `yc managed-opensearch change-freeze list`
+  * `yc managed-opensearch change-freeze terminate`
+  * `yc managed-opensearch change-freeze get-limits`
+* Improved the `roles` parameter description for host groups:
+  * `yc managed-opensearch node-group add`
+  * `yc managed-opensearch node-group update`
+
+#### {{ mpg-name }} {#v-1-34-0-mpg-name}
+
+* Added the `yc managed-postgresql change-freeze` command group for managing change and maintenance freeze:
+  * `yc managed-postgresql change-freeze create`
+  * `yc managed-postgresql change-freeze get`
+  * `yc managed-postgresql change-freeze list`
+  * `yc managed-postgresql change-freeze terminate`
+  * `yc managed-postgresql change-freeze get-limits`
+* Fixed connection to a cluster under a service account using `yc managed-postgresql cluster connect`.
+* Added support for PostgreSQL 19 for the following commands:
+  * `yc managed-postgresql cluster create`
+  * `yc managed-postgresql cluster update`
+  * `yc managed-postgresql cluster restore`
+
+#### {{ mrd-name }} {#v-1-34-0-mrd-name}
+
+* Added the `yc managed-redis change-freeze` command group for managing change and maintenance freeze:
+  * `yc managed-redis change-freeze create`
+  * `yc managed-redis change-freeze get`
+  * `yc managed-redis change-freeze list`
+  * `yc managed-redis change-freeze terminate`
+  * `yc managed-redis change-freeze get-limits`
+
+#### {{ msp-name }} {#v-1-34-0-msp-name}
+
+* Added the `yc managed-spark change-freeze` command group for managing change and maintenance freeze:
+  * `yc managed-spark change-freeze create`
+  * `yc managed-spark change-freeze get`
+  * `yc managed-spark change-freeze list`
+  * `yc managed-spark change-freeze terminate`
+  * `yc managed-spark change-freeze get-limits`
+
+#### {{ mspqr-name }} {#v-1-34-0-mspqr-name}
+
+* Added the `yc managed-sharded-postgresql change-freeze` command group for managing change and maintenance freeze:
+  * `yc managed-sharded-postgresql change-freeze create`
+  * `yc managed-sharded-postgresql change-freeze get`
+  * `yc managed-sharded-postgresql change-freeze list`
+  * `yc managed-sharded-postgresql change-freeze terminate`
+  * `yc managed-sharded-postgresql change-freeze get-limits`
+
+#### {{ mtr-name }} {#v-1-34-0-mtr-name}
+
+* Added the `yc managed-trino change-freeze` command group for managing change and maintenance freeze:
+  * `yc managed-trino change-freeze create`
+  * `yc managed-trino change-freeze get`
+  * `yc managed-trino change-freeze list`
+  * `yc managed-trino change-freeze terminate`
+  * `yc managed-trino change-freeze get-limits`
+
+#### {{ org-full-name }} {#v-1-34-0-org-name}
+
+* Added the `--group-attribute-value` parameter to the commands for selecting a group name, ID, or external ID provided to an application:
+  * `yc organization-manager idp application saml application create`
+  * `yc organization-manager idp application saml application update`
+* Added the `--group-claim-value` parameter to the commands for selecting a group name, ID, or external ID provided to an application:
+  * `yc organization-manager idp application oauth application create`
+  * `yc organization-manager idp application oauth application update`
+
+#### {{ sws-name }} {#v-1-34-0-sws-name}
+
+* Added support for CAPTCHA in the Advanced Rate Limiter’s static and dynamic quotas:
+  * `yc smartwebsecurity advanced-rate-limiter profile create`
+  * `yc smartwebsecurity advanced-rate-limiter profile update`
+
 ### Version 1.33.0 (07/09/26) {#v-1-33-0}
 
 #### {{ baremetal-name }} {#v-1-33-0-baremetal-name}
 
-* Added a command to get a list of available {{ stackland-full-name }} versions:
+* Added a command for getting a list of available {{ stackland-full-name }} versions:
   * `yc baremetal v2 extend stackland-cluster list-stackland-versions`
 
 #### {{ cloud-registry-name }} {#v-1-33-0-cloud-registry-name}
@@ -29,8 +286,6 @@ description: This page presents CLI releases and their updates.
 * Added the `--pool-mode`, `--pool-size`, `--pool-client-idle-timeout`, and `--pool-idle-in-transaction-timeout` parameters for custom settings:
   * `yc managed-greenplum user create`
   * `yc managed-greenplum user update`
-
-## Previous releases {#previous-release}
 
 ### Version 1.32.0 (03/09/26) {#v-1-32-0}
 

@@ -35,9 +35,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * Centralized Check Point security management.
 * In our example, we will configure Check Point firewall with basic access control and NAT policies.
 
-You can get Check Point CloudGuard IaaS from Yandex Cloud Marketplace as BYOL with a trial period of 15-days.
-* NGFW VM: Check Point CloudGuard IaaS – Firewall & Threat Prevention BYOL.
-* Management server VM: Check Point CloudGuard IaaS – Security Management BYOL for NGFW management tasks.
+You can get Check Point CloudGuard IaaS from Yandex Cloud Marketplace as BYOL with a trial period of 15-days:
+* NGFW VM Check Point CloudGuard IaaS: Firewall & Threat Prevention BYOL.
+* Management server VM Check Point CloudGuard IaaS: Security Management BYOL.
 
 For use in a production environment, you need to purchase licenses for Check Point CloudGuard IaaS. If using a custom Check Point management server installation, you do not need to deploy a management server VM in the cloud.
 

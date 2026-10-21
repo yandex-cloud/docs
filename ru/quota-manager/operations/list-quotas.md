@@ -4,29 +4,28 @@ title: Как посмотреть список сервисов и квот
 
 # Посмотреть список сервисов и квот
 
-{% include [quota-level-access](../../_includes/quota-manager/quota-level-access.md) %}
-
 {% include [get-quota-roles](../../_includes/quota-manager/get-quota-roles.md) %}
+
+{% include [quota-level-access](../../_includes/quota-manager/quota-level-access.md) %}
 
 ## Посмотреть список сервисов, для которых есть квоты {#list-services}
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Консоль управления или {{ cloud-center }} {#console}
 
-  Чтобы посмотреть список сервисов с квотами в облаке:
+  1. Выберите облако в [консоли управления]({{ link-console-main }}) или организацию в [{{ cloud-center }}]({{ cloud-center-link }}).
 
-  1. В [консоли управления]({{ link-console-main }}) выберите облако и на панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **{{ ui-key.yacloud.dashboard.label_quotas_gAtoT }}**.
+  1. На панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **{{ ui-key.yacloud.dashboard.label_quotas_gAtoT }}**.
 
-     На вкладке **{{ ui-key.yacloud_components.Quota-manager.label_quotas-tab_323nV }}** отобразится список сервисов в группах **{{ ui-key.yacloud_components.Quota-manager.label_quotas-with-usage_dWfzm }}** и **{{ ui-key.yacloud_components.Quota-manager.label_quotas-without-usage_nAfZB }}**.
+     На вкладке **{{ ui-key.yacloud_org.center.quotas.tab_quotas }}** две группы сервисов:
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+     * **{{ ui-key.yacloud_components.Quota-manager.label_quotas-with-usage_dWfzm }}** — потребление хотя бы одной квоты больше нуля.
+     * **{{ ui-key.yacloud_components.Quota-manager.label_quotas-without-usage_nAfZB }}** — потребление всех квот равно нулю.
 
-  Чтобы посмотреть список сервисов с квотами в организации:
-
-  1. В [{{ cloud-center }}]({{ cloud-center-link }}) выберите организацию и на панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **{{ ui-key.yacloud_org.center.navigation.label_quotas }}**.
-
-     На вкладке **{{ ui-key.yacloud_org.center.quotas.tab_quotas }}** отобразится список сервисов в группах **{{ ui-key.yacloud_components.Quota-manager.label_quotas-with-usage_dWfzm }}** и **{{ ui-key.yacloud_components.Quota-manager.label_quotas-without-usage_nAfZB }}**.
+  1. Чтобы показать квоты, близкие к исчерпанию, справа вверху нажмите **{{ ui-key.yacloud_components.Quota-manager.value_usage-status-almost-expired_9NhmR }}**. Для сброса фильтра нажмите **{{ ui-key.yacloud_components.Quota-manager.value_status-all_uAiLf }}**.
+  
+  На этой же странице можно [запросить изменение квот](set-quotas.md).
 
 - CLI {#cli}
 
@@ -34,13 +33,9 @@ title: Как посмотреть список сервисов и квот
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Выполните команду:
+  Посмотрите список сервисов с квотами на уровне облака:
 
-  ```bash
-  yc quota-manager quota-limit list-services --resource-type=<тип_ресурса>
-  ```
-
-  Где `--resource-type` — [тип ресурса](../concepts/index.md#resources-types): `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
+  {% include [list-quota-services-cli](../../_includes/quota-manager/list-quota-services-cli.md) %}
 
 - API {#api}
 
@@ -52,21 +47,11 @@ title: Как посмотреть список сервисов и квот
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Консоль управления или {{ cloud-center }} {#console}
 
-  Чтобы посмотреть квоты для сервиса в облаке:
+  1. Выберите облако в [консоли управления]({{ link-console-main }}) или организацию в [{{ cloud-center }}]({{ cloud-center-link }}).
 
-  1. В [консоли управления]({{ link-console-main }}) выберите облако и на панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **{{ ui-key.yacloud.dashboard.label_quotas_gAtoT }}**.
-
-  1. На вкладке **{{ ui-key.yacloud_components.Quota-manager.label_quotas-tab_323nV }}** введите в строку поиска название сервиса, название или идентификатор квоты.
-
-  1. В группе **{{ ui-key.yacloud_components.Quota-manager.label_quotas-with-usage_dWfzm }}** или **{{ ui-key.yacloud_components.Quota-manager.label_quotas-without-usage_nAfZB }}** раскройте раздел нужного сервиса.
-
-- Интерфейс {{ cloud-center }} {#cloud-center}
-
-  Чтобы посмотреть квоты для сервиса в организации:
-
-  1. В [{{ cloud-center }}]({{ cloud-center-link }}) выберите организацию и на панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **{{ ui-key.yacloud_org.center.navigation.label_quotas }}**.
+  1. На панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **{{ ui-key.yacloud.dashboard.label_quotas_gAtoT }}**.
 
   1. На вкладке **{{ ui-key.yacloud_org.center.quotas.tab_quotas }}** введите в строку поиска название сервиса, название или идентификатор квоты.
 
@@ -74,15 +59,11 @@ title: Как посмотреть список сервисов и квот
 
 - CLI {#cli}
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
   Выполните команду:
 
   ```bash
   yc quota-manager quota-limit list \
-    --service=<название_сервиса> \
+    --service=<идентификатор_сервиса> \
     --resource-type=<тип_ресурса> \
     --resource-id=<идентификатор_ресурса>
   ```
@@ -90,8 +71,8 @@ title: Как посмотреть список сервисов и квот
   Где:
 
   * `--service` — идентификатор сервиса, полученный при [просмотре списка сервисов](#list-services).
-  * `--resource-id` — идентификатор [ресурса](../../resource-manager/concepts/resources-hierarchy.md): идентификатор облака, организации или платежного аккаунта.
-  * `--resource-type` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
+  * `--resource-id` — идентификатор [ресурса](../../resource-manager/concepts/resources-hierarchy.md): идентификатор облака или организации.
+  * `--resource-type` ([тип ресурса](../../quota-manager/concepts/index.md#resources-types)) определяет уровень просмотра квот. Для уровня облака укажите `resource-manager.cloud`, для уровня организации — `organization-manager.organization`.
 
 
   Пример:
@@ -103,9 +84,9 @@ title: Как посмотреть список сервисов и квот
     --resource-id=b1gia87mbaom********
   ```
 
-  Будет выведен список квот сервиса {{ compute-name }} в облаке `b1gia87mbaom********`:
+  Будет выведен список квот сервиса {{ compute-name }} в облаке `b1gia87mbaom********`. Ниже приведена часть ответа:
 
-  ```bash
+  ```text
   resource:
     id: b1gia87mbaom********
     type: resource-manager.cloud

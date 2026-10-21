@@ -26,8 +26,6 @@ description: Класс хостов определяет вычислитель
 
 {% include [disk-flavor-dependencies](../../_includes/mdb/disk-flavor-dependencies.md) %}
 
-Например, в `{{ region-id }}-d` использование хранилища на локальных SSD-дисках недоступно при выборе платформы Intel Cascade Lake.
-
 {% include [instance-types-code](../../_includes/mdb/mkf-instance-types-code.md) %}
 
 | Имя класса хостов | Количество vCPU | Гарантированная доля vCPU | RAM, ГБ | Размер <br>диска, ГБ |

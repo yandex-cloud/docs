@@ -104,7 +104,7 @@
 
 1. [Подключитесь к кластеру-источнику {{ mmy-name }}](../../managed-mysql/operations/connect/index.md).
 
-1. Наполните базу тестовыми данными.
+1. Наполните базу тестовыми данными:
 
     1. Создайте таблицу `x_tab`:
 
@@ -173,7 +173,7 @@
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**. Активация трансфера может занять 5-10 минут.
 
 1. Убедитесь, что в базу данных {{ mch-name }} перенеслись данные из кластера-источника {{ mmy-name }}:
 
@@ -258,7 +258,7 @@ WHERE __data_transfer_delete_time == 0;
 
 {% include [note before delete resources](../../_includes/mdb/note-before-delete-resources.md) %}
 
-Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
+Чтобы перестать платить за созданные ресурсы:
 
 {% list tabs group=instructions %}
 

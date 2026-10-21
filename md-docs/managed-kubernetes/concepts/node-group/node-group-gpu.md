@@ -13,13 +13,9 @@
 
 ## Требования {#requirements}
 
-* В облаке должна быть ненулевая квота GPU.
+В облаке должна быть ненулевая квота GPU.
 
-  По умолчанию в облаке установлена нулевая [квота](../../../compute/concepts/limits.md#compute-quotas) на создание виртуальных машин с GPU. Вы можете запросить увеличение квоты в [консоли управления](https://console.yandex.cloud/cloud?section=quotas). Для этого нужна [роль](../../../iam/roles-reference.md#quota-manager-requestoperator) `quota-manager.requestOperator` или выше.
-
-* Виртуальные машины на платформах Intel Broadwell with NVIDIA® Tesla® V100, Intel Cascade Lake with NVIDIA® Tesla® V100 и AMD EPYC™ with NVIDIA® Ampere® A100 можно создать в зонах доступности `ru-central1-a` и `ru-central1-b`.
-
-  При выборе этих платформ группа узлов должна находиться в одной из указанных зон доступности или в обеих зонах.
+По умолчанию в облаке установлена нулевая [квота](../../../compute/concepts/limits.md#compute-quotas) на создание виртуальных машин с GPU. Вы можете запросить увеличение квоты в [консоли управления](https://console.yandex.cloud/cloud?section=quotas). Для этого нужна [роль](../../../iam/roles-reference.md#quota-manager-requestoperator) `quota-manager.requestOperator` или выше.
 
 ## Тарификация {#pricing}
 

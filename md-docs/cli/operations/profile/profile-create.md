@@ -120,14 +120,7 @@
        Если вы ввели `Y`, выберите зону доступности:
     
        
-       ```text
-       Which zone do you want to use as a profile default?
-        [1] ru-central1-a
-        [2] ru-central1-b
-        [3] ru-central1-d
-        [4] Do not set default zone
-       Please enter your numeric choice: 2
-       ```
+       Введите номер нужной зоны доступности из предложенного списка.
     
     
     
@@ -228,14 +221,7 @@
        Если вы ввели `Y`, выберите зону доступности:
     
        
-       ```text
-       Which zone do you want to use as a profile default?
-        [1] ru-central1-a
-        [2] ru-central1-b
-        [3] ru-central1-d
-        [4] Do not set default zone
-       Please enter your numeric choice: 2
-       ```
+       Введите номер нужной зоны доступности из предложенного списка.
     
     
     
@@ -348,14 +334,7 @@
        Если вы ввели `Y`, выберите зону доступности:
     
        
-       ```text
-       Which zone do you want to use as a profile default?
-        [1] ru-central1-a
-        [2] ru-central1-b
-        [3] ru-central1-d
-        [4] Do not set default zone
-       Please enter your numeric choice: 2
-       ```
+       Введите номер нужной зоны доступности из предложенного списка.
     
     
     

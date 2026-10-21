@@ -5,35 +5,37 @@
 
 Чтобы перенести данные:
 
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Подготовьте кластер-источник](#prepare-source).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работоспособность трансфера](#verify-transfer).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+## Подготовьте облако к работе {#before-you-begin}
 
-## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы {{ mmy-name }}](../../managed-mysql/pricing.md)).
+### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mmy-name }}: вычислительные ресурсы хостов, объем хранилища и резервных копий ([тарифы {{ mmy-name }}](../../managed-mysql/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 * База данных {{ ydb-name }} ([тарифы {{ ydb-name }}](../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
 
     * Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
-    * Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервных копий.
+    * Для режима с выделенными инстансами — оплачиваются вычислительные ресурсы, выделенные БД, объем хранилища и резервных копий.
 
 
-## Подготовьте инфраструктуру {#deploy-infrastructure}
+### Подготовьте инфраструктуру {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
 - Вручную {#manual}
 
     1. [Создайте кластер-источник {{ mmy-name }}](../../managed-mysql/operations/cluster-create.md) любой подходящей конфигурации.
-
     1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
 
     
-    1. Если вы используете группы безопасности, [настройте их](../../managed-kafka/operations/connect/index.md#configuring-security-groups) так, чтобы к кластеру можно было подключаться из интернета.
+    1. Если вы используете группы безопасности, [настройте их](../../managed-mysql/operations/connect/index.md#configure-security-groups) так, чтобы к кластеру можно было подключаться из интернета.
 
 
 
@@ -58,7 +60,7 @@
 
     1. Укажите в файле `data-transfer-mmy-ydb.tf`:
 
-        * параметры кластера-источника {{ mmy-name }}, которые будут использоваться как [параметры эндпоинта-источника](../../data-transfer/operations/endpoint/target/mysql.md#managed-service):
+        * параметры кластера-источника {{ mmy-name }}, которые будут использоваться как [параметры эндпоинта-источника](../../data-transfer/operations/endpoint/source/mysql.md#managed-service):
 
             * `source_mysql_version` — версия {{ MY }};
             * `source_db_name` — имя базы данных;
@@ -66,19 +68,11 @@
 
         * `target_db_name` — имя базы данных {{ ydb-name }}.
 
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    1. Создайте ресурсы:
 
-        ```bash
-        terraform validate
-        ```
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Создайте необходимую инфраструктуру:
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+       {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
 
@@ -88,7 +82,7 @@
 
 1. [Подключитесь к кластеру-источнику {{ mmy-name }}](../../managed-mysql/operations/connect/index.md).
 
-1. Наполните базу тестовыми данными. В качестве примера используется простая таблица, содержащая информацию, поступающую от некоторых датчиков автомобиля.
+1. Наполните базу тестовыми данными. В качестве примера используется простая таблица с данными, поступающими от датчиков автомобиля.
 
     Создайте таблицу:
 
@@ -151,25 +145,17 @@
             * переменную `target_endpoint_id` и задайте ей значение идентификатора эндпоинта для приемника, созданного на предыдущем шаге;
             * ресурсы `yandex_datatransfer_endpoint` и `yandex_datatransfer_transfer`.
 
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+        1. Создайте ресурсы:
 
-            ```bash
-            terraform validate
-            ```
+           {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Создайте необходимую инфраструктуру:
-
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-            Трансфер активируется автоматически после создания.
+           Трансфер активируется автоматически после создания.
 
     {% endlist %}
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**. Активация трансфера может занять 5-10 минут.
 
 1. Убедитесь, что в базу данных {{ ydb-name }} перенеслись данные из кластера-источника {{ mmy-name }}:
 
@@ -234,7 +220,7 @@
 
 {% endnote %}
 
-Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
+Чтобы перестать платить за созданные ресурсы:
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для приемника.

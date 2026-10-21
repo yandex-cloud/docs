@@ -5,8 +5,6 @@ description: In this tutorial, you will learn how to view {{ iam-full-name }} ac
 
 # Managing folder access policies
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
-
 {% include [access-policies-instruction-intro](../../../_includes/iam/access-policies-instruction-intro.md) %}
 
 A [folder’s](../../concepts/resources-hierarchy.md#folder) access policies can be managed by users with the [`resource-manager.admin`](../../security/index.md#resource-manager-admin) or [`admin`](../../../iam/roles-reference.md#admin) role for the folder.

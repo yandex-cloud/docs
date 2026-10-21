@@ -12,13 +12,9 @@ description: Из статьи вы узнаете про группы узло�
 
 ## Требования {#requirements}
 
-* В облаке должна быть ненулевая квота GPU.
+В облаке должна быть ненулевая квота GPU.
 
-  {% include [compute-gpu-zero-quota](../../../_includes/compute/gpu-zero-quota.md) %}
-
-* {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
-
-  При выборе этих платформ группа узлов должна находиться в одной из указанных зон доступности или в обеих зонах.
+{% include [compute-gpu-zero-quota](../../../_includes/compute/gpu-zero-quota.md) %}
 
 ## Тарификация {#pricing}
 

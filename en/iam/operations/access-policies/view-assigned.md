@@ -5,8 +5,6 @@ description: In this guide, you will learn how to view {{ iam-full-name }} acces
 
 # Viewing access policies created for a resource
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
-
 {% include [access-policies-instruction-intro](../../../_includes/iam/access-policies-instruction-intro.md) %}
 
 You can create access policies for a [folder](#folder), [cloud](#cloud), or [organization](#organization).

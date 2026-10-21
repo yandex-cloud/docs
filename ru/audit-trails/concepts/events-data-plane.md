@@ -193,12 +193,6 @@ description: В данном разделе приведены описания 
 
 {% include [sd-kspm-events-dp](../../_includes/audit-trails/events/sd-kspm-events-dp.md) %}
 
-## {{ speechkit-full-name }} {#speechkit}
-
-Имя сервиса — `ai.speechkit`.
-
-{% include [speechkit-events-dp](../../_includes/audit-trails/events/speechkit-events-dp.md) %}
-
 ## {{ speechsense-full-name }} {#speechsense}
 
 Имя сервиса — `speechsense`.
@@ -211,18 +205,11 @@ description: В данном разделе приведены описания 
 
 {% include [sws-events-dp](../../_includes/audit-trails/events/sws-events-dp.md) %}
 
-## {{ translate-full-name }} {#translate}
-
-Имя сервиса — `ai.translate`.
-
-{% include [translate-events-dp](../../_includes/audit-trails/events/translate-events-dp.md) %}
-
 ## {{ vpc-full-name }} {#vpc}
 
 Имя сервиса — `network`.
 
 {% include [vpc-events-dp](../../_includes/audit-trails/events/vpc-events-dp.md) %}
-
 
 ## {{ wiki-full-name }} {#wiki}
 

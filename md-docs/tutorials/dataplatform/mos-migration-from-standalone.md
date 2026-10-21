@@ -7,6 +7,7 @@
 
 С помощью сервиса Data Transfer вы можете перенести данные из индексов стороннего кластера-источника OpenSearch в индексы Managed Service for OpenSearch. Для этого:
 
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Настройте кластер-источник](#configure-source).
 1. [Подготовьте тестовые данные](#prepare-data).
 1. [Настройте кластер-приемник](#configure-target).
@@ -15,14 +16,16 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+## Подготовьте облако к работе {#before-you-begin}
 
-## Необходимые платные ресурсы {#paid-resources}
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер Managed Service for OpenSearch: использование вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for OpenSearch](../../managed-opensearch/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
+### Подготовьте инфраструктуру {#deploy}
 
 1. [Обеспечьте доступ к кластеру-источнику OpenSearch из Yandex Cloud](../../data-transfer/concepts/network.md#source-external).
 
@@ -121,7 +124,6 @@
 Вы можете поставлять данные из кластера OpenSearch от имени пользователя `admin`, имеющего роль `superuser`, но безопаснее для каждой задачи создавать отдельных пользователей с ограниченными привилегиями.
 
 1. (Опционально) В кластере-источнике [создайте роль](https://opensearch.org/docs/latest/security-plugin/access-control/users-roles/#create-roles) с привилегиями `create_index` и `write` для всех индексов (`*`).
-
 1. (Опционально) В кластере-источнике [создайте пользователя](https://opensearch.org/docs/latest/security-plugin/access-control/users-roles), от имени которого будут выполняться трансфер, и назначьте ему созданную роль.
 
 ## Подготовьте тестовые данные {#prepare-data}
@@ -272,42 +274,39 @@
 
     {% endlist %}
 
-## Удалите созданные ресурсы {#clear-out}
+## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
+Чтобы перестать платить за созданные ресурсы:
 
-1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
-1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
-1. Остальные ресурсы удалите в зависимости от способа их создания:
+{% list tabs group=instructions %}
 
-    {% list tabs group=instructions %}
+- Вручную {#manual}
 
-    - Вручную {#manual}
+    1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
+    1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
+    1. [Удалите кластер Managed Service for OpenSearch](../../managed-opensearch/operations/cluster-delete.md).
+    1. [Удалите подсеть](../../vpc/operations/subnet-delete.md) и [сеть](../../vpc/operations/network-delete.md).
 
-        1. [Удалите кластер Managed Service for OpenSearch](../../managed-opensearch/operations/cluster-delete.md).
+- Terraform {#tf}
 
-        1. [Удалите подсеть](../../vpc/operations/subnet-delete.md) и [сеть](../../vpc/operations/network-delete.md).
+    1. В терминале перейдите в директорию с планом инфраструктуры.
+    
+        {% note warning %}
+    
+        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+    
+        {% endnote %}
+    
+    1. Удалите ресурсы:
+    
+        1. Выполните команду:
+    
+            ```bash
+            terraform destroy
+            ```
+    
+        1. Подтвердите удаление ресурсов и дождитесь завершения операции.
+    
+        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
-    - Terraform {#tf}
-
-        1. В терминале перейдите в директорию с планом инфраструктуры.
-        
-            {% note warning %}
-        
-            Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
-        
-            {% endnote %}
-        
-        1. Удалите ресурсы:
-        
-            1. Выполните команду:
-        
-                ```bash
-                terraform destroy
-                ```
-        
-            1. Подтвердите удаление ресурсов и дождитесь завершения операции.
-        
-            Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
-
-    {% endlist %}
+{% endlist %}

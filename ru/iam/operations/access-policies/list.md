@@ -5,8 +5,6 @@ description: Из статьи вы узнаете, как получить сп
 
 # Получение списка поддерживаемых шаблонов политик авторизации
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
-
 {% include [access-policies-instruction-intro](../../../_includes/iam/access-policies-instruction-intro.md) %}
 
 Чтобы получить список [поддерживаемых шаблонов](../../concepts/access-control/access-policies.md#supported-policies) политик авторизации:

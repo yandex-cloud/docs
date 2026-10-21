@@ -11,4 +11,4 @@ description: 'Пошаговая инструкция, с помощью кот�
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](terraform.md)
+[{#T}](terraform.md)

@@ -40,16 +40,16 @@ description: Настройте сопоставление групп поста
 
       1. Нажмите на строку с нужной федерацией и перейдите на вкладку **{{ ui-key.yacloud_org.form.group-mapping.note.tab-idp }}**.
 
-      1. Включите опцию **{{ ui-key.yacloud_org.form.group-mapping.field.idp }}**.
+      1. Если сопоставление групп еще не включено, нажмите кнопку **{{ ui-key.yacloud_org.form.group-mapping.action.enable-mapping }}**.
 
-      1. Нажмите кнопку **{{ ui-key.yacloud_org.form.group-mapping.create.add }}** и задайте сопоставление:
+      1. Нажмите кнопку **{{ ui-key.yacloud_org.form.group-mapping.add-group-mapping }}** и задайте сопоставление:
 
-          * **{{ ui-key.yacloud_org.form.group-mapping.note.group-name }}** — укажите имя группы поставщика удостоверений.
-          * **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}** — выберите группу {{ org-full-name }} из списка.
+          * **{{ ui-key.yacloud_org.form.group-mapping.field-external-group }}** — укажите имя группы поставщика удостоверений.
+          * **{{ ui-key.yacloud_org.form.group-mapping.field-internal-group }}** — выберите группу {{ org-full-name }} из списка.
 
-      1. Повторите предыдущий шаг для всех сопоставляемых групп.
+      1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.add }}**.
 
-      1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.save-changes }}**.
+      1. Повторите предыдущие два шага для всех сопоставляемых групп.
 
     - {{ TF }} {#tf}
 
