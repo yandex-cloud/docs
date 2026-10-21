@@ -3,7 +3,7 @@ terraform {
   required_providers {
     yandex = {
       source  = "yandex-cloud/yandex"
-      version = ">= 0.47.0"
+      version = ">= 0.96.0"
     }
   }
 }
@@ -45,7 +45,7 @@ resource "yandex_compute_instance" "vm-wordpress" {
   }
 
   metadata = {
-    ssh-keys = "<имя_пользователя>:<содержимое_SSH-ключа>"
+    user-data = "#cloud-config\nusers:\n  - name: <имя_пользователя>\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - <содержимое_SSH-ключа>"
   }
 }
 
@@ -66,6 +66,13 @@ resource "yandex_vpc_security_group" "sg-1" {
     description    = "ext-https"
     v4_cidr_blocks = ["0.0.0.0/0"]
     port           = 443
+  }
+
+  ingress {
+    protocol       = "TCP"
+    description    = "ext-ssh"
+    v4_cidr_blocks = ["0.0.0.0/0"]
+    port           = 22
   }
 
   egress {

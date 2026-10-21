@@ -5,8 +5,6 @@ description: Из статьи вы узнаете, как создать пол
 
 # Создание политики авторизации для ресурса
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
-
 {% include [access-policies-instruction-intro](../../../_includes/iam/access-policies-instruction-intro.md) %}
 
 Вы можете создать политику авторизации для [каталога](#folder), [облака](#cloud) или [организации](#organization).

@@ -35,7 +35,7 @@ Object Storage позволяет хранить объекты в хранил�
 
 ## Особенности классов хранилища {#features}
 
-Все классы хранилищ имеют [одинаковый SLA](https://yandex.ru/legal/cloud_sla_storage/ru/) и защищают данные от потери даже при полном отказе одной из трех [зон доступности](../../overview/concepts/geo-scope.md).
+Все классы хранилищ имеют [одинаковый SLA](https://yandex.ru/legal/cloud_sla_storage/ru/) и защищают данные от потери даже при полном отказе одной из [зон доступности](../../overview/concepts/geo-scope.md).
 
 
 ### Стандартное, холодное, ледяное {#features-all}

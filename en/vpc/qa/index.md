@@ -57,7 +57,7 @@ Subnets can only use private IPv4 addresses from the ranges defined by [RFC 1918
 {{ yandex-cloud }} does not impose any limits on the connection speed. Please provide the following information to start troubleshooting:
 * Direction of the malfunctioning connection: within the cloud network, cloud network to the internet, or the internet to the cloud network.
 * Type of traffic producing the issue: incoming or outgoing.
-* Source and target parameters: VM IDs, IP addresses,FQDNs.
+* Source and target parameters: VM IDs, IP addresses, FQDNs.
 * Output for the `mtr <target_IP_or_domain>` command.
 * Speed results from [Yandex.Internetometer](https://yandex.com/internet/), including technical information.
 

@@ -12,7 +12,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Чтобы воспользоваться примерами:
+Чтобы воспользоваться примерами, подготовьте выбранный интерфейс и назначьте роли на облако или организацию, к которым относятся квоты:
 
 {% list tabs group=instructions %}
 
@@ -28,55 +28,59 @@
 
       * [quota-manager.viewer](security/index.md#quota-manager-viewer) — для просмотра квот.
       * [quota-manager.requestOperator](security/index.md#quota-manager-requestoperator) — для просмотра квот и создания запросов на их изменение.
-      
-      Назначьте роль на облако или организацию, к которым относятся квоты.
 
 - REST API {#api}
 
-  1. Установите утилиту [cURL](https://curl.haxx.se).
-  1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) и [назначьте](../iam/operations/sa/assign-role-for-sa.md) ему [роль](../iam/concepts/access-control/roles.md) для нужной операции:
+    1. Установите утилиту [cURL](https://curl.haxx.se).
+    1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) и [назначьте](../iam/operations/sa/assign-role-for-sa.md) ему [роль](../iam/concepts/access-control/roles.md) для нужной операции:
 
-      * [quota-manager.viewer](security/index.md#quota-manager-viewer) — для просмотра квот.
-      * [quota-manager.requestOperator](security/index.md#quota-manager-requestoperator) — для просмотра квот и создания запросов на их изменение.
-      
-      Назначьте роль на облако или организацию, к которым относятся квоты.
+        * [quota-manager.viewer](security/index.md#quota-manager-viewer) — для просмотра квот.
+        * [quota-manager.requestOperator](security/index.md#quota-manager-requestoperator) — для просмотра квот и создания запросов на их изменение.
 
-  1. [Получите IAM-токен](../iam/operations/iam-token/create-for-sa.md) для созданного сервисного аккаунта.
+    1. [Получите IAM-токен](../iam/operations/iam-token/create-for-sa.md) для созданного сервисного аккаунта.
+    1. Сохраните IAM-токен в переменной окружения:
+
+       ```bash
+       export IAM_TOKEN=<iam_токен>
+       ```
 
 - gRPC API {#grpc-api}
 
-  1. Установите утилиту [gRPCurl](https://github.com/fullstorydev/grpcurl).
-  1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) и [назначьте](../iam/operations/sa/assign-role-for-sa.md) ему [роль](../iam/concepts/access-control/roles.md) для нужной операции:
+    1. Установите утилиту [gRPCurl](https://github.com/fullstorydev/grpcurl).
+    1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) и [назначьте](../iam/operations/sa/assign-role-for-sa.md) ему [роль](../iam/concepts/access-control/roles.md) для нужной операции:
 
-      * [quota-manager.viewer](security/index.md#quota-manager-viewer) — для просмотра квот.
-      * [quota-manager.requestOperator](security/index.md#quota-manager-requestoperator) — для просмотра квот и создания запросов на их изменение.
-      
-      Назначьте роль на облако или организацию, к которым относятся квоты.
+        * [quota-manager.viewer](security/index.md#quota-manager-viewer) — для просмотра квот.
+        * [quota-manager.requestOperator](security/index.md#quota-manager-requestoperator) — для просмотра квот и создания запросов на их изменение.
 
-  1. [Получите IAM-токен](../iam/operations/iam-token/create-for-sa.md) для созданного сервисного аккаунта.
+    1. [Получите IAM-токен](../iam/operations/iam-token/create-for-sa.md) для созданного сервисного аккаунта.
+    1. Сохраните IAM-токен в переменной окружения:
+
+       ```bash
+       export IAM_TOKEN=<iam_токен>
+       ```
 
 {% endlist %}
 
-Ниже приведены примеры запросов и ответов CLI и API для работы с квотами. В примерах используются следующие параметры:
+Ниже приведены примеры запросов и ответов CLI и API для работы с квотами. Длинные ответы приведены в сокращенном виде. В примерах используются следующие параметры:
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-  * `--quota-id` — идентификатор квоты. В примерах используется идентификатор `iam.accessKeys.count` — количество статических ключей доступа в одном облаке, [квота в сервисе Identity and Access Management](../iam/concepts/limits.md).
+  * `--quota-id` — идентификатор квоты. Например, `iam.accessKeys.count` — количество статических ключей доступа в одном облаке, [квота в сервисе Identity and Access Management](../iam/concepts/limits.md).
   * `--resource-id` — идентификатор ресурса. В примерах используется идентификатор облака. Для выполнения запросов из примеров укажите [идентификатор](../resource-manager/operations/cloud/get-id.md) вашего облака.
-  * `--resource-type` — тип ресурса. В примере используется `resource-manager.cloud` — облако.
+  * `--resource-type` ([тип ресурса](concepts/index.md#resources-types)) определяет уровень работы с квотами. Для уровня облака укажите `resource-manager.cloud`, для уровня организации — `organization-manager.organization`.
   * `--filter` — фильтрующее выражение. Отфильтровать запросы можно только по их статусу.
   * `<идентификатор_запроса>` — идентификатор вашего запроса на изменение квоты.
 
 - API {#api}
 
-  * `<IAM-токен>` или `${IAM_TOKEN?}` — [IAM-токен](../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта или переменная окружения, в которой находится IAM-токен.
-  * `uuidgen -t` — команда для генерации уникального идентификатора запроса (UUID), который передается в заголовке `X-Request-Id`. Передавать UUID необязательно, но он помогает отслеживать конкретный запрос в системе.
-  * `quotaId` — идентификатор квоты. В примерах используется идентификатор `iam.accessKeys.count` — количество статических ключей доступа в одном облаке, [квота в сервисе Identity and Access Management](../iam/concepts/limits.md).
-  * `resourceId` — идентификатор ресурса. В примерах используется идентификатор облака. Для выполнения запросов из примеров укажите [идентификатор](../resource-manager/operations/cloud/get-id.md) вашего облака.
-  * `resourceType` — тип ресурса. В примере используется `resource-manager.cloud` — облако.
-  * `<идентификатор_запроса>` — идентификатор вашего запроса на изменение квоты.
+    * `${IAM_TOKEN?}` — значение переменной окружения с [IAM-токеном](../iam/operations/iam-token/create-for-sa.md) сервисного аккаунта.
+    * `uuidgen -t` — команда для генерации уникального идентификатора запроса (UUID), который передается в заголовке `X-Request-Id`. Передавать UUID необязательно, но он помогает отслеживать конкретный запрос в системе.
+    * `quotaId` в REST API или `quota_id` в gRPC API — идентификатор квоты. В примерах используется идентификатор `iam.accessKeys.count` — количество статических ключей доступа в одном облаке, [квота в сервисе Identity and Access Management](../iam/concepts/limits.md).
+    * `resource.id` — идентификатор ресурса. В примерах используется идентификатор облака. Для выполнения запросов из примеров укажите [идентификатор](../resource-manager/operations/cloud/get-id.md) вашего облака.
+    * `resource.type` ([тип ресурса](concepts/index.md#resources-types)) определяет уровень работы с квотами. Для уровня облака укажите `resource-manager.cloud`, для уровня организации — `organization-manager.organization`.
+    * `<идентификатор_запроса>` — идентификатор вашего запроса на изменение квоты.
 
 {% endlist %}
 
@@ -103,63 +107,64 @@
 
   Будут выведены значение и потребление квоты для количества статических ключей доступа в облаке:
   
-  ```bash
+  ```text
   quota_id: iam.accessKeys.count
   limit: 1000
   usage: 27
   ```
   
   Где:
+  
   * `limit` — значение квоты;
   * `usage` — потребление квоты.
 
 - REST API {#api}
 
-  Воспользуйтесь методом REST API [get](api-ref/QuotaLimit/get.md) для ресурса [QuotaLimit](api-ref/QuotaLimit/index.md).
+    Воспользуйтесь методом REST API [get](api-ref/QuotaLimit/get.md) для ресурса [QuotaLimit](api-ref/QuotaLimit/index.md).
 
-  **Пример запроса**
+    **Пример запроса**
 
-  ```bash
-  curl \
-    --request GET \
-    --header "X-Request-Id: $(uuidgen -t)" \
-    --header "Authorization: Bearer ${IAM_TOKEN?}" \
-    'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits/iam.accessKeys.count?resource.id=<идентификатор_облака>&resource.type=resource-manager.cloud'
-  ```
+    ```bash
+    curl \
+      --request GET \
+      --header "X-Request-Id: $(uuidgen -t)" \
+      --header "Authorization: Bearer ${IAM_TOKEN?}" \
+      'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits/iam.accessKeys.count?resource.id=<идентификатор_облака>&resource.type=resource-manager.cloud'
+    ```
 
-  **Пример ответа**
+    **Пример ответа**
 
-  ```json
-  {
-    "quotaId": "iam.accessKeys.count",
-    "limit": 1000,
-    "usage": 34
-  }
-  ```
+    ```json
+    {
+      "quotaId": "iam.accessKeys.count",
+      "limit": 1000,
+      "usage": 34
+    }
+    ```
 
 - gRPC API {#grpc-api}
 
-  Воспользуйтесь вызовом gRPC API [QuotaLimitService/Get](api-ref/grpc/QuotaLimit/get.md).
+    Воспользуйтесь вызовом gRPC API [QuotaLimitService/Get](api-ref/grpc/QuotaLimit/get.md).
 
-  **Пример запроса**
+    **Пример запроса**
 
-  ```bash
-  grpcurl \
-    -H "X-Request-Id: $(uuidgen -t)" \
-    -H "Authorization: Bearer ${IAM_TOKEN?}" \
-    -d "{ \"resource\": { \"id\": \"<идентификатор_облака>\", \"type\": \"resource-manager.cloud\" }, \"quota_id\": \"iam.accessKeys.count\"}" \
-    quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaLimitService/Get
-  ```
+    ```bash
+    grpcurl \
+      -H "X-Request-Id: $(uuidgen -t)" \
+      -H "Authorization: Bearer ${IAM_TOKEN?}" \
+      -d "{ \"resource\": { \"id\": \"<идентификатор_облака>\", \"type\": \"resource-manager.cloud\" }, \"quota_id\": \"iam.accessKeys.count\"}" \
+      quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaLimitService/Get
+    ```
 
-  **Пример ответа**
+    **Пример ответа**
 
-  ```json
-  {
-    "quotaId": "iam.accessKeys.count",
-    "limit": 1000,
-    "usage": 34
-  }
-  ```
+    ```json
+    {
+      "quotaId": "iam.accessKeys.count",
+      "limit": 1000,
+      "usage": 34
+    }
+    ```
 
 {% endlist %}
 
@@ -201,95 +206,93 @@
 
 - REST API {#api}
 
-  Воспользуйтесь методом REST API [list](api-ref/QuotaLimit/list.md) для ресурса [QuotaLimit](api-ref/QuotaLimit/index.md).
+    Воспользуйтесь методом REST API [list](api-ref/QuotaLimit/list.md) для ресурса [QuotaLimit](api-ref/QuotaLimit/index.md).
 
-  **Пример запроса**
+    **Пример запроса**
 
-  ```bash
-  curl \
-    --request GET \
-    --header "X-Request-Id: $(uuidgen -t)" \
-    --header "Authorization: Bearer ${IAM_TOKEN?}" \
-    'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits?service=iam&resource.id=<идентификатор_облака>&resource.type=resource-manager.cloud'
-  ```
+    ```bash
+    curl \
+      --request GET \
+      --header "X-Request-Id: $(uuidgen -t)" \
+      --header "Authorization: Bearer ${IAM_TOKEN?}" \
+      'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits?service=iam&resource.id=<идентификатор_облака>&resource.type=resource-manager.cloud'
+    ```
 
-  **Пример ответа**
+    **Пример ответа**
 
-  ```json
-  {
-    "resource": {
-      "id": "b1gia87mbaom********",
-      "type": "resource-manager.cloud"
-    },
-    "quotaLimits": [
-      {
-        "quotaId": "iam.accessKeys.count",
-        "limit": 1000,
-        "usage": 34
+    ```json
+    {
+      "resource": {
+        "id": "b1gia87mbaom********",
+        "type": "resource-manager.cloud"
       },
-      {
-        "quotaId": "iam.apiKeys.count",
-        "limit": 1000,
-        "usage": 13
-      },
-      {
-        "quotaId": "iam.authorizedKeys.count",
-        "limit": 1000,
-        "usage": 43
-      },
-      ...
-    ]
-  }
-  ```
+      "quotaLimits": [
+        {
+          "quotaId": "iam.accessKeys.count",
+          "limit": 1000,
+          "usage": 34
+        },
+        {
+          "quotaId": "iam.apiKeys.count",
+          "limit": 1000,
+          "usage": 13
+        },
+        {
+          "quotaId": "iam.authorizedKeys.count",
+          "limit": 1000,
+          "usage": 43
+        }
+      ]
+    }
+    ```
 
 - gRPC API {#grpc-api}
 
-  Воспользуйтесь вызовом gRPC API [QuotaLimitService/List](api-ref/grpc/QuotaLimit/list.md).
+    Воспользуйтесь вызовом gRPC API [QuotaLimitService/List](api-ref/grpc/QuotaLimit/list.md).
 
-  **Пример запроса**
+    **Пример запроса**
 
-  ```bash
-  grpcurl \
-    -H "X-Request-Id: $(uuidgen -t)" \
-    -H "Authorization: Bearer ${IAM_TOKEN?}" \
-    -d "{ \"resource\": { \"id\": \"<идентификатор_облака>\", \"type\": \"resource-manager.cloud\" }, \"service\": \"iam\"}" \
-    quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaLimitService/List
-  ```
+    ```bash
+    grpcurl \
+      -H "X-Request-Id: $(uuidgen -t)" \
+      -H "Authorization: Bearer ${IAM_TOKEN?}" \
+      -d "{ \"resource\": { \"id\": \"<идентификатор_облака>\", \"type\": \"resource-manager.cloud\" }, \"service\": \"iam\"}" \
+      quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaLimitService/List
+    ```
 
-  **Пример ответа**
+    **Пример ответа**
 
-  ```json
-  {
-    "resource": {
-      "id": "b1gia87mbaom********",
-      "type": "resource-manager.cloud"
-    },
-    "quotaLimits": [
-      {
-        "quotaId": "iam.accessKeys.count",
-        "limit": 1000,
-        "usage": 34
+    ```json
+    {
+      "resource": {
+        "id": "b1gia87mbaom********",
+        "type": "resource-manager.cloud"
       },
-      {
-        "quotaId": "iam.apiKeys.count",
-        "limit": 1000,
-        "usage": 13
-      },
-      {
-        "quotaId": "iam.authorizedKeys.count",
-        "limit": 1000,
-        "usage": 43
-      },
-      ...
-    ]
-  }
-  ```
+      "quotaLimits": [
+        {
+          "quotaId": "iam.accessKeys.count",
+          "limit": 1000,
+          "usage": 34
+        },
+        {
+          "quotaId": "iam.apiKeys.count",
+          "limit": 1000,
+          "usage": 13
+        },
+        {
+          "quotaId": "iam.authorizedKeys.count",
+          "limit": 1000,
+          "usage": 43
+        }
+      ]
+    }
+    ```
 
 {% endlist %}
 
 ## Запросить изменение квоты {#request-quota-change}
 
-Чтобы изменить квоты, создайте запрос: укажите идентификатор и тип ресурса, идентификаторы квот и желаемые значения.
+Чтобы изменить квоты, создайте запрос: укажите идентификатор и тип ресурса, идентификаторы квот и желаемые итоговые значения. Для увеличения квоты запрашиваемое значение должно быть больше текущего.
 
 {% list tabs group=instructions %}
 
@@ -305,13 +308,14 @@
     --desired-limit quota-id=storage.buckets.count,value=30
   ```
 
-  Будет создан запрос на увеличение квот:
-  * В сервисе Compute Cloud — количество групп размещения ВМ (`compute.placementGroups.count`), новое значение — `5`.
-  * В сервисе Object Storage — количество бакетов (`storage.buckets.count`), новое значение — `30`.
+  Будет создан запрос на изменение квот:
+  
+  * В сервисе Compute Cloud — количество групп размещения ВМ (`compute.placementGroups.count`), желаемое значение — `5`.
+  * В сервисе Object Storage — количество бакетов (`storage.buckets.count`), желаемое значение — `30`.
 
   **Пример ответа**
 
-  ```bash
+  ```text
   id: atdogfioseaq********
   resource:
     id: b1gia87mbaom********
@@ -329,69 +333,74 @@
   created_by: ajegtlf2q28a********
   ```
 
+  Изменение каждой квоты рассматривается отдельно. В примере изменение `storage.buckets.count` отклонено, поскольку запрошенное значение уже установлено.
+
 - REST API {#api}
 
-  Воспользуйтесь методом REST API [create](api-ref/QuotaRequest/create.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md).
+    Воспользуйтесь методом REST API [create](api-ref/QuotaRequest/create.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md).
 
-  **Пример запроса**
+    **Пример запроса**
 
-  ```bash
-  curl \
-    --request POST \
-    --header "X-Request-Id: $(uuidgen -t)" \
-    --header "Authorization: Bearer ${IAM_TOKEN?}" \
-    --data '{"resource": {"id": "<идентификатор_облака>", "type": "resource-manager.cloud"}, "desired_quota_limits": [{"quota_id": "iam.accessKeys.count", "desired_limit": "1001"}]}' \
-    'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests'
-  ```
+    ```bash
+    curl \
+      --request POST \
+      --header "X-Request-Id: $(uuidgen -t)" \
+      --header "Authorization: Bearer ${IAM_TOKEN?}" \
+      --header "Content-Type: application/json" \
+      --data '{"resource": {"id": "<идентификатор_облака>", "type": "resource-manager.cloud"}, "desiredQuotaLimits": [{"quotaId": "iam.accessKeys.count", "desiredLimit": "1001"}]}' \
+      'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests'
+    ```
   
-  **Пример ответа**
+    **Пример ответа**
 
-  ```json
-  {
-    "done": false,
-    "metadata": {
-      "@type": "type.googleapis.com/yandex.cloud.quotamanager.v1.CreateQuotaRequestMetadata",
-      "quotaRequestId": "atdogfioseaq********"
-    },
-    "id": "atdlsk0hjt6r********",
-    "description": "Create quota request",
-    "createdAt": "2025-09-01T08:39:37.195600077Z",
-    "createdBy": "ajegtlf2q28a********",
-    "modifiedAt": "2025-09-01T08:39:37.195600077Z"
-  }
-  ```
-  
-  Значение `done: false` означает, что операция создания запроса еще не завершена. Чтобы узнать статус самого запроса, используйте его идентификатор из поля `metadata.quotaRequestId`.
+    ```json
+    {
+      "done": false,
+      "metadata": {
+        "@type": "type.googleapis.com/yandex.cloud.quotamanager.v1.CreateQuotaRequestMetadata",
+        "quotaRequestId": "atdogfioseaq********"
+      },
+      "id": "atdlsk0hjt6r********",
+      "description": "Create quota request",
+      "createdAt": "2025-09-01T08:39:37.195600077Z",
+      "createdBy": "ajegtlf2q28a********",
+      "modifiedAt": "2025-09-01T08:39:37.195600077Z"
+    }
+    ```
+    
+    Значение `done: false` означает, что операция создания запроса еще не завершена. Чтобы узнать статус самого запроса, используйте его идентификатор из поля `metadata.quotaRequestId`.
 
 - gRPC API {#grpc-api}
 
-  Воспользуйтесь вызовом gRPC API [QuotaRequestService/Create](api-ref/grpc/QuotaRequest/create.md).
+    Воспользуйтесь вызовом gRPC API [QuotaRequestService/Create](api-ref/grpc/QuotaRequest/create.md).
 
-  **Пример запроса**
+    **Пример запроса**
 
-  ```bash
-  grpcurl \
-    -H "X-Request-Id: $(uuidgen -t)" \
-    -H "Authorization: Bearer ${IAM_TOKEN?}" \
-    -d "{\"resource\": {\"id\": \"<идентификатор_облака>\", \"type\": \"resource-manager.cloud\"}, \"desired_quota_limits\": [{\"quota_id\": \"iam.accessKeys.count\", \"desired_limit\": \"1001\"}]}" \
-    quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Create
-  ```
+    ```bash
+    grpcurl \
+      -H "X-Request-Id: $(uuidgen -t)" \
+      -H "Authorization: Bearer ${IAM_TOKEN?}" \
+      -d "{\"resource\": {\"id\": \"<идентификатор_облака>\", \"type\": \"resource-manager.cloud\"}, \"desired_quota_limits\": [{\"quota_id\": \"iam.accessKeys.count\", \"desired_limit\": \"1001\"}]}" \
+      quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Create
+    ```
   
-  **Пример ответа**
+    **Пример ответа**
 
-  ```json
-  {
-    "id": "atdhrm4k26ar********",
-    "description": "Create quota request",
-    "createdAt": "2025-09-01T08:46:28.116514197Z",
-    "createdBy": "ajegtlf2q28a********",
-    "modifiedAt": "2025-09-01T08:46:28.116514197Z",
-    "metadata": {
-      "@type": "type.googleapis.com/yandex.cloud.quotamanager.v1.CreateQuotaRequestMetadata",
-      "quotaRequestId": "atdp0kd3799e********"
+    ```json
+    {
+      "id": "atdhrm4k26ar********",
+      "description": "Create quota request",
+      "createdAt": "2025-09-01T08:46:28.116514197Z",
+      "createdBy": "ajegtlf2q28a********",
+      "modifiedAt": "2025-09-01T08:46:28.116514197Z",
+      "metadata": {
+        "@type": "type.googleapis.com/yandex.cloud.quotamanager.v1.CreateQuotaRequestMetadata",
+        "quotaRequestId": "atdp0kd3799e********"
+      }
     }
-  }
-  ```
+    ```
+    
+    Чтобы узнать статус запроса на изменение квот, используйте его идентификатор из поля `metadata.quotaRequestId`. Поле `id` содержит идентификатор операции создания запроса.
 
 {% endlist %}
 
@@ -414,7 +423,7 @@
 
   **Пример ответа**
 
-  ```bash
+  ```text
   quota_requests:
     - id: atdogfioseaq********
       resource:
@@ -435,85 +444,83 @@
 
 - REST API {#api}
 
-  Воспользуйтесь методом REST API [list](api-ref/QuotaRequest/list.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md).
+    Воспользуйтесь методом REST API [list](api-ref/QuotaRequest/list.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md).
 
-  **Пример запроса**
+    **Пример запроса**
 
-  ```bash
-  curl \
-    --request GET \
-    --header "X-Request-Id: $(uuidgen -t)" \
-    --header "Authorization: Bearer ${IAM_TOKEN?}" \
-    'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests?page_size=100&resource.id=<идентификатор_облака>&resource.type=resource-manager.cloud'
-  ```
+    ```bash
+    curl \
+      --request GET \
+      --header "X-Request-Id: $(uuidgen -t)" \
+      --header "Authorization: Bearer ${IAM_TOKEN?}" \
+      'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests?pageSize=100&resource.id=<идентификатор_облака>&resource.type=resource-manager.cloud'
+    ```
 
-  **Пример ответа**
+    **Пример ответа**
 
-  ```json
-  {
-    "quotaRequests": [
-      {
-        "resource": {
-          "id": "b1gia87mbaom********",
-          "type": "resource-manager.cloud"
-        },
-        "quotaLimits": [
-          {
-            "quotaId": "iam.accessKeys.count",
-            "desiredLimit": 1001,
-            "status": "PROCESSING"
-          }
-        ],
-        "id": "atdp0kd3799e********",
-        "createdAt": "2025-09-01T08:46:28.091109Z",
-        "status": "PROCESSING",
-        "createdBy": "ajegtlf2q28a********"
-      },
-      ...
-    ]
-  }
-  ```
+    ```json
+    {
+      "quotaRequests": [
+        {
+          "resource": {
+            "id": "b1gia87mbaom********",
+            "type": "resource-manager.cloud"
+          },
+          "quotaLimits": [
+            {
+              "quotaId": "iam.accessKeys.count",
+              "desiredLimit": 1001,
+              "status": "PROCESSING"
+            }
+          ],
+          "id": "atdp0kd3799e********",
+          "createdAt": "2025-09-01T08:46:28.091109Z",
+          "status": "PROCESSING",
+          "createdBy": "ajegtlf2q28a********"
+        }
+      ]
+    }
+    ```
 
 - gRPC API {#grpc-api}
 
-  Воспользуйтесь вызовом gRPC API [QuotaRequestService/List](api-ref/grpc/QuotaRequest/list.md).
+    Воспользуйтесь вызовом gRPC API [QuotaRequestService/List](api-ref/grpc/QuotaRequest/list.md).
 
-  **Пример запроса**
+    **Пример запроса**
 
-  ```bash
-  grpcurl \
-    -H "X-Request-Id: $(uuidgen -t)" \
-    -H "Authorization: Bearer ${IAM_TOKEN?}" \
-    -d "{\"resource\": {\"id\": \"<идентификатор_облака>\", \"type\": \"resource-manager.cloud\"}}" \
-    quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/List
-  ```
+    ```bash
+    grpcurl \
+      -H "X-Request-Id: $(uuidgen -t)" \
+      -H "Authorization: Bearer ${IAM_TOKEN?}" \
+      -d "{\"resource\": {\"id\": \"<идентификатор_облака>\", \"type\": \"resource-manager.cloud\"}}" \
+      quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/List
+    ```
 
-  **Пример ответа**
+    **Пример ответа**
 
-  ```json
-  {
-    "quotaRequests": [
-      {
-        "id": "atdp0kd3799e********",
-        "resource": {
-          "id": "b1gia87mbaom********",
-          "type": "resource-manager.cloud"
-        },
-        "createdAt": "2025-09-01T08:46:28.091109Z",
-        "status": "PROCESSING",
-        "quotaLimits": [
-          {
-            "quotaId": "iam.accessKeys.count",
-            "desiredLimit": 1001,
-            "status": "PROCESSING"
-          }
-        ],
-        "createdBy": "ajegtlf2q28a********"
-      },
-      ...
-    ]
-  }
-  ```
+    ```json
+    {
+      "quotaRequests": [
+        {
+          "id": "atdp0kd3799e********",
+          "resource": {
+            "id": "b1gia87mbaom********",
+            "type": "resource-manager.cloud"
+          },
+          "createdAt": "2025-09-01T08:46:28.091109Z",
+          "status": "PROCESSING",
+          "quotaLimits": [
+            {
+              "quotaId": "iam.accessKeys.count",
+              "desiredLimit": 1001,
+              "status": "PROCESSING"
+            }
+          ],
+          "createdBy": "ajegtlf2q28a********"
+        }
+      ]
+    }
+    ```
 
 {% endlist %}
 
@@ -534,7 +541,7 @@
 
   **Пример ответа**
 
-  ```bash
+  ```text
   id: atdogfioseaq********
   resource:
     id: b1gia87mbaom********
@@ -554,121 +561,121 @@
 
 - REST API {#api}
 
-  Воспользуйтесь методом REST API [get](api-ref/QuotaRequest/get.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md). Передайте идентификатор запроса на изменение квоты.
+    Воспользуйтесь методом REST API [get](api-ref/QuotaRequest/get.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md). Передайте идентификатор запроса на изменение квоты.
 
-  **Пример запроса**
+    **Пример запроса**
 
-  ```bash
-  curl \
-    --request GET \
-    --header "X-Request-Id: $(uuidgen -t)" \
-    --header "Authorization: Bearer ${IAM_TOKEN?}" \
-    'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests/<идентификатор_запроса>'
-  ```
+    ```bash
+    curl \
+      --request GET \
+      --header "X-Request-Id: $(uuidgen -t)" \
+      --header "Authorization: Bearer ${IAM_TOKEN?}" \
+      'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests/<идентификатор_запроса>'
+    ```
 
-  **Пример ответа (запрос в ожидании)**
+    **Пример ответа (запрос в ожидании)**
 
-  ```json
-  {
-    "resource": {
-      "id": "b1gia87mbaom********",
-      "type": "resource-manager.cloud"
-    },
-    "quotaLimits": [
-      {
-        "quotaId": "iam.accessKeys.count",
-        "desiredLimit": 1001,
-        "status": "PROCESSING"
-      }
-    ],
-    "id": "atdp0kd3799e********",
-    "createdAt": "2025-09-01T08:46:28.091109Z",
-    "status": "PENDING",
-    "createdBy": "ajegtlf2q28a********"
-  }
-  ```
+    ```json
+    {
+      "resource": {
+        "id": "b1gia87mbaom********",
+        "type": "resource-manager.cloud"
+      },
+      "quotaLimits": [
+        {
+          "quotaId": "iam.accessKeys.count",
+          "desiredLimit": 1001,
+          "status": "PROCESSING"
+        }
+      ],
+      "id": "atdp0kd3799e********",
+      "createdAt": "2025-09-01T08:46:28.091109Z",
+      "status": "PENDING",
+      "createdBy": "ajegtlf2q28a********"
+    }
+    ```
 
-  **Пример ответа (запрос отменен)**
+    **Пример ответа (запрос отменен)**
 
-  ```json
-  {
-    "resource": {
-      "id": "b1gia87mbaom********",
-      "type": "resource-manager.cloud"
-    },
-    "quotaLimits": [
-      {
-        "quotaId": "iam.accessKeys.count",
-        "desiredLimit": 1001,
-        "status": "CANCELED",
-        "modifiedBy": "ajeol2afu1js********"
-      }
-    ],
-    "id": "atd67f3m9k92********",
-    "createdAt": "2025-09-01T11:48:31.847524Z",
-    "status": "CANCELED",
-    "createdBy": "ajeol2afu1js********"
-  }
-  ```
+    ```json
+    {
+      "resource": {
+        "id": "b1gia87mbaom********",
+        "type": "resource-manager.cloud"
+      },
+      "quotaLimits": [
+        {
+          "quotaId": "iam.accessKeys.count",
+          "desiredLimit": 1001,
+          "status": "CANCELED",
+          "modifiedBy": "ajeol2afu1js********"
+        }
+      ],
+      "id": "atd67f3m9k92********",
+      "createdAt": "2025-09-01T11:48:31.847524Z",
+      "status": "CANCELED",
+      "createdBy": "ajeol2afu1js********"
+    }
+    ```
 
 - gRPC API {#grpc-api}
 
-  Воспользуйтесь вызовом gRPC API [QuotaRequestService/Get](api-ref/grpc/QuotaRequest/get.md). Передайте идентификатор запроса на изменение квоты.
+    Воспользуйтесь вызовом gRPC API [QuotaRequestService/Get](api-ref/grpc/QuotaRequest/get.md). Передайте идентификатор запроса на изменение квоты.
 
-  **Пример запроса**
+    **Пример запроса**
 
-  ```bash
-  grpcurl \
-    -H "X-Request-Id: $(uuidgen -t)" \
-    -H "Authorization: Bearer ${IAM_TOKEN?}" \
-    -d "{\"quota_request_id\": \"<идентификатор_запроса>\"}" \
-    quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Get
-  ```
+    ```bash
+    grpcurl \
+      -H "X-Request-Id: $(uuidgen -t)" \
+      -H "Authorization: Bearer ${IAM_TOKEN?}" \
+      -d "{\"quota_request_id\": \"<идентификатор_запроса>\"}" \
+      quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Get
+    ```
 
-  **Пример ответа (запрос в ожидании)**
+    **Пример ответа (запрос в ожидании)**
 
-  ```json
-  {
-    "id": "atdp0kd3799e********",
-    "resource": {
-      "id": "b1gia87mbaom********",
-      "type": "resource-manager.cloud"
-    },
-    "createdAt": "2025-09-01T08:46:28.091109Z",
-    "status": "PENDING",
-    "quotaLimits": [
-      {
-        "quotaId": "iam.accessKeys.count",
-        "desiredLimit": 1001,
-        "status": "PROCESSING"
-      }
-    ],
-    "createdBy": "ajegtlf2q28a********"
-  }
-  ```
+    ```json
+    {
+      "id": "atdp0kd3799e********",
+      "resource": {
+        "id": "b1gia87mbaom********",
+        "type": "resource-manager.cloud"
+      },
+      "createdAt": "2025-09-01T08:46:28.091109Z",
+      "status": "PENDING",
+      "quotaLimits": [
+        {
+          "quotaId": "iam.accessKeys.count",
+          "desiredLimit": 1001,
+          "status": "PROCESSING"
+        }
+      ],
+      "createdBy": "ajegtlf2q28a********"
+    }
+    ```
 
-  **Пример ответа (запрос отменен)**
+    **Пример ответа (запрос отменен)**
 
-  ```json
-  {
-    "id": "atd67f3m9k92********",
-    "resource": {
-      "id": "b1gia87mbaom********",
-      "type": "resource-manager.cloud"
-    },
-    "createdAt": "2025-09-01T11:48:31.847524Z",
-    "status": "CANCELED",
-    "quotaLimits": [
-      {
-        "quotaId": "iam.accessKeys.count",
-        "desiredLimit": 1001,
-        "status": "CANCELED",
-        "modifiedBy": "ajeol2afu1js********"
-      }
-    ],
-    "createdBy": "ajeol2afu1js********"
-  }
-  ```
+    ```json
+    {
+      "id": "atd67f3m9k92********",
+      "resource": {
+        "id": "b1gia87mbaom********",
+        "type": "resource-manager.cloud"
+      },
+      "createdAt": "2025-09-01T11:48:31.847524Z",
+      "status": "CANCELED",
+      "quotaLimits": [
+        {
+          "quotaId": "iam.accessKeys.count",
+          "desiredLimit": 1001,
+          "status": "CANCELED",
+          "modifiedBy": "ajeol2afu1js********"
+        }
+      ],
+      "createdBy": "ajeol2afu1js********"
+    }
+    ```
 
 {% endlist %}
 
@@ -735,125 +742,123 @@
 
 - REST API {#api}
 
-  Воспользуйтесь методом REST API [list](api-ref/QuotaRequest/list.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md) с параметром `filter`. Отфильтровать запросы можно только по их статусу.
+    Воспользуйтесь методом REST API [list](api-ref/QuotaRequest/list.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md) с параметром `filter`. Отфильтровать запросы можно только по их статусу.
 
-  **Пример запроса**
+    **Пример запроса**
 
-  ```bash
-  curl \
-    --request GET \
-    --header "X-Request-Id: $(uuidgen -t)" \
-    --header "Authorization: Bearer ${IAM_TOKEN?}" \
-    'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests?page_size=1&resource.id=<идентификатор_облака>&resource.type=resource-manager.cloud&filter=status%20in%20(%27CANCELED%27%2C%20%27PENDING%27)&page_size=100'
-  ```
+    ```bash
+    curl \
+      --request GET \
+      --header "X-Request-Id: $(uuidgen -t)" \
+      --header "Authorization: Bearer ${IAM_TOKEN?}" \
+      'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests?pageSize=100&resource.id=<идентификатор_облака>&resource.type=resource-manager.cloud&filter=status%20in%20(%27CANCELED%27%2C%20%27PENDING%27)'
+    ```
+    
+    Фильтр выбирает запросы, которые были отменены (`CANCELED`) или находятся в ожидании (`PENDING`).
+
+    **Пример ответа**
   
-  Фильтр выбирает запросы, которые были отменены (`CANCELED`) или находятся в ожидании (`PENDING`).
-
-  **Пример ответа**
-  
-  ```json
-  {
-    "quotaRequests": [
-      {
-        "resource": {
-          "id": "b1gia87mbaom********",
-          "type": "resource-manager.cloud"
+    ```json
+    {
+      "quotaRequests": [
+        {
+          "resource": {
+            "id": "b1gia87mbaom********",
+            "type": "resource-manager.cloud"
+          },
+          "quotaLimits": [
+            {
+              "quotaId": "iam.accessKeys.count",
+              "desiredLimit": 1001,
+              "status": "PROCESSING"
+            }
+          ],
+          "id": "atdp0kd3799e********",
+          "createdAt": "2025-09-01T08:46:28.091109Z",
+          "status": "PENDING",
+          "createdBy": "ajegtlf2q28a********"
         },
-        "quotaLimits": [
-          {
-            "quotaId": "iam.accessKeys.count",
-            "desiredLimit": 1001,
-            "status": "PROCESSING"
-          }
-        ],
-        "id": "atdp0kd3799e********",
-        "createdAt": "2025-09-01T08:46:28.091109Z",
-        "status": "PENDING",
-        "createdBy": "ajegtlf2q28a********"
-      },
-      {
-        "resource": {
-          "id": "b1gia87mbaom********",
-          "type": "resource-manager.cloud"
-        },
-        "quotaLimits": [
-          {
-            "quotaId": "iam.accessKeys.count",
-            "desiredLimit": 10000,
-            "status": "CANCELED",
-            "modifiedBy": "ajegtlf2q28a********"
-          }
-        ],
-        "id": "atdg5kdelhfr********",
-        "createdAt": "2025-08-25T15:30:03.773669Z",
-        "status": "CANCELED",
-        "createdBy": "ajegtlf2q28a********"
-      },
-      ...
-    ]
-  }
-  ```
+        {
+          "resource": {
+            "id": "b1gia87mbaom********",
+            "type": "resource-manager.cloud"
+          },
+          "quotaLimits": [
+            {
+              "quotaId": "iam.accessKeys.count",
+              "desiredLimit": 10000,
+              "status": "CANCELED",
+              "modifiedBy": "ajegtlf2q28a********"
+            }
+          ],
+          "id": "atdg5kdelhfr********",
+          "createdAt": "2025-08-25T15:30:03.773669Z",
+          "status": "CANCELED",
+          "createdBy": "ajegtlf2q28a********"
+        }
+      ]
+    }
+    ```
 
 - gRPC API {#grpc-api}
 
-  Воспользуйтесь вызовом gRPC API [QuotaRequestService/List](api-ref/grpc/QuotaRequest/list.md) с параметром `filter`. Отфильтровать запросы можно только по их статусу.
+    Воспользуйтесь вызовом gRPC API [QuotaRequestService/List](api-ref/grpc/QuotaRequest/list.md) с параметром `filter`. Отфильтровать запросы можно только по их статусу.
 
-  **Пример запроса**
+    **Пример запроса**
 
-  ```bash
-  grpcurl \
-    -H "X-Request-Id: $(uuidgen -t)" \
-    -H "Authorization: Bearer ${IAM_TOKEN?}" \
-    -d "{\"resource\": {\"id\": \"<идентификатор_облака>\", \"type\": \"resource-manager.cloud\"}, \"filter\": \"status in ('CANCELED', 'PENDING')\"}" \
-    quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/List
-  ```
+    ```bash
+    grpcurl \
+      -H "X-Request-Id: $(uuidgen -t)" \
+      -H "Authorization: Bearer ${IAM_TOKEN?}" \
+      -d "{\"resource\": {\"id\": \"<идентификатор_облака>\", \"type\": \"resource-manager.cloud\"}, \"filter\": \"status in ('CANCELED', 'PENDING')\"}" \
+      quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/List
+    ```
+    
+    Фильтр выбирает запросы, которые были отменены (`CANCELED`) или находятся в ожидании (`PENDING`).
+
+    **Пример ответа**
   
-  Фильтр выбирает запросы, которые были отменены (`CANCELED`) или находятся в ожидании (`PENDING`).
-
-  **Пример ответа**
-  
-  ```json
-  {
-    "quotaRequests": [
-      {
-        "id": "atdp0kd3799e********",
-        "resource": {
-          "id": "b1gia87mbaom********",
-          "type": "resource-manager.cloud"
+    ```json
+    {
+      "quotaRequests": [
+        {
+          "id": "atdp0kd3799e********",
+          "resource": {
+            "id": "b1gia87mbaom********",
+            "type": "resource-manager.cloud"
+          },
+          "createdAt": "2025-09-01T08:46:28.091109Z",
+          "status": "PENDING",
+          "quotaLimits": [
+            {
+              "quotaId": "iam.accessKeys.count",
+              "desiredLimit": 1001,
+              "status": "PROCESSING"
+            }
+          ],
+          "createdBy": "ajegtlf2q28a********"
         },
-        "createdAt": "2025-09-01T08:46:28.091109Z",
-        "status": "PENDING",
-        "quotaLimits": [
-          {
-            "quotaId": "iam.accessKeys.count",
-            "desiredLimit": 1001,
-            "status": "PROCESSING"
-          }
-        ],
-        "createdBy": "ajegtlf2q28a********"
-      },
-      {
-        "id": "atd9im7tcr89********",
-        "resource": {
-          "id": "b1gia87mbaom********",
-          "type": "resource-manager.cloud"
-        },
-        "createdAt": "2025-09-01T17:24:01.580902Z",
-        "status": "CANCELED",
-        "quotaLimits": [
-          {
-            "quotaId": "iam.accessKeys.count",
-            "desiredLimit": 10000,
-            "status": "CANCELED",
-            "modifiedBy": "ajegtlf2q28a********"
-          }
-        ],
-        "createdBy": "ajegtlf2q28a********"
-      },
-      ...
-    ]
-  }
-  ```
+        {
+          "id": "atd9im7tcr89********",
+          "resource": {
+            "id": "b1gia87mbaom********",
+            "type": "resource-manager.cloud"
+          },
+          "createdAt": "2025-09-01T17:24:01.580902Z",
+          "status": "CANCELED",
+          "quotaLimits": [
+            {
+              "quotaId": "iam.accessKeys.count",
+              "desiredLimit": 10000,
+              "status": "CANCELED",
+              "modifiedBy": "ajegtlf2q28a********"
+            }
+          ],
+          "createdBy": "ajegtlf2q28a********"
+        }
+      ]
+    }
+    ```
 
 {% endlist %}
 
@@ -892,65 +897,66 @@
 
 - REST API {#api}
 
-  Воспользуйтесь методом REST API [cancel](api-ref/QuotaRequest/cancel.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md). Передайте идентификатор запроса, который хотите отменить.
+    Воспользуйтесь методом REST API [cancel](api-ref/QuotaRequest/cancel.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md). Передайте идентификатор запроса, а в поле `quotaIds` — идентификаторы квот, изменение которых хотите отменить.
 
-  **Пример запроса**
+    **Пример запроса**
 
-  ```bash
-  curl \
-    --request POST \
-    --header "X-Request-Id: $(uuidgen -t)" \
-    --header "Authorization: Bearer ${IAM_TOKEN?}" \
-    --data "{\"quota_ids\": [ \"iam.accessKeys.count\" ]}" \
-    'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests/<идентификатор_запроса>/cancel'
-  ```
+    ```bash
+    curl \
+      --request POST \
+      --header "X-Request-Id: $(uuidgen -t)" \
+      --header "Authorization: Bearer ${IAM_TOKEN?}" \
+      --header "Content-Type: application/json" \
+      --data '{"quotaIds": ["iam.accessKeys.count"]}' \
+      'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests/<идентификатор_запроса>/cancel'
+    ```
 
-  **Пример ответа**
+    **Пример ответа**
   
-  ```json
-  {
-    "done": false,
-    "metadata": {
-      "@type": "type.googleapis.com/yandex.cloud.quotamanager.v1.CancelQuotaRequestMetadata",
-      "quotaRequestId": "atdandtanku3********"
-    },
-    "id": "atdu5jt4dtve********",
-    "description": "Cancel quota request",
-    "createdAt": "2025-09-01T12:28:43.805955898Z",
-    "createdBy": "ajeol2afu1js********",
-    "modifiedAt": "2025-09-01T12:28:43.805955898Z"
-  }
-  ```
+    ```json
+    {
+      "done": false,
+      "metadata": {
+        "@type": "type.googleapis.com/yandex.cloud.quotamanager.v1.CancelQuotaRequestMetadata",
+        "quotaRequestId": "atdandtanku3********"
+      },
+      "id": "atdu5jt4dtve********",
+      "description": "Cancel quota request",
+      "createdAt": "2025-09-01T12:28:43.805955898Z",
+      "createdBy": "ajeol2afu1js********",
+      "modifiedAt": "2025-09-01T12:28:43.805955898Z"
+    }
+    ```
 
 - gRPC API {#grpc-api}
 
-  Воспользуйтесь вызовом gRPC API [QuotaRequestService/Cancel](api-ref/grpc/QuotaRequest/cancel.md). Передайте идентификатор запроса, который хотите отменить.
+    Воспользуйтесь вызовом gRPC API [QuotaRequestService/Cancel](api-ref/grpc/QuotaRequest/cancel.md). Передайте идентификатор запроса, а в поле `quota_ids` — идентификаторы квот, изменение которых хотите отменить.
 
-  **Пример запроса**
+    **Пример запроса**
 
-  ```bash
-  grpcurl \
-    -H "X-Request-Id: $(uuidgen -t)" \
-    -H "Authorization: Bearer ${IAM_TOKEN?}" \
-    -d "{ \"quota_request_id\": \"<идентификатор_запроса>\", \"quota_ids\": [ \"iam.accessKeys.count\" ]}" \
-    quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Cancel
-  ```
+    ```bash
+    grpcurl \
+      -H "X-Request-Id: $(uuidgen -t)" \
+      -H "Authorization: Bearer ${IAM_TOKEN?}" \
+      -d "{ \"quota_request_id\": \"<идентификатор_запроса>\", \"quota_ids\": [ \"iam.accessKeys.count\" ]}" \
+      quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Cancel
+    ```
 
-  **Пример ответа**
+    **Пример ответа**
   
-  ```json
-  {
-    "id": "atd6ervtiljj********",
-    "description": "Cancel quota request",
-    "createdAt": "2025-09-01T11:50:32.151491373Z",
-    "createdBy": "ajeol2afu1js********",
-    "modifiedAt": "2025-09-01T11:50:32.151491373Z",
-    "metadata": {
-      "@type": "type.googleapis.com/yandex.cloud.quotamanager.v1.CancelQuotaRequestMetadata",
-      "quotaRequestId": "atd67f3m9k92********"
+    ```json
+    {
+      "id": "atd6ervtiljj********",
+      "description": "Cancel quota request",
+      "createdAt": "2025-09-01T11:50:32.151491373Z",
+      "createdBy": "ajeol2afu1js********",
+      "modifiedAt": "2025-09-01T11:50:32.151491373Z",
+      "metadata": {
+        "@type": "type.googleapis.com/yandex.cloud.quotamanager.v1.CancelQuotaRequestMetadata",
+        "quotaRequestId": "atd67f3m9k92********"
+      }
     }
-  }
-  ```
+    ```
 
 {% endlist %}
 
@@ -982,110 +988,108 @@
 
 - REST API {#api}
 
-  Воспользуйтесь методом REST API [listOperations](api-ref/QuotaRequest/listOperations.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md). Передайте идентификатор запроса на изменение квоты.
+    Воспользуйтесь методом REST API [listOperations](api-ref/QuotaRequest/listOperations.md) для ресурса [QuotaRequest](api-ref/QuotaRequest/index.md). Передайте идентификатор запроса на изменение квоты.
 
-  **Пример запроса**
+    **Пример запроса**
 
-  ```bash
-  curl \
-    --request GET \
-    --header "X-Request-Id: $(uuidgen -t)" \
-    --header "Authorization: Bearer ${IAM_TOKEN?}" \
-    'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests/<идентификатор_запроса>/operations'
-  ```
+    ```bash
+    curl \
+      --request GET \
+      --header "X-Request-Id: $(uuidgen -t)" \
+      --header "Authorization: Bearer ${IAM_TOKEN?}" \
+      'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests/<идентификатор_запроса>/operations'
+    ```
 
-  **Пример ответа**
+    **Пример ответа**
   
-  ```json
-  {
-    "operations": [
-      {
-        "done": true,
-        "metadata": {
-          "@type": "type.googleapis.com/yandex.cloud.quotamanager.v1.CancelQuotaRequestMetadata",
-          "quotaRequestId": "atd67f3m9k92********"
+    ```json
+    {
+      "operations": [
+        {
+          "done": true,
+          "metadata": {
+            "@type": "type.googleapis.com/yandex.cloud.quotamanager.v1.CancelQuotaRequestMetadata",
+            "quotaRequestId": "atd67f3m9k92********"
+          },
+          "response": {
+            "@type": "type.googleapis.com/google.protobuf.Empty"
+          },
+          "id": "atd6ervtiljj********",
+          "description": "Cancel quota request",
+          "createdAt": "2025-09-01T11:50:32.151Z",
+          "createdBy": "ajeol2afu1js********",
+          "modifiedAt": "2025-09-01T11:50:41.792964295Z"
         },
-        "response": {
-          "@type": "type.googleapis.com/google.protobuf.Empty"
-        },
-        "id": "atd6ervtiljj********",
-        "description": "Cancel quota request",
-        "createdAt": "2025-09-01T11:50:32.151Z",
-        "createdBy": "ajeol2afu1js********",
-        "modifiedAt": "2025-09-01T11:50:41.792964295Z"
-      },
-      {
-        "done": true,
-        "metadata": {
-          "@type": "type.googleapis.com/yandex.cloud.quotamanager.v1.CreateQuotaRequestMetadata",
-          "quotaRequestId": "atd67f3m9k92********"
-        },
-        "response": {
-          "@type": "type.googleapis.com/google.protobuf.Empty"
-        },
-        "id": "atdb3g33v9a9********",
-        "description": "Create quota request",
-        "createdAt": "2025-09-01T11:48:31.880Z",
-        "createdBy": "ajeol2afu1js********",
-        "modifiedAt": "2025-09-01T11:48:47.971065163Z"
-      }
-    ]
-  }
-  ```
+        {
+          "done": true,
+          "metadata": {
+            "@type": "type.googleapis.com/yandex.cloud.quotamanager.v1.CreateQuotaRequestMetadata",
+            "quotaRequestId": "atd67f3m9k92********"
+          },
+          "response": {
+            "@type": "type.googleapis.com/google.protobuf.Empty"
+          },
+          "id": "atdb3g33v9a9********",
+          "description": "Create quota request",
+          "createdAt": "2025-09-01T11:48:31.880Z",
+          "createdBy": "ajeol2afu1js********",
+          "modifiedAt": "2025-09-01T11:48:47.971065163Z"
+        }
+      ]
+    }
+    ```
 
 - gRPC API {#grpc-api}
 
-  Воспользуйтесь вызовом gRPC API [QuotaRequestService/ListOperations](api-ref/grpc/QuotaRequest/listOperations.md). Передайте идентификатор запроса на изменение квоты.
+    Воспользуйтесь вызовом gRPC API [QuotaRequestService/ListOperations](api-ref/grpc/QuotaRequest/listOperations.md). Передайте идентификатор запроса на изменение квоты.
 
-  **Пример запроса**
+    **Пример запроса**
 
-  ```bash
-  grpcurl \
-    -H "X-Request-Id: $(uuidgen -t)" \
-    -H "Authorization: Bearer ${IAM_TOKEN?}" \
-    -d "{ \"quota_request_id\": \"<идентификатор_запроса>\"}" \
-    quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/ListOperations
-  ```
+    ```bash
+    grpcurl \
+      -H "X-Request-Id: $(uuidgen -t)" \
+      -H "Authorization: Bearer ${IAM_TOKEN?}" \
+      -d "{ \"quota_request_id\": \"<идентификатор_запроса>\"}" \
+      quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/ListOperations
+    ```
 
-  **Пример ответа**
+    **Пример ответа**
   
-  ```json
-  {
-    "operations": [
-      {
-        "id": "atd6ervtiljj********",
-        "description": "Cancel quota request",
-        "createdAt": "2025-09-01T11:50:32.151Z",
-        "createdBy": "ajeol2afu1js********",
-        "modifiedAt": "2025-09-01T11:50:41.792964295Z",
-        "done": true,
-        "metadata": {
-          "@type": "type.googleapis.com/yandex.cloud.quotamanager.v1.CancelQuotaRequestMetadata",
-          "quotaRequestId": "atd67f3m9k92********"
+    ```json
+    {
+      "operations": [
+        {
+          "id": "atd6ervtiljj********",
+          "description": "Cancel quota request",
+          "createdAt": "2025-09-01T11:50:32.151Z",
+          "createdBy": "ajeol2afu1js********",
+          "modifiedAt": "2025-09-01T11:50:41.792964295Z",
+          "done": true,
+          "metadata": {
+            "@type": "type.googleapis.com/yandex.cloud.quotamanager.v1.CancelQuotaRequestMetadata",
+            "quotaRequestId": "atd67f3m9k92********"
+          },
+          "response": {
+            "@type": "type.googleapis.com/google.protobuf.Empty"
+          }
         },
-        "response": {
-          "@type": "type.googleapis.com/google.protobuf.Empty",
-          "value": {}
+        {
+          "id": "atdb3g33v9a9********",
+          "description": "Create quota request",
+          "createdAt": "2025-09-01T11:48:31.880Z",
+          "createdBy": "ajeol2afu1js********",
+          "modifiedAt": "2025-09-01T11:48:47.971065163Z",
+          "done": true,
+          "metadata": {
+            "@type": "type.googleapis.com/yandex.cloud.quotamanager.v1.CreateQuotaRequestMetadata",
+            "quotaRequestId": "atd67f3m9k92********"
+          },
+          "response": {
+            "@type": "type.googleapis.com/google.protobuf.Empty"
+          }
         }
-      },
-      {
-        "id": "atdb3g33v9a9********",
-        "description": "Create quota request",
-        "createdAt": "2025-09-01T11:48:31.880Z",
-        "createdBy": "ajeol2afu1js********",
-        "modifiedAt": "2025-09-01T11:48:47.971065163Z",
-        "done": true,
-        "metadata": {
-          "@type": "type.googleapis.com/yandex.cloud.quotamanager.v1.CreateQuotaRequestMetadata",
-          "quotaRequestId": "atd67f3m9k92********"
-        },
-        "response": {
-          "@type": "type.googleapis.com/google.protobuf.Empty",
-          "value": {}
-        }
-      }
-    ]
-  }
-  ```
+      ]
+    }
+    ```
 
 {% endlist %}

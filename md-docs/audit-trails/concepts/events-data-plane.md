@@ -44,10 +44,8 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 * [Yandex Managed Service for Valkey™](events-data-plane.md#mrd)
 * [Yandex Object Storage](events-data-plane.md#objstorage)
 * [Yandex Security Deck](events-data-plane.md#security-deck)
-* [Yandex SpeechKit](events-data-plane.md#speechkit)
 * [Yandex SpeechSense](events-data-plane.md#speechsense)
 * [Yandex Smart Web Security](events-data-plane.md#sws)
-* [Yandex Translate](events-data-plane.md#translate)
 * [Yandex Virtual Private Cloud](events-data-plane.md#vpc)
 * [Яндекс Вики](events-data-plane.md#wiki)
 * [Yandex WebSQL](events-data-plane.md#websql)
@@ -468,17 +466,6 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `TriggerRuntimeControl` | Срабатывание модуля KSPM при контроле безопасности рабочих нагрузок
 `TriggerRuntimeProcessInfo` | Срабатывание модуля KSPM при получении информации о процессе
 
-## Yandex SpeechKit {#speechkit}
-
-Имя сервиса — `ai.speechkit`.
-
-Имя события | Описание
---- | ---
-`stt.GetRecognition` | Запрос на получение результатов асинхронного распознавания речи
-`stt.RecognizeSpeechAsync` | Запрос на асинхронное для распознавание речи
-`stt.RecognizeSpeechStream` | Запрос на потоковое распознавание речи
-`tts.UtteranceSynthesis` | Запрос на синтез речи
-
 ## Yandex SpeechSense {#speechsense}
 
 Имя сервиса — `speechsense`.
@@ -503,14 +490,6 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `WafMatchedExclusionRule` | Срабатывание правила-исключения из профиля WAF
 `WafMatchedRule` | Срабатывание правила из профиля WAF
 
-## Yandex Translate {#translate}
-
-Имя сервиса — `ai.translate`.
-
-Имя события | Описание
---- | ---
-`TranslateText` | Запрос на перевод текста
-
 ## Yandex Virtual Private Cloud {#vpc}
 
 Имя сервиса — `network`.
@@ -520,7 +499,6 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `CreateIpfix` | Создание записи о сетевой трансляции адреса ([NAT](https://wikipedia.org/wiki/Nat))
 `DeleteIpfix` | Удаление записи о сетевой трансляции адреса (NAT)
 `ExternalFlow` | Поток трафика во внешние сети по отношению к VPC
-
 
 ## Яндекс Вики {#wiki}
 

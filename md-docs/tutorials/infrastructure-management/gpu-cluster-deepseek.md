@@ -3,15 +3,7 @@
 # Запуск языковой модели DeepSeek-R1 в кластере GPU Yandex Compute Cloud
 
 
-
-{% note info %}
-
-Кластеры GPU сейчас доступны только в [зонах доступности](../../overview/concepts/geo-scope.md) `ru-central1-a` и `ru-central1-d`. Добавить виртуальную машину (ВМ) в кластер GPU можно только из той же зоны доступности.
-
-{% endnote %}
-
-
-С помощью этой инструкции вы создадите [кластер GPU](../../compute/concepts/gpus.md#gpu-clusters) из двух виртуальных машин и запустите на нем языковую модель [DeepSeek-R1](https://huggingface.co/deepseek-ai/DeepSeek-R1).
+С помощью этой инструкции вы создадите [кластер GPU](../../compute/concepts/gpus.md#gpu-clusters) из двух виртуальных машин и запустите на нем языковую модель [DeepSeek-R1](https://huggingface.co/deepseek-ai/DeepSeek-R1). Виртуальные машины должны находиться в одной зоне доступности с кластером.
 
 Чтобы запустить языковую модель в кластере:
 

@@ -5,25 +5,25 @@ description: Следуя данной инструкции, вы сможете
 
 # Изменить квоты
 
-{% include [preview-quota](../../_includes/quota-manager/preview-quota.md) %}
-
-{% include [quota-level-access](../../_includes/quota-manager/quota-level-access.md) %}
-
 Квоты можно увеличить по запросу в пределах лимитов — технических ограничений платформы.
 
 {% include [request-quota-roles](../../_includes/quota-manager/request-quota-roles.md) %}
+
+Интерфейсы просмотра и запроса квот:
+
+* [{{ cloud-center }}]({{ cloud-center-link }}/quotas) — ссылка на страницу квот последней выбранной организации.
+* [Консоль управления]({{ link-console-quotas }}) — ссылка на страницу квот последнего выбранного облака.
+* [CLI](../../quota-manager/cli-ref/index.md) и [API](../../quota-manager/api-ref/authentication.md) — управление квотами организаций и облаков. Для работы с запросами на изменение квот обратитесь в [службу поддержки]({{ link-console-support }}).
+
+В большинстве сервисов квоты действуют на уровне облака. В {{ resmgr-name }}, {{ video-name }} и некоторых других сервисах квоты действуют на уровне организации. В {{ iam-short-name }} есть квоты обоих уровней.
 
 ## Запросить изменение квоты {#request-quota-change}
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Консоль управления или {{ cloud-center }} {#console}
 
   {% include [request-quota](../../_includes/quota-manager/request-quota.md) %}
-
-- Интерфейс {{ cloud-center }} {#cloud-center}
-
-  {% include [request-quota](../../_includes/quota-manager/request-quota-org.md) %}
 
 - CLI {#cli}
 
@@ -47,33 +47,21 @@ description: Следуя данной инструкции, вы сможете
 
 ## Посмотреть статус и операции с запросом на изменение квоты {#view-request-status}
 
+Проверьте [статус запроса и результат изменения каждой квоты](../concepts/index.md#quota-request-statuses):
+
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Консоль управления или {{ cloud-center }} {#console}
 
-  Чтобы посмотреть статус и операции с запросом на изменение квоты для облака:
-
-  1. В [консоли управления]({{ link-console-main }}) выберите облако и на панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **{{ ui-key.yacloud.dashboard.label_quotas_gAtoT }}**.
-
-  1. Перейдите на вкладку **{{ ui-key.yacloud_components.Quota-manager.label_history-tab_n8GVs }}**. При необходимости используйте фильтр по статусу.
-
-  1. Откройте нужный запрос, чтобы посмотреть его статус, ответы службы поддержки и список операций.
-
-- Интерфейс {{ cloud-center }} {#cloud-center}
-
-  Чтобы посмотреть статус и операции с запросом на изменение квоты для организации:
-
-  1. В [{{ cloud-center }}]({{ cloud-center-link }}) выберите организацию и на панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **{{ ui-key.yacloud_org.center.navigation.label_quotas }}**.
-
-  1. Перейдите на вкладку **{{ ui-key.yacloud_org.center.quotas.tab_history }}**. При необходимости используйте фильтр по статусу.
-
-  1. Откройте нужный запрос, чтобы посмотреть его статус, ответы службы поддержки и список операций.
+  {% include [view-request-status-console](../../_includes/quota-manager/view-request-status-console.md) %}
 
 - CLI {#cli}
 
   1. Посмотрите список запросов на изменение квот и найдите статус нужного запроса:
 
      {% include [list-quota-requests-cli](../../_includes/quota-manager/list-quota-requests-cli.md) %}
+
+     В каждом запросе поле `status` содержит общий статус. В списке `quota_limits` для каждой квоты указаны `status` — статус изменения, `desired_limit` — запрошенное итоговое значение и `approved_limit` — утвержденное.
 
   1. Посмотрите список операций с запросом:
 
@@ -83,6 +71,8 @@ description: Следуя данной инструкции, вы сможете
 
     Чтобы посмотреть статус запроса на изменение квот, воспользуйтесь методом REST API [get](../api-ref/QuotaRequest/get.md) для ресурса [QuotaRequest](../api-ref/QuotaRequest/) или вызовом gRPC API [QuotaRequestService/Get](../api-ref/grpc/QuotaRequest/get.md).
 
+    В JSON-ответе поле `status` показывает статус запроса. В списке `quotaLimits` для каждой квоты указаны `status` — статус изменения, `desiredLimit` — запрошенное итоговое значение и `approvedLimit` — утвержденное.
+
     Чтобы посмотреть операции с запросом на изменение квот, воспользуйтесь методом REST API [listOperations](../api-ref/QuotaRequest/listOperations.md) для ресурса [QuotaRequest](../api-ref/QuotaRequest/) или вызовом gRPC API [QuotaRequestService/ListOperations](../api-ref/grpc/QuotaRequest/listOperations.md).
 
 {% endlist %}
@@ -91,17 +81,9 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Консоль управления или {{ cloud-center }} {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите облако и на панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **{{ ui-key.yacloud.dashboard.label_quotas_gAtoT }}**.
-
-  1. Перейдите на вкладку **{{ ui-key.yacloud_components.Quota-manager.label_history-tab_n8GVs }}**. При необходимости используйте фильтры для поиска запросов.
-
-- Интерфейс {{ cloud-center }} {#cloud-center}
-
-  1. В [{{ cloud-center }}]({{ cloud-center-link }}) выберите организацию и на панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **{{ ui-key.yacloud_org.center.navigation.label_quotas }}**.
-
-  1. Перейдите на вкладку **{{ ui-key.yacloud_org.center.quotas.tab_history }}**. При необходимости используйте фильтры для поиска запросов.
+  {% include [list-quota-requests-console](../../_includes/quota-manager/list-quota-requests-console.md) %}
 
 - CLI {#cli}
 
@@ -115,27 +97,13 @@ description: Следуя данной инструкции, вы сможете
 
 ## Отменить запрос на изменение квоты {#cancel-quota-request}
 
+В консоли управления и {{ cloud-center }} можно отменить запрос в статусе **{{ ui-key.yacloud_components.Quota-manager.request_status_processing_6VM8E }}** (`PROCESSING`). Через CLI и API можно отменить изменение отдельных квот в запросе.
+
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Консоль управления или {{ cloud-center }} {#console}
 
-  Чтобы отменить запрос на изменение квоты для облака:
-
-  1. В [консоли управления]({{ link-console-main }}) выберите облако и на панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **{{ ui-key.yacloud.dashboard.label_quotas_gAtoT }}**.
-
-  1. Перейдите на вкладку **{{ ui-key.yacloud_components.Quota-manager.label_history-tab_n8GVs }}** и отфильтруйте запросы со статусом **{{ ui-key.yacloud_components.Quota-manager.value_request-status-processing_jiepM }}**.
-
-  1. Откройте нужный запрос и нажмите **{{ ui-key.yacloud_components.iam.cloud.quotas.action_close_request }}**.
-
-- Интерфейс {{ cloud-center }} {#cloud-center}
-
-  Чтобы отменить запрос на изменение квоты для организации:
-
-  1. В [{{ cloud-center }}]({{ cloud-center-link }}) выберите организацию и на панели слева откройте ![image](../../_assets/console-icons/square-plus.svg) **{{ ui-key.yacloud_org.center.navigation.label_quotas }}**.
-
-  1. Перейдите на вкладку **{{ ui-key.yacloud_org.center.quotas.tab_history }}** и отфильтруйте запросы со статусом **{{ ui-key.yacloud_components.Quota-manager.value_request-status-processing_jiepM }}**.
-
-  1. Откройте нужный запрос и нажмите **{{ ui-key.yacloud_components.iam.cloud.quotas.action_close_request }}**.
+  {% include [cancel-quota-request-console](../../_includes/quota-manager/cancel-quota-request-console.md) %}
 
 - CLI {#cli}
 
@@ -144,5 +112,7 @@ description: Следуя данной инструкции, вы сможете
 - API {#api}
 
     Чтобы отменить запрос на изменение квот, воспользуйтесь методом REST API [cancel](../api-ref/QuotaRequest/cancel.md) для ресурса [QuotaRequest](../api-ref/QuotaRequest/) или вызовом gRPC API [QuotaRequestService/Cancel](../api-ref/grpc/QuotaRequest/cancel.md).
+
+    Передайте идентификатор запроса. В поле `quotaIds` для REST API или `quota_ids` для gRPC API укажите идентификаторы квот, изменение которых нужно отменить.
 
 {% endlist %}

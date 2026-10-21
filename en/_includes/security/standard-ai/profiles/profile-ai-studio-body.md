@@ -2,7 +2,7 @@
 
 **Scope and status**
 
-This profile is applied to the managed [{{ ai-studio-name }} API]({{ link-docs-ai }}ai-studio/concepts/api). In the architecture, a specific capability is identified, such as text generation, Responses, Realtime, or another documented API operation. Guardrails and {{ iam-short-name }} access policies only count for actual usage; both features are documented as being at the Preview stage and require a separate availability check.
+This profile is applied to the managed [{{ ai-studio-name }} API]({{ link-docs-ai }}ai-studio/concepts/api). In the architecture, a specific capability is identified, such as text generation, Responses, Realtime, or another documented API operation. Guardrails and {{ iam-short-name }} access policies only count for actual usage. Guardrails are at the Preview stage and require a separate availability check.
 
 {#profile-ai-studio-flow}
 

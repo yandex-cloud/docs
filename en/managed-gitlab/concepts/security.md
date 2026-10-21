@@ -5,6 +5,12 @@ description: In this guide, you will learn about the security measures available
 
 # Security in {{ mgl-name }}
 
+## Integrating with {{ src-name }} Security {#sourcecraft-security}
+
+Instance repositories support [integration with {{ src-name }} Security](sourcecraft-security.md) for secret scanning, software composition analysis, static application security testing, and other security checks. Repositories are mirrored to {{ src-name }}, which runs checks on them and displays the results. Integration uses the paid _{{ src-name }} Security_ add-on.
+
+To enable this integration and view check results, follow [this guide](../operations/sourcecraft-security.md).
+
 ## Detecting vulnerabilities in CI/CD {#vulnerability-detection}
 
 {{ mgl-name }} uses {{ GL }}’s built-in tools to protect your pipelines.

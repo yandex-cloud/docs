@@ -38,6 +38,10 @@ You will be billed for:
 
     You are charged per second of usage, based on consumption. For example, the cost of managing two DNS zones for 360 hours will be the same as the cost of managing one DNS zone for 720 hours.
 
+* [An inbound DNS connection](concepts/dns-connection.md) is a resource that allows you to send DNS requests from an external network to a {{ yandex-cloud }} DNS resolver. A fee is charged for the duration of the connection. You are charged per second of usage.
+
+* Incoming DNS requests are requests originating from an external network via an incoming DNS connection. The cost is calculated in proportion to the number of processed requests.
+
 * Authoritative requests: Any DNS requests to user [public zones](concepts/dns-zone.md#public-zones) from the internet or {{ yandex-cloud }}.
 * Recursive requests: DNS requests for external domain names on the internet from {{ yandex-cloud }} VMs.
 

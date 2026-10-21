@@ -43,7 +43,8 @@
 - Консоль управления {#console}
 
   1. На странице [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления](https://console.yandex.cloud) нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **Создать ресурс** и выберите `Виртуальная машина`.
-  1. В блоке **Образ загрузочного диска** выберите один из публичных образов: [Debian 11](https://yandex.cloud/ru/marketplace/products/yc/debian-11), [Ubuntu 20.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts) или [CentOS 7](https://yandex.cloud/ru/marketplace/products/yc/centos-7).
+  1. В блоке **Общая информация** задайте имя ВМ: `wp-mysql-tutorial-web`.
+  1. В блоке **Образ загрузочного диска** выберите один из публичных образов: [Debian 12](https://yandex.cloud/ru/marketplace/products/yc/debian-12), [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts) или [CentOS Stream 9](https://yandex.cloud/ru/marketplace/products/yc/centos-stream-9).
   1. В блоке **Расположение** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
   1. В блоке **Вычислительные ресурсы** перейдите на вкладку `Своя конфигурация` и укажите необходимую [платформу](../../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
@@ -78,8 +79,6 @@
         
         SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-  1. В блоке **Общая информация** задайте имя ВМ: `wp-mysql-tutorial-web`.
-
       {% note alert %}
       
       IP-адрес и [имя хоста (FQDN)](../../../compute/concepts/network.md#hostname) для подключения к ВМ назначаются ей при создании. Если при создании ВМ вы не выбрали публичный IP-адрес, вы не сможете обращаться к ВМ из интернета.
@@ -102,23 +101,35 @@
 
 - Консоль управления {#console}
 
-  1. На странице каталога в [консоли управления](https://console.yandex.cloud) нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **Создать ресурс** и выберите **Кластер MySQL**.
-  1. В поле **Имя кластера** введите имя: `wp-mysql-tutorial-db-cluster`.
-  1. В блоке **Класс хоста** выберите `s3-c2-m8`.
-  1. В блоке **Размер хранилища** укажите `10 ГБ`.
-  1. В блоке **База данных**:
-     * В поле **Имя БД** введите `wp-mysql-tutorial-db`.
+  1. На странице каталога в [консоли управления](https://console.yandex.cloud) нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **Создать ресурс** и выберите `Кластер MySQL`.
+  1. В блоке **Конфигурация кластера** выберите **Расширенная настройка**.
+  1. В блоке **Общая информация о кластере**:
+     
+     1. В поле **Имя кластера** введите имя: `wp-mysql-tutorial-db-cluster`.
+     1. В поле **Окружение** выберите `PRODUCTION`.
+
+  1. В блоке **Сетевые настройки** в поле **Сеть** выберите сеть, к которой будет подключен кластер.
+  1. В блоке **Ресурсы кластера** в поле **Вычислительные ресурсы кластера** выберите `Intel Ice Lake` → `s3-c2-m8`.
+  1. В блоке **Увеличивать размер**:
+     
+     1. В поле **Максимальный размер хранилища** укажите `100 ГБ`.
+     1. В поле **Хосты** выберите вариант отображения настроек ![blocks](../../../_assets/console-icons/layout-split-rows.svg) и добавьте два [хоста](../../../managed-mysql/concepts/instance-types.md) в разных зонах доступности. При создании хостов не включайте для них **Публичный доступ**.
+
+  1. В блоке **Настройки базы данных**:
+     
+     * В поле **Имя базы данных** введите `wp-mysql-tutorial-db`.
      * В поле **Имя пользователя** введите `wordpress`.
-     * В поле **Пароль** введите пароль, который вы будете использовать для доступа к БД.
-  1. В блоке **Сетевые настройки** выберите сеть, к которой будет подключен кластер.
 
+     
+     * В поле **Пароль** выберите:
 
-  1. В блоке **Хосты** добавьте еще два [хоста](../../../managed-mysql/concepts/instance-types.md) в других зонах доступности. При создании хостов не включайте для них **Публичный доступ**.
+       * **Сгенерировать** — чтобы сгенерировать пароль с помощью сервиса Connection Manager.
 
+       * **Ввести вручную** — чтобы ввести свой пароль. Длина пароля — от 8 до 128 символов.
 
-  1. В блоке **Настройки СУБД** нажмите кнопку **Настроить**.
+       Чтобы увидеть пароль, после создания кластера выберите вкладку **Пользователи** и нажмите **Посмотреть пароль** в строке нужного пользователя. Откроется страница секрета Yandex Lockbox, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
-     В поле **default_authentication_plugin** выберите пункт `mysql_native_password` и нажмите кнопку **Сохранить**.
+  
   1. Нажмите кнопку **Создать кластер**.
 
 {% endlist %}
@@ -146,15 +157,14 @@
 
    - CentOS {#centos}
 
-     ```bash
-     sudo yum -y install epel-release
-     sudo yum -y install nginx
-     sudo rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
-     sudo yum -y --enablerepo=remi-php74 install php php-mysql php-xml php-soap php-xmlrpc php-mbstring php-json php-gd php-mcrypt
-     sudo yum -y --enablerepo=remi-php74 install php-fpm
-     sudo systemctl enable nginx
-     sudo systemctl enable php-fpm
-     ```
+      ```bash
+      sudo dnf -y install epel-release
+      sudo dnf module reset -y php
+      sudo dnf module enable -y php:8.1
+      sudo dnf -y install nginx php php-fpm php-mysqlnd php-xml php-soap php-mbstring php-json php-gd
+      sudo systemctl enable nginx
+      sudo systemctl enable php-fpm
+      ```
 
    {% endlist %}
 
@@ -194,7 +204,7 @@
           location ~ \.php$ {
             try_files $uri =404;
             fastcgi_split_path_info ^(.+\.php)(/.+)$;
-            fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+            fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
             fastcgi_index index.php;
             fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
             include fastcgi_params;
@@ -281,7 +291,7 @@
           location ~ \.php$ {
             try_files $uri =404;
             fastcgi_split_path_info ^(.+\.php)(/.+)$;
-            fastcgi_pass 127.0.0.1:9000;
+            fastcgi_pass unix:/run/php-fpm/www.sock;
             fastcgi_index index.php;
             fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
             include fastcgi_params;
@@ -428,7 +438,7 @@
 
      ```bash
      sudo systemctl restart nginx.service
-     sudo systemctl restart php7.4-fpm.service
+     sudo systemctl restart php8.1-fpm.service
      ```
 
    - CentOS {#centos}
@@ -446,10 +456,12 @@
 1. Перейдите по адресу ВМ в браузере.
 1. Выберите язык и нажмите кнопку **Продолжить**.
 1. Заполните информацию для доступа к сайту:
+   
    * Укажите любое название сайта, например, `wp-your-project`.
    * Укажите имя пользователя, которое будет использоваться для входа в административную панель, например, `admin`.
    * Укажите пароль, который будет использоваться для входа в административную панель.
    * Укажите вашу электронную почту.
+
 1. Нажмите кнопку **Установить WordPress**.
 1. Если установка прошла успешно, нажмите кнопку **Войти**.
 1. Войдите на сайт, используя указанные на прошлых шагах имя пользователя и пароль. После этого откроется административная панель, в которой можно приступать к работе с вашим сайтом.
@@ -467,13 +479,16 @@
 - Консоль управления {#console}
 
    Чтобы добавить [публичную зону DNS](../../../dns/concepts/dns-zone.md#public-zones):
+   
    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать [зону DNS](../../../dns/concepts/dns-zone.md).
    1. [Перейдите](https://console.yandex.cloud/link/dns) в сервис **Cloud DNS**.
    1. Нажмите кнопку **Создать зону**.
    1. Задайте настройки зоны DNS:
+      
       * **Зона** — `example.com.`. Или укажите ваш зарегистрированный домен.
       * **Тип** — `Публичная`.
       * **Имя** — `example-zone-1`.
+   
    1. Нажмите кнопку **Создать**.
 
 {% endlist %}
@@ -488,23 +503,30 @@
 
    1. В блоке **Сеть** на странице [виртуальной машины](../../../compute/concepts/vm.md) в [консоли управления](https://console.yandex.cloud) найдите [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) ВМ.
    1. Создайте запись [типа А](../../../dns/concepts/resource-record.md#a):
+      
       * Откройте раздел **Cloud DNS** в каталоге, где находится зона DNS `example.com`.
       * Выберите зону DNS `example.com` из списка.
       * Нажмите кнопку **Создать запись**.
       * Задайте параметры записи:
+         
          * **Имя** — оставьте пустым.
          * **Тип** — оставьте значение `А`.
          * **Значение** — введите публичный адрес вашей ВМ.
-         * **TTL (в секундах)** (время кеширования записи) — оставьте значение по умолчанию.
+         * **TTL** (время кеширования записи) — оставьте значение по умолчанию.
+      
       * Нажмите кнопку **Создать**.
+   
    1. Создайте запись [типа CNAME](../../../dns/concepts/resource-record.md#cname):
+      
       * Выберите зону DNS `example.com` из списка.
       * Нажмите кнопку **Создать запись**.
       * Задайте параметры записи:
+         
          * **Имя** — `www`.
          * **Тип** — выберите значение `CNAME`.
          * **Значение** — введите `example.com`.
-         * **TTL (в секундах)** (время кеширования записи) — оставьте значение по умолчанию.
+         * **TTL** (время кеширования записи) — оставьте значение по умолчанию.
+      
       * Нажмите кнопку **Создать**.
 
 {% endlist %}
@@ -541,6 +563,7 @@ ns1.yandexcloud.net.
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
+
 1. [Удалите](../../../dns/operations/zone-delete.md) зону DNS.
 1. [Удалите](../../../managed-mysql/operations/cluster-delete.md) кластер MySQL®.
 1. [Удалите](../../../compute/operations/vm-control/vm-delete.md) ВМ.
@@ -549,4 +572,4 @@ ns1.yandexcloud.net.
 
 #### Полезные ссылки {#see-also}
 
-* [Создание сайта на WordPress с кластером базы данных MySQL® с помощью Terraform](terraform.md)
+[Создание сайта на WordPress с кластером базы данных MySQL® с помощью Terraform](terraform.md)

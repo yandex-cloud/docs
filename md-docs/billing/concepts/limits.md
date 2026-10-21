@@ -17,24 +17,15 @@
 
 #|
 || Вид ограничения | Значение ||
-|| Количество бюджетов в одном [платежном аккаунте](billing-account.md) 
-`billing.budgets.count` | 20 ||
-|| Количество облаков, [привязанных к одному платежному аккаунту](../operations/pin-cloud.md) 
-`billing.cloudBindings.count`| 5 ||
-|| Количество [экземпляров DataLens](../../datalens/concepts/index.md), привязанных к одному платежному аккаунту 
-`billing.datalensBindings.count` | 5 ||
-|| Количество [сообществ DataSphere](../../datasphere/concepts/community.md), привязанных к одному платежному аккаунту 
-`billing.datasphereCommunityBindings.count` | 100 ||
-|| Количество [экземпляров SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/quickstart), привязанных к одному платежному аккаунту 
-`billing.speechsenseSpaceBindings.count` | 100 ||
-|| Количество [экземпляров Трекер](https://yandex.ru/support/tracker/ru/), привязанных к одному платежному аккаунту 
-`billing.trackerBindings.count` | 5 ||
-|| Количество [экземпляров SourceCraft](https://sourcecraft.dev/portal/docs/ru), привязанных к одному платежному аккаунту
-`billing.sourceCraftBindings.count` | 5 ||
-|| Количество [экземпляров Яндекс 360](https://360.yandex.ru/business/help/), привязанных к одному платежному аккаунту
-`billing.yandex360Bindings.count` | 5 ||
-|| Количество экземпляров [Алиса Про](https://yandex.ru/support/yandex-360/business/alice-pro/ru/?utm_source=b2bsupport), привязанных к одному платежному аккаунту
-`billing.aliceProBindings.count` | 5 ||
+|| Количество бюджетов в одном [платежном аккаунте](billing-account.md) | 20 ||
+|| Количество облаков, [привязанных к одному платежному аккаунту](../operations/pin-cloud.md) | 5 ||
+|| Количество [экземпляров DataLens](../../datalens/concepts/index.md), привязанных к одному платежному аккаунту | 5 ||
+|| Количество [сообществ DataSphere](../../datasphere/concepts/community.md), привязанных к одному платежному аккаунту | 100 ||
+|| Количество [экземпляров SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/quickstart), привязанных к одному платежному аккаунту | 100 ||
+|| Количество [экземпляров Трекер](https://yandex.ru/support/tracker/ru/), привязанных к одному платежному аккаунту | 5 ||
+|| Количество [экземпляров SourceCraft](https://sourcecraft.dev/portal/docs/ru), привязанных к одному платежному аккаунту | 5 ||
+|| Количество [экземпляров Яндекс 360](https://360.yandex.ru/business/help/), привязанных к одному платежному аккаунту | 5 ||
+|| Количество экземпляров [Алиса Про](https://yandex.ru/support/yandex-360/business/alice-pro/ru/?utm_source=b2bsupport), привязанных к одному платежному аккаунту | 5 ||
 |#
 
 #### Лимиты {#dataproc-limits}

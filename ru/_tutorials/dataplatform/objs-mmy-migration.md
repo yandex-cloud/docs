@@ -5,23 +5,24 @@
 
 Чтобы перенести данные:
 
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Подготовьте тестовые данные](#prepare-data).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работоспособность трансфера](#verify-transfer).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+## Подготовьте облако к работе {#before-you-begin}
 
-## Необходимые платные ресурсы {#paid-resources}
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../storage/pricing.md)).
-* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы {{ mmy-name }}](../../managed-mysql/pricing.md)).
+* Кластер {{ mmy-name }}: вычислительные ресурсы хостов, объем хранилища и резервных копий ([тарифы {{ mmy-name }}](../../managed-mysql/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
-
-Подготовьте инфраструктуру:
+### Подготовьте инфраструктуру {#deploy-infrastructure}
 
 {% list tabs group=resources %}
 
@@ -69,17 +70,9 @@
         * `bucket_name` — имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
         * `mmy_password` — пароль пользователя {{ MY }}.
 
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    1. Создайте ресурсы:
 
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Создайте необходимую инфраструктуру:
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
@@ -111,7 +104,7 @@
 
 
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}** — `https://{{ s3-storage-host }}`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}** — `ru-central1`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}** — `{{ region-id }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.format.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.csv.title }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.delimiter.title }}** — знак точки с запятой `;`.
     * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTablesTransformer.rename_tables.array_item_label }}** — `measurements`.
@@ -144,7 +137,7 @@
 
     - Вручную {#manual}
 
-        1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/target/postgresql.md):
+        1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/target/mysql.md):
 
             * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `MySQL`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.title }}**:
@@ -152,7 +145,7 @@
               * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.connection.title }}**:
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
 
-                   Выберите кластер-источник из списка и укажите настройки подключения к нему.
+                   Выберите кластер-приемник из списка и укажите настройки подключения к нему.
 
         1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**, использующий созданные эндпоинты.
         1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
@@ -162,27 +155,19 @@
         1. Укажите в файле `data-transfer-objs-mmy.tf` переменные:
 
             * `source_endpoint_id` — значение идентификатора эндпоинта для источника;
-            * `transfer_enabled` – значение `1` для создания трансфера.
+            * `transfer_enabled` — значение `1` для создания трансфера.
 
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+        1. Создайте ресурсы:
 
-            ```bash
-            terraform validate
-            ```
+           {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Создайте необходимую инфраструктуру для трансфера:
-
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-            Трансфер активируется автоматически после создания.
+           Трансфер активируется автоматически после создания.
 
     {% endlist %}
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**. Активация трансфера может занять 5-10 минут.
 1. [Подключитесь к базе данных в кластере-приемнике {{ mmy-name }}](../../managed-mysql/operations/connect/index.md).
 1. Чтобы убедиться, что данные успешно перенесены, выполните запрос:
 
@@ -198,7 +183,7 @@
       1 |     99101 | 2022-06-05T17:27:00 | 55.703289 |  37.66542 |   427.50 | 52.29 |            23.5 |              17.0 |     52.0 |
       2 |     95106 | 2022-06-06T09:49:54 | 55.712944 |  37.66542 |   429.13 | 55.50 |            21.0 |              18.0 |     32.0 |
       3 |    117890 | 2023-06-07T06:21:29 | 55.712944 |  37.66542 |   429.13 | 56.20 |            20.0 |              18.7 |     45.0 |
-      4 |     99101 | 2022-06-05 17:27:00 | 55.291944 |  37.66542 |   429.13 | 59.09 |            21.0 |              18.0 |     20.0 |
+      4 |     99101 | 2022-06-07T08:15:32 | 55.291944 |  37.66542 |   429.13 | 59.09 |            21.0 |              18.0 |     20.0 |
     ```
 
     {% endcut %}
@@ -212,7 +197,7 @@
     11;99101;2022-06-07 15:22:27;59.71294467;37.66542005;429.13;35.5;19.;18.;12.
     ```
 
-1. Загрузите файл в бакет {{ objstorage-name }} для трансфера.
+1. [Загрузите](../../storage/operations/objects/upload.md#simple) файл в бакет {{ objstorage-name }}.
 1. Убедитесь, что в таблицу `db1.measurements` базы-приемника {{ MY }} добавились новые данные.
 
 ## Удалите созданные ресурсы {#clear-out}
@@ -223,7 +208,7 @@
 
 {% endnote %}
 
-Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
+Чтобы перестать платить за созданные ресурсы:
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для приемника.

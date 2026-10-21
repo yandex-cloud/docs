@@ -1,6 +1,6 @@
 
 
-С помощью этого руководства вы установите и настроите [WordPress](https://wordpress.org/) — систему управления контентом, подходящую как для личных блогов, так и для крупных медиа и коммерческих проектов. Приложение [{{ cloud-apps-name }}](../../cloud-apps/) будет развернуто на виртуальной машине с автоматической настройкой всех необходимых ресурсов, включая веб-сервер и интеграцию с сервисом [{{ postbox-name }}](../../postbox/).
+С помощью этого руководства вы установите и настроите [WordPress](https://wordpress.org/) — систему управления контентом, подходящую как для личных блогов, так и для крупных медиа и коммерческих проектов. Приложение [{{ cloud-apps-name }}](../../cloud-apps/) будет развернуто на виртуальной машине с автоматической настройкой всех необходимых ресурсов, включая локальную базу данных {{ MY }}, веб-сервер, хранилище объектов [{{ objstorage-full-name }}](../../storage/) и интеграцию с сервисом [{{ postbox-name }}](../../postbox/).
 
 Чтобы установить WordPress:
 
@@ -14,11 +14,9 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-
 ## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
-
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -26,9 +24,9 @@
 
 * Плата за использование виртуальной машины и хранение данных на диске ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 * Плата за использование публичной DNS-зоны и за публичные DNS-запросы ([тарифы {{ dns-full-name }}](../../dns/pricing.md)).
+* Плата за использование бакета для хранения медиафайлов ([тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
 * Плата за хранение секретов и операции с ними (тарифы [{{ lockbox-full-name }}](../../lockbox/pricing.md)).
 * Плата за исходящие письма (тарифы [{{ postbox-full-name }}](../../postbox/pricing.md)).
-
 
 ## Создайте сеть и подсети {{ vpc-short-name }} {#create-network}
 
@@ -113,13 +111,11 @@
 
 {% endlist %}
 
-
 ## Настройте DNS-зону {#configure-dns}
 
 {% include [wordpress-configure-dns](../_tutorials_includes/wordpress/configure-dns.md) %}
 
 {% include [configure-dns](../_tutorials_includes/website/configure-dns.md) %}
-
 
 ## Создайте секреты {{ lockbox-name }} {#create-secret}
 
@@ -134,9 +130,15 @@
   1. [Перейдите]({{ link-console-main }}/link/lockbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета: `db-password-secret`.
-  1. В поле **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** выберите `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
-  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** введите `db_password`.
-  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** вставьте пароль базы данных {{ mmy-name }}.
+  1. В блоке **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-data-section }}**:
+  
+    1. В поле **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** выберите `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
+    1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** введите `db_password`.
+    1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** выберите один из вариантов добавления пароля базы данных {{ mmy-full-name }}:
+    
+       * **{{ ui-key.yacloud.lockbox.SecretVersionsInputs.value_payload-entry-value-type-text }}** — вставьте текст пароля в поле ввода.
+       * **{{ ui-key.yacloud.lockbox.SecretVersionsInputs.value_payload-entry-value-type-file }}** — нажмите **{{ ui-key.yacloud.lockbox.SecretVersionsInputs.button_choose-file }}** и загрузите файл с паролем.
+  
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
   Аналогичным образом создайте еще два секрета:
@@ -203,7 +205,6 @@
 
 {% endnote %}
 
-
 ## Установите WordPress {#install-wordpress}
 
 Установите [WordPress](/marketplace/products/yc/wordpress-app) с помощью {{ cloud-apps-name }}:
@@ -243,8 +244,8 @@
       Рекомендуется указать публичный SSH-ключ, чтобы иметь доступ к ВМ по SSH. Пару ключей для подключения по SSH необходимо [создать самостоятельно](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). ||
       || **Тип диска** | — | `network-ssd` | Тип диска, который будет подключен к ВМ. ||
       || **Размер диска в GB** | — | `20` | Размер диска, который будет подключен к ВМ, в ГБ. ||
-      || **ID секрета с паролем БД** | Да | — | Идентификатор секрета `db-password-secret` с паролем для подключения к кластеру {{ mmy-name }}, созданного ранее. ||
-      || **ID секрета с root паролем БД** | Да | — | Идентификатор секрета `db-root-password-secret` с паролем для подключения к кластеру {{ mmy-name }}, созданный ранее. ||
+      || **ID секрета с паролем БД** | — | — | Идентификатор секрета `db-password-secret` с паролем для подключения к кластеру {{ mmy-name }}, созданного ранее. Если вы не укажете секрет, он будет создан со случайным паролем автоматически во время установки приложения. ||
+      || **ID секрета с root паролем БД** | — | — | Идентификатор секрета `db-root-password-secret` с паролем для подключения к кластеру {{ mmy-name }}, созданный ранее. Если вы не укажете секрет, он будет создан со случайным паролем автоматически во время установки приложения. ||
       |#
 
   1. Нажмите **{{ ui-key.yacloud.cloud-apps.button_install }}**.
@@ -255,16 +256,13 @@
 
 {% include [note-auto-address](../_tutorials_includes/wordpress/note-auto-address.md) %}
 
-
 ## Настройте WordPress {#configure-wordpress}
 
 {% include [configure-wordpress](../_tutorials_includes/wordpress/configure-wordpress.md) %}
 
-
 ## Проверьте результат {#check-result}
 
 {% include [check-result](../_tutorials_includes/wordpress/check-result.md) %}
-
 
 ## Как удалить созданные ресурсы {#clear-out}
 

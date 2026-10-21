@@ -19,8 +19,7 @@
       "quotaId": "iam.authorizedKeys.count",
       "limit": 1000,
       "usage": 43
-    },
-    ...
+    }
   ]
 }
 ```

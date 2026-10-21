@@ -11,6 +11,8 @@ To create a {{ mgl-name }} instance, you need the [{{ roles-vpc-user }}](../../.
 
 {% include [warn-subnet](../../../_includes/managed-gitlab/warn-subnet.md) %}
 
+When creating an instance using the management console, you can enable [{{ src-name }} Security integration](../sourcecraft-security.md) to perform automatic security checks of repository code.
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -80,7 +82,7 @@ To create a {{ mgl-name }} instance, you need the [{{ roles-vpc-user }}](../../.
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/) command:
+     {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
      ```bash
      {{ yc-gl }} instance list

@@ -13,8 +13,6 @@
 
 По умолчанию в [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) установлена нулевая [квота](../../concepts/limits.md#compute-quotas) на создание ВМ с GPU. Чтобы изменить [квоту](https://console.yandex.cloud/cloud?section=quotas), обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
 
-Виртуальные машины на платформах Intel Broadwell with NVIDIA® Tesla® V100, Intel Cascade Lake with NVIDIA® Tesla® V100 и AMD EPYC™ with NVIDIA® Ampere® A100 можно создать в зонах доступности `ru-central1-a` и `ru-central1-b`.
-
 {% note info %}
 
 Чтобы создавать, изменять и редактировать [ВМ](../../concepts/vm.md), необходима _минимальная_ [роль](../../security/index.md#compute-editor) `compute.editor` на [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder). Для создания ВМ с лицензируемым образом дополнительно потребуется [роль](../../../marketplace/security/index.md#license-manager-viewer) `license-manager.viewer`.
@@ -355,8 +353,6 @@
 
      * `--zone` – [зона доступности](../../../overview/concepts/geo-scope.md).
 
-       Виртуальные машины на платформах Intel Broadwell with NVIDIA® Tesla® V100, Intel Cascade Lake with NVIDIA® Tesla® V100 и AMD EPYC™ with NVIDIA® Ampere® A100 можно создать в зонах доступности `ru-central1-a` и `ru-central1-b`.
-
      * `--platform` – идентификатор [платформы](../../concepts/vm-platforms.md):
 
        * `gpu-standard-v1` для платформы Intel Broadwell with NVIDIA® Tesla® V100.
@@ -525,8 +521,6 @@
        * `name` — имя ВМ.
        * `allow_stopping_for_update` — разрешение на остановку работы виртуальной машины для внесения изменений. Установите значение `true`, если планируете изменять сетевые настройки или вычислительные ресурсы ВМ с помощью Terraform. Значение по умолчанию `false`.
        * `zone` — зона доступности, в которой будет находиться ВМ.
-
-         Виртуальные машины на платформах Intel Broadwell with NVIDIA® Tesla® V100, Intel Cascade Lake with NVIDIA® Tesla® V100 и AMD EPYC™ with NVIDIA® Ampere® A100 можно создать в зонах доступности `ru-central1-a` и `ru-central1-b`.
 
        * `platform_id` — идентификатор [платформы](../../concepts/vm-platforms.md):
 

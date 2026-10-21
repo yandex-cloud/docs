@@ -23,8 +23,6 @@ description: Следуя данной инструкции, вы сможете
 
 Перенесите таким образом каждую группу хостов.
 
-{% include [zone-d-disk-restrictions](../../_includes/mdb/ru-central1-d-local-ssd.md) %}
-
 ## Особенности миграции в сервисе {{ data-transfer-full-name }} {#data-transfer}
 
 Если кластер выступает в роли [эндпоинта](../../data-transfer/concepts/index.md#endpoint) при передаче данных с помощью сервиса {{ data-transfer-name }}:

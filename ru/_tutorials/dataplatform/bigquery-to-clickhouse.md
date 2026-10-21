@@ -3,42 +3,44 @@
 
 Вы можете перенести базу данных из Google BigQuery в {{ mch-full-name }} и затем проанализировать ее с помощью {{ datalens-full-name }}.
 
-Таблица переносится в сжатом виде в бакет Google Storage, а из него в бакет {{ objstorage-full-name }}. Затем данные импортируются в кластер {{ mch-name }}, где их можно проанализировать с помощью {{ datalens-full-name }}.
+Таблица переносится в сжатом виде в бакет Google Storage, а из него — в бакет {{ objstorage-full-name }}. Затем данные импортируются в кластер {{ mch-name }}, где их можно проанализировать с помощью {{ datalens-full-name }}.
 
 Такой способ миграции обладает следующими преимуществами:
 
 * возможность задать формат выгрузки данных и степень сжатия;
-* значительное сокращение объема данных и времени на их миграцию, а значит и снижение стоимости миграции.
+* значительное сокращение объема данных и времени на их миграцию, а значит, и снижение стоимости миграции.
 
 Однако при таком способе данные переносятся «как есть», без трансформации или копирования обновившихся инкрементов.
 
 Чтобы перенести базу данных из Google BigQuery в {{ mch-name }}:
 
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Перенесите данные из Google BigQuery в {{ objstorage-full-name }}](#migrate-data).
 1. [Настройте отображение данных из {{ objstorage-full-name }} в кластере {{ mch-name }}](#create-view).
 1. [Проанализируйте данные с помощью {{ datalens-full-name }}](#datalens).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+## Подготовьте облако к работе {#before-you-begin}
 
-## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mch-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mch-name }}: вычислительные ресурсы хостов, объем хранилища и резервных копий ([тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 * Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../storage/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
+### Подготовьте инфраструктуру {#deploy}
 
 Для миграции базы данных необходимо создать ресурсы Google Cloud и ресурсы {{ yandex-cloud }}.
 
-### Создайте ресурсы Google Cloud {#create-google-res}
+#### Создайте ресурсы Google Cloud {#create-google-res}
 
 1. [Создайте бакет Google Storage](https://cloud.google.com/storage/docs/creating-buckets).
 
 1. [Создайте сервисный аккаунт Google Cloud](https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating) с ролями `BigQuery Data Editor` и `Storage Object Admin`.
 1. [Создайте ключ доступа для сервисного аккаунта](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#creating) и сохраните его в виде файла `.json`.
-
 1. [Скачайте и установите утилиты CLI `google-cloud-sdk`](https://cloud.google.com/sdk/docs/install).
 1. [Выполните аутентификацию в gcloud CLI](https://cloud.google.com/sdk/docs/authorizing#authorizing_with_a_service_account).
 1. [Установите Google BigQuery Python SDK](https://github.com/googleapis/python-bigquery). Для работы этого пакета потребуется Python версии 3.7 или выше.
@@ -54,11 +56,10 @@
     * `term`
     * `refresh_date`
 
-### Создайте ресурсы {{ yandex-cloud }} {#create-yandex-res}
+#### Создайте ресурсы {{ yandex-cloud }} {#create-yandex-res}
 
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `storage.uploader` для доступа к бакету {{ objstorage-name }}.
-
 1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта. Сохраните идентификатор ключа и секретный ключ, они понадобятся далее.
 
 
@@ -212,8 +213,8 @@
 1. Чтобы создать представление импортированных данных, [подключитесь к базе данных кластера {{ mch-name }}](../../managed-clickhouse/operations/connect/clients.md) и выполните SQL-запрос:
 
     ```sql
-    CREATE view db1.v$google_top_rising_terms on cluster on cluster '{cluster}' AS
-    (SELECT
+    CREATE VIEW db1.v$google_top_rising_terms ON CLUSTER '{cluster}' AS
+    SELECT
     term,
     score,
     rank,
@@ -225,7 +226,7 @@
     refresh_date
     FROM s3Cluster(
       '<идентификатор_кластера>',
-      'https://{{ s3-storage-host }}/<имя_бакета_Object_Storage>/top_terms-*',
+      'https://{{ s3-storage-host }}/<имя_бакета_Object_Storage>/international_top_terms-*',
       'Parquet',
       'rank Int32,
       country_name String,
@@ -236,7 +237,6 @@
       region_code String,
       term String,
       refresh_date Timestamp')
-    )
     ```
 
     Где:
@@ -244,12 +244,12 @@
     * `db1` — название базы данных в кластере {{ mch-name }}, в которой требуется создать представление.
     * `v$google_top_rising_terms` — название представления для отображения импортированных данных.
     * `<идентификатор_кластера>` — идентификатор кластера {{ mch-name }}. Его можно получить вместе со [списком кластеров в каталоге](../../managed-clickhouse/operations/cluster-list.md).
-    * `top_terms-*` — ключевая часть имени объектов бакета {{ objstorage-name }}. Например, если из Google Cloud вы перенесли таблицу, в которой есть строки с именем `top_terms`, то в бакете {{ objstorage-name }} они будут выглядеть как набор объектов с именами `top_terms-000000000001`, `top_terms-000000000002` и т. д. Тогда в SQL-запросе нужно указать `top_terms-*`, чтобы в представление попали все записи с таким именем из этой таблицы.
+    * `international_top_terms-*` — ключевая часть имени объектов бакета {{ objstorage-name }}. Например, если из Google Cloud вы перенесли таблицу `international_top_terms`, то в бакете {{ objstorage-name }} она будет выглядеть как набор объектов с именами `international_top_terms-000000000001`, `international_top_terms-000000000002` и т. д. Тогда в SQL-запросе нужно указать `international_top_terms-*`, чтобы в представление попали все записи этой таблицы.
 
-1. Чтобы вывести первые 100 записей из созданного представления, выполните SQL-запрос (для примера используется представление `v$google_top_rising_terms` и базе данных `db1`):
+1. Чтобы вывести первые 100 записей из созданного представления, выполните SQL-запрос (для примера используется представление `v$google_top_rising_terms` в базе данных `db1`):
 
     ```sql
-    SELECT * FROM db1.v$google_top_rising_terms limit 100
+    SELECT * FROM db1.v$google_top_rising_terms LIMIT 100
     ```
 
 ## Проанализируйте данные с помощью {{ datalens-full-name }} {#datalens}
@@ -265,7 +265,7 @@
         * **Доступны** — введите термин из списка доступных и нажмите кнопку **Применить фильтр**.
     1. В секцию **Сортировка** перетащите поле `term`.
 
-Использование заданного запроса в поисковой системе будет проанализировано, результат будет выведен в виде столбчатой диаграммы по странам.
+Использование выбранного поискового запроса будет проанализировано, результат будет выведен в виде столбчатой диаграммы по странам.
 
 ## Удалите созданные ресурсы {#clear-out}
 

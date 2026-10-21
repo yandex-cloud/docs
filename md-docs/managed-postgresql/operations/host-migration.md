@@ -287,12 +287,6 @@
 
 1. Дождитесь, когда кластер перейдет в состояние **Alive**. В консоли управления [перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**. Состояние кластера отображается в столбце **Доступность**.
 
-{% note info %}
-
-Для кластеров, хосты которых располагаются в [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-d`, недоступно хранилище на локальных SSD-дисках при использовании платформы Intel Cascade Lake.
-
-{% endnote %}
-
 ## Особенности миграции в сервисе Yandex Data Transfer {#data-transfer}
 
 Если кластер выступает в роли [эндпоинта](../../data-transfer/concepts/index.md#endpoint) при передаче данных с помощью сервиса Data Transfer и используется [тип трансфера](../../data-transfer/concepts/transfer-lifecycle.md#transfer-types) **Репликация** или **Копирование и репликация**, перезапустите трансфер после миграции кластера. Так трансфер получит сведения о новой топологии кластера.

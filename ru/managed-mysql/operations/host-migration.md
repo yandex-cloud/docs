@@ -231,8 +231,6 @@ description: Следуя данной инструкции, вы сможете
 
    Состояние кластера отображается в столбце **{{ ui-key.yacloud.mdb.clusters.column_availability }}**.
 
-{% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
-
 {% include [migration-in-data-transfer](../../_includes/data-transfer/migration-in-data-transfer.md) %}
 
 {% include [migration-in-data-transfer-mysql-note](../../_includes/data-transfer/notes/mysql-migration.md) %}

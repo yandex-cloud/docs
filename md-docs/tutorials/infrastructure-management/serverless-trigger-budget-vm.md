@@ -35,7 +35,7 @@
 
 ## Скачайте проект {#download}
 
-Склонируйте репозиторий c проектом:
+Склонируйте репозиторий с проектом:
 
 ```bash
 git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
@@ -63,6 +63,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
     Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     1. Создайте сервисный аккаунт `service-account-for-budget`:
+
         ```bash
         yc iam service-account create --name service-account-for-budget
         ```
@@ -76,6 +77,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
         ```
 
     1. Получите список каталогов в облаке:
+
         ```bash
         yc resource-manager folder list
         ```
@@ -90,9 +92,10 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
         +----------------------+----------------------+--------+--------+
         ```
 
-        Сохраните идентификатор каталога, в котором хотите создать сервисный аккаунт.
+        Сохраните идентификатор каталога, в котором будет работать сервисный аккаунт.
 
     1. Получите список сервисных аккаунтов в каталоге:
+
         ```bash
         yc iam service-account list
         ```
@@ -110,6 +113,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
         Сохраните идентификатор сервисного аккаунта `service-account-for-budget`.
 
     1. Назначьте сервисному аккаунту роли `compute.admin`, `iam.serviceAccounts.user` и `functions.functionInvoker` на каталог:
+
         ```bash
         yc resource-manager folder add-access-binding <идентификатор_каталога> \
            --role compute.admin \
@@ -133,13 +137,14 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
 
     Чтобы создать сервисный аккаунт, воспользуйтесь методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md).
 
-    Чтобы назначить сервисному аккаунта роли `compute.admin`, `iam.serviceAccounts.user` и `functions.functionInvoker` на каталог, воспользуйтесь методом [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md).
+    Чтобы назначить сервисному аккаунту роли `compute.admin`, `iam.serviceAccounts.user` и `functions.functionInvoker` на каталог, воспользуйтесь методом [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md).
 
 {% endlist %}
 
 ## Подготовьте ZIP-архив с кодом функции {#prepare-zip}
 
 Перейдите в директорию `yc-serverless-trigger-budget/steps/2-create-function/` и добавьте файлы в ZIP-архив `src.zip`:
+
 ```bash
 zip src.zip index.go go.mod
 ```
@@ -157,7 +162,7 @@ zip src.zip index.go go.mod
         1. Введите имя функции `function-for-budget`.
         1. Нажмите кнопку **Создать**.
     1. Создайте версию функции:
-        1. Выберите среду выполнения `golang119`, выключите опцию **Добавить файлы с примерами кода** и нажмите кнопку **Продолжить**.
+        1. Выберите среду выполнения `Go`, выключите опцию **Добавить файлы с примерами кода** и нажмите кнопку **Продолжить**.
         1. Укажите способ загрузки **ZIP-архив** и выберите архив, который создали на предыдущем шаге.
         1. Укажите точку входа `index.StopComputeInstances`.
         1. В блоке **Параметры** укажите:
@@ -172,6 +177,7 @@ zip src.zip index.go go.mod
 - CLI {#cli}
 
     1. Создайте функцию `function-for-budget`:
+
         ```bash
         yc serverless function create --name function-for-budget
         ```
@@ -189,6 +195,7 @@ zip src.zip index.go go.mod
         ```
 
     1. Создайте версию функции `function-for-budget`:
+
         ```bash
         yc serverless function version create \
           --function-name function-for-budget \
@@ -204,7 +211,7 @@ zip src.zip index.go go.mod
 
         Где:
         * `--function-name` — имя функции, версия которой создается.
-        * `--memory` —  объем RAM.
+        * `--memory` — объем RAM.
         * `--execution-timeout` — максимальное время выполнения функции до достижения таймаута.
         * `--runtime` — среда выполнения.
         * `--entrypoint` — точка входа.
@@ -240,7 +247,7 @@ zip src.zip index.go go.mod
 
     Чтобы создать функцию, воспользуйтесь методом [create](../../functions/functions/api-ref/Function/create.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md).
 
-    Чтобы создать версию функцию, воспользуйтесь методом [createVersion](../../functions/functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md).
+    Чтобы создать версию функции, воспользуйтесь методом [createVersion](../../functions/functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md).
 
 {% endlist %}
 
@@ -287,13 +294,9 @@ zip src.zip index.go go.mod
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создали сервисный аккаунт, функцию и бюджет.
-
     1. [Перейдите](https://console.yandex.cloud/link/functions) в сервис **Cloud Functions**.
-
     1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
-
     1. Нажмите кнопку **Создать триггер**.
-
     1. В блоке **Базовые параметры**:
 
         * Введите имя триггера `vm-stop-trigger`.
@@ -301,12 +304,7 @@ zip src.zip index.go go.mod
         * В поле **Запускаемый ресурс** выберите `Функция`.
 
     1. В блоке **Настройки бюджета** выберите платежный аккаунт и бюджет `vm-budget`, который создали на предыдущем шаге.
-
-    1. В блоке **Настройки функции** выберите функцию `function-for-budget` и укажите:
-
-        * [тег версии функции](../../functions/concepts/function.md#tag). По умолчанию указан тег `$latest`.
-        * сервисный аккаунт `service-account-for-budget`. От его имени будет вызываться функция.
-
+    1. В блоке **Настройки функции** выберите функцию `function-for-budget` и укажите сервисный аккаунт `service-account-for-budget`. От его имени будет вызываться функция.
     1. Нажмите кнопку **Создать триггер**.
 
 - CLI {#cli}
@@ -361,18 +359,20 @@ zip src.zip index.go go.mod
 - CLI {#cli}
 
     1. Выберите подсеть:
+
         ```bash
         yc vpc subnet list
         ```
 
     1. Создайте виртуальную машину:
+
         ```bash
         yc compute instance create \
            --name target-instance-1 \
            --labels target-for-stop=true \
            --zone ru-central1-d \
            --network-interface subnet-name=<имя_подсети>,nat-ip-version=ipv4 \
-           --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2004-lts \
+           --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2004-lts-oslogin \
            --ssh-key ~/.ssh/<имя_ключа>.pub
         ```
 
@@ -382,7 +382,7 @@ zip src.zip index.go go.mod
         * `--labels` — метка. Триггер для бюджетов будет останавливать виртуальную машину при достижении пороговых значений, если значение метки `target-for-stop` равно `true`.
         * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md), которая соответствует выбранной подсети.
         * `subnet-name` — имя выбранной подсети.
-        * `nat-ip-version` — публичный IP.
+        * `nat-ip-version` — версия публичного IP-адреса, которая будет присвоена ВМ.
         * `image-family` — [семейство образов](../../compute/concepts/image.md#family). Эта опция позволит установить последнюю версию операционной системы из указанного семейства.
         * `--ssh-key` — путь до публичного SSH-ключа. Для этого ключа на виртуальной машине будет автоматически создан пользователь `yc-user`. [Как создать пару SSH-ключей](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
@@ -414,7 +414,7 @@ zip src.zip index.go go.mod
           disk_id: fhm459pv68ta********
         network_interfaces:
           - index: "0"
-            mac_address: d0:0d:8a:e2:e8:5a
+            mac_address: d0:0d:8a:********
             subnet_id: e9b3vsm91fl7********
             primary_v4_address:
               address: 10.128.0.4
@@ -434,7 +434,7 @@ zip src.zip index.go go.mod
 
 {% endlist %}
 
-Аналогичным способом создайте еще две виртуальные машины — `target-instance-2` и `target-instance-3`. У последней укажите значение `false` для метки `target-for-stop`.
+Аналогичным образом создайте еще две виртуальные машины — `target-instance-2` и `target-instance-3`. У последней укажите значение `false` для метки `target-for-stop`.
 
 ## Проверьте, что ВМ останавливаются по триггеру {#test}
 

@@ -14,11 +14,9 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-
 ## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
-
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -31,18 +29,15 @@
 * Плата за хранение секретов и операции с ними (тарифы [{{ lockbox-full-name }}](../../lockbox/pricing.md)).
 * Плата за исходящие письма (тарифы [{{ postbox-full-name }}](../../postbox/pricing.md)).
 
-
 ## Создайте сеть и подсети {{ vpc-short-name }} {#create-network}
 
 {% include [create-network](../_tutorials_includes/website/create-network.md) %}
-
 
 ## Настройте DNS-зону {#configure-dns}
 
 {% include [wordpress-configure-dns](../_tutorials_includes/wordpress/configure-dns.md) %}
 
 {% include [configure-dns](../_tutorials_includes/website/configure-dns.md) %}
-
 
 ## Создайте секреты {{ lockbox-name }} {#create-secret}
 
@@ -57,9 +52,15 @@
   1. [Перейдите]({{ link-console-main }}/link/lockbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета: `db-password-secret`.
-  1. В поле **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** выберите `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
-  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** введите `db_password`.
-  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** вставьте пароль базы данных {{ mmy-full-name }}.
+  1. В блоке **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-data-section }}**:
+  
+    1. В поле **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** выберите `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
+    1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** введите `db_password`.
+    1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** выберите один из вариантов добавления пароля базы данных {{ mmy-full-name }}:
+    
+       * **{{ ui-key.yacloud.lockbox.SecretVersionsInputs.value_payload-entry-value-type-text }}** — вставьте текст пароля в поле ввода.
+       * **{{ ui-key.yacloud.lockbox.SecretVersionsInputs.value_payload-entry-value-type-file }}** — нажмите **{{ ui-key.yacloud.lockbox.SecretVersionsInputs.button_choose-file }}** и загрузите файл с паролем.
+  
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
   Аналогичным образом создайте секрет `wp-admin-password-secret`, в котором будет храниться пароль администратора WordPress. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** укажите `wp_admin_password`.
@@ -108,7 +109,6 @@
 Вы можете не создавать секрет с паролем администратора WordPress и не указывать его в настройках приложения, тогда он создастся автоматически со случайным паролем во время установки приложения.
 
 {% endnote %}
-
 
 ## Установите WordPress {#install-wordpress}
 
@@ -161,16 +161,13 @@
 
 {% include [note-auto-address](../_tutorials_includes/wordpress/note-auto-address.md) %}
 
-
 ## Настройте WordPress {#configure-wordpress}
 
 {% include [configure-wordpress](../_tutorials_includes/wordpress/configure-wordpress.md) %}
 
-
 ## Проверьте результат {#check-result}
 
 {% include [check-result](../_tutorials_includes/wordpress/check-result.md) %}
-
 
 ## Как удалить созданные ресурсы {#clear-out}
 

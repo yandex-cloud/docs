@@ -2097,6 +2097,17 @@ default:
           view:
             label_metric: Indicator
     sourcecraft:
+      appsec:
+        paywall-action-billing_e7ueS: Start free trial
+        title_alert-status_8gX2y: Alert status
+        title_overview-sast_i4bAJ: Code analysis alerts
+        title_overview-sca_nxbV5: Dependency scanning alerts
+        title_overview-secrets_c6BUu: Secret scanning alerts
+        title_resolved-alerts_cUQ2s: Resolved alerts breakdown
+        title_sast_aUyTA: Code scanning alerts
+        title_sca_djQmF: Dependencies
+        title_secrets-scanning_qjZ4J: Secret scanning alerts
+        title_security-risks_mkLFM: Alerts by severity level
       cicd:
         value_status-created_9AAET: Queued
         value_succeeded_3Dd8C: Success
@@ -2108,6 +2119,9 @@ default:
         value_role-org-owner_f9UaR: Organization owner
       mainApp:
         route_create-repository_4e8Ef: Create repository
+        route_repositories_hzdYT: Repositories
+        route_security_4Dbxc: Security
+        route_security-overview_dQuX9: Overview
         route_service-connections_2PPgz: Service connections
       orgCommon:
         link_your-craftspace_bHYz8: Your craftspace
@@ -5814,6 +5828,10 @@ default:
             label_backup-link: Backup
             label_lifetime: Lifetime
             label_secrets-link: GitLab Secrets
+          InstanceForm:
+            SourceCraftIntegrationSection:
+              field_enable: Enable SourceCraft integration
+              section_title: SourceCraft integration
         field_admin-email: Email
         field_admin-login: Login
         field_approval-rules: Approval rules
@@ -5825,6 +5843,7 @@ default:
         field_idle-time-minutes: Maximum worker downtime, in minutes
         field_max-use-count: Maximum number of jobs per worker
         field_max-workers: Maximum workers
+        field_sourcecraft-integration: SourceCraft integration
         field_task-minInstances: Minimum workers
         label_additional-section: Advanced settings
         label_admin-section: Administrator data

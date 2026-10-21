@@ -37,6 +37,8 @@ items:
         href: operations/omniauth.md
       - name: Integration with {{ objstorage-name }}
         href: operations/objstorage-integration.md
+      - name: Integrating with {{ src-name }} Security
+        href: operations/sourcecraft-security.md
       - name: Working with a managed runner
         href: operations/runner.md
   - name: Tutorials
@@ -88,6 +90,8 @@ items:
         href: concepts/backup.md
       - name: Security in {{ GL }}
         href: concepts/security.md
+      - name: Integrating with {{ src-name }} Security
+        href: concepts/sourcecraft-security.md
       - name: Quotas and limits
         href: concepts/limits.md
       - name: Integration with {{ objstorage-name }}

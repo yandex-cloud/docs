@@ -1,6 +1,6 @@
 ---
 title: Step-by-step guides for {{ mgl-full-name }}
-description: This page provides a list of step-by-step guides for {{ mgl-name }}.
+description: This page features step-by-step guides for {{ mgl-name }}.
 ---
 
 # Step-by-step guides for {{ mgl-name }}
@@ -20,4 +20,5 @@ description: This page provides a list of step-by-step guides for {{ mgl-name }}
 * [{#T}](instance/monitoring.md)
 * [{#T}](omniauth.md)
 * [{#T}](objstorage-integration.md)
+* [{#T}](sourcecraft-security.md)
 * [{#T}](runner.md)

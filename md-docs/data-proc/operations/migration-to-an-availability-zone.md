@@ -14,9 +14,3 @@
 1. [Настройте NAT-шлюз и привяжите таблицу маршрутизации](../../vpc/operations/create-nat-gateway.md) к новой подсети.
 1. [Создайте кластер](cluster-create.md#create) в нужной зоне доступности.
 1. [Удалите кластер](cluster-delete.md) в первоначальной зоне.
-
-{% note info %}
-
-Для кластеров, хосты которых располагаются в [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-d`, недоступно использование платформы Intel Broadwell.
-
-{% endnote %}

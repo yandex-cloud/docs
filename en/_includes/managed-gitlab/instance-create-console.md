@@ -37,6 +37,10 @@
 1. Under **{{ ui-key.yacloud.gitlab.label_admin-section }}**, specify:
    * **{{ ui-key.yacloud.gitlab.field_admin-email }}**: Email address of the {{ GL }} instance administrator. This is the address to receive the email with a link to create a password.
    * **{{ ui-key.yacloud.gitlab.field_admin-login }}**: Administrator login.
+1. Optionally, enable **{{ ui-key.yacloud.gitlab.components.InstanceForm.SourceCraftIntegrationSection.field_enable }}** under **{{ ui-key.yacloud.gitlab.components.InstanceForm.SourceCraftIntegrationSection.section_title }}** to configure [integration with {{ src-name }} Security](../../managed-gitlab/concepts/sourcecraft-security.md).
+
+   {% include [sourcecraft-security-instance-note](sourcecraft-security-instance-note.md) %}
+
 1. Optionally, under **{{ ui-key.yacloud.gitlab.label_additional-section }}**, enable deletion of untagged images. This setting affects the amount of free disk space on the instance.
 1. Click **{{ ui-key.yacloud.common.create }}**.
 1. Wait until the instance is ready: its status on the {{ mgl-name }} dashboard will change to **Running**. This may take a while.

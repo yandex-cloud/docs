@@ -6,8 +6,6 @@
 * Ниже описано, как перенести кластеры с файловой системой HDFS.
 * О миграции [легковесных кластеров](../../../data-proc/concepts/index.md#light-weight-clusters) читайте в [инструкции](../../../data-proc/operations/migration-to-an-availability-zone.md).
 
-{% include [zone-d-host-restrictions](../../../_includes/mdb/ru-central1-d-broadwell.md) %}
-
 Чтобы перенести кластер с файловой системой HDFS:
 
 1. [Создайте кластер через импорт в {{ TF }}](#create).

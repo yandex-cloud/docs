@@ -5,8 +5,6 @@ description: Из статьи вы узнаете, как удалить пол
 
 # Удаление политики авторизации
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
-
 {% include [access-policies-instruction-intro](../../../_includes/iam/access-policies-instruction-intro.md) %}
 
 Вы можете удалить политику авторизации, созданную для [каталога](#folder), [облака](#cloud) или [организации](#organization).

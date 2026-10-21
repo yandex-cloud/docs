@@ -5,8 +5,6 @@ description: Из статьи вы узнаете, как посмотреть 
 
 # Просмотр политик авторизации, созданных для ресурса
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
-
 {% include [access-policies-instruction-intro](../../../_includes/iam/access-policies-instruction-intro.md) %}
 
 Политики авторизации могут быть созданы для [каталога](#folder), [облака](#cloud) или [организации](#organization).

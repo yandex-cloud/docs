@@ -3,15 +3,15 @@
 
 {% include [terraform-ref-intro](../../_includes/terraform-ref-intro.md) %}
 
-Чтобы управлять инфраструктурой могли несколько пользователей одновременно, состояния {{ TF }} можно [автоматически загружать и хранить в {{ objstorage-full-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).
+Чтобы несколько пользователей могли управлять инфраструктурой одновременно, состояния {{ TF }} можно [автоматически загружать и хранить в {{ objstorage-full-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).
 
 Когда несколько пользователей одновременно работают с одним состоянием, загруженным в {{ objstorage-name }}, возможны конфликты. Чтобы предотвратить их, вы можете развернуть базу данных в [{{ ydb-full-name }}](../../ydb/) и использовать ее для механизма блокировок, встроенного в {{ TF }} (state locking). При каждом изменении инфраструктуры через {{ TF }} состояние будет автоматически блокироваться, пока изменение не применится.
 
 Чтобы настроить хранение состояний {{ TF }} в {{ objstorage-name }} и их блокировку с помощью {{ ydb-name }}:
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте сервисный аккаунт и статический ключ доступа](#create-service-account).
-1. [Создайте бакет](#create-service-account).
-1. [Создайте БД {{ ydb-name }}](#db-create).
+1. [Создайте бакет](#create-bucket).
+1. [Создайте базу данных {{ ydb-name }}](#db-create).
 1. [Установите и настройте {{ TF }}](#prepare-terraform).
 1. [Настройте бэкенд](#set-up-backend).
 1. [Разверните конфигурацию](#deploy).
@@ -41,7 +41,7 @@
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с [ролями](../../iam/concepts/access-control/roles.md) [storage.editor](../../storage/security/index.md#storage-editor) и [ydb.admin](../../ydb/security/index.md#ydb-admin) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), указанный в настройках провайдера.
 1. [Получите статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key). Сохраните идентификатор ключа и секретный ключ — они понадобятся в следующих разделах инструкции.
 
-## Создайте бакет {#create-service-account}
+## Создайте бакет {#create-bucket}
 
 [Создайте бакет](../../storage/operations/buckets/create.md) с ограниченным доступом. В нем будет храниться файл состояния {{ TF }}.
 
@@ -58,17 +58,17 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится ваша БД.
   1. [Перейдите]({{ link-console-main }}/link/ydb) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. В списке БД выберите `state-lock-db`.
-  1. Перейдите на вкладку **Навигация**.
-  1. В правом верхнем углу нажмите **Создать** и выберите **Таблица**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
+  1. В правом верхнем углу нажмите **{{ ui-key.yacloud.ydb.browse.button_create }}** и выберите **{{ ui-key.yacloud.ydb.constants.menu_table-group }}**.
   1. Укажите имя таблицы `state-lock-table`.
-  1. В параметрах таблицы укажите **Тип таблицы** — документная таблица.
-  1. В графе **Колонки** укажите:
-     * **Имя** — `LockID`.
-     * **Тип** — `String`.
-     * **Ключ партицирования** — поставьте галочку.
+  1. В параметрах таблицы в поле **{{ ui-key.yacloud.ydb.table.form.field_type }}** выберите **{{ ui-key.yacloud.ydb.table.form.label_document-table }}**.
+  1. В блоке **{{ ui-key.yacloud.ydb.table.form.label_columns }}** укажите:
+     * **{{ ui-key.yacloud.ydb.table.form.column_name }}** — `LockID`.
+     * **{{ ui-key.yacloud.ydb.table.form.column_type }}** — `String`.
+     * **{{ ui-key.yacloud.ydb.table.form.column_shard }}** — установите атрибут.
 
      Остальные колонки удалите.
-  1. Нажмите **Создать таблицу**.
+  1. Нажмите **{{ ui-key.yacloud.ydb.table.create.button_create }}**.
 
 - AWS CLI {#cli}
 
@@ -82,18 +82,18 @@
          AttributeName=LockID,AttributeType=S \
        --key-schema \
          AttributeName=LockID,KeyType=HASH \
-       --endpoint <document-api-endpoint_БД>
+       --endpoint <эндпоинт_Document_API_БД>
      ```
 
      Где:
      * `--table-name` — имя [таблицы](../../ydb/concepts/dynamodb-tables.md).
      * `--attribute-definitions` — параметры колонок:
        * `AttributeName` — имя колонки.
-       * `AttributeType` — тип данных. В примере используется строковые данные (`S`).
+       * `AttributeType` — тип данных. В примере используются строковые данные (`S`).
      * `--key-schema` — схема ключей для колонки:
        * `AttributeName` — имя колонки.
        * `KeyType` — тип ключа. В примере используется ключ партицирования (`HASH`).
-     * `--endpoint` — эндпоинт Document API БД. Найти его можно на главной странице БД, в графе **Document API эндпоинт**.
+     * `--endpoint` — эндпоинт Document API БД. Он указан на странице БД в поле **{{ ui-key.yacloud.ydb.overview.label_document-endpoint }}**.
 
 {% endlist %}
 
@@ -111,31 +111,32 @@
 
 {% note warning %}
 
-Начиная с {{ TF }} версии `1.11`, блокировка состояния через [Document API](../../ydb/docapi/api-ref/) объявлена устаревшей и будет удалена в одной из ближайших минорных  версий. Если вы используете {{ TF }} версии `1.11` и выше, следите за официальными обновлениями в [документации {{ TF }}](https://developer.hashicorp.com/terraform/language/backend/s3).
+Начиная с {{ TF }} версии `1.11`, блокировка состояния через [Document API](../../ydb/docapi/api-ref/) объявлена устаревшей и будет удалена в одной из ближайших минорных версий. Если вы используете {{ TF }} версии `1.11` и выше, следите за официальными обновлениями в [документации {{ TF }}](https://developer.hashicorp.com/terraform/language/backend/s3).
 
-Для пользователей [OpenTofu](https://opentofu.org/) оба механизма блокировки поддерживаются и не планируются к удалению.    
+Для пользователей [OpenTofu](https://opentofu.org/) оба механизма блокировки поддерживаются и не планируются к удалению.
 
-{% endnote %}   
+{% endnote %}
 
 Чтобы сохранить состояние {{ TF }} в {{ objstorage-name }} и активировать блокировку состояний:
 1. Добавьте в переменные окружения идентификатор ключа и секретный ключ, [полученные ранее](#create-service-account):
 
    {% list tabs group=programming_language %}
-   
+
    - Bash {#bash}
-   
-       ```bash
-       export AWS_ACCESS_KEY="<идентификатор_ключа>"
-       export AWS_SECRET_KEY="<секретный_ключ>"
-       ```
-   
+
+     ```bash
+     export AWS_ACCESS_KEY="<идентификатор_ключа>"
+     export AWS_SECRET_KEY="<секретный_ключ>"
+     ```
+
    - PowerShell {#powershell}
-   
-       ```powershell
-       $Env:AWS_ACCESS_KEY="<идентификатор_ключа>"
-       $Env:AWS_SECRET_KEY="<секретный_ключ>"
-       ```
-   {% endlist %}  
+
+     ```powershell
+     $Env:AWS_ACCESS_KEY="<идентификатор_ключа>"
+     $Env:AWS_SECRET_KEY="<секретный_ключ>"
+     ```
+
+   {% endlist %}
 
 1. Добавьте настройки провайдера и бэкенда в конфигурационный файл:
 
@@ -176,23 +177,22 @@
 
    Где:
    * `bucket` — имя [бакета](../../storage/concepts/bucket.md).
-   * `dynamodb` — Document API базы данных, в формате `https://docapi.serverless.yandexcloud.net/{{ region-id }}/b1gia87mbaom********`:
-   * `key` — ключ объекта в бакете: путь и имя к файлу состояния {{ TF }} в бакете.
+   * `dynamodb` — эндпоинт Document API базы данных в формате `{{ ydb.aws-ep }}`.
+   * `key` — ключ объекта в бакете: путь к файлу состояния {{ TF }} в бакете и имя этого файла.
    * `dynamodb_table` — имя таблицы.
 
-   Подробнее о бэкенде для хранения состояний читайте на [сайте {{ TF }}](https://www.terraform.io/docs/backends/types/s3.html).
+   Подробнее о бэкенде для хранения состояний — в [документации {{ TF }}](https://www.terraform.io/docs/backends/types/s3.html).
 1. В папке с конфигурационным файлом выполните команду:
 
-    ```bash
-    terraform init
-    ```
-
+   ```bash
+   terraform init
+   ```
 
 ## Разверните конфигурацию {#deploy}
 
 В этом примере будет создана ВМ `terraform-vm`, которая будет подключена к [подсети](../../vpc/concepts/network.md#subnet) `subnet-1` в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`. Подсеть будет принадлежать облачной [сети](../../vpc/concepts/network.md#network) `network-1`.
 
-У ВМ будет: 2 ядра и 4 ГБ оперативной памяти и она автоматически получит публичный и [приватный IP-адреса](../../vpc/concepts/address.md#internal-addresses) из диапазона `192.168.10.0/24` в подсети `subnet-1`. На ВМ будет установлена операционная система Ubuntu и размещена публичная часть ключа для доступа по [SSH](../../glossary/ssh-keygen.md).
+У ВМ будет два ядра и 4 ГБ оперативной памяти. ВМ автоматически получит публичный и [приватный IP-адреса](../../vpc/concepts/address.md#internal-addresses) из диапазона `192.168.10.0/24` в подсети `subnet-1`. На ВМ будет установлена операционная система Ubuntu и размещена публичная часть ключа для доступа по [SSH](../../glossary/ssh-keygen.md).
 1. Сохраните следующую конфигурацию в отдельном файле `example-vm.tf` в папке с файлом конфигурации бэкенда:
 
    ```hcl
@@ -261,30 +261,31 @@
 
 ## Проверьте блокировку состояния {#check-state-lock}
 
-Попробуйте изменить инфраструктуру одновременно с другим пользователем. Если все работает, {{ TF }} вернет следующее сообщение после выполнения команды `terraform apply`:
+Попробуйте изменить инфраструктуру одновременно с другим пользователем. Если блокировка работает, после выполнения команды `terraform apply` {{ TF }} вернет сообщение:
 
 ```text
-member Error: Error acquiring the state lock
+Error: Error acquiring the state lock
 
-member Error message: ConditionalCheckFailedException: Condition not satisfied
-member Lock Info:
-member   ID:        <...>
-member   Path:      terraform-object-storage-tutorial/TF/cloud-storage.tfstate
-member   Operation: OperationTypeApply
-member   Who:       LD\user@i7293
-member   Version:   1.4.2
-member   Created:   <...>
-member   Info:
+Error message: ConditionalCheckFailedException: Condition not satisfied
+Lock Info:
+  ID:        <...>
+  Path:      terraform-object-storage-tutorial/TF/cloud-storage.tfstate
+  Operation: OperationTypeApply
+  Who:       LD\user@i7293
+  Version:   1.4.2
+  Created:   <...>
+  Info:
 
-member {{ TF }} acquires a state lock to protect the state from being written
-member by multiple users at the same time. Please resolve the issue above and try
-member again. For most commands, you can disable locking with the "-lock=false"
-member flag, but this is not recommended.
+Terraform acquires a state lock to protect the state from being written
+by multiple users at the same time. Please resolve the issue above and try
+again. For most commands, you can disable locking with the "-lock=false"
+flag, but this is not recommended.
 ```
 
 ## Как удалить созданные ресурсы {#clear-out}
 
 Если созданные ресурсы вам больше не нужны, удалите их:
+1. Удалите инфраструктуру, развернутую через {{ TF }}, — выполните команду `terraform destroy` в папке с конфигурационными файлами.
 1. [Удалите](../../ydb/operations/schema.md#drop-table) таблицу из БД.
 1. [Удалите](../../ydb/operations/manage-databases.md#delete-db) БД `state-lock-db`.
 1. [Удалите](../../storage/operations/buckets/delete.md) бакет.

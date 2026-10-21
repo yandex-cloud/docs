@@ -9,6 +9,8 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
+Управлять квотами позволяет сервис [{{ quota-manager-name }}](../../quota-manager/quickstart.md).
+
 При проектировании инфраструктуры в {{ yandex-cloud }} учитывайте технические ограничения — лимиты. Квоты можно увеличить по запросу в пределах лимитов. Выделенные квоты не гарантируют наличие свободных ресурсов.
 
 ## Зачем нужны квоты {#quotas}
@@ -21,8 +23,6 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 * Обратитесь в [техническую поддержку]({{ link-console-support }}) и расскажите, какие квоты нужно увеличить и до каких значений.
 
 Чтобы ваш запрос был рассмотрен, у вас должна быть [роль](../../iam/roles-reference.md#quota-manager-requestoperator) `quota-manager.requestOperator` или выше (`editor` или `admin`).
-
-Управлять квотами позволяет сервис [{{ quota-manager-name }}](../../quota-manager/quickstart.md).
 
 ## Квоты и лимиты по умолчанию для сервисов {{ yandex-cloud }} {#quotas-limits-default}
 

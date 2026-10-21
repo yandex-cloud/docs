@@ -363,4 +363,39 @@ items:
     href: pricing.md
   - name: Диагностика и устранение неполадок
     href: operations/troubleshooting.md
+  - name: Сборник рецептов администратора {{ stackland-name }}
+    expanded: true
+    items:
+      - name: Все рецепты
+        href: cookbooks/index.md
+      - name: Проектирование и развертывание инсталляции {{ stackland-name }}
+        items:
+          - name: Архитектура {{ stackland-full-name }} и роли компонентов
+            href: cookbooks/installation/01-architecture-and-components.md
+          - name: Подготовка к инсталляции
+            href: cookbooks/installation/02-installation-preparation.md
+          - name: Запуск инсталляции
+            href: cookbooks/installation/03-installation-launch.md
+          - name: Диагностика компонентов
+            href: cookbooks/installation/04-components-diagnostics.md
+          - name: Первичная настройка
+            href: cookbooks/installation/05-initial-setup.md
+      - name: Запуск команды разработки в инсталляцию
+        items:
+          - name: Проектирование модели доступов
+            href: cookbooks/dev-team-onboarding/01-access-model-design.md
+          - name: Подготовка проекта и пространств имен команды
+            href: cookbooks/dev-team-onboarding/02-project-and-namespaces.md
+          - name: Настройка прав в IAM
+            href: cookbooks/dev-team-onboarding/03-iam-permissions.md
+          - name: Настройка квот
+            href: cookbooks/dev-team-onboarding/04-quotas.md
+      - name: Политики, безопасность и эксплуатационные ограничения
+        items:
+          - name: Внедрение политик безопасности и аудит конфигураций
+            href: cookbooks/security-policies/01-security-policies-and-audit.md
+      - name: Обновления {{ stackland-name }}
+        items:
+          - name: Обновление кластера
+            href: cookbooks/updates/01-cluster-update.md
 path: ru/stackland/toc.yaml

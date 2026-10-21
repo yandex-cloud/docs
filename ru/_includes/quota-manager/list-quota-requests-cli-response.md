@@ -1,4 +1,4 @@
-```bash
+```text
 quota_requests:
   - id: atdogfioseaq********
     resource:

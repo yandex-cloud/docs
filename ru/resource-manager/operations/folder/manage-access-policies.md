@@ -5,8 +5,6 @@ description: Из статьи вы узнаете, как просматрив�
 
 # Управлять политиками авторизации каталога
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
-
 {% include [access-policies-instruction-intro](../../../_includes/iam/access-policies-instruction-intro.md) %}
 
 Назначать и отзывать политики авторизации [каталога](../../concepts/resources-hierarchy.md#folder) может пользователь, которому назначена роль [resource-manager.admin](../../security/index.md#resource-manager-admin) или [admin](../../../iam/roles-reference.md#admin) на этот каталог, либо роль с более широкими разрешениями.

@@ -365,3 +365,37 @@ Stackland базируется на Kubernetes®, что позволяет ра
  - [Правила тарификации](pricing.md)
 
  - [Диагностика и устранение неполадок](operations/troubleshooting.md)
+
+## Сборник рецептов администратора Stackland
+
+ - [Все рецепты](cookbooks/index.md)
+
+### Проектирование и развертывание инсталляции Stackland
+
+ - [Архитектура Yandex Cloud Stackland и роли компонентов](cookbooks/installation/01-architecture-and-components.md)
+
+ - [Подготовка к инсталляции](cookbooks/installation/02-installation-preparation.md)
+
+ - [Запуск инсталляции](cookbooks/installation/03-installation-launch.md)
+
+ - [Диагностика компонентов](cookbooks/installation/04-components-diagnostics.md)
+
+ - [Первичная настройка](cookbooks/installation/05-initial-setup.md)
+
+### Запуск команды разработки в инсталляцию
+
+ - [Проектирование модели доступов](cookbooks/dev-team-onboarding/01-access-model-design.md)
+
+ - [Подготовка проекта и пространств имен команды](cookbooks/dev-team-onboarding/02-project-and-namespaces.md)
+
+ - [Настройка прав в IAM](cookbooks/dev-team-onboarding/03-iam-permissions.md)
+
+ - [Настройка квот](cookbooks/dev-team-onboarding/04-quotas.md)
+
+### Политики, безопасность и эксплуатационные ограничения
+
+ - [Внедрение политик безопасности и аудит конфигураций](cookbooks/security-policies/01-security-policies-and-audit.md)
+
+### Обновления Stackland
+
+ - [Обновление кластера](cookbooks/updates/01-cluster-update.md)

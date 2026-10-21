@@ -52,16 +52,16 @@
     * [Группы безопасности](../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group).
     * [Виртуальная машина](../../compute/concepts/vm.md) — [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).
     * [Кластер {{ MY }}](../../managed-mysql/concepts/index.md) — [yandex_mdb_mysql_cluster]({{ tf-provider-resources-link }}/mdb_mysql_cluster).
-    * [БД {{ PG }}](../../managed-mysql/) — [yandex_mdb_mysql_database]({{ tf-provider-resources-link }}/mdb_mysql_database).
+    * [БД {{ MY }}](../../managed-mysql/) — [yandex_mdb_mysql_database]({{ tf-provider-resources-link }}/mdb_mysql_database).
     * [Пользователь БД](../../managed-mysql/concepts/user-rights.md) — [yandex_mdb_mysql_user]({{ tf-provider-resources-link }}/mdb_mysql_user).
     * [Зона DNS](../../dns/concepts/dns-zone.md) — [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone).
     * [Ресурсная запись DNS](../../dns/concepts/resource-record.md) — [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset).
 
 1. В блоке `metadata` укажите [метаданные](../../compute/concepts/vm-metadata.md) для создания ВМ `<имя_пользователя>:<содержимое_SSH-ключа>`. Указанное имя пользователя не играет роли, ключ будет присвоен пользователю, который задан в конфигурации образа. В разных образах это разные пользователи. Подробнее в разделе [{#T}](../../compute/concepts/metadata/public-image-keys.md).
 1. В блоке `boot_disk` укажите идентификатор одного из [образов](../../compute/operations/images-with-pre-installed-software/get-list.md) ВМ с нужным набором компонентов:
-   * [Debian 11](/marketplace/products/yc/debian-11).
-   * [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
-   * [CentOS 7](/marketplace/products/yc/centos-7).
+   * [Debian 12](/marketplace/products/yc/debian-12).
+   * [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
+   * [CentOS Stream 9](/marketplace/products/yc/centos-stream-9).
 1. Создайте ресурсы:
 
    {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -87,7 +87,7 @@
 
 Чтобы перестать платить за созданные ресурсы:
 
-1. Откройте конфигурационный файл `single-node-file-server.tf` и удалите описание создаваемой инфраструктуры из файла.
+1. Откройте конфигурационный файл `wordpress-mysql.tf` и удалите описание создаваемой инфраструктуры из файла.
 1. Примените изменения:
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

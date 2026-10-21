@@ -21,8 +21,6 @@
 
   Список классов хостов и соответствующих им платформ приведен в разделе [Классы хостов](../../../storedoc/concepts/instance-types.md).
 
-  {% include [zone-d-disk-restrictions](../ru-central1-d-local-ssd.md) %}
-
 {% include [disk-block-size](../disk-block-size.md) %}
 
 {% include [available-storage](../available-storage.md) %}

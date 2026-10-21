@@ -17,8 +17,7 @@
       "createdAt": "2025-09-01T08:46:28.091109Z",
       "status": "PROCESSING",
       "createdBy": "ajegtlf2q28a********"
-    },
-    ...
+    }
   ]
 }
 ```

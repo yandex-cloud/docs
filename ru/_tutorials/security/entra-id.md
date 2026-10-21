@@ -273,11 +273,11 @@
 
   1. Выберите созданную ранее федерацию `demo-federation` и перейдите на вкладку **{{ ui-key.yacloud_org.form.group-mapping.note.tab-idp }}**.
 
-  1. Включите опцию **{{ ui-key.yacloud_org.form.group-mapping.field.idp }}**.
+  1. Если сопоставление групп еще не включено, нажмите кнопку **{{ ui-key.yacloud_org.form.group-mapping.action.enable-mapping }}**.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud_org.form.group-mapping.create.add }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.form.group-mapping.add-group-mapping }}**.
 
-  1. В поле **{{ ui-key.yacloud_org.form.group-mapping.note.group-name }}** введите идентификатор группы `az_demo_group`, [полученный ранее в {{ microsoft-idp.entra-id-short }}](#create-group).
+  1. В поле **{{ ui-key.yacloud_org.form.group-mapping.field-external-group }}** введите идентификатор группы `az_demo_group`, [полученный ранее в {{ microsoft-idp.entra-id-short }}](#create-group).
 
      {% note warning %}
 
@@ -287,9 +287,9 @@
 
      {% endnote %}
 
-  1. В поле **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}** выберите из списка имя группы в {{ org-full-name }} — `yc-demo-group`.
+  1. В поле **{{ ui-key.yacloud_org.form.group-mapping.field-internal-group }}** выберите из списка имя группы в {{ org-full-name }} — `yc-demo-group`.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.save-changes }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.add }}**.
 
 - {{ TF }} {#tf}
 

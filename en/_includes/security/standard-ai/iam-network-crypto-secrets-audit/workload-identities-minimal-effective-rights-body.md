@@ -14,7 +14,7 @@ The production component must be executed under a separate workload identity, no
 
 The check takes into account direct, group, and inherited bindings. The resource and role model principles are described in [this {{ iam-short-name }} guide](../../../../iam/concepts/access-control/index.md).
 
-If the organization uses [{{ iam-short-name }} access policies](../../../../iam/concepts/access-control/access-policies.md), this Preview feature is available on request and complements roles with explicit prohibitions.
+If the organization uses [{{ iam-short-name }} access policies](../../../../iam/concepts/access-control/access-policies.md), this feature complements roles with explicit prohibitions.
 
 The whole of the {{ ciem-name }} ({{ ciem-full-name }}) module, as part of [{{ sd-full-name }}](../../../../security-deck/index.yaml), is at the Preview stage and can be used only after an availability confirmation. It shows assigned access permissions, including direct and obtained through groups, but does not say which permission is excessive instead of the organization.
 

@@ -14,7 +14,7 @@ kubectl -n stackland-ytsaurus get ingress yt-ui -o jsonpath='{.spec.rules[0].hos
 
 There are two supported login methods:
 
-* **Local administrator**: `admin` for username and a password from the `ytadminsec` Secret. See [Getting an administrator password and token](get-admin-credentials.md).
+* **Local administrator**: `admin` for username and a password from the `ytadminsec` Secret. See [Get the administrator password and token](get-admin-credentials.md).
 * **{{ iam-name }} login**: OAuth authentication via {{ iam-name }}. The user must exist in {{ iam-name }} and have access to the platform.
 
 Login steps:
@@ -30,3 +30,4 @@ Login steps:
 ## What's next {#what-is-next}
 
 * [Connecting to the {{ YT }} HTTP proxy](connect-api.md): for requests via the {{ YT }} CLI and SDK.
+* [{{ YT }} web UI guide](https://ytsaurus.tech/docs/{{ lang }}/overview/about#ui).

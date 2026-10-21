@@ -2,12 +2,6 @@
 
 # Управлять политиками авторизации каталога
 
-{% note info %}
-
-Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
-
-{% endnote %}
-
 [Политики авторизации](../../../iam/concepts/access-control/access-policies.md) — это механизм контроля доступа Yandex Identity and Access Management, который позволяет управлять разрешениями на выполнение определенных операций с [ресурсами Yandex Cloud](../../../overview/roles-and-resources.md). Политики авторизации создаются на основе [шаблонов](../../../iam/concepts/access-control/access-policies.md#supported-policies) и дополняют систему [ролей](../../../iam/concepts/access-control/roles.md), делая [управление доступом](../../../iam/concepts/access-control/index.md) более гибким.
 
 Назначать и отзывать политики авторизации [каталога](../../concepts/resources-hierarchy.md#folder) может пользователь, которому назначена роль [resource-manager.admin](../../security/index.md#resource-manager-admin) или [admin](../../../iam/roles-reference.md#admin) на этот каталог, либо роль с более широкими разрешениями.

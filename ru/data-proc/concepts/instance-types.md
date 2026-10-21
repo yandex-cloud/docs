@@ -19,8 +19,6 @@ description: Класс хостов определяет вычислитель
 
 Ниже приведен полный список возможных конфигураций хостов на каждой из платформ.
 
-{% include [zone-d-host-restrictions](../../_includes/mdb/ru-central1-d-broadwell.md) %}
-
 {% include [burstable-hosts-deprecation-2023](../../_includes/mdb/burstable-hosts-deprecation-2023.md) %}
 
 | Имя класса хостов | Количество CPU | Производительность CPU | RAM, ГБ | Размер <br>диска, ГБ |

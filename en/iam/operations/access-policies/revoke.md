@@ -5,8 +5,6 @@ description: In this guide, you will learn how to delete a {{ iam-full-name }} a
 
 # Deleting an access policy
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
-
 {% include [access-policies-instruction-intro](../../../_includes/iam/access-policies-instruction-intro.md) %}
 
 You can delete an access policy created for a [folder](#folder), [cloud](#cloud), or [organization](#organization).

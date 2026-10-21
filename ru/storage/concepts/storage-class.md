@@ -38,7 +38,7 @@ description: '{{ objstorage-name }} позволяет хранить объек
 
 ## Особенности классов хранилища {#features}
 
-Все классы хранилищ имеют [одинаковый SLA]({{ link-yandex }}/legal/cloud_sla_storage/ru/) и защищают данные от потери даже при полном отказе одной из трех [зон доступности](../../overview/concepts/geo-scope.md).
+Все классы хранилищ имеют [одинаковый SLA]({{ link-yandex }}/legal/cloud_sla_storage/ru/) и защищают данные от потери даже при полном отказе одной из [зон доступности](../../overview/concepts/geo-scope.md).
 
 
 ### Стандартное, холодное, ледяное {#features-all}

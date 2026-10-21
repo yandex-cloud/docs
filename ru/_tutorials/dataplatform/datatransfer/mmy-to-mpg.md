@@ -2,23 +2,24 @@
 
 Вы можете настроить перенос данных из базы {{ mmy-name }} в базу {{ mpg-name }} с помощью сервиса {{ data-transfer-name }}. Для этого:
 
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Подготовьте тестовые данные](#prepare-data).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работоспособность трансфера](#verify-transfer).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+## Подготовьте облако к работе {#before-you-begin}
 
-## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
-* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы {{ mmy-name }}](../../../managed-mysql/pricing.md)).
+### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mpg-name }}: вычислительные ресурсы хостов, объем хранилища и резервных копий ([тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
+* Кластер {{ mmy-name }}: вычислительные ресурсы хостов, объем хранилища и резервных копий ([тарифы {{ mmy-name }}](../../../managed-mysql/pricing.md)).
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
-
-Подготовьте инфраструктуру:
+### Подготовьте инфраструктуру {#deploy}
 
 {% list tabs group=instructions %}
 
@@ -26,7 +27,7 @@
 
     {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
-    1. [Создайте кластер-источник {{ mmy-name }}](../../../managed-mysql/operations/cluster-create.md#create-cluster) в любой [зоне доступности](../../../overview/concepts/geo-scope.md), с хостами любой подходящей конфигурации в публичном доступе, и следующими настройками:
+    1. [Создайте кластер-источник {{ mmy-name }}](../../../managed-mysql/operations/cluster-create.md#create-cluster) в любой [зоне доступности](../../../overview/concepts/geo-scope.md) с хостами любой подходящей конфигурации в публичном доступе и следующими настройками:
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `mmy_db`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `mmy_user`.
@@ -70,27 +71,18 @@
         * Версии {{ MY }} и {{ PG }}.
         * Пароли пользователей {{ MY }} и {{ PG }}.
 
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    1. Создайте ресурсы:
 
-        ```bash
-        terraform validate
-        ```
+       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Создайте необходимую инфраструктуру:
-
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-        {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
+       {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
 
 ## Подготовьте тестовые данные {#prepare-data}
 
 1. [Подключитесь к базе данных в кластере-источнике {{ mmy-name }}](../../../managed-mysql/operations/connect/index.md).
-
-1. Наполните базу тестовыми данными. В качестве примера используется простая таблица, содержащая информацию, поступающую от некоторых датчиков автомобиля.
+1. Наполните базу тестовыми данными. В качестве примера используется простая таблица с данными, поступающими от датчиков автомобиля.
 
     Создайте таблицу:
 
@@ -202,7 +194,7 @@
 
 {% endnote %}
 
-Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
+Чтобы перестать платить за созданные ресурсы:
 
 {% list tabs group=instructions %}
 

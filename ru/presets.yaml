@@ -2929,13 +2929,28 @@ default:
           add: Добавить
           create: Создать новую организацию
       Quota-manager:
+        action_go_to_support_rF3kf: Перейти к обращению
         action_submit_tFxrh: Отправить
+        column_desired-value_q4nG5: Запрошено
+        column_new-value_tW31x: Утверждено
         column_usage_jynXV: Использование
-        label_history-tab_n8GVs: История запросов
-        label_quotas-tab_323nV: Список квот
+        label_quota-empty_vNSZR: Квота не выделена
         label_quotas-with-usage_dWfzm: Сервисы с потреблением
         label_quotas-without-usage_nAfZB: Сервисы без потребления
+        labelStatus_rz1W3: Статус
+        request_status_canceled_jgYUT: Закрыт пользователем
+        request_status_deleting_qvJ7M: Удаляется
+        request_status_pending_sgzW4: Ожидает обработки
+        request_status_processed_uh3ua: Обработан
+        request_status_processing_6VM8E: В обработке
+        status_quota-limit-approved_avgVY: Одобрено
+        status_quota-limit-canceled_ouNpH: Запрос закрыт
+        status_quota-limit-partial-approved_vFYkY: Одобрено частично
+        status_quota-limit-pending_f94b3: Ожидает обработки
+        status_quota-limit-processing_x2Dmo: В обработке
+        status_quota-limit-rejected_vNyUA: Отклонено
         value_request-status-processing_jiepM: В обработке
+        value_status-all_uAiLf: Все
         value_usage-status-almost-expired_9NhmR: Почти закончились
       revoke-access-dialog:
         action_revoke-all: Отозвать все
@@ -3551,8 +3566,6 @@ default:
         SwitchAccountAside:
           action_switch-account_1aB2c: Сменить аккаунт
       center:
-        navigation:
-          label_quotas: Квоты
         quotas:
           tab_history: История запросов
           tab_quotas: Список квот
@@ -3563,8 +3576,6 @@ default:
           action-generate-new-certificate: Сгенерировать новый сертификат
           table:
             column-active: Активный
-        QuotaManager:
-          button_action_request_n3PCx: Запросить изменение
       common:
         apply: Применить
         columns:
@@ -3715,13 +3726,12 @@ default:
           note:
             tab-domains: Домены
         group-mapping:
-          create:
-            add: Добавить группу
-          field:
-            idp: Маппинг групп в IdP
+          action:
+            enable-mapping: Включить маппинг групп в IdP
+          add-group-mapping: Добавить сопоставление групп
+          field-external-group: Имя группы
+          field-internal-group: IAM-группа
           note:
-            group-name: Имя группы
-            iam-group: IAM-группа
             tab-idp: IdP-группы
         mfa-enforcement:
           caption:
@@ -6161,6 +6171,7 @@ default:
             section_base: Общая информация
             section_coi: Настройка Docker-контейнера
             section_image: Образ загрузочного диска
+            section_location: Расположение
             section_monitoring: Мониторинг
             section_network: Сетевые настройки
             section_placement: Размещение
@@ -7295,6 +7306,8 @@ default:
         SecretsPage:
           button_create-secret: Создать секрет
         SecretVersionsInputs:
+          button_choose-file: Выбрать файл
+          value_payload-entry-value-type-file: Файл
           value_payload-entry-value-type-text: Текст
         SecretVersionsList:
           button_add-pair: Добавить ключ/значение
@@ -7383,10 +7396,34 @@ default:
         entities:
           ClusterPreset:
             label_section_1nfw1: Конфигурация кластера
+            title_custom-config_msdZ4: Расширенная настройка
+          DatabaseName:
+            label_title_k7mN2: Имя базы данных
+          DiskAutoscaling:
+            label_max-disk-size_Dl2pS: Максимальный размер хранилища
+          Environment:
+            label_title_mK9nQ: Окружение
+          Name:
+            label_title_sF4Tc: Имя кластера
+          Network:
+            label_title_sF4Tc: Сеть
+          Password:
+            label_connman-option_bF3yT: Сгенерировать
+            label_title_pQ7mK: Пароль
+            label_user-option_vJ6nD: Ввести вручную
+          Preset:
+            label_title_x7hK2: Вычислительные ресурсы кластера
           Subnetwork:
             label_title_c4P8n: Подсеть
+          UserName:
+            label_title_7mNp4: Имя пользователя
           Zone:
             label_title_qQ3Vg: Зона доступности
+        label_common-section-title_54GvX: Общая информация о кластере
+        label_database-section-title_e6jDp: Настройки базы данных
+        label_disk-autoscaling-section-title_4Dmtk: Увеличивать размер
+        label_network-section-title_skKcG: Сетевые настройки
+        label_resource-section-title_rMryC: Ресурсы кластера
       mdb:
         AuthMethodColumn:
           value_iam_boWet: IAM
@@ -7830,6 +7867,12 @@ default:
         hosts:
           dialog:
             button_choose: Сохранить
+        new:
+          entities:
+            AssignPublicIp:
+              label_title_83mKk: Публичный доступ
+            Hosts:
+              label_title_K2JG5: Хосты
         switch_list: Кластеры
         switch_operations: Операции
       opensearch:
@@ -8960,6 +9003,7 @@ default:
         constants:
           menu_delete: Удалить
           menu_edit: Изменить
+          menu_table-group: Таблица
         database:
           switch_browse: Навигация
         databases:

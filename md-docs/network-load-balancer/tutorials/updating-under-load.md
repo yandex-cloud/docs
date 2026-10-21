@@ -4,6 +4,7 @@
 
 
 С помощью этого пошагового руководства вы настроите [группу ВМ](../../compute/concepts/instance-groups/index.md) и проверите ее работу при обновлении конфигурации. Для этого:
+
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Подготовьте окружение](#create-environment).
 1. [Создайте группу ВМ с Container Optimized Image](#create-vm-group).
@@ -23,9 +24,10 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки группы ВМ Yandex Cloud входит плата за:
-* [Диски](../../compute/concepts/disk.md) и постоянно запущенные [ВМ](../../compute/concepts/vm.md) – [тарифы Yandex Compute Cloud](../../compute/pricing.md).
-* Использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md) – [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md).
+В стоимость поддержки созданной инфраструктуры входят:
+
+* плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные [ВМ](../../compute/concepts/vm.md) — [тарифы Yandex Compute Cloud](../../compute/pricing.md);
+* плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md) — [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md).
 
 ## Подготовьте окружение {#create-environment}
 
@@ -39,7 +41,7 @@
      1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
      1. Нажмите кнопку **Создать сервисный аккаунт**.
      1. В поле **Имя** укажите `for-load`.
-     1. Нажмите значок ![](../../_assets/console-icons/plus.svg) **Добавить роль**. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с сетевым балансировщиком Network Load Balancer, назначьте сервисному аккаунту роли [compute.editor](../../compute/security/index.md#compute-editor) и [load-balancer.editor](../security/index.md#load-balancer-editor).
+     1. Нажмите значок ![](../../_assets/console-icons/plus.svg) **Добавить роль** и назначьте роли [compute.editor](../../compute/security/index.md#compute-editor) и [load-balancer.editor](../security/index.md#load-balancer-editor).
      1. Нажмите кнопку **Создать**.
 
    - CLI {#cli}
@@ -63,7 +65,7 @@
         name: for-load
         ```
 
-     1. Назначьте роль сервисному аккаунту роль compute.editor:
+     1. Назначьте сервисному аккаунту роль `compute.editor`:
 
         ```bash
         yc resource-manager folder add-access-binding <идентификатор_каталога> \
@@ -71,20 +73,18 @@
           --subject serviceAccount:<идентификатор_сервисного_аккаунта>
         ```
 
-      1. Назначьте роль сервисному аккаунту роль load-balancer.editor:
+     1. Назначьте сервисному аккаунту роль `load-balancer.editor`:
 
-          ```bash
-          yc resource-manager folder add-access-binding <идентификатор_каталога> \
-            --role load-balancer.editor \
-            --subject serviceAccount:<идентификатор_сервисного_аккаунта>
-          ```
+        ```bash
+        yc resource-manager folder add-access-binding <идентификатор_каталога> \
+          --role load-balancer.editor \
+          --subject serviceAccount:<идентификатор_сервисного_аккаунта>
+        ```
 
    - API {#api}
 
-     1. Создайте сервисный аккаунт `for-load`:
-         Воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md).
-     1. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с сетевым балансировщиком Network Load Balancer, назначьте сервисному аккаунту роли [compute.editor](../../compute/security/index.md#compute-editor) и [load-balancer.editor](../security/index.md#load-balancer-editor):
-         Воспользуйтесь методом REST API [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/Folder/setAccessBindings.md).
+     1. Создайте сервисный аккаунт `for-load`. Воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md).
+     1. Назначьте сервисному аккаунту роли [compute.editor](../../compute/security/index.md#compute-editor) и [load-balancer.editor](../security/index.md#load-balancer-editor). Воспользуйтесь методом REST API [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/Folder/setAccessBindings.md).
 
    {% endlist %}
 
@@ -118,10 +118,12 @@
         name: yc-auto-network
         ```
 
-     1. Создайте подсеть в зоне `ru-central1-d`:
+        Сохраните идентификатор сети из поля `id`, он понадобится далее.
+
+     1. Создайте подсеть в зоне `ru-central1-d`, подставив идентификатор сети:
 
         ```bash
-        yc vpc subnet create --network-id enpabce123hd******** --range 192.168.1.0/24 --zone ru-central1-d
+        yc vpc subnet create --network-id <идентификатор_сети> --range 192.168.1.0/24 --zone ru-central1-d
         ```
 
         Результат выполнения команды:
@@ -139,7 +141,7 @@
      1. Создайте подсеть в зоне `ru-central1-b`:
 
         ```bash
-        yc vpc subnet create --network-id enpabce123hd******** --range 192.168.2.0/24 --zone ru-central1-b
+        yc vpc subnet create --network-id <идентификатор_сети> --range 192.168.2.0/24 --zone ru-central1-b
         ```
 
         Результат выполнения команды:
@@ -156,10 +158,8 @@
 
    - API {#api}
 
-     1. Создайте сеть:
-         Воспользуйтесь методом REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md).
-     1. Создайте подсети в зонах `ru-central1-d` и `ru-central1-b`:
-         Воспользуйтесь методом REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md).
+     1. Создайте сеть. Воспользуйтесь методом REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md).
+     1. Создайте подсети в зонах `ru-central1-d` и `ru-central1-b`. Воспользуйтесь методом REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md).
 
    {% endlist %}
 
@@ -189,7 +189,7 @@
         * В блоке **Диски и файловые хранилища**:
           * Для загрузочного диска укажите **Размер** `30 ГБ`.
         * В блоке **Сетевые настройки**:
-          * В поле **Сеть** выберите `for-load`.
+          * В поле **Сеть** выберите `yc-auto-network`.
         * В блоке **Доступ**:
           * В поле **Сервисный аккаунт** выберите `for-load`.
           * В поле **Логин** укажите имя пользователя, который будет создан на ВМ.
@@ -307,8 +307,7 @@
 
    - API {#api}
 
-     1. Получите идентификатор последней версии образа `container-optimized-image` в семействе `standard-images`:
-         Воспользуйтесь методом REST API [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md) для ресурса [Image](../../compute/api-ref/Image/index.md) или вызовом gRPC API [ImageService/GetLatestByFamily](../../compute/api-ref/grpc/Image/getLatestByFamily.md).
+     1. Получите идентификатор последней версии образа `container-optimized-image` в семействе `standard-images`. Воспользуйтесь методом REST API [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md) для ресурса [Image](../../compute/api-ref/Image/index.md) или вызовом gRPC API [ImageService/GetLatestByFamily](../../compute/api-ref/grpc/Image/getLatestByFamily.md).
      1. Создайте группу ВМ по следующей спецификации:
 
          ```yaml
@@ -415,16 +414,15 @@
      1. Нажмите кнопку **Создать сетевой балансировщик**.
      1. В поле **Имя** укажите `load-generator`.
      1. В поле **Публичный адрес** выберите `Автоматически`.
-     1. В блоке **Обработчики** нажмите **Добавить обработчик**.
-     1. В открывшемся окне:
+     1. В блоке **Обработчики** нажмите **Добавить обработчик**. В открывшемся окне:
         * В поле **Имя** укажите `http`.
         * В поле **Порт** укажите `80` — на нем балансировщик будет принимать входящий трафик.
         * В поле **Целевой порт** укажите `80` — на него балансировщик будет направлять трафик.
         * Нажмите кнопку **Добавить**.
      1. В блоке **Целевые группы** нажмите **Добавить целевую группу**.
      1. В списке **Целевая группа** выберите `load-generator`.
-     1. В блоке **Проверка состояния** нажмите **Настроить**:
-        * В открывшемся окне укажите **Путь** `/hello` — по этому пути балансировщик будет отправлять запросы для проверки состояния ВМ из целевой группы.
+     1. В блоке **Проверка состояния** нажмите **Настроить**. В открывшемся окне:
+        * Укажите **Путь** `/hello` — по этому пути балансировщик будет отправлять запросы для проверки состояния ВМ из целевой группы.
         * Нажмите кнопку **Применить**.
      1. Нажмите кнопку **Создать**.
 
@@ -541,7 +539,7 @@
    wrk -t20 -c20 -d20m --timeout 20s http://<IP-адрес_балансировщика>/sleep
    ```
 
-   Команда запустит утилиту `wrk`, которая будет отправлять запросы в 20 потоков по 20 подключений к сетевому балансировщику в течение 20 минут. Таймаут запроса 20 секунд. Полученную нагрузку балансировщик распределит между ВМ из группы.
+   Команда запустит утилиту `wrk`, которая будет отправлять запросы к сетевому балансировщику в 20 потоков с 20 подключениями в течение 20 минут. Таймаут запроса — 20 секунд. Полученную нагрузку балансировщик распределит между ВМ из группы.
 
    После запуска `wrk` на экране появится сообщение о начале тестирования:
 
@@ -607,13 +605,13 @@
      ...
      ```
   
-  1. Чтобы обновить группу ВМ `load-generator` по новой спецификации, воспользуйтесь методом REST API [updateFromYaml](../../compute/instancegroup/api-ref/InstanceGroup/updateFromYaml.md) для ресурса [InstanceGroup](../../compute/instancegroup/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/UpdateFromYaml](../../compute/instancegroup/api-ref/grpc/InstanceGroup/updateFromYaml.md).
+  1. Чтобы обновить группу ВМ `group-for-load` по новой спецификации, воспользуйтесь методом REST API [updateFromYaml](../../compute/instancegroup/api-ref/InstanceGroup/updateFromYaml.md) для ресурса [InstanceGroup](../../compute/instancegroup/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/UpdateFromYaml](../../compute/instancegroup/api-ref/grpc/InstanceGroup/updateFromYaml.md).
 
 {% endlist %}
 
 ## Остановите нагрузку и получите результаты {#end-load-testing}
 
-Остановите работу `wrk`, нажав сочетание клавиш **Ctrl** + **C**.
+Остановите работу `wrk`, нажав сочетание клавиш **Ctrl**+**C**.
 
 Результат выполнения команды:
 
@@ -630,58 +628,10 @@ Transfer/sec:     206.94B
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы удалить созданные ресурсы:
+Чтобы перестать платить за созданные ресурсы, удалите их в следующем порядке:
 
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-   1. Удалите балансировщик нагрузки:
-      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали балансировщик нагрузки.
-      1. [Перейдите](https://console.yandex.cloud/link/network-load-balancer) в сервис **Network Load Balancer**.
-      1. Справа в строке балансировщика `load-generator` нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
-      1. В открывшемся окне нажмите **Удалить**.
-   1. Удалите группу ВМ:
-      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали группу ВМ.
-      1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
-      1. На панели слева выберите ![](../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
-      1. Справа в строке группы `load-generator` нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
-      1. В открывшемся окне нажмите **Удалить**.
-   1. Удалите сервисный аккаунт:
-      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали сервисный аккаунт.
-      1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
-      1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
-      1. В открывшемся списке в строке с сервисным аккаунтом `yc-auto-sa` нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
-      1. В открывшемся окне нажмите **Удалить**.
-   1. Удалите сеть и подсети:
-      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали сеть и подсети.
-      1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
-      1. Выберите сеть `yc-auto-network`.
-      1. В блоке **Подсети**:
-         1. Справа в строке подсети `yc-auto-subnet-1` нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
-         1. В открывшемся окне нажмите **Удалить**.
-         1. Также удалите подсеть `yc-auto-subnet-2`.
-      1. В правом верхнем углу нажмите **Удалить**.
-
-- CLI {#cli}
-
-   Выполните последовательно команды:
-
-   ```bash
-   yc load-balancer network-load-balancer delete load-generator
-   yc compute instance-group delete load-generator
-   yc iam service-account delete yc-auto-sa
-   yc vpc subnet delete yc-auto-subnet-1
-   yc vpc subnet delete yc-auto-subnet-2
-   yc vpc network delete yc-auto-network
-   ```
-  
-- API {#api}
-
-  1. Удалите балансировщик `load-generator`: воспользуйтесь методом REST API [delete](../api-ref/NetworkLoadBalancer/delete.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Delete](../api-ref/grpc/NetworkLoadBalancer/delete.md).
-  1. Удалите группу ВМ `load-generator`: воспользуйтесь методом REST API [delete](../../compute/instancegroup/api-ref/InstanceGroup/delete.md) для ресурса [InstanceGroup](../../compute/instancegroup/api-ref/InstanceGroup/index.md) или вызовом gRPC API [InstanceGroupService/Delete](../../compute/instancegroup/api-ref/grpc/InstanceGroup/delete.md).
-  1. Удалите сервисный аккаунт `yc-auto-sa`: воспользуйтесь методом REST API [delete](../../iam/api-ref/ServiceAccount/delete.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Delete](../../iam/api-ref/grpc/ServiceAccount/delete.md).
-  1. Удалите подсети `yc-auto-subnet-1` и `yc-auto-subnet-2`: воспользуйтесь методом REST API [delete](../../vpc/api-ref/Subnet/delete.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Delete](../../vpc/api-ref/grpc/Subnet/delete.md).
-  1. Удалите сеть `yc-auto-network`: воспользуйтесь методом REST API [delete](../../vpc/api-ref/Network/delete.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Delete](../../vpc/api-ref/grpc/Network/delete.md).
-
-{% endlist %}
+1. [Удалите](../operations/load-balancer-delete.md) сетевой балансировщик нагрузки `load-generator`.
+1. [Удалите](../../compute/operations/instance-groups/delete.md) группу ВМ `group-for-load` — вместе с ней удалятся ВМ, диски и целевая группа балансировщика.
+1. [Удалите](../../iam/operations/sa/delete.md) сервисный аккаунт `for-load`.
+1. [Удалите](../../vpc/operations/subnet-delete.md) подсети, созданные в зонах `ru-central1-d` и `ru-central1-b`.
+1. [Удалите](../../vpc/operations/network-delete.md) сеть `yc-auto-network`.

@@ -6,6 +6,7 @@ yc quota-manager quota-request list \
 ```
 
 Где:
-* `--resource-type` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
-* `--resource-id` — идентификатор ресурса (облака, организации или платежного аккаунта).
-* `--limit` — количество запросов на странице.
+
+* `--resource-type` ([тип ресурса](../../quota-manager/concepts/index.md#resources-types)) определяет уровень просмотра запросов на изменение квот. Для уровня облака укажите `resource-manager.cloud`, для уровня организации — `organization-manager.organization`.
+* `--resource-id` — идентификатор ресурса (облака или организации).
+* `--limit` — максимальное количество запросов в выводе.

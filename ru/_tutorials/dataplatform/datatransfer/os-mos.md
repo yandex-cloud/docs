@@ -3,6 +3,7 @@
 
 С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из индексов стороннего кластера-источника {{ OS }} в индексы {{ mos-name }}. Для этого:
 
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Настройте кластер-источник](#configure-source).
 1. [Подготовьте тестовые данные](#prepare-data).
 1. [Настройте кластер-приемник](#configure-target).
@@ -11,14 +12,16 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+## Подготовьте облако к работе {#before-you-begin}
 
-## Необходимые платные ресурсы {#paid-resources}
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер {{ mos-name }}: использование вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mos-name }}](../../../managed-opensearch/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
+### Подготовьте инфраструктуру {#deploy}
 
 1. [Обеспечьте доступ к кластеру-источнику {{ OS }} из {{ yandex-cloud }}](../../../data-transfer/concepts/network.md#source-external).
 
@@ -93,7 +96,6 @@
 Вы можете поставлять данные из кластера {{ OS }} от имени пользователя `admin`, имеющего роль `superuser`, но безопаснее для каждой задачи создавать отдельных пользователей с ограниченными привилегиями.
 
 1. (Опционально) В кластере-источнике [создайте роль]({{ os.docs }}/security-plugin/access-control/users-roles/#create-roles) с привилегиями `create_index` и `write` для всех индексов (`*`).
-
 1. (Опционально) В кластере-источнике [создайте пользователя]({{ os.docs }}/security-plugin/access-control/users-roles), от имени которого будут выполняться трансфер, и назначьте ему созданную роль.
 
 ## Подготовьте тестовые данные {#prepare-data}
@@ -227,24 +229,21 @@
 
     {% endlist %}
 
-## Удалите созданные ресурсы {#clear-out}
+## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
+Чтобы перестать платить за созданные ресурсы:
 
-1. [Удалите трансфер](../../../data-transfer/operations/transfer.md#delete).
-1. [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
-1. Остальные ресурсы удалите в зависимости от способа их создания:
+{% list tabs group=instructions %}
 
-    {% list tabs group=instructions %}
+- Вручную {#manual}
 
-    - Вручную {#manual}
+    1. [Удалите трансфер](../../../data-transfer/operations/transfer.md#delete).
+    1. [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
+    1. [Удалите кластер {{ mos-name }}](../../../managed-opensearch/operations/cluster-delete.md).
+    1. [Удалите подсеть](../../../vpc/operations/subnet-delete.md) и [сеть](../../../vpc/operations/network-delete.md).
 
-        1. [Удалите кластер {{ mos-name }}](../../../managed-opensearch/operations/cluster-delete.md).
+- {{ TF }} {#tf}
 
-        1. [Удалите подсеть](../../../vpc/operations/subnet-delete.md) и [сеть](../../../vpc/operations/network-delete.md).
+    {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
-    - {{ TF }} {#tf}
-
-        {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
-
-    {% endlist %}
+{% endlist %}

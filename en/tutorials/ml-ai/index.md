@@ -54,3 +54,4 @@ description: Various use cases for machine learning and artificial intelligence 
 
 * [{#T}](ai-model-ide-integration.md)
 * [{#T}](data-catalog-integration.md)
+* [{#T}](../dataplatform/valkey-rag-search.md)

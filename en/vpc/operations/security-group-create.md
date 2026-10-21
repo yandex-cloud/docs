@@ -29,19 +29,23 @@ To create a new [security group](../concepts/security-groups.md):
   ```bash
   yc vpc security-group create \
     --name test-sg-cli \
-    --rule "direction=ingress,port=443,protocol=tcp,v4-cidrs=[10.0.0.0/24]" \
+    --description "My security group" \
+    --rule "description=Allow HTTPS,direction=ingress,port=443,protocol=tcp,v4-cidrs=[10.0.0.0/24]" \
     --network-id c645mh47vscb********
   ```
 
   Where:
 
-  * `name`: Security group name.
-  * `rule`: Rule description:
+  * `--name`: Security group name.
+  * `--description`: Security group description.
+  * `--labels`: Security group labels in `key=value` format.
+  * `--rule`: Security group rule:
+    * `description`: Rule description.
     * `direction`: Traffic direction, with `ingress` for incoming traffic and `egress` for outgoing traffic.
     * `port`: Port for receiving or transmitting traffic. You can also specify a range of ports using the `from-port` and `to-port` parameters.
-    * `protocol`: Data transfer protocol. The possible values are `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
+    * `protocol`: Data transfer protocol. The possible values are `any`, `tcp`, `udp`, `icmp`, or [IANA IP protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
     * `v4-cidrs`: List of IPv4 CIDRs and masks of subnets the traffic will come to or from.
-    * `network-id`: ID of the network the security group will be connected to.
+  * `--network-id`: ID of the network the security group will be connected to.
 
   To create a group with a rule that allows traffic from all resources of a different security group, run this command:
 
@@ -54,13 +58,27 @@ To create a new [security group](../concepts/security-groups.md):
 
   Where:
 
-  * `name`: Security group name.
-  * `rule`: Rule description:
+  * `--name`: Security group name.
+  * `--rule`: Security group rule:
     * `direction`: Traffic direction, with `ingress` for incoming traffic and `egress` for outgoing traffic.
     * `port`: Port for receiving or transmitting traffic. You can also specify a range of ports using the `from-port` and `to-port` parameters.
-    * `protocol`: Data transfer protocol. The possible values are `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
-    * `security-group-id`: ID of the security group that is allowed to send traffic to the new security group through port 443.
-  * `network-name`: Name of the network the security group will be connected to.
+    * `protocol`: Data transfer protocol. The possible values are `any`, `tcp`, `udp`, `icmp`, or [IANA IP protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+    * `security-group-id`: ID of the security group that is allowed to send traffic to the new security group through port 443. Instead of the ID, you can specify the security group name under `security-group-name`.
+    * `predefined`: Predefined rule target. Specify it instead of `security-group-id`, `security-group-name`, or `v4-cidrs`. The possible values are:
+      * `self_security_group`: Resources the new security group applies to. Learn more about the Self rule [here](../concepts/security-groups.md#self-rule).
+      * `loadbalancer_healthchecks`: Load balancer health check nodes.
+  * `--network-name`: Name of the network the security group will be connected to.
+
+  For example, use `predefined=self_security_group` to allow inbound traffic on port `443` from the new security group resources:
+
+  ```bash
+  yc vpc security-group create \
+    --name allow-connection-from-self \
+    --rule "direction=ingress,port=443,protocol=tcp,predefined=self_security_group" \
+    --network-name infra2
+  ```
+
+  The command also supports the `--async` parameter to output information on the current operation without waiting for its completion.
 
 - {{ TF }} {#tf}
 
@@ -134,18 +152,29 @@ To create a new [security group](../concepts/security-groups.md):
   Use the [create](../api-ref/SecurityGroup/create.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Create](../api-ref/grpc/SecurityGroup/create.md) gRPC API call, and provide the following in the request:
 
   * ID of the folder the security group will reside in, in the `folderId` parameter.
+  * Security group name, in the `name` parameter.
+  * Security group description, in the `description` parameter.
+  * Security group labels as `key:value` pairs, in the `labels` parameter.
   * ID of the network the security group will reside in, in the `networkId` parameter.
   * Settings for the security group rules, in the `ruleSpecs[]` array:
 
+    * Rule description, in the `ruleSpecs[].description` parameter.
+    * Rule labels as `key:value` pairs, in the `ruleSpecs[].labels` parameter.
     * Traffic direction for which the rule is created, in the `ruleSpecs[].direction` parameter. The possible values are:
 
       * `ingress`: Incoming traffic
       * `egress`: Outgoing traffic
 
-    * Name of the traffic transmission protocol, in the `ruleSpecs[].protocolName` parameter. The possible values are `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
-    * List of CIDRs and masks of subnets the traffic will come to or from, in the `ruleSpecs[].cidrBlocks.v4CidrBlocks[]` parameter. If you set the rule for the traffic to a security group, provide the security group ID in the `ruleSpecs[].securityGroupId` parameter instead.
+    * Name of the traffic transmission protocol, in the `ruleSpecs[].protocolName` parameter, or the protocol number as per the [IANA registry](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml), in the `ruleSpecs[].protocolNumber` parameter. You can only provide one of these parameters at a time.
+    * Rule’s target resources. Provide only one of these parameters:
+
+      * List of IPv4 CIDRs and masks of subnets the traffic will come to or from, in the `ruleSpecs[].cidrBlocks.v4CidrBlocks[]` parameter.
+      * ID of the security group whose resources the rule applies to, in the `ruleSpecs[].securityGroupId` parameter.
+      * Predefined rule target, in the `ruleSpecs[].predefinedTarget` parameter. The possible values are:
+        * `self_security_group`: Resources the new security group applies to. Learn more about the Self rule [here](../concepts/security-groups.md#self-rule).
+        * `loadbalancer_healthchecks`: Load balancer health check nodes.
+
     * First port in the traffic port range, in the `ruleSpecs[].ports.fromPort` parameter. The values range from `0` to `65535`.
     * Last port in the traffic port range, in the `ruleSpecs[].ports.toPort` parameter. The possible values range from `0` to `65535`.
 
 {% endlist %}
-

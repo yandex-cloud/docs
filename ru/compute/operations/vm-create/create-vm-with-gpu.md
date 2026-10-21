@@ -12,8 +12,6 @@ description: Следуя данной инструкции, вы сможете
 
 По умолчанию в [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) установлена нулевая [квота](../../concepts/limits.md#compute-quotas) на создание ВМ с GPU. Чтобы изменить [квоту]({{ link-console-quotas }}), обратитесь в [техническую поддержку]({{ link-console-support }}).
 
-{% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
-
 {% include [role-note](../../../_includes/compute/role-note.md) %}
 
 {% list tabs group=instructions %}
@@ -69,8 +67,6 @@ description: Следуя данной инструкции, вы сможете
        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
      * `--zone` – [зона доступности](../../../overview/concepts/geo-scope.md).
-
-       {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
 
      * `--platform` – идентификатор [платформы](../../concepts/vm-platforms.md):
 
@@ -187,8 +183,6 @@ description: Следуя данной инструкции, вы сможете
        * `name` — имя ВМ.
        * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
        * `zone` — зона доступности, в которой будет находиться ВМ.
-
-         {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
 
        * `platform_id` — идентификатор [платформы](../../concepts/vm-platforms.md):
 

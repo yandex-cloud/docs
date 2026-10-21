@@ -41,6 +41,10 @@ During [instance type](../../concepts/index.md#config) or disk size update, your
               {% include [note-approval-rules-pricing](../../../_includes/managed-gitlab/note-approval-rules-pricing.md) %}
 
           * To activate the approval rules, provide the [{{ GL }} token](../approval-rules.md#gitlab-token).
+      1. Optionally, under **{{ ui-key.yacloud.gitlab.components.InstanceForm.SourceCraftIntegrationSection.section_title }}**, enable or disable **{{ ui-key.yacloud.gitlab.components.InstanceForm.SourceCraftIntegrationSection.field_enable }}** as needed. Learn more about [integration with {{ src-name }} Security](../../concepts/sourcecraft-security.md) and its [setup](../sourcecraft-security.md).
+
+          {% include [sourcecraft-security-instance-note](../../../_includes/managed-gitlab/sourcecraft-security-instance-note.md) %}
+
       1. Under **{{ ui-key.yacloud.gitlab.label_additional-section }}**, enable or disable deletion of untagged images. This setting affects the amount of free disk space on the instance.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -73,7 +77,7 @@ During [instance type](../../concepts/index.md#config) or disk size update, your
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
-      * `--resource-preset-id`: Host class. It determines the configuration of the VM to host the {{ GL }} instance. The possible values are as follows:
+      * `--resource-preset-id`: Host class. It determines the configuration of the VM to host the {{ GL }} instance. The possible values are:
 
           * `s2.micro`: 2 vCPUs, 8 GB RAM
           * `s2.small`: 4 vCPUs, 16 GB RAM
@@ -89,7 +93,7 @@ During [instance type](../../concepts/index.md#config) or disk size update, your
 
           {% endnote %}
 
-      * `--approval-rules`: [Approval rule](../../concepts/approval-rules.md) configuration. The possible values are as follows:
+      * `--approval-rules`: [Approval rule](../../concepts/approval-rules.md) configuration. The possible values are:
 
           * `BASIC`
           * `STANDARD`
@@ -142,14 +146,14 @@ During [instance type](../../concepts/index.md#config) or disk size update, your
 
       Where:
 
-      * `resource_preset_id`: Host class. It determines the configuration of the VM to host the {{ GL }} instance. The possible values are as follows:
+      * `resource_preset_id`: Host class. It determines the configuration of the VM to host the {{ GL }} instance. The possible values are:
           * `s2.micro`: 2 vCPUs, 8 GB RAM
           * `s2.small`: 4 vCPUs, 16 GB RAM
           * `s2.medium`: 8 vCPUs, 32 GB RAM
           * `s2.large`: 16 vCPUs, 64 GB RAM
 
       * `disk_size`: Disk size, in GB.
-      * `approval_rules_id`: [Approval rule](../../concepts/approval-rules.md) configuration. The possible values are as follows:
+      * `approval_rules_id`: [Approval rule](../../concepts/approval-rules.md) configuration. The possible values are:
 
           * `BASIC`
           * `STANDARD`

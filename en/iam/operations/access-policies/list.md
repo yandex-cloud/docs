@@ -5,8 +5,6 @@ description: In this guide, you will learn how to get a list of {{ iam-full-name
 
 # Getting a list of supported access policy templates
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
-
 {% include [access-policies-instruction-intro](../../../_includes/iam/access-policies-instruction-intro.md) %}
 
 To get a list of [supported](../../concepts/access-control/access-policies.md#supported-policies) access policy templates:
