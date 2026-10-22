@@ -59,6 +59,8 @@
              - x-monium-project ${MONIUM_PROJECT}
      ```
 
+     Также доступны отдельные [эндпоинты](otlp-protocol.md#endpoints) для отправки телеметрии по IPv4 и IPv6.
+
   1. Запустите Fluent Bit:
 
      ```bash

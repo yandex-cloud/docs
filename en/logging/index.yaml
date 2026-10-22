@@ -3,7 +3,12 @@ description:
   - >-
     Yandex Cloud Logging allows you to read and write the logs of services and
     user applications by grouping messages into log groups.
-  - Cloud Logging will be shut down in Q2 2027 and replaced by Monium.
+  - >-
+    As of October 22, 2026, the {{ cloud-logging-full-name }} service has been
+    discontinued for new customers, including {{ yandex-cloud }} customers who
+    have not previously used this service. This restriction applies to both paid
+    and free use. Use the <a href="../monium/">{{ monium-name }}</a>
+    observability platform instead of {{ cloud-logging-name }}.
 meta:
   title: Cloud Logging
   description: >-

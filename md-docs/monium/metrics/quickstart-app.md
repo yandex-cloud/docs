@@ -16,6 +16,8 @@ Monium позволяет работать с метриками сервисо�
 
 * Адрес для записи метрик: `ingest.monium.yandex.cloud:443`.
 
+  Также доступны отдельные [эндпоинты](../collector/otlp-protocol.md#endpoints) для отправки телеметрии по IPv4 и IPv6.
+
 * Для записи метрик потребуется [сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `monium.metrics.writer` и [API-ключ](../../iam/operations/iam-token/create-for-sa.md) с областью действия `yc.monium.metrics.write`.
 
 * Интерфейс просмотра метрик — [главная страница Monium](https://monium.yandex.cloud) > **Метрики**.

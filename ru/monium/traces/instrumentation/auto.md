@@ -48,7 +48,7 @@ export OTEL_RESOURCE_ATTRIBUTES="cluster=<окружение>"
 Где:
 
 * `OTEL_SERVICE_NAME` — имя вашего приложения. Используется как значение `service.name` в атрибутах ресурса.
-* `OTEL_EXPORTER_OTLP_ENDPOINT` — эндпоинт {{ monium-name }}.
+* `OTEL_EXPORTER_OTLP_ENDPOINT` — [эндпоинт](../../collector/otlp-protocol.md#endpoints) {{ monium-name }}.
 * `OTEL_EXPORTER_OTLP_HEADERS` — заголовки авторизации и привязки к проекту. Для получения API-ключа [создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролью `monium.traces.writer` и [API-ключ](../../../iam/operations/authentication/manage-api-keys.md) с областью действия `yc.monium.traces.write`.
 * `OTEL_RESOURCE_ATTRIBUTES` — атрибуты ресурса. `cluster` задает окружение (по умолчанию `default`).
 

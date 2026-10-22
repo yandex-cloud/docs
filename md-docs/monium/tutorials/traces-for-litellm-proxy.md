@@ -286,7 +286,7 @@ flowchart LR
     * `environment` — переменные окружения:
 
         * `OTEL_EXPORTER=otlp_http` — задает отправку трейсов по протоколу OTLP через HTTP.
-        * `OTEL_ENDPOINT=https://ingest.monium.yandex.cloud/otlp` — задает базовый адрес эндпоинта. LiteLLM Proxy добавляет к нему `/v1/traces` и отправляет трейсы на `https://ingest.monium.yandex.cloud/otlp/v1/traces`.
+        * `OTEL_ENDPOINT=https://ingest.monium.yandex.cloud/otlp` — задает базовый адрес [эндпоинта](../collector/otlp-protocol.md#endpoints). LiteLLM Proxy добавляет к нему `/v1/traces` и отправляет трейсы на `https://ingest.monium.yandex.cloud/otlp/v1/traces`.
         * `x-monium-service=litellm-proxy` — имя, которое будет присвоено сервису в интерфейсе Monium.
         * `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT=span_only` — включает запись текстов запросов и ответов модели в [спаны](*span_definition).
     * `network_mode: host` — запускает контейнер в сети хоста.

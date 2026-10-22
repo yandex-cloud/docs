@@ -65,6 +65,9 @@
                 interval: 30000
                 timeout: 5000
     ```
+
+    {% include [otlp-ipv4-ipv6](otlp-ipv4-ipv6.md) %}
+
 1. Запустите агент [OTel Collector](../../monium/collector/opentelemetry.md):
 
     ```bash

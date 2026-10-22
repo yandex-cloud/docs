@@ -14,6 +14,13 @@
 || gRPC | `{{ api-host-monium }}:443` | gRPC эндпоинт для приема всей телеметрии ||
 |#
 
+
+Чтобы отправлять телеметрию по определенному протоколу, используйте эндпоинты:
+
+* `ipv4.{{ api-host-monium }}` — для IPv4;
+* `ipv6.{{ api-host-monium }}` — для IPv6.
+
+
 Эндпоинты gRPC и HTTP полностью совместимы со [спецификацией OTLP](https://opentelemetry.io/docs/specs/otlp/).
 
 ## Авторизация {#authorization}

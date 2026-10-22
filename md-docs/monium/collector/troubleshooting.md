@@ -45,7 +45,7 @@ Monium поддерживает данные в формате OTLP без до�
 || rpc code 16 - PermissionDenied | Недостаточно прав | `rpc error: code = PermissionDenied desc = PERMISSION_DENIED: Permission denied` | Проверьте права API-ключа на каталог | Убедитесь, что указан правильный проект, API-ключ имеет область действия `yc.monium.telemetry.write`, а сервисный аккаунт имеет роль `monium.telemetry.writer` ||
 || rpc code 16 - PermissionDenied | Не найден проект | `rpc error: code = PermissionDenied desc = PERMISSION_DENIED: Project not found` | Проверьте формат имени проекта | Скопируйте имя проекта из URL на главной странице проекта ||
 || rpc code 8 - ResourceExhausted | Превышена квота на количество хранимых метрик | `rpc error: code = ResourceExhausted desc = more than 100000 metrics in shard` | Увеличьте квоту на количество хранимых метрик | Обратитесь в техническую поддержку для увеличения лимита метрик в шарде ||
-|| transport | Отсутствует сетевой доступ | `connection error: desc = "transport: Error while dialing: dial tcp [2a0d:d6c1:0:1a::3d0]:443: connect: no route to host` | Убедитесь в сетевой доступности `https://ingest.monium.yandex.cloud` | В случае блокировки протокола gRPC настройте экспорт по протоколу `http/protobuf` ||
+|| transport | Отсутствует сетевой доступ | `connection error: desc = "transport: Error while dialing: dial tcp [2a0d:d6c1:0:1a::3d0]:443: connect: no route to host` | Убедитесь в сетевой доступности `https://ingest.monium.yandex.cloud`. При необходимости используйте [эндпоинт](otlp-protocol.md#endpoints) для отправки телеметрии по IPv4 или IPv6. | В случае блокировки протокола gRPC настройте экспорт по протоколу `http/protobuf` ||
 |#
 
 ## Дополнительная информация {#additional-info}

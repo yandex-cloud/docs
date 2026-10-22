@@ -34,6 +34,8 @@
 
 * Эндпоинт: `{{ api-host-monium }}:443`.
 
+  {% include [otlp-ipv4-ipv6](../../_includes/monium/otlp-ipv4-ipv6.md) %}
+
 * Авторизация: [сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `monium.traces.writer` и [API-ключ](../../iam/operations/iam-token/create-for-sa.md) с областью действия `yc.monium.traces.write`.
 
 * Заголовок проекта: `x-monium-project=folder__<идентификатор_каталога>`.

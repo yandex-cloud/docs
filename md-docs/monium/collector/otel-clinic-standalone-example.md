@@ -61,6 +61,8 @@
      export OTEL_SERVICE_NAME=spring-petclinic
      ```
 
+     Также доступны отдельные [эндпоинты](otlp-protocol.md#endpoints) для отправки телеметрии по IPv4 и IPv6.
+
   1. (Опционально) Включите дельта-темпоральность для метрик:
 
      ```bash

@@ -44,6 +44,9 @@
 
 * Авторизация — [API-ключ](#create-ca-key).
 * Эндпоинт — `{{ api-host-monium }}:443`.
+
+  {% include [otlp-ipv4-ipv6](../_includes/monium/otlp-ipv4-ipv6.md) %}
+
 * В заголовке: параметр `x-monium-project=folder__<идентификатор_каталога>`.
 * В атрибутах ресурса `OTEL_RESOURCE_ATTRIBUTES`: `cluster` или `deployment.name` и `service` или `service.name`.
 
@@ -63,9 +66,9 @@
 
   1. Установите переменные окружения:
      
-     * `MONIUM_PROJECT` — имя проекта {{ monium-name }}.
+     * `MONIUM_PROJECT` — идентификатор проекта {{ monium-name }}.
 
-       По умолчанию при создании облака и каталога создаются два проекта: `cloud__<идентификатор_облака>` и `folder__<идентификатор_каталога>`. Также можно [создать другие проекты](collector/project.md#project-create).
+       {% include [default-projects](../_includes/monium/default-projects.md) %}
      
        Для тестирования работы с {{ monium-name }} можно указать проект каталога, например, `folder__{{ folder-id-example }}`.
        

@@ -36,6 +36,8 @@ Monium Traces принимает данные по протоколу [OpenTelem
 
 * Эндпоинт: `ingest.monium.yandex.cloud:443`.
 
+  Также доступны отдельные [эндпоинты](../collector/otlp-protocol.md#endpoints) для отправки телеметрии по IPv4 и IPv6.
+
 * Авторизация: [сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `monium.traces.writer` и [API-ключ](../../iam/operations/iam-token/create-for-sa.md) с областью действия `yc.monium.traces.write`.
 
 * Заголовок проекта: `x-monium-project=folder__<идентификатор_каталога>`.

@@ -276,6 +276,8 @@ export OTEL_SERVICE_NAME=my-service
 export OTEL_EXPORTER_OTLP_ENDPOINT="{{ api-host-monium }}:443"
 ```
 
+{% include [otlp-ipv4-ipv6](../../../_includes/monium/otlp-ipv4-ipv6.md) %}
+
 ```bash
 export OTEL_EXPORTER_OTLP_HEADERS="Authorization=Api-Key <API-ключ>,x-monium-project=folder__<идентификатор_каталога>"
 ```

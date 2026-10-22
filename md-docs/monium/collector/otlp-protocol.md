@@ -16,6 +16,13 @@ Monium предоставляет следующие эндпоинты для �
 || gRPC | `ingest.monium.yandex.cloud:443` | gRPC эндпоинт для приема всей телеметрии ||
 |#
 
+
+Чтобы отправлять телеметрию по определенному протоколу, используйте эндпоинты:
+
+* `ipv4.ingest.monium.yandex.cloud` — для IPv4;
+* `ipv6.ingest.monium.yandex.cloud` — для IPv6.
+
+
 Эндпоинты gRPC и HTTP полностью совместимы со [спецификацией OTLP](https://opentelemetry.io/docs/specs/otlp/).
 
 ## Авторизация {#authorization}

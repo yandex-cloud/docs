@@ -287,6 +287,8 @@ OpenTelemetry Collector (OTel Collector) — агент для сбора, об�
     
     {% endcut %}
 
+    Также доступны отдельные [эндпоинты](otlp-protocol.md#endpoints) для отправки телеметрии по IPv4 и IPv6.
+
 1. Проверьте конфигурацию `otel-collector.yaml`:
 
     ```bash

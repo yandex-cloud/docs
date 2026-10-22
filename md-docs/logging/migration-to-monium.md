@@ -6,7 +6,9 @@
 
 {% note warning %}
 
-Сервис Cloud Logging будет закрыт во II квартале 2027 года, используйте вместо него Observability-платформу [Monium](../monium/index.md).
+С 22 октября 2026 года прекращено подключение сервиса Yandex Cloud Logging для новых клиентов, включая клиентов платформы Yandex Cloud, ранее не использовавших этот сервис. Ограничение распространяется на платное и бесплатное использование.
+
+Используйте вместо Cloud Logging Observability-платформу [Monium](../monium/index.md).
 
 {% endnote %}
 
@@ -48,6 +50,8 @@
 1. Обновите агент поставки данных (Unified Agent, Fluent Bit 4.0) или используйте [OTel Collector](../monium/collector/opentelemetry.md) и [настройте поставку в OTel-формате](#agent-setup).
 
 1. Укажите новый эндпоинт: `ingest.monium.yandex.cloud:443`. Иначе логи продолжат поступать через Cloud Logging и тарифицироваться по его ценам.
+
+   Также доступны отдельные [эндпоинты](../monium/collector/otlp-protocol.md#endpoints) для отправки телеметрии по IPv4 и IPv6.
 
 1. Убедитесь, что логи поступают напрямую в Monium, а не через Cloud Logging.
 

@@ -23,6 +23,8 @@ OpenTelemetry Collector (OTel Collector) — агент для сбора, об�
 
     {% include [otel-collector-config](../../_includes/monium/otel-collector-config.md) %}
 
+    {% include [otlp-ipv4-ipv6](../../_includes/monium/otlp-ipv4-ipv6.md) %}
+
 1. Проверьте конфигурацию `otel-collector.yaml`:
 
     ```bash

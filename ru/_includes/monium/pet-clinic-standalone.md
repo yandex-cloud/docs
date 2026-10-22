@@ -44,6 +44,8 @@
      export OTEL_SERVICE_NAME=spring-petclinic
      ```
 
+     {% include [otlp-ipv4-ipv6](otlp-ipv4-ipv6.md) %}
+
   1. (Опционально) Включите дельта-темпоральность для метрик:
 
      ```bash
