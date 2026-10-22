@@ -1,4 +1,4 @@
-# Автоматизация работы с {{ msp-full-name }} с помощью {{ maf-full-name }}
+# Автоматизация работы с таблицами в {{ msp-full-name }} с помощью {{ maf-full-name }}
 
 
 {% include [af-restriction-version](../../../_includes/mdb/maf/af-restriction-version.md) %}
@@ -21,7 +21,7 @@
 
 {% note info %}
 
-В отличие от простого примера из руководства [{#T}](../../../managed-spark/tutorials/airflow-spark-min.md), создаваемый кластер {{ msp-full-name }} интегрирован с бакетом {{ objstorage-name }} и глобальным каталогом {{ metastore-name }}. Такой подход позволяет строить переносимые и масштабируемые конвейеры: {{ maf-name }} отвечает за оркестрацию, {{ msp-full-name }} является вычислительным слоем, {{ objstorage-name }} хранит данные, а {{ metastore-name }} — метаданные.
+В этом примере {{ maf-name }} отвечает за оркестрацию, {{ msp-full-name }} выполняет задание, {{ objstorage-name }} хранит данные таблицы, а {{ metastore-name }} — ее метаданные. Для знакомства с интеграцией сервисов можно начать с руководства [{#T}](../../../managed-spark/tutorials/airflow-spark-min.md), в котором задание создает данные в памяти и выводит результат в лог.
 
 {% endnote %}
 
@@ -164,7 +164,7 @@
      * [mdb.viewer](../../../iam/roles-reference.md#mdb-viewer) — чтобы получать статусы операций.
      * [{{ roles.metastore.viewer }}](../../../iam/roles-reference.md#managed-metastore-viewer) — чтобы просматривать информацию о кластерах {{ metastore-name }}.
      * [{{ roles.metastore.integrationProvider }}](../../../iam/roles-reference.md#managed-metastore-integrationProvider) — чтобы кластер {{ metastore-name }} мог [взаимодействовать с другими ресурсами](../../../metadata-hub/concepts/metastore-impersonation.md).
-     * [managed-spark.integrationProvider](../../../iam/roles-reference.md#managed-spark-integrationProvider) — чтобы кластер {{ msp-full-name }} мог взаимодействовать с другими ресурсами. 
+     * [managed-spark.integrationProvider](../../../iam/roles-reference.md#managed-spark-integrationProvider) — чтобы кластер {{ msp-full-name }} мог взаимодействовать с другими ресурсами.
 
   1. [Создайте бакет](../../../storage/operations/buckets/create.md) `<бакет_для_заданий_и_данных>` и [предоставьте разрешение](../../../storage/operations/buckets/edit-acl.md) `READ и WRITE` для сервисного аккаунта `integration-agent`.
 
@@ -180,9 +180,9 @@
      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — группа по умолчанию в сети `datalake-network`.
 
      {% note info %}
-   
+
      Дождитесь завершения операции.
-   
+
      {% endnote %}
 
   1. [Создайте кластер {{ maf-name }}](../../../managed-airflow/operations/cluster-create.md) с параметрами:
@@ -357,9 +357,9 @@ DAG будет состоять из нескольких вершин, кото
      * `SUBNET_IDS` — идентификатор подсети.
 
         {% note info %}
-      
+
         Подсеть для {{ msp-full-name }} и {{ metastore-name }} должна совпадать.
-      
+
         {% endnote %}
 
      * `SECURITY_GROUP_IDS` — идентификатор группы безопасности для кластера {{ msp-full-name }}.
@@ -496,9 +496,9 @@ DAG будет состоять из нескольких вершин, кото
      * `SUBNET_IDS` — идентификатор подсети.
 
         {% note info %}
-      
+
         Подсеть для {{ msp-full-name }} и {{ metastore-name }} должна совпадать.
-      
+
         {% endnote %}
 
      * `SECURITY_GROUP_IDS` — идентификатор группы безопасности для кластера {{ msp-full-name }}.
@@ -537,7 +537,7 @@ DAG будет состоять из нескольких вершин, кото
   1. Убедитесь, что в бакете `<бакет_для_заданий_и_данных>` появилась БД `database_1`. Теперь данные из созданной БД хранятся в бакете {{ objstorage-name }}, а метаинформация о ней — в кластере {{ metastore-name }}.
 
 {% endlist %}
- 
+
 ## Удалите созданные ресурсы {#clear-out}
 
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, чтобы не платить за них:

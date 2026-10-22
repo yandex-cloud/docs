@@ -107,7 +107,7 @@ index: 1
 
 ## Апрель 2025 {#apr-2025}
 
-Добавлена [интеграция с {{ connection-manager-name }}](operations/update.md#conn-man). Подключение в {{ connection-manager-name }} теперь автоматически создается для всех новых кластеров.
+Добавлена [интеграция с {{ connection-manager-name }}](../metadata-hub/quickstart/connection-manager.md#mdb-integration). Подключение в {{ connection-manager-name }} теперь автоматически создается для всех новых кластеров.
 
 ## Март 2025 {#mar-2025}
 

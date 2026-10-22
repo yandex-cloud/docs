@@ -12,7 +12,9 @@ items:
       - name: Восстановление кластеров БД из резервных копий во внешнее S3-хранилище
         href: mdb-outbound-backup-recovery.md
         hidden: true
-      - name: Перенос образа диска в стороннее S3-хранилище
+      - name: Перенос образа диска в стороннее S3-хранилище без вспомогательной ВМ
+        href: disk-migration-without-vm.md
+      - name: Перенос образа диска в стороннее S3-хранилище с вспомогательной ВМ
         href: disk-migration-to-external-s3.md
       - name: Настройка {{ cdn-name }} при недоступности источника
         href: cdn-fault-tolerance.md

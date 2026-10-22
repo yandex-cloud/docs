@@ -1,5 +1,5 @@
 default:
-  cdn-pop-count: 78
+  cdn-pop-count: 80
   cdn-pops:
     '0':
       cities:
@@ -42,11 +42,13 @@ default:
     '3':
       cities:
         '0': Aktobe
-        '1': Karaganda
+        '1': Astana
+        '2': Karaganda
+        '3': Shymkent
       country: Kazakhstan
     '4':
       cities:
-        '0': Manas
+        '0': Bishkek
       country: Kyrgyzstan
     '5':
       cities:

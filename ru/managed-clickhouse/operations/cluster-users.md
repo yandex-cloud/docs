@@ -39,7 +39,7 @@ description: Из статьи вы узнаете, как управлять п
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
 
 - CLI {#cli}
 
@@ -122,7 +122,7 @@ description: Из статьи вы узнаете, как управлять п
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
   1. Введите имя пользователя базы данных.
 
@@ -135,17 +135,17 @@ description: Из статьи вы узнаете, как управлять п
 
       * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — сгенерировать пароль с помощью сервиса {{ connection-manager-name }}.
 
-      Чтобы увидеть пароль, на странице кластера выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нового пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+      Чтобы увидеть пароль, на странице кластера перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нового пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
 
   1. Выберите одну или несколько баз данных, к которым должен иметь доступ пользователь:
-     1. Нажмите на значок ![image](../../_assets/console-icons/plus.svg) и выберите базу данных из выпадающего списка.
+     1. Нажмите значок ![image](../../_assets/console-icons/plus.svg) и выберите базу данных из выпадающего списка.
      1. Повторите предыдущий шаг, пока не будут выбраны все требуемые базы данных.
-     1. Чтобы удалить базу, добавленную по ошибке, нажмите на значок ![image](../../_assets/console-icons/xmark.svg) справа от имени базы.
+     1. Чтобы удалить базу, добавленную по ошибке, нажмите значок ![image](../../_assets/console-icons/xmark.svg) справа от имени базы.
   1. Задайте [дополнительные настройки](../concepts/settings-list.md) для пользователя:
      1. Настройте [квоты](../concepts/settings-list.md#quota-settings) в разделе **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }} → Quotas**:
-        1. Чтобы добавить квоту, нажмите на значок ![image](../../_assets/console-icons/plus.svg). Вы можете добавить несколько квот, которые будут действовать одновременно.
-        1. Чтобы удалить квоту, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа от имени квоты и выберите пункт **{{ ui-key.yacloud.component.mdb.settings.label_delete }}**.
+        1. Чтобы добавить квоту, нажмите значок ![image](../../_assets/console-icons/plus.svg). Вы можете добавить несколько квот, которые будут действовать одновременно.
+        1. Чтобы удалить квоту, нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) справа от имени квоты и выберите пункт **{{ ui-key.yacloud.component.mdb.settings.label_delete }}**.
         1. Чтобы изменить квоту, задайте требуемые значения настроек для нее.
      1. Настройте [{{ CH }}](../concepts/settings-list.md#user-level-settings) в разделе **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }} → Settings**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-button_add }}**.
@@ -177,7 +177,7 @@ description: Из статьи вы узнаете, как управлять п
       
       Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `--password=<пароль>` укажите `--generate-password`.
 
-      Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите нужный кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нового пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+      Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите нужный кластер, перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нового пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
 
   * `--permissions` — список БД, к которым пользователь должен иметь доступ.
@@ -230,7 +230,7 @@ description: Из статьи вы узнаете, как управлять п
         
         Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `password = "<пароль>"` укажите `generate_password = true`.
 
-        Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите нужный кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нового пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+        Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите нужный кластер, перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нового пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
 
         Если кластер создается с помощью {{ TF }} одновременно с созданием пользователя, то в ресурсе `yandex_mdb_clickhouse_user` вместо идентификатора кластера укажите ссылку на имя создаваемого кластера:
@@ -294,14 +294,11 @@ description: Из статьи вы узнаете, как управлять п
                   { ... },
                   { <аналогичный_набор_настроек_для_квоты_N> }
                 ]
-              },
-              { <аналогичный_набор_настроек_для_создаваемого_пользователя_2> },
-              { ... },
-              { <аналогичный_набор_настроек_для_создаваемого_пользователя_N> }
+              }
             }
             ```
 
-            Где `userSpec` — массив, содержащий настройки создаваемых пользователей. Один элемент массива содержит настройки для одного пользователя и имеет следующую структуру:
+            Где `userSpec` — объект, содержащий настройки создаваемого пользователя и имеющий следующую структуру:
 
             {% include [rest-user-specs](../../_includes/mdb/mch/api/rest-user-specs.md) %}
 
@@ -365,14 +362,11 @@ description: Из статьи вы узнаете, как управлять п
                   { ... },
                   { <аналогичный_набор_настроек_для_квоты_N> }
                 ]
-              },
-              { <аналогичный_набор_настроек_для_создаваемого_пользователя_2> },
-              { ... },
-              { <аналогичный_набор_настроек_для_создаваемого_пользователя_N> }
+              }
             }
             ```
 
-            Где `user_spec` — массив, содержащий настройки создаваемых пользователей. Один элемент массива содержит настройки для одного пользователя и имеет следующую структуру:
+            Где `user_spec` — объект, содержащий настройки создаваемого пользователя и имеющий следующую структуру:
 
             {% include [grpc-user-specs](../../_includes/mdb/mch/api/grpc-user-specs.md) %}
 
@@ -428,8 +422,8 @@ description: Из статьи вы узнаете, как управлять п
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
 
   
   1. Выберите, как задать новый пароль:
@@ -442,7 +436,7 @@ description: Из статьи вы узнаете, как управлять п
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
 
   
-  Чтобы увидеть новый пароль, на странице кластера выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
+  Чтобы увидеть новый пароль, на странице кластера перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
   Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
@@ -466,7 +460,7 @@ description: Из статьи вы узнаете, как управлять п
   
   Новый пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `--password=<новый_пароль>` укажите `--generate-password`.
 
-  Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
+  Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
   Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
@@ -498,7 +492,7 @@ description: Из статьи вы узнаете, как управлять п
         
         Новый пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `password = "<новый_пароль>"` укажите `generate_password = true`.
 
-        Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
+        Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
         {% note info %}
 
@@ -558,7 +552,7 @@ description: Из статьи вы узнаете, как управлять п
            }
            ```
 
-           Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
+           Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
            Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
@@ -624,7 +618,7 @@ description: Из статьи вы узнаете, как управлять п
            }
            ```
 
-           Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
+           Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
            Для просмотра паролей требуется роль `lockbox.payloadViewer`
 
@@ -799,16 +793,16 @@ description: Из статьи вы узнаете, как управлять п
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Настройте права пользователя на доступ к определенным базам данных:
      1. Чтобы предоставить доступ к требуемым базам данных:
-        1. Нажмите на значок ![image](../../_assets/console-icons/plus.svg) и выберите базу данных из выпадающего списка.
+        1. Нажмите значок ![image](../../_assets/console-icons/plus.svg) и выберите базу данных из выпадающего списка.
         1. Повторите предыдущий шаг, пока не будут выбраны все требуемые базы данных.
-     1. Чтобы удалить базу, нажмите на значок ![image](../../_assets/console-icons/xmark.svg) справа от имени базы.
+     1. Чтобы удалить базу, нажмите значок ![image](../../_assets/console-icons/xmark.svg) справа от имени базы.
   1. Настройте [квоты](../concepts/settings-list.md#quota-settings) для пользователя в разделе **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }} → Quotas**:
-     1. Чтобы добавить квоту, нажмите на значок ![image](../../_assets/console-icons/plus.svg). Вы можете добавить несколько квот, которые будут действовать одновременно.
-     1. Чтобы удалить квоту, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа от имени квоты и выберите пункт **{{ ui-key.yacloud.component.mdb.settings.label_delete }}**.
+     1. Чтобы добавить квоту, нажмите значок ![image](../../_assets/console-icons/plus.svg). Вы можете добавить несколько квот, которые будут действовать одновременно.
+     1. Чтобы удалить квоту, нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) справа от имени квоты и выберите пункт **{{ ui-key.yacloud.component.mdb.settings.label_delete }}**.
      1. Чтобы изменить квоту, задайте требуемые значения настроек для нее.
   1. Измените [настройки {{ CH }}](../concepts/settings-list.md#dbms-user-settings) для пользователя в разделе **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }} → Settings**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-button_save }}**.
@@ -1102,8 +1096,8 @@ description: Из статьи вы узнаете, как управлять п
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
 - CLI {#cli}
 
@@ -1215,10 +1209,10 @@ description: Из статьи вы узнаете, как управлять п
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на кластер с именем `mych` и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
+  1. Нажмите на кластер с именем `mych`, затем перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
   1. Введите имя пользователя базы данных `ro-user` и пароль `Passw0rd`.
-  1. Нажмите на значок ![image](../../_assets/console-icons/plus.svg) и выберите базу данных `db1` из выпадающего списка.
+  1. Нажмите значок ![image](../../_assets/console-icons/plus.svg) и выберите базу данных `db1` из выпадающего списка.
   1. Выберите **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }} → Settings → Readonly**.
   1. В поле **Readonly** укажите значение `1`.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-button_add }}**.

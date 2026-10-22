@@ -1,4 +1,4 @@
-# Запуск PySpark-задания с помощью {{ maf-full-name }}
+# Запуск простого PySpark-задания в {{ msp-full-name }} с помощью {{ maf-full-name }}
 
 
 {% include [af-restriction-version](../../../_includes/mdb/maf/af-restriction-version.md) %}
@@ -26,7 +26,7 @@
 
 {% note info %}
 
-Создаваемый кластер {{ msp-full-name }} не использует S3-хранилище [{{ objstorage-full-name }}](../../../storage/concepts/index.md) и глобальный каталог [{{ metastore-name }}](../../../metadata-hub/concepts/metastore.md). В такой конфигурации кластер {{ msp-full-name }} может работать только с данными в памяти. Для работы с постоянными базами и таблицами, а также для долговременного хранения результатов подключите внешнее хранилище {{ objstorage-name }} и, при необходимости, кластер {{ metastore-name }} для управления метаданными. Подробнее в руководстве [{#T}](../../../managed-spark/tutorials/airflow-automation.md).
+В этом примере бакет [{{ objstorage-full-name }}](../../../storage/concepts/index.md) используется для хранения DAG-файла {{ maf-name }} и скрипта PySpark-задания. Задание создает данные в памяти и выводит результат в лог, без сохранения таблиц в бакете. Кластер [{{ metastore-name }}](../../../metadata-hub/concepts/metastore.md) не используется. Пример сохранения таблиц в {{ objstorage-name }} с использованием {{ metastore-name }} приведен в руководстве [{#T}](../../../managed-spark/tutorials/airflow-automation.md).
 
 {% endnote %}
 
@@ -44,7 +44,7 @@
 В этом руководстве используется упрощенная настройка инфраструктуры:
 
 * один сервисный аккаунт с расширенными привилегиями;
-* один бакет для хранения всех данных;
+* один бакет для хранения DAG-файла и скрипта PySpark-задания;
 * группа безопасности по умолчанию.
 
 Такая настройка подходит для тестирования, но не предоставляет достаточный для решения реальных задач уровень безопасности. Чтобы повысить безопасность решения, обеспечьте соблюдение [принципа минимальных привилегий](../../../iam/best-practices/using-iam-securely.md#restrict-access).
@@ -84,7 +84,7 @@
 
 1. Создает DataFrame с числами от 0 до 9.
 1. Выводит количество строк в созданном DataFrame.
-1. Выводит первые пять строк в табличном виде. 
+1. Выводит первые пять строк в табличном виде.
 
 Скрипт будет храниться в бакете {{ objstorage-name }}.
 
@@ -96,12 +96,12 @@
    from pyspark.sql import SparkSession
 
    spark = (SparkSession.builder.appName("hello_spark").getOrCreate())
-   
+
    df = spark.range(10).toDF("id")
 
    print("Row count:", df.count())
    df.show(5, truncate=False)
-   
+
    spark.stop()
    ```
 
@@ -178,8 +178,8 @@ DAG будет состоять из нескольких вершин, кото
        if cluster_id:
            spark_client = yc_hook.sdk.wrappers.Spark()
            spark_client.delete_cluster(cluster_id=cluster_id)
-    else:
-        raise AirflowSkipException("cluster_id is empty; nothing to delete")
+       else:
+           raise AirflowSkipException("cluster_id is empty; nothing to delete")
 
    # Настройки DAG
    with DAG(
@@ -238,7 +238,7 @@ DAG будет состоять из нескольких вершин, кото
 ## Проверьте результат {#check-out}
 
 1. В [веб-интерфейсе {{ AF }}](../../../managed-airflow/operations/af-interfaces.md#web-gui) нажмите на название DAG `example_spark` и отслеживайте выполнение задач.
-1. Дождитесь, когда все три задачи в DAG перейдут в статус **Success**. 
+1. Дождитесь, когда все три задачи в DAG перейдут в статус **Success**.
 1. Перейдите на вкладку `Graph`.
 1. В открывшемся графе нажмите на задачу `run_spark_job` и перейдите на вкладку `Logs`.
 1. Проверьте, что [PySpark-задание](#prepare-a-job) выполнило корректный вывод в лог. Для этого найдите в логе строки:

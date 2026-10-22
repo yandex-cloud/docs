@@ -33,7 +33,7 @@ description: Из статьи вы узнаете, как подключить�
 
   1. Убедитесь, что сервис **{{ datalens-name }}** [активирован](#activate-datalens) в нужном каталоге и доступ к кластеру из него [разрешен](#allow-access).
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Интеграции** → **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}**.
 
      {% cut "У меня нет кнопки «{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}»" %}
@@ -67,7 +67,7 @@ description: Из статьи вы узнаете, как подключить�
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Интеграции** → **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
 
      {% cut "Моего подключения нет в списке" %}
 
@@ -85,7 +85,7 @@ description: Из статьи вы узнаете, как подключить�
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Интеграции** → **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
   1. Выберите подключение из списка.
 
      {% cut "Моего подключения нет в списке" %}
@@ -108,7 +108,7 @@ description: Из статьи вы узнаете, как подключить�
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Интеграции** → **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
   1. Выберите подключение из списка.
 
      {% cut "Моего подключения нет в списке" %}
@@ -117,7 +117,7 @@ description: Из статьи вы узнаете, как подключить�
 
      {% endcut %} 
 
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) вверху страницы и выберите **Удалить**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) вверху страницы и выберите **Удалить**.
   1. В открывшемся окне нажмите кнопку **Удалить**.
 
 {% endlist %}

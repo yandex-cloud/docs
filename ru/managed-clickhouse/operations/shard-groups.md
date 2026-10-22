@@ -10,7 +10,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}**.
 
 - CLI {#cli}
 
@@ -83,7 +83,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}**.
   1. Выберите группу шардов для просмотра детальной информации о ней.
 
 - CLI {#cli}
@@ -159,7 +159,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}**.
   1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.mdb.shard-groups.button_add-group }}**.
   1. Введите имя группы шардов.
 
@@ -344,14 +344,14 @@
                  "shardNames": [
                    "<шард_1>", "<шард_2>", ... "<шард_N>"
                  ],
-                 "externalShards" [
+                 "externalShards": [
                    {
                      "name": "<внешний_шард_1>",
                      "weight": <вес_шарда_при_записи_данных>,
                      "replicas": [
                        {
                          "host": "<FQDN_хоста>",
-                         "port": "<порт>",
+                         "port": <порт>,
                          "secure": <использовать_SSL_соединение>,
                          "user": "<имя_пользователя>",
                          "password": "<пароль>",
@@ -430,7 +430,7 @@
                "shard_names": [
                  "<шард_1>", "<шард_2>", ... "<шард_N>"
                ],
-               "external_shards" [
+               "external_shards": [
                  {
                    "name": "<внешний_шард_1>",
                    "weight": <вес_шарда_при_записи_данных>,
@@ -505,8 +505,8 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной группы шардов и выберите пункт **{{ ui-key.yacloud.common.edit }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной группы шардов и выберите пункт ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. В поле **{{ ui-key.yacloud.mdb.shard-groups.field_shard-names }}** выберите шарды кластера, которые нужно включить в группу.
   1. В блоке **{{ ui-key.yacloud.mdb.shard-groups.section_external-shards }}**:
 
@@ -695,14 +695,14 @@
                  "shardNames": [
                    "<шард_1>", "<шард_2>", ... "<шард_N>"
                  ],
-                 "externalShards" [
+                 "externalShards": [
                    {
                      "name": "<внешний_шард_1>",
                      "weight": <вес_шарда_при_записи_данных>,
                      "replicas": [
                        {
                          "host": "<FQDN_хоста>",
-                         "port": "<порт>",
+                         "port": <порт>,
                          "secure": <использовать_SSL_соединение>,
                          "user": "<имя_пользователя>",
                          "password": "<пароль>",
@@ -785,7 +785,7 @@
              "shard_names": [
                "<шард_1>", "<шард_2>", ... "<шард_N>"
              ],
-             "external_shards" [
+             "external_shards": [
                {
                  "name": "<внешний_шард_1>",
                  "weight": <вес_шарда_при_записи_данных>,
@@ -861,8 +861,8 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной группы шардов и выберите пункт **{{ ui-key.yacloud.common.delete }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной группы шардов и выберите пункт ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 

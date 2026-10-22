@@ -14,7 +14,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Интеграции** → **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}**.
   1. Выберите нужное подключение.
 
       Откроется подключение в сервисе {{ websql-name }}. Чтобы перейти в редактор запросов, выберите нужную БД.

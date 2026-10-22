@@ -1,0 +1,66 @@
+items:
+  - name: Overview
+    href: events-ref/index.md
+  - name: issue
+    items:
+      - name: create
+        href: events-ref/issue-create.md
+      - name: delete
+        href: events-ref/issue-delete.md
+      - name: update
+        href: events-ref/issue-update.md
+  - name: issue_comment
+    items:
+      - name: create
+        href: events-ref/issue-comment-create.md
+      - name: delete
+        href: events-ref/issue-comment-delete.md
+      - name: reactions_update
+        href: events-ref/issue-comment-reactions-update.md
+      - name: update
+        href: events-ref/issue-comment-update.md
+  - name: pull_request
+    items:
+      - name: create
+        href: events-ref/pull-request-create.md
+      - name: merge
+        href: events-ref/pull-request-merge.md
+      - name: merge_failure
+        href: events-ref/pull-request-merge-failure.md
+      - name: new_iteration
+        href: events-ref/pull-request-new-iteration.md
+      - name: publish
+        href: events-ref/pull-request-publish.md
+      - name: refresh
+        href: events-ref/pull-request-refresh.md
+      - name: review_assignment
+        href: events-ref/pull-request-review-assignment.md
+      - name: review_decision
+        href: events-ref/pull-request-review-decision.md
+      - name: update
+        href: events-ref/pull-request-update.md
+  - name: pull_request_comment
+    items:
+      - name: create
+        href: events-ref/pull-request-comment-create.md
+      - name: create_bulk
+        href: events-ref/pull-request-comment-create-bulk.md
+      - name: publish
+        href: events-ref/pull-request-comment-publish.md
+      - name: reactions_update
+        href: events-ref/pull-request-comment-reactions-update.md
+  - name: repository
+    items:
+      - name: create
+        href: events-ref/repository-create.md
+      - name: push
+        href: events-ref/repository-push.md
+      - name: refs_update
+        href: events-ref/repository-refs-update.md
+  - name: run.complete
+    href: events-ref/run-complete.md
+  - name: webhook.ping
+    href: events-ref/webhook-ping.md
+  - name: workflow.complete
+    href: events-ref/workflow-complete.md
+path: en/_src-events-ref/toc.yaml

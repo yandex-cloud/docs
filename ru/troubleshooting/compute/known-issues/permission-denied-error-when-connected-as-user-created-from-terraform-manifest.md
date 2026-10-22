@@ -11,7 +11,7 @@
 
 {% note info %}
 
-В разных образах ВМ имя такого пользователя может отличаться. Подробнее об этом пишем в [документации](../../../compute/concepts/vm-metadata.md#keys-processed-in-public-images).
+В разных образах ВМ имя такого пользователя может отличаться. Подробнее об этом пишем в [документации](../../../compute/concepts/metadata/public-image-keys.md).
 
 {% endnote %}
 

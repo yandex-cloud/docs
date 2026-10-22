@@ -28,7 +28,7 @@ Managed Service for ClickHouse® поддерживает несколько т�
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
     1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Словари**.
+    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Базы данных** → **Словари**.
 
 - CLI {#cli}
 
@@ -139,7 +139,7 @@ Managed Service for ClickHouse® поддерживает несколько т�
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
     1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Словари**.
+    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Базы данных** → **Словари**.
     1. В правом верхнем углу экрана нажмите кнопку **Создать словарь**.
     1. Укажите [настройки словаря](#settings).
     1. Нажмите кнопку **Сохранить**.
@@ -434,8 +434,8 @@ Managed Service for ClickHouse® поддерживает несколько т�
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
     1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Словари**.
-    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного словаря и выберите пункт **Редактировать**.
+    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Базы данных** → **Словари**.
+    1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного словаря и выберите пункт ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
     1. Измените [настройки словаря](#settings).
 
 - CLI {#cli}
@@ -454,7 +454,7 @@ Managed Service for ClickHouse® поддерживает несколько т�
         yc managed-clickhouse cluster update-external-dictionary --help
         ```
 
-    1. Выполните команду добавления словаря и укажите [его настройки](#settings):
+    1. Выполните команду обновления словаря и укажите [его настройки](#settings):
 
         ```bash
         yc managed-clickhouse cluster update-external-dictionary \
@@ -604,15 +604,21 @@ Managed Service for ClickHouse® поддерживает несколько т�
                 "mysql_source": {<настройки_источника_MySQL®>},
                 "clickhouse_source": {<настройки_источника_ClickHouse®>},
                 "mongodb_source": {<настройки_источника_Yandex_StoreDoc>},
-                "postgresql_source": {<настройки_источника_ PostgreSQL>}
+                "postgresql_source": {<настройки_источника_PostgreSQL>}
               },
-              "update_mask": "externalDictionary.<настройка_1>,...,externalDictionary.<настройка_N>"
+              "update_mask": {
+                "paths": [
+                  "external_dictionary.<настройка_1>",
+                  ...,
+                  "external_dictionary.<настройка_N>"
+                ]
+              }
             }
             ```
 
             Где:
 
-            * `update_mask` — перечень изменяемых параметров в одну строку через запятую.
+            * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
               В данном случае перечислите все изменяемые настройки словаря.
 
@@ -678,8 +684,8 @@ Managed Service for ClickHouse® поддерживает несколько т�
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
     1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Словари**.
-    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного словаря и выберите пункт **Удалить словарь**.
+    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Базы данных** → **Словари**.
+    1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного словаря и выберите пункт ![image](../../_assets/console-icons/trash-bin.svg) **Удалить словарь**.
 
 - CLI {#cli}
 
@@ -1559,7 +1565,7 @@ Managed Service for ClickHouse® поддерживает несколько т�
            table 'table1'
         ))
         LIFETIME(300)
-        LAYOUT(CASHE(SIZE_IN_CELLS 1024));
+        LAYOUT(CACHE(SIZE_IN_CELLS 1024));
         ```
 
 {% endlist %}

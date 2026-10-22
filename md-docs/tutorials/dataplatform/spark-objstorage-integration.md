@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Yandex Managed Service for Apache Airflow™ > Использование Yandex Object Storage в Yandex Managed Service for Apache Spark™
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Managed Service for Apache Spark™ > Работа с данными в Object Storage из Managed Service for Apache Spark™ > Использование Yandex Object Storage в Yandex Managed Service for Apache Spark™
 
 # Использование Yandex Object Storage в сервисе Yandex Managed Service for Apache Spark™
 
@@ -21,7 +21,7 @@
 
 {% note info %}
 
-Локальный каталог Hive позволяет обращаться к таблицам по имени без указания пути и использовать базовые возможности Hive, не подключая кластер Apache Hive™ Metastore. Хранящиеся в локальном каталоге метаданные остаются недоступными другим кластерам. Пример использования глобального каталога приведен в руководстве [Работа с Yandex Object Storage из PySpark-задания с использованием кластера Apache Hive™ Metastore](../../managed-spark/tutorials/metastore-and-spark.md).
+Локальный каталог Hive позволяет обращаться к таблицам по имени без указания пути и использовать базовые возможности Hive, не подключая кластер Apache Hive™ Metastore. Хранящиеся в локальном каталоге метаданные остаются недоступными другим кластерам. Пример использования глобального каталога приведен в руководстве [Интеграция с Apache Hive™ Metastore](../../managed-spark/tutorials/metastore-and-spark.md).
 
 {% endnote %}
 

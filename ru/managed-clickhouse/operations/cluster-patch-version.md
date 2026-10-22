@@ -13,6 +13,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера.
   1. Найдите поле **{{ ui-key.yacloud.mdb.cluster.overview.label_version }}** с информацией о версии и патч-версии {{ CH }}.
 
 - CLI {#cli}

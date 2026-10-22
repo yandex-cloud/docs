@@ -114,7 +114,7 @@ description: Следуя данной инструкции, вы сможете
               "configSpec": {
                 "cloudStorage": {
                   "enabled": true,
-                  "moveFactor": "<доля_свободного_места>",
+                  "moveFactor": <доля_свободного_места>,
                   "dataCacheEnabled": <кешировать_данные>,
                   "dataCacheMaxSize": "<максимальный_объем_памяти_в_байтах>",
                   "preferNotToMerge": <отключить_слияние_кусков_данных>
@@ -164,7 +164,7 @@ description: Следуя данной инструкции, вы сможете
               "config_spec": {
                 "cloud_storage": {
                   "enabled": true,
-                  "move_factor": "<доля_свободного_места>",
+                  "move_factor": <доля_свободного_места>,
                   "data_cache_enabled": <кешировать_данные>,
                   "data_cache_max_size": "<максимальный_объем_памяти_в_байтах>",
                   "prefer_not_to_merge": <отключить_слияние_кусков_данных>
@@ -210,7 +210,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
     1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+    1. Выберите кластер и нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** включите опцию **{{ ui-key.yacloud.mdb.forms.additional-field-cloud-storage }}** и (опционально) задайте настройки гибридного хранилища:
 
         {% include [hybrid-storage-settings-console](../../_includes/mdb/mch/hybrid-storage-settings-console.md) %}
@@ -303,7 +303,7 @@ description: Следуя данной инструкции, вы сможете
                       "configSpec": {
                         "cloudStorage": {
                           "enabled": true,
-                          "moveFactor": "<доля_свободного_места>",
+                          "moveFactor": <доля_свободного_места>,
                           "dataCacheEnabled": <кешировать_данные>,
                           "dataCacheMaxSize": "<максимальный_объем_памяти_в_байтах>",
                           "preferNotToMerge": <отключить_слияние_кусков_данных>
@@ -353,7 +353,7 @@ description: Следуя данной инструкции, вы сможете
                   "config_spec": {
                     "cloud_storage": {
                       "enabled": true,
-                      "move_factor": "<доля_свободного_места>",
+                      "move_factor": <доля_свободного_места>,
                       "data_cache_enabled": <кешировать_данные>,
                       "data_cache_max_size": "<максимальный_объем_памяти_в_байтах>",
                       "prefer_not_to_merge": <отключить_слияние_кусков_данных>
@@ -391,7 +391,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
     1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+    1. Выберите кластер и нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** измените настройки гибридного хранилища:
 
         {% include [hybrid-storage-settings-console](../../_includes/mdb/mch/hybrid-storage-settings-console.md) %}
@@ -477,7 +477,7 @@ description: Следуя данной инструкции, вы сможете
                       "updateMask": "<перечень_изменяемых_настроек>",
                       "configSpec": {
                         "cloudStorage": {
-                          "moveFactor": "<доля_свободного_места>",
+                          "moveFactor": <доля_свободного_места>,
                           "dataCacheEnabled": <кешировать_данные>,
                           "dataCacheMaxSize": "<максимальный_объем_памяти_в_байтах>",
                           "preferNotToMerge": <отключить_слияние_кусков_данных>
@@ -524,7 +524,7 @@ description: Следуя данной инструкции, вы сможете
                   },
                   "config_spec": {
                     "cloud_storage": {
-                      "move_factor": "<доля_свободного_места>",
+                      "move_factor": <доля_свободного_места>,
                       "data_cache_enabled": <кешировать_данные>,
                       "data_cache_max_size": "<максимальный_объем_памяти_в_байтах>",
                       "prefer_not_to_merge": <отключить_слияние_кусков_данных>

@@ -56,7 +56,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+  1. Выберите кластер и нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
   1. В поле **Geobase uri** укажите ссылку на архив с геобазой в {{ objstorage-full-name }}.
 
@@ -157,7 +157,7 @@
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.operation).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -218,7 +218,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
     1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+    1. Выберите кластер и нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
     1. В поле **Geobase uri** удалите значение.
 
@@ -284,7 +284,7 @@
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.operation).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 

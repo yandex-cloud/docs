@@ -18,6 +18,7 @@
 * [Перенос метаданных между кластерами Yandex Data Processing с помощью Apache Hive™ Metastore](metastore-import.md)
 * [Совместная работа с таблицами Yandex Data Processing с использованием Apache Hive™ Metastore](sharing-tables.md)
 * [Интеграция Yandex Managed Service for Apache Spark™ и Apache Hive™ Metastore](metastore-and-spark.md)
+* [Работа с таблицей формата Apache Iceberg™ в Yandex Managed Service for Apache Spark™](spark-simple-rw-job.md)
 
 ## Data Catalog {#data-catalog}
 

@@ -11,4 +11,4 @@
 
 Для построения запроса необходимо передать параметр `direct_client_logins`. Подробнее пишем [здесь](https://yandex.ru/dev/metrika/doc/api2/api_v1/direct-clicks.html?lang=ru).
 
-Сейчас у DataLens нет возможности передать этот и подобные параметры, поэтому построить чарт таким образом не получится, но можно [выгрузить данные в ClickHouse®](../../../datalens/qa/index.md#uploading-data-logs-api).
+Сейчас у DataLens нет возможности передать этот и подобные параметры, поэтому построить чарт таким образом не получится, но можно [выгрузить данные в ClickHouse®](../../../datalens/qa/connections.md#uploading-data-logs-api).

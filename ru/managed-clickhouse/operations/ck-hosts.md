@@ -28,7 +28,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
   1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.button_add-clickhouse-keeper }}**.
   1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) и подсеть в указанной зоне доступности.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
@@ -42,7 +42,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Выберите кластер и на панели сверху нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+  1. Выберите кластер и нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
   1. В блоке **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-resource }}** выберите платформу, тип виртуальной машины и нужный класс хоста {{ CK }}.
   1. В блоке **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-disk }}** задайте тип диска, размер хранилища и настройте [автоматическое увеличение размера хранилища](../concepts/storage.md#autoscaling).
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -105,8 +105,8 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-  1. В строке нужного хоста нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+  1. В строке нужного хоста нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. Подтвердите удаление.
 
 - CLI {#cli}
@@ -150,12 +150,12 @@ description: Следуя данной инструкции, вы сможете
         --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts:batchDelete' \
         --data '{
           "hostNames": [
-            <имя_хоста>
+            "<имя_хоста>"
           ]
         }'
       ```
   
-      Имя хоста можно получить со [списком хостов](#list-hosts) в кластера.
+      Имя хоста можно получить со [списком хостов](#list-hosts) в кластере.
 
       Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
   
@@ -181,7 +181,7 @@ description: Следуя данной инструкции, вы сможете
         -d '{
           "cluster_id": "<идентификатор_кластера>",
           "host_names": [
-            <имя_хоста>
+            "<имя_хоста>"
           ]
         }' \
         {{ api-host-mdb }}:{{ port-https }} \

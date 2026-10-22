@@ -35,8 +35,12 @@
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/extensions'
+       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/extensions?folderId=<идентификатор_каталога>'
      ```
+
+     
+     Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Extension/list.md#yandex.cloud.mdb.clickhouse.v1.ListExtensionsResponse).
 
@@ -57,7 +61,7 @@
        -format json \
        -import-path ~/cloudapi/ \
        -import-path ~/cloudapi/third_party/googleapis/ \
-       -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+       -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/extension_service.proto \
        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
        -d '{
              "folder_id": "<идентификатор_каталога>"
@@ -111,7 +115,7 @@
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Extension/get.md#yandex.cloud.mdb.clickhouse.v1.Extension).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/ClusterExtension/list.md#yandex.cloud.mdb.clickhouse.v1.ListClusterExtensionsResponse).
 
 - gRPC API {#grpc-api}
 
@@ -128,7 +132,7 @@
        -format json \
        -import-path ~/cloudapi/ \
        -import-path ~/cloudapi/third_party/googleapis/ \
-       -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+       -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_extension_service.proto \
        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
        -d '{
              "cluster_id": "<идентификатор_кластера>"
@@ -191,7 +195,7 @@
        -format json \
        -import-path ~/cloudapi/ \
        -import-path ~/cloudapi/third_party/googleapis/ \
-       -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+       -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/extension_service.proto \
        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
        -d '{
              "extension_name": "<имя_расширения>",
@@ -262,7 +266,7 @@
        -format json \
        -import-path ~/cloudapi/ \
        -import-path ~/cloudapi/third_party/googleapis/ \
-       -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+       -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_extension_service.proto \
        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
        -d '{
              "cluster_id": "<идентификатор_кластера>",
@@ -336,7 +340,7 @@
        -format json \
        -import-path ~/cloudapi/ \
        -import-path ~/cloudapi/third_party/googleapis/ \
-       -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+       -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_extension_service.proto \
        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
        -d '{
              "cluster_id": "<идентификатор_кластера>",
@@ -385,7 +389,7 @@
      curl \
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/extensions'
+       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/extensions/<имя_расширения>'
        --data '{
                  "extensionSpec": {
                    "name": "<имя_расширения>"
@@ -412,7 +416,7 @@
        -format json \
        -import-path ~/cloudapi/ \
        -import-path ~/cloudapi/third_party/googleapis/ \
-       -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+       -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_extension_service.proto \
        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
        -d '{
              "cluster_id": "<идентификатор_кластера>",
@@ -483,7 +487,7 @@
        -format json \
        -import-path ~/cloudapi/ \
        -import-path ~/cloudapi/third_party/googleapis/ \
-       -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+       -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_extension_service.proto \
        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
        -d '{
              "cluster_id": "<идентификатор_кластера>",
@@ -499,7 +503,7 @@
 
 {% endlist %}
 
-## Пакетная установка, обновление и удаление расширений {#cluster-get-extension}
+## Пакетная установка, обновление и удаление расширений {#cluster-set-extensions}
 
 Вы можете установить, обновить и удалить несколько расширений в одном запросе. Для этого передайте в запросе имена всех нужных расширений. Указанные в запросе расширения будут:
 
@@ -558,7 +562,7 @@
        -format json \
        -import-path ~/cloudapi/ \
        -import-path ~/cloudapi/third_party/googleapis/ \
-       -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+       -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_extension_service.proto \
        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
        -d '{
              "cluster_id": "<идентификатор_кластера>",

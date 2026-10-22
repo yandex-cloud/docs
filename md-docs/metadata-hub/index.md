@@ -144,9 +144,9 @@
 
  - [Перенос метаданных между кластерами Yandex Data Processing с помощью Apache Hive™ Metastore](tutorials/metastore-import.md)
 
- - [Работа с таблицей в Object Storage из PySpark-задания](tutorials/spark-simple-rw-job.md)
+ - [Работа с таблицей формата Apache Iceberg™ в Managed Service for Apache Spark™](tutorials/spark-simple-rw-job.md)
 
- - [Интеграция Yandex Managed Service for Apache Spark™ и Apache Hive™ Metastore](tutorials/metastore-and-spark.md)
+ - [Интеграция Managed Service for Apache Spark™ и Apache Hive™ Metastore](tutorials/metastore-and-spark.md)
 
  - [Автоматизация работы с помощью Yandex Managed Service for Apache Airflow™](tutorials/airflow-automation.md)
 

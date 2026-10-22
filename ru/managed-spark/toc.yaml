@@ -59,24 +59,28 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: >-
-          Работа с {{ objstorage-full-name }} с использованием локального
-          каталога Hive
-        href: tutorials/spark-objstorage-integration.md
-      - name: >-
-          Работа с {{ objstorage-full-name }} с использованием кластера {{
-          metastore-full-name }}
-        href: tutorials/metastore-and-spark.md
-      - name: Работа с таблицей формата {{ IBRG }} из PySpark-задания
-        href: tutorials/spark-simple-rw-job.md
-      - name: Запуск PySpark-задания с помощью {{ maf-full-name }}
-        href: tutorials/airflow-spark-min.md
+      - name: Работа с данными в {{ objstorage-name }}
+        items:
+          - name: Обзор
+            href: tutorials/object-storage-overview.md
+          - name: Использование локального каталога Hive
+            href: tutorials/spark-objstorage-integration.md
+          - name: Интеграция с {{ metastore-name }}
+            href: tutorials/metastore-and-spark.md
+          - name: Работа с таблицей формата {{ IBRG }}
+            href: tutorials/spark-simple-rw-job.md
+      - name: Интеграция с {{ maf-name }}
+        items:
+          - name: Обзор
+            href: tutorials/airflow-overview.md
+          - name: Запуск простого PySpark-задания
+            href: tutorials/airflow-spark-min.md
+          - name: Работа с таблицами с использованием {{ metastore-name }}
+            href: tutorials/airflow-automation.md
       - name: >-
           Использование секрета {{ lockbox-name }} в PySpark-задании для
           подключения к {{ mpg-full-name }}
         href: tutorials/job-pyspark-secret-access.md
-      - name: Автоматизация работы с помощью {{ maf-full-name }}
-        href: tutorials/airflow-automation.md
       - name: Интеграция с {{ ml-platform-name }}
         href: tutorials/spark-and-datasphere.md
   - name: Концепции

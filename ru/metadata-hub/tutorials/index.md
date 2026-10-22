@@ -21,6 +21,7 @@ description: Различные сценарии использования {{ s
 * [{#T}](./metastore-import.md)
 * [{#T}](./sharing-tables.md)
 * [{#T}](./metastore-and-spark.md)
+* [{#T}](./spark-simple-rw-job.md)
 
 ## {{ data-catalog-name }} {#data-catalog}
 

@@ -147,7 +147,7 @@
 * [Запуск заданий Apache Hive](how-to-use-hive.md)
 * [Запуск и управление приложениями для Spark и PySpark](run-spark-job.md)
 * [Запуск заданий с удаленных хостов, не входящих в кластер Yandex Data Processing](remote-run-job.md)
-* [Работа с таблицей в Object Storage из PySpark-задания с использованием Apache Hive™ Metastore и Apache Iceberg™](spark-simple-rw-job.md)
+* [Работа с таблицей формата Apache Iceberg™ в Yandex Managed Service for Apache Spark™](spark-simple-rw-job.md)
 * [Запуск PySpark-задания в Yandex Managed Service for YTsaurus](yt-run-spark-job.md)
 * [Интеграция Yandex Managed Service for Apache Spark™ и Apache Hive™ Metastore](metastore-and-spark.md)
 * [Перенос метаданных между кластерами Yandex Data Processing с помощью Apache Hive™ Metastore](metastore-import.md)
@@ -166,8 +166,8 @@
 
 * [Автоматизация задач Yandex Query с помощью Yandex Managed Service for Apache Airflow™](airflow-auto-tasks.md)
 * [Отправка запросов к API Yandex Cloud через Yandex Cloud Python SDK](using-python-sdk-in-airflow.md)
-* [Автоматизация работы с помощью Yandex Managed Service for Apache Airflow™](airflow-and-spark.md)
-* [Запуск PySpark-задания с помощью Yandex Managed Service for Apache Airflow™](airflow-spark-min.md)
+* [Автоматизация работы с таблицами в Yandex Managed Service for Apache Spark™ с помощью Yandex Managed Service for Apache Airflow™](airflow-and-spark.md)
+* [Запуск простого PySpark-задания в Yandex Managed Service for Apache Spark™ с помощью Yandex Managed Service for Apache Airflow™](airflow-spark-min.md)
 * [Автоматизация работы с Yandex Data Processing с помощью Yandex Managed Service for Apache Airflow™](data-processing-and-airflow.md)
 * [Настройка SMTP-сервера для отправки уведомлений по электронной почте](airflow-test-smtp-notification.md)
 

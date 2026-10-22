@@ -27,7 +27,7 @@
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
    1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+   1. Выберите кластер и нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
    1. Задайте [настройки {{ CH }}](../concepts/settings-list.md#server-level-settings).
    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -90,7 +90,7 @@
               ...
             }
 
-            rabbit_mq = {
+            rabbitmq = {
               # Настройки получения данных из {{ RMQ }}
               username = "<имя_пользователя>"
               password = "<пароль>"
@@ -199,10 +199,10 @@
                 "cluster_id": "<идентификатор_кластера>",
                 "update_mask": {
                    "paths": [
-                      "configSpec.clickhouse.config.<настройка_1>",
-                      "configSpec.clickhouse.config.<настройка_2>",
+                      "config_spec.clickhouse.config.<настройка_1>",
+                      "config_spec.clickhouse.config.<настройка_2>",
                       ...
-                      "configSpec.clickhouse.config.<настройка_N>"
+                      "config_spec.clickhouse.config.<настройка_N>"
                    ]
                 },
                 "config_spec": {

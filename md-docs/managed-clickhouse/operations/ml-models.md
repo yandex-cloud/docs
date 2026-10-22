@@ -29,7 +29,7 @@ Managed Service for ClickHouse® работает только с моделям
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
     1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Машинное обучение**.
+    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Расширения** → **Машинное обучение**.
 
 - CLI {#cli}
 
@@ -113,7 +113,7 @@ Managed Service for ClickHouse® работает только с моделям
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
     1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Машинное обучение**.
+    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Расширения** → **Машинное обучение**.
 
 - CLI {#cli}
 
@@ -207,7 +207,7 @@ Managed Service for ClickHouse® работает только с моделям
 
         1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
         1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-        1. Нажмите на имя нужного кластера и выберите вкладку **Машинное обучение**.
+        1. Нажмите на имя нужного кластера, затем перейдите в раздел **Расширения** → **Машинное обучение**.
         1. Нажмите **Создать модель**.
 
     1. Настройте параметры модели:
@@ -336,7 +336,7 @@ Managed Service for ClickHouse® работает только с моделям
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }/managed-clickhouse/v1/clusters/<идентификатор_кластера>/mlModels' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/mlModels' \
             --data '{
                       "mlModelName": "<название_модели>",
                       "type": "ML_MODEL_TYPE_CATBOOST",
@@ -442,8 +442,8 @@ Managed Service for ClickHouse® не отслеживает изменения 
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
     1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Машинное обучение**.
-    1. Выберите нужную модель, нажмите на значок ![image](../../_assets/console-icons/ellipsis-vertical.svg) и выберите пункт **Изменить**.
+    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Расширения** → **Машинное обучение**.
+    1. Выберите нужную модель, нажмите значок ![image](../../_assets/console-icons/ellipsis-vertical.svg) и выберите пункт **Изменить**.
 
 - CLI {#cli}
 
@@ -568,7 +568,7 @@ Managed Service for ClickHouse® не отслеживает изменения 
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }/managed-clickhouse/v1/clusters/<идентификатор_кластера>/mlModels/<название_модели>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/mlModels/<название_модели>' \
             --data '{
                       "updateMask": "uri",
                       "uri": "<ссылка_на_файл>"
@@ -634,14 +634,14 @@ Managed Service for ClickHouse® не отслеживает изменения 
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d '{
                     "cluster_id": "<идентификатор_кластера>",
-                    "ml_model_name": "<название_схемы>",
+                    "ml_model_name": "<название_модели>",
                     "update_mask": {
                       "paths": ["uri"]
                     },
                     "uri": "<ссылка_на_файл>"
                 }' \
             mdb.api.cloud.yandex.net:443 \
-            yandex.cloud.mdb.clickhouse.v1.MlModelService.Create
+            yandex.cloud.mdb.clickhouse.v1.MlModelService.Update
         ```
 
         Где:
@@ -675,8 +675,8 @@ Managed Service for ClickHouse® не отслеживает изменения 
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
     1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Машинное обучение**.
-    1. Выберите нужную модель, нажмите на значок ![image](../../_assets/console-icons/ellipsis-vertical.svg) и выберите пункт **Удалить**.
+    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Расширения** → **Машинное обучение**.
+    1. Выберите нужную модель, нажмите значок ![image](../../_assets/console-icons/ellipsis-vertical.svg) и выберите пункт **Удалить**.
 
 - CLI {#cli}
 
@@ -815,7 +815,7 @@ Managed Service for ClickHouse® не отслеживает изменения 
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d '{
                     "cluster_id": "<идентификатор_кластера>",
-                    "ml_model_name": "<название_схемы>"
+                    "ml_model_name": "<название_модели>"
                 }' \
             mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.clickhouse.v1.MlModelService.Delete

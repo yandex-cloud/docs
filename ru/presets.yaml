@@ -5463,6 +5463,7 @@ default:
           field_cloud-storage-data-cache-max-size: Объём кеша
           field_cloud-storage-move-factor: Мин. доля свободного места на дисках кластера
           field_cluster-sharding: Шардирование кластера
+          field_diagnostics-enabled: Сбор статистики
           field_shard-resources-type: Конфигурация
           format-schemas:
             button-action_add-format-schema: Создать схему
@@ -5709,6 +5710,7 @@ default:
         operations-key-value: Операции
         overview: Обзор
         password: Пароль
+        performance: Производительность
         remove: Удалить
         reset: Сбросить
         resource-acl:
@@ -5787,6 +5789,7 @@ default:
           condition_and: и
           condition_full-trafic: Весь трафик
           condition_name-authority: Host
+          condition_name-body: HTTP body
           condition_name-cookie: Cookie
           condition_name-header: HTTP header
           condition_name-host: Host

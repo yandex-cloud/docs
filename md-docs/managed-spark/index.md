@@ -58,17 +58,25 @@
 
  - [Все руководства](tutorials/index.md)
 
- - [Работа с Yandex Object Storage с использованием локального каталога Hive](tutorials/spark-objstorage-integration.md)
+### Работа с данными в Object Storage
 
- - [Работа с Yandex Object Storage с использованием кластера Apache Hive™ Metastore](tutorials/metastore-and-spark.md)
+ - [Обзор](tutorials/object-storage-overview.md)
 
- - [Работа с таблицей формата Apache Iceberg™ из PySpark-задания](tutorials/spark-simple-rw-job.md)
+ - [Использование локального каталога Hive](tutorials/spark-objstorage-integration.md)
 
- - [Запуск PySpark-задания с помощью Yandex Managed Service for Apache Airflow™](tutorials/airflow-spark-min.md)
+ - [Интеграция с Apache Hive™ Metastore](tutorials/metastore-and-spark.md)
+
+ - [Работа с таблицей формата Apache Iceberg™](tutorials/spark-simple-rw-job.md)
+
+### Интеграция с Managed Service for Apache Airflow™
+
+ - [Обзор](tutorials/airflow-overview.md)
+
+ - [Запуск простого PySpark-задания](tutorials/airflow-spark-min.md)
+
+ - [Работа с таблицами с использованием Apache Hive™ Metastore](tutorials/airflow-automation.md)
 
  - [Использование секрета Yandex Lockbox в PySpark-задании для подключения к Yandex Managed Service for PostgreSQL](tutorials/job-pyspark-secret-access.md)
-
- - [Автоматизация работы с помощью Yandex Managed Service for Apache Airflow™](tutorials/airflow-automation.md)
 
  - [Интеграция с DataSphere](tutorials/spark-and-datasphere.md)
 

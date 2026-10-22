@@ -45,7 +45,7 @@ description: 'Следуя данной инструкции, вы сможет�
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.hosts.dialog.action_add-clickhouse-hosts }}**.
 
   1. Укажите параметры хоста:
@@ -191,7 +191,7 @@ description: 'Следуя данной инструкции, вы сможет�
                         { <аналогичный_набор_настроек_для_создаваемого_хоста_2> },
                         { ... },
                         { <аналогичный_набор_настроек_для_создаваемого_хоста_N> }
-                      ],
+                      ]
                     }'
         ```
 
@@ -239,7 +239,7 @@ description: 'Следуя данной инструкции, вы сможет�
                         { <аналогичный_набор_настроек_для_создаваемого_хоста_2> },
                         { ... },
                         { <аналогичный_набор_настроек_для_создаваемого_хоста_N> }
-                    ],
+                    ]
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.AddHosts
@@ -282,8 +282,8 @@ description: 'Следуя данной инструкции, вы сможет�
   Чтобы изменить параметры хоста в кластере:
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. В открывшемся окне включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
@@ -296,7 +296,7 @@ description: 'Следуя данной инструкции, вы сможет�
   Чтобы изменить параметры хоста, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} host update <имя_хоста> \
+  {{ yc-mdb-ch }} hosts update <имя_хоста> \
     --cluster-name=<имя_кластера> \
     --assign-public-ip=<публичный_доступ_к_хосту>
   ```
@@ -464,16 +464,16 @@ description: 'Следуя данной инструкции, вы сможет�
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
     1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
     1. В открывшемся окне включите опцию **Я удаляю хост** и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
 
   Чтобы удалить несколько хостов сразу:
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
     1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-    1. Выберите хосты, которые хотите удалить, и нажмите **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}** в нижней части экрана.
+    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. Выберите хосты, которые хотите удалить, и нажмите ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}** в нижней части экрана.
     1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.action_delete-host }}**.
 
 - CLI {#cli}

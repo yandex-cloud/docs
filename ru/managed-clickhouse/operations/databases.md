@@ -29,7 +29,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}**.
 
 - CLI {#cli}
 
@@ -115,8 +115,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера.
-  1. Выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.databases.action_add-database }}**.
   1. Укажите имя базы данных.
 
@@ -319,8 +318,8 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД и выберите пункт **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД и выберите пункт ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
 - CLI {#cli}
 

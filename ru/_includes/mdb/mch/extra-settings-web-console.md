@@ -39,3 +39,5 @@
 
    {% include [Ограничения защиты от удаления](../deletion-protection-limits-db.md) %}
 
+* **{{ ui-key.yacloud.clickhouse.cluster.field_diagnostics-enabled }}** — включите эту опцию, чтобы разрешить использовать в кластере инструмент **Диагностика производительности**.
+

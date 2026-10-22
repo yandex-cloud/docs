@@ -140,7 +140,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
+    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Администрирование** → **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
 
     Чтобы просмотреть обслуживания с определенным статусом, нажмите кнопку **{{ ui-key.yacloud.mdb.maintenance.label_task-status }}** над списком обслуживаний и в выпадающем меню выберите нужный статус. Вы также можете найти обслуживание по его идентификатору или имени задания – используйте поле над списком обслуживаний.
 
@@ -158,11 +158,7 @@ description: Следуя данной инструкции, вы сможете
         curl \
         --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
-        --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/maintenances' \
-        --data '{
-                    "resourceId": "<идентификатор_кластера>"
-                }'
+        --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/maintenances?resourceId=<идентификатор_кластера>'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -256,7 +252,7 @@ description: Следуя данной инструкции, вы сможете
 ## Получить логи кластера, относящиеся к техническому обслуживанию {#maintenance-logs}
 
 1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
+1. Нажмите на имя нужного кластера, затем перейдите в раздел **Администрирование** → **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
 1. Нажмите на идентификатор нужного обслуживания.
 1. Нажмите ссылку **{{ ui-key.yacloud.mdb.maintenance.label_task-logs }}**.
 
@@ -271,8 +267,8 @@ description: Следуя данной инструкции, вы сможете
     Чтобы перенести обслуживание на новую дату и время:
 
     1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
-    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа в строке обслуживания со статусом **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}**.
+    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Администрирование** → **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
+    1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) справа в строке обслуживания со статусом **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}**.
     1. В выпадающем меню выберите ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_change-task-time }}**.
     1. В открывшемся окне:
         * Чтобы перенести обслуживание вперед на следующее окно обслуживания, нажмите **{{ ui-key.yacloud.component.maintenance-alert.value_next-available-window }}** и затем **{{ ui-key.yacloud.component.maintenance-alert.button_reschedule }}**.
@@ -458,8 +454,8 @@ description: Следуя данной инструкции, вы сможете
     Чтобы провести запланированное обслуживание кластера немедленно:
 
     1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
-    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа в строке обслуживания.
+    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Администрирование** → **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
+    1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) справа в строке обслуживания.
     1. В выпадающем меню выберите ![image](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_exec-task-now }}**.
 
 - CLI {#cli}
@@ -588,7 +584,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
+    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Администрирование** → **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
     1. Нажмите кнопку ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}**.
     1. В открывшемся окне:
         * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** (по умолчанию).

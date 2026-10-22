@@ -191,7 +191,13 @@ items:
                 href: operations/disk-control/disk-change-folder.md
               - name: Перенести диск в другую зону доступности
                 href: operations/disk-control/disk-change-zone.md
-              - name: Перенести образ диска в стороннее S3-хранилище
+              - name: >-
+                  Перенести образ диска в стороннее S3-хранилище без
+                  вспомогательной ВМ
+                href: operations/disk-control/disk-migration-without-vm.md
+              - name: >-
+                  Перенести образ диска в стороннее S3-хранилище с
+                  вспомогательной ВМ
                 href: operations/disk-control/disk-migration-to-external-s3.md
               - name: Зашифровать диск
                 href: operations/disk-control/disk-encrypt.md

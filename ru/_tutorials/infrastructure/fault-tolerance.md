@@ -108,7 +108,7 @@
    ssh-keygen -t ed25519
    ```
 
-1. В файле `app/todo-service.tf` укажите путь к публичному SSH-ключу (значение по умолчанию `~/.ssh/id_ed25519.pub`).
+1. В файле `app/todo-service.tf` укажите путь к публичному SSH-ключу из предыдущего шага. По умолчанию в файле указан путь `~/.ssh/id_rsa.pub`.
 1. Проверьте квоты в облаке, чтобы была возможность развернуть требуемые ресурсы.
 
    {% cut "Информация о количестве создаваемых ресурсов" %}
@@ -158,7 +158,7 @@
    terraform init
    ```
 
-1. В файле `tank/main.tf` укажите путь к публичному и приватному SSH-ключам (значения по умолчанию `~/.ssh/id_ed25519.pub` и `~/.ssh/id_ed25519`).
+1. В файле `tank/main.tf` укажите путь к публичному и приватному SSH-ключам, созданным ранее. По умолчанию в файле указаны пути `~/.ssh/id_rsa.pub` и `~/.ssh/id_rsa`.
 1. Разверните и запустите ВМ:
 
    ```bash
@@ -207,7 +207,7 @@
   1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Выберите группу `todo-ig`.
   1. Перейдите на вкладку **{{ ui-key.yacloud.compute.placement-group.switch_instances }}**.
-  1. В строке с нужной ВМ нажмите значок ![image](../../_assets/options.svg) → **{{ ui-key.yacloud.common.delete }}**.
+  1. В строке с нужной ВМ нажмите значок ![image](../../_assets/options.svg) → ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_delete }}**.
 
 {% endlist %}
@@ -307,7 +307,7 @@ fail_random_host.sh <идентификатор_группы_ВМ>
   1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Выберите группу `todo-ig`.
   1. Нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}**.
   1. Выберите необходимый Docker-контейнер и нажмите ![image](../../_assets/options.svg) → **{{ ui-key.yacloud.common.edit }}**.
   1. В открывшемся окне в поле **{{ ui-key.yacloud.compute.instances.create.field_coi-image }}** укажите образ с новой версией приложения (тег `v2`).
@@ -348,7 +348,7 @@ fail_random_host.sh <идентификатор_группы_ВМ>
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашим кластером БД.
   1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Выберите кластер `todo-postgresql`.
-  1. Нажмите кнопку ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите `s2.medium`.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
