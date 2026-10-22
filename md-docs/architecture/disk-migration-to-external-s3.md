@@ -1,6 +1,12 @@
-[Документация Yandex Cloud](../index.md) > [Архитектурные решения](index.md) > Отказоустойчивость > Перенос образа диска в стороннее S3-хранилище
+[Документация Yandex Cloud](../index.md) > [Архитектурные решения](index.md) > Отказоустойчивость > Перенос образа диска в стороннее S3-хранилище с вспомогательной ВМ
 
-# Перенос образа диска Yandex Compute Cloud в S3-совместимое хранилище стороннего провайдера
+# Перенос образа диска Yandex Compute Cloud в S3-совместимое хранилище стороннего провайдера с вспомогательной ВМ
+
+{% note tip %}
+
+Вы можете [перенести образ диска в S3-совместимое хранилище без вспомогательной ВМ](../compute/operations/disk-control/disk-migration-without-vm.md).
+
+{% endnote %}
 
 Вы можете сохранить побайтовую копию [диска](../compute/concepts/disk.md) Compute Cloud в объектном хранилище другого провайдера. Такая копия позволяет хранить данные за пределами Yandex Cloud и использовать их для восстановления.
 
@@ -216,3 +222,7 @@ umount /dr-s3mount
 * [вспомогательную ВМ](../compute/operations/vm-control/vm-delete.md);
 * [копии дисков](../compute/operations/disk-control/delete.md);
 * [снимки](../compute/operations/snapshot-control/delete.md).
+
+#### Полезные ссылки {#see-also}
+
+[Перенос образа диска без вспомогательной ВМ](../compute/operations/disk-control/disk-migration-without-vm.md).

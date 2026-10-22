@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > Apache Hive™ Metastore > Практические руководства > Интеграция Yandex Managed Service for Apache Spark™ и Apache Hive™ Metastore
+[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > Apache Hive™ Metastore > Практические руководства > Интеграция Managed Service for Apache Spark™ и Apache Hive™ Metastore
 
 # Интеграция Yandex Managed Service for Apache Spark™ и Apache Hive™ Metastore
 

@@ -12,7 +12,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
     1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.cluster.switch_logs }}**.
+    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Администрирование** → **{{ ui-key.yacloud.clickhouse.cluster.switch_logs }}**.
     1. Укажите период времени, за который нужно отобразить логи: введите его вручную или выберите в календаре, нажав на поле ввода дат.
     1. При необходимости укажите хосты и уровень логирования в строке с полем ввода дат.
 
@@ -95,7 +95,7 @@
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listLogs.md#responses).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.clickhouse.v1.ListClusterLogsResponse).
 
 - gRPC API {#grpc-api}
 
@@ -118,7 +118,7 @@
                     "cluster_id": "<идентификатор_кластера>",
                     "service_type" : "CLICKHOUSE",
                     "column_filter": [<список_колонок_для_вывода_информации>],
-                    "from_time": "<левая_граница_временного_диапазона>" \
+                    "from_time": "<левая_граница_временного_диапазона>",
                     "to_time": "<правая_граница_временного_диапазона>"
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
@@ -203,7 +203,7 @@
 
         * `filter` — фильтр логов. Можно отфильтровать логи так, чтобы поток логов содержал только нужные логи.
 
-            Подробнее о фильтрах и их синтаксисе в [справочнике API](../api-ref/Cluster/streamLogs.md#query_params).
+            Подробнее о фильтрах и их синтаксисе в [справочнике API](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.clickhouse.v1.StreamClusterLogsRequest).
 
             {% include [stream-logs-filter](../../_includes/mdb/api/stream-logs-filter.md) %}
 
@@ -211,7 +211,7 @@
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/streamLogs.md#responses).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.clickhouse.v1.StreamLogRecord).
 
 - gRPC API {#grpc-api}
 

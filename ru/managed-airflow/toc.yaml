@@ -77,10 +77,10 @@ items:
             href: tutorials/data-processing-automation.md
           - name: '{{ yq-full-name }}: автоматизация задач'
             href: tutorials/airflow-auto-tasks.md
-          - name: '{{ msp-name }}: автоматизация работы'
-            href: tutorials/spark-automation.md
-          - name: Запуск PySpark-задания с помощью {{ maf-full-name }}
+          - name: Запуск простого PySpark-задания в {{ msp-name }}
             href: tutorials/airflow-spark-min.md
+          - name: Автоматизация работы с таблицами в {{ msp-name }}
+            href: tutorials/spark-automation.md
       - name: Другие руководства
         items:
           - name: >-

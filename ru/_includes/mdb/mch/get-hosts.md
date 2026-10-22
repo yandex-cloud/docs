@@ -6,7 +6,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
 
 - CLI {#cli}
 

@@ -32,7 +32,7 @@ _Схема формата_ данных (format schema) описывает фо
 
    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-   1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Схемы формата данных**.
+   1. Нажмите на имя нужного кластера, затем перейдите в раздел **Базы данных** → **Схемы формата данных**.
 
 - CLI {#cli}
 
@@ -108,7 +108,7 @@ _Схема формата_ данных (format schema) описывает фо
 
 {% endlist %}
 
-## Получить детальную информацию о схеме формата данных {get-format-schema}
+## Получить детальную информацию о схеме формата данных {#get-format-schema}
 
 {% list tabs group=instructions %}
 
@@ -215,7 +215,7 @@ Managed Service for ClickHouse® работает только со схемам
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
     1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Схемы формата данных**.
+    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Базы данных** → **Схемы формата данных**.
     1. Нажмите кнопку **Создать схему**.
     1. В диалоговом окне **Добавление схемы** заполните форму, указав в поле **URL** полученную ранее ссылку на файл со схемой формата.
     1. Нажмите кнопку **Создать**.
@@ -350,7 +350,7 @@ Managed Service for ClickHouse® работает только со схемам
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }/managed-clickhouse/v1/clusters/<идентификатор_кластера>/formatSchemas' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/formatSchemas' \
             --data '{
                       "formatSchemaName": "<название_схемы>",
                       "type": "<тип_схемы>",
@@ -432,8 +432,8 @@ Managed Service for ClickHouse® не отслеживает изменения 
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
     1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Схемы формата данных**.
-    1. Выберите нужную схему, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Редактировать**.
+    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Базы данных** → **Схемы формата данных**.
+    1. Выберите нужную схему, нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт ![image](../../_assets/console-icons/pencil.svg) **Редактировать**.
 
 - CLI {#cli}
 
@@ -443,7 +443,7 @@ Managed Service for ClickHouse® не отслеживает изменения 
     
     Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-    Чтобы изменить ссылку на файл в объектном хранилище со схемой формата данных, выполнив команду:
+    Чтобы изменить ссылку на файл в объектном хранилище со схемой формата данных, выполните команду:
 
     ```bash
     yc managed-clickhouse format-schema update "<имя_схемы_данных>" \
@@ -558,7 +558,7 @@ Managed Service for ClickHouse® не отслеживает изменения 
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }/managed-clickhouse/v1/clusters/<идентификатор_кластера>/formatSchemas/<название_схемы>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/formatSchemas/<название_схемы>' \
             --data '{
                       "updateMask": "uri",
                       "uri": "<ссылка_на_файл>"
@@ -641,7 +641,7 @@ Managed Service for ClickHouse® не отслеживает изменения 
 
             В данном случае указан только один параметр: `uri`.
 
-        * `uri` — ссылка на новый файл с моделью в Object Storage.
+        * `uri` — ссылка на новый файл со схемой в Object Storage.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -665,8 +665,8 @@ Managed Service for ClickHouse® не отслеживает изменения 
 
    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-   1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Схемы формата данных**.
-   1. Выберите нужную схему, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Удалить**.
+   1. Нажмите на имя нужного кластера, затем перейдите в раздел **Базы данных** → **Схемы формата данных**.
+   1. Выберите нужную схему, нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт ![image](../../_assets/console-icons/trash-bin.svg) **Удалить**.
 
 - CLI {#cli}
 

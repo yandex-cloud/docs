@@ -26,7 +26,7 @@ Managed Service for ClickHouse® позволяет управлять база�
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
   1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **Базы данных**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Базы данных**.
 
 - CLI {#cli}
 
@@ -128,8 +128,7 @@ Managed Service for ClickHouse® позволяет управлять база�
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
   1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Нажмите на имя нужного кластера.
-  1. Выберите вкладку **Базы данных**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Базы данных**.
   1. Нажмите кнопку **Создать базу данных**.
   1. Укажите имя базы данных.
 
@@ -406,8 +405,8 @@ Managed Service for ClickHouse® позволяет управлять база�
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
   1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Базы данных**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД и выберите пункт **Удалить**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Базы данных**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД и выберите пункт ![image](../../_assets/console-icons/trash-bin.svg) **Удалить**.
 
 - CLI {#cli}
 

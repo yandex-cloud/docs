@@ -21,7 +21,7 @@
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
       1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-      1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
+      1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **Хосты**.
       1. Нажмите кнопку **Создать хост**.
       1. Укажите параметры хоста:
 
@@ -42,7 +42,7 @@
       Выполните команду:
 
       ```bash
-      yc managed-clickhouse host add \
+      yc managed-clickhouse hosts add \
          --cluster-name <имя_кластера> \
          --host type=clickhouse,`
                `zone-id=<зона_доступности>,`
@@ -204,7 +204,7 @@
    Чтобы узнать FQDN, получите список хостов в кластере:
 
    ```bash
-   yc managed-clickhouse host list --cluster-name <имя_кластера>
+   yc managed-clickhouse hosts list --cluster-name <имя_кластера>
    ```
 
    FQDN указан в выводе команды, в столбце `NAME`. Также вы можете использовать [особый FQDN](connect/fqdn.md#auto) для подключения.
@@ -217,15 +217,15 @@
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
       1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-      1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
-      1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста, выберите пункт **Удалить** и подтвердите удаление.
+      1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **Хосты**.
+      1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста, выберите пункт ![image](../../_assets/console-icons/trash-bin.svg) **Удалить** и подтвердите удаление.
 
    - CLI {#cli}
 
       Выполните команду для каждого хоста:
 
       ```bash
-      yc managed-clickhouse host delete <FQDN_хоста> --cluster-name <имя_кластера>
+      yc managed-clickhouse hosts delete <FQDN_хоста> --cluster-name <имя_кластера>
       ```
 
       
@@ -330,7 +330,7 @@
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
       1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-      1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
+      1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **Хосты**.
       1. Нажмите кнопку **Создать хост ZooKeeper**.
       1. Укажите новую подсеть и зону доступности, куда переносятся хосты.
       1. Нажмите **Сохранить**.
@@ -346,7 +346,7 @@
       Выполните команду:
 
       ```bash
-      yc managed-clickhouse host add \
+      yc managed-clickhouse hosts add \
          --cluster-name <имя_кластера> \
          --host type=zookeeper,`
                `zone-id=<зона_доступности>,`
@@ -482,6 +482,7 @@
                              "subnet_id": "<идентификатор_подсети>",
                              "assign_public_ip": <разрешить_публичный_доступ_к_хосту>
                          }
+                     ]
                  }' \
              mdb.api.cloud.yandex.net:443 \
              yandex.cloud.mdb.clickhouse.v1.ClusterService.AddHosts
@@ -508,15 +509,15 @@
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
       1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-      1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
-      1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста, выберите пункт **Удалить** и подтвердите удаление.
+      1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **Хосты**.
+      1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста, выберите пункт ![image](../../_assets/console-icons/trash-bin.svg) **Удалить** и подтвердите удаление.
 
    - CLI {#cli}
 
       Выполните команду для каждого хоста:
 
       ```bash
-      yc managed-clickhouse host delete <FQDN_хоста> --cluster-name <имя_кластера>
+      yc managed-clickhouse hosts delete <FQDN_хоста> --cluster-name <имя_кластера>
       ```
 
    

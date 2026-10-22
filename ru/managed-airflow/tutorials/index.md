@@ -9,8 +9,8 @@ description: Различные сценарии использования {{ m
 
 * [{#T}](data-processing-automation.md)
 * [{#T}](airflow-auto-tasks.md)
-* [{#T}](spark-automation.md)
 * [{#T}](airflow-spark-min.md)
+* [{#T}](spark-automation.md)
 
 ## Другие руководства {#other}
 

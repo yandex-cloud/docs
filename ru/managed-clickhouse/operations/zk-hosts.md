@@ -44,11 +44,11 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
   1. Справа сверху нажмите **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-coordinator }}**.
   1. Укажите [класс хостов](../concepts/instance-types.md).
   1. Задайте настройки хранилища.
-  1. При необходимости измените настройки хостов {{ ZK }}. Чтобы это сделать, наведите курсор на строку нужного хоста и нажмите на значок ![image](../../_assets/console-icons/pencil.svg).
+  1. При необходимости измените настройки хостов {{ ZK }}. Чтобы это сделать, наведите указатель на строку нужного хоста и нажмите значок ![image](../../_assets/console-icons/pencil.svg).
   1. Чтобы преобразовать нереплицируемые таблицы в [реплицируемые](../concepts/replication.md#replicated-tables), включите настройку **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**. Нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) будут автоматически преобразованы в реплицируемые на движке [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication).
 
      {% note warning %}
@@ -219,7 +219,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+  1. Выберите кластер и нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}** выберите платформу, тип виртуальной машины и нужный класс хоста {{ ZK }}.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}** задайте размер хранилища и тип диска для хостов {{ ZK }}.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -256,7 +256,7 @@ description: Следуя данной инструкции, вы сможете
 
      ```bash
      {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \
-        --zookepeer-resource-preset=<класс_хостов> \
+        --zookeeper-resource-preset=<класс_хостов> \
         --zookeeper-disk-size=<размер_хранилища_ГБ> \
         --zookeeper-disk-type=<тип_диска>
      ```
@@ -345,7 +345,7 @@ description: Следуя данной инструкции, вы сможете
                             "resources": {
                               "resourcePresetId": "<класс_хостов>",
                               "diskTypeId": "<тип_диска>",
-                              "diskSize": "<размер_хранилища_ГБ>"
+                              "diskSize": <размер_хранилища_в_байтах>
                             }
                           }
                         }
@@ -363,7 +363,7 @@ description: Следуя данной инструкции, вы сможете
 
           * `configSpec.zookeeper.resources.resourcePresetId` — идентификатор [класса хостов](../concepts/instance-types.md).
           * `configSpec.zookeeper.resources.diskTypeId` — [тип диска](../concepts/storage.md).
-          * `configSpec.zookeeper.resources.diskSize` — размер хранилища в гигабайтах.
+          * `configSpec.zookeeper.resources.diskSize` — размер хранилища в байтах.
 
           Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters). Список доступных классов хостов с их идентификаторами был получен ранее.
 
@@ -421,7 +421,7 @@ description: Следуя данной инструкции, вы сможете
                         "resources": {
                           "resource_preset_id": "<класс_хостов>",
                           "disk_type_id": "<тип_диска>",
-                          "disk_size": "<размер_хранилища_ГБ>"
+                          "disk_size": <размер_хранилища_в_байтах>
                         }
                       }
                     }
@@ -441,7 +441,7 @@ description: Следуя данной инструкции, вы сможете
 
           * `config_spec.zookeeper.resources.resource_preset_id` — идентификатор [класса хостов](../concepts/instance-types.md).
           * `config_spec.zookeeper.resources.disk_type_id` — [тип диска](../concepts/storage.md).
-          * `config_spec.zookeeper.resources.disk_size` — размер хранилища в гигабайтах.
+          * `config_spec.zookeeper.resources.disk_size` — размер хранилища в байтах.
 
           Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters). Список доступных классов хостов с их идентификаторами был получен ранее.
 
@@ -506,8 +506,8 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-  1. Наведите курсор на строку нужного хоста и нажмите на значок ![image](../../_assets/console-icons/xmark.svg).
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+  1. Наведите указатель на строку нужного хоста и нажмите значок ![image](../../_assets/console-icons/xmark.svg).
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}

@@ -76,9 +76,9 @@
 
  - [Yandex Query: автоматизация задач](tutorials/airflow-auto-tasks.md)
 
- - [Managed Service for Apache Spark™: автоматизация работы](tutorials/spark-automation.md)
+ - [Запуск простого PySpark-задания в Managed Service for Apache Spark™](tutorials/airflow-spark-min.md)
 
- - [Запуск PySpark-задания с помощью Yandex Managed Service for Apache Airflow™](tutorials/airflow-spark-min.md)
+ - [Автоматизация работы с таблицами в Managed Service for Apache Spark™](tutorials/spark-automation.md)
 
 ### Другие руководства
 

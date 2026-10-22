@@ -41,7 +41,7 @@ description: Следуя данной инструкции, вы сможете
         --host type=keeper,`
               `zone-id=<зона_доступности>,`
               `subnet-id=<идентификатор_подсети> \
-        --convert-tables-to-replicated <конвертировать_таблицы>
+        --convert-tables-to-replicated
       ```
 
 
@@ -49,7 +49,7 @@ description: Следуя данной инструкции, вы сможете
 
       * `--resource-preset` — [класс хоста](../concepts/instance-types.md).
       * `--disk-type` — [тип диска](../concepts/storage.md).
-      * `--disk-size` — размер хранилища в байтах.
+      * `--disk-size` — размер хранилища в гигабайтах.
 
       * `--host` — параметры хоста:
         * `type` — тип хоста: `keeper`.
@@ -61,7 +61,7 @@ description: Следуя данной инструкции, вы сможете
 
         Вы можете добавить сразу несколько хостов. Для каждого хоста необходимо указать отдельный флаг `--host`.
 
-      * `--convert-tables-to-replicated` — преобразовать нереплицируемые таблицы в [реплицируемые](../concepts/replication.md#replicated-tables).
+      * `--convert-tables-to-replicated` — флаг преобразования нереплицируемых таблиц в [реплицируемые](../concepts/replication.md#replicated-tables). Чтобы не преобразовывать таблицы, не указывайте его.
 
       Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -82,7 +82,7 @@ description: Следуя данной инструкции, вы сможете
             {
               "resources": {
                 "resourcePresetId": "<класс_хоста>",
-                "diskSize": "<размер_хранилища>",
+                "diskSize": <размер_хранилища_в_байтах>,
                 "diskTypeId": "<тип_диска>"
               },
               "hostSpecs": [
@@ -151,14 +151,14 @@ description: Следуя данной инструкции, вы сможете
               "cluster_id": "<идентификатор_кластера>",
               "resources": {
                 "resource_preset_id": "<класс_хоста>",
-                "disk_size": "<размер_хранилища>",
+                "disk_size": <размер_хранилища_в_байтах>,
                 "disk_type_id": "<тип_диска>"
               },
               "host_specs": [
                 {
                   "zone_id": "<зона_доступности>",
                   "type": "KEEPER",
-                  "subnet_id": "<идентификатор_подсети>",
+                  "subnet_id": "<идентификатор_подсети>"
                 }
               ],
               "convert_tables_to_replicated": <конвертировать_таблицы>
@@ -198,7 +198,7 @@ description: Следуя данной инструкции, вы сможете
               -rpc-header "Authorization: Bearer $IAM_TOKEN" \
               -d @ \
               {{ api-host-mdb }}:{{ port-https }} \
-              yandex.cloud.mdb.clickhouse.v1.ClusterService.addZookeeper \
+              yandex.cloud.mdb.clickhouse.v1.ClusterService.AddZookeeper \
               < body.json
             ```
 

@@ -26,7 +26,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
     1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}**.
+    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Базы данных** → **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}**.
 
 - CLI {#cli}
 
@@ -125,7 +125,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
     1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}**.
+    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Базы данных** → **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}**.
     1. В правом верхнем углу экрана нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.dictionaries.button-action_add-dictionary }}**.
     1. Укажите [настройки словаря](#settings).
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.dictionaries.button_submit }}**.
@@ -392,8 +392,8 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
     1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}**.
-    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного словаря и выберите пункт **{{ ui-key.yacloud.common.edit }}**.
+    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Базы данных** → **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}**.
+    1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного словаря и выберите пункт ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. Измените [настройки словаря](#settings).
 
 - CLI {#cli}
@@ -410,7 +410,7 @@
         {{ yc-mdb-ch }} cluster update-external-dictionary --help
         ```
 
-    1. Выполните команду добавления словаря и укажите [его настройки](#settings):
+    1. Выполните команду обновления словаря и укажите [его настройки](#settings):
 
         ```bash
         {{ yc-mdb-ch }} cluster update-external-dictionary \
@@ -542,15 +542,21 @@
                 "mysql_source": {<настройки_источника_{{ MY }}>},
                 "clickhouse_source": {<настройки_источника_{{ CH }}>},
                 "mongodb_source": {<настройки_источника_Yandex_StoreDoc>},
-                "postgresql_source": {<настройки_источника_ {{ PG }}>}
+                "postgresql_source": {<настройки_источника_{{ PG }}>}
               },
-              "update_mask": "externalDictionary.<настройка_1>,...,externalDictionary.<настройка_N>"
+              "update_mask": {
+                "paths": [
+                  "external_dictionary.<настройка_1>",
+                  ...,
+                  "external_dictionary.<настройка_N>"
+                ]
+              }
             }
             ```
 
             Где:
 
-            * `update_mask` — перечень изменяемых параметров в одну строку через запятую.
+            * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
               В данном случае перечислите все изменяемые настройки словаря.
 
@@ -608,8 +614,8 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
     1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}**.
-    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного словаря и выберите пункт **{{ ui-key.yacloud.mdb.cluster.dictionaries.button_action-delete }}**.
+    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Базы данных** → **{{ ui-key.yacloud.clickhouse.cluster.switch_dictionaries }}**.
+    1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного словаря и выберите пункт ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.mdb.cluster.dictionaries.button_action-delete }}**.
 
 - CLI {#cli}
 
@@ -1451,7 +1457,7 @@
            table 'table1'
         ))
         LIFETIME(300)
-        LAYOUT(CASHE(SIZE_IN_CELLS 1024));
+        LAYOUT(CACHE(SIZE_IN_CELLS 1024));
         ```
 
 {% endlist %}

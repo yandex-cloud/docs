@@ -56,8 +56,8 @@ Managed Service for ClickHouse® поддерживает работу с Yandex
 
   1. Настройте [ACL бакета](../../storage/operations/buckets/edit-acl.md) или [ACL объекта](../../storage/operations/objects/edit-acl.md):
 
-      1. В списке бакетов или объектов выберите нужный элемент и нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg).
-      1. Нажмите **Настроить ACL** или **ACL объекта**.
+      1. В списке бакетов или объектов выберите нужный элемент и нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).
+      1. Нажмите ![image](../../_assets/console-icons/persons.svg) **Настроить ACL** или ![image](../../_assets/console-icons/persons.svg) **ACL объекта**.
       1. В выпадающем списке **Имя или e-mail пользователя** укажите сервисный аккаунт, [подключенный к кластеру](#connect-service-account).
       1. Задайте нужные разрешения для сервисного аккаунта из выпадающего списка.
       1. Нажмите кнопку **Добавить** и **Сохранить**.

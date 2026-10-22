@@ -58,7 +58,7 @@ Managed Service for ClickHouse® работает только с геобаза
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
   1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
+  1. Выберите кластер и нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
   1. В блоке **Настройки СУБД** нажмите кнопку **Настроить**.
   1. В поле **Geobase uri** укажите ссылку на архив с геобазой в Yandex Object Storage.
 
@@ -218,7 +218,7 @@ Managed Service for ClickHouse® работает только с геобаза
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.operation).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -306,7 +306,7 @@ Managed Service for ClickHouse® работает только с геобаза
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
     1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-    1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
+    1. Выберите кластер и нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
     1. В блоке **Настройки СУБД** нажмите кнопку **Настроить**.
     1. В поле **Geobase uri** удалите значение.
 
@@ -380,7 +380,7 @@ Managed Service for ClickHouse® работает только с геобаза
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.operation).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 

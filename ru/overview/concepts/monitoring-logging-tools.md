@@ -5,23 +5,22 @@ description: В {{ yandex-cloud }} доступны несколько инст�
 
 # Observability-инструменты мониторинга и логирования
 
-В {{ yandex-cloud }} доступны следующие сервисы для мониторинга и логирования:
+В {{ yandex-cloud }} доступны инструменты:
 
-* [{{ metrics-name }}](../../monium/metrics/overview.md)
-* [{{ at-full-name }}](../../audit-trails/index.yaml)
-* [{{ cloud-logging-full-name }}](../../logging/index.yaml)
+* [{{ metrics-name }}](../../monium/metrics/overview.md) — *метрики* позволяют отслеживать числовые показатели работы системы: нагрузку, частоту ошибок и время ответа.
+* [{{ traces-name }}](../../monium/traces/index.md) (только для [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/logging/tracing)) — *трейсы* показывают последовательность и длительность операций при обработке запроса и помогают находить причины ошибок и задержек.
+* [{{ cloud-logging-full-name }}](../../logging/index.yaml) — *логи* содержат записи о событиях в приложениях и сервисах и помогают разбирать ошибки и отдельные запросы.
+* [{{ at-full-name }}](../../audit-trails/index.yaml) — *аудитные логи* фиксируют, кто, когда и какие действия выполнял с ресурсами {{ yandex-cloud }}.
 
-Метрики, логи и аудитные события решают разные задачи и дополняют друг друга. Метрики помогают следить за состоянием и производительностью систем. Логи помогают разбирать поведение приложений и сервисов, искать ошибки и анализировать отдельные запросы или операции. Аудитные события фиксируют действия с ресурсами и события безопасности.
+Метрики, логи и трейсы используют [SRE](https://ru.wikipedia.org/wiki/Site_Reliability_Engineering)-, [DevOps](https://ru.wikipedia.org/wiki/DevOps) и инженерные команды. Аудитные логи используют администраторы безопасности, [SOC](https://yandex.cloud/ru/blog/soc-security-operations-center)- и [compliance](https://yandex.cloud/ru/security/compliance-portal)-команды.
 
-Эти данные обычно анализируют разные специалисты. Метрики и логи используют [SRE](https://ru.wikipedia.org/wiki/Site_Reliability_Engineering)-, [DevOps](https://ru.wikipedia.org/wiki/DevOps) и инженерные команды. Аудитные события используют администраторы безопасности, [SOC](https://yandex.cloud/ru/blog/soc-security-operations-center)- и [compliance](https://yandex.cloud/ru/security/compliance-portal)-команды.
+При расследовании инцидентов аудитные логи дополняют данные [Observability](../../glossary/observability.md): помогают сопоставить ошибки и задержки с изменениями ресурсов и прав доступа.
 
-Сбор аудитных событий не относится к [Observability](../../glossary/observability.md), но эти данные полезно анализировать вместе с метриками и логами.
-
-Информация о доступности инструментов мониторинга и логирования для конкретных сервисов представлена в таблице.
+В таблице указаны доступные для каждого сервиса инструменты мониторинга, логирования и аудита. В {{ at-name }} [Control Plane](../../audit-trails/concepts/control-plane-vs-data-plane.md#control-plane-events) — события уровня конфигурации ресурсов, [Data Plane](../../audit-trails/concepts/control-plane-vs-data-plane.md#data-plane-events) — события уровня сервисов.
 
 #|
 || **Сервис** | **{{ metrics-name }}** | **{{ at-name }} Control&nbsp;Plane** | **{{ at-name }} Data&nbsp;Plane** | **{{ cloud-logging-name }}** ||
-|| **Инфраструктура и сеть** | > | > | > ||
+|| **Инфраструктура и сеть** | > | > | > | > ||
 || [{{ alb-full-name }}](../../application-load-balancer/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) ||
 || [{{ baremetal-full-name }}](../../baremetal/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ backup-full-name }}](../../backup/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
@@ -35,7 +34,7 @@ description: В {{ yandex-cloud }} доступны несколько инст�
 || [{{ network-load-balancer-full-name }}](../../network-load-balancer/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ objstorage-full-name }}](../../storage/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) ^2^ ||
 || [{{ vpc-full-name }}](../../vpc/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) ||
-|| **Платформа данных** | > | > | > ||
+|| **Платформа данных** | > | > | > | > ||
 || [{{ dataproc-full-name }}](../../data-proc/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) ||
 || [{{ data-transfer-full-name }}](../../data-transfer/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ datalens-full-name }}](../../datalens/index.yaml) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
@@ -58,21 +57,21 @@ description: В {{ yandex-cloud }} доступны несколько инст�
 || [{{ mgp-full-name }}](../../managed-greenplum/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) ||
 || [{{ mmg-full-name }}](../../storedoc/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ websql-full-name }}](../../websql/index.yaml) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) ||
-|| **Искусственный интеллект** | > | > | > ||
+|| **Искусственный интеллект** | > | > | > | > ||
 || [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/index) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) ||
 || [{{ ml-platform-full-name }}](../../datasphere/index.yaml) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) ||
 || [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/concepts/index) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
-|| [{{ speechkit-full-name }}]({{ link-docs-ai }}{{ speechkit-slug }}/overview) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) ||
+|| [{{ speechkit-full-name }}]({{ link-docs-ai }}{{ speechkit-slug }}/overview) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) ||
-|| [{{ translate-full-name }}]({{ link-docs-ai }}translate/concepts/index) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) ||
+|| [{{ translate-full-name }}]({{ link-docs-ai }}translate/concepts/index) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ vision-full-name }}]({{ link-docs-ai }}vision/concepts/ocr/index) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
-|| **Безопасность** | > | > | > ||
+|| **Безопасность** | > | > | > | > ||
 || [{{ gost-gateway-name }}](../../gost-gateway/index.yaml) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
-|| [{{ at-full-name }}](../../audit-trails/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) ||
+|| [{{ at-full-name }}](../../audit-trails/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) ||
 || [{{ certificate-manager-full-name }}](../../certificate-manager/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ cloud-desktop-full-name }}](../../cloud-desktop/index.yaml) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ ycdr-full-name }}](../../ycdr/index.yaml) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
-|| [{{ cloud-registry-full-name }}](../../cloud-registry/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
+|| [{{ cloud-registry-full-name }}](../../cloud-registry/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ org-full-name }}](../../organization/index.yaml) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ kms-full-name }}](../../kms/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ lockbox-name }}](../../lockbox/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) ||
@@ -80,8 +79,8 @@ description: В {{ yandex-cloud }} доступны несколько инст�
 || [{{ yandex-siem-full-name }}](../../siem/index.yaml) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ captcha-full-name }}](../../smartcaptcha/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ sws-full-name }}](../../smartwebsecurity/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) ||
-|| **Инструменты DevOps** | > | > | > ||
-|| [{{ src-full-name }}]({{ link-src-docs }}) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
+|| **Инструменты DevOps** | > | > | > | > ||
+|| [{{ src-full-name }}]({{ link-src-docs }}) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ ca-full-name }}]({{ link-src-docs }}/code-assistant/) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ vc-name }}]({{ link-src-docs }}/vibecraft/) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ cloud-logging-full-name }}](../../logging/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) ||
@@ -91,7 +90,7 @@ description: В {{ yandex-cloud }} доступны несколько инст�
 || [{{ managed-k8s-full-name }}®](../../managed-kubernetes/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) ||
 || [{{ monitoring-full-name }}](../../monitoring/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ monium-full-name }}](../../monium/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
-|| **Бессерверные вычисления** | > | > | > ||
+|| **Бессерверные вычисления** | > | > | > | > ||
 || [{{ api-gw-full-name }}](../../api-gateway/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) ||
 || [{{ sf-full-name }}](../../functions/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) ||
 || [{{ cns-full-name }}](../../notifications/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) ||
@@ -101,7 +100,7 @@ description: В {{ yandex-cloud }} доступны несколько инст�
 || [{{ message-queue-full-name }}](../../message-queue/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ yq-full-name }}](../../query/index.yaml) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) ||
-|| **Управление ресурсами** | > | > | > ||
+|| **Управление ресурсами** | > | > | > | > ||
 || [{{ cloud-apps-full-name }}](../../cloud-apps/index.yaml) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ billing-name }}](../../billing/index.yaml) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ console-full-name }}](../../console/index.yaml) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||

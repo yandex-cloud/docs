@@ -190,11 +190,11 @@ description: Следуя данной инструкции, вы настрои
         --header "Content-Type: application/json" \
         --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>:updateAccessBindings' \
         --data '{
-                  "access_binding_deltas": [
+                  "accessBindingDeltas": [
                     {
                       "action": "ADD",
-                      "access_binding": {
-                        "role_id": "<роль>",
+                      "accessBinding": {
+                        "roleId": "<роль>",
                         "subject": {
                           "id": "<идентификатор_субъекта>",
                           "type": "<тип_субъекта>"
@@ -207,9 +207,9 @@ description: Следуя данной инструкции, вы настрои
 
       Где:
 
-      * `access_binding_deltas.roleId` — назначаемая [роль](../security.md#roles-list), например `managed-clickhouse.editor`.
-      * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
-      * `access_binding_deltas.subject.type` — тип субъекта, которому назначается роль.
+      * `accessBindingDeltas.roleId` — назначаемая [роль](../security.md#roles-list), например `managed-clickhouse.editor`.
+      * `accessBindingDeltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+      * `accessBindingDeltas.subject.type` — тип субъекта, которому назначается роль.
 
           {% cut "Обозначения субъектов" %}
 
@@ -605,11 +605,11 @@ description: Следуя данной инструкции, вы настрои
         --header "Content-Type: application/json" \
         --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>:updateAccessBindings' \
         --data '{
-                  "access_binding_deltas": [
+                  "accessBindingDeltas": [
                     {
                       "action": "REMOVE",
-                      "access_binding": {
-                        "role_id": "<роль>",
+                      "accessBinding": {
+                        "roleId": "<роль>",
                         "subject": {
                           "id": "<идентификатор_субъекта>",
                           "type": "<тип_субъекта>"
@@ -622,9 +622,9 @@ description: Следуя данной инструкции, вы настрои
 
       Где:
 
-      * `access_binding_deltas.roleId` — отзываемая [роль](../security.md#roles-list), например `managed-clickhouse.editor`.
-      * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
-      * `access_binding_deltas.subject.type` — тип субъекта, у которого отзывается роль.
+      * `accessBindingDeltas.roleId` — отзываемая [роль](../security.md#roles-list), например `managed-clickhouse.editor`.
+      * `accessBindingDeltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
+      * `accessBindingDeltas.subject.type` — тип субъекта, у которого отзывается роль.
 
           {% cut "Обозначения субъектов" %}
 
@@ -762,11 +762,11 @@ description: Следуя данной инструкции, вы настрои
         --header "Content-Type: application/json" \
         --url 'https://resource-manager.{{ api-host }}/resource-manager/v1/folders/<идентификатор_каталога>:updateAccessBindings' \
         --data '{
-                  "access_binding_deltas": [
+                  "accessBindingDeltas": [
                     {
                       "action": "ADD",
-                      "access_binding": {
-                        "role_id": "managed-clickhouse.viewer",
+                      "accessBinding": {
+                        "roleId": "managed-clickhouse.viewer",
                         "subject": {
                           "id": "<идентификатор_сервисного_аккаунта>",
                           "type": "serviceAccount"
@@ -777,7 +777,7 @@ description: Следуя данной инструкции, вы настрои
                 }'
       ```
 
-      Где `access_binding_deltas.subject.id` — идентификатор сервисного аккаунта, которому назначается роль.
+      Где `accessBindingDeltas.subject.id` — идентификатор сервисного аккаунта, которому назначается роль.
 
   1. Воспользуйтесь методом [Cluster.UpdateAccessBindings](../api-ref/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
@@ -788,11 +788,11 @@ description: Следуя данной инструкции, вы настрои
         --header "Content-Type: application/json" \
         --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>:updateAccessBindings' \
         --data '{
-                  "access_binding_deltas": [
+                  "accessBindingDeltas": [
                     {
                       "action": "ADD",
-                      "access_binding": {
-                        "role_id": "managed-clickhouse.editor",
+                      "accessBinding": {
+                        "roleId": "managed-clickhouse.editor",
                         "subject": {
                           "id": "<идентификатор_сервисного_аккаунта>",
                           "type": "serviceAccount"
@@ -803,7 +803,7 @@ description: Следуя данной инструкции, вы настрои
                 }'
       ```
 
-      Где `access_binding_deltas.subject.id` — идентификатор сервисного аккаунта, которому назначается роль.
+      Где `accessBindingDeltas.subject.id` — идентификатор сервисного аккаунта, которому назначается роль.
 
   1. Проверьте список ролей, назначенных на каталог:
 
@@ -812,7 +812,7 @@ description: Следуя данной инструкции, вы настрои
         --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://resource-manager.{{ api-host }}/resource-manager/v1/folders/<идентификатор_каталога>:updateAccessBindings'
+        --url 'https://resource-manager.{{ api-host }}/resource-manager/v1/folders/<идентификатор_каталога>:listAccessBindings'
       ```
 
   1. Проверьте список ролей, назначенных на кластер:
@@ -842,7 +842,7 @@ description: Следуя данной инструкции, вы настрои
         -proto ~/cloudapi/yandex/cloud/resourcemanager/v1/folder_service.proto \
         -rpc-header "Authorization: Bearer $IAM_TOKEN" \
         -d '{
-              "resource_id": "<идентификатор_кластера>",
+              "resource_id": "<идентификатор_каталога>",
               "access_binding_deltas": [
                 {
                   "action": "ADD",

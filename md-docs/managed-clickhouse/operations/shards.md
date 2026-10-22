@@ -26,9 +26,9 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
   1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **Шарды**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **Шарды**.
   1. Нажмите кнопку **Создать шарды**.
-  1. Нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке нового шарда, чтобы изменить его параметры:
+  1. Нажмите значок ![pencil](../../_assets/console-icons/pencil.svg) в строке нового шарда, чтобы изменить его параметры:
 
       * Имя и [вес](../concepts/sharding.md#shard-weight). Вес шарда по умолчанию — `100`.
       * Конфигурацию хостов шарда.
@@ -235,10 +235,10 @@
                 "clickhouse": {
                   "resources": {
                     "resourcePresetId": "<класс_хостов>",
-                    "diskSize": "<размер_хранилища_в_байтах>",
+                    "diskSize": <размер_хранилища_в_байтах>,
                     "diskTypeId": "<тип_диска>"
                   },
-                  "weight": "<вес_шарда>"
+                  "weight": <вес_шарда>
                 }
               }
             }
@@ -329,10 +329,10 @@
                 "clickhouse": {
                   "resources": {
                     "resource_preset_id": "<класс_хостов>",
-                    "disk_size": "<размер_хранилища_в_байтах>",
+                    "disk_size": <размер_хранилища_в_байтах>,
                     "disk_type_id": "<тип_диска>"
                   },
-                  "weight": "<вес_шарда>"
+                  "weight": <вес_шарда>
                 }
               }
             }
@@ -407,7 +407,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
   1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **Шарды**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **Шарды**.
 
 - CLI {#cli}
 
@@ -483,7 +483,7 @@
 
 {% endlist %}
 
-## Получить номера шардов {#shard-update}
+## Получить номера шардов {#shard-numbers}
 
 {% list tabs group=instructions %}
 
@@ -519,8 +519,8 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
   1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **Шарды**.
-  1. Нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Редактировать**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **Шарды**.
+  1. Нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите пункт ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. Внесите необходимые изменения и нажмите кнопку **Сохранить изменения**.
   1. Если вы изменили тип диска для шарда с хостами ClickHouse®:
       1. В открывшемся окне посмотрите количество нереплицированных таблиц на графике **Non-replicated MergeTree tables** и их размер на графике **Size of non-replicated MergeTree tables**. Данные в нереплицированных таблицах будут утеряны. Если необходимо сохранить их, перед изменением типа диска [преобразуйте](https://clickhouse.com/docs/ru/sql-reference/statements/attach#attach-mergetree-table-as-replicatedmergetree) нереплицированные таблицы в реплицированные.
@@ -596,13 +596,13 @@
                        },
                        "resources": {
                          "resourcePresetId": "<класс_хостов>",
-                         "diskSize": "<размер_хранилища_в_байтах>",
+                         "diskSize": <размер_хранилища_в_байтах>,
                          "diskTypeId": "<тип_диска>"
                        },
-                       "weight": "<вес_шарда>"
+                       "weight": <вес_шарда>
                      }
                    },
-                   "allowHostRecreation": "true"
+                   "allowHostRecreation": true
                  }'
      ```
 
@@ -690,13 +690,13 @@
                  },
                  "resources": {
                    "resource_preset_id": "<класс_хостов>",
-                   "disk_size": "<размер_хранилища_в_байтах>",
+                   "disk_size": <размер_хранилища_в_байтах>,
                    "disk_type_id": "<тип_диска>"
                  },
-                 "weight": "<вес_шарда>"
+                 "weight": <вес_шарда>
                }
              },
-             "allow_host_recreation": "true"
+             "allow_host_recreation": true
            }' \
        mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.clickhouse.v1.ClusterService.UpdateShard
@@ -739,10 +739,10 @@
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
     1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
+    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **Шарды**.
     1. Удалите один или несколько шардов:
-        * Чтобы удалить один шард, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного шарда и выберите пункт **Удалить**.
-        * Чтобы удалить несколько шардов сразу, выберите нужные шарды и нажмите **Удалить** в нижней части экрана.
+        * Чтобы удалить один шард, нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного шарда и выберите пункт ![image](../../_assets/console-icons/trash-bin.svg) **Удалить**.
+        * Чтобы удалить несколько шардов сразу, выберите нужные шарды и нажмите ![image](../../_assets/console-icons/trash-bin.svg) **Удалить** в нижней части экрана.
     1. В открывшемся окне включите опцию **Я удаляю шарды** и нажмите кнопку **Удалить**.
 
 - CLI {#cli}
@@ -849,12 +849,14 @@
 
      ```bash
      curl \
-       --request DELETE \
+       --request POST \
        --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
        --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/shards:batchDelete' \
        --data '{
                  "shardNames": [
-                   <перечень_имен_шардов>
+                   "<имя_шарда_1>",
+                   "<имя_шарда_2>"
                  ]
                }'
      ```
@@ -892,7 +894,8 @@
        -d '{
              "cluster_id": "<идентификатор_кластера>",
              "shard_names": [
-               <перечень_имен_шардов>
+               "<имя_шарда_1>",
+               "<имя_шарда_2>"
              ]
            }' \
        mdb.api.cloud.yandex.net:443 \

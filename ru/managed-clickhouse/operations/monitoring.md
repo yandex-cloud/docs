@@ -24,7 +24,7 @@ description: Из статьи вы узнаете, как осуществля�
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 
-  1. Нажмите на имя нужного кластера и выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Администрирование** → **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}**.
 
       На открывшейся странице будут отображены графики работы кластера и хостов {{ CH }}.
 
@@ -199,7 +199,7 @@ description: Из статьи вы узнаете, как осуществля�
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 
-  1. Нажмите на имя нужного кластера и выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Администрирование** → **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}**.
 
   1. Перейдите на вкладку **Хосты** и выберите хост.
     
@@ -307,7 +307,7 @@ description: Из статьи вы узнаете, как осуществля�
       * **{{ mch-name }} — Cluster Overview** для настройки алертов кластера;
       * **{{ mch-name }} — ZooKeeper** для настройки алертов хостов ZooKeeper.
       * **{{ mch-name }} — Host Overview** для настройки алертов хостов.
-  1. На нужном графике с показателями нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. На нужном графике с показателями нажмите значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
   1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Подробнее о языке запросов в [документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
   1. Задайте значения порогов `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}` и `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}` для срабатывания алерта.
   1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
@@ -347,7 +347,7 @@ description: Из статьи вы узнаете, как осуществля�
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Наведите курсор на индикатор в столбце **{{ ui-key.yacloud.common.availability }}** в строке нужного кластера.
+  1. Наведите указатель на индикатор в столбце **{{ ui-key.yacloud.common.availability }}** в строке нужного кластера.
 
 {% endlist %}
 

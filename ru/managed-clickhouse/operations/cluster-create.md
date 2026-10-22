@@ -56,11 +56,15 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер БД.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-  1. Введите имя кластера в поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}**. Имя кластера должно быть уникальным в рамках каталога.
-  1. Выберите окружение, в котором нужно создать кластер (после создания кластера окружение изменить невозможно):
-      * `PRODUCTION` — для стабильных версий ваших приложений.
-      * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
-  1. Выберите [версию {{ CH }}](../concepts/update-policy.md), которую будет использовать кластер {{ mch-name }}, из выпадающего списка **{{ ui-key.yacloud.mdb.forms.base_field_version }}**. Для большинства кластеров рекомендуется выбрать самую новую LTS-версию.
+  1. Выберите конфигурацию кластера.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}**:
+
+      1. Введите имя кластера в поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}**. Имя кластера должно быть уникальным в рамках каталога.
+      1. (Опционально) Введите описание кластера.
+      1. Выберите окружение, в котором нужно создать кластер (после создания кластера окружение изменить невозможно):
+          * `PRODUCTION` — для стабильных версий ваших приложений.
+          * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
+      1. Выберите [версию {{ CH }}](../concepts/update-policy.md), которую будет использовать кластер {{ mch-name }}, из выпадающего списка **{{ ui-key.yacloud.mdb.forms.base_field_version }}**. Для большинства кластеров рекомендуется выбрать самую новую LTS-версию.
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**:
 
@@ -76,9 +80,9 @@ description: Следуя данной инструкции, вы сможете
 
       * (Опционально) Задайте настройки [автоматического увеличения размера хранилища](../concepts/storage.md#autoscaling) {{ CH }}:
 
-        {% include [disk-size-autoscaling-console](../../_includes/mdb/mch/disk-size-autoscaling-console.md) %}
+          {% include [disk-size-autoscaling-console](../../_includes/mdb/mch/disk-size-autoscaling-console.md) %}
 
-        Настройки автоматического увеличения размера хранилища, заданные для {{ CH }}, применяются ко всем существующим шардам. При добавлении нового шарда значения настройки берутся с самого старого шарда.
+          Настройки автоматического увеличения размера хранилища, заданные для {{ CH }}, применяются ко всем существующим шардам. При добавлении нового шарда значения настройки берутся с самого старого шарда.
 
   
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
@@ -88,7 +92,7 @@ description: Следуя данной инструкции, вы сможете
 
       * Включите **{{ ui-key.yacloud.clickhouse.cluster.field_cluster-sharding }}**, чтобы создать кластер сразу с несколькими [шардами](../concepts/sharding.md). Добавить шарды можно как при создании, так и при изменении кластера.
 
-      * Укажите параметры шардов, создаваемых вместе с кластером. Чтобы изменить настройки шарда, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке с его номером:
+      * Укажите параметры шардов, создаваемых вместе с кластером. Чтобы изменить настройки шарда, нажмите значок ![pencil](../../_assets/console-icons/pencil.svg) в строке с его номером:
 
           * **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}** и его **{{ ui-key.yacloud.mdb.forms.base_field_shard-weight }}**.
 
@@ -104,27 +108,31 @@ description: Следуя данной инструкции, вы сможете
 
       Чтобы добавить шарды в кластер, нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.add_shard-btn }}**.
 
+      Чтобы удалить шард, нажмите значок ![xmark](../../_assets/console-icons/xmark.svg) в строке с его номером.
+
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}**:
 
-      * Укажите параметры хостов БД, создаваемых вместе с кластером. Чтобы изменить настройки хоста, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке с его номером:
+      * Укажите параметры хостов БД, создаваемых вместе с кластером. Чтобы изменить настройки хоста, нажмите значок ![pencil](../../_assets/console-icons/pencil.svg) в строке с его номером:
 
-        * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
+          * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
 
-        
-        * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}** — укажите [подсеть](../../vpc/concepts/network.md#subnet) в выбранной зоне доступности.
+          
+          * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}** — укажите [подсеть](../../vpc/concepts/network.md#subnet) в выбранной зоне доступности.
 
-        * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** — разрешите [доступ](connect/index.md) к хосту из интернета.
+          * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** — разрешите [доступ](connect/index.md) к хосту из интернета.
 
 
-        * Если для кластера включено [шардирование](../concepts/sharding.md), выберите шард.
+          * Если для кластера включено [шардирование](../concepts/sharding.md), выберите шард.
 
-        Чтобы добавить хосты в кластер, нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
+          Чтобы добавить хосты в кластер, нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
+
+          Чтобы удалить хост, нажмите значок ![xmark](../../_assets/console-icons/xmark.svg) в строке с его номером.
 
       * Выберите [сервис координации](../concepts/coordination-system.md) **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-separated-clickhouse-keeper }}** или **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-embedded-clickhouse-keeper }}**.
 
       В Production-окружении для кластеров с двумя и более хостами поддерживается только **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-separated-clickhouse-keeper }}**. Это обеспечивает [высокую доступность](../concepts/high-availability.md) кластера. В Prestable-окружении кластер с **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-embedded-clickhouse-keeper }}** может содержать либо один, либо три и более хостов.
 
-        {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
+      {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
 
   1. Если был выбран сервис координации **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-separated-clickhouse-keeper }}**, задайте следующие настройки:
 
@@ -132,61 +140,61 @@ description: Следуя данной инструкции, вы сможете
       * В блоке **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-disk }}** выберите [тип диска](../concepts/storage.md), размер хранилища и при необходимости задайте настройки [автоматического увеличения размера хранилища](../concepts/storage.md#autoscaling) {{ CK }}.
       * В блоке **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-hosts }}** при необходимости измените настройки автоматически добавленных хостов {{ CK }}.
 
-        Чтобы изменить настройки хоста, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке нужного хоста и укажите:
+          Чтобы изменить настройки хоста, нажмите значок ![pencil](../../_assets/console-icons/pencil.svg) в строке нужного хоста и укажите:
 
-        * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
+          * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
 
-        
-        * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}** — выберите [подсеть](../../vpc/concepts/network.md#subnet) в выбранной зоне доступности.
+          
+          * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}** — выберите [подсеть](../../vpc/concepts/network.md#subnet) в выбранной зоне доступности.
 
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
       * Если вы хотите управлять пользователями кластера через SQL, в поле **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** выберите из выпадающего списка **{{ ui-key.yacloud.common.enabled }}** и укажите пароль пользователя `admin`. Управление пользователями через другие интерфейсы при этом станет недоступно.
 
-        В противном случае выберите **{{ ui-key.yacloud.common.disabled }}**.
+          В противном случае выберите **{{ ui-key.yacloud.common.disabled }}**.
 
 
       * Если вы хотите управлять базами данных через SQL, в поле **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}** выберите из выпадающего списка **{{ ui-key.yacloud.common.enabled }}**. Управление базами данных через другие интерфейсы при этом станет недоступно. Поле неактивно, если управление пользователями через SQL выключено.
 
-        В противном случае выберите **{{ ui-key.yacloud.common.disabled }}**.
+          В противном случае выберите **{{ ui-key.yacloud.common.disabled }}**.
 
-        {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
+          {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
       * Укажите имя пользователя.
 
-        {% include [user-name-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+          {% include [user-name-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
       
       * Укажите пароль пользователя:
 
-        * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}** — выберите, чтобы ввести свой пароль. Длина пароля — от 8 до 128 символов.
+          * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}** — выберите, чтобы ввести свой пароль. Длина пароля — от 8 до 128 символов.
 
-        * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — выберите, чтобы сгенерировать пароль с помощью сервиса {{ connection-manager-name }}.
+          * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — выберите, чтобы сгенерировать пароль с помощью сервиса {{ connection-manager-name }}.
 
-        Чтобы увидеть пароль, после создания кластера выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+          Чтобы увидеть пароль, после создания кластера перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
 
       * Укажите имя БД. Имя базы может содержать латинские буквы, цифры и подчеркивание. Максимальная длина имени 63 символа. Запрещено создание базы данных с именем `default`.
 
       * Выберите движок базы данных:
 
-        * `Atomic` (по умолчанию) — поддерживает неблокирующие операции `DROP TABLE` и `RENAME TABLE`, а также атомарные операции `EXCHANGE TABLES`.
-        * `Replicated` — поддерживает репликацию метаданных таблиц между всеми репликами базы данных. При этом набор таблиц и их схемы будут одинаковыми для всех реплик.
+          * `Atomic` (по умолчанию) — поддерживает неблокирующие операции `DROP TABLE` и `RENAME TABLE`, а также атомарные операции `EXCHANGE TABLES`.
+          * `Replicated` — поддерживает репликацию метаданных таблиц между всеми репликами базы данных. При этом набор таблиц и их схемы будут одинаковыми для всех реплик.
 
-          Доступен только в [реплицированных](../concepts/replication.md) кластерах.
+              Доступен только в [реплицированных](../concepts/replication.md) кластерах.
 
-        Движок задается при создании базы данных и не может быть изменен для этой базы.
+          Движок задается при создании базы данных и не может быть изменен для этой базы.
 
       * При необходимости включите для кластера [гибридное хранилище](../concepts/storage.md#hybrid-storage-features) и задайте его настройки:
 
-        {% include [hybrid-storage-settings-console](../../_includes/mdb/mch/hybrid-storage-settings-console.md) %}
+          {% include [hybrid-storage-settings-console](../../_includes/mdb/mch/hybrid-storage-settings-console.md) %}
 
-        {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
+          {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
 
       * При необходимости задайте [настройки СУБД](../concepts/settings-list.md#server-level-settings). Их также можно задать позднее.
 
-        Через интерфейсы {{ yandex-cloud }} можно управлять ограниченным набором настроек. С помощью SQL-запросов можно [установить настройки {{ CH }} на уровне запроса](change-query-level-settings.md).
+          Через интерфейсы {{ yandex-cloud }} можно управлять ограниченным набором настроек. С помощью SQL-запросов можно [установить настройки {{ CH }} на уровне запроса](change-query-level-settings.md).
 
   1. При необходимости задайте сервисные настройки кластера:
 
@@ -295,7 +303,7 @@ description: Следуя данной инструкции, вы сможете
           --user name=<имя_пользователя>,generate-password=true
         ```
 
-        Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+        Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
         {% endnote %}
 
@@ -553,7 +561,7 @@ description: Следуя данной инструкции, вы сможете
 
        Где:
 
-       * `embedded-keeper` — использование встроенного [сервиса координации](../concepts/coordination-system.md) {{ CK }}: `true` или `false`.
+       * `embedded_keeper` — использование встроенного [сервиса координации](../concepts/coordination-system.md) {{ CK }}: `true` или `false`.
 
           В Production-окружении для кластера с двумя и более хостами встроенный сервис координации не поддерживается. В Prestable-окружении кластер со встроенным сервисом координации может содержать либо один, либо три и более хостов.
 
@@ -589,7 +597,7 @@ description: Следуя данной инструкции, вы сможете
 
           Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `password = "<пароль_пользователя>"` укажите `generate_password = true`.
 
-          Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+          Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
           {% endnote %}
 
@@ -816,7 +824,7 @@ description: Следуя данной инструкции, вы сможете
             * `networkId` — идентификатор [сети](../../vpc/concepts/network.md), в которой будет размещен кластер.
 
             
-            * `securityGroupIds` — идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md) в виде массива строк. массив Каждая строка — идентификатор группы безопасности.
+            * `securityGroupIds` — идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md) в виде массива строк. Каждая строка — идентификатор группы безопасности.
 
                 {% include [note-sg](../../_includes/mdb/mch/note-sg.md) %}
 
@@ -1067,7 +1075,7 @@ description: Следуя данной инструкции, вы сможете
             * `network_id` — идентификатор [сети](../../vpc/concepts/network.md), в которой будет размещен кластер.
 
             
-            * `security_group_ids` — идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md) в виде массива строк. массив Каждая строка — идентификатор группы безопасности.
+            * `security_group_ids` — идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md) в виде массива строк. Каждая строка — идентификатор группы безопасности.
 
                 {% include [note-sg](../../_includes/mdb/mch/note-sg.md) %}
 
@@ -1229,7 +1237,7 @@ description: Следуя данной инструкции, вы сможете
 
         * Включите **{{ ui-key.yacloud.clickhouse.cluster.field_cluster-sharding }}**, чтобы создать кластер сразу с несколькими [шардами](../concepts/sharding.md). Добавить шарды можно также и после создания кластера.
 
-        * Укажите параметры шардов, создаваемых вместе с кластером. Чтобы изменить настройки шарда, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке с его номером:
+        * Укажите параметры шардов, создаваемых вместе с кластером. Чтобы изменить настройки шарда, нажмите значок ![pencil](../../_assets/console-icons/pencil.svg) в строке с его номером:
 
             * **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}** и его **{{ ui-key.yacloud.mdb.forms.base_field_shard-weight }}**.
 
@@ -1247,7 +1255,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}**:
 
-      * Укажите параметры хостов БД, создаваемых вместе с кластером. Чтобы изменить настройки хоста, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке с его номером:
+      * Укажите параметры хостов БД, создаваемых вместе с кластером. Чтобы изменить настройки хоста, нажмите значок ![pencil](../../_assets/console-icons/pencil.svg) в строке с его номером:
 
         * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
 
@@ -1268,7 +1276,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-hosts }}** при необходимости измените настройки автоматически добавленных хостов {{ ZK }}.
 
-      Чтобы изменить настройки хоста, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке нужного хоста и укажите:
+      Чтобы изменить настройки хоста, нажмите значок ![pencil](../../_assets/console-icons/pencil.svg) в строке нужного хоста и укажите:
 
       * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
 
@@ -1300,7 +1308,7 @@ description: Следуя данной инструкции, вы сможете
 
         * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — выберите, чтобы сгенерировать пароль с помощью сервиса {{ connection-manager-name }}.
 
-        Чтобы увидеть пароль, после создания кластера выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+        Чтобы увидеть пароль, после создания кластера перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
 
       * Укажите имя БД. Имя базы может содержать латинские буквы, цифры и подчеркивание. Максимальная длина имени 63 символа. Запрещено создание базы данных с именем `default`.
@@ -1425,7 +1433,7 @@ description: Следуя данной инструкции, вы сможете
           --user name=<имя_пользователя>,generate-password=true
         ```
 
-        Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+        Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
         {% endnote %}
 
@@ -1716,7 +1724,7 @@ description: Следуя данной инструкции, вы сможете
 
           Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `password = "<пароль_пользователя>"` укажите `generate_password = true`.
 
-          Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+          Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
           {% endnote %}
 
@@ -1954,7 +1962,7 @@ description: Следуя данной инструкции, вы сможете
             * `networkId` — идентификатор [сети](../../vpc/concepts/network.md), в которой будет размещен кластер.
 
             
-            * `securityGroupIds` — идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md) в виде массива строк. массив Каждая строка — идентификатор группы безопасности.
+            * `securityGroupIds` — идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md) в виде массива строк. Каждая строка — идентификатор группы безопасности.
 
                 {% include [note-sg](../../_includes/mdb/mch/note-sg.md) %}
 
@@ -2219,7 +2227,7 @@ description: Следуя данной инструкции, вы сможете
             * `network_id` — идентификатор [сети](../../vpc/concepts/network.md), в которой будет размещен кластер.
 
             
-            * `security_group_ids` — идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md) в виде массива строк. массив Каждая строка — идентификатор группы безопасности.
+            * `security_group_ids` — идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md) в виде массива строк. Каждая строка — идентификатор группы безопасности.
 
                 {% include [note-sg](../../_includes/mdb/mch/note-sg.md) %}
 

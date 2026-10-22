@@ -30,7 +30,7 @@ ZooKeeper — это сервис, который обеспечивает ко�
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
   1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **Хосты**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **Хосты**.
 
 - CLI {#cli}
 
@@ -134,11 +134,11 @@ ZooKeeper — это сервис, который обеспечивает ко�
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
   1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **Хосты**.
   1. Справа сверху нажмите **Настроить сервис координации**.
   1. Укажите [класс хостов](../concepts/instance-types.md).
   1. Задайте настройки хранилища.
-  1. При необходимости измените настройки хостов ZooKeeper. Чтобы это сделать, наведите курсор на строку нужного хоста и нажмите на значок ![image](../../_assets/console-icons/pencil.svg).
+  1. При необходимости измените настройки хостов ZooKeeper. Чтобы это сделать, наведите указатель на строку нужного хоста и нажмите значок ![image](../../_assets/console-icons/pencil.svg).
   1. Чтобы преобразовать нереплицируемые таблицы в [реплицируемые](../concepts/replication.md#replicated-tables), включите настройку **Преобразовать нереплицируемые таблицы**. Нереплицируемые таблицы на движке семейства [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree) будут автоматически преобразованы в реплицируемые на движке [ReplicatedMergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/replication).
 
      {% note warning %}
@@ -495,7 +495,7 @@ ZooKeeper — это сервис, который обеспечивает ко�
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
   1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
+  1. Выберите кластер и нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
   1. В блоке **Класс хоста ZooKeeper** выберите платформу, тип виртуальной машины и нужный класс хоста ZooKeeper.
   1. В блоке **Размер хранилища ZooKeeper** задайте размер хранилища и тип диска для хостов ZooKeeper.
   1. Нажмите кнопку **Сохранить изменения**.
@@ -534,7 +534,7 @@ ZooKeeper — это сервис, который обеспечивает ко�
 
      ```bash
      yc managed-clickhouse cluster update <имя_или_идентификатор_кластера> \
-        --zookepeer-resource-preset=<класс_хостов> \
+        --zookeeper-resource-preset=<класс_хостов> \
         --zookeeper-disk-size=<размер_хранилища_ГБ> \
         --zookeeper-disk-type=<тип_диска>
      ```
@@ -684,7 +684,7 @@ ZooKeeper — это сервис, который обеспечивает ко�
                             "resources": {
                               "resourcePresetId": "<класс_хостов>",
                               "diskTypeId": "<тип_диска>",
-                              "diskSize": "<размер_хранилища_ГБ>"
+                              "diskSize": <размер_хранилища_в_байтах>
                             }
                           }
                         }
@@ -702,7 +702,7 @@ ZooKeeper — это сервис, который обеспечивает ко�
 
           * `configSpec.zookeeper.resources.resourcePresetId` — идентификатор [класса хостов](../concepts/instance-types.md).
           * `configSpec.zookeeper.resources.diskTypeId` — [тип диска](../concepts/storage.md).
-          * `configSpec.zookeeper.resources.diskSize` — размер хранилища в гигабайтах.
+          * `configSpec.zookeeper.resources.diskSize` — размер хранилища в байтах.
 
           Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters). Список доступных классов хостов с их идентификаторами был получен ранее.
 
@@ -787,7 +787,7 @@ ZooKeeper — это сервис, который обеспечивает ко�
                         "resources": {
                           "resource_preset_id": "<класс_хостов>",
                           "disk_type_id": "<тип_диска>",
-                          "disk_size": "<размер_хранилища_ГБ>"
+                          "disk_size": <размер_хранилища_в_байтах>
                         }
                       }
                     }
@@ -807,7 +807,7 @@ ZooKeeper — это сервис, который обеспечивает ко�
 
           * `config_spec.zookeeper.resources.resource_preset_id` — идентификатор [класса хостов](../concepts/instance-types.md).
           * `config_spec.zookeeper.resources.disk_type_id` — [тип диска](../concepts/storage.md).
-          * `config_spec.zookeeper.resources.disk_size` — размер хранилища в гигабайтах.
+          * `config_spec.zookeeper.resources.disk_size` — размер хранилища в байтах.
 
           Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters). Список доступных классов хостов с их идентификаторами был получен ранее.
 
@@ -834,16 +834,16 @@ ZooKeeper — это сервис, который обеспечивает ко�
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
     1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-    1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
-    1. В строке нужного хоста нажмите на значок ![icon](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Перезагрузить**.
+    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **Хосты**.
+    1. В строке нужного хоста нажмите значок ![icon](../../_assets/console-icons/ellipsis.svg) и выберите пункт ![icon](../../_assets/console-icons/arrow-rotate-right.svg) **Перезагрузить**.
     1. В открывшемся окне включите опцию **Я перезагружаю хост** и нажмите кнопку **Подтвердить**.
 
   Чтобы перезагрузить несколько хостов сразу:
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
     1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-    1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
-    1. Выберите хосты, которые хотите перезагрузить, и нажмите **Перезагрузить** в нижней части экрана.
+    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **Хосты**.
+    1. Выберите хосты, которые хотите перезагрузить, и нажмите ![icon](../../_assets/console-icons/arrow-rotate-right.svg) **Перезагрузить** в нижней части экрана.
     1. В открывшемся окне нажмите кнопку **Подтвердить**.
 
 - CLI {#cli}
@@ -990,8 +990,8 @@ ZooKeeper — это сервис, который обеспечивает ко�
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
   1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **Хосты**.
-  1. Наведите курсор на строку нужного хоста и нажмите на значок ![image](../../_assets/console-icons/xmark.svg).
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **Хосты**.
+  1. Наведите указатель на строку нужного хоста и нажмите значок ![image](../../_assets/console-icons/xmark.svg).
   1. В открывшемся окне нажмите кнопку **Удалить**.
 
 - CLI {#cli}

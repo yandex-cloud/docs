@@ -29,7 +29,7 @@
 
    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-   1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
+   1. Выберите кластер и нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
    1. В блоке **Настройки СУБД** нажмите кнопку **Настроить**.
    1. Задайте [настройки ClickHouse®](../concepts/settings-list.md#server-level-settings).
    1. Нажмите кнопку **Сохранить изменения**.
@@ -94,7 +94,7 @@
               ...
             }
 
-            rabbit_mq = {
+            rabbitmq = {
               # Настройки получения данных из RabbitMQ
               username = "<имя_пользователя>"
               password = "<пароль>"
@@ -287,10 +287,10 @@
                 "cluster_id": "<идентификатор_кластера>",
                 "update_mask": {
                    "paths": [
-                      "configSpec.clickhouse.config.<настройка_1>",
-                      "configSpec.clickhouse.config.<настройка_2>",
+                      "config_spec.clickhouse.config.<настройка_1>",
+                      "config_spec.clickhouse.config.<настройка_2>",
                       ...
-                      "configSpec.clickhouse.config.<настройка_N>"
+                      "config_spec.clickhouse.config.<настройка_N>"
                    ]
                 },
                 "config_spec": {

@@ -7,7 +7,7 @@ _Точки присутствия_ (Points of Presence, POP) — это гео�
 
 #|
 || **Общее количество точек присутствия** | **Суммарная пропускная способность** ||
-|| 78 {align="center"} | Более 8 Тбит/с {align="center"} ||
+|| 80 {align="center"} | Более 8 Тбит/с {align="center"} ||
 |#
 
 
@@ -47,8 +47,8 @@ Yandex Cloud CDN построен на самом современном обо�
 || **Россия** | &bull;&nbsp;Александров&ensp;&bull;&nbsp;Владивосток&ensp;&bull;&nbsp;Владикавказ&ensp;&bull;&nbsp;Волгоград&ensp;&bull;&nbsp;Воронеж&ensp;&bull;&nbsp;Екатеринбург&ensp;&bull;&nbsp;Иркутск&ensp;&bull;&nbsp;Краснодар&ensp;&bull;&nbsp;Красноярск&ensp;&bull;&nbsp;Москва&ensp;&bull;&nbsp;Нижний Новгород&ensp;&bull;&nbsp;Новосибирск&ensp;&bull;&nbsp;Оренбург&ensp;&bull;&nbsp;Петрозаводск&ensp;&bull;&nbsp;Ростов-на-Дону&ensp;&bull;&nbsp;Самара&ensp;&bull;&nbsp;Санкт-Петербург&ensp;&bull;&nbsp;Симферополь&ensp;&bull;&nbsp;Сочи&ensp;&bull;&nbsp;Ставрополь&ensp;&bull;&nbsp;Тамбов&ensp;&bull;&nbsp;Тюмень&ensp;&bull;&nbsp;Уфа&ensp;&bull;&nbsp;Хабаровск&ensp;&bull;&nbsp;Челябинск&ensp;&bull;&nbsp;Чита&ensp;&bull;&nbsp;Ярославль&ensp; ||
 || **Беларусь** | &bull;&nbsp;Минск&ensp; ||
 || **Германия** | &bull;&nbsp;Франкфурт-на-Майне&ensp; ||
-|| **Казахстан** | &bull;&nbsp;Актобе&ensp;&bull;&nbsp;Караганда&ensp; ||
-|| **Кыргызстан** | &bull;&nbsp;Манас&ensp; ||
+|| **Казахстан** | &bull;&nbsp;Актобе&ensp;&bull;&nbsp;Астана&ensp;&bull;&nbsp;Караганда&ensp;&bull;&nbsp;Шымкент&ensp; ||
+|| **Кыргызстан** | &bull;&nbsp;Бишкек&ensp; ||
 || **Нидерланды** | &bull;&nbsp;Амстердам&ensp; ||
 || **Таджикистан** | &bull;&nbsp;Душанбе&ensp; ||
 || **Узбекистан** | &bull;&nbsp;Ташкент&ensp; ||

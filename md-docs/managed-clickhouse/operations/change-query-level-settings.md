@@ -51,7 +51,7 @@
    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
    1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Пользователи**.
-   1. В строке с именем нужного пользователя нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Настроить**.
+   1. В строке с именем нужного пользователя нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/pencil.svg) **Настроить**.
    1. В списке **Дополнительные настройки** разверните **settings** и задайте [настройки ClickHouse®](../concepts/settings-list.md#user-level-settings).
    1. Нажмите кнопку **Сохранить изменения**.
 
@@ -68,7 +68,7 @@
    1. Посмотрите полный список настроек, установленных для пользователя:
 
       ```bash
-      yc managed-clickhouse user get <имя_пользователя> <имя_или_идентификатор_кластера>
+      yc managed-clickhouse user get <имя_пользователя> --cluster-name=<имя_кластера>
       ```
 
    1. Посмотрите описание команды CLI для изменения настроек пользователя:
@@ -248,7 +248,7 @@
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters). Имя пользователя можно запросить со [списком пользователей в кластере](cluster-users.md#list-users).
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

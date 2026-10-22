@@ -1,6 +1,6 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Spark™](../index.md) > [Практические руководства](index.md) > Работа с Yandex Object Storage с использованием кластера Apache Hive™ Metastore
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Spark™](../index.md) > [Практические руководства](index.md) > Работа с данными в Object Storage > Интеграция с Apache Hive™ Metastore
 
-# Работа с Yandex Object Storage из PySpark-задания с использованием кластера Apache Hive™ Metastore
+# Интеграция с Apache Hive™ Metastore
 
 # Интеграция Yandex Managed Service for Apache Spark™ и Apache Hive™ Metastore
 

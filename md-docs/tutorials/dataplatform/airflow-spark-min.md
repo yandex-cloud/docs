@@ -1,8 +1,8 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Yandex Managed Service for Apache Airflow™ > Запуск PySpark-задания с помощью Yandex Managed Service for Apache Airflow™
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Managed Service for Apache Spark™ > Интеграция Managed Service for Apache Spark™ и Managed Service for Apache Airflow™ > Запуск простого PySpark-задания в Managed Service for Apache Spark™ с помощью Managed Service for Apache Airflow™
 
-# Запуск PySpark-задания с помощью Yandex Managed Service for Apache Airflow™
+# Запуск простого PySpark-задания в Yandex Managed Service for Apache Spark™ с помощью Yandex Managed Service for Apache Airflow™
 
-# Запуск PySpark-задания с помощью Yandex Managed Service for Apache Airflow™
+# Запуск простого PySpark-задания в Yandex Managed Service for Apache Spark™ с помощью Yandex Managed Service for Apache Airflow™
 
 
 {% note warning %}
@@ -34,7 +34,7 @@
 
 {% note info %}
 
-Создаваемый кластер Yandex Managed Service for Apache Spark™ не использует S3-хранилище [Yandex Object Storage](../../storage/concepts/index.md) и глобальный каталог [Apache Hive™ Metastore](../../metadata-hub/concepts/metastore.md). В такой конфигурации кластер Yandex Managed Service for Apache Spark™ может работать только с данными в памяти. Для работы с постоянными базами и таблицами, а также для долговременного хранения результатов подключите внешнее хранилище Object Storage и, при необходимости, кластер Apache Hive™ Metastore для управления метаданными. Подробнее в руководстве [Автоматизация работы с помощью Yandex Managed Service for Apache Airflow™](../../managed-spark/tutorials/airflow-automation.md).
+В этом примере бакет [Yandex Object Storage](../../storage/concepts/index.md) используется для хранения DAG-файла Managed Service for Apache Airflow™ и скрипта PySpark-задания. Задание создает данные в памяти и выводит результат в лог, без сохранения таблиц в бакете. Кластер [Apache Hive™ Metastore](../../metadata-hub/concepts/metastore.md) не используется. Пример сохранения таблиц в Object Storage с использованием Apache Hive™ Metastore приведен в руководстве [Автоматизация работы с таблицами с помощью Yandex Managed Service for Apache Airflow™](../../managed-spark/tutorials/airflow-automation.md).
 
 {% endnote %}
 
@@ -52,7 +52,7 @@
 В этом руководстве используется упрощенная настройка инфраструктуры:
 
 * один сервисный аккаунт с расширенными привилегиями;
-* один бакет для хранения всех данных;
+* один бакет для хранения DAG-файла и скрипта PySpark-задания;
 * группа безопасности по умолчанию.
 
 Такая настройка подходит для тестирования, но не предоставляет достаточный для решения реальных задач уровень безопасности. Чтобы повысить безопасность решения, обеспечьте соблюдение [принципа минимальных привилегий](../../iam/best-practices/using-iam-securely.md#restrict-access).
@@ -92,7 +92,7 @@
 
 1. Создает DataFrame с числами от 0 до 9.
 1. Выводит количество строк в созданном DataFrame.
-1. Выводит первые пять строк в табличном виде. 
+1. Выводит первые пять строк в табличном виде.
 
 Скрипт будет храниться в бакете Object Storage.
 
@@ -104,12 +104,12 @@
    from pyspark.sql import SparkSession
 
    spark = (SparkSession.builder.appName("hello_spark").getOrCreate())
-   
+
    df = spark.range(10).toDF("id")
 
    print("Row count:", df.count())
    df.show(5, truncate=False)
-   
+
    spark.stop()
    ```
 
@@ -186,8 +186,8 @@ DAG будет состоять из нескольких вершин, кото
        if cluster_id:
            spark_client = yc_hook.sdk.wrappers.Spark()
            spark_client.delete_cluster(cluster_id=cluster_id)
-    else:
-        raise AirflowSkipException("cluster_id is empty; nothing to delete")
+       else:
+           raise AirflowSkipException("cluster_id is empty; nothing to delete")
 
    # Настройки DAG
    with DAG(
@@ -246,7 +246,7 @@ DAG будет состоять из нескольких вершин, кото
 ## Проверьте результат {#check-out}
 
 1. В [веб-интерфейсе Apache Airflow™](../../managed-airflow/operations/af-interfaces.md#web-gui) нажмите на название DAG `example_spark` и отслеживайте выполнение задач.
-1. Дождитесь, когда все три задачи в DAG перейдут в статус **Success**. 
+1. Дождитесь, когда все три задачи в DAG перейдут в статус **Success**.
 1. Перейдите на вкладку `Graph`.
 1. В открывшемся графе нажмите на задачу `run_spark_job` и перейдите на вкладку `Logs`.
 1. Проверьте, что [PySpark-задание](#prepare-a-job) выполнило корректный вывод в лог. Для этого найдите в логе строки:

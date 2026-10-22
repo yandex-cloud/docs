@@ -30,7 +30,7 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
   1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
 
-  1. Нажмите на имя нужного кластера и выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Мониторинг**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Администрирование** → **Мониторинг**.
 
       На открывшейся странице будут отображены графики работы кластера и хостов ClickHouse®.
 
@@ -205,7 +205,7 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
   1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
 
-  1. Нажмите на имя нужного кластера и выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Мониторинг**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Администрирование** → **Мониторинг**.
 
   1. Перейдите на вкладку **Хосты** и выберите хост.
     
@@ -313,7 +313,7 @@
       * **Managed Service for ClickHouse® — Cluster Overview** для настройки алертов кластера;
       * **Managed Service for ClickHouse® — ZooKeeper** для настройки алертов хостов ZooKeeper.
       * **Managed Service for ClickHouse® — Host Overview** для настройки алертов хостов.
-  1. На нужном графике с показателями нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Создать алерт**.
+  1. На нужном графике с показателями нажмите значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Создать алерт**.
   1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов в [документации Yandex Monitoring](../../monitoring/concepts/querying.md).
   1. Задайте значения порогов `Alarm` и `Warning` для срабатывания алерта.
   1. Нажмите кнопку **Создать алерт**.
@@ -363,7 +363,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
   1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Наведите курсор на индикатор в столбце **Доступность** в строке нужного кластера.
+  1. Наведите указатель на индикатор в столбце **Доступность** в строке нужного кластера.
 
 {% endlist %}
 

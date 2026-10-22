@@ -9,5 +9,5 @@
 
 Для построения запроса необходимо передать параметр `direct_client_logins`. Подробнее пишем [здесь](https://yandex.ru/dev/metrika/doc/api2/api_v1/direct-clicks.html?lang=ru).
 
-Сейчас у {{ datalens-short-name }} нет возможности передать этот и подобные параметры, поэтому построить чарт таким образом не получится, но можно [выгрузить данные в {{ CH }}](../../../datalens/qa/#uploading-data-logs-api).
+Сейчас у {{ datalens-short-name }} нет возможности передать этот и подобные параметры, поэтому построить чарт таким образом не получится, но можно [выгрузить данные в {{ CH }}](../../../datalens/qa/connections.md#uploading-data-logs-api).
 

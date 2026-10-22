@@ -121,6 +121,7 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](disk-control/configure-schedule.md)
 * [{#T}](disk-control/disk-change-folder.md)
 * [{#T}](disk-control/disk-change-zone.md)
+* [{#T}](disk-control/disk-migration-without-vm.md)
 * [{#T}](disk-control/disk-migration-to-external-s3.md)
 * [{#T}](disk-control/disk-encrypt.md)
 * [{#T}](disk-control/get-info.md)

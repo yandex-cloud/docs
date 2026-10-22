@@ -1218,17 +1218,25 @@
 
  - [Выполнение аналитических запросов в Managed Service for PostgreSQL с обработкой в Managed Service for ClickHouse®](dataplatform/mpg-pg-clickhouse-extension.md)
 
-### Yandex Managed Service for Apache Airflow™
+### Managed Service for Apache Spark™
 
- - [Автоматизация работы с помощью Yandex Managed Service for Apache Airflow™](dataplatform/airflow-and-spark.md)
+#### Работа с данными в Object Storage из Managed Service for Apache Spark™
 
- - [Работа с таблицей в Object Storage из PySpark-задания](dataplatform/spark-simple-rw-job.md)
-
- - [Интеграция Yandex Managed Service for Apache Spark™ и Apache Hive™ Metastore](dataplatform/metastore-and-spark.md)
-
- - [Запуск PySpark-задания с помощью Yandex Managed Service for Apache Airflow™](dataplatform/airflow-spark-min.md)
+ - [Обзор](dataplatform/spark-object-storage-overview.md)
 
  - [Использование Yandex Object Storage в Yandex Managed Service for Apache Spark™](dataplatform/spark-objstorage-integration.md)
+
+ - [Интеграция Managed Service for Apache Spark™ и Apache Hive™ Metastore](dataplatform/metastore-and-spark.md)
+
+ - [Работа с таблицей формата Apache Iceberg™ в Managed Service for Apache Spark™](dataplatform/spark-simple-rw-job.md)
+
+#### Интеграция Managed Service for Apache Spark™ и Managed Service for Apache Airflow™
+
+ - [Обзор](dataplatform/spark-airflow-overview.md)
+
+ - [Запуск простого PySpark-задания в Managed Service for Apache Spark™ с помощью Managed Service for Apache Airflow™](dataplatform/airflow-spark-min.md)
+
+ - [Автоматизация работы с таблицами в Managed Service for Apache Spark™ с помощью Managed Service for Apache Airflow™](dataplatform/airflow-and-spark.md)
 
  - [Интеграция Yandex Managed Service for Apache Spark™ и DataSphere](dataplatform/spark-and-datasphere.md)
 

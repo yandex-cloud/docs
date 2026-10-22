@@ -153,9 +153,9 @@ items:
               Перенос метаданных между кластерами {{ dataproc-name }} с помощью
               {{ metastore-name }}
             href: tutorials/metastore-import.md
-          - name: Работа с таблицей в {{ objstorage-name }} из PySpark-задания
+          - name: Работа с таблицей формата {{ IBRG }} в {{ msp-name }}
             href: tutorials/spark-simple-rw-job.md
-          - name: Интеграция {{ msp-full-name }} и {{ metastore-name }}
+          - name: Интеграция {{ msp-name }} и {{ metastore-name }}
             href: tutorials/metastore-and-spark.md
           - name: Автоматизация работы с помощью {{ maf-full-name }}
             href: tutorials/airflow-automation.md

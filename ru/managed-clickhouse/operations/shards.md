@@ -24,9 +24,9 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.Cluster.Shards.action_add-shards_iULX7 }}**.
-  1. Нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке нового шарда, чтобы изменить его параметры:
+  1. Нажмите значок ![pencil](../../_assets/console-icons/pencil.svg) в строке нового шарда, чтобы изменить его параметры:
 
       * Имя и [вес](../concepts/sharding.md#shard-weight). Вес шарда по умолчанию — `100`.
       * Конфигурацию хостов шарда.
@@ -166,10 +166,10 @@
                 "clickhouse": {
                   "resources": {
                     "resourcePresetId": "<класс_хостов>",
-                    "diskSize": "<размер_хранилища_в_байтах>",
+                    "diskSize": <размер_хранилища_в_байтах>,
                     "diskTypeId": "<тип_диска>"
                   },
-                  "weight": "<вес_шарда>"
+                  "weight": <вес_шарда>
                 }
               }
             }
@@ -248,10 +248,10 @@
                 "clickhouse": {
                   "resources": {
                     "resource_preset_id": "<класс_хостов>",
-                    "disk_size": "<размер_хранилища_в_байтах>",
+                    "disk_size": <размер_хранилища_в_байтах>,
                     "disk_type_id": "<тип_диска>"
                   },
-                  "weight": "<вес_шарда>"
+                  "weight": <вес_шарда>
                 }
               }
             }
@@ -322,7 +322,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}**.
 
 - CLI {#cli}
 
@@ -386,7 +386,7 @@
 
 {% endlist %}
 
-## Получить номера шардов {#shard-update}
+## Получить номера шардов {#shard-numbers}
 
 {% list tabs group=instructions %}
 
@@ -418,8 +418,8 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}**.
-  1. Нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+  1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}**.
+  1. Нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите пункт ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Внесите необходимые изменения и нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
   1. Если вы изменили тип диска для шарда с хостами {{ CH }}:
       1. В открывшемся окне посмотрите количество нереплицированных таблиц на графике **Non-replicated MergeTree tables** и их размер на графике **Size of non-replicated MergeTree tables**. Данные в нереплицированных таблицах будут утеряны. Если необходимо сохранить их, перед изменением типа диска [преобразуйте]({{ ch.docs }}{{ lang }}/sql-reference/statements/attach#attach-mergetree-table-as-replicatedmergetree) нереплицированные таблицы в реплицированные.
@@ -487,13 +487,13 @@
                        },
                        "resources": {
                          "resourcePresetId": "<класс_хостов>",
-                         "diskSize": "<размер_хранилища_в_байтах>",
+                         "diskSize": <размер_хранилища_в_байтах>,
                          "diskTypeId": "<тип_диска>"
                        },
-                       "weight": "<вес_шарда>"
+                       "weight": <вес_шарда>
                      }
                    },
-                   "allowHostRecreation": "true"
+                   "allowHostRecreation": true
                  }'
      ```
 
@@ -554,13 +554,13 @@
                  },
                  "resources": {
                    "resource_preset_id": "<класс_хостов>",
-                   "disk_size": "<размер_хранилища_в_байтах>",
+                   "disk_size": <размер_хранилища_в_байтах>,
                    "disk_type_id": "<тип_диска>"
                  },
-                 "weight": "<вес_шарда>"
+                 "weight": <вес_шарда>
                }
              },
-             "allow_host_recreation": "true"
+             "allow_host_recreation": true
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.clickhouse.v1.ClusterService.UpdateShard
@@ -603,10 +603,10 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
     1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}**.
+    1. Нажмите на имя нужного кластера, затем перейдите в раздел **Кластер** → **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}**.
     1. Удалите один или несколько шардов:
-        * Чтобы удалить один шард, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного шарда и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
-        * Чтобы удалить несколько шардов сразу, выберите нужные шарды и нажмите **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}** в нижней части экрана.
+        * Чтобы удалить один шард, нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного шарда и выберите пункт ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+        * Чтобы удалить несколько шардов сразу, выберите нужные шарды и нажмите ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}** в нижней части экрана.
     1. В открывшемся окне включите опцию **Я удаляю шарды** и нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
@@ -658,12 +658,14 @@
 
      ```bash
      curl \
-       --request DELETE \
+       --request POST \
        --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
        --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/shards:batchDelete' \
        --data '{
                  "shardNames": [
-                   <перечень_имен_шардов>
+                   "<имя_шарда_1>",
+                   "<имя_шарда_2>"
                  ]
                }'
      ```
@@ -693,7 +695,8 @@
        -d '{
              "cluster_id": "<идентификатор_кластера>",
              "shard_names": [
-               <перечень_имен_шардов>
+               "<имя_шарда_1>",
+               "<имя_шарда_2>"
              ]
            }' \
        {{ api-host-mdb }}:{{ port-https }} \

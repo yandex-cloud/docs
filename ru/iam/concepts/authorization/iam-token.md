@@ -40,7 +40,7 @@ API сервиса {{ iam-short-name }} может вернуть один и т
 
 В случае, если IAM-токен оказался [скомпрометирован](../../operations/compromised-credentials.md), или в целях безопасности вы хотите прекратить действие старого IAM-токена при выпуске нового, IAM-токен можно [отозвать](../../operations/iam-token/revoke-iam-token.md) до истечения срока его жизни.
 
-Отозвать IAM-токен может любой аутентифицированный пользователь с помощью [CLI](../../../cli/quickstart.md) или [API](../../api-ref/authentication.md).
+Отозвать IAM-токен может любой аутентифицированный пользователь с помощью [CLI](../../operations/iam-token/revoke-iam-token.md#cli_1) или [API](../../operations/iam-token/revoke-iam-token.md#api_1).
 
 ## Представление токена {#iam-token-format}
 

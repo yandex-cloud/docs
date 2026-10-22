@@ -1,8 +1,8 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Spark™](../index.md) > [Практические руководства](index.md) > Работа с таблицей формата Apache Iceberg™ из PySpark-задания
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Spark™](../index.md) > [Практические руководства](index.md) > Работа с данными в Object Storage > Работа с таблицей формата Apache Iceberg™
 
 # Работа с таблицей формата Apache Iceberg™ из PySpark-задания
 
-# Работа с таблицей формата Apache Iceberg™ из PySpark-задания
+# Работа с таблицей формата Apache Iceberg™ в Yandex Managed Service for Apache Spark™
 
 
 В сервис Yandex Managed Service for Apache Spark™ интегрирована библиотека Apache Iceberg™. Чтобы использовать в PySpark-задании возможности Apache Iceberg™, подключите к кластеру Yandex Managed Service for Apache Spark™ сервер Apache Hive™ Metastore.
@@ -12,7 +12,7 @@
 * ACID-транзакции, которые поддерживают операции `UPDATE`, `DELETE`, `MERGE`, а также эволюцию таблиц и способа партиционирования.
 * Масштабируемость с сохранением высокой производительности операций.
 
-В этом руководстве показан пример использования формата таблиц Apache Iceberg™ для создания и чтения снимков метаданных. Таблица Apache Iceberg™ создается в S3-хранилище Object Storage. Кластер Yandex Managed Service for Apache Spark™, в котором запускается PySpark-задание, использует глобальный каталог Apache Hive™ Metastore. Подробнее о подключении глобального каталога смотрите в руководстве [Работа с Yandex Object Storage из PySpark-задания с использованием кластера Apache Hive™ Metastore](metastore-and-spark.md).
+В этом руководстве показан пример использования формата таблиц Apache Iceberg™ для создания и чтения снимков метаданных. Таблица Apache Iceberg™ создается в S3-хранилище Object Storage. Кластер Yandex Managed Service for Apache Spark™, в котором запускается PySpark-задание, использует глобальный каталог Apache Hive™ Metastore. Подробнее о подключении глобального каталога смотрите в руководстве [Интеграция с Apache Hive™ Metastore](metastore-and-spark.md).
 
 Чтобы реализовать описанный пример:
 
@@ -104,7 +104,7 @@
 1. Сохраняет идентификатор текущего снимка таблицы.
 1. Записывает еще 10 строк с данными в таблицу.
 1. Выводит количество строк в текущем состоянии таблицы.
-1. Выводит количество строк в состоянии таблицы на момент снимка. 
+1. Выводит количество строк в состоянии таблицы на момент снимка.
 
 Подготовьте файл скрипта:
 
@@ -168,7 +168,7 @@
 1. Откройте [логи выполнения задания](../operations/jobs-pyspark.md#get-logs).
 1. Найдите в логах строку `now_count: 20 | past_count: 10`.
 1. Убедитесь, что в бакете для выходных данных появилась папка `warehouse/demo_db`. Теперь данные из созданной БД `demo_db` хранятся в бакете Object Storage, а метаинформация о ней — в кластере Apache Hive™ Metastore.
- 
+
 ## Удалите созданные ресурсы {#clear-out}
 
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, чтобы не платить за них:

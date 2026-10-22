@@ -1,8 +1,8 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Yandex Managed Service for Apache Airflow™ > Автоматизация работы с помощью Yandex Managed Service for Apache Airflow™
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Managed Service for Apache Spark™ > Интеграция Managed Service for Apache Spark™ и Managed Service for Apache Airflow™ > Автоматизация работы с таблицами в Managed Service for Apache Spark™ с помощью Managed Service for Apache Airflow™
 
-# Автоматизация работы с помощью Yandex Managed Service for Apache Airflow™
+# Автоматизация работы с таблицами в Yandex Managed Service for Apache Spark™ с помощью Yandex Managed Service for Apache Airflow™
 
-# Автоматизация работы с Yandex Managed Service for Apache Spark™ с помощью Yandex Managed Service for Apache Airflow™
+# Автоматизация работы с таблицами в Yandex Managed Service for Apache Spark™ с помощью Yandex Managed Service for Apache Airflow™
 
 
 {% note warning %}
@@ -29,7 +29,7 @@
 
 {% note info %}
 
-В отличие от простого примера из руководства [Запуск PySpark-задания с помощью Yandex Managed Service for Apache Airflow™](../../managed-spark/tutorials/airflow-spark-min.md), создаваемый кластер Yandex Managed Service for Apache Spark™ интегрирован с бакетом Object Storage и глобальным каталогом Apache Hive™ Metastore. Такой подход позволяет строить переносимые и масштабируемые конвейеры: Managed Service for Apache Airflow™ отвечает за оркестрацию, Yandex Managed Service for Apache Spark™ является вычислительным слоем, Object Storage хранит данные, а Apache Hive™ Metastore — метаданные.
+В этом примере Managed Service for Apache Airflow™ отвечает за оркестрацию, Yandex Managed Service for Apache Spark™ выполняет задание, Object Storage хранит данные таблицы, а Apache Hive™ Metastore — ее метаданные. Для знакомства с интеграцией сервисов можно начать с руководства [Запуск простого PySpark-задания с помощью Yandex Managed Service for Apache Airflow™](../../managed-spark/tutorials/airflow-spark-min.md), в котором задание создает данные в памяти и выводит результат в лог.
 
 {% endnote %}
 
@@ -172,7 +172,7 @@
      * [mdb.viewer](../../iam/roles-reference.md#mdb-viewer) — чтобы получать статусы операций.
      * [managed-metastore.viewer](../../iam/roles-reference.md#managed-metastore-viewer) — чтобы просматривать информацию о кластерах Apache Hive™ Metastore.
      * [managed-metastore.integrationProvider](../../iam/roles-reference.md#managed-metastore-integrationProvider) — чтобы кластер Apache Hive™ Metastore мог [взаимодействовать с другими ресурсами](../../metadata-hub/concepts/metastore-impersonation.md).
-     * [managed-spark.integrationProvider](../../iam/roles-reference.md#managed-spark-integrationProvider) — чтобы кластер Yandex Managed Service for Apache Spark™ мог взаимодействовать с другими ресурсами. 
+     * [managed-spark.integrationProvider](../../iam/roles-reference.md#managed-spark-integrationProvider) — чтобы кластер Yandex Managed Service for Apache Spark™ мог взаимодействовать с другими ресурсами.
 
   1. [Создайте бакет](../../storage/operations/buckets/create.md) `<бакет_для_заданий_и_данных>` и [предоставьте разрешение](../../storage/operations/buckets/edit-acl.md) `READ и WRITE` для сервисного аккаунта `integration-agent`.
 
@@ -188,9 +188,9 @@
      * **Группы безопасности** — группа по умолчанию в сети `datalake-network`.
 
      {% note info %}
-   
+
      Дождитесь завершения операции.
-   
+
      {% endnote %}
 
   1. [Создайте кластер Managed Service for Apache Airflow™](../../managed-airflow/operations/cluster-create.md) с параметрами:
@@ -457,9 +457,9 @@ DAG будет состоять из нескольких вершин, кото
      * `SUBNET_IDS` — идентификатор подсети.
 
         {% note info %}
-      
+
         Подсеть для Yandex Managed Service for Apache Spark™ и Apache Hive™ Metastore должна совпадать.
-      
+
         {% endnote %}
 
      * `SECURITY_GROUP_IDS` — идентификатор группы безопасности для кластера Yandex Managed Service for Apache Spark™.
@@ -596,9 +596,9 @@ DAG будет состоять из нескольких вершин, кото
      * `SUBNET_IDS` — идентификатор подсети.
 
         {% note info %}
-      
+
         Подсеть для Yandex Managed Service for Apache Spark™ и Apache Hive™ Metastore должна совпадать.
-      
+
         {% endnote %}
 
      * `SECURITY_GROUP_IDS` — идентификатор группы безопасности для кластера Yandex Managed Service for Apache Spark™.
@@ -637,7 +637,7 @@ DAG будет состоять из нескольких вершин, кото
   1. Убедитесь, что в бакете `<бакет_для_заданий_и_данных>` появилась БД `database_1`. Теперь данные из созданной БД хранятся в бакете Object Storage, а метаинформация о ней — в кластере Apache Hive™ Metastore.
 
 {% endlist %}
- 
+
 ## Удалите созданные ресурсы {#clear-out}
 
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, чтобы не платить за них:

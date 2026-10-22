@@ -63,7 +63,7 @@ description: В разделе представлена история изме�
 
 ## Апрель 2025 {#apr-2025}
 
-Добавлена [интеграция с {{ connection-manager-name }}](operations/update.md#conn-man). Подключение в {{ connection-manager-name }} теперь создается для всех новых кластеров автоматически.
+Добавлена [интеграция с {{ connection-manager-name }}](../metadata-hub/quickstart/connection-manager.md#mdb-integration). Подключение в {{ connection-manager-name }} теперь создается для всех новых кластеров автоматически.
 
 ## Октябрь 2024 {#oct-2024}
 

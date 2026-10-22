@@ -2,6 +2,12 @@
 
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} по вопросам безопасности.
 
+{% include [22.10.2026 — CVE-2026-110264 — удаленное выполнение кода в {{ GL }}](../../_includes/security/security-bulletins/cve-2026-110264-gitlab-rce.md) %}
+
+{% include [22.10.2026 — CVE-2026-109618, CVE-2026-109619 (PHP2Shell)](../../_includes/security/security-bulletins/cve-2026-109618-cve-2026-109619-php2shell.md) %}
+
+{% include [21.10.2026 — USN-8944 (CVE-2026-111943) — компрометация сертификатов eMudhra](../../_includes/security/security-bulletins/cve-2026-111943-emudhra.md) %}
+
 {% include [12.08.2026 — CVE-2026-64564 – SCTPhantom](../../_includes/security/security-bulletins/cve-2026-64564-sctphantom.md) %}
 
 {% include [07.07.2026 — CVE-2026-53359 – Januscape](../../_includes/security/security-bulletins/CVE-2026-53359-januscape.md) %}

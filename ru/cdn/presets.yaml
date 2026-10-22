@@ -1,5 +1,5 @@
 default:
-  cdn-pop-count: 78
+  cdn-pop-count: 80
   cdn-pops:
     '0':
       cities:
@@ -42,11 +42,13 @@ default:
     '3':
       cities:
         '0': Актобе
-        '1': Караганда
+        '1': Астана
+        '2': Караганда
+        '3': Шымкент
       country: Казахстан
     '4':
       cities:
-        '0': Манас
+        '0': Бишкек
       country: Кыргызстан
     '5':
       cities:
