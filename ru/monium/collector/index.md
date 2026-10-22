@@ -15,14 +15,14 @@
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md).
 1. [Создайте API-ключ](../../iam/operations/authentication/manage-api-keys.md) для сервисного аккаунта. Выберите область действия в зависимости от типа передаваемых данных:
 
-   * `yc.monium.telemetry.write` — запись всех видов телеметрии;
-   * `yc.monium.metrics.write` — запись метрик;
-   * `yc.monium.logs.write` — запись логов;
-   * `yc.monium.traces.write` — запись трейсов.
+   {% include [api-key-scopes](../../_includes/monium/api-key-scopes.md) %}
 
 1. Укажите параметры подключения:
 
     * Эндпоинт — `{{ api-host-monium }}:443`.
+
+      {% include [otlp-ipv4-ipv6](../../_includes/monium/otlp-ipv4-ipv6.md) %}
+
     * Протокол — `gRPC`, `HTTP`.
 
 1. Настройте распределение данных по шардам.
@@ -33,7 +33,7 @@
 
    * **Проект** — передается в заголовке `x-monium-project`. 
    
-      По умолчанию при создании облака и каталога создаются два проекта: `cloud__<идентификатор_облака>` и `folder__<идентификатор_каталога>`. Также вы можете создать свои проекты для сбора телеметрии.
+      {% include [default-projects](../../_includes/monium/default-projects.md) %}
    
    * **Кластер** (опционально) — передается в атрибутах ресурса `OTEL_RESOURCE_ATTRIBUTES` с ключом `cluster` или `deployment.name`. По умолчанию — `default`.
    * **Сервис** — передается в атрибутах ресурса `OTEL_RESOURCE_ATTRIBUTES` с ключом `service` или `service.name`.

@@ -35,6 +35,8 @@
 
 1. Укажите новый эндпоинт: `{{ api-host-monium }}:443`. Иначе логи продолжат поступать через {{ cloud-logging-name }} и тарифицироваться по его ценам.
 
+   {% include [otlp-ipv4-ipv6](../../_includes/monium/otlp-ipv4-ipv6.md) %}
+
 1. Убедитесь, что логи поступают напрямую в {{ monium-name }}, а не через {{ cloud-logging-name }}.
 
    Для проверки [посмотрите детализацию использования сервисов](../../billing/operations/check-charges.md#products) по продуктам в {{ billing-name }}. После миграции должно появиться потребление для логов в {{ monium-name }}. Потребление в сервисе {{ cloud-logging-name }} должно снизиться или прекратиться.

@@ -20,6 +20,8 @@
 
 * Адрес для записи логов: `{{ api-host-monium }}:443`.
 
+  {% include [otlp-ipv4-ipv6](../../_includes/monium/otlp-ipv4-ipv6.md) %}
+
 * Аутентификация:
   * [Сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `monium.logs.writer` или общей ролью `monium.telemetry.writer`.
   * [API-ключ](../../iam/operations/iam-token/create-for-sa.md) с областью действия `yc.monium.logs.write` или `yc.monium.telemetry.write`.

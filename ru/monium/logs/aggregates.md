@@ -19,6 +19,8 @@ _Метрика по логам_ — непрерывное вычисление
 
 Адрес для записи логов через API: `{{ api-host-monium }}:443`.
 
+{% include [otlp-ipv4-ipv6](../../_includes/monium/otlp-ipv4-ipv6.md) %}
+
 {% list tabs group=instructions %}
 
 - Интерфейс {{ monium-name }} {#console}

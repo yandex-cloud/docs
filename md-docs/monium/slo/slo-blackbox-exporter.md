@@ -440,6 +440,7 @@ service:
 
 * `10.128.0.10` — IP-адрес вашего сервера приложения. Замените его на свой.
 * `relabel_configs` — правила перезаписи меток, чтобы Prometheus опрашивал blackbox_exporter, а не саму цель напрямую.
+* `endpoint` — [эндпоинт](../collector/otlp-protocol.md#endpoints) для отправки телеметрии в Monium.
 * `x-monium-cluster` и `x-monium-service` — метки `cluster` и `service`, которые Monium присваивает всем метрикам из этого OTel Collector. По ним вы будете находить метрики и строить SLO. В примере используются значения `production` и `lemp` (веб-стек Linux, Nginx, MySQL, PHP) — замените их на свои.
 
 {% note info %}

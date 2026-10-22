@@ -16,7 +16,9 @@ This section covers logging via {{ sws-name }}. This method provides more advanc
 
 {% note info %}
 
-Currently, {{ sws-name }} writes its logs to {{ cloud-logging-name }}. This service will be shut down in Q2 2027. Log management will be migrated to a unified observability platform called [{{ monium-name }}](../../monium/). {{ cloud-logging-name }} will no longer be available for new security profiles; however, you will be able to set up logging to {{ monium-name }}.
+As of October 22, 2026, the {{ cloud-logging-full-name }} service has been discontinued for new customers, including {{ yandex-cloud }} customers who have not previously used this service. This restriction applies to both paid and free use.
+
+Use the [{{ monium-name }}](../../monium/) observability platform instead of {{ cloud-logging-name }} to manage {{ sws-name }} logs.
 
 {% endnote %}
 

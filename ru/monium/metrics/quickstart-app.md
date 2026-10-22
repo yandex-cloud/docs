@@ -14,6 +14,8 @@
 
 * Адрес для записи метрик: `{{ api-host-monium }}:443`.
 
+  {% include [otlp-ipv4-ipv6](../../_includes/monium/otlp-ipv4-ipv6.md) %}
+
 * Для записи метрик потребуется [сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `monium.metrics.writer` и [API-ключ](../../iam/operations/iam-token/create-for-sa.md) с областью действия `yc.monium.metrics.write`.
 
 * Интерфейс просмотра метрик — [главная страница {{ monium-name }}]({{ link-monium }}) > **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.

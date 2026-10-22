@@ -20,6 +20,8 @@ _Метрика по логам_ — непрерывное вычисление
 
 Адрес для записи логов через API: `ingest.monium.yandex.cloud:443`.
 
+Также доступны отдельные [эндпоинты](../collector/otlp-protocol.md#endpoints) для отправки телеметрии по IPv4 и IPv6.
+
 {% list tabs group=instructions %}
 
 - Интерфейс Monium {#console}

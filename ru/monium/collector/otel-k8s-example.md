@@ -130,6 +130,8 @@ description: Инструкция по настройке демо-прилож�
                     timeout: 5000
     ```
 
+    {% include [otlp-ipv4-ipv6](../../_includes/monium/otlp-ipv4-ipv6.md) %}
+
 1. Установите демо-приложение с поставкой логов, метрик и трейсов в {{ monium-name }}:
 
     ```bash

@@ -42,6 +42,8 @@
              - x-monium-project ${MONIUM_PROJECT}
      ```
 
+     {% include [otlp-ipv4-ipv6](otlp-ipv4-ipv6.md) %}
+
   1. Запустите Fluent Bit:
 
      ```bash

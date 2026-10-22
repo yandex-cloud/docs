@@ -22,6 +22,8 @@ Monium Logs — распределенная и высокодоступная �
 
 * Адрес для записи логов: `ingest.monium.yandex.cloud:443`.
 
+  Также доступны отдельные [эндпоинты](../collector/otlp-protocol.md#endpoints) для отправки телеметрии по IPv4 и IPv6.
+
 * Аутентификация:
   * [Сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `monium.logs.writer` или общей ролью `monium.telemetry.writer`.
   * [API-ключ](../../iam/operations/iam-token/create-for-sa.md) с областью действия `yc.monium.logs.write` или `yc.monium.telemetry.write`.

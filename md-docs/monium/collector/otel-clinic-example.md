@@ -102,6 +102,9 @@
                   interval: 30000
                   timeout: 5000
       ```
+  
+      Также доступны отдельные [эндпоинты](otlp-protocol.md#endpoints) для отправки телеметрии по IPv4 и IPv6.
+  
   1. Запустите агент [OTel Collector](opentelemetry.md):
   
       ```bash

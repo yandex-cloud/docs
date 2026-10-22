@@ -398,6 +398,8 @@ pip install opentelemetry-sdk opentelemetry-exporter-otlp-proto-grpc openai
 export OTEL_EXPORTER_OTLP_ENDPOINT="{{ api-host-monium }}:443"
 ```
 
+{% include [otlp-ipv4-ipv6](../../../_includes/monium/otlp-ipv4-ipv6.md) %}
+
 ```bash
 export OTEL_EXPORTER_OTLP_HEADERS="Authorization=Api-Key <ваш_API-ключ>,x-monium-project=<имя_проекта>,x-monium-service=my-ai-agent"
 ```

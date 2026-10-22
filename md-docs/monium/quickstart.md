@@ -70,6 +70,9 @@ Monium — платформа для сбора [метрик](metrics/overview.
 
 * Авторизация — [API-ключ](#create-ca-key).
 * Эндпоинт — `ingest.monium.yandex.cloud:443`.
+
+  Также доступны отдельные [эндпоинты](collector/otlp-protocol.md#endpoints) для отправки телеметрии по IPv4 и IPv6.
+
 * В заголовке: параметр `x-monium-project=folder__<идентификатор_каталога>`.
 * В атрибутах ресурса `OTEL_RESOURCE_ATTRIBUTES`: `cluster` или `deployment.name` и `service` или `service.name`.
 
@@ -105,9 +108,9 @@ Monium — платформа для сбора [метрик](metrics/overview.
 
   1. Установите переменные окружения:
      
-     * `MONIUM_PROJECT` — имя проекта Monium.
+     * `MONIUM_PROJECT` — идентификатор проекта Monium.
 
-       По умолчанию при создании облака и каталога создаются два проекта: `cloud__<идентификатор_облака>` и `folder__<идентификатор_каталога>`. Также можно [создать другие проекты](collector/project.md#project-create).
+       По умолчанию при создании облака и каталога создаются два проекта с идентификаторами `cloud__<идентификатор_облака>` и `folder__<идентификатор_каталога>`. Также можно [создать другие проекты](collector/project.md#project-create).
      
        Для тестирования работы с Monium можно указать проект каталога, например, `folder__b1g86q4m5vej********`.
        
@@ -255,6 +258,9 @@ Monium — платформа для сбора [метрик](metrics/overview.
                   interval: 30000
                   timeout: 5000
       ```
+  
+      Также доступны отдельные [эндпоинты](collector/otlp-protocol.md#endpoints) для отправки телеметрии по IPv4 и IPv6.
+  
   1. Запустите агент [OTel Collector](collector/opentelemetry.md):
   
       ```bash

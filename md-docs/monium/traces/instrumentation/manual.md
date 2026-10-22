@@ -278,6 +278,8 @@ export OTEL_SERVICE_NAME=my-service
 export OTEL_EXPORTER_OTLP_ENDPOINT="ingest.monium.yandex.cloud:443"
 ```
 
+Также доступны отдельные [эндпоинты](../../collector/otlp-protocol.md#endpoints) для отправки телеметрии по IPv4 и IPv6.
+
 ```bash
 export OTEL_EXPORTER_OTLP_HEADERS="Authorization=Api-Key <API-ключ>,x-monium-project=folder__<идентификатор_каталога>"
 ```

@@ -36,6 +36,8 @@ Fluent Bit не сохраняет время начала периода мет
 
     {% include [fluentbit-config](../../_includes/monium/fluentbit-config.md) %}
 
+    {% include [otlp-ipv4-ipv6](../../_includes/monium/otlp-ipv4-ipv6.md) %}
+
 1. Установите переменные окружения:
 
    * `MONIUM_PROJECT` — проект {{ monium-name }}, например `folder__<идентификатор_каталога>`.
