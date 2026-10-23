@@ -636,7 +636,7 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Block-EmudhraCompromis
 
 ### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2026-111943}
 
-В критических сервисах и зависимостях отозвано доверие к сертификатам eMudhra. Обновлены образы для пользователей и образы в Cloud Marketplace.
+В критических сервисах и зависимостях Yandex Cloud отзывается доверие к сертификатам eMudhra. Пользовательские образы и образы в Cloud Marketplace в процессе обновления.
 
 ### Дополнительные материалы {#references-CVE-2026-111943}
 
