@@ -173,7 +173,7 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Расследования](../../concepts/investigations.md).
-* [Запросы](../../concepts/queries.md).
-* [Управление запросами](manage-queries.md).
-* [Работа со схемой базы и датасетами](work-with-schema-datasets.md).
+* [Расследования](../../concepts/investigations.md)
+* [Запросы](../../concepts/queries.md)
+* [Управление запросами](manage-queries.md)
+* [Работа со схемой базы и датасетами](work-with-schema-datasets.md)

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > Управление доступом
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > Управление доступом > Обзор
 
 # Управление доступом в Monium
 
@@ -17,6 +17,8 @@
 * `organization-manager.admin`;
 * `resource-manager.clouds.owner`;
 * `organization-manager.organizations.owner`.
+
+Для записи телеметрии из приложений и агентов также можно использовать [ключи приложений](application-keys.md). Каждый ключ разрешает запись выбранных типов телеметрии только в один проект.
 
 ## Какие роли действуют в сервисе {#roles-list}
 

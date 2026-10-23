@@ -84,7 +84,7 @@ description: In this tutorial, you will learn how to start and stop {{ unified-a
 
   You are responsible for agent updates and maintainance.
 
-  The agent is installed with a default configuration file located at `/etc/yc/unified_agent/config.yml`. You can also [configure](./configuration.md) the delivery of custom metrics or [logs to {{ cloud-logging-name }}](./outputs.md#yc_logs_output).
+  The agent is installed with a default configuration file located at `/etc/yc/unified_agent/config.yml`. You can also [configure](./configuration.md) the delivery of custom metrics or [logs to {{ monium-logs-name }}](./outputs.md#otel_logs_output).
 
   The configuration file is set up to send [basic virtual machine metrics](./inputs.md#linux_metrics_input) and [agent health metrics](./inputs.md#agent_metrics_input). You will be [charged](../../../pricing.md) for metric delivery.
 

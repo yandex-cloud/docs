@@ -14,7 +14,7 @@
 
 Если облако и приложение уже настроены и вы работали с поставкой телеметрии ранее, настройте отправку логов по параметрам ниже.
 
-### Параметры {{ cloud-logging-name }} {#main-parameters}
+### Параметры {{ monium-logs-name }} {#main-parameters}
 
 * {% include [otel-only](../../_includes/monium/otel-only.md) %}
 

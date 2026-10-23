@@ -113,6 +113,6 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Правила корреляции и исключения](../../concepts/correlation-rules.md).
-* [Управление исключениями](../exceptions/manage-exceptions.md).
-* [Работа со списком правил корреляции](rules-list.md).
+* [Правила корреляции и исключения](../../concepts/correlation-rules.md)
+* [Управление исключениями](../exceptions/manage-exceptions.md)
+* [Работа со списком правил корреляции](rules-list.md)

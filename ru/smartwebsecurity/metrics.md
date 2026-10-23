@@ -1,11 +1,11 @@
 ---
-title: Справочник метрик сервиса {{ sws-full-name }} в {{ monitoring-full-name }}
-description: На этой странице приведен справочник метрик сервиса {{ sws-name }}, поставляемых в {{ monitoring-full-name }}.
+title: Справочник метрик сервиса {{ sws-full-name }}
+description: На этой странице приведен справочник метрик {{ sws-name }}.
 ---
 
-# Справочник метрик {{ monitoring-full-name }}
+# Справочник метрик {{ sws-name }}
 
-В этом разделе описаны метрики {{ sws-name }}. Все метрики {{ sws-name }} поставляются в [{{ monitoring-name }}](../monitoring/) сервисом [{{ alb-full-name }}](../application-load-balancer/).
+В этом разделе описаны метрики {{ sws-name }}, которые собирает [{{ alb-full-name }}](../application-load-balancer/). [Просматривать метрики](operations/monitoring.md) можно в разделе **{{ ui-key.yacloud.common.monitoring }}** сервиса {{ sws-name }}.
 
 {% include [smartwebsecurity](../_includes/monitoring/metrics-ref/smartwebsecurity.md) %}
 

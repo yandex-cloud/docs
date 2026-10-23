@@ -16,7 +16,7 @@ Monium Logs — распределенная и высокодоступная �
 
 Если облако и приложение уже настроены и вы работали с поставкой телеметрии ранее, настройте отправку логов по параметрам ниже.
 
-### Параметры Cloud Logging {#main-parameters}
+### Параметры Monium Logs {#main-parameters}
 
 * Формат поставки данных в Monium — [OpenTelemetry (OTLP)](https://opentelemetry.io/docs/).
 

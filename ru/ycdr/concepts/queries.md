@@ -58,7 +58,7 @@ Events
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](investigations.md).
-* [{#T}](../operations/queries/index.md).
-* [{#T}](../quickstart.md).
-* [{#T}](../kql-reference.md).
+* [{#T}](investigations.md)
+* [{#T}](../operations/queries/index.md)
+* [{#T}](../quickstart.md)
+* [{#T}](../kql-reference.md)

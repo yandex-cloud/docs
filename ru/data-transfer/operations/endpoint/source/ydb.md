@@ -20,8 +20,8 @@ description: Из статьи вы узнаете, как задать наст
 
 1. {% include [cdc](../../../../_includes/data-transfer/scenario-captions/cdc.md) %}
 
-    * [Захват изменений из {{ PG }} и поставка в {{ DS }}](../../../tutorials/ydb-to-yds.md);
-    * [Захват изменений из {{ PG }} и поставка в {{ KF }}](../../../tutorials/cdc-ydb.md).
+    * [Захват изменений из {{ ydb-short-name }} и поставка в {{ DS }}](../../../tutorials/ydb-to-yds.md);
+    * [Захват изменений из {{ ydb-short-name }} и поставка в {{ KF }}](../../../tutorials/cdc-ydb.md).
 
 1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
 
@@ -83,19 +83,19 @@ description: Из статьи вы узнаете, как задать наст
       * {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/security-groups.md) %}
 
 
+  * {% include [Token SRC](../../../../_includes/data-transfer/fields/ydb/ui/token-src.md) %} 
+
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.paths.title }}** — добавьте пути к таблицам или директориям {{ ydb-name }}, которые необходимо перенести.
 
       Имена таблиц и директорий должны соответствовать правилам именования идентификаторов в {{ ydb-short-name }}. Экранирование двойных кавычек не требуется. В пути в качестве разделителя используется символ `/`. Подробнее в [документации {{ ydb-short-name }}]({{ ydb.docs }}/concepts/connect#database).
 
-      Добавление новых путей при редактировании эндпоинта, использующегося в трансферах типа {{ dt-type-copy-repl }} в статусе {{ dt-status-repl }}, не приведет к загрузке истории данных таблиц. Чтобы добавить таблицу с ее историческими данными, используйте поле **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}** в [параметрах трансфера](../../transfer.md#update).
+      Для трансферов типа {{ dt-type-copy }} можно указать конкретные таблицы, директории или оставить поле пустым (в этом случае будут перенесены все объекты базы данных). Важно: список переносимых таблиц фиксируется в момент начала копирования, независимо от того, указаны ли директории или выбрано все. Таблицы, созданные в процессе копирования, не перенесутся.
 
-      Для трансферов типа {{ dt-type-copy }} можно не указывать пути, в таком случае будут перенесены все таблицы.
+      Для трансферов типов {{ dt-type-repl }} и {{ dt-type-copy-repl }} **запрещено** указывать директории или пустой путь (для переноса всей базы). Для корректной работы репликации необходимо **явно перечислить** пути к конкретным таблицам. Кроме того, добавление новых объектов во время активной репликации не поддерживается: хотя трансфер включит новый объект в список `DataObjects` и скопирует его, поток изменений (changefeed) для него не создастся, и репликация не начнется.
 
-      Для трансферов типа {{ dt-type-repl }} или {{ dt-type-copy-repl }} обязательно указывать пути, в том числе и при репликации всех таблиц.
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbCustomFeedSettings.changefeed_custom_name.title }}** — укажите название уже созданного потока изменений (changefeed). Если он не создан, оставьте поле пустым. При указании существующего потока изменений трансфер будет пытаться подключиться к нему для всех таблиц из списка переноса. Поэтому, если вы создаете кастомный поток изменений, убедитесь, что он охватывает все таблицы, указанные в источнике и в `DataObjects` трансфера.
 
-  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbCustomFeedSettings.changefeed_custom_name.title }}** — укажите название потока изменений, если он уже создан. В противном случае оставьте это поле пустым.
-
-  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbCustomFeedSettings.changefeed_custom_consumer_name.title }}** — укажите потребителя данных (consumer), которого вы создали для потока изменений. По умолчанию используется потребитель с именем `__data_transfer_consumer`.
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbCustomFeedSettings.changefeed_custom_consumer_name.title }}** — укажите потребителя данных (consumer), которого вы создали для потока изменений. По умолчанию используется потребитель с именем `__data_transfer_consumer`. Если поле **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbCustomFeedSettings.changefeed_custom_name.title }}** пустое, трансфер автоматически создает поток изменений (changefeed) и consumer. При указании пользовательского потока изменений трансфер не создает consumer автоматически. В этом случае (включая использование дефолтного имени `__data_transfer_consumer`) необходимо убедиться, что consumer уже существует. Трансфер будет ждать его создания.
 
       
       {% note info %}

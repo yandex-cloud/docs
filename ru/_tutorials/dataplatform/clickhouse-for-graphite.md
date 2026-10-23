@@ -11,7 +11,7 @@
 {% endnote %}
 
 Чтобы настроить БД для работы с Graphite:
-1. [Подготовьте окружение](#start).
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте кластер](#cluster-create).
 1. [Зарегистрируйте конфигурацию rollup в кластере](#rollup-config).
 1. [Создайте и настройте виртуальную машину](#VM-setup).
@@ -21,7 +21,7 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-## Подготовьте окружение {#start}
+## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -37,8 +37,8 @@
 1. [Создайте кластер **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**](../../managed-clickhouse/operations/cluster-create.md) любой подходящей вам конфигурации с БД `db1` и публичным доступом ко всем его хостам. Сохраните имя БД, имя пользователя БД и пароль.
 1. Откройте [консоль управления]({{ link-console-main }}).
 1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис {{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}.
-1. Выберите созданный кластер и на вкладке **{{ ui-key.yacloud.common.overview }}** сохраните идентификатор кластера.
-1. В правом верхнем углу нажмите **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**, на вкладке **Shell** из поля **Пример строки подключения** сохраните параметр `--host`, например `rc1a-2sqal8f0********.{{ dns-zone }}`, это FQDN хоста кластера, он потребуется в дальнейшем.
+1. Выберите созданный кластер и сохраните идентификатор кластера.
+1. Перейдите в раздел **Кластер** → **{{ ui-key.yacloud.clickhouse.cluster.switch_hosts }}** и сохраните FQDN хоста кластера, он потребуется в дальнейшем.
 
 ## Зарегистрируйте конфигурацию rollup в кластере {#rollup-config}
 
@@ -140,7 +140,7 @@
 
 1. Если вы используете группы безопасности для облачной сети, [настройте их](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером и ВМ.
 
-1. [Подключитесь](../../compute/operations/vm-connect/ssh.md). 
+1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ по SSH.
 1. Запустите {{ CH }} CLI со следующими параметрами: вместо `<FQDN_хоста>`, `<имя_БД>`, `<имя_пользователя_БД>` и `<пароль_пользователя_БД>` укажите ранее сохраненные параметры.
 
     ```bash

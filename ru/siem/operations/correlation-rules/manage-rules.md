@@ -110,6 +110,6 @@ description: Следуя данной инструкции, вы научите
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](../../concepts/correlation-rules.md).
-* [{#T}](../exceptions/manage-exceptions.md).
-* [{#T}](rules-list.md).
+* [{#T}](../../concepts/correlation-rules.md)
+* [{#T}](../exceptions/manage-exceptions.md)
+* [{#T}](rules-list.md)

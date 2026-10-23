@@ -106,10 +106,11 @@ description: В данном разделе описано, как начать 
 
 Подробнее в разделе [{#T}](./concepts/compliance.md).
 
+
+
 ## Что дальше {#whats-next}
 
-* Узнайте, [как посмотреть правила контроля безопасности модуля {{ cspm-name }} и их нарушения](./operations/cspm/view-rules.md).
-* Узнайте, [как сканировать данные в бакетах на наличие чувствительной информации](./operations/dspm/create-scan.md) в {{ sd-name }}.
-* Узнайте, [как просмотреть список доступов субъекта](./operations/access-analyzer/analyze-permissions.md#view) в {{ sd-name }}.
-* Узнайте о [необходимых правах доступа](./security/index.md) для работы с {{ sd-name }}.
-
+* [Посмотрите правила контроля безопасности модуля {{ cspm-name }} и их нарушения](./operations/cspm/view-rules.md)
+* [Сканируйте данные в бакетах на наличие чувствительной информации](./operations/dspm/create-scan.md)
+* [Просмотрите список доступов субъекта](./operations/access-analyzer/analyze-permissions.md)
+* [Узнайте необходимые права доступа](./security/index.md)

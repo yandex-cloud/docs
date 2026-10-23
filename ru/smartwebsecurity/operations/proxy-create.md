@@ -25,13 +25,14 @@ description: Следуя данной инструкции, вы сможете
   1. (Опционально) Чтобы сохранять подробную информацию об операциях с запросами:
 
       1. Включите опцию **{{ ui-key.yacloud.smart-web-security.ProxyServerForm.swith-enable-logging_e42nT }}**.
-      1. Выберите существующую лог-группу или [создайте новую](../../logging/operations/create-group.md).
+      1. Выберите [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, в которую будут записываться логи, или [создайте новую](../../logging/operations/create-group.md).
       1. (Опционально) Чтобы уменьшить объем хранимых логов, добавьте правила отбрасывания логов:
 
-          1. Нажмите **{{ ui-key.yacloud.smart-web-security.ProxyServerForm.add-rule_fnmLk }}**.
-          1. Выберите **HTTP-коды** и (опционально) **Классы HTTP-кодов**, для которых будут отбрасываться логи.
-          1. Укажите в процентах, какую часть логов нужно отбрасывать.
-          1. Если для разных HTTP-кодов требуется отбрасывать разные доли логов, добавьте дополнительные правила.
+          1. В блоке **{{ ui-key.yacloud.smart-web-security.ProxyServerForm.discard-rules-title_xn6cP }}** нажмите **{{ ui-key.yacloud.smart-web-security.ProxyServerForm.add-rule_fnmLk }}**.
+          1. Выберите **HTTP-коды** или **Классы HTTP-кодов**, для которых нужно сократить запись логов.
+          1. Укажите **Долю отбрасываемых логов**: `0%` — записывать все логи выбранных кодов, `100%` — отбрасывать все.
+
+          Если для разных HTTP-кодов нужны разные доли отбрасывания, добавьте отдельные правила.
 
   1. Нажмите **{{ ui-key.yacloud.smart-web-security.ProxyServerFormCreate.createServer_sycVk }}**.
 

@@ -104,7 +104,7 @@ _Lookup-таблицы_ — это справочные таблицы для о
 
 #### Полезные ссылки {#see-also}
 
-* [Запросы](queries.md).
-* [Работа с расследованиями](../operations/investigations/index.md).
-* [Работа с запросами](../operations/queries/index.md).
-* [Управление доступом в YCDR](../security/index.md).
+* [Запросы](queries.md)
+* [Работа с расследованиями](../operations/investigations/index.md)
+* [Работа с запросами](../operations/queries/index.md)
+* [Управление доступом в YCDR](../security/index.md)

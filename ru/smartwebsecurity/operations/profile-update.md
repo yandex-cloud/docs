@@ -27,6 +27,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. {% include [profile-protection-mode](../../_includes/smartwebsecurity/profile-protection-mode.md) %}
 
+  1. (Опционально) Включите **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.loggingEnable_6eK2x }}** и [настройте логирование](configure-logging.md#enable-logging): выберите {{ monium-name }}, {{ at-name }} или оба сервиса и задайте фильтры.
   1. Включите или отключите использование информации об HTTP-запросах для улучшения моделей машинного обучения в разделе **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 

@@ -2,10 +2,13 @@
 
 # Настроить логирование через Smart Web Security
 
-Для записи логов Smart Web Security используются сервисы [Cloud Logging](../../logging/index.md) и [Audit Trails](../../audit-trails/index.md). Они решают разные задачи:
+Этот способ дает подробные логи проверки запросов правилами безопасности, WAF и ARL. В профиле можно выбирать типы правил и вердикты для записи. [Логирование через Application Load Balancer](configure-logging-alb.md) сохраняет HTTP-запросы балансировщика с результатом проверки Smart Web Security.
 
-* Cloud Logging — для анализа HTTP-запросов и сработавших правил в профилях безопасности, WAF и ARL.
-* Audit Trails — для сбора аудитных событий Smart Web Security. Это не полноценные логи Smart Web Security, а записи о событиях безопасности и действиях с ресурсами.
+Для записи логов Smart Web Security используются сервисы:
+
+* [Monium Logs](../../monium/logs/quickstart-resources.md) — для логов профилей безопасности. Логи содержат информацию об HTTP-запросах и сработавших правилах, включая WAF и ARL, и сохраняются в проектах Monium.
+* [Cloud Logging](../../logging/index.md) — для логов прокси-серверов и L7-балансировщиков Application Load Balancer. Логи сохраняются в лог-группах.
+* [Audit Trails](../../audit-trails/index.md) — для сбора аудитных событий Smart Web Security. Это записи о событиях безопасности и действиях с ресурсами.
 
 ## Логи аудита {#audit-events}
 
@@ -14,11 +17,15 @@
 * [Уровня конфигурации](../at-ref.md#control-plane-events) — действия, связанные с конфигурированием ресурсов Yandex Cloud. Например, создание или удаление профиля безопасности.
 * [Уровня сервисов](../at-ref.md#data-plane-events) — действия, которые происходят с ресурсами внутри сервисов Yandex Cloud. Например, срабатывание правила из профиля WAF.
 
-Записывать события можно в бакет Object Storage, лог-группу Cloud Logging или поток данных Data Streams.
+Записывать события можно в бакет Object Storage, проект Monium или поток данных Data Streams.
 
 ## Логи HTTP-запросов и применения правил {#requests-logging}
 
-Для записи логов доступны два варианта: через Smart Web Security и через L7-балансировщик Application Load Balancer, к которому подключен профиль безопасности. Логирование через Smart Web Security предоставляет больше возможностей для анализа, чем логирование через Application Load Balancer. Логи записываются в лог-группу Cloud Logging.
+Логи проверки запросов можно записывать через профиль безопасности Smart Web Security в Monium Logs или через L7-балансировщик Application Load Balancer в Cloud Logging. Логирование через профиль безопасности предоставляет больше возможностей для анализа.
+
+Логи профиля безопасности поступают в проект Monium `folder__<идентификатор_каталога>`, где указан идентификатор каталога с профилем. Логи можно просматривать в интерфейсе Smart Web Security или Monium.
+
+Логи прокси-серверов и L7-балансировщиков поступают в выбранную лог-группу Cloud Logging. Логи прокси-сервера также доступны в интерфейсе Smart Web Security, а балансировщика — в интерфейсе Application Load Balancer.
 
 Анализ логов позволяет настраивать и отслеживать работу Smart Web Security:
 
@@ -37,41 +44,52 @@
 
 ### Включить логирование {#enable-logging}
 
-Включить логирование можно при [создании профиля безопасности](profile-create.md) или позднее, при его редактировании.
+Включить логирование можно при создании [профиля безопасности](profile-create.md) или [прокси-сервера](proxy-create.md), а также при их редактировании.
 
 {% note info %}
 
-Для управления [логированием](../concepts/logging.md) в профиле безопасности нужны роли:
-
-* [smart-web-security.editor](../security/index.md#smart-web-security-editor) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится профиль безопасности;
-* [logging.writer](../../logging/security/index.md#logging-writer) на [лог-группу](../../logging/concepts/log-group.md), в которую передаются логи.
-
-Для просмотра логов нужна роль [logging.viewer](../../logging/security/index.md#logging-viewer) на лог-группу.
+Для настройки логирования в профиле безопасности нужна роль [smart-web-security.editor](../security/index.md#smart-web-security-editor) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) с профилем. Для просмотра логов в Monium нужна [роль с правом чтения логов](../../monium/security/index.md#roles-list).
 
 {% endnote %}
 
 {% list tabs group=instructions %}
 
-- Cloud Logging {#logging}
+- Профиль безопасности (Monium) {#monium}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится профиль Smart Web Security.
   1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
-  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **Профили безопасности** или **Защита доменов**.
-  1. В строке с нужным профилем или прокси-сервером нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
+  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **Профили безопасности**.
+  1. В строке с нужным профилем нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. Включите **Запись логов**.
-  1. В поле **Записывать логи в** выберите `Cloud Logging`.
-  1. Выберите или создайте [лог-группу](../../logging/concepts/log-group.md) Cloud Logging, в которую будут записываться логи.
-  1. Для записи в логи профиля безопасности можно выбрать только те запросы, для которых сработали:
+  1. В поле **Записывать логи в** выберите **Monium**.
+  1. Настройте фильтры логов:
 
-      * `Базовые правила`.
-      * Правила `Smart Protection`.
-      * Правила `Web Application Firewall`.
-      * Правила `Advanced Rate Limiter`.
-      * Все выбранные правила применили действие (вердикт) `DENY и CAPTCHA`.
-      * Все выбранные правила применили действие `ALLOW` (легитимные запросы).
+     1. В блоке **Логировать запросы для правил** выберите типы правил:
+     
+        * **Базовые правила**.
+        * **Smart Protection**.
+        * **Web Application Firewall**.
+        * **Advanced Rate Limiter**.
+     
+     1. В блоке **Логировать запросы с вердиктом** выберите вердикты:
+     
+        * **Разрешено (ALLOW)**.
+        * **Заблокировано (DENY)**.
+        * **Направлено на проверку** — **CAPTCHA** или **JS-проверка**.
+     
+     1. Для запросов с вердиктом `ALLOW` укажите долю пропускаемых логов в поле **Сколько не записывать логов с вердиктом ALLOW**: `0%` — записывать все, `100%` — не записывать.
 
-          В нормальной ситуации легитимных запросов гораздо больше, чем нелегитимных. Чтобы уменьшить объем логов, настройте параметр **Сколько не записывать логов с вердиктом ALLOW** — от 1 до 100 процентов. При первой настройке правил рекомендуется анализировать все легитимные запросы. Когда вы убедитесь, что правила работают корректно, можно изменить долю логов или отключить логирование запросов с вердиктом `ALLOW`.
-  1. Для записи в логи прокси-сервера можно создать правило отбрасывания логов:
+  1. Нажмите **Сохранить**.
+
+- Прокси-сервер (Cloud Logging) {#logging}
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с прокси-сервером.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
+  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/domain-protection-icon.svg) **Защита доменов**.
+  1. В строке с нужным прокси-сервером нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
+  1. Включите **Логировать запросы**.
+  1. Выберите [лог-группу](../../logging/concepts/log-group.md) Cloud Logging, в которую будут записываться логи, или [создайте новую](../../logging/operations/create-group.md).
+  1. (Опционально) Чтобы уменьшить объем логов, создайте правило отбрасывания:
 
       1. Нажмите **Добавить правило** в блоке **Правила отбрасывания логов**.
       1. Выберите **HTTP-коды** или **Классы HTTP-кодов**, для которых нужно сократить запись логов.
@@ -83,16 +101,16 @@
 
 - Audit Trails {#at}
 
-  События Audit Trails можно записывать в [бакет](../../storage/concepts/bucket.md) Object Storage, [лог-группу](../../logging/concepts/log-group.md) Cloud Logging или [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) Data Streams. В этой инструкции настроим запись аудитных событий в лог-группу.
+  Настройте запись событий Smart Web Security в [бакет](../../storage/concepts/bucket.md) Object Storage. Перед созданием трейла [подготовьте бакет и сервисный аккаунт](../../audit-trails/operations/create-trail.md#before-you-begin).
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится профиль Smart Web Security.
   1. [Перейдите](https://console.yandex.cloud/link/audit-trails) в сервис **Audit Trails**.
   1. Нажмите **Создать трейл**.
-  1. В поле **Приёмник логов** выберите `Cloud Logging`.
-  1. Выберите лог-группу или [создайте](../../logging/operations/create-group.md) новую.
+  1. В поле **Приёмник логов** выберите **Object Storage**.
+  1. В поле **Бакет** выберите подготовленный бакет.
   1. Отключите **Сбор логов с управляющего слоя**.
   1. В блоке **Сбор логов со слоя данных** очистите список и выберите сервис **Smart Web Security**.
-  1. В блоке **Сервисный аккаунт** выберите аккаунт с [ролью](../../logging/security/index.md#logging-writer) `logging.writer` или [создайте](../../iam/operations/sa/create.md) новый.
+  1. В блоке **Сервисный аккаунт** выберите подготовленный аккаунт с ролями [storage.uploader](../../storage/security/index.md#storage-uploader) на бакет и [audit-trails.viewer](../../audit-trails/security/index.md#at-viewer) на каталог с профилем безопасности.
   1. В блоке **Общая информация** введите имя трейла, например `trail-sws`.
   1. Нажмите **Создать**.
 
@@ -107,17 +125,25 @@
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **Профили безопасности**.
   1. В строке с нужным профилем безопасности нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. Включите **Запись логов**.
-  1. В поле **Записывать логи в** выберите `Audit Trails`.
-  1. (Опционально) Выберите, по каким правилам или вердиктам передавать события:
+  1. В поле **Записывать логи в** выберите **Audit Trails**.
+  1. Настройте фильтры логов:
 
-      * `Базовые правила`.
-      * `Smart Protection`.
-      * `Web Application Firewall`.
-      * `Advanced Rate Limiter`.
-      * `DENY и CAPTCHA`.
-      * `ALLOW`.
+     1. В блоке **Логировать запросы для правил** выберите типы правил:
+     
+        * **Базовые правила**.
+        * **Smart Protection**.
+        * **Web Application Firewall**.
+        * **Advanced Rate Limiter**.
+     
+     1. В блоке **Логировать запросы с вердиктом** выберите вердикты:
+     
+        * **Разрешено (ALLOW)**.
+        * **Заблокировано (DENY)**.
+        * **Направлено на проверку** — **CAPTCHA** или **JS-проверка**.
+     
+     1. Для запросов с вердиктом `ALLOW` укажите долю пропускаемых логов в поле **Сколько не записывать логов с вердиктом ALLOW**: `0%` — записывать все, `100%` — не записывать.
 
-  1. Нажмите **Создать**.
+  1. Нажмите **Сохранить**.
 
   Таким образом можно настроить передачу только событий из отдельных профилей безопасности или только по отдельным правилам и вердиктам.
 
@@ -127,117 +153,109 @@
 
 {% list tabs group=instructions %}
 
-- Cloud Logging {#logging}
+- Интерфейс Smart Web Security {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится профиль Smart Web Security.
+  Для профиля безопасности:
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с профилем безопасности.
   1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
-  1. Выберите раздел ![receipt](../../_assets/console-icons/receipt.svg) **Логи**.
-  1. Выберите лог-группу, если их несколько.
-  1. Выберите период показа логов одним из способов:
+  1. На панели слева выберите ![receipt](../../_assets/console-icons/receipt.svg) **Логи**.
+  1. Задайте период поиска логов.
+  1. В строке запроса выберите поля для фильтрации. Чтобы найти логи конкретного профиля, добавьте условие `security_profile_id = "<идентификатор_профиля>"`.
+  
+     Для ввода запроса в текстовом режиме нажмите ![code](../../_assets/console-icons/code.svg) и используйте [язык запросов Monium](../../monium/logs/query.md). Сохраните метки `project`, `cluster` и `service`, выбранные по умолчанию.
+  
+  1. Нажмите **Выполнить запрос**. Чтобы посмотреть содержимое записи, разверните ее.
 
-      * Нажмите обозначение интервала, например **Последний час**, и выберите один из вариантов: от **Последние 5 минут** до **Последний день**.
+  Для прокси-сервера:
 
-          Также в полях **От** и **До** можно выбрать нужные даты в календаре и указать время.
+  Нужна роль [logging.viewer](../../logging/security/index.md#logging-viewer) на лог-группу.
 
-      * Выберите предустановленный период: **Сейчас**, **5m**, **30m**, **1h**, **1d**, **2d** или укажите свой.
-      * На временной шкале переместите индикаторы начала и конца периода.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с прокси-сервером.
+  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
+  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/domain-protection-icon.svg) **Защита доменов**.
+  1. Выберите нужный прокси-сервер.
+  1. Перейдите на вкладку **Логи**.
 
-  1. В строке **Запрос** укажите параметры выбора:
+  Логи прокси-сервера также можно [просмотреть в Cloud Logging](../../logging/operations/read-logs.md).
 
-      * Выберите поля логов в выпадающем списке или начните вводить первые буквы названия поля.
+- Monium {#monium}
 
-        Поля для фильтрации описаны в разделе [Логирование](../concepts/logging.md).
+  1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите ![compass](../../_assets/console-icons/compass.svg) **Обзор** → **Логи**.
+  1. Задайте период поиска логов.
+  1. В строке запроса укажите `project = "folder__<идентификатор_каталога>"` для каталога с профилем безопасности. Выберите значения `cluster` и `service` для логов Smart Web Security из выпадающих списков.
+  1. Чтобы найти логи конкретного профиля, добавьте условие `security_profile_id = "<идентификатор_профиля>"`.
 
-      * Справа от строки запроса нажмите **</>** и введите запрос в текстовом режиме на [языке фильтрующих выражений](../../logging/concepts/filter.md).
+     Запрос можно составить из меток в выпадающих списках или ввести на [языке запросов Monium](../../monium/logs/query.md). Для ввода запроса нажмите ![code](../../_assets/console-icons/code.svg).
 
-          Примеры запросов приведены ниже.
-
-      {% note info %}
-
-      По умолчанию в строке запроса выбраны внутренние поля: `project`, `cluster`, `service` и `message = *SWS`. Не изменяйте эти значения.
-
-      {% endnote %}
-
-  1. Нажмите **Выполнить запрос**. Чтобы посмотреть содержимое лога, разверните его.
-
-  ## Примеры готовых фильтров для логов {#filtration}
-
-  Логи поставляются в формате JSON. Одна запись в логах соответствует одному запросу клиента, обработанному Smart Web Security.
-
-  Запросы для фильтрации логов составляются, исходя из взаимосвязи профилей и правил [Smart Web Security](../concepts/profiles.md#profile-rules-schema). Вы можете посмотреть логи активных, работающих правил или правил в режиме **Только логирование** (dry run).
-
-  ### Фильтры для активных правил {#active-rule-filters}
-
-  * Показать запросы, заблокированные базовыми правилами с определенными [условиями](../concepts/conditions.md). Например, по списку или региону IP:
-
-      ```text
-      module_type = "RULE_CONDITION", meta.matched_rule_verdict = "DENY"
-      ```
-
-  * Показать запросы, для которых сработали правила [Smart Protection](../concepts/rules.md#smart-protection-rules) с отправкой на капчу:
-
-      ```text
-      module_type = "SMART_PROTECTION", meta.matched_rule_verdict = "CAPTCHA"
-      ```
-
-  * Показать запросы, заблокированные по профилю [WAF](../concepts/waf.md) — правилами WAF из профиля безопасности:
-
-      ```text
-      module_type = "WAF", meta.matched_rule_verdict = "DENY"
-      ```
-
-  * Показать запросы, заблокированные правилами профиля [ARL](../concepts/arl.md):
-
-      ```text
-      meta.arl_verdict = "DENY"
-      ```
-
-  * Показать запросы, для которых сработало конкретное правило ARL — `arl-rule-1`:
-
-      ```text
-      meta.arl_verdict = "DENY", meta.arl_applied_quota_name = "arl-rule-1"
-      ```
-
-  ### Фильтры для правил в режиме логирования {#dry-run-filters}
-
-  * Показать запросы, для которых сработали правила [Smart Protection](../concepts/rules.md#smart-protection-rules) с отправкой на капчу:
-
-    ```text
-    module_type = "SMART_PROTECTION", meta.dry_run_matched_rule_verdict = "CAPTCHA"
-    ```
-
-  * Показать запросы, для которых было превышение по конкретному правилу ARL — `arl-rule-1`:
-
-    ```text
-    meta.arl_verdict = "DENY", meta.arl_dry_run_exceeded_quota_names = "arl-rule-1"
-    ```
-
-  Таким же образом вы можете добавить в фильтры другие условия и изменять их с учетом особенностей вашего потока трафика.
+  1. Нажмите **Выполнить запрос**. Чтобы посмотреть содержимое записи, разверните ее.
 
 - Audit Trails {#at}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится профиль Smart Web Security.
-  1. [Перейдите](https://console.yandex.cloud/link/logging) в сервис **Cloud Logging**.
-  1. Выберите лог-группу, в которую передаются события Audit Trails.
-  1. Выберите период показа логов одним из способов:
+  Для просмотра логов нужна роль [storage.viewer](../../storage/security/index.md#storage-viewer) на бакет.
 
-      * Нажмите обозначение интервала, например **Последний час**, и выберите один из вариантов: от **Последние 5 минут** до **Последний день**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с бакетом.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
+  1. Выберите бакет, указанный в настройках трейла.
+  1. На вкладке **Объекты** найдите файлы за нужную дату. [Путь к файлу](../../audit-trails/concepts/format-data-plane.md#log-file-name) содержит идентификатор трейла и дату записи.
+  1. [Скачайте](../../storage/operations/objects/download.md) нужный JSON-файл и откройте его в текстовом редакторе.
 
-          Также в полях **От** и **До** можно выбрать нужные даты в календаре и указать время.
-
-      * Выберите предустановленный период: **Сейчас**, **5m**, **30m**, **1h**, **1d**, **2d** или укажите свой.
-      * На временной шкале переместите индикаторы начала и конца периода.
-
-  1. В строке **Запрос** укажите запрос на [языке фильтрующих выражений](../../logging/concepts/filter.md) и нажмите **Выполнить**.
-
-      События Audit Trails записываются в формате JSON. Чтобы найти определенное [событие](../at-ref.md#data-plane-events), укажите его имя в формате:
-
-      ```
-      yandex.cloud.audit.smartwebsecurity.<имя_события>
-      ```
-
-      Примеры составления запросов приведены в разделе [Примеры запросов для поиска событий в аудитных логах](../../audit-trails/tutorials/search-events-audit-logs/examples.md).
-
-  1. Чтобы посмотреть содержимое лога, разверните его.
+  Каждый файл содержит массив событий. Чтобы найти определенное [событие Smart Web Security](../at-ref.md#data-plane-events), ищите значение поля `event_type` в формате `yandex.cloud.audit.smartwebsecurity.<имя_события>`.
 
 {% endlist %}
+
+## Примеры готовых фильтров для логов {#filtration}
+
+Примеры ниже относятся к логам профиля безопасности и подходят для интерфейсов Smart Web Security и Monium. Логи поставляются в формате JSON: одна запись соответствует одному запросу клиента, обработанному Smart Web Security.
+
+Запросы для фильтрации логов составляются, исходя из взаимосвязи профилей и правил [Smart Web Security](../concepts/profiles.md#profile-rules-schema). Вы можете посмотреть логи активных, работающих правил или правил в режиме **Только логирование** (dry run).
+
+Добавьте нужные условия из примеров ниже в селектор запроса, сохранив метки `project`, `cluster` и `service`. Поля описаны в разделе [Логирование](../concepts/logging.md).
+
+### Фильтры для активных правил {#active-rule-filters}
+
+* Показать запросы, заблокированные базовыми правилами с определенными [условиями](../concepts/conditions.md). Например, по списку или региону IP:
+
+    ```text
+    module_type = "RULE_CONDITION", meta.matched_rule_verdict = "DENY"
+    ```
+
+* Показать запросы, для которых сработали правила [Smart Protection](../concepts/rules.md#smart-protection-rules) с отправкой на капчу:
+
+    ```text
+    module_type = "SMART_PROTECTION", meta.matched_rule_verdict = "CAPTCHA"
+    ```
+
+* Показать запросы, заблокированные по профилю [WAF](../concepts/waf.md) — правилами WAF из профиля безопасности:
+
+    ```text
+    module_type = "WAF", meta.matched_rule_verdict = "DENY"
+    ```
+
+* Показать запросы, заблокированные правилами профиля [ARL](../concepts/arl.md):
+
+    ```text
+    meta.arl_verdict = "DENY"
+    ```
+
+* Показать запросы, для которых сработало конкретное правило ARL — `arl-rule-1`:
+
+    ```text
+    meta.arl_verdict = "DENY", meta.arl_applied_quota_name = "arl-rule-1"
+    ```
+
+### Фильтры для правил в режиме логирования {#dry-run-filters}
+
+* Показать запросы, для которых сработали правила [Smart Protection](../concepts/rules.md#smart-protection-rules) с отправкой на капчу:
+
+  ```text
+  module_type = "SMART_PROTECTION", meta.dry_run_matched_rule_verdict = "CAPTCHA"
+  ```
+
+* Показать запросы, для которых было превышение по конкретному правилу ARL — `arl-rule-1`:
+
+  ```text
+  meta.arl_dry_run_exceeded_quota_names = "arl-rule-1"
+  ```
+
+Таким же образом вы можете добавить в фильтры другие условия и изменять их с учетом особенностей вашего потока трафика.

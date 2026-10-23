@@ -438,7 +438,11 @@ Monium платформа для сбора, хранения и анализа 
 
  - [Квоты и лимиты](concepts/limits.md)
 
- - [Управление доступом](security/index.md)
+## Управление доступом
+
+ - [Обзор](security/index.md)
+
+ - [Ключи приложений](security/application-keys.md)
 
  - [Правила тарификации](pricing.md)
 

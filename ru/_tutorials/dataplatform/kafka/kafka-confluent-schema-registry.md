@@ -87,10 +87,10 @@
 
     ```bash
     sudo apt-get update && \
-    sudo apt-get install \
+    sudo apt-get install -y \
          confluent-schema-registry \
          openjdk-11-jre-headless \
-         python3-pip --yes
+         python3-pip
     ```
 
 1. [Получите SSL-сертификат](../../../managed-kafka/operations/connect/index.md#get-ssl-cert).
@@ -194,9 +194,12 @@
         kafkastore.ssl.truststore.password=<пароль_защищенного_хранилища_сертификатов>
         kafkastore.sasl.mechanism=SCRAM-SHA-512
         kafkastore.security.protocol=SASL_SSL
+        schema.registry.group.id=<имя_группы>
         ```
 
         Список хостов-брокеров можно получить [со списком хостов кластера](../../../managed-kafka/operations/cluster-hosts.md).
+
+        Параметр `schema.registry.group.id` задает имя группы, в которой происходит выбор лидера среди экземпляров Confluent Schema Registry. Задайте имя, отличное от `schema-registry`: группа по умолчанию уже используется встроенным реестром схем кластера {{ mkf-name }}. Если имя группы совпадает, встроенный реестр становится лидером, и регистрация схем в Confluent Schema Registry завершается ошибкой.
 
 1. Измените файл с описанием модуля systemd `/lib/systemd/system/confluent-schema-registry.service`.
 
@@ -240,8 +243,10 @@
 1. Установите необходимые пакеты Python:
 
     ```bash
-    sudo pip3 install avro confluent_kafka
+    sudo pip3 install avro confluent_kafka==1.9.2
     ```
+
+    {% include [version-confluent-kafka](../../../_includes/mdb/note-version-confluent-kafka.md) %}
 
 1. Создайте Python-скрипт потребителя.
 

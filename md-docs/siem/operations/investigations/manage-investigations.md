@@ -132,7 +132,7 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Расследования](../../concepts/investigations.md).
-* [Запросы](../../concepts/queries.md).
-* [Работа со списком расследований](investigations-list.md).
-* [Работа с запросами](../queries/index.md).
+* [Расследования](../../concepts/investigations.md)
+* [Запросы](../../concepts/queries.md)
+* [Работа со списком расследований](investigations-list.md)
+* [Работа с запросами](../queries/index.md)

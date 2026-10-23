@@ -20,4 +20,5 @@ noIndex: true
 || {{ mmg-name }} | [{#T}](../storedoc/operations/cluster-outbound-backups.md) ||
 || {{ mgp-name }} | [{#T}](../managed-greenplum/operations/cluster-outbound-backups.md) ||
 || {{ mch-name }} | [{#T}](../managed-clickhouse/operations/cluster-outbound-backups.md) ||
+|| {{ mos-name }} | [{#T}](../managed-opensearch/operations/cluster-outbound-backups.md) ||
 |#

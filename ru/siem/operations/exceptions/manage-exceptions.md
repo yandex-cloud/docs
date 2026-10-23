@@ -127,6 +127,6 @@ description: Следуя данной инструкции, вы научите
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](../../concepts/correlation-rules.md).
-* [{#T}](../correlation-rules/manage-rules.md).
-* [{#T}](exceptions-list.md).
+* [{#T}](../../concepts/correlation-rules.md)
+* [{#T}](../correlation-rules/manage-rules.md)
+* [{#T}](exceptions-list.md)

@@ -54,7 +54,7 @@ description: Следуя данной инструкции, вы научите
 
 ## Что дальше {#whats-next}
 
-* Узнайте больше о [расследованиях](concepts/investigations.md) и [запросах](concepts/queries.md).
-* Научитесь [управлять расследованиями](operations/investigations/manage-investigations.md).
-* Изучите [работу с запросами](operations/queries/index.md).
-* Изучите [справочник KQL](kql-reference.md).
+* Узнайте больше о [расследованиях](concepts/investigations.md) и [запросах](concepts/queries.md)
+* Научитесь [управлять расследованиями](operations/investigations/manage-investigations.md)
+* Изучите [работу с запросами](operations/queries/index.md)
+* Изучите [справочник KQL](kql-reference.md)

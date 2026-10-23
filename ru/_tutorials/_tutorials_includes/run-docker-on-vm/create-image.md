@@ -1,13 +1,5 @@
 1. Откройте терминал.
-1. Для удобства выполнения команд добавьте переменные:
-
-    * Имя пользователя и публичный IP-адрес вашей ВМ — в переменную `${PUBLIC_IP}`:
-
-        ```bash
-        export PUBLIC_IP=<имя_пользователя>@<публичный_IP-адрес_ВМ>
-        ```
-
-    * Идентификатор реестра, созданного ранее, в формате `crpc9qeoft23********` — в переменную `${REGISTRY_ID}`:
+1. Для удобства выполнения команд добавьте идентификатор реестра, созданного ранее, в формате `crpc9qeoft23********` в переменную `${REGISTRY_ID}`:
 
         ```bash
         export REGISTRY_ID=<идентификатор_реестра>
@@ -83,23 +75,23 @@
           "{{ registry }}": "yc"
           ```
 
-      1. Docker готов к использованию, например, для [загрузки Docker-образов](../../../container-registry/operations/docker-image/docker-image-push.md). При этом выполнять команду `docker login` не надо.
+      1. Docker готов к использованию, например, для [загрузки Docker-образов](../../../container-registry/operations/docker-image/docker-image-push.md). При этом выполнять команду `docker login` не нужно.
 
     {% endlist %}
 
 1. Создайте файл Dockerfile:
 
     ```bash
-    touch .dockerfile
+    touch Dockerfile
     ```
 
 1. Откройте Dockerfile текстовым редактором, например:
 
     ```bash
-    nano .dockerfile
+    nano Dockerfile
     ```
 
-1. Добавьте туда следующие строки:
+1. Добавьте в файл следующие строки:
 
     ```text
     FROM ubuntu:latest
@@ -109,7 +101,7 @@
 1. Соберите Docker-образ:
 
     ```bash
-    docker build . -t {{ registry }}/${REGISTRY_ID}/ubuntu:hello -f .dockerfile
+    docker build . -t {{ registry }}/${REGISTRY_ID}/ubuntu:hello -f Dockerfile
     ```
 
     Результат:
@@ -117,7 +109,7 @@
     ```text
     ...
     Successfully built b68ee9b6b1af
-    Successfully tagged {{ registry }}/crpmnjr98tm5********/ubuntu:hello
+    Successfully tagged {{ registry }}/crpc9qeoft23********/ubuntu:hello
     ```
 
 1. Загрузите собранный Docker-образ в {{ container-registry-name }}:

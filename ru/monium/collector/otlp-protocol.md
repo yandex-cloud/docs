@@ -25,13 +25,23 @@
 
 ## Авторизация {#authorization}
 
-Для авторизации запросов используется API-ключ, передаваемый в заголовке `Authorization`:
+Для авторизации запросов передавайте API-ключ или [ключ приложения](../security/application-keys.md) в заголовке `Authorization`.
+
+Для API-ключа используйте формат:
 
 ```
-Authorization: Api-Key <API_ключ>
+Authorization: Api-Key AQVN3sHv****
 ```
 
 API-ключ создается для сервисного аккаунта с ролью `monium.telemetry.writer`. Ключ должен иметь область действия `yc.monium.telemetry.write` для записи любого вида телеметрии, либо одну или несколько из `yc.monium.metrics.write`, `yc.monium.logs.write`, `yc.monium.traces.write` для гранулированного доступа. Подробнее о [создании API-ключа](../../iam/operations/authentication/manage-api-keys.md#create-api-key).
+
+Для ключа приложения используйте формат:
+
+```text
+Authorization: Application-Key MONIUM_Fc6m****
+```
+
+Ключ должен разрешать запись нужного типа телеметрии, а значение `x-monium-project` — совпадать с идентификатором проекта, в котором создан ключ.
 
 ## Заголовки {#headers}
 
@@ -39,8 +49,8 @@ API-ключ создается для сервисного аккаунта с 
 
 #|
 || **Заголовок** | **Описание** | **Пример** ||
-|| `Authorization` | API-ключ для аутентификации | `Api-Key AQVN...` ||
-|| `x-monium-project` | Имя проекта {{ monium-name }} | `folder__b1...` ||
+|| `Authorization` | API-ключ или ключ приложения для авторизации | `Api-Key AQVN3sHv****` или `Application-Key MONIUM_Fc6m****` ||
+|| `x-monium-project` | Идентификатор проекта {{ monium-name }} | `folder__b1...` ||
 |#
 
 ### Опциональные заголовки {#optional-headers}

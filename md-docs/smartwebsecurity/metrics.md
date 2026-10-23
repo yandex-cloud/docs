@@ -1,8 +1,8 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Smart Web Security](index.md) > Метрики Monitoring
+[Документация Yandex Cloud](../index.md) > [Yandex Smart Web Security](index.md) > Метрики
 
-# Справочник метрик Yandex Monitoring
+# Справочник метрик Smart Web Security
 
-В этом разделе описаны метрики Smart Web Security. Все метрики Smart Web Security поставляются в [Monitoring](../monitoring/index.md) сервисом [Yandex Application Load Balancer](../application-load-balancer/index.md).
+В этом разделе описаны метрики Smart Web Security, которые собирает [Yandex Application Load Balancer](../application-load-balancer/index.md). [Просматривать метрики](operations/monitoring.md) можно в разделе **Мониторинг** сервиса Smart Web Security.
 
 Имя метрики пишется в метку `name`.
 

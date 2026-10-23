@@ -108,7 +108,7 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Расследования](../../concepts/investigations.md).
-* [Запросы](../../concepts/queries.md).
-* [Управление расследованиями](manage-investigations.md).
-* [Работа с запросами](../queries/index.md).
+* [Расследования](../../concepts/investigations.md)
+* [Запросы](../../concepts/queries.md)
+* [Управление расследованиями](manage-investigations.md)
+* [Работа с запросами](../queries/index.md)

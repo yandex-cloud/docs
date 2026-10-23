@@ -258,6 +258,6 @@ flowchart BT
 
 Подробнее о примитивных ролях в [справочнике ролей Yandex Cloud](../../iam/roles-reference.md#primitive-roles).
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 [Структура ресурсов Yandex Cloud](../../resource-manager/concepts/resources-hierarchy.md)

@@ -48,8 +48,15 @@
 
     ```bash
     sudo apt-get update && \
-    sudo pip3 install avro confluent_kafka
+    sudo apt-get install -y python3-pip && \
+    sudo pip3 install avro confluent_kafka==1.9.2
     ```
+
+    {% note info %}
+
+    {% include [version-confluent-kafka](../../../_includes/mdb/note-version-confluent-kafka.md) %}
+
+    {% endnote %}
 
 1. Чтобы использовать шифрованное соединение, установите SSL-сертификат:
 
@@ -57,10 +64,12 @@
     sudo mkdir -p /usr/share/ca-certificates && \
     sudo wget "{{ crt-web-path }}" \
               -O /usr/share/ca-certificates/{{ crt-local-file }} && \
-    sudo chmod 655 /usr/share/ca-certificates/{{ crt-local-file }}
+    sudo chmod 644 /usr/share/ca-certificates/{{ crt-local-file }}
     ```
 
 1. Создайте Python-скрипт потребителя.
+
+    В параметре `schema.registry.url` укажите FQDN любого хоста-брокера кластера {{ mkf-name }} (тот же, что и в `bootstrap.servers`): реестр схем {{ mkf-msr }} развернут на каждом хосте-брокере и доступен по протоколу HTTPS на порте 443.
 
     {% include [Consumer script algorithm](./consumer-script-algorithm.md) %}
 
@@ -100,7 +109,7 @@
             msg = c.poll(10)
 
         except SerializerError as e:
-            print("Message deserialization failed for {}: {}".format(msg, e))
+            print("Message deserialization failed: {}".format(e))
             break
 
         if msg is None:

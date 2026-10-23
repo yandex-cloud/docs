@@ -1,0 +1,1 @@
+L7-балансировщик сервиса {{ alb-name }} принимает HTTP- и HTTPS-запросы к приложению и распределяет их между серверами. Подробнее о [балансировщиках нагрузки](../../application-load-balancer/concepts/application-load-balancer.md).

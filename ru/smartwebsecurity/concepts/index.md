@@ -19,9 +19,9 @@ description: Что такое {{ sws-full-name }}, какие типы угро
 
 ## Мониторинг и аудит {#monitoring-audit}
 
-Логи {{ sws-name }} передаются в сервис [{{ cloud-logging-full-name }}](../../logging/).
+Логи профилей безопасности передаются в [{{ monium-full-name }}](../../monium/), логи прокси-серверов — в [{{ cloud-logging-full-name }}](../../logging/). [Просматривать логи](../operations/configure-logging.md#view-logs) можно в интерфейсе {{ sws-name }} и соответствующего сервиса логирования.
 
-Метрики {{ sws-name }} передаются в сервис [{{ monitoring-full-name }}](../../monitoring/).
+[Метрики](../operations/monitoring.md) доступны в разделе **{{ ui-key.yacloud.common.monitoring }}** сервиса {{ sws-name }}.
 
 Аудитные логи {{ sws-name }} передаются в сервис [{{ at-full-name }}](../../audit-trails/).
 
@@ -41,3 +41,4 @@ description: Что такое {{ sws-full-name }}, какие типы угро
 * [Yandex SWS и CDN: защита и ускорение сайтов для компаний любого масштаба](https://yandex.cloud/ru/blog/sws-cdn-cloudflare-alternative)
 * [Что такое SOC: центр мониторинга кибербезопасности](https://yandex.cloud/ru/blog/soc-security-operations-center)
 * [Как защитить сайт от накрутки посещаемости и заблокировать ботов](https://yandex.cloud/ru/blog/how-to-stop-bots)
+

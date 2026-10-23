@@ -476,7 +476,8 @@ description: Из статьи вы узнаете, как изменить на
             --yandexquery-access=<разрешить_доступ_из_Yandex_Query> \
             --performance-diagnostics enabled=<активировать_сбор_статистики>,`
                                      `sessions-sampling-interval=<интервал_сбора_сессий>,`
-                                     `statements-sampling-interval=<интервал_сбора_запросов>
+                                     `statements-sampling-interval=<интервал_сбора_запросов> \
+            --managed-repack enabled=<true_или_false>
         ```
 
     Вы можете изменить следующие настройки:
@@ -517,6 +518,11 @@ description: Из статьи вы узнаете, как изменить на
         * `statements-sampling-interval` — интервал сбора запросов, в секундах. Допустимые значения — от `1` до `86400`.
 
 
+    * `--managed-repack` — настройки возможности перепаковки таблиц и индексов для устранения _раздувания данных_ (bloat):
+
+        * `enabled=true` — возможность перепаковки таблиц и индексов включена.
+        * `enabled=false` — возможность перепаковки таблиц и индексов отключена (значение по умолчанию).
+
     Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
@@ -542,7 +548,7 @@ description: Из статьи вы узнаете, как изменить на
         }
       }
       ```
-
+  1. {% include [managed_repack](../../_includes/mdb/mpg/terraform/managed_repack.md) %}
   1. Чтобы разрешить доступ из {{ datalens-full-name }} и [выполнение SQL-запросов из консоли управления](web-sql-query.md) с помощью {{ websql-full-name }}, измените значения соответствующих полей в блоке `config.access`:
 
       ```hcl
@@ -630,7 +636,7 @@ description: Из статьи вы узнаете, как изменить на
      
      ```json
      {
-       "updateMask": "configSpec.poolerConfig,configSpec.backupWindowStart,configSpec.backupRetainPeriodDays,configSpec.access,configSpec.performanceDiagnostics.sessionsSamplingInterval,configSpec.performanceDiagnostics.statementsSamplingInterval,maintenanceWindow,deletionProtection",
+       "updateMask": "configSpec.poolerConfig,configSpec.backupWindowStart,configSpec.backupRetainPeriodDays,configSpec.access,configSpec.performanceDiagnostics.sessionsSamplingInterval,configSpec.performanceDiagnostics.statementsSamplingInterval,configSpec.managedRepack.enabled,maintenanceWindow,deletionProtection",
        "configSpec": {
          "poolerConfig": {
            "poolingMode": "<режим_управления_соединениями>",
@@ -654,6 +660,9 @@ description: Из статьи вы узнаете, как изменить на
            "enabled": <активировать_сбор_статистики>,
            "sessionsSamplingInterval": "<интервал_сбора_сессий>",
            "statementsSamplingInterval": "<интервал_сбора_запросов>"
+         },
+         "managedRepack": {
+           "enabled": <true_или_false>
          }
        },
        "maintenanceWindow": {
@@ -707,7 +716,10 @@ description: Из статьи вы узнаете, как изменить на
          * `sessionsSamplingInterval` — интервал сбора сессий. Возможные значения: от `1` до `86400` секунд.
          * `statementsSamplingInterval` — интервал сбора запросов. Возможные значения: от `1` до `86400` секунд.
 
+       * `managedRepack.enabled` — настройки возможности перепаковки таблиц и индексов для устранения _раздувания данных_ (bloat):
 
+         * `true` — возможность перепаковки таблиц и индексов включена.
+         * `false` — возможность перепаковки таблиц и индексов отключена (значение по умолчанию).
      * `maintenanceWindow` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). Передайте один из двух параметров:
 
        * `anytime` — техническое обслуживание проводится в любое время.
@@ -764,6 +776,7 @@ description: Из статьи вы узнаете, как изменить на
            "config_spec.access",
            "config_spec.performance_diagnostics.sessions_sampling_interval",
            "config_spec.performance_diagnostics.statements_sampling_interval",
+           "config_spec.managed_repack.enabled",
            "maintenance_window",
            "deletion_protection"
          ]
@@ -791,6 +804,9 @@ description: Из статьи вы узнаете, как изменить на
            "enabled": <активировать_сбор_статистики>,
            "sessions_sampling_interval": "<интервал_сбора_сессий>",
            "statements_sampling_interval": "<интервал_сбора_запросов>"
+         },
+         "managed_repack": {
+           "enabled": <true_или_false>
          }
        },
        "maintenance_window": {
@@ -844,7 +860,10 @@ description: Из статьи вы узнаете, как изменить на
          * `sessions_sampling_interval` — интервал сбора сессий. Возможные значения: от `1` до `86400` секунд.
          * `statements_sampling_interval` — интервал сбора запросов. Возможные значения: от `1` до `86400` секунд.
 
+       * `managed_repack.enabled` — настройки возможности перепаковки таблиц и индексов для устранения _раздувания данных_ (bloat):
 
+         * `true` — возможность перепаковки таблиц и индексов включена.
+         * `false` — возможность перепаковки таблиц и индексов отключена (значение по умолчанию).
      * `maintenance_window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). Передайте один из двух параметров:
 
        * `anytime` — техническое обслуживание проводится в любое время.

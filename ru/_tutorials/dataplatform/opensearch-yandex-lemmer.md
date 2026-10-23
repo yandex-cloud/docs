@@ -8,61 +8,63 @@
 После тестирования [удалите](#clear-out) созданные ресурсы, если они вам больше не нужны.
 
 
-## Необходимые платные ресурсы {#paid-resources}
+## Перед началом работы {#before-you-begin}
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер {{ mos-name }}: использование вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mos-name }}](../../managed-opensearch/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте инфраструктуру {#prepare-infrastructure}
 
 1. Подготовьте инфраструктуру:
 
     {% list tabs group=instructions %}
 
-    * Вручную {#manual}
+    - Вручную {#manual}
 
-        1. [Создайте кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) нужной вам конфигурации со следующими настройками:
+      1. [Создайте кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) нужной вам конфигурации со следующими настройками:
 
-            * Подключены плагины `yandex-lemmer` и `analysis-icu`.
-            * Включен публичный доступ к группе хостов с ролью `DATA`.
+          * Подключены плагины `yandex-lemmer` и `analysis-icu`.
+          * Включен публичный доступ к группе хостов с ролью `DATA`.
 
-            {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+          {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
-        1. Если вы используете группы безопасности в кластере, убедитесь, что они [настроены правильно](../../managed-opensearch/operations/connect/index.md#security-groups) и допускают подключение к кластеру.
+      1. Если вы используете группы безопасности в кластере, убедитесь, что они [настроены правильно](../../managed-opensearch/operations/connect/index.md#security-groups) и допускают подключение к кластеру.
 
-    * С помощью {{ TF }} {#tf}
+    - С помощью {{ TF }} {#tf}
 
-        1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
-        1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
-        1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
-        1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+      1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+      1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+      1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+      1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-        1. Скачайте в ту же рабочую директорию файл конфигурации [opensearch-yandex-lemmer.tf](https://github.com/yandex-cloud-examples/yc-opensearch-yandex-lemmer/blob/main/opensearch-yandex-lemmer.tf). В файле описаны:
+      1. Скачайте в ту же рабочую директорию файл конфигурации [opensearch-yandex-lemmer.tf](https://github.com/yandex-cloud-examples/yc-opensearch-yandex-lemmer/blob/main/opensearch-yandex-lemmer.tf). В файле описаны:
 
-            * [сеть](../../vpc/concepts/network.md#network);
-            * [подсеть](../../vpc/concepts/network.md#subnet);
-            * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру {{ mos-name }};
-            * кластер {{ mos-name }}.
+          * [сеть](../../vpc/concepts/network.md#network);
+          * [подсеть](../../vpc/concepts/network.md#subnet);
+          * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру {{ mos-name }};
+          * кластер {{ mos-name }}.
 
-        1. Укажите в файле `opensearch-yandex-lemmer.tf` переменные:
+      1. Укажите в файле `opensearch-yandex-lemmer.tf` переменные:
 
-            * `version` — версия {{ OS }}.
-            * `admin_password` — пароль администратора {{ OS }}.
+          * `version` — версия {{ OS }}.
+          * `admin_password` — пароль администратора {{ OS }}.
 
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+      1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
-            ```bash
-            terraform validate
-            ```
+          ```bash
+          terraform validate
+          ```
 
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+          Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
-        1. Создайте необходимую инфраструктуру:
+      1. Создайте необходимую инфраструктуру:
 
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+          {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
     {% endlist %}
 
@@ -329,7 +331,7 @@
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request POST "https://<адрес_хоста_{{ OS }}_с_ролью_DATA>.mdb.yandexcloud.net:9200/index-with-filters/_doc?pretty" \
+        --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:9200/index-with-filters/_doc?pretty' \
         --data '{
                   "book": "Чёрный тюльпан",
                   "author": "Александр Дюма"
@@ -345,7 +347,7 @@
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request GET 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/index-with-filters2/_search?pretty' \
+        --request GET 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/index-with-filters/_search?pretty' \
         --data '{
                   "query": {
                     "query_string": {
@@ -369,7 +371,7 @@
       "max_score" : 0.2876821,
       "hits" : [
         {
-          "_index" : "index-with-filters2",
+          "_index" : "index-with-filters",
           "_id" : "34EO_pIB-3clfLPNvvbY",
           "_score" : 0.2876821,
           "_source" : {
@@ -390,12 +392,12 @@
 
 {% list tabs group=instructions %}
 
-* Вручную {#manual}
+- Вручную {#manual}
 
-    [Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md).
+  [Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md).
 
-* С помощью {{ TF }} {#tf}
+- С помощью {{ TF }} {#tf}
 
-    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
+  {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

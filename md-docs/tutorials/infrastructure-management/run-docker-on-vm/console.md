@@ -2,7 +2,7 @@
 
 # Запуск Docker-образа на виртуальной машине с помощью консоли управления, CLI и API
 
-Чтобы [запустить Docker-образ на ВМ](index.md) с использованием реестра [Yandex Container Registry](../../../container-registry/index.md), выполните следующие шаги:
+Чтобы [запустить Docker-образ на ВМ](index.md), используя реестр [Yandex Container Registry](../../../container-registry/index.md), выполните следующие шаги:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте реестр Container Registry](#create-registry).
@@ -318,7 +318,7 @@
       id: ajelabcde12f********
       folder_id: b0g12ga82bcv********
       created_at: "2020-11-30T14:32:18.900092Z"
-      name: myservice-acc
+      name: images-puller
       ```
 
   1. Назначьте роль `container-registry.images.puller` сервисному аккаунту:
@@ -329,7 +329,7 @@
         --subject serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
 
-      Где `--subject` — идентификатор сервисного аккаунта (например: `ajelabcde12f********`), которому назначается роль.
+      Где `--subject` — идентификатор сервисного аккаунта (например, `ajelabcde12f********`), которому назначается роль.
 
 - API {#api}
 
@@ -353,7 +353,7 @@
   1. В блоке **Расположение** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет создана ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
   1. (Опционально) В блоке **Диски и файловые хранилища** задайте нужный [тип](../../../compute/concepts/disk.md#disks-types) и размер загрузочного [диска](../../../compute/concepts/disk.md).
 
-      Если вы хотите добавить на ВМ новый дополнительный диск или подключить существующий, нажмите кнопку **Добавить**.
+      Если вы хотите добавить на ВМ дополнительный диск или подключить существующий, нажмите кнопку **Добавить**.
 
       Также вы можете [создать ВМ из существующего диска](../../../compute/operations/vm-create/create-from-disks.md).
 
@@ -471,8 +471,8 @@
         --zone ru-central1-b \
         --network-interface subnet-name=default-ru-central1-b,nat-ip-version=ipv4 \
         --create-boot-disk image-folder-id=standard-images,image-family=centos-7 \
-        --ssh-key ~/.ssh/id_ed25519.pub
-        --service-account-name service-acc
+        --ssh-key ~/.ssh/id_ed25519.pub \
+        --service-account-name images-puller
       ```
 
       Где:
@@ -488,7 +488,7 @@
       * `--zone` — зона доступности, которая соответствует выбранной подсети.
       * `subnet-name` — имя выбранной подсети.
       * `image-family` — [семейство образов](../../../compute/concepts/image.md#family), например `centos-7`. Эта опция позволит установить последнюю версию операционной системы из указанного семейства.
-      * Публичный IP. Чтобы создать ВМ без публичного IP, исключите опцию `nat-ip-version=ipv4`.
+      * `nat-ip-version` — версия IP-адреса. Чтобы создать ВМ без публичного IP, исключите опцию `nat-ip-version=ipv4`.
       * `--ssh-key` — путь до публичного SSH-ключа. Для этого ключа на ВМ будет автоматически создан пользователь `yc-user`.
       * `--service-account-name` — имя сервисного аккаунта, созданного на предыдущем шаге.
 
@@ -507,7 +507,7 @@
   1. [Получите идентификатор](../../../resource-manager/operations/folder/get-id.md) каталога.
   1. Получите информацию об образе, из которого надо создать ВМ (идентификатор образа и минимальный размер диска):
 
-      * Если вы знаете [семейство образа](../../../compute/concepts/image.md#family), получите информации о последнем образе в этом семействе:
+      * Если вы знаете [семейство образа](../../../compute/concepts/image.md#family), получите информацию о последнем образе в этом семействе:
 
           ```bash
           export IAM_TOKEN=CggaATEVAgA...
@@ -531,13 +531,13 @@
             "v4CidrBlocks": [
               "10.130.0.0/24"
             ],
-          "id": "b0c6n43ftldh********",
-          "folderId": "b1gvmob95yys********",
-          "createdAt": "2018-09-23T12:15:00Z",
-          "name": "default-ru-central1-b",
-          "description": "Auto-created default subnet for zone ru-central1-b",
-          "networkId": "enpe3m3faglu********",
-          "zoneId": "ru-central1-b"
+            "id": "b0c6n43ftldh********",
+            "folderId": "b1gvmob95yys********",
+            "createdAt": "2018-09-23T12:15:00Z",
+            "name": "default-ru-central1-b",
+            "description": "Auto-created default subnet for zone ru-central1-b",
+            "networkId": "enpe3m3faglu********",
+            "zoneId": "ru-central1-b"
         },
         ...
         ]}
@@ -584,7 +584,7 @@
       * `name` — имя, которое будет присвоено ВМ при создании.
       * `zoneId` — зона доступности, которая соответствует выбранной подсети.
       * `platformId` — [платформа](../../../compute/concepts/vm-platforms.md).
-      * `resourceSpec` — ресурсы, доступные ВМ. Значения должны соответствовать выбранной платформе.
+      * `resourcesSpec` — ресурсы, доступные ВМ. Значения должны соответствовать выбранной платформе.
       * `metadata` — в метаданных необходимо передать открытый ключ для SSH-доступа на ВМ. Подробнее в разделе [Метаданные виртуальной машины](../../../compute/concepts/vm-metadata.md).
       * `bootDiskSpec` — настройки загрузочного диска. Укажите идентификатор выбранного образа и размер диска. Размер диска должен быть не меньше минимального размера диска, указанного в информации об образе.
       * `networkInterfaceSpecs` — настройки сети:
@@ -592,7 +592,7 @@
         * `subnetId` — идентификатор выбранной подсети.
         * `primaryV4AddressSpec` — IP-адрес, который будет присвоен ВМ. Чтобы добавить [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) ВМ, укажите:
 
-            ```yaml
+            ```json
             "primaryV4AddressSpec": {
               "oneToOneNatSpec": {
                 "ipVersion": "IPV4"
@@ -602,7 +602,7 @@
 
       * `serviceAccountId` — идентификатор созданного на предыдущем шаге сервисного аккаунта.
 
-      Подробнее про формат тела запроса в [справочнике API](../../../compute/api-ref/Instance/create.md).
+      Подробнее о формате тела запроса в [справочнике API](../../../compute/api-ref/Instance/create.md).
 
   1. Создайте ВМ:
 
@@ -617,7 +617,7 @@
 
 {% endlist %}
 
-После создания ВМ [соберите и загрузите Docker-образ в Container Registry](#create-image). 
+После создания ВМ [соберите и загрузите Docker-образ в Container Registry](#create-image).
 
 
 ## Соберите и загрузите Docker-образ в Container Registry {#create-image}
@@ -625,15 +625,7 @@
 Пример ниже разработан для выполнения в операционных системах MacOS и Linux. Чтобы выполнить его в системе Windows, [ознакомьтесь](../../../overview/concepts/console-syntax-guide.md) с особенностями работы с Bash в Microsoft Windows.
 
 1. Откройте терминал.
-1. Для удобства выполнения команд добавьте переменные:
-
-    * Имя пользователя и публичный IP-адрес вашей ВМ — в переменную `${PUBLIC_IP}`:
-
-        ```bash
-        export PUBLIC_IP=<имя_пользователя>@<публичный_IP-адрес_ВМ>
-        ```
-
-    * Идентификатор реестра, созданного ранее, в формате `crpc9qeoft23********` — в переменную `${REGISTRY_ID}`:
+1. Для удобства выполнения команд добавьте идентификатор реестра, созданного ранее, в формате `crpc9qeoft23********` в переменную `${REGISTRY_ID}`:
 
         ```bash
         export REGISTRY_ID=<идентификатор_реестра>
@@ -717,23 +709,23 @@
           "cr.yandex": "yc"
           ```
 
-      1. Docker готов к использованию, например, для [загрузки Docker-образов](../../../container-registry/operations/docker-image/docker-image-push.md). При этом выполнять команду `docker login` не надо.
+      1. Docker готов к использованию, например, для [загрузки Docker-образов](../../../container-registry/operations/docker-image/docker-image-push.md). При этом выполнять команду `docker login` не нужно.
 
     {% endlist %}
 
 1. Создайте файл Dockerfile:
 
     ```bash
-    touch .dockerfile
+    touch Dockerfile
     ```
 
 1. Откройте Dockerfile текстовым редактором, например:
 
     ```bash
-    nano .dockerfile
+    nano Dockerfile
     ```
 
-1. Добавьте туда следующие строки:
+1. Добавьте в файл следующие строки:
 
     ```text
     FROM ubuntu:latest
@@ -743,7 +735,7 @@
 1. Соберите Docker-образ:
 
     ```bash
-    docker build . -t cr.yandex/${REGISTRY_ID}/ubuntu:hello -f .dockerfile
+    docker build . -t cr.yandex/${REGISTRY_ID}/ubuntu:hello -f Dockerfile
     ```
 
     Результат:
@@ -751,7 +743,7 @@
     ```text
     ...
     Successfully built b68ee9b6b1af
-    Successfully tagged cr.yandex/crpmnjr98tm5********/ubuntu:hello
+    Successfully tagged cr.yandex/crpc9qeoft23********/ubuntu:hello
     ```
 
 1. Загрузите собранный Docker-образ в Container Registry:
@@ -840,6 +832,6 @@ Hi, I'm inside
 1. [Удалите](../../../container-registry/operations/docker-image/docker-image-delete.md) Docker-образ.
 1. [Удалите](../../../container-registry/operations/registry/registry-delete.md) реестр.
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Запуск Docker-образа на виртуальной машине с помощью Terraform](terraform.md)

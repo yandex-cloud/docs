@@ -5650,6 +5650,7 @@ default:
         confirm: Подтвердить
         connected_resources: Подключенные ресурсы
         continue: Продолжить
+        copy: Скопировать
         create: Создать
         created-at: Дата создания
         delete: Удалить
@@ -8425,10 +8426,10 @@ default:
             thresholdLabelBefore: Порог включения
           LoggingSection:
             allowPercentageTitle_3334: Сколько не записывать логов с вердиктом ALLOW
-            allowTitle_g6CLe: ALLOW
-            denyAndCaptchaTitle_tCthP: DENY и CAPTCHA
             loggingEnable_6eK2x: Запись логов
             outputTitle_tw1oT: Записывать логи в
+            requestsSectionTitle_jMc7W: Логировать запросы с вердиктом
+            rulesSectionTitle_i1Fuw: Логировать запросы для правил
         solid-wall:
           5j7yt: Фактическое макс. количество запросов
           domain_session-bindings_by-ip_pRD7K: По IP-адресу
@@ -10089,6 +10090,8 @@ default:
                         title: Группы безопасности
                       service_account_id:
                         title: Идентификатор сервисного аккаунта
+                      token:
+                        title: Токен
                     YdbCustomFeedSettings:
                       changefeed_custom_consumer_name:
                         title: Название предсозданного consumer
@@ -10114,6 +10117,9 @@ default:
                       is_snapshot_sharded:
                         title: Использовать шардированный снапшот
                     YdbSource:
+                      changefeed_settings:
+                        custom_feed:
+                          title: Указать предсозданный
                       connection:
                         title: Настройки подключения
                       paths:
@@ -10121,6 +10127,8 @@ default:
                         title: Список включенных путей
                       title: Параметры эндпоинта
                       YdbSourceAdvancedSettings:
+                        changefeed_settings:
+                          title: Поток изменений
                         sharded_snapshot:
                           title: Настройки параллельного копирования
                     YdbTarget:
