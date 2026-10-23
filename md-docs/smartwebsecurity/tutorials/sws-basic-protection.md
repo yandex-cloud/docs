@@ -53,6 +53,8 @@
 * [Плата за количество запросов](../pricing.md) в сервис Smart Web Security.
 * Плата за инфраструктуру [Application Load Balancer](../../application-load-balancer/pricing.md) или [API Gateway](../../api-gateway/pricing.md) при ее использовании.
 * Плата за ресурсы [прокси-сервера](../pricing.md) при использовании [доменов](../concepts/domain-protect.md).
+* [Плата за запись и хранение логов](../../monium/pricing.md) в Monium Logs.
+* [Плата за запись и хранение логов](../../logging/pricing.md) в Cloud Logging при включении логирования прокси-сервера или L7-балансировщика.
 
 ## Подготовьте облако к работе {#before-you-begin}
 
@@ -119,10 +121,12 @@
     1. На панели слева выберите ![domain-protection-icon](../../_assets/smartwebsecurity/domain-protection-icon.svg) **Защита доменов**.
     1. Нажмите **Создать прокси-сервер**.
     1. Введите произвольное имя для прокси-сервера, например, `test-proxy`.
-    1. (Опционально) Чтобы сохранять подробную информацию об операциях с запросами:
+    1. (Опционально) Включите **Логировать запросы** и выберите [лог-группу](../../logging/concepts/log-group.md) Cloud Logging или [создайте новую](../../logging/operations/create-group.md).
 
-        1. Включите опцию **Логировать запросы**.
-        1. Выберите существующую лог-группу или [создайте новую](../../logging/operations/create-group.md).
+       Чтобы уменьшить объем логов, настройте правило отбрасывания:
+
+       1. В блоке **Правила отбрасывания логов** нажмите **Добавить правило**.
+       1. Выберите HTTP-коды или классы HTTP-кодов и укажите, какую долю логов отбрасывать.
 
     1. Нажмите **Создать сервер**.
 
@@ -255,6 +259,15 @@
         * **Условия** — `Request URI`.
         * **Request path** — относительный путь для запросов к API. Например, ваш основной домен — `example.com`, а запросы к API принимаются по адресу `example.com/api`. Тогда в условии выберите `Начинается с` и укажите относительный путь — `/api`.
      1. Нажмите **Добавить**.
+
+  1. Включите **Запись логов** и настройте логирование для проверки правил:
+
+     1. В поле **Записывать логи в** выберите **Monium**.
+     1. В блоке **Логировать запросы для правил** выберите все типы правил.
+     1. В блоке **Логировать запросы с вердиктом** выберите все вердикты.
+     1. В поле **Сколько не записывать логов с вердиктом ALLOW** укажите `0%`, чтобы записывать все разрешенные запросы.
+
+     Логи будут поступать в Monium Logs, в проект `folder__<идентификатор_каталога>` для каталога с профилем безопасности.
 
   1. В разделе **Обучение ML-моделей** оставьте включенным согласие об использовании информации об HTTP-запросах для улучшения моделей машинного обучения. Иначе в сервис Smart Web Security не будут поступать данные для расследования инцидентов безопасности.
   1. Нажмите **Создать**.
@@ -477,135 +490,37 @@
 
 {% endnote %}
 
-Чтобы посмотреть работу правил в профиле безопасности, изучите логи.
+Изучите логи профиля `site-protection` в интерфейсе Smart Web Security или Monium.
 
 {% list tabs group=instructions %}
 
-- L7-балансировщик {#balancer}
+- Консоль управления {#console}
 
-  1. Убедитесь, что настроено [логирование](../operations/configure-logging.md).
-  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
-  1. Выберите балансировщик, к которому привязан профиль безопасности.
-  1. Выберите раздел ![receipt](../../_assets/console-icons/receipt.svg) **Логи**:
-     
-     * Выберите период показа логов одним из способов:
-     
-       * Нажмите обозначение интервала, например **Последний час**, и выберите один из вариантов: от **Последние 5 минут** до **Последний день**.
-       * Выберите предустановленный период: **Сейчас**, **5m**, **30m**, **1h**, **1d**, **2d** или укажите свой.
-       * На временной шкале переместите индикаторы начала и конца периода.
-     
-     * В строке **Запрос** укажите запрос на [языке фильтрующих выражений](../../logging/concepts/filter.md) и нажмите **Выполнить запрос**.
-     
-       **Примеры запросов**
-     
-       * Показать запросы, для которых сработало правило Smart Protection с отправкой на капчу (в режиме логирования):
-     
-         ```
-         json_payload.smartwebsecurity.dry_run_matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.dry_run_matched_rule.verdict = CAPTCHA
-         ```
-     
-       * Аналогичный запрос без режима логирования:
-     
-         ```
-         json_payload.smartwebsecurity.matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.matched_rule.verdict = CAPTCHA
-         ```
-     
-       * Показать запросы, заблокированные базовыми правилами с любыми условиями (в режиме логирования):
-     
-         ```
-         json_payload.smartwebsecurity.dry_run_matched_rule.rule_type = RULE_CONDITION and json_payload.smartwebsecurity.matched_rule.verdict = DENY
-         ```
-     
-       * Аналогичный запрос без режима логирования:
-     
-         ```
-         json_payload.smartwebsecurity.matched_rule.rule_type = RULE_CONDITION and json_payload.smartwebsecurity.matched_rule.verdict = DENY
-         ```
-
-- API-шлюз {#api-gateway}
-
-  1. Убедитесь, что настроено [логирование](../../api-gateway/operations/api-gw-logs-write.md).
-  1. [Перейдите](https://console.yandex.cloud/link/api-gateway) в сервис **API Gateway**.
-  1. Выберите API-шлюз, к которому привязан профиль безопасности.
-  1. Выберите раздел ![receipt](../../_assets/console-icons/receipt.svg) **Логи**:
-     
-     * Выберите период показа логов одним из способов:
-     
-       * Нажмите обозначение интервала, например **Последний час**, и выберите один из вариантов: от **Последние 5 минут** до **Последний день**.
-       * Выберите предустановленный период: **Сейчас**, **5m**, **30m**, **1h**, **1d**, **2d** или укажите свой.
-       * На временной шкале переместите индикаторы начала и конца периода.
-     
-     * В строке **Запрос** укажите запрос на [языке фильтрующих выражений](../../logging/concepts/filter.md) и нажмите **Выполнить запрос**.
-     
-       **Примеры запросов**
-     
-       * Показать запросы, для которых сработало правило Smart Protection с отправкой на капчу (в режиме логирования):
-     
-         ```
-         json_payload.smartwebsecurity.dry_run_matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.dry_run_matched_rule.verdict = CAPTCHA
-         ```
-     
-       * Аналогичный запрос без режима логирования:
-     
-         ```
-         json_payload.smartwebsecurity.matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.matched_rule.verdict = CAPTCHA
-         ```
-     
-       * Показать запросы, заблокированные базовыми правилами с любыми условиями (в режиме логирования):
-     
-         ```
-         json_payload.smartwebsecurity.dry_run_matched_rule.rule_type = RULE_CONDITION and json_payload.smartwebsecurity.matched_rule.verdict = DENY
-         ```
-     
-       * Аналогичный запрос без режима логирования:
-     
-         ```
-         json_payload.smartwebsecurity.matched_rule.rule_type = RULE_CONDITION and json_payload.smartwebsecurity.matched_rule.verdict = DENY
-         ```
-
-- Домен {#domain}
-
-  1. Убедитесь, что настроено [логирование](../operations/proxy-create.md).
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с профилем безопасности.
   1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
-  1. На панели слева выберите ![domain-protection-icon](../../_assets/smartwebsecurity/domain-protection-icon.svg) **Защита доменов**.
-  1. Выберите прокси-сервер, к которому привязан профиль безопасности.
-  1. Выберите раздел ![receipt](../../_assets/console-icons/receipt.svg) **Логи**:
-     
-     * Выберите период показа логов одним из способов:
-     
-       * Нажмите обозначение интервала, например **Последний час**, и выберите один из вариантов: от **Последние 5 минут** до **Последний день**.
-       * Выберите предустановленный период: **Сейчас**, **5m**, **30m**, **1h**, **1d**, **2d** или укажите свой.
-       * На временной шкале переместите индикаторы начала и конца периода.
-     
-     * В строке **Запрос** укажите запрос на [языке фильтрующих выражений](../../logging/concepts/filter.md) и нажмите **Выполнить запрос**.
-     
-       **Примеры запросов**
-     
-       * Показать запросы, для которых сработало правило Smart Protection с отправкой на капчу (в режиме логирования):
-     
-         ```
-         json_payload.smartwebsecurity.dry_run_matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.dry_run_matched_rule.verdict = CAPTCHA
-         ```
-     
-       * Аналогичный запрос без режима логирования:
-     
-         ```
-         json_payload.smartwebsecurity.matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.matched_rule.verdict = CAPTCHA
-         ```
-     
-       * Показать запросы, заблокированные базовыми правилами с любыми условиями (в режиме логирования):
-     
-         ```
-         json_payload.smartwebsecurity.dry_run_matched_rule.rule_type = RULE_CONDITION and json_payload.smartwebsecurity.matched_rule.verdict = DENY
-         ```
-     
-       * Аналогичный запрос без режима логирования:
-     
-         ```
-         json_payload.smartwebsecurity.matched_rule.rule_type = RULE_CONDITION and json_payload.smartwebsecurity.matched_rule.verdict = DENY
-         ```
+  1. На панели слева выберите ![receipt](../../_assets/console-icons/receipt.svg) **Логи**.
+  1. Задайте период поиска логов.
+  1. В строке запроса выберите поля для фильтрации. Чтобы найти логи конкретного профиля, добавьте условие `security_profile_id = "<идентификатор_профиля>"`.
+  
+     Для ввода запроса в текстовом режиме нажмите ![code](../../_assets/console-icons/code.svg) и используйте [язык запросов Monium](../../monium/logs/query.md). Сохраните метки `project`, `cluster` и `service`, выбранные по умолчанию.
+  
+  1. Нажмите **Выполнить запрос**. Чтобы посмотреть содержимое записи, разверните ее.
+
+- Monium {#monium}
+
+  1. [Откройте страницу поиска логов](../../monium/logs/logs-explorer.md#logs-search) и задайте период поиска.
+  1. В строке запроса укажите метки:
+
+     * `project` = `folder__<идентификатор_каталога>` — каталог с профилем безопасности;
+     * `security_profile_id` = `<идентификатор_профиля>` — профиль `site-protection`.
+
+     Значения `cluster` и `service` выберите из выпадающих списков.
+
+  1. Нажмите **Выполнить запрос**.
 
 {% endlist %}
+
+Для анализа срабатываний используйте [фильтры для правил в режиме логирования](../operations/configure-logging.md#dry-run-filters).
 
 Подробное описание работы с логами смотрите в разделе [Настроить логирование через Smart Web Security](../operations/configure-logging.md).
 
@@ -623,8 +538,7 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
-  1. Выберите раздел ![display-pulse](../../_assets/console-icons/display-pulse.svg) **Мониторинг**.
+  1. [Откройте раздел мониторинга](../operations/monitoring.md) в Smart Web Security.
   1. Посмотрите информацию на графиках:
      * **Denied by Security Profile RPS** — количество входящих запросов в секунду, которые были проверены и заблокированы профилем безопасности.
      * **Redirected to SmartCaptcha RPS** — количество входящих запросов в секунду, направленных в SmartCaptcha для дополнительной верификации.
@@ -633,7 +547,7 @@
 
 {% endlist %}
 
-Описание графиков, метрик и меток приведено в разделе [Мониторинг в Smart Web Security](../operations/monitoring.md).
+Описание графиков и метрик приведено в разделе [Мониторинг в Smart Web Security](../operations/monitoring.md).
 
 ## Настройте ограничение нагрузки {#rate-limiter}
 
@@ -641,7 +555,7 @@
 
 Ограничение запросов настраивается в профиле Advanced Rate Limiter (ARL). Он работает после профиля безопасности, проверяя только трафик, прошедший первичную проверку. В отличие от правил в профиле безопасности, правила ARL могут срабатывать одновременно. При этом к трафику применяется правило с более высоким приоритетом.
 
-Чтобы задать ограничение запросов, сначала определите типовую нагрузку на ваш сервис. Если вы используете L7-балансировщик, это можно сделать в сервисе Application Load Balancer, в разделе **Мониторинг**. На графике **RPS** отображается общее количество входящих запросов в секунду, поступающих на балансировщик. Для лимита запросов устанавливайте значение с небольшим запасом. Можно задать лимит не на весь трафик, а по определенным [условиям](../concepts/conditions.md). Например, по региону, диапазону IP-адресов или по списку IP-адресов, по адресу запроса и так далее.
+Чтобы задать ограничение запросов, сначала определите типовую нагрузку на ваш сервис. Если вы используете L7-балансировщик, посмотрите в разделе мониторинга Smart Web Security график [Inbound total RPS](../operations/monitoring.md#monitoring-dashboards) — общее количество входящих запросов в секунду. Для лимита запросов устанавливайте значение с небольшим запасом. Можно задать лимит не на весь трафик, а по определенным [условиям](../concepts/conditions.md). Например, по региону, диапазону IP-адресов или по списку IP-адресов, по адресу запроса и так далее.
 
 ### Создайте профиль ARL {#arl-create}
 
@@ -717,22 +631,27 @@
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Консоль управления или Monium {#console}
 
-  1. Откройте L7-балансировщик, API-шлюз или прокси-сервер, к которому привязан профиль безопасности.
-  1. Выберите раздел ![receipt](../../_assets/console-icons/receipt.svg) **Логи**.
-  1. В строке **Запрос** укажите запрос для поиска правил ARL и нажмите **Выполнить запрос**.
+  1. [Откройте логи профиля безопасности](#test-sp-rules) `site-protection`.
+  1. В текстовом режиме добавьте в селектор запроса условия для поиска правил ARL, сохранив метки `project`, `cluster`, `service` и `security_profile_id`.
 
-      Примеры запросов:
+      Примеры условий:
 
-      * Показать запросы, заблокированные правилами профиля ARL (в режиме логирования):
+      * Запросы, которые превысили лимит правила `arl-rule-1` в режиме логирования:
+
+        ```text
+        meta.arl_dry_run_exceeded_quota_names = "arl-rule-1"
         ```
-        json_payload.smartwebsecurity.dry_run_advanced_rate_limiter.verdict = DENY
+
+      * Запросы, заблокированные правилами ARL после отключения режима логирования:
+
+        ```text
+        meta.arl_verdict = "DENY"
         ```
-      * Аналогичный запрос без режима логирования:
-        ```
-        json_payload.smartwebsecurity.advanced_rate_limiter.verdict = DENY
-        ```
+
+  1. Нажмите **Выполнить запрос**.
+
 {% endlist %}
 
 После отключения режима **Только логирование** проверьте работу профиля по логам и графикам мониторинга.
@@ -741,8 +660,7 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
-  1. Выберите раздел ![display-pulse](../../_assets/console-icons/display-pulse.svg) **Мониторинг**.
+  1. [Откройте раздел мониторинга](../operations/monitoring.md) в Smart Web Security.
   1. Посмотрите информацию на графиках:
      * **Allowed by ARL Profile RPS** — количество входящих запросов в секунду, которое не превышает лимит в профиле ARL.
      * **Denied by ARL Profile RPS** — количество входящих запросов в секунду, превысивших лимит профиля ARL и заблокированных.
@@ -750,7 +668,7 @@
 
 {% endlist %}
 
-Описание графиков, метрик и меток приведено в разделе [Описание дашбордов для мониторинга Smart Web Security](../operations/monitoring.md#monitoring-dashboards).
+Описание графиков и метрик приведено в разделе [Описание дашбордов для мониторинга Smart Web Security](../operations/monitoring.md#monitoring-dashboards).
 
 ## Настройте Web Application Firewall {#firewall}
 
@@ -836,24 +754,26 @@ Web Application Firewall (WAF) защищает от эксплуатации р
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Консоль управления или Monium {#console}
 
-  1. Откройте L7-балансировщик, API-шлюз или прокси-сервер, к которому привязан профиль безопасности.
-  1. Выберите раздел ![receipt](../../_assets/console-icons/receipt.svg) **Логи**.
-  1. В строке **Запрос** укажите запрос для поиска правил WAF и нажмите **Выполнить запрос**.
+  1. [Откройте логи профиля безопасности](#test-sp-rules) `site-protection`.
+  1. В текстовом режиме добавьте в селектор запроса условия для поиска правил WAF, сохранив метки `project`, `cluster`, `service` и `security_profile_id`.
 
-      Примеры запросов:
+      Примеры условий:
 
-      * Показать запросы, заблокированные по профилю WAF — правилами WAF из профиля безопасности (в режиме логирования):
-        ```
-        json_payload.smartwebsecurity.dry_run_matched_rule.rule_type = WAF and json_payload.smartwebsecurity.matched_rule.verdict = DENY
-        ```
-      * Аналогичный запрос без режима логирования:
-        ```
-        json_payload.smartwebsecurity.matched_rule.rule_type = WAF and json_payload.smartwebsecurity.matched_rule.verdict = DENY
+      * Запросы, которые были бы заблокированы профилем `waf-site-protection` в режиме логирования:
+
+        ```text
+        meta.dry_run_waf_profile_name = "waf-site-protection", meta.dry_run_matched_rule_verdict = "DENY"
         ```
 
-Также можно просматривать расширенные логи в интерфейсе Smart Web Security.
+      * Запросы, заблокированные правилами WAF после отключения режима логирования:
+
+        ```text
+        module_type = "WAF", meta.matched_rule_verdict = "DENY"
+        ```
+
+  1. Нажмите **Выполнить запрос**.
 
 {% endlist %}
 

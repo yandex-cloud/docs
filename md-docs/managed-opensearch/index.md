@@ -44,6 +44,8 @@
 
  - [Управление резервными копиями](operations/cluster-backups.md)
 
+ - [Восстановление из резервной копии](operations/cluster-outbound-backups.md)
+
  - [Управление доступом к кластеру](operations/cluster-access.md)
 
  - [Настройка доступа к Object Storage](operations/s3-access.md)

@@ -82,5 +82,5 @@ _Исключение_ — запрещает создание алерта пр
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](../operations/correlation-rules/manage-rules.md).
-* [{#T}](../operations/exceptions/manage-exceptions.md).
+* [{#T}](../operations/correlation-rules/manage-rules.md)
+* [{#T}](../operations/exceptions/manage-exceptions.md)

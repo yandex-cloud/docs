@@ -99,7 +99,7 @@ _Lookup-таблицы_ — это справочные таблицы для о
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](queries.md).
-* [{#T}](../operations/investigations/index.md).
-* [{#T}](../operations/queries/index.md).
-* [{#T}](../security/index.md).
+* [{#T}](queries.md)
+* [{#T}](../operations/investigations/index.md)
+* [{#T}](../operations/queries/index.md)
+* [{#T}](../security/index.md)

@@ -193,9 +193,11 @@ Security Deck [Access Analyzer](https://center.yandex.cloud/security/access-anal
 
 Подробнее в разделе [Портал соответствия требованиям](concepts/compliance.md).
 
+
+
 ## Что дальше {#whats-next}
 
-* Узнайте, [как посмотреть правила контроля безопасности модуля CSPM и их нарушения](operations/cspm/view-rules.md).
-* Узнайте, [как сканировать данные в бакетах на наличие чувствительной информации](operations/dspm/create-scan.md) в Security Deck.
-* Узнайте, [как просмотреть список доступов субъекта](operations/access-analyzer/analyze-permissions.md#view) в Security Deck.
-* Узнайте о [необходимых правах доступа](security/index.md) для работы с Security Deck.
+* [Посмотрите правила контроля безопасности модуля CSPM и их нарушения](operations/cspm/view-rules.md)
+* [Сканируйте данные в бакетах на наличие чувствительной информации](operations/dspm/create-scan.md)
+* [Просмотрите список доступов субъекта](operations/access-analyzer/analyze-permissions.md)
+* [Узнайте необходимые права доступа](security/index.md)

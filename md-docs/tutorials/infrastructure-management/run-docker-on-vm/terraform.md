@@ -2,9 +2,9 @@
 
 # Запуск Docker-образа на виртуальной машине с помощью Terraform
 
-Чтобы [запустить Docker-образ на ВМ](index.md) с использованием реестра [Yandex Container Registry](../../../container-registry/index.md) с помощью Terraform:
+Чтобы [запустить Docker-образ на ВМ](index.md) используя реестр [Yandex Container Registry](../../../container-registry/index.md) с помощью Terraform:
 
-1. [Подготовьте облако к работе](#before-begin).
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте инфраструктуру](#deploy).
 1. [Соберите и загрузите Docker-образ в Container Registry](#create-image).
 1. [Загрузите Docker-образ на ВМ](#run).
@@ -13,7 +13,7 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Подготовьте облако к работе {#before-begin}
+## Подготовьте облако к работе {#before-you-begin}
 
 Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
 1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
@@ -157,7 +157,7 @@ Terraform распространяется под лицензией [Business S
 
 Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
-Для создания инфраструктуры c помощью Terraform:
+Для создания инфраструктуры с помощью Terraform:
 1. [Установите Terraform](../terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
 
@@ -176,9 +176,9 @@ Terraform распространяется под лицензией [Business S
     - Вручную {#manual}
 
       1. Создайте папку для файла с описанием инфраструктуры.
-      1. Создайте в папке конфигурационный файл `run-docker-on-vm.tf`:
+      1. Создайте в папке конфигурационный файл `run-docker-on-vm-config.tf`:
 
-          {% cut "Содержимое файла run-docker-on-vm.tf" %}
+          {% cut "Содержимое файла run-docker-on-vm-config.tf" %}
 
           ```hcl
           # Объявление переменных для конфиденциальных параметров
@@ -350,15 +350,7 @@ Terraform распространяется под лицензией [Business S
 Пример ниже разработан для выполнения в операционных системах MacOS и Linux. Чтобы выполнить его в системе Windows, [ознакомьтесь](../../../overview/concepts/console-syntax-guide.md) с особенностями работы с Bash в Microsoft Windows.
 
 1. Откройте терминал.
-1. Для удобства выполнения команд добавьте переменные:
-
-    * Имя пользователя и публичный IP-адрес вашей ВМ — в переменную `${PUBLIC_IP}`:
-
-        ```bash
-        export PUBLIC_IP=<имя_пользователя>@<публичный_IP-адрес_ВМ>
-        ```
-
-    * Идентификатор реестра, созданного ранее, в формате `crpc9qeoft23********` — в переменную `${REGISTRY_ID}`:
+1. Для удобства выполнения команд добавьте идентификатор реестра, созданного ранее, в формате `crpc9qeoft23********` в переменную `${REGISTRY_ID}`:
 
         ```bash
         export REGISTRY_ID=<идентификатор_реестра>
@@ -442,23 +434,23 @@ Terraform распространяется под лицензией [Business S
           "cr.yandex": "yc"
           ```
 
-      1. Docker готов к использованию, например, для [загрузки Docker-образов](../../../container-registry/operations/docker-image/docker-image-push.md). При этом выполнять команду `docker login` не надо.
+      1. Docker готов к использованию, например, для [загрузки Docker-образов](../../../container-registry/operations/docker-image/docker-image-push.md). При этом выполнять команду `docker login` не нужно.
 
     {% endlist %}
 
 1. Создайте файл Dockerfile:
 
     ```bash
-    touch .dockerfile
+    touch Dockerfile
     ```
 
 1. Откройте Dockerfile текстовым редактором, например:
 
     ```bash
-    nano .dockerfile
+    nano Dockerfile
     ```
 
-1. Добавьте туда следующие строки:
+1. Добавьте в файл следующие строки:
 
     ```text
     FROM ubuntu:latest
@@ -468,7 +460,7 @@ Terraform распространяется под лицензией [Business S
 1. Соберите Docker-образ:
 
     ```bash
-    docker build . -t cr.yandex/${REGISTRY_ID}/ubuntu:hello -f .dockerfile
+    docker build . -t cr.yandex/${REGISTRY_ID}/ubuntu:hello -f Dockerfile
     ```
 
     Результат:
@@ -476,7 +468,7 @@ Terraform распространяется под лицензией [Business S
     ```text
     ...
     Successfully built b68ee9b6b1af
-    Successfully tagged cr.yandex/crpmnjr98tm5********/ubuntu:hello
+    Successfully tagged cr.yandex/crpc9qeoft23********/ubuntu:hello
     ```
 
 1. Загрузите собранный Docker-образ в Container Registry:
@@ -560,7 +552,7 @@ Hi, I'm inside
 
 Чтобы удалить инфраструктуру и перестать платить за созданные ресурсы:
 
-1. Откройте конфигурационный файл `run-docker-on-vm-config.tf` и удалите описание создаваемой инфраструктуры из файла.
+1. Откройте конфигурационный файл `run-docker-on-vm-config.tf` и удалите из него описание созданной инфраструктуры.
 1. Примените изменения:
 
     1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -591,6 +583,6 @@ Hi, I'm inside
     
     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Запуск Docker-образа на виртуальной машине с помощью консоли управления, CLI и API](console.md)

@@ -68,8 +68,15 @@
 
     ```bash
     sudo apt-get update && \
-    sudo pip3 install avro confluent_kafka
+    sudo apt-get install -y python3-pip && \
+    sudo pip3 install avro confluent_kafka==1.9.2
     ```
+
+    {% note info %}
+
+    Версия библиотеки `confluent_kafka` зафиксирована для корректной работы скриптов. В версиях 2.x и выше удален модуль `confluent_kafka.avro`, который в них используется.
+
+    {% endnote %}
 
 1. Чтобы использовать шифрованное соединение, установите SSL-сертификат:
 
@@ -77,10 +84,12 @@
     sudo mkdir -p /usr/share/ca-certificates && \
     sudo wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
               -O /usr/share/ca-certificates/YandexInternalRootCA.crt && \
-    sudo chmod 655 /usr/share/ca-certificates/YandexInternalRootCA.crt
+    sudo chmod 644 /usr/share/ca-certificates/YandexInternalRootCA.crt
     ```
 
 1. Создайте Python-скрипт потребителя.
+
+    В параметре `schema.registry.url` укажите FQDN любого хоста-брокера кластера Managed Service for Apache Kafka® (тот же, что и в `bootstrap.servers`): реестр схем Managed Schema Registry развернут на каждом хосте-брокере и доступен по протоколу HTTPS на порте 443.
 
     Алгоритм работы скрипта:
     
@@ -125,7 +134,7 @@
             msg = c.poll(10)
 
         except SerializerError as e:
-            print("Message deserialization failed for {}: {}".format(msg, e))
+            print("Message deserialization failed: {}".format(e))
             break
 
         if msg is None:

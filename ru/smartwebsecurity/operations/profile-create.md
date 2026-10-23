@@ -43,16 +43,12 @@ description: Следуя данной инструкции, вы сможете
 
   1. (Опционально) Включите **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.loggingEnable_6eK2x }}** и настройте логирование:
 
-     1. В поле **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.outputTitle_tw1oT }}** выберите, какие логи будут записываться: **{{ cloud-logging-name }}**, **{{ at-name }}**.
-     1. Для {{ cloud-logging-name }} выберите или создайте [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, в которую будут записываться логи.
-     1. Для записи в логи можно выбрать только те запросы, для которых сработали:
+     1. В поле **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.outputTitle_tw1oT }}** выберите **{{ monium-name }}** для записи логов запросов и правил или **{{ at-name }}** для аудитных событий. Можно выбрать оба сервиса.
+     1. Настройте фильтры логов:
 
-        * `{{ ui-key.yacloud.smart-web-security.baseRulesTitle_xcJEe }}`.
-        * Правила `{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}`.
-        * Правила `{{ ui-key.yacloud.smart-web-security.overview.label_waf-rule }}`.
-        * Правила `{{ ui-key.yacloud.smart-web-security.arlTitle_e3MD8 }}`.
-        * Все выбранные правила применили действие (вердикт) `{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.denyAndCaptchaTitle_tCthP }}`.
-        * Все выбранные правила применили действие `{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.allowTitle_g6CLe }}` (легитимные запросы).
+        {% include [security-profile-logging-options](../../_includes/smartwebsecurity/security-profile-logging-options.md) %}
+
+     Логи {{ monium-name }} записываются в проект `folder__<идентификатор_каталога>` для каталога с профилем. Для {{ at-name }} необходимо настроить трейл.
 
      Настройка логирования описана в разделе [{#T}](configure-logging.md).
 

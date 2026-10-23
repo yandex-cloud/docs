@@ -105,7 +105,7 @@ description: Следуя данной инструкции, вы научите
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](../../concepts/investigations.md).
-* [{#T}](../../concepts/queries.md).
-* [{#T}](manage-investigations.md).
-* [{#T}](../queries/index.md).
+* [{#T}](../../concepts/investigations.md)
+* [{#T}](../../concepts/queries.md)
+* [{#T}](manage-investigations.md)
+* [{#T}](../queries/index.md)

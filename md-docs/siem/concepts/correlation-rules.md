@@ -79,5 +79,5 @@ _Исключение_ — запрещает создание алерта пр
 
 #### Полезные ссылки {#see-also}
 
-* [Управление правилами корреляции](../operations/correlation-rules/manage-rules.md).
-* [Управление исключениями](../operations/exceptions/manage-exceptions.md).
+* [Управление правилами корреляции](../operations/correlation-rules/manage-rules.md)
+* [Управление исключениями](../operations/exceptions/manage-exceptions.md)

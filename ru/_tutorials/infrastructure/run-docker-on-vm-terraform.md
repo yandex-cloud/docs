@@ -1,4 +1,4 @@
-1. [Подготовьте облако к работе](#before-begin).
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте инфраструктуру](#deploy).
 1. [Соберите и загрузите Docker-образ в {{ container-registry-name }}](#create-image).
 1. [Загрузите Docker-образ на ВМ](#run).
@@ -7,7 +7,7 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Подготовьте облако к работе {#before-begin}
+## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
@@ -31,7 +31,7 @@
 
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
-Для создания инфраструктуры c помощью {{ TF }}:
+Для создания инфраструктуры с помощью {{ TF }}:
 1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
 
@@ -50,9 +50,9 @@
     - Вручную {#manual}
 
       1. Создайте папку для файла с описанием инфраструктуры.
-      1. Создайте в папке конфигурационный файл `run-docker-on-vm.tf`:
+      1. Создайте в папке конфигурационный файл `run-docker-on-vm-config.tf`:
 
-          {% cut "Содержимое файла run-docker-on-vm.tf" %}
+          {% cut "Содержимое файла run-docker-on-vm-config.tf" %}
 
           {% include [run-docker-on-vm-tf-config](../../_includes/container-registry/run-docker-on-vm-tf-config.md) %}
 
@@ -110,7 +110,7 @@
 
 Чтобы удалить инфраструктуру и перестать платить за созданные ресурсы:
 
-1. Откройте конфигурационный файл `run-docker-on-vm-config.tf` и удалите описание создаваемой инфраструктуры из файла.
+1. Откройте конфигурационный файл `run-docker-on-vm-config.tf` и удалите из него описание созданной инфраструктуры.
 1. Примените изменения:
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

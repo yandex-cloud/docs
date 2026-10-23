@@ -245,7 +245,8 @@ description: Следуя данной инструкции, вы сможете
        --deletion-protection \
        --performance-diagnostics enabled=<активировать_сбор_статистики>,`
                                 `sessions-sampling-interval=<интервал_сбора_сессий>,`
-                                `statements-sampling-interval=<интервал_сбора_запросов>
+                                `statements-sampling-interval=<интервал_сбора_запросов> \
+       --managed-repack enabled=<true_или_false>
      ```
 
 
@@ -279,6 +280,11 @@ description: Следуя данной инструкции, вы сможете
        * `sessions-sampling-interval` — интервал сбора сессий, в секундах. Допустимые значения — от `1` до `86400`.
        * `statements-sampling-interval` — интервал сбора запросов, в секундах. Допустимые значения — от `1` до `86400`.
 
+
+     * `--managed-repack` — настройки возможности перепаковки таблиц и индексов для устранения _раздувания данных_ (bloat):
+
+       * `enabled=true` — возможность перепаковки таблиц и индексов включена.
+       * `enabled=false` — возможность перепаковки таблиц и индексов отключена (значение по умолчанию).
 
      
      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной [зоне доступности](../../overview/concepts/geo-scope.md) создано две и больше подсетей.
@@ -451,6 +457,8 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
 
+     {% include [managed_repack](../../_includes/mdb/mpg/terraform/managed_repack.md) %}
+
      
      Чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md), добавьте параметр `disk_encryption_key_id`:
 
@@ -519,6 +527,9 @@ description: Следуя данной инструкции, вы сможете
            "enabled": <активировать_сбор_статистики>,
            "sessionsSamplingInterval": "<интервал_сбора_сессий>",
            "statementsSamplingInterval": "<интервал_сбора_запросов>"
+         },
+         "managedRepack": {
+           "enabled": <true_или_false>
          },
          "diskSizeAutoscaling": {
            "plannedUsageThreshold": "<порог_для_планового_увеличения_в_процентах>",
@@ -618,6 +629,10 @@ description: Следуя данной инструкции, вы сможете
          * `enabled` — активация сбора статистики: `true` или `false`.
          * `sessionsSamplingInterval` — интервал сбора сессий. Возможные значения: от `1` до `86400` секунд.
          * `statementsSamplingInterval` — интервал сбора запросов. Возможные значения: от `1` до `86400` секунд.
+       * `managedRepack.enabled` — настройки возможности перепаковки таблиц и индексов для устранения _раздувания данных_ (bloat):
+
+         * `true` — возможность перепаковки таблиц и индексов включена.
+         * `false` — возможность перепаковки таблиц и индексов отключена (значение по умолчанию).
 
        {% include [disk-size-autoscaling-rest](../../_includes/mdb/mpg/disk-size-autoscaling-rest.md) %}
 
@@ -718,6 +733,9 @@ description: Следуя данной инструкции, вы сможете
            "sessions_sampling_interval": "<интервал_сбора_сессий>",
            "statements_sampling_interval": "<интервал_сбора_запросов>"
          },
+         "managed_repack": {
+           "enabled": <true_или_false>
+         },
          "disk_size_autoscaling": {
            "planned_usage_threshold": "<порог_для_планового_увеличения_в_процентах>",
            "emergency_usage_threshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
@@ -816,6 +834,10 @@ description: Следуя данной инструкции, вы сможете
          * `enabled` — активация сбора статистики: `true` или `false`.
          * `sessions_sampling_interval` — интервал сбора сессий. Возможные значения: от `1` до `86400` секунд.
          * `statements_sampling_interval` — интервал сбора запросов. Возможные значения: от `1` до `86400` секунд.
+       * `managed_repack.enabled` — настройки возможности перепаковки таблиц и индексов для устранения _раздувания данных_ (bloat):
+
+         * `true` — возможность перепаковки таблиц и индексов включена.
+         * `false` — возможность перепаковки таблиц и индексов отключена (значение по умолчанию).
 
        {% include [disk-size-autoscaling-grpc](../../_includes/mdb/mpg/disk-size-autoscaling-grpc.md) %}
 

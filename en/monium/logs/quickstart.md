@@ -14,7 +14,7 @@ In {{ monium-name }}, log delivery is configured similarly to other types of tel
 
 If your cloud and application are already configured and you have prior experience with telemetry, configure log delivery as detailed below.
 
-### {{ cloud-logging-name }} parameters {#main-parameters}
+### {{ monium-logs-name }} parameters {#main-parameters}
 
 * {% include [otel-only](../../_includes/monium/otel-only.md) %}
 

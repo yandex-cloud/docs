@@ -5,22 +5,24 @@
 
 Чтобы настроить кластер {{ mrd-name }} в качестве хранилища сессий PHP:
 
+1. [Подготовьте инфраструктуру](#deploy-infrastructure).
+1. [Выполните дополнительные настройки](#additional-settings).
 1. [Настройте PHP для использования кластера {{ mrd-name }} в качестве хранилища сессий](#settings-php).
 1. [Проверьте сохранение данных сессий PHP в кластере {{ mrd-name }}](#test-settings).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Необходимые платные ресурсы {#paid-resources}
+## Перед началом работы {#before-you-begin}
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер-приемник {{ mrd-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ VLK }}](../../managed-valkey/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 * Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы {{ compute-name }}](../../compute/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
-
-### Подготовьте инфраструктуру {#deploy-infrastructure}
+## Подготовьте инфраструктуру {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -86,33 +88,32 @@
 
 {% endlist %}
 
-### Выполните дополнительные настройки {#additional-settings}
+## Выполните дополнительные настройки {#additional-settings}
 
-1. [Подключитесь к ВМ с веб-сервером по SSH и настройте его](../../compute/operations/vm-connect/ssh.md):
+1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ с веб-сервером по SSH.
+1. Установите сертификаты:
 
-    * Установите сертификаты:
+    ```bash
+    sudo mkdir --parents {{ crt-local-dir }} && \
+    sudo wget "{{ crt-web-path }}" \
+        --output-document {{ crt-local-dir }}{{ crt-local-file }}
+    ```
 
-        ```bash
-        sudo mkdir --parents {{ crt-local-dir }} && \
-        sudo wget "{{ crt-web-path }}" \
-            --output-document {{ crt-local-dir }}{{ crt-local-file }}
-        ```
+1. Подготовьте окружение и установите библиотеку [phpredis](https://github.com/phpredis/phpredis) с помощью `pecl`:
 
-    * Подготовьте окружение и установите библиотеку [phpredis](https://github.com/phpredis/phpredis) с помощью `pecl`:
+    ```bash
+    sudo apt update && \
+    sudo apt install php-dev pkg-php-tools redis-tools --yes && \
+    sudo pecl channel-update pecl.php.net && \
+    sudo pecl install redis
+    ```
 
-        ```bash
-        sudo apt update && \
-        sudo apt install php-dev pkg-php-tools redis-tools --yes && \
-        sudo pecl channel-update pecl.php.net && \
-        sudo pecl install redis
-        ```
+1. Станьте владельцем каталога `/var/www/html/` и удалите из него все содержимое:
 
-    * Станьте владельцем каталога `/var/www/html/` и удалите из него все содержимое:
-
-        ```bash
-        sudo chown <имя_пользователя> /var/www/html/ --recursive && \
-        rm /var/www/html/*
-        ```
+    ```bash
+    sudo chown <имя_пользователя> /var/www/html/ --recursive && \
+    rm /var/www/html/*
+    ```
 
 ## Настройте PHP для использования кластера {{ mrd-name }} в качестве хранилища сессий {#settings-php}
 

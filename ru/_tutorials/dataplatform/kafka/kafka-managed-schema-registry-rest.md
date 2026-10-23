@@ -139,6 +139,8 @@
 
 Создайте соответствующие схемы формата данных:
 
+В запросах к API в параметре `<FQDN_хоста-брокера>` можно указать FQDN любого хоста-брокера кластера {{ mkf-name }}: реестр схем {{ mkf-msr }} развернут на каждом хосте-брокере и доступен по протоколу HTTPS на порту 443.
+
 1. Создайте файл `schema-key.json`, который содержит схему формата данных для ключа сообщения {{ KF }}.
 
     {% cut "schema-key.json" %}
@@ -173,8 +175,8 @@
         -n --slurpfile data schema-key.json \
         '{
            "schemaType": "AVRO",
-           "schema": "\($data)"
-        }' \
+           "schema": "\($data[0])"
+         }' \
     | curl \
           --request POST \
           --url 'https://<FQDN_хоста-брокера>:{{ port-https }}/subjects/messages-key/versions' \
@@ -223,8 +225,8 @@
         -n --slurpfile data schema-value.json \
         '{
            "schemaType": "AVRO",
-           "schema": "\($data)"
-        }' \
+           "schema": "\($data[0])"
+         }' \
     | curl \
           --request POST \
           --url 'https://<FQDN_хоста-брокера>:{{ port-https }}/subjects/messages-value/versions' \

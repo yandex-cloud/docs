@@ -6,11 +6,13 @@
 
 * Базовые правила — для простой фильтрации трафика по заданным условиям.
 * Правила Smart Protection — для автоматической защиты от DDoS-атак при помощи алгоритмов машинного обучения и поведенческого анализа.
-* Правила профиля WAF — для защиты от эксплуатации уязвимостей веб-приложения или сайта. Правила блокируют множество известных угроз, например SQL-инъекции и командные инъекции, межсайтовый скриптинг и другие. В профиль WAF можно добавить несколько наборов правил: [OWASP Core Rule Set](https://owasp.org/www-project-modsecurity-core-rule-set/) (CRS), [Yandex Ruleset](../../smartwebsecurity/concepts/waf.md#yandex-ruleset) и [ML WAF (Yandex Malicious Score)](../../smartwebsecurity/concepts/waf.md#yandex-ml-ruleset).
+* Правила профиля Cloud WAF — для защиты от эксплуатации уязвимостей веб-приложения или сайта. Правила блокируют множество известных угроз, например SQL-инъекции и командные инъекции, межсайтовый скриптинг и другие. В профиль Cloud WAF можно добавить несколько наборов правил: [OWASP Core Rule Set](https://owasp.org/www-project-modsecurity-core-rule-set/) (CRS), [Yandex Ruleset](../../smartwebsecurity/concepts/waf.md#yandex-ruleset) и [ML WAF (Yandex Malicious Score)](../../smartwebsecurity/concepts/waf.md#yandex-ml-ruleset).
 * Встроенную [{{ captcha-full-name }}](../../smartcaptcha/) — для проверки типа [CAPTCHA](https://ru.wikipedia.org/wiki/Капча) от ботов и спама.
 * Списки фильтрации IP-адресов — для разрешения или блокировки запросов от указанных IP-адресов.
 
 Профиль ARL содержит правила для ограничения количества запросов к защищаемому ресурсу по различным условиям.
+
+Помимо Cloud WAF, для защиты веб-приложений можно использовать SolidWall WAF. Его правила настраивают и сопровождают аналитики сервиса. SolidWall WAF подключается только через домены: в отдельном профиле создают приложение и добавляют к нему домены. Порядок подключения описан в [руководстве по настройке](../../smartwebsecurity/tutorials/solidwall-waf.md).
 
 {% include [sws-type-resources](sws-type-resources.md) %}
 

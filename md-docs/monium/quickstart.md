@@ -30,6 +30,8 @@ Monium — платформа для сбора [метрик](metrics/overview.
 
 ## Создайте сервисный аккаунт и API-ключ {#create-ca-key}
 
+В примерах ниже используется API-ключ сервисного аккаунта. Также можно [создать ключ приложения](security/application-keys.md#create) в нужном проекте. Для него передавайте заголовок `Authorization: Application-Key MONIUM_Fc6m****` вместо `Authorization: Api-Key AQVN3sHv****`.
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

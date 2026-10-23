@@ -5,25 +5,35 @@ description: Следуя данной инструкции, вы сможете
 
 # Настроить алерты для сервиса
 
-[Алертинг](../../monitoring/concepts/alerting/alert.md) позволяет следить за изменениями в метриках и отправлять уведомления, когда показатели достигают критических значений. Изменения в метриках отслеживаются с помощью периодически отправляемых запросов — _алертов_. Когда они достигают пороговых значений, система отправляет уведомление через указанный канал связи. Например, по электронной почте или в мессенджер.
+[Алерты](../../monium/concepts/alerting/alert.md) в {{ monium-name }} отслеживают значения метрик {{ sws-name }} и отправляют уведомления при достижении заданных порогов. Способ отправки и получателей задают в [канале уведомлений](../../monium/concepts/alerting/notification-channel.md).
 
 В сервисе {{ sws-name }} доступны метрики скорости входящих запросов:
 
 * `load_balancer.smart_web_security.requests_per_second` — количество запросов к защищаемому ресурсу в секунду. Это значение соответствует количеству запросов, обработанных профилем безопасности.
 * `load_balancer.smart_web_security.arl_requests_per_second` — количество запросов к защищаемому ресурсу в секунду, которые обработаны модулем Advanced Rate Limiter.
 
-Можно настроить алерты при достижении метриками определенных порогов скорости. А также использовать метки для расчета метрик по отдельным событиям.
+С помощью меток можно отслеживать запросы к отдельному ресурсу или запросы с определенным результатом проверки, например заблокированные.
 
 Чтобы настроить алертинг:
 
-1. [Создайте канал уведомлений](../../monitoring/operations/alert/create-channel.md).
-1. Выберите [метрики и метки](../../monitoring/metrics-ref/smartwebsecurity-ref.md) для контроля.
-1. [Создайте алерт](../../monitoring/operations/alert/create-alert.md).
+1. [Создайте канал уведомлений](../../monium/operations/alert/create-channel.md).
+1. Выберите [метрики и метки](../metrics.md) для контроля.
+1. [Создайте алерт](../../monium/operations/alert/create-alert.md).
 
-Рассмотрим примеры создания алертов, которые могут быть полезны для выявления аномалий:
+Во всех запросах на получение метрик укажите общие метки:
+
+* `project` = `folder__<идентификатор_каталога>`.
+* `cluster` = `default`.
+* `service` = `__application-load-balancer__`.
+
+В метке `load_balancer` укажите имя балансировщика или прокси-сервера, если защищаете домен. В запросах `A` и `B` одного алерта используйте одинаковые значения меток ресурса: балансировщика, профиля безопасности и при необходимости HTTP-роутера и виртуального хоста.
+
+Примеры алертов для выявления аномалий:
 
 * [Алерт об увеличении доли заблокированных запросов](#increased-deny-requests).
 * [Алерт о высокой скорости легитимных запросов](#exceeding-speed-requests).
+
+Пороги, окно и задержку вычисления из примеров подберите под нагрузку приложения и частоту поступления метрик.
 
 ## Алерт об увеличении доли заблокированных запросов {#increased-deny-requests}
 
@@ -36,20 +46,18 @@ description: Следуя данной инструкции, вы сможете
 
 Настроим алерты:
 
-* `B` составляет 30% от `A` — предупреждение (`Warning`);
-* `B` составляет 50% от `A` — критический уровень (`Alarm`).
+* `B` составляет 30% и более от `A` — предупреждение (`Warning`);
+* `B` составляет 50% и более от `A` — критический уровень (`Alarm`).
 
 ### Создание канала уведомления {#create-channel}
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. [Перейдите]({{ link-monitoring }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-1. Выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}**.
-1. Нажмите **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
+1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите **Алерты и SLO** → **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+1. Вверху справа нажмите **Создать** → **Канал уведомления**.
 1. Укажите имя канала, метод отправки и получателей.
 
     {% note info %}
 
-    {% include [notifications-requirements](../../_includes/monitoring/notifications-requirements.md) %}
+    {% include [notifications-requirements](../../_includes/monium/notifications-requirements.md) %}
 
     {% endnote %}
 
@@ -57,56 +65,65 @@ description: Следуя данной инструкции, вы сможете
 
 ### Выбор метрик для контроля {#select-metrics}
 
-* Величину `A` будем получать с помощью метрики `load_balancer.smart_web_security.requests_per_second`.
-* Величину `B` будем получать с помощью метрики `load_balancer.smart_web_security.requests_per_second`, отфильтровав по метке `antirobot_verdict` = `deny`.
-* Долю `B` от `A` будем вычислять как `100 * B / A` и сохранять в значении `C`.
+Для расчета доли заблокированных запросов используйте:
+
+* `A` — метрика `load_balancer.smart_web_security.requests_per_second` со всеми значениями метки `antirobot_verdict`.
+* `B` — та же метрика с фильтром `antirobot_verdict` = `deny`.
+* `C` — доля заблокированных запросов в процентах: `100 * B / A`.
+
+При `A = 0` доля не определена.
 
 ### Создание алерта {#create-alert}
 
-1. На странице сервиса **{{ monitoring-short-name }}** нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}**.
+1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите **Алерты и SLO** → **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+1. Вверху справа нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **Пользовательский**.
 1. Введите название алерта, например, `exceeding-blocked-requests`.
 1. В блоке **{{ ui-key.yacloud_monitoring.alert.title_alerts-config }}** опишите запрос для получения `A`:
 
-   1. Напротив значка ![image](../../_assets/monitoring/chart-lines2.svg) нажмите ![image](../../_assets/monitoring/plus.svg) и добавьте параметры:
+   1. В строке запроса укажите общие метки `project`, `cluster`, `service` и добавьте:
 
-     * `service` = `Application Load Balancer`;
-     * `name` = `load_balancer.smart_web_security.requests_per_second`;
-     * `antirobot_verdict` = `allow`;
-     * `load_balancer` = `<имя_балансировщика_нагрузки>`.
+      * `name` = `load_balancer.smart_web_security.requests_per_second`;
+      * `antirobot_verdict` = `*`;
+      * `load_balancer` = `<имя_балансировщика_нагрузки>`;
+      * `security_profile` = `<идентификатор_профиля_безопасности>`.
 
-   1. Напротив значка ![image](../../_assets/monitoring/function.svg) нажмите ![image](../../_assets/monitoring/plus.svg).
-   1. Задайте функцию для обработки данных `replace_nan(0)` — замена пропусков данных на значение `0`, чтобы график был непрерывным.
+   1. В строке ![function](../../_assets/monitoring/function.svg) последовательно добавьте функции:
+
+      * `series_sum()` — суммирует значения выбранных временных рядов.
+      * `replace_nan(0)` — заменяет значения `NaN` нулем.
 
 1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}**.
 1. Опишите запрос для получения `B`:
 
-   1. Укажите данные для сбора:
+   1. Укажите общие метки `project`, `cluster`, `service` и добавьте:
 
-     * `service` = `Application Load Balancer`;
-     * `name` = `load_balancer.smart_web_security.requests_per_second`;
-     * `antirobot_verdict` = `deny`;
-     * `load_balancer` = `<имя_балансировщика_нагрузки>`.
+      * `name` = `load_balancer.smart_web_security.requests_per_second`;
+      * `antirobot_verdict` = `deny`;
+      * `load_balancer` = `<имя_балансировщика_нагрузки>`;
+      * `security_profile` = `<идентификатор_профиля_безопасности>`.
 
-   1. Задайте функцию `replace_nan(0)`.
+   1. Последовательно добавьте функции `series_sum()` и `replace_nan(0)`.
 
 1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}**.
 1. Опишите запрос `C` для получения доли `B` от `A` в процентах:
 
-   1. Нажмите ![image](../../_assets/monitoring/raw.svg), чтобы переключиться в текстовый режим редактирования запроса.
+   1. Нажмите ![code](../../_assets/console-icons/code.svg), чтобы переключиться в текстовый режим редактирования запроса.
    1. В строке запроса введите `100 * B / A`.
 
-1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}** укажите:
+1. В блоке **Условия срабатывания** укажите:
 
      * `Запрос для проверки` — `C`.
      * `Функция агрегации` — `Все значения`.
+     * `Функция сравнения` — `Больше или равно`.
      * `Warning` — `30` (предупреждение).
      * `Alarm` — `50` (критический уровень).
      * `Окно вычисления` — `30 секунд`.
      * `Задержка вычисления` — `15 секунд`.
 
-1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.no-data }}** оставьте значения по умолчанию.
-1. (опционально) В блоке [**{{ ui-key.yacloud_monitoring.monitoring-alerts.title.annotations }}**](../../monitoring/concepts/alerting/annotation.md) добавьте информацию, которую следует записывать при срабатывании алерта.
-1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** добавьте канал для отправки уведомления.
+1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.no-data }}** задайте [политики обработки отсутствия данных](../../monium/concepts/alerting/alert.md#no-data-policy) или оставьте значения по умолчанию.
+1. (Опционально) Добавьте [аннотации](../../monium/concepts/alerting/annotation.md) с дополнительной информацией для уведомлений.
+1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** добавьте канал и выберите статусы `Warning` и `Alarm` для отправки уведомлений.
+1. Нажмите **{{ ui-key.yacloud_monitoring.monitoring-alerts.action.calculate-alert }}** и проверьте график, значения запросов и статус алерта.
 1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 ## Алерт о высокой скорости легитимных запросов {#exceeding-speed-requests}
@@ -116,88 +133,83 @@ description: Следуя данной инструкции, вы сможете
 * `A` — разрешенных профилем безопасности.
 * `B` — разрешенных профилем ARL.
 
-В норме величина `A` должна быть равна или немного больше `B`. То есть количество запросов, разрешенных профилем безопасности, незначительно превышает установленный лимит в ARL. А значит большинство запросов, разрешенных профилем безопасности, достигает виртуального хоста. В этом случае нагрузка на систему находится в пределах нормы.
+Если `A` близко к `B`, профиль ARL пропускает большинство запросов, разрешенных профилем безопасности.
 
-Значительная разница в количестве запросов означает, что система не справляется с нагрузкой и блокирует потенциально легитимные запросы. Это возможно при недостаточной производительности или атаке. Если такая ситуация наблюдается постоянно, стоит пересмотреть настройки профиля безопасности или лимиты скорости.
+Если `A` значительно превышает `B`, часть запросов блокируется или направляется на дополнительную проверку профилем ARL. Проверьте характер трафика и настройки ARL: разница сама по себе не означает, что приложение не справляется с нагрузкой.
 
 Чтобы выявить такое превышение скорости, настроим алерты:
 
-* `A` превышает `B` на 30% — предупреждение (`Warning`);
-* `A` превышает `B` на 50% — критический уровень (`Alarm`).
+* `A` превышает `B` на 30% и более — предупреждение (`Warning`);
+* `A` превышает `B` на 50% и более — критический уровень (`Alarm`).
 
 ### Создание канала уведомления {#create-channel}
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. [Перейдите]({{ link-monitoring }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-1. Выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}**.
-1. Нажмите **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
-1. Укажите имя канала, метод отправки и получателей.
-
-    {% note info %}
-
-    {% include [notifications-requirements](../../_includes/monitoring/notifications-requirements.md) %}
-
-    {% endnote %}
-
-1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
+Используйте существующий канал уведомлений или [создайте новый](../../monium/operations/alert/create-channel.md).
 
 ### Выбор метрик для контроля {#select-metrics}
 
-* Величину `A` будем получать с помощью метрики `load_balancer.smart_web_security.requests_per_second`, отфильтровав по метке `antirobot_verdict` = `allow`.
-* Величину `B` будем получать с помощью метрики `load_balancer.smart_web_security.arl_requests_per_second`, отфильтровав по метке `arl_verdict` = `allow`.
-* Превышение `A` над `B` в процентах будем вычислять как `100 * abs(A - B) / B` и сохранять в значении `C`.
+Для сравнения запросов, разрешенных профилями безопасности и ARL, используйте:
+
+* `A` — метрика `load_balancer.smart_web_security.requests_per_second` с фильтром `antirobot_verdict` = `allow`.
+* `B` — метрика `load_balancer.smart_web_security.arl_requests_per_second` с фильтром `arl_verdict` = `allow`.
+* `C` — превышение `A` над `B` в процентах: `100 * (A - B) / B`.
+
+Пример применим при `B > 0`. Если ARL не пропускает ни одного запроса, процент превышения не определен.
 
 ### Создание алерта {#create-alert}
 
-1. На странице сервиса **{{ monitoring-short-name }}** нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}**.
+1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите **Алерты и SLO** → **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+1. Вверху справа нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **Пользовательский**.
 1. Введите название алерта, например, `inbound-over-ARL`.
 1. В блоке **{{ ui-key.yacloud_monitoring.alert.title_alerts-config }}** опишите запрос для получения `A`:
 
-   * Напротив значка ![image](../../_assets/monitoring/chart-lines2.svg) нажмите ![image](../../_assets/monitoring/plus.svg) и добавьте параметры:
+   1. В строке запроса укажите общие метки `project`, `cluster`, `service` и добавьте:
 
-     * `service` = `Application Load Balancer`;
-     * `name` = `load_balancer.smart_web_security.requests_per_second`;
-     * `antirobot_verdict` = `allow`;
-     * `load_balancer` = `<имя_балансировщика_нагрузки>`.
+      * `name` = `load_balancer.smart_web_security.requests_per_second`;
+      * `antirobot_verdict` = `allow`;
+      * `load_balancer` = `<имя_балансировщика_нагрузки>`;
+      * `security_profile` = `<идентификатор_профиля_безопасности>`.
 
-   * Напротив значка ![image](../../_assets/monitoring/function.svg) нажмите ![image](../../_assets/monitoring/plus.svg) и задайте функции для обработки данных:
+   1. В строке ![function](../../_assets/monitoring/function.svg) последовательно добавьте функции:
 
-     * `series_sum()` — сумма значений метрик с разными метками для конкретной точки. В нашем примере метка одна — `antirobot_verdict`, но для других метрик эта функция будет полезна.
-     * `replace_nan(0)` — замена пропусков данных на значение `0`, чтобы график был непрерывным.
+      * `series_sum()` — суммирует значения выбранных временных рядов.
+      * `replace_nan(0)` — заменяет значения `NaN` нулем.
 
 1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}**.
 1. Опишите запрос для получения `B`:
 
-   * Укажите данные для сбора:
+   1. Укажите общие метки `project`, `cluster`, `service` и добавьте:
 
-     * `service` = `Application Load Balancer`;
-     * `name` = `load_balancer.smart_web_security.arl_requests_per_second`;
-     * `arl_verdict` = `allow`;
-     * `load_balancer` = `<имя_балансировщика_нагрузки>`.
+      * `name` = `load_balancer.smart_web_security.arl_requests_per_second`;
+      * `arl_verdict` = `allow`;
+      * `load_balancer` = `<имя_балансировщика_нагрузки>`;
+      * `security_profile` = `<идентификатор_профиля_безопасности>`.
 
-   * Задайте функции `series_sum()` и `replace_nan(0)`.
+   1. Последовательно добавьте функции `series_sum()` и `replace_nan(0)`.
 
 1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}**.
-1. Опишите запрос `C` для получения разницы между  `A` и `B` в процентах:
+1. Опишите запрос `C` для получения превышения `A` над `B` в процентах:
 
-   1. Нажмите ![image](../../_assets/monitoring/raw.svg), чтобы переключиться в текстовый режим редактирования запроса.
-   1. В строке запроса введите `100 * abs(A - B) / B`.
+   1. Нажмите ![code](../../_assets/console-icons/code.svg), чтобы переключиться в текстовый режим редактирования запроса.
+   1. В строке запроса введите `100 * (A - B) / B`.
 
-1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}** укажите:
+1. В блоке **Условия срабатывания** укажите:
 
      * `Запрос для проверки` — `C`.
      * `Функция агрегации` — `Все значения`.
+     * `Функция сравнения` — `Больше или равно`.
      * `Warning` — `30` (предупреждение).
      * `Alarm` — `50` (критический уровень).
      * `Окно вычисления` — `30 секунд`.
      * `Задержка вычисления` — `15 секунд`.
 
-1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.no-data }}** оставьте значения по умолчанию.
-1. (опционально) В блоке [**{{ ui-key.yacloud_monitoring.monitoring-alerts.title.annotations }}**](../../monitoring/concepts/alerting/annotation.md) добавьте информацию, которую следует записывать при срабатывании алерта.
-1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** добавьте канал для отправки уведомления.
+1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.no-data }}** задайте [политики обработки отсутствия данных](../../monium/concepts/alerting/alert.md#no-data-policy) или оставьте значения по умолчанию.
+1. (Опционально) Добавьте [аннотации](../../monium/concepts/alerting/annotation.md) с дополнительной информацией для уведомлений.
+1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** добавьте канал и выберите статусы `Warning` и `Alarm` для отправки уведомлений.
+1. Нажмите **{{ ui-key.yacloud_monitoring.monitoring-alerts.action.calculate-alert }}** и проверьте график, значения запросов и статус алерта.
 1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 #### Полезные ссылки {#see-also}
 
 * [{#T}](../metrics.md)
-* [{#T}](../../monitoring/concepts/visualization/query-string.md)
+* [{#T}](../../monium/concepts/visualization/query-string.md)

@@ -16,4 +16,5 @@
 || Yandex StoreDoc | [Восстановление MongoDB из резервной копии WAL-G](../storedoc/operations/cluster-outbound-backups.md) ||
 || Yandex MPP Analytics for PostgreSQL | [Восстановление Greenplum® из резервной копии WAL-G](../managed-greenplum/operations/cluster-outbound-backups.md) ||
 || Managed Service for ClickHouse® | [Восстановление данных из резервной копии ch-backup](../managed-clickhouse/operations/cluster-outbound-backups.md) ||
+|| Managed Service for OpenSearch | [Восстановление базы данных из снапшота](../managed-opensearch/operations/cluster-outbound-backups.md) ||
 |#

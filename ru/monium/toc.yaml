@@ -435,7 +435,11 @@ items:
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
-    href: security/index.md
+    items:
+      - name: Обзор
+        href: security/index.md
+      - name: Ключи приложений
+        href: security/application-keys.md
   - name: Правила тарификации
     href: pricing.md
   - name: Справочник {{ TF }}

@@ -153,6 +153,8 @@
 
 Создайте соответствующие схемы формата данных:
 
+В запросах к API в параметре `<FQDN_хоста-брокера>` можно указать FQDN любого хоста-брокера кластера Managed Service for Apache Kafka®: реестр схем Managed Schema Registry развернут на каждом хосте-брокере и доступен по протоколу HTTPS на порту 443.
+
 1. Создайте файл `schema-key.json`, который содержит схему формата данных для ключа сообщения Apache Kafka®.
 
     {% cut "schema-key.json" %}
@@ -187,8 +189,8 @@
         -n --slurpfile data schema-key.json \
         '{
            "schemaType": "AVRO",
-           "schema": "\($data)"
-        }' \
+           "schema": "\($data[0])"
+         }' \
     | curl \
           --request POST \
           --url 'https://<FQDN_хоста-брокера>:443/subjects/messages-key/versions' \
@@ -237,8 +239,8 @@
         -n --slurpfile data schema-value.json \
         '{
            "schemaType": "AVRO",
-           "schema": "\($data)"
-        }' \
+           "schema": "\($data[0])"
+         }' \
     | curl \
           --request POST \
           --url 'https://<FQDN_хоста-брокера>:443/subjects/messages-value/versions' \

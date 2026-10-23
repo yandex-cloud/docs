@@ -59,7 +59,7 @@ Events
 
 #### Полезные ссылки {#see-also}
 
-* [Расследования](investigations.md).
-* [Работа с запросами](../operations/queries/index.md).
-* [Как начать работать с Yandex SIEM](../quickstart.md).
-* [Справочник KQL](../kql-reference.md).
+* [Расследования](investigations.md)
+* [Работа с запросами](../operations/queries/index.md)
+* [Как начать работать с Yandex SIEM](../quickstart.md)
+* [Справочник KQL](../kql-reference.md)

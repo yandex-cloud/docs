@@ -10,11 +10,13 @@ Smart Web Security — это набор инструментов для защ�
 
 * Базовые правила — для простой фильтрации трафика по заданным условиям.
 * Правила Smart Protection — для автоматической защиты от DDoS-атак при помощи алгоритмов машинного обучения и поведенческого анализа.
-* Правила профиля WAF — для защиты от эксплуатации уязвимостей веб-приложения или сайта. Правила блокируют множество известных угроз, например SQL-инъекции и командные инъекции, межсайтовый скриптинг и другие. В профиль WAF можно добавить несколько наборов правил: [OWASP Core Rule Set](https://owasp.org/www-project-modsecurity-core-rule-set/) (CRS), [Yandex Ruleset](waf.md#yandex-ruleset) и [ML WAF (Yandex Malicious Score)](waf.md#yandex-ml-ruleset).
+* Правила профиля Cloud WAF — для защиты от эксплуатации уязвимостей веб-приложения или сайта. Правила блокируют множество известных угроз, например SQL-инъекции и командные инъекции, межсайтовый скриптинг и другие. В профиль Cloud WAF можно добавить несколько наборов правил: [OWASP Core Rule Set](https://owasp.org/www-project-modsecurity-core-rule-set/) (CRS), [Yandex Ruleset](waf.md#yandex-ruleset) и [ML WAF (Yandex Malicious Score)](waf.md#yandex-ml-ruleset).
 * Встроенную [Yandex SmartCaptcha](../../smartcaptcha/index.md) — для проверки типа [CAPTCHA](https://ru.wikipedia.org/wiki/Капча) от ботов и спама.
 * Списки фильтрации IP-адресов — для разрешения или блокировки запросов от указанных IP-адресов.
 
 Профиль ARL содержит правила для ограничения количества запросов к защищаемому ресурсу по различным условиям.
+
+Помимо Cloud WAF, для защиты веб-приложений можно использовать SolidWall WAF. Его правила настраивают и сопровождают аналитики сервиса. SolidWall WAF подключается только через домены: в отдельном профиле создают приложение и добавляют к нему домены. Порядок подключения описан в [руководстве по настройке](../tutorials/solidwall-waf.md).
 
 Профиль безопасности можно подключить к разным типам ресурсов:
 
@@ -36,9 +38,9 @@ Smart Web Security проверяет HTTP-запросы к защищаемо�
 
 ## Мониторинг и аудит {#monitoring-audit}
 
-Логи Smart Web Security передаются в сервис [Yandex Cloud Logging](../../logging/index.md).
+Логи профилей безопасности передаются в [Yandex Monium](../../monium/index.md), логи прокси-серверов — в [Yandex Cloud Logging](../../logging/index.md). [Просматривать логи](../operations/configure-logging.md#view-logs) можно в интерфейсе Smart Web Security и соответствующего сервиса логирования.
 
-Метрики Smart Web Security передаются в сервис [Yandex Monitoring](../../monitoring/index.md).
+[Метрики](../operations/monitoring.md) доступны в разделе **Мониторинг** сервиса Smart Web Security.
 
 Аудитные логи Smart Web Security передаются в сервис [Yandex Audit Trails](../../audit-trails/index.md).
 

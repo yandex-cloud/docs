@@ -177,7 +177,7 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Расследования](../../concepts/investigations.md).
-* [Запросы](../../concepts/queries.md).
-* [Работа с шаблонами запросов](work-with-templates.md).
-* [История запросов](query-history.md).
+* [Расследования](../../concepts/investigations.md)
+* [Запросы](../../concepts/queries.md)
+* [Работа с шаблонами запросов](work-with-templates.md)
+* [История запросов](query-history.md)

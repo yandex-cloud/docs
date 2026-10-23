@@ -15,6 +15,7 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
+
 ## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
@@ -80,7 +81,7 @@
       * `dp_sa_name` — имя сервисного аккаунта для кластера {{ dataproc-name }} и бакета {{ objstorage-name }};
       * `dp_bucket_name` — имя бакета {{ objstorage-name }};
       * `dataproc_name` — имя кластера {{ dataproc-name }};
-      * `ssh-path` — путь к файлу публичного SSH-ключа для кластера {{ dataproc-name }}.
+      * `ssh_path` — путь к файлу публичного SSH-ключа для кластера {{ dataproc-name }}.
 
   1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
@@ -136,7 +137,7 @@
   [Создайте кластер {{ dataproc-name }}](../../data-proc/operations/cluster-create.md) со следующими параметрами:
 
   * В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите версию `2.0`.
-  * В поле **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** выберите сервисный аккаунт, [созданный ранее](#before-you-begin).
+  * В поле **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** выберите сервисный аккаунт, [созданный ранее](#infra).
   * В поле **{{ ui-key.yacloud.mdb.forms.config_field_initialization-action }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-initialization-action }}** и задайте параметры скрипта:
 
       * В поле **{{ ui-key.yacloud.mdb.forms.field_initialization-action-uri }}** укажите путь к файлу скрипта в бакете, например:
@@ -145,14 +146,14 @@
           s3a://<имя_бакета>/geesefs_mount.sh
           ```
 
-      * В поле **{{ ui-key.yacloud.mdb.forms.field_initialization-action-args }}** укажите имя [созданного ранее](#before-you-begin) бакета и точку монтирования `/mnt/test`. Аргументы указываются на отдельных строках:
+      * В поле **{{ ui-key.yacloud.mdb.forms.field_initialization-action-args }}** укажите имя [созданного ранее](#infra) бакета и точку монтирования `/mnt/test`. Аргументы указываются на отдельных строках:
 
           ```text
           <имя_бакета>
           /mnt/test
           ```
 
-  * В поле **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** выберите бакет, [созданный ранее](#before-you-begin).
+  * В поле **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** выберите бакет, [созданный ранее](#infra).
 
   * В меню **{{ ui-key.yacloud.mdb.forms.section_subclusters }}** включите в настройках опцию **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}**.
 

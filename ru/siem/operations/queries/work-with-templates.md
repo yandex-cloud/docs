@@ -172,7 +172,7 @@ description: Следуя данной инструкции, вы научите
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](../../concepts/investigations.md).
-* [{#T}](../../concepts/queries.md).
-* [{#T}](manage-queries.md).
-* [{#T}](work-with-schema-datasets.md).
+* [{#T}](../../concepts/investigations.md)
+* [{#T}](../../concepts/queries.md)
+* [{#T}](manage-queries.md)
+* [{#T}](work-with-schema-datasets.md)

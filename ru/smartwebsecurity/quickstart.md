@@ -1,6 +1,10 @@
 # Как начать работать с {{ sws-full-name }}
 
-{% include [about-sws](../_includes/smartwebsecurity/about-sws.md) %}
+{{ sws-name }} защищает веб-приложения от DDoS-атак, ботов и эксплуатации уязвимостей. Основной элемент защиты — профиль безопасности с правилами проверки входящего трафика. Его можно подключить к [L7-балансировщику](*l7-balancer), [API-шлюзу](*api-gateway) или [домену](*domain).
+
+В профиле безопасности Smart Protection выявляет DDoS-атаки и ботов, а капча {{ captcha-name }} помогает отличить человека от бота. Дополнительно к профилю безопасности подключают профили Cloud WAF для защиты от эксплуатации уязвимостей и Advanced Rate Limiter (ARL) для ограничения количества запросов за заданный период.
+
+Для защиты крупных и бизнес-критичных приложений дополнительно доступен SolidWall WAF. Его правила настраивают и сопровождают аналитики сервиса. Чтобы настроить только SolidWall WAF, перейдите к руководству [{#T}](tutorials/solidwall-waf.md).
 
 ## Порядок настройки {#steps}
 
@@ -12,7 +16,7 @@
 * (Опционально) [Создайте и подключите профиль Cloud WAF](#waf)
 * (Опционально) [Создайте и подключите профиль ARL](#arl)
 
-{{ sws-name }} — это набор инструментов защиты, которые рекомендуется настраивать последовательно. Включайте каждое новое изменение в режиме **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}** и [анализируйте логи](operations/configure-logging.md). Это облегчит отслеживание и корректировку правил.
+Настраивайте инструменты защиты последовательно. Новые и измененные правила сначала проверяйте в режиме **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}** и [анализируйте логи](operations/configure-logging.md).
 
 Если не получается настроить {{ sws-name }}:
 
@@ -39,7 +43,7 @@
 
 - Домен {#domain}
 
-  Домен — сервер, сайт, приложение, которое обрабатывает внешние запросы по веб-адресу. Для защиты домена {{ sws-name }} предоставляет прокси-сервер с балансировкой нагрузки, анализом и маршрутизацией запросов. А также базовой [защитой от DDoS](../vpc/ddos-protection/).
+  Для защиты приложения по доменному имени {{ sws-name }} предоставляет прокси-сервер с балансировкой нагрузки, анализом и маршрутизацией запросов, а также базовой [защитой от DDoS](../vpc/ddos-protection/).
 
   На прокси-сервере установлено ограничение MTU для всех пакетов — 1450 байт.
 
@@ -66,6 +70,13 @@
     1. На панели слева выберите ![domain-protection-icon](../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}**.
     1. Нажмите **{{ ui-key.yacloud.smart-web-security.ProxyServers.createProxyServer_jatYQ }}**.
     1. Введите произвольное имя для прокси-сервера, например, `test-proxy`.
+    1. (Опционально) Включите **{{ ui-key.yacloud.smart-web-security.ProxyServerForm.swith-enable-logging_e42nT }}** и выберите [лог-группу](../logging/concepts/log-group.md) {{ cloud-logging-name }} или [создайте новую](../logging/operations/create-group.md).
+
+       Чтобы уменьшить объем логов, настройте правило отбрасывания:
+
+       1. В блоке **{{ ui-key.yacloud.smart-web-security.ProxyServerForm.discard-rules-title_xn6cP }}** нажмите **{{ ui-key.yacloud.smart-web-security.ProxyServerForm.add-rule_fnmLk }}**.
+       1. Выберите HTTP-коды или классы HTTP-кодов и укажите, какую долю логов отбрасывать.
+
     1. Нажмите **{{ ui-key.yacloud.smart-web-security.ProxyServerFormCreate.createServer_sycVk }}**.
 
         {% include [after-proxy-create](../_includes/smartwebsecurity/after-proxy-create.md) %}
@@ -207,15 +218,16 @@
 
 - Консоль управления {#console}
 
-  1. На странице сервиса **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}** на панели слева выберите раздел ![display-pulse](../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud_billing.common.monitoring }}**.
-  1. Посмотрите [графики](operations/monitoring.md) разрешенных и заблокированных запросов.
+  {% include [view-metrics](../_includes/smartwebsecurity/view-metrics.md) %}
+
+  Посмотрите [графики](operations/monitoring.md) разрешенных и заблокированных запросов.
 
 {% endlist %}
 
 
 ## Создайте и подключите профиль Cloud WAF {#waf}
 
-WAF позволяет использовать наборы правил для защиты веб-приложений от множества информационных атак. Рекомендуется настраивать профиль Cloud WAF после того, как будут настроены и протестированы базовые правила и Smart Protection в профиле безопасности.
+Cloud WAF позволяет использовать наборы правил для защиты веб-приложений от множества информационных атак. Рекомендуется настраивать профиль Cloud WAF после того, как будут настроены и протестированы базовые правила и Smart Protection в профиле безопасности.
 
 
 ### Создайте профиль Cloud WAF {#waf-create}
@@ -377,3 +389,9 @@ ARL позволяет устанавливать лимиты на количе
 
 * [{#T}](operations/profile-create.md)
 * [{#T}](tutorials/sws-basic-protection.md)
+
+[*l7-balancer]: {% include notitle [l7-balancer](../_popups/application-load-balancer/l7-balancer.md) %}
+
+[*api-gateway]: {% include notitle [api-gateway](../_popups/api-gateway/api-gateway.md) %}
+
+[*domain]: {% include notitle [domain](../_popups/sws/domain.md) %}
