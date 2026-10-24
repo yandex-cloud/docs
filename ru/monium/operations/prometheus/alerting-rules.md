@@ -78,22 +78,22 @@ groups:
    1. Создайте файл `host-cpu-usage-alert.yml` и закодируйте его содержимое в [Base64](https://en.wikipedia.org/wiki/Base64) согласно [RFC 4648](https://www.ietf.org/rfc/rfc4648.txt):
 
       ```bash
-      # cat <<EOF > host-cpu-usage-alert.yml
+      cat <<'EOF' > host-cpu-usage-alert.yml
       groups:
-      - name: CPU_Usage_Alerts
-      rules:
-          - alert: HighCPUUsage
-          expr: 100 * (1 - avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m]))) > 80
-          for: 5m
-          labels:
-              severity: critical
-          annotations:
-              summary: "High CPU usage detected on {{$labels.instance}}"
-              description: "CPU usage on instance {{$labels.instance}} has been above 80% for the last 5 minutes."
+        - name: CPU_Usage_Alerts
+          rules:
+            - alert: HighCPUUsage
+              expr: 100 * (1 - avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m]))) > 80
+              for: 5m
+              labels:
+                severity: critical
+              annotations:
+                summary: "High CPU usage detected on {{$labels.instance}}"
+                description: "CPU usage on instance {{$labels.instance}} has been above 80% for the last 5 minutes."
       EOF
 
-      # base64 -iw0 host-cpu-usage-alert.yml
-      Z3JvdXBzOgotIG5hbWU6I******
+      base64 -iw0 host-cpu-usage-alert.yml
+      # Z3JvdXBzOgogIC0gbmFtZ******
       ```
 
    1. Сохраните результат в JSON-файл:
@@ -103,7 +103,7 @@ groups:
        ```json
        {
            "name": "host-cpu-usage-alert.yml",
-           "content" : "Z3JvdXBzOgotIG5hbWU6I******"
+           "content" : "Z3JvdXBzOgogIC0gbmFtZ******"
        }
        ```
 
@@ -176,7 +176,7 @@ receivers:
 
 Настройка динамической маршрутизации уведомлений описана в [документации Prometheus](https://prometheus.io/docs/alerting/latest/configuration/#route).
 
-### Добавление и замена файла конфигурации {#alert-manager-create}
+### Добавление и замена файла конфигурации {#alert-manager-config}
 
 {% list tabs group=instructions %}
 
@@ -194,35 +194,33 @@ receivers:
    1. Сохраните конфигурацию в файл `alertmanager.yml` и закодируйте в [Base64](https://en.wikipedia.org/wiki/Base64) согласно [RFC 4648](https://www.ietf.org/rfc/rfc4648.txt):
 
        ```bash
-        # cat <<EOF > alertmanager.yml
-        global:
-          resolve_timeout: 5m
-        route:
-          receiver: 'default-receiver'
-          routes:
-            - receiver: 'warning-receiver'
-              matchers:
-                - severity="warning"
-            - receiver: 'critical-receiver'
-              matchers:
-                - severity="critical"
+       cat <<'EOF' > alertmanager.yml
+       global:
+         resolve_timeout: 5m
+       route:
+         receiver: 'default-receiver'
+         routes:
+           - receiver: 'warning-receiver'
+             matchers:
+               - severity="warning"
+           - receiver: 'critical-receiver'
+             matchers:
+               - severity="critical"
 
-          receivers:
-          - name: 'default-receiver'
-            yandex_monitoring_configs:
-              - channel_names: []
-          - name: 'warning-receiver'
-            yandex_monitoring_configs:
-              - channel_names: [ 'email', 'push-channel' ]
-          - name: 'critical-receiver'
-            yandex_monitoring_configs:
-              - channel_names: [ 'telegram', 'sms-channel' ]
+       receivers:
+       - name: 'default-receiver'
+         yandex_monitoring_configs:
+           - channel_names: []
+       - name: 'warning-receiver'
+         yandex_monitoring_configs:
+           - channel_names: [ 'email', 'push-channel' ]
+       - name: 'critical-receiver'
+         yandex_monitoring_configs:
+           - channel_names: [ 'telegram', 'sms-channel' ]
+       EOF
 
-        EOF
-
-        # base64 -iw0 alertmanager.yml
-
-        # Z2xvYmFsOgogIHJlc29sdmVfdGltZW91******
+       base64 -iw0 alertmanager.yml
+       # Z2xvYmFsOgogIHJlc29sdmVfdGltZW91******
        ```
 
    1. Сохраните результат в JSON-файл:
