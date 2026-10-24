@@ -50,7 +50,7 @@ resource "yandex_vpc_subnet" "foo" {
 ## Arguments & Attributes Reference
 
 - `allow_recreate` (Bool). 
-- <a id="allow_stopping_for_update"></a>`allow_stopping_for_update` (Bool). If `true`, allows Terraform to stop the instance in order to update its properties. If you try to update a property that requires stopping the instance without setting this field, the update will fail.
+- `allow_stopping_for_update` (Bool). If `true`, allows Terraform to stop the instance in order to update its properties. If you try to update a property that requires stopping the instance without setting this field, the update will fail. {#allow_stopping_for_update}
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
 - `description` (String). The resource description.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
