@@ -168,7 +168,7 @@ After you start the exporter, metrics will be available at `curl http://localhos
 You need a service account to send metrics from the VM to {{ monitoring-name }}.
 
 1. [Create](../../iam/operations/sa/create.md) a service account named `sa-1c-monitoring` in the folder you want to write metrics to.
-1. [Assign](../../iam/operations/roles/grant.md) the `monitoring.editor` [role](../../monitoring/security/index.md#monitoring.editor) to the service account.
+1. [Assign](../../iam/operations/roles/grant.md) the `monitoring.editor` [role](../../monitoring/security/index.md#monitoring-editor) to the service account.
 1. [Link](../../compute/operations/vm-control/vm-connect-sa.md) the service account to the VM where 1C:Enterprise is installed.
 
 ## Install and configure {{ unified-agent-short-name }} {#configure-ua}

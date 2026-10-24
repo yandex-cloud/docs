@@ -7,7 +7,7 @@ description: In this article, you will learn how to share an object with users w
 
 You can share a dashboard, connection, dataset, chart, or report with users within your organization.
 
-The way you share an object depends on whether it is [located](./publishing-and-embedding.md#object-location) in a [workbook](../workbooks-collections/index.md#enable-workbooks) or a folder:
+The way you share an object depends on whether it is [located](./publishing-and-embedding.md#object-location) in a [workbook](../workbooks-collections/index.md) or a folder:
 
 {% list tabs %}
 

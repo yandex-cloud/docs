@@ -20,7 +20,7 @@
 
 ### Version 2.1.0 {#version2.1.0}
 
-* Added XFS file support in the [Docker Compose specification](../../cos/concepts/index.md#compose-spec).
+* Added XFS file support in the [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec).
 * Added Docker container labels to identify automatically launched containers.
 * Added COI version data to Docker image descriptions.
 * Fixed the disk mount issue after a VM restart when using the Docker Compose spec.

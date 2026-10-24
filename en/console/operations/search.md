@@ -328,7 +328,7 @@ Object type | Fields
 [ARL profile](../../smartwebsecurity/concepts/arl.md) | ID, name, labels, description
 [WAF profile](../../smartwebsecurity/concepts/waf.md) | ID, name, labels, description
 [Security profile](../../smartwebsecurity/concepts/profiles.md) | ID, name, labels, description
-[List of matches](../../smartwebsecurity/concepts/conditions.md#match-list) | ID, name, labels, description
+[List of matches](../../smartwebsecurity/concepts/lists.md) | ID, name, labels, description
 
 
 ### {{ captcha-full-name }} {#captcha}

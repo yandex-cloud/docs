@@ -83,7 +83,7 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
 
     Where:
     
-    * `--cluster-name`: Cluster name. You can get it from the [list of clusters in your folder](cluster-list.md#list).
+    * `--cluster-name`: Cluster name. You can get it from the [list of clusters in your folder](cluster-list.md#list-clusters).
     * `--host`: Host settings:
       
       * `type`: Type (`MONGOINFRA`).
@@ -126,7 +126,7 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
 
     Where:
     
-    * `--cluster-name`: Cluster name. You can get it from the [list of clusters in your folder](cluster-list.md#list).
+    * `--cluster-name`: Cluster name. You can get it from the [list of clusters in your folder](cluster-list.md#list-clusters).
     * `--host`: Host settings:
       
       * `type`: Type, `MONGOS` or `MONGOCFG`.

@@ -808,7 +808,7 @@
 
       * `configSpec.mysqlConfig_<версия_MySQL®>` — набор настроек MySQL®. Укажите каждую настройку на отдельной строке через запятую.
 
-          Список версий MySQL®, доступных для параметра, приведен в [описании метода](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterReques). Описание и возможные значения настроек приведены в разделе [Настройки СУБД уровня кластера](../concepts/settings-list.md#dbms-cluster-settings).
+          Список версий MySQL®, доступных для параметра, приведен в [описании метода](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterRequest). Описание и возможные значения настроек приведены в разделе [Настройки СУБД уровня кластера](../concepts/settings-list.md#dbms-cluster-settings).
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 

@@ -32,11 +32,17 @@ Beyond improving attribute grouping in visualizations, this approach enhances au
 
 In the {{ monium-name }} data model, there are two types of attributes: _labels_ and _meta_.
 
-When choosing between [labels](../../concepts/data-model.md#labels) and [meta](../../concepts/data-model.md#meta), keep in mind that requirements to labels are stricter.
+When choosing between [labels](../../concepts/data-model.md#label) and [meta](attributes-guide.md#metadata), keep in mind that requirements to labels are stricter.
 
 When constraints are violated, labels are automatically moved to metadata. This may cause confusion when writing labels with uncontrolled data, as the same attribute may be duplicated in both labels and metadata, which complicates data search.
 
 Labels are not intended for high-cardinality data (e.g., request IDs, random values, or noise). Including such attributes in labels slows down query performance and may violate {{ monium-name }} limits on the number of unique label values.
+
+### Metadata {#metadata}
+
+Structured metadata (`meta`) separates a log entry into named parts to make it easier to inspect. Metadata can hold diverse details about an event, while labels are intended for selective filtering and narrowing the search scope.
+
+Metadata keys must be printable Unicode strings. They can be created dynamically and may differ between entries. Metadata name and value lengths are subject to the [log limits](../limits.md).
 
 ### How to choose between a label and metadata {#selection-rules}
 
@@ -45,7 +51,7 @@ You should store an attribute as a label only if all of the following is true:
 * You intend to filter data by the attribute's value (such filtering solves a specific task).
 * Filtering will minimize the number of log lines you need to review.
 * This attribute has a unique value or is closely related to other attributes, i.e., attributes within the same namespace should be stored as labels.
-* Attribute's possible values respect the [constraints](../../concepts/data-model.md#labels) on label names and values.
+* Attribute's possible values respect the [constraints](../../concepts/data-model.md#limits) on label names and values.
 * This attribute has finite unique values.
 
 {% include [labels-vs-meta](../../../_includes/monium/labels-vs-meta.md) %}

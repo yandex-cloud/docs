@@ -4,7 +4,7 @@ subcategory: Yandex Query
 
 # yandex_yq_yds_binding (Resource)
 
-Manages Yandex DataStreams binding in Yandex Query service. For more information, see [the official documentation](https://yandex.cloud/docs/query/concepts/glossary#Binding).
+Manages Yandex DataStreams binding in Yandex Query service. For more information, see [the official documentation](https://yandex.cloud/docs/query/concepts/glossary#binding).
 
 ## Example usage
 

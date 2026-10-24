@@ -7,7 +7,7 @@ description: With {{ datalens-full-name }} security settings, you can restrict t
 
 The security settings allow you to restrict the use of some {{ datalens-name }} features at the instance level:
 
-* [Neuroanalyst](../concepts/neuroanalyst.md#prohibit#prohibit): Restricts the use of Neuroanalyst.
+* [Neuroanalyst](../concepts/neuroanalyst.md#prohibit): Restricts the use of Neuroanalyst.
 * [Publishability](../concepts/datalens-public.md#publication-disable): Prohibits publishing charts and dashboards.
 * [Workbook export](../workbooks-collections/export-and-import.md#workbooks-export-disable): Prohibits exporting workbooks as a file.
 * [Data export](../concepts/chart/data-export.md#data-export-disable): Restricts downloading data from charts as files.

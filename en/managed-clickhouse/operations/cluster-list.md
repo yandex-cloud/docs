@@ -210,7 +210,7 @@ All actions with {{ mch-name }} clusters are logged as a list of operations. Eac
   +----------------------+---------------------+----------------------+---------------------+---- ---+--------------------------------+
   ```
 
-  You can get the cluster ID and name with the [list of clusters in the folder](#list).
+  You can get the cluster ID and name with the [list of clusters in the folder](#list-clusters).
 
   By default, information about operations is output as text. To get more details, use `--format` to specify the `yaml` or `json` output format:
 

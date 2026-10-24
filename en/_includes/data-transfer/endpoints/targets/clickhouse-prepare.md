@@ -10,7 +10,7 @@
 
        Once started, the transfer will connect to the target on behalf of this user.
 
-    1. If [user management via SQL](../../../../managed-clickhouse/operations/cluster-users.md#sql-user-management) is enabled in the cluster, grant the new user the following permissions:
+    1. If [user management via SQL](../../../../managed-clickhouse/concepts/user-access-rights.md#sql-user-management) is enabled in the cluster, grant the new user the following permissions:
 
         ```sql
         GRANT CLUSTER ON *.* TO <username>

@@ -19,7 +19,7 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
 * The vulnerability database is continuously updated with vulnerability information from multiple sources.
 * For some vulnerabilities, there is no information on the package versions that will include the fix. This is because such information is not available in the current sources.
 * The number of Docker image scans you can run per [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) is [limited](../concepts/limits.md#container-registry-quotas).
-* Scanning Docker images for vulnerabilities is [charged](../pricing.md#scanner).
+* Scanning Docker images for vulnerabilities is [charged](../pricing.md#rules).
 
 {% endnote %}
 

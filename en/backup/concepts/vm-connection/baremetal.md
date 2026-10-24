@@ -12,7 +12,7 @@ For more on connecting {{ baremetal-name }} servers to {{ backup-name }}, see [{
 
 For the {{ backup-name }} connection to work correctly, link to the server a [service account](#sa) with the [`baremetal.editor`](../../../baremetal/security/index.md#baremetal-editor) and [`backup.user`](../../security/index.md#backup-user) roles or higher and configure [network access](#vm-network-access).
 
-After you connect it to {{ backup-name }}, [link](../../operations/policy-vm/attach-and-detach-vm.md#attach-vm) the {{ baremetal-name }} server to a [backup policy](../policy.md).
+After you connect it to {{ backup-name }}, [link](../../operations/policy-vm/attach-and-detach-vm.md) the {{ baremetal-name }} server to a [backup policy](../policy.md).
 
 {% note info %}
 

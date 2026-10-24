@@ -21,9 +21,9 @@ vpc:
 Where:
 * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 * `vpc_net_id`: Cloud network [ID](../../vpc/operations/network-get-info.md).
-* `vpc_subnets`: List of [announced](../../interconnect/concepts/priv-con.md#prc-announce) address prefixes for each [availability zone](../../overview/concepts/geo-scope.md). For example, for the {{ vpc-short-name }} subnet you created earlier, you will specify `{{ region-id }}-b: [192.168.11.0/24]`.
+* `vpc_subnets`: List of [announced](../../cloud-router/concepts/announces.md#prc-announce) address prefixes for each [availability zone](../../overview/concepts/geo-scope.md). For example, for the {{ vpc-short-name }} subnet you created earlier, you will specify `{{ region-id }}-b: [192.168.11.0/24]`.
 
-    You may announce [aggregated](../../interconnect/concepts/priv-con.md#agg-subnets) address prefixes.
+    You may announce [aggregated](../../cloud-router/concepts/aggregates.md#agg-subnets) address prefixes.
 
 {% note info %}
 

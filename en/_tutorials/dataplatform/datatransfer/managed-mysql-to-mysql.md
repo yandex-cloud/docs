@@ -67,7 +67,7 @@
 1. Wait for the transfer status to change to {{ dt-status-repl }}.
 1. Switch the source cluster to "read-only" mode and move the workload to the target cluster.
 1. On the [transfer monitoring](../../../data-transfer/operations/monitoring.md) page, wait until the **Maximum data transfer delay** value drops to zero. This indicates that the target cluster now contains all changes made in the source cluster after the data copy completed.
-1. [Deactivate](../../../data-transfer/operations/transfer.md#deactivate-transfer) the transfer and wait for its status to change to {{ dt-status-stopped }}.
+1. [Deactivate](../../../data-transfer/operations/transfer.md#deactivate) the transfer and wait for its status to change to {{ dt-status-stopped }}.
 
     For more information about transfer statuses, see [Transfer lifecycle](../../../data-transfer/concepts/transfer-lifecycle.md#statuses).
 

@@ -37,11 +37,11 @@ To search for logs, specify this query:
 
 1. Make sure logs are delivered to {{ monium-name }} directly, not via {{ cloud-logging-name }}.
 
-   To check this, [view service usage details](../../billing/operations/check-charges.md#products) by products in {{ billing-name }}. After migration, you should see usage details for logs in {{ monium-name }}. {{ cloud-logging-name }} consumption should decrease or stop entirely.
+   To check this, [view service usage details](../../billing/operations/check-charges.md?tabs=details_products) by products in {{ billing-name }}. After migration, you should see usage details for logs in {{ monium-name }}. {{ cloud-logging-name }} consumption should decrease or stop entirely.
 
    After migration, logs will be billed according to the {{ monium-name }} pricing and all platform features will become available.
 
-1. Optionally, rename the projects, clusters, and services. You can leave the current structure: `folder__<folder_ID>` → `default` → `log group name` or set custom names. For more information, see [Types of telemetry and general concepts](../concepts/data-model.md#telemetry-common).
+1. Optionally, rename the projects, clusters, and services. You can leave the current structure: `folder__<folder_ID>` → `default` → `log group name` or set custom names. For more information, see [Configuration objects and telemetry attributes](../concepts/configuration-model.md#relation-to-data-model).
 
 ## Configuring an agent for OTel delivery {#agent-setup}
 

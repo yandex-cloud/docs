@@ -83,4 +83,4 @@ To revoke a [refresh token](../../concepts/authorization/refresh-token.md) for a
 
 {% endlist %}
 
-Refresh tokens are also automatically deleted seven days after their [lifetime](../../concepts/authorization/refresh-token.md#lifetime) expires.
+Refresh tokens are also automatically deleted seven days after their [lifetime](../../concepts/authorization/refresh-token.md#token-lifetime) expires.

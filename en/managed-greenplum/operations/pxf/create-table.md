@@ -167,7 +167,7 @@ Where:
     
   1. Create a table in {{ MY }} and populate it with data:
       
-      1. [Connect to the {{ MY }}](../../../managed-mysql/operations/connect/index.md#connection-string) DB using `mysql`.
+      1. [Connect to the {{ MY }}](../../../managed-mysql/operations/connect/code-examples.md#connection-string) DB using `mysql`.
   
       1. Create a table named `test`:
 
@@ -560,7 +560,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
 
         With no data source created, you will need to provide the source connection properties in the SQL query for creating an external table.
 
-    1. [Connect to the {{ MY }} DB](../../../managed-mysql/operations/connect/index.md#connection-string) using `mysql`.
+    1. [Connect to the {{ MY }} DB](../../../managed-mysql/operations/connect/code-examples.md#connection-string) using `mysql`.
     1. Create a test table and populate it with data:
 
         ```sql

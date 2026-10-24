@@ -27,7 +27,7 @@ To view a list of installed packages and their versions, you can also run the fo
 ## Updating {#update}
 
 You can upgrade any pre-installed package to a later version or roll it back to an earlier one.
-Upgraded versions are preserved when you change environments or restart your project in [{{ ds }} mode](project.md#serverless).
+Upgraded versions are preserved when you change environments or restart your project in [{{ ds }} mode](project.md#mode).
 
 To upgrade a library to the latest version, run the following command in the notebook cell:
 

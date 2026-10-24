@@ -40,7 +40,7 @@ If a field is created in a chart, it will not be available to dashboard selector
 
 {% note warning %}
 
-In [multi-dataset charts](../chart/index.md#multi-dataset-charts), calculated fields are not applicable to fields from multiple datasets.
+In [multi-dataset charts](../chart/multidataset-chart.md), calculated fields are not applicable to fields from multiple datasets.
 
 {% endnote %}
 

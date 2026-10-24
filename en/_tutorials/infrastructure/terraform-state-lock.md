@@ -38,7 +38,7 @@ If you deploy resources from other {{ yandex-cloud }} services, the cost will ch
 
 ## Create a service account and static access key {#create-service-account}
 
-1. [Create a service account](../../iam/operations/sa/create.md) with the [storage.editor](../../storage/security/index.md#storage-editor) and [ydb.admin](../../ydb/security/index.md#ydbadmin) [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) specified in the provider settings.
+1. [Create a service account](../../iam/operations/sa/create.md) with the [storage.editor](../../storage/security/index.md#storage-editor) and [ydb.admin](../../ydb/security/index.md#ydb-admin) [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) specified in the provider settings.
 1. [Get a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key). Save the key ID and secret key: you will need them later as you follow this tutorial.
 
 ## Create a bucket {#create-service-account}

@@ -85,8 +85,8 @@ To get the database connection credentials:
 Select the authentication mode:
 
 * [IAM token](../../iam/concepts/authorization/iam-token.md): Recommended for performing one-time operations under a [{{ yandex-cloud }} account](../../iam/concepts/users/accounts.md#passport) or a [federated account](../../iam/concepts/users/accounts.md#saml-federation). The maximum lifetime of an IAM token is 12 hours.
-* [Authorized access key](../../iam/concepts/authorization/key.md): Recommended for running {{ ydb-short-name }} CLI commands from outside {{ yandex-cloud }} under a [service account](../../iam/concepts/index.md#sa).
-* [Metadata service](../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm.md): Most secure and efficient mode used for running commands on VMs inside {{ yandex-cloud }}. [{{ sf-full-name }}](../../functions/) supports it as well.
+* [Authorized access key](../../iam/concepts/authorization/key.md): Recommended for running {{ ydb-short-name }} CLI commands from outside {{ yandex-cloud }} under a [service account](../../iam/concepts/users/service-accounts.md).
+* [Metadata service](../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm): Most secure and efficient mode used for running commands on VMs inside {{ yandex-cloud }}. [{{ sf-full-name }}](../../functions/) supports it as well.
 
 Set up the mode you selected:
 

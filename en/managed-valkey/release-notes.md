@@ -42,7 +42,7 @@ Added the **{{ ui-key.yacloud.mdb.cluster.switch_shards }}** tab to **{{ ui-key.
 
 ## December 2025 {#dec-2025}
 
-* Added [detailed metrics](operations/monitoring.md#hosts) for disk usage on cluster hosts.
+* Added [detailed metrics](operations/monitoring.md#monitoring-hosts) for disk usage on cluster hosts.
 * Added execution details for [operations on the cluster](operations/cluster-list.md#list-operations).
 * All new clusters are created with a [{{ connection-manager-name }} connection](../metadata-hub/concepts/connection-manager.md) by default.
 
@@ -93,7 +93,7 @@ The service migrated to [{{ VLK }}](https://valkey.io/) DBMS, an open-source for
 ## Q1 2023 {#q1-2023}
 
 * A new version is out: Redis 7.0. For information about the updates, see [this Redis guide](https://raw.githubusercontent.com/redis/redis/7.0/00-RELEASENOTES).
-* Added the `rdsync` integration for improved [fault tolerance](concepts/replication.md#availability) of Redis 7.0 clusters.
+* Added the `rdsync` integration for improved [fault tolerance](concepts/replication.md#rdsync) of Redis 7.0 clusters.
 
 ## Q2 2022 {#q2-2022}
 

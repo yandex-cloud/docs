@@ -10,11 +10,11 @@ You need to generate a payment invoice for the previous reporting period of your
 
 The invoice is automatically sent at the end of the month to the billing account owner's email address, specified by the owner in the [management console settings]({{ link-console-settings }}).
 
-You can also generate an invoice yourself [in the **{{ ui-key.yacloud_billing.billing.label_service }}** section]({{ link-console-billing }}). To top up your account balance, use [this guide](../../../billing/operations/pay-the-bill#legal-entities.md).
+You can also generate an invoice yourself [in the **{{ ui-key.yacloud_billing.billing.label_service }}** section]({{ link-console-billing }}). To top up your account balance, use [this guide](../../../billing/operations/pay-the-bill.md#legal-entities).
 
 {% note info %}
 
-To generate payment invoices, assign the `billing.accounts.editor` or `billing.accounts.admin` role to your IAM account. To learn how to do this, see [this guide](../../../billing/security/index.md#role-list).
+To generate payment invoices, assign the `billing.accounts.editor` or `billing.accounts.admin` role to your IAM account. To learn how to do this, see [this guide](../../../billing/security/index.md#roles-list).
 
 {% endnote %}
 

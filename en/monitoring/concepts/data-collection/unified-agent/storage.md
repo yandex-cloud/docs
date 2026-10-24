@@ -31,7 +31,7 @@ storages:
 To make a reference to a storage, you can use the `storage_ref` directive with the following parameters:
 
 - `name`: Name of the storage defined in `storages`.
-- `flow_control`: Settings for the [session creation mechanism](#flow_control).
+- `flow_control`: Settings for the [session creation mechanism](services.md#flow_control).
 
 Here is an example of a pipe with a storage reference:
 

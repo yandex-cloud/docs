@@ -44,7 +44,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you will need the [`{{ roles.mmg.viewer }}`](../../../../storedoc/security/index.md#mmg-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
+To create or edit an endpoint of a managed database, you will need the [`{{ roles.mmg.viewer }}`](../../../../storedoc/security/index.md#managed-mongodb-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
 
 {% endnote %}
 

@@ -54,7 +54,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: Same as for the {{ mrd-name }} cluster.
 
     
-    1. If using {{ vpc-name }} security groups, [configure them](../../managed-valkey/operations/connect/index.md#configuring-security-groups).
+    1. If using {{ vpc-name }} security groups, [configure them](../../managed-valkey/operations/connect/index.md#configure-security-groups).
 
 
 - {{ TF }} {#tf}

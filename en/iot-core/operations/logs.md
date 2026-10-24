@@ -25,7 +25,7 @@ The registry connection log shows operations performed with the registry certifi
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. [Get](registry/registry-list.md##registry-list) a list of registries in the folder.
+  1. [Get](registry/registry-list.md#registry-list) a list of registries in the folder.
 
   1. View the registry connection log:
   
@@ -71,7 +71,7 @@ The device connection log shows operations performed with the device certificate
   
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    1. [Get](device/device-list.md##device-list) a list of devices in the registry.
+    1. [Get](device/device-list.md#device-list) a list of devices in the registry.
 
     1. View the device connection log:
 

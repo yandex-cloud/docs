@@ -10,4 +10,4 @@ Funds are automatically debited from the credit/debit card linked to the billing
 
 The payment is usually transferred within 15 to 20 minutes. You can view your payment history [here](../operations/check-bill-history.md).
 
-If you do not have enough funds on your credit/debit card on the day when funds are to be debited, the debit transaction will be repeated later. If the funds cannot be debited within one day, {{ yandex-cloud }} reserves the right to change the status of your billing account to [Suspended](../concepts/billing-account.md#conditions).
+If you do not have enough funds on your credit/debit card on the day when funds are to be debited, the debit transaction will be repeated later. If the funds cannot be debited within one day, {{ yandex-cloud }} reserves the right to change the status of your billing account to [Suspended](../concepts/billing-account-statuses.md#descr).

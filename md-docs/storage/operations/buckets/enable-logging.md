@@ -788,7 +788,7 @@ Object Storage [не гарантирует](../../concepts/server-logs.md) по
 
 - AWS CLI {#cli}
 
-  Чтобы получить логи с помощью [AWS CLI](../../tools/aws-cli.md), скачайте объекты с префиксом `logs/`, следуя [инструкции](../objects/download.md#cli). 
+  Чтобы получить логи с помощью [AWS CLI](../../tools/aws-cli.md), скачайте объекты с префиксом `logs/`, следуя [инструкции](../objects/download.md?tabs=instructions_cli).
 
 - API {#api}
 

@@ -257,7 +257,7 @@ To enable autoscaling, [assign](../../iam/operations/sa/assign-role-for-sa.md) t
         * `--cpu-utilization-target`: Target CPU utilization, in %. Use this setting to enable [scaling](../concepts/autoscaling.md) based on CPU utilization. Otherwise, `yarn.cluster.containersPending` will be used for scaling based on the number of pending resources. The minimum value is `10`, and the maximum value is `100`.
         * `--autoscaling-decommission-timeout`: [Decommissioning timeout](../concepts/decommission.md), in seconds. The minimum value is `0`, and the maximum value is `86400` (24 hours).
 
-        You can get the subcluster ID and name with the [list of subclusters in the cluster](#list-subclusters), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list).
+        You can get the subcluster ID and name with the [list of subclusters in the cluster](subclusters.md#list-subclusters), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list).
 
 - {{ TF }} {#tf}
 
@@ -367,7 +367,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
            --disk-size=<storage_size_in_GB>
         ```
 
-        You can request the subcluster name or ID with the [list of cluster subclusters](#list-subclusters), and the cluster name, with the [list of folder clusters](cluster-list.md#list).
+        You can request the subcluster name or ID with the [list of cluster subclusters](subclusters.md#list-subclusters), and the cluster name, with the [list of folder clusters](cluster-list.md#list).
 
     If all these conditions are met, {{ dataproc-name }} starts expanding the storage.
 

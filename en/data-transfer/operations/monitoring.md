@@ -4,7 +4,7 @@ Transfer status details are available in the management console:
 
 * Detailed diagnostic information is presented as charts. You can view them in the **{{ ui-key.yacloud.data-transfer.label_monitoring }}** tab of the transfer management page or in [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
 
-You can [configure alerts](#monitoring-integration) in {{ monitoring-full-name }} to receive notifications about transfer failures. In {{ monitoring-full-name }}, there are two trigger thresholds: `Warning` and `Alarm`. If the specified threshold is exceeded, you will get alerts via the configured [notification channels](../../monitoring/concepts/alerting.md#notification-channel).
+You can [configure alerts](#monitoring-integration) in {{ monitoring-full-name }} to receive notifications about transfer failures. In {{ monitoring-full-name }}, there are two trigger thresholds: `Warning` and `Alarm`. If the specified threshold is exceeded, you will get alerts via the configured [notification channels](../../monitoring/concepts/alerting/notification-channel.md).
 
 You can also use the {{ yandex-cloud }} [mobile app](/mobile-app) to monitor transfer statuses and get their logs.
 

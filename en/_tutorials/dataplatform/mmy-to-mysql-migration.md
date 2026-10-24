@@ -41,7 +41,7 @@ Additionally, to migrate data using external {{ MY }} replication:
    * [Add hosts](../../managed-mysql/operations/hosts.md#add) with public IP addresses.
    * [Delete hosts](../../managed-mysql/operations/hosts.md#remove) without public IP addresses.
 * Install the [{{ mmy-name }} server SSL certificates](../../managed-mysql/operations/connect/index.md#get-ssl-cert) on the target cluster hosts. These certificates are required to connect to a publicly accessible source cluster.
-* If required, set up a firewall and configure [security groups](../../managed-mysql/operations/connect/index.md#configuring-security-groups) to enable connections from the target cluster to the source cluster and to each cluster individually, e.g., using [mysql](https://dev.mysql.com/doc/refman/8.0/en/mysql.html).
+* If required, set up a firewall and configure [security groups](../../managed-mysql/operations/connect/index.md#configure-security-groups) to enable connections from the target cluster to the source cluster and to each cluster individually, e.g., using [mysql](https://dev.mysql.com/doc/refman/8.0/en/mysql.html).
 * Make sure the target cluster hosts can connect to the source cluster hosts.
 * Make sure you can [connect](../../managed-mysql/operations/connect/index.md) to both the source cluster and the target cluster using SSL.
 

@@ -17,7 +17,7 @@ For information about moving {{ CH }} hosts to a different [availability zone](.
 
 {% note warning %}
 
-If you created your cluster without [{{ CK }}](../concepts/replication.md#ck) support, you should [add at least three {{ ZK }} hosts](zk-hosts.md#add-zk) before adding new hosts to any of the [shards](../concepts/sharding.md).
+If you created your cluster without [{{ CK }}](../concepts/coordination-system.md#ck) support, you should [add at least three {{ ZK }} hosts](zk-hosts.md#add-zk) before adding new hosts to any of the [shards](../concepts/sharding.md).
 
 {% endnote %}
 
@@ -450,7 +450,7 @@ If you cannot [connect](connect/clients.md) to the host after the update, check 
 
 You cannot delete a host from a cluster or shard if the [relevant limit for the minimum number of hosts](../concepts/limits.md#mch-limits) was reached.
 
-You cannot delete hosts running [{{ CK }}](../concepts/replication.md#ck) if you enabled this replication option when creating the cluster.
+You cannot delete hosts running [{{ CK }}](../concepts/coordination-system.md#ck) if you enabled this replication option when creating the cluster.
 
 You cannot delete hosts of different types ({{ CH }} and {{ ZK }}) at the same time.
 

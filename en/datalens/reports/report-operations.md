@@ -440,7 +440,7 @@ To exit the preview mode, click **Close** at the top of the screen or press **Es
 
 To export a report, click **Export**. The report will be exported to a `.pdf` file.
 
-All links created in [text](#text) widgets on report pages will be active in the exported file.
+All links created in [text](report-operations.md?tabs=widgets_text#add-widget) widgets on report pages will be active in the exported file.
 
 
 

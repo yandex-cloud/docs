@@ -41,7 +41,7 @@ To create a connection to {{ mpg-name }}:
    1. Under **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
 
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select an existing {{ mpg-name }} cluster or create a new one.
-      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing {{ mpg-name }} [service account](../../iam/concepts/users/service-accounts.md) or create a new one. Assign it the [`{{ roles.mpg.viewer }}`](../../managed-postgresql/security/index.md#mpg-viewer) role allowing it to connect to {{ mpg-name }} clusters.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing {{ mpg-name }} [service account](../../iam/concepts/users/service-accounts.md) or create a new one. Assign it the [`{{ roles.mpg.viewer }}`](../../managed-postgresql/security/index.md#managed-postgresql-viewer) role allowing it to connect to {{ mpg-name }} clusters.
 
         {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
 

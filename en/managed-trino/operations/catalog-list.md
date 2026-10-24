@@ -115,7 +115,7 @@ description: Follow this guide to get a list of catalogs in a {{ mtr-name }} clu
         --cluster-id <cluster_ID>
     ```
 
-    You can get the {{ TR }} catalog ID and name together with the [list of {{ TR }} catalogs in the cluster](#list-catalogs.md).
+    You can get the {{ TR }} catalog ID and name together with the [list of {{ TR }} catalogs in the cluster](#list-catalogs).
 
     You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters).
 

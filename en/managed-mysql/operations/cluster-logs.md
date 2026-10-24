@@ -52,7 +52,7 @@
         * `--service-type`: Service type for log entries. Possible values are `mysql-error`, `mysql-general`, `mysql-slow-query`, and `mysql-audit`.
         * `--columns`: List of data columns:
 
-            * `hostname`: [Host name](hosts.md#list-hosts).
+            * `hostname`: [Host name](hosts.md#list).
             * `id`: Request ID.
             * `message`: Message output by the service.
             * `status`: Message status, e.g., `Note` or `Warning`.
@@ -220,7 +220,7 @@ This method allows you to stream cluster logs in real time.
 
         * `columnFilter`: List of output columns:
 
-            * `hostname`: [Host name](hosts.md#list-hosts).
+            * `hostname`: [Host name](hosts.md#list).
             * `id`: Request ID.
             * `message`: Message output by the service.
             * `status`: Message status, e.g., `Note` or `Warning`.
@@ -273,7 +273,7 @@ This method allows you to stream cluster logs in real time.
 
         * `column_filter`: List of output columns:
 
-            * `hostname`: [Host name](hosts.md#list-hosts).
+            * `hostname`: [Host name](hosts.md#list).
             * `id`: Request ID.
             * `message`: Message output by the service.
             * `status`: Message status, e.g., `Note` or `Warning`.

@@ -83,7 +83,7 @@ resource "yandex_storage_bucket_grant" "my_bucket_grant" {
 ## Arguments & Attributes Reference
 
 - `access_key` (String). The access key to use when applying changes. This value can also be provided as `storage_access_key` specified in provider config (explicitly or within `shared_credentials_file`) is used.
-- `acl` (String). The [predefined ACL](../../storage/concepts/acl.md#predefined_acls) to apply. Defaults to `private`. Conflicts with `grant`.
+- `acl` (String). The [predefined ACL](../../storage/concepts/acl.md#predefined-acls) to apply. Defaults to `private`. Conflicts with `grant`.
 
 {% note warning %}
 

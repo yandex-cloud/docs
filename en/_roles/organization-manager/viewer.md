@@ -33,7 +33,7 @@ The `organization-manager.viewer` role enables viewing info on the organization 
 * View info on the organization users' [refresh tokens](../../iam/concepts/authorization/refresh-token.md) and on the refresh token settings.
 * View federated and local users' [sessions](../../organization/concepts/sessions.md).
 * View info on {{ org-full-name }} quotas.
-* View info on the effective tech support [service plan](../../support/pricing.md#effective-plans).
+* View info on the effective tech support [service plan](../../support/pricing.md#prices).
 * View the list of technical support [requests](../../support/overview.md) and info on them, as well as create and close such requests, leave comments, and attach files to them.
 
 {% endcut %}

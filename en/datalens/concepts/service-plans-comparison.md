@@ -19,7 +19,7 @@ On December 1, 2025, the {{ datalens-name }} pricing rules changed. For details 
 * **Community**: Suitable for small teams and non-profit projects.
 * **Business**: Suitable for enterprise deployments and business scenarios.
 
-The plan you choose covers your organization and can only be [changed](../settings/service-plan.md#change-service-plan) by its owner or administrator. You must pay for all [active users](../pricing-old.md#active-users).
+The plan you choose covers your organization and can only be [changed](../settings/service-plan.md#service-plans) by its owner or administrator. You must pay for all [active users](../pricing-old.md#active-users).
 
 Different service plans offer different features and vary in [cost](../pricing-old.md#prices).
 

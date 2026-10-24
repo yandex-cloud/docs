@@ -560,7 +560,7 @@ We recommend prohibiting internet access to databases that contain critical data
 
 **Guides and solutions to use**:
 
-If any databases without security groups are found, assign them or enable the **Default security group** [functionality](../../../vpc/concepts/security-groups.md#default-security-group.md).
+If any databases without security groups are found, assign them or enable the **Default security group** [functionality](../../../vpc/concepts/security-groups.md#default-security-group).
 
 {% include [check-security-deck](../check-security-deck.md) %}
 

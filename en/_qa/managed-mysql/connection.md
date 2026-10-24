@@ -1,6 +1,6 @@
 #### How do I connect to a cluster? {#how-to-connect}
 
-View the connection examples in [this guide](../../managed-mysql/operations/connect/index.md#connection-string) or on the cluster page in the [management console]({{ link-console-main }}) (click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}** in the top panel).
+View the connection examples in [this guide](../../managed-mysql/operations/connect/code-examples.md#connection-string) or on the cluster page in the [management console]({{ link-console-main }}) (click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}** in the top panel).
 
 {{ MY }} hosts with public access only support connections with an [SSL certificate](../../managed-mysql/operations/connect/index.md#get-ssl-cert).
 

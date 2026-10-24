@@ -271,7 +271,7 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
 
         * `network`: Network settings:
           * `subnetIds`: List of subnet IDs.
-          * `securityGroupIds`: List of [security group](../../../vpc/concepts/network.md#security-groups) IDs.
+          * `securityGroupIds`: List of [security group](../../../vpc/concepts/security-groups.md) IDs.
 
         * {% include [metastore-maintenance-window-rest](../../../_includes/metadata-hub/metastore-maintenance-window-rest.md) %}
 
@@ -343,7 +343,7 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
 
         * `network`: Network settings:
             * `subnet_ids`: List of subnet IDs.
-            * `security_group_ids`: List of [security group](../../../vpc/concepts/network.md#security-groups) IDs.
+            * `security_group_ids`: List of [security group](../../../vpc/concepts/security-groups.md) IDs.
 
         * {% include [metastore-maintenance-window-grpc](../../../_includes/metadata-hub/metastore-maintenance-window-grpc.md) %}
 

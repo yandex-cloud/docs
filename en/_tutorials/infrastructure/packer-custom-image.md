@@ -36,8 +36,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The cost of building a VM image and creating a VM from it includes:
-* Fee for storing built images (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-storage)).
-* Fee for VM computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-instance-resources)).
+* Fee for storing built images (see [{{ compute-full-name }} pricing](../../compute/pricing.md#disk)).
+* Fee for VM computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md#instance-resources)).
 
 ## Set up your working environment {#environment-prepare}
 

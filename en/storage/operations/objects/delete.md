@@ -260,7 +260,7 @@ To check for a lock and delete the object version where possible:
 - Management console {#console}
 
   1. If possible, [remove the lock](edit-object-lock.md) from the object you want to delete.
-  1. [Delete](#object-lock-w-object-lock) the object.
+  1. [Delete](#w-object-lock) the object.
   
   In the management console, the information about the number of objects and storage space used in the bucket is updated with a few minutes' delay.
   
@@ -307,7 +307,7 @@ To check for a lock and delete the object version where possible:
      * `object_lock_retain_until_date`: Retention end date and time in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats), e.g., `Mon, 12 Dec 2022 09:00:00 GMT`.
 
      * `object_lock_legal_hold_status`: [Legal hold](../../concepts/object-lock.md#types) status:
-       * `ON`: Enabled. You cannot delete the object version. To [remove the lock](edit-object-lock.md#remove-legal-hold), you need the `storage.uploader` role.
+       * `ON`: Enabled. You cannot delete the object version. To [remove the lock](edit-object-lock.md#edit-legal-hold), you need the `storage.uploader` role.
        * `OFF`: Disabled.
 
      If the object version is not locked, these fields will not appear, and you can delete the object version by following [this guide](#wo-object-lock).
@@ -376,7 +376,7 @@ To check for a lock and delete the object version where possible:
      * `ObjectLockRetainUntilDate`: Retention end date and time in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats), e.g., `Mon, 12 Dec 2022 09:00:00 GMT`.
 
      * `ObjectLockLegalHoldStatus`: [Legal hold](../../concepts/object-lock.md#types) status:
-       * `ON`: Enabled. You cannot delete the object version. To [remove the lock](edit-object-lock.md#remove-legal-hold), you need the `storage.uploader` role.
+       * `ON`: Enabled. You cannot delete the object version. To [remove the lock](edit-object-lock.md#edit-legal-hold), you need the `storage.uploader` role.
        * `OFF`: Disabled.
 
      If the object version is not locked, these fields will not appear, and you can delete the object version by following [this guide](#wo-object-lock).

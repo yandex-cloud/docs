@@ -9,4 +9,4 @@
 
 {% endlist %}
 
-В случае возникновения проблем [свяжитесь](#contact-form) со специалистом {{ yandex-cloud }}.
+В случае возникновения проблем [свяжитесь](https://yandex.cloud/ru#contact-form) со специалистом {{ yandex-cloud }}.

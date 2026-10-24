@@ -26,7 +26,7 @@ If you no longer need the VM or the cluster you created, [delete them](#clear-ou
 
 The infrastructure support cost includes:
 * Fee for continuously running VMs (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for storing the created images (see [{{ compute-name }} pricing](../../compute/pricing.md#prices-storage)).
+* Fee for storing the created images (see [{{ compute-name }} pricing](../../compute/pricing.md#disk)).
 * Fee for using dynamic [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Set up your environment {#prepare}

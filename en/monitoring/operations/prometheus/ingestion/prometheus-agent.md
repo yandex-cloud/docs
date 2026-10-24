@@ -36,7 +36,7 @@ You can install a metric collection agent when creating a VM with the help of th
   1. [Create](../index.md#access) a workspace or select an existing one.
   1. Optionally, specify the delivery parameters for your custom metrics, in JSON format.
 
-      It no parameters are specified, the agent will only deliver Linux system metrics. You can add or change the delivery of your custom metrics later, in [user metadata](../../../../compute/concepts/vm-metadata.md#how-to-send-metadata).
+      It no parameters are specified, the agent will only deliver Linux system metrics. You can add or change the delivery of your custom metrics later, in [user metadata](../../../../compute/concepts/metadata/sending-metadata.md).
     
       Metrics description format:
 
@@ -72,7 +72,7 @@ You can install a metric collection agent when creating a VM with the help of th
 
 - CLI, API {#cli}
   
-    To install the agent, provide the following string in the [user metadata](../../../../compute/concepts/vm-metadata.md#how-to-send-metadata) (`user-data`):
+    To install the agent, provide the following string in the [user metadata](../../../../compute/concepts/metadata/sending-metadata.md) (`user-data`):
 
     
       ```text

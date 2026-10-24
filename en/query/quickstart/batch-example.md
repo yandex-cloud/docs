@@ -20,7 +20,7 @@ To run this example:
 ## Get ready to work {#before-you-begin}
 
 1. Log in to the [management console]({{ link-console-main }}) or sign up if you have not already. If you have not signed up yet, navigate to the management console and follow the instructions.
-1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have an `ACTIVE` or `TRIAL_ACTIVE` [billing account](../../billing/concepts/billing-account.md). If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have an `ACTIVE` or `TRIAL_ACTIVE` [billing account](../../billing/concepts/billing-account.md). If you do not have a billing account yet, [create one](../../billing/quickstart/index.md).
 1. If you do not have a folder yet, [create one](../../resource-manager/operations/folder/create.md).
 
 ## Connect to the data source {#create-binding}
@@ -106,5 +106,5 @@ Kind: AdaptiveWard Bins: 100 WeightsSum: 140151844.000 Min: -531231.000 Max: 436
 
 * [Named expressions in YQL]({{ ydb.docs }}yql/reference/syntax/expressions#named-nodes)
 * [HISTOGRAM. Built-in YQL functions]({{ ydb.docs }}yql/reference/builtins/aggregation#histogram)
-* [SQL syntax](../sources-and-sinks/object-storage-binding.md#model-dannyh)
+* [SQL syntax](../sources-and-sinks/object-storage-binding.md#data-model)
 * [{#T}](../concepts/batch-processing.md)

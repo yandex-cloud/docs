@@ -61,7 +61,7 @@ This list contains managed {{ yandex-cloud }} DBs and third-party DBs.
 
         Where:
 
-        * `cluster-id`: Cluster ID. You can get it with the [list of clusters in the folder](../cluster-list.md#list-cluster).
+        * `cluster-id`: Cluster ID. You can get it with the [list of clusters in the folder](../cluster-list.md#list-clusters).
         * `driver`: JDBC driver class in Java. The possible values are:
 
             {% include [JBDC driver](../../../_includes/mdb/mgp/jdbc-driver.md) %}

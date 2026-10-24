@@ -11,7 +11,7 @@ You can automatically create a cloud network and subnets in all [availability zo
 ## Getting started {#before-begin}
 
 1. Log in to the [management console]({{ link-console-main }}) or sign up. If you have not signed up yet, navigate to the management console and follow the instructions.
-1. [Go]({{ link-console-billing }}) to {{ billing-name }} and make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
+1. [Go]({{ link-console-billing }}) to {{ billing-name }} and make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md).
 1. If you do not have a folder yet, [create one](../resource-manager/operations/folder/create.md). While creating a folder, you can also create a default virtual network with subnets in all availability zones.
 
 ## Create a cloud network {#create-network}

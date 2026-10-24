@@ -315,7 +315,7 @@ The file will appear in the bucket's `test` folder. To view bucket contents in t
 
 {% include [dataproc-s3-connector](../../_includes/datasphere/data-processing-s3-connector.md) %}
 
-To learn more about running computations on {{ dataproc-name }} clusters in {{ ml-platform-name }}, see [this concept](../../datasphere/concepts/data-processing.md#existing-clusters).
+To learn more about running computations on {{ dataproc-name }} clusters in {{ ml-platform-name }}, see [this concept](../../datasphere/concepts/data-processing-operations.md).
 
 ## Delete the resources you created {#clear-out}
 

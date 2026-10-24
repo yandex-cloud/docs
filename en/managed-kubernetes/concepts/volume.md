@@ -62,7 +62,7 @@ To learn how to provision a volume pod in `volumeMode: Block`, see [{#T}](../ope
 
 In {{ managed-k8s-name }}, you can use `PersistentVolumes` based on {{ compute-full-name }} disks. You can set the disk type and other parameters using [storage classes](../operations/volumes/manage-storage-class.md).
 
-The following [disk types](../../compute/concepts/disk.md##disks-types) are available in {{ managed-k8s-name }}: {#disks-types}
+The following [disk types](../../compute/concepts/disk.md#disks-types) are available in {{ managed-k8s-name }}: {#disks-types}
 
 * Network SSD (`network-ssd`): Fast network drive; SSD network block storage.
 * Network HDD (`network-hdd`): Standard network drive; HDD network block storage.

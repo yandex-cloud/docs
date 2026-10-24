@@ -266,7 +266,7 @@ index: 1
 * [Кластеры {{ metastore-full-name }}](../concepts/metastore.md) стали частью сервиса {{ metadata-hub-name }}.
 * [{{ schema-registry-name }}](../quickstart/schema-registry.md) доступен в [Preview](../../overview/concepts/launch-stages.md).
 * Пользователи сервиса {{ data-transfer-full-name }} могут указывать идентификатор подключения {{ connection-manager-name }} для [настройки эндпоинта {{ mpg-short-name }}](../../data-transfer/operations/endpoint/source/postgresql.md).
-* Пользователи сервиса {{ datalens-full-name }} могут использовать {{ connection-manager-name }} для создания подключений к [{{ PG }}](../../datalens/operations/connection/create-postgresql.md#conn-man), [{{ CH }}](../../datalens/operations/connection/create-clickhouse.md#conn-man) и [{{ MY }}](../../datalens/operations/connection/create-mysql.md#conn-man).
+* Пользователи сервиса {{ datalens-full-name }} могут использовать {{ connection-manager-name }} для создания подключений к [{{ PG }}](../../datalens/operations/connection/create-postgresql.md?tabs=connection_conn-man), [{{ CH }}](../../datalens/operations/connection/create-clickhouse.md?tabs=connection_conn-man) и [{{ MY }}](../../datalens/operations/connection/create-mysql.md?tabs=connection_conn-man).
 
 ### Август {#august}
 

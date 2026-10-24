@@ -35,7 +35,7 @@ Sharding improves cluster availability, but a cluster with multiple single-host 
 * At least two {{ CH }} hosts in each shard, located in different [availability zones](../../overview/concepts/geo-scope.md).
 * At least three {{ ZK }} or {{ CK }} hosts located in different [availability zones](../../overview/concepts/geo-scope.md).
 
-[Learn more about the impact of sharding on cluster availability](sharding.md#high-availability).
+[Learn more about the impact of sharding on cluster availability](sharding.md#sharding-replication).
 
 ## Storage settings {#storage-settings}
 

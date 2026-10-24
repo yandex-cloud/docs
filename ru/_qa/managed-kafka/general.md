@@ -131,7 +131,7 @@ SASL authentication error: Authentication failed during authentication due to in
 Отслеживать процесс чтения можно несколькими способами:
 
 * Создайте в {{ monitoring-full-name }} график [метрики](../../managed-kafka/metrics.md) `kafka_group_topic_partition_lag`.
-* Используйте инструмент командной строки `kafka-consumer-groups.sh`, который поставляется вместе с дистрибутивом {{ KF }}. Предварительно [настройте подключение](../../managed-kafka/operations/connect/clients.md#with-ssl) к кластеру.
+* Используйте инструмент командной строки `kafka-consumer-groups.sh`, который поставляется вместе с дистрибутивом {{ KF }}. Предварительно [настройте подключение](../../managed-kafka/operations/connect/clients.md?tabs=connection_with-ssl) к кластеру.
 
   Чтобы получить список групп потребителей, выполните команду:
 

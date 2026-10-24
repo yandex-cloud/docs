@@ -40,7 +40,7 @@ Set up your infrastructure:
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mmy-user`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<user_password>`.
 
-    1. [Assign](../../managed-mysql/operations/grant.md#grant-role) the `ALL_PRIVILEGES` role for the target database to the {{ MY }} user.
+    1. [Assign](../../managed-mysql/operations/grant.md#grant-privilege) the `ALL_PRIVILEGES` role for the target database to the {{ MY }} user.
 
 - {{ TF }} {#tf}
 

@@ -32,7 +32,7 @@ To secure your published data:
 
 ## Publishing an object {#how-to-publish}
 
-The method you use to make an object publicly accessible depends on its [location](./publishing-and-embedding.md#object-location), i.e., in a [workbook](../workbooks-collections/index.md#enable-workbooks) or folder:
+The method you use to make an object publicly accessible depends on its [location](./publishing-and-embedding.md#object-location), i.e., in a [workbook](../workbooks-collections/index.md) or folder:
 
 
 {% list tabs %}

@@ -12,7 +12,7 @@ description: With the command center, you can manage sessions and queries and vi
 * [Aborting the current session](#terminate-session).
 * [Terminating the current query](#terminate-query).
 
-Check out these [use cases](#examples) for how and when you can use the Command Center.
+Check out the [current state analysis examples](#current-analysis) and [state history and consumption history analysis examples](#historical-analysis) for how and when you can use the Command Center.
 
 For more information about the statistics you can get using the Command Center, see [{#T}](../concepts/command-center.md).
 

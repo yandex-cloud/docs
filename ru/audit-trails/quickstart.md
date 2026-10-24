@@ -84,7 +84,7 @@
 
 {% endlist %}
 
-Вы также можете создать трейл с помощью [CLI](./operations/create-trail.md#cli), [Terraform](./operations/create-trail.md#tf) или [API](./operations/create-trail.md#api).
+Вы также можете создать трейл с помощью [CLI](./operations/create-trail.md?tabs=instructions_cli#create), [Terraform](./operations/create-trail.md?tabs=instructions_tf#create) или [API](./operations/create-trail.md?tabs=instructions_api#create).
 
 {% include [note-lose-target-when-switch-trail](../_includes/audit-trails/note-lose-target-when-switch-trail.md) %}
 

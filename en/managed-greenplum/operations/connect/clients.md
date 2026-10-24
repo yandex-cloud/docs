@@ -188,7 +188,7 @@ You can only use graphical IDEs to connect to a public cluster using SSL certifi
             1. Click **Download** to download the connection driver.
         1. On the **SSH/SSL** tab:
             1. Enable **Use SSL**.
-            1. In the **CA file** field, specify the path to the [SSL certificate for your connection](#get-ssl-cert).
+            1. In the **CA file** field, specify the path to the [SSL certificate for your connection](index.md#get-ssl-cert).
     1. Click **Test Connection**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
     1. Click **OK** to save the data source.
 
@@ -205,7 +205,7 @@ You can only use graphical IDEs to connect to a public cluster using SSL certifi
             * Under **Authentication**, specify the DB user name and password.
         1. On the **SSL** tab:
             1. Enable **Use SSL**.
-            1. In the **Root certificate** field, specify the path to the saved [SSL certificate](#get-ssl-cert) file.
+            1. In the **Root certificate** field, specify the path to the saved [SSL certificate](index.md#get-ssl-cert) file.
     1. Click **Test Connection ...**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
     1. Click **Done** to save the database connection settings.
 
@@ -215,7 +215,7 @@ You can only use graphical IDEs to connect to a public cluster using SSL certifi
 
 The connection has been checked for [{{ pgadmin }}](https://www.pgadmin.org) ver. 7.1 on macOS Ventura 13.0 and Microsoft Windows 10 Pro 21H1.
 
-You can only use {{ pgadmin }} to connect to public cluster hosts [using an SSL certificate](#get-ssl-cert).
+You can only use {{ pgadmin }} to connect to public cluster hosts [using an SSL certificate](index.md#get-ssl-cert).
 
 Create a new server connection:
 

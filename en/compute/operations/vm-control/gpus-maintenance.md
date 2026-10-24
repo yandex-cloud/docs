@@ -7,7 +7,7 @@ description: Follow this guide to manage maintenance of GPU virtual machines in 
 
 {{ compute-name }} performs occasional [maintenance](../../concepts/gpus-maintenance.md) of GPU VMs and notifies users of the scheduled date and time. You can view the list of maintenance [tasks](../../concepts/gpus-maintenance.md#tasks) scheduled for your VMs and reschedule them as needed.
 
-## Viewing VM maintenance tasks
+## Viewing VM maintenance tasks {#list-scheduled-maintenance}
 
 {% list tabs group=instructions %}
 

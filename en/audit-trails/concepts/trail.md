@@ -42,7 +42,7 @@ In a single filter, you can only specify event names in one of the sections: `in
 
 You can find the event names in the [data event reference](events-data-plane.md). In the CLI, {{ TF }}, or API, use a full name from the `event_type` field of the audit log, e.g., `yandex.cloud.audit.iam.CreateIamToken`.
 
-#### Field value conditions {#filter-examples}
+#### Field value conditions {#field-filters}
 
 When using the CLI, {{ TF }} , and API, you can add field value conditions to the data event filter, e.g., to exclude events of a specific user. These conditions apply together with the selected collection scope and event names.
 

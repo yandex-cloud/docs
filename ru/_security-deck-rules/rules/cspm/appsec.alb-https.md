@@ -21,4 +21,4 @@
 
 1. Добавьте TLS-сертификат в [Certificate Manager](https://yandex.cloud/ru/docs/certificate-manager/operations/) — [выпустите через Let's Encrypt](https://yandex.cloud/ru/docs/certificate-manager/operations/managed/cert-create) или [загрузите собственный](https://yandex.cloud/ru/docs/certificate-manager/operations/import/cert-create).
 2. Добавьте HTTPS-обработчик на балансировщик по [инструкции по терминации TLS](https://yandex.cloud/ru/docs/application-load-balancer/tutorials/tls-termination/).
-3. Если HTTP-обработчик нужен только для перенаправления на HTTPS, настройте [перенаправление с HTTP на HTTPS](https://yandex.cloud/ru/docs/application-load-balancer/concepts/http-router#route-types). В противном случае удалите его.
+3. Если HTTP-обработчик нужен только для перенаправления на HTTPS, настройте [перенаправление с HTTP на HTTPS](https://yandex.cloud/ru/docs/application-load-balancer/concepts/http-router#routes-types). В противном случае удалите его.

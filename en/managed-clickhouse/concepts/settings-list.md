@@ -53,7 +53,7 @@ The following settings are available:
 
 ### Custom settings {#custom-settings}
 
-You can override [custom settings]({{ ch.docs }}{{ lang }}/operations/settings#custom_settings) as variables in the [settings profile]({{ ch.docs }}{{ lang }}/operations/access-rights#settings-profiles-management), session, or query. You can use settings profiles if the [user management via SQL](../operations/cluster-users.md#sql-user-management) is enabled for the cluster.
+You can override [custom settings]({{ ch.docs }}{{ lang }}/operations/settings#custom_settings) as variables in the [settings profile]({{ ch.docs }}{{ lang }}/operations/access-rights#settings-profiles-management), session, or query. You can use settings profiles if the [user management via SQL](user-access-rights.md#sql-user-management) is enabled for the cluster.
 
 In {{ mch-name }}, the name of the custom setting must be prefixed by `custom_`. This prefix is non-editable, i.e., you cannot change it.
 

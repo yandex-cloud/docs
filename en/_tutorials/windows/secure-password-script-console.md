@@ -275,7 +275,7 @@ Create a Windows VM and add the administrator and user accounts to it.
      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
      1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify a VM name, e.g., `win-test`.
      1. Under **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}**, specify the VM access credentials:
-         * Select the `win-secret-sa` [service account](../../iam/concepts/index.md#sa).
+         * Select the `win-secret-sa` [service account](../../iam/concepts/users/service-accounts.md).
          * Enable access to the [serial console](../../compute/concepts/serial-console.md).
      1. Under **{{ ui-key.yacloud.common.metadata }}**:
          * In the **{{ ui-key.yacloud.component.key-values-input.label_key }}** field, specify `user-data`.

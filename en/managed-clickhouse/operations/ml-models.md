@@ -16,7 +16,7 @@ Read more about the `catboostEvaluate()` function in [this {{ CH }} guide]({{ ch
 1. [Attach the service account to the cluster](s3-access.md#connect-service-account). You will use this [service account](../../iam/concepts/users/service-accounts.md) to configure access to the model file.
 1. [Assign](s3-access.md#configure-acl) the `storage.viewer` role to the service account.
 1. In the bucket ACL, [add](../../storage/operations/buckets/edit-acl.md) the `READ` permission to the service account.
-1. [Get a link](s3-access.md#get-link-to-object) to the model file.
+1. [Get a link](../../storage/operations/objects/link-for-download.md) to the model file.
 
 
 ## Getting a list of models in a cluster {#list}
@@ -343,7 +343,7 @@ To update the contents of a model that is already added to the cluster:
 
 
 1. [Upload](../../storage/operations/objects/upload.md) the current model file to {{ objstorage-full-name }}.
-1. [Get a link](s3-access.md#get-link-to-object) to this file.
+1. [Get a link](../../storage/operations/objects/link-for-download.md) to this file.
 1. Update the settings of the model added to {{ mch-name }} by providing a new link to the model file.
 
 

@@ -5,7 +5,7 @@ Create an instance group using [Instance Groups](../concepts/instance-groups/ind
 ## Getting started {#before-you-begin}
 
 1. Log in to the [management console]({{ link-console-main }}) or sign up. If you have not signed up yet, navigate to the management console and follow the on-screen instructions.
-1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md).
 1. If you do not have a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../../resource-manager/operations/folder/create.md).
 
 ## Creating an instance group {#create-ig}
@@ -43,7 +43,7 @@ To create an instance group:
     * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select one of the preset instance configurations or navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab to create a custom configuration.
     * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-        * Select a [cloud network](../../compute/concepts/vm.md#network) and [subnet](../../compute/concepts/network.md#subnet). If your network has no subnets, create one:
+        * Select a [cloud network](../../compute/concepts/vm.md#network) and [subnet](../../vpc/concepts/network.md#subnet). If your network has no subnets, create one:
 
             * Expand the dropdown list and click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.instances.create.button_create-subnetwork-new }}**.
             * Enter a name and a description for the new subnet. Specify availability zone and CIDR.

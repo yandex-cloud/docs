@@ -52,7 +52,7 @@ A new version is automatically created when you click **Save** in dashboard edit
 * Adding, renaming, or deleting dashboard tabs.
 * Editing links.
 * Adding and removing widgets.
-* Editing widgets, such as [Title](#title) and [Text](#text).
+* Editing widgets, such as [Title](widget.md#title) and [Text](widget.md#text).
 * Editing widget tabs.
 * Editing selector settings.
 

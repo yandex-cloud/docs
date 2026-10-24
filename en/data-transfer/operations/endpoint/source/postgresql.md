@@ -58,7 +58,7 @@ Before you get started, check the [Service specifics for {{ PG }} sources and ta
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you will need the [`{{ roles.mpg.viewer }}`](../../../../managed-postgresql/security/index.md#mpg-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
+To create or edit an endpoint of a managed database, you will need the [`{{ roles.mpg.viewer }}`](../../../../managed-postgresql/security/index.md#managed-postgresql-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
 
 {% endnote %}
 

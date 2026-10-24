@@ -9,7 +9,7 @@ description: This section contains the {{ sd-name }} release notes.
 
 * In [{{ cspm-name }}](./concepts/cspm.md):
   * Released a native interface where you can [monitor](./operations/cspm/use-cspm.md) alerts, rules with violations, module errors, [run](./operations/cspm/check-environment.md) a workspace check, as well as [view](./operations/cspm/work-with-results.md#view) and [download](./operations/cspm/work-with-results.md#download) historical checks.
-  * Updated the list of infrastructure check rules for compliance with security standards. The new rules enforce administrator [alerting](./rules-reference/cspm.md#leaked-secrets-detection.md) on cloud secret exposure, mandatory [security policies](./rules-reference/cspm.md#cis.md) for Kubernetes clusters, and [response](./rules-reference/cspm.md#audit-trails-reactions.md) to security events.
+  * Updated the list of infrastructure check rules for compliance with security standards. The new rules enforce administrator [alerting](./rules-reference/cspm.md#leaked-secrets-detection) on cloud secret exposure, mandatory [security policies](./rules-reference/cspm.md#cis) for Kubernetes clusters, and [response](./rules-reference/cspm.md#audit-trails-reactions) to security events.
 * In [{{ kspm-name }}](./concepts/kspm.md), implemented [inventory rules](./concepts/standard-compliance/inventory-k8s-rules.md) that help collect information and audit the OS of Kubernetes worker nodes.
 * In [{{ vuln-man-name }}](./concepts/vulnerability-management.md), added a setting to only scan [current image versions](./operations/vulnerability-management/enable-vulnerability-management.md).
 * [{{ dspm-name }}](./concepts/dspm.md) module is integrated with {{ objstorage-full-name }}. Now you can [scan](../storage/operations/buckets/sensitive-data-search.md) buckets in the {{ objstorage-name }} UI, [view](../storage/operations/buckets/sensitive-data-search.md#view) and [download](../storage/operations/buckets/sensitive-data-search.md#download) scanning results.
@@ -20,7 +20,7 @@ description: This section contains the {{ sd-name }} release notes.
 * Added the [option](./operations/alerts/view.md) to filter alerts by an extended set of attributes.
 * [{{ vuln-man-name }}](./concepts/vulnerability-management.md) was migrated to a paid plan. For more information, see the [pricing policy](pricing.md#modules-rules).
 * Implemented the [blocking mode](./operations/kspm/manage-rule-modes.md) for `admission`-type rules in [{{ kspm-name }}](./concepts/kspm.md), which allows you to prohibit deployment of loads that violate the security policy.
-* [{{ cspm-name }}](./concepts/cspm.md) got a new [rule set](./concepts/standard-compliance/ransomware-prevention.md) to minimize the risks of ransomware attacks and an extended list of rules for infrastructure security compliance verification. The new rules regulate the [password policy](./rules-reference/cspm.md#password-policy.pci-dss) and [outbound internet access](./rules-reference/cspm.md#check-outgoing-internet-connection) control.
+* [{{ cspm-name }}](./concepts/cspm.md) got a new [rule set](./concepts/standard-compliance/ransomware-prevention.md) to minimize the risks of ransomware attacks and an extended list of rules for infrastructure security compliance verification. The new rules regulate the [password policy](./rules-reference/cspm.md#pci-dss) and [outbound internet access](./rules-reference/cspm.md#check-outgoing-internet-connection) control.
 * In [{{ dspm-name }}](./concepts/dspm.md):
   * You can now hook up [custom dictionaries](./concepts/dspm.md#custom-dictionaries) to search for field-specific sensitive data.
   * Added fixed-price [subscriptions](pricing.md#starter-rules) you may prefer over your pay-as-you-go plan.
@@ -42,7 +42,7 @@ description: This section contains the {{ sd-name }} release notes.
 
 * [{{ cspm-name }}](./concepts/cspm.md) now includes a new [rule set](./concepts/standard-compliance/yc-gost-57580.md) aligned with GOST R 57580, the national security standard for banking and financial operations. 
 * [{{ dspm-name }}](./concepts/dspm.md) now supports creating [scan scopes](./operations/dspm/create-data-source.md#change-scaning) from preliminary analysis results and continuous [monitoring](./concepts/dspm.md#change-scaning) of those scopes for new or modified sensitive data.
-* The pricing model has been expanded: you can now purchase monthly [subscriptions](pricing.md#starter-pricing) for the [{{ cspm-name }}](./concepts/cspm.md) and [Threat Detection](./concepts/threat-detector.md) modules.
+* The pricing model has been expanded: you can now purchase monthly [subscriptions](pricing.md#starter-rules) for the [{{ cspm-name }}](./concepts/cspm.md) and [Threat Detection](./concepts/threat-detector.md) modules.
 * All module [errors](./diagnostics/index.md) are now displayed in a single dedicated interface.
 * Scanning {{ yandex-360 }} disks for sensitive data using [{{ dspm-name }}](./concepts/dspm.md) is now available to all users. Previously, this feature was only available upon request.
 
@@ -59,12 +59,12 @@ description: This section contains the {{ sd-name }} release notes.
 * [{{ dspm-name }}](./concepts/dspm.md) now supports preliminary [analysis of data](./concepts/dspm.md#discovery-mode) stored in {{ objstorage-name }} buckets within a workspace.
 * You can now [group](./operations/alerts/view.md#search) alerts by type and filter them by new attributes.
 * In [{{ kspm-name }}](./concepts/kspm.md), you can now specify objects in [exceptions](./operations/kspm/manage-exceptions.md) using search by namespace.
-* Added new rules for infrastructure security compliance verification in [{{ cspm-name }}](./concepts/cspm.md). The new rules control the [assignment](./rules-reference/cspm.md#check-privileged-roles) of privileged roles, DDoS [protection](./rules-reference/cspm.md#appsec-ddos-protection-l3) at the network level, service account [access](./rules-reference/cspm.md#access) to {{ k8s }}® clusters, and redundant service account roles at the [organization](./rules-reference/cspm.md#sa-privileges-org-roles) and [service](./rules-reference/cspm.md#sa-privileges-service-roles) levels. 
+* Added new rules for infrastructure security compliance verification in [{{ cspm-name }}](./concepts/cspm.md). The new rules control the [assignment](./rules-reference/cspm.md#check-privileged-roles) of privileged roles, DDoS [protection](./rules-reference/cspm.md#l3) at the network level, service account [access](./rules-reference/cspm.md#access) to {{ k8s }}® clusters, and redundant service account roles at the [organization](./rules-reference/cspm.md#sa-privileges-org-roles) and [service](./rules-reference/cspm.md#sa-privileges-service-roles) levels.
 
 ## February 2026 {#february-2026}
 
 * [{{ dspm-name }}](./concepts/dspm.md), [{{ cspm-name }}](./concepts/cspm.md), [{{ kspm-name }}](./concepts/kspm.md), and the [AI assistant](concepts/ai-assistant.md) are now in [Preview](../overview/concepts/launch-stages.md).
-* As of February 2, 2025, [{{ kspm-name }}](./concepts/kspm.md) is charged according to the [pricing policy](pricing.md#kspm-rules).
+* As of February 2, 2025, [{{ kspm-name }}](./concepts/kspm.md) is charged according to the [pricing policy](pricing.md#modules-rules).
 * Supported new [security standards](./concepts/cspm.md#standards) in [{{ cspm-name }}](./concepts/cspm.md): PCI DSS (Payment Card Industry Data Security Standard) and requirements of the FSTEC of Russia (Order No. 21) aimed at protection of personal data. 
 * In [{{ cspm-name }}](./concepts/cspm.md), implemented new compliance rules for all supported security standards.
 
@@ -74,8 +74,8 @@ description: This section contains the {{ sd-name }} release notes.
 
 ## Q4 2025 {#q4-2025}
 
-* Added support for [{{ yandex-360 }}](https://360.yandex.ru/) disks as [scan sources](./operations/dspm/create-scan.md#yandex-360) in {{ dspm-name }}.
-* Image scanning in [{{ dspm-name }}](./concepts/dspm.md) is now subject to the [pricing policy](pricing.md#dspm-rules).
+* Added support for [{{ yandex-360 }}](https://360.yandex.ru/) disks as [scan sources](./operations/dspm/create-scan.md#change-scaning) in {{ dspm-name }}.
+* Image scanning in [{{ dspm-name }}](./concepts/dspm.md) is now subject to the [pricing policy](pricing.md#modules-rules).
 * Added the [compliance check interface](./concepts/standard-compliance/index.md).
 
 ## Q3 2025 {#q3-2025}

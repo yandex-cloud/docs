@@ -79,7 +79,7 @@ The infrastructure support cost includes:
 
      * Custom name and optional description.
      * Encryption algorithm, e.g., AES-256.
-     * [Rotation](../../kms/concepts/index.md#rotation) period (how often to change key versions).
+     * [Rotation](../../kms/concepts/version.md#rotate-key) period (how often to change key versions).
      * Click **{{ ui-key.yacloud.common.create }}**.
 
   When you create a key, its first version is created automatically. Click the key in the list to open the page with its attributes.
@@ -125,7 +125,7 @@ The infrastructure support cost includes:
 
 - CLI {#cli}
 
-  1. Assign the [audit-trails.viewer](../../audit-trails/security/index.md#roles) role to the folder whose resources will be polled for audit logs:
+  1. Assign the [audit-trails.viewer](../../audit-trails/security/index.md#roles-list) role to the folder whose resources will be polled for audit logs:
      
       ```
       yc resource-manager folder add-access-binding \
@@ -155,7 +155,7 @@ The infrastructure support cost includes:
       * `--id`: ID of the folder to host the trail.
       * `--service-account-id`: Service account ID.
   
-  1. Assign the [kms.keys.encrypterDecrypter](../../kms/security/index.md#service) role to the encryption key:
+  1. Assign the [kms.keys.encrypterDecrypter](../../kms/security/index.md#kms-keys-encrypterDecrypter) role to the encryption key:
   
       ```
       yc kms symmetric-key add-access-binding \

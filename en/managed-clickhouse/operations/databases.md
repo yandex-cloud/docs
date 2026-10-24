@@ -16,7 +16,7 @@ To enable this management method, select **{{ ui-key.yacloud.mdb.forms.database_
 
 In a cluster with enabled database management via SQL:
 
-* You cannot manage databases and [users](./cluster-users.md#sql-user-management) via the native {{ yandex-cloud }} interfaces, such as the CLI, API, and management console.
+* You cannot manage databases and [users](../concepts/user-access-rights.md#sql-user-management) via the native {{ yandex-cloud }} interfaces, such as the CLI, API, and management console.
 * You cannot enable user or database management via the native {{ yandex-cloud }} interfaces.
 * The existing users, user settings, and databases created with the native {{ yandex-cloud }} interfaces will remain unchanged.
 * Use the `admin` account for management. You set the `admin` password when selecting the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** and **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}** options.

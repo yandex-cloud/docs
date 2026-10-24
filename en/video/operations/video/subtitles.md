@@ -82,7 +82,7 @@ You can [add](#add) and [delete](#delete) subtitles while uploading or editing a
 {% endlist %}
 
 
-## Deleting subtitles {#add}
+## Deleting subtitles {#delete}
 
 {% list tabs group=instructions %}
 

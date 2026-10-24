@@ -8,7 +8,7 @@ description: Follow this guide to migrate objects to workbooks.
 
 {% note info %}
 
-* If you do not see ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks** in the left-hand panel, ask the user with the `datalens.admin` role to [enable workbooks and collections](../../datalens/workbooks-collections/index.md#enable-workbooks) in your organization.
+* If you do not see ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks** in the left-hand panel, ask the user with the `datalens.admin` role to enable workbooks and collections in your organization.
 * To migrate objects, a user must have the `{{ roles-datalens-admin }}` role.
 * To transfer your workbook between installations or [organizations](../concepts/organizations.md), use the [export and import](./export-and-import.md) tool.
 
@@ -62,7 +62,7 @@ If the original object is to be saved in a folder, it can be copied to a workboo
 * New IDs are generated for the copied objects.
 * Links to objects do not change.
 
-You can start copying from any object. Unlike in a transfer, linked objects are searched down the [hierarchy](../concepts/index.md#component-interrelation) starting from the dashboard:
+You can start copying from any object. Unlike in a transfer, linked objects are searched down the [hierarchy](../concepts/index.md#how-dl-works) starting from the dashboard:
 
 * Charts residing on the dashboard as well as the datasets and connections they are linked with are copied with the dashboard.
 * The dataset and the connection to which the chart is linked are copied with the chart.

@@ -72,7 +72,7 @@ If the Docker image you need is stored in {{ container-registry-name }}, create 
 
      * `--name`: VM name.
      * `--zone`: Availability zone.
-     * `--ssh-key`: Contents of the [public key](../compute/quickstart/quick-create-linux.md#create-ssh) file.
+     * `--ssh-key`: Contents of the [public key](../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
      * `--service-account-name`: Service account name.
      * `--create-boot-disk size`: Boot disk size.
 

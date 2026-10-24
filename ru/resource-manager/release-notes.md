@@ -11,7 +11,7 @@ description: В разделе представлена история изме�
 
 ## II квартал 2025 {#q2-2025}
 
-* Добавлена возможность [создания](./operations/cloud/create.md#cli) и [переименования](./operations/cloud/update.md#cli) облака с помощью {{ yandex-cloud }} CLI. {{ tag-cli }}
+* Добавлена возможность [создания](./operations/cloud/create.md?tabs=instructions_cli) и [переименования](./operations/cloud/update.md?tabs=instructions_cli) облака с помощью {{ yandex-cloud }} CLI. {{ tag-cli }}
 
 ## I квартал 2024 {#q1-2024}
 

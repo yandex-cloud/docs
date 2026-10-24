@@ -153,7 +153,7 @@ To pass [domain ownership verification](../../concepts/challenges.md):
        * `domains`: Domain you need to create a certificate for.
        * `challenge_type`: Domain owner check method. The possible values are:
          
-         * `DNS_CNAME`: Create a DNS record in [CNAME](../../../dns/concepts/resource-record.md#cname-cname) format with the specified value. We recommend this method for automatic certificate renewal.
+         * `DNS_CNAME`: Create a DNS record in [CNAME](../../../dns/concepts/resource-record.md#cname) format with the specified value. We recommend this method for automatic certificate renewal.
          * `DNS_TXT`: Create a DNS record in [TXT](../../../dns/concepts/resource-record.md#txt) format with the specified value.
      
      * `yandex_dns_recordset` resource properties:

@@ -8,7 +8,7 @@ You can introduce row-level access control either in a [dataset](#dataset-rls) o
 
 ## Configuring RLS at the dataset level {#dataset-rls}
 
-You can control access to any dataset dimension. Each [user](#user-rls) or [user group](#group-rls) can be granted permissions for an unlimited number of measure values.
+You can control access to any dataset dimension. Each [user](#dataset-rls) or [user group](#dataset-rls) can be granted permissions for an unlimited number of measure values.
 
 With RLS, a query to a dataset passes through the following filter:
 

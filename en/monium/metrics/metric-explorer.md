@@ -41,7 +41,7 @@ For charts based on {{ prometheus-name }} metrics, see [{#T}](../operations/prom
 
   1. Click **{{ ui-key.yacloud_monitoring.querystring.button.apply-and-parse }}**.
 
-  1. To visualize a modified metric on the chart, select [functions](../concepts/querying.md#functions) in ![image](../../_assets/monitoring/function.svg).
+  1. To visualize a modified metric on the chart, select [functions](../concepts/querying-functions.md) in ![image](../../_assets/monitoring/function.svg).
   
   1. To display another metric on the chart, click **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}** and enter the metric and label values.
    

@@ -78,7 +78,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
       monitoring_config: {}
       ```
 
-  You can [update](#update-db-serverles) any parameter later by running the `update` {{ yandex-cloud }} CLI command or using the management console. For more information, see [{#T}](../concepts/serverless-and-dedicated.md#serverless-options).
+  You can [update](#update-db-serverless) any parameter later by running the `update` {{ yandex-cloud }} CLI command or using the management console. For more information, see [{#T}](../concepts/serverless-and-dedicated.md#serverless-options).
 
   Every serverless database is created with geographic redundancy across three [availability zones](../../overview/concepts/geo-scope.md).
 

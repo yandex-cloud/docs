@@ -24,7 +24,7 @@ Choose the account type you need in the tab below.
 
     Once the clouds are moved, you can grant access to this cloud to other accounts. To do this, follow these steps:
 
-    1. [Add a user to the cloud](../../../organization/operations/add-account.md#passport-user).
+    1. [Add a user to the cloud](../../../organization/operations/add-account.md).
     1. [Assign the relevant role to the user](../../../iam/operations/roles/grant.md).
 
     You can find the list of roles [here](../../../iam/concepts/access-control/roles.md).
@@ -36,7 +36,7 @@ Choose the account type you need in the tab below.
 
     After the transfer, you will be able to grant access to the cloud to other accounts. To do this, follow these steps:
 
-    1. [Add a user to the cloud](../../../organization/operations/add-account.md#passport-user).
+    1. [Add a user to the cloud](../../../organization/operations/add-account.md).
     1. [Assign the relevant role to the user](../../../iam/operations/roles/grant.md).
 
     You can find the list of roles [here](../../../iam/concepts/access-control/roles.md).

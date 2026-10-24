@@ -7,19 +7,19 @@ description: 'Follow this guide to connect to a VM using an SSH key pair: the pu
 
 To connect to a [VM](../../concepts/vm.md) via SSH, you need a key pair with the public key located on the VM and the private key kept by the user. This method is more secure than connecting with a username and password.
 
-To enable another user to connect to your VM, add an SSH key for them by following [this guide](#vm-authorized-keys).
+To enable another user to connect to your VM, add an SSH key for them by following [this guide](ssh.md#vm-authorized-keys).
 
 {% note info %}
 
-When creating a VM accessible via [{{ oslogin }}](./os-login.md), specify SSH keys in the [metadata](../../concepts/metadata/sending-metadata.md). This way, you will be able to [connect to the VM via SSH](#vm-connect) even if you disable {{ oslogin }} access for it.
+When creating a VM accessible via [{{ oslogin }}](./os-login.md), specify SSH keys in the [metadata](../../concepts/metadata/sending-metadata.md). This way, you will be able to [connect to the VM via SSH](ssh.md#vm-connect) even if you disable {{ oslogin }} access for it.
 
 {% endnote %}
 
 To connect to a Linux VM via SSH:
 
-1. [Create an SSH key pair](#creating-ssh-keys).
-1. [Copy the public key](#copy-key) to the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field on the VM creation page.
-1. [Connect to the VM](#vm-connect).
+1. [Create an SSH key pair](ssh.md#creating-ssh-keys).
+1. [Copy the public key](ssh.md#copy-key) to the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field on the VM creation page.
+1. [Connect to the VM](ssh.md#vm-connect).
 
 
 ## Creating an SSH key pair {#creating-ssh-keys}
@@ -52,7 +52,7 @@ Store your private key securely, as you will not be able to connect to the VM wi
 
 ## Copying a public key to the clipboard {#copy-key}
 
-The [previously created](#creating-ssh-keys) public key has the following format:
+The [previously created](ssh.md#creating-ssh-keys) public key has the following format:
 
 ```text
 <key_type> <public_key_body> <optional_comment>
@@ -266,7 +266,7 @@ You cannot use metadata to add users with keys to an existing VM.
 
 To configure users from within the VM, follow these steps:
 
-1. [Connect](#vm-connect) to the VM under the username you specified when creating the VM in the management console.
+1. [Connect](ssh.md#vm-connect) to the VM under the username you specified when creating the VM in the management console.
 
     {% note info %}
 
@@ -308,7 +308,7 @@ To configure users from within the VM, follow these steps:
     echo "<public_key>" >> /home/testuser/.ssh/authorized_keys
     ```
 
-    Where `<public_key>` is the contents of the [public key](#creating-ssh-keys) file for SSH access to the VM.
+    Where `<public_key>` is the contents of the [public key](ssh.md#creating-ssh-keys) file for SSH access to the VM.
 
     The `authorized_keys` file lists all authorized public keys. Each key is specified on a new line in `<key_type> <public_key_body> <optional_comment>` format. Here is an example of a file with multiple keys:
 

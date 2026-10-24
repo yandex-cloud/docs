@@ -345,7 +345,7 @@ To change the type of a VM, such as making it non-preemptible:
 
 {% endlist %}
 
-This will affect the cost of running this VM. Learn more about VM pricing [here](../../pricing.md#prices-instance-resources).
+This will affect the cost of running this VM. Learn more about VM pricing [here](../../pricing.md#instance-resources).
 
 #### Useful links {#see-also}
 

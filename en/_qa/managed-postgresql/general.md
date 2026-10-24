@@ -190,7 +190,7 @@ Yes, you can both copy data from a table to a local file and import data from a 
 
 {% include [throttling](../throttling.md) %}
 
-To increase the maximum IOPS and bandwidth values and make throttling less likely, expand the storage when [updating your cluster](../../managed-postgresql/operations/update.md#change-disk-size).
+To increase the maximum IOPS and bandwidth values and make throttling less likely, expand the storage when [updating your cluster](../../managed-postgresql/operations/storage-space.md#change-disk-size).
 
 For storage using the `network-hdd` disk type, we recommend switching to `network-ssd` or `network-ssd-nonreplicated` via a [cluster restore](../../managed-postgresql/operations/cluster-backups.md#restore) from backup.
 

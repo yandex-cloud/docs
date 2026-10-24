@@ -31,7 +31,7 @@ On December 1, 2025, the {{ datalens-name }} pricing rules changed. For details 
 * **Community**: Suitable for small teams and non-profit projects.
 * **Business**: Suitable for enterprise deployments and business scenarios.
 
-The plan you choose covers your organization and can only be [changed](./settings/service-plan.md#change-service-plan) by its owner or administrator. You pay for all [active users](#active-users).
+The plan you choose covers your organization and can only be [changed](./settings/service-plan.md#service-plans) by its owner or administrator. You pay for all [active users](#active-users).
 
 Different service plans offer different [features](./concepts/service-plans-comparison.md) and vary in cost.
 
@@ -53,7 +53,7 @@ Rules of the _Business_ trial period:
 * You can activate the trial period only once per {{ datalens-name }} instance.
 * You cannot use the trial period if you previously activated the {{ datalens-name }} _Business_ plan.
 
-To activate the _Business_ plan trial period, switch to the _Business_ service plan by following [this guide](./settings/service-plan.md#change-service-plan). Once the trial period ends, the second month of use will be charged to you proportionally to the remaining number of days.
+To activate the _Business_ plan trial period, switch to the _Business_ service plan by following [this guide](./settings/service-plan.md#service-plans). Once the trial period ends, the second month of use will be charged to you proportionally to the remaining number of days.
 
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}

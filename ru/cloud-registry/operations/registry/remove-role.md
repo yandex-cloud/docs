@@ -69,7 +69,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  [Просмотрите](list-role.md#api) роли, назначенные на реестр.
+  [Просмотрите](list-role.md?tabs=instructions_api) роли, назначенные на реестр.
   
   Чтобы отозвать роли, назначенные на реестр, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Registry/updateAccessBindings.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/UpdateAccessBindings](../../api-ref/grpc/Registry/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject).
 

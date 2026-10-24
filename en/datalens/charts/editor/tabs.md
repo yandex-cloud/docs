@@ -150,7 +150,7 @@ i.e., `00:00:00.000`, while casting to the current time is used for the units sh
 
 **Format**: `__interval_<start>_<end>`
 
-`start`/`end`: [relative date](#relativedate) or ISO date.
+`start`/`end`: [relative date](#relative-date) or ISO date.
 
 **Example**:
 

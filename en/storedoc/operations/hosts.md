@@ -451,7 +451,7 @@ If you cannot [connect](connect/index.md) to the new host, check the {{ mmg-name
     * `--cluster-name`: Cluster name. You can get it from the [list of clusters in your folder](cluster-list.md#list-clusters).
     * `--host`: Host settings:
         
-        * `hostname`: Target host name. You can get it from the [list of your cluster hosts](#list).
+        * `hostname`: Target host name. You can get it from the [list of your cluster hosts](#list-hosts).
 
         
         * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`.

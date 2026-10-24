@@ -117,7 +117,7 @@ By default, OIDC apps of all [types](#oidc-web) require the service provider to 
 
 ## Identity provider ({{ org-full-name }}) side setup {#oidc-idp-setup}
 
-For the integration to work correctly on the {{ org-full-name }} side, you need to [specify](../../operations/applications/oidc-create.md#setup-idp) the [redirect URI](#oidc-redirect-uri) address (addresses) in the OIDC app, select user [attributes](#oidc-user-attributes) to send to the service provider, and generate an [app secret](#oidc-secret). Before configuring your OIDC application in {{ org-full-name }}, get the redirect URI address (addresses) from your service provider.
+For the integration to work correctly on the {{ org-full-name }} side, you need to [specify](../../operations/applications/oidc-create.md#setup-idp) the [redirect URI](#oidc-redirect-uri) address (addresses) in the OIDC app, select user [attributes](#oidc-attributes) to send to the service provider, and generate an [app secret](#oidc-secret). Before configuring your OIDC application in {{ org-full-name }}, get the redirect URI address (addresses) from your service provider.
 
 ### Redirect URI {#oidc-redirect-uri}
 

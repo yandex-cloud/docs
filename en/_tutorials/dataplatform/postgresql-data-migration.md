@@ -375,7 +375,7 @@ Create the required resources:
             * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: Select either `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` or a reserverd IP address from the list.
 
     
-    1. If you use security groups for the staging VM and the {{ mpg-name }} cluster, [configure them](../../managed-postgresql/operations/connect/index.md#configure-security-groups).
+    1. If you use security groups for the staging VM and the {{ mpg-name }} cluster, [configure them](../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
 
 
 - {{ TF }} {#tf}

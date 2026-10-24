@@ -40,7 +40,7 @@ Personal Yandex ID accounts are not managed by corporate security policies: you 
 |-------------|----------------------------------------------------------|--------------------------|
 | High     | [IAM11](../standard/authentication.md#sa-key-rotation) | [cspm.iam.sa-key-rotation](../../security-deck/rules-reference/cspm.md#sa-key-rotation) |
 
-Static access keys for service accounts must be regularly rotated. The recommended [rotation](../standard/authentication.md#sa-key-rotation.md) period is at least once every 90 days. Keys without an expiration date increase the window of opportunity for attackers if leaked.
+Static access keys for service accounts must be regularly rotated. The recommended [rotation](../standard/authentication.md#sa-key-rotation) period is at least once every 90 days. Keys without an expiration date increase the window of opportunity for attackers if leaked.
 
 Whenever possible, use [ephemeral keys](../../iam/concepts/authorization/ephemeral-keys.md) or temporary tokens via [{{ sts-full-name }}](../../iam/concepts/authorization/sts.md) instead of static keys.
 

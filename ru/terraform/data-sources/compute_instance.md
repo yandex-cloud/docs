@@ -99,11 +99,6 @@ output "instance_external_ip" {
   - `preemptible` . 
 - `secondary_disk` (*Read-Only*) (Set Of Object). A set of disks to attach to the instance. The structure is documented below.
 
-{% note warning %}
-
-The [`allow_stopping_for_update`](#allow_stopping_for_update) property must be set to `true` in order to update this structure.
-
-{% endnote %}
 
   - `auto_delete` . 
   - `device_name` . 

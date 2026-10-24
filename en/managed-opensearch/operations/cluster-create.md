@@ -54,7 +54,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
           * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
 
       1. Select the {{ OS }} version.
-      1. Select the [plugins](plugins.md#supported-plugins) you want to install in the cluster.
+      1. Select the [plugins](../concepts/plugins.md) you want to install in the cluster.
 
   
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host your cluster and security groups for cluster network traffic. You may need to additionally [set up security groups](connect/index.md#security-groups) to be able connect to the cluster.

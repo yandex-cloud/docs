@@ -359,7 +359,7 @@ Cron-выражение из коннектора нельзя перенест�
 
 #### Вариант 2: Отправка через {{ message-queue-full-name }} {#api-option-ymq}
 
-1. Создайте очередь {{ message-queue-full-name }}. Запись сообщений [осуществляется с помощью cURL](../../message-queue/operations/message-queue-send-message.md#curl).
+1. Создайте очередь {{ message-queue-full-name }}. Запись сообщений [осуществляется с помощью cURL](../../message-queue/operations/message-queue-send-message.md#curl_1).
 1. Создайте [триггер для {{ message-queue-full-name }}](../../functions/concepts/trigger/ymq-trigger.md), указав созданную очередь в качестве источника.
 
 ## Форматы сообщений {#message-format}

@@ -2,7 +2,7 @@
 
 # yandex_yq_object_storage_binding (Resource)
 
-Manages Object Storage binding in Yandex Query service. For more information, see [the official documentation](../../query/concepts/glossary.md#Binding).
+Manages Object Storage binding in Yandex Query service. For more information, see [the official documentation](../../query/concepts/glossary.md#binding).
 
 ## Example usage
 

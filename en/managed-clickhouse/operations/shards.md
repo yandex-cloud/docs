@@ -4,7 +4,7 @@ You can enable sharding for a cluster, as well as add and configure individual s
 
 ## Enabling sharding {#enable}
 
-If you do not enable sharding when creating a {{ mch-name }} cluster, a single shard containing all cluster hosts will be created. To shard data, [add](#add-shard) one or more shards and [create](../tutorials/sharding.md#example) a distributed table.
+If you do not enable sharding when creating a {{ mch-name }} cluster, a single shard containing all cluster hosts will be created. To shard data, [add](#add-shard) one or more shards and [create](../tutorials/sharding.md#create-tables) a distributed table.
 
 ## Creating a shard {#add-shard}
 

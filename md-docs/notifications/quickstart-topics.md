@@ -166,7 +166,7 @@ Cloud Notification Service (CNS) — сервис для мультиканал�
        * для SMS — номер телефона в формате [E.164](https://ru.wikipedia.org/wiki/E.164), например `+79991112233`;
        * для Message Queue — URL очереди.
    
-         Чтобы топик мог отправлять сообщения в очередь, у него должен быть задан атрибут `SQSServiceAccountId`. Подробнее в инструкциях по [созданию](operations/topics/topic-create.md#aws-cli) и [управлению](operations/topics/topic-manage.md#aws-cli) топиком.
+         Чтобы топик мог отправлять сообщения в очередь, у него должен быть задан атрибут `SQSServiceAccountId`. Подробнее в инструкциях по [созданию](operations/topics/topic-create.md?tabs=instructions_aws-cli) и [управлению](operations/topics/topic-manage.md?tabs=instructions_aws-cli) топиком.
    
    Подробнее о команде `aws sns subscribe` смотрите в [документации AWS](https://docs.amazonaws.cn/en_us/sns/latest/dg/sns-create-subscribe-endpoint-to-topic.html).
 
@@ -196,7 +196,7 @@ Cloud Notification Service (CNS) — сервис для мультиканал�
       * для SMS — номер телефона в формате [E.164](https://ru.wikipedia.org/wiki/E.164), например `+79991112233`;
       * для Message Queue — URL очереди.
   
-  	Чтобы топик мог отправлять сообщения в очередь, у него должен быть задан атрибут `SQSServiceAccountId`. Подробнее в инструкциях по [созданию](operations/topics/topic-create.md#python) и [управлению](operations/topics/topic-manage.md#python) топиком.
+    Чтобы топик мог отправлять сообщения в очередь, у него должен быть задан атрибут `SQSServiceAccountId`. Подробнее в инструкциях по [созданию](operations/topics/topic-create.md?tabs=instructions_python) и [управлению](operations/topics/topic-manage.md?tabs=instructions_python) топиком.
 
 {% endlist %}
 

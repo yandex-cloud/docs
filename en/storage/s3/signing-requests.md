@@ -34,7 +34,7 @@ The string to sign (`StringToSign`) depends on the {{ objstorage-name }} use cas
 
 ## Generate a signing key {#signing-key-gen}
 
-To generate a signing key, you need static access keys for {{ objstorage-name }}. To learn how to get them, see [Getting started](index.md#before-you-begin).
+To generate a signing key, you need static access keys for {{ objstorage-name }}. To learn how to get them, see [Getting started](index.md#before-you-start).
 
 {% include [generate-signing-key](../../_includes/storage/generate-signing-key.md) %}
 

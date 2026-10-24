@@ -52,7 +52,7 @@ The `organization-manager.admin` role enables managing organization settings, id
 * View info on the organization users' refresh tokens, as well as revoke such tokens.
 * View and terminate federated and local users' [sessions](../../organization/concepts/sessions.md).
 * View info on {{ org-full-name }} quotas.
-* View info on the effective tech support [service plan](../../support/pricing.md#effective-plans).
+* View info on the effective tech support [service plan](../../support/pricing.md#prices).
 * View the list of technical support [requests](../../support/overview.md) and info on them, as well as create and close such requests, leave comments, and attach files to them.
 * View, create, modify, and delete {{ src-name }} repositories.
 * Read files from a {{ src-name }} repository.

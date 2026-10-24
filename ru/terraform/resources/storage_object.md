@@ -25,7 +25,7 @@ resource "yandex_storage_object" "cute-cat-picture" {
 ## Arguments & Attributes Reference
 
 - `access_key` (String). The access key to use when applying changes. This value can also be provided as `storage_access_key` specified in provider config (explicitly or within `shared_credentials_file`) is used.
-- `acl` (String). The [predefined ACL](https://yandex.cloud/docs/storage/concepts/acl#predefined_acls) to apply. Defaults to `private`.
+- `acl` (String). The [predefined ACL](https://yandex.cloud/docs/storage/concepts/acl#predefined-acls) to apply. Defaults to `private`.
 
 {% note warning %}
 

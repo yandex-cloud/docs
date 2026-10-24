@@ -17,7 +17,7 @@ To create a new key:
 
      * Custom name and optional description.
      * [Encryption algorithm](../concepts/key.md#parameters), e.g., `AES-256`.
-     * [Rotation](../concepts/index.md#rotation) period (how often to change key versions).
+     * [Rotation](../concepts/version.md#rotate-key) period (how often to change key versions).
      * Optionally, enable deletion protection.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.

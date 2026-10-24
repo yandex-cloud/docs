@@ -95,7 +95,7 @@ Request ID: ********-****-****-****-************; Trace ID: ****************;
 
 1. Check user roles. Make sure the service account has a role for the folder or cloud that allows creating resources, such as `{{ roles-editor }}` or higher.
 1. Check the cloud status. The cloud status must be `ACTIVE`.
-    * If the cloud is `PENDING_DELETION`, you cannot modify its resources. Try to [cancel the pending cloud deletion](../../resource-manager/operations/cloud/delete.md#cancel-delete).
+    * If the cloud is `PENDING_DELETION`, you cannot modify its resources. Try to [cancel the pending cloud deletion](../../resource-manager/operations/cloud/delete-cancel.md).
     * If the cloud is suspended, e.g., due to arrears, you resolve the issue causing the suspension.
 
 In most cases, the error occurs because the service account used by the resource lacks permissions to interact with other services. For example, if you see the `Error PERMISSION_DENIED in client lockbox` error, the service account does not have the roles to access {{ lockbox-full-name }} secrets.

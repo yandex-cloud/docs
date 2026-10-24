@@ -18,7 +18,7 @@ For the {{ backup-name }} connection to work correctly, link to the VM a [servic
 
 {% endnote %}
 
-After connecting to {{ backup-name }}, [associate](../../operations/policy-vm/attach-and-detach-vm.md#attach-vm) your VM with a [backup policy](../policy.md).
+After connecting to {{ backup-name }}, [associate](../../operations/policy-vm/attach-and-detach-vm.md) your VM with a [backup policy](../policy.md).
 
 {% note info %}
 

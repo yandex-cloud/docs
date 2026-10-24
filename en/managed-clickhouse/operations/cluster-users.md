@@ -105,7 +105,7 @@ When managing users, you have access to the following actions:
 
 - SQL {#sql}
 
-  1. [Connect](connect/clients.md) to your cluster as [`admin`](#sql-user-management).
+  1. [Connect](connect/clients.md) to your cluster as [`admin`](../concepts/user-access-rights.md#sql-user-management).
   1. Get a list of users:
 
       ```sql
@@ -405,7 +405,7 @@ When managing users, you have access to the following actions:
 
 - SQL {#sql}
 
-  1. [Connect](connect/clients.md) to your cluster as [`admin`](#sql-user-management).
+  1. [Connect](connect/clients.md) to your cluster as [`admin`](../concepts/user-access-rights.md#sql-user-management).
   1. Create a user:
 
       ```sql
@@ -869,7 +869,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
      The command only updates the settings that are explicitly specified in the `--settings` parameter. For example, the command with the `--settings="readonly=1"` parameter will only update the `readonly` setting and will not reset any other value. This is the difference between changing {{ CH }} settings and changing quota settings.
 
-     You cannot use this command to delete an existing setting. You can only explicitly set it to its default value (specified for [each setting](#clickhouse-settings)).
+     You cannot use this command to delete an existing setting. You can only explicitly set it to its default value (specified for [each setting](../concepts/settings-list.md#dbms-user-settings)).
 
 
 - {{ TF }} {#tf}
@@ -1073,7 +1073,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
 - SQL {#sql}
 
-  1. [Connect](connect/clients.md) to your cluster as [`admin`](#sql-user-management).
+  1. [Connect](connect/clients.md) to your cluster as [`admin`](../concepts/user-access-rights.md#sql-user-management).
   1. To change user privileges and roles, use the [GRANT]({{ ch.docs }}{{ lang }}/sql-reference/statements/grant) and [REVOKE]({{ ch.docs }}{{ lang }}/sql-reference/statements/revoke) statements. For example, grant the user read permissions for all objects in a specific database:
 
       ```sql
@@ -1190,7 +1190,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
 - SQL {#sql}
 
-  1. [Connect](connect/clients.md) to your cluster as [`admin`](#sql-user-management).
+  1. [Connect](connect/clients.md) to your cluster as [`admin`](../concepts/user-access-rights.md#sql-user-management).
   1. Delete the user:
 
       ```sql
@@ -1349,7 +1349,7 @@ Let's say you need to add a new user named `ro-user` with the `Passw0rd` passwor
 
 - SQL {#sql}
 
-  1. [Connect](connect/clients.md) to the `mych` cluster as [`admin`](#sql-user-management).
+  1. [Connect](connect/clients.md) to the `mych` cluster as [`admin`](../concepts/user-access-rights.md#sql-user-management).
   1. Create a user:
 
       ```sql

@@ -28,7 +28,7 @@ Before creating a VM:
 
 The infrastructure support cost includes:
 * Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for storing the created images (see [{{ compute-name }} pricing](../../compute/pricing.md#prices-storage)).
+* Fee for storing the created images (see [{{ compute-name }} pricing](../../compute/pricing.md#disk)).
 * Fee for using dynamic public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Create a test application VM {#create-vm}

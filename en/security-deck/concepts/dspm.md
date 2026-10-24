@@ -55,7 +55,7 @@ Following this initial scan, the module scans only modified or new files. This r
 
 To run scans for sensitive information, use a [service account](../../iam/concepts/users/service-accounts.md).
 
-To [create a scan](../operations/dspm/create-scan.md), the user must have the `dspm.editor` [role](../../security-deck/security/dspm-roles.md#dspm-editor) for the folder [specified](../quickstart-overview.md#configure-sd) in the {{ sd-name }} settings as the default storage as well as the `iam.serviceAccounts.user` [role](../../iam/security/index.md#iam-serviceAccounts-user) for the service account that will run the scan.
+To [create a scan](../operations/dspm/create-scan.md), the user must have the `dspm.editor` [role](../../security-deck/security/dspm-roles.md#dspm-editor) for the folder [specified](workspace.md#settings) in the {{ sd-name }} settings as the default storage as well as the `iam.serviceAccounts.user` [role](../../iam/security/index.md#iam-serviceAccounts-user) for the service account that will run the scan.
 
 {% include [sa-scan-roles-warning](../../_includes/security-deck/sa-scan-roles-warning.md) %}
 
@@ -97,7 +97,7 @@ To create data sources, set up and run scans, and view scan results, the user mu
 
 {% note info %}
 
-This feature is only available with a [fixed scan volume subscription](../pricing.md#dspm-package-subscription).
+This feature is only available with a [fixed scan volume subscription](../pricing.md#starter-rules).
 
 {% endnote %}
 
@@ -107,7 +107,7 @@ You can request to add custom keywords and search patterns. This allows you to d
 * Unique product or project IDs.
 * Custom confidential data patterns not included in standard classifiers.
 
-To enable a custom dictionary, submit a request when [creating](../operations/dspm/create-scan.md#object-storage) a scan for {{ objstorage-name }}, or via [this form](https://forms.yandex.ru/surveys/13835302.f77819f788eb2cd7df871cd6f8523fe29c5e4c23/). In your request, include your contact information, dictionary name, keyword or regular expression examples and describe the type of data you want this dictionary to detect. Our team will process your request and contact you to clarify the details and inform you of the results.
+To enable a custom dictionary, submit a request when [creating](../operations/dspm/create-scan.md#change-scaning) a scan for {{ objstorage-name }}, or via [this form](https://forms.yandex.ru/surveys/13835302.f77819f788eb2cd7df871cd6f8523fe29c5e4c23/). In your request, include your contact information, dictionary name, keyword or regular expression examples and describe the type of data you want this dictionary to detect. Our team will process your request and contact you to clarify the details and inform you of the results.
 
 #### Useful links {#see-also}
 

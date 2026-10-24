@@ -12,7 +12,7 @@ To get started:
 * [Create a cluster](#cluster-create).
 * [Prepare a PySpark job](#prepare-task).
 * [Run the job in the cluster](#run-task).
-* [Check the job completion](#check-task).
+* [Check the job completion](#check_task).
 
 ## Required paid resources {#paid-resources}
 
@@ -47,12 +47,12 @@ The cost of infrastructure support includes a fee for using a {{ objstorage-full
 
    1. In the [management console]({{ link-console-main }}), select the relevant folder.
    1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-      1. Open the bucket you [created](#create-s3-bucket).
+      1. Open the bucket you [created](#prepare-infrastructure).
       1. Navigate to **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
       1. Click ![image](../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
       1. In the **{{ ui-key.yacloud.component.acl-dialog.label_title }}** window that opens:
 
-         1. Start typing the name of the service account you [created earlier](#before-you-begin) and select it from the drop-down list.
+         1. Start typing the name of the service account you [created earlier](#prepare-infrastructure) and select it from the drop-down list.
          1. Select the {{ ui-key.yacloud.storage.dialog.StorageAclDialog.label_role-write_sGmJW }} access permissions.
          1. Click **{{ ui-key.yacloud.common.add }}**.
          1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -67,7 +67,7 @@ The cost of infrastructure support includes a fee for using a {{ objstorage-full
   1. [Navigate]({{ link-console-main }}/link/managed-spark) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Give the cluster a name.
-  1. In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select the [previously created](#before-you-begin) service account.
+  1. In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select the [previously created](#prepare-infrastructure) service account.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a network, subnet, and security group for the cluster.
   1. Set up computing resources for hosts to run drivers and workers.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, configure logging:
@@ -86,7 +86,7 @@ The cost of infrastructure support includes a fee for using a {{ objstorage-full
 
 1. Save the [pi.py](https://github.com/apache/spark/blob/master/examples/src/main/python/pi.py) file, that contains the job code, to a local computer from the {{ SPRK }} repository. This code calculates the approximate value of pi using the Monte Carlo method.
 
-1. Upload the file to the {{ objstorage-name }} bucket [you created earlier](#before-you-begin).
+1. Upload the file to the {{ objstorage-name }} bucket [you created earlier](#prepare-infrastructure).
 
 ## Run your PySpark job {#run-task}
 

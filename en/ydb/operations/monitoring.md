@@ -12,7 +12,7 @@ Diagnostic information about the database state is shown as charts. Charts updat
 {% include [note-monitoring-auto-units](../../_includes/mdb/note-monitoring-auto-units.md) %}
 
 
-You can [configure alerts](#monitoring-integration) in {{ monitoring-full-name }} to get notified about database failures. In {{ monitoring-full-name }}, there are two trigger thresholds: `{{ ui-key.yacloud_monitoring.alert.status_warn }}` and `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`. If the specified threshold is exceeded, you will get alerts via the configured [notification channels](../../monitoring/concepts/alerting.md#notification-channel).
+You can [configure alerts](#monitoring-integration) in {{ monitoring-full-name }} to get notified about database failures. In {{ monitoring-full-name }}, there are two trigger thresholds: `{{ ui-key.yacloud_monitoring.alert.status_warn }}` and `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`. If the specified threshold is exceeded, you will get alerts via the configured [notification channels](../../monitoring/concepts/alerting/notification-channel.md).
 
 
 ## Viewing monitoring charts {#monitoring-database}

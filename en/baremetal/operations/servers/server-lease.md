@@ -5,7 +5,7 @@ description: Follow this guide to lease a {{ baremetal-full-name }} server in on
 
 # Leasing a stock configuration server
 
-You can lease a [{{ baremetal-name }} server](../../concepts/servers.md) in one of the [stock configurations](../../concepts/server-configurations.md#standard).
+You can lease a [{{ baremetal-name }} server](../../concepts/servers.md) in one of the [stock configurations](../../concepts/server-configurations.md).
 
 However, if you need a server with some non-standard hardware specifications, you can [configure](./custom-server-lease.md) one yourself.
 

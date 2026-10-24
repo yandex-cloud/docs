@@ -26,6 +26,6 @@ To connect to {{ mrd-short-name }}, consider using the following clients:
 
 {% note info %}
 
-To connect through SSL, use the `redis-cli` client built with the `BUILD_TLS=yes` flag. For more information, see connection string examples for a [sharded](../operations/connect/sharded-code-examples.md#bash) or [non-sharded](../operations/connect/non-sharded-code-examples.md#bash) cluster.
+To connect through SSL, use the `redis-cli` client built with the `BUILD_TLS=yes` flag. For more information, see the [redis-cli connection examples](../operations/connect/clients.md#valkey-cli).
 
 {% endnote %}

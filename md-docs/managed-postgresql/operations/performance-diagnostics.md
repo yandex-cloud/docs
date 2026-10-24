@@ -231,7 +231,7 @@ Managed Service for PostgreSQL предоставляет встроенный �
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
   1. Чтобы включить сбор статистики при создании кластера:
 
-     1. Воспользуйтесь методом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и добавьте параметр `config_spec.performance_diagnostics` в [команду grpcurl по созданию кластера](cluster-create.md#grpc-api):
+     1. Воспользуйтесь методом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и добавьте параметр `config_spec.performance_diagnostics` в [команду grpcurl по созданию кластера](cluster-create.md?tabs=instructions_grpc-api):
 
         ```bash
         grpcurl \

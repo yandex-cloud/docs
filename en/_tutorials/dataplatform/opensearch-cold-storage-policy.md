@@ -36,7 +36,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * Two or more host groups with the `DATA` role. Give two groups the names `hot` and `cold`.
             * Public access to any host group.
 
-        1. If there are security groups in your cluster, make sure they allow connections to the [{{ mos-name }}](../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
+        1. If there are security groups in your cluster, make sure they allow connections to the [{{ mos-name }}](../../managed-opensearch/operations/connect/index.md#security-groups).
 
     - Using {{ TF }} {#tf}
 

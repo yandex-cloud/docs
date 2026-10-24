@@ -30,7 +30,7 @@ To allow another user to open your dashboard, configure access to {{ datalens-fu
 
 The user will get access to your {{ datalens-short-name }} instance and objects with **All** permissions. You can assign this user individual permissions for objects.
 
-You can send the link to the dashboard from the browser. For more information about permissions for {{ datalens-short-name }} objects, see [this guide](../security/index.md#permissions).
+You can send the link to the dashboard from the browser. For more information about permissions for {{ datalens-short-name }} objects, see [this guide](../security/index.md).
 
 You can also make your dashboard public using [{#T}](../concepts/datalens-public.md).
 

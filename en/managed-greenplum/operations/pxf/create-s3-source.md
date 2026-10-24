@@ -66,7 +66,7 @@ To get started, [create a static access key](../../../iam/operations/authenticat
 
         Where:
 
-        * `cluster-id`: Cluster ID. You can get it with the [list of clusters in the folder](../cluster-list.md#list-cluster).
+        * `cluster-id`: Cluster ID. You can get it with the [list of clusters in the folder](../cluster-list.md#list-clusters).
         * `access-key`, `secret-key`: [ID and contents of the static access key](../../../iam/concepts/authorization/access-key.md).
         * `endpoint`: S3 storage address. The value for {{ objstorage-name }} is `{{ s3-storage-host }}`. This is the default value.
         * `fast-upload`: Fast upload of large files to S3 storage. The possible values are:

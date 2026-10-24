@@ -77,7 +77,7 @@ kubectl describe svc <LoadBalancer_service_name> \
 | grep 'External Traffic Policy'
 ```
 
-For more information, see [Parameters of a LoadBalancer service](../../managed-kubernetes/operations/create-load-balancer.md#advanced).
+For more information, see [Parameters of a LoadBalancer service](../../managed-kubernetes/operations/create-load-balancer.md#create-lb).
 
 #### Why does the newly created PersistentVolumeClaim remain _Pending_? {#pvc-pending}
 
@@ -299,7 +299,7 @@ You can provide internet access to your {{ managed-k8s-name }} cluster nodes in 
 
 {% note info %}
 
-If you assign public IP addresses to your cluster nodes and then configure a NAT gateway or NAT instance, you will lose internet access via the public addresses. For more information, see [this {{ vpc-full-name }} guide](../../vpc/concepts/routing.md#internet-routes).
+If you assign public IP addresses to your cluster nodes and then configure a NAT gateway or NAT instance, you will lose internet access via the public addresses. For more information, see [this {{ vpc-full-name }} guide](../../vpc/concepts/routing.md#restrictions).
 
 {% endnote %}
 
@@ -446,7 +446,7 @@ For more information, see [{#T}](../../application-load-balancer/concepts/best-p
 
 #### What should I do if I deleted my {{ network-load-balancer-full-name }} or its target groups that were automatically created for a LoadBalancer service? {#deleted-loadbalancer-service}
 
-You cannot manually restore a {{ network-load-balancer-name }} or its target groups. [Recreate](../../managed-kubernetes/operations/create-load-balancer.md#lb-create) your `LoadBalancer` service. This will automatically create a load balancer and target groups.
+You cannot manually restore a {{ network-load-balancer-name }} or its target groups. [Recreate](../../managed-kubernetes/operations/create-load-balancer.md#create-lb) your `LoadBalancer` service. This will automatically create a load balancer and target groups.
 
 #### Error connecting a {{ compute-full-name }} VM instance as an external {{ managed-k8s-name }} node {#vm-as-external-node}
 

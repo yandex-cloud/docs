@@ -5,7 +5,7 @@ description: Follow this guide to lease a {{ baremetal-full-name }} server in a 
 
 # Renting a custom-configured server
 
-You can [configure](../../concepts/server-configurations.md#custom) your server yourself. Proceed as follows:
+You can [configure](../../concepts/server-custom-configurations.md#custom) your server yourself. Proceed as follows:
 
 ## Getting started {#before-you-begin}
 

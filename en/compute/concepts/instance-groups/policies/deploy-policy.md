@@ -40,7 +40,7 @@ With the opportunistic strategy, {{ ig-name }} does not stop the instances but w
 * Application or user stops the instance internally.
 * The instance fails the application [health check](../autohealing.md#functional-healthcheck).
 
-For example, you created an instance group with automatic scaling based on the [custom metric](../scale.md#custom-metrics) of the number of jobs in the queue. {{ ig-name }} creates an instance group that executes the jobs from the queue. As soon as there are no more jobs, {{ ig-name }} must reduce the group size from the actual size to the target one according to the [scaling policy](scale-policy.md).
+For example, you created an instance group with automatic scaling based on the [custom metric](../scale.md#monitoring-metrics) of the number of jobs in the queue. {{ ig-name }} creates an instance group that executes the jobs from the queue. As soon as there are no more jobs, {{ ig-name }} must reduce the group size from the actual size to the target one according to the [scaling policy](scale-policy.md).
   * If you selected the proactive stop, {{ ig-name }} will change the target group size and decrease the actual number of instances in the group to the target amount.
   * If you use the opportunistic strategy, {{ ig-name }} will change the target group size but will not stop the instances until they stop by themselves or are stopped by the user.
 

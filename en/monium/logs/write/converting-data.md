@@ -18,7 +18,7 @@ Attributes from resources (`ResourceLogs.resource.attributes`), instrumentation 
    * Bool, a string with the `true` or `false` value.
    * Bytes are serialized as a base64 string ([RFC 4648](https://datatracker.ietf.org/doc/html/rfc4648#section-4)).
    * Arrays and dictionaries are serialized similarly to JSON.
-1. Attributes from `labels` that do not comply with the [label limitations](../../concepts/data-model.md#labels) are moved to the `meta` level (the existing attribute gets removed).
+1. Attributes from `labels` that do not comply with the [label limitations](../../concepts/data-model.md#label) are moved to the `meta` level (the existing attribute gets removed).
 1. Attributes from `meta` that do not comply with the metadata limitations are discarded. The number of discarded attributes will be shown in a [metric](#invalid-attributes-destiny).
 
 

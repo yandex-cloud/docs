@@ -45,7 +45,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. If using security groups, configure them to allow internet access to your clusters:
 
-    * [Guide for {{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configuring-security-groups)
+    * [Guide for {{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configure-security-groups)
     * [Guide for {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups)
 
 

@@ -45,7 +45,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 {% note warning %}
 
-To create or edit a managed database endpoint, you will need the [`{{ roles.mgp.viewer }}`](../../../../managed-greenplum/security/index.md#mgp-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder where its cluster resides.
+To create or edit a managed database endpoint, you will need the [`{{ roles.mgp.viewer }}`](../../../../managed-greenplum/security/index.md#managed-greenplum-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder where its cluster resides.
 
 {% endnote %}
 

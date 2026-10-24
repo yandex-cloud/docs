@@ -13,7 +13,7 @@ When working with {{ yandex-cloud }} services, you create resources, such as man
 
 1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or [sign up](../getting-started/) if not signed up yet.
 1. Accept the user agreement.
-1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
+1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md).
 
 ## Create an organization {#create-organization}
 

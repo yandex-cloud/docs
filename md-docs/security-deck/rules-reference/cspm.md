@@ -986,7 +986,7 @@ Yandex Container Registry умеет запускать сканирование
 Для каждого реестра, используемого в продуктиве:
 
 1. Включите [сканирование по расписанию](../../container-registry/operations/scanning-docker-image.md#scheduled) для всех Docker-образов в реестре с частотой не реже одного раза в неделю.
-2. После сканирования проверяйте [результаты](../../container-registry/operations/scanning-docker-image.md#scan-results) и пересобирайте затронутые образы с обновлёнными базовыми слоями.
+2. После сканирования проверяйте [результаты](../../container-registry/operations/scanning-docker-image.md#manual) и пересобирайте затронутые образы с обновлёнными базовыми слоями.
 3. Встройте сканирование в CI/CD, чтобы ловить новые уязвимости и на этапе сборки.
 
 ### Нет доступа к API Kubernetes {#api-security}
@@ -1097,7 +1097,7 @@ Yandex Container Registry умеет запускать сканирование
 
 1. [Создайте бакет с ограниченным доступом](../../storage/quickstart.md#the-first-bucket).
 2. [Назначьте необходимые роли сервисным аккаунтам](../../audit-trails/quickstart.md#before-you-begin).
-3. [Создайте трейл](../../audit-trails/quickstart.md#create-a-trail).
+3. [Создайте трейл](../../audit-trails/quickstart.md#the-trail-creation).
 
 Аудитные логи сервиса Managed Service for GitLab относятся к [событиям уровня конфигурации](../../audit-trails/concepts/format.md), которые включают создание, удаление или изменение инстанса, события запусков и другое. Подробнее в [справочнике Audit Trails](../../audit-trails/concepts/events.md#managed-service-for-gitlab).
 
@@ -1547,7 +1547,7 @@ OS Login связывает учетную запись пользователя
 
 1. Добавьте TLS-сертификат в [Certificate Manager](../../certificate-manager/operations/index.md) — [выпустите через Let's Encrypt](../../certificate-manager/operations/managed/cert-create.md) или [загрузите собственный](../../certificate-manager/operations/import/cert-create.md).
 2. Добавьте HTTPS-обработчик на балансировщик по [инструкции по терминации TLS](../../application-load-balancer/tutorials/tls-termination/index.md).
-3. Если HTTP-обработчик нужен только для перенаправления на HTTPS, настройте [перенаправление с HTTP на HTTPS](../../application-load-balancer/concepts/http-router.md#route-types). В противном случае удалите его.
+3. Если HTTP-обработчик нужен только для перенаправления на HTTPS, настройте [перенаправление с HTTP на HTTPS](../../application-load-balancer/concepts/http-router.md#routes-types). В противном случае удалите его.
 
 ### API-шлюзы используют протокол HTTPS и собственные домены {#api-gateway-https}
 
@@ -1785,7 +1785,7 @@ Yandex Container Registry умеет сканировать Docker-образы 
 
 Без автоматического сканирования уязвимостей каждый новый Docker-образ, загружаемый в реестр, попадает в инвентарь непроверенным: уязвимые базовые слои и компоненты, случайно попавший вредоносный код и устаревшие зависимости — всё это доходит до кластера как ни в чём не бывало.
 
-Container Registry умеет сканировать образы автоматически при загрузке и показывать результаты в [отчёте о сканировании](../../container-registry/operations/scanning-docker-image.md#scan-results) — это самый быстрый способ узнать о проблеме до того, как образ окажется в продуктиве.
+Container Registry умеет сканировать образы автоматически при загрузке и показывать результаты в [отчёте о сканировании](../../container-registry/operations/scanning-docker-image.md#manual) — это самый быстрый способ узнать о проблеме до того, как образ окажется в продуктиве.
 
 **Риски при невыполнении правила:** Без автоматического сканирования при загрузке уязвимые образы, вредоносный код и устаревшие зависимости могут незаметно попасть в продуктивные кластеры — где их могут эксплуатировать до того, как кто-то это заметит.
 
@@ -1795,7 +1795,7 @@ Container Registry умеет сканировать образы автомат
 
 1. В [консоли управления](https://console.yandex.cloud/) откройте настройки реестра (Container Registry → реестр → **Настройки**).
 2. В блоке **Автоматическое сканирование** включите опцию **Сканировать Docker-образы при загрузке**.
-3. Просмотрите [результаты сканирования](../../container-registry/operations/scanning-docker-image.md#scan-results) последних образов и устраните найденные уязвимости до их выкатки.
+3. Просмотрите [результаты сканирования](../../container-registry/operations/scanning-docker-image.md#manual) последних образов и устраните найденные уязвимости до их выкатки.
 
 На новых реестрах опция включена по умолчанию — оставьте её включённой.
 

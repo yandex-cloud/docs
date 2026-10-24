@@ -41,7 +41,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
   1. Optionally, under **{{ ui-key.yacloud.alb.section_logs-settings }}**:
      1. Enable **{{ ui-key.yacloud.alb.label_log-requests }}**.
      1. Select the [{{ cloud-logging-full-name }}](../../logging/) [log group](../../logging/concepts/log-group.md) where you want to store load balancer logs.
-     1. Click **{{ ui-key.yacloud.alb.button_add-discard-rule }}** and configure its [settings](../concepts/application-load-balancer.md#discard-logs-rules):
+     1. Click **{{ ui-key.yacloud.alb.button_add-discard-rule }}** and configure its [settings](../concepts/monitoring.md#discard-logs-rules):
         * **{{ ui-key.yacloud.alb.label_discard-http-codes }}**: Add HTTP status codes.
         * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}**: Add HTTP status code classes.
         * **{{ ui-key.yacloud.alb.label_discard-grpc-codes }}**: Add gRPC codes.
@@ -133,7 +133,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
         yc alb load-balancer logging --help
         ```
 
-     1. Specify the load balancer log group and set up a [log discard rule](../concepts/application-load-balancer.md#discard-logs-rules):
+     1. Specify the load balancer log group and set up a [log discard rule](../concepts/monitoring.md#discard-logs-rules):
 
         ```bash
         yc alb load-balancer logging <load_balancer_name> \
@@ -415,7 +415,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
       * `log_options`: Optional [logging](../logs-ref.md) settings for [{{ cloud-logging-full-name }}](../../logging/):
 
           * `log_group_id`: [Log group](../../logging/concepts/log-group.md) ID.
-          * `discard_rule`: [Log discard rule](../concepts/application-load-balancer.md#discard-logs-rules).
+          * `discard_rule`: [Log discard rule](../concepts/monitoring.md#discard-logs-rules).
 
             * `http_codes`: HTTP codes.
             * `http_code_intervals`: HTTP code classes.

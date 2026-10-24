@@ -75,4 +75,4 @@ You may enable and configure autopartitioning when or after [creating](../operat
 
 {% endnote %}
 
-There are no separate charges for autopartitioning. If using [retention-based pricing](../pricing.md#time-limit), adding segments increases the cost of allocated resources in proportion to the number of segments.
+There are no separate charges for autopartitioning. If using [retention-based pricing](../pricing.md#rules), adding segments increases the cost of allocated resources in proportion to the number of segments.

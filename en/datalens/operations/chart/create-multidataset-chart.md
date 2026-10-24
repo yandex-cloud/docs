@@ -11,7 +11,7 @@ In multi-dataset charts, you can only use linked dimensions, i.e., those availab
 
 {% endnote %}
 
-To create a [multi-dataset chart](../../concepts/chart/index.md#multi-dataset-charts):
+To create a [multi-dataset chart](../../concepts/chart/multidataset-chart.md):
 
 
 {% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}

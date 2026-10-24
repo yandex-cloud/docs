@@ -12,7 +12,7 @@ description: This section describes how to get started with {{ sd-name }} and ma
 To get started with {{ sd-name }} in {{ yandex-cloud }}:
 
 1. If you have not signed up to {{ yandex-cloud }} yet, go to the [management console]({{ link-console-main }}) and follow the instructions.
-1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its [status](../billing/concepts/billing-account-statuses.md) is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
+1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its [status](../billing/concepts/billing-account-statuses.md) is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md).
 1. If you do not have a [folder](../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../resource-manager/operations/folder/create.md).
 1. Make sure you have the necessary [permissions](./security/index.md) to work with the {{ sd-name }} modules. You optimal roles are:
 
@@ -50,7 +50,7 @@ To create your first {{ sd-name }} workspace:
 * [{{ td-full-name }} ({{ td-name }})](#td)
 * [{{ vuln-man-name }}](#vulnerability-management)
 * [{{ atr-name }}](#access-transparency)
-* [Compliance Portal](#compliance)
+* [Compliance Portal](https://yandex.cloud/ru/security/compliance-portal)
 
 To use any of the modules, navigate to the [{{ sd-name }} interface]({{ link-sd-main }}) and select the module you need in the left-hand panel. On the page that opens, you can learn more about the tool's features and terms of use. To use the module you select, complete the required setup.
 

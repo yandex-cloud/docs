@@ -7,7 +7,7 @@ description: In this tutorial, you will learn how to create and customize the no
 
 A normalized bar chart shows the contribution, as a percentage, of multiple measures in the total amount by period or category.
 
-* Unlike a [stacked bar chart](bar-chart.md##stacked), the proportion of segment ratios and not the total bar length is important for this type of chart.
+* Unlike a [stacked bar chart](bar-chart.md#stacked), the proportion of segment ratios and not the total bar length is important for this type of chart.
 
 * Segments are highlighted in different colors and located one after the other. The length of a segment indicates its ratio to the total amount represented as 100%.
 

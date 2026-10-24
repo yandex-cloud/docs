@@ -44,7 +44,7 @@ Set up your infrastructure:
 
     1. Make sure the cluster security groups are configured correctly and allow inbound cluster connections:
 
-        * [{{ mmy-name }}](../../../managed-mysql/operations/connect/index.md#configuring-security-groups)
+        * [{{ mmy-name }}](../../../managed-mysql/operations/connect/index.md#configure-security-groups)
         * [{{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups)
 
 - {{ TF }} {#tf}

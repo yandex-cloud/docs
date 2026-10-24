@@ -165,7 +165,7 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
         1. Click **Download** to download the connection driver.
      1. On the **SSH/SSL** tab:
          1. Enable **Use SSL**.
-         1. In the **CA file** field, specify the path to the [SSL certificate file for your connection](./fqdn.md#get-ssl-cert).
+         1. In the **CA file** field, specify the path to the [SSL certificate file for your connection](index.md#get-ssl-cert).
   1. Click **Test Connection**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
   1. Click **OK** to save the data source.
 
@@ -176,7 +176,7 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
      1. Select **{{ MY }}** from the DB list.
      1. Click **Next**.
      1. Specify the connection settings on the **Main** tab:
-        * **Server host**: [FQDN of any {{ MY }} host](./fqdn.md#fqdn) or a [special FQDN](./fqdn.md#fqdn-master).
+        * **Server host**: [FQDN of any {{ MY }} host](./fqdn.md#get-fqdn) or a [special FQDN](./fqdn.md#fqdn-master).
         * **Port**: `{{ port-mmy }}`.
         * **Database**: Target database name.
         * **Username**, **Password**: Database user name and password.

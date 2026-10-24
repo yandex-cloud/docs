@@ -7,7 +7,7 @@ description: Follow this guide to get an FQDN for connection to a {{ mrd-full-na
 
 To connect to a host, you need its fully qualified domain name ([FQDN](../../concepts/network.md#hostname)). You can get it using one of the following methods:
 
-* [Request a list of cluster hosts](../hosts.md#list-hosts).
+* [Request a list of cluster hosts](../hosts.md#list).
 * In the [management console]({{ link-console-main }}), copy the cluster connection command (it contains the host’s FQDN). To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
 * Look up the FQDN in the management console:
 
@@ -22,7 +22,7 @@ You can also use the following FQDNs to connect:
 
 ## Special FQDN {#special-fqdns}
 
-{{ mrd-name }} provides a special FQDN that can be used instead of [regular host FQDNs](index.md#fqdn) to connect to non-sharded clusters.
+{{ mrd-name }} provides a special FQDN that can be used instead of [regular host FQDNs](../hosts.md#list) to connect to non-sharded clusters.
 
 In a non-sharded cluster, an FQDN of `c-<cluster_ID>.rw.{{ dns-zone }}` format always points to the current master host. You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters). When connecting to this FQDN, you can perform read and write operations.
 
@@ -58,7 +58,7 @@ For {{ mrd-name }}, stable FQDNs are available that always point to live hosts i
 
 You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
-You can use these FQDNs for connection to hosts in either a sharded or non-sharded cluster alongside [special FQDNs](#special-fqdns) and [regular host FQDNs](index.md#fqdn).
+You can use these FQDNs for connection to hosts in either a sharded or non-sharded cluster alongside [special FQDNs](#special-fqdns) and [regular host FQDNs](../hosts.md#list).
 
 If the cluster hosts reside in one or two availability zones, or there are less than three hosts, stable FQDNs can point to the same host. The target host can be either a master or a replica. After connecting, request information:
 

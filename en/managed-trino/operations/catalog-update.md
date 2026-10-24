@@ -103,7 +103,7 @@ description: Follow this guide to update catalog parameters in a {{ mtr-name }} 
 
         Where `updateMask` is a comma-separated string of parameters to update.
 
-        [Learn more about the {{ TR }}](#catalog-settings) catalog settings for various connector types.
+        [Learn more about the {{ TR }}](catalog-create.md#catalog-settings) catalog settings for various connector types.
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the folder ID with the [list of {{ TR }} catalogs in the cluster](catalog-list.md).
 
@@ -155,7 +155,7 @@ description: Follow this guide to update catalog parameters in a {{ mtr-name }} 
 
         Where `update_mask` is the list of parameters to update as an array of strings (`paths[]`).
 
-        [Learn more about the {{ TR }}](#catalog-settings) catalog settings for various connector types.
+        [Learn more about the {{ TR }}](catalog-create.md#catalog-settings) catalog settings for various connector types.
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the folder ID, with the [list of {{ TR }} catalogs in the cluster](catalog-list.md).
 

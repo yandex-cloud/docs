@@ -121,7 +121,7 @@ You can prevent a [subject](../../../iam/concepts/access-control/index.md#subjec
 
 - API {#api}
 
-  [View](get-assigned-roles.md#cli) the roles assigned for resources.
+  [View](get-assigned-roles.md?tabs=instructions_cli) the roles assigned for resources.
   
   To revoke roles assigned for a registry, use the [updateAccessBindings](../../api-ref/Registry/updateAccessBindings.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/UpdateAccessBindings](../../api-ref/grpc/Registry/updateAccessBindings.md) gRPC API call.
 

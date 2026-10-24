@@ -7,7 +7,7 @@ description: Follow this guide to create, edit, move, delete, and set up access 
 
 In this section, you will learn how to use a collection:
 
-* [Creating a collection](#create-collection)
+* [Creating a collection](#create-collections)
 * [Editing a collection](#edit-collections)
 * [Moving a collection](#move-collections)
 * [Setting up access to a collection](#security)

@@ -21,7 +21,7 @@ To run this example:
 ## Get ready to work {#before-you-begin}
 
 1. Log in to the [management console]({{ link-console-main }}) or sign up if you have not already. If you have not signed up yet, navigate to the management console and follow the instructions.
-1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have an `ACTIVE` or `TRIAL_ACTIVE` [billing account](../../billing/concepts/billing-account.md). If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have an `ACTIVE` or `TRIAL_ACTIVE` [billing account](../../billing/concepts/billing-account.md). If you do not have a billing account yet, [create one](../../billing/quickstart/index.md).
 1. If you do not have a folder yet, [create one](../../resource-manager/operations/folder/create.md).
 1. We will connect to the data stream using a [service account](../../iam/concepts/users/service-accounts.md). [Create](../../iam/operations/sa/create.md#create-sa) a service account named `datastream-connection-account` and assign it the `ydb.editor` role.
 1. Data streams use {{ ydb-full-name }}. You will need to [create](../../ydb/quickstart.md#serverless) a serverless database.
@@ -72,5 +72,5 @@ Once completed, the query returns the total fare (`total_amount`) of the first 1
 
 * [HOP operator and window parameters in streaming data processing](../concepts/stream-processing-windows.md)
 * [Aggregate functions in YQL]({{ ydb.docs }}/yql/reference/builtins/aggregation)
-* [SQL syntax](../sources-and-sinks/data-streams-binding.md#model-dannyh)
+* [SQL syntax](../sources-and-sinks/data-streams-binding.md#data-model)
 * [{#T}](../concepts/stream-processing.md)

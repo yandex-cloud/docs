@@ -139,7 +139,7 @@ To view logs, you need the [logging.viewer](../../logging/security/index.md#logg
       module_type = "RULE_CONDITION", meta.matched_rule_verdict = "DENY"
       ```
 
-  * Show requests that have triggered the [Smart Protection](../concepts/rules.md##smart-protection-rules) rules with a CAPTCHA challenge:
+  * Show requests that have triggered the [Smart Protection](../concepts/rules.md#smart-protection-rules) rules with a CAPTCHA challenge:
 
       ```text
       module_type = "SMART_PROTECTION", meta.matched_rule_verdict = "CAPTCHA"

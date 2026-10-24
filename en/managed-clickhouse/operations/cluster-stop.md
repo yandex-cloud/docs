@@ -5,7 +5,7 @@ description: You can stop and restart a {{ CH }} database cluster as needed. Whi
 
 # Stopping and restarting a {{ CH }} cluster
 
-You can stop and restart a {{ CH }} database cluster as needed. While your cluster is idle, you only pay for the size of your storage and backups as per the [pricing policy](../pricing.md#prices-storage).
+You can stop and restart a {{ CH }} database cluster as needed. While your cluster is idle, you only pay for the size of your storage and backups as per the [pricing policy](../pricing.md#rules-storage).
 
 {% include [pricing-status-warning.md](../../_includes/mdb/pricing-status-warning.md) %}
 

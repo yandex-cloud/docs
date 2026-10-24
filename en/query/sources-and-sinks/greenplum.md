@@ -41,7 +41,7 @@ To create a connection to {{ mgp-name }}:
    1. Under **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
 
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select an existing {{ mgp-name }} cluster or create a new one.
-      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing {{ mgp-name }} [service account](../../iam/concepts/users/service-accounts.md) or create a new one. Assign it the [`{{ roles.mgp.viewer }}`](../../managed-greenplum/security/index.md#mgp-viewer) role allowing it to connect to {{ mgp-name }} clusters.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing {{ mgp-name }} [service account](../../iam/concepts/users/service-accounts.md) or create a new one. Assign it the [`{{ roles.mgp.viewer }}`](../../managed-greenplum/security/index.md#managed-greenplum-viewer) role allowing it to connect to {{ mgp-name }} clusters.
 
         {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
 

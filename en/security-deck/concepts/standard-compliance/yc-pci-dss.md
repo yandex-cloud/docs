@@ -17,7 +17,7 @@ To ensure PCI DSS compliance, use the following rules:
 || 1.2 | Configuration and maintenance of network security controls (NSCs) |
 [cspm.network.firewall](../../rules-reference/cspm.md#firewall)
 [cspm.access.acl-container-registry](../../rules-reference/cspm.md#acl-container-registry)
-[cspm.k8s.network-firewall-scope](../../rules-reference/cspm.md#network-firewall-scope)
+[cspm.k8s.network-firewall-scope](../../rules-reference/cspm.md#k8s-network-firewall-scope)
 ||
 || 1.3 | Restricted network access to and from the cardholder data environment (CDE) |
 [cspm.network.db-security-group](../../rules-reference/cspm.md#db-security-group)
@@ -48,7 +48,6 @@ To ensure PCI DSS compliance, use the following rules:
 [cspm.crypto.keys-deletion-protection](../../rules-reference/cspm.md#keys-deletion-protection)
 [cspm.crypto.secrets-lockbox](../../rules-reference/cspm.md#secrets-lockbox)
 [cspm.crypto.secrets-serverless](../../rules-reference/cspm.md#secrets-serverless)
-[cspm.vm-metadata](../../rules-reference/cspm.md#vm-metadata)
 ||
 || **4. Protecting transmission of cardholder data over public networks with strong cryptography** {align="center"} | > | > ||
 || 4.2 | Protection of PANs with strong cryptography during transmission |
@@ -69,7 +68,7 @@ To ensure PCI DSS compliance, use the following rules:
 [cspm.appsec.use-waf](../../rules-reference/cspm.md#use-waf)
 [cspm.appsec.use-arl](../../rules-reference/cspm.md#use-arl)
 [cspm.appsec.ddos-protection.l7](../../rules-reference/cspm.md#l7)
-[cspm.appsec.ddos-protection.l3](../../rules-reference/cspm.md#appsec-ddos-protection-l3)
+[cspm.appsec.ddos-protection.l3](../../rules-reference/cspm.md#l3)
 ||
 || **7. Restricting access to system components and cardholder data based on need to know** {align="center"} | > | > ||
 || 7.2 | Proper identification of system components and data and provision of access to them |
@@ -94,7 +93,7 @@ To ensure PCI DSS compliance, use the following rules:
 || **10. Recording and monitoring all access events to system components and cardholder data** {align="center"} | > | > ||
 || 10.2 | Generating security event logs with required details |
 [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails)
-[cspm.o11y.audit-trails-no-errors](../../rules-reference/cspm.md#o11y-audit-trails-no-errors)
+[cspm.o11y.audit-trails-no-errors](../../rules-reference/cspm.md#audit-trails-no-errors)
 [cspm.o11y.data-plane-events](../../rules-reference/cspm.md#data-plane-events)
 ||
 || **11. Regular testing of system and network security** {align="center"} | > | > ||

@@ -18,4 +18,4 @@ except botocore.exceptions.ClientError as error:
 
     {% include [subscribe-endpoint-types](subscribe-endpoint-types.md) %}
 
-	Чтобы топик мог отправлять сообщения в очередь, у него должен быть задан атрибут `SQSServiceAccountId`. Подробнее в инструкциях по [созданию](../../notifications/operations/topics/topic-create.md#python) и [управлению](../../notifications/operations/topics/topic-manage.md#python) топиком.
+	Чтобы топик мог отправлять сообщения в очередь, у него должен быть задан атрибут `SQSServiceAccountId`. Подробнее в инструкциях по [созданию](../../notifications/operations/topics/topic-create.md?tabs=instructions_python) и [управлению](../../notifications/operations/topics/topic-manage.md?tabs=instructions_python) топиком.

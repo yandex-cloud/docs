@@ -82,7 +82,7 @@ To get started:
       1. Select the [host class](concepts/instance-types.md). Host class determines the technical specifications of the [VMs](../compute/concepts/vm.md) the cluster [hosts](concepts/index.md) will be deployed on.
       1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
 
-          1. Select the [disk type](concepts/storage.md#storage-type-selection).
+          1. Select the [disk type](concepts/storage.md).
           1. Set the [storage](concepts/storage.md) size.
 
       1. Under **{{ ui-key.yacloud.spqr.section_hosts }}**, specify the availability zones and subnets for the hosts that will be created together with the cluster.

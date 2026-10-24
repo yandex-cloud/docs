@@ -54,7 +54,7 @@ By default, access to a workspace is limited to the user who created it.
 
 For other users to be able to use the workspace, you should [grant](../operations/workspaces/manage-access.md) them access to it. The user who gets access to the workspace must also have access to the folder used for the workspace's resources and the cloud that folder is in.
 
-Depending on expected scope of work, the user should get the `security-deck.viewer` [role](../security/index.md#security-deckviewer-security-deck-viewer) or higher for the workspace.
+Depending on expected scope of work, the user should get the `security-deck.viewer` [role](../security/index.md#security-deck-viewer) or higher for the workspace.
 
 ## Workspace dashboard {#dashboard}
 

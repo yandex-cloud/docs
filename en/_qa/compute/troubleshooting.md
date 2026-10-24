@@ -14,7 +14,7 @@ To access the VM's contents one must have the relevant user credentials, e.g., S
 
 {% endnote %}
 
-To fix it, delete the VM and [create](../../compute/operations/vm-create/create-linux-vm.md) a new one by providing additional [cloud-init](https://cloud-init.io) parameters in the new VM [metadata](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images):
+To fix it, delete the VM and [create](../../compute/operations/vm-create/create-linux-vm.md) a new one by providing additional [cloud-init](https://cloud-init.io) parameters in the new VM [metadata](../../compute/concepts/metadata/public-image-keys.md):
 
 {% list tabs group=instructions %}
 

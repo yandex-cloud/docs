@@ -77,7 +77,7 @@ To ensure data integrity and acceptable cluster recovery time:
 * Less than 500 MB of free disk space left (if the host storage size is less than 600 GB).
 * Less than 5 GB of free disk space left (if the host storage size is 600 GB or more).
 
-To keep your cluster's hosts writable, regularly [check its _Disk space usage per host_ chart](../operations/monitoring.md#cluster) or [create an alert with the `disk.free_bytes` metric](../operations/monitoring.md#monitoring-integration).
+To keep your cluster's hosts writable, regularly [check its _Disk space usage per host_ chart](../operations/monitoring.md#monitoring-cluster) or [create an alert with the `disk.free_bytes` metric](../operations/monitoring.md#monitoring-integration).
 
 ## Host configuration type {#host-type}
 

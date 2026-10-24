@@ -121,7 +121,7 @@
 
 - API {#api}
 
-  [Просмотрите](get-assigned-roles.md#cli) роли, назначенные на ресурсы.
+  [Просмотрите](get-assigned-roles.md?tabs=instructions_cli) роли, назначенные на ресурсы.
   
   Чтобы отозвать роли, назначенные на реестр, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Registry/updateAccessBindings.md) для ресурса [Registry](../../api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/UpdateAccessBindings](../../api-ref/grpc/Registry/updateAccessBindings.md).
 

@@ -76,15 +76,15 @@ Meet {{ CK }}! It will help you coordinate and distribute queries among hosts in
 
 ## December 2025 {#dec-2025}
 
-* Added [detailed metrics](operations/monitoring.md#hosts) for disk usage on cluster hosts.
-* Improved implementation of the `stats` and `Persistent Watches` methods in [{{ CK }}](concepts/replication.md#ck) to support a {{ ZK }}-compatible protocol.
+* Added [detailed metrics](operations/monitoring.md#monitoring-hosts) for disk usage on cluster hosts.
+* Improved implementation of the `stats` and `Persistent Watches` methods in [{{ CK }}](concepts/coordination-system.md#ck) to support a {{ ZK }}-compatible protocol.
 * Optimized [replica](concepts/replication.md) recovery. Recovery of large (2 TB and larger) non-replicated disks became faster.
-* {{ CK }} coordination service running on separate hosts is [billable](pricing.md#prices-keeper). It works faster than {{ ZK }} and uses the [Raft](https://en.wikipedia.org/wiki/Raft_(algorithm)) consensus algorithm. This configuration is recommended for the production environment.
+* {{ CK }} coordination service running on separate hosts is [billable](pricing.md#rules-hosts-uptime). It works faster than {{ ZK }} and uses the [Raft](https://en.wikipedia.org/wiki/Raft_(algorithm)) consensus algorithm. This configuration is recommended for the production environment.
 * A new {{ CH }} version is out: [25.11](https://clickhouse.com/blog/clickhouse-release-25-11).
 
 ## November 2025 {#nov-2025}
 
-* {{ CK }} is now available to all {{ mch-name }} users and used by default in new clusters. In addition, now you can create separate hosts with {{ CK }} in your cluster. Learn more about {{ CK }} in [Replication](concepts/replication.md#ck).
+* {{ CK }} is now available to all {{ mch-name }} users and used by default in new clusters. In addition, now you can create separate hosts with {{ CK }} in your cluster. Learn more about {{ CK }} in [Replication](concepts/coordination-system.md#ck).
 * Added the `managed-clickhouse.restorer` role for restoring clusters from backups. To learn more, see [Access management](security.md#managed-clickhouse-restorer).
 * Removed **Kafka topics**, the DBMS setting that allowed configuring topic-level authentication parameters for [{{ KF }} integration]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka).
 * New {{ CH }} versions are out: [25.8](https://clickhouse.com/blog/clickhouse-release-25-08), [25.9](https://clickhouse.com/blog/clickhouse-release-25-09), and [25.10](https://clickhouse.com/blog/clickhouse-release-25-10).

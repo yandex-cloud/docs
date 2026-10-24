@@ -9,7 +9,7 @@ With [{{ interconnect-full-name }}](../../interconnect/index.yaml), you can crea
 
 {% note info %}
 
-Before creating a private connection, make sure your folder contains a [VRF](../../baremetal/concepts/private-network.md#vrf-segment) segment with at least one routable {{ baremetal-name }} subnet and a routing instance with at least one [announced](../../interconnect/concepts/priv-con.md#prc-announce) private {{ vpc-short-name }} subnet prefix. To [order](../tutorials/bm-vrf-and-vpc-interconnect.md#request-ri) a routing instance, please [contact]({{ link-console-support }}/tickets/create) support.
+Before creating a private connection, make sure your folder contains a [VRF](../../baremetal/concepts/private-network.md#vrf-segment) segment with at least one routable {{ baremetal-name }} subnet and a routing instance with at least one [announced](../../cloud-router/concepts/announces.md#prc-announce) private {{ vpc-short-name }} subnet prefix. To [order](../tutorials/bm-vrf-and-vpc-interconnect.md#request-ri) a routing instance, please [contact]({{ link-console-support }}/tickets/create) support.
 
 {% endnote %}
 

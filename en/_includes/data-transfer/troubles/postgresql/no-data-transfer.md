@@ -7,7 +7,7 @@ After adding tables to the **List of included tables** in the source endpoint pa
 * Create tables in the target database manually.
 
    1\. Create new tables with a `Primary key` and without a `Foreign key` in the target database.
-   2\. Add the new tables to the **List of included tables** in the [source endpoint parameters](../../../../data-transfer/operations/endpoint/source/postgresql#additional-setting).
+   2\. Add the new tables to the **List of included tables** in the [source endpoint parameters](../../../../data-transfer/operations/endpoint/source/postgresql.md#additional-settings).
    3\. Transfer a dump with historical data to the target database.
    4\. If there are errors in the logs, fix them depending on a specific error.
    5\. If there are no errors but the logs are empty, contact [technical support]({{ link-console-support }}) or your account manager to dump goroutines. This may help resume replication without restarting the transfer.

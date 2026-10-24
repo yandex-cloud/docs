@@ -13,6 +13,6 @@
 
      The VPN server can forward traffic from the `HTTPS` port. If required, leave only `TCP 443` open. See also settings in the **Configuration** → **Network Settings** tab of the server admin panel.
 
-  1. If you have configured a security group of your own, make sure it allows traffic between the VPN server and the required resources. For example, they share the same security group and there is a [Self rule](../../vpc/concepts/security-groups.md#rules-types) for the whole group.
+  1. If you have configured a security group of your own, make sure it allows traffic between the VPN server and the required resources. For example, they share the same security group and there is a [Self rule](../../vpc/concepts/security-groups.md#self-rule) for the whole group.
 
 {% endlist %}

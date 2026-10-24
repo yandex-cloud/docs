@@ -14,7 +14,7 @@ In {{ datalens-short-name }}, you can share charts and dashboards or embed them 
 
 ## Checking object location {#object-location}
 
-The way you share, embed, or publish an object depends on whether it is stored in a [workbook](../workbooks-collections/index.md#enable-workbooks) or a folder.
+The way you share, embed, or publish an object depends on whether it is stored in a [workbook](../workbooks-collections/index.md) or a folder.
 
 To check where your object is stored, click ![image](../../_assets/console-icons/layout-cells-large.svg) **Dashboards** or ![image](../../_assets/console-icons/chart-column.svg) **Charts** in the left-hand panel. Optionally, use the filter by name to find the object you need. The object row shows its location:
 

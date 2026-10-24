@@ -14,7 +14,7 @@
 
 Чтобы другой пользователь мог открыть ваш дашборд, настройте доступ к Yandex DataLens:
 
-1. [Пригласите пользователя](../../organization/operations/add-account.md#send-invitation) с аккаунтом на Яндексе, добавьте [федеративного](../../organization/operations/add-account.md#add-user-sso) или [локального](../../organization/operations/add-account.md#local) пользователя.
+1. [Пригласите пользователя](../../organization/operations/add-account.md#send-invitation) с аккаунтом на Яндексе, добавьте [федеративного](../../organization/operations/add-account.md#add-user-sso) или [локального](../../organization/operations/add-account.md#local-users) пользователя.
 1. Убедитесь, что у пользователя есть права доступа к дашборду:
 
    1. Откройте дашборд.

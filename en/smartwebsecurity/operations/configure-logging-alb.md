@@ -32,7 +32,7 @@ To view logs, you need the [logging.viewer](../../logging/security/index.md#logg
 
       1. Enable **{{ ui-key.yacloud.alb.label_log-requests }}**.
       1. Select or create a {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) to store your load balancer logs.
-      1. Click **{{ ui-key.yacloud.alb.button_add-discard-rule }}** and configure its [settings](../../application-load-balancer/concepts/application-load-balancer.md#discard-logs-rules).
+      1. Click **{{ ui-key.yacloud.alb.button_add-discard-rule }}** and configure its [settings](../../application-load-balancer/concepts/monitoring.md#discard-logs-rules).
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 

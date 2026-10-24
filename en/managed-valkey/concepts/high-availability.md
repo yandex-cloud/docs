@@ -35,7 +35,7 @@ High availability is achieved through [replication and master failover](replicat
 
 Cluster availability depends on the connection method and settings:
 * Only use [recommended clients](../concepts/supported-clients.md) for connection.
-* [Configure security groups](../operations/connect/index.md#configuring-security-groups).
+* [Configure security groups](../operations/connect/index.md#configure-security-groups).
 * Set the values of the [Timeout](settings-list.md#settings-timeout), [Maxmemory policy](settings-list.md#settings-maxmemory-policy), [Maxmemory percent](settings-list.md#settings-maxmemory-percent), [Client output buffer limit normal](settings-list.md#settings-limit-normal), and [Client output buffer limit pubsub](settings-list.md#settings-limit-pubsub) {{ VLK }} settings so that under there are no write operation failures or mass connection interruptions normal operating conditions.
 
 ## Storage settings {#storage-settings}

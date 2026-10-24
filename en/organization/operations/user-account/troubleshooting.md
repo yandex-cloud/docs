@@ -58,7 +58,7 @@ When attempting to sign in with a [Yandex account](../../../iam/concepts/users/a
 1. Check that you have accepted the invitation by opening the email and clicking **Accept invitation**.
 1. If your organization has a [mandatory two-factor authentication policy](../enable-2fa-access.md) in place, make sure it is configured for your account:
    1. Go to the [Yandex passport](https://passport.yandex.ru/profile) page.
-   1. On the left side of the page, select **Security**. If the **Login method** section has the standard login method (username and password only) selected, two-factor authentication is off. Follow [this guide](first-login.md#passport-user) to configure it.
+   1. On the left side of the page, select **Security**. If the **Login method** section has the standard login method (username and password only) selected, two-factor authentication is off. Follow [this guide](first-login.md?tabs=instructions_passport-user) to configure it.
 1. [Clear](https://browser.yandex.ru/help/en/personal-data-protection/deleting-data) your browser cache and cookies for `console.yandex.cloud` and `yandex.cloud`, or use your browser's [incognito mode](https://browser.yandex.ru/help/en/personal-data-protection/incognito-mode).
 1. [Log in](first-login.md) to the [management console]({{ link-console-main }}) once again under the proper account.
 

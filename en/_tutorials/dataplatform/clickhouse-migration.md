@@ -85,7 +85,7 @@ You need {{ CH }} version 22.10 or later to work with the `BACKUP`/`RESTORE` com
 
 You can use the `BACKUP`/`RESTORE` commands and an {{ objstorage-name }} bucket to migrate both individual tables and an entire database from a third-party {{ CH }} cluster.
 
-1. [Create a {{ mch-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md#create-cluster) with [User management via SQL](../../managed-clickhouse/operations/cluster-users.md#sql-user-management) enabled.
+1. [Create a {{ mch-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md#create-cluster) with [User management via SQL](../../managed-clickhouse/concepts/user-access-rights.md#sql-user-management) enabled.
 1. [Create a service account](../../iam/operations/sa/create.md#create-sa) with the `storage.editor` role.
 1. [Create a static key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account.
 

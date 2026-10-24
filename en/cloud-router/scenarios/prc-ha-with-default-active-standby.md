@@ -3,8 +3,8 @@
 
 To prioritize traffic by direction in {{ interconnect-name }}, you can use the following methods:
 
-* [Longest Prefix Match (LPM)](#lpm1)
-* [BGP AS path prepend](#prepend1) (available as of 03/07/2023)
+* [Longest Prefix Match (LPM)](#lpm2)
+* [BGP AS path prepend](#prepend2) (available as of 03/07/2023)
 
 The longest prefix match method has a higher priority than BGP AS path prepending when it comes to the algorithm for selecting the best route on routers.{#lpm1} We recommend that you only choose one of the suggested methods rather than use both at the same time.
 

@@ -1,1 +1,1 @@
-You are [charged](../../functions/pricing.md#provisioned-instances) separately for provisioned instance downtime and function execution time.
+You are [charged](../../functions/pricing.md#rules) separately for provisioned instance downtime and function execution time.

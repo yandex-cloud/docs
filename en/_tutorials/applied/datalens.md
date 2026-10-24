@@ -519,7 +519,7 @@ To monitor the state of your devices, configure a [connection](../../datalens/co
   1. Under **Connections**, click **Create**.
   1. Select the **{{ PG }}** connector.
 
-      When connecting to an external data source (which is not a {{ yandex-cloud }} resource), grant access to the source [for the {{ datalens-name }} IP address ranges](../../datalens/concepts/connection/index.md#changing-connection-ranges).
+      When connecting to an external data source (which is not a {{ yandex-cloud }} resource), grant access to the source [for the {{ datalens-name }} IP address ranges](../../datalens/concepts/connection/index.md#external-db-connection).
 
   1. Select a cloud and folder.
   1. Select the `my-pg-database` cluster and a host.

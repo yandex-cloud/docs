@@ -25,7 +25,7 @@ You can use various types of services in your {{ k8s }} clusters, including:
 
 To [publish your application](../operations/create-load-balancer.md), use a `LoadBalancer` service based on a [network load balancer](../../network-load-balancer/concepts/index.md) with a public or internal IP address.
 
-If [DDoS protection](../../vpc/ddos-protection/index.md) is required, [reserve](../../vpc/operations/enable-ddos-protection.md) a public IP address with protection enabled and [specify](../operations/create-load-balancer.md#advanced) it using the `loadBalancerIP` option.
+If [DDoS protection](../../vpc/ddos-protection/index.md) is required, [reserve](../../vpc/operations/enable-ddos-protection.md) a public IP address with protection enabled and [specify](../operations/create-load-balancer.md#create-lb) it using the `loadBalancerIP` option.
 
 Learn more about service types in [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types).
 

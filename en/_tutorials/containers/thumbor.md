@@ -38,7 +38,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       * Service account for the resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../managed-kubernetes/security/index.md#yc-api) for the folder that will host the new {{ managed-k8s-name }} cluster. This service account will be used to create resources for the {{ managed-k8s-name }} cluster.
 
-      * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role for the folder with the Docker image [registry](../../container-registry/concepts/registry.md). The nodes will use this account to pull Docker images from the registry.
+      * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the folder with the Docker image [registry](../../container-registry/concepts/registry.md). The nodes will use this account to pull Docker images from the registry.
 
          You can use the same service account for both operations.
 
