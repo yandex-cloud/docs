@@ -103,7 +103,7 @@
 ## {{ speechsense-name }} {#speechsense}
 
 * [Uploading images](speechsense/install-images.md)
-* [Configuring and activating](#scaling-settings)
+* [Configuring and activating](speechsense/configure.md)
 * [Disabling](speechsense/disable.md)
 
 ## Projects {#projects}

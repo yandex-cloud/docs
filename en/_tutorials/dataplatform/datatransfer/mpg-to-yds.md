@@ -46,7 +46,7 @@ Set up your infrastructure:
 
     1. [Grant](../../../managed-postgresql/operations/grant.md#grant-privilege) the `mdb_replication` role to `pg-user`.
 
-    1. [Create a {{ ydb-name }} database](../../../ydb/operations/manage-databases.md#create-db) `ydb-example` with your preferred configuration.
+    1. [Create a {{ ydb-name }} database](../../../ydb/operations/manage-databases.md#create-db-serverless) `ydb-example` with your preferred configuration.
 
     1. [Create a service account](../../../iam/operations/sa/create.md#create-sa) `yds-sa` with the `yds.editor` role. The transfer will use it to access {{ yds-name }}.
 

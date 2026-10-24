@@ -43,7 +43,7 @@ Creating a notification channel may take some time.
 
 ## Create an endpoint {#create-endpoint}
 
-Each channel has its own base of [endpoints](./concepts/index.md#mobile-endpoints) to send notifications directly to the app on user devices.
+Each channel has its own base of [endpoints](concepts/push.md#mobile-endpoints) to send notifications directly to the app on user devices.
 
 To create an endpoint:
 

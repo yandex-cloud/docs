@@ -83,14 +83,14 @@ To identify problematic queries in {{ SD }}:
 
    * For read queries, look at the `responseLength` (`reslen`) field.
    * For write queries, look at the number of documents affected.
-       In the `nModified`, `keysInserted`, and `keysDeleted` fields of the cluster logs. On the [cluster monitoring](../../storedoc/operations/monitoring.md#cluster) page, review the following charts: **Documents affected on primary**, **Documents affected on secondaries**, and **Documents affected per host**.
+       In the `nModified`, `keysInserted`, and `keysDeleted` fields of the cluster logs. On the [cluster monitoring](../../storedoc/operations/monitoring.md#monitoring-cluster) page, review the following charts: **Documents affected on primary**, **Documents affected on secondaries**, and **Documents affected per host**.
 * Review the [profiler](../../storedoc/operations/tools.md#explore-profiler) data. Retrieve long-running queries by using the [`slowOpThreshold`](../../storedoc/concepts/settings-list.md#setting-slow-op-threshold) DBMS setting.
 
 ## Troubleshooting inefficient queries {#optimize}
 
 You can analyze the execution plan of each individual query.
 
-Examine the charts on the [cluster monitoring](../../storedoc/operations/monitoring.md#cluster) page:
+Examine the charts on the [cluster monitoring](../../storedoc/operations/monitoring.md#monitoring-cluster) page:
 
 * **Index size on primary, top 5 indexes**.
 * **Scan and order per host**.
@@ -116,7 +116,7 @@ Poor query performance can result from locks.
 
 * Pay attention to large or growing `db.serverStatus().metrics.operation.writeConflicts` values, as they may indicate high write contention on certain documents.
 
-* Examine large or growing values using the **Write conflicts per hosts** graph on the [cluster monitoring](../../storedoc/operations/monitoring.md#cluster) page.
+* Examine large or growing values using the **Write conflicts per hosts** graph on the [cluster monitoring](../../storedoc/operations/monitoring.md#monitoring-cluster) page.
 
 * When performance drops, closely review the [list of currently running queries](../../storedoc/operations/tools.md#list-running-queries):
 
@@ -169,7 +169,7 @@ The detected locks indicate unoptimized queries. Try [optimizing the problematic
 
 If a cluster shows poor performance when its free disk space is limited, one or more cluster hosts may have [switched to "read-only" mode](../../storedoc/concepts/storage.md#manage-storage-space).
 
-You can check the amount of used storage space on the [cluster monitoring](../../storedoc/operations/monitoring.md#cluster) page, in the **Disk space usage per host** and **top 5 hosts** graphs.
+You can check the amount of used storage space on the [cluster monitoring](../../storedoc/operations/monitoring.md#monitoring-cluster) page, in the **Disk space usage per host** and **top 5 hosts** graphs.
 
 [Configure an alert](../../storedoc/operations/monitoring.md#read-only-alert) to track storage use on cluster hosts.
 

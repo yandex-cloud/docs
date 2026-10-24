@@ -127,7 +127,7 @@ The initialization and operation processes of a simple and provisioned container
 
 {% include [provisioned-instances-price](../../_includes/serverless-containers/provisioned-instances-price.md) %}
 
-If the number of container invocations exceeds the number of provisioned instances, {{ serverless-containers-name }} scales the container within the [quotas](limits.md#functions-quotas), but unprovisioned instances have a cold start when they are first started.
+If the number of container invocations exceeds the number of provisioned instances, {{ serverless-containers-name }} scales the container within the [quotas](limits.md#serverless-containers-quotas), but unprovisioned instances have a cold start when they are first started.
 
 Provisioned instances count towards the following [quotas](limits.md) even when they are not running:
 * Number of container instances per availability zone.
@@ -155,6 +155,6 @@ If at least one call reaches a timeout, that call and all the others handled by 
 
 #### Useful links {#see-also}
 
-* [Creating a container revision](../operations/manage-revision.md#create)
+* [Creating a container revision](../operations/manage-revision.md)
 * [Adding scaling settings](../operations/scaling-settings-add.md)
 * [{#T}](../operations/concurrency.md)

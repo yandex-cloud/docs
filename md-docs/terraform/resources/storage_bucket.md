@@ -101,6 +101,8 @@ resource "yandex_storage_bucket" "b" {
   }
 }
 ```
+**Bucket maximum size** {#bucket-max-size}
+
 ```terraform
 //
 // Set Bucket Max Size.
@@ -121,6 +123,8 @@ resource "yandex_storage_bucket" "b" {
   folder_id = "<folder_id>"
 }
 ```
+**Bucket anonymous access flags** {#bucket-anonymous-access-flags}
+
 ```terraform
 //
 // Using Bucket Anonymous Access Flags.
@@ -135,6 +139,8 @@ resource "yandex_storage_bucket" "b" {
   }
 }
 ```
+**Bucket HTTPS certificate** {#bucket-https-certificate}
+
 ```terraform
 //
 // Bucket HTTPS Certificate.
@@ -332,6 +338,8 @@ resource "yandex_storage_bucket" "test" {
   bucket     = "tf-test-bucket"
 }
 ```
+**Static website hosting** {#static-website-hosting}
+
 ```terraform
 //
 // Static Website Hosting.
@@ -411,7 +419,7 @@ resource "yandex_storage_bucket" "b" {
 ## Arguments & Attributes Reference
 
 - `access_key` (String). The access key to use when applying changes. This value can also be provided as `storage_access_key` specified in provider config (explicitly or within `shared_credentials_file`) is used.
-- `acl` (String). The [predefined ACL](../../storage/concepts/acl.md#predefined_acls) to apply. Defaults to `private`. Conflicts with `grant`.
+- `acl` (String). The [predefined ACL](../../storage/concepts/acl.md#predefined-acls) to apply. Defaults to `private`. Conflicts with `grant`.
 
 {% note warning %}
 
@@ -501,7 +509,7 @@ At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transit
     - `date` (String). Specifies the date after which you want the corresponding action to take effect.
     - `days` (Number). Specifies the number of days after object creation when the specific rule action takes effect.
     - `storage_class` (**Required**)(String). Specifies the storage class to which you want the object to transition. Supported values: [`STANDARD_IA`, `COLD`, `ICE`, `INTELLIGENT_TIERING`].
-- `logging` [Block]. A settings of [bucket logging](../../storage/concepts/server-logs.md).
+- `logging` [Block]. A settings of [bucket logging](../../storage/concepts/server-logs.md). {#enable-logging}
   - `target_bucket` (**Required**)(String). The name of the bucket that will receive the log objects.
   - `target_prefix` (String). To specify a key prefix for log objects.
 - `object_lock_configuration` [Block]. A configuration of [object lock management](../../storage/concepts/object-lock.md).

@@ -84,7 +84,7 @@ To create a trail, you will need the following roles:
 
 {% endlist %}
 
-You can also create a trail using the [CLI](./operations/create-trail.md#cli), [Terraform](./operations/create-trail.md#tf), or [API](./operations/create-trail.md#api).
+You can also create a trail using the [CLI](./operations/create-trail.md?tabs=instructions_cli#create), [Terraform](./operations/create-trail.md?tabs=instructions_tf#create), or [API](./operations/create-trail.md?tabs=instructions_api#create).
 
 {% include [note-lose-target-when-switch-trail](../_includes/audit-trails/note-lose-target-when-switch-trail.md) %}
 

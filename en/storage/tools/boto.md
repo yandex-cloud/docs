@@ -29,7 +29,7 @@ description: In this article, you will learn about boto3 and boto, how to instal
 
 - {{ sf-full-name }} {#functions}
   
-  [Add environment variables](../../functions/operations/function/version-manage#version-env) to a function in {{ sf-name }}:
+  [Add environment variables](../../functions/operations/function/environment-variables-add.md) to a function in {{ sf-name }}:
 
   * `AWS_ACCESS_KEY_ID`: Static key ID of the service account.
   * `AWS_SECRET_ACCESS_KEY`: Secret key.

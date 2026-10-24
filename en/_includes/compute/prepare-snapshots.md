@@ -29,7 +29,7 @@ To ensure the snapshot data integrity:
 
       {% endnote %}
 
-  1. Create a snapshot by following the steps [below](#create-snapshot-operation).
+  1. Create a snapshot by following the [snapshot creation guide](../../compute/operations/disk-control/create-snapshot.md#create).
 
   1. Unfreeze the file system:
 

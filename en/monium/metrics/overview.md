@@ -29,4 +29,4 @@ With {{ monitoring-name }}, you can:
 
 {% include [metrics-k8s-tools](../../_includes/managed-kubernetes/metrics-k8s-tools.md) %}
 
-The metrics are described in the [Reference](../metrics-ref/index.md#managed-kubernetes).
+The metrics are described in the [Reference](../metrics-ref/managed-kubernetes-ref.md).

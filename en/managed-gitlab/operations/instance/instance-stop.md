@@ -2,7 +2,7 @@
 
 You can stop and restart a [{{ GL }} instance](../../concepts/index.md#instance) as needed. When stopped, an instance retains all its data.
 
-While your instance is idle, you only pay for the stored instance data and the size of backups stored in {{ objstorage-full-name }} as per the [pricing policy](../../pricing.md#prices-storage).
+While your instance is idle, you only pay for the stored instance data and the size of backups stored in {{ objstorage-full-name }} as per the [pricing policy](../../pricing.md#rules-storage).
 
 ## Stopping an instance {#stop-instance}
 

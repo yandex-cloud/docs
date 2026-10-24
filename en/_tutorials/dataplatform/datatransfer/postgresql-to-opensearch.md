@@ -38,7 +38,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     1. [Get an SSL certificate](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) for connecting to the {{ mos-name }} target cluster.
 
-    1. Configure security groups for connecting to the [source {{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups) and the [target {{ mos-name }} clusters](../../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
+    1. Configure security groups for connecting to the [source {{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups) and the [target {{ mos-name }} clusters](../../../managed-opensearch/operations/connect/index.md#security-groups).
 
 - {{ TF }} {#tf}
 

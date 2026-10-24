@@ -162,7 +162,7 @@ Improved metadata profiling and contextual search.
 
 #### New features {#new-features-august25}
 
-* In [{{ connection-manager-name }}](../concepts/connection-manager.md), added the option to manage connections with custom [{{ KF }}](../operations/create-connection.md#kafka) installations and [{{ mkf-name }} clusters](../operations/create-connection.md#mdb-kafka); added support for [sharded clusters](../../managed-clickhouse/concepts/sharding.md) in {{ CH }}.
+* In [{{ connection-manager-name }}](../concepts/connection-manager.md), added the option to manage connections with custom [{{ KF }}](../operations/create-connection.md#kafka-on-premise) installations and [{{ mkf-name }} clusters](../operations/create-connection.md#mdb-kafka); added support for [sharded clusters](../../managed-clickhouse/concepts/sharding.md) in {{ CH }}.
 
 #### Fixed issues {#problems-solved-august25}
 
@@ -266,7 +266,7 @@ Now you can manage connections to the following databases:
 * [{{ metastore-full-name }}](../concepts/metastore.md) clusters are now part of {{ metadata-hub-name }}.
 * [{{ schema-registry-name }}](../quickstart/schema-registry.md) is available in [Preview](../../overview/concepts/launch-stages.md).
 * {{ data-transfer-full-name }} users can now specify a {{ connection-manager-name }} connection ID to [configure the {{ mpg-short-name }}](../../data-transfer/operations/endpoint/source/postgresql.md) endpoint.
-* In {{ datalens-full-name }}, you can now use {{ connection-manager-name }} to create [{{ PG }}](../../datalens/operations/connection/create-postgresql.md#conn-man), [{{ CH }}](../../datalens/operations/connection/create-clickhouse.md#conn-man), and [{{ MY }}](../../datalens/operations/connection/create-mysql.md#conn-man) connections.
+* In {{ datalens-full-name }}, you can now use {{ connection-manager-name }} to create [{{ PG }}](../../datalens/operations/connection/create-postgresql.md?tabs=connection_conn-man), [{{ CH }}](../../datalens/operations/connection/create-clickhouse.md?tabs=connection_conn-man), and [{{ MY }}](../../datalens/operations/connection/create-mysql.md?tabs=connection_conn-man) connections.
 
 ### August {#august}
 

@@ -1,6 +1,6 @@
 # Asynchronous operations
 
-In asynchronous communication via message queues (Kafka, RabbitMQ, etc.), span relationships are not modeled as _parent–child_; instead, [span links](../concepts.md#span-links) are used. They connect spans from different traces, e.g., when multiple producers send messages and a consumer processes them in a single batch.
+In asynchronous communication via message queues (Kafka, RabbitMQ, etc.), span relationships are not modeled as _parent–child_; instead, [span links](../concepts.md#span) are used. They connect spans from different traces, e.g., when multiple producers send messages and a consumer processes them in a single batch.
 
 ## Naming convention {#naming}
 

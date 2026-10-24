@@ -14,7 +14,7 @@ In most cases, funds are automatically credited to your account as soon as Yande
 
 - Wire transfer
 
-    1. Check the account you used when making your payment. The payment should originate from a bank account opened for the organization or individual entrepreneur the billing account was created for. For more details, see [this guide](../../../billing/operations/pay-the-bill.md#organizaciyam-i-ip).
+    1. Check the account you used when making your payment. The payment should originate from a bank account opened for the organization or individual entrepreneur the billing account was created for. For more details, see [this guide](../../../billing/operations/pay-the-bill.md#legal-entities).
 
     1. Make sure the following details are correctly specified in your payment order:
 

@@ -62,7 +62,7 @@ This section provides detailed information about how customers are using the ser
 
 ### Rebate accrual balance {#balance}
 
-This section contains information on accrual and withdrawal of all current rebates. Here, you can also [withdraw](./program/var.md#bonus) accrued funds.
+This section contains information on accrual and withdrawal of all current rebates. Here, you can also [withdraw](operations/get-bonus.md) accrued funds.
 
 {% note info %}
 

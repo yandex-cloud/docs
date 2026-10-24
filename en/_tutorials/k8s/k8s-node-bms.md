@@ -58,9 +58,9 @@ See also [How to cancel a lease and delete resources](#clear-out).
 
 1. [Create a VM](../../baremetal/tutorials/bm-vrf-and-vpc-interconnect.md#create-vm).
 
-1. [Create a routing instance](../../baremetal/tutorials/bm-vrf-and-vpc-interconnect.md#request-routing-instance).
+1. [Create a routing instance](../../baremetal/tutorials/bm-vrf-and-vpc-interconnect.md#request-ri).
 
-1. [Create a private connection](../../baremetal/tutorials/bm-vrf-and-vpc-interconnect.md#create-private-connection).
+1. [Create a private connection](../../baremetal/tutorials/bm-vrf-and-vpc-interconnect.md#create-prc).
 
 ## Creating an external node group {#node-group-create}
 

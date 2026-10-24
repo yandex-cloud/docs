@@ -71,7 +71,7 @@
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}`: Specify the start point and duration of the UTC time interval during which the update will start. This setting is not related to the update duration or its completion time.
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}`: Specify the day, start point, and duration of the UTC time interval during which the update will start. This setting is not related to the update duration or its completion time.
 1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**:
-   * Optionally, select the [network policy controller](../../managed-kubernetes/concepts/network-policy.md#policy-controllers):
+   * Optionally, select the [network policy controller](../../managed-kubernetes/concepts/network-policy.md):
 
      {% include [write-once-setting](write-once-setting.md) %}
 

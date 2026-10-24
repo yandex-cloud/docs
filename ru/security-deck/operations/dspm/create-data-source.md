@@ -5,9 +5,9 @@ description: Следуя данной инструкции, вы узнаете
 
 # Подготовить данные для сканирования в {{ dspm-name }}
 
-Чтобы запустилось [непрерывное сканирование изменений](create-scan.md#cloud-sd-v2), создайте [область сканирования](#cloud-sd-v2) в Интерфейсе v2.0.
+Чтобы запустилось [непрерывное сканирование изменений](create-scan.md?tabs=instructions_cloud-sd-v2#change-scaning), создайте [область сканирования](create-data-source.md?tabs=instructions_cloud-sd-v2#change-scaning) в Интерфейсе v2.0.
 
-Перед тем, как [создать](create-scan.md#cloud-sd-v1) регулярное сканирование в {{ dspm-name }}, подготовьте для него [источник данных](#cloud-sd-v1) в Интерфейсе v1.0. Вы также можете сделать это во время создания сканирования.
+Перед тем, как [создать](create-scan.md?tabs=instructions_cloud-sd-v1#change-scaning) регулярное сканирование в {{ dspm-name }}, подготовьте для него [источник данных](create-data-source.md?tabs=instructions_cloud-sd-v1#change-scaning) в Интерфейсе v1.0. Вы также можете сделать это во время создания сканирования.
 
 
 ## Перед началом работы {#before-begin}

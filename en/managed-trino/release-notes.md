@@ -39,7 +39,7 @@ A new {{ TR }} version is out: [483](https://trino.io/docs/current/release/relea
 ## November 2025 {#november-2025}
 
 * [A new connector is now available](concepts/index.md#connector): {{ MY }}.
-* Now you can upload custom certificates (TLS parameters) when [creating](operations/cluster-create.md) or [updating](operations/cluster-update.md#change-version) a cluster.
+* Now you can upload custom certificates (TLS parameters) when [creating](operations/cluster-create.md) or [updating](operations/cluster-update.md#change-additional-settings) a cluster.
 * A new {{ TR }} version is out: [476](https://trino.io/docs/current/release/release-476.html).
 
 ## October 2025 {#october-2025}
@@ -57,7 +57,7 @@ A new {{ TR }} version is out: [483](https://trino.io/docs/current/release/relea
 
 ## September 2025 {#september-2025}
 
-Now you can select a {{ TR }} version when [creating](operations/cluster-create.md) or [updating](operations/cluster-update.md#change-version) a cluster.
+Now you can select a {{ TR }} version when [creating](operations/cluster-create.md) or [updating](operations/cluster-version-update.md#update) a cluster.
 
 ## August 2025 {#august-2025}
 

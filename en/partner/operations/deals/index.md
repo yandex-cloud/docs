@@ -35,7 +35,7 @@ If the scheduled deal meets the criteria, create it on the **Partner portal**:
 1. Update the [deal status](./edit.md#edit-status) as its objectives get achieved.
 
 
-## Creating a deal on the Partner portal {#tender-create}
+## Creating a project on the Partner portal {#project-create}
 
 If the project meets the criteria, create it on the **Partner portal**:
 

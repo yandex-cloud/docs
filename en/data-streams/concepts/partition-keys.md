@@ -1,6 +1,6 @@
 # Partitions and partition keys
 
-The following examples illustrate the concepts of [partitions](glossary.md#hard) and [partition keys](glossary.md#partition-key).
+The following examples illustrate the concepts of [partitions](glossary.md#shard) and [partition keys](glossary.md#partition-key).
 
 ## When message processing order matters {#order}
 

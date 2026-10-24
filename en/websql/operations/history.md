@@ -1,7 +1,7 @@
 # Working with query history
 
 {{ websql-full-name }} features [query history](../concepts/index.md#query-log). You can:
-   * [View executed queries](#view-executed-queries).
+   * [View executed queries](#view-executed-query).
    * [Rerun a query](#re-run-query).
    * [Publish a query](#publish-query).
    * [Configure access permissions for a published query](#set-access-rights-to-published-query).

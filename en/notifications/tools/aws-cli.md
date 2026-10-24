@@ -111,7 +111,7 @@ Learn more about the `aws sns list-platform-applications` command in [this AWS g
 
 ## Create an endpoint {#create-endpoint}
 
-To create a [mobile endpoint](../concepts/index.md#mobile-endpoints), run the following command:
+To create a [mobile endpoint](../concepts/push.md#mobile-endpoints), run the following command:
 
 {% include [endpoint-create-aws](../../_includes/notifications/endpoint-create-aws.md) %}
 

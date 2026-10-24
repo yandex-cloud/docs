@@ -15,7 +15,7 @@ To migrate your app from an {{ alb-name }} ingress controller to the Gwin contro
 
 ## Getting started {#before-you-begin}
 
-For the converter script to work, all [custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) from the `ingress.alb.yc.io` API group must be described in the cluster. Make sure the installed Helm chart with the ingress controller is version `0.2.9` or higher or install the [relevant resource configurations](../../../managed-kubernetes/alb-ref/index.md#ingress) manually.
+For the converter script to work, all [custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) from the `ingress.alb.yc.io` API group must be described in the cluster. Make sure the installed Helm chart with the ingress controller is version `0.2.9` or higher or install the [relevant resource configurations](../../../managed-kubernetes/alb-ref/ingress-controller/index.md) manually.
 
 ## Installing Gwin {#gwin-install}
 

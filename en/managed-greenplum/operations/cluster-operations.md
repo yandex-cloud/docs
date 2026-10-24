@@ -37,7 +37,7 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
   +----------------------+---------------------+----------------------+---------------------+--------+--------------------------+
   ```
 
-  You can get the cluster ID and name with the [list of clusters in the folder](#list-clusters).
+  You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   By default, information about operations is output as text. To get more details, use `--format` to specify the `yaml` or `json` output format:
 
@@ -77,7 +77,7 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
           --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>/operations'
       ```
 
-      You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/listOperations.md#yandex.cloud.mdb.greenplum.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
@@ -105,7 +105,7 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
           yandex.cloud.mdb.greenplum.v1.ClusterService.ListOperations
       ```
 
-      You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.mdb.greenplum.v1.ListClusterOperationsResponse) to make sure your request was successful.
 

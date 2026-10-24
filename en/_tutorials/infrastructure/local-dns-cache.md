@@ -2,7 +2,7 @@
 
 **Do not** use {{ dns-full-name }} directly for requesting external domain names.
 
-Instead, install and configure a local caching DNS resolver, e.g., `systemd-resolved`, `dnsmasq`, or `unbound`. This will speed up the execution of public DNS queries, decrease their number, and [reduce your expenses](../../dns/pricing.md#public-dns-requests).
+Instead, install and configure a local caching DNS resolver, e.g., `systemd-resolved`, `dnsmasq`, or `unbound`. This will speed up the execution of public DNS queries, decrease their number, and [reduce your expenses](../../dns/pricing.md#prices).
 
 If your VM runs Ubuntu 18.04 LTS or higher, it already has the `systemd-resolved` service by default, and no additional installation and setup actions are required. For more information, see [Test `systemd-resolved` performance](#test-resolver).
 

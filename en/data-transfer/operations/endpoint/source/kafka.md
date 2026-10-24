@@ -44,7 +44,7 @@ For a detailed description of possible {{ data-transfer-full-name }} scenarios, 
 
 {% include [prepare db](../../../../_includes/data-transfer/endpoints/sources/kafka.md) %}
 
-## Configuring the {{ KF }} source endpoint
+## Configuring the {{ KF }} source endpoint {#endpoint-settings}
 
 When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 
@@ -56,7 +56,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you will need the [`{{ roles.mkf.viewer }}`](../../../../managed-kafka/security/index.md#mkf-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
+To create or edit an endpoint of a managed database, you will need the [`{{ roles.mkf.viewer }}`](../../../../managed-kafka/security/index.md#managed-kafka-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
 
 {% endnote %}
 

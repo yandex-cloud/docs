@@ -10,7 +10,7 @@ description: In this guide, you will learn to create and edit {{ prometheus-name
 To use alerting:
 
 * [Add alerting rules](#alerting-rule-add).
-* [Set up Alert Manager](#alert-manager-set) to process and deliver notifications.
+* [Set up Alert Manager](#alert-manager-create) to process and deliver notifications.
 
 This section describes some aspects of alerting rules and Alert Manager configuration. For file management, see [this section](./recording-rules.md).
 
@@ -176,7 +176,7 @@ receivers:
 
 For setting up dynamic notification routing, see [this Prometheus guide](https://prometheus.io/docs/alerting/latest/configuration/#route).
 
-### Adding or replacing a configuration file {#alert-manager-create}
+### Adding or replacing a configuration file {#alert-manager-config}
 
 {% list tabs group=instructions %}
 

@@ -7,7 +7,7 @@ description: Follow this guide to create a {{ TR }} cluster and connect to it.
 
 To get started:
 1. [Create a {{ mtr-name }} cluster](#cluster-create).
-1. [Connect to the {{ mtr-name }} cluster](#connect).
+1. [Connect to the {{ mtr-name }} cluster](#connect-to-trino).
 1. [Send queries to the {{ mpg-full-name }} cluster through {{ TR }}](#query-mpg-via-trino).
 1. [Check the queries in the {{ mpg-name }} cluster](#check-queries-in-psql).
 

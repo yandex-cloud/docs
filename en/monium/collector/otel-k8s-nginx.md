@@ -10,7 +10,7 @@ You will set up an Nginx server in a {{ k8s }} cluster and send its metrics and 
 To set up web server telemetry collection in a cluster:
 
 1. [Configure your {{ k8s }}](#cluster-settings) cluster.
-1. [Set up authentication](#auth-settings): Create a service account and API key to send data to {{ monium-name }}.
+1. [Set up authentication](#auth): Create a service account and API key to send data to {{ monium-name }}.
 1. [Install and configure Nginx](#nginx-install): Deploy a web server with a metric exporter.
 1. [Install OpenTelemetry Collector](#install-otel-collector): Set up metric collection and sending.
 1. [View metrics in {{ monium-name }}](#view-metrics).
@@ -162,7 +162,7 @@ In this step, you will install [OpenTelemetry Collector Contrib](https://github.
      
      {% endcut %}
 
-    In this file, provide the `<API_key>` and `<folder_ID>` values you saved when [setting up authentication](#auth-settings).
+    In this file, provide the `<API_key>` and `<folder_ID>` values you saved when [setting up authentication](#auth).
 
 1. Install OTel Collector and start sending metrics:
 

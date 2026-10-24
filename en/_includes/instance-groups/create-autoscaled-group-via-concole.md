@@ -63,7 +63,7 @@
 1. Under **{{ ui-key.yacloud.compute.groups.create.label_custom-metrics }}**, specify the following:
    * In the **{{ ui-key.yacloud.compute.groups.create.field_metric }}** field:
      * [{{ ui-key.yacloud.compute.groups.create.metric-type-cpu }}](../../compute/concepts/instance-groups/scale.md#cpu-utilization): Specify the average CPU utilization level that {{ ig-name }} must support.
-     * [{{ ui-key.yacloud.compute.groups.create.metric-type-custom }}](../../compute/concepts/instance-groups/scale.md#custom-metrics): Specify the name of the custom metric and target value that {{ ig-name }} must support.
+     * [{{ ui-key.yacloud.compute.groups.create.metric-type-custom }}](../../compute/concepts/instance-groups/scale.md#monitoring-metrics): Specify the name of the custom metric and target value that {{ ig-name }} must support.
 1. Optionally, enable **{{ ui-key.yacloud.compute.groups.create.section_health-check }}** to get information about the state of instances and automatically recover them in case of failure.
    * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}** field, select the protocol for health checks: `{{ ui-key.yacloud.common.label_http }}` or `{{ ui-key.yacloud.common.label_tcp }}`.
    * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** field (for the HTTP type), specify the URL path {{ ig-name }} will use to send HTTP check requests.

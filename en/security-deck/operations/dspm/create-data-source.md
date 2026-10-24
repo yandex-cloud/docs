@@ -5,9 +5,9 @@ description: Follow this guide to create data sources from {{ objstorage-full-na
 
 # Preparing data for scanning in {{ dspm-name }}
 
-To start a [continuous update scan](create-scan.md#cloud-sd-v2), create a [scope](#cloud-sd-v2) in Interface v2.0.
+To start a [continuous update scan](create-scan.md?tabs=instructions_cloud-sd-v2#change-scaning), create a [scope](create-data-source.md?tabs=instructions_cloud-sd-v2#change-scaning) in Interface v2.0.
 
-Before [creating](create-scan.md#cloud-sd-v1) a regular scan in {{ dspm-name }}, prepare a [data source](#cloud-sd-v1) in Interface v1.0. You can also do this when creating a scan.
+Before [creating](create-scan.md?tabs=instructions_cloud-sd-v1#change-scaning) a regular scan in {{ dspm-name }}, prepare a [data source](create-data-source.md?tabs=instructions_cloud-sd-v1#change-scaning) in Interface v1.0. You can also do this when creating a scan.
 
 
 ## Getting started {#before-begin}

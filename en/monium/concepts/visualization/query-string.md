@@ -35,7 +35,7 @@ You can select tokens using the cursor or by entering their names. Use the follo
 * **Enter** to select a suggestion. If the suggestion menu is closed, press it to finish entering the current token and go to the next one.
 * **|**: Pipe mode; only used in label value.
 
-## Text query {#query-token}
+## Text query {#query-text}
 
 To switch to text mode, click ![raw](../../../_assets/console-icons/code.svg). If you are new to text mode, first enter your query in the form of tokens and functions. Then, enable text mode; your query will be written as a string. In text mode, you can use the [query language](../querying.md) more flexibly. Also, in text mode, your query is transmitted when [reading data via the API](../../api-ref/MetricsData/read.md).
 

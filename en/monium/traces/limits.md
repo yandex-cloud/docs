@@ -7,6 +7,8 @@ description: '{{ traces-name }} limits and quotas: storage, writes, and reads. I
 
 There are [configurable quotas](../concepts/limits.md) and permanent limits in {{ traces-name }}.
 
+## Trace limits {#traces-limits}
+
 {% include [limits-traces.md](../../_includes/monium/limits-traces.md) %}
 
 ## Incoming span validation {#validation}

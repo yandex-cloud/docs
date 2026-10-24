@@ -183,7 +183,7 @@ The `config.yaml` file has multiple sections.
 
 1. The `working-storage` section specifies the extended working directory parameters. By default, the working directory is created on the system disk. The directory's size is not guaranteed and is usually about 20 GB. If you need more space to complete the job, you can specify this explicitly. The extended working directory can range in size from 100 GB to 10 TB.
 
-   You pay for the extended working directory specified in the `working-storage` section according to the [data storage pricing policy](../../pricing.md#prices-jobs).
+   You pay for the extended working directory specified in the `working-storage` section according to the [data storage pricing policy](../../pricing.md#prices-storage).
 
 1. The `graceful-shutdown` section defines the graceful shutdown parameters. If the section is not specified, then the `SIGKILL` signal is sent to the job when the user presses **Ctrl** + **C**. In this section, you can redefine the signal itself as well as the wait time for graceful shutdown.
 

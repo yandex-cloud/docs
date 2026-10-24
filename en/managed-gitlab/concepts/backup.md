@@ -24,7 +24,7 @@ Backups are retained for seven days by default. The retention period is set when
 
 When you delete an instance, a backup is automatically created and stored for two weeks.
 
-You pay for the size of backups stored in {{ objstorage-full-name }} as per the relevant [pricing policy](../pricing.md#prices-storage).
+You pay for the size of backups stored in {{ objstorage-full-name }} as per the relevant [pricing policy](../pricing.md#rules-storage).
 
 #### Useful links {#see-also}
 

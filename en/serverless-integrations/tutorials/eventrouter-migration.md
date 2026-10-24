@@ -359,7 +359,7 @@ Note the differences in access control: in {{ er-name }}, sending permissions we
 
 #### Option 2: Sending via {{ message-queue-full-name }} {#api-option-ymq}
 
-1. Create a {{ message-queue-full-name }} queue. Message recording is [done using cURL](../../message-queue/operations/message-queue-send-message.md#curl).
+1. Create a {{ message-queue-full-name }} queue. Message recording is [done using cURL](../../message-queue/operations/message-queue-send-message.md#curl_1).
 1. Create a [trigger for {{ message-queue-full-name }}](../../functions/concepts/trigger/ymq-trigger.md) with the new queue as the source.
 
 ## Message formats {#message-format}

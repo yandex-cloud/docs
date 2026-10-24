@@ -20,5 +20,5 @@ Yandex Container Registry умеет запускать сканирование
 Для каждого реестра, используемого в продуктиве:
 
 1. Включите [сканирование по расписанию](https://yandex.cloud/ru/docs/container-registry/operations/scanning-docker-image#scheduled) для всех Docker-образов в реестре с частотой не реже одного раза в неделю.
-2. После сканирования проверяйте [результаты](https://yandex.cloud/ru/docs/container-registry/operations/scanning-docker-image#scan-results) и пересобирайте затронутые образы с обновлёнными базовыми слоями.
+2. После сканирования проверяйте [результаты](https://yandex.cloud/ru/docs/container-registry/operations/scanning-docker-image#manual) и пересобирайте затронутые образы с обновлёнными базовыми слоями.
 3. Встройте сканирование в CI/CD, чтобы ловить новые уязвимости и на этапе сборки.

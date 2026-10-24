@@ -45,7 +45,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     
     1. If using security groups, configure them to allow internet access to your clusters:
 
-        * [{{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configuring-security-groups).
+        * [{{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configure-security-groups).
         * [{{ mch-name }}](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
 
@@ -264,7 +264,7 @@ To minimize resource consumption, delete the resources you no longer need:
 
 - Manually {#manual}
 
-    1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete-transfer).
+    1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
     1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
     1. [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
     1. [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).

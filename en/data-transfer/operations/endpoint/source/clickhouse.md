@@ -12,7 +12,7 @@ description: In this tutorial, you will learn how to configure a {{ CH }} source
 1. [Set up a source endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Set up one of the supported data targets](#supported-targets).
 1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. [Perform the required operations with the database](#db-actions) and [see how the transfer is going](../../monitoring.md).
+1. Perform the required operations with the database and [see how the transfer is going](../../monitoring.md).
 1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
 
 ## Scenarios for transferring data from {{ CH }} {#scenarios}
@@ -232,7 +232,6 @@ After configuring the data source and target, [create and start the transfer](..
 ## Troubleshooting data transfer issues {#troubleshooting}
 
 * [New tables cannot be added](#no-new-tables).
-* [Data is not transferred](#no-transfer).
 * [Unsupported date range](#date-range).
 
 For the full list of recommendations, see [Troubleshooting](../../../troubleshooting/index.md).

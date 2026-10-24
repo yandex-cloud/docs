@@ -153,7 +153,7 @@ The filter allows screening out the metrics you are transferring based on label 
         match: "{name=gauge-*}"  # Required.
 ```
 
-See also the [query syntax description](../../../concepts/querying.md#selectors).
+See also the [query syntax description](../../../concepts/querying.md#queries).
 
 ## Match filter {#match_filter}
 
@@ -232,4 +232,4 @@ Parameter descriptions:
         - l4: "-" # Required.
 ```
 
-See also the [query syntax description](../../../concepts/querying.md#selectors).
+See also the [query syntax description](../../../concepts/querying.md#queries).

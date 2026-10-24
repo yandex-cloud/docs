@@ -23,7 +23,7 @@ When you connect directly to {{ metrika }} data from {{ datalens-name }}, you se
 
 Such an error occurs when the direct connection to {{ metrika }} does not support the function you use. You can review the list of supported functions [here](../../../datalens/function-ref/availability).
 
-To enable support for most functions, you can export data to {{ CH }} and connect to the database. To learn how to do this, see our **{{ datalens-name }} FAQs** [here](../../../datalens/qa/index.md#uploading-data-logs-api).
+To enable support for most functions, you can export data to {{ CH }} and connect to the database. To learn how to do this, see our **{{ datalens-name }} FAQs** [here](../../../datalens/qa/connections.md#uploading-data-logs-api).
 
 ## If the issue persists {#if-issue-still-persists}
 

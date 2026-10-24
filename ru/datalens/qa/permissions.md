@@ -17,7 +17,7 @@ description: На странице представлены вопросы и о
 
 Чтобы другой пользователь мог открыть ваш дашборд, настройте доступ к {{ datalens-full-name }}:
 
-1. [Пригласите пользователя]({{ link-docs }}/organization/operations/add-account#send-invitation) с аккаунтом на Яндексе, добавьте [федеративного]({{ link-docs }}/organization/operations/add-account#add-user-sso) или [локального]({{ link-docs }}/organization/operations/add-account#local) пользователя.
+1. [Пригласите пользователя]({{ link-docs }}/organization/operations/add-account#send-invitation) с аккаунтом на Яндексе, добавьте [федеративного]({{ link-docs }}/organization/operations/add-account#add-user-sso) или [локального]({{ link-docs }}/organization/operations/add-account#local-users) пользователя.
 1. Убедитесь, что у пользователя есть права доступа к дашборду:
 
    1. Откройте дашборд.

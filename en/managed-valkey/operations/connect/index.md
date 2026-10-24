@@ -10,7 +10,7 @@ You can connect to {{ mrd-name }} cluster hosts:
 
 * Over the internet if the following conditions are met:
 
-    * The hosts have [public access enabled](../hosts.md#public-access).
+    * The hosts have [public access enabled](../hosts.md#update).
     * SSL is used.
     * The cluster supports TLS.
 

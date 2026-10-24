@@ -92,7 +92,7 @@ For example, to track the latest metric value within the last 15 minutes, select
 
 #### Comparison function {#comparison}
 
-Comparison functions are applied to [aggregation function](#aggregation) calculation results and the [{{ ui-key.yacloud_monitoring.alert.status_warn }}](#warn) and [{{ ui-key.yacloud_monitoring.alert.status_alarm }}](#alarm) threshold values. If an aggregated value matches the threshold one, {{ monitoring-name }} changes the alert status.
+Comparison functions are applied to [aggregation function](#aggregation) calculation results and the [{{ ui-key.yacloud_monitoring.alert.status_warn }}](#warning) and [{{ ui-key.yacloud_monitoring.alert.status_alarm }}](#alarm) threshold values. If an aggregated value matches the threshold one, {{ monitoring-name }} changes the alert status.
 
 #### {{ ui-key.yacloud_monitoring.alert.status_warn }} {#warning}
 

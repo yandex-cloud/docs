@@ -32,7 +32,7 @@ The structure of the network load balancer includes the following key components
 * [Target Group](target-resources.md): Set of resources that receive traffic from the listener.
 * [Resource health checker for target groups](health-check.md) checks the availability of resources in the target group.
 
-You can create a network load balancer by specifying only its name. The other parameters are optional. An [external balancer](#nlb-types) is created by default. Traffic listeners and target groups can be created later and linked to the previously created network load balancer.
+You can create a network load balancer by specifying only its name. The other parameters are optional. An [external balancer](nlb-types.md) is created by default. Traffic listeners and target groups can be created later and linked to the previously created network load balancer.
 
 To prevent unintended deletion of a network load balancer, enable deletion protection for it. You can now enable deletion protection for a [load balancer](../operations/deletion-protection.md#enable-deletion-protection) that already exists or when creating a new [external](../operations/load-balancer-create.md) or [internal](../operations/internal-lb-create.md) load balancer.
 

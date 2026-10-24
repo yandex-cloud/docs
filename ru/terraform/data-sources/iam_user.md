@@ -6,7 +6,7 @@ subcategory: Identity and Access Management
 
 Get information about a Yandex IAM user account. For more information about accounts, see [Yandex Cloud IAM accounts](https://yandex.cloud/docs/iam/concepts/#accounts).
 
-This data source is used to define [IAM User](https://yandex.cloud/docs/iam/concepts/#passport) that can be used by other resources.
+This data source is used to define [IAM User](https://yandex.cloud/docs/iam/concepts/users/accounts#passport) that can be used by other resources.
 
 {% note warning %}
 

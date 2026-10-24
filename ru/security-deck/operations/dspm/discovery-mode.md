@@ -84,7 +84,7 @@ description: Следуя данной инструкции, вы узнаете
 
 {% endlist %}
 
-После того как анализ данных выявил потенциально опасные ресурсы, нажмите **{{ ui-key.yacloud_org.security.discovery.action_include-in-scan_2wT6B }}**, чтобы [создать](create-scan.md#cloud-sd-v2) для них непрерывное сканирование изменений.
+После того как анализ данных выявил потенциально опасные ресурсы, нажмите **{{ ui-key.yacloud_org.security.discovery.action_include-in-scan_2wT6B }}**, чтобы [создать](create-scan.md?tabs=instructions_cloud-sd-v2#change-scaning) для них непрерывное сканирование изменений.
 
 
 ## Сохранить результаты анализа {#save-results}

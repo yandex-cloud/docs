@@ -27,8 +27,8 @@ Depending on your service plan, you can contact support for various issues. For 
 
 Regardless of your service plan, you can request the following:
 
-* [Service logs](request.md#logs) related to your resources and actions in {{ yandex-cloud }}.
-* [Your personal data](request.md#personal) stored by Yandex.
+* [Service logs](request.md) related to your resources and actions in {{ yandex-cloud }}.
+* [Your personal data](request.md) stored by Yandex.
 
 #### How quickly does technical support respond? {#reaction-time}
 

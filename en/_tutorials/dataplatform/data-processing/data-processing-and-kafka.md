@@ -79,7 +79,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * **{{ ui-key.yacloud.kafka.label_partitions }}**: `1`.
       * **{{ ui-key.yacloud.kafka.label_replication-factor }}**: `1`.
 
-   1. [Create an {{ KF }} user](../../../managed-kafka/operations/cluster-accounts.md#create-user) with the following parameters:
+   1. [Create an {{ KF }} user](../../../managed-kafka/operations/cluster-accounts.md#create-account) with the following parameters:
 
       * **Name**: `user1`.
       * **Password**: `password1`.

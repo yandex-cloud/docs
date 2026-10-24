@@ -37,7 +37,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
-    1. If there are security groups in your cluster, make sure they are configured correctly and allow connections to the [{{ mos-name }} cluster](../../../managed-opensearch/operations/connect#configuring-security-groups).
+    1. If there are security groups in your cluster, make sure they are configured correctly and allow connections to the [{{ mos-name }} cluster](../../../managed-opensearch/operations/connect#security-groups).
 
     1. [Get an SSL certificate](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) to connect to the {{ mos-name }} cluster.
 

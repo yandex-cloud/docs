@@ -51,7 +51,7 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
             --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<cluster_ID>'
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. The description of resource groups and selector rules in the {{ mtr-name }} cluster is in the `resourceGroups` field of the [server response](../api-ref/Cluster/get.md#yandex.cloud.trino.v1.Cluster).
 
@@ -79,7 +79,7 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
             yandex.cloud.trino.v1.ClusterService.Get
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. The description of resource groups and selector rules in the {{ mtr-name }} cluster is in the `resource_groups` field of the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.trino.v1.Cluster).
 

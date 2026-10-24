@@ -2,7 +2,7 @@
 
 # yandex_yq_yds_binding (Resource)
 
-Manages Yandex DataStreams binding in Yandex Query service. For more information, see [the official documentation](../../query/concepts/glossary.md#Binding).
+Manages Yandex DataStreams binding in Yandex Query service. For more information, see [the official documentation](../../query/concepts/glossary.md#binding).
 
 ## Example usage
 

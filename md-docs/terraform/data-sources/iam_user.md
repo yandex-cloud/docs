@@ -4,7 +4,7 @@
 
 Get information about a Yandex IAM user account. For more information about accounts, see [Yandex Cloud IAM accounts](../../iam/concepts/index.md#accounts).
 
-This data source is used to define [IAM User](../../iam/concepts/index.md#passport) that can be used by other resources.
+This data source is used to define [IAM User](../../iam/concepts/users/accounts.md#passport) that can be used by other resources.
 
 {% note warning %}
 

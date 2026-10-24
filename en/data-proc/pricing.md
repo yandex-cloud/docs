@@ -36,7 +36,7 @@ To learn how the external IP address is priced, see [{#T}](../vpc/pricing.md) in
 
 ### Disk space usage {#rules-storage}
 
-The storage capacity allocated to each host in the cluster is billed as part of {{ compute-name }} according to the [disk space pricing](../compute/pricing.md#prices-storage).
+The storage capacity allocated to each host in the cluster is billed as part of {{ compute-name }} according to the [disk space pricing](../compute/pricing.md#disk).
 
 ### Using {{ cloud-logging-full-name }} {#rules-logs}
 

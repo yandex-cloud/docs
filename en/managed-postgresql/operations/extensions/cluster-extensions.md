@@ -137,7 +137,7 @@ Loading a shared library will cause {{ PG }} on the master host to restart.
      --extensions <extension_name>,<extension_name>...
   ```
 
-  You may get errors when installing multiple extensions. Learn more about possible causes of errors and how to troubleshoot them in [FAQ](../../qa/errors.md#cli-extensions-error).
+  You may get errors when installing multiple extensions. Learn more about possible causes of errors and how to troubleshoot them in [FAQ](../../qa/errors.md#cli-extensions-errors).
 
 
 - {{ TF }} {#tf}
@@ -331,7 +331,7 @@ Using this extension requires you to [enable the `age` shared library](#librarie
 || <p>[pglogical](https://github.com/2ndQuadrant/pglogical)</p><p>Adds support for streaming logical replication based on the publish/subscribe model.</p><p>Using this extension requires you to [enable the `pglogical` shared library](#libraries-connection).</p> | 2.4.1 | 2.4.4 | 2.4.4 | 2.4.5 | 2.4.6 ||
 || <p>[pgrouting](http://pgrouting.org/)</p><p>Provides geospatial routing functions for the [PostGIS](https://www.postgis.net/) database.</p> | 3.3.0 | 3.4.1 | 3.5.0 | 3.6.2 | 3.8.0 ||
 || <p>[pgrowlocks]({{ pg-docs }}/static/pgrowlocks.html)</p><p>Contains the `pgrowlocks()` function returning row locking details for a specified table.</p> | 1.2 | 1.2 | 1.2 | 1.2 | - ||
-|| <p>[pgstattuple]({{ pg-docs }}/pgstattuple.html)</p><p>Provides functions for retrieving tuple-level statistics.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) or [`mdb_superuser`](../../concepts/roles.md#mdb-superuser) role.</p> | 1.5 | 1.5 | 1.5 | 1.5 | - ||
+|| <p>[pgstattuple]({{ pg-docs }}/pgstattuple.html)</p><p>Provides functions for retrieving tuple-level statistics.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) or [`mdb_superuser`](../../concepts/roles.md#mdb_superuser) role.</p> | 1.5 | 1.5 | 1.5 | 1.5 | - ||
 || <p>[pgvector](https://github.com/pgvector/pgvector)</p><p>Provides vector similarity search functionality.</p><p>The [vector extension is available](../../qa/errors.md#vector-error) under the name `pgvector`.</p> | 0.2.5 | 0.3.2 | 0.8.0 | 0.8.0 | 0.8.0 ||
 || <p>[plpgsql](https://www.timescale.com/learn/postgresql-extensions-plpgsql)</p><p>Adds support for the PL/pgSQL procedural language.</p> | - | - | - | 1.0 | - ||
 || <p>[plv8](https://plv8.github.io/)</p><p>Adds support for the plv8 JavaScript-based procedural language powered by the V8 engine.</p> | 3.0.0 | - | 3.2.3 | 3.2.3 | 3.2.4 ||

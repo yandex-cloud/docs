@@ -11,8 +11,8 @@ The actual IOPS value depends on the disk or storage configuration, total bandwi
 ![image](../../_assets/compute/iops.svg)
 
 Where:
-* _Max. IOPS_: [Maximum IOPS value](../concepts/limits.md#limits-disks) for the disk or storage.
-* _Max. bandwidth_: [Maximum bandwidth value](../concepts/limits.md#limits-disks) for the disk or storage.
+* _Max. IOPS_: [Maximum IOPS value](../concepts/limits.md#compute-limits-disks) for the disk or storage.
+* _Max. bandwidth_: [Maximum bandwidth value](../concepts/limits.md#compute-limits-disks) for the disk or storage.
 
 Read and write operations utilize the same disk resource. The more read operations you do, the fewer write operations you can do, and vice versa. The total number of read and write operations per second is determined by this formula:
 
@@ -23,7 +23,7 @@ Where:
 * _WriteIOPS_: IOPS write value obtained using the formula for the actual IOPS value.
 * _ReadIOPS_: IOPS read value obtained using the formula for the actual IOPS value.
 
-For more information about maximum possible IOPS and bandwidth values, see [Quotas and limits](../concepts/limits.md#limits-disks).
+For more information about maximum possible IOPS and bandwidth values, see [Quotas and limits](../concepts/limits.md#compute-limits-disks).
 
 {% note warning %}
 

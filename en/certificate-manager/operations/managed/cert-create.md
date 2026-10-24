@@ -85,7 +85,7 @@ You can only use a [certificate](../../concepts/managed-certificate.md) from {{ 
      * `domains`: List of domains you need to create a certificate for.
      * `challenge_type`: [Type of domain ownership verification](../../concepts/challenges.md) the domain owner has to [pass](cert-validate.md). The possible values are:
        
-       * `DNS_CNAME`: Create a [DNS record](../../../dns/concepts/resource-record.md) in [CNAME](../../../dns/concepts/resource-record.md#cname-cname) format with the specified value. We recommend this method for automatic certificate renewal.
+       * `DNS_CNAME`: Create a [DNS record](../../../dns/concepts/resource-record.md) in [CNAME](../../../dns/concepts/resource-record.md#cname) format with the specified value. We recommend this method for automatic certificate renewal.
        * `DNS_TXT`: Create a DNS record in [TXT](../../../dns/concepts/resource-record.md#txt) format with the specified value.
        * `HTTP`: Place the specified value in the specified URL.
 

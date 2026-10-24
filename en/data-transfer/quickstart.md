@@ -80,7 +80,7 @@ You will create resources in the [management console]({{ link-console-main }}) i
   1. Select the new source and target endpoints.
   1. Select the [type of transfer](./concepts/index.md#transfer-type):
 
-     * {{ dt-type-copy }}: To create a full copy of the data without receiving further updates from the source. You can also use this type to [replicate constantly changing tables](concepts/transfer-lifecycle.md#select-transfer-type).
+     * {{ dt-type-copy }}: To create a full copy of the data without receiving further updates from the source. You can also use this type to [replicate constantly changing tables](concepts/transfer-lifecycle.md#transfer-types).
 
        If you need to create a full copy of the data at specific intervals, enable **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeSnapshot.regular_snapshot.title }}**.
 

@@ -140,7 +140,7 @@ To learn how to identify and resolve cluster performance issues, see [Performanc
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   1. To enable collection of statistics when creating a cluster:
 
-     1. Include the `config_spec.performance_diagnostics` option to the [grpcurl command](cluster-create.md#grpc-api) implementing the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) method:
+     1. Include the `config_spec.performance_diagnostics` option to the [grpcurl command](cluster-create.md?tabs=instructions_grpc-api) implementing the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) method:
 
         ```bash
         grpcurl \

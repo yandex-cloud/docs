@@ -5,7 +5,7 @@ description: To start a {{ video-name }} video broadcast, create a line and conf
 
 # Getting started with a video broadcast in {{ video-full-name }}
 
-To [stream a video](./concepts/index.md#streams) on the service's [channel](./concepts/index.md#channels):
+To [stream a video](concepts/streams.md#streams) on the service's [channel](./concepts/index.md#channels):
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Create a channel](#create-channel).

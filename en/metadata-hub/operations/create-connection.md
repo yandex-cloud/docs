@@ -1883,7 +1883,7 @@ You can create connections of the following types:
     1. From the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** list, select **{{ RD }}**.
     1. Under **Connection to {{ RD }}**, specify the connection parameters:
        1. In the **Connection type** field, select **User installation**.
-       1. In the **Hosts** field, specify the [FQDNs](../../managed-valkey/operations/connect/index.md#fqdn) or IP addresses of the hosts in the shard, HTTP or TCP port for connection, and the shard name.
+       1. In the **Hosts** field, specify the [FQDNs](../../managed-valkey/operations/hosts.md#list) or IP addresses of the hosts in the shard, HTTP or TCP port for connection, and the shard name.
        1. Optionally, enable TLS.
     1. {% include [console-auth-db](../../_includes/metadata-hub/connection-create-console-auth-db.md) %}
     1. Optionally, list the databases whose connections you want to manage. You must have access to them configured.
@@ -2077,7 +2077,7 @@ You can create connections of the following types:
     1. From the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** list, select **{{ VLK }}**.
     1. Under **Connection to {{ VLK }}**, specify the connection parameters:
        1. In the **Connection type** field, select **User installation**.
-       1. In the **Hosts** field, specify the [FQDNs](../../managed-valkey/operations/connect/index.md#fqdn) or IP addresses of the hosts in the shard, HTTP or TCP port for connection, and the [shard](../../managed-valkey/operations/connect/sharded-code-examples.md) name.
+       1. In the **Hosts** field, specify the [FQDNs](../../managed-valkey/operations/hosts.md#list) or IP addresses of the hosts in the shard, HTTP or TCP port for connection, and the [shard](../../managed-valkey/operations/connect/sharded-code-examples.md) name.
 
            When creating a connection to a custom database installation intended for [{{ datalens-full-name }}](../../datalens/concepts/index.md), specify the hosts’ external IP addresses.
 

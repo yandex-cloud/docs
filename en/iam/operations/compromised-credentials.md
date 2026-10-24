@@ -71,7 +71,7 @@ Follow the steps described in the [Authorized key](#key-reissue) section.
 
 ### {{ captcha-name }} server key {#captcha-server-key}
 
-[Create a new CAPTCHA](../../smartcaptcha/quickstart.md#creat-captcha) and, on the website page, replace the old CAPTCHA, whose [server key](../../smartcaptcha/concepts/keys.md) was compromised, with the new one.
+[Create a new CAPTCHA](../../smartcaptcha/quickstart.md#create-captcha) and, on the website page, replace the old CAPTCHA, whose [server key](../../smartcaptcha/concepts/keys.md) was compromised, with the new one.
 
 ### Cookie {#cookie-invalidation}
 

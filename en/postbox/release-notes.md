@@ -91,7 +91,7 @@ description: This section contains the {{ postbox-name }} release notes.
 ### Updates {#updates}
 
 * Added support for sending [notifications about email delivery](concepts/notification.md) to a {{ yds-full-name }} data stream.
-* Added support for [API key authentication](operations/send-email.md#smtp-send) when sending emails from the email client over SMTP.
+* Added support for [API key authentication](operations/send-email.md#smtp) when sending emails from the email client over SMTP.
 
 ## August 2024 {#august-2024}
 

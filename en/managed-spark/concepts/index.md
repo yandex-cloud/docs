@@ -48,7 +48,7 @@ A job includes:
 
   {% note info %}
 
-  Some [cluster configuration](#cluster-configuration) elements set the default job parameters which can be overriden at the job level. You cannot override network settings, service account, Deb-packages, use of Spark History Server, and logging settings.
+  Some [cluster configuration](../operations/cluster-create.md) elements set the default job parameters which can be overriden at the job level. You cannot override network settings, service account, Deb-packages, use of Spark History Server, and logging settings.
 
   {% endnote %}
 

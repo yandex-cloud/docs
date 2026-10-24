@@ -11,7 +11,7 @@ If you provide a key within `ssh-keys`, the text specified in the SSH key commen
 
 {% note info %}
 
-Such a username might vary across VM images. For more information on this, see [this article](../../../compute/concepts/vm-metadata.md#keys-processed-in-public-images).
+Such a username might vary across VM images. For more information on this, see [this article](../../../compute/concepts/metadata/public-image-keys.md).
 
 {% endnote %}
 

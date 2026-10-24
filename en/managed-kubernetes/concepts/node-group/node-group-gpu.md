@@ -24,7 +24,7 @@ In a [{{ managed-k8s-name }} cluster](../index.md#kubernetes-cluster), you can c
 
 To run node groups with GPUs, you need a {{ managed-k8s-name }} cluster, a VM with a GPU, and traffic. Therefore, billing includes the following:
 * [{{ managed-k8s-name }} master usage](../index.md#master) is charged according to the [{{ managed-k8s-name }} pricing policy](../../pricing.md).
-* VM with a GPU, according to the [{{ compute-full-name }} pricing policy](../../../compute/pricing.md#prices-instance-resources).
+* VM with a GPU, according to the [{{ compute-full-name }} pricing policy](../../../compute/pricing.md#instance-resources).
 * Outgoing traffic, according to the [{{ vpc-full-name }} pricing policy](../../../vpc/pricing.md).
 
 ## Use cases {#examples}

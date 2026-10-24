@@ -365,7 +365,7 @@ EventRouter | Триггеры | Описание
 
 #### Вариант 2: Отправка через Yandex Message Queue {#api-option-ymq}
 
-1. Создайте очередь Yandex Message Queue. Запись сообщений [осуществляется с помощью cURL](../../message-queue/operations/message-queue-send-message.md#curl).
+1. Создайте очередь Yandex Message Queue. Запись сообщений [осуществляется с помощью cURL](../../message-queue/operations/message-queue-send-message.md#curl_1).
 1. Создайте [триггер для Yandex Message Queue](../../functions/concepts/trigger/ymq-trigger.md), указав созданную очередь в качестве источника.
 
 ## Форматы сообщений {#message-format}

@@ -21,7 +21,7 @@ To get started:
 
 1. [Create a metadata catalog](#create-catalog).
 1. [Create a metadata source](#create-source).
-1. [Create data ingestions](#create-ingestions) from sources on a schedule.
+1. [Create data ingestions](#create-source) from sources on a schedule.
 1. [Test the ingested metadata](#test-data-ingestion).
 1. [Create a classification and tags](#classification).
 1. [Create a domain and subdomains](#domains).

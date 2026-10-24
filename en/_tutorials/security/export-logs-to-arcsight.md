@@ -178,7 +178,7 @@ Assign the `audit-trails.viewer`, `storage.uploader`, and `kms.keys.encrypterDec
 
 - CLI {#cli}
 
-  1. `audit-trails.viewer` [role](../../audit-trails/security/index.md#roles) for the folder:
+  1. `audit-trails.viewer` [role](../../audit-trails/security/index.md#roles-list) for the folder:
      
       ```
       yc resource-manager folder add-access-binding \
@@ -210,7 +210,7 @@ Assign the `audit-trails.viewer`, `storage.uploader`, and `kms.keys.encrypterDec
       * `--id`: `example-folder` ID.
       * `--service-account-id`: `sa-arcsight` service account ID.
 
-  1. `kms.keys.encrypterDecrypter` [role](../../kms/security/index.md#service) for the `arcsight-kms` encryption key:
+  1. `kms.keys.encrypterDecrypter` [role](../../kms/security/index.md#kms-keys-encrypterDecrypter) for the `arcsight-kms` encryption key:
   
       ```
       yc kms symmetric-key add-access-binding \

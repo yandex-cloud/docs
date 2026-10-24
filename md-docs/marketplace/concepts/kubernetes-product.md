@@ -4,7 +4,7 @@
 
 Чтобы добавить программный продукт для Managed Service for Kubernetes в Marketplace, его пакеты необходимо загрузить в [реестр](../../container-registry/concepts/registry.md) Yandex Cloud. Этот раздел поможет подготовить продукт Marketplace для Yandex Managed Service for Kubernetes.
 
-Настройка доступа к продукту по [подписке](subscription.md) описана в разделе [Интеграция с License Manager API](../operations/license-manager-integration.md#managed-k8s).
+Настройка доступа к продукту по [подписке](subscription.md) описана в разделе [Интеграция с License Manager API](../operations/license-manager-integration.md?tabs=service_managed-k8s).
 
 Вы также можете создать продукты для Yandex Compute Cloud на базе ОС [Linux](compute-product.md), воспользовавшись соответствующими рекомендациями.
 

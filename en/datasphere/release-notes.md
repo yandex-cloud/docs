@@ -101,8 +101,8 @@ The Serverless mode is no longer supported.
 
 1. With [{{ ml-platform-name }} Jobs](concepts/jobs/index.md), cloud computing resources in {{ ml-platform-name }} can now be used from a user's local environment.
 1. {{ ml-platform-name }} projects now have a new type of resources: [Models](concepts/models/index.md).
-1. Optimized JupyterLab 3 (available in [dedicated](concepts/project.md#dedicated) mode) by adding new extensions.
-1. [{{ yagpt-name }} model tuning](concepts/models/foundation-models.md#yagpt-tuning) is now available at the [Preview](../overview/concepts/launch-stages.md) stage.
+1. Optimized JupyterLab 3 (available in [dedicated](concepts/project.md#mode) mode) by adding new extensions.
+1. [{{ yagpt-name }} model tuning]({{ link-docs-ai }}ai-studio/concepts/tuning/index) is now available at the [Preview](../overview/concepts/launch-stages.md) stage.
 1. Fixed bugs and added minor improvements in platform performance.
 
 ## Release as of 18/09/23 {#180923}
@@ -130,7 +130,7 @@ The Serverless mode is no longer supported.
 
 ## Release as of 23/05/23 {#230523}
 
-1. {{ ml-platform-name }} now supports a new [{{ dd }}](concepts/project.md#dedicated) operation mode.
+1. {{ ml-platform-name }} now supports a new [{{ dd }}](concepts/project.md#mode) operation mode.
 1. In the {{ dd }} mode, the IDE version is updated to JupyterLab 3.5.3.
 1. You can now select an organization in an optimized way.
 1. Operations with community and project members are now easier to perform.
@@ -162,8 +162,8 @@ The Serverless mode is no longer supported.
 
 Greatly improved the Apache Spark™ cluster functionality:
 1. {{ ml-platform-name }} now has a new type of resources: [{{ dataproc-name }} templates](concepts/data-processing-template.md).
-1. You can now [configure a livy session](concepts/data-processing.md#session) when using {{ dataproc-name }} clusters.
-1. {{ ml-platform-name }} now supports the [Spark SQL library](concepts/data-processing.md#sql).
+1. You can now [configure a livy session](concepts/data-processing-operations.md#session) when using {{ dataproc-name }} clusters.
+1. {{ ml-platform-name }} now supports the [Spark SQL library](concepts/data-processing-operations.md#sql).
 
 ## Release as of 23/09/22 {#230922}
 

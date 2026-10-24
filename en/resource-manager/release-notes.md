@@ -11,7 +11,7 @@ description: This section contains the {{ resmgr-name }} release notes.
 
 ## Q2 2025 {#q2-2025}
 
-* Added the ability to [create](./operations/cloud/create.md#cli) and [rename](./operations/cloud/update.md#cli) a cloud using the {{ yandex-cloud }} CLI. {{ tag-cli }}
+* Added the ability to [create](./operations/cloud/create.md?tabs=instructions_cli) and [rename](./operations/cloud/update.md?tabs=instructions_cli) a cloud using the {{ yandex-cloud }} CLI. {{ tag-cli }}
 
 ## Q1 2024 {#q1-2024}
 

@@ -15,7 +15,7 @@ Delivery routes consist of the following elements:
 
 - `input`: [Input](index.md#inputs):
   - `plugin`: [Input](inputs.md) plugin.
-  - `config`: [Input](#inputs) configuration.
+  - `config`: [Input](inputs.md) configuration.
   - `flow_control`: Configuration of the input session creation mechanism.
 - `channel`: [Channel](index.md#channels):
   - `pipe`: Pipe:

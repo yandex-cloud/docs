@@ -21,9 +21,9 @@ The service is provided if technically feasible.
 ## What goes into the cost? {#rules}
 
 When setting up a `private` or `public` **connection**, the cost calculation covers:
-* [Cost of physical ports](#other-services) for a [trunk](concepts/trunk.md).
-* [Cost of data](#data) transmitted through the [trunk](concepts/trunk.md).
-* [Cost of private and public connections within the trunk](#other-services).
+* [Cost of physical ports](#prices) for a [trunk](concepts/trunk.md).
+* [Cost of data](#prices) transmitted through the [trunk](concepts/trunk.md).
+* [Cost of private and public connections within the trunk](#prices).
 
 **Cost calculation for a trunk with a single 10GBASE-LR physical port, 300 TB of traffic, and two private connections to two VPC networks**:
 
@@ -36,6 +36,8 @@ Automatic billing for the service starts with the earliest of the two events:
 
 
 
+
+## Prices for the Russia region {#prices}
 
 <MDX>
   <PriceList

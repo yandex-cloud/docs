@@ -86,7 +86,7 @@ The {{ VLK }} versioning policy is based on the following key principles:
 
 * **Extended version support**. {{ mrd-name }} provides time-extended {{ VLK }} version support, where each version is supported longer than the official period due to compatibility with new {{ VLK }} versions.
 * **Compatibility guarantee**. The service provides extended support with a guarantee of full compatibility with the selected {{ VLK }} version.
-* **Proven compatibility**. Each DBMS implementation by {{ yandex-cloud }} is [tested](#compatibility-testing) for compatibility with the target version. Updates are only applied in case the tests are passed successfully and completely.
+* **Proven compatibility**. Each DBMS implementation by {{ yandex-cloud }} is [tested](index.md#compatibility-testing) for compatibility with the target version. Updates are only applied in case the tests are passed successfully and completely.
 * **Active participation in {{ VLK }} development**. {{ yandex-cloud }}'s commitment to {{ VLK }} development allows the {{ mrd-name }} team to have a thorough understanding of the platform and ensure compatibility based on newer and more efficient implementations.
 * **Automatic improvements**. Users automatically get the benefits of new versions without the need to migrate.
 * **Security and performance**. Regular updates to current versions ensure the highest security and performance.
@@ -95,10 +95,10 @@ The {{ VLK }} versioning policy is based on the following key principles:
 
 {{ mrd-full-name }} can automatically update {{ yandex-cloud }}'s {{ VLK }} implementation that works on your cluster without changing the target compatibility version. Such updates include:
 
-* Updates to newer versions with [guaranteed compatibility](#compatibility-warranty) preserved.
+* Updates to newer versions with [guaranteed compatibility](index.md#compatibility-warranty) preserved.
 * Specific configuration adjustments to ensure backward compatibility.
 * Compatibility mode with adapted performance parameters.
-* Additional [checks](#compatibility-testing) on the {{ mrd-name }} side to monitor application behavior.
+* Additional [checks](index.md#compatibility-testing) on the {{ mrd-name }} side to monitor application behavior.
 
 {% note tip %}
 

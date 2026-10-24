@@ -175,7 +175,7 @@ In this tutorial, you will learn how to create a virtual machine in {{ yandex-cl
     * `name`: Logical name of the Debezium connector. It is used for the connector’s internal needs.
     * `database.hostname`: [Special FQDN](../../managed-postgresql/operations/connect/fqdn.md#fqdn-master) for connection to the source cluster's master host.
 
-        You can get the cluster ID with the [list of clusters in the folder](../../managed-postgresql/operations/cluster-list.md#list).
+        You can get the cluster ID with the [list of clusters in the folder](../../managed-postgresql/operations/cluster-list.md#list-clusters).
 
     * `database.user`: {{ PG }} username.
     * `database.dbname`: {{ PG }} database name.

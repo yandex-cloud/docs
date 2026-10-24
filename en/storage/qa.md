@@ -83,7 +83,7 @@ You can delete multiple objects via the {{ yandex-cloud }} management console or
 Make sure the service account has the [role](./security/#roles-list) that allows accessing the bucket.
 
 
-If [encryption](./concepts/encryption.md) is enabled for the bucket, assign the service account the `kms.keys.encrypterDecrypter` [role](../kms/security/#service) for the [{{ kms-short-name }} key](../kms/concepts/key.md) used to encrypt the bucket. You can do this, for example, using the following CLI command:
+If [encryption](./concepts/encryption.md) is enabled for the bucket, assign the service account the `kms.keys.encrypterDecrypter` [role](../kms/security/#kms-keys-encrypterDecrypter) for the [{{ kms-short-name }} key](../kms/concepts/key.md) used to encrypt the bucket. You can do this, for example, using the following CLI command:
 
 ```bash
 yc kms symmetric-key add-access-binding \
@@ -154,7 +154,7 @@ To add your [domain](operations/hosting/own-domain.md) to a [bucket](concepts/bu
 
 1. {% include [setup-bucket.md](../_includes/storage/setup-bucket.md) %}
 
-1. On your DNS server, [create](operations/hosting/own-domain.md#domain-support) a CNAME record to link your domain to the bucket.
+1. On your DNS server, [create](operations/hosting/own-domain.md) a CNAME record to link your domain to the bucket.
 
 1. {% include [create-cert.md](../_includes/storage/create-cert.md) %}
 

@@ -69,7 +69,7 @@ description: Follow this guide to revoke roles for a registry.
 
 - API {#api}
 
-  [View](list-role.md#api) the roles assigned for the registry.
+  [View](list-role.md?tabs=instructions_api) the roles assigned for the registry.
   
   To revoke roles assigned for a registry, use the [updateAccessBindings](../../api-ref/Registry/updateAccessBindings.md) REST API method for the [Registry](../../api-ref/Registry/index.md) resource or the [RegistryService/UpdateAccessBindings](../../api-ref/grpc/Registry/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the [subject](../../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
 

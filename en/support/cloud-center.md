@@ -37,7 +37,7 @@ To find answers to questions about {{ yandex-cloud }}, do the following in {{ su
 
 ## Creating a ticket {#create-request}
 
-If you [searched for a way to resolve your issue](#finding-solution) in the support knowledge base and did not find anything relevant in the {{ yandex-cloud }} documentation, create a support ticket.
+If you [searched for a way to resolve your issue](#search-for-solution) in the support knowledge base and did not find anything relevant in the {{ yandex-cloud }} documentation, create a support ticket.
 
 You can create a support ticket either on the {{ support-center-name }} [home page]({{ link-console-support }}) by clicking **{{ ui-key.support-center.tickets.common.action_create-ticket }}** or from any management console page by clicking ![image](../_assets/console-icons/circle-question.svg)**Support center** -> **{{ ui-key.support-center.tickets.common.action_create-ticket }}** on the left-hand panel.
 

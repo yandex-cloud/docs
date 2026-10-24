@@ -165,7 +165,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 1. [Attach the service account to the cluster](s3-access.md#connect-service-account). You will use this service account to configure access to the schema file.
 1. [Assign](s3-access.md#configure-acl) the `storage.viewer` role to the service account.
 1. In the bucket ACL, [add](../../storage/operations/buckets/edit-acl.md) the `READ` permission to the service account.
-1. [Get a link](s3-access.md#get-link-to-object) to the schema file.
+1. [Get a link](../../storage/operations/objects/link-for-download.md) to the schema file.
 
 
 ### Add the format schema {#create-format-schema}
@@ -320,7 +320,7 @@ To update the contents of a schema that is already added to the cluster:
 
 
 1. [Upload the file](../../storage/operations/objects/upload.md) with the current format schema to {{ objstorage-full-name }}.
-1. [Get a link](s3-access.md#get-link-to-object) to this file.
+1. [Get a link](../../storage/operations/objects/link-for-download.md) to this file.
 1. Update the settings of the format schema added to {{ mch-name }} by providing a new link to the format schema file.
 
 

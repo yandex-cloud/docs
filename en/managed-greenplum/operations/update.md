@@ -1051,7 +1051,7 @@ You can change the host class for both master hosts and segment hosts. When chan
 * A cluster with local SSD storage may be unavailable for an extended period if data migration to another physical server is required.
 * Using a [special FQDN](./connect/fqdn.md#fqdn-master) does not guarantee a stable database connection: user sessions may be terminated.
 
-Changing the segment host class [affects](../concepts/instance-types.md#select-class-segment-hosts) the maximum amount of memory allocated to each {{ mgp-name }} server process.
+Changing the segment host class [affects](../concepts/calculate-specs.md#vcpu-ram) the maximum amount of memory allocated to each {{ mgp-name }} server process.
 
 We recommend changing the host class only when the cluster is idle.
 

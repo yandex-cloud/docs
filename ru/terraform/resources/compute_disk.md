@@ -38,6 +38,8 @@ resource "yandex_compute_disk" "my_disk" {
   }
 }
 ```
+### Non-replicated disk {#example-usage---non-replicated-disk}
+
 ```terraform
 //
 // Create a new Compute Disk and put it to the specific Placement Group.

@@ -57,7 +57,7 @@ To identify potential cluster problems, [use other health analysis tools](../tut
         * {% include [logs output format](../../_includes/cli/logs/format.md) %}
         * `--service-type`: Source service type to output (`postgresql` or `pooler`).
         * `--columns`: List of data columns:
-            * `hostname`: [Host name](hosts.md#list-hosts).
+            * `hostname`: [Host name](hosts.md#list).
             * `db`: [Database name](databases.md#list-db).
             * `level`: Logging level, e.g., `info`.
             * `pid`: ID of the current session's server process.
@@ -105,7 +105,7 @@ To identify potential cluster problems, [use other health analysis tools](../tut
 
      * `columnFilter`: Output column name:
 
-       * `hostname`: [Host name](hosts.md#list-hosts).
+       * `hostname`: [Host name](hosts.md#list).
        * `db`: [Database name](databases.md#list-db).
        * `level`: Logging level, e.g., `info`.
        * `pid`: ID of the current session's server process
@@ -164,7 +164,7 @@ To identify potential cluster problems, [use other health analysis tools](../tut
 
      * `column_filter`: List of output data columns:
 
-       * `hostname`: [Host name](hosts.md#list-hosts).
+       * `hostname`: [Host name](hosts.md#list).
        * `db`: [Database name](databases.md#list-db).
        * `level`: Logging level, e.g., `info`.
        * `pid`: ID of the current session's server process
@@ -233,7 +233,7 @@ This method allows you to stream cluster logs in real time.
 
      * `columnFilter`: Name of the data column:
 
-       * `hostname`: [Host name](hosts.md#list-hosts).
+       * `hostname`: [Host name](hosts.md#list).
        * `db`: [Database name](databases.md#list-db).
        * `level`: Logging level, e.g., `info`.
        * `pid`: ID of the current session's server process
@@ -289,7 +289,7 @@ This method allows you to stream cluster logs in real time.
 
      * `column_filter`: List of output columns:
 
-       * `hostname`: [Host name](hosts.md#list-hosts).
+       * `hostname`: [Host name](hosts.md#list).
        * `db`: [Database name](databases.md#list-db).
        * `level`: Logging level, e.g., `info`.
        * `pid`: ID of the current session's server process

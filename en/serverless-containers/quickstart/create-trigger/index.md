@@ -43,5 +43,5 @@ In addition to timers, the following types of triggers are available in {{ serve
 
 #### Useful links {#see-also}
 
-* [Step-by-step guides on how to create triggers](../../operations/index.md#trigger-create)
+* [Step-by-step guides on how to create triggers](../../operations/index.md#create-trigger)
 * [{{ serverless-containers-full-name }} trigger overview](../../concepts/trigger/index.md)

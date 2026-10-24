@@ -37,7 +37,7 @@ To delete a {{ dataproc-name }} cluster, you must have the `dataproc.editor` rol
   {{ yc-dp }} cluster delete <cluster_name_or_ID>
   ```
 
-  You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list).
 
 - {{ TF }} {#tf}
 

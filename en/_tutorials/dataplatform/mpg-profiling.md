@@ -91,7 +91,7 @@ If you can neither optimize troublesome queries nor eliminate them, you have to 
 
 A resource shortage, a likely cause of cluster performance degradation, can be identified by checking metrics like CPU, disk I/O, and network usage on [cluster monitoring](../../managed-postgresql/operations/monitoring.md) charts. A resource usage chart showing steady growth followed by a plateau indicates that the workload has reached its [limit](../../managed-postgresql/concepts/limits.md) or is exceeding the guaranteed service level.
 
-In most cases, high CPU and disk I/O usage are caused by inefficient indexes or excessive host workload. Review the [session](../../managed-postgresql/operations/performance-diagnostics.md#get-sessions) and [query](../../managed-postgresql/operations/performance-diagnostics.md#get-queryes) data collected by the [performance diagnostics](../../managed-postgresql/operations/performance-diagnostics.md) tool.
+In most cases, high CPU and disk I/O usage are caused by inefficient indexes or excessive host workload. Review the [session](../../managed-postgresql/operations/performance-diagnostics.md#get-sessions) and [query](../../managed-postgresql/operations/performance-diagnostics.md#get-queries) data collected by the [performance diagnostics](../../managed-postgresql/operations/performance-diagnostics.md) tool.
 
 
 ## Troubleshooting resource shortages {#solving-cpu-io-deficit}

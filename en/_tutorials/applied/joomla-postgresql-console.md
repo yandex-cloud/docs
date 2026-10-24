@@ -182,7 +182,7 @@ In your DNS zone, create a [type A resource record](../../dns/concepts/resource-
   1. Select `joomla-zone` you previously created and click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
   1. Specify the record settings:
       1. In the **{{ ui-key.yacloud.common.name }}** field, select `{{ ui-key.yacloud.dns.label_fqdn-equal-to-zone }}`.
-      1. In the **{{ ui-key.yacloud.common.type }}** field, select the `A` [record type](../../dns/concepts/resource-record.md#rr-types).
+      1. In the **{{ ui-key.yacloud.common.type }}** field, select the `A` [record type](../../dns/concepts/resource-record.md#a).
       1. In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the [public IP address](../../vpc/concepts/address.md#public-addresses) of the web server VM you created earlier.
 
           You can find the VM IP address in the [management console]({{ link-console-main }}), on the VM page under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**.

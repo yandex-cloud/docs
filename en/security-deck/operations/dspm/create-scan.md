@@ -15,9 +15,9 @@ description: Follow this tutorial to create scans in {{ sd-full-name }} {{ dspm-
 
 ## Creating a scan {#change-scaning}
 
-When {{ dspm-name }} is activated, [data analysis](discovery-mode.md) starts automatically. Based on the results of analysis for buckets, you can create a [continuous update scan](#cloud-sd-v2) in Interface v2.0.
+When {{ dspm-name }} is activated, [data analysis](discovery-mode.md) starts automatically. Based on the results of analysis for buckets, you can create a [continuous update scan](create-scan.md?tabs=instructions_cloud-sd-v2#change-scaning) in Interface v2.0.
 
-In Interface v1.0, you can create a [regular scan](#cloud-sd-v1) for buckets and disks.
+In Interface v1.0, you can create a [regular scan](create-scan.md?tabs=instructions_cloud-sd-v1#change-scaning) for buckets and disks.
 
 {% list tabs group=instructions %}
 
@@ -29,7 +29,7 @@ In Interface v1.0, you can create a [regular scan](#cloud-sd-v1) for buckets and
 
 - Interface v1.0 {#cloud-sd-v1}
 
-  To create a regular scan, you need a [data source](../../concepts/dspm.md#data-source). [Create](create-data-source.md#create-data-source) it beforehand or when creating the scan.
+  To create a regular scan, you need a [data source](../../concepts/dspm.md#data-source). [Create](create-data-source.md#change-scaning) it beforehand or when creating the scan.
 
   {% note tip %}
 

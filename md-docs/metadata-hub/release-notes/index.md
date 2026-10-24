@@ -263,7 +263,7 @@ index: 1
 * [Кластеры Apache Hive™ Metastore](../concepts/metastore.md) стали частью сервиса Yandex MetaData Hub.
 * [Schema Registry](../quickstart/schema-registry.md) доступен в [Preview](../../overview/concepts/launch-stages.md).
 * Пользователи сервиса Yandex Data Transfer могут указывать идентификатор подключения Connection Manager для [настройки эндпоинта Managed Service for PostgreSQL](../../data-transfer/operations/endpoint/source/postgresql.md).
-* Пользователи сервиса Yandex DataLens могут использовать Connection Manager для создания подключений к [PostgreSQL](../../datalens/operations/connection/create-postgresql.md#conn-man), [ClickHouse®](../../datalens/operations/connection/create-clickhouse.md#conn-man) и [MySQL®](../../datalens/operations/connection/create-mysql.md#conn-man).
+* Пользователи сервиса Yandex DataLens могут использовать Connection Manager для создания подключений к [PostgreSQL](../../datalens/operations/connection/create-postgresql.md?tabs=connection_conn-man), [ClickHouse®](../../datalens/operations/connection/create-clickhouse.md?tabs=connection_conn-man) и [MySQL®](../../datalens/operations/connection/create-mysql.md?tabs=connection_conn-man).
 
 ### Август {#august}
 

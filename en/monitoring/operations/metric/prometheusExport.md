@@ -43,7 +43,7 @@ Here is an example of setting up {{ monitoring-name }} metric collection in {{ p
    * `ydb`: {{ ydb-name }}.
 
 1. Create an [API key](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) for the [service account](../../../iam/concepts/users/service-accounts.md).
-1. [Assign the service account the `{{ roles-monitoring-viewer }}`](../../../iam/operations/roles/grant.md#access-to-sa) role for the selected folder.
+1. [Assign the service account the `{{ roles-monitoring-viewer }}`](../../../iam/operations/roles/grant.md#cloud-or-folder) role for the selected folder.
 1. In the [Prometheus configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration), add another `job` to the data collection section:
 
    ```yaml

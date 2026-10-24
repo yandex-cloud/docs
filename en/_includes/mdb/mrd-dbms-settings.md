@@ -203,7 +203,7 @@
 
 * **Turn before switchover**{#settings-turn-before-switchover} {{ tag-all }}
 
-    When enabled, the [host state management agent](../../managed-valkey/concepts/replication.md#availability) switches the replica over to the new master’s host before appointing a new master.
+    When enabled, the [host state management agent](../../managed-valkey/concepts/replication.md#rdsync) switches the replica over to the new master’s host before appointing a new master.
 
     This setting is disabled by default.
 

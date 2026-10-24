@@ -17,15 +17,15 @@ These controls help ensure compliance with security policies and protect against
 || Requirement ID | [Security standard](../../../security/standard/all.md) requirement | [{{ cspm-name }}](../cspm.md) rule check IDs ||
 || **Authentication and Access Management** {align="center"} | > | > ||
 || `IAM1` | [Identity Federation (Single Sign-On, SSO) is configured](../../../security/standard/all.md#saml-federation) | [cspm.access.idp](../../rules-reference/cspm.md#idp) ||
-|| `IAM2` | [User group mapping is set up in an identity federation](../../../security/standard/all.md#group-mapping) | [cspm.access.user-groups-mapping](../../rules-reference/cspm.md#access-user-groups-mapping) ||
-|| `IAM4` | [The cookie lifetime in a federation is less than 6 hours](../../../security/standard/all.md#cookie-timeout) | [cspm.cookie-timeout.organization](../../rules-reference/cspm.md#cookie-timeout-organization) ||
+|| `IAM2` | [User group mapping is set up in an identity federation](../../../security/standard/all.md#group-mapping) | [cspm.access.user-groups-mapping](../../rules-reference/cspm.md#user-groups-mapping) ||
+|| `IAM4` | [The cookie lifetime in a federation is less than 6 hours](../../../security/standard/all.md#cookie-timeout) | [cspm.cookie-timeout.organization](../../rules-reference/cspm.md#organization) ||
 || `IAM5` | [Only appropriate administrators can manage IAM group membership](../../../security/standard/all.md#iam-admins) | [cspm.access.user-groups-access](../../rules-reference/cspm.md#user-groups-access) ||
 || `IAM6` | [Service roles are used instead of primitive ones: admin, editor, viewer, auditor](../../../security/standard/all.md#min-privileges) | [cspm.access.min-privileges](../../rules-reference/cspm.md#min-privileges) ||
 || `IAM9` | [Service accounts are assigned minimum privileges](../../../security/standard/all.md#sa-privileges) |
 [cspm.access.sa-privileges-org-roles](../../rules-reference/cspm.md#sa-privileges-org-roles)
 [cspm.access.sa-privileges-service-roles](../../rules-reference/cspm.md#sa-privileges-service-roles)
 ||
-|| `IAM10` | [Only trusted administrators have access to service accounts](../../../security/standard/all.md#sa-admins) | [cspm.access.privileged-sa-access](../../rules-reference/cspm.md#access-privileged-sa-access) ||
+|| `IAM10` | [Only trusted administrators have access to service accounts](../../../security/standard/all.md#sa-admins) | [cspm.access.privileged-sa-access](../../rules-reference/cspm.md#privileged-sa-access) ||
 || `IAM11` | [Service account keys are rotated periodically](../../../security/standard/all.md#sa-key-rotation) | [cspm.iam.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation) ||
 || `IAM12` | [A scope is set for service account API keys](../../../security/standard/all.md#api-key-scopes) | [cspm.access.defined-key-scopes](../../rules-reference/cspm.md#defined-key-scopes) ||
 || `IAM16` | [Getting a token via AWS IMDSv1 is disabled on the VM](../../../security/standard/all.md#aws-token) | [cspm.aws-token](../../rules-reference/cspm.md#aws-token) ||
@@ -44,7 +44,7 @@ These controls help ensure compliance with security policies and protect against
 [cspm.trusted-ip-k8s](../../rules-reference/cspm.md#trusted-ip-k8s)
 ||
 || `NET5` | [DDoS protection is enabled](../../../security/standard/all.md#ddos-protection) |
-[cspm.appsec.ddos-protection.l3](../../rules-reference/cspm.md#appsec-ddos-protection-l3)
+[cspm.appsec.ddos-protection.l3](../../rules-reference/cspm.md#l3)
 [cspm.appsec.ddos-protection.l7](../../rules-reference/cspm.md#l7)
 ||
 || **Secure Virtual Environment Configuration** {align="center"} | > | > ||
@@ -81,7 +81,7 @@ These controls help ensure compliance with security policies and protect against
 || **Collection, Monitoring, and Analysis of Audit Logs** {align="center"} | > | > ||
 || `AUDIT1` | [{{ at-full-name }} is enabled at the organization level](../../../security/standard/all.md#audit-trails) |
 [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails)
-[cspm.o11y.audit-trails-no-errors](../../rules-reference/cspm.md#o11y-audit-trails-no-errors)
+[cspm.o11y.audit-trails-no-errors](../../rules-reference/cspm.md#audit-trails-no-errors)
 ||
 || `AUDIT8` | [Data-plane events are monitored](../../../security/standard/all.md#data-plane-events) | [cspm.o11y.data-plane-events](../../rules-reference/cspm.md#data-plane-events) ||
 || **Application Protection** {align="center"} | > | > ||
@@ -96,5 +96,5 @@ These controls help ensure compliance with security policies and protect against
 || `K8S3` | [There is no access to the {{ k8s }} API](../../../security/standard/all.md#api-security) | [cspm.k8s.api-security](../../rules-reference/cspm.md#api-security) ||
 || `K8S4` | [Authentication and access management are configured in {{ managed-k8s-name }}](../../../security/standard/all.md#kubernetes-auth) | [cspm.k8s.access](../../rules-reference/cspm.md#access) ||
 || `K8S5` | [A secure configuration is used in {{ managed-k8s-full-name }}](../../../security/standard/all.md#kubernetes-safe-config) | [cspm.k8s.secure-configuration](../../rules-reference/cspm.md#secure-configuration) ||
-|| `K8S11` | [The {{ k8s }} security policy is in place](../../../security/standard/all.md#security-standards) | [cspm.k8s.kspm](../../rules-reference/cspm.md#k8s-kspm) ||
+|| `K8S11` | [The {{ k8s }} security policy is in place](../../../security/standard/all.md#security-standards) | [cspm.k8s.kspm](../../rules-reference/cspm.md#kspm) ||
 |#

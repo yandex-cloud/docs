@@ -367,7 +367,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
       1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
       1. Specify the record settings:
          1. In the **{{ ui-key.yacloud.common.name }}** field, select `{{ ui-key.yacloud.dns.label_fqdn-equal-to-zone }}`.
-         1. In the **{{ ui-key.yacloud.common.type }}** field, select the `A` [record type](../../dns/concepts/resource-record.md#rr-types).
+         1. In the **{{ ui-key.yacloud.common.type }}** field, select the `A` [record type](../../dns/concepts/resource-record.md#a).
          1. In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the [public IP address](../../vpc/concepts/address.md#public-addresses) of the web server VM you created earlier.
 
              You can find your VM’s IP address on the VM page in the [management console]({{ link-console-main }}), under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, or using the `yc compute instance get mywebserver` CLI command.
@@ -910,7 +910,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
   1. Specify the record settings:
 
         * In the **{{ ui-key.yacloud.common.name }}** field, select `{{ ui-key.yacloud.dns.label_create-subdomain }}` and specify the name you gave to the CDN resource subdomain. For example, if the domain name of your CDN resource is `cdn.example.com`, put `cdn` only.
-        * In the **{{ ui-key.yacloud.common.type }}** field, select the `CNAME` [record type](../../dns/concepts/resource-record.md#rr-types).
+        * In the **{{ ui-key.yacloud.common.type }}** field, select the `CNAME` [record type](../../dns/concepts/resource-record.md#cname).
         * In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the [domain name](../../cdn/operations/resources/get-resources-info.md#get-cname) value of the CDN provider.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.

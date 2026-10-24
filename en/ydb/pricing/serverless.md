@@ -66,7 +66,7 @@ For topics with on-demand pricing, you also pay for the actually used disk space
 
 #### On-demand backups {#rules-auto-backup-storage}
 
-You can force a database backup, saving it to [{{ objstorage-name }}](../../storage/). The cost of this operation depends on the backup data size and is calculated as for the [ReadTable](ru-special.md#readtable) operation. For cost calculation, the actual size is rounded up to a multiple of 1 GB.
+You can force a database backup, saving it to [{{ objstorage-name }}](../../storage/). The cost of this operation depends on the backup data size and is calculated as for the [ReadTable](ru-special.md#read-table) operation. For cost calculation, the actual size is rounded up to a multiple of 1 GB.
 
 {% note warning %}
 
@@ -102,7 +102,7 @@ On-demand consumption of RUs per month will be:
 
 ### Recovery from a backup {#rules-backup-restore}
 
-You can restore databases and/or individual tables from the backups stored in {{ objstorage-name }}. The cost of this operation depends on the size of recovered data and is calculated as for the [BulkUpsert](ru-special.md#bulkupsert) operation. For cost calculation, the actual size is rounded up to a multiple of 1 GB.
+You can restore databases and/or individual tables from the backups stored in {{ objstorage-name }}. The cost of this operation depends on the size of recovered data and is calculated as for the [BulkUpsert](ru-special.md#bulk-upsert) operation. For cost calculation, the actual size is rounded up to a multiple of 1 GB.
 
 {% note warning %}
 

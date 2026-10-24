@@ -544,7 +544,7 @@ We recommend changing the host class only when the cluster is idle.
 
       * `configSpec.mysqlConfig_<{{ MY }}_version>`: {{ MY }} settings. Enter each setting on a new line, separated by commas.
 
-          See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterReques) for the list of {{ MY }} versions supporting this option. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for descriptions and possible values of the settings.
+          See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterRequest) for the list of {{ MY }} versions supporting this option. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for descriptions and possible values of the settings.
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 

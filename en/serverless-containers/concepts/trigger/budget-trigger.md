@@ -8,7 +8,7 @@ For more information about creating a trigger for budgets, see [{#T}](../../oper
 
 ## Roles required for the proper operation of a trigger for budgets {#roles}
 
-* To create a trigger, you need a permission for the service account under which the trigger runs the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [editor](../../../iam/concepts/access-control/roles.md#editor) roles or higher.
+* To create a trigger, you need a permission for the service account under which the trigger runs the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [editor](../../../iam/roles-reference.md#editor) roles or higher.
 * For the trigger to work, the service account needs the `serverless.containers.invoker` role for the container that invokes the trigger.
 
 ## Format of the message from the trigger for budgets {#format}

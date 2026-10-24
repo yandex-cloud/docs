@@ -16,7 +16,7 @@ You can enable automatic vulnerability [scans](../../concepts/vulnerability-scan
 
 To configure automatic vulnerability [scans](../../concepts/vulnerability-scanner.md) of [Docker images](index.md) on push to [{{ container-registry-full-name }}](../../../container-registry/) using {{ TF }}:
 
-1. [Get your cloud ready](#before-you-begin).
+1. [Get your cloud ready](#before-begin).
 1. [Set up your environment](#prepare).
 1. [Create the infrastructure](#deploy).
 1. [Push your Docker image](#download-image).

@@ -26,7 +26,7 @@ To prohibit pod allocation to a node:
 
 {% endlist %}
 
-## Allowing pod allocation to a node {#cordon}
+## Allowing pod allocation to a node {#uncordon}
 
 You can allow pod allocation to a node in the management console in the same way as when using the kubectl uncordon <node_name>` command.
 

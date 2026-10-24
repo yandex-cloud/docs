@@ -8,7 +8,7 @@ description: Follow this guide to set up support for multiple website domain nam
 To create an infrastructure to support [multiple website domain names](index.md) using the {{ yandex-cloud }} management console, CLI, or API:
 1. [Create buckets](#buckets).
 1. [Set up a static website for your main domain](#common).
-1. [Set up a redirect for an additional domain](#xtra).
+1. [Set up a redirect for an additional domain](#extra).
 1. [Check the performance of several domains](#test).
 
 

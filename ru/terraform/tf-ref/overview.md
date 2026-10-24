@@ -43,7 +43,7 @@ This can also be specified using environment variable `YC_FOLDER_ID`.
 - `profile` (String) Profile name to use in the shared credentials file. Default value is `default`.
 - `region_id` (String) [The region](https://yandex.cloud/docs/overview/concepts/region) where operations will take place. For example `ru-central1`.
 - `service_account_key_file` (String) Contains either a path to or the contents of the [Service Account file](https://yandex.cloud/docs/iam/concepts/authorization/key) in JSON format.
-This can also be specified using environment variable `YC_SERVICE_ACCOUNT_KEY_FILE`. You can read how to create service account key file [here](https://yandex.cloud/docs/iam/operations/iam-token/create-for-sa#keys-create).
+This can also be specified using environment variable `YC_SERVICE_ACCOUNT_KEY_FILE`. You can read how to create service account key file [here](https://yandex.cloud/docs/iam/operations/authentication/manage-authorized-keys#create-authorized-key).
 
 ~> Only one of `token` or `service_account_key_file` must be specified.
 

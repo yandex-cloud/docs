@@ -97,7 +97,7 @@ Transfers process only the latest data, leaving historical data untouched. If yo
 
 To minimize resource consumption, delete the resources you no longer need:
 
-1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete-transfer).
+1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
 1. Delete the {{ metrika }} tracking counter from your [Yandex Metrica Pro]({{ link-yandex }}/support/metrica/pro/intro.html) account.

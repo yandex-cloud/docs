@@ -51,7 +51,7 @@ You can edit the exported JSON file, e.g., add a password for a connection. Howe
 
 If the workbook export fails, you will get an error [message](./export-import-notifications.md#export-notifications). Try to fix the error and re-export the workbook.
 
-## Importing a workbook {#export-workbook}
+## Importing a workbook {#import-workbook}
 
 To import a workbook:
 

@@ -60,4 +60,4 @@ Metric name<br>Type, units | Description
 `serverless_eventrouter_target_execution_time_milliseconds`<br>`DGAUGE`, milliseconds | Message processing time
 `serverless_eventrouter_target_inflight`<br>`DGAUGE`, count | Number of targets that are currently busy
 `serverless_eventrouter_target_retry_per_second`<br>`DGAUGE`, sends per second | Frequency of retry attempts to send messages to the target
-`serverless_eventrouter_target_throttled_per_second`<br>`DGAUGE`, messages per second | Frequency of messages not processed due to exceeding a [quota or limit](../../../serverless-integrations/concepts/limits.md#event-router)
+`serverless_eventrouter_target_throttled_per_second`<br>`DGAUGE`, messages per second | Frequency of messages not processed due to exceeding a [quota or limit](../../../serverless-integrations/concepts/limits.md#eventrouter)

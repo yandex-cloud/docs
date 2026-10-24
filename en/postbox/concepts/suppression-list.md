@@ -59,7 +59,7 @@ For each address on the custom suppression list, a reason is stated for its list
 
 Each address can have only one reason for being listed. Re-adding an address to the suppression list overrides the reason, e.g., if a user lists the address for the reason of `BOUNCE`, and then a user complaint is filed, the reason will change to `COMPLAINT`.
 
-The suppression list settings in the [configuration](../operations/create-configuration.md#options) applied to the message decide the following:
+The suppression list settings in the [configuration](../operations/create-configuration.md) applied to the message decide the following:
 * Reasons blocking the send.
 * Whether or not recipient addresses will be automatically added to the custom suppression list due to `COMPLAINT`.
 

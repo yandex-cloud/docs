@@ -370,7 +370,7 @@ In your DNS zone, create a [type A resource record](../../dns/concepts/resource-
   1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
   1. Specify the record settings:
       1. In the **{{ ui-key.yacloud.common.name }}** field, select `{{ ui-key.yacloud.dns.label_fqdn-equal-to-zone }}`.
-      1. In the **{{ ui-key.yacloud.common.type }}** field, select the `A` [record type](../../dns/concepts/resource-record.md#rr-types).
+      1. In the **{{ ui-key.yacloud.common.type }}** field, select the `A` [record type](../../dns/concepts/resource-record.md#a).
       1. Under **{{ ui-key.yacloud.dns.label_records }}**, specify your web server’s [public IP address](../../vpc/concepts/address.md#public-addresses).
 
           You can get your VM IP address either in the [management console]({{ link-console-main }}) on the VM page under **{{ ui-key.yacloud.compute.instance.overview.section_network }}** or with the `yc compute instance get <VM_name>` CLI command.

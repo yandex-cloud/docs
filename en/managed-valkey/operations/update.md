@@ -1870,7 +1870,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
 {% note warning %}
 
-You may need to [configure security groups](connect/index.md#configuring-security-groups) to enable access to your cluster.
+You may need to [configure security groups](connect/index.md#configure-security-groups) to enable access to your cluster.
 
 {% endnote %}
 

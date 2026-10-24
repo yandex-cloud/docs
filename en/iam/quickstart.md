@@ -15,7 +15,7 @@ To get started with {{ iam-short-name }}, add a user to your organization and gr
         * Organization owner (`organization-manager.organizations.owner`) or administrator (`organization-manager.admin`)
         * Cloud owner (`resource-manager.clouds.owner`) or administrator (`admin`)
 
-1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have an `ACTIVE` or `TRIAL_ACTIVE` [billing account](../billing/concepts/billing-account.md). If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
+1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have an `ACTIVE` or `TRIAL_ACTIVE` [billing account](../billing/concepts/billing-account.md). If you do not have a billing account yet, [create one](../billing/quickstart/index.md).
 1. If you do not have any users to add to the cloud, you can [create a new Yandex account](https://passport.yandex.ru/registration) and grant this account access to the cloud.
 
 ## Add a user with a Yandex account to your organization {#add-organization-member}
@@ -80,7 +80,7 @@ If the assigned roles are no longer needed, revoke them:
 * Learn about [access management in {{ yandex-cloud }}](concepts/access-control/index.md).
 * See the [best practices for using {{ yandex-cloud }} securely](best-practices/using-iam-securely.md).
 * Learn [how to get started with {{ org-full-name }}](../organization/quickstart.md).
-* Learn about [authentication in {{ yandex-cloud }}](concepts/authorization/index.md#authentication).
+* Learn about [authentication in {{ yandex-cloud }}](concepts/authorization/index.md).
 * [Learn how to work with service accounts](quickstart-sa.md).
 * Use [authentication and authorization security checklist](../security/domains/iam-checklist.md).
 * See [answers to frequently asked questions](qa/index.md).

@@ -84,7 +84,7 @@ New host classes are available for {{ PG }} clusters on AMD Zen 4 and AMD Zen 4 
 
 ## December 2025 {#dec-2025}
 
-* Added [detailed metrics](operations/monitoring.md#hosts) for disk usage on cluster hosts.
+* Added [detailed metrics](operations/monitoring.md#monitoring-hosts) for disk usage on cluster hosts.
 * Added execution details for your [operations on the cluster](operations/cluster-list.md#list-operations).
 * All [extensions](./operations/extensions/cluster-extensions.md) supported in {{ PG }} 17 are available for {{ PG }} 18.
 * Implemented authorization via {{ iam-short-name }} when [creating](./operations/cluster-users.md#adduser) a {{ PG }} user.

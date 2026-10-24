@@ -54,7 +54,7 @@ If you no longer need the resources you created, [delete them](#clear-out-connec
         1. Enable the [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics) property.
         1. Configure [security groups](../../managed-kafka/operations/connect/index.md#configuring-security-groups) to connect to the target cluster.
 
-    1. [For the target cluster, create a connector](../../managed-kafka/operations/cluster-connector.md#create-connector) of the `MirrorMaker` type, configured as follows:
+    1. [For the target cluster, create a connector](../../managed-kafka/operations/cluster-connector.md#create) of the `MirrorMaker` type, configured as follows:
 
         * **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-topics }}**: List of topics to migrate. You can also specify a regular expression for selecting topics. To migrate all topics, specify `.*`.
         * Under **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-source-cluster }}**, specify the parameters for connecting to the source cluster:

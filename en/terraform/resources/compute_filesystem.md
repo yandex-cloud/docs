@@ -40,7 +40,7 @@ resource "yandex_compute_filesystem" "default" {
  The length must be less than or equal to 50.
  This field is required.
 - `labels` (Map Of String). Filesystem labels as `key:value` pairs.
- For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
+ For details about the concept, see [documentation](../../resource-manager/concepts/labels.md).
 - `name` (String). Name of the filesystem. The name is unique within the folder.
 - `size` (Number). Size of the filesystem, specified in bytes.
 - `status` (*Read-Only*) (String). Current status of the filesystem.

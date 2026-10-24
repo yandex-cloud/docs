@@ -61,7 +61,7 @@ You cannot shorten the preparation stage, but you can influence the duration of 
 
 As the data redistribution stage can potentially take a long time, there are tools for {{ mgp-name }} clusters to [monitor](../operations/cluster-expand.md#redistribute-monitoring) the data redistribution process. Use these tools while cluster expansion is ongoing to get more accurate information about its progress and be able to estimate its completion time.
 
-## Settings affecting data redistribution process {#redistribution}
+## Settings affecting data redistribution process {#settings}
 
 The following settings are available:
 

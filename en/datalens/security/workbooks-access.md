@@ -16,7 +16,7 @@ This section describes how access management works for objects stored inside wor
 * A workbook contains connections, datasets, charts, and dashboards, and is the main unit for managing access permissions.
 * A collection is used to group workbooks and other collections.
 
-Some older {{ datalens-name }} instances still have folder-based navigation. We recommend [switching from folders to workbooks](../workbooks-collections/index.md#enable-workbooks) to gain more convenience and features, including copying and exporting/importing workbooks, assigning access permissions to groups, and sending newsletters.
+Some older {{ datalens-name }} instances still have folder-based navigation. We recommend [switching from folders to workbooks](../workbooks-collections/migrations.md#migration-operation) to gain more convenience and features, including copying and exporting/importing workbooks, assigning access permissions to groups, and sending newsletters.
 
 {% endnote %}
 

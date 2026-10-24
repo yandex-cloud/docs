@@ -399,7 +399,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
 
 ## Add selectors to the dashboard {#add-selectors}
 
-[Selectors](../../datalens/concepts/dashboard.md#selector) allow you to filter data by value.
+[Selectors](../../datalens/dashboard/selector.md) allow you to filter data by value.
 
 1. Add a widget for data filtering:
 

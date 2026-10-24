@@ -7,7 +7,7 @@ description: Follow this guide to configure access permissions for a dashboard.
 
 
 
-Access settings depend on the dashboard location, either a [workbook](../../workbooks-collections/index.md#enable-workbooks) or a folder.
+Access settings depend on the dashboard location, either a [workbook](../../workbooks-collections/index.md) or a folder.
 
 To find out the dashboard location, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **{{ ui-key.datalens.component.aside-header.view.switch_dashboards }}** in the left-hand panel. Optionally, use the filter by name to find the dashboard you need.
 

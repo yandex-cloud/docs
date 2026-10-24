@@ -44,11 +44,11 @@ The following types of charts are available in {{ datalens-full-name }}:
 - Tables
 
   * [Table](table-chart.md)
-  * [Pivot table](pivot-table-chart.md): Not supported in [QL charts](../concepts/chart/index.md#sql-charts)
+  * [Pivot table](pivot-table-chart.md): Not supported in [QL charts](../concepts/chart/ql-charts.md)
 
 - Geographical map
 
-  * [Map](map-chart.md): Not supported in [QL charts](../concepts/chart/index.md#sql-charts)
+  * [Map](map-chart.md): Not supported in [QL charts](../concepts/chart/ql-charts.md)
 
     * [Point map](point-map-chart.md)
     * [Point map with clusters](cluster-point-map-chart.md)

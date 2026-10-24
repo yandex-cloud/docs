@@ -177,7 +177,7 @@ You can place a taint on a node group only when [creating](../operations/node-gr
 
 {% note tip %}
 
-You can use {{ TF }} to [add](../operations/node-group/node-group-update.md#assign-taints) or [remove](../operations/node-group/node-group-update.md#remove-taint) a taint for a {{ TF }} node group resource; however, this will also delete the node group itself and recreate it with the new configuration.
+You can use {{ TF }} to [add](../operations/node-group/node-group-update.md#assign-taint) or [remove](../operations/node-group/node-group-update.md#remove-taint) a taint for a {{ TF }} node group resource; however, this will also delete the node group itself and recreate it with the new configuration.
 
 {% endnote %}
 

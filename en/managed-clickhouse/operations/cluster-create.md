@@ -321,7 +321,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
       {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-      1. To enable [user management via SQL](./cluster-users.md#sql-user-management):
+      1. To enable [user management via SQL](../concepts/user-access-rights.md#sql-user-management):
 
          * Set `--enable-sql-user-management` to `true`.
          * Set a password for `admin` in the `--admin-password` parameter.
@@ -838,7 +838,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                 * `sql...` and `adminPassword`: Group of settings for user and database management via SQL:
 
                     * `adminPassword`: `admin` password.
-                    * `sqlUserManagement`: [User management via SQL](./cluster-users.md#sql-user-management), `true` or `false`.
+                    * `sqlUserManagement`: [User management via SQL](../concepts/user-access-rights.md#sql-user-management), `true` or `false`.
                     * `sqlDatabaseManagement`: [Database management via SQL](./databases.md#sql-database-management), `true` or `false`. For that, you also need to enable user management via SQL.
 
 
@@ -1089,7 +1089,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                 * `sql...` and `admin_password`: Group of settings for user and database management via SQL:
 
                     * `admin_password`: `admin` password.
-                    * `sql_user_management`: [User management via SQL](./cluster-users.md#sql-user-management), `true` or `false`.
+                    * `sql_user_management`: [User management via SQL](../concepts/user-access-rights.md#sql-user-management), `true` or `false`.
                     * `sql_database_management`: [Database management via SQL](./databases.md#sql-database-management), `true` or `false`. For that, you also need to enable user management via SQL.
 
 
@@ -1432,7 +1432,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
       {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-      1. To enable [user management via SQL](./cluster-users.md#sql-user-management):
+      1. To enable [user management via SQL](../concepts/user-access-rights.md#sql-user-management):
 
          * Set `--enable-sql-user-management` to `true`.
          * Set a password for `admin` in the `--admin-password` parameter.
@@ -1962,7 +1962,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                 * `sql...` and `adminPassword`: Group of settings for user and database management via SQL:
 
                     * `adminPassword`: `admin` password.
-                    * `sqlUserManagement`: [User management via SQL](./cluster-users.md#sql-user-management), `true` or `false`.
+                    * `sqlUserManagement`: [User management via SQL](../concepts/user-access-rights.md#sql-user-management), `true` or `false`.
                     * `sqlDatabaseManagement`: [Database management via SQL](./databases.md#sql-database-management), `true` or `false`. For that, you also need to enable user management via SQL.
 
 
@@ -2226,7 +2226,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                 * `sql...` and `admin_password`: Group of settings for user and database management via SQL:
 
                     * `admin_password`: `admin` password.
-                    * `sql_user_management`: [User management via SQL](./cluster-users.md#sql-user-management), `true` or `false`.
+                    * `sql_user_management`: [User management via SQL](../concepts/user-access-rights.md#sql-user-management), `true` or `false`.
                     * `sql_database_management`: [Database management via SQL](./databases.md#sql-database-management), `true` or `false`. For that, you also need to enable user management via SQL.
 
 

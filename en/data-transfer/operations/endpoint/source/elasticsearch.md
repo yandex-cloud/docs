@@ -14,7 +14,7 @@ description: In this tutorial, you will learn how to configure a {{ ES }} source
 1. [Set up one of the supported data targets](#supported-targets).
 1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
 1. Perform required operations with the database and [control the transfer](../../monitoring.md).
-1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
+1. In case of any issues, [use ready-made solutions](../../../troubleshooting/index.md) to resolve them.
 
 ## Scenarios for transferring data from {{ ES }} {#scenarios}
 

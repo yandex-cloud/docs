@@ -11,7 +11,7 @@ To create a trigger, you will need:
 * Container the trigger will invoke. If you do not have a container:
 
     * [Create a container](../../serverless-containers/operations/create.md).
-    * [Create a container revision](../../serverless-containers/operations/manage-revision.md#create).
+    * [Create a container revision](../../serverless-containers/operations/manage-revision.md).
 
 * Optionally, a [dead-letter queue](../../serverless-containers/concepts/dlq.md) for unprocessed messages from the container. If you do not have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
 

@@ -23,7 +23,7 @@ For a detailed description of possible {{ data-transfer-full-name }} scenarios, 
 ## Configuring the {{ myt-name }} source endpoint {#endpoint-settings}
 
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, configure access to the [{{ myt-name }} cluster](#cluster):
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, configure access to the {{ myt-name }} cluster:
 
 
 {% list tabs group=instructions %}

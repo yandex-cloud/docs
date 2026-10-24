@@ -11,7 +11,6 @@ RoutePolicy is a Gwin custom resource for configuring route-level policies in Ya
   * [LabelSelectorRequirement](#labelselectorrequirement)
   * [Route](#route)
   * [RouteRule](#routerule)
-  * [BackendGroup](#backendgroup)
   * [Backend](#backend)
   * [HTTPBackend](#httpbackend)
   * [GRPCBackend](#grpcbackend)

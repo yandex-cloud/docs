@@ -36,7 +36,7 @@ description: This section contains the {{ mmy-name }} release notes.
 
 ## December 2025 {#dec-2025}
 
-* Added [detailed metrics](operations/monitoring.md#hosts) for disk usage on cluster hosts.
+* Added [detailed metrics](operations/monitoring.md#monitoring-hosts) for disk usage on cluster hosts.
 * Added execution details for [cluster operations](operations/cluster-list.md#list-operations).
 
 ## November 2025 {#nov-2025}

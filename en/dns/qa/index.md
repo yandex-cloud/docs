@@ -7,7 +7,7 @@ description: This page covers questions and answers about {{ dns-name }}.
 
 #### Why am I being charged for {{ dns-name }} even though I have no DNS zones in my cloud? {#dns-fee-without-usage}
 
-[Public DNS requests](../concepts/dns-zone.md#public-zones) from VMs to {{ yandex-cloud }} DNS servers are also [charged](../pricing.md#public-dns-requests).
+[Public DNS requests](../concepts/dns-zone.md#public-zones) from VMs to {{ yandex-cloud }} DNS servers are also [charged](../pricing.md#prices).
 
 Thus, {{ dns-name }} may still be used even if your cloud does not contain any DNS zones other than service ones.
 

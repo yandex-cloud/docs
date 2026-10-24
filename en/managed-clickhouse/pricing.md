@@ -83,7 +83,7 @@ You can choose a host class both for {{ CH }} and {{ ZK }} hosts based on the ex
 
 {% note warning %}
 
-In clusters with [{{ CK }}](./concepts/replication.md#ck) support off and with two or more {{ CH }} hosts, three {{ ZK }} hosts of the lowest class are automatically created for replication and [high availability](concepts/high-availability.md).
+In clusters with [{{ CK }}](concepts/coordination-system.md#ck) support off and with two or more {{ CH }} hosts, three {{ ZK }} hosts of the lowest class are automatically created for replication and [high availability](concepts/high-availability.md).
 
 {% endnote %}
 

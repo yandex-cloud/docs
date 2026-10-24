@@ -42,7 +42,7 @@ Odyssey supports three modes of connection management:
 
     This approach pays off if the `AUTOCOMMIT` mode is enabled for client sessions, where each transaction is already limited to a single query. However, not all {{ PG }} clients support query mode, and when both `AUTOCOMMIT` and the `synchronous_commit = remote_apply` setting are enabled at the same time, the cluster's performance is greatly reduced.
 
-You can [change](../operations/update.md#change-pooler-config) the connection pooler mode after the cluster is created.
+You can [change](../operations/update.md#change-additional-settings) the connection pooler mode after the cluster is created.
 
 {% note info %}
 

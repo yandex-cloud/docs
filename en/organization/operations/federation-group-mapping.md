@@ -2,8 +2,8 @@
 
 To configure user access to {{ yandex-cloud }} resources using [group mapping](../concepts/add-federation.md#group-mapping):
 
-1. [Create user groups](#create-group) in {{ org-full-name }}.
-1. [Configure their access permissions](#access) to {{ yandex-cloud }} resources.
+1. [Create user groups](create-group.md) in {{ org-full-name }}.
+1. [Configure their access permissions](groups-access-binding.md) to {{ yandex-cloud }} resources.
 1. Create user groups in your [identity provider](../concepts/add-federation.md#federation-usage) and add users to them.
 
     {% note info %}

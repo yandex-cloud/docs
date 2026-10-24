@@ -11,7 +11,7 @@
 
           You can also select the `{{ ui-key.yacloud.baremetal.field_interconnect-from-folder }}` option. In this case, select the `Routing Instance` you need from the list that opens.
 
-          As a result, you will see the CIDR blocks of {{ vpc-name }} subnets that will be [advertised](../../interconnect/concepts/priv-con.md#prc-announce) over {{ interconnect-name }}.
+          As a result, you will see the CIDR blocks of {{ vpc-name }} subnets that will be [advertised](../../cloud-router/concepts/announces.md#prc-announce) over {{ interconnect-name }}.
 
           {% include [no-subnet-overlapping-warn](../../_tutorials/_tutorials_includes/bm-vrf-and-vpc-interconnect/no-subnet-overlapping-warn.md) %}
       1. To create a private connection for the specified CIDR subnets, click **{{ ui-key.yacloud.common.save }}**.

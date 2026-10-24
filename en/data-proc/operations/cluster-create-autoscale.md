@@ -101,7 +101,7 @@ You can configure security groups after creating a {{ dataproc-name }} cluster t
 
 A {{ dataproc-name }} cluster must include a subcluster with a master host and at least one subcluster for data storage or processing.
 
-If you want to create a {{ dataproc-name }} cluster copy, [import its configuration](#duplicate) to {{ TF }}.
+If you want to create a {{ dataproc-name }} cluster copy, [import its configuration](cluster-create.md#duplicate) to {{ TF }}.
 
 {% list tabs group=instructions %}
 

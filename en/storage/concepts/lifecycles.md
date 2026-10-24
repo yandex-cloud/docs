@@ -23,7 +23,7 @@ Types of actions include:
 
 {% note tip %}
 
-If you do not want to configure lifecycle rules manually, use [`INTELLIGENT_TIERING` storage](./storage-class.md#intelligent-tiering) that automatically optimizes costs by moving objects across access tiers based on access frequency.
+If you do not want to configure lifecycle rules manually, use [`INTELLIGENT_TIERING` storage](./storage-class.md#features-intelligent-tiering) that automatically optimizes costs by moving objects across access tiers based on access frequency.
 
 {% endnote %}
 

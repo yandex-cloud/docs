@@ -66,7 +66,7 @@ SET allow_experimental_object_type=1;
 
 {% note info %}
 
-The `SET` queries are [not supported](../../managed-clickhouse/operations/web-sql-query.md#query-restrictions-in-the-management-console) when connecting to a cluster via the management console. To run such a query, use a different cluster connection method, e.g., [via clickhouse-client](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client).
+You can run this query [via clickhouse-client](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client).
 
 Make sure you have the latest client version installed.
 

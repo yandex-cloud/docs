@@ -22,7 +22,7 @@ When executing a query, the service measures its completion time and decides whi
 
 The value of such metrics is a floating-point number representing the average number of queries for an interval of time, e.g., 5 seconds.
 
-Usually, the `histogram_percentile` [filter](./querying.md#histogram_percentile) applies to such metrics, taking as the parameter the percentage of queries for which it is required to calculate the minimum time it takes to complete this percentage of queries.
+Usually, the `histogram_percentile` [filter](querying-functions.md#histogram_percentile) applies to such metrics, taking as the parameter the percentage of queries for which it is required to calculate the minimum time it takes to complete this percentage of queries.
 
 Here is an example:
 

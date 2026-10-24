@@ -104,7 +104,7 @@ Filters | Dimension or measure. It is used as a filter.
 
 {% note info %}
 
-Not supported in [QL charts](../concepts/chart/index.md#sql-charts).
+Not supported in [QL charts](../concepts/chart/ql-charts.md).
 
 {% endnote %}
 

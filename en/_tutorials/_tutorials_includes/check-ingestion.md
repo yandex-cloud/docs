@@ -4,7 +4,7 @@
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing your new [data stream](../../data-streams/concepts/glossary.md#stream-concepts), [transfer](../../data-transfer/concepts/index.md##transfer), and [bucket](../../storage/concepts/bucket.md).
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing your new [data stream](../../data-streams/concepts/glossary.md#stream-concepts), [transfer](../../data-transfer/concepts/index.md#transfer), and [bucket](../../storage/concepts/bucket.md).
   1. [Navigate]({{ link-console-main }}/link/data-streams) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
   1. Select the data stream named `logs-stream`.
   1. Open the **{{ ui-key.yacloud.common.monitoring }}** tab and check the stream activity charts.

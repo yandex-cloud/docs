@@ -14,7 +14,7 @@ Depending on the timeout specified in the [function version](./function.md#versi
 
 The most important difference between these types of notifications is the amount of time allowed for a function to complete its operation normally before the instance is forced to terminate. You should keep this difference in mind for listeners of these notification types.
 
-## Notifying the custom code in an active instance of a long-lived function {#possible-termination}
+## Notifying the custom code in an active instance of a long-lived function {#notify-when-active}
 
 This type of notification is sent to the custom code of the function if the following conditions are met:
 
@@ -34,7 +34,7 @@ If a long-lived function does not have a `SIGTERM` listener, the OS will close t
 
 You can disable signals about the upcoming forced termination of the function instance. To do this, you need to add the `X_YCF_NO_GRACEFUL_SHUTDOWN_SIGNAL` environment variable set to `1` to the function version. In this case, the function instance will also have 10 minutes to complete its operations but the forced termination notice will not be sent to the custom code of the function.
 
-## Notifying the custom code in an inactive instance of a long-lived function {#possible-termination}
+## Notifying the custom code in an inactive instance of a long-lived function {#notify-when-idle}
 
 This type of notification is sent to the custom code of the function if the instance is inactive, i.e., it is not processing any calls at the moment.
 

@@ -259,7 +259,7 @@ These methods have the `on(eventName, handler)` and `once(eventName, handler)` s
 
 The handler receives an object with the appropriate field from the [player state](./player-state.md).
 
-Example of subscribing to all triggered playback [StatusChange](./player-state.md#StatusChange) events:
+Example of subscribing to all triggered playback [StatusChange](player-events.md#statuschange) events:
 
 ```javascript
 player.on('StatusChange', ({ status }) => {
@@ -269,7 +269,7 @@ player.on('StatusChange', ({ status }) => {
 
 #### off {#off}
 
-Allows you to unsubscribe from the player events you subscribed to using the `on` or `once` [methods](./player-events.md#subscribe-methods).
+Allows you to unsubscribe from the player events you subscribed to using the `on` or `once` [methods](player-methods.md#subscribe-methods).
 
 The method has the `off(eventName, handler)` signature. The first parameter communicates the event name, the second communicates the handler you had used for subscription.
 

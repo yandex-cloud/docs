@@ -12,7 +12,7 @@ The larger the [disk](../../compute/concepts/disk.md) allocated for the dataset,
 
 A dataset is [created and populated](../operations/data/dataset.md#create) during initialization. Once initialized, you cannot change a dataset, as it becomes read-only. If you want to add files to a dataset, create it once again.
 
-Datasets are not included in the main project storage and are [priced](../pricing.md#prices-datasets) separately.
+Datasets are not included in the main project storage and are [priced](../pricing.md#prices-storage) separately.
 
 To use your data in multiple projects, you can [share](../operations/data/dataset.md#share) your datasets within your community, just like any other resources.
 

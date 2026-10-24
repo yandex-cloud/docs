@@ -10,7 +10,7 @@
 
 When the VM's disk subsystem operation exceeds the service limits at any given time, this triggers [throttling](../../../compute/concepts/storage-read-write.md#throttling), resulting in decreased performance of services running on the VM.
 
-Check the VM's internal monitoring data for many deferred disk operations and reaching the [technical write limits](../../../compute/concepts/limits.md#limits-disks). You can use the `iotop` utility to analyze disk subsystem metrics for Linux VMs, or Sysinternals DiskMon for Windows VMs.
+Check the VM's internal monitoring data for many deferred disk operations and reaching the [technical write limits](../../../compute/concepts/limits.md#compute-limits-disks). You can use the `iotop` utility to analyze disk subsystem metrics for Linux VMs, or Sysinternals DiskMon for Windows VMs.
 
 In {{ yandex-cloud }}, the VM disk performance directly depends on its size:
 

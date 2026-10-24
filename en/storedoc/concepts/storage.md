@@ -60,7 +60,7 @@ To keep your cluster up and running as the host is switching over to _read-only_
    {% endnote %}
 
 * [Force data synchronization](../operations/hosts.md#resetup) between hosts. This can help when a large amount of data was deleted from the cluster, but the disk space was not released (marked as available for reuse).
-* Run the `compact` command. First, [add](../operations/cluster-users.md#updateuser) the [mdbDbAdmin role](users-and-roles.md#mdbdbadmin) to the user. 
+* Run the `compact` command. First, [add](../operations/cluster-users.md#updateuser) the [mdbDbAdmin role](users-and-roles.md#mdbDbAdmin) to the user.
 
 ### Automatic storage expansion {#auto-rescale}
 

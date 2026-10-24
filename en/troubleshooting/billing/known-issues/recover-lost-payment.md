@@ -20,7 +20,7 @@ Check that the following details are correctly specified in your payment order:
 * Account number in the payment purpose description.
 * Agreement number in the payment purpose description.
 
-Funds should be transferred from a [bank account](../../../billing/operations/pay-the-bill.md#organizaciyam-i-ip) of the organization or individual entrepreneur owning the billing account.
+Funds should be transferred from a [bank account](../../../billing/operations/pay-the-bill.md#legal-entities) of the organization or individual entrepreneur owning the billing account.
 
 You can find the bank details in [Yandex Legal documents]({{ billing-oferta-url }}) (paragraph **18. Yandex Details**).
 

@@ -9,4 +9,4 @@
 
 {% endlist %}
 
-If you have any problems, [contact](#contact-form) {{ yandex-cloud }}.
+If you have any problems, [contact](https://yandex.cloud/en#contact-form) {{ yandex-cloud }}.

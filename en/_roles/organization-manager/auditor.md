@@ -27,7 +27,7 @@ The `organization-manager.auditor` role enables viewing info on the organization
 * View the list of groups a certain user is a member of, as well as the list of users that are members of a certain group.
 * View info on the organization users' [refresh tokens](../../iam/concepts/authorization/refresh-token.md) and on the refresh token settings.
 * View info on {{ org-full-name }} quotas.
-* View info on the effective tech support [service plan](../../support/pricing.md#effective-plans).
+* View info on the effective tech support [service plan](../../support/pricing.md#prices).
 * View the list of technical support [requests](../../support/overview.md) and info on them, as well as create and close such requests, leave comments, and attach files to them.
 
 {% endcut %}

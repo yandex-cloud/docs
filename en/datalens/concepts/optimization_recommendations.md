@@ -42,7 +42,7 @@ To optimize data operations, follow the tips below:
 
    * Set dashboard selector values and use the defaults. The list of values set in a selector creates a condition for filtering chart data. If no value is selected, all data is returned. This increases the load on the source.
    * Optimize the dashboard structure. Queries to the source are run for each chart in the active tab. It may take much time to load a tab if there are too many charts. Place as few charts per tab as possible, based on how often they are used at the same time.
-   * Reduce the use of [auto updates](dashboard.md#auto-update) for your dashboard data. Do not set its update frequency to a value larger than that of the source data update frequency.
+   * Reduce the use of [auto updates](../dashboard/settings.md#auto-update) for your dashboard data. Do not set its update frequency to a value larger than that of the source data update frequency.
    * Use the **Number of simultaneously loaded widgets** option in the dashboard settings.
 
 1. Consider how {{ datalens-short-name }} works:

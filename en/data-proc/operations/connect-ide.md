@@ -55,7 +55,7 @@ Before connecting:
 
 - DBeaver {#dbeaver}
 
-  1. [Download the SSH key](#data-proc-ssh) to the local machine or VM to connect to a {{ dataproc-name }} cluster.
+  1. [Download the SSH key](connect-ssh.md#connection-ssh) to the local machine or VM to connect to a {{ dataproc-name }} cluster.
   1. Create a new DB connection:
      1. From the **Database** menu, select **New connection**.
      1. Select a data source from the DB list depending on the configuration of the {{ dataproc-name }} cluster you are connecting to:

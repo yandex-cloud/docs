@@ -2,7 +2,7 @@
 
 To authenticate and manage your {{ yandex-cloud }} infrastructure, you can use {{ TF }} as a:
 * [Service account](../iam/concepts/users/service-accounts.md) using an [IAM token](#service-account) or [authorized key](#service-account-key).
-* [User account](#users).
+* [User account](#user).
     * [Yandex account](../iam/concepts/users/accounts.md#passport).
     * [Federated account](../iam/concepts/users/accounts.md#saml-federation).
     * [Local user](../iam/concepts/users/accounts.md#local).

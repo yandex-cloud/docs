@@ -117,7 +117,7 @@ Field | Type | Description
 `type` | `string` | Deletion type:<ul><li>`HARD_DELETE`: Permanently delete artifacts.</li><li>`SOFT_DELETE`: Mark artifacts for deletion with an option to restore.</li></ul>
 `cooldown_period_days` | `integer` | Waiting period before deletion, in days.
 `older_than_days` | `integer` | Delete artifacts older than the specified number of days.
-`version_condition` | [DeleteByVersionCondition](#dDeleteByVersionCondition) | Delete artifacts based on the number of versions.
+`version_condition` | [DeleteByVersionCondition](#DeleteByVersionCondition) | Delete artifacts based on the number of versions.
 `always` | `boolean` | Delete all matching artifacts.
 
 ### DeleteByVersionCondition object {#DeleteByVersionCondition}

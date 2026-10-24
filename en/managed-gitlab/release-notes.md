@@ -62,7 +62,7 @@ You can now manage {{ GLR }} agents using the {{ yandex-cloud }} management cons
 
 ## July 2024 {#jul-2024}
 
-On July 1, 2024, the [approval rules](concepts/approval-rules.md) feature entered the [General Availability](../overview/concepts/launch-stages.md) stage and is now subject to the [pricing policy](pricing.md#prices-instance).
+On July 1, 2024, the [approval rules](concepts/approval-rules.md) feature entered the [General Availability](../overview/concepts/launch-stages.md) stage and is now subject to the [pricing policy](pricing.md#rules).
 
 
 ## March 2024 {#mar-2024}

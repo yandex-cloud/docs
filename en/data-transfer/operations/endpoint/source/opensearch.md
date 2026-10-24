@@ -44,7 +44,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you will need the [`{{ roles.mos.viewer }}`](../../../../managed-opensearch/security/index.md#mos-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
+To create or edit an endpoint of a managed database, you will need the [`{{ roles.mos.viewer }}`](../../../../managed-opensearch/security/index.md#managed-opensearch-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
 
 {% endnote %}
 
@@ -102,7 +102,7 @@ After configuring the data source and target, [create and start the transfer](..
 
 ## Troubleshooting data transfer issues {#troubleshooting}
 
-* [Transfer interrupted with an error message](#ambiguous-resolution-es)
+* [Transfer interrupted with an error message](#ambiguous-resolution-os)
 * [Document duplication on the target](#duplication)
 * [Exceeding the limit on the maximum number of fields](#exceeding-fields-limit)
 * [Transfer failure with the `mapper_parsing_exception` error](#data-types)

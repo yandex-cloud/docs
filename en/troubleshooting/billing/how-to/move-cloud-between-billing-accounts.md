@@ -29,9 +29,9 @@ The algorithm depends on the type of billing account you want to link to your cl
     After changing the account for your clouds, you can grant access to your cloud to other accounts.
     To do this, follow these steps:
 
-    1. [Add a user to the cloud](../../../organization/operations/add-account.md#passport-user).
-    1. [Assign the relevant role to the user](../../../iam/operations/roles/grant.md#access-to-user).
-    
+    1. [Add a user to the cloud](../../../organization/operations/add-account.md).
+    1. [Assign the relevant role to the user](../../../iam/operations/roles/grant.md#cloud-or-folder).
+
     You can find the list of roles [here](../../../iam/concepts/access-control/roles.md).
 
 - Individuals

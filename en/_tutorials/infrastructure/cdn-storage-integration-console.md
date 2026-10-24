@@ -1003,7 +1003,7 @@ To create security groups:
   1. Specify the record settings:
 
         * In the **{{ ui-key.yacloud.common.name }}** field, select `{{ ui-key.yacloud.dns.label_fqdn-equal-to-zone }}`.
-        * In the **{{ ui-key.yacloud.common.type }}** field, select the `CNAME` [record type](../../dns/concepts/resource-record.md#rr-types).
+        * In the **{{ ui-key.yacloud.common.type }}** field, select the `CNAME` [record type](../../dns/concepts/resource-record.md#cname).
         * In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the [domain name](../../cdn/operations/resources/get-resources-info.md#get-cname) value of the CDN provider.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.

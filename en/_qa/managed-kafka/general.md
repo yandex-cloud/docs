@@ -6,7 +6,7 @@ Make sure it complies with all the [high availability conditions](../../managed-
 
 This error occurs because the log segments of your topics use more space than the broker storage can provide. For more information about calculating the required space, see [{#T}](../../managed-kafka/concepts/storage.md#minimal-storage-size).
 
-To solve this issue, you can [increase the disk storage size](../../managed-kafka/operations/cluster-update.md#change-disk-size) for the [entire cluster](../../managed-kafka/operations/cluster-update.md#change-kafka-settings) or reduce the [topic](../../managed-kafka/operations/cluster-topics.md#update-topic) segment size.
+To solve this issue, you can [increase the disk storage size](../../managed-kafka/operations/storage-space.md#change-disk-size) for the [entire cluster](../../managed-kafka/operations/cluster-update.md#change-kafka-settings) or reduce the [topic](../../managed-kafka/operations/cluster-topics.md#update-topic) segment size.
 
 {% include [logs](../logs.md) %}
 
@@ -131,7 +131,7 @@ If unread messages are deleted from the topic in line with their storage setting
 You can monitor the reading process using these two methods:
 
 * Create a chart for the `kafka_group_topic_partition_lag` [metric](../../managed-kafka/metrics.md) in {{ monitoring-full-name }}.
-* Use the `kafka-consumer-groups.sh` command line tool that comes with the {{ KF }} distribution file. [Pre-configure a connection](../../managed-kafka/operations/connect/clients.md#with-ssl) to the cluster.
+* Use the `kafka-consumer-groups.sh` command line tool that comes with the {{ KF }} distribution file. [Pre-configure a connection](../../managed-kafka/operations/connect/clients.md?tabs=connection_with-ssl) to the cluster.
 
   To get the list of consumer groups, run this command:
 

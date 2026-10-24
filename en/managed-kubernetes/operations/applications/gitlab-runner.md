@@ -16,7 +16,7 @@ description: Follow this guide to install {{ GLR }}.
 
 1. Open the {{ GL }} administration panel in your browser:
    * If {{ GL }} is deployed on a [{{ compute-full-name }}](../../../compute/) [VM instance](../../../compute/concepts/vm.md), use its [public IP address](../../../compute/concepts/network.md#public-ip).
-   * If {{ GL }} is deployed in [{{ mgl-full-name }}](../../../managed-gitlab/), use the [instance FQDN](../../../compute/concepts/network.md##hostname).
+   * If {{ GL }} is deployed in [{{ mgl-full-name }}](../../../managed-gitlab/), use the [instance FQDN](../../../compute/concepts/network.md#hostname).
 1. Get the {{ GLR }} authentication token:
    * To configure {{ GLR }} for the entire [{{ GL }} instance](../../../managed-gitlab/concepts/index.md#instance) ({{ GL }} admin permissions required):
      1. Click **Admin area** and select **CI/CD** → **Runners**.

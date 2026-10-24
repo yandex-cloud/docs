@@ -7,7 +7,7 @@ Create a network load balancer with a [listener](concepts/listener.md), attach a
 ## Getting started {#before-you-begin}
 
 1. Log in to the [management console]({{ link-console-main }}) or sign up. If not signed up yet, navigate to the management console and follow the on-screen instructions.
-1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a linked [billing account](../billing/concepts/billing-account.md) with the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
+1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a linked [billing account](../billing/concepts/billing-account.md) with the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md).
 1. If you do not have a folder yet, [create one](../resource-manager/operations/folder/create.md).
 1. [Create](../compute/quickstart/quick-create-linux.md) multiple VMs in advance to include them in the target group attached to your network load balancer. For testing, consider using low-cost [preemptible VMs](../compute/concepts/preemptible-vm.md).
 
@@ -46,7 +46,7 @@ To create a network load balancer:
 
 ## Check the resource status {#health-check}
 
-To check the [status of the network load balancer](concepts/index.md#lb-statuses) and targets in the attached target group:
+To check the [status of the network load balancer](concepts/health-check.md#nlb-status) and targets in the attached target group:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you need to create a load balancer.
 1. [Navigate]({{ link-console-main }}/link/network-load-balancer/) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.

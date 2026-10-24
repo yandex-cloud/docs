@@ -6,7 +6,7 @@ Labels shared by all {{ at-name }} metrics:
 | --- | --- |
 service | Service ID: `audit-trails`
 trail | [Trail](../../../audit-trails/concepts/trail.md) ID |
-status | [Trail](../../../audit-trails/concepts/trail.md#status) status | |
+status | [Trail](../../../audit-trails/concepts/diagnostics.md) status | |
 event_type | Event type |
 event_source | Event source service |
 destination_type | [Destination object](../../../audit-trails/concepts/trail.md#target) |

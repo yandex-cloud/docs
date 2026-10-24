@@ -1,4 +1,4 @@
-[Some {{ yandex-cloud }} services](../../iam/concepts/authorization/ephemeral-keys.md#supported-services) support authentication with [ephemeral access keys](../../iam/concepts/authorization/ephemeral-keys.md).
+[Some {{ yandex-cloud }} services](../../iam/concepts/authorization/ephemeral-keys.md) support authentication with [ephemeral access keys](../../iam/concepts/authorization/ephemeral-keys.md).
 
 Ephemeral access keys are created for [Yandex accounts](../../iam/concepts/users/accounts.md#passport), [federated accounts](../../iam/concepts/users/accounts.md#saml-federation), [local users](../../iam/concepts/users/accounts.md#local), and [service accounts](../../iam/concepts/users/service-accounts.md).
 

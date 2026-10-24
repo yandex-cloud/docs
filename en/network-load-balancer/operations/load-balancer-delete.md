@@ -7,7 +7,7 @@ description: Follow this guide to delete a network load balancer.
 
 {% note info %}
 
-If deletion protection is enabled for the network load balancer, [disable it](./deletion-protection.md#disable) before deleting the load balancer.
+If deletion protection is enabled for the network load balancer, [disable it](./deletion-protection.md#disable-deletion-protection) before deleting the load balancer.
 
 {% endnote %}
 

@@ -46,7 +46,7 @@ Set up your infrastructure:
     1. Configure [security groups](../../../managed-mysql/operations/connect/index.md#configure-security-groups) and make sure they allow cluster connections.
 
 
-    1. [Create a {{ ydb-name }} database](../../../ydb/operations/manage-databases.md#create-db) named `ydb-example` with any suitable configuration.
+    1. [Create a {{ ydb-name }} database](../../../ydb/operations/manage-databases.md#create-db-serverless) named `ydb-example` with any suitable configuration.
 
     1. [Create a service account](../../../iam/operations/sa/create.md#create-sa) `yds-sa` with the `yds.editor` role. The transfer will use it to access {{ yds-name }}.
 

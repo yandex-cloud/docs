@@ -1,6 +1,6 @@
 # Stopping and restarting a {{ SD }} cluster
 
-If necessary, you can stop and restart your {{ SD }} cluster. During cluster downtime, you only pay for allocated storage and backup space, as per the [pricing policy](../pricing.md#prices-storage).
+If necessary, you can stop and restart your {{ SD }} cluster. During cluster downtime, you only pay for allocated storage and backup space, as per the [pricing policy](../pricing.md#rules-storage).
 
 {% include [pricing-status-warning.md](../../_includes/mdb/pricing-status-warning.md) %}
 

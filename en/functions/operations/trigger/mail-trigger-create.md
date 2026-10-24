@@ -258,7 +258,7 @@ To create a trigger, you will need:
 
 {% endlist %}
 
-{{ sf-name }} will automatically generate an email address for which the trigger will fire when messages are sent to it. To view it, [get trigger details](trigger-list.md#trigger-get).
+{{ sf-name }} will automatically generate an email address for which the trigger will fire when messages are sent to it. To view it, [get trigger details](trigger-info.md).
 
 ## Checking the result {#check-result}
 

@@ -73,7 +73,7 @@ The `computeMetadata` folder contains the following main keys:
 
 The `user-data` folder contains no separate keys, so the data is provided all at once when accessing the root key of the `/latest/user-data/` folder.
 
-This folder stores the metadata specified by the user when [creating](../../operations/index.md#vm-create) or [modifying](../../operations/vm-control/vm-update.md#change-metadata) the VM instance. This information is received by the [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) process initiated when the VM instance starts.
+This folder stores the metadata specified by the user when [creating](../../operations/index.md#vm-create) or [modifying](../../operations/vm-control/vm-update.md#changing-metadata) the VM instance. This information is received by the [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) process initiated when the VM instance starts.
 
 To get information from this folder, you need to [run a request](../../operations/vm-info/get-info.md#example4).
 

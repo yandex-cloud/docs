@@ -84,7 +84,7 @@ The summary for preliminary analysis of resources in the environment is availabl
 
 {% endlist %}
 
-After data analysis detects potentially dangerous resources, click **{{ ui-key.yacloud_org.security.discovery.action_include-in-scan_2wT6B }}** to [create](create-scan.md#cloud-sd-v2) a continuous update scan for them.
+After data analysis detects potentially dangerous resources, click **{{ ui-key.yacloud_org.security.discovery.action_include-in-scan_2wT6B }}** to [create](create-scan.md?tabs=instructions_cloud-sd-v2#change-scaning) a continuous update scan for them.
 
 
 ## Saving analysis results {#save-results}

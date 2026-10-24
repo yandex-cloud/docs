@@ -16,7 +16,7 @@ To get started with the {{ yandex-cloud }} SDK:
     1. [Get the source data](#get-source-data).
 1. [Set up your environment](#prepare-project).
 1. [Create a configuration file](#create-config).
-1. [Prepare the script code](#prepare-code).
+1. [Prepare the script code](#prepare-project).
 1. [Run the script to create a VM](#run-code).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -30,8 +30,8 @@ See also [SDK use cases](#examples).
 ### Required paid resources {#paid-resources}
 
 The cost of supporting a VM created with the SDK includes:
-* Fee for VM computing resources (see [{{ compute-full-name }}](../../compute/pricing.md#prices-instance-resources) pricing).
-* Fee for VM disks (see [{{ compute-full-name }}](../../compute/pricing.md#prices-storage) pricing).
+* Fee for VM computing resources (see [{{ compute-full-name }}](../../compute/pricing.md#instance-resources) pricing).
+* Fee for VM disks (see [{{ compute-full-name }}](../../compute/pricing.md#disk) pricing).
 * Fee for using a dynamic external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 ### Create a service account {#create-sa}

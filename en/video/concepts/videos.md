@@ -64,7 +64,7 @@ To provide users with more options and expand your video audience, enable AI fea
 
 [Summarization](../operations/video/summarization.md#enable) automatically creates a short summary of your video conveying its main points and key message. Summarization is available for videos with duration of no longer than four hours. With summarization enabled, the system automatically adds timecodes to videos. You can adjust the suggested timecodes or [add custom ones manually](#timecodes).
 
-### Neural translation {#stranslation}
+### Neural translation {#translation}
 
 [Neural translation](../operations/video/translation.md) enables the automatic translation of video content into multiple languages and voiceover with [diverse voice options](https://habr.com/ru/news/905118/). View the list of supported languages in the [{{ video-name }} UI]({{ link-video-main }}).
 

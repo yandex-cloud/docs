@@ -2,7 +2,7 @@
 
 Чтобы добавить программный продукт для {{ managed-k8s-name }} в {{ marketplace-short-name }}, его пакеты необходимо загрузить в [реестр](../../container-registry/concepts/registry.md) {{ yandex-cloud }}. Этот раздел поможет подготовить продукт {{ marketplace-short-name }} для {{ managed-k8s-full-name }}.
 
-Настройка доступа к продукту по [подписке](subscription.md) описана в разделе [Интеграция с {{ license-manager }} API](../operations/license-manager-integration.md#managed-k8s).
+Настройка доступа к продукту по [подписке](subscription.md) описана в разделе [Интеграция с {{ license-manager }} API](../operations/license-manager-integration.md?tabs=service_managed-k8s).
 
 Вы также можете создать продукты для {{ compute-full-name }} на базе ОС [Linux](compute-product.md), воспользовавшись соответствующими рекомендациями.
 

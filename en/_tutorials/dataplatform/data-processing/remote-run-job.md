@@ -4,7 +4,7 @@ This tutorial describes how to use the [spark-submit utility](https://spark.apac
 
 {% note info %}
 
-You can also run jobs in the {{ dataproc-name }} cluster from {{ ml-platform-full-name }}. For more information, see [this concept](../../../datasphere/concepts/data-processing.md#existing-clusters).
+You can also run jobs in the {{ dataproc-name }} cluster from {{ ml-platform-full-name }}. For more information, see [this concept](../../../datasphere/concepts/data-processing-operations.md).
 
 {% endnote %}
 

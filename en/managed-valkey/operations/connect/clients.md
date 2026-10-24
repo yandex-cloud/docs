@@ -19,7 +19,7 @@ For {{ VLK }} clusters, there is support for encrypted connections on port `{{ p
 
 {% include [How to use TLS](../../../_includes/mdb/mvk/connect/how-to-use-tls.md) %}
 
-To always connect to the master in a non-sharded cluster, use a [special FQDN](fqdn.md#special-fqdn) that always points to the master, or track the roles of all cluster hosts yourself.
+To always connect to the master in a non-sharded cluster, use a [special FQDN](fqdn.md#special-fqdns) that always points to the master, or track the roles of all cluster hosts yourself.
 
 {% list tabs group=connection %}
 

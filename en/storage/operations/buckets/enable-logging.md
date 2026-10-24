@@ -274,7 +274,7 @@ To get logs, download the object prefixed with `logs/` from the target bucket:
 
 - AWS CLI {#cli}
 
-  To get logs using the [AWS CLI](../../tools/aws-cli.md), download the objects prefixed with `logs/` by following [this guide](../objects/download.md#cli). 
+  To get logs using the [AWS CLI](../../tools/aws-cli.md), download the objects prefixed with `logs/` by following [this guide](../objects/download.md?tabs=instructions_cli).
 
 - API {#api}
 

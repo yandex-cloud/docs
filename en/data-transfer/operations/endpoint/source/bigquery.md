@@ -6,7 +6,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 1. [Review the available data transfer scenarios](#scenarios).
 1. [Prepare the BigQuery database](#prepare) for the transfer.
-1. [Set up a source endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
+1. [Set up a source endpoint](#settings) in {{ data-transfer-full-name }}.
 1. [Set up one of the supported data targets](#supported-targets).
 1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
 1. If you run into any problems, [check the available solutions](../../../../data-transfer/troubleshooting/index.md) for troubleshooting.

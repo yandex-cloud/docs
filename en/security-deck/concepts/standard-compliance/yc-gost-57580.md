@@ -18,7 +18,7 @@ These rules help ensure compliance with GOST R 57580:
 || УЗП.22–УЗП.27 | [cspm.access.check-privileged-roles](../../rules-reference/cspm.md#check-privileged-roles) ||
 || УЗП.22–УЗП.25; УЗП.28 | [cspm.access.kms-keys-access](../../rules-reference/cspm.md#kms-keys-access) ||
 || УЗП.10; УЗП.17–УЗП.21 | [cspm.access.min-privileges](../../rules-reference/cspm.md#min-privileges) ||
-|| РД.14–РД.15 | [cspm.cookie-timeout.organization](../../rules-reference/cspm.md#ccookie-timeout-organization) ||
+|| РД.14–РД.15 | [cspm.cookie-timeout.organization](../../rules-reference/cspm.md#organization) ||
 || УЗП.22–УЗП.25 | [cspm.access.user-groups-access](../../rules-reference/cspm.md#user-groups-access) ||
 || РД.31; УЗП.17–УЗП.20 | [cspm.access.user-groups-mapping](../../rules-reference/cspm.md#user-groups-mapping) ||
 || **7.2.2. Subprocess _Identification, authentication, and authorization (access control) associated with logical access_** {align="center"} | > ||
@@ -57,7 +57,7 @@ These rules help ensure compliance with GOST R 57580:
 || СМЭ.16–СМЭ.19; СМЭ.21 |
 [cspm.access.public-access](../../rules-reference/cspm.md#public-access)
 [cspm.network.network-firewall-scope](../../rules-reference/cspm.md#network-firewall-scope)
-[cspm.k8s.network-firewall-scope](../../rules-reference/cspm.md#network-firewall-scope)
+[cspm.k8s.network-firewall-scope](../../rules-reference/cspm.md#k8s-network-firewall-scope)
 [cspm.trusted-ip](../../rules-reference/cspm.md#trusted-ip)
 [cspm.trusted-ip-k8s](../../rules-reference/cspm.md#trusted-ip-k8s)
 ||
@@ -72,7 +72,7 @@ These rules help ensure compliance with GOST R 57580:
 || СМЭ.19 | [cspm.access.acl-container-registry](../../rules-reference/cspm.md#acl-container-registry) ||
 || СМЭ.16–СМЭ.19; ИУ.7–ИУ.8 | [cspm.access.bucket-public-access](../../rules-reference/cspm.md#bucket-public-access) ||
 || **7.3.2. Subprocess _Detecting intrusions and network attacks_** {align="center"} | > ||
-|| ВСА.8; ВСА.9 | [cspm.appsec.ddos-protection.l3](../../rules-reference/cspm.md#appsec-ddos-protection-l3) ||
+|| ВСА.8; ВСА.9 | [cspm.appsec.ddos-protection.l3](../../rules-reference/cspm.md#l3) ||
 || ВСА.1–ВСА.7; BCA.11–BCA.13 |
 [cspm.appsec.use-sws](../../rules-reference/cspm.md#use-sws)
 [cspm.appsec.use-waf](../../rules-reference/cspm.md#use-waf)

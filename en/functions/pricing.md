@@ -59,7 +59,7 @@ Price per month = {{ sku|USD|serverless.functions.compute.v1|pricingRate.10|stri
 * The function is called by [Yandex Dialogs](https://yandex.ru/dev/dialogs/).
 * The skill was created as per [this guide](https://yandex.ru/dev/dialogs/alice/doc/deploy-ycloud-function.html#deploy-ycloud-function__register).
 
-However, if the function uses other {{ yandex-cloud }} resources, those are billed. For example, if the function makes requests to {{ message-queue-name }}, the requests are billed according to the [relevant pricing](../message-queue/pricing.md#requests-to-queues).
+However, if the function uses other {{ yandex-cloud }} resources, those are billed. For example, if the function makes requests to {{ message-queue-name }}, the requests are billed according to the [relevant pricing](../message-queue/pricing.md#prices).
 
 ## Prices for the Russia region {#prices}
 

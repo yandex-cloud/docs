@@ -26,8 +26,8 @@ editable: false
   ```
 
   More info:
-  - [FIXED, INCLUDE, EXCLUDE](native-functions.md#syntax-lod)
-  - [BEFORE FILTER BY](native-functions.md#syntax-before-filter-by)
+  - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
+  - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 

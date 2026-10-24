@@ -7,9 +7,9 @@ description: '{{ at-full-name }} позволяет собирать аудит�
 
 {{ at-full-name }} позволяет собирать [аудитные логи уровня конфигурации](./events.md) и [аудитные логи уровня сервисов](./events-data-plane.md) ресурсов {{ yandex-cloud }} и загружать их в [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}, [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }} или [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }}:
 
-* [Загрузка аудитных логов в бакет](../operations/create-trail.md#bucket).
-* [Загрузка аудитных логов в {{ cloud-logging-name }}](../operations/create-trail.md#logging).
-* [Загрузка аудитных логов в поток данных](../operations/create-trail.md#data-streams).
+* [Загрузка аудитных логов в бакет](../operations/create-trail.md?tabs=trail-target_bucket#before-you-begin).
+* [Загрузка аудитных логов в {{ cloud-logging-name }}](../operations/create-trail.md?tabs=trail-target_logging#before-you-begin).
+* [Загрузка аудитных логов в поток данных](../operations/create-trail.md?tabs=trail-target_data-streams#before-you-begin).
 
 Сбор аудитных логов позволяет применять инструменты анализа и оперативного реагирования на события {{ yandex-cloud }}:
 

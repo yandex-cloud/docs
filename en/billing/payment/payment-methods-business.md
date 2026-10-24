@@ -26,6 +26,6 @@ The due date for payments is specified in Chapter 6 (Payment Procedure) of the [
 
 {% note info %}
 
-We recommend that you keep track of the money you spend from your personal account and [maintain a positive balance at all times](../operations/pay-the-bill.md). If the personal account balance drops to zero, {{ yandex-cloud }} reserves the right to change the status of your billing account to [PAYMENT_REQUIRED](../concepts/billing-account-statuses.md#conditions). For more information, see [Billing cycle](../payment/billing-cycle-business.md).
+We recommend that you keep track of the money you spend from your personal account and [maintain a positive balance at all times](../operations/pay-the-bill.md). If the personal account balance drops to zero, {{ yandex-cloud }} reserves the right to change the status of your billing account to [PAYMENT_REQUIRED](../concepts/billing-account-statuses.md#descr). For more information, see [Billing cycle](../payment/billing-cycle-business.md).
 
 {% endnote %}

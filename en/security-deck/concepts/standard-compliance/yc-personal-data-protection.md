@@ -34,7 +34,7 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 [cspm.network.serverless-uses-vpc](../../rules-reference/cspm.md#serverless-uses-vpc)
 [cspm.trusted-ip](../../rules-reference/cspm.md#trusted-ip)
 [cspm.trusted-ip-k8s](../../rules-reference/cspm.md#trusted-ip-k8s)
-[cspm.k8s.network-firewall-scope](../../rules-reference/cspm.md#network-firewall-scope)
+[cspm.k8s.network-firewall-scope](../../rules-reference/cspm.md#k8s-network-firewall-scope)
 ||
 || MA.4 | Separation of powers (roles) of users, administrators and persons in charge of the information system's operation |
 [cspm.access.min-privileges](../../rules-reference/cspm.md#min-privileges)
@@ -48,14 +48,14 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 [cspm.access.kms-keys-access](../../rules-reference/cspm.md#kms-keys-access)
 ||
 || MA.6 | Limiting unsuccessful attempts to log in to the information system (access to the information system) | [cspm.appsec.use-arl](../../rules-reference/cspm.md#use-arl) ||
-|| MA.10 | Blocking access session to the information system upon the expiry of a determined user's idle time (inactivity) or at the user's request | [cspm.cookie-timeout.organization](../../rules-reference/cspm.md#cookie-timeout-organization) ||
+|| MA.10 | Blocking access session to the information system upon the expiry of a determined user's idle time (inactivity) or at the user's request | [cspm.cookie-timeout.organization](../../rules-reference/cspm.md#organization) ||
 || MA.11 | Authorization (ban) of user's acts permitted before identification and authentication | [cspm.access.public-access](../../rules-reference/cspm.md#public-access) ||
 || MA.13 | Implementation of protected remote access by access subjects to access objects through external information telecommunication network | [cspm.access.serial-console](../../rules-reference/cspm.md#serial-console) ||
 || MA.17 | Providing trusted loading of computer equipment | [cspm.crypto.managed-vm-kms](../../rules-reference/cspm.md#managed-vm-kms) ||
 || **Software environment restrictions** (SER) {align="center"} | > | > ||
 || SER.1 | Managing execution of software components, including defining components to be executed, configuring the execution parameters of components, and monitoring execution of software components |
 [cspm.k8s.secure-configuration](../../rules-reference/cspm.md#secure-configuration)
-[cspm.k8s.kspm](../../rules-reference/cspm.md#k8s-kspm)
+[cspm.k8s.kspm](../../rules-reference/cspm.md#kspm)
 ||
 || SER.2 | Managing installation of software components, including defining components to be installed, configuring the installation parameters of components, and monitoring installation of software components |
 [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
@@ -67,7 +67,7 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 || **Security event logging** (SEL) {align="center"} | > | > ||
 || SEL.1 | Determining security events to be logged and their storage time |
 [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails)
-[cspm.o11y.audit-trails-no-errors](../../rules-reference/cspm.md#o11y-audit-trails-no-errors)
+[cspm.o11y.audit-trails-no-errors](../../rules-reference/cspm.md#audit-trails-no-errors)
 [cspm.o11y.gitlab-audited](../../rules-reference/cspm.md#gitlab-audited)
 [cspm.o11y.unused-key](../../rules-reference/cspm.md#unused-key)
 ||
@@ -76,7 +76,7 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 ||
 || SEL.3 | Collecting, recording and storing information on security events during the determined storage time |
 [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails)
-[cspm.o11y.audit-trails-no-errors](../../rules-reference/cspm.md#o11y-audit-trails-no-errors)
+[cspm.o11y.audit-trails-no-errors](../../rules-reference/cspm.md#audit-trails-no-errors)
 [cspm.o11y.gitlab-audited](../../rules-reference/cspm.md#gitlab-audited)
 ||
 || SEL.4 | Responding to failures when recording security events, including hardware and software errors, failures in information collection mechanisms, and reaching the limit or overflow of memory capacity | 

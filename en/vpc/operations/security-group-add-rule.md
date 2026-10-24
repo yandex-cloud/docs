@@ -82,7 +82,7 @@ You do not need to restart a VM when adding or deleting [rules](../concepts/secu
 
      You can use `predefined=self_security_group` to enforce the rule for the VMs inside the security group you are updating.
 
-     For more information about the `Self` rule, see the [types of security group rules](../concepts/security-groups.md#rules-types).
+     For more information about the `Self` rule, see the [types of security group rules](../concepts/security-groups.md#self-rule).
 
      {% endnote %}
 

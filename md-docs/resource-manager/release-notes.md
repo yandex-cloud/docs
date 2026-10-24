@@ -8,7 +8,7 @@
 
 ## II квартал 2025 {#q2-2025}
 
-* Добавлена возможность [создания](operations/cloud/create.md#cli) и [переименования](operations/cloud/update.md#cli) облака с помощью Yandex Cloud CLI. <code><b><small>CLI</small></b></code>
+* Добавлена возможность [создания](operations/cloud/create.md?tabs=instructions_cli) и [переименования](operations/cloud/update.md?tabs=instructions_cli) облака с помощью Yandex Cloud CLI. <code><b><small>CLI</small></b></code>
 
 ## I квартал 2024 {#q1-2024}
 

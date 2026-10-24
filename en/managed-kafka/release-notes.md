@@ -70,7 +70,7 @@ Added separate roles to view and edit maintenance tasks: [managed-kafka.maintena
 ## July 2025 {#july-2025}
 
 * Added [built-in support for {{ kafka-ui }}](concepts/kafka-ui.md) in clusters.
-* Now you can [get a discount for committed volume of services in KRaft](pricing.md#prices-kraft).
+* Now you can [get a discount for committed volume of services in KRaft](pricing.md#cvos).
 * Added the [version update policy](concepts/update-policy.md).
 * Added a new [user role](concepts/account-roles.md), `ACCESS_ROLE_TOPIC_ADMIN`, for managing topics.
 

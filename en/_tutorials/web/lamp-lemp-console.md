@@ -154,7 +154,7 @@ Below we describe how to configure the DNS for the `example.com` domain name. Th
       example.com. A <VM_IP_address>
       ```
 
-  1. Create a [CNAME](../../dns/concepts/resource-record.md#CNAME) record named `www` with `example.com` as its value.    
+  1. Create a [CNAME](../../dns/concepts/resource-record.md#cname) record named `www` with `example.com` as its value.
 
       If you use [{{ dns-full-name }}](../../dns/), follow this tutorial to configure the record:
 

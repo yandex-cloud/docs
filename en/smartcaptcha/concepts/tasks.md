@@ -2,7 +2,7 @@
 
 [User validation](./validation.md) consists of two steps. The first step includes a basic check where the user is asked to complete the [main challenge](#main-task). After completing the main challenge, the user's request is automatically sent to {{ captcha-name }}. If the service considers the request suspicious, it will prompt the user to solve an [additional challenge](#additional-task).
 
-If you set the maximum [difficulty level](#additional-task-difficulty) for the captcha, the service will always offer the user an additional high difficulty challenge regardless of the main challenge results.
+If you set the maximum [difficulty level](#task-difficulty) for the captcha, the service will always offer the user an additional high difficulty challenge regardless of the main challenge results.
 
 ## Main challenge {#main-task}
 
@@ -34,7 +34,7 @@ You can choose between these two types of main challenges in {{ captcha-name }}:
 
 ## Additional challenge {#additional-task}
 
-If the service regards the result of the main challenge seems suspicious, or if the captcha is set to the maximum [difficulty level](#additional-task-difficulty), the user will be offered an additional challenge. In this case, the service analyzes user behavior in more detail.
+If the service regards the result of the main challenge seems suspicious, or if the captcha is set to the maximum [difficulty level](#task-difficulty), the user will be offered an additional challenge. In this case, the service analyzes user behavior in more detail.
 
 ### Types of additional challenges {#additional-task-types}
 

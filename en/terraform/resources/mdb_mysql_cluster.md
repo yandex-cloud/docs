@@ -358,7 +358,7 @@ Regenerate hosts after changing the assign_public_ip parameter.
   - `day` (String). Day of the week (in `DDD` format). Allowed values: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`
   - `hour` (Number). Hour of the day in UTC (in `HH` format). Allowed value is between 1 and 24.
   - `type` (**Required**)(String). Type of maintenance window. Can be either `ANYTIME` or `WEEKLY`. A day and hour of window need to be specified with weekly window.
-- `performance_diagnostics` [Block]. Cluster performance diagnostics settings. [YC Documentation](https://yandex.cloud/docs/managed-mysql/api-ref/grpc/cluster_service#PerformanceDiagnostics).
+- `performance_diagnostics` [Block]. Cluster performance diagnostics settings. [YC Documentation](../../managed-mysql/api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.mysql.v1.PerformanceDiagnostics).
   - `enabled` (Bool). Enable performance diagnostics.
   - `sessions_sampling_interval` (**Required**)(Number). Interval (in seconds) for my_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
   - `statements_sampling_interval` (**Required**)(Number). Interval (in seconds) for my_stat_statements sampling Acceptable values are 1 to 86400, inclusive.

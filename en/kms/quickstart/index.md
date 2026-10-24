@@ -7,7 +7,7 @@ In this guide, you will create your first [key](../concepts/index.md) and try yo
 To get started with {{ kms-name }}:
 
 1. Log in to the [management console]({{ link-console-main }}). If you have not signed up yet, navigate to the management console and follow the on-screen instructions.
-1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md).
 1. [Assign](../../iam/operations/roles/grant.md) the `owner` or `editor` role or higher for the cloud to your {{ yandex-cloud }} account.
 
     {% include [note-managing-roles](../../_includes/mdb/note-managing-roles.md) %}

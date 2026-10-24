@@ -15,7 +15,7 @@ You can send [L7 load balancer](../concepts/application-load-balancer.md) [logs]
      
      1. Enable **{{ ui-key.yacloud.alb.label_log-requests }}**.
      1. Select the {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) where you want to store load balancer logs.
-     1. Click **{{ ui-key.yacloud.alb.button_add-discard-rule }}** and configure its [settings](../concepts/application-load-balancer.md#discard-logs-rules):
+     1. Click **{{ ui-key.yacloud.alb.button_add-discard-rule }}** and configure its [settings](../concepts/monitoring.md#discard-logs-rules):
         
         * **{{ ui-key.yacloud.alb.label_discard-http-codes }}**: Add HTTP status codes.
         * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}**: Add HTTP status code classes.
@@ -50,7 +50,7 @@ You can send [L7 load balancer](../concepts/application-load-balancer.md) [logs]
      
      * `--enable`: Enable logging.
      * `--log-group-id`: ID of the [log group](../../logging/concepts/log-group.md) that will store your load balancer logs.
-     * `--discard`: [Log discard rule](../concepts/application-load-balancer.md#discard-logs-rules). Rule options:
+     * `--discard`: [Log discard rule](../concepts/monitoring.md#discard-logs-rules). Rule options:
        
        * `codes`: HTTP codes, HTTP code classes, or gRPC codes.
        * `percent`: Log discard rate.
@@ -97,7 +97,7 @@ You can send [L7 load balancer](../concepts/application-load-balancer.md) [logs]
      Where `log_options` are the {{ cloud-logging-name }} [logging](../logs-ref.md) options:
      
      * `log_group_id`: ID of the [log group](../../logging/concepts/log-group.md) that will store your load balancer logs.
-     * `discard_rule`: [Log discard rule](../concepts/application-load-balancer.md#discard-logs-rules):
+     * `discard_rule`: [Log discard rule](../concepts/monitoring.md#discard-logs-rules):
        
        * `http_codes`: HTTP codes.
        * `http_code_intervals`: HTTP code classes.
@@ -136,7 +136,7 @@ You can send [L7 load balancer](../concepts/application-load-balancer.md) [logs]
   1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**:
      
      1. Change the {{ cloud-logging-name }} log group storing your load balancer logs.
-     1. Edit [log discard rules](../concepts/application-load-balancer.md#discard-logs-rules):
+     1. Edit [log discard rules](../concepts/monitoring.md#discard-logs-rules):
         
         * **{{ ui-key.yacloud.alb.label_discard-http-codes }}**: Update the HTTP status codes.
         * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}**: Update the HTTP status code classes.
@@ -169,7 +169,7 @@ You can send [L7 load balancer](../concepts/application-load-balancer.md) [logs]
      Where:
      
      * `--log-group-id`: ID of the [log group](../../logging/concepts/log-group.md) that will store your load balancer logs.
-     * `--discard`: [Log discard rule](../concepts/application-load-balancer.md#discard-logs-rules). Rule options:
+     * `--discard`: [Log discard rule](../concepts/monitoring.md#discard-logs-rules). Rule options:
        
        * `codes`: HTTP codes, HTTP code classes, or gRPC codes.
        * `percent`: Log discard rate.
@@ -216,7 +216,7 @@ You can send [L7 load balancer](../concepts/application-load-balancer.md) [logs]
      Where `log_options` are the {{ cloud-logging-name }} [logging](../logs-ref.md) options:
      
      * `log_group_id`: ID of the [log group](../../logging/concepts/log-group.md) that will store your load balancer logs.
-     * `discard_rule`: [Log discard rule](../concepts/application-load-balancer.md#discard-logs-rules):
+     * `discard_rule`: [Log discard rule](../concepts/monitoring.md#discard-logs-rules):
        
        * `http_codes`: HTTP codes.
        * `http_code_intervals`: HTTP code classes.

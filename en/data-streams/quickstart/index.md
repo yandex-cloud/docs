@@ -6,7 +6,7 @@ description: In this tutorial, you will learn how to prepare the environment for
 # Preparing the environment for {{ yds-name }}
 
 1. Log in to the [management console]({{ link-console-main }}). If you have not signed up yet, navigate to the management console and follow the instructions.
-1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, check whether you have a linked [billing account](../../billing/concepts/billing-account.md) with an `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, check whether you have a linked [billing account](../../billing/concepts/billing-account.md) with an `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md).
 1. If you do not have a folder yet, [create one](../../resource-manager/operations/folder/create.md).
 1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `editor` role for your folder.
 1. [Create](../../iam/operations/authentication/manage-access-keys.md#create-access-key) a static access key.

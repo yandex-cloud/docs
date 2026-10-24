@@ -51,7 +51,7 @@
         * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
         * `--columns`: List of output data columns:
             
-            * `hostname`: [Host name](hosts.md#list-hosts).
+            * `hostname`: [Host name](hosts.md#list).
             * `message`: Message output by the service.
             * `pid`: Server process ID of the current session.
             * `role`: Cluster component role, e.g., `X` or `M` (`Sentinel` and `Master`, respectively).
@@ -87,7 +87,7 @@
 
         * `columnFilter`: List of output data columns:
 
-            * `hostname`: [Host name](hosts.md#list-hosts).
+            * `hostname`: [Host name](hosts.md#list).
             * `message`: Message output by the service.
             * `pid`: Server process ID of the current session.
             * `role`: Cluster component role, e.g., `X` or `M` (`Sentinel` and `Master`, respectively).
@@ -138,7 +138,7 @@
 
         * `column_filter`: List of output data columns:
 
-            * `hostname`: [Host name](hosts.md#list-hosts).
+            * `hostname`: [Host name](hosts.md#list).
             * `message`: Message output by the service.
             * `pid`: Server process ID of the current session.
             * `role`: Cluster component role, e.g., `X` or `M` (`Sentinel` and `Master`, respectively).
@@ -201,7 +201,7 @@ This method allows you to stream cluster logs in real time.
 
         * `columnFilter`: List of output data columns:
 
-            * `hostname`: [Host name](hosts.md#list-hosts).
+            * `hostname`: [Host name](hosts.md#list).
             * `message`: Message output by the service.
             * `pid`: Server process ID of the current session.
             * `role`: Cluster component role, e.g., `X` or `M` (`Sentinel` and `Master`, respectively).
@@ -259,7 +259,7 @@ This method allows you to stream cluster logs in real time.
 
         * `column_filter`: List of output data columns:
 
-            * `hostname`: [Host name](hosts.md#list-hosts).
+            * `hostname`: [Host name](hosts.md#list).
             * `message`: Message output by the service.
             * `pid`: Server process ID of the current session.
             * `role`: Cluster component role, e.g., `X` or `M` (`Sentinel` and `Master`, respectively).
