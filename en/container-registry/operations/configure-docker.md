@@ -5,8 +5,6 @@ description: Before you start using {{ container-registry-name }}, install and c
 
 # Installing and configuring Docker
 
-{% include [sunset](../../_includes/container-registry/sunset.md) %}
-
 Before you start using {{ container-registry-name }}, install and configure [Docker](https://www.docker.com/) on your local computer.
 
 {% include [configure-docker](../../_includes/container-registry/configure-docker.md) %}

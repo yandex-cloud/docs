@@ -1,5 +1,40 @@
 [Документация Yandex Cloud](../index.md) > [Terraform в Yandex Cloud](index.md) > Справочник Terraform > История изменений (англ.)
 
+## 0.240.0 (October 26, 2026)
+
+##### WARNING:
+* dataproc: remove `yandex_dataproc_cluster_change_freeze` resource
+
+
+
+## 0.239.0 (October 15, 2026)
+
+##### ENHANCEMENTS:
+* triggers: add `action.agent_runtime_call.cloud_id` to `yandex_serverless_triggers` resource
+* triggers: add `action.agent_runtime_call.agent_version_id` to `yandex_serverless_triggers` resource
+* triggers: add `action.agent_runtime_call.channel_id` to `yandex_serverless_triggers` data source
+* organizationmanager: add `sspr_policies` to `yandex_organizationmanager_mfa_enforcement` resource
+* organizationmanager: add `sspr_policies` to `yandex_organizationmanager_mfa_enforcement` data source
+* triggers: add `action.agent_runtime_call.folder_id` to `yandex_serverless_triggers` data source
+* triggers: add `action.agent_runtime_call.attributes` to `yandex_serverless_triggers` data source
+* triggers: add `action.agent_runtime_call.folder_id` to `yandex_serverless_triggers` resource
+* triggers: add `action.agent_runtime_call` to `yandex_serverless_triggers` resource
+* triggers: add `action.agent_runtime_call` to `yandex_serverless_triggers` data source
+* triggers: add `action.agent_runtime_call.cloud_id` to `yandex_serverless_triggers` data source
+* triggers: add `action.agent_runtime_call.agent_version_id` to `yandex_serverless_triggers` data source
+* triggers: add `action.agent_runtime_call.attributes` to `yandex_serverless_triggers` resource
+* triggers: add `action.agent_runtime_call.channel_id` to `yandex_serverless_triggers` resource
+
+
+
+## 0.238.0 (October 8, 2026)
+
+##### WARNING:
+* clickhouse: forbid creating new clusters with ZooKeeper hosts and adding ZooKeeper hosts to clusters without coordinator hosts in yandex_mdb_clickhouse_cluster and yandex_mdb_clickhouse_cluster_v2, use ClickHouse Keeper instead
+* clickhouse: yandex_mdb_clickhouse_cluster no longer creates ZooKeeper implicitly, add KEEPER hosts to add a second host to a shard of a cluster without coordinator hosts
+
+
+
 ## 0.237.0 (October 7, 2026)
 
 ##### BUG FIXES:

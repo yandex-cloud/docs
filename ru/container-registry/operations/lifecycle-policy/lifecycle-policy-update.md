@@ -1,7 +1,5 @@
 # Изменить политику удаления
 
-{% include [sunset](../../../_includes/container-registry/sunset.md) %}
-
 После создания [политики удаления](../../concepts/lifecycle-policy.md) вы можете изменить ее правила, а также статус, имя или описание.
 
 {% list tabs group=instructions %}

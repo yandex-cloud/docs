@@ -29,6 +29,8 @@ Yandex Managed Service for Prometheus® построена на основе с�
 
 {% endlist %}
 
+После настройки записи метрик можно [импортировать дашборды](../dashboard/grafana-import.md) из Grafana и работать с ними в интерфейсе Monium.
+
 ## Сравнение возможностей {#features}
 
 {% note info %}

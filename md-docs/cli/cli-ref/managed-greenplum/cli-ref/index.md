@@ -2,7 +2,9 @@
 
 # yc managed-greenplum
 
-Manage Greenplum and Cloudberry clusters.
+Manage Greenplum clusters and hosts
+
+Command tree v0 is the default. Run `yc managed-greenplum <command>` or `yc managed-greenplum v0 <command>`.
 
 #### Command Usage
 
@@ -24,7 +26,7 @@ Aliases:
 
 #### Command Tree
 
-- [yc managed-greenplum v0](v0/index.md) — Manage Greenplum and Cloudberry clusters.
+- [yc managed-greenplum v0](v0/index.md) — Manage Greenplum clusters and hosts
 
   - [yc managed-greenplum v0 connect](v0/connect.md) — Connect to Greenplum cluster with iam-auth
 
@@ -58,7 +60,7 @@ Aliases:
 
   - [yc managed-greenplum cluster backup](cluster/backup.md) — Create a backup for the specified Greenplum cluster
 
-  - [yc managed-greenplum cluster create](cluster/create.md) — Create Greenplum cluster
+  - [yc managed-greenplum cluster create](cluster/create.md) — Create a Greenplum cluster
 
   - [yc managed-greenplum cluster delete](cluster/delete.md) — Delete the specified Greenplum cluster
 
@@ -72,7 +74,7 @@ Aliases:
 
   - [yc managed-greenplum cluster list-backups](cluster/list-backups.md) — List available backups for the specified Greenplum cluster
 
-  - [yc managed-greenplum cluster list-logs](cluster/list-logs.md) — Retrieves logs for the specified Greenplum cluster
+  - [yc managed-greenplum cluster list-logs](cluster/list-logs.md) — List logs for the specified Greenplum cluster
 
   - [yc managed-greenplum cluster list-operations](cluster/list-operations.md) — List operations for the specified Greenplum cluster
 
@@ -94,7 +96,7 @@ Aliases:
 
   - [yc managed-greenplum cluster update](cluster/update.md) — Update the specified Greenplum cluster
 
-  - [yc managed-greenplum cluster update-config](cluster/update-config.md) — Update the specified Greenplum cluster config
+  - [yc managed-greenplum cluster update-config](cluster/update-config.md) — Update Greenplum cluster configuration
 
 - [yc managed-greenplum hba-rules](hba-rules/index.md) — Manage Greenplum hba rules
 
@@ -164,15 +166,10 @@ Aliases:
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
-|| `--debug` | Debug logging. ||
-|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
-|| `--no-user-output` | Disable printing user intended output to stderr. ||
-|| `--retry` | `int`
+Set the custom profile. ||
+|| `--region` | `string`
 
-Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
-Pass 0 to disable retries. Pass any negative value for infinite retries.
-Even infinite retries are capped with 2 minutes timeout. ||
+Set the region. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -182,21 +179,47 @@ Set the ID of the folder to use. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
 
-Set the Cloud API endpoint (host:port). ||
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
 || `--token` | `string`
 
 Set the OAuth token to use. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

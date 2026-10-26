@@ -11,8 +11,6 @@ items:
         href: collector/index.md
       - name: Особенности OTLP в {{ monium-name }}
         href: collector/otlp-protocol.md
-      - name: Создание и настройка проекта
-        href: collector/project.md
       - name: Otel Collector
         items:
           - name: Настройка OTel Collector
@@ -67,6 +65,12 @@ items:
             href: concepts/data-collection/unified-agent/errors.md
           - name: Удаление
             href: concepts/data-collection/unified-agent/delete.md
+      - name: Настройка
+        items:
+          - name: Проект
+            href: collector/project.md
+          - name: Шард
+            href: collector/shard.md
   - name: Метрики
     items:
       - name: Начало работы с метриками приложений
@@ -321,6 +325,8 @@ items:
             href: operations/dashboard/create.md
           - name: Копирование дашборда
             href: operations/dashboard/copy.md
+          - name: Импорт дашборда из Grafana
+            href: operations/dashboard/grafana-import.md
           - name: Добавление виджета на дашборд
             href: operations/dashboard/add-widget.md
           - name: Добавление параметра дашборда

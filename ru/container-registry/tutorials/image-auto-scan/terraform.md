@@ -5,8 +5,6 @@ description: Следуя данному руководству, вы сможе
 
 # Автоматическое сканирование Docker-образа при загрузке с помощью {{ TF }}
 
-{% include [sunset](../../../_includes/container-registry/sunset.md) %}
-
 
 {% note info %}
 

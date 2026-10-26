@@ -499,7 +499,7 @@ you can use this setting to force ClickHouse to do flushing and complete aggrega
 
 - `max_bytes_ratio_before_external_group_by`: The ratio of available memory that is allowed for GROUP BY. Once reached, external memory is used for aggregation.
 
-  For example, if set to 0.6, GROUP BY will allow using 60%!o(MISSING)f the available memory (to server/user/merges) at the beginning of the execution, after that, it will start using external aggregation.
+  For example, if set to 0.6, GROUP BY will allow using 60% of the available memory (to server/user/merges) at the beginning of the execution, after that, it will start using external aggregation.
 
   Default value: **0** for versions 24.12 and lower, **0.5** for versions 25.1 and higher.
 
@@ -507,7 +507,7 @@ you can use this setting to force ClickHouse to do flushing and complete aggrega
 
 - `max_bytes_ratio_before_external_sort`: The ratio of available memory that is allowed for ORDER BY. Once reached, external sort is used.
 
-  For example, if set to 0.6, ORDER BY will allow using 60%!o(MISSING)f available memory (to server/user/merges) at the beginning of the execution, after that, it will start using external sort.
+  For example, if set to 0.6, ORDER BY will allow using 60% of available memory (to server/user/merges) at the beginning of the execution, after that, it will start using external sort.
 
   Note, that max_bytes_before_external_sort is still respected, spilling to disk will be done only if the sorting block is bigger then max_bytes_before_external_sort.
 
@@ -1435,7 +1435,7 @@ A list of ClickHouse cluster labels as key-value pairs. ||
 || `--service-account` | `string`
 
 Service account for the ClickHouse cluster. ||
-|| `--security-group-ids` | `value[,value]`
+|| `--security-group-ids` | `[]string`
 
 A list of security groups for the ClickHouse cluster. ||
 || `--deletion-protection` | Deletion Protection inhibits deletion of the cluster. ||
@@ -1494,15 +1494,10 @@ Possible property names:
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
-|| `--debug` | Debug logging. ||
-|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
-|| `--no-user-output` | Disable printing user intended output to stderr. ||
-|| `--retry` | `int`
+Set the custom profile. ||
+|| `--region` | `string`
 
-Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
-Pass 0 to disable retries. Pass any negative value for infinite retries.
-Even infinite retries are capped with 2 minutes timeout. ||
+Set the region. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -1512,21 +1507,47 @@ Set the ID of the folder to use. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
 
-Set the Cloud API endpoint (host:port). ||
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
 || `--token` | `string`
 
 Set the OAuth token to use. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

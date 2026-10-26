@@ -5,9 +5,6 @@ description: Use cases for {{ container-registry-full-name }} in {{ yandex-cloud
 
 # {{ container-registry-name }} tutorials
 
-{% include [sunset](../../_includes/container-registry/sunset.md) %}
-
-* [{#T}](container-registry-migration.md)
 * [{#T}](run-docker-on-vm/index.md)
 * [{#T}](sign-cr-with-cosign.md)
 * [{#T}](cr-scanner-with-k8s-and-gitlab.md)

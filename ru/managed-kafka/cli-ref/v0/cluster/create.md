@@ -11,7 +11,7 @@ Create Kafka cluster
 
 Syntax:
 
-`yc managed-kafka cluster create <CLUSTER-NAME> [Flags...] [Global Flags...]`
+`yc managed-kafka v0 cluster create <CLUSTER-NAME> [Flags...] [Global Flags...]`
 
 #### Flags
 
@@ -41,7 +41,7 @@ Network name. ||
 || `--version` | `string`
 
 Version of the Kafka server software. ||
-|| `--zone-ids` | `value[,value]`
+|| `--zone-ids` | `[]string`
 
 List of availability zones. ||
 || `--brokers-count` | `int`
@@ -76,13 +76,13 @@ Storage volume available to a KRaft-controller host in GB. ||
 Storage type of a KRaft-controller host. ||
 || `--assign-public-ip` | Whether a Kafka brokers should get a public IP address. ||
 || `--schema-registry` | Enables managed Schema Registry sevice. ||
-|| `--subnet-ids` | `value[,value]`
+|| `--subnet-ids` | `[]string`
 
 Optional list of subnets to place nodes of the cluster in. If not specified nodes will be placed in arbitrary subnets of the given network within given availability zones. ||
-|| `--security-group-ids` | `value[,value]`
+|| `--security-group-ids` | `[]string`
 
 A list of security groups for the Kafka cluster. ||
-|| `--host-group-ids` | `value[,value]`
+|| `--host-group-ids` | `[]string`
 
 A list of host groups to place VMs of cluster on. ||
 || `--deletion-protection` | Deletion Protection inhibits deletion of the cluster. ||
@@ -138,7 +138,7 @@ Allows to set Kafka cluster configuration property "transactional.id.expiration.
 || `--log-message-timestamp-type` | `string`
 
 Allows to set Kafka cluster configuration property "log.message.timestamp.type". This configuration specifies which timestamp to use for messages - message creation time or log append time. Possible values are: create-time, log-append-time. ||
-|| `--ssl-cipher-suites` | `value[,value]`
+|| `--ssl-cipher-suites` | `[]string`
 
 Allows to set Kafka cluster configuration property "ssl.cipher.suites". List of all valid cipher suites for this cluster, separated by comma. ||
 || `--maintenance-window` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
@@ -163,7 +163,7 @@ Possible property names:
 - `planned-usage-threshold`: Planned usage threshold
 
 - `emergency-usage-threshold`: Emergency usage threshold ||
-|| `--sasl-enabled-mechanisms` | `value[,value]`
+|| `--sasl-enabled-mechanisms` | `[]string`
 
 Allows to set Kafka cluster configuration property "sasl.enabled.mechanisms". List of all valid sasl enabled mechanisms for this cluster, separated by comma. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
@@ -175,15 +175,10 @@ Allows to set Kafka cluster configuration property "sasl.enabled.mechanisms". Li
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
-|| `--debug` | Debug logging. ||
-|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
-|| `--no-user-output` | Disable printing user intended output to stderr. ||
-|| `--retry` | `int`
+Set the custom profile. ||
+|| `--region` | `string`
 
-Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
-Pass 0 to disable retries. Pass any negative value for infinite retries.
-Even infinite retries are capped with 2 minutes timeout. ||
+Set the region. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -193,21 +188,47 @@ Set the ID of the folder to use. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
 
-Set the Cloud API endpoint (host:port). ||
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
 || `--token` | `string`
 
 Set the OAuth token to use. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

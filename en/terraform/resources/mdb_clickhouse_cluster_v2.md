@@ -850,7 +850,7 @@ If the parameter is set to 0 (default), no hops is allowed.
   - `fqdn` (*Read-Only*) (String). The fully qualified domain name of the host.
   - `shard_name` (String). The name of the shard to which the host belongs.
   - `subnet_id` (String). ID of the subnet where the host is located.
-  - `type` (**Required**)(String). The type of the host to be deployed. Can be `CLICKHOUSE`, `ZOOKEEPER`, or `KEEPER`.
+  - `type` (**Required**)(String). The type of the host to be deployed. Can be `CLICKHOUSE`, `ZOOKEEPER`, or `KEEPER`. `ZOOKEEPER` is deprecated: it cannot be used for new clusters or added to clusters without coordinator hosts.
   - `zone` (**Required**)(String). The [availability zone](https://yandex.cloud/docs/overview/concepts/geo-scope) where resource is located. If it is not provided, the default provider zone will be used.
 - `id` (*Read-Only*) (String). The resource identifier.
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.

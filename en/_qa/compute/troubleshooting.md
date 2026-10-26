@@ -235,6 +235,6 @@ If upgrading the OS is not possible or does not help:
 
 #### VM is not available {#vm-unavailable}
 
-A VM may be unavailable due to [throttling](../../compute/concepts/storage-read-write.md#throttling). In a throttling scenario, disk operations get postponed, which may cause the SSH session to freeze and the VM services to stop responding or become very slow. For more on troubleshooting this issue, see [{#T}](../../troubleshooting/compute/known-issues/throttling-and-vm-perfomance-issues.md).
+A VM may be unavailable due to [throttling](../../compute/concepts/storage-read-write.md#throttling). In a throttling scenario, disk operations get postponed, which may cause the SSH session to freeze and the VM services to stop responding or become very slow. For more on troubleshooting this issue, see [{#T}](../../compute/concepts/storage-read-write.md#throttling).
 
 If the issue persists, contact [support]({{ link-console-support }}).

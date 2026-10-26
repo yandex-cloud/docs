@@ -101,6 +101,12 @@ for replicated tables, Kafka streaming, and DNS cache updates.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_common_pool_size).
 
+- `max_backups_io_thread_pool_size`: The maximum number of threads that will be used for executing **BACKUP** and **RESTORE** requests.
+
+  Default value: **64**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/server-settings/settings/max-backups#max_backups_io_thread_pool_size).
+
 - `dictionaries_lazy_load`: Lazy loading of dictionaries. If enabled, then each dictionary is loaded on the first use. Otherwise, the server loads all dictionaries at startup.
 
   Default value: **true** for versions 25.1 and higher, **false** for versions 24.12 and lower.
@@ -381,6 +387,24 @@ automatic removal of query_metric_log data based on size is disabled.
 
 - `query_metric_log_retention_time`: The maximum time that query_metric_log records will be retained before removal. If set to **0**,
 automatic removal of query_metric_log data based on time is disabled.
+
+  Default value: **2592000000** (30 days).
+
+- `s3queue_log_enabled`: Enables or disables s3queue_log system table.
+
+  Default value: **false**.
+
+  Change of the setting is applied with restart.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/system-tables/s3queue_log).
+
+- `s3queue_log_retention_size`: The maximum size that s3queue_log can grow to before old data will be removed. If set to **0**,
+automatic removal of s3queue_log data based on size is disabled.
+
+  Default value: **536870912** (512 MiB).
+
+- `s3queue_log_retention_time`: The maximum time that s3queue_log records will be retained before removal. If set to **0**,
+automatic removal of s3queue_log data based on time is disabled.
 
   Default value: **2592000000** (30 days).
 
@@ -955,15 +979,10 @@ or a certificate chain ordered as leaf -> intermediates -> self-signed root.
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
-|| `--debug` | Debug logging. ||
-|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
-|| `--no-user-output` | Disable printing user intended output to stderr. ||
-|| `--retry` | `int`
+Set the custom profile. ||
+|| `--region` | `string`
 
-Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
-Pass 0 to disable retries. Pass any negative value for infinite retries.
-Even infinite retries are capped with 2 minutes timeout. ||
+Set the region. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -973,21 +992,47 @@ Set the ID of the folder to use. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
 
-Set the Cloud API endpoint (host:port). ||
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
 || `--token` | `string`
 
 Set the OAuth token to use. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

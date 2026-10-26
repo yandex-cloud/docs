@@ -52,3 +52,6 @@ links:
   - title: Страница с демо
     description: Посмотрите на то, как работает SmartCaptcha
     href: https://smartcaptcha.cloud.yandex.ru/demo
+  - title: Вопросы и ответы
+    description: Ответы на вопросы о мониторинге и локальном тестировании
+    href: qa

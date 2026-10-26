@@ -5,8 +5,6 @@ description: '{{ container-registry-full-name }} has limits and quotas for the m
 
 # {{ container-registry-name }} quotas and limits
 
-{% include [sunset](../../_includes/container-registry/sunset.md) %}
-
 {{ container-registry-full-name }} has the following limits:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}

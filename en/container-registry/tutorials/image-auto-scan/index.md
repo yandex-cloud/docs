@@ -5,8 +5,6 @@ description: Follow this tutorial to set up automatic Docker image scans on push
 
 # Automatic Docker image scan on push
 
-{% include [sunset](../../../_includes/container-registry/sunset.md) %}
-
 
 {% note info %}
 

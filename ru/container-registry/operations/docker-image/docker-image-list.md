@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Получить информацию об имеющихся Docker-образах
 
-{% include [sunset](../../../_includes/container-registry/sunset.md) %}
-
 Узнайте, как получить:
 
 * [Список Docker-образов в реестре](#docker-image-list).

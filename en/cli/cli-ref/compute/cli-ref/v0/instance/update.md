@@ -11,7 +11,7 @@ Update the specified virtual machine instance
 
 Syntax:
 
-`yc compute instance update <INSTANCE-NAME>|<INSTANCE-ID> [Flags...] [Global Flags...]`
+`yc compute v0 instance update <INSTANCE-NAME>|<INSTANCE-ID> [Flags...] [Global Flags...]`
 
 #### Flags
 
@@ -32,11 +32,10 @@ A new name of the instance. ||
 Specifies a textual description of the instance. ||
 || `--labels` | `key=value[,key=value...]`
 
-A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. ||
+A list of label KEY=VALUE pairs to add. ||
 || `--metadata` | `key=value[,key=value...]`
 
-Metadata to be made available to the guest operating system running on the instance.
-See for details https://yandex.cloud/ru/docs/compute/concepts/vm-metadata ||
+Metadata to be made available to the guest operating system. ||
 || `--metadata-options` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 Options set the access mode to instance's metadata.
@@ -56,16 +55,16 @@ Possible property names:
 - `gce-http-token`: Enables access to IAM credentials with GCE flavored metadata. Values: enabled, disabled ||
 || `--metadata-from-file` | `key=value[,key=value...]`
 
-Same as --metadata except that the value for the entry will be read from a local file. ||
+Same as --metadata except that the value is read from a local file. ||
 || `--memory` | `byteSize`
 
-Specifies how much memory instance should have in GB. You can also use M and T suffixes to specify smaller or greater size respectively. ||
+Specifies how much memory instance should have in GB. ||
 || `--cores` | `int`
 
 Specifies how many CPU cores instance should have. ||
 || `--core-fraction` | `int`
 
-If provided, specifies baseline performance for a core in percent. ||
+Specifies baseline performance for a core in percent. ||
 || `--gpus` | `int`
 
 Specifies how many GPUs instance should have. ||
@@ -86,7 +85,7 @@ Serial port settings for the instance.
 Possible property names:
 
 - `ssh-authorization`: Authorization mode in interactive serial port console via SSH. Values: instance_metadata, os_login ||
-|| `--preemptible` | Specifies whether instance preemptible or not ||
+|| `--preemptible` | Specifies whether instance is preemptible. ||
 || `--maintenance-policy` | `string`
 
 Behaviour on maintenance events. Values: 'restart', 'migrate' ||
@@ -95,22 +94,22 @@ Behaviour on maintenance events. Values: 'restart', 'migrate' ||
 Time between notification via metadata service and maintenance. ||
 || `--placement-group-id` | `string`
 
-Placement group to add the instance to (use an empty string to remove the instance from placement group). ||
+Placement group ID to add the instance to. ||
 || `--placement-group-name` | `string`
 
-Placement group to add the instance to (use an empty string to remove the instance from placement group). ||
+Placement group name to add the instance to. ||
 || `--placement-group-partition` | `int`
 
 Specifies placement group partition for the instance. ||
 || `--host-group-id` | `string`
 
-Host group to place the instance to (to clear affinity rules use --no-host-affinity-rules). ||
+Host group ID to place the instance to. ||
 || `--host-group-name` | `string`
 
-Host group to place the instance to (to clear affinity rules use --no-host-affinity-rules). ||
+Host group name to place the instance to. ||
 || `--host-id` | `string`
 
-Host to place the instance to (to remove all affinity rules use --no-host-affinity-rules). ||
+Host to place the instance to. ||
 || `--no-host-affinity-rules` | Clear host affinity rules ||
 || `--reserved-instance-pool-id` | `string`
 
@@ -120,10 +119,10 @@ Link instance to specified reserved instance pool. ||
 Link instance to specified reserved instance pool. ||
 || `--service-account-id` | `string`
 
-Service account, which token can be obtained inside VM from metadata service. ||
+Service account ID whose token can be obtained inside VM. ||
 || `--service-account-name` | `string`
 
-Service account, which token can be obtained inside VM from metadata service. ||
+Service account name whose token can be obtained inside VM. ||
 |#
 
 #### Global Flags
@@ -132,15 +131,10 @@ Service account, which token can be obtained inside VM from metadata service. ||
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
-|| `--debug` | Debug logging. ||
-|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
-|| `--no-user-output` | Disable printing user intended output to stderr. ||
-|| `--retry` | `int`
+Set the custom profile. ||
+|| `--region` | `string`
 
-Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
-Pass 0 to disable retries. Pass any negative value for infinite retries.
-Even infinite retries are capped with 2 minutes timeout. ||
+Set the region. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -150,21 +144,47 @@ Set the ID of the folder to use. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
 
-Set the Cloud API endpoint (host:port). ||
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
 || `--token` | `string`
 
 Set the OAuth token to use. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

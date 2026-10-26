@@ -247,6 +247,33 @@ items:
                     title: ''
                 title: ''
             title: ''
+          - name: Cloud Interconnect
+            items:
+              - name: Data Sources
+                items:
+                  - name: cic_partner
+                    href: data-sources/cic_partner.md
+                    title: ''
+                  - name: cic_point_of_presence
+                    href: data-sources/cic_point_of_presence.md
+                    title: ''
+                  - name: cic_private_connection
+                    href: data-sources/cic_private_connection.md
+                    title: ''
+                  - name: cic_public_connection
+                    href: data-sources/cic_public_connection.md
+                    title: ''
+                  - name: cic_trunk_connection
+                    href: data-sources/cic_trunk_connection.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: cic_private_connection
+                    href: resources/cic_private_connection.md
+                    title: ''
+                title: ''
+            title: ''
           - name: Cloud Logging
             items:
               - name: Data Sources
@@ -1805,9 +1832,6 @@ items:
                 items:
                   - name: dataproc_cluster
                     href: resources/dataproc_cluster.md
-                    title: ''
-                  - name: dataproc_cluster_change_freeze
-                    href: resources/dataproc_cluster_change_freeze.md
                     title: ''
                   - name: dataproc_cluster_iam_binding
                     href: resources/dataproc_cluster_iam_binding.md

@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать репозиторий
 
-{% include [sunset](../../../_includes/container-registry/sunset.md) %}
-
 {% note info %}
 
 [Репозиторий](../../concepts/repository.md) начнет отображаться только после [загрузки](../../operations/docker-image/docker-image-push.md) в него [Docker-образа](../../concepts/docker-image.md).

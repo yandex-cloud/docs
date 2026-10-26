@@ -1,7 +1,5 @@
 # Docker image lifecycle policy
 
-{% include [sunset](../../_includes/container-registry/sunset.md) %}
-
 A [Docker image](docker-image.md) lifecycle policy lets you set [rules](#lifecycle-rules) for deleting Docker images automatically.
 
 To learn how to set rules, see [Creating a lifecycle policy](../operations/lifecycle-policy/lifecycle-policy-create.md).

@@ -304,6 +304,142 @@ sudo ch-backup restore <имя_резервной_копии> \
 
 Для восстановления холодных данных потребуется также копия бакета гибридного хранилища. Ее расположение задается параметрами `--cloud-storage-source-bucket`, `--cloud-storage-source-path` и `--cloud-storage-source-endpoint` команды `ch-backup restore`.
 
+### 1. Проверьте выгрузку и восстановление {{ CH }} {#inspect-backup-hybrid-storage}
+
+* SHA256 расшифрованных объектов совпадают с SHA256 манифеста;
+* восстановление данных и пользователей, чтение таблицы и `CHECK TABLE` прошли успешно;
+* исходная выгрузка не изменилась.
+
+Структура выгрузки:
+
+```text
+<корень_выгрузки>/                               # Каталог выгрузки или ее префикс в S3
+├── ch_backup/<идентификатор_кластера>/<шард>/     # Основная копия и необходимые для восстановления зависимости
+│   └── <имя_резервной_копии>/...                 # Файлы резервной копии в формате ch-backup
+├── cloud_storage/<export_id>/                   # Холодные данные выбранной выгрузки
+│   └── <исходный_ключ_объекта>                  # Содержимое зашифровано; исходный ключ объекта сохранен
+└── __migration__/                              # Служебные файлы для проверки и восстановления
+    ├── config-*.json                           # Параметры выгрузки и пути служебных файлов
+    ├── nacl-key-*.7z                           # Архив с nacl_key.txt — ключом основной копии; защищен паролем экспорта
+    ├── cloud-manifest-*.json.crypt              # Зашифрованный манифест: основная копия, параметры восстановления и ссылка на checksum-файл
+    ├── cold-checksums-*.sha256.crypt            # Зашифрованный список исходных ключей и SHA-256 расшифрованных холодных объектов
+    └── READY-*.json                            # Признак завершения выгрузки, ее идентификатор и SHA-256 расшифрованного манифеста
+```
+
+### 2. Скачайте конфигурацию и READY {#download-config}
+
+Скачайте `config-*.json` из `__migration__/` как `export.json`. Файл по пути `cloud_storage_export.ready` относительно корня выгрузки сохраните как `READY.json`. Эндпоинт, бакет, корень выгрузки и ключи для чтения S3 возьмите из параметров выгрузки. 
+
+### 3. Проверьте READY {#check-ready}
+
+Экспортер создаст файл `READY` после копирования и проверки данных. Убедитесь, что скачанный `READY.json` относится к той же выгрузке, что и `export.json`:
+
+```jql
+jq -e \
+  --arg id "$(jq -er '.cloud_storage_export.export_id' export.json)" \
+  '.export_id == $id' READY.json
+```
+
+Ожидаемый результат — `true`.
+
+Если файл `READY` отсутствует, команда завершилась с ошибкой или вернула false, не продолжайте восстановление. Проверьте, что скачали `READY` по пути из `cloud_storage_export.ready` выбранного файла `export.json`.
+
+### 4. Настройте rclone {#setup-rclone}
+
+1. Создайте отдельный рабочий бакет и получите ключи для чтения и записи. Пароль возьмите у того, кто выполнял экспорт, соль — из `cloud_storage_export.crypt.salt` в `export.json`.
+1. Создайте S3-подключения `export` к выгрузке и `working` к рабочему S3, затем crypt-подключения `exported-cold` и `exported-manifest`.
+1. Настройте подключения:
+
+   ```bash
+   rclone --config ./restore.conf config
+   ```
+   
+   1. В поле `remote` укажите значения:
+
+      ```
+      exported-cold:     export:<бакет>/<корень_выгрузки>/<cloud_storage_export.prefix>
+      exported-manifest: export:<бакет>/<корень_выгрузки>/__migration__/
+      ```
+
+   1. Для обоих crypt-подключений задайте:
+
+      * `password` — пароль экспорта;
+      * `password2` — соль из `export.json`;
+      * `filename_encryption=off`;
+      * `directory_name_encryption=false`;
+      * `suffix=none`.
+
+   Пароль и соль задайте через `rclone config`. Когда он их запросит, выберите вариант `y` и введите значение вручную.
+
+### 5. Расшифруйте и проверьте манифест {#check-manifest}
+
+Для расшифровки используйте путь из `cloud_storage_export.manifest` в `export.json`, ожидаемый sha256 — из `manifest_sha256` в `READY.json`.
+
+```jql
+MANIFEST_NAME="$(jq -er \
+  '.cloud_storage_export.manifest | sub("^__migration__/"; "")' \
+  export.json)"
+
+rclone --config ./restore.conf copyto \
+  "exported-manifest:$MANIFEST_NAME" ./manifest.json
+
+jq -r '.manifest_sha256 + "  manifest.json"' READY.json \
+  | sha256sum --check -
+```
+
+Ожидаемый результат — `manifest.json: OK`.
+
+### 6. Скопируйте холодные данные в рабочий бакет из п. 4 и проверьте ключи и sha256 {#copy-data}
+
+Данные копируйте в корень бакета, чтобы сохранить исходные ключи. Ключи и sha256 объектов находятся в отдельном зашифрованном файле. Путь к файлу указан в `cold_checksum.path` манифеста.
+
+Скачайте файл и проверьте его sha256 по значению `cold_checksum.sha256`, затем скопируйте и проверьте холодные данные:
+
+```jql
+CHECKSUM_NAME="$(jq -er \
+  '.cold_checksum.path | sub("^__migration__/"; "")' manifest.json)"
+
+rclone --config ./restore.conf copyto \
+  "exported-manifest:$CHECKSUM_NAME" ./cold.sha256
+
+jq -r '.cold_checksum.sha256 + "  cold.sha256"' manifest.json \
+  | sha256sum --check -
+
+rclone --config ./restore.conf copy \
+  exported-cold: 'working:<рабочий_бакет>/'
+
+rclone --config ./restore.conf checksum \
+  sha256 cold.sha256 'working:<рабочий_бакет>/' \
+  --download --one-way
+```
+
+Проверка должна завершиться без различий. При ошибке любой команды остановите восстановление.
+
+### 7. Выполните восстановление ch-backup {#restore-ch-backup}
+
+1. Подготовьте сервер:
+
+   ```jql
+   jq '.shards[] | {shard, backup_id, cold_disks, cold_prefix}' manifest.json
+   ```
+
+   Идентификатор резервной копии, имена S3-дисков и префикс нужного шарда возьмите из `manifest.json`.
+
+1. Настройте S3-диски из `cold_disks`, политики хранения таблиц и доступ к рабочему S3. Для этого распакуйте архив `clickhouse.key_archive.file`, который указан в `export.json` папки `__migration__/`. В архиве будет файл `nacl_key.txt` — содержимое файла укажите в параметре `encryption.key` конфигурации ch-backup.
+1. Передайте в команду эндпоинт и бакет из пункта 4, а путь — из `cold_prefix` нужного шарда:
+
+   ```bash
+   sudo ch-backup restore '<backup_id>' \
+   --force-non-replicated \
+   --cloud-storage-source-endpoint '<рабочий_endpoint>' \
+   --cloud-storage-source-bucket '<рабочий_бакет>' \
+   --cloud-storage-source-path '<cold_prefix>'
+   ```
+
+   Параметр `--force-non-replicated` используется для отдельного сервера без {{ ZK }} или {{ CH }} Keeper. `backup.path_root` и порядок восстановления основной копии и пользователей остаются прежними.
+
+При ошибке любой проверки остановите восстановление.
+
 ## Решение проблем {#troubleshooting}
 
 #|
@@ -312,7 +448,7 @@ sudo ch-backup restore <имя_резервной_копии> \
 || `The key must be exactly 32 bytes long` | Проверьте длину ключа шифрования. В значение не должны попадать дополнительные пробелы, кавычки или перевод строки из конца файла. ||
 || `Failed to download backup metadata .../backup_struct.json` | Проверьте ключ шифрования: ошибка может означать, что полные метаданные не удалось расшифровать. Также проверьте наличие файла и доступ к нему. ||
 || `Connection refused` при подключении к порту `8123`. | Проверьте значение `clickhouse.host` и убедитесь, что сервер {{ CH }} запущен. ||
-|| `Restore requires ZooKeeper or ClickHouse Keeper because we have replicated tables` | Для восстановления на отдельный сервер без сервиса координации добавьте параметр `--force-non-replicated`. ||
+|| `Restore requires {{ ZK }} or {{ CK }} because we have replicated tables` | Для восстановления на отдельный сервер без сервиса координации добавьте параметр `--force-non-replicated`. ||
 |#
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -13,7 +13,21 @@ keywords:
 
 #### Что делать, если на ВМ перестал работать GPU? {#gpu-not-working}
 
-В таком случае необходимо [остановить](../../compute/operations/vm-control/vm-stop-and-start.md#stop) и снова [запустить](../../compute/operations/vm-control/vm-stop-and-start.md#start) виртуальную машину. В большинстве случаев требуются именно остановка и повторный запуск, а не перезагрузка, поскольку при перезагрузке ВМ остается на том же хосте, где возникла проблема с GPU.
+Проверьте, виден ли GPU драйверу:
+
+```bash
+nvidia-smi
+```
+
+Если GPU перестал определяться, [остановите](../../compute/operations/vm-control/vm-stop-and-start.md#stop) и снова [запустите](../../compute/operations/vm-control/vm-stop-and-start.md#start) ВМ. При обычной перезагрузке ВМ остается на прежнем хосте, поэтому она может не устранить проблему.
+
+Если `nvidia-smi` видит GPU, но CUDA недоступна в PyTorch, проверьте, что в используемом окружении установлена сборка PyTorch с поддержкой CUDA, совместимая с драйвером. Подберите команду установки в [документации PyTorch](https://pytorch.org/get-started/locally/), затем выполните:
+
+```bash
+python3 -c "import torch; print(torch.cuda.is_available())"
+```
+
+Если проблема осталась, [обратитесь в техническую поддержку]({{ link-console-support }}). Укажите идентификатор ВМ, образ и версию ОС, вывод `nvidia-smi`, версию PyTorch и полный текст ошибки.
 
 #### Ошибка «Not Supported» при сбросе ускорителей {#not-supported}
 

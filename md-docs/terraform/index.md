@@ -184,6 +184,24 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
  - [cloud_desktops_desktop_group](resources/cloud_desktops_desktop_group.md)
 
+#### Cloud Interconnect
+
+##### Data Sources
+
+ - [cic_partner](data-sources/cic_partner.md)
+
+ - [cic_point_of_presence](data-sources/cic_point_of_presence.md)
+
+ - [cic_private_connection](data-sources/cic_private_connection.md)
+
+ - [cic_public_connection](data-sources/cic_public_connection.md)
+
+ - [cic_trunk_connection](data-sources/cic_trunk_connection.md)
+
+##### Resources
+
+ - [cic_private_connection](resources/cic_private_connection.md)
+
 #### Cloud Logging
 
 ##### Data Sources
@@ -1211,8 +1229,6 @@ Yandex Cloud предоставляет провайдер, набор моду�
 ##### Resources
 
  - [dataproc_cluster](resources/dataproc_cluster.md)
-
- - [dataproc_cluster_change_freeze](resources/dataproc_cluster_change_freeze.md)
 
  - [dataproc_cluster_iam_binding](resources/dataproc_cluster_iam_binding.md)
 

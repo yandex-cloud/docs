@@ -22,6 +22,18 @@
 
 * [Почему после перезагрузки не работает ВМ?](#why-fail-after-reboot)
 
+* [Как подключиться к ВМ Linux по паролю?](#password-authentication)
+
+* [Что делать при предупреждении REMOTE HOST IDENTIFICATION HAS CHANGED?](#remote-host-identification)
+
+* [Как подключиться к ВМ через WinSCP с SSH-ключом?](#winscp)
+
+* [Что делать, если после обновления cloud-init пропал сетевой доступ?](#cloud-init-network)
+
+* [Что делать, если не удается подключиться к Kosmos VM?](#kosmos-connection)
+
+* [Почему не сбрасывается пароль Administrator в Kosmos VM?](#kosmos-password)
+
 #### Как подключиться к ВМ с Linux {#conn-vm-linux}
 
 Воспользуйтесь инструкцией: [Подключиться к виртуальной машине Linux по SSH](../operations/vm-connect/ssh.md). Если на компьютере, с которого вы подключаетесь, старая версия Windows (7, 8 и первые выпуски 10) и нет встроенного консольного [SSH-клиента](../../glossary/ssh-keygen.md), используйте [PuTTY](https://www.putty.org/).
@@ -84,6 +96,27 @@ Permission denied (publickey,gssapi-keyex,gssapi-with-mic)
   ```bash
   ssh -i <путь_к_ключу/имя_файла_ключа> <имя_пользователя>@<публичный_IP-адрес_ВМ>
   ```
+
+Если ВМ создана с помощью Terraform, проверьте имя пользователя: комментарий в конце SSH-ключа не создает пользователя с таким именем. Чтобы явно задать пользователя и его ключ, передайте конфигурацию `cloud-init` в `user-data`. Сохраните ее в файл `cloud-config.yaml`:
+
+```yaml
+#cloud-config
+users:
+  - name: <имя_пользователя>
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - <публичный_SSH-ключ>
+```
+
+В ресурсе `yandex_compute_instance` укажите:
+
+```hcl
+metadata = {
+  user-data = file("cloud-config.yaml")
+}
+```
+
+Подробнее о [ключах метаданных](../concepts/metadata/public-image-keys.md) и [параметрах ресурса Terraform](../../terraform/resources/compute_instance.md). Имя пользователя и установленные ключи можно проверить в [выводе последовательного порта](../operations/vm-info/get-serial-port-output.md).
 
 #### Как настроить RDP/VNC-подключение к ВМ с Linux? {#set-rdp-vnc-to-linux}
 
@@ -157,3 +190,100 @@ Permission denied (publickey,gssapi-keyex,gssapi-with-mic)
 ```bash
 chmod 600 <путь_к_файлу_закрытого_ключа>
 ```
+
+#### Как подключиться к ВМ Linux по паролю? {#password-authentication}
+
+В публичных образах Linux подключение по SSH с паролем по умолчанию отключено. При создании ВМ можно включить его через [ключ метаданных](../concepts/vm-metadata.md) `user-data` в формате `cloud-config`:
+
+```yaml
+#cloud-config
+ssh_pwauth: true
+users:
+  - name: <имя_пользователя>
+    shell: /bin/bash
+    lock_passwd: false
+    hashed_passwd: '<хеш_пароля>'
+```
+
+Замените значения в угловых скобках именем пользователя и хешем пароля, поддерживаемым гостевой ОС. Передайте конфигурацию при [создании ВМ](../operations/vm-create/create-linux-vm.md). Подробнее о формате — в [документации cloud-init](https://docs.cloud-init.io/en/latest/reference/modules.html#set-passwords).
+
+{% note warning %}
+
+Аутентификация по паролю менее безопасна, чем по SSH-ключу. Ограничьте доступ к SSH в [группе безопасности](../../vpc/operations/security-group-add-rule.md).
+
+{% endnote %}
+
+#### Что делать при предупреждении `REMOTE HOST IDENTIFICATION HAS CHANGED`? {#remote-host-identification}
+
+Предупреждение означает, что ключ сервера отличается от сохраненного в `known_hosts`. Это возможно, например, после создания новой ВМ с прежним статическим IP-адресом, но также может указывать на подмену сервера.
+
+Сначала убедитесь, что подключаетесь к нужной ВМ, и проверьте новый отпечаток ключа через доверенный канал, например [серийную консоль](../operations/serial-console/index.md). После проверки удалите старую запись на локальном компьютере:
+
+```bash
+ssh-keygen -R "<IP-адрес_ВМ>"
+```
+
+Команда использует стандартный файл `known_hosts`. Если он расположен в другом каталоге, укажите путь параметром `-f`. При повторном подключении сверьте отпечаток ключа перед его сохранением.
+
+#### Как подключиться к ВМ через WinSCP с SSH-ключом? {#winscp}
+
+В окне подключения WinSCP укажите:
+
+* **File protocol** — `SFTP` или `SCP`.
+* **Host name** — IP-адрес ВМ.
+* **User name** — имя пользователя ВМ.
+* **Password** — оставьте пустым для аутентификации по ключу.
+
+Нажмите **Advanced**, откройте **SSH** → **Authentication** и выберите закрытый ключ в поле **Private key file**. При необходимости преобразуйте ключ в формат PuTTY с помощью WinSCP. Сохраните настройки и нажмите **Login**. Если закрытый ключ защищен парольной фразой, введите ее при подключении.
+
+Для такого подключения включать **Allow agent forwarding** не требуется. Установка пароля пользователю командой `passwd` сама по себе не включает аутентификацию по паролю в SSH-сервере. Подробнее о ключах — в [документации WinSCP](https://winscp.net/eng/docs/ui_login_authentication).
+
+#### Что делать, если после обновления cloud-init пропал сетевой доступ? {#cloud-init-network}
+
+Проблема может возникнуть на Ubuntu после обновления `cloud-init` до версии `25.1.4` или при создании ВМ из образа с этой версией и некорректной конфигурацией. При запуске не настраивается сетевой интерфейс; в выводе серийной консоли может отсутствовать информация об инициализации `cloud-init`.
+
+1. [Создайте снимок диска](../operations/disk-control/create-snapshot.md) проблемной ВМ.
+1. [Создайте диск из снимка](../operations/disk-create/from-snapshot.md) и [подключите его](../operations/vm-control/vm-attach-disk.md) как дополнительный к вспомогательной ВМ.
+1. В файловой системе подключенного диска откройте `etc/cloud/cloud.cfg.d/90_dpkg.cfg`. Для описанной проблемы с версией `25.1.4` оставьте в списке источников только `Ec2`:
+
+   ```yaml
+   datasource_list: [Ec2]
+   ```
+
+   Изменяйте файл на подключенном диске, а не конфигурацию вспомогательной ВМ.
+
+1. Размонтируйте файловую систему, [отключите диск](../operations/vm-control/vm-detach-disk.md) и [создайте новую ВМ с этим загрузочным диском](../operations/vm-create/create-from-disks.md).
+1. Проверьте доступ и сохранность данных. После проверки удалите ненужные ВМ, диски и снимки.
+
+Если проблема сохраняется, [обратитесь в техническую поддержку](https://center.yandex.cloud/support), указав идентификатор ВМ и версию `cloud-init`.
+
+#### Что делать, если не удается подключиться к Kosmos VM? {#kosmos-connection}
+
+Проверьте сетевую доступность ВМ с другой ВМ в той же облачной сети и попробуйте подключиться к [консоли SAC](../operations/serial-console/windows-sac.md).
+
+Если SAC возвращает `Unable to launch a Command Prompt. The service responsible for launching is not available`:
+
+1. [Создайте образ диска](../operations/image-create/create-from-disk.md) проблемной ВМ.
+1. [Создайте диск из образа](../operations/disk-create/from-image.md) и подключите его как дополнительный к другой Kosmos VM.
+1. Откройте командную строку `cmd.exe` с правами администратора и выполните:
+
+   ```bat
+   bcdedit /store <буква_диска>:\boot\bcd /ems {default} on
+   bcdedit /store <буква_диска>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
+   ```
+
+   Укажите букву подключенного диска, на котором находится хранилище BCD.
+
+1. Отключите измененный диск от вспомогательной ВМ и [создайте ВМ с ним как с загрузочным](../operations/vm-create/create-from-disks.md).
+
+Если подключиться не удалось, [обратитесь в техническую поддержку](https://center.yandex.cloud/support). Укажите идентификатор ВМ и время попыток подключения.
+
+#### Почему не сбрасывается пароль Administrator в Kosmos VM? {#kosmos-password}
+
+Если сброс пароля через консоль управления не дает результата, проверьте DNS в гостевой ОС. При использовании собственного DNS-сервера настройте на нем запись:
+
+```text
+metadata.google.internal. A 169.254.169.254
+```
+
+Также можно вернуться к DNS-серверу подсети Virtual Private Cloud. Его адрес определяется относительно начала подсети. Подробнее в разделе [Облачные сети и подсети](../../vpc/concepts/network.md).

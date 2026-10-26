@@ -11,9 +11,6 @@ links:
   - title: '{{ dns-name }}'
     description: Solutions for {{ dns-name }}
     href: dns/
-  - title: '{{ compute-name }}'
-    description: Solutions for {{ compute-name }}
-    href: compute/
   - title: '{{ console-name }}'
     description: Solutions for {{ console-name }}
     href: console/
@@ -41,9 +38,6 @@ links:
   - title: Partner
     description: Solutions for Partner
     href: partner/
-  - title: '{{ captcha-name }}'
-    description: Solutions for {{ captcha-name }}
-    href: smartcaptcha/
   - title: '{{ yandex-cloud }} {{ TF }} provider'
     description: Solutions for the {{ yandex-cloud }} {{ TF }} provider
     href: terraform/

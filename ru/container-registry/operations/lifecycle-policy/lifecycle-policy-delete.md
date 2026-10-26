@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Удалить политику удаления
 
-{% include [sunset](../../../_includes/container-registry/sunset.md) %}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

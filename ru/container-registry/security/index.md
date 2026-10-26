@@ -5,8 +5,6 @@ description: Управление доступом в сервисе для хр
 
 # Управление доступом в {{ container-registry-name }}
 
-{% include [sunset](../../_includes/container-registry/sunset.md) %}
-
 В этом разделе вы узнаете:
 * [На какие ресурсы можно назначить роль](#resources).
 * [Какие роли действуют в сервисе](#roles-list).

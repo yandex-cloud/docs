@@ -2407,7 +2407,6 @@ default:
   stt-short-fileSize: 1 МБ
   stt-streaming-audioLength: 5 минут
   stt-streaming-fileSize: 10 МБ
-  subjects-allAuthenticatedUsers: allAuthenticatedUsers
   subnet-id: b0rcctk2rvtr********
   subnet-name: default-ru-central1-d
   support-center-name: Cloud Center
@@ -3183,6 +3182,7 @@ default:
             general: Основные
             json: JSON
         tab:
+          project-dashboards: Дашборды проекта
           service-dashboards: Сервисные дашборды
         widget-placeholder:
           add-alert: Алерт
@@ -5962,7 +5962,6 @@ default:
           section_encryption: Шифрование
         disk:
           overview:
-            label_snapshot: Снимок
             label_status: Статус
         disks_ddfdb: Диски
         disks:

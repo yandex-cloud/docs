@@ -11,7 +11,7 @@ Update the specified instance group
 
 Syntax:
 
-`yc compute instance-group update <INSTANCE-GROUP-NAME>|<INSTANCE-GROUP-ID> [Global Flags...]`
+`yc compute v0 instance-group update <INSTANCE-GROUP-NAME>|<INSTANCE-GROUP-ID> [Global Flags...]`
 
 Aliases:
 
@@ -37,12 +37,12 @@ A new name of the instance group. ||
 || `--description` | `string`
 
 A new description of the instance group. ||
-|| `--labels` | `key=value`
+|| `--labels` | `key=value[,key=value...]`
 
-Resource labels as key=value pairs. The existing set of `labels` is completely replaced by the provided set. ||
-|| `--variables` | `key=value`
+Resource labels as key=value pairs. The existing set of labels is completely replaced by the provided set. ||
+|| `--variables` | `key=value[,key=value...]`
 
-Variables as key=value pairs. The existing set of `variables` is completely replaced by the provided set. ||
+Variables as key=value pairs. The existing set of variables is completely replaced by the provided set. ||
 || `--scale-policy-fixed-scale-size` | `int`
 
 [Fixed scaling policy] The number of instances in the instance group. ||
@@ -54,25 +54,25 @@ Variables as key=value pairs. The existing set of `variables` is completely repl
 [Automatic scaling policy] Upper limit for total instance count (across all zones). ||
 || `--service-account-id` | `string`
 
-The service account will be used for all API calls, made by the Instance Groups component on behalf of the user. ||
+Service account ID for all API calls made by the Instance Groups component. ||
 || `--service-account-name` | `string`
 
-The service account will be used for all API calls, made by the Instance Groups component on behalf of the user. ||
+Service account name for all API calls made by the Instance Groups component. ||
 || `--template-name` | `string`
 
 A name of the instance. ||
 || `--template-description` | `string`
 
 Description of the instance template. ||
-|| `--template-labels` | `instance_template.labels`
+|| `--template-labels` | `key=value[,key=value...]`
 
-A list of label KEY=VALUE pairs to add. The existing set of instance_template.labels is completely replaced by the provided set. ||
-|| `--template-metadata` | `key=value`
+A list of label KEY=VALUE pairs to add. The existing set is completely replaced. ||
+|| `--template-metadata` | `key=value[,key=value...]`
 
-The metadata key=value pairs assigned to this instance template. This includes custom metadata and predefined keys. The existing set of `instance_template.metadata` is completely replaced by the provided set. ||
-|| `--template-metadata-files` | `instance_template.metadata`
+The metadata key=value pairs assigned to this instance template. ||
+|| `--template-metadata-files` | `key=value[,key=value...]`
 
-Same as --template-metadata except that the value for the entry will be read from a local file. The existing set of instance_template.metadata is completely replaced by the provided set. ||
+Same as --template-metadata except that the value is read from a local file. ||
 || `--template-memory` | `int`
 
 The amount of memory available to the instance, specified in bytes. ||
@@ -81,7 +81,7 @@ The amount of memory available to the instance, specified in bytes. ||
 The number of cores available to the instance. ||
 || `--template-core-fraction` | `int`
 
-If provided, specifies baseline performance for a core in percent. ||
+Baseline performance for a core in percent. ||
 || `--template-gpus` | `int`
 
 The number of GPUs available to the instance. ||
@@ -105,15 +105,10 @@ Service account NAME for the instance. ||
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
-|| `--debug` | Debug logging. ||
-|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
-|| `--no-user-output` | Disable printing user intended output to stderr. ||
-|| `--retry` | `int`
+Set the custom profile. ||
+|| `--region` | `string`
 
-Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
-Pass 0 to disable retries. Pass any negative value for infinite retries.
-Even infinite retries are capped with 2 minutes timeout. ||
+Set the region. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -123,21 +118,47 @@ Set the ID of the folder to use. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
 
-Set the Cloud API endpoint (host:port). ||
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
 || `--token` | `string`
 
 Set the OAuth token to use. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

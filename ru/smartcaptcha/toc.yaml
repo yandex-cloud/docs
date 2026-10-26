@@ -204,6 +204,8 @@ items:
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
+  - name: Вопросы и ответы
+    href: qa.md
   - name: История изменений
     href: release-notes.md
 path: ru/smartcaptcha/toc.yaml

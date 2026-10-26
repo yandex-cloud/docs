@@ -69,13 +69,13 @@ Syntax:
 
 - [yc managed-airflow](managed-airflow/cli-ref/index.md) — Manage Airflow clusters.
 
-- [yc managed-clickhouse](managed-clickhouse/cli-ref/index.md) — Manage ClickHouse clusters, hosts, databases, backups, users and ml-models.
+- [yc managed-clickhouse](managed-clickhouse/cli-ref/index.md) — Manage ClickHouse clusters, hosts, databases, backups, users and ml-models
 
 - [yc managed-gitlab](managed-gitlab/cli-ref/index.md) — Manage Gitlab resources.
 
-- [yc managed-greenplum](managed-greenplum/cli-ref/index.md) — Manage Greenplum and Cloudberry clusters.
+- [yc managed-greenplum](managed-greenplum/cli-ref/index.md) — Manage Greenplum clusters and hosts
 
-- [yc managed-kafka](managed-kafka/cli-ref/index.md) — Manage Apache Kafka clusters, brokers, topics, users and connectors.
+- [yc managed-kafka](managed-kafka/cli-ref/index.md) — Manage Apache Kafka clusters, brokers, topics, users and connectors
 
 - [yc managed-kubernetes](managed-kubernetes/cli-ref/index.md) — Manage Kubernetes clusters.
 
@@ -89,7 +89,7 @@ Syntax:
 
 - [yc managed-postgresql](managed-postgresql/cli-ref/index.md) — Manage PostgreSQL clusters, hosts, databases, backups and users.
 
-- [yc managed-redis](managed-redis/cli-ref/index.md) — Manage Redis clusters, hosts, databases, backups and users.
+- [yc managed-redis](managed-redis/cli-ref/index.md) — Manage Redis clusters, hosts, databases, backups and users
 
 - [yc managed-sharded-postgresql](managed-sharded-postgresql/cli-ref/index.md) — Manage Sharded PostgreSQL clusters, hosts, databases, backups and users.
 

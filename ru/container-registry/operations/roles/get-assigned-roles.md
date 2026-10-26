@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Просмотреть роли на ресурс
 
-{% include [sunset](../../../_includes/container-registry/sunset.md) %}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
