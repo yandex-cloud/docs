@@ -6,8 +6,6 @@ editable: false
 
 # Правила тарификации для {{ container-registry-name }}
 
-{% include [sunset](../_includes/container-registry/sunset.md) %}
-
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}

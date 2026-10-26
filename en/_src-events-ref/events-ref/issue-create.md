@@ -243,8 +243,8 @@ Enum: `"trivial"` `"minor"` `"normal"` `"critical"` `"blocker"` ||
 Enum: `"public"` `"private"` ||
 || [milestone](#issue-milestone) | _object (MilestoneEmbedded)_ ||
 || `deadline` | _string &lt;date-time&gt; (User-defined deadline for the issue)_ ||
-|| `started_at` | _string &lt;date-time&gt; (Timestamp when the issue was last moved to in\_progress status)_ ||
-|| `completed_at` | _string &lt;date-time&gt; (Timestamp when the issue was last moved to completed or canceled status)_ ||
+|| `started_at` | _string &lt;date-time&gt; (Set on creation in progress or first entry into in\_progress; preserved on reentry)_ ||
+|| `completed_at` | _string &lt;date-time&gt; (Set on entry into a terminal status; cleared when leaving terminal statuses)_ ||
 || [repository](#issue-repository) | _object (RepositoryEmbedded)_ ||
 |#
 
@@ -746,12 +746,12 @@ Enum: `"initial"` `"in_progress"` `"paused"` `"completed"` `"cancelled"` ||
           "started_at": {
             "type": "string",
             "format": "date-time",
-            "title": "Timestamp when the issue was last moved to in_progress status"
+            "title": "Set on creation in progress or first entry into in_progress; preserved on reentry"
           },
           "completed_at": {
             "type": "string",
             "format": "date-time",
-            "title": "Timestamp when the issue was last moved to completed or canceled status"
+            "title": "Set on entry into a terminal status; cleared when leaving terminal statuses"
           },
           "repository": {
             "$ref": "#/components/schemas/RepositoryEmbedded"

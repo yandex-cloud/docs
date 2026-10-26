@@ -262,19 +262,19 @@ resource "yandex_mdb_clickhouse_cluster" "my_cluster" {
   }
 
   host {
-    type      = "ZOOKEEPER"
+    type      = "KEEPER"
     zone      = "ru-central1-a"
     subnet_id = yandex_vpc_subnet.foo.id
   }
 
   host {
-    type      = "ZOOKEEPER"
+    type      = "KEEPER"
     zone      = "ru-central1-b"
     subnet_id = yandex_vpc_subnet.bar.id
   }
 
   host {
-    type      = "ZOOKEEPER"
+    type      = "KEEPER"
     zone      = "ru-central1-d"
     subnet_id = yandex_vpc_subnet.baz.id
   }
@@ -631,7 +631,7 @@ resource "yandex_vpc_subnet" "baz" {
   - `fqdn` (*Read-Only*) (String). The fully qualified domain name of the host.
   - `shard_name` (String). The name of the shard to which the host belongs.
   - `subnet_id` (String). The ID of the subnet, to which the host belongs. The subnet must be a part of the network to which the cluster belongs.
-  - `type` (**Required**)(String). The type of the host to be deployed. Can be either `CLICKHOUSE` or `ZOOKEEPER`.
+  - `type` (**Required**)(String). The type of the host to be deployed. Can be `CLICKHOUSE`, `ZOOKEEPER`, or `KEEPER`. `ZOOKEEPER` is deprecated: it cannot be used for new clusters or added to clusters without coordinator hosts. To add a second host to a shard of a cluster without coordinator hosts, add `KEEPER` hosts.
   - `zone` (**Required**)(String). The [availability zone](https://yandex.cloud/docs/overview/concepts/geo-scope) where resource is located. If it is not provided, the default provider zone will be used.
 - `maintenance_window` [Block]. 
   - `day` (String). Day of week for maintenance window if window type is weekly. Possible values: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.

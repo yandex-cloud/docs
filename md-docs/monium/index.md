@@ -18,8 +18,6 @@ Monium платформа для сбора, хранения и анализа 
 
  - [Особенности OTLP в Monium](collector/otlp-protocol.md)
 
- - [Создание и настройка проекта](collector/project.md)
-
 ### Otel Collector
 
  - [Настройка OTel Collector](collector/opentelemetry.md)
@@ -73,6 +71,12 @@ Monium платформа для сбора, хранения и анализа 
  - [Возможные ошибки](concepts/data-collection/unified-agent/errors.md)
 
  - [Удаление](concepts/data-collection/unified-agent/delete.md)
+
+### Настройка
+
+ - [Проект](collector/project.md)
+
+ - [Шард](collector/shard.md)
 
 ## Метрики
 
@@ -327,6 +331,8 @@ Monium платформа для сбора, хранения и анализа 
  - [Создание и управление дашбордом](operations/dashboard/create.md)
 
  - [Копирование дашборда](operations/dashboard/copy.md)
+
+ - [Импорт дашборда из Grafana](operations/dashboard/grafana-import.md)
 
  - [Добавление виджета на дашборд](operations/dashboard/add-widget.md)
 

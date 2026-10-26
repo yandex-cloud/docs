@@ -4351,20 +4351,6 @@ items:
             items:
               - name: Overview
                 href: cli-ref/dataproc/cli-ref/v0/index.md
-              - name: change-freeze
-                items:
-                  - name: Overview
-                    href: cli-ref/dataproc/cli-ref/v0/change-freeze/index.md
-                  - name: create
-                    href: cli-ref/dataproc/cli-ref/v0/change-freeze/create.md
-                  - name: get
-                    href: cli-ref/dataproc/cli-ref/v0/change-freeze/get.md
-                  - name: get-limits
-                    href: cli-ref/dataproc/cli-ref/v0/change-freeze/get-limits.md
-                  - name: list
-                    href: cli-ref/dataproc/cli-ref/v0/change-freeze/list.md
-                  - name: terminate
-                    href: cli-ref/dataproc/cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -4445,20 +4431,6 @@ items:
                     href: cli-ref/dataproc/cli-ref/v0/subcluster/list.md
                   - name: update
                     href: cli-ref/dataproc/cli-ref/v0/subcluster/update.md
-          - name: change-freeze
-            items:
-              - name: Overview
-                href: cli-ref/dataproc/cli-ref/change-freeze/index.md
-              - name: create
-                href: cli-ref/dataproc/cli-ref/change-freeze/create.md
-              - name: get
-                href: cli-ref/dataproc/cli-ref/change-freeze/get.md
-              - name: get-limits
-                href: cli-ref/dataproc/cli-ref/change-freeze/get-limits.md
-              - name: list
-                href: cli-ref/dataproc/cli-ref/change-freeze/list.md
-              - name: terminate
-                href: cli-ref/dataproc/cli-ref/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -10985,6 +10957,32 @@ items:
             items:
               - name: Overview
                 href: cli-ref/organization-manager/cli-ref/v0/index.md
+              - name: authentication-policy-rule
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/v0/authentication-policy-rule/index.md
+                  - name: activate
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/v0/authentication-policy-rule/activate.md
+                  - name: create
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/v0/authentication-policy-rule/create.md
+                  - name: deactivate
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/v0/authentication-policy-rule/deactivate.md
+                  - name: delete
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/v0/authentication-policy-rule/delete.md
+                  - name: get
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/v0/authentication-policy-rule/get.md
+                  - name: list
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/v0/authentication-policy-rule/list.md
+                  - name: update
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/v0/authentication-policy-rule/update.md
               - name: federation
                 items:
                   - name: Overview
@@ -11572,6 +11570,32 @@ items:
                     href: cli-ref/organization-manager/cli-ref/v0/user/list.md
                   - name: remove
                     href: cli-ref/organization-manager/cli-ref/v0/user/remove.md
+          - name: authentication-policy-rule
+            items:
+              - name: Overview
+                href: >-
+                  cli-ref/organization-manager/cli-ref/authentication-policy-rule/index.md
+              - name: activate
+                href: >-
+                  cli-ref/organization-manager/cli-ref/authentication-policy-rule/activate.md
+              - name: create
+                href: >-
+                  cli-ref/organization-manager/cli-ref/authentication-policy-rule/create.md
+              - name: deactivate
+                href: >-
+                  cli-ref/organization-manager/cli-ref/authentication-policy-rule/deactivate.md
+              - name: delete
+                href: >-
+                  cli-ref/organization-manager/cli-ref/authentication-policy-rule/delete.md
+              - name: get
+                href: >-
+                  cli-ref/organization-manager/cli-ref/authentication-policy-rule/get.md
+              - name: list
+                href: >-
+                  cli-ref/organization-manager/cli-ref/authentication-policy-rule/list.md
+              - name: update
+                href: >-
+                  cli-ref/organization-manager/cli-ref/authentication-policy-rule/update.md
           - name: federation
             items:
               - name: Overview

@@ -11,7 +11,7 @@ Update the specified Redis cluster config
 
 Syntax:
 
-`yc managed-redis cluster update-config <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
+`yc managed-redis v0 cluster update-config <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
 
 #### Flags
 
@@ -91,7 +91,19 @@ derived from the host class; when disabled, a single thread is used.
 
 - `audit_log`: Enable/disable audit logs for Valkey
 
-- `rebalance_enabled`: Enables automatic slot rebalancing when shards are added or deleted. ||
+- `rebalance_enabled`: Enables automatic slot rebalancing when shards are added or deleted.
+
+- `hash_max_listpack_entries`: Controls max number of entries in hash before conversion from memory-efficient listpack to CPU-efficient hash table.
+
+- `hash_max_listpack_value`: Controls max value size in hash before conversion from memory-efficient listpack to CPU-efficient hash table.
+
+- `list_max_listpack_size`: Controls max size of a listpack in list before creating a new listpack node.
+
+- `set_max_listpack_entries`: Controls max number of entries in set before conversion from memory-efficient listpack to CPU-efficient hash table.
+
+- `set_max_listpack_value`: Controls max value size in set before conversion from memory-efficient listpack to CPU-efficient hash table.
+
+- `zset_max_listpack_value`: Controls max value size in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist. ||
 |#
 
 #### Global Flags
@@ -100,15 +112,10 @@ derived from the host class; when disabled, a single thread is used.
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
-|| `--debug` | Debug logging. ||
-|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
-|| `--no-user-output` | Disable printing user intended output to stderr. ||
-|| `--retry` | `int`
+Set the custom profile. ||
+|| `--region` | `string`
 
-Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
-Pass 0 to disable retries. Pass any negative value for infinite retries.
-Even infinite retries are capped with 2 minutes timeout. ||
+Set the region. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -118,21 +125,47 @@ Set the ID of the folder to use. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
 
-Set the Cloud API endpoint (host:port). ||
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
 || `--token` | `string`
 
 Set the OAuth token to use. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

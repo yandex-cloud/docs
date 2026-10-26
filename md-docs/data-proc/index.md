@@ -200,20 +200,6 @@
 
  - [Overview](cli-ref/v0/index.md)
 
-#### change-freeze
-
- - [Overview](cli-ref/v0/change-freeze/index.md)
-
- - [create](cli-ref/v0/change-freeze/create.md)
-
- - [get](cli-ref/v0/change-freeze/get.md)
-
- - [get-limits](cli-ref/v0/change-freeze/get-limits.md)
-
- - [list](cli-ref/v0/change-freeze/list.md)
-
- - [terminate](cli-ref/v0/change-freeze/terminate.md)
-
 #### cluster
 
  - [Overview](cli-ref/v0/cluster/index.md)
@@ -291,20 +277,6 @@
  - [list](cli-ref/v0/subcluster/list.md)
 
  - [update](cli-ref/v0/subcluster/update.md)
-
-### change-freeze
-
- - [Overview](cli-ref/change-freeze/index.md)
-
- - [create](cli-ref/change-freeze/create.md)
-
- - [get](cli-ref/change-freeze/get.md)
-
- - [get-limits](cli-ref/change-freeze/get-limits.md)
-
- - [list](cli-ref/change-freeze/list.md)
-
- - [terminate](cli-ref/change-freeze/terminate.md)
 
 ### cluster
 

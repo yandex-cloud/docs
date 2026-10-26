@@ -104,3 +104,15 @@ You can move your VM to different [folder](../../resource-manager/concepts/resou
 No, you cannot. Deleting a VM is irreversible and cannot be undone.
 
 To prevent data loss if you accidentally delete a VM, you can either set up disk backups using snapshots or configure the disks so that they are not automatically deleted along with the VM.
+
+#### Options for migrating a VM image to {{ yandex-cloud }} {#migrate-to-cloud}
+
+You can migrate your VM by creating an image from its boot disk by following [this guide](../../compute/operations/image-create/create-from-image.md).
+
+If your virtual machine resides on a physical hypervisor within a corporate network, [prepare its disk for migration](../../compute/operations/image-create/custom-image.md), export the disk image from the hypervisor environment, convert it to QCOW2 (preferred) or VMDK format, and then [upload it to {{ objstorage-name }}](../../compute/operations/image-create/upload.md).
+
+{% note info %}
+
+If you plan to migrate a Microsoft Windows® VM, please review the [policy for hosting such VMs in {{ yandex-cloud }}](../../microsoft/licensing.md) beforehand.
+
+{% endnote %}

@@ -120,7 +120,7 @@ Possible property names:
 
 - `type`: The type of the disk. To get a list of available disk types, run 'yc compute disk-type list'. The default disk type is network-hdd.
 
-- `size`: The size of the disk. If not specified, inferred size is used. If the disk is created from a snapshot, disk size of the snapshot is used. If the disk is created from an image, size of the image is used.If no source is specified, default disk size is used.
+- `size`: The size of the disk in GB. You can also use M and T suffixes to specify smaller or greater size respectively. If not specified, inferred size is used. If the disk is created from a snapshot, disk size of the snapshot is used. If the disk is created from an image, size of the image is used.If no source is specified, default disk size is used.
 
 - `device-name`: Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance.
 
@@ -257,7 +257,7 @@ Reserved instance pool to create the instance in. ||
 
 Reserved instance pool to create the instance in. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
-|| `--container-arg` | `value[,value]`
+|| `--container-arg` | `[]string`
 
 A list of arguments to append to container entrypoint. Overrides default container CMD ||
 || `--container-command` | `string`
@@ -319,15 +319,10 @@ Container optimized image YAML file. ||
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
-|| `--debug` | Debug logging. ||
-|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
-|| `--no-user-output` | Disable printing user intended output to stderr. ||
-|| `--retry` | `int`
+Set the custom profile. ||
+|| `--region` | `string`
 
-Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
-Pass 0 to disable retries. Pass any negative value for infinite retries.
-Even infinite retries are capped with 2 minutes timeout. ||
+Set the region. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -337,21 +332,47 @@ Set the ID of the folder to use. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
 
-Set the Cloud API endpoint (host:port). ||
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
 || `--token` | `string`
 
 Set the OAuth token to use. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

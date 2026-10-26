@@ -208,4 +208,6 @@ Yandex SmartCaptcha позволяет определить, кем являет
 
  - [Аудитные логи Audit Trails](at-ref.md)
 
+ - [Вопросы и ответы](qa.md)
+
  - [История изменений](release-notes.md)

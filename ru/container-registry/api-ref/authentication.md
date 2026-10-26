@@ -5,6 +5,4 @@ description: 'Для выполнения операций через API {{ con
 
 # Аутентификация в API {{ container-registry-name }}
 
-{% include [sunset](../../_includes/container-registry/sunset.md) %}
-
 {% include notitle [auth](../../_includes/authentication.md) %}

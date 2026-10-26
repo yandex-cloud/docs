@@ -2,6 +2,8 @@
 
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} по вопросам безопасности.
 
+{% include [26.10.2026 — CVE-2026-111497 (Broccoli2Shell)](../../_includes/security/security-bulletins/cve-2026-111497-broccoli2shell.md) %}
+
 {% include [23.10.2026 — CVE-2026-99999 (PwnEscape)](../../_includes/security/security-bulletins/cve-2026-99999-pwnescape.md) %}
 
 {% include [22.10.2026 — CVE-2026-110264 — удаленное выполнение кода в {{ GL }}](../../_includes/security/security-bulletins/cve-2026-110264-gitlab-rce.md) %}

@@ -21,14 +21,12 @@ Instance id. ||
 
 Instance name. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
-|| `--container-arg` | `value[,value]`
+|| `--container-arg` | `[]string`
 
 A list of arguments to append to container entrypoint. Overrides default container CMD ||
-|| `--clear-container-args` | Removes the list of arguments from container declaration. ||
 || `--container-command` | `string`
 
 Executable to run when the container starts. Overrides default container ENTRYPOINT ||
-|| `--clear-container-command` | Removes command from container declaration. ||
 || `--container-env` | `key=value[,key=value...]`
 
 Declare environment variable KEY with value VALUE passed to container. Only the last value of KEY is taken when KEY is repeated more than once.
@@ -37,9 +35,6 @@ Values, declared with --container-env flag override those with the same KEY from
 
 Declare environment variables in a file. Values, declared with --container-env flag override those with the same KEY from file.
 File must contain lines in format KEY=VALUE, variables without value are not supported. ||
-|| `--remove-container-env` | `string`
-
-Removes environment variable KEY from container declaration. ||
 || `--container-image` | `string`
 
 Container image name. ||
@@ -51,7 +46,7 @@ Container name. ||
 || `--container-tty` | Allocate a pseudo-TTY for the container. ||
 || `--container-restart-policy` | `string`
 
-Specify whether to restart a container on exit. Must be one of: Always, Never, OnFailure. ||
+Specify whether to restart a container on exit. Must be one of: Always, Never, OnFailure. Default: Always. ||
 || `--container-volume-tmpfs` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 Add tmpfs-backed docker volume
@@ -74,16 +69,21 @@ Possible property names:
 - `ro`: Specifies whether the volume is read-only or not inside a container. Default: false
 
 - `host-path`: Specifies a path on host VM that will be bound to the volume. (required) ||
-|| `--remove-container-volume` | `string`
-
-Remove docker volume from container declaration by its name. Several names separated with comma can be provided. ||
-|| `--clear-container-volumes` | Remove all docker volumes from container declaration ||
 || `--docker-compose-file` | `string`
 
 Docker compose file. ||
 || `--coi-spec-file` | `string`
 
 Container optimized image YAML file. ||
+|| `--clear-container-args` | Removes the list of arguments from container declaration. ||
+|| `--clear-container-command` | Removes command from container declaration. ||
+|| `--remove-container-env` | `string`
+
+Removes environment variable KEY from container declaration. ||
+|| `--remove-container-volume` | `string`
+
+Remove docker volume from container declaration by its name. Several names separated with comma can be provided. ||
+|| `--clear-container-volumes` | Remove all docker volumes from container declaration ||
 |#
 
 #### Global Flags
@@ -92,15 +92,10 @@ Container optimized image YAML file. ||
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
-|| `--debug` | Debug logging. ||
-|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
-|| `--no-user-output` | Disable printing user intended output to stderr. ||
-|| `--retry` | `int`
+Set the custom profile. ||
+|| `--region` | `string`
 
-Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
-Pass 0 to disable retries. Pass any negative value for infinite retries.
-Even infinite retries are capped with 2 minutes timeout. ||
+Set the region. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -110,21 +105,47 @@ Set the ID of the folder to use. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
 
-Set the Cloud API endpoint (host:port). ||
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
 || `--token` | `string`
 
 Set the OAuth token to use. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

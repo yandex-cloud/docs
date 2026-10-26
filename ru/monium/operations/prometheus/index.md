@@ -32,6 +32,8 @@ description: '{{ managed-prometheus-full-name }} — система монито
 
 {% endlist %}
 
+После настройки записи метрик можно [импортировать дашборды](../dashboard/grafana-import.md) из {{ grafana-name }} и работать с ними в интерфейсе {{ monium-name }}.
+
 ## Сравнение возможностей {#features}
 
 {% note info %}

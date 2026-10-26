@@ -5,8 +5,6 @@ description: Follow this guide to assign roles for a resource.
 
 # Assigning a role for a resource
 
-{% include [sunset](../../../_includes/container-registry/sunset.md) %}
-
 To grant access to a [resource](../../../iam/concepts/access-control/resources-with-access-control.md), assign a [role](../../../iam/concepts/access-control/roles.md) to a subject for the resource itself or for a resource from which access permissions are inherited, such as a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) or [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud). For the current list of resources you can assign roles for, see [{#T}](../../security/index.md#resources).
 
 {% list tabs group=instructions %}

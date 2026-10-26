@@ -1,7 +1,5 @@
 # Revoking a role for a resource
 
-{% include [sunset](../../../_includes/container-registry/sunset.md) %}
-
 You can prevent a [subject](../../../iam/concepts/access-control/index.md#subject) from accessing a resource. To do this, revoke the subject's [roles](../../../iam/concepts/access-control/roles.md) for that resource and any resources from which permissions are inherited. For more information, see [{#T}](../../../iam/concepts/access-control/index.md).
 
 {% list tabs group=instructions %}

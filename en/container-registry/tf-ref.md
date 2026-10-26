@@ -5,8 +5,6 @@ description: This page gives information about the {{ TF }} provider resources a
 
 # {{ TF }} reference for {{ container-registry-full-name }}
 
-{% include [sunset](../_includes/container-registry/sunset.md) %}
-
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
 
 ## Resources {#resources}

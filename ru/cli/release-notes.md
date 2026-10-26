@@ -7,6 +7,14 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.42.0 (26.10.26) {#v-1-42-0}
+
+#### {{ dataproc-name }} {#v-1-42-0-dataproc-name}
+
+* Удалены группы команд `yc dataproc change-freeze` и `yc dataproc v0 change-freeze`, поскольку плановое обслуживание не поддерживается.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.41.0 (12.10.26) {#v-1-41-0}
 
 #### {{ org-full-name }} {#v-1-41-0-org-name}
@@ -19,8 +27,6 @@ description: На странице представлены релизы CLI, а
   * `yc organization-manager authentication-policy-rule delete`;
   * `yc organization-manager authentication-policy-rule activate`;
   * `yc organization-manager authentication-policy-rule deactivate`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.40.0 (05.10.26) {#v-1-40-0}
 

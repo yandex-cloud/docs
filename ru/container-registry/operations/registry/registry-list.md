@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Получить информацию об имеющихся реестрах
 
-{% include [sunset](../../../_includes/container-registry/sunset.md) %}
-
 Узнайте, как получить:
 
 * [Список реестров в каталоге](#registry-list).

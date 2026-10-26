@@ -10,6 +10,12 @@ subcategory: Serverless Triggers
 ## Arguments & Attributes Reference
 
 - `action` [Block]. List of actions to perform when the trigger fires.
+  - `agent_runtime_call` [Block]. Call an Agent Runtime agent.
+    - `agent_version_id` (**Required**)(String). ID of the agent version to call.
+    - `attributes` (Map Of String). Additional attributes passed to the agent call.
+    - `channel_id` (**Required**)(String). ID of the Agent Runtime channel to call.
+    - `cloud_id` (String). ID of the cloud that the agent belongs to.
+    - `folder_id` (String). ID of the folder that the agent belongs to.
   - `dead_letter` [Block]. Dead-letter destination for events that could not be processed after all retries. Optional.
     - `dead_letter_queue` [Block]. Deliver the failed event as a message to a YMQ queue.
       - `message_attributes` (Map Of String). Constant message attributes attached to every message written to the queue.

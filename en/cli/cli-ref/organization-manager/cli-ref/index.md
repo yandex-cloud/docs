@@ -21,6 +21,22 @@ Syntax:
 
 
 
+- [yc organization-manager authentication-policy-rule](authentication-policy-rule/index.md) — Manage authentication policy rules
+
+  - [yc organization-manager authentication-policy-rule activate](authentication-policy-rule/activate.md) — Activate an authentication policy rule
+
+  - [yc organization-manager authentication-policy-rule create](authentication-policy-rule/create.md) — Create an authentication policy rule
+
+  - [yc organization-manager authentication-policy-rule deactivate](authentication-policy-rule/deactivate.md) — Deactivate an authentication policy rule
+
+  - [yc organization-manager authentication-policy-rule delete](authentication-policy-rule/delete.md) — Delete an authentication policy rule
+
+  - [yc organization-manager authentication-policy-rule get](authentication-policy-rule/get.md) — Show the specified authentication policy rule
+
+  - [yc organization-manager authentication-policy-rule list](authentication-policy-rule/list.md) — List authentication policy rules in an organization
+
+  - [yc organization-manager authentication-policy-rule update](authentication-policy-rule/update.md) — Update an authentication policy rule
+
 - [yc organization-manager federation](federation/index.md) — Manage federations
 
 

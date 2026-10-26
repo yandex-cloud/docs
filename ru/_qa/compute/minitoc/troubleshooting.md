@@ -3,3 +3,7 @@
 * [Дополнительные сетевые интерфейсы не работают после добавления на существующую ВМ](#added-net-interfaces-down)
 
 * [ВМ недоступна](#vm-unavailable)
+
+* [Что делать, если превышена квота на ресурсы?](#quota-exceeded)
+
+* [Почему перенос в зону завершается ошибкой Relocation to zone is disabled?](#relocation-disabled)

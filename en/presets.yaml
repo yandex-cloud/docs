@@ -1946,7 +1946,6 @@ default:
   stt-short-fileSize: 1 MB
   stt-streaming-audioLength: 5 minutes
   stt-streaming-fileSize: 10 MB
-  subjects-allAuthenticatedUsers: allAuthenticatedUsers
   subnet-id: b0rcctk2rvtr8efcch64
   subnet-name: default-ru-central1-c
   support-center-name: Support Center
@@ -2280,7 +2279,6 @@ default:
             popup-grant-activation_button_activate: Activate
           detail:
             button_create-periodic-export: Periodic export
-            button_export: Export details
             column_cloud-name: Cloud
             column_cost: Consumption cost
             column_credit: Discount
@@ -5291,7 +5289,6 @@ default:
           section_encryption: Encryption
         disk:
           overview:
-            label_snapshot: Snapshot
             label_status: Status
         disks_ddfdb: Disks
         disks:

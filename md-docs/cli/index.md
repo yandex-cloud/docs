@@ -3844,20 +3844,6 @@
 
  - [Overview](cli-ref/dataproc/cli-ref/v0/index.md)
 
-##### change-freeze
-
- - [Overview](cli-ref/dataproc/cli-ref/v0/change-freeze/index.md)
-
- - [create](cli-ref/dataproc/cli-ref/v0/change-freeze/create.md)
-
- - [get](cli-ref/dataproc/cli-ref/v0/change-freeze/get.md)
-
- - [get-limits](cli-ref/dataproc/cli-ref/v0/change-freeze/get-limits.md)
-
- - [list](cli-ref/dataproc/cli-ref/v0/change-freeze/list.md)
-
- - [terminate](cli-ref/dataproc/cli-ref/v0/change-freeze/terminate.md)
-
 ##### cluster
 
  - [Overview](cli-ref/dataproc/cli-ref/v0/cluster/index.md)
@@ -3935,20 +3921,6 @@
  - [list](cli-ref/dataproc/cli-ref/v0/subcluster/list.md)
 
  - [update](cli-ref/dataproc/cli-ref/v0/subcluster/update.md)
-
-#### change-freeze
-
- - [Overview](cli-ref/dataproc/cli-ref/change-freeze/index.md)
-
- - [create](cli-ref/dataproc/cli-ref/change-freeze/create.md)
-
- - [get](cli-ref/dataproc/cli-ref/change-freeze/get.md)
-
- - [get-limits](cli-ref/dataproc/cli-ref/change-freeze/get-limits.md)
-
- - [list](cli-ref/dataproc/cli-ref/change-freeze/list.md)
-
- - [terminate](cli-ref/dataproc/cli-ref/change-freeze/terminate.md)
 
 #### cluster
 
@@ -9824,6 +9796,24 @@
 
  - [Overview](cli-ref/organization-manager/cli-ref/v0/index.md)
 
+##### authentication-policy-rule
+
+ - [Overview](cli-ref/organization-manager/cli-ref/v0/authentication-policy-rule/index.md)
+
+ - [activate](cli-ref/organization-manager/cli-ref/v0/authentication-policy-rule/activate.md)
+
+ - [create](cli-ref/organization-manager/cli-ref/v0/authentication-policy-rule/create.md)
+
+ - [deactivate](cli-ref/organization-manager/cli-ref/v0/authentication-policy-rule/deactivate.md)
+
+ - [delete](cli-ref/organization-manager/cli-ref/v0/authentication-policy-rule/delete.md)
+
+ - [get](cli-ref/organization-manager/cli-ref/v0/authentication-policy-rule/get.md)
+
+ - [list](cli-ref/organization-manager/cli-ref/v0/authentication-policy-rule/list.md)
+
+ - [update](cli-ref/organization-manager/cli-ref/v0/authentication-policy-rule/update.md)
+
 ##### federation
 
  - [Overview](cli-ref/organization-manager/cli-ref/v0/federation/index.md)
@@ -10237,6 +10227,24 @@
  - [list](cli-ref/organization-manager/cli-ref/v0/user/list.md)
 
  - [remove](cli-ref/organization-manager/cli-ref/v0/user/remove.md)
+
+#### authentication-policy-rule
+
+ - [Overview](cli-ref/organization-manager/cli-ref/authentication-policy-rule/index.md)
+
+ - [activate](cli-ref/organization-manager/cli-ref/authentication-policy-rule/activate.md)
+
+ - [create](cli-ref/organization-manager/cli-ref/authentication-policy-rule/create.md)
+
+ - [deactivate](cli-ref/organization-manager/cli-ref/authentication-policy-rule/deactivate.md)
+
+ - [delete](cli-ref/organization-manager/cli-ref/authentication-policy-rule/delete.md)
+
+ - [get](cli-ref/organization-manager/cli-ref/authentication-policy-rule/get.md)
+
+ - [list](cli-ref/organization-manager/cli-ref/authentication-policy-rule/list.md)
+
+ - [update](cli-ref/organization-manager/cli-ref/authentication-policy-rule/update.md)
 
 #### federation
 

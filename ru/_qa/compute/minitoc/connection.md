@@ -17,3 +17,15 @@
 * [Что делать, если утерян SSH-ключ?](#lost-ssh)
 
 * [Почему после перезагрузки не работает ВМ?](#why-fail-after-reboot)
+
+* [Как подключиться к ВМ Linux по паролю?](#password-authentication)
+
+* [Что делать при предупреждении REMOTE HOST IDENTIFICATION HAS CHANGED?](#remote-host-identification)
+
+* [Как подключиться к ВМ через WinSCP с SSH-ключом?](#winscp)
+
+* [Что делать, если после обновления cloud-init пропал сетевой доступ?](#cloud-init-network)
+
+* [Что делать, если не удается подключиться к Kosmos VM?](#kosmos-connection)
+
+* [Почему не сбрасывается пароль Administrator в Kosmos VM?](#kosmos-password)

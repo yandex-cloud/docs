@@ -35,6 +35,8 @@ resource "yandex_organizationmanager_mfa_enforcement" "example_mfa_enforcement" 
 - `mfa_enforcement_id` (String). id of the MFA enforcement
 - `name` (**Required**)(String). name of the MFA enforcement
 - `organization_id` (**Required**)(String). organization id of the MFA enforcement
+- `sspr_policies` (List Of String). sspr_policies for the MFA enforcement. Accepted values: 'mfa', 'two-any',
+ specification https://yandex.cloud/en/docs/organization/concepts/sspr
 - `status` (String). MFA enforcement status
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).

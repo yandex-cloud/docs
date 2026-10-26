@@ -1,7 +1,5 @@
 # Testing a lifecycle policy
 
-{% include [sunset](../../../_includes/container-registry/sunset.md) %}
-
 A dry run helps verify which [Docker images](../../concepts/docker-image.md) meet [lifecycle policy](../../concepts/lifecycle-policy.md) rules. Docker images are not actually deleted during dry runs.
 
 {% note warning %}

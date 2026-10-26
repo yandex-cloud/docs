@@ -98,80 +98,6 @@
 
  - [Как сменить владельца аккаунта для юридических лиц](billing/how-to/changing-account-owner-for-legal-entities.md)
 
-## Compute Cloud
-
- - [Все решения для Compute Cloud](compute/index.md)
-
- - [Решения для известных проблем Compute Cloud](compute/known-issues/index.md)
-
- - [Устранение ошибки `Permission denied` при подключении к виртуальной машине после ее создания средствами Terraform](compute/known-issues/permission-denied-error-when-connected-as-user-created-from-terraform-manifest.md)
-
- - [Не поддерживается вложенная виртуализация](compute/known-issues/nested-virtualisation-is-not-supported.md)
-
- - [Устранение ошибки `Not enough resources` при запуске виртуальной машины](compute/known-issues/not-enough-resources.md)
-
- - [Восстановление доступа к виртуальной машине с утерянным SSH-ключом](compute/known-issues/restore-access-to-vm.md)
-
- - [Устранение проблем с созданием снимков дисков](compute/known-issues/snapshots-creation-issue.md)
-
- - [Не увеличился размер загрузочного диска](compute/known-issues/disk-volume-did-not-increase.md)
-
- - [Виртуальная машина выключается операцией `Instance guest stop processing`](compute/known-issues/instance-guest-stop-processing.md)
-
- - [Устранение ошибки `WARNING REMOTE HOST IDENTIFICATION HAS CHANGED`](compute/known-issues/warning-remote-host-identification-has-changed.md)
-
- - [Устранение поломки нереплицируемого диска](compute/known-issues/non-replicated-disk-broke-down.md)
-
- - [Устранение проблем при подключении к Kosmos VM](compute/known-issues/kosmos-vm-connection-issues.md)
-
- - [Устранение проблем со сбросом пароля для виртуальной машины на базе образа Kosmos](compute/known-issues/kosmos-vm-password-reseting-issue.md)
-
- - [Устранение ошибки `The limit on maximum number of cores has exceeded`](compute/known-issues/the-limit-on-maximum-number-of-cores-has-exceeded.md)
-
- - [Недоступна CUDA на платформе GPU](compute/known-issues/cuda-unavailable.md)
-
- - [Устранение проблем с производительностью дискового и сетевого ввода-вывода на виртуальной машине](compute/known-issues/throttling-and-vm-perfomance-issues.md)
-
- - [Устранение ошибки `FAILED_PRECONDITION Relocation to zone `ru-central1-a/b/c` is disabled`](compute/known-issues/failed-precondition-relocation-to-zone-is-disabled.md)
-
- - [Нет доступа к ВМ по SSH и ping после обновления cloud-init](compute/known-issues/no-ssh-access-and-ping-after-cloud-init-update.md)
-
- - [Примеры конфигураций и сценариев Compute Cloud](compute/how-to/index.md)
-
- - [Варианты миграции образа виртуальной машины в Yandex Cloud](compute/how-to/possible-vm-migration-scenarios.md)
-
- - [Как изменить тип загрузочного диска виртуальной машины](compute/how-to/migrate-data-from-hdd-to-ssd.md)
-
- - [Как узнать о потреблении оперативной памяти виртуальными машинами в Compute Cloud](compute/how-to/view-ram-usage-in-monitoring.md)
-
- - [Как уменьшить объем диска виртуальной машины](compute/how-to/shrink-instance-disk.md)
-
- - [Как экспортировать образы дисков виртуальных машин Compute Cloud](compute/how-to/export-disk-image.md)
-
- - [Как перенести виртуальную машину между разными каталогами или облаками](compute/how-to/transfer-vm-between-clouds.md)
-
- - [Как настроить GUI и графическое окружение на виртуальных машинах с Linux](compute/how-to/access-gui-and-xorg-on-linux-vm.md)
-
- - [Как использовать ISO-образ для развертывания виртуальных машин](compute/how-to/using-iso-to-deploy-vm-is-not-supported.md)
-
- - [Как получить входящий или исходящий трафик виртуальной машины](compute/how-to/incoming-and-outcoming-traffic-logs.md)
-
- - [Как подключиться к виртуальной машине Linux в Yandex Cloud через WinSCP со сгенерированным при создании ключом](compute/how-to/winscp-and-key-authorization.md)
-
- - [Как создать бэкап виртуальной машины с возможностью отката](compute/how-to/create-vm-backups.md)
-
- - [Как подключиться по SSH от root с x или ключом](compute/how-to/ssh-root-authorization.md)
-
- - [Как отслеживать объем потребляемой памяти](compute/how-to/ram-monitoring.md)
-
- - [Как читать график `Connections quota utilization`](compute/how-to/connections-quota-utilization.md)
-
- - [Как узнать скорость доступа к дискам виртуальной машины](compute/how-to/disk-access-speed.md)
-
- - [Как создать виртуальную машину с доступом по паролю](compute/how-to/create-password-protected-vm.md)
-
- - [Как настроить защиту RDP-подключения на Microsoft Windows®](compute/how-to/rdp-protection-for-windows.md)
-
 ## DataLens
 
  - [Все решения для DataLens](datalens/index.md)
@@ -282,18 +208,6 @@
 
  - [Примеры конфигураций и сценариев Managed Service for MySQL®](managed-mysql/how-to/index.md)
 
-## SmartCaptcha
-
- - [Все решения для SmartCaptcha](smartcaptcha/index.md)
-
- - [Решения для известных проблем SmartCaptcha](smartcaptcha/known-issues/index.md)
-
- - [Устранение ошибки `Ключ не может использоваться на домене captcha-api.yandex.ru`](smartcaptcha/known-issues/error-captcha-cannot-be-used-on-domain.md)
-
- - [Примеры конфигураций и сценариев SmartCaptcha](smartcaptcha/how-to/index.md)
-
- - [Как получить информацию о количестве использованных проверок за определенный период](smartcaptcha/how-to/learning-about-monitoring-and-tarification.md)
-
 ## VPC
 
  - [Все решения для VPC](vpc/index.md)
@@ -320,11 +234,7 @@
 
  - [Перенос внешнего статического IP-адреса в другое облако](vpc/how-to/move-external-ip-between-cloud.md)
 
- - [Как получить входящий или исходящий трафик ВМ](vpc/how-to/incoming-and-outcoming-traffic-logs.md)
-
  - [Как изменить сеть или подсеть для MDB-кластера](vpc/how-to/changing-net-or-subnet.md)
-
- - [Как читать график `Connections quota utilization`](vpc/how-to/connections-quota-utilization.md)
 
  - [Как привязать фиксированный IP-адрес к NAT-шлюзу](vpc/how-to/link-ip-address-to-nat-gateway.md)
 

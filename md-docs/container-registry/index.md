@@ -2,13 +2,15 @@
 
 # Yandex Container Registry
 
-Сервис Yandex Container Registry прекращает работу.
+Yandex Container Registry — сервис для хранения и распространения Docker-образов.
 
-Подробнее о сроках и порядке закрытия читайте на странице <a href="sunset.md">Закрытие сервиса</a>.
+Container Registry предоставляет надежное и независимое от внешних блокировок хранилище. Docker-образы в Container Registry размещаются в тех же <a href="../overview/concepts/geo-scope.md">дата-центрах</a> Yandex Cloud, в которых размещена остальная облачная инфраструктура, что обеспечивает высокую скорость работы с образами и отсутствие затрат на внешний трафик.
+
+Container Registry предоставляет встроенный <a href="concepts/vulnerability-scanner.md">сканер уязвимостей</a>, с помощью которого можно сканировать Docker-образы как в момент их загрузки в реестр, так и позднее по расписанию, а также гибко управлять результатами сканирования.
+
+Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение об уровне обслуживания</a>. Уровень обслуживания сервиса определен в документе <a href="https://yandex.ru/legal/cloud_sla_ycr">Уровень обслуживания Yandex Container Registry</a>.
 
 # Yandex Container Registry
-
- - [Закрытие сервиса](sunset.md)
 
  - [Начало работы](quickstart/index.md)
 
@@ -91,8 +93,6 @@
 ## Практические руководства
 
  - [Все руководства](tutorials/index.md)
-
- - [Миграция в Yandex Cloud Registry](tutorials/container-registry-migration.md)
 
 ### Запуск Docker-образа на виртуальной машине
 

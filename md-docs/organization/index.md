@@ -432,6 +432,24 @@
 
  - [Overview](cli-ref/v0/index.md)
 
+#### authentication-policy-rule
+
+ - [Overview](cli-ref/v0/authentication-policy-rule/index.md)
+
+ - [activate](cli-ref/v0/authentication-policy-rule/activate.md)
+
+ - [create](cli-ref/v0/authentication-policy-rule/create.md)
+
+ - [deactivate](cli-ref/v0/authentication-policy-rule/deactivate.md)
+
+ - [delete](cli-ref/v0/authentication-policy-rule/delete.md)
+
+ - [get](cli-ref/v0/authentication-policy-rule/get.md)
+
+ - [list](cli-ref/v0/authentication-policy-rule/list.md)
+
+ - [update](cli-ref/v0/authentication-policy-rule/update.md)
+
 #### federation
 
  - [Overview](cli-ref/v0/federation/index.md)
@@ -845,6 +863,24 @@
  - [list](cli-ref/v0/user/list.md)
 
  - [remove](cli-ref/v0/user/remove.md)
+
+### authentication-policy-rule
+
+ - [Overview](cli-ref/authentication-policy-rule/index.md)
+
+ - [activate](cli-ref/authentication-policy-rule/activate.md)
+
+ - [create](cli-ref/authentication-policy-rule/create.md)
+
+ - [deactivate](cli-ref/authentication-policy-rule/deactivate.md)
+
+ - [delete](cli-ref/authentication-policy-rule/delete.md)
+
+ - [get](cli-ref/authentication-policy-rule/get.md)
+
+ - [list](cli-ref/authentication-policy-rule/list.md)
+
+ - [update](cli-ref/authentication-policy-rule/update.md)
 
 ### federation
 

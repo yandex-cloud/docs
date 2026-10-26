@@ -1,7 +1,5 @@
 # {{ container-registry-full-name }} concepts
 
-{% include [sunset](../../_includes/container-registry/sunset.md) %}
-
 {{ container-registry-name }} is a service for storing and distributing Docker images.
 
 {{ container-registry-name }} offers a reliable storage solution independent of external locks. Docker images in {{ container-registry-name }} are stored in the same {{ yandex-cloud }} [data centers](../../overview/concepts/geo-scope.md) as the rest of the cloud infrastructure, ensuring high-speed image processing and zero external traffic costs.

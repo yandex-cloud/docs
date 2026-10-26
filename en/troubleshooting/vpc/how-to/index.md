@@ -2,9 +2,7 @@
 
 * [How to disable DDoS protection](disable-ddos-protection-on-external-ip.md)
 * [How to transfer an external static IP address to a different cloud](move-external-ip-between-cloud.md)
-* [How to view incoming or outgoing traffic logs for a VM](incoming-and-outcoming-traffic-logs.md)
 * [How to change the network or subnet for an MDB cluster](changing-net-or-subnet.md)
-* [How to read the `Connections quota utilization` chart](connections-quota-utilization.md)
 * [How to assign a fixed IP address to a NAT gateway](link-ip-address-to-nat-gateway.md)
 * [How to enable egress NAT](activate-egress-nat.md)
 * [How to route traffic between two cloud networks](routing-traffic-between-two-vpcs.md)

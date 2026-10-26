@@ -27,3 +27,5 @@
 * [Can I move my VM to a different folder?](#move-to-project)
 
 * [Can I recover my VM if I accidentally delete it?](#delete-vm2)
+
+* [Options for migrating a VM image to {{ yandex-cloud }}](#migrate-to-cloud)

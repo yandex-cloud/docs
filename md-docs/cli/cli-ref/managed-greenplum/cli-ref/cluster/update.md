@@ -20,7 +20,6 @@ Greenplum cluster id. ||
 || `--name` | `string`
 
 Greenplum cluster name. ||
-|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 || `--description` | `string`
 
 Cluster description. ||
@@ -34,54 +33,30 @@ New name for the Greenplum cluster ||
 || `--user-password` | `string`
 
 Owner user password. Must be 8-128 characters long. ||
-|| `--security-group-ids` | `value[,value]`
+|| `--security-group-ids` | `[]string`
 
 A list of security groups for the Greenplum cluster. ||
-|| `--master-config` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+|| `--master-config` | `KEY=VALUE[,KEY=VALUE...]`
 
-Descriptions of master config resources for Greenplum cluster.
+Descriptions of master config resources for Greenplum cluster. ||
+|| `--segment-config` | `KEY=VALUE[,KEY=VALUE...]`
 
-Possible property names:
-
-- `resource-id`: ID of the preset for computational resources available on the host.
-
-- `disk-size`: Volume of the storage available on the host in GB. ||
-|| `--segment-config` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
-
-Descriptions of segment config resources for Greenplum cluster.
-
-Possible property names:
-
-- `resource-id`: ID of the preset for computational resources available on the host.
-
-- `disk-size`: Volume of the storage available on the host in GB. ||
+Descriptions of segment config resources for Greenplum cluster. ||
 || `--network-id` | `string`
 
 Network id. ||
 || `--network-name` | `string`
 
 Network name. ||
-|| `--cloud-storage` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+|| `--cloud-storage` | `KEY=VALUE[,KEY=VALUE...]`
 
-Descriptions of cloud storage for Greenplum cluster.
-
-Possible property names:
-
-- `enabled`: Enables cloud storage. ||
+Descriptions of cloud storage for Greenplum cluster. ||
 || `--service-account` | `string`
 
 ID of the service account used for access Yandex Cloud resources. ||
-|| `--maintenance-window` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+|| `--maintenance-window` | `KEY=VALUE[,KEY=VALUE...]`
 
-Maintenance window settings
-
-Possible property names:
-
-- `type`: Type of maintenance window, it can be anytime or weekly. A day and hour of window need to be specified with weekly window.
-
-- `hour`: Hour of day in UTC time zone (1-24) for maintenance window if window type is weekly.
-
-- `day`: Day of week for maintenance window if window type is weekly. One of MON, TUE, WED, THU, FRI, SAT, SUN. Values: 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun' ||
+Maintenance window settings ||
 || `--datalens-access` | Allow access for DataLens. ||
 || `--websql-access` | Allow access for Web SQL. ||
 || `--datatransfer-access` | Allow access for DataTransfer. ||
@@ -96,7 +71,7 @@ Retention time in days of automated backups ||
 || `--assign-public-ip` | Whether the host should get a public IP address. ||
 || `--connection-pooling-mode` | `string`
 
-Connection pooler pooling mode Values: 'session', 'transaction' ||
+Connection pooler pooling mode ||
 || `--connection-pooling-size` | `int`
 
 Connection pooler size ||
@@ -131,62 +106,29 @@ Max jvm memory ||
 || `--pxf-xms` | `byteSize`
 
 Starting jvm memory ||
-|| `--analyze-and-vacuum` | ANALYZE
-Configuration for ANALYZE and `VACUUM` background operations.
+|| `--analyze-and-vacuum` | `KEY=VALUE[,KEY=VALUE...]`
 
-Possible property names:
+Configuration for ANALYZE and VACUUM background operations. ||
+|| `--query-killer-idle` | `KEY=VALUE[,KEY=VALUE...]`
 
-- `start_time`: 
-- `Time (HH:MM) in UTC time zone to start `ANALYZE` and `VACUUM` operations.`: 
-- `analyze_timeout`: 
-- `Maximum duration of the `ANALYZE` operation, in seconds. The default value is `36000`. As soon as this period expires, the `ANALYZE` operation will be forced to terminate.`: 
-- `vacuum_timeout`: 
-- `Maximum duration of the `VACUUM` operation, in seconds. The default value is `36000`. As soon as this period expires, the `VACUUM` operation will be forced to terminate.`:  ||
-|| `--query-killer-idle` | `idle`
+Configuration of idle query killer. ||
+|| `--query-killer-idle-in-transaction` | `KEY=VALUE[,KEY=VALUE...]`
 
-Configuration of script that kills long running queries that are in idle state.
+Configuration of idle in transaction query killer. ||
+|| `--query-killer-long-running` | `KEY=VALUE[,KEY=VALUE...]`
 
-Possible property names:
-
-- `enable`: Enables query killer for this type of queries.
-
-- `max_age`: Maximum duration for this type of queries (in seconds).
-
-- `ignore_users`: Ignore these users when considering queries to terminate ||
-|| `--query-killer-idle-in-transaction` | `idle`
-
-in transaction
-Configuration of script that kills long running queries that are in idle in transaction state.
-
-Possible property names:
-
-- `enable`: 
-- `Enables query killer for this type of queries.`: 
-- `max_age`: 
-- `Maximum duration for this type of queries (in seconds).`: 
-- `ignore_users`: 
-- `Ignore these users when considering queries to terminate`:  ||
-|| `--query-killer-long-running` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
-
-Configuration of script that kills long running queries (in any state).
-
-Possible property names:
-
-- `enable`: Enables query killer for this type of queries.
-
-- `max_age`: Maximum duration for this type of queries (in seconds).
-
-- `ignore_users`: Ignore these users when considering queries to terminate ||
-|| `--log-enabled` | Whether logs generated by the Greenplum components are delivered to Cloud Logging. ||
+Configuration of long running query killer. ||
+|| `--log-enabled` | Whether logs are delivered to Cloud Logging. ||
 || `--log-folder-id` | `string`
 
-ID of the folder to store logs in default log_group. ||
+Folder ID for logs. ||
 || `--log-group-id` | `string`
 
-ID of the log_group to store logs in. ||
-|| `--log-command-center-enabled` | Whether logs generated by the Command Center are delivered to Cloud Logging. ||
-|| `--log-greenplum-enabled` | Whether logs generated by the Greenplum are delivered to Cloud Logging. ||
-|| `--log-pooler-enabled` | Whether logs generated by the Pooler are delivered to Cloud Logging. ||
+Log group ID. ||
+|| `--log-command-center-enabled` | Deliver Command Center logs. ||
+|| `--log-greenplum-enabled` | Deliver Greenplum logs. ||
+|| `--log-pooler-enabled` | Deliver Pooler logs. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 
 #### Global Flags
@@ -195,15 +137,10 @@ ID of the log_group to store logs in. ||
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
-|| `--debug` | Debug logging. ||
-|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
-|| `--no-user-output` | Disable printing user intended output to stderr. ||
-|| `--retry` | `int`
+Set the custom profile. ||
+|| `--region` | `string`
 
-Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
-Pass 0 to disable retries. Pass any negative value for infinite retries.
-Even infinite retries are capped with 2 minutes timeout. ||
+Set the region. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -213,21 +150,47 @@ Set the ID of the folder to use. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
 
-Set the Cloud API endpoint (host:port). ||
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
 || `--token` | `string`
 
 Set the OAuth token to use. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

@@ -5,8 +5,6 @@ description: Step-by-step guides on using Docker images in {{ yandex-cloud }}. I
 
 # Step-by-step guides for {{ container-registry-name }}
 
-{% include [sunset](../../_includes/container-registry/sunset.md) %}
-
 To work with Docker images, [configure Docker](./configure-docker.md) and [get authenticated in {{ container-registry-name }}](./authentication.md).
 
 ## Managing a Docker image {#docker-images}

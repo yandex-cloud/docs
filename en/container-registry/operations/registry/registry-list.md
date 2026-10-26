@@ -5,8 +5,6 @@ description: Follow this guide to get information about existing registries.
 
 # Getting information about existing registries
 
-{% include [sunset](../../../_includes/container-registry/sunset.md) %}
-
 Find out how to get:
 
 * [List of registries in a folder](#registry-list).
