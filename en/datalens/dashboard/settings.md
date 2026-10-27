@@ -100,17 +100,11 @@ You can customize the loading speed of widgets on the dashboard. To do this, [co
 By default, on the mobile version of the dashboard, {{ datalens-short-name }} displays the charts one after another using the following sorting rule: left-to-right, top-to-bottom. In the tab settings, you can change the order of displaying charts and selectors in the mobile version or mailing lists. For more information, see [{#T}](../operations/dashboard/display-modes.md).
 
 
-## Neuroanalyst 2.0 {#ai-dashboard}
+## Neuroanalyst {#ai-dashboard}
 
-In the dashboard tab settings, you can select a tab as a reference for Neuroanalyst 2.0. Neuroanalyst uses this reference tab to build charts.
+In the dashboard tab settings, you can select a tab as a reference for Neuroanalyst. Neuroanalyst uses this reference tab to build charts.
 
-To use a reference tab:
-
-1. Enable **Beta version** in the [dashboard settings](../operations/dashboard/dash-settings.md).
-1. [Select a reference tab](../operations/dashboard/dashboard-ai-reference-tab.md) if your dashboard has more than one tab.
-1. Optionally, [hide](../operations/dashboard/dashboard-hide-tabs.md) the reference tab in the dashboard settings.
-
-For more on the reference tab, see [{#T}](./insights.md#reference-tab).
+For more on the reference tab, see [{#T}](../operations/dashboard/dashboard-ai-reference-tab.md).
 
 
 

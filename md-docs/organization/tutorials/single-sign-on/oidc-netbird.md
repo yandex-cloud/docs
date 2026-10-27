@@ -344,7 +344,7 @@
 
   1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите приложение `netbird-oidc-app`.
-  1. На вкладке **Обзор** в блоке **Конфигурация поставщика удостоверений (IdP)** разверните секцию **Дополнительные атрибуты** и сохраните:
+  1. На вкладке **Обзор** в блоке **Конфигурация поставщика удостоверений (IdP)** сохраните:
 
       * `ClientID` — Client ID.
       * `OpenID Configuration` — URL OpenID Connect Discovery.

@@ -14,7 +14,11 @@ items:
       - name: Настройка DMARC-политики
         href: operations/setup-dmarc.md
       - name: Отправка письма
-        href: operations/send-email.md
+        items:
+          - name: Отправить письмо
+            href: operations/send-email.md
+          - name: Отправить тестовое письмо
+            href: operations/send-test-email.md
       - name: Шаблонизация письма
         href: operations/send-templated-email.md
       - name: Массовая отправка писем

@@ -5,7 +5,7 @@ description: Follow this guide to add, delete, or change the order and display o
 
 # Configuring dashboard tabs in {{ datalens-full-name }}
 
-You can [add](#tab-add), [rename, duplicate, and delete](#tab-rename-delete) tabs, [change their order](#tab-move) and [display](./dashboard-hide-tabs.md) on the dashboard, [select a reference tab](./dashboard-ai-reference-tab.md) for Neuroanalyst 2.0, as well as [configure the widget display order on a mobile device](./display-modes.md).
+You can [add](#tab-add), [rename, duplicate, and delete](#tab-rename-delete) tabs, [change their order](#tab-move) and [display](./dashboard-hide-tabs.md) on the dashboard, [select a reference tab](./dashboard-ai-reference-tab.md) for Neuroanalyst, as well as [configure the widget display order on a mobile device](./display-modes.md).
 
 ## Adding a tab {#tab-add}
 

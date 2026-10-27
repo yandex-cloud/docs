@@ -86,6 +86,8 @@ description: Следуя данной инструкции, вы сможете
          * `max` — максимальное количество узлов в группе.
          * `initial` — начальное количество узлов в группе.
 
+         {% include [scale-from-zero](../../../_includes/managed-kubernetes/scale-from-zero.md) %}
+
        Тип масштабирования нельзя изменить после создания группы узлов.
 
      * `--max-expansion` — максимальное количество узлов, на которое можно увеличить размер группы при ее обновлении.
@@ -307,6 +309,8 @@ description: Следуя данной инструкции, вы сможете
        }
        ```
 
+       {% include [scale-from-zero](../../../_includes/managed-kubernetes/scale-from-zero.md) %}
+
      * Чтобы создать группу узлов {{ managed-k8s-name }} с [прерываемыми ВМ](../../../compute/concepts/preemptible-vm.md), добавьте блок `scheduling_policy`:
 
        ```hcl
@@ -394,6 +398,8 @@ description: Следуя данной инструкции, вы сможете
   * [Настройки масштабирования](../../concepts/autoscale.md#ca) в параметре `scalePolicy`.
   
     Тип масштабирования нельзя изменить после создания группы узлов.
+
+    {% include [scale-from-zero](../../../_includes/managed-kubernetes/scale-from-zero.md) %}
 
   * Настройки развертывания группы узлов в параметре `deployPolicy`:
     * `maxExpansion` — максимальное количество узлов, на которое можно увеличить размер группы при ее обновлении.

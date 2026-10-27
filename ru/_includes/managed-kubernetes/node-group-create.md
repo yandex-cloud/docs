@@ -27,6 +27,8 @@
 
    {% endnote %}
 
+   {% include [scale-from-zero](./scale-from-zero.md) %}
+
 1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}** укажите максимальное количество узлов, на которое можно превысить размер группы при ее обновлении, а также максимальное количество недоступных при обновлении узлов.
 
    {% include [note-expansion-group-vm](note-expansion-group-vm.md) %}

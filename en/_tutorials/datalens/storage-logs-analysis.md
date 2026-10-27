@@ -25,10 +25,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The cost includes:
-
-* Fee for data storage in {{ objstorage-short-name }}, data operations, and outbound traffic (see [{{ objstorage-short-name }} pricing](../../storage/pricing.md)).
-* Fee for a continuously running {{ mch-name }} cluster (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-short-name }} pricing](../../storage/pricing.md)).
+* {{ mch-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Create a bucket for storing logs {#create-bucket}
@@ -367,7 +366,7 @@ You need a static key to create a table with access to {{ objstorage-name }}. [C
 - Management console {#console}
 
   1. Select the `s3-logs` cluster.
-  1. Navigate to the **SQL** tab.
+  1. Navigate to the **WebSQL** tab and click **{{ ui-key.yacloud.mdb.cluster.websql-connections.action_go-to-websql }}**.
   1. In the **Password** field, enter the password.
   1. Click **Connect**.
   1. In the window on the right, write this SQL query:

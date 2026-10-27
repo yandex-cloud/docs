@@ -51,7 +51,8 @@
 || Total number of [proxy servers](../smartwebsecurity/concepts/domain-protect.md#proxy) per cloud 
 `smart-web-security.loadBalancers.count` | 1 ||
 || Total number of [domains](../smartwebsecurity/concepts/domain-protect.md#domain) per cloud 
-`smart-web-security.loadBalancerDomains.count` | 10 ||
+`smart-web-security.loadBalancerDomains.count` | 20 ||
+|| Number of [domains](../smartwebsecurity/concepts/domain-protect.md#domain) per [proxy server](../smartwebsecurity/concepts/domain-protect.md#proxy) | 20 ||
 || Total number of [response templates](../smartwebsecurity/concepts/response-templates.md) per cloud
 `smart-web-security.customPages.count` | 20 ||
 |#
@@ -67,7 +68,7 @@ Number of `HTTP method` conditions per rule | 20
 Number of `Host` conditions per rule | 20
 Regular expression string length | 255 characters
 Number of requests per second (RPS) in total for all load balancer [virtual hosts](../application-load-balancer/concepts/http-router.md#virtual-host)<br/> connected to the same security profile^1^ | 20,000
-Number of domains per proxy server | 20
+Number of domains per proxy server | 64
 Number of target IP addresses per domain | 20
 Number of items per IP address list | 100,000
 Number of items per ASN list | 2,000

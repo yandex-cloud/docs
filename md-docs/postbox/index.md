@@ -20,7 +20,11 @@ Cloud Postbox позволяет не тратить бюджет и время 
 
  - [Настройка DMARC-политики](operations/setup-dmarc.md)
 
- - [Отправка письма](operations/send-email.md)
+### Отправка письма
+
+ - [Отправить письмо](operations/send-email.md)
+
+ - [Отправить тестовое письмо](operations/send-test-email.md)
 
  - [Шаблонизация письма](operations/send-templated-email.md)
 

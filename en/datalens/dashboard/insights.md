@@ -6,20 +6,15 @@ description: In this article, you will learn about Neuroanalyst on your dashboar
 # Neuroanalyst on your dashboard in {{ datalens-full-name }}
 
 
-[Neuroanalyst](../concepts/neuroanalyst.md) on your dashboard has two versions:
+[Neuroanalyst](../concepts/neuroanalyst.md) is an AI agent that analyzes the dataset underlying your dashboard and can return an existing chart as a response or build a new chart. To generate charts, Neuroanalyst uses the dataset and charts from the reference tab, which you can select in the [dashboard settings](../operations/dashboard/dashboard-ai-reference-tab.md).
 
-* [Neuroanalyst](#neuroanalyst-1) is a tool that analyzes dashboard charts, generates findings based on their data, and allows you to ask follow-up questions. Your dashboard data is its only context. It can operate throughout your dashboard or explore specific charts.
-
-* [Neuroanalyst 2.0](#neuroanalyst-2) is an AI agent that analyzes the dataset underlying your dashboard and can return an existing chart as a response or build a new chart based on the dataset. It uses the dataset and charts from the reference tab as context. Unlike Neuroanalyst, you cannot apply it to individual charts.
-
-## Neuroanalyst {#neuroanalyst-1}
-
-
-Neuroanalyst analyzes your dashboard charts, generates findings based on their data, and allows you to ask follow-up questions. It also considers the following for context:
+In addition to the dashboard’s source dataset, the agent also considers the following for context:
 * [Dashboard information](../operations/dashboard/add-description.md).
 * Dashboard chart header.
 * [Chart information](../operations/chart/add-description.md).
 * Dashboard chart [description and tooltip](../operations/dashboard/add-chart.md) (other than tables).
+
+## Using Neuroanalyst on a dashboard {#how-to}
 
 You can use Neuroanalyst on your dashboard for a dashboard tab or individual charts on the dashboard. To use Neuroanalyst on your dashboard:
 
@@ -59,7 +54,7 @@ You can use Neuroanalyst on your dashboard for a dashboard tab or individual cha
 
      {% endcut %}
 
-- For individual chart on the dashboard
+- For individual charts on the dashboard
 
   1. In the top right corner of the chart on the dashboard, click ![icon](../../_assets/console-icons/ellipsis.svg) → **Find insights** to open the **Neuroanalyst** tab on the right.
 
@@ -69,80 +64,67 @@ You can use Neuroanalyst on your dashboard for a dashboard tab or individual cha
 
      {% endcut %}
 
-  
-  1. Select a question or ask your own, e.g., "What insights can I get from this data?".
+  1. To add another chart to the analysis, locate the chart on the dashboard and click ![icon](../../_assets/console-icons/ellipsis.svg) → **Add to analysis** in its top-right corner.
 
-     {% cut "Question to Neuroanalyst" %}
+  1. Select a question or ask your own one, for example:
+     
+     * What insights can I get from this data?
 
-     ![image](../../_assets/datalens/ai/ai-analytic-on-dashboard-chart-ask.png)
+       {% cut "Question to Neuroanalyst" %}
 
-     {% endcut %}
+       ![image](../../_assets/datalens/ai/ai-analytic-on-dashboard-chart-ask-1.png)
 
-     Neuroanalyst will give a detailed answer and suggest possible solutions and recommendations.
+       {% endcut %}
 
-     {% cut "Neuroanalyst's answer" %}
+       Neuroanalyst will give a detailed answer and suggest possible solutions and recommendations.
 
-     ![image](../../_assets/datalens/ai/ai-analytic-on-dashboard-chart-result.png)
+       {% cut "Neuroanalyst's answer" %}
 
-     {% endcut %}
+       ![image](../../_assets/datalens/ai/ai-analytic-on-dashboard-chart-result-1.png)
 
+       {% endcut %}
+
+     * How can I make my chart more viewable?
+
+       {% cut "Question to Neuroanalyst" %}
+
+       ![image](../../_assets/datalens/ai/ai-analytic-on-dashboard-chart-ask-2.png)
+
+       {% endcut %}
+
+       Neuroanalyst will analyze the current visualization and give you tips on how to improve it, e.g., by moving axes or removing visual noise.
+
+       {% cut "Recommendations by Neuroanalyst" %}
+
+       ![image](../../_assets/datalens/ai/ai-analytic-on-dashboard-chart-result-2.png)
+
+       {% endcut %}
 
 {% endlist %}
+
+Charts rendered by Neuroanalyst support the following actions:
+
+* Saving as is: Click **Save** and enter a name for the new chart.
+* Editing and saving: In the top-right corner of the chart, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/pencil.svg) **Edit**.
+* Copying to the dashboard: Click ![image](../../_assets/console-icons/copy.svg) to save the chart to the clipboard. You can add it to a dashboard within your current workbook: open the dashboard in edit mode and click **Paste** on the widget adding panel.
+
+## Neuroanalyst dashboard configurations {#settings}
 
 You can pin the chat with Neuroanalyst on top or along the side (default) of the dashboard. To change the chat position, click:
   
   * ![image](../../_assets/console-icons/pin-slash.svg): Chat on top of the dashboard.
-  * ![image](../../_assets/console-icons/pin.svg): Chat along side the dashboard.
+  * ![image](../../_assets/console-icons/pin.svg): Chat alongside the dashboard.
 
-All your queries to Neuroanalyst are private: logs are neither stored nor used for further fine-tuning or research.
+The following settings are also available:
+* [Banning](../operations/dashboard/dashboard-neuroanalyst-off.md) the use of Neuroanalyst for this dashboard.
+* Selecting a [reference tab](../operations/dashboard/dashboard-ai-reference-tab.md).
+* Adding example questions, i.e., those displayed when starting Neuroanalyst. If no custom examples are provided, the default questions are displayed.
 
-
-You can [ban](../operations/dashboard/dashboard-neuroanalyst-off.md) the use of Neuroanalyst on a dashboard.
-
-
-### Limits {#restrictions-1}
-
-* The analysis can take quite a while.
-* Chart description and tooltip are not added for tables.
-* Neuroanalyst can only use the data you upload to the page. If the data volume is too large, it may exceed the context available for processing.
-
-
-## Neuroanalyst 2.0 {#neuroanalyst-2}
-
-Neuroanalyst 2.0 analyzes the dataset underlying your dashboard and can return an existing chart as a response or build a new chart based on the dataset. It uses the dataset and [reference tab](#reference-tab) as context. Neuroanalyst 2.0 uses charts from the reference tab as templates when building new charts.
-
-To use Neuroanalyst's multi-agent mode, [enable the option](#turn-on) in the dashboard settings.
-
-
-### Reference tab {#reference-tab}
-
-Neuroanalyst 2.0 treats charts from the reference tab as verified examples of using the dataset and visualizing data.
-
-While you can select any dashboard tab, Neuroanalyst's performance will effectively depend on your selection.
-
-When selecting a reference tab, please follow these recommendations:
-
-* On the tab, place [wizard charts](../concepts/chart/dataset-based-charts.md) that describe your dataset in various aspects and answer different questions.
-* In the descriptions of your dashboard charts or widgets, provide examples of questions they help answer.
-* Instead of tab selectors, use filters in charts to make your charts answer more specific questions.
-* Employ charts based on a single dataset.
-* Use relevant field descriptions in the dataset.
-
-### How to enable Neuroanalyst 2.0 {#turn-on}
-
-To enable Neuroanalyst 2.0 on your dashboard:
-
-1. In the left-hand panel, click ![image](../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
-1. In the top-right corner, click **Edit**.
-1. Click ![image](../../_assets/console-icons/gear.svg) at the top of the screen. The settings window will open on the right.
-1. If the **Neuroanalyst** option is off, turn it on (on by default).
-1. Enable the **Beta version** option.
-1. [Select a reference tab](../operations/dashboard/dashboard-ai-reference-tab.md) if your dashboard has more than one tab.
-1. Optionally, [hide](../operations/dashboard/dashboard-hide-tabs.md) the reference tab in the dashboard settings.
-1. In the top-right corner, click **Save**.
-
-### Limits {#restrictions-2}
+## Neuroanalyst restrictions {#restrictions-2}
 
 * It only applies to one dataset, the one underlying your reference tab.
 * The titles of the first three charts get into Neuroanalyst's recommendations.
 * Neuroanalyst is not available on mobile devices.
+
+
+

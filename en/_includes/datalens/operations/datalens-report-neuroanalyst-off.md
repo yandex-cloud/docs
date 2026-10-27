@@ -5,4 +5,4 @@
 
 1. In the top-right corner, click **Save**.
 
-After that, the AI assistant will become unavailable for this report.
+After that, the AI assistant will become unavailable for this report, and added widgets with insights will stop functioning.

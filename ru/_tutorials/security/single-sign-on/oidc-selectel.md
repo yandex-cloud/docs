@@ -43,7 +43,7 @@ description: Как настроить интеграцию {{ org-full-name }} 
 - Интерфейс {{ cloud-center }} {#cloud-center}
 
   1. Откройте созданное OIDC-приложение.
-  1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** разверните секцию **{{ ui-key.yacloud_org.application.overview.idp_section_closed_text }}** и скопируйте значение поля **{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}**.
+  1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** скопируйте значение поля **{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}**.
   1. {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
 
 {% endlist %}

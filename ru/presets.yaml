@@ -7912,6 +7912,8 @@ default:
         field_secure-connection: Доставлять письмо только по защищённому соединению
         field_suppression-list-check: Проверять список
         field_suppression-reason-type: Тип исключения
+        IdentityActions:
+          action_send-test-email_okbHQ: Тестовое письмо
         label_address: Домен
         label_allowed-senders: Разрешённые отправители
         label_configuration-set: Конфигурация
@@ -7923,6 +7925,9 @@ default:
         label_event-destinations: Подписки
         label_identities: Адреса
         label_mail-statuses: Статусы писем
+        label_message-details-recipient: Получатель
+        label_message-details-sender: Отправитель
+        label_message-details-subject: Тема
         label_messages: Отправленные письма
         label_name: Название
         label_private-key: Приватный ключ
@@ -7949,6 +7954,17 @@ default:
             reason_wp4hJ: Причина
         section_dkim: Настройка подписи писем (DKIM)
         section_tracking-options: Настройки сбора статистики
+        SendTestEmailDialog:
+          action_send_tTCff: Отправить
+          field_additional-parameters_whcy7: Дополнительные параметры
+          field_bcc-address_obufw: Скрытые копии (BCC)
+          field_cc-address_gwf1F: Дополнительные получатели (CC)
+          field_email-body_fJZZf: Содержимое
+          field_event-scenario_m84Ln: Сценарий
+          field_reply-to-address_poebF: Адреса для ответов (Reply-To)
+          field_return-path_1sYNT: Адрес для уведомлений о недоставке (Return-Path)
+          value_scenario-custom-recipient_uodcb: Произвольный получатель
+          value_scenario-delivery_axWEt: Успешная доставка • success@simulator.pstbx.ru
       postgresql:
         cluster:
           additional-field-managed-repack: Перепаковка данных

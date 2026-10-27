@@ -8,6 +8,7 @@ description: Настройки безопасности в {{ datalens-full-nam
 Настройки безопасности позволяют накладывать ограничения на использование некоторых возможностей сервиса на уровне экземпляра {{ datalens-name }}:
 
 * [Нейроаналитик](../concepts/neuroanalyst.md#prohibit) — ограничение использования Нейроаналитика.
+* [Внешние модели в Нейроаналитике](../concepts/neuroanalyst.md#security) — разрешение обрабатывать запросы к Нейроаналитику моделями за пределами контура {{ yandex-cloud }}.
 * [Возможность публикации](../concepts/datalens-public.md#publication-disable) — запрет на публикацию чартов и дашбордов.
 * [Роль на создаваемые объекты](../security/roles.md#workbooks-collections-roles) — определяет прямую роль, которую пользователь получает на созданный им объект. Возможные значения: `Администрирование`, `Редактирование` или `Не выдавать` роль.
 * [Экспорт воркбуков](../workbooks-collections/export-and-import.md#workbooks-export-disable) — запрет на экспорт воркбуков в виде файла.
@@ -20,4 +21,3 @@ description: Настройки безопасности в {{ datalens-full-nam
 1. На панели слева выберите ![image](../../_assets/console-icons/sliders.svg) **Настройки сервиса**. Если на панели не отображается ![image](../../_assets/console-icons/sliders.svg), сначала выберите ![image](../../_assets/console-icons/ellipsis.svg) **Ещё**, а затем — ![image](../../_assets/console-icons/sliders.svg) **Настройки сервиса**.
 1. Выберите вкладку **Безопасность**.
 
-   ![image](../../_assets/datalens/settings/restrictions.png)

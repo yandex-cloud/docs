@@ -10,6 +10,8 @@ description: This page presents FAQ about users and access permissions managemen
 
 In {{ datalens-full-name }}, you can [configure authentication](../security/add-new-user.md#federated-user) using SSO or [identity federation]({{ link-docs }}/organization/concepts/add-federation), if you have one. {{ datalens-short-name }} users can get authenticated using their corporate accounts.
 
+You can also [associate a domain with a federation]({{ link-docs }}/organization/operations/user-pools/add-domain#federation).
+
 
 ### How do I add a user and send them a link to the dashboard? {#how-add-user-send-ref}
 

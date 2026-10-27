@@ -171,7 +171,7 @@
 
   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное OIDC-приложение.
-  1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** разверните секцию **{{ ui-key.yacloud_org.application.overview.idp_section_closed_text }}** и скопируйте значение параметра **{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}**, которое необходимо задать на стороне MWS.
+  1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** скопируйте значение параметра **{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}**, которое необходимо задать на стороне MWS.
   1. {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
 
 - CLI {#cli}

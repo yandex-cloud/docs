@@ -6,13 +6,9 @@
 
 {% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-## Создайте сервисный аккаунт и ключи {#service-account-and-keys}
+## Создайте сервисный аккаунт {#service-account}
 
-1. [Создайте](../iam/operations/sa/create.md) сервисный аккаунт `postbox-user` и [назначьте](../iam/operations/sa/assign-role-for-sa.md) ему [роль](security/index.md#postbox-sender) `postbox.sender`.
-1. Создайте ключ для сервисного аккаунта:
-
-   * Для отправки письма с помощью AWS CLI [создайте](../iam/operations/authentication/manage-access-keys.md#create-access-key) статический ключ доступа. Надежно сохраните идентификатор и секретный ключ. После того как вы закроете окно, параметры секретного ключа станут недоступны.
-   * Для отправки письма по протоколу SMTP [создайте](../iam/operations/authentication/manage-api-keys.md#create-api-key) API-ключ. При создании API-ключа задайте [область действия](*api-key-scope) `yc.postbox.send`. Надежно сохраните полученный секретный ключ. После того как вы закроете окно, параметры секретного ключа станут недоступны.
+[Создайте](../iam/operations/sa/create.md) сервисный аккаунт `postbox-user` и [назначьте](../iam/operations/sa/assign-role-for-sa.md) ему [роль](security/index.md#postbox-sender) `postbox.sender`.
 
 ## Создайте адрес {#create-address}
 
@@ -20,7 +16,14 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создали сервисный аккаунт. Если вы создадите сервисный аккаунт и адрес в разных каталогах, при попытке отправить письмо возникнет ошибка.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создали сервисный аккаунт.
+
+        {% note warning %}
+
+        Если вы создадите сервисный аккаунт и адрес в разных каталогах, при попытке отправить письмо возникнет ошибка.
+
+        {% endnote %}
+
     1. [Перейдите]({{ link-console-main }}/link/postbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-identity }}**.
     1. Укажите **{{ ui-key.yacloud.postbox.label_address }}**, с которого будете отправлять письма. Домен может быть любого уровня.
@@ -48,17 +51,24 @@
 
 ## Отправьте проверочное письмо {#send-test-email}
 
-Отправить проверочное письмо можно с помощью [AWS CLI](#aws-cli-send) или из почтового клиента по [протоколу SMTP](#smtp-send).
+Отправьте проверочное письмо в консоли управления. Подробнее о других способах [отправки письма](operations/send-email.md).
 
 {% include [tls](../_includes/postbox/tls.md) %}
 
-### AWS CLI {#aws-cli-send}
+{% list tabs group=instructions %}
 
-{% include [send-email-aws](../_includes/postbox/send-email-aws.md) %}
+- Консоль управления {#console}
 
-### SMTP {#smtp-send}
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится адрес.
+    1. [Перейдите]({{ link-console-main }}/link/postbox) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+    1. Выберите адрес и нажмите кнопку **{{ ui-key.yacloud.postbox.IdentityActions.action_send-test-email_okbHQ }}**.
+    1. В поле **{{ ui-key.yacloud.postbox.label_message-details-sender }}** введите имя почтового ящика отправителя — часть адреса до знака `@`. По умолчанию домен совпадает с выбранным адресом. Отправить письмо можно только с адреса, для которого [подтверждено владение доменом](#verify-domain).
+    1. В поле **{{ ui-key.yacloud.postbox.SendTestEmailDialog.field_event-scenario_m84Ln }}** выберите `{{ ui-key.yacloud.postbox.SendTestEmailDialog.value_scenario-delivery_axWEt }}`.
+    1. Введите тему письма в поле **{{ ui-key.yacloud.postbox.label_message-details-subject }}** и текст письма в поле **{{ ui-key.yacloud.postbox.SendTestEmailDialog.field_email-body_fJZZf }}**.
+    1. В поле **{{ ui-key.yacloud.forms.label_service-account-select }}** выберите сервисный аккаунт `postbox-user`.
+    1. Нажмите кнопку **{{ ui-key.yacloud.postbox.SendTestEmailDialog.action_send_tTCff }}**.
 
-{% include [smtp-send-api](../_includes/postbox/smtp-send-api.md) %}
+{% endlist %}
 
 #### Полезные ссылки {#see-also}
 
