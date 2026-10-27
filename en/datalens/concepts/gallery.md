@@ -20,14 +20,24 @@ Things you can do with dashboards as a DataLens Gallery user:
 
 ## Search {#search}
 
-The [home page](https://datalens.ru/gallery) brings to you the **Creation of the month**, the best dashboards, and dashboards by popular category.
+The [home page](https://datalens.ru/gallery) brings to you the **Dashboard of the month** marked with ![image](../../_assets/datalens/award.svg), the best dashboards, and dashboards by popular category.
 
 All user dashboards are sorted into categories the list of which keeps growing:
+
 * Industry: `Healthcare`, `Education`, `Entertainment`.
 * Scope: `Product management`, `Marketing`, `Production`.
 * Feature set: `Editor`, `Geoanalytics`, `English` (for dashboards with data in English).
 
-On the [page that lists all the user dashboards](https://datalens.ru/gallery/all), you can search for them by name or filter them by category or availability.
+The [page with the full dashboard list](https://datalens.ru/gallery/all) has these features:
+
+* Searching by dashboard name or author. Enter your text in the search field, and you will see the dashboards whose name or author's name contain the text you entered.
+* Filter by category (factors in the filter by other parameters). From the drop-down list, select the categories the dashboard belongs to. The filter shows the dashboards whose description includes all the selected categories.
+* Sorting. Select which dashboards to show first: new or old.
+* Filter by other parameters (factors in the filter by category). Click ![image](../../_assets/console-icons/funnel.svg), enable the filters you need, and click **Apply**. Available filters:
+  
+  * **Partner dashboards**
+  * **Dashboard of the month: award history**
+  * **May be used**
 
 {% cut "Search" %}
 
@@ -42,7 +52,10 @@ To view a dashboard:
 1. Click the dashboard card.
 1. In the top-right corner, click **Open**. This will open a fully functional {{ datalens-name }} dashboard. You can apply its selectors, switch between tabs, etc., depending on the features built into it by its author.
 
-In some cases, you can contact the author directly using the **Contact the author** button in the top-right corner.
+In some dashboards, you can:
+
+* Contact the author directly using the **Contact the author** button at the top of the card.
+* Request expert help using the **Discuss the project** button at the top of the card. In the request, describe your case: the project's scope, data sources, number of users.
 
 To share a dashboard, copy its link using the ![](../../_assets/console-icons/link.svg) button.
 
@@ -69,7 +82,7 @@ You can deploy a dashboard in your {{ datalens-name }} instance if you have [wor
 To deploy a dashboard in your {{ datalens-name }} instance:
 1. Click the dashboard card.
 1. Click **Use** → **Deploy**.
-1. Select where to save the workbook: workbook and collection root, existing collection, or new collection. Navigate to the saving destination and click **Deploy**. The workbook name must be unique, so edit the name if you need to.
+1. Select where to save the workbook: workbook and collection root, existing collection, or new collection. Navigate to the saving destination and click **Deploy**. The workbook name must be unique, so edit it if you need to.
 1. Click **Create**.
 
 To download the export file:

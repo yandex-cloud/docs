@@ -9,6 +9,12 @@ You can securely embed private [charts](../concepts/chart/index.md) or [dashboar
 
 Embedding private objects works only in the new {{ datalens-short-name }} object model at the [workbook](../workbooks-collections/index.md) level and is available only to the workbook [administrator](./roles.md#datalens-workbooks-admin).
 
+{% note warning %}
+
+The number of queries to get data from embedded private objects depends on the number of seats you [buy](../pricing.md#embeds).
+
+{% endnote %}
+
 {% include [datalens-embeded-connection-stop-list](../../_includes/datalens/datalens-embeded-connection-stop-list.md) %}
 
 ## Display parameters {#view-parameters}

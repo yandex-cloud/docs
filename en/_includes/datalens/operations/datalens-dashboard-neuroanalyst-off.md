@@ -4,6 +4,6 @@
 1. In the settings window, disable **Neuroanalyst** (on by default).
 1. In the top-right corner, click **Save**.
 
-After that, the AI assistant will become unavailable for this dashboard.
+The AI assistant will now become unavailable for this dashboard, and the added widgets with insights will stop working.
 
 

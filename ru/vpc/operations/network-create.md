@@ -18,7 +18,7 @@ description: Следуя данной инструкции, вы сможете
   1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите имя сети. Требования к имени:
 
-     {% include [name-format](../../_includes/name-format.md) %}
+     {% include [network-name-format](../../_includes/vpc/network-name-format.md) %}
 
   1. (Опционально) В поле **{{ ui-key.yacloud.vpc.networks.create.field_description }}** добавьте описание сети.
   1. По умолчанию выбрана опция **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**. Если вы хотите [создать](subnet-create.md) подсети позднее, выключите опцию.
@@ -51,7 +51,7 @@ description: Следуя данной инструкции, вы сможете
 
      Требования к названию сети:
 
-     {% include [name-format](../../_includes/name-format.md) %}
+     {% include [network-name-format](../../_includes/vpc/network-name-format.md) %}
 
   1. Получите список всех облачных сетей в каталоге по умолчанию:
 
@@ -101,7 +101,7 @@ description: Следуя данной инструкции, вы сможете
 
      * `name` — имя облачной сети. Требования к имени:
 
-       {% include [name-format](../../_includes/name-format.md) %}
+       {% include [network-name-format](../../_includes/vpc/network-name-format.md) %}
 
      * `description` — описание облачной сети.
      * `labels` — [метки](../../resource-manager/concepts/labels.md) для облачной сети. Укажите пару ключ-значение.
@@ -153,7 +153,7 @@ description: Следуя данной инструкции, вы сможете
   Чтобы создать [облачную сеть](../concepts/network.md), воспользуйтесь методом REST API [create](../api-ref/Network/create.md) для ресурса [Network](../api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Create](../api-ref/grpc/Network/create.md) и передайте в запросе:
 
   * Идентификатор каталога, в котором будет размещена сеть, в параметре `folderId`.
-  * Имя новой сети в параметре `name`. Допустимая длина имени — от 3 до 63 символов, последний символ — не дефис.
+  * Имя новой сети в параметре `name`. Допустимая длина имени — от 1 до 63 символов, последний символ — не дефис.
   * Описание новой сети в параметре `description`. Максимальная длина описания — 256 символов.
 
   Параметры `name` и `description` необязательные — можно создать сеть без имени и описания и обращаться к ней по идентификатору.

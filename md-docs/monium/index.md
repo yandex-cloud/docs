@@ -322,6 +322,8 @@ Monium платформа для сбора, хранения и анализа 
 
  - [Виджеты](concepts/visualization/widget.md)
 
+ - [Снапшоты](concepts/visualization/snapshots.md)
+
  - [Блокноты](concepts/visualization/notebooks.md)
 
  - [Контекстные ссылки](concepts/visualization/context-links.md)

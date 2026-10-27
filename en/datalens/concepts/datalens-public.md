@@ -1,8 +1,10 @@
 # Publishing objects
 
-If you make your new charts and dashboards publicly accessible, any user can follow the link and view the newly published object without authorization. However, no user can view the chart's settings, connections, dataset, or run an SQL query.
+If you make your new charts and dashboards publicly accessible, any user can follow the link and view the newly published object without authorization.
 
 {% include [share-note](../../_includes/datalens/datalens-share-note.md) %}
+
+For dashboards located in a workbook, you can also create a [temporary link](./datalens-temporary-link.md) for time-limited public access.
 
 ## Publishing rules {#rules}
 

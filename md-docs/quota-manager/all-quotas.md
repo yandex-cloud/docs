@@ -1917,7 +1917,8 @@ ZIP-архив через S3 бакет | 128 МБ
 || Суммарное количество [прокси-серверов](../smartwebsecurity/concepts/domain-protect.md#proxy) в облаке 
 `smart-web-security.loadBalancers.count` | 1 ||
 || Суммарное количество [доменов](../smartwebsecurity/concepts/domain-protect.md#domain) в облаке 
-`smart-web-security.loadBalancerDomains.count` | 10 ||
+`smart-web-security.loadBalancerDomains.count` | 20 ||
+|| Количество [доменов](../smartwebsecurity/concepts/domain-protect.md#domain) для одного [прокси-сервера](../smartwebsecurity/concepts/domain-protect.md#proxy) | 20 ||
 || Суммарное количество [шаблонов ответа](../smartwebsecurity/concepts/response-templates.md) в облаке
 `smart-web-security.customPages.count` | 20 ||
 |#
@@ -1933,7 +1934,7 @@ ZIP-архив через S3 бакет | 128 МБ
 Количество условий `Host` в одном правиле | 20
 Длина строки регулярного выражения | 255 символов
 Количество запросов в секунду (RPS) суммарно на все [виртуальные хосты](../application-load-balancer/concepts/http-router.md#virtual-host)<br/> балансировщика, подключенные к одному профилю безопасности^1^ | 20 000
-Количество доменов для одного прокси-сервера | 20
+Количество доменов для одного прокси-сервера | 64
 Количество IP-адресов целевых ресурсов для одного домена | 20
 Количество элементов в списке IP-адресов | 100 000
 Количество элементов в списке ASN | 2 000

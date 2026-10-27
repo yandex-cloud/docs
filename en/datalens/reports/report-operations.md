@@ -173,16 +173,16 @@ You can add, copy, or delete widgets in your report. If your widgets overlap, yo
      Specify the main widget settings:
      
      * **Chart for analysis**. Click ![image](../../_assets/console-icons/chart-column.svg) **Select chart** and select the chart the Neuroanalyst will prepare an insight for.
-     * **Header**. It sets the widget name; by default, it is the name of the selected chart. The name is displayed at the top of the widget if the **Header** option is enabled under **Appearance** (which it is by default).
+     * **Title**. Sets the widget name (by default, it is the name of the selected chart). The name is displayed at the top of the widget if the **Title** option is enabled under **Appearance** (default).
      * **Prompt**. Enter a question for the Neuroanalyst to answer.
 
 
      Specify widget appearance settings:
 
-     * **Header**. Option to display the insight header.
+     * **Title**. Option to display the insight title.
      * **Actions with insight**. This option specifies the display of the action bar at the bottom of the insight:
 
-       * ![image](../../_assets/console-icons/copy.svg) **Copy**. Copies insight content to the clipboard.
+       * ![image](../../_assets/console-icons/copy.svg) **Copy**. Copies the content of the insight to the clipboard.
        * ![image](../../_assets/console-icons/arrow-rotate-left.svg) **Once more**. Updates the insight response.
        * ![image](../../_assets/console-icons/thumbs-up.svg) **This answer is good**. Evaluates the insight response positively.
        * ![image](../../_assets/console-icons/thumbs-down.svg) **This answer is bad**. Evaluates the insight response negatively.
@@ -200,7 +200,7 @@ You can add, copy, or delete widgets in your report. If your widgets overlap, yo
 
      {% endcut %}
 
-     After you save the setting, Neuroanalyst will analyze the specified chart and generate conclusions based on the data and the custom prompt. The result in **Insight** will be updated every time you open the report. If the data in the chart linked to the **Insight** widget changes, an ![image](../../_assets/console-icons/arrow-rotate-left.svg) **Update** button will appear at the top of the widget.
+     After you save the setting, Neuroanalyst will analyze the specified chart and generate conclusions based on the data and the custom prompt. The result in **Insight** will be updated each time you open the report. If the data in the chart linked to the **Insight** widget changes, an ![image](../../_assets/console-icons/arrow-rotate-left.svg) **Update** button will appear at the top of the widget.
 
      You can also copy the content of the insight or refresh its response via a menu in the top-right corner of the widget. Do it by hovering over the widget, clicking ![image](../../_assets/console-icons/ellipsis.svg), and selecting the following:
 
@@ -433,6 +433,14 @@ To enable full-screen report view mode, click ![icon](../../_assets/console-icon
   * Navigation controls at the bottom of the screen to go to the next, previous, first, last page, or particular page by number.
 
   ![report-page](../../_assets/datalens/report/preview-presentation.png)
+
+  For the [Table](../visualization-ref/table-chart.md#additional-settings) and [Pivot table](../visualization-ref/pivot-table-chart.md#pagination) charts with pagination on, the navigation buttons are displayed.
+
+  {% cut "Paginated table preview in presentation format" %}
+
+  ![report-page](../../_assets/datalens/report/preview-presentation-pagination.png)
+
+  {% endcut %}
 
 To exit the preview mode, click **Close** at the top of the screen or press **Esc** on the keyboard.
 

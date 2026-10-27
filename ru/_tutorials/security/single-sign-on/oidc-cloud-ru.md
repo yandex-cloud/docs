@@ -158,10 +158,13 @@
 
   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное OIDC-приложение.
-  1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** разверните секцию **{{ ui-key.yacloud_org.application.overview.idp_section_closed_text }}** и скопируйте значения параметров, которые необходимо задать на стороне Cloud.ru:
+  1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** скопируйте значения параметров, которые необходимо задать на стороне Cloud.ru:
 
         * `{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}` — уникальный идентификатор приложения.
         * `{{ ui-key.yacloud_org.application.overview.oauth_field_open_id }}` — URL с конфигурацией всех необходимых для настройки интеграции параметров.
+
+  1. Разверните секцию **{{ ui-key.yacloud_org.application.overview.idp_section_closed_text }}** и скопируйте дополнительные параметры:
+
         * `{{ ui-key.yacloud_org.application.overview.oauth_field_auth_endpoint }}` — URL, на который поставщик услуг будет перенаправлять пользователя для прохождения аутентификации.
         * `{{ ui-key.yacloud_org.application.overview.oauth_field_token_endpoint }}` — URL, на который от внешнего приложения поступает запрос на получение ID-токена и токена доступа.
         * `{{ ui-key.yacloud_org.application.overview.oauth_field_user_info_endpoint }}` — URL, по которому внешнее приложение может получить атрибуты пользователя.

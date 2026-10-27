@@ -315,6 +315,8 @@ items:
         href: concepts/visualization/dashboard.md
       - name: Виджеты
         href: concepts/visualization/widget.md
+      - name: Снапшоты
+        href: concepts/visualization/snapshots.md
       - name: Блокноты
         href: concepts/visualization/notebooks.md
       - name: Контекстные ссылки

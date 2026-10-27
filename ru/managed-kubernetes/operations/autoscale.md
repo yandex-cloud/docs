@@ -11,8 +11,6 @@ description: Следуя данной инструкции, вы сможете
 * [Горизонтальное автомасштабирование подов](#hpa).
 * [Вертикальное автомасштабирование подов](#vpa).
 
-{% include [master-autoscaler-note](../../_includes/managed-kubernetes/master-autoscaler-note.md) %}
-
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-create.md) любой подходящей конфигурации.
@@ -39,6 +37,8 @@ description: Следуя данной инструкции, вы сможете
   * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-size }}**: укажите максимально допустимое количество узлов {{ managed-k8s-name }} в группе.
   * **{{ ui-key.yacloud.k8s.node-groups.create.field_initial-size }}**: количество узлов {{ managed-k8s-name }}, которые следует создать вместе с группой (должно быть не меньше минимального и не больше максимального количества узлов в группе).
 
+  {% include [scale-from-zero](../../_includes/managed-kubernetes/scale-from-zero.md) %}
+
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -58,6 +58,8 @@ description: Следуя данной инструкции, вы сможете
      ...
        --auto-scale min=<минимальное_количество_узлов>, max=<максимальное_количество_узлов>, initial=<начальное_количество_узлов>
      ```
+
+     {% include [scale-from-zero](../../_includes/managed-kubernetes/scale-from-zero.md) %}
 
 - {{ TF }} {#tf}
 
@@ -81,6 +83,8 @@ description: Следуя данной инструкции, вы сможете
        }
      }
      ```
+
+     {% include [scale-from-zero](../../_includes/managed-kubernetes/scale-from-zero.md) %}
 
   1. Проверьте корректность конфигурационных файлов.
 

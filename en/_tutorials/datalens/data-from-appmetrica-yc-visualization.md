@@ -52,6 +52,11 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+### Required paid resources {#paid-resources}
+
+* {{ mch-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* {{ ml-platform-name }} project: use of computing resources and storage (see [{{ ml-platform-name }} pricing](../../datasphere/pricing.md)).
+
 ## 1. Connect {{ CH }} and {{ ml-platform-short-name }} {#ch-datasphere-connection}
 
 ### 1.1. Connect {{ CH }} {#ch-connection}

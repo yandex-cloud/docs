@@ -16,7 +16,7 @@ editable: false
 * Seats are issued automatically when new users first log in to {{ datalens-full-name }}.
 * [Seats are managed](./settings/seats.md) by the administrator.
 
-Technical support coverage is determined by the [{{ yandex-cloud }}]({{ link-docs }}/support/overview) support plan you select.
+The technical support procedure will be as per the selected [{{ yandex-cloud }} support plan]({{ link-docs }}/support/overview).
 
 ## Prices for the Russia region {#prices}
 
@@ -46,8 +46,14 @@ The countdown of days until the end of the trial period is shown on the side pan
 
 {% endcut %}
 
-The seat count determines the limit on the number of queries from [private embedded charts](./security/private-embedded-objects.md) (wizard charts, Editor charts, QL charts) in {{ datalens-name }}. For embedded private dashboards, queries from the added charts are summed up. There is no limit for regular queries made by users in the {{ datalens-name }} interface, nor for queries to [publicly embedded charts](./concepts/datalens-public.md). {#packet-queries}
+## Queries from embedded private objects {#embeds}
 
+The seat count determines the limit on the number of queries from private embedded objects. In {{ datalens-name }}, such objects include:
+* [Private embedded charts](./security/private-embedded-objects.md) (wizard, Editor charts, QL charts).
+* Private embedded dashboards: queries from charts added to the dashboard are aggregated.
+* Dashboards published via a [temporary link](./concepts/datalens-temporary-link.md).
+
+There is no limit for regular queries made by users in the {{ datalens-name }} interface, nor for queries to [publicly embedded charts](./concepts/datalens-public.md). {#packet-queries}
 
 {% cut "Limit on the number of queries from private embedded charts" %}
 

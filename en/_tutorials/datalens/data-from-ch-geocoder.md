@@ -26,7 +26,7 @@ To use {{ datalens-full-name }} and {{ ml-platform-full-name }} within the {{ ya
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure deployment cost includes a fee for using [{{ ml-platform-name }} computing resources](../../datasphere/pricing.md).
+The geocoding and data visualization infrastructure cost includes a fee for using {{ ml-platform-name }} computing resources (see [{{ ml-platform-name }} pricing](../../datasphere/pricing.md)).
 
 ## Get the Geocoder API key {#get-key}
 

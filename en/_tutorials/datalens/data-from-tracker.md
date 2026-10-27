@@ -18,6 +18,8 @@ To visualize your data, follow these steps:
 1. [Create a chart](#chart-create).
 1. [Create a dashboard in {{ datalens-short-name }} and add charts to it](#dashboard-create).
 
+If you no longer need the resources you created, [delete them](#clear-out).
+
 ## Getting started {#before-you-begin}
 
 
@@ -30,14 +32,11 @@ We recommend creating a separate {{ tracker-short-name }} account to use the ser
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
-* Continuously running {{ mch-name }} cluster (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
-* Using the function in {{ sf-name }} (see [{{ sf-name }} pricing](../../functions/pricing.md)).
-
-If you no longer need the resources you created, [delete them](#clear-out).
-
+* {{ mch-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* {{ sf-name }} instance: number of function calls, idle time of provisioned instances, and computing resources allocated for the function (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 
 ## Create a database for storing your {{ tracker-short-name }} data {#database-create}
 

@@ -271,13 +271,14 @@ You can grant access to your dashboard to other users:
 1. [Add](./security/add-new-user.md) users with a Yandex account to {{ datalens-short-name }}:
 
    1. In the left-hand panel, select ![image](../_assets/console-icons/sliders.svg) **Service settings**.
-   1. Select the **Users** tab.
-   1. Under **Invite users**, do the following.
-   1. Enter email addresses of the users you want to invite, e.g., `{{ login-example }}`.
+   1. Select the **{{ ui-key.datalens.main.service-settings.view.branding-tabs-user-title }}** tab.
+   1. Under **{{ ui-key.datalens.main.user-management.view.button_invite-user }}**:
 
-      You can send invitations to any email address. Invited users will be able to select the appropriate Yandex account once they accept the invitation.
+      1. Enter email addresses of the users you want to invite, e.g., `{{ login-example }}`.
 
-   1. Click **Send invitation**.
+         You can send invitations to any email address. Invited users will be able to select the appropriate Yandex account once they accept the invitation.
+
+      1. Click **Send invitations**.
 
    Once the user accepts the invitation and selects the account for login, they can log in to your organization and start using {{ datalens-short-name }}. The user will get the `{{ roles-datalens-creator }}` role in the organization with the current {{ datalens-short-name }} instance. To log in to {{ datalens-short-name }}, the user will need a [seat](./settings/seats.md).
 
@@ -290,11 +291,11 @@ You can grant access to your dashboard to other users:
 
       ![wb-access](../_assets/datalens/quickstart/wb-access.png)
 
-   1. Click **Add user**.
+   1. Click **{{ ui-key.datalens.component.iam-access-dialog.action_add-user }}**.
 
       ![wb-access](../_assets/datalens/quickstart/access.png)
 
-   1. In the window that opens, select a user or user group, specify the appropriate permission, and click **Save**. The user or user group will get permissions for this object.
+   1. In the window that opens, select a user or user group, specify the permission, and click **{{ ui-key.datalens.component.iam-access-dialog.action_save }}**. The user or user group will get permissions for this object.
 
 You can make the charts and dashboards you create [publicly available](./concepts/datalens-public.md), so any user can follow a link to view a published object without logging in. You can [embed](./security/embedded-objects.md) published dashboards and charts into your website or app using `iframe`.
 

@@ -57,11 +57,9 @@ To use {{ datalens-full-name }} and {{ ml-platform-full-name }} within the {{ ya
 
 ### Required paid resources {#paid-resources}
 
-The cost of the infrastructure deployment includes:
-
-* Fee for cluster computing resources and storage space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
-* Fee for the computation time (see [{{ ml-platform-name }} pricing](../../datasphere/pricing.md)).
-* Fee for the outbound traffic (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ mch-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* {{ ml-platform-name }} project: use of computing resources and storage (see [{{ ml-platform-name }} pricing](../../datasphere/pricing.md)).
+* {{ vpc-full-name }}: incoming traffic (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 ## 1. Connect {{ CH }} and {{ ml-platform-short-name }} {#ch-datasphere-connection}
 

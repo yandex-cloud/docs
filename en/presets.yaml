@@ -2084,6 +2084,9 @@ default:
             switch_dashboards: Dashboards
             switch_datasets: Datasets
             switch_root: All objects
+        iam-access-dialog:
+          action_add-user: Add user
+          action_save: Save
         plugin-with-menu:
           view:
             button_duplicate: Duplicate
@@ -2095,6 +2098,13 @@ default:
         templates:
           view:
             label_metric: Indicator
+      main:
+        service-settings:
+          view:
+            branding-tabs-user-title: Users
+        user-management:
+          view:
+            button_invite-user: Invite users
     sourcecraft:
       appsec:
         paywall-action-billing_e7ueS: Start free trial
