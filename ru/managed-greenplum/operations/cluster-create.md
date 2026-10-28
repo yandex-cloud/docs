@@ -104,7 +104,6 @@ description: Следуя данной инструкции, вы сможете
 
         
         * {% include [Datalens access](../../_includes/mdb/console/datalens-access.md) %}
-        * {% include [Query access](../../_includes/mdb/console/query-access.md) %}
         * {% include [WebSQL access](../../_includes/mdb/console/websql-access.md) %}
 
 
@@ -282,14 +281,12 @@ description: Следуя данной инструкции, вы сможете
         {{ yc-mdb-gp }} cluster create <имя_кластера> \
            ...
            --datalens-access=<разрешить_доступ_из_{{ datalens-name }}> \
-           --yandexquery-access=<разрешить_доступ_из_Yandex_Query> \
            --websql-access=<разрешить_доступ_из_{{ websql-name }}>
         ```
 
         Доступные сервисы:
 
         * `--datalens-access` — [{{ datalens-full-name }}](../../datalens/concepts/index.md);
-        * `--yandexquery-access` — [{{ yq-full-name }}](../../query/concepts/index.md);
         * `--websql-access` — [{{ websql-full-name }}](../../websql/concepts/index.md).
 
 
@@ -388,7 +385,6 @@ description: Следуя данной инструкции, вы сможете
 
         access {
           data_lens    = <разрешить_доступ_из_{{ datalens-name }}>
-          yandex_query = <разрешить_доступ_из_Yandex_Query>
         }
 
         cloud_storage {
@@ -424,8 +420,6 @@ description: Следуя данной инструкции, вы сможете
 
       
       * `access.data_lens` — доступ к кластеру из сервиса [{{ datalens-full-name }}](../../datalens/concepts/index.md): `true` или `false`.
-
-      * `access.yandex_query` — доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md): `true` или `false`.
 
 
 
@@ -531,8 +525,7 @@ description: Следуя данной инструкции, вы сможете
           "config": {
             "version": "<версия_СУБД>",
             "access": {
-              "dataLens": <разрешить_доступ_из_{{ datalens-name }}>,
-              "yandexQuery": <разрешить_доступ_из_Yandex_Query>
+              "dataLens": <разрешить_доступ_из_{{ datalens-name }}>
             },
             "zoneId": "<зона_доступности>",
             "subnetId": "<идентификатор_подсети>",
@@ -612,10 +605,7 @@ description: Следуя данной инструкции, вы сможете
             * `version` — версия СУБД.
 
             
-            * `access` — настройки доступа к кластеру из следующих сервисов {{ yandex-cloud }}:
-
-                * `dataLens` — [{{ datalens-full-name }}](../../datalens/index.yaml): `true` или `false`.
-                * `yandexQuery` — [{{ yq-full-name }}](../../query/concepts/index.md): `true` или `false`.
+            * `access` — настройки доступа к кластеру из `dataLens` — [{{ datalens-full-name }}](../../datalens/index.yaml): `true` или `false`.
 
 
 
@@ -722,8 +712,7 @@ description: Следуя данной инструкции, вы сможете
           "config": {
             "version": "<версия_СУБД>",
             "access": {
-              "data_lens": <разрешить_доступ_из_{{ datalens-name }}>,
-              "yandex_query": <разрешить_доступ_из_Yandex_Query>
+              "data_lens": <разрешить_доступ_из_{{ datalens-name }}>
             },
             "zone_id": "<зона_доступности>",
             "subnet_id": "<идентификатор_подсети>",
@@ -803,10 +792,7 @@ description: Следуя данной инструкции, вы сможете
             * `version` — версия СУБД.
 
             
-            * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
-
-                * `data_lens` — [{{ datalens-full-name }}](../../datalens/index.yaml): `true` или `false`.
-                * `yandex_query` — [{{ yq-full-name }}](../../query/concepts/index.md): `true` или `false`.
+            * `access` — настройки доступа кластера к `data_lens` — [{{ datalens-full-name }}](../../datalens/index.yaml): `true` или `false`.
 
 
 

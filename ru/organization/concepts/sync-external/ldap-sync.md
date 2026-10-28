@@ -89,6 +89,8 @@ description: В этом разделе вы узнаете об особенн�
 
     {% endnote %}
 
+Агент также синхронизирует время последней установки пароля пользователя во внешнем каталоге с {{ org-full-name }}.
+
 Проверяйте имена атрибутов-источников, которые вы указываете в конфигурации агента при их переназначении, и сверяйте с теми именами атрибутов, которые используются в вашем LDAP-каталоге. LDAP-сервер не проверяет значения передаваемых атрибутов, которые заданы в [параметрах конфигурации](#agent-config) `user_attribute_mapping.source` и `group_attribute_mapping.source`, и принимает их как есть.
 
 ## Обратная запись паролей во внешние каталоги {#password-writeback}
@@ -111,6 +113,8 @@ description: В этом разделе вы узнаете об особенн�
 1. Если попытка изменить пароль во внешнем каталоге завершилась неудачей, пароль пользователя на стороне {{ org-full-name }} также остается неизменным.
 
 Чтобы включить обратную запись паролей, задайте параметр `enable_password_writeback: true` и настройте раздел `ldap.password_writeback` в [конфигурации агента](../../operations/sync-external/sync-ldap.md#agent-config).
+
+Для обратной записи паролей в FreeIPA, ApacheDS™ и 389 Directory Server укажите тип каталога в параметре `ldap.password_writeback.flavor`. При работе с FreeIPA или ApacheDS™ для постоянного сброса паролей можно настроить отдельную учетную запись в параметре `ldap.password_writeback.permanent_reset`, в том числе с аутентификацией по протоколу Kerberos.
 
 {% include [ldap-sync-password-wb-second-account-warn](../../../_includes/organization/external-sync/ldap-sync-password-wb-second-account-warn.md) %}
 

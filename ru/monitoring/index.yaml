@@ -1,8 +1,12 @@
 title: Yandex Monitoring
 description:
   - >-
-    Yandex Monitoring позволяет собирать и хранить метрики, а также отображать
-    их в виде графиков на дашбордах.
+    Сервис {{ monitoring-full-name }} закрыт. Все его возможности и метрики
+    доступны в {{ monium-name }} — единой платформе Observability.
+  - >-
+    Продолжите работу с метриками в <a href="{{ link-monium }}">интерфейсе {{
+    monium-name }}</a>. Подробнее на странице <a href="sunset">Закрытие сервиса
+    {{ monitoring-full-name }}</a>.
   - >-
     Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
@@ -11,8 +15,8 @@ description:
 meta:
   title: Yandex Monitoring
   description: >-
-    Yandex Monitoring позволяет собирать и хранить метрики, а также отображать
-    их в виде графиков на дашбордах.
+    Сервис {{ monitoring-name }} закрыт. Все его возможности и метрики доступны
+    в {{ monium-name }}.
   keywords:
     - keyword: monitoring
     - keyword: мониторинг

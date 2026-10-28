@@ -131,6 +131,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
      After creating a {{ mmy-name }} cluster, you can add more hosts to it if your [folder resource](../concepts/limits.md) quotas allow.
 
+  
+  1. Optionally, under **DB Proxy**, enable the [{{ mdb-lb }}](../concepts/load-balancer.md) load balancer using the **DB Proxy load balancing** option for {{ mmy-name }} to automatically distribute load across your database hosts depending on their roles and availability. When the load balancer is enabled, all cluster hosts automatically get subject to load balancing.
+
+     Under **Port settings**, specify replica-level load balancing settings:
+
+     {% include [lb-settings](../../_includes/mdb/mmy/load-balancer-settings.md) %}
+
 
   1. Specify additional {{ mmy-name }} cluster settings, if required:
 

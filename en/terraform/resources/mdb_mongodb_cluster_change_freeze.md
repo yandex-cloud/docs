@@ -4,7 +4,7 @@ subcategory: Managed Service for MongoDB
 
 # yandex_mdb_mongodb_cluster_change_freeze (Resource)
 
-
+Change freezes temporarily prevent maintenance operations for a specific resource over the time period specified. Use them during business-critical events or periods with limited operational support.
 
 ## Example usage
 

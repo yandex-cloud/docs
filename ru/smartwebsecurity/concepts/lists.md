@@ -5,8 +5,6 @@ description: Какие предустановленные и пользоват
 
 # Списки
 
-{% include [lists-preview](../../_includes/smartwebsecurity/lists-preview.md) %}
-
 Списки помогают создавать правила фильтрации трафика по группам IP-адресов, [номеров ASN](https://ru.wikipedia.org/wiki/Автономная_система_(Интернет)), [регулярных выражений](conditions.md#regular-expressions) и строковых значений. Список можно добавить в качестве [условия](conditions.md) при создании [правил в профиле безопасности](../operations/rule-add.md), [WAF](../operations/exclusion-rule-add.md) и [ARL](../operations/arl-rule-add.md). Таким образом, часть трафика можно заблокировать, пропустить или направить в {{ captcha-name }} уже на ранних этапах обработки запроса.
 
 В сервисе предусмотрены два типа списков:

@@ -213,6 +213,8 @@
           interval: "600s"
           allow_to_capture_users: true|false
           allow_to_capture_groups: true|false
+          # Skip password updates when the password in Active Directory has not changed (default: false).
+          skip_unchanged_password_updates: false
           # Remove the replacement_domain line if you don't need to replace domain
           replacement_domain: "<домен_пула_пользователей>"
           # Remove the user_attribute_mapping section if you don't need to remap default user attribute names
@@ -320,6 +322,8 @@
           interval: "600s"
           allow_to_capture_users: true|false
           allow_to_capture_groups: true|false
+          # Skip password updates when the password in Active Directory has not changed (default: false).
+          skip_unchanged_password_updates: false
           # Remove the replacement_domain line if you don't need to replace domain
           replacement_domain: "<домен_пула_пользователей>"
           # Remove the user_attribute_mapping section if you don't need to remap default user attribute names
@@ -473,6 +477,8 @@
           interval: "600s"
           allow_to_capture_users: true|false
           allow_to_capture_groups: true|false
+          # Skip password updates when the password in Active Directory has not changed (default: false).
+          skip_unchanged_password_updates: false
           # Remove the replacement_domain line if you don't need to replace domain
           replacement_domain: "<домен_пула_пользователей>"
           # Remove the user_attribute_mapping section if you don't need to remap default user attribute names
@@ -575,6 +581,8 @@
           interval: "600s"
           allow_to_capture_users: true|false
           allow_to_capture_groups: true|false
+          # Skip password updates when the password in Active Directory has not changed (default: false).
+          skip_unchanged_password_updates: false
           # Remove the replacement_domain line if you don't need to replace domain
           replacement_domain: "<домен_пула_пользователей>"
           # Remove the user_attribute_mapping section if you don't need to remap default user attribute names
@@ -682,6 +690,8 @@
           interval: "600s"
           allow_to_capture_users: true|false
           allow_to_capture_groups: true|false
+          # Skip password updates when the password in Active Directory has not changed (default: false).
+          skip_unchanged_password_updates: false
           # Remove the replacement_domain line if you don't need to replace domain
           replacement_domain: "<домен_пула_пользователей>"
           # Remove the user_attribute_mapping section if you don't need to remap default user attribute names
@@ -752,6 +762,30 @@
       В результате процесс синхронизации пользователей и групп будет остановлен.
 
 {% endlist %}
+
+## Проверьте конфигурацию агента {#check-config}
+
+Чтобы проверить конфигурацию агента без запуска синхронизации, укажите путь к файлу конфигурации и один из параметров `--check-config` или `--validate-config`:
+
+{% list tabs group=operating_system %}
+
+- Linux {#linux}
+
+  ```bash
+  ./yc-identityhub-sync-agent \
+    --config /etc/yc-identityhub-sync-agent/config.yaml \
+    --check-config
+  ```
+
+- Windows {#windows}
+
+  ```powershell
+  .\yc-identityhub-sync-agent.exe --config C:\ProgramData\YcIdentityHubSyncAgent\config.yaml --validate-config
+  ```
+
+{% endlist %}
+
+Проверка конфигурации не запускает синхронизацию. Чтобы проверить, какие изменения агент внесет в данные пользователей и групп, используйте [тестовый запуск](#dry-run).
 
 ## Протестируйте изменения в конфигурации агента {#dry-run}
 
@@ -1140,6 +1174,7 @@
 
     * `true` — агент синхронизации будет изменять существующие группы пользователей Yandex Identity Hub, приводя их в соответствие с группами в Active Directory.
     * `false` — агент синхронизации не будет изменять существующие группы пользователей Yandex Identity Hub. При обнаружении совпадения имен групп в пуле и в Active Directory процесс синхронизации выдаст ошибку.
+* `skip_unchanged_password_updates` — пропускать обновление пароля в Yandex Identity Hub, если пароль пользователя в Active Directory не изменился. Необязательный параметр. Значение по умолчанию — `false`; чтобы пропускать такие обновления, укажите `true`.
 * `replacement_domain` — [домен](../../concepts/domains.md), привязанный к пулу пользователей Yandex Identity Hub, в котором находятся синхронизируемые пользователи и группы. Например: `newdomain.idp.yandexcloud.net`.
 
     Необязательный параметр. Значение параметра `replacement_domain` нужно задавать только в том случае, если имя домена, привязанного к пулу пользователей, отличается от имени домена на контроллере домена Active Directory.

@@ -308,7 +308,6 @@ description: Следуя данной инструкции, вы сможете
 
         
         * {% include [Datalens access](../../_includes/mdb/console/datalens-access.md) %}
-        * {% include [Query access](../../_includes/mdb/console/query-access.md) %}
         * {% include [WebSQL access](../../_includes/mdb/console/websql-access.md) %}
 
 
@@ -350,7 +349,6 @@ description: Следуя данной инструкции, вы сможете
         {{ yc-mdb-gp }} cluster update <имя_или_идентификатор_кластера> \
             --backup-window-start <время_начала_резервного_копирования> \
             --datalens-access=<разрешить_доступ_из_{{ datalens-name }}> \
-            --yandexquery-access=<разрешить_доступ_из_Yandex_Query> \
             --maintenance-window type=<тип_технического_обслуживания>,`
                                 `day=<день_недели>,`
                                 `hour=<порядковый_номер_часового_интервала> \
@@ -368,8 +366,6 @@ description: Следуя данной инструкции, вы сможете
 
     
     * `--datalens-access` — доступ к кластеру из сервиса [{{ datalens-full-name }}](../../datalens/concepts/index.md): `true` или `false`.
-
-    * `--yandexquery-access` — доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md): `true` или `false`.
 
     * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
 
@@ -417,7 +413,6 @@ description: Следуя данной инструкции, вы сможете
 
           access {
             data_lens    = <разрешить_доступ_из_{{ datalens-name }}>
-            yandex_query = <разрешить_доступ_из_Yandex_Query>
           }
 
           deletion_protection = <защитить_кластер_от_удаления>
@@ -448,8 +443,6 @@ description: Следуя данной инструкции, вы сможете
 
         
         * `access.data_lens` — доступ к кластеру из сервиса [{{ datalens-full-name }}](../../datalens/concepts/index.md): `true` или `false`.
-
-        * `access.yandex_query` — доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md): `true` или `false`.
 
 
 
@@ -493,7 +486,7 @@ description: Следуя данной инструкции, вы сможете
         
         ```json
         {
-          "updateMask": "config.backupWindowStart,config.access.dataLens,config.access.yandexQuery,maintenanceWindow,deletionProtection,configSpec.pool.mode,configSpec.pool.size,configSpec.pool.clientIdleTimeout,configSpec.pool.idleInTransactionTimeout,cloudStorage",
+          "updateMask": "config.backupWindowStart,config.access.dataLens,maintenanceWindow,deletionProtection,configSpec.pool.mode,configSpec.pool.size,configSpec.pool.clientIdleTimeout,configSpec.pool.idleInTransactionTimeout,cloudStorage",
           "config": {
             "backupWindowStart": {
               "hours": "<часы>",
@@ -502,8 +495,7 @@ description: Следуя данной инструкции, вы сможете
               "nanos": "<наносекунды>"
             },
             "access": {
-              "dataLens": <разрешить_доступ_из_{{ datalens-name }}>,
-              "yandexQuery": <разрешить_доступ_из_Yandex_Query>
+              "dataLens": <разрешить_доступ_из_{{ datalens-name }}>
             }
           },
           "maintenanceWindow": {
@@ -546,10 +538,7 @@ description: Следуя данной инструкции, вы сможете
                 * `nanos` — от `0` до `999999999` наносекунд.
 
             
-            * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
-
-                * `dataLens` — [{{ datalens-full-name }}](../../datalens/index.yaml): `true` или `false`.
-                * `yandexQuery` — [{{ yq-full-name }}](../../query/concepts/index.md): `true` или `false`.
+            * `access` — настройки доступа кластера к `dataLens` — [{{ datalens-full-name }}](../../datalens/index.yaml): `true` или `false`.
 
 
 
@@ -615,7 +604,6 @@ description: Следуя данной инструкции, вы сможете
             "paths": [
               "config.backup_window_start",
               "config.access.data_lens",
-              "config.access.yandex_query",
               "maintenance_window",
               "deletion_protection",
               "config_spec.pool.mode",
@@ -633,8 +621,7 @@ description: Следуя данной инструкции, вы сможете
               "nanos": "<наносекунды>"
             },
             "access": {
-              "data_lens": <разрешить_доступ_из_{{ datalens-name }}>,
-              "yandex_query": <разрешить_доступ_из_Yandex_Query>
+              "data_lens": <разрешить_доступ_из_{{ datalens-name }}>
             }
           },
           "maintenance_window": {
@@ -677,10 +664,7 @@ description: Следуя данной инструкции, вы сможете
                 * `nanos` — от `0` до `999999999` наносекунд.
 
             
-            * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
-
-                * `data_lens` — [{{ datalens-full-name }}](../../datalens/index.yaml): `true` или `false`.
-                * `yandex_query` — [{{ yq-full-name }}](../../query/concepts/index.md): `true` или `false`.
+            * `access` — настройки доступа кластера к `data_lens` — [{{ datalens-full-name }}](../../datalens/index.yaml): `true` или `false`.
 
 
 

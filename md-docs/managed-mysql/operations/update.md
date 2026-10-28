@@ -874,8 +874,6 @@
      - **Доступ из WebSQL** — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления Yandex Cloud с помощью сервиса Yandex WebSQL.
      
      
-     - **Доступ из Yandex Query** — разрешает выполнять YQL-запросы к базам данных кластера из сервиса [Yandex Query](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Значение по умолчанию — `false`.
-     
      
      - **Сбор статистики** — включите эту опцию, чтобы воспользоваться инструментом [Диагностика производительности](performance-diagnostics.md) в кластере.
      
@@ -908,7 +906,6 @@
           --backup-retain-period-days=<срок_хранения_копий> \
           --datalens-access=<true_или_false> \
           --websql-access=<true_или_false> \
-          --yandexquery-access=<true_или_false> \
           --disk-size-autoscaling disk-size-limit=<максимальный_размер_хранилища_в_ГБ>,`
                                  `planned-usage-threshold=<порог_для_планового_увеличения_в_процентах>,`
                                  `emergency-usage-threshold=<порог_для_незамедлительного_увеличения_в_процентах> \
@@ -931,8 +928,6 @@
     * `--datalens-access` — разрешает доступ к кластеру из DataLens. Значение по умолчанию — `false`. Подробнее о настройке подключения смотрите в разделе [Подключение к кластеру MySQL® из DataLens](datalens-connect.md).
 
     * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления Yandex Cloud с помощью сервиса Yandex WebSQL. Значение по умолчанию — `false`.
-
-    * `--yandexquery-access` — разрешает выполнять YQL-запросы к базам данных кластера из сервиса [Yandex Query](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Значение по умолчанию — `false`.
 
 
     * `--disk-size-autoscaling` — настройки [автоматического увеличения размера хранилища](../concepts/storage.md#disk-size-autoscaling):
@@ -1206,8 +1201,7 @@
               "backupRetainPeriodDays": "<количество_дней>",
               "access": {
                   "dataLens": <разрешить_доступ_из_DataLens>,
-                  "webSql": <разрешить_доступ_из_WebSQL>,
-                  "yandexQuery": <разрешить_доступ_из_Yandex_Query>
+                  "webSql": <разрешить_доступ_из_WebSQL>
               },
               "performanceDiagnostics": {
                   "enabled": <активировать_сбор_статистики>,
@@ -1251,7 +1245,6 @@
 
             * `dataLens` — доступ из DataLens. Подробнее о настройке подключения смотрите в разделе [Подключение из DataLens](datalens-connect.md).
             * `webSql` — [выполнение SQL-запросов](web-sql-query.md) к базам данных кластера из консоли управления Yandex Cloud с помощью сервиса Yandex WebSQL.
-            * `yandexQuery` — выполнение YQL-запросов к базам данных кластера из сервиса [Yandex Query](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
 
             Возможные значения настроек: `true` или `false`.
@@ -1373,8 +1366,7 @@
               "backup_retain_period_days": "<количество_дней>",
               "access": {
                   "data_lens": <разрешить_доступ_из_DataLens>,
-                  "web_sql": <разрешить_доступ_из_WebSQL>,
-                  "yandex_query": <разрешить_доступ_из_Yandex_Query>
+                  "web_sql": <разрешить_доступ_из_WebSQL>
               },
               "performance_diagnostics": {
                   "enabled": <активировать_сбор_статистики>,
@@ -1418,8 +1410,6 @@
 
               * `data_lens` — доступ из DataLens. Подробнее о настройке подключения смотрите в разделе [Подключение из DataLens](datalens-connect.md).
               * `web_sql` — [выполнение SQL-запросов](web-sql-query.md) к базам данных кластера из консоли управления Yandex Cloud с помощью сервиса Yandex WebSQL.
-              * `yandex_query` — выполнение YQL-запросов к базам данных кластера из сервиса [Yandex Query](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
 
               Возможные значения настроек: `true` или `false`.
 

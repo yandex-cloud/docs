@@ -250,7 +250,6 @@ description: Следуя данной инструкции, вы сможете
        --disk-encryption-key-id <идентификатор_ключа_KMS> \
        --datalens-access=<разрешить_доступ_из_{{ datalens-name }}> \
        --websql-access=<разрешить_доступ_из_{{ websql-name }}> \
-       --yandexquery-access=<разрешить_доступ_из_Yandex_Query> \
        --deletion-protection \
        --performance-diagnostics enabled=true,`
                                 `sessions-sampling-interval=<интервал_сбора_сессий>,`
@@ -277,7 +276,6 @@ description: Следуя данной инструкции, вы сможете
 
      * `--datalens-access` — разрешает доступ к кластеру из {{ datalens-full-name }}. Значение по умолчанию — `false`. Подробнее о настройке подключения смотрите в разделе [{#T}](datalens-connect.md).
      * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
-     * `--yandexquery-access` — разрешает выполнять YQL-запросы к базам данных кластера из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Значение по умолчанию — `false`.
 
 
      * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
@@ -507,7 +505,6 @@ description: Следуя данной инструкции, вы сможете
               "access": {
                   "dataLens": <разрешить_доступ_из_{{ datalens-name }}>,
                   "webSql": <разрешить_доступ_из_{{ websql-name }}>,
-                  "yandexQuery": <разрешить_доступ_из_Yandex_Query>
               },
               "performanceDiagnostics": {
                   "enabled": <активировать_сбор_статистики>,
@@ -595,7 +592,6 @@ description: Следуя данной инструкции, вы сможете
 
             * `dataLens` — доступ из {{ datalens-full-name }}. Подробнее о настройке подключения смотрите в разделе [{#T}](datalens-connect.md).
             * `webSql` — [выполнение SQL-запросов](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}.
-            * `yandexQuery` — выполнение YQL-запросов к базам данных кластера из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
 
             Возможные значения настроек: `true` или `false`.
@@ -699,7 +695,6 @@ description: Следуя данной инструкции, вы сможете
               "access": {
                   "data_lens": <разрешить_доступ_из_{{ datalens-name }}>,
                   "web_sql": <разрешить_доступ_из_{{ websql-name }}>,
-                  "yandex_query": <разрешить_доступ_из_Yandex_Query>
               },
               "performance_diagnostics": {
                   "enabled": <активировать_сбор_статистики>,
@@ -781,7 +776,6 @@ description: Следуя данной инструкции, вы сможете
 
             * `data_lens` — доступ из {{ datalens-full-name }}. Подробнее о настройке подключения смотрите в разделе [{#T}](datalens-connect.md).
             * `web_sql` — [выполнение SQL-запросов](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}.
-            * `yandex_query` — выполнение YQL-запросов к базам данных кластера из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
 
             Возможные значения настроек: `true` или `false`.

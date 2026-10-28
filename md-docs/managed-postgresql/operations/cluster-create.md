@@ -273,8 +273,6 @@ Managed Service for PostgreSQL резервирует 15 подключений 
      
      
      
-     - **Доступ из Yandex Query** — опция разрешает выполнять YQL-запросы к базам данных кластера из сервиса [Yandex Query](../../query/concepts/index.md).
-     
      - **Доступ из Serverless** — включите эту опцию, чтобы разрешить доступ к кластеру из сервиса [Yandex Cloud Functions](../../functions/concepts/index.md). Подробнее о настройке доступа читайте в документации [Cloud Functions](../../functions/operations/database-connection.md).
      
      
@@ -441,8 +439,6 @@ Managed Service for PostgreSQL резервирует 15 подключений 
      Чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md), передайте параметр `--disk-encryption-key-id <идентификатор_ключа_KMS>`. Подробнее о шифровании дисков в разделе [Хранилище](../concepts/storage.md#disk-encryption).
 
      Чтобы разрешить доступ к кластеру из сервиса [Yandex Cloud Functions](../../functions/index.md), передайте параметр `--serverless-access`. Подробнее о настройке доступа в документации [Cloud Functions](../../functions/operations/database-connection.md).
-
-     Чтобы разрешить доступ к кластеру из сервиса [Yandex Query](../../query/index.md), передайте параметр `--yandexquery-access=true`. Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и предоставляется по запросу.
 
 
 
@@ -787,8 +783,7 @@ Managed Service for PostgreSQL резервирует 15 подключений 
          "access": {
            "dataLens": <разрешить_доступ_из_DataLens>,
            "webSql": <разрешить_доступ_из_WebSQL>,
-           "serverless": <разрешить_доступ_из_Cloud_Functions>,
-           "yandexQuery": <разрешить_доступ_из_Query>
+           "serverless": <разрешить_доступ_из_Cloud_Functions>
          },
          "performanceDiagnostics": {
            "enabled": <активировать_сбор_статистики>,
@@ -890,7 +885,6 @@ Managed Service for PostgreSQL резервирует 15 подключений 
          * `dataLens` — [Yandex DataLens](../../datalens/index.md);
          * `webSql` — [Yandex WebSQL](../../websql/index.md);
          * `serverless` — [Yandex Cloud Functions](../../functions/index.md);
-         * `yandexQuery` — [Yandex Query](../../query/index.md).
 
          Возможные значения настроек: `true` или `false`.
 
@@ -1023,8 +1017,7 @@ Managed Service for PostgreSQL резервирует 15 подключений 
          "access": {
            "data_lens": <разрешить_доступ_из_DataLens>,
            "web_sql": <разрешить_доступ_из_WebSQL>,
-           "serverless": <разрешить_доступ_из_Cloud_Functions>,
-           "yandex_query": <разрешить_доступ_из_Query>
+           "serverless": <разрешить_доступ_из_Cloud_Functions>
          },
          "performance_diagnostics": {
            "enabled": <активировать_сбор_статистики>,
@@ -1126,7 +1119,6 @@ Managed Service for PostgreSQL резервирует 15 подключений 
          * `data_lens` — [Yandex DataLens](../../datalens/index.md);
          * `web_sql` — [Yandex WebSQL](../../websql/index.md);
          * `serverless` — [Yandex Cloud Functions](../../functions/index.md);
-         * `yandex_query` — [Yandex Query](../../query/index.md).
 
          Возможные значения настроек: `true` или `false`.
 

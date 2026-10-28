@@ -1,4 +1,4 @@
-{% note info %}
+{% note warning %}
 
 Once hybrid storage is enabled, you cannot disable it.
 

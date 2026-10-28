@@ -878,7 +878,6 @@ description: Следуя данной инструкции, вы сможете
            --metrika-access=<true_или_false> \
            --serverless-access=<true_или_false> \
            --websql-access=<true_или_false> \
-           --yandexquery-access=<true_или_false> \
            --deletion-protection \
            --disk-size-autoscaling clickhouse-disk-size-limit=<максимальный_размер_хранилища_ГБ>,`
                                   `clickhouse-planned-usage-threshold=<порог_для_планового_увеличения_в_процентах>,`
@@ -908,8 +907,6 @@ description: Следуя данной инструкции, вы сможете
 
     * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
 
-
-    * `--yandexquery-access=true` — разрешает доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Значение по умолчанию — `false`.
 
     * {% include [Защита от удаления кластера](../../_includes/mdb/cli/deletion-protection.md) %}
 
@@ -955,7 +952,6 @@ description: Следуя данной инструкции, вы сможете
             metrika      = <доступ_из_Метрики_и_AppMetrika>
             serverless   = <доступ_из_Cloud_Functions>
             web_sql      = <выполнение_SQL-запросов_из_консоли_управления>
-            yandex_query = <доступ_из_Yandex_Query>
           }
           ...
         }
@@ -966,7 +962,6 @@ description: Следуя данной инструкции, вы сможете
         * `data_lens` — доступ из {{ datalens-name }}: `true` или `false`.
         * `metrika` — доступ из Метрики и AppMetrika: `true` или `false`.
         * `serverless` — доступ из {{ sf-name }}: `true` или `false`.
-        * `yandex_query` — доступ из {{ yq-full-name }}: `true` или `false`.
         * `web_sql` — выполнение SQL-запросов из консоли управления: `true` или `false`.
 
     1. {% include [Maintenance window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
@@ -1037,8 +1032,7 @@ description: Следуя данной инструкции, вы сможете
                   "webSql": <выполнение_SQL-запросов>,
                   "metrika": <импорт_данных_из_AppMetrica>,
                   "serverless": <доступ_из_{{ sf-full-name }}>,
-                  "dataTransfer": <доступ_из_{{ data-transfer-full-name }}>,
-                  "yandexQuery": <доступ_из_{{ yq-full-name }}>
+                  "dataTransfer": <доступ_из_{{ data-transfer-full-name }}>
                 }    
               },
               "maintenanceWindow": {
@@ -1144,8 +1138,7 @@ description: Следуя данной инструкции, вы сможете
                   "web_sql": <выполнение_SQL-запросов>,
                   "metrika": <импорт_данных_из_AppMetrica>,
                   "serverless": <доступ_из_{{ sf-full-name }}>,
-                  "data_transfer": <доступ_из_{{ data-transfer-full-name }}>,
-                  "yandex_query": <доступ_из_{{ yq-full-name }}>
+                  "data_transfer": <доступ_из_{{ data-transfer-full-name }}>
                 }
               },
               "maintenance_window": {

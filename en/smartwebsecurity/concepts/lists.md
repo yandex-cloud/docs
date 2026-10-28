@@ -5,8 +5,6 @@ description: What preset and custom lists are available in {{ sws-name }} and ho
 
 # Lists
 
-{% include [lists-preview](../../_includes/smartwebsecurity/lists-preview.md) %}
-
 Lists help you create traffic filtering rules based on groups of IP addresses, [ASNs](https://en.wikipedia.org/wiki/Autonomous_system_(Internet)), [regular expressions](conditions.md#regular-expressions), and string values. You can add a list as a [condition](conditions.md) when creating [rules in the security profile](../operations/rule-add.md), [WAF](../operations/exclusion-rule-add.md), or [ARL](../operations/arl-rule-add.md). Thus, you can block some traffic, let it through, or direct it to {{ captcha-name }} at the early stages of request processing.
 
 There are two types of lists:

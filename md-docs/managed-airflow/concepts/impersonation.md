@@ -54,5 +54,3 @@ Yandex Lockbox — это сервис для централизованного
 ### Airflow Yandex Provider {#yc-airflow-provider-integration}
 
 В кластерах Managed Service for Apache Airflow™ с включенной имперсонацией автоматически настроено соединение `yandexcloud_default`, которое используется всеми операторами в Airflow Yandex Provider по умолчанию. Чтобы использовать его, создайте DAG-файл без указания параметра `yandex_conn_id`. Оператор будет аутентифицироваться с помощью IAM-токена сервисного аккаунта, который привязан к кластеру.
-
-Пример интеграции в разделе [Автоматизация задач Yandex Query с помощью Yandex Managed Service for Apache Airflow™](../tutorials/airflow-auto-tasks.md).

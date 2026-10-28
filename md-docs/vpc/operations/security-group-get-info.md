@@ -8,7 +8,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [группа безопасности](../concepts/security-groups.md).
   1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **Группы безопасности**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **Группы безопасности**. Если раздел не отображается, выберите его в меню **Еще**.
   1. Выберите нужную группу безопасности.
   1. На вкладке **Обзор** отобразится подробная информация о группе безопасности.
 

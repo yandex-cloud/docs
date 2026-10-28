@@ -100,8 +100,7 @@ description: '{{ AF }} — это платформа с открытым исх�
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/data-processing-automation.md)
-* [{#T}](../tutorials/airflow-auto-tasks.md)
+[{#T}](../tutorials/data-processing-automation.md)
 
 #### Полезные ссылки {#see-also}
 

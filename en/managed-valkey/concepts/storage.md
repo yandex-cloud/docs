@@ -32,7 +32,7 @@ When the storage is 100% full, cluster hosts automatically switch to read-only m
 
 To monitor the cluster storage utilization percentage, set up alerts in {{ monitoring-full-name }}:
 
-1. In the [management console]({{ link-console-main }}), select a folder.
+1. In the [management console]({{ link-console-main }}), select the folder.
 1. [Navigate]({{ link-monitoring }}) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. [Create a notification channel](../../monitoring/operations/alert/create-channel.md).
 1. [Create an alert](../../monitoring/operations/alert/create-alert.md) with the following properties:
@@ -72,6 +72,32 @@ You can configure automatic storage expansion when [creating](../operations/clus
 
 {% include [disk-encryption](../../_includes/mdb/disk-encryption.md) %}
 
+
+## Data tiering {#data-tiering}
+
+{{ VLK }} stores all data in RAM. This ensures high performance but requires a large amount of RAM, which is much more expensive than disk storage.
+
+With data tiering, unused data can be moved from memory to disk.  This way you have your data both in RAM and on disk.
+
+Data is managed using the key eviction policy configured in the [Maxmemory policy](settings-list.md#settings-maxmemory-policy) setting. In {{ VLK }}, when this policy is enabled, evicted data is deleted. With data tiering, evicted data is moved to disk instead of being deleted, which is known as cooling.
+
+When processing a request, {{ VLK }} first looks for data in RAM. If there is no data there, it checks the disk storage.
+
+If the disk runs out of free space, the keys get deleted the same way as with regular eviction.
+
+{% note warning %}
+
+With the `noeviction` policy enabled, data will be moved to disk after `maxmemory` is reached but will not be deleted from the disk when it becomes full.
+
+{% endnote %}
+
+Data tiering saves RAM by moving rarely used data to disk. This can be useful when the total amount of data is much larger than the amount of frequently used data.
+
+For example, a database may contain 300 GB of data, while only 20% of it is actively used, i.e., 60 GB. Without data tiering, all data must be reside in RAM. With data tearing, 240 GB of rarely used data can be moved to disk with only frequently used data remaining in RAM. This allows using about 60–70 GB of RAM instead of more than 300 GB, with minimal impact on response time.
+
+Unlike hybrid storage, this approach does not use S3 object storage: data is moved directly from memory to disk.
+
+Learn more about [configuring data tiering](../operations/tiered-storage.md).
 
 ## Use cases {#examples}
 

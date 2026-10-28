@@ -4,6 +4,13 @@ description: Changelog, updates, and version history for the {{ yandex-cloud }} 
 editable: false
 ---
 
+## 0.241.0 (October 28, 2026)
+
+##### WARNING:
+* sharded_postgresql: Remove deprecated `console_password` field from cluster config
+
+
+
 ## 0.240.0 (October 26, 2026)
 
 ##### WARNING:

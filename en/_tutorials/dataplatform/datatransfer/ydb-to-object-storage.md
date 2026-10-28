@@ -4,7 +4,7 @@
 You can migrate data from {{ ydb-name }} to {{ objstorage-name }} using {{ data-transfer-name }}. Follow these steps:
 
 1. [Prepare your test data](#prepare-data).
-1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -23,7 +23,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Getting started {#before-you-begin}
 
 
-Set up your infrastructure:
+Prepare the infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -169,15 +169,21 @@ Set up your infrastructure:
 
 Make sure the data has been migrated from {{ ydb-name }} to the {{ objstorage-name }} bucket:
 
-1. In the [management console]({{ link-console-main }}), select the folder containing your bucket.
-1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-1. Select the bucket from the list.
-1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
-1. Make sure the {{ objstorage-name }} bucket contains the `from_YDB` directory with the `<seasons.csv>` test data object.
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the folder containing your bucket.
+  1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Select the bucket from the list.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
+  1. Make sure the {{ objstorage-name }} bucket contains the `from_YDB` directory with the `<seasons.csv>` test data object.
+
+{% endlist %}
 
 ## Delete the resources you created {#clear-out}
 
-To minimize resource consumption, delete the resources you no longer need:
+To reduce resource usage, delete the resources you no longer need:
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete the endpoints](../../../data-transfer/operations/endpoint/index.md#delete).

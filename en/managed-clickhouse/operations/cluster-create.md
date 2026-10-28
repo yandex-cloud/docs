@@ -179,15 +179,11 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         You can only set the engine when creating a database and cannot change it later.
 
-      * Enable [hybrid storage](../concepts/storage.md#hybrid-storage-features) for the cluster, if required.
+      * If required, enable [hybrid storage](../concepts/storage.md#hybrid-storage-features) for the cluster.
 
-        {% note warning %}
+        {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
 
-        You cannot disable this option.
-
-        {% endnote %}
-
-      * [Configure the DBMS](../concepts/settings-list.md#server-level-settings), if required. You can do it later.
+      * If necessary, configure [database settings](../concepts/settings-list.md#server-level-settings). You can do it later.
 
         Using the {{ yandex-cloud }} interfaces, you can manage a limited number of settings. Using SQL queries, you can [specify the {{ CH }} settings at the query level](change-query-level-settings.md).
 
@@ -653,7 +649,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
        For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mch }}).
 
-    1. Make sure the {{ TF }} configuration files are correct:
+    1. Validate your {{ TF }} configuration:
 
        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1296,15 +1292,11 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         You can only set the engine when creating a database and cannot change it later.
 
-      * Enable [hybrid storage](../concepts/storage.md#hybrid-storage-features) for the cluster, if required.
+      * If required, enable [hybrid storage](../concepts/storage.md#hybrid-storage-features) for the cluster.
 
-        {% note warning %}
+        {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
 
-        You cannot disable this option.
-
-        {% endnote %}
-
-      * [Configure the DBMS](../concepts/settings-list.md#server-level-settings), if required. You can do it later.
+      * If necessary, configure [database settings](../concepts/settings-list.md#server-level-settings). You can do it later.
 
         Using the {{ yandex-cloud }} interfaces, you can manage a limited number of settings. Using SQL queries, you can [specify the {{ CH }} settings at the query level](change-query-level-settings.md).
 
@@ -1761,7 +1753,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
        For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mch }}).
 
-    1. Make sure the {{ TF }} configuration files are correct:
+    1. Validate your {{ TF }} configuration:
 
        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

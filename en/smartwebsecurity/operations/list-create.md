@@ -5,8 +5,6 @@ description: Follow this guide to manage lists of IP addresses, ASNs, regular ex
 
 # Managing lists
 
-{% include [lists-preview](../../_includes/smartwebsecurity/lists-preview.md) %}
-
 You can only manage [custom lists](../concepts/lists.md#user-rules). [Preset {{ yandex-cloud }} lists](../concepts/lists.md#yc-rules) cannot be changed.
 
 

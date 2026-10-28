@@ -37,6 +37,8 @@ items:
                 href: operations/zk-hosts.md
               - name: Managing {{ CK }} hosts
                 href: operations/ck-hosts.md
+              - name: Changing a coordination service
+                href: operations/ck-hosts-upgrade.md
               - name: Migrating hosts to a different availability zone
                 href: operations/host-migration.md
           - name: Managing backups
@@ -755,7 +757,13 @@ items:
           - name: list
             href: cli-ref/version/list.md
   - name: '{{ TF }} reference'
-    href: tf-ref.md
+    items:
+      - name: Overview
+        href: tf-ref.md
+      - name: Updates in a v2 cluster
+        href: concepts/migration-v1-v2.md
+      - name: Migrating a cluster from v1 to v2
+        href: operations/migration-v1-v2.md
   - name: API reference
     items:
       - name: API authentication

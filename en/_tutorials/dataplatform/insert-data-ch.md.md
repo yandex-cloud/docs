@@ -130,6 +130,11 @@ To insert Cap'n Proto and Protobuf user data into the `db1.users` table:
 1. [Insert data](#insert-data).
 
 
+### Required paid resources {#paid-resources}
+
+The infrastructure costs for inserting data into the database includes charges for the {{ mch-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+
+
 ### Getting started {#before-you-begin}
 
 1. Examine the input data format in order to  [prepare](#prepare-format-schemas) the appropriate schema definitions.

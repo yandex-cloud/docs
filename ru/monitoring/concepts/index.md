@@ -5,6 +5,8 @@ description: Сервис {{ monitoring-full-name }} позволяет соби
 
 # Обзор {{ monitoring-name }}
 
+{% include [deprecation-warning](../../_includes/monitoring/deprecation-warning.md) %}
+
 Сервис {{ monitoring-name }} позволяет собирать и хранить метрики, а также отображать их в виде графиков на дашбордах.
 
 {{ monitoring-name }} автоматически собирает данные о состоянии ваших ресурсов в {{ yandex-cloud }} и отображает их на сервисных дашбордах. Для загрузки пользовательских метрик доступен API.

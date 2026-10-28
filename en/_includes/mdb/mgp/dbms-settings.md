@@ -89,6 +89,8 @@ Turns on or off the global deadlock detector (`Global Deadlock Detector`) used t
 
 If the global deadlock detector is off, the database performs concurrent update and delete operations in the heap table (`heap tables`) one by one. If the global deadlock detector is on, concurrent updates are allowed; the detector identifies deadlocks and resolves them by terminating one or more background processes associated with the "youngest" transactions.
 
+{% include [automatic-cluster-restart](../note-automatic-cluster-restart.md) %}
+
 #### gp_enable_zstd_memory_accounting {#setting-gp-enable-zstd-memory-accounting}
 
 {% note info %}
@@ -152,6 +154,8 @@ This configuration parameter applies only when group-based resource management i
 
 It sets the maximum percentage of system memory resources that can be allocated to resource groups per database segment node. Decreasing this parameter may be justified if you need to allocate more resources to auxiliary components residing on the database segment node (e.g., `PXF`).
 
+{% include [automatic-cluster-restart](../note-automatic-cluster-restart.md) %}
+
 #### gp_vmem_protect_segworker_cache_limit {#setting-gp-vmem-protect-segworker-cache-limit}
 
 | Available in version | Type | Valid values | Default value | Context |
@@ -161,6 +165,8 @@ It sets the maximum percentage of system memory resources that can be allocated 
 
 If a query execution process consumes more memory than the specified amount, this process will not be cached for use in subsequent queries after completion. In systems with a large number of connections or idle processes, you can reduce this value to free up more memory on the segments. Measured in megabytes.
 
+{% include [automatic-cluster-restart](../note-automatic-cluster-restart.md) %}
+
 #### gp_workfile_compression {#setting-gp-workfile-compression}
 
 | Available in version | Type     | Valid values            | Default value | Context |
@@ -169,8 +175,6 @@ If a query execution process consumes more memory than the specified amount, thi
 
 
 Specifies whether to compress the temporary files created when uploading to disk during hashing operations (aggregation or join). In some cases, compression can help avoid overloading the disk I/O subsystem.
-
-{% include [requires-restart](../note-requires-manual-restart.md) %}
 
 #### gp_workfile_limit_files_per_query {#setting-gp-workfile-limit-files-per-query}
 
@@ -205,6 +209,8 @@ The default value [depends on the segment host storage size](#settings-instance-
 ```text
 0.1 × <segment_host_storage_size> / <number_of_segments_per_host>
 ```
+
+{% include [automatic-cluster-restart](../note-automatic-cluster-restart.md) %}
 
 #### idle_in_transaction_session_timeout {#setting-idle-in-transaction-session-timeout}
 
@@ -322,7 +328,7 @@ max(0.24 × available RAM on master, 16384 × max_connections)
 
 Measured in bytes.
 
-{% include [requires-restart](../note-requires-manual-restart.md) %}
+{% include [automatic-cluster-restart](../note-automatic-cluster-restart.md) %}
 
 #### max_connections {#setting-max-connections}
 
@@ -342,6 +348,8 @@ For segments, the `max_connections` value is calculated automatically using the 
 
 If you update this setting, both the master and segment hosts will be checked to have at least 20 MB of available RAM per connection. If this condition is not met, [this error](../../../managed-greenplum/qa/cluster-hosts.md#memory-limit) occurs.
 
+{% include [automatic-cluster-restart](../note-automatic-cluster-restart.md) %}
+
 #### max_locks_per_transaction {#setting-max-locks-per-transaction}
 
 | Available in version | Type | Valid values | Default value | Context |
@@ -350,6 +358,8 @@ If you update this setting, both the master and segment hosts will be checked to
 
 The shared lock table is built to be able to describe locks for [max_locks_per_transaction](#setting-max-locks-per-transaction) × ([max_connections](#setting-max-connections) + [max_prepared_transactions](#setting-max-prepared-transactions)) objects. Therefore, not more than this number of different objects can be locked at the same time. This is not a hard limit on the number of locks set by a single transaction but rather the maximum average value. You may need to increase this value if you have clients that access multiple different tables within a single transaction.
 
+{% include [automatic-cluster-restart](../note-automatic-cluster-restart.md) %}
+
 #### max_prepared_transactions {#setting-max-prepared-transactions}
 
 | Available in version | Type     | Valid values | Default value | Context     |
@@ -357,6 +367,8 @@ The shared lock table is built to be able to describe locks for [max_locks_per_t
 | 6.25 and higher       | Integer | from 50 to 10,000      | 200                   | `postmaster` |
 
 Sets the maximum number of transactions that can be in prepared state simultaneously. The database uses prepared transactions internally to ensure data integrity across segments. This value must be at least as large as [max_connections](#setting-max-connections) on the master.
+
+{% include [automatic-cluster-restart](../note-automatic-cluster-restart.md) %}
 
 #### max_slot_wal_keep_size {#setting-max-slot-wal-keep-size}
 
@@ -394,6 +406,8 @@ For example, if the `vmem` memory size is set to 10 GB and this parameter is 90 
 
 If the utilization percentage of the shared global memory exceeds the specified value, the database will begin terminating queries based on their memory consumption, selecting them from among the queries managed by resource groups with the `vmtracker` memory auditor. The system will start with the query that consumes the most memory. Queries will be terminated until the shared global memory utilization percentage becomes lower than the specified value. For example, if there is 10 GB of shared global memory and this parameter is 90 (90%), the database will start terminating queries as soon as 9 GB of shared global memory has been used up.
 
+{% include [automatic-cluster-restart](../note-automatic-cluster-restart.md) %}
+
 #### segment_shared_buffers {#setting-segment-shared-buffers}
 
 {% note info %}
@@ -413,8 +427,19 @@ This parameter sets the amount of memory that a segment instance uses for shared
 max(0.2 × RAM available on the segment / number of segments per host), 16384 × 5 × max_connections)
 ```
 
-{% include [requires-restart](../note-requires-manual-restart.md) %}
+{% include [automatic-cluster-restart](../note-automatic-cluster-restart.md) %}
 
+#### track_activity_query_size {#setting-track-activity-query-size}
+
+| Available in version | Type | Valid values | Default value | Context |
+|-------------------|---------|---------------------|-----------------------|--------------|
+| 6.25 and higher | Integer | from 100 to 102,400 | 1,024 | `postmaster` |
+
+This parameter sets the amount of memory (in bytes) allocated for storing SQL query text run in each active session. The query text is shown in the `query` field of the `pg_stat_activity` system view. If the query text exceeds the set size, it is truncated.
+
+By increasing the size, you can view longer queries in `pg_stat_activity`; however, it increases the total amount of memory allocated by the server. Memory is individually allocated for each active session; therefore, consider the maximum number of cluster connections when setting a value.
+
+{% include [automatic-cluster-restart](../note-automatic-cluster-restart.md) %}
 
 ### Parameters the user can manage locally {#setting-gp-loca}
 
@@ -501,3 +526,5 @@ Controls whether to log the SQL query that causes an error. Logs all SQL queries
 | 6.25 and higher | `group`, `queue` | `group` | `postmaster` |
 
 Specifies the resource management method currently active in the cluster. The resource group method is used by default.
+
+{% include [automatic-cluster-restart](../note-automatic-cluster-restart.md) %}

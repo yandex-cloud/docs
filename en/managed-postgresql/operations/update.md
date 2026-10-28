@@ -36,6 +36,9 @@ Learn more about other cluster updates:
 * [Migrating cluster hosts to a different availability zone](host-migration.md).
 
 
+* [Managing a load balancer](load-balancer.md).
+
+
 ## Changing the host class {#change-resource-preset}
 
 {% note info %}
@@ -48,7 +51,7 @@ When changing the host class:
 
 * A single-host cluster will be unavailable for a few minutes and all database connections will be dropped.
 * A multi-host cluster will switch to a new master host The hosts will undergo a rolling update, with each host unavailable for a few minutes while it is stopped and updated.
-* A cluster with local SSD storage may be unavailable for an extended period if data migration to another physical server is required.
+* A cluster host with local SSD storage may be unavailable for an extended period of time if data needs to be migrated to another physical server.
 * Using a [special FQDN](./connect/fqdn.md#special-fqdns) does not guarantee a stable database connection: user sessions may be terminated.
 
 We recommend changing the host class only when the cluster is idle.
@@ -432,6 +435,11 @@ Changing additional settings will restart the cluster. The only exceptions are t
   1. {% include [diagnostics-settings-console](../../_includes/mdb/mpg/diagnostics-settings-console.md) %}
 
 
+  
+  1. Under **DB Proxy**, enable or disable the [{{ mdb-lb }} load balancer](../concepts/load-balancer.md) using the **DB Proxy load balancing** option. If you enable the load balancer, specify replica-level load balancing settings under **Port settings**:
+
+     {% include [lb-settings](../../_includes/mdb/mpg/load-balancer-settings.md) %}
+
 
   1. Configure advanced cluster settings:
 
@@ -451,7 +459,7 @@ Changing additional settings will restart the cluster. The only exceptions are t
         {{ yc-mdb-pg }} cluster update --help
         ```
 
-    1. Run the following command with the list of settings you want to update:
+    1. Run the command after providing the list of settings you want to update:
 
         ```bash
         {{ yc-mdb-pg }} cluster update <cluster_name_or_ID> \

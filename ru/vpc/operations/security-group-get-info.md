@@ -11,7 +11,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [группа безопасности](../concepts/security-groups.md).
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. Если раздел не отображается, выберите его в меню **Еще**.
   1. Выберите нужную группу безопасности.
   1. На вкладке **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о группе безопасности.
 

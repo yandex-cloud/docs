@@ -23,8 +23,6 @@ description: Различные сценарии использования {{ m
 * [{#T}](./datalens.md)
 * [{#T}](logging.md)
 * [{#T}](mlflow-datasphere.md)
-* [{#T}](yq-postgre.md)
-* [{#T}](yq-federative-queries.md)
 * [{#T}](glibc-collation-issues.md)
 * [{#T}](data-recording.md)
 * [{#T}](conn-man-secret-access.md)

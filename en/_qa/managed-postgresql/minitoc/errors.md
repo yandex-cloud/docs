@@ -18,7 +18,7 @@
 
 * [Why do I get an error when stopping the cluster?](#stop-cluster-error)
 
-* [Why do I get a `max_connections is less than sum of users connection limit` error when changing a cluster?](#max-connections-error)
+* [Why do I get an error related to `max_connections` or `conn_limit` when modifying a cluster?](#max-connections-error)
 
 * [Why do I get an error when transferring data by creating and restoring a logical dump](#backup-error)
 
@@ -28,13 +28,15 @@
 
 * [Why do I get a `must be owner of extension` error when restoring a logical dump?](#owner-of-extension)
 
+* [Why do I get a `Must be superuser to create this extension` error when trying to create an extension?](#superuser-extension)
+
 * [Why do I get an error when setting up cascading replication?](#cascade-errors)
 
 * [Why do I get a `cannot execute <SQL_command> in a read-only transaction` error?](#read-only-error)
 
 * [What should I do if I see a `too many connections for role "monitor"` error in the logs?](#monitor-role-error)
 
-* [Why do I get an error when trying to install multiple extensions in the CLI?](#cli-extensions-errors)
+* [Why do I get an error when trying to install extensions in the CLI?](#cli-extensions-errors)
 
 * [Why do I get the `could not open extension control file "<extension_path>/vector.control": No such file or directory` error when accessing the `vector` extension?](#vector-error)
 

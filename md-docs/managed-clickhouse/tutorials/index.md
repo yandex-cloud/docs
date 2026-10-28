@@ -35,8 +35,6 @@
 * [Импорт данных из Yandex Object Storage, обработка и экспорт в Managed Service for ClickHouse®](s3-data-processing-ch.md)
 * [Миграция базы данных из Greenplum® в ClickHouse®](greenplum-to-clickhouse.md)
 * [Ввод данных в системы хранения](data-ingestion.md)
-* [Работа с данными в Managed Service for ClickHouse®](yq-clickhouse.md)
-* [Федеративные запросы к данным с помощью Yandex Query](yq-federative-queries.md)
 * [Интеграция Yandex Managed Service for ClickHouse® с внешней базой данных Microsoft SQL Server через ClickHouse® JDBC Bridge](jdbc-ch-to-sql-server-integration.md)
 * [Интеграция Yandex Managed Service for ClickHouse® с внешней базой данных Oracle через ClickHouse® JDBC Bridge](jdbc-ch-to-oracle-integration.md)
 * [Выполнение аналитических запросов в Yandex Managed Service for PostgreSQL с обработкой в Yandex Managed Service for ClickHouse® при помощи pg_clickhouse и Yandex Data Transfer](mpg-pg-clickhouse-extension.md)

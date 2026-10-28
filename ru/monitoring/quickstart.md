@@ -1,5 +1,7 @@
 # Как начать работать с {{ monitoring-full-name }}
 
+{% include [deprecation-warning](../_includes/monitoring/deprecation-warning.md) %}
+
 При помощи этой инструкции вы создадите дашборд и разместите виджеты, которые отображают состояния ресурсов {{ yandex-cloud }}.
 
 {% note info %}

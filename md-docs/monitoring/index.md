@@ -2,11 +2,15 @@
 
 # Yandex Monitoring
 
-Yandex Monitoring позволяет собирать и хранить метрики, а также отображать их в виде графиков на дашбордах.
+Сервис Yandex Monitoring закрыт. Все его возможности и метрики доступны в Monium — единой платформе Observability.
+
+Продолжите работу с метриками в <a href="https://monium.yandex.cloud">интерфейсе Monium</a>. Подробнее на странице <a href="sunset.md">Закрытие сервиса Yandex Monitoring</a>.
 
 Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение об уровне обслуживания</a>. Уровень обслуживания сервиса определен в документе <a href="https://yandex.ru/legal/cloud_sla_ym">Уровень обслуживания Yandex Monitoring</a>.
 
 # Yandex Monitoring
+
+ - [Закрытие сервиса Yandex Monitoring](sunset.md)
 
  - [Начало работы](quickstart.md)
 

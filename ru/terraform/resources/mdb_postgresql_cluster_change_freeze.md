@@ -4,7 +4,7 @@ subcategory: Managed Service for PostgreSQL
 
 # yandex_mdb_postgresql_cluster_change_freeze (Resource)
 
-
+Change freezes temporarily prevent maintenance operations for a specific resource over the time period specified. Use them during business-critical events or periods with limited operational support.
 
 ## Example usage
 

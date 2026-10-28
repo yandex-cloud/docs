@@ -7,9 +7,13 @@ description: This guide describes how to use an AI assistant to manage {{ yandex
 
 {% include [preview-pp](../../_includes/preview-pp.md) %}
 
-You can use an AI assistant integrated into the management console to create and delete {{ yandex-cloud }} resources as well as manage their settings. With the AI assistant, you can run operations on cloud resources by sending text messages to a chat with a generative model.
+You can use an [AI assistant]({{ link-docs-ai }}ai-studio/concepts/agents/index) integrated into the management console to create and delete {{ yandex-cloud }} resources as well as manage their settings. With the AI assistant, you can run operations on cloud resources by sending text messages to a chat with a generative model.
 
 When performing operations with resources, the AI assistant acts on behalf of the user requesting the operation via the chat. Thus, the scope of available actions depends on the [roles](../../iam/concepts/access-control/roles.md) [assigned to this user account](../../iam/operations/roles/grant.md).
+
+Before the operation, the AI ​​assistant shows the plan: actions it will perform and resources it will modify. The AI ​​assistant will apply the changes only after your confirmation.
+
+{{ yandex-cloud }} does not use your requests and data from the AI ​​assistant context to train the model.
 
 ## Creating and deleting resources {#create-and-delete}
 
@@ -23,7 +27,7 @@ To use an AI assistant for resource management:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to run operations on {{ yandex-cloud }} resources.
-  1. Click ![sparkles-fill](../../_assets/console-icons/sparkles-fill.svg) **{{ ui-key.yacloud.ai-assistant.label_ai-assistant-open }}**.
+  1. Click ![ai-chat-console](../../_assets/ai-chat-console.svg) **{{ ui-key.yacloud.ai-assistant.label_ai-assistant-open }}** or ![ai-chat-console](../../_assets/ai-chat-console.svg) **{{ ui-key.yacloud.ui.components.button_open-ai-assistant }}**.
   1. In the AI assistant window, use the message input field to describe what you want to do with {{ yandex-cloud }} resources:
 
       {% note info %}
@@ -34,117 +38,141 @@ To use an AI assistant for resource management:
 
       1. Create a cloud network:
 
-          ```text
-          Create a new cloud network named my-new-network.
-          ```
+          1. Send the following message:
 
-          The AI assistant will create a cloud network with this name and notify you accordingly:
+              ```text
+              Create a new cloud network named my-new-network.
+              ```
 
-          ```text
-          Alright! You have successfully created a new cloud network named my-new-network. It is ready for use: you can now add subnets and other cloud resources.
-          ```
+              The AI ​​assistant will show an action plan and the list of resources it will create. Check the plan.
+
+          1. If everything is correct, click **Confirm**.
+
+              The AI assistant will create a cloud network with this name and notify you accordingly:
+
+              ```text
+              Alright! You have successfully created a new cloud network named my-new-network. It is ready for use: you can now add subnets and other cloud resources.
+              ```
 
       1. Create a subnet by specifying the name of the new network and the [availability zone](../../overview/concepts/geo-scope.md) for the subnet:
 
-          ```text
-          In my-new-network, create a subnet in the {{ region-id }}-a availability zone with this address range: 192.168.1.0/24.
-          ```
+          1. Send the following message:
 
-          Result:
+              ```text
+              In my-new-network, create a subnet in the {{ region-id }}-a availability zone with this address range: 192.168.1.0/24.
+              ```
 
-          ```text
-          Successfully created a new subnet with the provided parameters:
+              The AI ​​assistant will show an action plan and the list of resources it will create. Check the plan.
 
-          Name: subnet-{{ region-id }}-a
-          Network: my-new-network
-          Availability zone: {{ region-id }}-a
-          IP address range: 192.168.1.0/24
-          The subnet is ready for use.
-          ```
+          1. If everything is correct, click **Confirm**.
 
-          As you can see in the result, the AI assistant has given its own name to the new subnet since you have not specified the name in the request. Therefore, the assistant itself can set some standard values for most parameters of the resources you create.
+              Result:
+
+              ```text
+              Successfully created a new subnet with the provided parameters:
+
+              Name: subnet-{{ region-id }}-a
+              Network: my-new-network
+              Availability zone: {{ region-id }}-a
+              IP address range: 192.168.1.0/24
+              The subnet is ready for use.
+              ```
+
+              As you can see in the result, the AI assistant has given its own name to the new subnet since you have not specified the name in the request. Therefore, the assistant itself can set some standard values for most parameters of the resources you create.
 
       1. Create a security group that allows inbound traffic on TCP ports `80` and `443` as well as any outbound traffic:
 
-          ```text
-          In my-new-network, create a security group that allows any outgoing traffic as well as incoming traffic on TCP ports 80 and 443.
-          ```
+          1. Send the following message:
 
-          Result:
+              ```text
+              In my-new-network, create a security group that allows any outgoing traffic as well as incoming traffic on TCP ports 80 and 443.
+              ```
 
-          ```text
-          Successfully created a security group with the following settings:
+              The AI ​​assistant will show an action plan and the list of resources it will create. Check the plan.
 
-          Name: web-security-group
-          Network: my-new-network
-          Rules:
+          1. If everything is correct, click **Confirm**.
 
-          ✅ Incoming traffic (Ingress):
-          TCP port 80 (HTTP) from any IP address (0.0.0.0/0)
-          TCP port 443 (HTTPS) from any IP address (0.0.0.0/0)
-          ✅ Outgoing traffic (Egress):
-          All outgoing traffic is allowed (from any IP address and over any protocol)
-          Security group is active and ready to connect to your VMs.
-          ```
+              Result:
 
-          When using the AI assistant, you can specify multiple resources in a single request, rather than creating them one by one.
+              ```text
+              Successfully created a security group with the following settings:
 
-          {% cut "For example:" %}
+              Name: web-security-group
+              Network: my-new-network
+              Rules:
 
-          ```text
-          Create a new cloud network named my-new-network. In this network, create a subnet in the {{ region-id }}-a availability zone and a security group allowing all outgoing traffic as well as incoming traffic on TCP ports 80 and 443.
-          ```
+              ✅ Incoming traffic (Ingress):
+              TCP port 80 (HTTP) from any IP address (0.0.0.0/0)
+              TCP port 443 (HTTPS) from any IP address (0.0.0.0/0)
+              ✅ Outgoing traffic (Egress):
+              All outgoing traffic is allowed (from any IP address and over any protocol)
+              Security group is active and ready to connect to your VMs.
+              ```
 
-          The AI assistant will then define the parameters of the new resoures and the order in which to create them and ask you to confirm the action plan:
+      When using the AI assistant, you can specify multiple resources in a single request, rather than creating them one by one.
 
-          ```text
-          Thank you for your request! So, you would like to create three resources: a network, a subnet, and a security group. This is a complex project, so let me outline the plan first.
+      {% cut "For example:" %}
 
-          Suggested plan:
+      ```text
+      Create a new cloud network named my-new-network. In this network, create a subnet in the {{ region-id }}-a availability zone and a security group allowing all outgoing traffic as well as incoming traffic on TCP ports 80 and 443.
+      ```
 
-          1. Create a network named my-new-network.
-          2. In this network, create a subnet in the {{ region-id }}-a availability zone. I will assign it the standard CIDR block, 10.0.0.0/24.
-          3. Create a security group in the new network that allows:
-              ● Any outgoing traffic.
-              ● Incoming traffic on TCP ports 80 (HTTP) and 443 (HTTPS) from any address.
+      The AI assistant will then define the parameters of the new resoures and the order in which to create them and ask you to confirm the action plan:
 
-          All resources will be created in the folder with ID b1gt6g8ht345********.
+      ```text
+      Thank you for your request! So, you would like to create three resources: a network, a subnet, and a security group. This is a complex project, so let me outline the plan first.
 
-          Is everything correct? May I proceed with this plan?
-          ```
+      Suggested plan:
 
-          You can accept the proposed plan or modify some parameters, e.g.:
+      1. Create a network named my-new-network.
+      2. In this network, create a subnet in the {{ region-id }}-a availability zone. I will assign it the standard CIDR block, 10.0.0.0/24.
+      3. Create a security group in the new network that allows:
+          ● Any outgoing traffic.
+          ● Incoming traffic on TCP ports 80 (HTTP) and 443 (HTTPS) from any address.
 
-          ```text
-          Reduce the number of available subnet addresses to sixteen.
-          ```
+      All resources will be created in the folder with ID b1gt6g8ht345********.
 
-          The AI assistant will then provide an updated plan:
+      Is everything correct? May I proceed with this plan?
+      ```
 
-          ```text
-          Excellent point! I will revise the plan.
+      You can accept the proposed plan or modify some of its parameters, e.g.:
 
-          Here is the new plan:
+      ```text
+      Reduce the number of available subnet addresses to sixteen.
+      ```
 
-          1. Create a network named my-new-network.
-          2. In this network, create a subnet in the {{ region-id }}-a availability zone. Now I will use the 10.0.0.0/28 CIDR block which contains exactly 16 IP addresses.
-          3. Create a security group in the new network that allows:
-              ● Any outgoing traffic.
-              ● Incoming traffic on TCP ports 80 (HTTP) and 443 (HTTPS) from any address.
-          I am ready to proceed. Do you confirm?
-          ```
+      The AI assistant will then provide an updated plan:
 
-          You may ask the assistant to make other changes or approve the plan. After your approval, the assistant will create the resources.
+      ```text
+      Excellent point! I will revise the plan.
 
-          {% endcut %}
+      Here is the new plan:
+
+      1. Create a network named my-new-network.
+      2. In this network, create a subnet in the {{ region-id }}-a availability zone. Now I will use the 10.0.0.0/28 CIDR block which contains exactly 16 IP addresses.
+      3. Create a security group in the new network that allows:
+          ● Any outgoing traffic.
+          ● Incoming traffic on TCP ports 80 (HTTP) and 443 (HTTPS) from any address.
+      I am ready to proceed. Do you confirm?
+      ```
+
+      You may ask the assistant to make other changes or approve the plan. After your approval, the assistant will create the resources.
+
+      {% endcut %}
 
       1. Delete all resoures you created by specifying their names or IDs:
 
-          ```text
-          Delete subnet-{{ region-id }}-a and web-security-group, then delete _my-new-network_.
-          ```
+          1. Send the following message:
 
-          The AI assistant will delete all the specified resources.
+              ```text
+              Delete subnet-{{ region-id }}-a and web-security-group, then delete _my-new-network_.
+              ```
+
+              The AI ​​assistant will show an action plan and the list of resources it is going to delete. Check the plan.
+
+          1. If everything is correct, click **Confirm**.
+
+              The AI assistant will delete all the specified resources.
 
 {% endlist %}
 
@@ -157,12 +185,34 @@ To manage multiple segments of a cloud infrastructure at the same time, you can 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are going to manage your resources.
-  1. Click ![sparkles-fill](../../_assets/console-icons/sparkles-fill.svg) **{{ ui-key.yacloud.ai-assistant.label_ai-assistant-open }}**.
+  1. Click ![ai-chat-console](../../_assets/ai-chat-console.svg) **{{ ui-key.yacloud.ai-assistant.label_ai-assistant-open }}** or ![ai-chat-console](../../_assets/ai-chat-console.svg) **{{ ui-key.yacloud.ui.components.button_open-ai-assistant }}**.
   1. To start a new chat:
      * Select a suggested prompt or enter your own query in the input field.
-     * In an active chat, click ![plus](../../_assets/console-icons/plus.svg) in the top-right corner.
+     * In an active chat, click ![comment-plus](../../_assets/console-icons/comment-plus.svg) in the top-right corner.
   1. To view your chat history, click ![clock-arrow-rotate-left](../../_assets/console-icons/clock-arrow-rotate-left.svg) in the top-right corner of the AI assistant window.
      1. To open a chat, click the line with its name in the chat history.
      1. To delete a chat, click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with its name in the chat history and confirm the deletion.
+
+{% endlist %}
+
+## Managing context {#context}
+
+At the start of a new chat, the context of the current page is enabled by default.
+
+In context mode, the AI ​​assistant automatically retrieves the URL and page type, cloud service name, IDs of resources and other additional info. This allows the assistant to be more effective with existing resources and give recommendations for them. For example, it can explain the purpose and parameters of the resources currently in use.
+
+You can start a conversation with the AI ​​assistant with or without context; after the first message is sent, you cannot turn context on or off.
+
+To disable context:
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. Click ![ai-chat-console](../../_assets/ai-chat-console.svg) **{{ ui-key.yacloud.ai-assistant.label_ai-assistant-open }}** or ![ai-chat-console](../../_assets/ai-chat-console.svg) **{{ ui-key.yacloud.ui.components.button_open-ai-assistant }}**.
+  1. In the AI ​​assistant window that opens, click ![xmark](../../_assets/console-icons/xmark.svg) in the message input field next to the context name.
+
+      To cancel context deactivation, click ![arrow-rotate-left](../../_assets/console-icons/arrow-rotate-left.svg).
 
 {% endlist %}

@@ -38,8 +38,6 @@ description: Различные сценарии использования {{ m
 * [{#T}](s3-data-processing-ch.md)
 * [{#T}](greenplum-to-clickhouse.md)
 * [{#T}](data-ingestion.md)
-* [{#T}](yq-clickhouse.md)
-* [{#T}](yq-federative-queries.md)
 * [{#T}](jdbc-ch-to-sql-server-integration.md)
 * [{#T}](jdbc-ch-to-oracle-integration.md)
 * [{#T}](mpg-pg-clickhouse-extension.md)

@@ -160,10 +160,6 @@ Managed Service for PostgreSQL помогает разворачивать и п
 
  - [Создание сервера MLFlow для логирования экспериментов и артефактов](tutorials/mlflow-datasphere.md)
 
- - [Работа с данными с помощью Query](tutorials/yq-postgre.md)
-
- - [Федеративные запросы к данным с помощью Query](tutorials/yq-federative-queries.md)
-
  - [Решение проблем с сортировкой строк после обновления glibc](tutorials/glibc-collation-issues.md)
 
  - [Запись данных с устройства в базу данных](tutorials/data-recording.md)

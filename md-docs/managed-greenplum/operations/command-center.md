@@ -15,7 +15,7 @@
 
 {% note info %}
 
-Командный центр Yandex MPP Analytics for PostgreSQL позволяет проводить только базовый операционный анализ сессий и запросов. Если ваша задача требует углубленного стратегического исследования и расширенных инструментов анализа, используйте [экспорт логов в Yandex Cloud Logging](mgp-to-cloud-logging.md). Сервис Cloud Logging позволяет [визуализировать логи в Grafana](../../logging/tutorials/grafana-logs-plugin.md) и выполнять их [обработку с помощью Data Streams и Query](../../logging/tutorials/cloud-logging.md).
+Командный центр Yandex MPP Analytics for PostgreSQL позволяет проводить только базовый операционный анализ сессий и запросов. Если ваша задача требует углубленного стратегического исследования и расширенных инструментов анализа, используйте [экспорт логов в Yandex Cloud Logging](mgp-to-cloud-logging.md). Сервис Cloud Logging позволяет [визуализировать логи в Grafana](../../logging/tutorials/grafana-logs-plugin.md).
 
 {% endnote %}
 

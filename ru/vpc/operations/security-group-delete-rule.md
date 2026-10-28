@@ -13,11 +13,11 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется изменить группу безопасности.
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. Если раздел не отображается, выберите его в меню **Еще**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке группы, в которой требуется удалить правило, и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.label_rules-ingress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_rules-egress }}** нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке правила, которое требуется удалить.
   1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+  1. Чтобы применить изменения, нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 

@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Управление списками
 
-{% include [lists-preview](../../_includes/smartwebsecurity/lists-preview.md) %}
-
 Вы можете управлять только [пользовательскими списками](../concepts/lists.md#user-rules). Предустановленные [списки {{ yandex-cloud }}](../concepts/lists.md#yc-rules) изменять нельзя.
 
 

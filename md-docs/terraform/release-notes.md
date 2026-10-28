@@ -1,5 +1,12 @@
 [Документация Yandex Cloud](../index.md) > [Terraform в Yandex Cloud](index.md) > Справочник Terraform > История изменений (англ.)
 
+## 0.241.0 (October 28, 2026)
+
+##### WARNING:
+* sharded_postgresql: Remove deprecated `console_password` field from cluster config
+
+
+
 ## 0.240.0 (October 26, 2026)
 
 ##### WARNING:

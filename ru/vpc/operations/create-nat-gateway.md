@@ -16,7 +16,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется создать шлюз.
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/arrows-opposite-to-dots.svg) **{{ ui-key.yacloud.vpc.switch_gateways }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/arrows-opposite-to-dots.svg) **{{ ui-key.yacloud.vpc.switch_gateways }}**. Если раздел не отображается, выберите его в меню **Еще**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.gateways.button_create-gateway }}**.
   1. Задайте имя шлюза. Требования к имени:
 
@@ -26,19 +26,23 @@ description: Следуя данной инструкции, вы сможете
   1. По умолчанию выбран тип шлюза `{{ ui-key.yacloud.vpc.gateways.value_gateway-type-egress-nat }}`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.overview.button_create_route-table }}**, чтобы создать новую таблицу, или выберите одну из существующих.
+  1. Подготовьте таблицу маршрутизации:
+
+     * Чтобы создать новую таблицу, нажмите кнопку **{{ ui-key.yacloud.vpc.network.overview.button_create_route-table }}**. В поле **{{ ui-key.yacloud.vpc.route-table-form.field_name }}** задайте имя таблицы, а в поле **{{ ui-key.yacloud.vpc.route-table-form.field_network-id }}** выберите сеть, в которой находятся нужные подсети.
+     * Чтобы изменить существующую таблицу, в строке с ней нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+
   1. В блоке **{{ ui-key.yacloud.vpc.route-table-form.section_static-routes }}** нажмите кнопку **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}** и в открывшемся окне:
      1. В поле **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}** выберите `{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}`.
      1. В поле **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** выберите созданный NAT-шлюз. Префикс назначения заполнится автоматически.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table.edit.button_edit }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table.create.button_create }}** для новой таблицы или **{{ ui-key.yacloud.vpc.route-table.edit.button_edit }}** для существующей.
 
   Затем привяжите [таблицу маршрутизации](../concepts/routing.md) к одной из подсетей, чтобы направить трафик из нее через NAT-шлюз:
 
   1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
   1. В строке нужной подсети нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).
   1. В открывшемся меню выберите пункт **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
-  1. В открывшемся окне выберите созданную таблицу в списке.
+  1. В открывшемся окне выберите настроенную таблицу в списке.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 - CLI {#cli}

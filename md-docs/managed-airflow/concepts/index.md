@@ -101,8 +101,7 @@ Apache Airflow™ не применяется для потоковой и не�
 
 ## Примеры использования {#examples}
 
-* [Автоматизация работы с Yandex Data Processing](../tutorials/data-processing-automation.md)
-* [Автоматизация задач Yandex Query с помощью Yandex Managed Service for Apache Airflow™](../tutorials/airflow-auto-tasks.md)
+[Автоматизация работы с Yandex Data Processing](../tutorials/data-processing-automation.md)
 
 #### Полезные ссылки {#see-also}
 

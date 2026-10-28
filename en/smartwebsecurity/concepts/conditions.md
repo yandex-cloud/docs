@@ -5,8 +5,6 @@ description: Conditions available for use in {{ sws-name }} rules to filter HTTP
 
 # Conditions
 
-{% include [lists-preview](../../_includes/smartwebsecurity/lists-preview.md) %}
-
 Conditions define which HTTP requests the {{ sws-name }} [rule](rules.md) applies to. The following table lists matching options and value formats for each condition. If multiple values are supported, a logical operator is used.
 
 #|

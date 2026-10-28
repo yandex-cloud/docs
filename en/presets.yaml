@@ -18,6 +18,13 @@ default:
   alb-name: Application Load Balancer
   alerting-metrics-limit: 1 000
   alerts-name: Alerts
+  alice-ai-pro-name:
+    d: Alice AI Pro
+    i: Alice AI Pro
+    p: Alice AI Pro
+    r: Alice AI Pro
+    t: Alice AI Pro
+    v: Alice AI Pro
   all-mdb:
     max-databases: 1000
   allowed-captcha-request: /tmgrdfrend.*
@@ -296,6 +303,7 @@ default:
   license-manager: License Manager
   link-adfs: >-
     https://docs.microsoft.com/en-us/windows-server/identity/active-directory-federation-services
+  link-ai-agent: https://aistudio.yandex.ru/agents
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
   link-auth-logout: https://auth.yandex.cloud/logout
@@ -1281,7 +1289,6 @@ default:
   roles-vpc-public-admin: vpc.publicAdmin
   roles-vpc-user: vpc.user
   roles-yagpt-user: ai.languageModels.user
-  s1-medium: s1.medium (8 vCPU, 32 GB)
   s1-micro: s1.micro (2 vCPU, 8 GB)
   s3-c2-m8: s3-c2-m8 (2 vCPU, 8 GB)
   s3-dotnet-sdk-host: s3.yandexcloud.net
@@ -7055,7 +7062,17 @@ default:
           DiskEncryptionFieldWithFieldWrap:
             label_disk-encryption_bkdrg: Encrypted disk
         shard-groups:
+          button_add-external-shard: Add external shard
+          button_add-external-shard-replica: Add replica
           button_add-group: Create shard group
+          field_external-shard-replica-host: Host
+          field_external-shard-replica-password: Password
+          field_external-shard-replica-port: Port
+          field_external-shard-replica-priority: Priority
+          field_external-shard-replica-secure: Secure connection
+          field_external-shard-replica-user: User
+          field_shard-names: Shards
+          section_external-shards: External shards
       metadata-hub:
         data-catalog:
           AssetProfiling:
@@ -7992,6 +8009,8 @@ default:
         section_resource-management: Resource management
         title_catalogs: Catalogs
       ui:
+        components:
+          button_open-ai-assistant: Chat with AI
         constants:
           label_cloud-router_kBGNL: Cloud Router
           label_interconnect_aUMcv: Cloud Interconnect

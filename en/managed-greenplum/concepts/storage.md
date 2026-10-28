@@ -11,7 +11,7 @@ description: In this article, you will learn about disk types in {{ mgp-name }} 
 
 {% include [storage-type](../../_includes/mdb/mgp/storage-type.md) %}
 
-Your master hosts and segment hosts may use different disk types.
+Your master hosts and segment hosts may use different disk types. The exception is clusters with [disk encryption](#disk-encryption): both host types should use `local-ssd`.
 
 {% note info %}
 
@@ -22,6 +22,20 @@ When using standard **Intel Ice Lake** hosts, access to local SSD storage is pro
 ## Specifics of local SSD storage {#local-storage-features}
 
 Local SSDs do not provide fault-tolerant storage and impact the cost of the entire cluster: you are charged for a cluster with this type of storage even if it is stopped. You can find more information in the [pricing policy](../pricing).
+
+
+
+## Disk encryption {#disk-encryption}
+
+In {{ mgp-name }}, encryption is only available for local SSDs (`local-ssd`). To enable encryption, select this disk type for both master hosts and segment hosts. If network disks are selected for either host type, encryption cannot be enabled.
+
+{% include [disk-encryption](../../_includes/mdb/disk-encryption.md) %}
+
+{% note info %}
+
+Encryption may slightly reduce disk subsystem performance in some use cases.
+
+{% endnote %}
 
 
 ## Managing disk space {#manage-storage-space}

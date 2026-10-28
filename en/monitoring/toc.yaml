@@ -1,6 +1,8 @@
 title: Yandex Monitoring
 href: index.yaml
 items:
+  - name: Discontinuation of {{ monitoring-full-name }}
+    href: sunset.md
   - name: Getting started
     href: quickstart.md
   - name: Step-by-step guides

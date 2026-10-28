@@ -190,10 +190,6 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
 
  - [Импорт данных из Object Storage, обработка и экспорт в Managed Service for ClickHouse®](tutorials/s3-data-processing-ch.md)
 
- - [Работа с данными с помощью Query](tutorials/yq-clickhouse.md)
-
- - [Федеративные запросы к данным с помощью Query](tutorials/yq-federative-queries.md)
-
  - [Интеграция с внешней базой данных Microsoft SQL Server через ClickHouse® JDBC Bridge](tutorials/jdbc-ch-to-sql-server-integration.md)
 
  - [Интеграция с внешней базой данных Oracle через ClickHouse® JDBC Bridge](tutorials/jdbc-ch-to-oracle-integration.md)

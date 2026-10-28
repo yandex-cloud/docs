@@ -5,8 +5,6 @@ description: Follow this guide to set up a rule for blocking black addresses in 
 
 # Rule for blocking black addresses
 
-{% include [lists-preview](../../_includes/smartwebsecurity/lists-preview.md) %}
-
 {{ sws-name }} has [pre-installed lists](../concepts/lists.md#yc-rules) of untrusted (black) IP addresses. These lists streamline traffic checking and block requests from unsafe or suspicious addresses. Also, you can add [custom blacklists](../concepts/lists.md#user-rules).
 
 ## Set up a rule for blocking black addresses {#black-list-rule}

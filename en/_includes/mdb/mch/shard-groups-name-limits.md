@@ -1,0 +1,1 @@
+A name may include Latin letters, numbers, hyphens, and underscores. It must be from 1 to 63 characters long.

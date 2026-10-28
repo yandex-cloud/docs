@@ -1,0 +1,36 @@
+title: Alice AI Pro for business
+href: index.yaml
+items:
+  - name: Getting started with {{ alice-ai-pro-name.t }}
+    href: quickstart.md
+  - name: How {{ alice-ai-pro-name.i }} works
+    expanded: true
+    items:
+      - name: Workspace, projects, and chats
+        href: concepts/workplace-project-chat.md
+      - name: Permissions and data access
+        href: concepts/permissions.md
+      - name: Limits and chat context
+        href: concepts/limits.md
+      - name: Cross-chat memory
+        href: concepts/memory.md
+      - name: Plugins, skills, and connectors
+        href: concepts/plugins.md
+  - name: Working in {{ alice-ai-pro-name.p }}
+    expanded: true
+    items:
+      - name: Working with projects
+        href: operations/projects.md
+      - name: How to set tasks
+        href: operations/formulate-task.md
+      - name: Selecting a model and operating mode
+        href: concepts/models.md
+      - name: Working with chats and files
+        href: operations/chats.md
+      - name: Managing chat context
+        href: operations/manage-chat-context.md
+      - name: Scheduled tasks
+        href: operations/scheduled-tasks.md
+  - name: Troubleshooting
+    href: qa/troubleshooting.md
+path: en/alice-ai-pro/toc.yaml

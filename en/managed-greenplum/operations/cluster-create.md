@@ -24,6 +24,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 ## Creating a cluster {#create-cluster}
 
+When creating a cluster, you can encrypt its disks using a custom KMS key. To do this, select `local-ssd` as the disk type for the master and segment hosts. Encryption may slightly reduce disk subsystem performance in some use scenarios. For more on conditions and required permissions, see [Disk encryption](../concepts/storage.md#disk-encryption).
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -487,7 +489,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
       {% include [terraform-maintenance-window](../../_includes/mdb/mgp/terraform-maintenance-window.md) %}
 
 
-  1. Make sure the {{ TF }} configuration files are correct:
+  1. Validate your {{ TF }} configuration:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -637,7 +639,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `clientIdleTimeout`: Idle timeout for a client connection, in seconds.
             * `idleInTransactionTimeout`: Idle timeout for a client connection with an open transaction (in seconds).
 
-        * `cloudStorage.enable`: Use of hybrid storage. Set to `true` to enable {{ yandex-cloud }}'s [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in the cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks in the {{ mgp-name }} cluster to a hybrid storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloudStorage.enable`: Use of hybrid storage. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to hybrid storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
             You cannot disable hybrid storage after you save your cluster settings.
 
@@ -829,7 +831,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `client_idle_timeout`: Idle timeout for a client connection, in seconds.
             * `idle_in_transaction_timeout`: Idle timeout for a client connection with an open transaction (in seconds).
 
-        * `cloud_storage.enable`: Use of hybrid storage. Set to `true` to enable {{ yandex-cloud }}'s [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in the cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks in the {{ mgp-name }} cluster to a hybrid storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloud_storage.enable`: Use of hybrid storage. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to hybrid storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
             You cannot disable hybrid storage after you save your cluster settings.
 

@@ -5,7 +5,6 @@
 ## Работа с кластерами {#clusters}
 
 * [Автоматизация работы с Yandex Data Processing](data-processing-automation.md)
-* [Автоматизация задач Yandex Query с помощью Yandex Managed Service for Apache Airflow™](airflow-auto-tasks.md)
 * [Запуск простого PySpark-задания в Yandex Managed Service for Apache Spark™ с помощью Yandex Managed Service for Apache Airflow™](airflow-spark-min.md)
 * [Автоматизация работы с таблицами в Yandex Managed Service for Apache Spark™ с помощью Yandex Managed Service for Apache Airflow™](spark-automation.md)
 

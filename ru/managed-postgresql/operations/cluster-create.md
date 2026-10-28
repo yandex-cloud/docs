@@ -323,8 +323,6 @@ description: Следуя данной инструкции, вы сможете
 
      Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/), передайте параметр `--serverless-access`. Подробнее о настройке доступа в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
-     Чтобы разрешить доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/index.yaml), передайте параметр `--yandexquery-access=true`. Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и предоставляется по запросу.
-
 
 
 - {{ TF }} {#tf}
@@ -520,8 +518,7 @@ description: Следуя данной инструкции, вы сможете
          "access": {
            "dataLens": <разрешить_доступ_из_{{ datalens-name }}>,
            "webSql": <разрешить_доступ_из_{{ websql-name }}>,
-           "serverless": <разрешить_доступ_из_Cloud_Functions>,
-           "yandexQuery": <разрешить_доступ_из_{{ yq-name }}>
+           "serverless": <разрешить_доступ_из_Cloud_Functions>
          },
          "performanceDiagnostics": {
            "enabled": <активировать_сбор_статистики>,
@@ -619,7 +616,6 @@ description: Следуя данной инструкции, вы сможете
          * `dataLens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
          * `webSql` — [{{ websql-full-name }}](../../websql/index.yaml);
          * `serverless` — [{{ sf-full-name }}](../../functions/index.yaml);
-         * `yandexQuery` — [{{ yq-full-name }}](../../query/index.yaml).
 
          Возможные значения настроек: `true` или `false`.
 
@@ -725,8 +721,7 @@ description: Следуя данной инструкции, вы сможете
          "access": {
            "data_lens": <разрешить_доступ_из_{{ datalens-name }}>,
            "web_sql": <разрешить_доступ_из_{{ websql-name }}>,
-           "serverless": <разрешить_доступ_из_Cloud_Functions>,
-           "yandex_query": <разрешить_доступ_из_{{ yq-name }}>
+           "serverless": <разрешить_доступ_из_Cloud_Functions>
          },
          "performance_diagnostics": {
            "enabled": <активировать_сбор_статистики>,
@@ -824,7 +819,6 @@ description: Следуя данной инструкции, вы сможете
          * `data_lens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
          * `web_sql` — [{{ websql-full-name }}](../../websql/index.yaml);
          * `serverless` — [{{ sf-full-name }}](../../functions/index.yaml);
-         * `yandex_query` — [{{ yq-full-name }}](../../query/index.yaml).
 
          Возможные значения настроек: `true` или `false`.
 

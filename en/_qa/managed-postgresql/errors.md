@@ -94,7 +94,9 @@ A {{ mpg-name }} cluster connection may be terminated with the following message
 FATAL: terminating connection due to administrator command
 ```
 
-This message is not an error; it indicates that the session/transaction duration has exceeded the [Session duration timeout](../../managed-postgresql/concepts/settings-list.md#setting-session-duration-timeout) setting (12 hours by default).
+This message means that the server has forcibly terminated the connection. One of the possible reasons is that the duration of the active session or transaction has exceeded the [Session duration timeout](../../managed-postgresql/concepts/settings-list.md#setting-session-duration-timeout) value.
+
+Check the value of this setting against the session or transaction duration. If the connection times out , increase the **Session duration timeout**. Keep in mind that longer sessions can impact database size and cluster performance.
 
 #### Why cannot I connect to cluster hosts? {#host-error}
 
@@ -131,11 +133,21 @@ The error occurs because you can [stop](../../managed-postgresql/operations/clus
 
 Solution: Wait until an automatic backup is created or [create one manually](../../managed-postgresql/operations/cluster-backups.md#create-backup).
 
-#### Why do I get a `max_connections is less than sum of users connection limit` error when modifying a cluster? {#max-connections-error}
+#### Why do I get an error related to `max_connections` or `conn_limit` when modifying a cluster? {#max-connections-error}
 
-This error may occur when downgrading a host class in a cluster if the sum of connection limits for all users is less then the total cluster connection limit ([Max connections](../../managed-postgresql/concepts/settings-list.md#setting-max-connections)).
+Modifying connection settings or downgrading the host class can fail with one of these errors:
 
-Solution: First reduce the limits set for users so their sum is less than `<Max_connections_value> — 15` and then proceed with host class downgrade.
+```text
+max_connections is less than sum of users connection limit
+```
+
+```text
+max_connections conn_limit is too high
+```
+
+The errors occur when the sum of [Conn limit](../../managed-postgresql/concepts/settings-list.md#setting-conn-limit) values for all users exceeds the [Max connections](../../managed-postgresql/concepts/settings-list.md#setting-max-connections) value minus 15 service connections.
+
+Before updating the settings or downgrading the host class, reduce user limits so that their sum does not exceed `<Max_connections_value> - 15`. If your users require more connections, increase the **Max connections** value or select a host class with more vCPUs.
 
 #### Why do I get an error when transferring data by creating and restoring a logical dump? {#backup-error}
 
@@ -187,6 +199,20 @@ To fix this error:
 1. Remove any operations with extensions from the dump. For example, comment out the lines related to installing extensions.
 1. Perform logical dump recovery again.
 
+#### Why do I get a `Must be superuser to create this extension` error when trying to create an extension? {#superuser-extension}
+
+This error may occur when attempting to create an extension using an SQL command or when restoring a dump containing operations with extensions. In {{ mpg-name }}, superuser permissions are not granted, and you can [manage extensions](../../managed-postgresql/operations/extensions/cluster-extensions.md#update-extensions) only using the {{ yandex-cloud }} interfaces.
+
+If the error occurred when restoring a dump:
+
+1. Before restoring, [install](../../managed-postgresql/operations/extensions/cluster-extensions.md#update-extensions) all required and supported extensions in the target database.
+1. Exclude create, update, and comment operations on extensions from the dump:
+
+   * For a dump in archive format, get a list of objects using [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html) with the `--list` parameter, then comment out the rows related to the extensions and their comments. When restoring, provide the updated list in the `--use-list` parameter.
+   * For a text dump, comment out the `CREATE EXTENSION`, `ALTER EXTENSION`, and `COMMENT ON EXTENSION` statements.
+
+If you run the `pg_restore` command without the `--exit-on-error` parameter, it will continue restoring the remaining objects after the error. Check the restored result and make sure the required extensions are installed in the target database. For more information, see [{#T}](../../managed-postgresql/tutorials/data-migration.md#restore).
+
 #### Why do I get an error when setting up cascading replication? {#cascade-errors}
 
 Error message:
@@ -237,9 +263,9 @@ For more details on connecting to the master host, see [Connecting to a database
 
 The `monitor` user is reserved for monitoring purposes in the {{ mpg-name }} cluster. You can ignore `too many connections` warnings for this user.
 
-#### Why do I get an error when trying to install multiple extensions in the CLI? {#cli-extensions-errors}
+#### Why do I get an error when trying to install extensions in the CLI? {#cli-extensions-errors}
 
-Installing multiple extensions in the CLI may fail with one of these errors:
+Installing extensions in the CLI may fail with one of these errors:
 
 * `ERROR: accepts 1 arg(s), received 2`
 
@@ -267,7 +293,7 @@ Installing multiple extensions in the CLI may fail with one of these errors:
 
 The error occurs because the `vector` extension name in {{ mpg-name }} is `pgvector`.
 
-Solution: when accessing the extension, use `pgvector` instead of `vector`.
+Solution: When accessing the extension, use `pgvector` instead of `vector`.
 
 #### Why do I get a `collation version mismatch` error when trying to upgrade my {{ PG }} cluster to version `18`? {#collation-version-mismatch}
 

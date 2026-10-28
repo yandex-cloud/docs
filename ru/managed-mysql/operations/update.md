@@ -601,7 +601,6 @@ description: Из статьи вы узнаете, как изменить на
           --backup-retain-period-days=<срок_хранения_копий> \
           --datalens-access=<true_или_false> \
           --websql-access=<true_или_false> \
-          --yandexquery-access=<true_или_false> \
           --disk-size-autoscaling disk-size-limit=<максимальный_размер_хранилища_в_ГБ>,`
                                  `planned-usage-threshold=<порог_для_планового_увеличения_в_процентах>,`
                                  `emergency-usage-threshold=<порог_для_незамедлительного_увеличения_в_процентах> \
@@ -624,8 +623,6 @@ description: Из статьи вы узнаете, как изменить на
     * `--datalens-access` — разрешает доступ к кластеру из {{ datalens-name }}. Значение по умолчанию — `false`. Подробнее о настройке подключения смотрите в разделе [{#T}](datalens-connect.md).
 
     * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
-
-    * `--yandexquery-access` — разрешает выполнять YQL-запросы к базам данных кластера из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Значение по умолчанию — `false`.
 
 
     {% include [disk-size-autoscaling-cli](../../_includes/mdb/mmy/disk-size-autoscaling-cli.md) %}
@@ -749,8 +746,7 @@ description: Из статьи вы узнаете, как изменить на
               "backupRetainPeriodDays": "<количество_дней>",
               "access": {
                   "dataLens": <разрешить_доступ_из_{{ datalens-name }}>,
-                  "webSql": <разрешить_доступ_из_{{ websql-name }}>,
-                  "yandexQuery": <разрешить_доступ_из_Yandex_Query>
+                  "webSql": <разрешить_доступ_из_{{ websql-name }}>
               },
               "performanceDiagnostics": {
                   "enabled": <активировать_сбор_статистики>,
@@ -794,7 +790,6 @@ description: Из статьи вы узнаете, как изменить на
 
             * `dataLens` — доступ из {{ datalens-name }}. Подробнее о настройке подключения смотрите в разделе [Подключение из {{ datalens-name }}](datalens-connect.md).
             * `webSql` — [выполнение SQL-запросов](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}.
-            * `yandexQuery` — выполнение YQL-запросов к базам данных кластера из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
 
             Возможные значения настроек: `true` или `false`.
@@ -863,8 +858,7 @@ description: Из статьи вы узнаете, как изменить на
               "backup_retain_period_days": "<количество_дней>",
               "access": {
                   "data_lens": <разрешить_доступ_из_{{ datalens-name }}>,
-                  "web_sql": <разрешить_доступ_из_{{ websql-name }}>,
-                  "yandex_query": <разрешить_доступ_из_Yandex_Query>
+                  "web_sql": <разрешить_доступ_из_{{ websql-name }}>
               },
               "performance_diagnostics": {
                   "enabled": <активировать_сбор_статистики>,
@@ -908,8 +902,6 @@ description: Из статьи вы узнаете, как изменить на
 
               * `data_lens` — доступ из {{ datalens-name }}. Подробнее о настройке подключения смотрите в разделе [Подключение из {{ datalens-name }}](datalens-connect.md).
               * `web_sql` — [выполнение SQL-запросов](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}.
-              * `yandex_query` — выполнение YQL-запросов к базам данных кластера из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
 
               Возможные значения настроек: `true` или `false`.
 

@@ -11,7 +11,7 @@ You cannot apply multiple transactions to a cluster at the same time. It is an a
 #### Can I change the number of connections available to a user? {#user-conn-number}
 
 Yes, you can. To do this, [change the values of the relevant settings](../../managed-postgresql/operations/cluster-users.md#update-settings):
-* [**Conn limit**](../../managed-postgresql/concepts/settings-list.md#setting-conn-limit): Maximum number of host connections per user. The default value is 50. The minimum value is 10.
+* [**Conn limit**](../../managed-postgresql/concepts/settings-list.md#setting-conn-limit): Maximum number of host connections per user. The default value is 50. The minimum value is 1.
 * [**Max connections**](../../managed-postgresql/concepts/settings-list.md#setting-max-connections): Maximum number of connections reserved for all users. The default value is `200 × <number_of_vCPUs_per_host>`. You have to keep in mind that this number includes 15 service connections, e.g., given a cluster with `"max_connections": 100`, you can reserve a maximum of 85 connections per cluster host for users.
 
 #### Can I change the class of an existing host (standard, memory-optimized, burstable)? {#host-class}
@@ -21,6 +21,17 @@ Yes, you can do this by following the procedure in [Changing cluster settings](.
 #### Can I change the disk type in an existing cluster? {#disk-type}
 
 Yes, you can. To do this, [restore the cluster from a backup](../../managed-postgresql/operations/cluster-backups.md#restore) and specify the required disk type when configuring the new cluster.
+
+#### Why updating configuration for a cluster with a `local-ssd` storage fails? {#local-ssd-update-error}
+
+When attempting to increase storage size, change the disk type, or change the host class, you may see a `UNPROCESSABLE ENTITY` or `GATEWAY_REQUEST_ERROR: requested feature is not available` message.
+
+Some `local-ssd` storage operations may not be available for the cloud. In this case, use one of these methods:
+
+* [Restore the cluster from a backup](../../managed-postgresql/operations/cluster-backups.md#restore) and specify the required configuration when creating the new cluster.
+* [Contact support]({{ link-console-support }}) to verify whether the existing cluster can be modified.
+
+If modifying the cluster is allowed, [create a backup](../../managed-postgresql/operations/cluster-backups.md#create-backup) before proceeding with the modification. Take into account the `local-ssd` storage size requirements outlined in [{#T}](../../managed-postgresql/pricing.md#rules-storage). During reconfiguration, hosts will be updated one by one and may be temporarily unavailable. To preserve the application connection to the current master host, use a [special FQDN](../../managed-postgresql/operations/connect/fqdn.md#special-fqdns).
 
 #### Can I manage a cluster using SQL commands? {#sql-control}
 

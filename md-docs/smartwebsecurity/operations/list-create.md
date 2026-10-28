@@ -2,12 +2,6 @@
 
 # Управление списками
 
-{% note info %}
-
-Функциональность списков адресов находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 Вы можете управлять только [пользовательскими списками](../concepts/lists.md#user-rules). Предустановленные [списки Yandex Cloud](../concepts/lists.md#yc-rules) изменять нельзя.
 
 

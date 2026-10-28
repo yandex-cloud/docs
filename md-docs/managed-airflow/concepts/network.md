@@ -58,8 +58,3 @@
 При подключении к ресурсу Yandex Cloud из облачной сети кластера Managed Service for Apache Airflow™ настройте группы безопасности также для ресурса, к которому кластер подключается.
 
 {% endnote %}
-
-
-## Примеры использования {#examples}
-
-* [Автоматизация задач Yandex Query с помощью Yandex Managed Service for Apache Airflow™](../tutorials/airflow-auto-tasks.md)

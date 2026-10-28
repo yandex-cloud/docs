@@ -75,8 +75,6 @@ items:
         items:
           - name: '{{ dataproc-name }}: автоматизация работы'
             href: tutorials/data-processing-automation.md
-          - name: '{{ yq-full-name }}: автоматизация задач'
-            href: tutorials/airflow-auto-tasks.md
           - name: Запуск простого PySpark-задания в {{ msp-name }}
             href: tutorials/airflow-spark-min.md
           - name: Автоматизация работы с таблицами в {{ msp-name }}

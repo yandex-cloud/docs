@@ -1259,6 +1259,67 @@ Apache Cloudberry™ содержит множество изменений и �
 
 При необходимости адаптируйте кодовую базу приложения и скрипты к работе со встроенной функциональностью.
 
+Расширение `gp_percentile_agg` в Greenplum® и open-gpdb ускоряло вычисление *ordered-set агрегатов* `percentile_cont()`, `percentile_disc()` и `median()`. В Apache Cloudberry™ эту функциональность реализует оптимизатор GPORCA. Он строит эффективный план выполнения, в котором данные поступают уже отсортированными. Благодаря этому нужное значение выбирается по счетчику, а не через повторную сортировку внутри агрегата. Эффект особенно заметен на MADlib, который вызывает эти функции внутри себя.
+
+Устанавливать расширение или писать что-то специальное в запросе не нужно. Обычная конструкция `percentile_cont(...) WITHIN GROUP (ORDER BY ...)` уже использует эту оптимизацию. Оптимизацией управляет параметр `optimizer_enable_orderedagg`. Он включен по умолчанию, задавать его явно не требуется.
+
+Для диагностики параметр можно отключить. В этом случае GPORCA перестанет применять оптимизацию ко всем ordered-set агрегатам, а запрос завершится ошибкой:
+
+```
+ERROR:  Ordered aggregates disabled. Enable by setting optimizer_enable_orderedagg=on
+```
+
+При включенном параметре оптимизация применяется, только если одновременно выполняются три условия:
+
+#|
+|| **Условие** | **Подходит** | **Не подходит** ||
+|| Сортировка задана по колонке, а не по выражению. Приведение типа колонки на оптимизацию не влияет | `ORDER BY b`
+
+`ORDER BY b::float8` | `ORDER BY a + b`
+
+`ORDER BY date_trunc('day', ts)` ||
+|| Доля задана одним значением, а не массивом | `percentile_cont(0.5)` | `percentile_cont(ARRAY[0.25, 0.5])` ||
+|| Функция принимает долю | `percentile_cont()`, `percentile_disc()`, `median()` | `mode()` ||
+|#
+
+Если хотя бы одно из условий не выполняется, запрос отрабатывает, но медленнее.
+
+Проверить, применилась ли оптимизация, можно по плану `EXPLAIN`. Если оптимизация сработала, вместо обычного ordered-set агрегата в плане присутствует `gp_percentile_cont` или `gp_percentile_disc`.
+
+`percentile_cont()` интерполирует между двумя соседними значениями, поэтому поддерживает не все типы данных. `median()` принимает те же типы. Обе функции принимают в `ORDER BY`:
+
+* числовые типы — `double precision`, `real`, `numeric`, `int`, `bigint`;
+* дату и время — `timestamp`, `timestamp with time zone`, `date`;
+* интервалы — `interval`, `time`.
+
+У `percentile_cont()` четыре базовых типа: `double precision`, `interval`, `timestamp` и `timestamp with time zone`. Apache Cloudberry™ автоматически приводит к ним остальные типы из списка выше и сохраняет оптимизацию. Для типа `numeric` приведение к `double precision` означает потерю точности. Это особенность работы `percentile_cont()` в целом, а не следствие оптимизации.
+
+Эти функции не поддерживают строковые типы, `money` и `time with time zone`:
+
+```sql
+SELECT percentile_cont(0.5) WITHIN GROUP (ORDER BY t) FROM tbl;
+ERROR:  function percentile_cont(numeric, text) does not exist
+```
+
+Для колонок с неподдерживаемыми типами используйте `percentile_disc()`. Она возвращает существующее значение выборки, поэтому подходит любой сортируемый тип. Это числовые и строковые типы, дата и время, `boolean`, `enum`, домены, массивы и составные типы.
+
+Первый аргумент функций `percentile_cont()` и `percentile_disc()` задает долю. Доля должна быть в диапазоне от `0` до `1`. Значения `NaN` и отрицательные числа также считаются ошибкой:
+
+```sql
+SELECT percentile_cont(2) WITHIN GROUP (ORDER BY b) FROM t;
+ERROR:  percentile value 2 is not between 0 and 1
+```
+
+Функции `gp_percentile_cont_*_transition` и `gp_percentile_disc_transition` — служебные. Их можно увидеть в плане запроса или системном каталоге, но вызывать напрямую нельзя:
+
+```sql
+SELECT gp_percentile_disc_transition(NULL::numeric, 1, 1, 1);
+ERROR:  wrong number of arguments to gp_percentile_disc_transition()
+HINT:  expected 5, got 4
+```
+
+На обычные запросы с `WITHIN GROUP` эта ошибка не влияет.
+
 _Greenplum® и Greenplum Database® являются зарегистрированными товарными знаками или товарными знаками Broadcom Inc в США и/или других странах._
 
 _Apache® и Apache Cloudberry™ являются зарегистрированными товарными знаками или товарными знаками Apache Software Foundation в США и/или других странах._
