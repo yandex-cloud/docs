@@ -12,7 +12,7 @@
 
 * In the **{{ ui-key.yacloud.mdb.cluster.field_diskSizeLimit }}** field, specify the maximum storage size that can be set during autoscaling.
 
-
-{% include [warn-storage-resize](warn-storage-resize.md) %}
+  
+  {% include [warn-storage-resize](warn-storage-resize.md) %}
 
 

@@ -137,7 +137,7 @@ Loading a shared library will cause {{ PG }} on the master host to restart.
      --extensions <extension_name>,<extension_name>...
   ```
 
-  You may get errors when installing multiple extensions. Learn more about possible causes of errors and how to troubleshoot them in [FAQ](../../qa/errors.md#cli-extensions-error).
+  You may get errors when installing multiple extensions. Learn more about possible causes of errors and how to troubleshoot them in [FAQ](../../qa/errors.md#cli-extensions-errors).
 
 
 - {{ TF }} {#tf}

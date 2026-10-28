@@ -74,8 +74,6 @@
 
  - [Yandex Data Processing: автоматизация работы](tutorials/data-processing-automation.md)
 
- - [Yandex Query: автоматизация задач](tutorials/airflow-auto-tasks.md)
-
  - [Запуск простого PySpark-задания в Managed Service for Apache Spark™](tutorials/airflow-spark-min.md)
 
  - [Автоматизация работы с таблицами в Managed Service for Apache Spark™](tutorials/spark-automation.md)

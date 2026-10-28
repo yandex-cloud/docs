@@ -1,6 +1,6 @@
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы хотите настроить сервисное подключение.
 1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-1. На панели слева выберите ![image](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.vpc.switch_private-endpoints }}**.
+1. На панели слева выберите ![image](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.vpc.switch_private-endpoints }}**. Если раздел не отображается, выберите его в меню **Еще**.
 1. Нажмите кнопку **{{ ui-key.yacloud.vpc.private-endpoint.label_create-private-endpoint }}**.
 1. В поле **{{ ui-key.yacloud.vpc.private-endpoint.field_name }}** укажите название сервисного подключения. Требования к названию:
 
@@ -19,7 +19,7 @@
    1. Чтобы назначить случайный приватный IP-адрес, в поле **{{ ui-key.yacloud.vpc.private-endpoint.field_address-type }}** выберите `{{ ui-key.yacloud.vpc.private-endpoint.label_address-type_auto }}`.
    1. Чтобы зарезервировать список адресов:
    
-      1. В поле **{{ ui-key.yacloud.vpc.private-endpoint.field_address-id }}** выберите `{{ ui-key.yacloud.vpc.private-endpoint.label_address-type_list }}`.
+      1. В поле **{{ ui-key.yacloud.vpc.private-endpoint.field_address-type }}** выберите `{{ ui-key.yacloud.vpc.private-endpoint.label_address-type_list }}`.
       1. Нажмите **Зарезервировать**.
       1. В открывшемся окне:
 

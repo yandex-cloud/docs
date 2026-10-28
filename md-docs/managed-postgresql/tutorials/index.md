@@ -20,8 +20,6 @@
 * [Мониторинг состояния географически распределенных устройств](datalens.md)
 * [Запись логов балансировщика в PostgreSQL](logging.md)
 * [Создание сервера MLFlow для логирования экспериментов и артефактов](mlflow-datasphere.md)
-* [Работа с данными с помощью Yandex Query](yq-postgre.md)
-* [Федеративные запросы к данным с помощью Yandex Query](yq-federative-queries.md)
 * [Решение проблем с сортировкой строк в PostgreSQL после обновления glibc](glibc-collation-issues.md)
 * [Запись данных с устройства в базу данных](data-recording.md)
 * [Настройка прав доступа к секрету, созданному Yandex Connection Manager, для пользователя Yandex Managed Service for PostgreSQL](conn-man-secret-access.md)

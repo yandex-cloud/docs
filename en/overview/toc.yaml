@@ -72,6 +72,8 @@ items:
             href: sdk/quickstart.md
       - name: Working with the {{ yandex-cloud }} CLI and API in Microsoft Windows
         href: concepts/console-syntax-guide.md
+      - name: '{{ yandex-cloud }} MCP servers for AI agents and IDEs'
+        href: mcp-servers.md
   - name: Equivalent services on other platforms
     items:
       - name: Overview

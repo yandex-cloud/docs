@@ -9,7 +9,7 @@ There are also special FQDNs pointing to the [current master](../../managed-mysq
 #### Why cannot I connect from the internet? {#from-internet}
 
 Check whether your host is publicly accessible:
-1. In the [management console]({{ link-console-main }}), select a folder.
+1. In the [management console]({{ link-console-main }}), select the folder.
 1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
 1. Check the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_public-ip }}** column value for your host.
@@ -25,8 +25,8 @@ Additionally, consider the following:
 
 Make sure the {{ yandex-cloud }} VM you are connecting from is in the same virtual network as the {{ MY }} cluster.
 
-Proceed as follows:
-1. In the [management console]({{ link-console-main }}), select a folder.
+Follow these steps:
+1. In the [management console]({{ link-console-main }}), select the folder.
 1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. Click the cluster name. Check the **{{ ui-key.yacloud.mdb.cluster.overview.label_network }}** value and click the network’s name to see its subnets.
 1. Make sure your VM is in one of the network’s subnets.
@@ -41,7 +41,7 @@ Additionally, consider the following:
 If public access in your cluster is only enabled for certain hosts, automatic master failover can make the master unreachable from the internet.
 
 Check whether your host is publicly accessible:
-1. In the [management console]({{ link-console-main }}), select a folder.
+1. In the [management console]({{ link-console-main }}), select the folder.
 1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
 1. Check the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_public-ip }}** column value for your host.
@@ -51,10 +51,10 @@ Additionally, consider the following:
 * If you are using [special FQDNs](../../managed-mysql/operations/connect/fqdn.md#fqdn-master), check the host list to make sure the current master or replica have public access.
 
 
-* If you cannot connect to the host you added, check that the cluster [security group](../../managed-mysql/concepts/network.md#security-groups) is properly configured for the subnet containing your host.
+* If you cannot connect to the new host, check that the cluster [security group](../../managed-mysql/concepts/network.md#security-groups) is properly configured.
 
 
-#### Can I connect to cluster hosts over SSH or get superuser privileges on hosts? {#connect-ssh}
+#### Can I connect to cluster hosts over SSH or get superuser privileges on them? {#connect-ssh}
 
 {% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
 

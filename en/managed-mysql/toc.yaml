@@ -23,12 +23,16 @@ items:
             href: operations/hosts.md
           - name: Managing host aliases
             href: operations/hosts-aliases.md
+          - name: Managing a DB Proxy load balancer
+            href: operations/load-balancer.md
           - name: Migrating hosts to a different availability zone
             href: operations/host-migration.md
           - name: Managing backups
             href: operations/cluster-backups.md
           - name: Managing cluster access
             href: operations/cluster-access.md
+          - name: Maintenance
+            href: operations/cluster-maintenance.md
           - name: '{{ MY }} version update'
             href: operations/cluster-version-update.md
           - name: Deleting a cluster
@@ -91,6 +95,8 @@ items:
         href: concepts/storage.md
       - name: Backups
         href: concepts/backup.md
+      - name: Load balancer for hosts
+        href: concepts/load-balancer.md
       - name: Replication
         href: concepts/replication.md
       - name: Maintenance

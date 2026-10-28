@@ -20,13 +20,11 @@ To transfer data:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-
 ## Required paid resources {#paid-resources}
 
-* {{ mch-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
-* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ mch-name }} cluster: use of computing resources allocated to hosts, as well as the storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * [Metrica Pro]({{ link-yandex }}/support/metrica/pro/price.html).
-
 
 ## Getting started {#before-you-begin}
 
@@ -95,7 +93,7 @@ Transfers process only the latest data, leaving historical data untouched. If yo
 
 {% include [note before delete resources](../../_includes/mdb/note-before-delete-resources.md) %}
 
-To minimize resource consumption, delete the resources you no longer need:
+To reduce resource usage, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete-transfer).
 1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).

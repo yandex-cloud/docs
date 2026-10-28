@@ -1,0 +1,118 @@
+meta:
+  title: Alice AI Pro for business
+  description: >-
+    Alice AI Pro for business helps employees handle everyday tasks using
+    artificial intelligence.
+blocks:
+  - type: header-block
+    title: Alice AI Pro for business
+    width: l
+    offset: l
+    indent:
+      top: xl
+      bottom: l
+    background:
+      image:
+        desktop: ../_assets/ai-studio/index/images/alice-ai-pro-header.png
+        tablet: ../_assets/ai-studio/index/images/alice-ai-pro-header.png
+        mobile: ../_assets/ai-studio/index/images/alice-ai-pro-header.png
+  - type: content-layout-block
+    textContent:
+      title: ''
+      text: >-
+        Alice AI Pro is your AI-powered workspace that helps draft and edit
+        texts, work with files, structure information, and perform repetitive
+        tasks.
+
+
+        Interact with Alice AI Pro using natural language, just as you would
+        with a coworker: describe your goal, provide source assets, and refine
+        the output through conversation. To get a feel for Alice AI Pro's
+        capabilities, start with a minor task where the result is easy to
+        verify.
+    size: l
+  - type: card-layout-block
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+      lg: 4
+    background: ''
+    children:
+      - type: basic-card
+        icon: ../_assets/ai-studio/index/icons/rocket.svg
+        title: Getting started with Alice AI Pro
+        text: >-
+          Sign in with your organization’s account, select a workspace, and
+          start your first chat
+        urlTitle: Getting started with Alice AI Pro
+        url: quickstart
+        controlPosition: content
+        centered: true
+        size: s
+        border: none
+        backgroundColor: '#EAEBE0'
+      - type: basic-card
+        icon: ../_assets/ai-studio/index/icons/receipt.svg
+        title: How to set tasks
+        text: >-
+          Describe your goal, attach source assets, and define the required
+          output
+        urlTitle: How to set tasks for Alice AI Pro
+        url: operations/formulate-task
+        controlPosition: content
+        centered: true
+        size: s
+        border: none
+        backgroundColor: '#EAEBE0'
+      - type: basic-card
+        icon: ../_assets/ai-studio/index/icons/person-gear.svg
+        title: Workspace, projects, and chats
+        text: >-
+          Learn how to streamline your work and distribute tasks across projects
+          and chats
+        urlTitle: Workspace, projects, and chats
+        url: concepts/workplace-project-chat
+        controlPosition: content
+        centered: true
+        size: s
+        border: none
+        backgroundColor: '#EAEBE0'
+      - type: basic-card
+        icon: ../_assets/ai-studio/index/icons/file-check.svg
+        title: Working with chats and files
+        text: Create chats, attach files, and save results
+        urlTitle: Working with chats and files
+        url: operations/chats
+        controlPosition: content
+        centered: true
+        size: s
+        border: none
+        backgroundColor: '#EAEBE0'
+      - type: basic-card
+        icon: ../_assets/ai-studio/index/icons/shield-check.svg
+        title: Permissions and data access
+        text: >-
+          Select which actions Alice AI Pro can run on its own and which require
+          your approval
+        urlTitle: Permissions and data access
+        url: concepts/permissions
+        controlPosition: content
+        centered: true
+        size: s
+        border: none
+        backgroundColor: '#EAEBE0'
+      - type: basic-card
+        icon: ../_assets/ai-studio/index/icons/timeline.svg
+        title: Scheduled tasks
+        text: >-
+          Instruct Alice AI Pro to run regular tasks and save the outputs in
+          your chats
+        urlTitle: Scheduled tasks
+        url: operations/scheduled-tasks
+        controlPosition: content
+        centered: true
+        size: s
+        border: none
+        backgroundColor: '#EAEBE0'
+links: []

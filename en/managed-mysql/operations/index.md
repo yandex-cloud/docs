@@ -14,9 +14,11 @@ description: This page features step-by-step guides for {{ mmy-name }}.
 * [Stopping and restarting a cluster](cluster-stop.md)
 * [Managing cluster hosts](hosts.md)
 * [Managing host aliases](hosts-aliases.md)
+* [Managing a {{ mdb-lb }} load balancer](load-balancer.md)
 * [Migrating cluster hosts to a different availability zone](host-migration.md)
 * [Managing backups](cluster-backups.md)
 * [Managing cluster access](cluster-access.md)
+* [Maintenance](cluster-maintenance.md)
 * [{#T}](cluster-version-update.md)
 * [Deleting a cluster](cluster-delete.md)
 

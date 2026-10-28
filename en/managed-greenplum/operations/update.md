@@ -343,7 +343,7 @@ If you enabled public access to the cluster but cannot access it from the inter
         {{ yc-mdb-gp }} cluster update --help
         ```
 
-    1. Run the following command with the list of settings you want to update:
+    1. Run the command after providing the list of settings you want to update:
 
         
         ```bash
@@ -567,7 +567,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             * `clientIdleTimeout`: Idle timeout for a client connection, in seconds.
             * `idleInTransactionTimeout`: Idle timeout for a client connection with an open transaction (in seconds).
 
-        * `cloudStorage.enable`: Use of hybrid storage. Set to `true` to enable {{ yandex-cloud }}'s [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in the cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks in the {{ mgp-name }} cluster to a hybrid storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloudStorage.enable`: Use of hybrid storage. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to hybrid storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
             You cannot disable hybrid storage after you save your cluster settings.
 
@@ -696,7 +696,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             * `client_idle_timeout`: Idle timeout for a client connection, in seconds.
             * `pool_idle_in_transaction_timeout`: Idle timeout for a client connection with an open transaction (in seconds).
 
-        * `cloud_storage.enable`: Use of hybrid storage. Set to `true` to enable {{ yandex-cloud }}'s [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in the cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks in the {{ mgp-name }} cluster to a hybrid storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloud_storage.enable`: Use of hybrid storage. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to hybrid storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
             You cannot disable hybrid storage after you save your cluster settings.
 
@@ -1048,7 +1048,7 @@ For the full list of settings, see [this {{ GP }} guide](https://techdocs.broadc
 You can change the host class for both master hosts and segment hosts. When changing the host class:
 
 * The cluster's primary master host will change.
-* A cluster with local SSD storage may be unavailable for an extended period if data migration to another physical server is required.
+* A cluster host with local SSD storage may be unavailable for an extended period of time if data needs to be migrated to another physical server.
 * Using a [special FQDN](./connect/fqdn.md#fqdn-master) does not guarantee a stable database connection: user sessions may be terminated.
 
 Changing the segment host class [affects](../concepts/instance-types.md#select-class-segment-hosts) the maximum amount of memory allocated to each {{ mgp-name }} server process.

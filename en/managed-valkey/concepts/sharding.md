@@ -25,9 +25,15 @@ Each cluster has 16,348 *hash slots* evenly distributed across the shards. Slots
 
 If you need to scale your cluster horizontally, you can [add new shards](../operations/shards.md#add) to it.
 
-New shards are created without hash slots. To redistribute data, you must rebalance your cluster. Afterwards, some of the existing slots will move to the new shard.
+New shards are created without hash slots. To redistribute data, you need to [rebalance your cluster](../operations/shards.md#rebalance-cluster). Afterwards, some of the existing slots will move to the new shard.
 
 You do not need to stop the cluster to move slots between shards. If the client queries the master for data that was moved to another shard, the query is forwarded to the new shard where the data was moved to. Hosts do not proxy queries; instead, they forward the client to the proper shard.
+
+{% note info %}
+
+You can also configure [shard autoscaling](autoscaling.md) in the cluster and set computing resource consumption thresholds. For example, if the load on resources exceeds a specified threshold, a new shard will be automatically added to the cluster, and cluster rebalancing will be initiated.
+
+{% endnote %}
 
 {{ mrd-name }} can contain between 1 and 10 shards, each comprising a different number of hosts. The minimum number of hosts per shard depends on the [selected disk type](./storage.md#storage-type-selection).
 

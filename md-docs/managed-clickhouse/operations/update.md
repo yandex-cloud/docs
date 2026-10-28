@@ -1178,8 +1178,6 @@
      * **Доступ из Serverless** — включите эту опцию, чтобы разрешить доступ к кластеру из сервиса [Yandex Cloud Functions](../../functions/concepts/index.md). Подробнее о настройке доступа в документации [Cloud Functions](../../functions/operations/database-connection.md).
      
      
-     * **Доступ из Yandex Query** — включите эту опцию, чтобы разрешить доступ к кластеру из сервиса [Yandex Query](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-     
      * **Защита от удаления** — управляет защитой кластера от непреднамеренного удаления.
      
         Включенная защита кластера от удаления не помешает удалить пользователя или базу данных, а также подключиться вручную и удалить содержимое базы данных.
@@ -1215,7 +1213,6 @@
            --metrika-access=<true_или_false> \
            --serverless-access=<true_или_false> \
            --websql-access=<true_или_false> \
-           --yandexquery-access=<true_или_false> \
            --deletion-protection \
            --disk-size-autoscaling clickhouse-disk-size-limit=<максимальный_размер_хранилища_ГБ>,`
                                   `clickhouse-planned-usage-threshold=<порог_для_планового_увеличения_в_процентах>,`
@@ -1245,8 +1242,6 @@
 
     * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления Yandex Cloud с помощью сервиса Yandex WebSQL. Значение по умолчанию — `false`.
 
-
-    * `--yandexquery-access=true` — разрешает доступ к кластеру из сервиса [Yandex Query](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Значение по умолчанию — `false`.
 
     * `--deletion-protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
@@ -1326,7 +1321,6 @@
             metrika      = <доступ_из_Метрики_и_AppMetrika>
             serverless   = <доступ_из_Cloud_Functions>
             web_sql      = <выполнение_SQL-запросов_из_консоли_управления>
-            yandex_query = <доступ_из_Yandex_Query>
           }
           ...
         }
@@ -1337,7 +1331,6 @@
         * `data_lens` — доступ из DataLens: `true` или `false`.
         * `metrika` — доступ из Метрики и AppMetrika: `true` или `false`.
         * `serverless` — доступ из Cloud Functions: `true` или `false`.
-        * `yandex_query` — доступ из Yandex Query: `true` или `false`.
         * `web_sql` — выполнение SQL-запросов из консоли управления: `true` или `false`.
 
     1. Чтобы настроить время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), добавьте к описанию кластера блок `maintenance_window`:
@@ -1489,8 +1482,7 @@
                   "webSql": <выполнение_SQL-запросов>,
                   "metrika": <импорт_данных_из_AppMetrica>,
                   "serverless": <доступ_из_Yandex Cloud Functions>,
-                  "dataTransfer": <доступ_из_Yandex Data Transfer>,
-                  "yandexQuery": <доступ_из_Yandex Query>
+                  "dataTransfer": <доступ_из_Yandex Data Transfer>
                 }    
               },
               "maintenanceWindow": {
@@ -1526,9 +1518,6 @@
                 * `dataTransfer` — разрешить доступ к кластеру из сервиса [Yandex Data Transfer](../../data-transfer/concepts/index.md) в Serverless-режиме: `true` или `false`. Значение по умолчанию — `false`.
                 
                     Это позволит через специальную сеть подключаться к Yandex Data Transfer, запущенному в Kubernetes. В результате будут быстрее выполняться, например, запуск и деактивация трансфера.
-                
-                
-                * `yandexQuery` — разрешить доступ к кластеру из сервиса [Yandex Query](../../query/concepts/index.md): `true` или `false`. Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Значение по умолчанию — `false`.
 
             * `configSpec.clickhouse.diskSizeAutoscaling` — настройки автоматического увеличения размера хранилища ClickHouse®:
             
@@ -1682,8 +1671,7 @@
                   "web_sql": <выполнение_SQL-запросов>,
                   "metrika": <импорт_данных_из_AppMetrica>,
                   "serverless": <доступ_из_Yandex Cloud Functions>,
-                  "data_transfer": <доступ_из_Yandex Data Transfer>,
-                  "yandex_query": <доступ_из_Yandex Query>
+                  "data_transfer": <доступ_из_Yandex Data Transfer>
                 }
               },
               "maintenance_window": {
@@ -1719,9 +1707,6 @@
                 * `data_transfer` — разрешить доступ к кластеру из сервиса [Yandex Data Transfer](../../data-transfer/concepts/index.md) в Serverless-режиме: `true` или `false`. Значение по умолчанию — `false`.
                 
                     Это позволит через специальную сеть подключаться к Yandex Data Transfer, запущенному в Kubernetes. В результате будут быстрее выполняться, например, запуск и деактивация трансфера.
-                
-                
-                * `yandex_query` — разрешить доступ к кластеру из сервиса [Yandex Query](../../query/concepts/index.md): `true` или `false`. Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Значение по умолчанию — `false`.
 
             * `config_spec.clickhouse.disk_size_autoscaling` — настройки автоматического увеличения размера хранилища ClickHouse®:
             

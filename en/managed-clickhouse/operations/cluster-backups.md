@@ -150,6 +150,15 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
       You can set a separate configuration for each shard you restore.
 
+  1. Optionally, to configure [hybrid storage](../concepts/storage.md#hybrid-storage-features):
+
+      1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, enable the **{{ ui-key.yacloud.mdb.forms.additional-field-cloud-storage }}** option.
+
+          {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
+
+      1. Optionally, enable data caching and specify the cache size in bytes.
+      1. Optionally, specify the minimum percentage of free space in the cluster storage.
+
   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
   To restore a previously deleted cluster from a backup:
@@ -166,7 +175,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
           If you want to restore an entire database, use `*` as the mask.
 
-      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.clickhouse.RestoreCluster.RestorePatternsField.action_add-pattern_o12PG }}**.
+      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.clickhouse.RestoreCluster.RestorePatternsField.action_add-pattern_o12PG }}**.
       1. Repeat these steps for each database or table you need restored.
 
   1. Optionally, if the backup was created for a sharded cluster, you can select shards for restoration:
@@ -175,6 +184,15 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
       * To restore the whole cluster, leave all shards checked under **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}**.
 
       You can set a separate configuration for each shard you restore.
+
+  1. Optionally, to configure [hybrid storage](../concepts/storage.md#hybrid-storage-features):
+
+      1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, enable the **{{ ui-key.yacloud.mdb.forms.additional-field-cloud-storage }}** option.
+
+          {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
+
+      1. Optionally, enable data caching and specify the cache size in bytes.
+      1. Optionally, specify the minimum percentage of free space in the cluster storage.
 
   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 

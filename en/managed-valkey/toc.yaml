@@ -31,6 +31,8 @@ items:
             href: operations/backup-retention-policies.md
           - name: Managing cluster access
             href: operations/cluster-access.md
+          - name: Managing data tiering
+            href: operations/tiered-storage.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
       - name: Connection
@@ -112,6 +114,8 @@ items:
         href: concepts/network.md
       - name: Sharding
         href: concepts/sharding.md
+      - name: Autoscaling
+        href: concepts/autoscaling.md
       - name: Backups
         href: concepts/backup.md
       - name: Replication and persistence

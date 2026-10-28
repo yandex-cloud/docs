@@ -8,7 +8,6 @@ description: Различные сценарии использования {{ m
 ## Работа с кластерами {#clusters}
 
 * [{#T}](data-processing-automation.md)
-* [{#T}](airflow-auto-tasks.md)
 * [{#T}](airflow-spark-min.md)
 * [{#T}](spark-automation.md)
 

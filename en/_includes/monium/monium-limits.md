@@ -10,6 +10,7 @@ Number of values per label | 1,000
 Type of limit | Value
 ----- | -----
 Maximum number of metrics returned in the data export API request | 500
+Maximum number of time series you can read per `/api/v1/query` or `/api/v1/query_range` query | 300,000
 Maximum number of metrics sent in the data import API request | 10,000
 Minimum number of samples returned in the data export API request | 10
 Maximum number of samples returned in the data export API request | 10,000

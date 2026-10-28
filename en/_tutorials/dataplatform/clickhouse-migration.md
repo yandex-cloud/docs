@@ -9,13 +9,26 @@ You can also migrate a database from a {{ CH }} cluster to a {{ mch-name }} clus
 
 ## Data migration using the remote function {#transfer-remote}
 
-You can use `remote` to migrate individual tables from a third-party {{ CH }} cluster. This method does not require installing {{ ZK }}, additional tools, or upgrading the source cluster's {{ CH }} version. 
+You can use `remote` to migrate individual tables from a third-party {{ CH }} cluster. This method does not require installing {{ ZK }}, additional tools, or upgrading the source cluster's {{ CH }} version.
 
 {% note tip %}
 
 Before migrating data, we recommend pausing merge operations on the source cluster using the `STOP MERGES` and `STOP TTL MERGES` commands. You should also disable all consumers.
 
 {% endnote %}
+
+### Getting started {#before-begin-transfer-remote}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+
+#### Required paid resources {#paid-resources-transfer-remote}
+
+* {{ mch-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+
+
+### Transferring data {#transfer-remote-steps}
 
 To migrate a table from a third-party {{ CH }} cluster to a {{ mch-name }} cluster:
 
@@ -79,11 +92,25 @@ For more information on using the `remote` function, see [this {{ CH }} guide]({
 
 {% note warning %}
 
-You need {{ CH }} version 22.10 or later to work with the `BACKUP`/`RESTORE` commands in a third-party cluster.
+To work with the `BACKUP`/`RESTORE` commands in a third-party cluster, you need {{ CH }} version 22.10 or newer.
 
 {% endnote %}
 
-You can use the `BACKUP`/`RESTORE` commands and an {{ objstorage-name }} bucket to migrate both individual tables and an entire database from a third-party {{ CH }} cluster.
+### Getting started {#before-begin-backup-objstorage}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+
+#### Required paid resources {#paid-resources-backup-objstorage}
+
+* {{ mch-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+
+
+## Transferring data {#backup-objstorage-steps}
+
+You can use the `BACKUP`/`RESTORE` commands and an {{ objstorage-name }} bucket to migrate either individual tables or an entire database from a third-party {{ CH }} cluster.
 
 1. [Create a {{ mch-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md#create-cluster) with [User management via SQL](../../managed-clickhouse/operations/cluster-users.md#sql-user-management) enabled.
 1. [Create a service account](../../iam/operations/sa/create.md#create-sa) with the `storage.editor` role.

@@ -358,8 +358,6 @@ description: Следуя данной инструкции, вы сможете
       1. Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте параметр `--serverless-access`. Подробнее о настройке доступа читайте в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
 
-      1. Чтобы разрешить доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md), передайте параметр `--yandexquery-access=true`. Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
 
       1. Чтобы задать [настройки гибридного хранилища](../concepts/storage.md#hybrid-storage-settings):
 
@@ -615,7 +613,6 @@ description: Следуя данной инструкции, вы сможете
               data_lens    = <доступ_из_{{ datalens-name }}>
               metrika      = <доступ_из_Метрики_и_AppMetrika>
               serverless   = <доступ_из_Cloud_Functions>
-              yandex_query = <доступ_из_Yandex_Query>
               web_sql      = <выполнение_SQL-запросов_из_консоли_управления>
             }
             ...
@@ -627,7 +624,6 @@ description: Следуя данной инструкции, вы сможете
           * `data_lens` — доступ из {{ datalens-name }}: `true` или `false`.
           * `metrika` — доступ из Метрики и AppMetrika: `true` или `false`.
           * `serverless` — доступ из {{ sf-name }}: `true` или `false`.
-          * `yandex_query` — доступ из {{ yq-full-name }}: `true` или `false`.
           * `web_sql` — выполнение SQL-запросов из консоли управления: `true` или `false`.
 
        1. Пользователями и базами данных в кластере можно управлять через SQL.
@@ -731,8 +727,7 @@ description: Следуя данной инструкции, вы сможете
                   "webSql": <выполнение_SQL-запросов_из_консоли_управления>,
                   "metrika": <доступ_из_Метрики_и_AppMetrika>,
                   "serverless": <доступ_из_Cloud_Functions>,
-                  "dataTransfer": <доступ_из_Data_Transfer>,
-                  "yandexQuery": <доступ_из_Yandex_Query>
+                  "dataTransfer": <доступ_из_Data_Transfer>
                 },
                 "cloudStorage": {
                   "enabled": <использование_гибридного_хранилища>,
@@ -982,8 +977,7 @@ description: Следуя данной инструкции, вы сможете
                   "web_sql": <выполнение_SQL-запросов_из_консоли_управления>,
                   "metrika": <доступ_из_Метрики_и_AppMetrika>,
                   "serverless": <доступ_из_Cloud_Functions>,
-                  "data_transfer": <доступ_из_Data_Transfer>,
-                  "yandex_query": <доступ_из_Yandex_Query>
+                  "data_transfer": <доступ_из_Data_Transfer>
                 },
                 "cloud_storage": {
                   "enabled": <использование_гибридного_хранилища>,
@@ -1488,8 +1482,6 @@ description: Следуя данной инструкции, вы сможете
       1. Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте параметр `--serverless-access`. Подробнее о настройке доступа читайте в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
 
-      1. Чтобы разрешить доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md), передайте параметр `--yandexquery-access=true`. Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
 
       1. Чтобы задать [настройки гибридного хранилища](../concepts/storage.md#hybrid-storage-settings):
 
@@ -1742,7 +1734,6 @@ description: Следуя данной инструкции, вы сможете
               data_lens    = <доступ_из_{{ datalens-name }}>
               metrika      = <доступ_из_Метрики_и_AppMetrika>
               serverless   = <доступ_из_Cloud_Functions>
-              yandex_query = <доступ_из_Yandex_Query>
               web_sql      = <выполнение_SQL-запросов_из_консоли_управления>
             }
             ...
@@ -1754,7 +1745,6 @@ description: Следуя данной инструкции, вы сможете
           * `data_lens` — доступ из {{ datalens-name }}: `true` или `false`.
           * `metrika` — доступ из Метрики и AppMetrika: `true` или `false`.
           * `serverless` — доступ из {{ sf-name }}: `true` или `false`.
-          * `yandex_query` — доступ из {{ yq-full-name }}: `true` или `false`.
           * `web_sql` — выполнение SQL-запросов из консоли управления: `true` или `false`.
 
        1. Пользователями и базами данных в кластере можно управлять через SQL.
@@ -1869,8 +1859,7 @@ description: Следуя данной инструкции, вы сможете
                   "webSql": <выполнение_SQL-запросов_из_консоли_управления>,
                   "metrika": <доступ_из_Метрики_и_AppMetrika>,
                   "serverless": <доступ_из_Cloud_Functions>,
-                  "dataTransfer": <доступ_из_Data_Transfer>,
-                  "yandexQuery": <доступ_из_Yandex_Query>
+                  "dataTransfer": <доступ_из_Data_Transfer>
                 },
                 "cloudStorage": {
                   "enabled": <использование_гибридного_хранилища>,
@@ -2134,8 +2123,7 @@ description: Следуя данной инструкции, вы сможете
                   "web_sql": <выполнение_SQL-запросов_из_консоли_управления>,
                   "metrika": <доступ_из_Метрики_и_AppMetrika>,
                   "serverless": <доступ_из_Cloud_Functions>,
-                  "data_transfer": <доступ_из_Data_Transfer>,
-                  "yandex_query": <доступ_из_Yandex_Query>
+                  "data_transfer": <доступ_из_Data_Transfer>
                 },
                 "cloud_storage": {
                   "enabled": <использование_гибридного_хранилища>,

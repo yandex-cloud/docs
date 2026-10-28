@@ -182,6 +182,10 @@ description: 'Настройте синхронизацию пользовате
 
 {% endlist %}
 
+## Проверьте конфигурацию агента {#check-config}
+
+{% include [check-config-instruction](../../../_includes/organization/external-sync/check-config-instruction.md) %}
+
 ## Протестируйте изменения в конфигурации агента {#dry-run}
 
 Агент {{ ad-sync-agent }} можно запустить в [тестовом режиме](../../concepts/sync-external/ad-sync.md#dry-run) (dry run). Этот режим позволяет убедиться в корректности вносимых в конфигурацию агента изменений, прежде чем применять эти изменения в рабочем режиме.

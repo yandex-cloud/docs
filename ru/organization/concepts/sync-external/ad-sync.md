@@ -72,6 +72,8 @@ description: В этом разделе вы узнаете об особенн�
 
     {% endnote %}
 
+Агент также синхронизирует время последней установки пароля пользователя в {{ microsoft-idp.ad-short }} с {{ org-full-name }}.
+
 ## Обратная запись паролей в {{ microsoft-idp.ad-short }} {#password-writeback}
 
 {% include [pw-writeback-preview-notice](../../../_includes/organization/external-sync/pw-writeback-preview-notice.md) %}

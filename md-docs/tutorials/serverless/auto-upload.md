@@ -124,7 +124,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
         --role <роль> \
         --subject serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
-  
+
       Команда принимает только одну роль за раз.
 
       Подробнее о команде `yc resource-manager folder add-access-binding` читайте в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
@@ -177,7 +177,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
     --service-account-name speechsense-sa \
     > api_key.yaml
   ```
-  
+
   В результате вы получите файл `api_key.yaml`, который содержит значение API-ключа в поле `secret`:
 
   ```yaml
@@ -214,7 +214,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
   Также API-ключ можно создать с помощью вызова gRPC API [ApiKeyService.Create](../../iam/api-ref/grpc/ApiKey/create.md).
 
 
-{% endlist %}      
+{% endlist %}
 
 ### Создайте пространство {#create-space}
 
@@ -313,12 +313,13 @@ Workflows находится на стадии [Preview](../../overview/concepts
 
 - Интерфейс SpeechSense {#speechsense}
 
-  1. Откройте [главную страницу](https://speechsense.yandex.cloud/) SpeechSense.
-  1. Перейдите в нужное пространство.
-  1. Нажмите кнопку ![create](../../_assets/console-icons/folder-plus.svg) **Создать проект**.
-  1. Введите имя проекта.
-  1. В блоке **Подключение** нажмите **Добавить подключение** и выберите подключение, созданное [ранее](#create-connection).
-  1. Нажмите кнопку **Создать проект**.
+  1. В [интерфейсе](https://speechsense.yandex.cloud/) SpeechSense перейдите в нужное пространство и откройте вкладку **Проекты**.
+  1. Если в пространстве уже есть проекты, нажмите **Создать проект**. Если проектов еще нет, шаблоны отображаются на вкладке **Проекты**.
+  1. Выберите **Пустой проект**.
+  1. В блоке **Параметры проекта** введите уникальное в пределах пространства имя проекта.
+  1. В блоке **Подключение** выберите **Выбрать из списка** и укажите подключение, созданное [ранее](#create-connection).
+  1. В блоке **Какие диалоги добавить в проект?** выберите **Все**.
+  1. Нажмите **Создать** и дождитесь завершения создания проекта.
 
 {% endlist %}
 
@@ -346,22 +347,22 @@ Workflows находится на стадии [Preview](../../overview/concepts
     - Yandex Cloud CLI {#cli}
 
       1. Создайте [авторизованный ключ](../../iam/concepts/authorization/key.md) для сервисного аккаунта `deploy-sa` и запишите его в файл:
-      
+
           ```bash
           yc iam key create --output <путь_к_файлу_ключа> --service-account-name deploy-sa
           ```
-      
+
           Где `--output` — путь к файлу для записи авторизованного ключа в формате JSON.
 
           Результат:
-      
+
           ```bash
           id: aje4lue48687********
           service_account_id: ajeb9l33h6m********
           created_at: "2024-08-01T11:58:52.313177213Z"
           key_algorithm: RSA_2048
           ```
-      
+
           Подробнее о команде `yc iam key create` смотрите в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
        1. Создайте профиль, который будет использоваться для выполнения операций от имени сервисного аккаунта `deploy-sa`:
@@ -374,7 +375,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
 
           ```bash
           yc config set service-account-key <путь_к_файлу_ключа>
-          ```   
+          ```
 
     {% endlist %}
 
@@ -410,7 +411,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
   1. В блоке **Данные секрета**:
 
         1. Выберите тип секрета **Пользовательский**.
-        
+
         1. Добавьте API-ключ сервисного аккаунта:
 
             * В поле **Ключ** укажите: `speechsense_api_key`.
@@ -476,7 +477,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
     values ('<идентификатор_источника>', '<идентификатор_секрета>', '<описание_источника>');
     ```
 
-    Где:  
+    Где:
 
     * `source_system_id` — идентификатор источника данных, который будет использоваться в метаданных. Укажите любое уникальное строковое значение. Например: `000001`.
     * `lockbox_secret_id` — идентификатор секрета Yandex Lockbox, созданного [ранее](#create-secret). Например: `e6qigo0vbci2********`.
@@ -534,7 +535,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
     ```bash
     etag: '"d41d8cd98f00b204e9800998********"'
     request_id: ba96231*********
-    ```        
+    ```
 
 - AWS CLI {#aws-cli}
 
@@ -605,14 +606,14 @@ Workflows находится на стадии [Preview](../../overview/concepts
     * `file_name` — имя файла, который будет загружен.
 
   * Параметры, обязательные для передачи в SpeechSense:
-  
+
     * `id` — идентификатор файла, уникальный для пространства SpeechSense.
 
     * `operator_id` — идентификатор оператора.
 
     * `operator_name` — имя оператора.
 
-    * `client_id` — идентификатор клиента 
+    * `client_id` — идентификатор клиента
 
     * `client_name` — имя клиента.
 
@@ -630,7 +631,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
 
       `cpn_region_id` и `cpn_region_name` использованы в качестве примера. Дополнительные параметры могут быть другими.
 
-Метаданные могут содержать одну запись или массив из нескольких записей. 
+Метаданные могут содержать одну запись или массив из нескольких записей.
 
 {% note warning %}
 
@@ -670,7 +671,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
     1. Нажмите **Загрузить**.
     1. Обновите страницу.
 
-    В консоли управления информация о количестве объектов в бакете и занятом месте обновляется с задержкой в несколько минут. 
+    В консоли управления информация о количестве объектов в бакете и занятом месте обновляется с задержкой в несколько минут.
 
 - Yandex Cloud CLI {#cli}
 
@@ -694,7 +695,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
     ```bash
     etag: '"d41d8cd98f00b204e980099********"'
     request_id: 3f2705f********
-    ```    
+    ```
 
 - AWS CLI {#aws-cli}
 
@@ -706,7 +707,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
     ```
 
   Чтобы загрузить все файлы из локальной директории и вложенных в нее директорий, используйте команду:
-   
+
     ```bash
     aws --endpoint-url=https://storage.yandexcloud.net/ \
       s3 cp --recursive <путь_к_директории_с_загружаемыми_файлами>/ s3://<имя_бакета>/<имя_папки>/
@@ -720,7 +721,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
 
 - API {#api}
 
-  Чтобы загрузить файл, воспользуйтесь методом S3 API [upload](../../storage/s3/api-ref/object/upload.md).     
+  Чтобы загрузить файл, воспользуйтесь методом S3 API [upload](../../storage/s3/api-ref/object/upload.md).
 
 {% endlist %}
 

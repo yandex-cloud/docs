@@ -160,10 +160,6 @@ items:
         href: tutorials/logging.md
       - name: Создание сервера MLFlow для логирования экспериментов и артефактов
         href: tutorials/mlflow-datasphere.md
-      - name: Работа с данными с помощью {{ yq-name }}
-        href: tutorials/yq-postgre.md
-      - name: Федеративные запросы к данным с помощью {{ yq-name }}
-        href: tutorials/yq-federative-queries.md
       - name: Решение проблем с сортировкой строк после обновления glibc
         href: tutorials/glibc-collation-issues.md
       - name: Запись данных с устройства в базу данных

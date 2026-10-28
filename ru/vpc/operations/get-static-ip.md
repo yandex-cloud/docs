@@ -26,10 +26,10 @@ description: Следуя данной инструкции, вы сможете
      * В поле **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** выберите зону доступности, в которой нужно зарезервировать адрес.
      * (Опционально) В блоке **{{ ui-key.yacloud.vpc.addresses.popup-create_field_advanced }}** включите опции **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** и **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection_jVSCP }}**.
      * (Опционально) Укажите метки.
-     * (Опционально) Чтобы добавить DNS-запись, разверните список **{{ ui-key.yacloud.vpc.addresses.label_dns-spec-title }}** и нажмите кнопку **{{ ui-key.yacloud.dns.button_add-record }}**. В открывшемся блоке:
+     * (Опционально) Чтобы добавить DNS-запись, в блоке **{{ ui-key.yacloud.vpc.addresses.label_dns-spec-title }}** нажмите кнопку **{{ ui-key.yacloud.dns.button_add-record }}**. В открывшемся блоке:
        * Выберите зону DNS.
        * Укажите FQDN. Вы можете создать новый домен или использовать домен, имя которого совпадает с именем зоны DNS.
-       * В поле **{{ ui-key.yacloud.dns.label_ttl }}** укажите время жизни записи в секундах.
+       * В поле **{{ ui-key.yacloud.dns.label_ttl }}** выберите время жизни записи из списка. Чтобы задать другое время жизни, выберите **{{ ui-key.yacloud.dns.record-set-form.ttl.label_custom-value }}** и введите его вручную.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
 - CLI {#cli}

@@ -195,10 +195,6 @@ items:
           Импорт данных из {{ objstorage-name }}, обработка и экспорт в {{
           mch-name }}
         href: tutorials/s3-data-processing-ch.md
-      - name: Работа с данными с помощью {{ yq-name }}
-        href: tutorials/yq-clickhouse.md
-      - name: Федеративные запросы к данным с помощью {{ yq-name }}
-        href: tutorials/yq-federative-queries.md
       - name: >-
           Интеграция с внешней базой данных Microsoft SQL Server через {{ CH }}
           JDBC Bridge

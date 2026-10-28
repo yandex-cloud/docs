@@ -1,8 +1,13 @@
 title: Yandex Monitoring
 description:
   - >-
-    Yandex Monitoring allows you to collect metrics, store them, and display
-    them in dashboard charts.
+    {{ monitoring-full-name }} has been discontinued. All its features and
+    metrics are available in {{ monium-name }}, a unified observability
+    platform.
+  - >-
+    Continue working with metrics in the <a href="{{ link-monium }}">{{
+    monium-name }} UI</a>. For more information, see <a
+    href="sunset">Discontinuation of {{ monitoring-full-name }}</a>.
   - >-
     This service is subject to a <a
     href="https://yandex.ru/legal/cloud_sla">service level agreement</a>. The

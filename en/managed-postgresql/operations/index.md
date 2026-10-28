@@ -14,6 +14,7 @@ description: This page features step-by-step guides for {{ mpg-name }}.
 * [Stopping and restarting a cluster](cluster-stop.md)
 * [Managing cluster hosts](hosts.md)
 * [Managing host aliases](hosts-aliases.md)
+* [Managing a {{ mdb-lb }} load balancer](load-balancer.md)
 * [Migrating cluster hosts to a different availability zone](host-migration.md)
 * [Managing replication slots](replication-slots.md)
 * [Managing backups](cluster-backups.md)

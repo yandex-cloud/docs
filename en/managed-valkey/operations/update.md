@@ -27,6 +27,8 @@ After creating a cluster, you can:
 
 * [Enable sharding](#enable-sharding) in a non-sharded cluster.
 
+* [Enable autoscaling](#enable-autoscaling) in a sharded cluster.
+
 * [Move the cluster](#move-cluster) to another folder.
 
 
@@ -500,7 +502,7 @@ When changing the host class:
    * Each shard will run a rolling update, stopping and updating hosts sequentially. The shard's master host will be unavailable for a few minutes while it updates.
    * The master host name may not resolve. If public access to the host is enabled, you can only connect using the host IP address.
 
-* A cluster with local SSD storage may be unavailable for an extended period in case data migration to another physical server is required.
+* A cluster host with local SSD storage may be unavailable for an extended period of time if data needs to be migrated to another physical server.
 
 We recommend changing the host class only when the cluster is idle.
 
@@ -1050,7 +1052,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
   1. Select the cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
-  1. Configure the available settings according to the [{{ VLK }} documentation](https://valkey.io/documentation).
+  1. Configure the available settings according to the [{{ VLK }} documentation](https://valkey.io/topics/valkey.conf/).
   1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
 
 - {{ TF }} {#tf}
@@ -1191,7 +1193,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
 
 {% endlist %}
 
-## Configuring advanced cluster settings {#change-additional-settings}
+## Changing additional cluster settings {#change-additional-settings}
 
 {% list tabs group=instructions %}
 
@@ -1221,7 +1223,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
         {{ yc-mdb-rd }} cluster update --help
         ```
 
-    1. Run the following command with the list of settings you want to update:
+    1. Run the command after providing the list of settings you want to update:
 
         
         ```bash
@@ -1596,6 +1598,169 @@ You cannot disable sharding in a cluster where it is already enabled.
         {% include [enable-sharding-shard-note](../../_includes/mdb/mvk/enable-sharding-shard-note.md) %}
 
     1. Check the [server response](../api-ref/grpc/Cluster/enableSharding.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+{% endlist %}
+
+## Enabling autoscaling {#enable-autoscaling}
+
+In a sharded cluster, you can enable [shard autoscaling](../concepts/sharding.md) to automatically add or remove shards as the load on the cluster’s computing resources increases or decreases.
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To enable autoscaling:
+
+    1. View the description of the CLI command for updating a cluster:
+
+        ```bash
+        {{ yc-mdb-rd }} cluster update --help
+        ```
+
+    1. Run the command after providing the list of autoscaling settings:
+
+        ```bash
+        {{ yc-mdb-rd }} cluster update <cluster_name_or_ID> \
+            --shard-autoscaling enabled=<enable_shard_autoscaling>,` \
+                                `min-shards=<minimum_number_of_shards>,` \
+                                `max-shards=<maximum_number_of_shards>,` \
+                                `cpu-down-threshold=<CPU_load_threshold_for_reducing_the_number_of_shards>,` \
+                                `cpu-up-threshold=<CPU_load_threshold_for_increasing_the_number_of_shards>,` \
+                                `memory-down-threshold=<RAM_load_thresold_for_reducing_the_number_of_shards>,` \
+                                `memory-up-threshold=<RAM_load_threshold_for_increasing_the_number_of_shards>,` \
+                                `network-down-threshold=<network_load_threshold_for_reducing_the_number_of_shards>,` \
+                                `network-up-threshold=<network_load_threshold_for_increasing_the_number_of_shards>
+        ```
+
+        Where:
+
+        {% include [autoscale-description](../../_includes/mdb/mvk/cli-shard-autoscaling.md) %}
+
+        You can get the cluster name or ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>' \
+            --data '{
+                      "updateMask": "configSpec.shardAutoscalingSettings",
+                      "configSpec": {
+                        "shardAutoscalingSettings": {
+                          "enabled": <enable_shard_autoscaling>,
+                          "minShards": "<minimum_number_of_shards>",
+                          "maxShards": "<maximum_number_of_shards>",
+                          "cpuThreshold": {
+                            "downThreshold": "<CPU_load_threshold_for_reducing_the_number_of_shards>",
+                            "upThreshold": "<CPU_load_threshold_for_increasing_the_number_of_shards>"
+                          },
+                          "memoryThreshold": {
+                            "downThreshold": "<RAM_load_thresold_for_reducing_the_number_of_shards>",
+                            "upThreshold": "<RAM_load_thresold_for_reducing_the_number_of_shards>"
+                          },
+                          "networkThreshold": {
+                            "downThreshold": "<network_load_threshold_for_reducing_the_number_of_shards>",
+                            "upThreshold": "<network_load_threshold_for_reducing_the_number_of_shards>"
+                          }
+                        }
+                      }
+                    }'
+        ```
+
+        Where:
+
+        * `updateMask`: Comma-separated string of settings to update.
+
+            Here, we provide only one setting.
+
+        * `shardAutoscalingSettings`: Cluster autoscaling settings:
+
+           {% include [autoscale-description](../../_includes/mdb/mvk/api/shard-autoscaling-rest.md) %}
+
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/redis/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "update_mask": {
+                    "paths": [ 
+                      "config_spec.shard_autoscaling_settings"
+                    ]
+                  },
+                  "config_spec": {
+                    "shard_autoscaling_settings": {
+                        "enabled": <enable_shard_autoscaling>,
+                        "min_shards": "<minimum_number_of_shards>",
+                        "max_shards": "<maximum_number_of_shards>",
+                          "cpu_threshold": {
+                            "down_threshold": "<CPU_load_threshold_for_reducing_the_number_of_shards>",
+                            "up_threshold": "<CPU_load_threshold_for_increasing_the_number_of_shards>"
+                          },
+                          "memory_threshold": {
+                            "down_threshold": "<RAM_load_thresold_for_reducing_the_number_of_shards>",
+                            "up_threshold": "<RAM_load_thresold_for_reducing_the_number_of_shards>"
+                          },
+                          "network_threshold": {
+                            "down_threshold": "<network_load_threshold_for_reducing_the_number_of_shards>",
+                            "up_threshold": "<network_load_threshold_for_reducing_the_number_of_shards>"
+                          }
+                        }
+                    }
+                  }
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.redis.v1.ClusterService.Update
+        ```
+
+        Where:
+
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+
+            Here, we provide only one setting.
+
+        * `config_spec.shard_autoscaling_settings`: Cluster autoscaling settings:
+
+          {% include [autoscale-description](../../_includes/mdb/mvk/api/shard-autoscaling-grpc.md) %}
+
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

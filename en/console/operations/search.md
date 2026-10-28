@@ -274,15 +274,6 @@ Object type | Fields
 [Cluster](../../metadata-hub/concepts/metastore.md) | ID, name, labels, description, service account
 
 
-### {{ monitoring-full-name }} {#monitoring}
-
-Object type | Fields
---- | ---
-[Alert](../../monitoring/concepts/alerting/alert.md) | ID, name, description
-[Dashboard](../../monitoring/concepts/visualization/dashboard.md) | ID, name, description
-[Notification channel](../../monitoring/concepts/alerting/notification-channel.md) | ID, name, description
-
-
 ### {{ mgp-full-name }} {#mgp}
 
 Object type | Fields

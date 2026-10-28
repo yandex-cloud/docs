@@ -22,9 +22,6 @@ resource "yandex_mdb_sharded_postgresql_cluster" "my_cluster" {
 
   config = {
     sharded_postgresql_config = {
-      common = {
-        console_password = "P@ssw0rd"
-      }
       router = {
         resources = {
           resource_preset_id = "s2.micro"

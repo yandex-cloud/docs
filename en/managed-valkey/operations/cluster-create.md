@@ -70,6 +70,13 @@ There are no restrictions for non-sharded clusters.
        * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
      
      * Select the DBMS version.
+
+       {% note tip %}
+
+       To use [data tiering](../concepts/storage.md#data-tiering), select the `Valkey TS 9.1` version.
+
+       {% endnote %}
+
      * Optionally, add labels.
      * Enable [cluster sharding](../concepts/sharding.md), if required.
 
@@ -288,6 +295,26 @@ There are no restrictions for non-sharded clusters.
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
+      To set up [cluster autoscaling](../concepts/autoscaling.md), provide the `--shard-autoscaling` parameter:
+
+      ```bash
+      {{ yc-mdb-rd }} cluster create \
+         ...
+         --shard-autoscaling enabled=<enable_shard_autoscaling>,` \
+              `min-shards=<minimum_number_of_shards>,` \
+              `max-shards=<maximum_number_of_shards>,` \
+              `cpu-down-threshold=<CPU_load_threshold_for_reducing_the_number_of_shards>,` \
+              `cpu-up-threshold=<CPU_load_threshold_for_increasing_the_number_of_shards>,` \
+              `memory-down-threshold=<RAM_load_thresold_for_reducing_the_number_of_shards>,` \
+              `memory-up-threshold=<RAM_load_threshold_for_increasing_the_number_of_shards>,` \
+              `network-down-threshold=<network_load_threshold_for_reducing_the_number_of_shards>,` \
+              `network-up-threshold=<network_load_threshold_for_increasing_the_number_of_shards>
+      ```
+
+      Where:
+
+      {% include [autoscale-description](../../_includes/mdb/mvk/cli-shard-autoscaling.md) %}
+
       
       You must specify the `subnet-id` if the selected availability zone has more than one subnet.
 
@@ -444,7 +471,7 @@ There are no restrictions for non-sharded clusters.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    This will create all the resources you need in the specified folder, and the terminal will display the [FQDNs of the cluster hosts](../concepts/network.md#hostname). You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+    This will create all the resources you need in the specified folder, and the terminal will display the [FQDNs of the cluster hosts](../concepts/network.md#hostname). You can check the new resources and their settings in the [management console]({{ link-console-main }}).
 
     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mrd }}).
 
@@ -495,6 +522,23 @@ There are no restrictions for non-sharded clusters.
               },
               "valkeyBloom": {
                 "enabled": "<enable_Valkey-Bloom_module>"
+              }
+            },
+            "shardAutoscalingSettings": {
+              "enabled": <enable_shard_autoscaling>,
+              "minShards": "<minimum_number_of_shards>",
+              "maxShards": "<maximum_number_of_shards>",
+              "cpuThreshold": {
+                "downThreshold": "<CPU_load_threshold_for_reducing_the_number_of_shards>",
+                "upThreshold": "<CPU_load_threshold_for_increasing_the_number_of_shards>"
+              },
+              "memoryThreshold": {
+                "downThreshold": "<RAM_load_thresold_for_reducing_the_number_of_shards>",
+                "upThreshold": "<RAM_load_thresold_for_reducing_the_number_of_shards>"
+              },
+              "networkThreshold": {
+                "downThreshold": "<network_load_threshold_for_reducing_the_number_of_shards>",
+                "upThreshold": "<network_load_threshold_for_reducing_the_number_of_shards>"
               }
             }
           },
@@ -554,7 +598,7 @@ There are no restrictions for non-sharded clusters.
             * `access.webSql`: Access to cluster databases from the {{ yandex-cloud }} management console using [{{ websql-full-name }}](../../websql/index.yaml), `true` or `false`.
 
 
-            * `redis.password`: Password.
+            * `redis.password`: User password.
             * `redis.auditLog`: Enable logging of connection and authorization audit events, `true` or `false`. Audit event logging may impact your cluster performance.
 
                 This setting will not affect standard {{ VLK }} logs.
@@ -562,14 +606,18 @@ There are no restrictions for non-sharded clusters.
             * `modules`: [{{ VLK }} module](../concepts/modules.md) parameters:
 
                * `valkeySearch.enabled`: Enable the `Valkey-Search` module, `true` or `false`. What you can set up for the module:
-                   
+
                    * `valkeySearch.readerThreads`: Number of request processing threads.
                    * `valkeySearch.writerThreads`: Number of indexing threads.
-               
+
                * `valkeyJson.enabled`: Enable the `Valkey-JSON` module, `true` or `false`.
                * `valkeyBloom.enabled`: Enable the `Valkey-Bloom` module, `true` or `false`.
 
                {% include [modules-warn](../../_includes/mdb/mvk/enable-modules-note.md) %}
+
+            * `shardAutoscalingSettings`: [Cluster autoscaling](../concepts/autoscaling.md) settings:
+
+              {% include [autoscale-description](../../_includes/mdb/mvk/api/shard-autoscaling-rest.md) %}
 
         * `hostSpecs`: Host settings:
 
@@ -685,6 +733,24 @@ There are no restrictions for non-sharded clusters.
               "valkey_bloom": {
                 "enabled": "<enable_Valkey-Bloom_module>"
               }
+            },
+            "shard_autoscaling_settings": {
+              "enabled": <enable_shard_autoscaling>,
+              "min_shards": "<minimum_number_of_shards>",
+              "max_shards": "<maximum_number_of_shards>",
+                "cpu_threshold": {
+                  "down_threshold": "<CPU_load_threshold_for_reducing_the_number_of_shards>",
+                  "up_threshold": "<CPU_load_threshold_for_increasing_the_number_of_shards>"
+                },
+                "memory_threshold": {
+                  "down_threshold": "<RAM_load_thresold_for_reducing_the_number_of_shards>",
+                  "up_threshold": "<RAM_load_thresold_for_reducing_the_number_of_shards>"
+                },
+                "network_threshold": {
+                  "down_threshold": "<network_load_threshold_for_reducing_the_number_of_shards>",
+                  "up_threshold": "<network_load_threshold_for_reducing_the_number_of_shards>"
+                }
+              }
             }
           },
           "host_specs": [
@@ -743,7 +809,7 @@ There are no restrictions for non-sharded clusters.
             * `access.web_sql`: Access to cluster databases from the {{ yandex-cloud }} management console using [{{ websql-full-name }}](../../websql/index.yaml), `true` or `false`.
 
 
-            * `redis.password`: Password.
+            * `redis.password`: User password.
             * `redis.audit_log`: Enable logging of connection and authorization audit events, `true` or `false`. Audit event logging may impact your cluster performance.
 
                 This setting will not affect standard {{ VLK }} logs.
@@ -751,14 +817,18 @@ There are no restrictions for non-sharded clusters.
             * `modules`: [{{ VLK }} module](../concepts/modules.md) parameters:
 
                * `valkey_search.enabled`: Enable the `Valkey-Search` module, `true` or `false`. What you can set up for the module:
-                   
+
                    * `valkey_search.reader_threads`: Number of request processing threads.
                    * `valkey_search.writer_threads`: Number of indexing threads.
-               
+
                * `valkey_json.enabled`: Enable the `Valkey-JSON` module, `true` or `false`.
                * `valkey_bloom.enabled`: Enable the `Valkey-Bloom` module, `true` or `false`.
 
                {% include [modules-warn](../../_includes/mdb/mvk/enable-modules-note.md) %}
+
+            * `shard_autoscaling_settings`: [Cluster autoscaling](../concepts/autoscaling.md) settings:
+
+              {% include [autoscale-description](../../_includes/mdb/mvk/api/shard-autoscaling-grpc.md) %}
 
         * `host_specs`: Host settings:
 

@@ -20,3 +20,11 @@ With `fork()`, you can reduce RAM usage, as the original {{ VLK }} process and 
 `fork()` uses the [Copy-on-Write](https://en.wikipedia.org/wiki/Copy-on-write) mechanism: if a shared memory page is modified, its copy is created, and the changes are written into that copy. So if you write to the cluster while a backup is being created, the updated and new data are going to take up extra RAM space. Therefore, intense writing may deplete host memory even with reserved RAM available. In which case the host's operating system will terminate the {{ VLK }} processes citing _out of memory_. {{ VLK }} will become unavailable on this host, and the replication and backup operations will be interrupted. To avoid this:
 * Make sure to [start backups](../operations/update.md#change-additional-settings) when the cluster load is minimum.
 * Increase the amount of RAM [by upgrading the host class](../operations/update.md#change-resource-preset).
+
+## Data tiering {#data-tiering}
+
+Data tiering allows you to move infrequently used data from RAM to disk. This reduces RAM requirements and allows you to store a larger amount of data with minimal impact on response time.
+
+For example, if only 60 GB out of your 300 GB of data is actively used, you can move the rest of the data to disk instead of keeping the entire amount in RAM.
+
+Learn more about [data tiering](storage.md#data-tiering).

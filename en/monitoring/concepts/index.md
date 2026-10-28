@@ -5,6 +5,8 @@ description: '{{ monitoring-full-name }} allows you to collect and store metrics
 
 # {{ monitoring-name }} overview
 
+{% include [deprecation-warning](../../_includes/monitoring/deprecation-warning.md) %}
+
 {{ monitoring-name }} allows you to collect and store metrics and display them as charts on dashboards.
 
 {{ monitoring-name }} automatically collects data on the status of your resources in {{ yandex-cloud }} and displays them on service dashboards. You can use the API to upload custom metrics.

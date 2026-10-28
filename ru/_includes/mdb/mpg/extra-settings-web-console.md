@@ -18,8 +18,6 @@
 
 
 
-- **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** — опция разрешает выполнять YQL-запросы к базам данных кластера из сервиса [{{ yq-full-name }}](../../../query/concepts/index.md).
-
 - **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}** — включите эту опцию, чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../../functions/concepts/index.md). Подробнее о настройке доступа читайте в документации [{{ sf-name }}](../../../functions/operations/database-connection.md).
 
 

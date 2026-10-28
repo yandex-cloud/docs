@@ -58,8 +58,7 @@ description: Узнайте, как {{ maf-name }} загружает DAG-фай
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/data-processing-automation.md)
-* [{#T}](../tutorials/airflow-auto-tasks.md)
+[{#T}](../tutorials/data-processing-automation.md)
 
 #### Полезные ссылки {#see-also}
 

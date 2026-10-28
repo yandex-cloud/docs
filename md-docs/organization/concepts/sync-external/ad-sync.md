@@ -89,6 +89,8 @@ flowchart TB
 
     {% endnote %}
 
+Агент также синхронизирует время последней установки пароля пользователя в Active Directory с Yandex Identity Hub.
+
 ## Обратная запись паролей в Active Directory {#password-writeback}
 
 {% note info %}

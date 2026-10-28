@@ -164,7 +164,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
      Under **Port settings**, specify replica-level load balancing settings:
 
-     {% include [lb-settings](../../_includes/mdb/load-balancer-settings.md) %}
+     {% include [lb-settings](../../_includes/mdb/mpg/load-balancer-settings.md) %}
 
 
   

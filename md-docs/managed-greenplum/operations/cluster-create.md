@@ -116,7 +116,6 @@
 
         
         * **Доступ из DataLens** — опция разрешает анализировать данные из кластера в сервисе [Yandex DataLens](../../datalens/concepts/index.md).
-        * **Доступ из Yandex Query** — опция разрешает выполнять YQL-запросы из сервиса [Yandex Query](../../query/concepts/index.md) к управляемой базе данных Yandex MPP Analytics for PostgreSQL.
         * **Доступ из WebSQL** — опция разрешает отправлять запросы к базам данных в кластере с помощью сервиса [Yandex WebSQL](../../websql/index.md).
 
 
@@ -325,14 +324,12 @@
         yc managed-greenplum cluster create <имя_кластера> \
            ...
            --datalens-access=<разрешить_доступ_из_DataLens> \
-           --yandexquery-access=<разрешить_доступ_из_Yandex_Query> \
            --websql-access=<разрешить_доступ_из_WebSQL>
         ```
 
         Доступные сервисы:
 
         * `--datalens-access` — [Yandex DataLens](../../datalens/concepts/index.md);
-        * `--yandexquery-access` — [Yandex Query](../../query/concepts/index.md);
         * `--websql-access` — [Yandex WebSQL](../../websql/concepts/index.md).
 
 
@@ -438,7 +435,6 @@
 
         access {
           data_lens    = <разрешить_доступ_из_DataLens>
-          yandex_query = <разрешить_доступ_из_Yandex_Query>
         }
 
         cloud_storage {
@@ -474,8 +470,6 @@
 
       
       * `access.data_lens` — доступ к кластеру из сервиса [Yandex DataLens](../../datalens/concepts/index.md): `true` или `false`.
-
-      * `access.yandex_query` — доступ к кластеру из сервиса [Yandex Query](../../query/concepts/index.md): `true` или `false`.
 
 
 
@@ -617,8 +611,7 @@
           "config": {
             "version": "<версия_СУБД>",
             "access": {
-              "dataLens": <разрешить_доступ_из_DataLens>,
-              "yandexQuery": <разрешить_доступ_из_Yandex_Query>
+              "dataLens": <разрешить_доступ_из_DataLens>
             },
             "zoneId": "<зона_доступности>",
             "subnetId": "<идентификатор_подсети>",
@@ -698,10 +691,7 @@
             * `version` — версия СУБД.
 
             
-            * `access` — настройки доступа к кластеру из следующих сервисов Yandex Cloud:
-
-                * `dataLens` — [Yandex DataLens](../../datalens/index.md): `true` или `false`.
-                * `yandexQuery` — [Yandex Query](../../query/concepts/index.md): `true` или `false`.
+            * `access` — настройки доступа к кластеру из `dataLens` — [Yandex DataLens](../../datalens/index.md): `true` или `false`.
 
 
 
@@ -820,8 +810,7 @@
           "config": {
             "version": "<версия_СУБД>",
             "access": {
-              "data_lens": <разрешить_доступ_из_DataLens>,
-              "yandex_query": <разрешить_доступ_из_Yandex_Query>
+              "data_lens": <разрешить_доступ_из_DataLens>
             },
             "zone_id": "<зона_доступности>",
             "subnet_id": "<идентификатор_подсети>",
@@ -901,10 +890,7 @@
             * `version` — версия СУБД.
 
             
-            * `access` — настройки доступа кластера к следующим сервисам Yandex Cloud:
-
-                * `data_lens` — [Yandex DataLens](../../datalens/index.md): `true` или `false`.
-                * `yandex_query` — [Yandex Query](../../query/concepts/index.md): `true` или `false`.
+            * `access` — настройки доступа кластера к `data_lens` — [Yandex DataLens](../../datalens/index.md): `true` или `false`.
 
 
 

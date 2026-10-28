@@ -108,7 +108,7 @@
         --role <роль> \
         --subject serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
-  
+
       Команда принимает только одну роль за раз.
 
       Подробнее о команде `yc resource-manager folder add-access-binding` читайте в [справочнике CLI]({{ link-docs }}/cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding).
@@ -161,7 +161,7 @@
     --service-account-name speechsense-sa \
     > api_key.yaml
   ```
-  
+
   В результате вы получите файл `api_key.yaml`, который содержит значение API-ключа в поле `secret`:
 
   ```yaml
@@ -198,7 +198,7 @@
   Также API-ключ можно создать с помощью вызова gRPC API [ApiKeyService.Create]({{ link-docs }}/iam/api-ref/grpc/ApiKey/create).
 
 
-{% endlist %}      
+{% endlist %}
 
 ### Создайте пространство {#create-space}
 
@@ -293,18 +293,7 @@
 
 ### Создайте проект {#create-project}
 
-{% list tabs group=instructions %}
-
-- Интерфейс {{ speechsense-name }} {#speechsense}
-
-  1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
-  1. Перейдите в нужное пространство.
-  1. Нажмите кнопку ![create](../../../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.create-project_buUAo }}**.
-  1. Введите имя проекта.
-  1. В блоке **{{ ui-key.yc-ui-talkanalytics.connections.connection_SezJG }}** нажмите **{{ ui-key.yc-ui-talkanalytics.projects.add-connection_bxENx }}** и выберите подключение, созданное [ранее](#create-connection).
-  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.projects.create-project_buUAo }}**.
-
-{% endlist %}
+{% include [create-project](../../_tutorials_includes/speechsense-integration/create-project.md) %}
 
 ## Создайте инфраструктуру {#infra}
 
@@ -330,22 +319,22 @@
     - {{ yandex-cloud }} CLI {#cli}
 
       1. Создайте [авторизованный ключ]({{ link-docs }}/iam/concepts/authorization/key) для сервисного аккаунта `deploy-sa` и запишите его в файл:
-      
+
           ```bash
           yc iam key create --output <путь_к_файлу_ключа> --service-account-name deploy-sa
           ```
-      
+
           Где `--output` — путь к файлу для записи авторизованного ключа в формате JSON.
 
           Результат:
-      
+
           ```bash
           id: aje4lue48687********
           service_account_id: ajeb9l33h6m********
           created_at: "2024-08-01T11:58:52.313177213Z"
           key_algorithm: RSA_2048
           ```
-      
+
           Подробнее о команде `yc iam key create` смотрите в [справочнике CLI]({{ link-docs }}/cli/cli-ref/iam/cli-ref/service-account/create).
 
        1. Создайте профиль, который будет использоваться для выполнения операций от имени сервисного аккаунта `deploy-sa`:
@@ -358,7 +347,7 @@
 
           ```bash
           yc config set service-account-key <путь_к_файлу_ключа>
-          ```   
+          ```
 
     {% endlist %}
 
@@ -394,7 +383,7 @@
   1. В блоке **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-data-section }}**:
 
         1. Выберите тип секрета **{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}**.
-        
+
         1. Добавьте API-ключ сервисного аккаунта:
 
             * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** укажите: `speechsense_api_key`.
@@ -460,7 +449,7 @@
     values ('<идентификатор_источника>', '<идентификатор_секрета>', '<описание_источника>');
     ```
 
-    Где:  
+    Где:
 
     * `source_system_id` — идентификатор источника данных, который будет использоваться в метаданных. Укажите любое уникальное строковое значение. Например: `000001`.
     * `lockbox_secret_id` — идентификатор секрета {{ lockbox-name }}, созданного [ранее](#create-secret). Например: `e6qigo0vbci2********`.
@@ -518,7 +507,7 @@
     ```bash
     etag: '"d41d8cd98f00b204e9800998********"'
     request_id: ba96231*********
-    ```        
+    ```
 
 - AWS CLI {#aws-cli}
 
@@ -589,14 +578,14 @@
     * `file_name` — имя файла, который будет загружен.
 
   * Параметры, обязательные для передачи в {{ speechsense-name }}:
-  
+
     * `id` — идентификатор файла, уникальный для пространства {{ speechsense-name }}.
 
     * `operator_id` — идентификатор оператора.
 
     * `operator_name` — имя оператора.
 
-    * `client_id` — идентификатор клиента 
+    * `client_id` — идентификатор клиента
 
     * `client_name` — имя клиента.
 
@@ -614,7 +603,7 @@
 
       `cpn_region_id` и `cpn_region_name` использованы в качестве примера. Дополнительные параметры могут быть другими.
 
-Метаданные могут содержать одну запись или массив из нескольких записей. 
+Метаданные могут содержать одну запись или массив из нескольких записей.
 
 {% note warning %}
 
@@ -654,7 +643,7 @@
     1. Нажмите **{{ ui-key.yacloud.storage.button_upload }}**.
     1. Обновите страницу.
 
-    В консоли управления информация о количестве объектов в бакете и занятом месте обновляется с задержкой в несколько минут. 
+    В консоли управления информация о количестве объектов в бакете и занятом месте обновляется с задержкой в несколько минут.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -678,7 +667,7 @@
     ```bash
     etag: '"d41d8cd98f00b204e980099********"'
     request_id: 3f2705f********
-    ```    
+    ```
 
 - AWS CLI {#aws-cli}
 
@@ -690,7 +679,7 @@
     ```
 
   Чтобы загрузить все файлы из локальной директории и вложенных в нее директорий, используйте команду:
-   
+
     ```bash
     aws --endpoint-url=https://{{ s3-storage-host }}/ \
       s3 cp --recursive <путь_к_директории_с_загружаемыми_файлами>/ s3://<имя_бакета>/<имя_папки>/
@@ -704,7 +693,7 @@
 
 - API {#api}
 
-  Чтобы загрузить файл, воспользуйтесь методом S3 API [upload]({{ link-docs }}/storage/s3/api-ref/object/upload).     
+  Чтобы загрузить файл, воспользуйтесь методом S3 API [upload]({{ link-docs }}/storage/s3/api-ref/object/upload).
 
 {% endlist %}
 

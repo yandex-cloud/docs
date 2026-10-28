@@ -209,7 +209,7 @@ To connect to a cluster using IAM authentication:
 
     - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select a folder.
+      1. In the [management console]({{ link-console-main }}), select the folder.
       1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
       1. Select the cluster.
       1. Assign the {{ yandex-cloud }} account the `managed-mongodb.clusters.connector` role for the cluster:
@@ -301,7 +301,7 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
       
       1. Configure the connection as follows:
          
-         * **User**, **Password**: Database user name and password.
+         * **User**, **Password**: DB user name and password.
          * **URL**: Connection string.
 
               For a non-sharded cluster:
@@ -337,7 +337,7 @@ To connect to your cluster:
 1. Create a new database connection:
    
    1. In the **Database** menu, select **New connection**.
-   1. Select **{{ MG }}** from the database list.
+   1. Select **{{ MG }}** from the DB list.
    1. Click **Next**.
    1. On the **Main** tab, specify the connection settings:
       

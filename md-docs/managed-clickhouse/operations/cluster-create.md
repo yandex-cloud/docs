@@ -278,8 +278,6 @@
       * **Доступ из Serverless** — включите эту опцию, чтобы разрешить доступ к кластеру из сервиса [Yandex Cloud Functions](../../functions/concepts/index.md). Подробнее о настройке доступа в документации [Cloud Functions](../../functions/operations/database-connection.md).
       
       
-      * **Доступ из Yandex Query** — включите эту опцию, чтобы разрешить доступ к кластеру из сервиса [Yandex Query](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-      
       * **Защита от удаления** — управляет защитой кластера от непреднамеренного удаления.
       
          Включенная защита кластера от удаления не помешает удалить пользователя или базу данных, а также подключиться вручную и удалить содержимое базы данных.
@@ -463,8 +461,6 @@
 
       1. Чтобы разрешить доступ к кластеру из сервиса [Yandex Cloud Functions](../../functions/concepts/index.md), передайте параметр `--serverless-access`. Подробнее о настройке доступа читайте в документации [Cloud Functions](../../functions/operations/database-connection.md).
 
-
-      1. Чтобы разрешить доступ к кластеру из сервиса [Yandex Query](../../query/concepts/index.md), передайте параметр `--yandexquery-access=true`. Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
 
       1. Чтобы задать [настройки гибридного хранилища](../concepts/storage.md#hybrid-storage-settings):
@@ -782,7 +778,6 @@
               data_lens    = <доступ_из_DataLens>
               metrika      = <доступ_из_Метрики_и_AppMetrika>
               serverless   = <доступ_из_Cloud_Functions>
-              yandex_query = <доступ_из_Yandex_Query>
               web_sql      = <выполнение_SQL-запросов_из_консоли_управления>
             }
             ...
@@ -794,7 +789,6 @@
           * `data_lens` — доступ из DataLens: `true` или `false`.
           * `metrika` — доступ из Метрики и AppMetrika: `true` или `false`.
           * `serverless` — доступ из Cloud Functions: `true` или `false`.
-          * `yandex_query` — доступ из Yandex Query: `true` или `false`.
           * `web_sql` — выполнение SQL-запросов из консоли управления: `true` или `false`.
 
        1. Пользователями и базами данных в кластере можно управлять через SQL.
@@ -986,8 +980,7 @@
                   "webSql": <выполнение_SQL-запросов_из_консоли_управления>,
                   "metrika": <доступ_из_Метрики_и_AppMetrika>,
                   "serverless": <доступ_из_Cloud_Functions>,
-                  "dataTransfer": <доступ_из_Data_Transfer>,
-                  "yandexQuery": <доступ_из_Yandex_Query>
+                  "dataTransfer": <доступ_из_Data_Transfer>
                 },
                 "cloudStorage": {
                   "enabled": <использование_гибридного_хранилища>,
@@ -1148,9 +1141,6 @@
                     * `dataTransfer` — разрешить доступ к кластеру из сервиса [Yandex Data Transfer](../../data-transfer/concepts/index.md) в Serverless-режиме: `true` или `false`. Значение по умолчанию — `false`.
                     
                         Это позволит через специальную сеть подключаться к Yandex Data Transfer, запущенному в Kubernetes. В результате будут быстрее выполняться, например, запуск и деактивация трансфера.
-                    
-                    
-                    * `yandexQuery` — разрешить доступ к кластеру из сервиса [Yandex Query](../../query/concepts/index.md): `true` или `false`. Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Значение по умолчанию — `false`.
 
                 * `cloudStorage` — настройки [гибридного хранилища](../concepts/storage.md#hybrid-storage-features):
 
@@ -1333,8 +1323,7 @@
                   "web_sql": <выполнение_SQL-запросов_из_консоли_управления>,
                   "metrika": <доступ_из_Метрики_и_AppMetrika>,
                   "serverless": <доступ_из_Cloud_Functions>,
-                  "data_transfer": <доступ_из_Data_Transfer>,
-                  "yandex_query": <доступ_из_Yandex_Query>
+                  "data_transfer": <доступ_из_Data_Transfer>
                 },
                 "cloud_storage": {
                   "enabled": <использование_гибридного_хранилища>,
@@ -1497,9 +1486,6 @@
                     * `data_transfer` — разрешить доступ к кластеру из сервиса [Yandex Data Transfer](../../data-transfer/concepts/index.md) в Serverless-режиме: `true` или `false`. Значение по умолчанию — `false`.
                     
                         Это позволит через специальную сеть подключаться к Yandex Data Transfer, запущенному в Kubernetes. В результате будут быстрее выполняться, например, запуск и деактивация трансфера.
-                    
-                    
-                    * `yandex_query` — разрешить доступ к кластеру из сервиса [Yandex Query](../../query/concepts/index.md): `true` или `false`. Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Значение по умолчанию — `false`.
 
                 * `cloud_storage` — настройки [гибридного хранилища](../concepts/storage.md#hybrid-storage-features):
 
@@ -1842,8 +1828,6 @@
       * **Доступ из Serverless** — включите эту опцию, чтобы разрешить доступ к кластеру из сервиса [Yandex Cloud Functions](../../functions/concepts/index.md). Подробнее о настройке доступа в документации [Cloud Functions](../../functions/operations/database-connection.md).
       
       
-      * **Доступ из Yandex Query** — включите эту опцию, чтобы разрешить доступ к кластеру из сервиса [Yandex Query](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-      
       * **Защита от удаления** — управляет защитой кластера от непреднамеренного удаления.
       
          Включенная защита кластера от удаления не помешает удалить пользователя или базу данных, а также подключиться вручную и удалить содержимое базы данных.
@@ -2015,8 +1999,6 @@
 
       1. Чтобы разрешить доступ к кластеру из сервиса [Yandex Cloud Functions](../../functions/concepts/index.md), передайте параметр `--serverless-access`. Подробнее о настройке доступа читайте в документации [Cloud Functions](../../functions/operations/database-connection.md).
 
-
-      1. Чтобы разрешить доступ к кластеру из сервиса [Yandex Query](../../query/concepts/index.md), передайте параметр `--yandexquery-access=true`. Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
 
       1. Чтобы задать [настройки гибридного хранилища](../concepts/storage.md#hybrid-storage-settings):
@@ -2353,7 +2335,6 @@
               data_lens    = <доступ_из_DataLens>
               metrika      = <доступ_из_Метрики_и_AppMetrika>
               serverless   = <доступ_из_Cloud_Functions>
-              yandex_query = <доступ_из_Yandex_Query>
               web_sql      = <выполнение_SQL-запросов_из_консоли_управления>
             }
             ...
@@ -2365,7 +2346,6 @@
           * `data_lens` — доступ из DataLens: `true` или `false`.
           * `metrika` — доступ из Метрики и AppMetrika: `true` или `false`.
           * `serverless` — доступ из Cloud Functions: `true` или `false`.
-          * `yandex_query` — доступ из Yandex Query: `true` или `false`.
           * `web_sql` — выполнение SQL-запросов из консоли управления: `true` или `false`.
 
        1. Пользователями и базами данных в кластере можно управлять через SQL.
@@ -2568,8 +2548,7 @@
                   "webSql": <выполнение_SQL-запросов_из_консоли_управления>,
                   "metrika": <доступ_из_Метрики_и_AppMetrika>,
                   "serverless": <доступ_из_Cloud_Functions>,
-                  "dataTransfer": <доступ_из_Data_Transfer>,
-                  "yandexQuery": <доступ_из_Yandex_Query>
+                  "dataTransfer": <доступ_из_Data_Transfer>
                 },
                 "cloudStorage": {
                   "enabled": <использование_гибридного_хранилища>,
@@ -2747,9 +2726,6 @@
                     * `dataTransfer` — разрешить доступ к кластеру из сервиса [Yandex Data Transfer](../../data-transfer/concepts/index.md) в Serverless-режиме: `true` или `false`. Значение по умолчанию — `false`.
                     
                         Это позволит через специальную сеть подключаться к Yandex Data Transfer, запущенному в Kubernetes. В результате будут быстрее выполняться, например, запуск и деактивация трансфера.
-                    
-                    
-                    * `yandexQuery` — разрешить доступ к кластеру из сервиса [Yandex Query](../../query/concepts/index.md): `true` или `false`. Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Значение по умолчанию — `false`.
 
                 * `cloudStorage` — настройки [гибридного хранилища](../concepts/storage.md#hybrid-storage-features):
 
@@ -2939,8 +2915,7 @@
                   "web_sql": <выполнение_SQL-запросов_из_консоли_управления>,
                   "metrika": <доступ_из_Метрики_и_AppMetrika>,
                   "serverless": <доступ_из_Cloud_Functions>,
-                  "data_transfer": <доступ_из_Data_Transfer>,
-                  "yandex_query": <доступ_из_Yandex_Query>
+                  "data_transfer": <доступ_из_Data_Transfer>
                 },
                 "cloud_storage": {
                   "enabled": <использование_гибридного_хранилища>,
@@ -3119,9 +3094,6 @@
                     * `data_transfer` — разрешить доступ к кластеру из сервиса [Yandex Data Transfer](../../data-transfer/concepts/index.md) в Serverless-режиме: `true` или `false`. Значение по умолчанию — `false`.
                     
                         Это позволит через специальную сеть подключаться к Yandex Data Transfer, запущенному в Kubernetes. В результате будут быстрее выполняться, например, запуск и деактивация трансфера.
-                    
-                    
-                    * `yandex_query` — разрешить доступ к кластеру из сервиса [Yandex Query](../../query/concepts/index.md): `true` или `false`. Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Значение по умолчанию — `false`.
 
                 * `cloud_storage` — настройки [гибридного хранилища](../concepts/storage.md#hybrid-storage-features):
 

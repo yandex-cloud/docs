@@ -6479,6 +6479,9 @@ default:
         label_ttl: TTL
         label_zone: Зона
         label_zones-list: Зоны
+        record-set-form:
+          ttl:
+            label_custom-value: Своё значение
       entity:
         ipAddress: IP-адрес
       forms:
@@ -8948,7 +8951,6 @@ default:
             field_is-default: Создать подсети
             field_name: Имя
         private-endpoint:
-          field_address-id: IP-адрес
           field_address-type: Адрес
           field_description: Описание
           field_name: Имя
@@ -10643,12 +10645,12 @@ default:
         prompt_4hIv3: Инструкция
       common:
         add_694qE: Добавить
+        all_o6Nad: Все
         create_JTJlL: Создать
         more_Dnm3Y: Еще
       connections:
         add-key_rKBwZ: Добавить ключ
         column_zUZH9: Название в системе
-        connection_SezJG: Подключение
         connections_q5X2U: Подключения
         create-connection_kemb1: Создать подключение
         fields_QO3t6: Общие метаданные
@@ -10662,10 +10664,16 @@ default:
         client_qq11P: Клиент
         dialogs_ouB03: Диалоги
         operator_aKjP0: Оператор
+      project-templates:
+        connection-creation_0jTxJ: Выбрать из списка
+        connection-creation_JQWA5: Подключение
+        dialogs-filter_5teMu: Какие диалоги добавить в проект?
+        empty-template_7PzQZ: Пустой проект
+        project-parameters_XdfXK: Параметры проекта
       projects:
-        add-connection_bxENx: Добавить подключение
         add-participant_MeT49: Добавить участника
         create-project_buUAo: Создать проект
+        projects_Z7qzo: Проекты
       spaces:
         create-space_FvLT9: Создать пространство
       team:

@@ -59,7 +59,7 @@ When changing the host class:
 
 * A single-host cluster will be unavailable for a few minutes and all database connections will be dropped.
 * In a multi-host cluster, hosts will be stopped and updated one by one. When stopped, a host will be unavailable for a few minutes.
-* A cluster with local SSD storage may be unavailable for an extended period, as data migration to another physical server may be required.
+* A cluster host with local SSD storage may be unavailable for an extended period of time if data needs to be migrated to another physical server.
 * Using a [special FQDN](connect/fqdn.md#auto) does not guarantee a stable database connection: user sessions may be terminated.
 
 {% include [instance-type-change](../../_includes/mdb/mch/instance-type-change.md) %}
@@ -321,7 +321,7 @@ You cannot use {{ ZK }} hosts in clusters with {{ CK }} support. For more inform
 
 {% include [note-change-disk-type-data-loss](../../_includes/mdb/mch/note-change-disk-type-data-loss.md) %}
 
-When changing the disk type or storage size, a cluster with local SSD storage may be unavailable for an extended period, as data migration to another physical server may be required.
+When changing disk type or storage size, a cluster host with local SSD storage may be unavailable for an extended period of time if data needs to be migrated to another physical server.
 
 You can also [change the disk type and storage size for an individual shard](shards.md#shard-update).
 
@@ -574,6 +574,7 @@ You can choose to activate the {{ CK }} or {{ ZK }} [coordination service](#enab
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-coordinator }}** in the top-right corner of the page.
   1. Under **{{ ui-key.yacloud.clickhouse.AddCoordinatorHost.title_main-settings_68Grp }}**, select the [coordination service](../concepts/coordination-system.md).
+
   1. Configure the following settings depending on the service you selected:
 
       * For the **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-zookeeper }}** coordination service:
@@ -818,7 +819,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
             In our request example, both user and database management via SQL are enabled.
 
-        * `config_spec.admin_password`: `admin` user password.
+        * `config_spec.admin_password`: `admin` password.
         * `config_spec.sql_user_management`: User management via SQL, `true` or `false`.
         * `config_spec.sql_database_management`: Database management via SQL, `true` or `false`. For that, you also need to enable user management via SQL.
 
@@ -828,7 +829,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
 {% endlist %}
 
-## Configuring advanced cluster settings {#change-additional-settings}
+## Changing additional cluster settings {#change-additional-settings}
 
 
 {% list tabs group=instructions %}
@@ -866,7 +867,7 @@ You cannot disable settings for user or database management via SQL once they ar
         {{ yc-mdb-ch }} cluster update --help
         ```
 
-    1. Run the following command with the list of settings you want to update:
+    1. Run the command after providing the list of settings you want to update:
 
         
         ```bash

@@ -17,7 +17,7 @@
   1. Откройте вкладку **{{ ui-key.yc-ui-talkanalytics.connections.connections_q5X2U }}** и выберите шаблон для создания подключения, либо нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection_kemb1 }}**:
 
      {% include [metadata](../../../_includes/speechsense/data/templates-connection.md) %}
- 
+
   1. Укажите название подключения.
   1. Выберите тип данных `{{ ui-key.yc-ui-talkanalytics.connections.type_13ZZh }}`.
   1. В блоках **{{ ui-key.yc-ui-talkanalytics.dialogs.operator_aKjP0 }}** и **{{ ui-key.yc-ui-talkanalytics.dialogs.client_qq11P }}** укажите:

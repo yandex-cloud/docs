@@ -2,7 +2,7 @@
 
 In {{ ml-platform-full-name }} projects, you can use {{ SPRK }} clusters deployed in {{ msp-full-name }}. To set up integration with {{ dataproc-name }} in {{ ml-platform-name }}:
 
-1. [Set up your infrastructure](#infra).
+1. [Prepare the infrastructure](#infra).
 1. [Set up the {{ ml-platform-name }} project](#project).
 1. [Create a bucket](#create-bucket).
 1. [Create a {{ dataproc-name }} cluster](#create-cluster).
@@ -25,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * {{ objstorage-full-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
-## Set up your infrastructure {#infra}
+## Prepare your infrastructure {#infra}
 
 ### Create a folder and network {#create-folder}
 
@@ -54,7 +54,7 @@ Create a network the {{ dataproc-name }} cluster will operate in.
 
   1. In the [management console]({{ link-console-main }}), select the `data-folder` you [created earlier](#create-folder).
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. In the top-right corner, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter a name for the network: `data-network`.
   1. Disable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.

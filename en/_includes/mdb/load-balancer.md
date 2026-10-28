@@ -14,16 +14,17 @@ A separate proxy service based on [{{ balancer.proxy.name }}]({{ balancer.proxy.
 
 The load balancer provides several special ports for target connections:
 
-* Connection only to the master host: port `{{ balancer.port.master }}`.
-
-* Connection to replicas with lag less than a predefined value: port `{{ balancer.port.non-delayed-replicas }}`.
-
-  For example, to distribute read requests only among replicas with a lag of no more than 30 seconds:
-  
-  * Create a cluster with the load balancer enabled and specify a replica lag value of 30 seconds in the `{{ balancer.port.non-delayed-replicas }}` port settings.
-  * Specify the database connection string with the load balancer FQDN and port `{{ balancer.port.non-delayed-replicas }}` in your application settings.
-
-* Connection to all replicas, regardless of lag: port `{{ balancer.port.replicas }}`.
-
+#|
+|| **Port** | **Target connection** ||
+|| {{ balancer.port.master }} | Master host ||
+|| {{ balancer.port.replicas }} | All replicas ||
+|| {{ balancer.port.non-delayed-replicas }} | Replicas lagging less than the predefined value ||
+|| {{ balancer.port.cascade-replicas }} | Cascade replicas ||
+|#
 
 Traffic from each open port of the load balancer is directed to the proxy service and then distributed to target connections depending on the port number.
+
+For example, to distribute read requests only among replicas with a lag of no more than 30 seconds:
+  
+1. Create a cluster with the load balancer enabled and specify a replica lag value of 30 seconds in the `{{ balancer.port.non-delayed-replicas }}` port settings.
+1. Specify the database connection string with the load balancer FQDN and port `{{ balancer.port.non-delayed-replicas }}` in your application settings.

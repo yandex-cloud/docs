@@ -638,8 +638,6 @@
      
      
      
-     - **Доступ из Yandex Query** — опция разрешает выполнять YQL-запросы к базам данных кластера из сервиса [Yandex Query](../../query/concepts/index.md).
-     
      - **Доступ из Serverless** — включите эту опцию, чтобы разрешить доступ к кластеру из сервиса [Yandex Cloud Functions](../../functions/concepts/index.md). Подробнее о настройке доступа читайте в документации [Cloud Functions](../../functions/operations/database-connection.md).
      
      
@@ -687,7 +685,6 @@
             --deletion-protection \
             --connection-pooling-mode=<режим_работы_менеджера_подключений> \
             --serverless-access=<разрешить_доступ_из_Serverless_Containers> \
-            --yandexquery-access=<разрешить_доступ_из_Yandex_Query> \
             --performance-diagnostics enabled=<активировать_сбор_статистики>,`
                                      `sessions-sampling-interval=<интервал_сбора_сессий>,`
                                      `statements-sampling-interval=<интервал_сбора_запросов> \
@@ -716,8 +713,6 @@
 
     
     * `--serverless-access` — разрешает доступ к кластеру из сервиса [Yandex Cloud Functions](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа в документации [Cloud Functions](../../functions/operations/database-connection.md).
-
-    * `--yandexquery-access` — разрешает доступ к кластеру из сервиса [Yandex Query](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и предоставляется по запросу.
 
 
     * `--connection-pooling-mode` — указывает [режим работы менеджера подключений](../concepts/pooling.md): `SESSION`, `TRANSACTION` или `STATEMENT`.
@@ -988,8 +983,7 @@
            "dataLens": <разрешить_доступ_из_DataLens>,
            "webSql": <разрешить_доступ_из_WebSQL>,
            "serverless": <разрешить_доступ_из_Cloud_Functions>,
-           "dataTransfer": <разрешить_доступ_из_Data_Transfer>,
-           "yandexQuery": <разрешить_доступ_из_Query>
+           "dataTransfer": <разрешить_доступ_из_Data_Transfer>
          },
          "performanceDiagnostics": {
            "enabled": <активировать_сбор_статистики>,
@@ -1038,8 +1032,7 @@
          * `dataLens` — [Yandex DataLens](../../datalens/index.md);
          * `webSql` — [Yandex WebSQL](../../websql/index.md);
          * `serverless` — [Yandex Cloud Functions](../../functions/index.md);
-         * `dataTransfer` — [Yandex Data Transfer](../../data-transfer/index.md);
-         * `yandexQuery` — [Yandex Query](../../query/index.md).
+         * `dataTransfer` — [Yandex Data Transfer](../../data-transfer/index.md).
 
          Возможные значения настроек: `true` или `false`.
 
@@ -1159,8 +1152,7 @@
            "data_lens": <разрешить_доступ_из_DataLens>,
            "web_sql": <разрешить_доступ_из_WebSQL>,
            "serverless": <разрешить_доступ_из_Cloud_Functions>,
-           "data_transfer": <разрешить_доступ_из_Data_Transfer>,
-           "yandex_query": <разрешить_доступ_из_Query>
+           "data_transfer": <разрешить_доступ_из_Data_Transfer>
          },
          "performance_diagnostics": {
            "enabled": <активировать_сбор_статистики>,
@@ -1209,8 +1201,7 @@
          * `data_lens` — [Yandex DataLens](../../datalens/index.md);
          * `web_sql` — [Yandex WebSQL](../../websql/index.md);
          * `serverless` — [Yandex Cloud Functions](../../functions/index.md);
-         * `data_transfer` — [Yandex Data Transfer](../../data-transfer/index.md);
-         * `yandex_query` — [Yandex Query](../../query/index.md).
+         * `data_transfer` — [Yandex Data Transfer](../../data-transfer/index.md).
 
          Возможные значения настроек: `true` или `false`.
 

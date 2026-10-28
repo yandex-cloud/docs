@@ -28,9 +28,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The cost of maintaining your {{ CH }} database for Graphite includes:
-* Fee for the cluster's computing resources, storage, and backups (see [{{ mch-full-name }} pricing](../../managed-clickhouse/pricing.md)).
-* Fee for a running VM managing the database (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* {{ mch-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
 
 ## Create a cluster {#cluster-create}

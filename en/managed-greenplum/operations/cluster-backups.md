@@ -279,6 +279,8 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 Before you begin, [assign](../../iam/operations/roles/grant.md) your {{ yandex-cloud }} account the [managed-greenplum.restorer](../../iam/roles-reference.md#managed-greenplum-restorer) role or higher for the backup folder and the new cluster folder.
 
 
+When restoring your cluster, you can encrypt the new cluster’s disks with a custom KMS key. To do this, select `local-ssd` as the disk type for the master and segment hosts. Encryption may slightly reduce disk subsystem performance in some use scenarios. For more on conditions and required permissions, see [Disk encryption](../concepts/storage.md#disk-encryption).
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

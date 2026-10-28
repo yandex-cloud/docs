@@ -208,6 +208,8 @@
           interval: "600s"
           allow_to_capture_users: true|false
           allow_to_capture_groups: true|false
+          # Skip password updates when the password in the LDAP directory has not changed (default: false).
+          skip_unchanged_password_updates: false
           # Remove the replacement_domain line if you don't need to replace domain
           replacement_domain: "<домен_пула_пользователей>"
           # Remove the user_attribute_mapping section if you don't need to remap default user attribute names
@@ -329,6 +331,8 @@
           interval: "600s"
           allow_to_capture_users: true|false
           allow_to_capture_groups: true|false
+          # Skip password updates when the password in the LDAP directory has not changed (default: false).
+          skip_unchanged_password_updates: false
           # Remove the replacement_domain line if you don't need to replace domain
           replacement_domain: "<домен_пула_пользователей>"
           # Remove the user_attribute_mapping section if you don't need to remap default user attribute names
@@ -494,6 +498,8 @@
           interval: "600s"
           allow_to_capture_users: true|false
           allow_to_capture_groups: true|false
+          # Skip password updates when the password in the LDAP directory has not changed (default: false).
+          skip_unchanged_password_updates: false
           # Remove the replacement_domain line if you don't need to replace domain
           replacement_domain: "<домен_пула_пользователей>"
           # Remove the user_attribute_mapping section if you don't need to remap default user attribute names
@@ -615,6 +621,8 @@
           interval: "600s"
           allow_to_capture_users: true|false
           allow_to_capture_groups: true|false
+          # Skip password updates when the password in the LDAP directory has not changed (default: false).
+          skip_unchanged_password_updates: false
           # Remove the replacement_domain line if you don't need to replace domain
           replacement_domain: "<домен_пула_пользователей>"
           # Remove the user_attribute_mapping section if you don't need to remap default user attribute names
@@ -687,6 +695,30 @@
       В результате процесс синхронизации пользователей и групп будет остановлен.
 
 {% endlist %}
+
+## Проверьте конфигурацию агента {#check-config}
+
+Чтобы проверить конфигурацию агента без запуска синхронизации, укажите путь к файлу конфигурации и один из параметров `--check-config` или `--validate-config`:
+
+{% list tabs group=operating_system %}
+
+- Linux {#linux}
+
+  ```bash
+  ./yc-identityhub-sync-agent \
+    --config /etc/yc-identityhub-sync-agent/config.yaml \
+    --check-config
+  ```
+
+- Windows {#windows}
+
+  ```powershell
+  .\yc-identityhub-sync-agent.exe --config C:\ProgramData\YcIdentityHubSyncAgent\config.yaml --validate-config
+  ```
+
+{% endlist %}
+
+Проверка конфигурации не запускает синхронизацию. Чтобы проверить, какие изменения агент внесет в данные пользователей и групп, используйте [тестовый запуск](#dry-run).
 
 ## Протестируйте изменения в конфигурации агента {#dry-run}
 
@@ -956,14 +988,14 @@
 
     * `false` — ошибки валидации сертификата не будут игнорироваться. Значение по умолчанию.
     * `true` — агент синхронизации будет игнорировать ошибки валидации сертификата. Может быть полезно при настройке и тестировании синхронизации. Не рекомендуется использовать в рабочем режиме.
-* `password_writeback` — дополнительные настройки, необходимые для корректной работы обратной записи паролей:
+* `password_writeback` — дополнительные настройки обратной записи паролей в FreeIPA, ApacheDS™ и 389 Directory Server:
 
     * `flavor` — тип LDAP-каталога, с которым выполняется синхронизация. Возможные значения:
 
         * `freeipa` — [FreeIPA](https://www.freeipa.org/) (значение по умолчанию).
         * `apache` — [ApacheDS™](https://directory.apache.org/apacheds/).
         * `389` — [389 Directory Server](https://www.port389.org/).
-    * `permanent_reset` — данные дополнительной учетной записи во внешнем каталоге с правами на изменение паролей пользователей без требования к пользователям менять пароль при первом входе. Задавайте настройки в разделе `permanent_reset` только если настраиваете синхронизацию с каталогом FreeIPA или ApacheDS™.
+    * `permanent_reset` — данные дополнительной учетной записи во внешнем каталоге с правами на сброс паролей пользователей без требования к пользователям менять пароль при первом входе. Задавайте настройки в разделе `permanent_reset` только если настраиваете обратную запись паролей в FreeIPA или ApacheDS™. Для дополнительной учетной записи можно использовать аутентификацию по логину и паролю или Kerberos.
 
         В зависимости от способа аутентификации задайте следующие параметры учетной записи:
 
@@ -1067,6 +1099,7 @@
 
     * `true` — агент синхронизации будет изменять существующие группы пользователей Yandex Identity Hub, приводя их в соответствие с группами во внешнем каталоге.
     * `false` — агент синхронизации не будет изменять существующие группы пользователей Yandex Identity Hub. При обнаружении совпадения имен групп в пуле и во внешнем каталоге процесс синхронизации выдаст ошибку.
+* `skip_unchanged_password_updates` — пропускать обновление пароля в Yandex Identity Hub, если пароль пользователя во внешнем каталоге не изменился. Необязательный параметр. Значение по умолчанию — `false`; чтобы пропускать такие обновления, укажите `true`.
 * `replacement_domain` — [домен](../../concepts/domains.md), привязанный к пулу пользователей Yandex Identity Hub, в котором находятся синхронизируемые пользователи и группы. Например: `newdomain.idp.yandexcloud.net`.
 
     Необязательный параметр. Значение параметра `replacement_domain` нужно задавать только в том случае, если имя домена, привязанного к пулу пользователей, отличается от имени домена, который используется внешним каталогом.

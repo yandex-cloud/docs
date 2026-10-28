@@ -18,13 +18,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The cost of infrastructure support for working with {{ mch-name }} data includes:
+* {{ ml-platform-name }} project: use of computing resources and storage (see [{{ ml-platform-name }} pricing](../../datasphere/pricing.md)).
+* {{ mch-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* {{ yq-name }}: amount of data read when running queries (see [{{ yq-name }} pricing](../../query/pricing.md)).
 
-* Fee for using [{{ ml-platform-name }} computing resources](../../datasphere/pricing.md).
-* Fee for a running [{{ mch-name }} cluster](../../managed-clickhouse/pricing.md).
-* Fee for the amount of read data when running [{{ yq-name }} queries](../../query/pricing.md).
-
-## Set up your infrastructure {#infra}
+## Prepare your infrastructure {#infra}
 
 {% include [intro](../../_includes/datasphere/infra-intro.md) %}
 

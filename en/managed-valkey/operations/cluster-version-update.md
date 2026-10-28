@@ -62,7 +62,7 @@ All {{ VLK }} versions supported in {{ mrd-name }} remain available as long as t
 
 Make sure the upgrade will not disrupt your applications:
 
-1. Check the {{ VLK }} [release notes](https://docs.redis.com/latest/rs/release-notes/) to learn how upgrades may affect your applications.
+1. Check the {{ VLK }} [release notes](https://github.com/valkey-io/valkey/releases) to learn how upgrades may affect your applications.
 1. Try upgrading a test cluster. You can [deploy it from a backup](cluster-backups.md#restore) of the main cluster, if {{ mrd-name }} [supports](#version-supported) the {{ VLK }} version in the backup.
 1. [Back up](cluster-backups.md#create-backup) your main cluster before upgrading.
 
@@ -89,6 +89,13 @@ To specify a version number in the CLI, {{ TF }}, and the API, add the `-valkey`
   1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Select the cluster you need from the list and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the new version.
+
+      {% note tip %}
+
+      To use [data tiering](../concepts/storage.md#data-tiering), select the `Valkey TS 9.1` version. If your cluster’s version is lower than `9.1`, first, upgrade the cluster to this version.
+
+      {% endnote %}
+
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
   As soon as you run the upgrade, the cluster status will change to **Updating**. Wait for the operation to complete and then check the cluster version.
@@ -142,7 +149,7 @@ To specify a version number in the CLI, {{ TF }}, and the API, add the `-valkey`
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -1,5 +1,5 @@
 {% note warning %}
 
-You cannot reduce the storage size following an automatic expansion.
+Once increased, storage size cannot be reduced.
 
 {% endnote %}

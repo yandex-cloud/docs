@@ -34,6 +34,7 @@ Learn more about other cluster updates:
 
 * [{#T}](cluster-version-update.md).
 * [Migrating cluster hosts to a different availability zone](host-migration.md).
+* [Managing a load balancer](load-balancer.md).
 
 
 ## Changing the host class {#change-resource-preset}
@@ -46,7 +47,7 @@ When changing the host class:
 
 * A single-host cluster will be unavailable for a few minutes and all database connections will be dropped.
 * In a multi-host cluster, hosts will be stopped and updated one by one. When stopped, a host will be unavailable for a few minutes. During the master upgrade, one of the replicas is temporarily promoted to master. Once the upgrade is complete, the host with the highest [failover priority](../concepts/replication.md#master-failover) will become the new master.
-* A cluster with local SSD storage may be unavailable for an extended period of time in case of data migration to another physical server.
+* A cluster host with local SSD storage may be unavailable for an extended period of time if data needs to be migrated to another physical server.
 * Using a [special FQDN](./connect/fqdn.md#fqdn-master) does not guarantee a stable database connection: user sessions may be terminated.
 
 We recommend changing the host class only when the cluster is idle.
@@ -554,7 +555,7 @@ We recommend changing the host class only when the cluster is idle.
 
 For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.md).
 
-## Configuring advanced cluster settings {#change-additional-settings}
+## Changing additional cluster settings {#change-additional-settings}
 
 {% list tabs group=instructions %}
 
@@ -562,6 +563,11 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
   1. [Navigate]({{ link-console-main }}/link/managed-mysql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+
+  
+  1. Under **DB Proxy**, enable or disable the [{{ mdb-lb }} load balancer](../concepts/load-balancer.md) using the **DB Proxy load balancing** option. If you enable the load balancer, specify replica-level load balancing settings under **Port settings**:
+
+      {% include [lb-settings](../../_includes/mdb/mmy/load-balancer-settings.md) %}
 
 
   1. Configure advanced cluster settings:
@@ -586,7 +592,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
         {{ yc-mdb-my }} cluster update --help
         ```
 
-    1. Run the following command by providing the list of settings you want to update:
+    1. Run the command after providing the list of settings you want to update:
 
         
         ```bash

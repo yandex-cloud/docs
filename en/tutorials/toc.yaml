@@ -927,501 +927,541 @@ items:
     items:
       - name: All tutorials
         href: dataplatform/index.md
-      - name: Unassisted deployment of the {{ KF }} web interface
-        href: dataplatform/deploy-kafka-ui.md
-      - name: >-
-          Upgrading a {{ mkf-name }} cluster to migrate from {{ ZK }} to {{
-          kraft-short-name }}
-        href: dataplatform/zk-kraft-kafka-migration.md
-      - name: >-
-          Migrating a database from a third-party {{ KF }} cluster to {{
-          mkf-name }}
-        href: dataplatform/kafka-connector.md
-      - name: >-
-          Moving data between {{ mkf-name }} clusters using {{
-          data-transfer-name }}
-        href: dataplatform/data-transfer-mkf.md
-      - name: >-
-          Delivering data from {{ mmy-name }} to {{ mkf-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/data-transfer-mmy.md
-      - name: Delivering data from {{ mmy-name }} to {{ mkf-name }} using Debezium
-        href: dataplatform/debezium-mmy.md
-      - name: >-
-          Delivering data from {{ mpg-name }} to {{ mkf-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/data-transfer-mpg.md
-      - name: Delivering data from {{ mpg-name }} to {{ mkf-name }} using Debezium
-        href: dataplatform/debezium-mpg.md
-      - name: >-
-          Delivering data from {{ ydb-name }} to {{ mkf-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/ydb-mkf-replication.md
-      - name: >-
-          Delivering data from {{ mkf-name }} to {{ mch-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/data-transfer-mkf-mch.md
-      - name: >-
-          Delivering data from {{ mkf-name }} to {{ mgp-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/managed-kafka-to-greenplum.md
-      - name: >-
-          Delivering data from {{ mkf-name }} to {{ mmg-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/data-transfer-mkf-mmg.md
-      - name: >-
-          Delivering data from {{ mkf-name }} to {{ mmy-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/data-transfer-mkf-mmy.md
-      - name: >-
-          Delivering data from {{ mkf-name }} to {{ mos-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/data-transfer-mkf-mos.md
-      - name: >-
-          Delivering data from {{ mkf-name }} to {{ mpg-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/mkf-to-mpg.md
-      - name: >-
-          Delivering data from {{ mkf-name }} to {{ ydb-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/mkf-ydb-stream.md
-      - name: >-
-          Delivering data from {{ mkf-name }} to {{ yds-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/mkf-yds-stream.md
-      - name: >-
-          Delivering data from {{ yds-name }} to {{ ydb-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/yds-to-ydb.md
-      - name: >-
-          Delivering data from {{ yds-name }} to {{ mkf-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/yds-to-kafka.md
-      - name: '{{ ydb-short-name }} change data capture and delivery to {{ DS }}'
-        href: dataplatform/ydb-to-yds.md
-      - name: Configuring Kafka Connect to work with a {{ mkf-name }} cluster
-        href: dataplatform/kafka-connect.md
-      - name: >-
-          Synchronizing {{ KF }} topics in {{ objstorage-name }} with no web
-          access
-        href: dataplatform/kafka-topic-s3-sync-private.md
-      - name: Using data format schemas with {{ mkf-name }}
+      - name: '{{ KF }}'
         items:
-          - name: Managing data schemas in {{ mkf-name }}
-            href: dataplatform/schema-registry-overview.md
-          - name: Using {{ mkf-msr }} with {{ mkf-name }}
-            href: dataplatform/managed-schema-registry.md
-          - name: Using {{ mkf-msr }} with {{ mkf-name }} via REST API
-            href: dataplatform/managed-schema-registry-rest.md
-          - name: Using Confluent Schema Registry with {{ mkf-name }}
-            href: dataplatform/confluent-schema-registry.md
-      - name: Monitoring message loss in an {{ KF }} topic
-        href: dataplatform/retention-policy.md
-      - name: Automating {{ yq-name }} tasks with {{ maf-name }}
-        href: dataplatform/airflow-auto-tasks.md
-      - name: >-
-          Sending requests to the {{ yandex-cloud }} API via the {{ yandex-cloud
-          }} Python SDK
-        href: dataplatform/using-python-sdk-in-airflow.md
-      - name: Configuring an SMTP server to send e-mail notifications
-        href: dataplatform/airflow-test-smtp-notification.md
-      - name: Adding data to a {{ CH }} DB
-        href: dataplatform/insert-data-ch.md
-      - name: Migrating data to {{ mch-name }} using {{ CH }}
-        href: dataplatform/clickhouse-migration.md
-      - name: Migrating data to {{ mch-name }} using {{ data-transfer-name }}
-        href: dataplatform/ch-to-mch-migration.md
-      - name: >-
-          Delivering data from {{ mmy-name }} to {{ mch-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/mysql-to-clickhouse.md
-      - name: Asynchronously replicating data from {{ PG }} to {{ CH }}
-        href: dataplatform/rdbms-to-clickhouse.md
-      - name: Exchanging data between {{ mch-name }} and {{ dataproc-name }}
-        href: dataplatform/dp-mch-data-exchange.md
-      - name: Configuring {{ mch-name }} for Graphite
-        href: dataplatform/clickhouse-for-graphite.md
-      - name: Fetching data from {{ mkf-name }} to {{ mch-name }}
-        href: dataplatform/fetch-data-from-mkf.md
-      - name: Fetching data from {{ mkf-name }} to ksqlDB
-        href: dataplatform/use-ksqldb-with-mkf.md
-      - name: >-
-          Delivering data from {{ mkf-name }} to {{ mch-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/data-transfer-mkf-mch.md
-        hidden: true
-      - name: Fetching data from {{ RMQ }} to {{ mch-name }}
-        href: dataplatform/fetch-data-from-rabbitmq.md
-      - name: Saving a data stream from {{ yds-name }} to {{ mch-name }}
-        href: dataplatform/yds-to-clickhouse.md
-      - name: >-
-          Asynchronous replication of data from {{ metrika }} to {{ CH }} using
-          {{ data-transfer-name }}
-        stage: preview
-        href: dataplatform/metrika-to-clickhouse.md
-      - name: Using hybrid storage in {{ mch-name }}
-        href: dataplatform/clickhouse-hybrid-storage.md
-      - name: Sharding {{ mch-name }} tables
-        href: dataplatform/clickhouse-sharding.md
-      - name: >-
-          Loading data from {{ yandex-direct }} to a {{ mch-name }} data mart
-          using {{ sf-name }}, {{ objstorage-name }}, and {{ data-transfer-name
-          }}
-        href: dataplatform/data-transfer-direct-to-mch.md
-      - name: >-
-          Loading data from {{ objstorage-name }} to {{ mch-name }} with {{
-          data-transfer-name }}
-        href: dataplatform/object-storage-to-clickhouse.md
-      - name: >-
-          Migrating data from {{ mos-name }} to {{ mch-name }} with a storage
-          change using {{ data-transfer-name }}
-        href: dataplatform/opensearch-to-clickhouse.md
-      - name: >-
-          Loading data from {{ ydb-name }} to {{ mch-name }} with {{
-          data-transfer-name }}
-        href: dataplatform/ydb-to-clickhouse.md
-      - name: >-
-          {{ mch-full-name }} integration with Microsoft SQL Server via {{ CH }}
-          JDBC Bridge
-        href: dataplatform/jdbc-ch-to-sql-server-integration.md
-      - name: Migrating databases from Google BigQuery to {{ mch-name }}
-        href: dataplatform/bigquery-to-clickhouse.md
-      - name: '{{ mch-full-name }} integration with Oracle via {{ CH }} JDBC Bridge'
-        href: dataplatform/jdbc-ch-to-oracle-integration.md
-      - name: >-
-          Executing analytical queries in {{ mpg-name }} with processing in {{
-          mch-name }}
-        href: dataplatform/mpg-pg-clickhouse-extension.md
-      - name: >-
-          Configuring {{ dns-name }} to access a {{ mch-name }} cluster from
-          other cloud networks
-        href: dataplatform/clickhouse-dns-peering.md
-      - name: >-
-          Migrating a {{ dataproc-name }} HDFS cluster to a different
-          availability zone
-        href: dataplatform/hdfs-cluster-migration.md
-      - name: Importing data from {{ mmy-name }} to {{ dataproc-name }} using Sqoop
-        href: dataplatform/sqoop-mmy.md
-      - name: Importing data from {{ mpg-name }} to {{ dataproc-name }} using Sqoop
-        href: dataplatform/sqoop-mpg.md
-      - name: >-
-          Mounting {{ objstorage-name }} buckets to the file system of {{
-          dataproc-name }} hosts
-        href: dataplatform/data-processing-init-actions-geesefs.md
-      - name: Working with {{ KF }} topics using {{ dataproc-name }}
-        href: dataplatform/data-processing-and-kafka.md
-      - name: Automating operations with {{ dataproc-name }} using {{ maf-name }}
-        href: dataplatform/data-processing-and-airflow.md
-      - name: Shared use of {{ dataproc-name }} tables through {{ metastore-name }}
-        href: dataplatform/data-processing-to-data-processing.md
-      - name: >-
-          Transferring metadata across {{ dataproc-name }} clusters using {{
-          metastore-name }}
-        href: dataplatform/metastore-import.md
-      - name: >-
-          Importing, processing, and exporting {{ objstorage-name }} data to {{
-          mch-name }}
-        href: dataplatform/s3-data-processing-ch.md
-      - name: Working with jobs {{ dataproc-name }}
+          - name: Delivering data using {{ data-transfer-name }}
+            items:
+              - name: Delivering data from {{ mmy-name }} to {{ mkf-name }}
+                href: dataplatform/data-transfer-mmy.md
+              - name: Delivering data from {{ mpg-name }} to {{ mkf-name }}
+                href: dataplatform/data-transfer-mpg.md
+              - name: Delivering data from {{ ydb-name }} to {{ mkf-name }}
+                href: dataplatform/ydb-mkf-replication.md
+              - name: Delivering data from {{ mkf-name }} to {{ mch-name }}
+                href: dataplatform/data-transfer-mkf-mch.md
+              - name: Delivering data from {{ mkf-name }} to {{ mgp-name }}
+                href: dataplatform/managed-kafka-to-greenplum.md
+              - name: Delivering data from {{ mkf-name }} to {{ mmg-name }}
+                href: dataplatform/data-transfer-mkf-mmg.md
+              - name: Delivering data from {{ mkf-name }} to {{ mmy-name }}
+                href: dataplatform/data-transfer-mkf-mmy.md
+              - name: Delivering data from {{ mkf-name }} to {{ mos-name }}
+                href: dataplatform/data-transfer-mkf-mos.md
+              - name: Delivering data from {{ mkf-name }} to {{ mpg-name }}
+                href: dataplatform/mkf-to-mpg.md
+              - name: Delivering data from {{ mkf-name }} to {{ ydb-name }}
+                href: dataplatform/mkf-ydb-stream.md
+              - name: Delivering data from {{ mkf-name }} to {{ yds-name }}
+                href: dataplatform/mkf-yds-stream.md
+              - name: Delivering data from {{ yds-name }} to {{ ydb-name }}
+                href: dataplatform/yds-to-ydb.md
+              - name: Delivering data from {{ yds-name }} to {{ mkf-name }}
+                href: dataplatform/yds-to-kafka.md
+              - name: Moving data between {{ mkf-name }} clusters
+                href: dataplatform/data-transfer-mkf.md
+          - name: Delivering data using Debezium
+            items:
+              - name: Delivering data from {{ mmy-name }} to {{ mkf-name }}
+                href: dataplatform/debezium-mmy.md
+              - name: Delivering data from {{ mpg-name }} to {{ mkf-name }}
+                href: dataplatform/debezium-mpg.md
+          - name: Using data format schemas with {{ mkf-name }}
+            items:
+              - name: Managing data schemas in {{ mkf-name }}
+                href: dataplatform/schema-registry-overview.md
+              - name: Using {{ mkf-msr }} with {{ mkf-name }}
+                href: dataplatform/managed-schema-registry.md
+              - name: Using {{ mkf-msr }} with {{ mkf-name }} via REST API
+                href: dataplatform/managed-schema-registry-rest.md
+              - name: Using Confluent Schema Registry with {{ mkf-name }}
+                href: dataplatform/confluent-schema-registry.md
+          - name: Monitoring message loss in an {{ KF }} topic
+            href: dataplatform/retention-policy.md
+          - name: '{{ ydb-short-name }} change data capture and delivery to {{ DS }}'
+            href: dataplatform/ydb-to-yds.md
+          - name: Configuring Kafka Connect to work with a {{ mkf-name }} cluster
+            href: dataplatform/kafka-connect.md
+          - name: >-
+              Synchronizing {{ KF }} topics in {{ objstorage-name }} with no web
+              access
+            href: dataplatform/kafka-topic-s3-sync-private.md
+          - name: Self-managed deployment of the {{ KF }} web UI
+            href: dataplatform/deploy-kafka-ui.md
+          - name: >-
+              Upgrading a {{ mkf-name }} cluster to migrate from {{ ZK }} to {{
+              kraft-short-name }}
+            href: dataplatform/zk-kraft-kafka-migration.md
+          - name: >-
+              Migrating a database from a third-party {{ KF }} cluster to {{
+              mkf-name }}
+            href: dataplatform/kafka-connector.md
+      - name: '{{ AF }}'
         items:
-          - name: Working with Hive jobs
-            href: dataplatform/hive-job-basics.md
-          - name: Working with MapReduce jobs
-            href: dataplatform/mapreduce-job-basics.md
-          - name: Working with PySpark jobs
-            href: dataplatform/pyspark-job-basics.md
-          - name: Working with Spark jobs
-            href: dataplatform/spark-job-basics.md
-          - name: Running Apache Hive jobs
-            href: dataplatform/how-to-use-hive.md
-          - name: Running Spark applications
-            href: dataplatform/run-spark-job.md
-          - name: Running jobs from a remote host
-            href: dataplatform/remote-run-job.md
-      - name: >-
-          Migrating collections from a third-party {{ MG }} cluster to {{
-          mmg-name }}
-        href: dataplatform/mongodb-migration-with-data-transfer.md
-      - name: Migrating data to {{ mmg-name }}
-        href: dataplatform/storedoc-data-migration.md
-      - name: Migrating {{ mmg-name }} cluster from version 4.4 to 6.0
-        href: dataplatform/storedoc-versions.md
-      - name: Sharding {{ SD }} collections
-        href: dataplatform/storedoc-sharding.md
-      - name: '{{ SD }} performance analysis and optimization'
-        href: dataplatform/storedoc-profiling.md
-      - name: >-
-          Migrating a database from a third-party {{ MY }} cluster to a {{
-          mmy-name }} cluster
+          - name: Automating {{ yq-name }} tasks with {{ maf-name }}
+            href: dataplatform/airflow-auto-tasks.md
+          - name: >-
+              Sending requests to the {{ yandex-cloud }} API via the {{
+              yandex-cloud }} Python SDK
+            href: dataplatform/using-python-sdk-in-airflow.md
+          - name: Configuring an SMTP server to send e-mail notifications
+            href: dataplatform/airflow-test-smtp-notification.md
+      - name: '{{ CH }}'
         items:
-          - name: Overview
-            href: dataplatform/mysql-data-migration/index.md
-          - name: Transferring data using {{ data-transfer-name }}
-            href: dataplatform/mysql-data-migration/data-transfer.md
-          - name: Migrating data using a logical dump
-            href: dataplatform/mysql-data-migration/logical-dump-migration.md
-      - name: '{{ mmy-name }} performance analysis and optimization'
-        href: dataplatform/profiling-mmy.md
-      - name: >-
-          Syncing data from a third-party {{ MY }} cluster to {{ mmy-name }}
-          using {{ data-transfer-name }}
-        href: dataplatform/sync-mysql.md
-      - name: >-
-          Migrating a database from {{ mmy-name }} to a third-party {{ MY }}
-          cluster
-        href: dataplatform/mmy-to-mysql-migration.md
-      - name: >-
-          Migrating a database from {{ mmy-name }} to {{ objstorage-name }}
-          using {{ data-transfer-name }}
-        href: dataplatform/mmy-objs-migration.md
-      - name: >-
-          Migrating data from {{ objstorage-name }} to {{ mmy-name }} via {{
-          data-transfer-name }}
-        href: dataplatform/objs-mmy-migration.md
-      - name: Importing data from {{ mmy-name }} to {{ dataproc-name }} using Sqoop
-        href: dataplatform/sqoop-mmy.md
-        hidden: true
-      - name: >-
-          Delivering data from {{ mmy-name }} to {{ mkf-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/data-transfer-mmy.md
-      - name: Delivering data from {{ mmy-name }} to {{ mkf-name }} using Debezium
-        href: dataplatform/debezium-mmy.md
-      - name: >-
-          Migrating a database from {{ mmy-name }} to {{ ydb-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/mmy-ydb-migration.md
-      - name: '{{ MY }} change data capture and delivery to {{ DS }}'
-        href: dataplatform/mmy-to-yds.md
-      - name: >-
-          Migrating data from {{ mmy-name }} to {{ mpg-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/mmy-to-mpg.md
-      - name: >-
-          Migrating data from AWS RDS for {{ PG }} to {{ mpg-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/rds-to-mpg.md
-      - name: >-
-          Migrating data from {{ mmy-name }} to {{ mgp-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/mmy-to-mgp.md
-      - name: Configuring an index policy in {{ mos-name }}
-        href: dataplatform/opensearch-index-policy.md
-      - name: Configuring a cold storage policy in {{ mos-name }}
-        href: dataplatform/opensearch-cold-storage-policy.md
-      - name: >-
-          Migrating data from a third-party {{ OS }} cluster to {{ mos-name }}
-          using {{ data-transfer-name }}
-        href: dataplatform/mos-migration-from-standalone.md
-      - name: >-
-          Loading data from {{ mos-name }} to {{ objstorage-name }} with {{
-          data-transfer-name }}
-        href: dataplatform/opensearch-to-object-storage.md
-      - name: >-
-          Migrating data from {{ mos-name }} to {{ ydb-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/opensearch-to-ydb.md
-      - name: >-
-          Copying data from {{ mos-name }} to {{ mgp-name }} using {{
-          data-transfer-full-name }}
-        href: dataplatform/opensearch-to-greenplum.md
-      - name: >-
-          Migrating data from {{ mpg-name }} to {{ mos-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/postgresql-to-opensearch.md
-      - name: >-
-          Authenticating a {{ mos-name }} cluster in {{ OS }} Dashboards using
-          {{ keycloak }}
-        href: dataplatform/opensearch-saml-keycloak.md
-      - name: Using the yandex-lemmer plugin in {{ mos-name }}
-        href: dataplatform/opensearch-yandex-lemmer.md
-      - name: Sending email notifications in {{ mos-name }}
-        href: dataplatform/opensearch-email-notifications.md
-      - name: Connecting an MCP client to an {{ OS }} cluster
-        href: dataplatform/mos-mcp.md
-      - name: Creating a {{ PG }} cluster for 1C:Enterprise
-        href: dataplatform/1c-postgresql.md
-      - name: Troubleshooting {{ mpg-name }} cluster performance
-        href: dataplatform/mpg-performance-problems.md
-      - name: '{{ mpg-name }} performance analysis and optimization'
-        href: dataplatform/mpg-profiling.md
-      - name: Logical replication in {{ PG }}
-        href: dataplatform/mpg-replication-overview.md
-      - name: >-
-          Migrating a database from a third-party {{ PG }} cluster to {{
-          mpg-name }}
-        href: dataplatform/postgresql-data-migration.md
-      - name: Migrating a database from {{ mpg-name }}
-        href: dataplatform/outbound-replication.md
-      - name: Migrating a {{ mpg-name }} cluster to a different version
-        href: dataplatform/postgresql-versions.md
-      - name: Asynchronously replicating data from {{ PG }} to {{ CH }}
-        href: dataplatform/rdbms-to-clickhouse.md
-        hidden: true
-      - name: >-
-          Delivering data from {{ mpg-name }} to {{ mkf-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/data-transfer-mpg.md
-      - name: Delivering data from {{ mpg-name }} to {{ mkf-name }} using Debezium
-        href: dataplatform/debezium-mpg.md
-      - name: Importing data from {{ mpg-name }} to {{ dataproc-name }} using Sqoop
-        href: dataplatform/sqoop-mpg.md
-        hidden: true
-      - name: >-
-          Delivering data from {{ mpg-name }} to {{ ydb-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/mpg-ydb-replication.md
-      - name: Migrating a database from {{ mpg-name }} to {{ objstorage-name }}
-        href: dataplatform/mpg-to-objstorage.md
-      - name: >-
-          Migrating data from {{ objstorage-name }} to {{ mpg-name }} via {{
-          data-transfer-name }}
-        href: dataplatform/object-storage-to-postgresql.md
-      - name: '{{ PG }} change data capture and delivery to {{ DS }}'
-        href: dataplatform/mpg-to-yds.md
-      - name: >-
-          Migrating data from {{ mpg-name }} to {{ mmy-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/mpg-to-mmy.md
-      - name: >-
-          Migrating data from {{ mpg-name }} to {{ mos-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/postgresql-to-opensearch.md
-      - name: Fixing string sorting issues in {{ PG }} after a glibc upgrade
-        href: dataplatform/postgresql-glibc-collation-issues.md
-      - name: >-
-          Using a {{ lockbox-name }} secret in a PySpark job to connect to {{
-          mpg-full-name }}
-        href: dataplatform/job-pyspark-secret-access.md
-      - name: >-
-          Configuring permissions for access to a secret created by {{
-          connection-manager-name }} for a {{ mpg-name }} user
-        href: dataplatform/conn-man-secret-access.md
-      - name: >-
-          Executing analytical queries in {{ mpg-name }} with processing in {{
-          mch-name }}
-        href: dataplatform/mpg-pg-clickhouse-extension.md
-      - name: Migrating a database from {{ GP }} to {{ CH }}
-        href: dataplatform/greenplum-to-clickhouse.md
-      - name: Migrating a database from {{ GP }} to {{ PG }}
-        href: dataplatform/greenplum-to-postgresql.md
-      - name: Exporting {{ GP }} data to a hybrid storage in {{ objstorage-name }}
-        href: dataplatform/greenplum-yezzey.md
-      - name: >-
-          Loading data from {{ objstorage-name }} to {{ mgp-name }} with {{
-          data-transfer-name }}
-        href: dataplatform/object-storage-to-greenplum.md
-      - name: >-
-          Copying data from {{ mos-name }} to {{ mgp-name }} using {{
-          data-transfer-full-name }}
-        href: dataplatform/opensearch-to-greenplum.md
-      - name: >-
-          Creating an external table from a {{ objstorage-name }} bucket table
-          using a configuration file
-        href: dataplatform/mgp-config-server-for-s3.md
-      - name: Getting data from external sources using named queries in {{ GP }}
-        href: dataplatform/pxf-named-queries.md
-      - name: >-
-          Migrating a database from a third-party {{ VLK }} cluster to {{
-          mrd-name }}
-        href: dataplatform/valkey-data-migration.md
-      - name: Using a {{ mrd-name }} cluster as a PHP session storage
-        href: dataplatform/valkey-as-php-sessions-storage.md
-      - name: >-
-          Using {{ mrd-name }} with the Search module and {{
-          foundation-models-full-name }} models for vector search in a RAG
-          system
-        href: dataplatform/valkey-rag-search.md
-      - name: Distributed locks for 1C:Enterprise in a {{ mrd-name }} cluster
-        href: dataplatform/1c-valkey-locks.md
-      - name: >-
-          Using a {{ mrd-name }} cluster as a cache storage for 1C-Bitrix: Site
-          Management
-        href: infrastructure-management/yc-valkey-as-1c-cache-storage.md
-      - name: >-
-          Delivering data from {{ ydb-name }} to {{ mkf-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/ydb-mkf-replication.md
-        hidden: true
-      - name: >-
-          Delivering data from {{ mkf-name }} to {{ ydb-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/mkf-ydb-stream.md
-        hidden: true
-      - name: >-
-          Migrating a database from {{ mmy-name }} to {{ ydb-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/mmy-ydb-migration.md
-        hidden: true
-      - name: >-
-          Delivering data from {{ mpg-name }} to {{ ydb-name }} using {{
-          data-transfer-name }}
-        href: dataplatform/mpg-ydb-replication.md
-        hidden: true
-      - name: >-
-          Loading data from {{ objstorage-name }} to {{ ydb-name }} with {{
-          data-transfer-name }}
-        href: dataplatform/object-storage-to-ydb.md
-      - name: >-
-          Loading data from {{ ydb-name }} to {{ objstorage-name }} with {{
-          data-transfer-name }}
-        href: dataplatform/ydb-to-object-storage.md
-      - name: Processing {{ at-name }} events
-        href: dataplatform/audit-log-processing.md
-      - name: Processing {{ cloud-logging-name }} logs
-        href: dataplatform/cloud-logging-processing.md
-      - name: Processing Debezium CDC streams
-        href: dataplatform/debezium-yq.md
-      - name: Analyzing data with {{ jlab }}
-        href: dataplatform/jupyter-yq.md
-      - name: Processing usage detail files in {{ billing-name }}
-        href: dataplatform/billing-detail-files-processing.md
-      - name: Ingesting data into storage systems
-        href: dataplatform/data-ingestion.md
-      - name: Smart log processing
-        href: dataplatform/log-ingestion.md
-      - name: Data transfer in microservice architectures
-        href: dataplatform/message-broker.md
-      - name: Migrating data to {{ objstorage-name }} using {{ data-transfer-name }}
-        href: dataplatform/yds-obj-migration.md
-      - name: >-
-          Migrating data from a third-party {{ GP }} or {{ PG }} cluster to {{
-          mgp-name }} with {{ data-transfer-name }}
-        href: dataplatform/managed-greenplum.md
-      - name: Migrating {{ mmg-name }} clusters
-        href: dataplatform/storedoc.md
-      - name: Migrating {{ MY }} clusters
-        href: dataplatform/managed-mysql.md
-      - name: Migrating to a third-party {{ MY }} cluster
-        href: dataplatform/managed-mysql-to-mysql.md
-      - name: Migrating {{ PG }} clusters
-        href: dataplatform/managed-postgresql.md
-      - name: >-
-          Creating a schema registry to deliver data in Debezium CDC format from
-          {{ KF }}
-        href: dataplatform/schema-registry-cdc-debezium-kafka.md
-      - name: >-
-          Executing analytical queries in {{ mpg-name }} with processing in {{
-          mch-name }}
-        href: dataplatform/mpg-pg-clickhouse-extension.md
-      - name: Automating operations using {{ maf-full-name }}
-        href: dataplatform/airflow-and-spark.md
-      - name: Working with an {{ objstorage-name }} table from a PySpark job
-        href: dataplatform/spark-simple-rw-job.md
-      - name: Integrating {{ msp-full-name }} with {{ metastore-full-name }}
-        href: dataplatform/metastore-and-spark.md
-      - name: Running a PySpark job using {{ maf-full-name }}
-        href: dataplatform/airflow-spark-min.md
-      - name: Using {{ objstorage-full-name }} in {{ msp-full-name }}
-        href: dataplatform/spark-objstorage-integration.md
-      - name: '{{ msp-full-name }} integration with {{ ml-platform-name }}'
-        href: dataplatform/spark-and-datasphere.md
-      - name: >-
-          Using a {{ lockbox-name }} secret in a PySpark job to connect to {{
-          mpg-full-name }}
-        href: dataplatform/job-pyspark-secret-access.md
-      - name: Running a PySpark job in {{ myt-full-name }}
-        href: dataplatform/yt-run-spark-job.md
+          - name: Adding data to a {{ CH }} DB
+            href: dataplatform/insert-data-ch.md
+          - name: Fetching data from {{ mkf-name }} to {{ mch-name }}
+            href: dataplatform/fetch-data-from-mkf.md
+          - name: Fetching data from {{ mkf-name }} to ksqlDB
+            href: dataplatform/use-ksqldb-with-mkf.md
+          - name: Fetching data from {{ RMQ }} to {{ mch-name }}
+            href: dataplatform/fetch-data-from-rabbitmq.md
+          - name: Migrating data to {{ mch-name }} using {{ CH }}
+            href: dataplatform/clickhouse-migration.md
+          - name: Migrating data to {{ mch-name }} using {{ data-transfer-name }}
+            href: dataplatform/ch-to-mch-migration.md
+          - name: Migrating databases from Google BigQuery to {{ mch-name }}
+            href: dataplatform/bigquery-to-clickhouse.md
+          - name: >-
+              Migrating data from {{ mos-name }} to {{ mch-name }} with a
+              storage change using {{ data-transfer-name }}
+            href: dataplatform/opensearch-to-clickhouse.md
+          - name: >-
+              Delivering data from {{ mmy-name }} to {{ mch-name }} using {{
+              data-transfer-name }}
+            href: dataplatform/mysql-to-clickhouse.md
+          - name: >-
+              Delivering data from {{ mkf-name }} to {{ mch-name }} using {{
+              data-transfer-name }}
+            href: dataplatform/data-transfer-mkf-mch.md
+            hidden: true
+          - name: Exchanging data between {{ mch-name }} and {{ dataproc-name }}
+            href: dataplatform/dp-mch-data-exchange.md
+          - name: Configuring {{ mch-name }} for Graphite
+            href: dataplatform/clickhouse-for-graphite.md
+          - name: Saving a data stream from {{ yds-name }} to {{ mch-name }}
+            href: dataplatform/yds-to-clickhouse.md
+          - name: Asynchronously replicating data from {{ PG }} to {{ CH }}
+            href: dataplatform/rdbms-to-clickhouse.md
+          - name: >-
+              Asynchronous replication of data from {{ metrika }} to {{ CH }}
+              using {{ data-transfer-name }}
+            stage: preview
+            href: dataplatform/metrika-to-clickhouse.md
+          - name: Using hybrid storage in {{ mch-name }}
+            href: dataplatform/clickhouse-hybrid-storage.md
+          - name: Sharding {{ mch-name }} tables
+            href: dataplatform/clickhouse-sharding.md
+          - name: >-
+              Executing analytical queries in {{ mpg-name }} with processing in
+              {{ mch-name }}
+            href: dataplatform/mpg-pg-clickhouse-extension.md
+          - name: >-
+              Loading data from {{ yandex-direct }} to a {{ mch-name }} data
+              mart using {{ sf-name }}, {{ objstorage-name }}, and {{
+              data-transfer-name }}
+            href: dataplatform/data-transfer-direct-to-mch.md
+          - name: >-
+              Loading data from {{ objstorage-name }} to {{ mch-name }} using {{
+              data-transfer-name }}
+            href: dataplatform/object-storage-to-clickhouse.md
+          - name: >-
+              Loading data from {{ ydb-name }} to {{ mch-name }} using {{
+              data-transfer-name }}
+            href: dataplatform/ydb-to-clickhouse.md
+          - name: >-
+              {{ mch-full-name }} integration with Microsoft SQL Server via {{
+              CH }} JDBC Bridge
+            href: dataplatform/jdbc-ch-to-sql-server-integration.md
+          - name: >-
+              {{ mch-full-name }} integration with Oracle via {{ CH }} JDBC
+              Bridge
+            href: dataplatform/jdbc-ch-to-oracle-integration.md
+      - name: '{{ GP }}'
+        items:
+          - name: >-
+              Delivering data from {{ mkf-name }} to {{ mgp-name }} using {{
+              data-transfer-name }}
+            href: dataplatform/managed-kafka-to-greenplum.md
+          - name: Migrating a database from {{ GP }} to {{ CH }}
+            href: dataplatform/greenplum-to-clickhouse.md
+          - name: Migrating a database from {{ GP }} to {{ PG }}
+            href: dataplatform/greenplum-to-postgresql.md
+          - name: >-
+              Exporting {{ GP }} data to a hybrid storage in {{ objstorage-name
+              }}
+            href: dataplatform/greenplum-yezzey.md
+          - name: >-
+              Loading data from {{ objstorage-name }} to {{ mgp-name }} using {{
+              data-transfer-name }}
+            href: dataplatform/object-storage-to-greenplum.md
+          - name: >-
+              Copying data from {{ mos-name }} to {{ mgp-name }} using {{
+              data-transfer-full-name }}
+            href: dataplatform/opensearch-to-greenplum.md
+          - name: >-
+              Creating an external table from a {{ objstorage-name }} bucket
+              table using a configuration file
+            href: dataplatform/mgp-config-server-for-s3.md
+          - name: Getting data from external sources using named queries in {{ GP }}
+            href: dataplatform/pxf-named-queries.md
+      - name: '{{ MG }}/{{ SD }}'
+        items:
+          - name: >-
+              Migrating collections from a third-party {{ MG }} cluster to {{
+              mmg-name }}
+            href: dataplatform/mongodb-migration-with-data-transfer.md
+          - name: Migrating data to {{ mmg-name }}
+            href: dataplatform/storedoc-data-migration.md
+          - name: Migrating {{ mmg-name }} cluster from version 4.4 to 6.0
+            href: dataplatform/storedoc-versions.md
+          - name: Sharding {{ SD }} collections
+            href: dataplatform/storedoc-sharding.md
+          - name: '{{ SD }} performance analysis and optimization'
+            href: dataplatform/storedoc-profiling.md
+      - name: '{{ MY }}'
+        items:
+          - name: >-
+              Migrating a database from a third-party {{ MY }} cluster to a {{
+              mmy-name }} cluster
+            items:
+              - name: Overview
+                href: dataplatform/mysql-data-migration/index.md
+              - name: Transferring data using {{ data-transfer-name }}
+                href: dataplatform/mysql-data-migration/data-transfer.md
+              - name: Migrating data using a logical dump
+                href: dataplatform/mysql-data-migration/logical-dump-migration.md
+          - name: '{{ mmy-name }} performance analysis and optimization'
+            href: dataplatform/profiling-mmy.md
+          - name: >-
+              Syncing data from a third-party {{ MY }} cluster to {{ mmy-name }}
+              using {{ data-transfer-name }}
+            href: dataplatform/sync-mysql.md
+          - name: >-
+              Migrating a database from {{ mmy-name }} to a third-party {{ MY }}
+              cluster
+            href: dataplatform/mmy-to-mysql-migration.md
+          - name: >-
+              Migrating a database from {{ mmy-name }} to {{ objstorage-name }}
+              using {{ data-transfer-name }}
+            href: dataplatform/mmy-objs-migration.md
+          - name: >-
+              Migrating a database from {{ mmy-name }} to {{ ydb-name }} using
+              {{ data-transfer-name }}
+            href: dataplatform/mmy-ydb-migration.md
+          - name: >-
+              Migrating data from {{ mmy-name }} to {{ mpg-name }} using {{
+              data-transfer-name }}
+            href: dataplatform/mmy-to-mpg.md
+          - name: >-
+              Migrating data from AWS RDS for {{ PG }} to {{ mpg-name }} using
+              {{ data-transfer-name }}
+            href: dataplatform/rds-to-mpg.md
+          - name: >-
+              Migrating data from {{ mmy-name }} to {{ mgp-name }} using {{
+              data-transfer-name }}
+            href: dataplatform/mmy-to-mgp.md
+          - name: >-
+              Migrating data from {{ objstorage-name }} to {{ mmy-name }} via {{
+              data-transfer-name }}
+            href: dataplatform/objs-mmy-migration.md
+          - name: >-
+              Delivering data from {{ mmy-name }} to {{ mkf-name }} using {{
+              data-transfer-name }}
+            href: dataplatform/data-transfer-mmy.md
+          - name: >-
+              Delivering data from {{ mmy-name }} to {{ mkf-name }} using
+              Debezium
+            href: dataplatform/debezium-mmy.md
+          - name: >-
+              Importing data from {{ mmy-name }} to {{ dataproc-name }} using
+              Sqoop
+            href: dataplatform/sqoop-mmy.md
+            hidden: true
+          - name: '{{ MY }} change data capture and delivery to {{ DS }}'
+            href: dataplatform/mmy-to-yds.md
+      - name: '{{ OS }}'
+        items:
+          - name: Configuring an index policy in {{ mos-name }}
+            href: dataplatform/opensearch-index-policy.md
+          - name: Configuring a cold storage policy in {{ mos-name }}
+            href: dataplatform/opensearch-cold-storage-policy.md
+          - name: >-
+              Migrating data from a third-party {{ OS }} cluster to {{ mos-name
+              }} using {{ data-transfer-name }}
+            href: dataplatform/mos-migration-from-standalone.md
+          - name: >-
+              Migrating data from {{ mos-name }} to {{ ydb-name }} using {{
+              data-transfer-name }}
+            href: dataplatform/opensearch-to-ydb.md
+          - name: >-
+              Migrating data from {{ mpg-name }} to {{ mos-name }} using {{
+              data-transfer-name }}
+            href: dataplatform/postgresql-to-opensearch.md
+          - name: >-
+              Loading data from {{ mos-name }} to {{ objstorage-name }} using {{
+              data-transfer-name }}
+            href: dataplatform/opensearch-to-object-storage.md
+          - name: >-
+              Copying data from {{ mos-name }} to {{ mgp-name }} using {{
+              data-transfer-full-name }}
+            href: dataplatform/opensearch-to-greenplum.md
+          - name: >-
+              Authenticating a {{ mos-name }} cluster in {{ OS }} Dashboards
+              using {{ keycloak }}
+            href: dataplatform/opensearch-saml-keycloak.md
+          - name: Using the yandex-lemmer plugin in {{ mos-name }}
+            href: dataplatform/opensearch-yandex-lemmer.md
+          - name: Sending email notifications in {{ mos-name }}
+            href: dataplatform/opensearch-email-notifications.md
+          - name: Connecting an MCP client to an {{ OS }} cluster
+            href: dataplatform/mos-mcp.md
+      - name: '{{ PG }}'
+        items:
+          - name: Creating a {{ PG }} cluster for 1C:Enterprise
+            href: dataplatform/1c-postgresql.md
+          - name: Troubleshooting {{ mpg-name }} cluster performance
+            href: dataplatform/mpg-performance-problems.md
+          - name: '{{ mpg-name }} performance analysis and optimization'
+            href: dataplatform/mpg-profiling.md
+          - name: Logical replication in {{ PG }}
+            href: dataplatform/mpg-replication-overview.md
+          - name: Asynchronously replicating data from {{ PG }} to {{ CH }}
+            href: dataplatform/rdbms-to-clickhouse.md
+            hidden: true
+          - name: >-
+              Migrating a database from a third-party {{ PG }} cluster to {{
+              mpg-name }}
+            href: dataplatform/postgresql-data-migration.md
+          - name: Migrating a database from {{ mpg-name }}
+            href: dataplatform/outbound-replication.md
+          - name: Migrating a {{ mpg-name }} cluster to a different version
+            href: dataplatform/postgresql-versions.md
+          - name: Migrating a database from {{ mpg-name }} to {{ objstorage-name }}
+            href: dataplatform/mpg-to-objstorage.md
+          - name: >-
+              Migrating data from {{ mpg-name }} to {{ mmy-name }} using {{
+              data-transfer-name }}
+            href: dataplatform/mpg-to-mmy.md
+          - name: >-
+              Migrating data from {{ mpg-name }} to {{ mos-name }} using {{
+              data-transfer-name }}
+            href: dataplatform/postgresql-to-opensearch.md
+          - name: >-
+              Delivering data from {{ mpg-name }} to {{ mkf-name }} using {{
+              data-transfer-name }}
+            href: dataplatform/data-transfer-mpg.md
+          - name: >-
+              Delivering data from {{ mpg-name }} to {{ mkf-name }} using
+              Debezium
+            href: dataplatform/debezium-mpg.md
+          - name: >-
+              Delivering data from {{ mpg-name }} to {{ ydb-name }} using {{
+              data-transfer-name }}
+            href: dataplatform/mpg-ydb-replication.md
+          - name: >-
+              Importing data from {{ mpg-name }} to {{ dataproc-name }} using
+              Sqoop
+            href: dataplatform/sqoop-mpg.md
+            hidden: true
+          - name: >-
+              Migrating data from {{ objstorage-name }} to {{ mpg-name }} via {{
+              data-transfer-name }}
+            href: dataplatform/object-storage-to-postgresql.md
+          - name: '{{ PG }} change data capture and delivery to {{ DS }}'
+            href: dataplatform/mpg-to-yds.md
+          - name: Fixing string sorting issues in {{ PG }} after a glibc upgrade
+            href: dataplatform/postgresql-glibc-collation-issues.md
+          - name: >-
+              Using a {{ lockbox-name }} secret in a PySpark job to connect to
+              {{ mpg-full-name }}
+            href: dataplatform/job-pyspark-secret-access.md
+          - name: >-
+              Configuring permissions for access to a secret created by {{
+              connection-manager-name }} for a {{ mpg-name }} user
+            href: dataplatform/conn-man-secret-access.md
+          - name: >-
+              Executing analytical queries in {{ mpg-name }} with processing in
+              {{ mch-name }}
+            href: dataplatform/mpg-pg-clickhouse-extension.md
+      - name: '{{ VLK }}'
+        items:
+          - name: >-
+              Migrating a database from a third-party {{ VLK }} cluster to {{
+              mrd-name }}
+            href: dataplatform/valkey-data-migration.md
+          - name: Using a {{ mrd-name }} cluster as a PHP session storage
+            href: dataplatform/valkey-as-php-sessions-storage.md
+          - name: >-
+              Using a {{ mrd-name }} cluster with a search module and {{
+              foundation-models-full-name }} models for vector search in a RAG
+              system
+            href: dataplatform/valkey-rag-search.md
+          - name: >-
+              Using a {{ mrd-name }} cluster as a cache storage for 1C-Bitrix:
+              Site Management
+            href: infrastructure-management/yc-valkey-as-1c-cache-storage.md
+          - name: Distributed locks for 1C:Enterprise in a {{ mrd-name }} cluster
+            href: dataplatform/1c-valkey-locks.md
+      - name: '{{ ytsaurus-name }}'
+        items:
+          - name: Running a PySpark job in {{ myt-full-name }}
+            href: dataplatform/yt-run-spark-job.md
+      - name: '{{ ydb-short-name }}'
+        items:
+          - name: >-
+              Delivering data from {{ ydb-name }} to {{ mkf-name }} using {{
+              data-transfer-name }}
+            href: dataplatform/ydb-mkf-replication.md
+            hidden: true
+          - name: >-
+              Delivering data from {{ mkf-name }} to {{ ydb-name }} using {{
+              data-transfer-name }}
+            href: dataplatform/mkf-ydb-stream.md
+            hidden: true
+          - name: >-
+              Delivering data from {{ mpg-name }} to {{ ydb-name }} using {{
+              data-transfer-name }}
+            href: dataplatform/mpg-ydb-replication.md
+            hidden: true
+          - name: >-
+              Migrating a database from {{ mmy-name }} to {{ ydb-name }} using
+              {{ data-transfer-name }}
+            href: dataplatform/mmy-ydb-migration.md
+            hidden: true
+          - name: >-
+              Loading data from {{ objstorage-name }} to {{ ydb-name }} using {{
+              data-transfer-name }}
+            href: dataplatform/object-storage-to-ydb.md
+          - name: >-
+              Loading data from {{ ydb-name }} to {{ objstorage-name }} using {{
+              data-transfer-name }}
+            href: dataplatform/ydb-to-object-storage.md
+      - name: '{{ dns-full-name }}'
+        items:
+          - name: >-
+              Configuring {{ dns-name }} to access a {{ mch-name }} cluster from
+              other cloud networks
+            href: dataplatform/clickhouse-dns-peering.md
+      - name: '{{ dataproc-name }}'
+        items:
+          - name: >-
+              Migrating a {{ dataproc-name }} HDFS cluster to a different
+              availability zone
+            href: dataplatform/hdfs-cluster-migration.md
+          - name: >-
+              Importing data from {{ mmy-name }} to {{ dataproc-name }} using
+              Sqoop
+            href: dataplatform/sqoop-mmy.md
+          - name: >-
+              Importing data from {{ mpg-name }} to {{ dataproc-name }} using
+              Sqoop
+            href: dataplatform/sqoop-mpg.md
+          - name: >-
+              Mounting {{ objstorage-name }} buckets to the file system of {{
+              dataproc-name }} hosts
+            href: dataplatform/data-processing-init-actions-geesefs.md
+          - name: Working with {{ KF }} topics using {{ dataproc-name }}
+            href: dataplatform/data-processing-and-kafka.md
+          - name: >-
+              Automating operations with {{ dataproc-name }} using {{ maf-name
+              }}
+            href: dataplatform/data-processing-and-airflow.md
+          - name: >-
+              Shared use of {{ dataproc-name }} tables through {{ metastore-name
+              }}
+            href: dataplatform/data-processing-to-data-processing.md
+          - name: >-
+              Transferring metadata across {{ dataproc-name }} clusters using {{
+              metastore-name }}
+            href: dataplatform/metastore-import.md
+          - name: >-
+              Importing, processing, and exporting {{ objstorage-name }} data to
+              {{ mch-name }}
+            href: dataplatform/s3-data-processing-ch.md
+          - name: Working with jobs {{ dataproc-name }}
+            items:
+              - name: Basic examples of working with jobs {{ dataproc-name }}
+                items:
+                  - name: Working with Hive jobs
+                    href: dataplatform/hive-job-basics.md
+                  - name: Working with MapReduce jobs
+                    href: dataplatform/mapreduce-job-basics.md
+                  - name: Working with PySpark jobs
+                    href: dataplatform/pyspark-job-basics.md
+                  - name: Working with Spark jobs
+                    href: dataplatform/spark-job-basics.md
+              - name: Advanced examples of working with jobs {{ dataproc-name }}
+                items:
+                  - name: Running Apache Hive jobs
+                    href: dataplatform/how-to-use-hive.md
+                  - name: Running Spark applications
+                    href: dataplatform/run-spark-job.md
+                  - name: Running jobs from a remote host
+                    href: dataplatform/remote-run-job.md
+      - name: '{{ yq-full-name }}'
+        items:
+          - name: Processing {{ at-name }} events
+            href: dataplatform/audit-log-processing.md
+          - name: Processing {{ cloud-logging-name }} logs
+            href: dataplatform/cloud-logging-processing.md
+          - name: Processing Debezium CDC streams
+            href: dataplatform/debezium-yq.md
+          - name: Analyzing data with {{ jlab }}
+            href: dataplatform/jupyter-yq.md
+          - name: Processing usage detail files in {{ billing-name }}
+            href: dataplatform/billing-detail-files-processing.md
+      - name: '{{ yds-full-name }}'
+        items:
+          - name: Ingesting data into storage systems
+            href: dataplatform/data-ingestion.md
+          - name: Smart log processing
+            href: dataplatform/log-ingestion.md
+          - name: Data transfer in microservice architectures
+            href: dataplatform/message-broker.md
+          - name: >-
+              Migrating data to {{ objstorage-name }} using {{
+              data-transfer-name }}
+            href: dataplatform/yds-obj-migration.md
+      - name: '{{ data-transfer-full-name }}'
+        items:
+          - name: >-
+              Migrating data from a third-party {{ GP }} or {{ PG }} cluster to
+              {{ mgp-name }} with {{ data-transfer-name }}
+            href: dataplatform/managed-greenplum.md
+          - name: Migrating {{ mmg-name }} clusters
+            href: dataplatform/storedoc.md
+          - name: Migrating {{ MY }} clusters
+            href: dataplatform/managed-mysql.md
+          - name: Migrating to a third-party {{ MY }} cluster
+            href: dataplatform/managed-mysql-to-mysql.md
+          - name: Migrating {{ PG }} clusters
+            href: dataplatform/managed-postgresql.md
+          - name: >-
+              Creating a schema registry to deliver data in Debezium CDC format
+              from {{ KF }}
+            href: dataplatform/schema-registry-cdc-debezium-kafka.md
+          - name: >-
+              Executing analytical queries in {{ mpg-name }} with processing in
+              {{ mch-name }}
+            href: dataplatform/mpg-pg-clickhouse-extension.md
+      - name: '{{ maf-full-name }}'
+        items:
+          - name: Automating operations using {{ maf-full-name }}
+            href: dataplatform/airflow-and-spark.md
+          - name: Working with an {{ objstorage-name }} table from a PySpark job
+            href: dataplatform/spark-simple-rw-job.md
+          - name: Integrating {{ msp-full-name }} with {{ metastore-full-name }}
+            href: dataplatform/metastore-and-spark.md
+          - name: Running a PySpark job using {{ maf-full-name }}
+            href: dataplatform/airflow-spark-min.md
+          - name: Using {{ objstorage-full-name }} in {{ msp-full-name }}
+            href: dataplatform/spark-objstorage-integration.md
+          - name: '{{ msp-full-name }} integration with {{ ml-platform-name }}'
+            href: dataplatform/spark-and-datasphere.md
+          - name: >-
+              Using a {{ lockbox-name }} secret in a PySpark job to connect to
+              {{ mpg-full-name }}
+            href: dataplatform/job-pyspark-secret-access.md
   - name: Microsoft products in {{ yandex-cloud }}
     items:
       - name: All tutorials

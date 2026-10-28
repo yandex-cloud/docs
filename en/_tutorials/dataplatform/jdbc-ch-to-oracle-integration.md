@@ -7,17 +7,13 @@ With [{{ CH }} JDBC Bridge]({{ ch.docs }}{{ lang }}/integrations/jdbc/jdbc-with-
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
-The solution support costs include:
+* {{ mch-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* NAT gateway: hourly use of the gateway and its outgoing traffic if public access is not enabled for the cluster's hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
-* Fee for a {{ mch-name }} cluster : use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
-* Fee for the NAT gateway if public access is not enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-
-
-## Set up your infrastructure {#deploy-infrastructure}
+## Prepare your infrastructure {#deploy-infrastructure}
 
 1. [Create a security group](../../vpc/operations/security-group-create.md) and [configure it](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 

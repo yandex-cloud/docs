@@ -1,5 +1,7 @@
 # Getting started with {{ monitoring-full-name }}
 
+{% include [deprecation-warning](../_includes/monitoring/deprecation-warning.md) %}
+
 In this tutorial, you will create a dashboard with widgets displaying the {{ yandex-cloud }} resource status.
 
 {% note info %}

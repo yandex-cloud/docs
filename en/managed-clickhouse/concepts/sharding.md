@@ -31,11 +31,22 @@ Unlike `INSERT`, `SELECT` queries target all cluster shards regardless of the sh
 
 {% endnote %}
 
-You can distribute table data across all cluster shards or their subset, i.e., a [shard group](../operations/shard-groups.md). You can also create a distributed table either for all cluster shards or a specific shard group.
-
-This enables you to flexibly manage sharding in a {{ mch-name }} cluster.
+You can distribute table data across all cluster shards or a [shard group](../operations/shard-groups.md). A shard group may include both cluster shards and [external shards](#external-shards). You can create a distributed table either for all cluster shards or a specific shard group.
 
 For examples of different sharding methods, see [{#T}](../tutorials/sharding.md).
+
+## External shards {#external-shards}
+
+You can add new shards of external {{ CH }} clusters (so called _external shards_) to the shard groups of your {{ mch-name }} cluster. You can use such shards to solve the following tasks:
+
+* Running distributed queries to an external cluster. To do this, create a shard group consisting only of external shards.
+* Running distributed queries to a local cluster and to an external one simultaneously. To do this, create a shard group consisting of local and external shards.
+
+When running `INSERT` and `SELECT` queries to a distributed table, external shards take part in query processing under the same rules as local cluster shards.
+
+For a shard group with external shards, DDL queries are not supported.
+
+You can add external shards when [creating](../operations/shard-groups.md#create-shard-group) or [updating](../operations/shard-groups.md#update-shard-group) a shard group.
 
 ## Sharding management in {{ mch-name }} {#shard-management}
 

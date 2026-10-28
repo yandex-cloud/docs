@@ -69,6 +69,8 @@ sync_settings:
   interval: "600s"
   allow_to_capture_users: true|false
   allow_to_capture_groups: true|false
+  # Skip password updates when the password in the LDAP directory has not changed (default: false).
+  skip_unchanged_password_updates: false
   # Remove the replacement_domain line if you don't need to replace domain
   replacement_domain: "<домен_пула_пользователей>"
   # Remove the user_attribute_mapping section if you don't need to remap default user attribute names

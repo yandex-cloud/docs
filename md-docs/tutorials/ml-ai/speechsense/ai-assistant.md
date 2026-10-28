@@ -205,19 +205,23 @@
 
 ### Создайте проект {#create-project}
 
+Создайте пустой проект с именем `chats-travel-agency` и подключением `chats-default-metadata`:
+
 {% list tabs group=instructions %}
 
 - Интерфейс SpeechSense {#speechsense}
 
-    1. Откройте [главную страницу](https://speechsense.yandex.cloud/) SpeechSense.
-    1. Перейдите в нужное пространство.
-    1. Нажмите кнопку ![create](../../../_assets/console-icons/folder-plus.svg) **Создать проект**.
-    1. Введите имя проекта, например `chats-travel-agency`.
-    1. В блоке **Подключение** нажмите **Добавить подключение** и выберите подключение `chats-default-metadata`.
-    1. Нажмите кнопку **Создать проект**.
-    1. На открывшейся странице нажмите в левом верхнем углу кнопку **ID**, чтобы скопировать идентификатор созданного проекта. Сохраните этот идентификатор, он понадобится далее для [работы с API](#result-api).
+  1. В [интерфейсе](https://speechsense.yandex.cloud/) SpeechSense перейдите в нужное пространство и откройте вкладку **Проекты**.
+  1. Если в пространстве уже есть проекты, нажмите **Создать проект**. Если проектов еще нет, шаблоны отображаются на вкладке **Проекты**.
+  1. Выберите **Пустой проект**.
+  1. В блоке **Параметры проекта** введите уникальное в пределах пространства имя проекта.
+  1. В блоке **Подключение** выберите **Выбрать из списка** и укажите подключение, созданное [ранее](#create-connection).
+  1. В блоке **Какие диалоги добавить в проект?** выберите **Все**.
+  1. Нажмите **Создать** и дождитесь завершения создания проекта.
 
 {% endlist %}
+
+На странице созданного проекта нажмите в левом верхнем углу кнопку **ID**, чтобы скопировать его идентификатор. Сохраните этот идентификатор, он понадобится далее для [работы с API](#result-api).
 
 ## Создайте AI-ассистента {#create-assistant}
 
@@ -256,7 +260,7 @@
 
 ## Загрузите данные в проект {#load-data}
 
-Для работы с API Yandex Cloud потребуется Git, Python 3.6 или старше и пакет `grpcio-tools`. [Узнайте, как установить Python](https://www.python.org/downloads/).
+Для работы с API Yandex Cloud потребуются Git, Python 3.11 или новее и пакет `grpcio-tools`. [Узнайте, как установить Python](https://www.python.org/downloads/).
 
 1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
    
@@ -265,11 +269,15 @@
    ```
    
    Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-1. Установите пакет `grpcio-tools` с помощью менеджера пакетов [pip](https://pip.pypa.io/en/stable/):
+1. Создайте и активируйте виртуальное окружение, затем установите пакет `grpcio-tools` с помощью менеджера пакетов [pip](https://pip.pypa.io/en/stable/):
    
-   ```python
-   pip install grpcio-tools
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
+   python3 -m pip install grpcio-tools
    ```
+   
+   Остальные команды Python выполняйте в этом окружении.
 1. В папке с репозиторием API Yandex Cloud создайте папку `upload_data`, сгенерируйте в ней код интерфейса клиента и перейдите в эту папку:
 
     ```bash
@@ -295,113 +303,111 @@
     import argparse
     import json
     from typing import Dict
+
     import grpc
+    from google.protobuf.timestamp_pb2 import Timestamp
 
     from yandex.cloud.speechsense.v1 import talk_service_pb2
     from yandex.cloud.speechsense.v1 import talk_service_pb2_grpc
     from yandex.cloud.speechsense.v1 import text_pb2
-    from google.protobuf.timestamp_pb2 import Timestamp
 
-    def upload_talk(connection_id: str, metadata: Dict[str, str], api_key: str, text_data):
-       credentials = grpc.ssl_channel_credentials()
-       channel = grpc.secure_channel('api.speechsense.yandexcloud.net:443', credentials)
 
-       talk_service_stub = talk_service_pb2_grpc.TalkServiceStub(channel)
+    def upload_talk(connection_id: str, metadata: Dict[str, str], token: str, text_data):
+        credentials = grpc.ssl_channel_credentials()
+        channel = grpc.secure_channel('api.speechsense.yandexcloud.net:443', credentials)
+        talk_service_stub = talk_service_pb2_grpc.TalkServiceStub(channel)
 
-       messageList = []
-       for message in text_data['messages']:
-          timestamp = Timestamp()
-          timestamp.FromJsonString(value=str(message['timestamp']))
-          messageProto = text_pb2.Message(
-             user_id=str(message['user_id']),
-             text=text_pb2.TextPayload(text=str(message['text'])),
-             timestamp=timestamp
-          )
-          messageList.append(messageProto)
+        messages = []
+        for message in text_data['messages']:
+            timestamp = Timestamp()
+            timestamp.FromJsonString(message['timestamp'])
+            messages.append(text_pb2.Message(
+                user_id=str(message['user_id']),
+                text=text_pb2.TextPayload(text=message['text']),
+                timestamp=timestamp
+            ))
 
-       # Формирование запроса к API
-       request = talk_service_pb2.UploadTextRequest(
-          metadata=talk_service_pb2.TalkMetadata(
-             connection_id=str(connection_id),
-             fields=metadata),
-          text_content=text_pb2.TextContent(
-             messages=messageList)
-       )
+        request = talk_service_pb2.UploadTextRequest(
+            metadata=talk_service_pb2.TalkMetadata(
+                connection_id=connection_id,
+                fields=metadata
+            ),
+            text_content=text_pb2.TextContent(messages=messages)
+        )
+        response = talk_service_stub.UploadText(request, metadata=(('authorization', token),))
+        print(f'Dialog ID: {response.talk_id}')
 
-       # Тип аутентификации — API-ключ
-       response = talk_service_stub.UploadText(request, metadata=(
-          ('authorization', f'Api-Key {api_key}'),
-       ))
-
-       # Вывести идентификатор диалога
-       print(f'Dialog ID: {response.talk_id}')
 
     if __name__ == '__main__':
-       parser = argparse.ArgumentParser()
-       parser.add_argument('--key', required=True, help='API key', type=str)
-       parser.add_argument('--connection-id', required=True, help='Connection ID', type=str)
-       parser.add_argument('--text-path', required=True, help='JSON with text chat data', type=str)
-       parser.add_argument('--meta-path', required=False, help='JSON with the dialog metadata', type=str, default=None)
-       args = parser.parse_args()
+        parser = argparse.ArgumentParser()
+        parser.add_argument('--key', required=True, help='API key or IAM token')
+        parser.add_argument('--key-type', choices=['api-key', 'iam-token'], default='api-key', help='Credentials type')
+        parser.add_argument('--connection-id', required=True, help='Connection ID')
+        parser.add_argument('--text-path', required=True, help='JSON with text chat data')
+        parser.add_argument('--meta-path', required=True, help='JSON with the dialog metadata')
+        args = parser.parse_args()
 
-       with open(args.meta_path, 'r') as fp:
-          metadata = json.load(fp)
+        with open(args.meta_path, encoding='utf-8') as fp:
+            metadata = json.load(fp)
+        with open(args.text_path, encoding='utf-8') as fp:
+            text_data = json.load(fp)
 
-       with open(args.text_path, 'r') as fp:
-          text_data = json.load(fp)
-       upload_talk(args.connection_id, metadata, args.key, text_data)
+        token = f'Bearer {args.key}' if args.key_type == 'iam-token' else f'Api-Key {args.key}'
+        upload_talk(args.connection_id, metadata, token, text_data)
     ```
 
-1. В папке `upload_data` создайте файл `metadata.json` с метаданными разговора:
+1. В папке `upload_data` создайте файл `metadata.json` с метаданными диалога:
 
     ```json
     {
-       "operator_name": "Светлана",
-       "operator_id": "24",
-       "client_name": "Михаил",
-       "client_id": "145",
-       "date": "2025-12-01T12:34:19+03:00",
-       "direction_outgoing": "false",
-       "language": "ru-ru"
+      "operator_name": "Светлана",
+      "operator_id": "24",
+      "client_name": "Михаил",
+      "client_id": "145",
+      "date": "2026-10-22T12:34:19+03:00",
+      "direction_outgoing": "false",
+      "language": "ru-ru"
     }
     ```
+
+    Замените дату и имена на данные своего диалога. Дата в метаданных и время сообщений в следующем файле должны соответствовать друг другу.
 
 1. В папке `upload_data` создайте файл `chat.json` с текстовыми сообщениями:
 
     ```json
     {
-       "messages": [
-          {
-             "user_id": 145,
-             "text" : "Здравствуйте, есть ли у вас экскурсионные туры?",
-             "timestamp" : "2025-12-01T12:34:19+03:00"
-          },
-          {
-             "user_id": 24,
-             "text" : "Здравствуйте, Михаил. Да, есть экскурсионные туры в Европу и Азию. Какое направление вас интересует?",
-             "timestamp" : "2025-12-01T12:35:45+03:00"
-          },
-          {
-             "user_id": 145,
-             "text" : "А в какие страны Азии можно поехать без визы?",
-             "timestamp" : "2025-12-01T12:37:14+03:00"
-          },
-          {
-             "user_id": 24,
-             "text" : "Южная Корея.",
-             "timestamp" : "2025-12-01T12:38:55+03:00"
-          },
-          {
-             "user_id": 145,
-             "text" : "Спасибо, я подумаю. До свидания.",
-             "timestamp" : "2025-12-01T12:41:21+03:00"
-          },
-          {
-             "user_id": 24,
-             "text" : "До свидания.",
-             "timestamp" : "2025-12-01T12:41:50+03:00"
-          }
-       ]
+      "messages": [
+        {
+          "user_id": "145",
+          "text": "Здравствуйте, есть ли у вас экскурсионные туры?",
+          "timestamp": "2026-10-22T12:34:19+03:00"
+        },
+        {
+          "user_id": "24",
+          "text": "Здравствуйте, Михаил. Да, есть экскурсионные туры в Европу и Азию. Какое направление вас интересует?",
+          "timestamp": "2026-10-22T12:35:45+03:00"
+        },
+        {
+          "user_id": "145",
+          "text": "А в какие страны Азии можно поехать без визы?",
+          "timestamp": "2026-10-22T12:37:14+03:00"
+        },
+        {
+          "user_id": "24",
+          "text": "Южная Корея.",
+          "timestamp": "2026-10-22T12:38:55+03:00"
+        },
+        {
+          "user_id": "145",
+          "text": "Спасибо, я подумаю. До свидания.",
+          "timestamp": "2026-10-22T12:41:21+03:00"
+        },
+        {
+          "user_id": "24",
+          "text": "До свидания.",
+          "timestamp": "2026-10-22T12:41:50+03:00"
+        }
+      ]
     }
     ```
 
@@ -421,13 +427,17 @@
        --key ${API_KEY}
     ```
 
+    Параметр `--key-type` по умолчанию равен `api-key`. Чтобы использовать IAM-токен, передайте `--key-type iam-token --key ${IAM_TOKEN}`.
+
     Результат:
 
-    ```
+    ```text
     Dialog ID: audh5bbnrstk********
     ```
 
     Сохраните идентификатор созданного диалога, он понадобится далее для [работы с API](#result-api).
+
+    AI-ассистент обрабатывает диалог асинхронно. Если результат еще не появился, повторите проверку позднее. Готовность анализа отражается в поле `talk_state.processing_state` в ответе REST API и `talkState.processingState` в выводе grpcurl: значение `PROCESSING_STATE_PROCESSING` означает, что обработка продолжается, а `PROCESSING_STATE_SUCCESS` — что она завершена.
 
 ## Проверьте результат работы AI-ассистента в интерфейсе SpeechSense {#result-console}
 
@@ -453,6 +463,7 @@
     curl \
         --request POST \
         --header "Authorization: Api-Key $API_KEY" \
+        --header "Content-Type: application/json" \
         --url 'https://rest-api.speechsense.yandexcloud.net/speechsense/v1/assistants/list' \
         --data '{
                   "projectId": "<идентификатор_проекта>"
@@ -546,6 +557,8 @@
 
 ### Получите информацию о диалоге {#get-dialog-info}
 
+В запросе укажите идентификатор диалога, который сохранили [после загрузки](#load-data), и идентификатор проекта. Маска `assistants` ограничит ответ результатами работы AI-ассистентов и базовыми данными диалога.
+
 {% list tabs group=instructions %}
 
 - REST API {#api}
@@ -556,18 +569,16 @@
     curl \
         --request POST \
         --header "Authorization: Api-Key $API_KEY" \
+        --header "Content-Type: application/json" \
         --url 'https://rest-api.speechsense.yandexcloud.net/speechsense/v1/talks/get' \
         --data '{
                   "projectId": "<идентификатор_проекта>",
                   "talkIds": [
-                    "string"
+                    "<идентификатор_диалога>"
                   ],
-                  "resultsMask": 
-                    {
-                      "paths": [
-                        "assistants"
-                      ]
-                    }
+                  "resultsMask": {
+                    "paths": ["assistants"]
+                  }
                 }'
     ```
 
@@ -584,7 +595,6 @@
           "project_ids": [
             "eags34o1skdi********"
           ],
-          ...
           "assistants": {
             "assistant_results": [
               {
@@ -597,8 +607,7 @@
                 ]
               }
             ]
-          },
-          ...
+          }
         }
       ]
     }
@@ -620,17 +629,14 @@
         -d '{
               "project_id": "<идентификатор_проекта>",
               "talk_ids": [
-                <идентификатор_диалога>
+                "<идентификатор_диалога>"
               ],
-              "results_mask": 
-                {
-                  "paths": [
-                    "assistants"
-                  ]
-                }
+              "results_mask": {
+                "paths": ["assistants"]
+              }
             }' \
         api.speechsense.yandexcloud.net:443 \
-        yandex.cloud.api.speechsense.v1.TalkService.Get
+        yandex.cloud.speechsense.v1.TalkService.Get
     ```
 
     Результат:
@@ -646,7 +652,6 @@
           "projectIds": [
             "eags34o1skdi********"
           ],
-          ...
           "assistants": {
             "assistantResults": [
               {
@@ -659,8 +664,7 @@
                 ]
               }
             ]
-          },
-          ...
+          }
         }
       ]
     }
@@ -669,6 +673,50 @@
     Вы можете найти значение тематики для диалога при помощи поиска по [сохраненным ранее](#get-field-id) идентификаторам AI-ассистента и поля. Нужное значение находится в поле `talk.assistants.assistantResults.results.stringResult`: `Экскурсии`.
 
 {% endlist %}
+
+### Получите результаты для нескольких диалогов {#get-dialogs-batch}
+
+Чтобы получить данные нескольких диалогов, передайте их идентификаторы одним массивом в запросе Get. Рекомендуемый размер пакета — до 100 диалогов. Если ответ получается слишком большим, уменьшите пакет или ограничьте результаты анализа маской `resultsMask` в REST API или `results_mask` в gRPC API.
+
+Каждый вызов Get расходует [квоту на получение диалогов](https://aistudio.yandex.ru/docs/ru/speechsense/concepts/limits#speechsense-quotas). Например, данные 100 диалогов можно получить одним запросом с массивом из 100 ID. При запросе каждого диалога отдельно потребуется 100 запросов. Квоты действуют на проект и учитывают как запросы API, так и просмотр диалогов в интерфейсе SpeechSense.
+
+В этом сценарии загружен один диалог. Если в проекте есть другие диалоги, получите результаты ассистента сразу для нескольких: в приведенных выше командах Get замените тело запроса на один из шаблонов ниже. Укажите идентификаторы проекта и нужных диалогов.
+
+{% list tabs group=instructions %}
+
+- REST API {#batch-api}
+
+    ```json
+    {
+      "projectId": "<идентификатор_проекта>",
+      "talkIds": [
+        "<идентификатор_первого_диалога>",
+        "<идентификатор_второго_диалога>"
+      ],
+      "resultsMask": {
+        "paths": ["assistants"]
+      }
+    }
+    ```
+
+- gRPC API {#batch-grpc-api}
+
+    ```json
+    {
+      "project_id": "<идентификатор_проекта>",
+      "talk_ids": [
+        "<идентификатор_первого_диалога>",
+        "<идентификатор_второго_диалога>"
+      ],
+      "results_mask": {
+        "paths": ["assistants"]
+      }
+    }
+    ```
+
+{% endlist %}
+
+В ответе массив `talk` будет содержать данные найденных диалогов. Сопоставляйте результаты с диалогами по полю `talk.id`.
 
 ## Удалите ресурсы {#clear-out}
 

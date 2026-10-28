@@ -473,7 +473,6 @@ description: Из статьи вы узнаете, как изменить на
             --deletion-protection \
             --connection-pooling-mode=<режим_работы_менеджера_подключений> \
             --serverless-access=<разрешить_доступ_из_Serverless_Containers> \
-            --yandexquery-access=<разрешить_доступ_из_Yandex_Query> \
             --performance-diagnostics enabled=<активировать_сбор_статистики>,`
                                      `sessions-sampling-interval=<интервал_сбора_сессий>,`
                                      `statements-sampling-interval=<интервал_сбора_запросов> \
@@ -496,8 +495,6 @@ description: Из статьи вы узнаете, как изменить на
 
     
     * `--serverless-access` — разрешает доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
-
-    * `--yandexquery-access` — разрешает доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и предоставляется по запросу.
 
 
     * `--connection-pooling-mode` — указывает [режим работы менеджера подключений](../concepts/pooling.md): `SESSION`, `TRANSACTION` или `STATEMENT`.
@@ -653,8 +650,7 @@ description: Из статьи вы узнаете, как изменить на
            "dataLens": <разрешить_доступ_из_{{ datalens-name }}>,
            "webSql": <разрешить_доступ_из_{{ websql-name }}>,
            "serverless": <разрешить_доступ_из_Cloud_Functions>,
-           "dataTransfer": <разрешить_доступ_из_Data_Transfer>,
-           "yandexQuery": <разрешить_доступ_из_{{ yq-name }}>
+           "dataTransfer": <разрешить_доступ_из_Data_Transfer>
          },
          "performanceDiagnostics": {
            "enabled": <активировать_сбор_статистики>,
@@ -703,8 +699,7 @@ description: Из статьи вы узнаете, как изменить на
          * `dataLens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
          * `webSql` — [{{ websql-full-name }}](../../websql/index.yaml);
          * `serverless` — [{{ sf-full-name }}](../../functions/index.yaml);
-         * `dataTransfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
-         * `yandexQuery` — [{{ yq-full-name }}](../../query/index.yaml).
+         * `dataTransfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml).
 
          Возможные значения настроек: `true` или `false`.
 
@@ -797,8 +792,7 @@ description: Из статьи вы узнаете, как изменить на
            "data_lens": <разрешить_доступ_из_{{ datalens-name }}>,
            "web_sql": <разрешить_доступ_из_{{ websql-name }}>,
            "serverless": <разрешить_доступ_из_Cloud_Functions>,
-           "data_transfer": <разрешить_доступ_из_Data_Transfer>,
-           "yandex_query": <разрешить_доступ_из_{{ yq-name }}>
+           "data_transfer": <разрешить_доступ_из_Data_Transfer>
          },
          "performance_diagnostics": {
            "enabled": <активировать_сбор_статистики>,
@@ -847,8 +841,7 @@ description: Из статьи вы узнаете, как изменить на
          * `data_lens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
          * `web_sql` — [{{ websql-full-name }}](../../websql/index.yaml);
          * `serverless` — [{{ sf-full-name }}](../../functions/index.yaml);
-         * `data_transfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
-         * `yandex_query` — [{{ yq-full-name }}](../../query/index.yaml).
+         * `data_transfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml).
 
          Возможные значения настроек: `true` или `false`.
 
