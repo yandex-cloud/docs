@@ -40,6 +40,12 @@ Use the [role reference](../../roles-reference.md) to select roles.
    1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles.
    1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
+   {% note info %}
+
+   To grant access permissions to all organization users in one go, assign the `All users in organization X` role to the [system group](../../concepts/access-control/system-group.md#allOrganizationUsers).
+
+   {% endnote %}
+
 - CLI {#cli}
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -76,7 +82,7 @@ Use the [role reference](../../roles-reference.md) to select roles.
 
       * `--id`: ID of the resource to assign the role for.
       * `--role`: ID of the role you need to assign, e.g., `{{ roles-cloud-owner }}`.
-      * `--subject`: [Subject](../../concepts/access-control/index.md#subject) getting the role.
+      * `--subject`: Designation of the [subject](../../concepts/access-control/index.md#subject) the role is assigned to.
 
           {% cut "Subject designations" %}
 
@@ -122,7 +128,7 @@ Use the [role reference](../../roles-reference.md) to select roles.
       * `cloud_id`: Cloud ID. You can get the list of available clouds using the `yc resource-manager cloud list` [CLI](../../../cli/quickstart.md) command. This is a required setting.
       * `folder_id`: Folder ID. You can get the list of available folders using the `yc resource-manager cloud list` [CLI](../../../cli/quickstart.md) command. This is a required setting.
       * `role`: Role you need to assign. You can get the list of roles using the `yc iam role list` [CLI](../../../cli/quickstart.md) command. In one resource, only one role can be assigned. This is a required setting.
-      * `member`: [Subject](../../concepts/access-control/index.md#subject) getting the role. This is a required setting.
+      * `member`: Designation of the [subject](../../concepts/access-control/index.md#subject) the role is assigned to. This is a required setting.
 
           {% cut "Subject designations" %}
 
@@ -217,7 +223,7 @@ To assign a role for an organization:
 
       * `--id`: ID of the resource to assign the role for.
       * `--role`: ID of the role you need to assign, e.g., `{{ roles-cloud-owner }}`.
-      * `--subject`: [Subject](../../concepts/access-control/index.md#subject) getting the role.
+      * `--subject`: Designation of the [subject](../../concepts/access-control/index.md#subject) the role is assigned to.
 
           {% cut "Subject designations" %}
 
@@ -257,7 +263,7 @@ To assign a role for an organization:
 
       * `organization_id`: [Organization ID](../../../organization/operations/organization-get-id.md). This is a required setting.
       * `role`: Role. For each role, you can only use one `yandex_organizationmanager_organization_iam_binding` resource. This is a required setting.
-      * `member`: [Subject](../../concepts/access-control/index.md#subject) getting the role. This is a required setting.
+      * `member`: Designation of the [subject](../../concepts/access-control/index.md#subject) the role is assigned to. This is a required setting.
 
           {% cut "Subject designations" %}
 
@@ -351,7 +357,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
 
       * `--id`: ID of the resource to assign the role for.
       * `--role`: ID of the role you need to assign, e.g., `{{ roles-cloud-owner }}`.
-      * `--subject`: [Subject](../../concepts/access-control/index.md#subject) getting the role.
+      * `--subject`: Designation of the [subject](../../concepts/access-control/index.md#subject) the role is assigned to.
 
           {% cut "Subject designations" %}
 
@@ -391,7 +397,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
 
       * `folder_id`: [Folder ID](../../../resource-manager/operations/folder/get-id.md). This is a required setting.
       * `role`: Role. For each role, you can only use one `yandex_organizationmanager_organization_iam_binding` resource. This is a required setting.
-      * `member`: [Subject](../../concepts/access-control/index.md#subject) getting the role. This is a required setting.
+      * `member`: Designation of the [subject](../../concepts/access-control/index.md#subject) the role is assigned to. This is a required setting.
 
           {% cut "Subject designations" %}
 
@@ -487,7 +493,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
 
       * `--id`: ID of the resource to assign the role for.
       * `role`: ID of the role you need to assign, e.g., `{{ roles-cloud-owner }}`.
-      * `subject`: [Subject](../../concepts/access-control/index.md#subject) getting the role.
+      * `subject`: Designation of the [subject](../../concepts/access-control/index.md#subject) the role is assigned to.
 
           {% cut "Subject designations" %}
 
@@ -537,7 +543,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
 
       * `cloud_id`: Cloud ID. You can get the list of available clouds using the `yc resource-manager cloud list` [CLI](../../../cli/quickstart.md) command. This is a required setting.
       * `role`: Role you need to assign. You can get a list of roles using the [CLI](../../../cli/quickstart.md) command: `yc iam role list`. In one `yandex_resourcemanager_cloud_iam_member` resource, only one role can be assigned. This is a required setting.
-      * `members`: Designations of [subjects](../../concepts/access-control/index.md#subject) the role is assigned to. This is a required setting.
+      * `members`: Designations of [subjects](../../concepts/access-control/index.md#subject) to assign the role to. This is a required setting.
 
           {% cut "Subject designations" %}
 

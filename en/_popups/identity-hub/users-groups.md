@@ -1,0 +1,1 @@
+You can group {{ org-full-name }} users to simplify access management in {{ yandex-cloud }}. For more information, see [{#T}](../../organization/concepts/groups.md).

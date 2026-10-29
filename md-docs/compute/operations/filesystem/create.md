@@ -8,7 +8,6 @@
 
 {% endnote %}
 
-
 Чтобы создать [файловое хранилище](../../concepts/filesystem.md):
 
 {% list tabs group=instructions %}

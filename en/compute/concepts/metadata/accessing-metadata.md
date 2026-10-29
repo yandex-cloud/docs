@@ -13,7 +13,7 @@ You can [access](../../operations/vm-metadata/get-vm-metadata.md#external-access
 
 {% include [external-access-directories](../../../_includes/compute/metadata/external-access-directories.md) %}
 
-## Accessing metadata from inside the VM instance {#external-access}
+## Accessing metadata from inside the VM instance {#internal-access}
 
 {% include [vm-metadata](../../../_includes/vm-metadata.md) %}
 

@@ -140,7 +140,12 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 ### Подключение с аутентификацией через IAM {#iam}
 
-К базе данных PostgreSQL можно подключиться с помощью [интерфейса командной строки Yandex Cloud (CLI)](../../../cli/quickstart.md#install), используя аутентификацию через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../../iam/concepts/users/accounts.md#saml-federation) и [локальных пользователей](../../../iam/concepts/users/accounts.md#local). Подключение с аутентификацией через IAM не требует получения SSL-сертификата или указания FQDN хостов кластера. Публичный доступ к хостам не требуется.
+К базе данных PostgreSQL можно подключиться с помощью [интерфейса командной строки Yandex Cloud (CLI)](../../../cli/quickstart.md#install), используя аутентификацию через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../../iam/concepts/users/accounts.md#saml-federation), [локальных пользователей](../../../iam/concepts/users/accounts.md#local) и [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md). Подключение с аутентификацией через IAM не требует получения SSL-сертификата или указания FQDN хостов кластера. Публичный доступ к хостам не требуется.
+
+Для подключения через сервисный аккаунт [назначьте](../../../iam/operations/sa/set-access-bindings.md) ему роли:
+
+* [роль](../../security/index.md#managed-postgresql-clusters-connector) `managed-postgresql.clusters.connector` на кластер;
+* [роль](../../../iam/roles-reference.md#iam-serviceAccounts-user) `iam.serviceAccounts.user` или выше. Если необходим доступ для нескольких сервисных аккаунтов, назначьте эту роль на каталог.
 
 Перед подключением установите клиент PostgreSQL:
 
@@ -157,7 +162,7 @@ sudo apt update && sudo apt install --yes postgresql-client
   1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
   1. Нажмите на имя нужного кластера.
   1. Назначьте роль аккаунту пользователя, который будет подключаться к БД:
-     1. Выберите вкладку **Права доступа** и нажмите кнопку **Назначить роли**.
+     1. Выберите вкладку ![chevron-down](../../../_assets/console-icons/chevron-down.svg) **Другое** → **Права доступа** и нажмите кнопку **Назначить роли**.
      1. Введите электронную почту пользователя, к которой привязан аккаунт.
      1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `managed-postgresql.clusters.connector`.
      1. Нажмите кнопку **Сохранить**.

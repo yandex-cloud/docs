@@ -134,7 +134,7 @@
      1. Укажите параметры подсети:
 
         * **Имя** — `bastion-external-segment`.
-        * **Зона доступности** — `ru-central1-b`.
+        * **Зона доступности** — `ru-central1-a`.
         * **CIDR** — `172.16.17.0/28`.
 
      1. Нажмите кнопку **Создать подсеть**.
@@ -160,7 +160,7 @@
      1. Укажите параметры подсети:
 
         * **Имя** — `bastion-internal-segment`.
-        * **Зона доступности** — `ru-central1-b`.
+        * **Зона доступности** — `ru-central1-a`.
         * **CIDR** — `172.16.16.0/24`.
 
      1. Нажмите кнопку **Создать подсеть**.
@@ -240,7 +240,7 @@
   1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../_assets/vpc/ip-addresses.svg) **Публичные IP-адреса**.
   1. Нажмите кнопку **Зарезервировать публичный IP-адрес**.
-  1. В открывшемся окне выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-b`.
+  1. В открывшемся окне выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`.
   1. Нажмите кнопку **Зарезервировать**.
   
 {% endlist %}
@@ -255,7 +255,7 @@
 
   1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления](https://console.yandex.cloud) нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Создать ресурс** и выберите ![image](../../_assets/console-icons/cpu.svg) **Виртуальная машина**.
   1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `NAT-инстанс на основе Ubuntu 22.04 LTS` и выберите публичный образ [NAT-инстанс на основе Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/nat-instance-ubuntu-22-04-lts).
-  1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-b`.
+  1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`.
   1. В блоке **Сетевые настройки**  настройте первый сетевой интерфейс:
 
       * **Подсеть** — `bastion-external-segment`.
@@ -326,7 +326,7 @@ ssh -i ~/.ssh/<имя_файла_приватного_ключа> bastion@<пу�
 
   1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления](https://console.yandex.cloud) нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Создать ресурс** и выберите ![image](../../_assets/console-icons/cpu.svg) **Виртуальная машина**.
   1. В блоке **Образ загрузочного диска** выберите публичный образ с произвольной операционной системой, например [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts).
-  1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-b`.
+  1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`.
   1. В блоке **Сетевые настройки** настройте сетевой интерфейс:
 
       * **Подсеть** — `bastion-internal-segment`.

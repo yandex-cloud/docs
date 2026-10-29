@@ -6,7 +6,7 @@
 
 Самостоятельно [сбросить свой пароль](../operations/user-account/reset-password.md) пользователь может на странице входа в Yandex Cloud. При этом пользователь должен подтвердить свою личность, пройдя верификацию способами, установленными [политикой MFA](mfa.md#mfa-policies).
 
-Опция самостоятельного сброса пользователями своих паролей, а также доступные при этом _способы сброса_ задаются в настройках политики MFA. В настоящий момент [настроить](../operations/manage-sspr.md) эту опцию можно только в [интерфейсе Cloud Center](https://center.yandex.cloud/organization). Чтобы управлять политиками MFA, необходима [роль](../security/index.md#organization-manager-editor) `organization-manager.editor` или выше.
+Опция самостоятельного сброса пользователями своих паролей, а также доступные при этом _способы сброса_ [задаются](../operations/manage-sspr.md) в настройках политики MFA. Чтобы управлять политиками MFA, необходима [роль](../security/index.md#organization-manager-editor) `organization-manager.editor` или выше.
 
 ## Способы сброса пароля {#reset-methods}
 

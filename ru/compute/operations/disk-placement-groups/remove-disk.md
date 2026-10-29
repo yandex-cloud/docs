@@ -39,7 +39,7 @@ description: Следуя данной инструкции, вы сможете
        size       = 93
        block_size = 4096
        type       = "network-ssd-nonreplicated"
-       zone       = "{{ region-id }}-b"
+       zone       = "{{ region-id }}-a"
 
        disk_placement_policy {
          disk_placement_group_id = yandex_compute_disk_placement_group.this.id
@@ -47,7 +47,7 @@ description: Следуя данной инструкции, вы сможете
      }
 
      resource "yandex_compute_disk_placement_group" "this" {
-       zone = "{{ region-id }}-b"
+       zone = "{{ region-id }}-a"
      }
      ...
      ```

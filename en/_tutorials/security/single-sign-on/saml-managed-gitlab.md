@@ -18,13 +18,10 @@ To give access to {{ mgl-name }} to the users of your organization:
 
 - Management console {#console}
 
-   1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [{{ GL }}](../../../managed-gitlab/concepts/index.md#instance) instance.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [{{ GL }} instance](../../../managed-gitlab/concepts/index.md#instance).
    1. [Navigate]({{ link-console-main }}/link/managed-gitlab) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
    1. Click **{{ ui-key.yacloud.gitlab.button_create-instance }}**.
-   1. At the top of the page:
-
-      1. Enter a name for your instance. It must be unique within {{ yandex-cloud }}.
-
+   1. Enter the name of the instance at the top of the page. It must be unique within {{ yandex-cloud }}.
    1. Under **{{ ui-key.yacloud.gitlab.label_configuration-section }}**:
 
       1. Select the [instance type](../../../managed-gitlab/concepts/index.md#config). After you create an instance, you can [upgrade its type](../../../managed-gitlab/operations/instance/instance-update.md) to a higher performing one.
@@ -57,7 +54,7 @@ To give access to {{ mgl-name }} to the users of your organization:
 
    1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
    1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-   1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
+   1. Click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and do the following in the window that opens:
       1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.saml-title_kyofk }}** single sign-on method.
       1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify a name for your new app: `managed-gitlab-app`.
 
@@ -78,26 +75,32 @@ To give access to {{ mgl-name }} to the users of your organization:
 
 To enable {{ GL }} authentication using OmniAuth, add an authentication provider:
 
-1. In the [management console]({{ link-console-main }}), select a folder.
-1. [Navigate]({{ link-console-main }}/link/managed-gitlab) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
-1. Click the instance you created and select the **{{ ui-key.yacloud.gitlab.title_omniauth }}** tab.
-1. Click **{{ ui-key.yacloud.gitlab.button_setup-omniauth }}**.
-1. To add an authentication provider, click **Add**.
-1. Select `SAML` for the type and configure the provider as follows:
+{% list tabs group=instructions %}
 
-   * **Label**: Name of the authentication provider. Specify any name, e.g., `Identity Hub`.
-   * **Assertion consumer service URL**: HTTPS endpoint of the {{ GL }} instance. To create this URL, add `/users/auth/saml/callback` to your {{ GL }} instance URL, such as `https://example.gitlab.yandexcloud.net/users/auth/saml/callback`.
-   * **IDP certificate fingerprint**: SHA1 fingerprint of a public certificate key. Use the **{{ ui-key.yacloud_org.application.overview.field_cert-fingerprin }}** field value you got when creating the app in {{ org-full-name }}.
-   * **IDP SSO target URL**: IdP URL. Use the **{{ ui-key.yacloud_org.application.overview.saml_field_login }}** field value.
-   * **Issuer**: Unique ID of the application where user authentication will be performed, such as `https://example.gitlab.yandexcloud.net`.
-   * **Name identifier format**: Name ID format. Set it to `Persistent`.
-   * **Allow single sign on**: Enables SSO. Set it to `true`. If set to `false`, only users who already have a {{ GL }} account will be able to authenticate.
-   * **Auto link users by email**: Maps the username in OmniAuth to that in {{ GL }} if both share the same email address. Set it to `true`.
-   * **Block auto-created users**: Automatically marks the created accounts as [Pending approval]({{ gl.docs }}/ee/administration/moderate_users.html#users-pending-approval) until approved by an administrator. Set it to `false`.
-   * **External provider**: Sets the _external_ attribute for the provider. Users authenticated through this provider will be treated as [external]({{ gl.docs }}/ee/user/admin_area/external_users.html) and will have no access to [internal projects]({{ gl.docs }}/ee/user/public_access.html#internal-projects-and-groups). Set it to `false`.
-   * **Auto link LDAP user**: Creates an LDAP entity for automatically created accounts. This setting only applies to instances with an LDAP provider. Set it to `false`.
+- Management console {#console}
 
-1. Click **{{ ui-key.yacloud.common.create }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder.
+  1. [Navigate]({{ link-console-main }}/link/managed-gitlab) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. Click the instance you created and select the **{{ ui-key.yacloud.gitlab.title_omniauth }}** tab.
+  1. Click **{{ ui-key.yacloud.gitlab.button_setup-omniauth }}**.
+  1. To add an authentication provider, click **Add**.
+  1. Select `SAML` for the type and configure the provider as follows:
+
+     * **Label**: Name of the authentication provider. Specify any name, e.g., `Identity Hub`.
+     * **Assertion consumer service URL**: HTTPS endpoint of the {{ GL }} instance. To create this URL, add `/users/auth/saml/callback` to your {{ GL }} instance URL, such as `https://example.gitlab.yandexcloud.net/users/auth/saml/callback`.
+     * **IDP certificate fingerprint**: SHA1 fingerprint of a public certificate key. Use the **{{ ui-key.yacloud_org.application.overview.field_cert-fingerprin }}** field value you got when creating the app in {{ org-full-name }}.
+     * **IDP SSO target URL**: IdP URL. Use the **{{ ui-key.yacloud_org.application.overview.saml_field_login }}** field value.
+     * **Issuer**: Unique ID of the application where user authentication will be performed, such as `https://example.gitlab.yandexcloud.net`.
+     * **Name identifier format**: Name ID format. Set it to `Persistent`.
+     * **Allow single sign on**: Enables SSO. Set it to `true`. If set to `false`, only users who already have a {{ GL }} account will be able to authenticate.
+     * **Auto link users by email**: Maps the username in OmniAuth to that in {{ GL }} if both share the same email address. Set it to `true`.
+     * **Block auto-created users**: Automatically marks the created accounts as [Pending approval]({{ gl.docs }}/ee/administration/moderate_users.html#users-pending-approval) until approved by an administrator. Set it to `false`.
+     * **External provider**: Sets the _external_ attribute for the provider. Users authenticated through this provider will be treated as [external]({{ gl.docs }}/ee/user/admin_area/external_users.html) and will have no access to [internal projects]({{ gl.docs }}/ee/user/public_access.html#internal-projects-and-groups). Set it to `false`.
+     * **Auto link LDAP user**: Creates an LDAP entity for automatically created accounts. This setting only applies to instances with an LDAP provider. Set it to `false`.
+
+  1. Click **{{ ui-key.yacloud.common.create }}**.
+
+{% endlist %}
 
 ### Set up the SAML application in {{ org-full-name }} {#setup-idp}
 
@@ -165,7 +168,7 @@ For your organization's users to be able to authenticate in {{ GL }} with {{ org
 
 ## Make sure your application works correctly {#validate}
 
-To make sure both your SAML app and {{ GL }} integration work correctly, authenticate to {{ GL }} as one of the users you added to the app. Proceed as follows:
+To make sure both your SAML app and {{ GL }} integration work correctly, authenticate to {{ GL }} as one of the users you added to the app. Follow these steps:
 
 1. In your browser, open the URL of your {{ GL }} instance, e.g., `https://example.gitlab.yandexcloud.net`.
 1. If you are already authenticated in {{ GL }}, log out.

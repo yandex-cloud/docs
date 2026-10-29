@@ -1,21 +1,21 @@
 ---
 title: How to set up a {{ PG }} source endpoint in {{ data-transfer-full-name }}
-description: In this tutorial, you will learn how to configure a {{ PG }} source endpoint when creating or modifying it in {{ data-transfer-full-name }}.
+description: In this tutorial, you will learn how to create and configure an {{ PG }} source endpoint in {{ data-transfer-full-name }}.
 ---
 
 # Transferring data from a {{ PG }} source endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data from a {{ PG }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data from a {{ PG }} database and implement various transfer, processing, and transformation scenarios. To set up a transfer:
 
-1. [Explore possible data transfer scenarios](#scenarios).
+1. [Review possible data transfer scenarios](#scenarios).
 1. [Prepare the {{ PG }}](#prepare) database for the transfer.
 1. [Set up a source endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Set up one of the supported data targets](#supported-targets).
-1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. [Perform the required operations with the database](#db-actions) and [see how the transfer is going](../../monitoring.md).
-1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
+1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
+1. [Perform the required database tasks](#db-actions) while [monitoring the transfer status](../../monitoring.md).
+1. If you run into any problems, [check the available solutions](#troubleshooting) for troubleshooting.
 
-## Scenarios for transferring data from {{ PG }} {#scenarios}
+## {{ PG }} data transfer scenarios {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
@@ -46,10 +46,10 @@ For a detailed description of possible {{ data-transfer-full-name }} scenarios, 
 
 ## Configuring the {{ PG }} source endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can configure:
 
-* [{{ mpg-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
-* [Additional parameters](#additional-settings).
+* Connection settings for a [{{ mpg-full-name }} cluster](#managed-service) or a [custom deployment](#on-premise), including those running on {{ compute-full-name }} VMs. These settings are required.
+* [Optional settings](#additional-settings).
 
 Before you get started, check the [Service specifics for {{ PG }} sources and targets](../../../concepts/work-with-endpoints.md#postgresql).
 
@@ -58,7 +58,7 @@ Before you get started, check the [Service specifics for {{ PG }} sources and ta
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you will need the [`{{ roles.mpg.viewer }}`](../../../../managed-postgresql/security/index.md#mpg-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
+To create or edit a managed database endpoint, you will need the [`{{ roles.mpg.viewer }}`](../../../../managed-postgresql/security/index.md#mpg-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder where its cluster resides.
 
 {% endnote %}
 
@@ -83,7 +83,7 @@ Connection to the database with the cluster specified in {{ yandex-cloud }}.
 
     {% include [Managed PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-postgresql.md) %}
 
-    Here is an example of the configuration file structure:
+    Configuration file structure example:
 
     
     ```hcl
@@ -137,7 +137,7 @@ For OnPremise, all fields are filled in manually.
 
     {% include [On premise PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-postgresql.md) %}
 
-    Here is an example of the configuration file structure:
+    Configuration file structure example:
 
     
     ```hcl
@@ -179,11 +179,11 @@ For OnPremise, all fields are filled in manually.
 - Management console {#console}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.table_filter.title }}**: 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}**: Only data from the tables listed here will be transferred.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}**: The system will only transfer data from the tables in this list.
 
             {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.exclude_tables.title }}**: Data from the listed tables is not transferred.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.exclude_tables.title }}**: The system will not transfer data from the tables in this list.
 
       The lists include the name of the [schema]({{ pg-docs }}/ddl-schemas.html) that describes the DB contents, structure, and integrity constraints, as well as the table name. Both lists support expressions in the following format:
 
@@ -238,7 +238,7 @@ For OnPremise, all fields are filled in manually.
 
         {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-    * `--exclude-table`: List of excluded tables. Data from the listed tables will not be transferred.
+    * `--exclude-table`: List of excluded tables. The system will not transfer data from the tables in this list.
 
       The lists include the name of the schema that describes the DB contents, structure, and integrity constraints, as well as the table name. Both lists support expressions in the following format:
 
@@ -258,11 +258,11 @@ For OnPremise, all fields are filled in manually.
 
 - {{ TF }} {#tf}
 
-    * `include_tables`: List of included tables. Only the data from the tables listed here will be transferred.
+    * `include_tables`: List of included tables. The system will only transfer data from the tables in this list.
 
         {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-    * `exclude_tables`: List of excluded tables. Data from the listed tables will not be transferred.
+    * `exclude_tables`: List of excluded tables. The system will not transfer data from the tables in this list.
 
       The lists include the name of the schema that describes the DB contents, structure, and integrity constraints, as well as the table name. Both lists support expressions in the following format:
 
@@ -304,11 +304,11 @@ For OnPremise, all fields are filled in manually.
 
 - API {#api}
 
-    * `includeTables`: List of included tables. Only the data from the tables listed here will be transferred.
+    * `includeTables`: List of included tables. The system will only transfer data from the tables in this list.
 
         {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-    * `excludeTables`: List of excluded tables. Data from the listed tables will not be transferred.
+    * `excludeTables`: List of excluded tables. The system will not transfer data from the tables in this list.
 
       The lists include the name of the schema that describes the DB contents, structure, and integrity constraints, as well as the table name. Both lists support expressions in the following format:
 
@@ -357,7 +357,7 @@ When editing the settings of an endpoint of the transfer in the {{ dt-status-rep
 
 Replication cannot guarantee that sequence values are preserved, so we recommend updating the `sequence` on the target.
 
-## Configuring the data target {#supported-targets}
+## Configuring the target {#supported-targets}
 
 Configure one of the supported data targets:
 
@@ -374,13 +374,71 @@ Configure one of the supported data targets:
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
-After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).
 
 ## Operations with the database during transfer {#db-actions}
 
 {% include [work with db](../../../../_includes/data-transfer/endpoints/sources/pg-work-with-db.md) %}
 
-## Troubleshooting data transfer issues {#troubleshooting}
+## Mapping supported data types between DBMS and endpoint {#type-mapping}
+
+#|
+|| **{{ PG }} type** | **Endpoint type** ||
+|| BIGINT | int64 ||
+|| INTEGER | int32 ||
+|| SMALLINT | int16 ||
+|| — | int8 ||
+|| — | uint64 ||
+|| — | uint32 ||
+|| — | uint16 ||
+|| — | uint8 ||
+|| — | float ||
+|| DOUBLE PRECISION
+NUMERIC
+REAL | double ||
+|| BIT
+BIT VARYING
+BIT VARYING(N)
+BIT(N)
+BYTEA | string ||
+|| ABSTIME
+CHAR
+CHARACTER VARYING
+DATA
+INTERVAL
+MONEY
+NAME
+TEXT
+TIME WITH TIME ZONE
+TIME WITHOUT TIME ZONE
+UUID | utf8 ||
+|| BOOLEAN | boolean ||
+|| DATE | date ||
+|| — | datetime ||
+|| TIMESTAMP WITH TIME ZONE
+TIMESTAMP WITHOUT TIME ZONE | timestamp ||
+|| ARRAY
+CHARACTER(N)
+CIDR
+CITEXT
+DATERANGE
+HSTORE
+INET
+INT4RANGE
+INT8RANGE
+JSON
+JSONB
+MACADDR
+NUMRANGE
+OID
+POINT
+REST...
+TSRANGE
+TSTZRANGE
+XML | any ||
+|#
+
+## Data transfer troubleshooting {#troubleshooting}
 
 Known issues when using a {{ PG }} endpoint:
 

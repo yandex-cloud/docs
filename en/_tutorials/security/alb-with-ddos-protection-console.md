@@ -578,7 +578,6 @@ To create a load balancer:
 
   1. Open the [management console]({{ link-console-main }}).
   1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. In the left-hand menu, select **{{ ui-key.yacloud.alb.label_load-balancers }}**.
   1. Click **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
   1. Enter the load balancer name: `ddos-protect-alb`.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select `ddos-network` and the `ddos-sg-balancer` security group.

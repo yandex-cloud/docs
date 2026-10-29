@@ -11,9 +11,9 @@ description: In this tutorial, you will learn how to set up a {{ IBRG }} target 
 1. [Configure one of the supported data sources](#supported-sources).
 1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
-1. Perform the required operations with the tables and [see how the transfer is going](../../monitoring.md).
+1. Perform the required database tasks while [monitoring the transfer status](../../monitoring.md).
 
-## Scenarios for transferring data to {{ IBRG }} {#scenarios}
+## {{ IBRG }} data transfer scenarios {#scenarios}
 
 For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
 
@@ -106,9 +106,9 @@ Connection with the cluster specified in {{ yandex-cloud }}.
 
         * `{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergCleanupPolicy.ICEBERG_CLEANUP_POLICY_DISABLED.title }}`: Use the existing tables to write new data.
 
-        * `{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergCleanupPolicy.ICEBERG_CLEANUP_POLICY_DROP.title }}`: Remove all tables involved in the transfer.
+        * `{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergCleanupPolicy.ICEBERG_CLEANUP_POLICY_DROP.title }}`: Delete all tables included in the transfer.
 
-        Use this option to always transfer the latest table schemas on every transfer activation.
+        Use it to always transfer the latest table schemas on every transfer activation.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergTarget.writer_settings.title }}**: Settings for data writes to {{ IBRG }} tables:
 
@@ -125,3 +125,26 @@ Connection with the cluster specified in {{ yandex-cloud }}.
 {% endlist %}
 
 Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).
+
+## Mapping supported data types between DBMS and endpoint {#type-mapping}
+
+#|
+|| **{{ IBRG }} type** | **Endpoint type** ||
+|| long | int64 ||
+|| int | int32 ||
+|| int | int16 ||
+|| int | int8 ||
+|| decimal(20, 0) | uint64 ||
+|| long | uint32 ||
+|| int | uint16 ||
+|| int | uint8 ||
+|| float | float ||
+|| double | double ||
+|| string | string ||
+|| string | utf8 ||
+|| boolean | boolean ||
+|| date | date ||
+|| timestamp | datetime ||
+|| timestamp | timestamp ||
+|| string | any ||
+|#

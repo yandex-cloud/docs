@@ -6,7 +6,7 @@ Create a [cloud network](../../../vpc/concepts/network.md) and [subnets](../../.
 
   1. In the [management console]({{ link-console-main }}), select the folder to deploy the infrastructure in.
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. In the top-right corner, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter a name for the network. The naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}

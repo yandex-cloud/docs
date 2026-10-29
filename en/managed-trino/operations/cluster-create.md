@@ -2,12 +2,12 @@
 title: Creating a {{ TR }} cluster
 description: Every {{ mtr-name }} cluster consists of a set of {{ TR }} components, each of which may have multiple instances. These instances may reside in different availability zones.
 keywords:
-  - creating an {{ TR }} cluster
+  - creating a {{ TR }} cluster
   - '{{ TR }} cluster'
   - '{{ TR }}'
 ---
 
-# Creating an {{ TR }} cluster
+# Creating a {{ TR }} cluster
 
 Each {{ mtr-name }} cluster consists of {{ TR }} components: a [coordinator](../concepts/index.md#coordinator) and [workers](../concepts/index.md#workers), which may have multiple instances.
 
@@ -62,14 +62,16 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
     1. Optionally, under **Retry policy**, specify the [fault-tolerant query execution](../concepts/retry-policy.md) parameters:
 
         {% note warning %}
-        
+
         This setting affects query performance.
-        
+
         {% endnote %}
 
         1. Select an **Object type for retry**.
+
            * **Task**: Retries the intermediate task within the query that caused worker failure.
            * **Query**: Retries all [stages of the query](../concepts/index.md#query-execution) where worker failure occurred.
+
         1. Optionally, specify additional parameters in `key: value` format in the **Retry parameters** field. Learn more about parameters in [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
         1. Optionally, specify additional Exchange Manager storage parameters in `key: value` format in the **{{ ui-key.yacloud.trino.field_retry-storage-properties }}** field. Learn more about parameters in [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
         1. Select **{{ ui-key.yacloud.trino.field_retry-storage-type }}** for Exchange Manager:
@@ -80,6 +82,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             For more on storage types, see [{#T}](../concepts/retry-policy.md#exchange-manager-storage).
 
     1. Configure the [coordinator](../concepts/index.md#coordinator) and [workers](../concepts/index.md#workers).
+
+        {% include [host-resources-note](../../_includes/managed-trino/host-resources-note.md) %}
+
     1. Optionally, under **{{ ui-key.yacloud.trino.title_catalogs }}**, add [{{ TR }} catalogs](../concepts/index.md#catalog). You can do this either when creating the cluster or later. For more information, see [Creating a {{ TR }} catalog](catalog-create.md).
     1. Optionally, under **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}**, set [rules for access to cluster objects](../concepts/access-control.md). For more information, see [{#T}](../operations/access-control.md).
     1. Optionally, under **{{ ui-key.yacloud.trino.section_resource-management }}**, [configure the resource groups](../concepts/access-control.md). For more information, see [{#T}](manage-resource-groups.md).
@@ -89,17 +94,18 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         1. Optionally, select cluster [maintenance](../concepts/maintenance.md) time:
 
             {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
-        
+
         1. Optionally, set the TLS properties.
-        
+
            {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#tls) %}
-           
+
            Upload one or more user certificates in PEM format:
+
            * Self-signed certificate.
            * Certificate issued by a third-party certification authority with a chain of intermediate certificates. You must upload the certificate together with its certificate chain in one field.
 
               {% cut "Example" %}
-              
+
               ```text
               -----BEGIN CERTIFICATE-----
               <certificate>
@@ -109,13 +115,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
               -----END CERTIFICATE-----
               ...
               -----BEGIN CERTIFICATE-----
-              <intermediate_certificate_N>
+              <intermediate_certificate_n>
               -----END CERTIFICATE-----
               -----BEGIN CERTIFICATE-----
               <root_certificate>
               -----END CERTIFICATE-----
               ```
-              
+
               {% endcut %}
 
            {% include notitle [tls-pg-ch](../../_includes/managed-trino/cluster-settings.md#tls-pg-ch) %}
@@ -124,8 +130,10 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
             1. Enable the **{{ ui-key.yacloud.logging.field_logging }}** setting.
             1. Select the log destination:
+
                 * **{{ ui-key.yacloud.common.folder }}**: Select a folder from the list. Logs will be written to the selected folder's default log group.
                 * **{{ ui-key.yacloud.logging.label_group }}**: Select a [log group](../../logging/concepts/log-group.md) from the list or create a new one.
+
             1. Select **{{ ui-key.yacloud.logging.label_minlevel }}** from the list.
 
     1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -174,7 +182,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         * `--version`: {{ TR }} version.
 
           {% include [change-version-note](../../_includes/managed-trino/change-version-note.md) %}
-        
+
         * `--service-account-id`: Service account ID.
         * `--subnet-ids`: List of subnet IDs.
         * `--security-group-ids`: List of security group IDs.
@@ -193,18 +201,20 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `minCount`: Minimum number of workers for autoscaling.
             * `maxCount`: Maximum number of workers for autoscaling.
 
+            {% include [host-resources-note](../../_includes/managed-trino/host-resources-note.md) %}
+
             Specify either a fixed number of workers (`count`), or minimum and maximum number of workers (`minCount`, `maxCount`) for automatic scaling.
 
         * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
             Even with deletion protection on, one can still connect to the cluster manually and delete it.
-        
+
         * `--trusted-certs-from-files`: List of certificate paths, separated by commas.
 
            {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#tls) %}
-        
+
            {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#cert-list) %}
-           
+
            {% include notitle [tls-pg-ch](../../_includes/managed-trino/cluster-settings.md#tls-pg-ch) %}
 
     1. Set these logging parameters to activate sending {{ TR }} logs to [{{ cloud-logging-full-name }}](../../logging/):
@@ -316,6 +326,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         {% include [Terraform cluster parameters description](../../_includes/managed-trino/terraform/cluster-parameters.md) %}
 
+        {% include [host-resources-note](../../_includes/managed-trino/host-resources-note.md) %}
+
     1. To create [{{ TR }} catalogs](../concepts/index.md#catalog) in the cluster, add the required number of `yandex_trino_catalog` resources to the configuration file. You can do this either when creating the cluster or later. For more information, see [Creating a {{ TR }} catalog](catalog-create.md).
 
     1. To enable sending {{ TR }} logs to [{{ cloud-logging-full-name }}](../../logging/), add the `logging` section to the cluster description:
@@ -334,7 +346,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         {% include [Terraform maintenance window parameters description](../../_includes/managed-trino/terraform/maintenance-window-parameters.md) %}
 
-    1. To set the TLS parameters:
+    1. Set the TLS parameters:
 
        {% include [tls description](../../_includes/managed-trino/terraform/tls.md) %}
 
@@ -360,7 +372,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
        {% note info %}
 
-       This example does not use all available parameters. For a complete list of parameters, see [this API reference](../api-ref/Cluster/create.md#yandex.cloud.trino.v1.CreateClusterRequest).
+       This example does not use all available parameters. For a complete list of parameters, see [this API article](../api-ref/Cluster/create.md#yandex.cloud.trino.v1.CreateClusterRequest).
 
        {% endnote %}
 
@@ -444,6 +456,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         * `labels`: List of labels provided in `"<key>": "<value>"` format.
         * `trino`: Configuration of {{ TR }} cluster [components](../concepts/index.md#cluster-architecture).
 
+            {% include [host-resources-note](../../_includes/managed-trino/host-resources-note.md) %}
+
             * `coordinatorConfig`: Coordinator configuration.
 
                * `resources.resourcePresetId`: [Class of the coordinator's computing resources](../concepts/instance-types.md).
@@ -463,21 +477,21 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                       * `minCount`: Minimum number of workers.
                       * `maxCount`: Maximum number of workers.
 
-                  Specify either `fixedScale` or `autoScale`. 
+                  Specify either `fixedScale` or `autoScale`.
 
             * `retryPolicy`: [Fault-tolerant query execution](../concepts/retry-policy.md) parameters.
 
                * `policy`: Query retry method. The possible values are:
 
                   * `TASK`: Retries the intermediate task within the query that caused worker failure.
-                  * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) where worker failure occurred.
+                  * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) in which the worker failed.
 
                * `exchangeManager.storage`: Bucket type used as Exchange Manager storage. Specify either of these two parameters:
 
                   * `serviceS3`: Use a service bucket on the {{ mtr-name }} side. `"serviceS3": {}`: Leave the object empty.
                   * `s3.bucket`: The name of the user's [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md). Make sure to grant the [storage.editor](../../storage/security/index.md#storage-editor) role to the cluster's [service account](../../iam/concepts/users/service-accounts.md).
 
-                  Lear more about storage types [{#T}](../concepts/retry-policy.md#exchange-manager-storage)here.
+                  Lear more about storage types [{#T}](../concepts/retry-policy.md#exchange-manager-storage).
 
                * `exchangeManager.additionalProperties`: Additional Exchange Manager storage parameters in `key: value` format. Learn more about parameters in [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
@@ -498,7 +512,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                * `trustedCertificates`: Comma-separated list of certificates.
 
                   {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#cert-list) %}
-               
+
                {% include notitle [tls-pg-ch](../../_includes/managed-trino/cluster-settings.md#tls-pg-ch) %}
 
             * `accessControl`: Configuration of [cluster object access rules](../concepts/access-control.md). For more information, see [{#T}](../operations/access-control.md).
@@ -559,7 +573,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
        {% note info %}
 
-       This example does not use all available parameters. For a complete list of parameters, see [this API reference](../api-ref/grpc/Cluster/create.md#yandex.cloud.trino.v1.CreateClusterRequest).
+       This example does not use all available parameters. For a complete list of parameters, see [this API article](../api-ref/grpc/Cluster/create.md#yandex.cloud.trino.v1.CreateClusterRequest).
 
        {% endnote %}
 
@@ -643,6 +657,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         * `labels`: List of labels provided in `"<key>": "<value>"` format.
         * `trino`: Configuration of {{ TR }} cluster [components](../concepts/index.md#cluster-architecture).
 
+            {% include [host-resources-note](../../_includes/managed-trino/host-resources-note.md) %}
+
             * `coordinator_config`: Coordinator configuration.
 
                * `resources.resource_preset_id`: [Class of the coordinator's computing resources](../concepts/instance-types.md).
@@ -669,7 +685,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                * `policy`: Query retry method. The possible values are:
 
                   * `TASK`: Retries the intermediate task within the query that caused worker failure.
-                  * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) where worker failure occurred.
+                  * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) in which the worker failed.
 
                * `exchange_manager.storage`: Bucket type used as Exchange Manager storage. Specify either of these two parameters:
 
@@ -734,7 +750,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                   > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
-    1. Call the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+    1. Send a [ClusterService/Create](../api-ref/grpc/Cluster/create.md) request, e.g., using {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \

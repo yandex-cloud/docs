@@ -8,4 +8,10 @@
 
     {% include [send-invitation](./send-invitation.md) %}
 
-1. Click **{{ ui-key.yacloud_components.organization.action_send-invitation_6LqIj }}**.
+1. To send invitations, click **{{ ui-key.yacloud_components.organization.action_next }}**. This will open the window for assigning roles and adding users to the group.
+
+1. {% include [assign-roles-on-invite](../organization/assign-roles-on-invite.md) %}
+
+    You can assign roles for an [organization](../../organization/concepts/organization.md), [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). The roles assigned for organizations, clouds, and folders also apply to their nested resources.
+
+1. {% include [add-to-group-on-invite](../organization/add-to-group-on-invite.md) %}

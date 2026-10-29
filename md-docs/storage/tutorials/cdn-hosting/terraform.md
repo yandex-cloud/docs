@@ -2,8 +2,6 @@
 
 # Настройка хостинга статического сайта в бакете Yandex Object Storage с доступом через Yandex Cloud CDN с помощью Terraform
 
-
-
 Чтобы создать инфраструктуру для хостинга [сайта в бакете с доступом через Yandex Cloud CDN](index.md) с помощью Terraform:
 
 1. [Подготовьте облако к работе](#before-you-begin).

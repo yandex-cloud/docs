@@ -43,7 +43,7 @@
        size       = 93
        block_size = 4096
        type       = "network-ssd-nonreplicated"
-       zone       = "ru-central1-b"
+       zone       = "ru-central1-a"
 
        disk_placement_policy {
          disk_placement_group_id = yandex_compute_disk_placement_group.this.id
@@ -51,7 +51,7 @@
      }
 
      resource "yandex_compute_disk_placement_group" "this" {
-       zone = "ru-central1-b"
+       zone = "ru-central1-a"
      }
      ...
      ```

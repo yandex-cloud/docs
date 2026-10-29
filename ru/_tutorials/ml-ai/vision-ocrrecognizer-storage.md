@@ -1,5 +1,6 @@
 # Регулярное распознавание изображений и PDF-документов из бакета {{ objstorage-short-name }}
 
+
 В этом руководстве вы с помощью [{{ vision-full-name }}]({{ link-docs-ai }}vision/concepts/ocr/index) настроите автоматическое распознавание изображений в [поддерживаемых форматах]({{ link-docs-ai }}vision/concepts/ocr/index#image-requirements) и PDF-документов, регулярно загружаемых в [бакет]({{ link-docs }}/storage/concepts/bucket) [{{ objstorage-full-name }}]({{ link-docs }}/storage/).
 
 

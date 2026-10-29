@@ -9,7 +9,15 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы посмотреть метрики в интерфейсе {{ sws-name }}:
 
-{% include [view-metrics](../../_includes/smartwebsecurity/view-metrics.md) %}
+Вы можете посмотреть дашборды одним из способов:
+
+* На [странице]({{ link-console-main }}/link/smartwebsecurity) сервиса {{ sws-name }} выберите раздел ![display-pulse](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
+* В разделе **{{ ui-key.yacloud.common.monitoring }}** справа вверху нажмите **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}**. Выберите вкладку:
+  * **Anti-DDoS** — графики профилей безопасности и ARL.
+  * **SolidWall WAF** — графики профиля [SolidWall WAF](../concepts/solidwall-waf.md). 
+* На [странице]({{ link-console-main }}/link/application-load-balancer) сервиса {{ alb-name }}:
+  1. Выберите балансировщик, к которому привязан профиль безопасности.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**, затем на вкладку **Smart Web Security**.
 
 ## Описание дашбордов для мониторинга {{ sws-name }} {#monitoring-dashboards}
 
@@ -27,7 +35,7 @@ description: Следуя данной инструкции, вы сможете
 
 * **Denied by Security Profile RPS** — количество входящих запросов в секунду, которые были проверены и заблокированы профилем безопасности.
 
-   Метрика — `load_balancer.smart_web_security.requests_per_second`, отфильтрованная при помощи метки `antirobot_verdict`=`deny`.
+    Метрика — `load_balancer.smart_web_security.requests_per_second`, отфильтрованная при помощи метки `antirobot_verdict`=`deny`.
 
 * **Redirected to SmartCaptcha RPS** — количество входящих запросов в секунду, направленных в {{ captcha-name }} для дополнительной верификации.
 
@@ -66,7 +74,9 @@ description: Следуя данной инструкции, вы сможете
 
     {% endnote %}
 
+Вы можете комбинировать несколько метрик на одном графике и [настраивать свои дашборды](../../monium/operations/dashboard/create.md) в сервисе {{ monium-name }}.
+
 #### Полезные ссылки {#see-also}
 
 * [{#T}](../metrics.md)
-* [{#T}](../../monitoring/concepts/visualization/dashboard.md)
+* [{#T}](../../monium/concepts/visualization/dashboard.md)

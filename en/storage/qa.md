@@ -12,6 +12,7 @@ description: This page covers questions and answers about {{ objstorage-name }}.
 * [How can I leave feedback on {{ objstorage-full-name }}?](#qa-feedback)
 * [How do I contact support?](#qa-support-channels)
 * [How much data can I store?](#qa-storage-volume)
+* [Why are objects not uploading, even though the maximum bucket size has not been reached yet?](#qa-upload-storage-quota)
 * [How can I delete multiple objects at a time?](#qa-delete-multiple-objects)
 * [A service account cannot access a bucket, why is that?](#sa-bucket-access)
 * [What does {{ yandex-cloud }} do with the data I store in {{ objstorage-full-name }}?](#qa-data-use-by-platform)
@@ -72,6 +73,18 @@ You can contact technical support from the management console in the [Support]({
 #### How much data can I store? {#qa-storage-volume}
 
 See [{#T}](concepts/limits.md).
+
+#### Why are objects not uploading, even though the maximum bucket size has not been reached yet? {#qa-upload-storage-quota}
+
+Your cloud's **{{ ui-key.yacloud_quotas.quotas.storage.volume.size-key-value }}** [quota](concepts/limits.md#storage-quotas) (`storage.volume.size`) may be exhausted. The management console may display this error message: `We encountered an internal error, please try again`.
+
+[Maximum bucket size](operations/buckets/limit-max-volume.md) limits data size in an individual bucket, whereas the `storage.volume.size` quota limits total data size across all buckets in the cloud. Increasing the maximum bucket size does not change the cloud quota.
+
+For example, if the maximum bucket size is 500 GB and the cloud quota is 100 GB, new object uploads may fail once 100 GB total size is reached across all the cloud's buckets.
+
+1. [View the `storage.volume.size` quota value and consumption](../quota-manager/operations/read-quotas.md) for the cloud the bucket resides in.
+1. If the quota is exhausted or the remaining amount is not enough for the upload, [request a quota increase](../quota-manager/operations/set-quotas.md).
+1. After the quota is increased, reupload the objects.
 
 #### How can I delete multiple objects at a time? {#qa-delete-multiple-objects}
 
@@ -148,7 +161,7 @@ This is why we cannot specify a particular response time value. However, we keep
 
 #### How do I add my own domain to an {{ objstorage-name }} bucket? {#domain-bucket}
 
-To add your [domain](operations/hosting/own-domain.md) to a [bucket](concepts/bucket.md):
+To [add](operations/hosting/own-domain.md) your domain to a [bucket](concepts/bucket.md):
 
 1. [Create](operations/buckets/create.md) a bucket with the same name as your domain.
 

@@ -24,7 +24,7 @@ To update local user data:
 
       1. Update the username, [domain](../../concepts/domains.md), and full name.
       1. Add or update the email address.
-      1. Optionally, in the **Deactivation date** field, clear or edit the date when the account will be automatically blocked. If no date is set, the account will be valid indefinitely.
+      1. Optionally, in the **Deactivation date** field, clear or edit the date when the account will be automatically blocked. If the date field is empty, the account will never expire.
       1. Expand the **{{ ui-key.yacloud_org.organization.userpools.title_personal-info }}** section and update the user's first name, last name, and phone number.
       1. Expand the **Organizational information** section, and specify the company name, department, job title, and employee ID of the user.
       1. Click **{{ ui-key.yacloud_org.organization.userpools.action_update-user }}**.
@@ -75,13 +75,14 @@ To update local user data:
 
      ```hcl
      resource "yandex_organizationmanager_idp_user" "example_user" {
-       userpool_id  = <pool_ID>
+       userpool_id  = "<pool_ID>"
        username     = "<user_login_and_domain>"
        full_name    = "<user_first_and_last_name>"
        given_name   = "<username>"
        family_name  = "<user_last_name>"
        email        = "<user_email>"
        phone_number = "<user_phone_number>"
+       expires_at   = "2027-01-01T00:00:00Z"
      }
      ```
 
@@ -93,6 +94,7 @@ To update local user data:
      * `family_name`: New user last name.
      * `email`: New user email address.
      * `phone_number`: New user phone number.
+     * `expires_at`: Date and time when the account will be automatically suspended, in [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339) format. This is an optional parameter; specify it as you need instead of the sample date.
 
      For more on the properties of the `yandex_organizationmanager_idp_user` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
 
@@ -108,6 +110,6 @@ To update local user data:
 
 - API {#api}
 
-  Use the [User.Update](../../idp/api-ref/User/update.md) REST API method for the [User](../../idp/api-ref/User/index.md) resource or the [UserService/Update](../../idp/api-ref/grpc/User/update.md) gRPC API call.
+    Use the [update](../../idp/api-ref/User/update.md) REST API method for the [User](../../idp/api-ref/User/index.md) resource or the [UserService/Update](../../idp/api-ref/grpc/User/update.md) gRPC API call.
 
 {% endlist %}

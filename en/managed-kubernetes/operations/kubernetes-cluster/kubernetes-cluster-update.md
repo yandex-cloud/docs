@@ -21,9 +21,7 @@ You can change the following parameters of a [{{ managed-k8s-name }} cluster](..
 * [Service accounts](../../../iam/operations/sa/create.md).
 * [Resource configuration](../../concepts/index.md#master-resources) for the master.
 * [{{ k8s }} version](../../concepts/release-channels-and-updates.md).
-* [Updates](../../concepts/release-channels-and-updates.md#updates) policy.
 * List of [security groups](../connect/security-groups.md).
-* Settings for sending logs to [{{ cloud-logging-full-name }}](../../../logging/).
 
   {% note alert %}
 
@@ -31,7 +29,8 @@ You can change the following parameters of a [{{ managed-k8s-name }} cluster](..
 
   {% endnote %}
 
-* [Subnet mask](../../../vpc/concepts/network.md#subnet) of the [{{ managed-k8s-name }} nodes](../../concepts/index.md#node-group).
+* [Updates](../../concepts/release-channels-and-updates.md#updates) policy.
+* Cluster network settings.
 
   {% note warning %}
 
@@ -39,6 +38,10 @@ You can change the following parameters of a [{{ managed-k8s-name }} cluster](..
   * After changing the subnet mask, you must recreate the cluster node groups.
 
   {% endnote %}
+
+  {% include [cluster-multi-cidr-note](../../../_includes/managed-kubernetes/cluster-multi-cidr-note.md) %}
+
+* Settings for sending logs to [{{ cloud-logging-full-name }}](../../../logging/).
 
 Learn how to change a cluster [availability zone](../../../overview/concepts/geo-scope.md) in [{#T}](../../tutorials/migration-to-an-availability-zone.md).
 
@@ -65,7 +68,7 @@ Learn how to change a cluster [availability zone](../../../overview/concepts/geo
      {{ yc-k8s }} cluster update --help
      ```
 
-  1. Run the command listing the settings you want to update (not all settings are listed in the example below):
+  1. Run the command after providing the list of settings you want to update (not all settings are listed in the example below):
 
      ```bash
      {{ yc-k8s }} cluster update <Managed_Service_for_Kubernetes_cluster_name> \
@@ -137,7 +140,7 @@ Learn how to change a cluster [availability zone](../../../overview/concepts/geo
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -343,7 +346,7 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 

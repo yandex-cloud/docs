@@ -28,7 +28,7 @@ description: Следуя данной инструкции, вы сможете
 1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Выберите [кластер {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster).
 1. Нажмите на вкладку **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
-1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Chaos Mesh с поддержкой Yandex Cloud](/marketplace/products/yc/chaos-mesh) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
+1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Chaos Mesh с поддержкой {{ yandex-cloud }}](/marketplace/products/yc/chaos-mesh) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
 
    * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `chaos-mech-space`). Если вы оставите пространство имен по умолчанию, Chaos Mesh может работать некорректно.
@@ -58,7 +58,9 @@ description: Следуя данной инструкции, вы сможете
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
+
 Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/chaos-mesh#docker-images).
+
 
 ## Веб-интерфейс и авторизация в Chaos Mesh {#interface-and-authorization}
 

@@ -4,7 +4,6 @@
 
 # Выгрузка данных Greenplum® в гибридное хранилище
 
-
 В кластере Greenplum® можно включить [гибридное хранилище](../../managed-greenplum/concepts/hybrid-storage.md) для [таблиц типа AO и AOCO](../../managed-greenplum/concepts/tables.md) (append-optimized storage). Тогда с помощью [расширения Yezzey](../../managed-greenplum/operations/extensions/yezzey.md) данные этих таблиц можно перенести из хранилища кластера в гибридное хранилище.
 
 Гибридное хранилище удобно, если данные нужно хранить долго, а работать с ними планируется редко. Так хранение [будет дешевле](../../managed-greenplum/pricing/index.md#rules-storage).

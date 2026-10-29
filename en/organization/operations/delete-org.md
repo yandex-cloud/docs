@@ -5,6 +5,8 @@ description: In this tutorial, you will learn how to delete an organization in {
 
 # Deleting an organization
 
+To delete a {{ yandex-360 }} organization, follow [this {{ yandex-360 }} guide](https://yandex.ru/support/yandex-360/business/admin/ru/organization/delete-organization).
+
 {% note info %}
 
 To delete an organization, a user needs the `organization-manager.organizations.owner` role. For information on assigning roles to users, see [Roles](../security/index.md#add-role).

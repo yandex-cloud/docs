@@ -13,15 +13,93 @@ The deletion of a user account from an [organization](../concepts/organization.m
 
 {% endnote %}
 
-## Deleting a Yandex account user or federated user {#yandex-and-federated} 
+## Deleting a user with a Yandex account {#yandex-and-federated}
 
-To delete a [Yandex account](../../iam/concepts/users/accounts.md#passport) user or [federated](../../iam/concepts/users/accounts.md#saml-federation) user from an organization:
+To delete a [Yandex account](../../iam/concepts/users/accounts.md#passport) user from an organization:
 
 {% list tabs group=instructions %}
 
 - {{ cloud-center }} UI {#cloud-center}
 
   {% include [delete-user-ui](../../_includes/organization/delete-user-ui.md) %}
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. View the command description:
+
+      ```bash
+      yc organization-manager user remove --help
+      ```
+
+  1. Delete the user's membership in the organization:
+
+      ```bash
+      yc organization-manager user remove \
+        --organization-id <organization_ID> \
+        --subject-id <user_ID>
+      ```
+
+      Specify the [organization ID](organization-get-id.md) and [user ID](users-get.md). Both parameters are required for this example.
+
+- API {#api}
+
+    Use the [deleteMembership](../api-ref/User/deleteMembership.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/DeleteMembership](../api-ref/grpc/User/deleteMembership.md) gRPC API call.
+
+{% endlist %}
+
+## Deleting a federated user {#federated}
+
+To delete a [federated user](../../iam/concepts/users/accounts.md#saml-federation) from the organization:
+
+{% list tabs group=instructions %}
+
+- {{ cloud-center }} UI {#cloud-center}
+
+  {% include [delete-user-ui](../../_includes/organization/delete-user-ui.md) %}
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. View the command description:
+
+      ```bash
+      yc organization-manager user remove --help
+      ```
+
+  1. Delete the user's membership in the organization:
+
+      ```bash
+      yc organization-manager user remove \
+        --organization-id <organization_ID> \
+        --subject-id <user_ID>
+      ```
+
+      Specify the [organization ID](organization-get-id.md) and [user ID](users-get.md). Both parameters are required for this example.
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  1. In a configuration that controls the federated user, delete that user's `yandex_organizationmanager_saml_federation_user_account` section and links to it. This deletes the user's membership in the organization but not their account with the identity provider.
+
+     For more information on the `yandex_organizationmanager_saml_federation_user_account` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_saml_federation_user_account).
+
+  1. Apply the changes after reviewing the list of resources you want to delete in the plan:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+- API {#api}
+
+    Use the [deleteMembership](../api-ref/User/deleteMembership.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/DeleteMembership](../api-ref/grpc/User/deleteMembership.md) gRPC API call.
 
 {% endlist %}
 
@@ -60,5 +138,20 @@ To delete a [local](../../iam/concepts/users/accounts.md#local) user from an org
      ```bash
      yc organization-manager idp user delete <user_ID>
      ```
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  1. In a configuration that controls the local user, delete that user's `yandex_organizationmanager_idp_user` section and links to it. This deletes the user from the pool, not just their membership in the organization.
+  1. Apply the changes after reviewing the list of resources you want to delete in the plan:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+- API {#api}
+
+    Use the [delete](../idp/api-ref/User/delete.md) REST API method for the [User](../idp/api-ref/User/index.md) resource or the [UserService/Delete](../idp/api-ref/grpc/User/delete.md) gRPC API call.
 
 {% endlist %}

@@ -11,6 +11,10 @@
 
     {% include [oidc-app-attribute-scopes](./oidc-app-attribute-scopes.md) %}
 
+1. Если выбран атрибут `groups`, в поле **Значение для групп** выберите, какое значение группы будет передаваться поставщику услуг:
+
+    {% include [app-group-attribute-values](./app-group-attribute-values.md) %}
+
 1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 [*pkce_info]: PKCE — это расширение безопасности, применяемое в стандарте OAuth 2.0 с целью минимизировать риски перехвата аутентификационных данных. Подробнее читайте в разделе [{#T}](../../organization/concepts/applications/oidc.md#pkce).

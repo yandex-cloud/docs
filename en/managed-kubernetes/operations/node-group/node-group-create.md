@@ -6,11 +6,16 @@ description: Follow this guide to create node groups.
 # Creating a node group
 
 
-A [node group](../../concepts/index.md#node-group) is a group of VMs in a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) that have the same configuration and run user containers.
+This guide describes how to create a [cloud node group](../../concepts/index.md#node-group), i.e., a group of virtual machines with identical configurations in a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) used to run custom containers.
 
-Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-create.md) a {{ managed-k8s-name }} cluster and make sure your [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) has enough [resources](../../concepts/limits.md).
+To use physical servers, [create a node group on {{ baremetal-name }} servers](../baremetal-group/create-baremetal.md) or [connect external nodes](../external-nodes-connect.md).
 
-{% include [os-new-version](../../../_includes/managed-kubernetes/note-os-new-version.md) %}
+## Getting started {#before-you-begin}
+
+1. [Create](../kubernetes-cluster/kubernetes-cluster-create.md) a {{ managed-k8s-name }} cluster.
+1. Make sure there is enough [free resources](../../concepts/limits.md) in the [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) to create a node group.
+
+## Creating a node group {#create-node-group}
 
 {% list tabs group=instructions %}
 

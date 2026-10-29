@@ -1,19 +1,19 @@
 ---
 title: How to set up a {{ MG }} source endpoint in {{ data-transfer-full-name }}
-description: In this tutorial, you will learn how to configure a {{ MG }} source endpoint when creating or modifying it in {{ data-transfer-full-name }}.
+description: In this tutorial, you will learn how to create and configure a {{ MG }} source endpoint in {{ data-transfer-full-name }}.
 ---
 # Transferring data from a {{ MG }}/{{ SD }} (Managed Service for MongoDB) source endpoint
 
 
-{{ data-transfer-full-name }} enables you to migrate data from a {{ MG }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data from a {{ MG }} database and implement various transfer, processing, and transformation scenarios. To set up a transfer:
 
-1. [Explore possible data transfer scenarios](#scenarios).
+1. [Review possible data transfer scenarios](#scenarios).
 1. [Prepare the {{ MG }}](#prepare) database for the transfer.
 1. [Set up a source endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Set up one of the supported data targets](#supported-targets).
-1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. [Perform the required operations with the database](#db-actions) and [see how the transfer is going](../../monitoring.md).
-1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
+1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
+1. [Perform the required database tasks](#db-actions) while [monitoring the transfer status](../../monitoring.md).
+1. If you run into any problems, [check the available solutions](#troubleshooting) for troubleshooting.
 
 ## Scenarios for transferring data from {{ MG }}/{{ SD }} (Managed Service for MongoDB) {#scenarios}
 
@@ -34,17 +34,17 @@ For a detailed description of possible {{ data-transfer-full-name }} scenarios, 
 
 {% include [MongodDB Version](../../../../_includes/data-transfer/notes/mongodb-version.md) %}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can configure:
 
-* [{{ mmg-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
-* [Additional parameters](#additional-settings).
+* Connection settings for a [{{ mmg-full-name }} cluster](#managed-service) or a [custom deployment](#on-premise), including those running on {{ compute-full-name }} VMs. These settings are required.
+* [Optional settings](#additional-settings).
 
 ### {{ mmg-name }} (Managed Service for MongoDB) cluster {#managed-service}
 
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you will need the [`{{ roles.mmg.viewer }}`](../../../../storedoc/security/index.md#mmg-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
+To create or edit a managed database endpoint, you will need the [`{{ roles.mmg.viewer }}`](../../../../storedoc/security/index.md#mmg-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder where its cluster resides.
 
 {% endnote %}
 
@@ -69,7 +69,7 @@ Connection to the database with the cluster specified in {{ yandex-cloud }}.
 
     {% include [Managed MongoDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mongodb.md) %}
 
-    Here is an example of the configuration file structure:
+    Configuration file structure example:
 
     
     ```hcl
@@ -126,7 +126,7 @@ The settings are given for the OnPremise use case when all fields are filled in 
 
     {% include [On premise MongoDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mongodb.md) %}
 
-    Here is an example of the configuration file structure:
+    Configuration file structure example:
 
     
     ```hcl
@@ -182,7 +182,7 @@ The settings are given for the OnPremise use case when all fields are filled in 
 
     * {% include [excluded-collections](../../../../_includes/data-transfer/fields/mongodb/ui/excluded-collections.md) %}
 
-    Included and excluded collection names must meet the ID naming rules in {{ MG }}. Escaping double quotes is not required.
+    Included and excluded collection names must meet the ID naming rules in {{ MG }}. Double quote escaping is not required.
 
 - CLI {#cli}
 
@@ -236,13 +236,36 @@ Configure one of the supported data targets:
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
-After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).
 
 ## Operations with the database during transfer {#db-actions}
 
 {% include [work with db](../../../../_includes/data-transfer/endpoints/sources/mongo-work-with-db.md) %}
 
-## Troubleshooting data transfer issues {#troubleshooting}
+## Mapping supported data types between DBMS and endpoint {#type-mapping}
+
+#|
+|| **{{ MG }} type** | **Endpoint type** ||
+|| — | int64 ||
+|| — | int32 ||
+|| — | int16 ||
+|| — | int8 ||
+|| — | uint64 ||
+|| — | uint32 ||
+|| — | uint16 ||
+|| — | uint8 ||
+|| — | float ||
+|| — | double ||
+|| — | string ||
+|| bson_id | utf8 ||
+|| — | boolean ||
+|| — | date ||
+|| — | datetime ||
+|| — | timestamp ||
+|| bson | any ||
+|#
+
+## Data transfer troubleshooting {#troubleshooting}
 
 Known issues when using a {{ MG }} endpoint:
 

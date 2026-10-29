@@ -21,7 +21,7 @@ To give access to {{ yandex-360 }} to the users of your organization:
 
     1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
     1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-    1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
+    1. Click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and do the following in the window that opens:
         1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.saml-title_kyofk }}** single sign-on method.
         1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify a name for your new app: `yandex360`.
 
@@ -75,7 +75,7 @@ Set user attributes for integration with {{ yandex-360 }}:
     1. Navigate to the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}** tab.
     1. Edit user attributes:
 
-        1. Replace the `emailaddress` attribute with `User.EmailAddress`. Proceed as follows:
+        1. Replace the `emailaddress` attribute with `User.EmailAddress`. Follow these steps:
             1. Click the row with the `emailaddress` attribute.
             1. In the **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** field, enter `User.EmailAddress`.
             1. In the **{{ ui-key.yacloud_org.organization.apps.AttributeFormDialogNew.field_attribute_value_dgUAv }}** field, leave `SubjectClaims.email`.
@@ -159,7 +159,7 @@ Add users to the application:
 
 ## Make sure your application works correctly {#validate}
 
-To make sure both your SAML app and {{ yandex-360 }} integration work correctly, authenticate to {{ yandex-360 }} as one of the users you added to the app. Proceed as follows:
+To make sure both your SAML app and {{ yandex-360 }} integration work correctly, authenticate to {{ yandex-360 }} as one of the users you added to the app. Follow these steps:
 
 1. In your browser, go to the {{ yandex-360 }} login page.
 1. If you were logged in to {{ yandex-360 }}, log out.

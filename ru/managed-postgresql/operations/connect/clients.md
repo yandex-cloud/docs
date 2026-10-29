@@ -136,7 +136,12 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 ### Подключение с аутентификацией через IAM {#iam}
 
-К базе данных {{ PG }} можно подключиться с помощью [интерфейса командной строки {{ yandex-cloud }} (CLI)](../../../cli/quickstart.md#install), используя аутентификацию через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../../iam/concepts/users/accounts.md#saml-federation) и [локальных пользователей](../../../iam/concepts/users/accounts.md#local). Подключение с аутентификацией через IAM не требует получения SSL-сертификата или указания FQDN хостов кластера. Публичный доступ к хостам не требуется.
+К базе данных {{ PG }} можно подключиться с помощью [интерфейса командной строки {{ yandex-cloud }} (CLI)](../../../cli/quickstart.md#install), используя аутентификацию через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../../iam/concepts/users/accounts.md#saml-federation), [локальных пользователей](../../../iam/concepts/users/accounts.md#local) и [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md). Подключение с аутентификацией через IAM не требует получения SSL-сертификата или указания FQDN хостов кластера. Публичный доступ к хостам не требуется.
+
+Для подключения через сервисный аккаунт [назначьте](../../../iam/operations/sa/set-access-bindings.md) ему роли:
+
+* [роль](../../security/index.md#managed-postgresql-clusters-connector) `managed-postgresql.clusters.connector` на кластер;
+* [роль](../../../iam/roles-reference.md#iam-serviceAccounts-user) `iam.serviceAccounts.user` или выше. Если необходим доступ для нескольких сервисных аккаунтов, назначьте эту роль на каталог.
 
 Перед подключением установите клиент {{ PG }}:
 
@@ -153,7 +158,7 @@ sudo apt update && sudo apt install --yes postgresql-client
   1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера.
   1. Назначьте роль аккаунту пользователя, который будет подключаться к БД:
-     1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+     1. Выберите вкладку ![chevron-down](../../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
      1. Введите электронную почту пользователя, к которой привязан аккаунт.
      1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `managed-postgresql.clusters.connector`.
      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.

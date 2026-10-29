@@ -33,6 +33,7 @@
 
 ### Создать новую ВМ с разрешенным доступом к серийной консоли {#turn-on-for-new-instance}
 
+
 Чтобы разрешить доступ к серийной консоли при создании новой виртуальной машины на основе публичного [образа](../images-with-pre-installed-software/get-list.md) из [Yandex Cloud Marketplace](../../../marketplace/index.md):
 
 {% list tabs group=instructions %}

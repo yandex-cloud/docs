@@ -4,10 +4,11 @@ canonical: '{{ link-docs }}/tutorials/security/tls-termination/console'
 
 # Терминирование TLS-соединений с помощью консоли управления
 
+
 Чтобы создать инфраструктуру для [терминирования TLS-соединений](index.md) c помощью консоли управления:
 
 {% include [tls-termination-console](../../../_tutorials/security/tls-termination-console.md) %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [{#T}](terraform.md).
+[{#T}](terraform.md)

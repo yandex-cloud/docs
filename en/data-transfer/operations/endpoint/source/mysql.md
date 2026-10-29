@@ -175,11 +175,11 @@ For OnPremise, all fields are filled in manually.
 - Management console {#console}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.table_filter.title }}**:
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.include_tables.title }}**: Only data from the tables listed here will be transferred. This option is specified using regular expressions.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.include_tables.title }}**: The system will only transfer data from the tables in this list. This setting is specified with regular expressions.
 
             {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.exclude_tables.title }}**: Data from the listed tables is not transferred. This option is specified using regular expressions.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.exclude_tables.title }}**: The system will not transfer data from the tables in this list. This setting is specified with regular expressions.
 
         Regular expressions for included and excluded tables must meet the ID naming rules in {{ MY }}. For more information, see [this {{ MY }} guide]({{ my.docs }}/refman/8.0/en/identifiers.html). Double quote escaping is not required.
 
@@ -199,11 +199,11 @@ For OnPremise, all fields are filled in manually.
 
 - CLI {#cli}
 
-    * `--include-table-regex`: List of included tables. Only the data from the tables listed here will be transferred. This option is specified using regular expressions.
+    * `--include-table-regex`: List of included tables. The system will only transfer data from the tables in this list. This setting is specified with regular expressions.
 
         {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-    * `--exclude-table-regex`: List of excluded tables. Data from the listed tables will not be transferred. This option is specified using regular expressions.
+    * `--exclude-table-regex`: List of excluded tables. The system will not transfer data from the tables in this list. This setting is specified with regular expressions.
 
     * `--timezone`: DB time zone specified as an [IANA Time Zone Database](https://www.iana.org/time-zones) ID. Defaults to UTC+0.
 
@@ -213,11 +213,11 @@ For OnPremise, all fields are filled in manually.
 
 - {{ TF }} {#tf}
 
-    * `include_table_regex`: List of included tables. Only the data from the tables listed here will be transferred. This option is specified using regular expressions.
+    * `include_table_regex`: List of included tables. The system will only transfer data from the tables in this list. This setting is specified with regular expressions.
 
         {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-    * `exclude_table_regex`: List of excluded tables. Data from the listed tables will not be transferred. This option is specified using regular expressions.
+    * `exclude_table_regex`: List of excluded tables. The system will not transfer data from the tables in this list. This setting is specified with regular expressions.
 
     * `timezone`: DB time zone specified as an [IANA Time Zone Database](https://www.iana.org/time-zones) ID. Defaults to UTC+0.
 
@@ -235,11 +235,11 @@ For OnPremise, all fields are filled in manually.
 
 - API {#api}
 
-    * `includeTablesRegex`: List of included tables. Only the data from the tables listed here will be transferred. This option is specified using regular expressions.
+    * `includeTablesRegex`: List of included tables. The system will only transfer data from the tables in this list. This setting is specified with regular expressions.
 
         {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-    * `excludeTablesRegex`: List of excluded tables. Data from the listed tables will not be transferred. This option is specified using regular expressions.
+    * `excludeTablesRegex`: List of excluded tables. The system will not transfer data from the tables in this list. This setting is specified with regular expressions.
 
     * `timezone`: DB time zone specified as an [IANA Time Zone Database](https://www.iana.org/time-zones) ID. Defaults to UTC+0.
 
@@ -293,6 +293,60 @@ Once you have configured the source and target, [create and launch the transfer]
 ## Operations with the database during transfer {#db-actions}
 
 {% include [work with db](../../../../_includes/data-transfer/endpoints/sources/mysql-work-with-db.md) %}
+
+## Mapping supported data types between DBMS and endpoint {#type-mapping}
+
+#|
+|| **{{ MY }} type** | **Endpoint type** ||
+|| BIGINT | int64 ||
+|| INT
+MEDIUMINT | int32 ||
+|| SMALLINT | int16 ||
+|| TINYINT | int8 ||
+|| BIGINT UNSIGNED | uint64 ||
+|| INT UNSIGNED
+MEDIUMINT UNSIGNED | uint32 ||
+|| SMALLINT UNSIGNED | uint16 ||
+|| TINYINT UNSIGNED | uint8 ||
+|| — | float ||
+|| DECIMAL
+DECIMAL UNSIGNED
+DOUBLE
+FLOAT
+FLOAT UNSIGNED | double ||
+|| BINARY
+BIT
+BLOB
+GEOMCOLLECTION
+GEOMETRY
+LINESTRING
+LONGBLOB
+MEDIUMBLOB
+MULTILINESTRING
+MULTIPOINT
+MULTIPOLYGON
+POINT
+POLYGON
+REST...
+TINYBLOB
+VARBINARY | string ||
+|| CHAR
+ENUM
+LONGTEXT
+MEDIUMTEXT
+SET
+TEXT
+TIME
+TINYTEXT
+VARCHAR
+YEAR | utf8 ||
+|| — | boolean ||
+|| DATE | date ||
+|| — | datetime ||
+|| DATETIME
+TIMESTAMP | timestamp ||
+|| JSON | any ||
+|#
 
 ## Data transfer troubleshooting {#troubleshooting}
 

@@ -113,7 +113,7 @@
       folder_id: b1gt6g8ht345********
       created_at: "2025-01-01T14:24:37Z"
       name: my-vm
-      zone_id: ru-central1-b
+      zone_id: ru-central1-a
       platform_id: standard-v2
       resources:
         memory: "2147483648"

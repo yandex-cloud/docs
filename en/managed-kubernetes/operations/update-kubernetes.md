@@ -34,7 +34,7 @@ For more information, see [{#T}](../concepts/release-channels-and-updates.md).
   1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Select the {{ managed-k8s-name }} cluster.
-  1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab; this will also open the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** tab and select the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** section.
   1. In the node group row, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Get a list of available versions in the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field.
 
@@ -352,8 +352,6 @@ You can upgrade the {{ managed-k8s-name }} cluster version manually. In one step
 
 ## Updating a node group {#node-group-upgrade}
 
-{% include [os-new-version](../../_includes/managed-kubernetes/note-os-new-version.md) %}
-
 ### Configuring auto updates for a node group {#node-group-auto-upgrade}
 
 Select auto update mode for the {{ managed-k8s-name }} node group and set the required update schedule:
@@ -662,7 +660,7 @@ Upgrade the {{ managed-k8s-name }} cluster version before updating the node grou
   1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Select the {{ managed-k8s-name }} cluster.
-  1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab; this will also open the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** tab and select the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** section.
   1. In the node group row, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field, select the `Upgrade to version <version_number>` option.
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -779,7 +777,7 @@ The {{ managed-k8s-name }} cluster and node groups will be updated if any of the
   1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Select the {{ managed-k8s-name }} cluster.
-  1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab; this will also open the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** tab and select the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** section.
   1. In the node group row, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field, select `Get the latest improvements and fixes for version...`
   1. Click **{{ ui-key.yacloud.common.save }}**.

@@ -55,6 +55,7 @@ description: In this article, you will learn how to work with the managed servic
 ## Network scenarios {#network-scenarios}
 
 * [{#T}](create-load-balancer.md)
+* [{#T}](configure-load-balancer-target-groups.md)
 * [{#T}](calico.md)
 * [{#T}](cilium.md)
 * [{#T}](cilium-node-local-dns.md)
@@ -75,6 +76,7 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](kubernetes-cluster/kubernetes-cluster-operation-logs.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-create.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-update.md)
+* [{#T}](network/manage-ip-masq-agent.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-access.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-wlif-integration.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-configuration-list.md)
@@ -101,6 +103,12 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](external-nodes-connect-wireguard.md)
 * [{#T}](external-nodes-connect-ipsec.md)
 * [{#T}](bms-server-connect.md)
+
+## Working with a {{ baremetal-name }} node group {#baremetal-node-group}
+
+* [{#T}](baremetal-group/create-baremetal.md)
+* [{#T}](baremetal-group/update-baremetal.md)
+* [{#T}](baremetal-group/delete-baremetal.md)
 
 ## Working with {{ k8s }} objects from the management console {#kubernetes-console}
 

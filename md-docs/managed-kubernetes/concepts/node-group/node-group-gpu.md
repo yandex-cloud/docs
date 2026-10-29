@@ -13,6 +13,7 @@
 
 ## Требования {#requirements}
 
+
 В облаке должна быть ненулевая квота GPU.
 
 По умолчанию в облаке установлена нулевая [квота](../../../compute/concepts/limits.md#compute-quotas) на создание виртуальных машин с GPU. Вы можете запросить увеличение квоты в [консоли управления](https://console.yandex.cloud/cloud?section=quotas). Для этого нужна [роль](../../../iam/roles-reference.md#quota-manager-requestoperator) `quota-manager.requestOperator` или выше.

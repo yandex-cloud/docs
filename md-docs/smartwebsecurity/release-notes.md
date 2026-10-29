@@ -133,7 +133,7 @@
 ## IV квартал 2023 {#q4-2023}
 
 * Добавлена возможность создавать профили безопасности по преднастроенному шаблону.
-* Поддержана отправка [метрик](metrics.md) в сервис [Yandex Monitoring](../monitoring/index.md).
+* Поддержана отправка [метрик](metrics.md) в сервис [Yandex Monium](../monium/index.md).
 * Исправлена ошибка сопоставления строки в [условии](concepts/conditions.md) `Host` при создании правила безопасности.
 * Улучшена стабильность работы сервиса за счет новой схемы взаимодействия между [Application Load Balancer](../application-load-balancer/index.md) и Smart Web Security.
 

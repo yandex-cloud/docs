@@ -32,7 +32,11 @@ Inviting users with a Yandex account to an organization may be prohibited by the
 
         You can send invitations to any email address. Invited users will be able to select the appropriate Yandex account once they accept the invitation.
 
-    1. Click **{{ ui-key.yacloud_components.organization.action_send-invitation_6LqIj }}**.
+    1. Click **{{ ui-key.yacloud_components.organization.action_next }}**. This will open the window for assigning roles and adding users to the group.
+
+    1. {% include [assign-roles-on-invite](../organization/assign-roles-on-invite.md) %}
+
+    1. {% include [add-to-group-on-invite](../organization/add-to-group-on-invite.md) %}
 
 {% endlist %}
 

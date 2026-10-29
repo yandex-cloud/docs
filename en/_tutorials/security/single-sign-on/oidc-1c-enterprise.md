@@ -27,7 +27,7 @@ To complete this tutorial, you may need a valid [1C:ITS agreement](https://its.1
 
     1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
     1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-    1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
+    1. Click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and do the following in the window that opens:
         1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}** single sign-on method.
         1. {% include [org-oidc-app-select-web-type-step](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-step.md) %}
         1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify `enterprise-1c-oidc-app`.
@@ -79,7 +79,7 @@ To complete this tutorial, you may need a valid [1C:ITS agreement](https://its.1
      profile_id: web
      ```
 
-     Save the `id` field value for when you need to create and configure your app.
+     Save the `id` field value: you will need to create and configure your app.
 
   1. Create a secret for your OAuth client:
 
@@ -190,7 +190,7 @@ Set up the 1C:Enterprise integration with the OIDC app you created in {{ org-ful
          - profile
      ```
 
-     Save the `client_id` value: this is the OIDC app ID you will need to configure your 1C:Enterprise.
+     Save the `client_id` value: this is the OIDC app ID you will need to configure 1C:Enterprise.
 
   1. Get the OpenID Connect Discovery configuration URL:
 
@@ -214,7 +214,7 @@ Set up the 1C:Enterprise integration with the OIDC app you created in {{ org-ful
        --oauth-client-id <OAuth_client_ID>
      ```
 
-     Save the `secret_value` from the command output: this is the app secret you will need to configure your 1C:Enterprise.
+     Save the `secret_value` from the command output: this is the app secret you will need to configure 1C:Enterprise.
 
 {% endlist %}
 
@@ -336,7 +336,7 @@ The location of the configuration file depends on your specific 1C:Enterprise se
 
 To make sure both your OIDC app and 1C:Enterprise integration work correctly, authenticate to 1C:Enterprise as one of the users for whom you have enabled the OIDC authentication.
 
-Proceed as follows:
+Follow these steps:
 
 1. In your browser, navigate to the address of your 1C:Enterprise instance, e.g., `https://your.company.ru`.
 1. If you were logged in to 1C:Enterprise, log out.

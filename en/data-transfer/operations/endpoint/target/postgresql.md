@@ -5,17 +5,17 @@ description: In this tutorial, you will learn how to set up a {{ PG }} target en
 
 # Transferring data to a {{ PG }} target endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data to a {{ PG }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data to a {{ PG }} database and implement various data transfer, processing, and transformation scenarios. To set up a transfer:
 
-1. [Explore possible data transfer scenarios](#scenarios).
+1. [Review possible data transfer scenarios](#scenarios).
 1. [Configure one of the supported data sources](#supported-sources).
 1. [Prepare the {{ PG }}](#prepare) database for the transfer.
 1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
-1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. [Perform the required operations with the database](#db-actions) and [see how the transfer is going](../../monitoring.md).
-1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
+1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
+1. [Perform the required database tasks](#db-actions) while [monitoring the transfer status](../../monitoring.md).
+1. If you run into any problems, [check the available solutions](#troubleshooting) for troubleshooting.
 
-## Scenarios for transferring data to {{ PG }} {#scenarios}
+## {{ PG }} data transfer scenarios {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
@@ -57,17 +57,17 @@ For a complete list of supported sources and targets in {{ data-transfer-full-na
 
 ## Configuring the {{ PG }} target endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can configure:
 
-* [{{ mpg-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
-* [Additional parameters](#additional-settings).
+* Connection settings for a [{{ mpg-full-name }} cluster](#managed-service) or a [custom deployment](#on-premise), including those running on {{ compute-full-name }} VMs. These settings are required.
+* [Optional settings](#additional-settings).
 
 ### {{ mpg-name }} cluster {#managed-service}
 
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you will need the [`{{ roles.mpg.viewer }}`](../../../../managed-postgresql/security/index.md#mpg-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
+To create or edit a managed database endpoint, you will need the [`{{ roles.mpg.viewer }}`](../../../../managed-postgresql/security/index.md#mpg-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder where its cluster resides.
 
 {% endnote %}
 
@@ -92,7 +92,7 @@ Connection to the database with the cluster specified in {{ yandex-cloud }}.
 
     {% include [Managed PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-postgresql.md) %}
 
-    Here is an example of the configuration file structure:
+    Configuration file structure example:
 
     
     ```hcl
@@ -145,7 +145,7 @@ For OnPremise, all fields are filled in manually.
 
     {% include [On premise PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-postgresql.md) %}
 
-    Here is an example of the configuration file structure:
+    Configuration file structure example:
 
     
     ```hcl
@@ -203,13 +203,36 @@ For OnPremise, all fields are filled in manually.
 
 {% endlist %}
 
-After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).
 
 ## Operations with the database during transfer {#db-actions}
 
 {% include [work with db](../../../../_includes/data-transfer/endpoints/sources/pg-work-with-db.md) %}
 
-## Troubleshooting data transfer issues {#troubleshooting}
+## Mapping supported data types between DBMS and endpoint {#type-mapping}
+
+#|
+|| **{{ PG }} type** | **Endpoint type** ||
+|| BIGINT | int64 ||
+|| INTEGER | int32 ||
+|| SMALLINT | int16 ||
+|| SMALLINT | int8 ||
+|| BIGINT | uint64 ||
+|| INTEGER | uint32 ||
+|| SMALLINT | uint16 ||
+|| SMALLINT | uint8 ||
+|| REAL | float ||
+|| DOUBLE PRECISION | double ||
+|| BYTEA | string ||
+|| TEXT | utf8 ||
+|| BOOLEAN | boolean ||
+|| DATE | date ||
+|| TIMESTAMP WITHOUT TIME ZONE | datetime ||
+|| TIMESTAMP WITHOUT TIME ZONE | timestamp ||
+|| JSONB | any ||
+|#
+
+## Data transfer troubleshooting {#troubleshooting}
 
 Known issues when using a {{ PG }} endpoint:
 

@@ -2,6 +2,7 @@
 
 # Создание внешней таблицы на базе таблицы из бакета с помощью конфигурационного файла
 
+
 # Создание внешней таблицы на базе таблицы из бакета Yandex Object Storage с помощью конфигурационного файла
 
 При [создании внешней таблицы](../../managed-greenplum/operations/pxf/create-table.md) из таблицы, расположенной в бакете Yandex Object Storage, необходимо передать в запросе [статический ключ доступа](../../iam/concepts/authorization/access-key.md) для сервисного аккаунта. Это можно сделать с помощью [протокола S3](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/admin_guide-external-g-s3-protocol.html) и конфигурационного файла, хранящегося на HTTP-сервере.

@@ -6,41 +6,75 @@ description: In this tutorial, you will learn about compute maintenance policies
 # Compute maintenance policies
 
 
-*Compute Maintenance Policies* provide the ability to report the planned impact on the user VM by the cloud infrastructure using the [metadata service](vm-metadata.md).
+Use *compute maintenance policies* to manage a VM's response to scheduled maintenance and receive maintenance information via [metadata](vm-metadata.md).
 
-A planned impact means the occurrence of one of the following VM maintenance events:
+During maintenance, a VM instance is migrated to a different host. The policy determines how the system migrates the VM instance:
 
-* `TERMINATE_ON_HOST_MAINTENANCE`: User VM restart is scheduled.
-* `MIGRATE_ON_HOST_MAINTENANCE`: [Live migration](live-migration.md) of user VM to another host (server) is scheduled.
+* Restarts the instance on another host.
+* Performs [live migration](live-migration.md) to another host without restarting the instance.
 
-You can use these criteria to set the VM maintenance policy:
+If the policy is configured, information about upcoming maintenance may be written to the VM instance’s metadata. Stored in the metadata service, maintenance metadata is only accessible from within the VM. Applications running on the VM instance can read it and get ready for maintenance, e.g., by completing active requests or saving state before a restart.
 
-* Maintenance policy type: `maintenance_policy`.
-* Maintenance grace period: `maintenance_grace_period`.
+## Compute maintenance policy settings {#parameters}
 
-The following maintenance policy types are supported:
+{% note warning %}
 
-* `RESTART`: When a maintenance event occurs, the `TERMINATE_ON_HOST_MAINTENANCE` line appears in the metadata. After the `maintenance_grace_period` ends, the VM will be migrated to another host using the VM stop and run procedures.
-* `MIGRATE`: When a maintenance event occurs, the `MIGRATE_ON_HOST_MAINTENANCE` line appears in the VM metadata. After the `maintenance_grace_period` ends, the VM will be migrated to another host using the live migration procedure.
-* `MAINTENANCE_POLICY_UNSPECIFIED`: No policy is specified. Nothing is supplied to the metadata service; there is no wait time before maintenance.
+Before configuring a policy, review [these considerations for different VM types](#vm-specifics). The available policy types and maintenance behavior depend on the VM type.
 
-When setting the maintenance grace period, keep in mind that you can delay the start of maintenance by the following maximum period after the maintenance event occurs:
+{% endnote %}
 
-* `Up to one minute` for VMs without GPUs.
-* `Up to 24 hours` for VMs with GPUs.
+A VM maintenance policy is defined by two parameters:
 
-### Features for preemptible VMs {#preemptible-vm}
+* `maintenance_policy`: Type of maintenance policy. 
+* `maintenance_grace_period`: Maintenance grace period.
 
-When maintenance events occur, [preemptible VMs](preemptible-vm.md) simply stop instead of migrating. No maintenance events appear in the VM metadata in this case.
+To select how the system migrates the VM to another host, set the relevant `maintenance_policy` value. To restart the VM, set to `RESTART`. To perform live migration, specify `MIGRATE`.
 
-### Features for VMs with GPUs {#vm-with-gpu}
+To not specify a policy, set the value to `MAINTENANCE_POLICY_UNSPECIFIED`. In this case, maintenance information does not appear in the metadata, and there is no grace period before maintenance.
 
-If the `RESTART` policy is set for VMs with GPUs (non-preemptible), [email notifications](../../resource-manager/concepts/notify.md#technical) about scheduled maintenance works on such VMs are disabled. During scheduled works, the VM will automatically restart following a `maintenance_grace_period` after a maintenance event appears in the metadata.
+The `maintenance_grace_period` value defines a delay for the VM restart or migration.
 
-### How to enable {#apply}
+Maximum grace period:
 
-You can [enable and configure](../operations/vm-control/vm-update-policies.md) VM maintenance policies using the [CLI](../../cli/index.yaml) and [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md). Currently you cannot configure maintenance policies from the management console.
+* Up to one minute for VMs without GPUs.
+* Up to one hour for VMs with GPUs.
 
-### Limitations {#limits}
+Maintenance information appears in the VM metadata only if `maintenance_grace_period > 0`. If set to zero, the metadata includes no maintenance information, and maintenance is performed without a grace period.
 
-A maintenance event can only be generated in the case of planned impact on a VM. If a VM fails, it may be restarted on another physical host. In this case, nothing appears in the VM metadata service. You will receive a [failure](../../resource-manager/concepts/notify.md#infra) notification by email.
+You can configure the maintenance policy when [creating](../operations/index.md#vm-create) and [updating](../operations/vm-control/vm-update.md) a VM instance. You can use the [CLI](../../cli/index.yaml), [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md), or [API](../api-ref/index.md) to configure both the policy type and grace period, while the management console only allows you to set the policy type.
+
+## Working with metadata {#handle-event}
+
+Information about upcoming maintenance is written to the VM metadata under the `/instance/maintenance-event` key. You can use this key to access maintenance information [only from within the VM](../concepts/metadata/accessing-metadata.md) via the [metadata service](vm-metadata.md). For more details on the metadata storage format, see [this article](vm-metadata.md#metadata-formats).
+
+The following values are written:
+
+* `TERMINATE_ON_HOST_MAINTENANCE` before the VM restarts.
+* `MIGRATE_ON_HOST_MAINTENANCE` before live migration.
+
+You can implement [reading metadata from within the VM](../operations/vm-metadata/get-vm-metadata.md#internal-access) and have your application react to maintenance.
+
+For example, let’s assume your maintenance policy is `RESTART`. The system writes `TERMINATE_ON_HOST_MAINTENANCE` to the metadata and starts the countdown for `maintenance_grace_period`. The application reads the metadata and uses the grace period to save its state. After the grace period expires, the VM restarts.
+
+To test the maintenance response in your application, [simulate a maintenance event](../operations/vm-control/vm-update-policies.md#simulate).
+
+## Considerations for different types of VMs {#vm-specifics}
+
+### Considerations for preemptible VMs {#preemptible-vm}
+
+During maintenance, [preemptible VMs](preemptible-vm.md) are stopped and do not migrate. Maintenance information does not appear in the metadata.
+
+### Considerations for VMs with GPUs {#vm-with-gpu}
+
+VMs with GPUs [do not support live migration](live-migration.md#limitations).
+
+If the `RESTART` policy is configured for a non-preemptible VM with a GPU, [email notifications](../../resource-manager/concepts/notify.md#technical) about scheduled maintenance are disabled, and [maintenance tasks](./gpus-maintenance.md#tasks) are not created. During scheduled maintenance, the VM automatically restarts following a `maintenance_grace_period`.
+
+## Limitations {#limits}
+
+Metadata events only warn about scheduled maintenance. If a VM fails, it may restart on another host without warning. The system will notify of a [failure](../../resource-manager/concepts/notify.md#infra) by email.
+
+#### Useful links {#see-also}
+
+* [Maintenance policy management](../operations/vm-control/vm-update-policies.md)
+* [Getting VM instance metadata](../operations/vm-metadata/get-vm-metadata.md)

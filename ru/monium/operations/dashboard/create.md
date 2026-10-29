@@ -46,7 +46,7 @@ description: Для создания дашборда в {{ monium-name }} не�
        * **{{ ui-key.yacloud_monitoring.dashboard.settings.general.labels.title }}** — [лейблы](#labels) для более гибкого поиска дашбордов.
      * **{{ ui-key.yacloud_monitoring.dashboard.settings.tab.json }}** — редактирование дашборда в формате JSON.
      * **{{ ui-key.yacloud_monitoring.component.parametrizer.parameters }}** — в этом окне можно добавить [параметры](add-parameters.md) для интерактивных дашбордов.
-     * **{{ ui-key.yacloud_monitoring.wizard.tab.links-key-value }}** — в этом окне можно добавить ссылки на внешние ресурсы или другие дашборды.
+     * **{{ ui-key.yacloud_monitoring.wizard.tab.links-key-value }}** — в этом окне можно [добавить ссылки](../../concepts/visualization/context-links.md#dashboard-links) на внешние ресурсы или другие дашборды.
   1. Справа вверху нажмите ![image](../../../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud_monitoring.dashboard.dash.save }}**.
 
 {% endlist %}

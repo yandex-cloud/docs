@@ -4,6 +4,10 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
 
 ## 2.2.x images (beta) {#2-2-x}
 
+### 2.2.11 (beta) {#2-2-11}
+
+* Fixed the [CVE-2026-64564 (SCTPhantom)](../../security/security-bulletins/index.md#CVE-2026-64564) and [CVE-2026-31431 (Copy Fail)](../../security/security-bulletins/index.md#CVE-2026-31431) vulnerabilities.
+
 ### 2.2.10 (beta) {#2-2-10}
 
 * Added `jq` and `yq`.
@@ -55,6 +59,10 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
     * Spark updated to version 3.5.0.
 
 ## 2.1.x images {#2-1-x}
+
+### 2.1.23 {#2-1-23}
+
+* Fixed the [CVE-2026-64564 (SCTPhantom)](../../security/security-bulletins/index.md#CVE-2026-64564) and [CVE-2026-31431 (Copy Fail)](../../security/security-bulletins/index.md#CVE-2026-31431) vulnerabilities.
 
 ### 2.1.22 {#2-1-22}
 

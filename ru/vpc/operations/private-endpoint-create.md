@@ -5,7 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать сервисное подключение
 
-
 {% include [private-endpoint-create-roles](../../_includes/vpc/private-endpoint-create-roles.md) %}
 
 Чтобы создать [сервисное подключение](../concepts/private-endpoint.md):

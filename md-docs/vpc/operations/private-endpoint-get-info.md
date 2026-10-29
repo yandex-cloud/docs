@@ -2,8 +2,6 @@
 
 # Получить информацию о сервисном подключении
 
-
-
 {% list tabs group=instructions %}
 
 - CLI {#cli}

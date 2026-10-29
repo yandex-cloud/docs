@@ -124,10 +124,10 @@ Here is an example:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Select the {{ managed-k8s-name }} cluster and open the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
-  1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
+  1. Select the {{ managed-k8s-name }} cluster, go to the **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** tab, and select the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** section.
+  1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**. If the menu for group type selection opens, select ![cloud](../../_assets/console-icons/cloud.svg) **{{ ui-key.yacloud.k8s.nodes.button_create-ng }}**.
   1. Set the node group parameters.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, specify the credentials to access the {{ managed-k8s-name }} node:
       * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
@@ -186,7 +186,7 @@ Here is an example:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -236,10 +236,10 @@ The credentials for connecting over SSH will be completely overwritten. You will
 
   {% endnote %}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Select the {{ managed-k8s-name }} cluster.
-  1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab to also view the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** tab and select the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** section.
   1. In the row of the node group whose credentials you want to update, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Expand **{{ ui-key.yacloud.common.metadata }}**.
   1. Replace the current value of `ssh-keys` with the contents of the credentials file.
@@ -290,7 +290,7 @@ The credentials for connecting over SSH will be completely overwritten. You will
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -27,7 +27,7 @@ You can add {{ k8s }} labels to all {{ managed-k8s-name }} nodes in a [node grou
      1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you created the {{ managed-k8s-name }} cluster.
      1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Select the {{ managed-k8s-name }} cluster to create a node group for.
-     1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab and click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
+     1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** tab and select the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** section. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**. If the group type selection menu opens, select ![cloud](../../../_assets/console-icons/cloud.svg) **{{ ui-key.yacloud.k8s.nodes.button_create-ng }}**.
      1. Enter a name for the {{ managed-k8s-name }} node group.
      1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field, select the {{ k8s }} version for the {{ managed-k8s-name }} nodes.
      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_scale }}**:
@@ -155,7 +155,7 @@ You can add {{ k8s }} labels to all {{ managed-k8s-name }} nodes in a [node grou
 
         {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-     1. Confirm updating the resources.
+     1. Confirm resource changes.
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -285,7 +285,7 @@ Adding {{ k8s }} labels does not result in recreation of a node group.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -345,7 +345,7 @@ Removing {{ k8s }} labels does not result in recreation of a node group.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 

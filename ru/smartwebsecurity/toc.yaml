@@ -783,7 +783,7 @@ items:
                     href: waf/api-ref/WafProfile/delete.md
   - name: Метрики
     href: metrics.md
-  - name: Аудитные логи {{ at-name }}
+  - name: Аудитные логи
     href: at-ref.md
   - name: История изменений
     href: release-notes.md

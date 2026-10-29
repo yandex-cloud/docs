@@ -26,7 +26,7 @@ To configure application access for your {{ org-full-name }} users, do the follo
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-  1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
+  1. Click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and do the following in the window that opens:
 
       1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}** single sign-on method.
       1. {% include [org-oidc-app-select-web-type-step](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-step.md) %}
@@ -211,7 +211,7 @@ For your {{ org-full-name }} users to be able to authenticate in the test applic
 
 {% note info %}
 
-Users and groups added to an OIDC application can be managed by any user with the `organization-manager.oidcApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-oidcApplications-userAdmin) or higher.
+Users and groups added to an OIDC application can be managed by any user with the `organization-manager.oauthApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-oauthApplications-userAdmin) or higher.
 
 {% endnote %}
 

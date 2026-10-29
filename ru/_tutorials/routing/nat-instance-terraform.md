@@ -16,6 +16,7 @@
 
 ## Создайте инфраструктуру {#deploy}
 
+
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 Чтобы создать инфраструктуру с помощью {{ TF }}:

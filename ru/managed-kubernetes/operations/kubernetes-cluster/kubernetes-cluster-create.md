@@ -104,7 +104,7 @@ description: Следуя данной инструкции, вы сможете
 
      * `--service-account-id` — уникальный идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) для ресурсов. От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
      * `--node-service-account-id` — уникальный идентификатор сервисного аккаунта для [узлов](../../concepts/index.md#node-group). От его имени узлы будут скачивать из [реестра](../../../container-registry/concepts/registry.md) {{ container-registry-full-name }} необходимые [Docker-образы](../../../container-registry/concepts/docker-image.md).
-     * `--master-location` — конфигурация [мастера](../../concepts/index.md#master). Укажите в параметре зону доступности и подсеть, где будет размещен мастер.
+     * `--master-location` — конфигурация [мастера](../../concepts/index.md#master). Укажите в параметре [зону доступности](../../../overview/concepts/geo-scope.md) и подсеть, где будет размещен мастер.
 
         Количество параметров `--master-location` зависит от типа мастера:
 

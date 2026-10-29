@@ -53,7 +53,7 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Select the {{ managed-k8s-name }} cluster.
-  1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab to also view the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** tab and select the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** section.
   1. In the node group row, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Change the parameters in the window that opens.
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -163,7 +163,7 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -198,7 +198,7 @@ Using a [deployment policy](../../concepts/node-group/deploy-policy.md), you can
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update a {{ managed-k8s-name }} cluster.
   1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Select the {{ managed-k8s-name }} cluster.
-  1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab to also view the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** tab and select the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** section.
   1. In the node group row, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}**, specify the following settings:
 
@@ -261,7 +261,7 @@ Using a [deployment policy](../../concepts/node-group/deploy-policy.md), you can
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -296,7 +296,7 @@ Using a [deployment policy](../../concepts/node-group/deploy-policy.md), you can
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Select the {{ managed-k8s-name }} cluster.
-  1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab to also view the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** tab and select the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** section.
   1. In the node group row, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**, in the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, select the `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}` IP address assignment method. Nodes will get random public IP addresses from the {{ yandex-cloud }} address pool.
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -351,7 +351,7 @@ Using a [deployment policy](../../concepts/node-group/deploy-policy.md), you can
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -416,7 +416,7 @@ Adding [taints](../../concepts/index.md#taints-tolerations) results in removing 
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -450,7 +450,7 @@ Removing [taints](../../concepts/index.md#taints-tolerations) results in removin
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -476,7 +476,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
     1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Select the {{ managed-k8s-name }} cluster.
-    1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab to also view the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+    1. Go to the **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** tab and select the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** section.
     1. In the node group row, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
     1. Enter the key and value, and press **Enter**.
@@ -523,7 +523,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -544,7 +544,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
     1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Select the {{ managed-k8s-name }} cluster.
-    1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab to also view the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+    1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** tab and select the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** section.
     1. In the node group row, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click the cross next to the label to remove it.
     1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}** and enter a new key and/or value for the label.
@@ -592,7 +592,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -611,7 +611,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
     1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Select the {{ managed-k8s-name }} cluster.
-    1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab to also view the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+    1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** tab and select the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** section.
     1. In the node group row, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click the cross next to the label.
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -643,7 +643,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -664,7 +664,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
     1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Select the {{ managed-k8s-name }} cluster.
-    1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab to also view the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+    1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** tab and select the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** section.
     1. In the node group row, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. Change the connection method settings:
 
@@ -731,7 +731,7 @@ After you update the metadata, the node group status will temporarily change to 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
     1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Select the {{ managed-k8s-name }} cluster.
-    1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab to also view the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+    1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** tab and select the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** section.
     1. In the node group row, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. Expand the **{{ ui-key.yacloud.common.metadata }}** section and edit, add, or remove metadata for the nodes.
 
@@ -836,7 +836,7 @@ After you update the metadata, the node group status will temporarily change to 
 
         {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 

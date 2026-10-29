@@ -82,8 +82,8 @@
      +----------------------+---------------------+-------------------+--------+---------------+
      |          ID          |        NAME         |       ZONE        | STATUS |   STRATEGY    |
      +----------------------+---------------------+-------------------+--------+---------------+
-     | epd3oalmkmbp******** | drbasic-partition-1 | ru-central1-b | READY  | PARTITION [3] |
-     | epdn7r7co1v4******** | drbasic-spread-2    | ru-central1-b | READY  | SPREAD        |
+     | epd3oalmkmbp******** | drbasic-partition-1 | ru-central1-a | READY  | PARTITION [3] |
+     | epdn7r7co1v4******** | drbasic-spread-2    | ru-central1-a | READY  | SPREAD        |
      +----------------------+---------------------+-------------------+--------+---------------+
      ```
 
@@ -101,7 +101,7 @@
      folder_id: w3qrbj9swoty********
      created_at: "2021-03-23T12:49:59Z"
      name: first-group
-     zone_id: ru-central1-b
+     zone_id: ru-central1-a
      status: READY
      spread_placement_strategy: {}
      ```

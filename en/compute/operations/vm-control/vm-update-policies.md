@@ -19,6 +19,14 @@ To enable and configure a [VM maintenance policy](../../concepts/maintenance-pol
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. Start [creating a Linux VM](../vm-create/create-linux-vm.md) named `mnt-vm1` with the Ubuntu 22.04 LTS image. Configure access over SSH and a public IP address.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, select **{{ ui-key.yacloud.compute.components.MaintenancePolicyField.option_restart_title_7i3QA }}** in the **{{ ui-key.yacloud.compute.components.MaintenancePolicyField.label_maintenance-policy_edr8e }}** field.
+  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+
+  For VMs without a GPU, the waiting time before a restart is one minute. In the management console, you can only select the policy type. To change the waiting time, use the CLI, {{ TF }}, or API.
+
 - CLI {#cli}
 
   Create a VM with maintenance policies:
@@ -104,6 +112,12 @@ To enable and configure a [VM maintenance policy](../../concepts/maintenance-pol
       terraform apply
       ```
 
+- API {#api}
+
+    Use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Create](../../api-ref/grpc/Instance/create.md) gRPC API call.
+
+    When creating the VM, specify the [maintenance policy](../../concepts/maintenance-policies.md) settings: `RESTART` as the policy type (`maintenancePolicy`) and 60 seconds as the waiting period (`maintenanceGracePeriod`).
+
 {% endlist %}
 
 ## Check maintenance event handling {#check}
@@ -182,11 +196,26 @@ Tue Jan 16 14:24:49 UTC 2024 : NONE
 
 ## Change the VM maintenance policy type {#change-policy}
 
-You can change the VM maintenance policy type by specifying a new value for the `--maintenance-policy` parameter through the following command:
+{% list tabs group=instructions %}
 
-```
-yc compute instance update --name=mnt-vm1 --maintenance-policy=migrate
-```
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the folder the VM is located in.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![server](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** and click the VM name, `mnt-vm1`.
+  1. Click **{{ ui-key.yacloud.common.edit }}**.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, select **{{ ui-key.yacloud.compute.components.MaintenancePolicyField.option_migrate_title_91Mwf }}** in the **{{ ui-key.yacloud.compute.components.MaintenancePolicyField.label_maintenance-policy_edr8e }}** field.
+  1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
+
+- CLI {#cli}
+
+  You can change the VM maintenance policy type by specifying a new value for the `--maintenance-policy` parameter through the following command:
+
+  ```
+  yc compute instance update --name=mnt-vm1 --maintenance-policy=migrate
+  ```
+
+{% endlist %}
 
 Simulate a maintenance event using the CLI:
 

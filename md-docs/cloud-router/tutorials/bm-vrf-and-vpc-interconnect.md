@@ -7,6 +7,7 @@
 <iframe width="560" height="315" src="https://runtime.strm.yandex.ru/player/video/vplvuylmftewoh4dm5aj?autoplay=0&mute=0" allow="autoplay; fullscreen; accelerometer; gyroscope; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 
 
+
 Сетевая связность с использованием [Yandex Cloud Interconnect](../../interconnect/index.md) в Yandex BareMetal позволяет организовать доступ к [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация) приватных подсетей Virtual Private Cloud в облачной инфраструктуре и/или CIDR приватных подсетей в on-prem инфраструктуре.
 
 В этом руководстве вы организуете сетевую связность между [сервером](../../baremetal/concepts/servers.md) BareMetal, расположенным в [приватной подсети](../../baremetal/concepts/private-network.md) Yandex BareMetal, и [виртуальной машиной](../../compute/concepts/vm.md) Yandex Compute Cloud, расположенной в подсети [облачной сети](../../vpc/concepts/network.md#network) Yandex Virtual Private Cloud.
@@ -201,8 +202,8 @@
 
       1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **Подсети**.
       1. Нажмите **Создать подсеть**.
-      1. В поле **Имя** укажите `subnet-ru-central1-b`.
-      1. В поле **Зона доступности** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-b`.
+      1. В поле **Имя** укажите `subnet-ru-central1-a`.
+      1. В поле **Зона доступности** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`.
       1. В поле **Сеть** выберите облачную сеть `sample-network`.
       1. В поле **CIDR** укажите `192.168.11.0/24`.
       
@@ -227,10 +228,10 @@
   1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины** и нажмите кнопку **Создать виртуальную машину**.
   1. В блоке **Образ загрузочного диска** выберите подходящий образ ВМ. Например: [Ubuntu 24.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2404-lts-oslogin).
-  1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-b`.
+  1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`.
   1. В блоке **Сетевые настройки**:
 
-      * В поле **Подсеть** выберите созданную ранее подсеть `subnet-ru-central1-b`.
+      * В поле **Подсеть** выберите созданную ранее подсеть `subnet-ru-central1-a`.
       * В поле **Публичный IP-адрес** выберите `Автоматически`.
 
   1. В блоке **Доступ** выберите вариант **SSH-ключ** и укажите данные для доступа на ВМ:

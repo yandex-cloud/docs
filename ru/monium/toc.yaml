@@ -319,7 +319,7 @@ items:
         href: concepts/visualization/snapshots.md
       - name: Блокноты
         href: concepts/visualization/notebooks.md
-      - name: Контекстные ссылки
+      - name: Ссылки
         href: concepts/visualization/context-links.md
       - name: Работа с дашбордами
         items:

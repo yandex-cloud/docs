@@ -2,7 +2,6 @@
 
 # Привязка доменного имени к ВМ с веб-сервером
 
-
 В этом руководстве вы привяжете собственное доменное имя к [виртуальной машине](../../concepts/vm.md) [Yandex Compute Cloud](../../index.md) с веб-сервером.
 
 Виртуальная машина будет создана из публичного образа [LAMP](https://yandex.cloud/ru/marketplace/products/yc/lamp) с предустановленным веб-сервером [Apache HTTP Server](https://httpd.apache.org/). Также для руководства подойдет публичный образ [LEMP](https://yandex.cloud/ru/marketplace/products/yc/lemp) с веб-сервером [NGINX](https://www.nginx.com/).

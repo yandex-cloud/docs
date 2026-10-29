@@ -1,9 +1,10 @@
 To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concepts/index.md#node-group):
-1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
+
+1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Select the {{ managed-k8s-name }} cluster to create a node group for.
-1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
-1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
+1. Select the {{ managed-k8s-name }} cluster.
+1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** tab and select the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** section.
+1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**. If the menu for group type selection opens, select ![cloud](../../_assets/console-icons/cloud.svg) **{{ ui-key.yacloud.k8s.nodes.button_create-ng }}**.
 1. Enter a name and description for the {{ managed-k8s-name }} node group.
 1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field, select the {{ k8s }} version for the {{ managed-k8s-name }} nodes.
 1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_container-runtime }}** field, select `{{ ui-key.yacloud.k8s.node-groups.create.label_runtime-CONTAINERD }}`.
@@ -31,7 +32,7 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
    {% include [note-expansion-group-vm](note-expansion-group-vm.md) %}
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
-   * Select a [platform](../../compute/concepts/vm-platforms.md).
+   * Select a [platform](../../compute/concepts/vm-platforms.md).     
    * Enter the required number of [GPUs](../../compute/concepts/gpus.md) and vCPUs, [guaranteed vCPU performance](../../compute/concepts/performance-levels.md), and the amount of RAM.
    * Optionally, make the VM instance [preemptible](../../compute/concepts/preemptible-vm.md) by checking the relevant box.
 

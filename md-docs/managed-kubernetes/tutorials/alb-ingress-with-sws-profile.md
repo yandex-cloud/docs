@@ -2,6 +2,7 @@
 
 # Создание L7-балансировщика с профилем безопасности Smart Web Security через Ingress-контроллер Application Load Balancer
 
+
 Приложения в кластере Yandex Managed Service for Kubernetes можно защитить от DDoS-атак и ботов с помощью сервиса [Yandex Smart Web Security](../../smartwebsecurity/concepts/index.md). Для этого опубликуйте приложения через ресурс Ingress, которому назначен [профиль безопасности](../../smartwebsecurity/concepts/profiles.md) Smart Web Security и который использует [контроллер Gwin](../../application-load-balancer/tools/gwin/index.md) или [Ingress-контроллер Application Load Balancer](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 
 {% note tip %}

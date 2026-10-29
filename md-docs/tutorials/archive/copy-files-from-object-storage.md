@@ -2,6 +2,7 @@
 
 # Использование Yandex Object Storage в Yandex Data Processing
 
+
 В этом разделе рассмотрены различные способы доступа к объектам из [бакетов](../../storage/concepts/bucket.md) Object Storage для процессов, запущенных на кластерах Yandex Data Processing.
 
 {% note info %}

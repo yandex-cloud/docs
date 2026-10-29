@@ -325,7 +325,33 @@ Learn more about rule priorities in [{#T}](../../smartwebsecurity/concepts/rules
 
 ### Connect the security profile to the resources {#profile-connect}
 
-{% include [sws-profile-connect](../_tutorials_includes/sws-profile-connect.md) %}
+{% list tabs group=instructions %}
+
+- L7 load balancer {#balancer}
+
+  If the load balancer is managed by an {{ alb-name }} [ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md), use the [ingress resource annotation](../../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
+
+  {% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
+  To connect a virtual host:
+
+  {% include [host-connect](../../_includes/smartwebsecurity/security-profile-host-connect.md) %}
+
+  {% include [disable-sp-route](../../_includes/smartwebsecurity/disable-sp-route.md) %}
+
+- API gateway {#api-gateway}
+
+  To connect an API gateway:
+
+  {% include [api-gateway-connect](../../_includes/smartwebsecurity/security-profile-api-gateway-connect.md) %}
+
+- Domain {#domain}
+
+  To connect a domain:
+
+  {% include [domain-connect](../../_includes/smartwebsecurity/security-profile-domain-connect.md) %}
+
+{% endlist %}
 
 ### Test your security profile in logging mode {#test-sp-rules}
 
@@ -383,11 +409,13 @@ Use logs and monitoring charts to check the performance of your rules:
   1. Select the ![display-pulse](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** section.
   1. Examine the data displayed on the charts:
      * **Denied by Security Profile RPS**: Number of incoming requests per second the security profile has checked and blocked.
-     * **Redirected to SmartCaptcha RPS**: Number of incoming requests per second routed to {{ captcha-name }} for additional verification.
+     * **Redirected to SmartCaptcha RPS**: Number of incoming requests per second redirected to {{ captcha-name }} for additional verification.
+     * **Redirected to JS challenge RPS**: Number of incoming requests per second redirected to a client-side [JavaScript challenge](../../smartwebsecurity/concepts/rules.md#client-checks).
+     * **Redirected to cookie challenge RPS**: Number of incoming requests per second redirected to a client-side [cookie challenge](../../smartwebsecurity/concepts/rules.md#client-checks).
 
 {% endlist %}
 
-For a detailed description of charts, see [{#T}](../../smartwebsecurity/operations/monitoring.md).
+For a description of charts, metrics, and labels, see [{#T}](../../smartwebsecurity/operations/monitoring.md).
 
 ## Set up load limitations {#rate-limiter}
 
@@ -490,8 +518,11 @@ After disabling the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-r
   1. Examine the data displayed on the charts:
      * **Allowed by ARL Profile RPS**: Number of incoming requests per second not exceeding the ARL profile limit.
      * **Denied by ARL Profile RPS**: Number of incoming requests per second exceeding the ARL profile limit and blocked.
+     * **Redirected to SmartCaptcha by ARL Profile RPS**: Number of incoming requests per second redirected by the ARL profile to {{ captcha-name }} for additional verification.
 
 {% endlist %}
+
+For a description of charts, metrics, and labels, see [{#T}](../../smartwebsecurity/operations/monitoring.md#monitoring-dashboards).
 
 ## Set up the web application firewall {#firewall}
 
@@ -513,7 +544,7 @@ You may need to disable certain rules to prevent false positives and create excl
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the security profile.
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Go to the ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** tab and click **{{ ui-key.yacloud.smart-web-security.waf.label_create-profile }}**.
+  1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** and click **{{ ui-key.yacloud.smart-web-security.waf.label_create-profile }}**.
   1. Enter a name for the profile, e.g., `waf-site-protection`.
   1. Enable rule sets, e.g., ML WAF and Yandex Ruleset. To view the rules it includes, click the row with its description.
   1. Click **{{ ui-key.yacloud.common.create }}**.

@@ -30,5 +30,6 @@
 
 #|
 || **Type of limit** | **Value** ||
+|| Maximum number of ranges in a [cluster with multiple ranges of pod IP addresses](../managed-kubernetes/concepts/cluster-multi-cidr.md) | 8 ||
 || Maximum number of [volumes](../managed-kubernetes/concepts/volume.md) connected to a single node | 56 ||
 |#

@@ -2,6 +2,7 @@
 
 # Получить информацию о виртуальном маршрутизаторе
 
+
 {% note info %}
 
 Для выполнения операции необходима роль [cloud-router.viewer](../security/index.md#cloudrouter-viewer).

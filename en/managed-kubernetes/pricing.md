@@ -25,7 +25,7 @@ For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=
 
 In {{ managed-k8s-name }}, you are charged for using [masters](concepts/index.md#master) and outgoing traffic.
 
-Nodes are charged based on the [{{ compute-full-name }} pricing policy](../compute/pricing.md).
+Cloud group nodes are subject to the [{{ compute-full-name }} pricing policy](../compute/pricing.md); {{ baremetal-name }} server node groups are subject to the [{{ baremetal-full-name }} pricing policy](../baremetal/pricing.md).
 
 If the cluster is stopped, master resources are not billable. You pay only for cluster-related resources, such as [virtual machine disks](../compute/pricing.md), [public IP addresses](../vpc/pricing.md), and [network load balancers](../network-load-balancer/pricing.md).
 

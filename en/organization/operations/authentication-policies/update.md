@@ -32,6 +32,10 @@ To edit an authentication policy:
       1. {% include [auth-policy-create-action](../../../_includes/organization/auth-policy-create-action.md) %}
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
+- API {#api}
+
+    Use the [update](../../policy/api-ref/AuthenticationPolicyRule/update.md) REST API method for the [AuthenticationPolicyRule](../../policy/api-ref/AuthenticationPolicyRule/index.md) resource or the [AuthenticationPolicyRuleService/Update](../../policy/api-ref/grpc/AuthenticationPolicyRule/update.md) gRPC API call.
+
 {% endlist %}
 
 #### Useful links {#see-also}

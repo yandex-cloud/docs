@@ -2,7 +2,7 @@
 
 ## Assigning a role for a resource {#binding-role-resource}
 
-Child resources inherit access permissions from their parent resources. For example, if a service account gets a role for a cloud, it will also get the required permissions for all resources across the cloud's folders.
+Child resources inherit access permissions from their parent resources. For example, if a service account gets a role for a cloud, it will also get the required permissions for all resources across the cloud’s folders.
 
 {% include [role-for-sa-note](./role-for-sa-note.md) %}
 
@@ -57,7 +57,7 @@ To assign a role for a resource:
 
   1. In the configuration file, describe the resources you want to create:
 
-      Here is an example of the configuration file structure for assigning a role for a folder:
+      Sample configuration file structure for assigning a role to a folder:
 
       ```hcl
       resource "yandex_resourcemanager_folder_iam_member" "admin-account-iam" {
@@ -69,8 +69,8 @@ To assign a role for a resource:
 
       Where:
       * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is a required setting.
-      * `role`: Role. For role descriptions, see the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md) in the {{ iam-full-name }} documentation. This is a required setting.
-      * `member`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role. For a service account, specify `serviceAccount:<service_account_ID>`.
+      * `role`: Role. For role descriptions, see the [{{ yandex-cloud }}](../../iam/roles-reference.md) role reference in the {{ iam-full-name }} documentation. This is a required setting.
+      * `member`: Designation of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to. For a service account, specify `serviceAccount:<service_account_ID>`.
 
           {% cut "Subject designations" %}
 
@@ -98,7 +98,7 @@ To assign a role for a resource:
 
 ## Assigning a role for an organization {#binding-role-organization}
 
-All resources created within an organization inherit access permissions assigned to that organization. For example, if a service account gets a role for an organization, it will also get the required permissions for all resources across the organization's clouds.
+All resources created within an organization inherit access permissions assigned to that organization. For example, if a service account gets a role for an organization, it will also get the required permissions for all resources across the organization’s clouds.
 
 To grant organization access permissions to a service account, you need the `{{ roles-organization-admin }}` role or higher.
 
@@ -144,7 +144,7 @@ To grant organization access permissions to a service account, you need the `{{ 
 
   For example, to assign the `{{ roles-viewer }}` role for the `MyOrg` organization to a service account:
 
-  1. Select a role to assign to the service account. For role descriptions, see the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md) in the {{ iam-full-name }} documentation.
+  1. Select a role to assign to the service account. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md).
   1. Get a list of available organizations to find out their IDs and technical names:
 
       ```bash
@@ -161,7 +161,7 @@ To grant organization access permissions to a service account, you need the `{{ 
       +---------------------------------+---------------------------------+----------------------+
       ```
 
-      The organization's technical name is in the `NAME` column, and its ID, in the `ID` column.
+      The organization’s technical name is in the `NAME` column, and its ID, in the `ID` column.
 
   1. Get the ID of the service account by its name:
 
@@ -208,7 +208,7 @@ To grant organization access permissions to a service account, you need the `{{ 
 
   1. In the configuration file, describe the resources you want to create:
 
-     Here is an example of the configuration file structure:
+     Configuration file structure example:
 
      ```
      resource "yandex_organizationmanager_organization_iam_binding" "editor" {
@@ -221,7 +221,7 @@ To grant organization access permissions to a service account, you need the `{{ 
      Where:
      * `organization_id`: [Organization ID](../../organization/operations/organization-get-id.md). This is a required setting.
      * `role`: Role. For role descriptions, see the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md) in the {{ iam-full-name }} documentation. For each role, you can only use one `yandex_organizationmanager_organization_iam_binding` resource. This is a required setting.
-     * `members`: List of [subjects](../../iam/concepts/access-control/index.md#subject) getting the role. This is a required setting.
+     * `members`: Designations of the [subjects](../../iam/concepts/access-control/index.md#subject) to assign the role to. This is a required setting.
 
      For more on the properties of the `yandex_organizationmanager_organization_iam_binding` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_binding).
 
@@ -243,7 +243,7 @@ To grant organization access permissions to a service account, you need the `{{ 
 
   To assign a role for an organization to a service account, use the [updateAccessBindings](../../organization/api-ref/Organization/updateAccessBindings.md) REST API method for the [Organization](../../organization/api-ref/Organization/index.md) resource or the [OrganizationService/UpdateAccessBindings](../../organization/api-ref/grpc/Organization/updateAccessBindings.md) gRPC API call:
 
-  1. Select a role to assign to the service account. For role descriptions, see the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md) in the {{ iam-full-name }} documentation.
+  1. Select a role to assign to your service account. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md).
   1. [Get](../../resource-manager/operations/folder/get-id.md) the ID of the folder with service accounts.
   1. [Get](../../iam/operations/iam-token/create.md) an IAM token for authentication in the {{ yandex-cloud }} API.
   1. Get a list of service accounts in the folder to find out their IDs:
@@ -320,7 +320,7 @@ To grant organization access permissions to a service account, you need the `{{ 
       Where:
 
       * `roleId`: Role.
-      * `subject`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
+      * `subject`: [Subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
           {% cut "Subject designations" %}
 

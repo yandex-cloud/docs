@@ -13,7 +13,7 @@ description: In this tutorial, you will learn how to create and configure a {{ y
 1. [Set up a source endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Set up one of the supported data targets](#supported-targets).
 1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
-1. Perform required operations with the database and [control the transfer](../../monitoring.md).
+1. Perform the required database tasks while [monitoring the transfer status](../../monitoring.md).
 1. If you run into any problems, [check the available solutions](#troubleshooting) for troubleshooting.
 
 ## {{ ydb-name }} data transfer scenarios {#scenarios}
@@ -57,7 +57,7 @@ To create or edit an endpoint of a managed database, you will need the [`ydb.vie
 
   * Select the **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.on_premise_connection.title }}** or **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.managed_connection.title }}** connection type.
   
-    To set up your connection manually, specify the following:
+    To set up a connection manually, specify:
 
       * {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/database-name-onprem.md) %}
 
@@ -73,7 +73,7 @@ To create or edit an endpoint of a managed database, you will need the [`ydb.vie
       * {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/security-groups.md) %}
 
   
-    To set up a connection to {{ ydb-full-name }}:
+    To set up a {{ ydb-full-name }} connection:
 
       * {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/database-name.md) %}
 
@@ -179,6 +179,31 @@ Configure one of the supported data targets:
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
 Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).
+
+## Mapping supported data types between DBMS and endpoint {#type-mapping}
+
+#|
+|| **{{ ydb-name }} type** | **Endpoint type** ||
+|| Int64 | int64 ||
+|| Int32 | int32 ||
+|| Int16 | int16 ||
+|| Int8 | int8 ||
+|| Uint64 | uint64 ||
+|| Uint32 | uint32 ||
+|| Uint16 | uint16 ||
+|| Uint8 | uint8 ||
+|| Float | float ||
+|| Double | double ||
+|| String | string ||
+|| Decimal
+DyNumber
+Utf8
+Uuid | utf8 ||
+|| Bool | boolean ||
+|| Date | date ||
+|| Datetime | datetime ||
+|| REST... | any ||
+|#
 
 ## Data transfer troubleshooting {#troubleshooting}
 

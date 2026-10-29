@@ -57,7 +57,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      Where:
 
      * `--role`: [Role](../../security/index.md#roles-list).
-     * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+     * `--subject`: Designation of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
          {% cut "Subject designations" %}
 
@@ -169,7 +169,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      Where `--access-binding` is the role you are assigning:
 
      * `role`: Role ID.
-     * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+     * `subject`: Designation of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
          {% cut "Indicating a subject" %}
 

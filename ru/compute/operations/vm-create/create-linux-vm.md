@@ -7,6 +7,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
 
+
 {% include [role-note](../../../_includes/compute/role-note.md) %}
 
 {% list tabs group=instructions %}

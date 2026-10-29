@@ -5,17 +5,17 @@ description: In this tutorial, you will learn how to set up a {{ MY }} target en
 
 # Transferring data to a {{ MY }} target endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data to a {{ MY }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data to a {{ MY }} database and implement various data transfer, processing, and transformation scenarios. To set up a transfer:
 
-1. [Explore possible data transfer scenarios](#scenarios).
+1. [Review possible data transfer scenarios](#scenarios).
 1. [Configure one of the supported data sources](#supported-sources).
 1. [Prepare the {{ MY }}](#prepare) database for the transfer.
 1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
-1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. [Perform the required operations with the database](#db-actions) and [see how the transfer is going](../../monitoring.md).
-1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
+1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
+1. [Perform the required database tasks](#db-actions) while [monitoring the transfer status](../../monitoring.md).
+1. If you run into any problems, [check the available solutions](#troubleshooting) for troubleshooting.
 
-## Scenarios for transferring data to {{ MY }} {#scenarios}
+## {{ MY }} data transfer scenarios {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
   
@@ -47,17 +47,17 @@ Configure one of the supported data sources:
 
 ## Configuring the {{ MY }} target endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can configure:
 
-* [{{ mmy-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
-* [Additional parameters](#additional-settings).
+* Connection settings for a [{{ mmy-full-name }} cluster](#managed-service) or a [custom deployment](#on-premise), including those running on {{ compute-full-name }} VMs. These settings are required.
+* [Optional settings](#additional-settings).
 
 ### {{ mmy-name }} cluster {#managed-service}
 
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you will need the [`{{ roles.mmy.viewer }}`](../../../../managed-mysql/security/index.md#mmy-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
+To create or edit a managed database endpoint, you will need the [`{{ roles.mmy.viewer }}`](../../../../managed-mysql/security/index.md#mmy-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder where its cluster resides.
 
 {% endnote %}
 
@@ -82,7 +82,7 @@ Connection to the database with the cluster specified in {{ yandex-cloud }}.
 
     {% include [Managed MySQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mysql-target.md) %}
 
-    Here is an example of the configuration file structure:
+    Configuration file structure example:
 
     
     ```hcl
@@ -136,7 +136,7 @@ For OnPremise, all fields are filled in manually.
 
     {% include [On premise MySQL CLI](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mysql-target.md) %}
 
-    Here is an example of the configuration file structure:
+    Configuration file structure example:
 
     
     ```hcl
@@ -183,17 +183,17 @@ You can configure **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.
 
 - Management console {#console}
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.cleanup_policy.title }}**: Select a way to clean up data in the target database before the transfer:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.cleanup_policy.title }}**: Select the pre-transfer cleanup policy for the target database:
 
-      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`: Select this option if you are only going to do replication without copying data.
+      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`: Select this option if you are only replicating data, without copying it.
 
-      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Completely delete the tables included in the transfer (default).
+      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Delete all tables included in the transfer. This is the default option.
 
-          Use this option to always transfer the latest version of the table schema to the target database from the source whenever the transfer is activated.
+          Use it to always transfer the latest table schemas on every transfer activation.
 
-      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}`: Delete only the data from the tables included in the transfer but keep the schema.
+      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}`: Delete data from the transferred tables, leaving the schema intact.
 
-          Use this option if the schema in the target database differs from the one that would have been transferred from the source during the transfer.
+          Use this option if the target schema differs from the one that would be transferred from the source.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.advanced_settings.title }}**:
 
@@ -245,18 +245,41 @@ You can configure **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.
 
 {% endlist %}
 
-After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).
 
 ## Operations with the database during transfer {#db-actions}
 
 {% include [work with db](../../../../_includes/data-transfer/endpoints/sources/mysql-work-with-db.md) %}
 
-## Troubleshooting data transfer issues {#troubleshooting}
+## Mapping supported data types between DBMS and endpoint {#type-mapping}
+
+#|
+|| **{{ MY }} type** | **Endpoint type** ||
+|| BIGINT | int64 ||
+|| INT | int32 ||
+|| SMALLINT | int16 ||
+|| TINYINT | int8 ||
+|| BIGINT | uint64 ||
+|| INT | uint32 ||
+|| SMALLINT | uint16 ||
+|| TINYINT | uint8 ||
+|| FLOAT | float ||
+|| FLOAT | double ||
+|| TEXT | string ||
+|| TEXT | utf8 ||
+|| BIT | boolean ||
+|| DATE | date ||
+|| TIMESTAMP | datetime ||
+|| TIMESTAMP | timestamp ||
+|| JSON | any ||
+|#
+
+## Data transfer troubleshooting {#troubleshooting}
 
 Known issues when using a {{ MY }} endpoint:
 
 * [Single transaction log size exceeds 4 GB](#binlog-size).
-* [New tables cannot be added](#no-new-tables).
+* [New tables are not added](#no-new-tables).
 * [Error when transferring from AWS RDS for {{ MY }}](#aws-binlog-time).
 * [Error when transferring tables without primary keys](#primary-keys).
 * [Binary log access error](#binlog-bytes).

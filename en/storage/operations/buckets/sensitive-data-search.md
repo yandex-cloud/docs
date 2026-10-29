@@ -9,7 +9,7 @@ You can search for [sensitive data](../../concepts/sensitive-data-search.md), su
 
 {% note warning %}
 
-Searching for sensitive data in a bucket is a paid operation. A scan initiated from the {{ objstorage-name }} UI is performed by the Data Security Posture Management module ({{ dspm-name }}) of [{{ sd-full-name }}](../../../security-deck/). The cost of scanning is calculated as per the {{ sd-name }} [pricing policy](../../../security-deck/pricing.md) and attributed to this service in the usage details.
+Searching for sensitive data in a bucket is a paid operation. A scan initiated from the {{ objstorage-name }} UI is performed by the Data Security Posture Management module ({{ dspm-name }}) of [{{ sd-full-name }}](../../../security-deck/). The cost of scanning is calculated in line with the {{ sd-name }} [pricing policy](../../../security-deck/pricing.md) and is attributed to this service in the usage details.
 
 {% endnote %}
 

@@ -12,6 +12,10 @@
 
           {% include [saml-app-group-assertion](./saml-app-group-assertion.md) %}
 
+      1. В поле **Значение для групп** выберите, какое значение группы будет передаваться поставщику услуг:
+
+          {% include [app-group-attribute-values](./app-group-attribute-values.md) %}
+
       1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
   1. Чтобы добавить дополнительные атрибуты пользователей, в правом верхнем углу страницы нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_attribute }}** и в открывшемся окне:
 
@@ -34,7 +38,7 @@
       1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
   1. Чтобы изменить имеющийся атрибут, нажмите на строку с нужным атрибутом и в открывшемся окне:
   
-      1. Измените имя и/или значение атрибута.
+      1. Измените имя и/или значение атрибута. Для атрибута групп в поле **Значение для групп** выберите имя, идентификатор или внешний идентификатор группы.
 
           {% include [saml-app-nameid-assertion](./saml-app-nameid-assertion.md) %}
       

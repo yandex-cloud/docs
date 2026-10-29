@@ -38,9 +38,9 @@ Smart Web Security проверяет HTTP-запросы к защищаемо�
 
 ## Мониторинг и аудит {#monitoring-audit}
 
-Логи профилей безопасности передаются в [Yandex Monium](../../monium/index.md), логи прокси-серверов — в [Yandex Cloud Logging](../../logging/index.md). [Просматривать логи](../operations/configure-logging.md#view-logs) можно в интерфейсе Smart Web Security и соответствующего сервиса логирования.
+[Метрики](../operations/monitoring.md) Smart Web Security передаются в сервис [Yandex Monium](../../monium/index.md) и доступны в разделе **Мониторинг** сервиса Smart Web Security.
 
-[Метрики](../operations/monitoring.md) доступны в разделе **Мониторинг** сервиса Smart Web Security.
+Логи профилей безопасности передаются в [Yandex Monium](../../monium/index.md), логи прокси-серверов — в [Yandex Cloud Logging](../../logging/index.md). [Просматривать логи](../operations/configure-logging.md#view-logs) можно в интерфейсе Smart Web Security и соответствующего сервиса логирования.
 
 Аудитные логи Smart Web Security передаются в сервис [Yandex Audit Trails](../../audit-trails/index.md).
 

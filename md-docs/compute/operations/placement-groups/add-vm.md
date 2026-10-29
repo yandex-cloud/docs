@@ -2,6 +2,7 @@
 
 # Добавить виртуальную машину в группу размещения
 
+
 Добавьте существующую [ВМ](../../concepts/vm.md) в [группу размещения](../../concepts/placement-groups.md).
 
 Работа с группами размещения со стратегией [размещения разделами](../../concepts/placement-groups.md#partition) доступна с помощью [CLI](../../../cli/quickstart.md) и [API](../../api-ref/index.md).

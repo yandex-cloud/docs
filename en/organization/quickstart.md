@@ -29,24 +29,6 @@ After registering, you will become the organization owner. You will be able to m
 
 ## Manage users {#manage-users}
 
-### Add a user to your organization {#add-user-to-organization}
-
-You can connect your employees using their Yandex accounts for access to the corporate services. If your company already uses a different account management system (such as Active Directory or Google Workspace), you can [create an identity federation](#create-federation) so that your employees can use their corporate accounts to access {{ yandex-cloud }} services.
-
-To connect employees with Yandex accounts:
-
-{% list tabs group=instructions %}
-
-- {{ cloud-center }} UI {#cloud-center}
-
-  {% include [add-yandex-user](../_includes/organization/add-yandex-user.md) %}
-
-{% endlist %}
-
-The user will be connected to the organization as soon as they accept the invitation via the emailed link and select the appropriate account to log in. After that, you will be able to [assign them the required roles](#add-role).
-
-For more information about users, see [Organization membership](../organization/concepts/membership.md).
-
 ### Create a user group {#create-group}
 
 You can configure access for multiple users at once by adding them to a group and assigning a role to this group. You can grant access to any {{ yandex-cloud }} resources to the group.
@@ -73,34 +55,32 @@ To create a user group:
 
 {% endlist %}
 
-### Add the user to the group {#add-member-group}
+### Add a user to your organization {#add-user-to-organization}
+
+You can connect your employees using their Yandex accounts for access to the corporate services. If your company already uses a different account management system (such as Active Directory or Google Workspace), you can [create an identity federation](#create-federation) so that your employees can use their corporate accounts to access {{ yandex-cloud }} services.
+
+To connect employees with Yandex accounts:
 
 {% list tabs group=instructions %}
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
-
-  1. In the left-hand panel, select ![groups](../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}** and click the row with the name of the [group](../organization/concepts/groups.md) you need.
-
-  1. Navigate to the **{{ ui-key.yacloud_org.entity.group.title_tab-members }}** tab.
-
-  1. Click **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
-
-  1. In the window that opens, select the users or [service accounts](../iam/concepts/users/service-accounts.md). Use search, if required.
-
-  1. Click **{{ ui-key.yacloud.common.save }}**.
+  {% include [add-yandex-user](../_includes/organization/add-yandex-user.md) %}
 
 {% endlist %}
+
+The user will be connected to the organization as soon as they accept the invitation via the emailed link and select the appropriate account to log in.
+
+For more information about users, see [Organization membership](../organization/concepts/membership.md).
+
 
 ## Manage access {#security}
 
 ### Assign a role to a user {#add-role}
 
-To grant access to a resource, assign a role for the resource to the user. You can assign roles for an [organization](concepts/organization), [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud), or [folder](../resource-manager/concepts/resources-hierarchy.md#folder). The roles assigned to organizations, clouds, and folders also apply to their nested resources.
-You can also assign roles to users to manage individual {{ yandex-cloud }} services using [{{ iam-full-name }}](../iam/concepts/index.md).
+To assign roles to manage individual {{ yandex-cloud }} services, use [{{ iam-full-name }}](../iam/concepts/index.md).
 
-To assign a role to a user:
+To assign a role to a user after an invitation is sent:
 
 {% list tabs group=instructions %}
 

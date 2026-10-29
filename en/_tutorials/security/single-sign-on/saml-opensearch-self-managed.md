@@ -1,7 +1,7 @@
 # Creating a SAML app in {{ org-full-name }} for integration with {{ OS }}
 
 
-[{{ OS }}](https://opensearch.org/) is a highly scalable open-source system of search and analysis tools. {{ OS }} comes with the [{{ OS }} Dashboards](https://docs.opensearch.org/latest/dashboards/) data visualization UI. 
+[{{ OS }}](https://opensearch.org/) is a highly scalable open-source system of search and analysis tools. {{ OS }} comes with the [{{ OS }} Dashboards](https://docs.opensearch.org/latest/dashboards/) data visualization UI.
 
 For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to {{ OS }} via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications/saml.md) in {{ org-full-name }} and configure it both in {{ org-full-name }} and {{ OS }}.
 
@@ -21,7 +21,7 @@ To give access to {{ OS }} to the users of your organization:
 
     1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
     1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-    1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
+    1. Click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and do the following in the window that opens:
         1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.saml-title_kyofk }}** single sign-on method.
         1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify a name for your new app: `opensearch-app`.
 
@@ -217,13 +217,13 @@ To configure {{ OS }} integration with the SAML app you created in {{ org-full-n
 
 #### Add a user groups attribute {#group-attribute}
 
-To set up automatic user-to-role mapping upon {{ OS }} login, add the user group attribute. Proceed as follows:
+To set up automatic user-to-role mapping upon {{ OS }} login, add the user group attribute. Follow these steps:
 
 {% list tabs group=instructions %}
 
 - {{ cloud-center }} UI {#cloud-center}
 
-    1. In the top-right corner, click ![circles-3-plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_group_attribute }}** and in the window that opens.
+    1. In the top-right corner, click ![circles-3-plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_group_attribute }}** and in the window that opens:
     1. In the **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** field, leave `groups`.
     1. In the **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_group_attribute_value_oxrpu }}** field, select `{{ ui-key.yacloud_org.organization.apps.field_group_assigned_amGdu }}`.
     1. Click **{{ ui-key.yacloud.common.add }}**.
@@ -276,7 +276,7 @@ For your organization's users to be able to authenticate in {{ OS }} Dashboards 
 
 ## Make sure your application works correctly {#validate}
 
-To make sure both your SAML app and its integration with {{ OS }} work correctly, authenticate to {{ OS }} Dashboards as one of the users you added to the app. Proceed as follows:
+To make sure both your SAML app and its integration with {{ OS }} work correctly, authenticate to {{ OS }} Dashboards as one of the users you added to the app. Follow these steps:
 
 1. In your browser, navigate to the address of your {{ OS }} Dashboards instance.
 1. If logged in to {{ OS }} Dashboards, log out.

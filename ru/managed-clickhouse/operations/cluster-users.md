@@ -124,18 +124,29 @@ description: Из статьи вы узнаете, как управлять п
   1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера, затем перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
-  1. Введите имя пользователя базы данных.
-
-      {% include [user-name](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
   
-  1. Выберите, как задать пароль:
+  1. Выберите способ аутентификации:
 
-      * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}** — ввести свой пароль. Длина пароля — от 8 до 128 символов.
+     * `{{ ui-key.yacloud.mdb.AuthMethodColumn.value_password_gbuZC }}` — аутентификация по имени пользователя и паролю.
 
-      * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — сгенерировать пароль с помощью сервиса {{ connection-manager-name }}.
+       1. Введите имя пользователя базы данных.
 
-      Чтобы увидеть пароль, на странице кластера перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нового пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+           {% include [user-name](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+
+       
+       1. Выберите, как задать пароль:
+
+           * `{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}` — ввести свой пароль. Длина пароля — от 8 до 128 символов.
+
+           * `{{ ui-key.yacloud.component.password-input.label_button-generate }}` — сгенерировать пароль с помощью сервиса {{ connection-manager-name }}.
+
+           Чтобы увидеть пароль, на странице кластера выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нового пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
+
+     * `{{ ui-key.yacloud.mdb.AuthMethodColumn.value_iam_boWet }}` — аутентификация с помощью [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративного аккаунта](../../iam/concepts/users/accounts.md#saml-federation), [локального пользователя](../../iam/concepts/users/accounts.md#local) или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
+
+       В поле **{{ ui-key.yacloud.common.user }}** откройте список доступных аккаунтов и выберите нужный. Чтобы найти нужный аккаунт, используйте строку поиска над списком.
 
 
   1. Выберите одну или несколько баз данных, к которым должен иметь доступ пользователь:

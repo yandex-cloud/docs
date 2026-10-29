@@ -32,7 +32,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `webserver-network`.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, disable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -632,7 +632,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 
       1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
       1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-      1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+      1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
       1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket, e.g., `cdn-source-bucket`.
       1. Enable **{{ ui-key.yacloud.storage.form-components.SizeLimitField.field_size-limit-enabled_hPy7f }}** and specify the `1 {{ ui-key.yacloud.common.units.label_gigabyte }}` size in the fields that appear.
       1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** and **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** fields, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.

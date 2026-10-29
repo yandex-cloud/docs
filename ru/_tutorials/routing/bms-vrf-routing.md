@@ -1,4 +1,5 @@
-# Настройка VRRP для кластера серверов {{ baremetal-name }} с использованием Keepalived 
+# Настройка VRRP для кластера серверов {{ baremetal-name }} с использованием Keepalived
+
 
 [VRRP](https://ru.wikipedia.org/wiki/VRRP) (Virtual Router Redundancy Protocol) — это сетевой протокол, предназначенный для повышения отказоустойчивости маршрутизаторов, выполняющих роль шлюза по умолчанию. 
 

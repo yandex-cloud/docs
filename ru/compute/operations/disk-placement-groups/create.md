@@ -81,8 +81,8 @@ description: Следуя данной инструкции, вы сможете
      +----------------------+---------------------+-------------------+--------+---------------+
      |          ID          |        NAME         |       ZONE        | STATUS |   STRATEGY    |
      +----------------------+---------------------+-------------------+--------+---------------+
-     | epd3oalmkmbp******** | drbasic-partition-1 | {{ region-id }}-b | READY  | PARTITION [3] |
-     | epdn7r7co1v4******** | drbasic-spread-2    | {{ region-id }}-b | READY  | SPREAD        |
+     | epd3oalmkmbp******** | drbasic-partition-1 | {{ region-id }}-a | READY  | PARTITION [3] |
+     | epdn7r7co1v4******** | drbasic-spread-2    | {{ region-id }}-a | READY  | SPREAD        |
      +----------------------+---------------------+-------------------+--------+---------------+
      ```
 
@@ -100,7 +100,7 @@ description: Следуя данной инструкции, вы сможете
      folder_id: w3qrbj9swoty********
      created_at: "2021-03-23T12:49:59Z"
      name: first-group
-     zone_id: {{ region-id }}-b
+     zone_id: {{ region-id }}-a
      status: READY
      spread_placement_strategy: {}
      ```

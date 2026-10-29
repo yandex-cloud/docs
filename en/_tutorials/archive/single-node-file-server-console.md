@@ -29,7 +29,7 @@ To create a [security group](../../vpc/concepts/security-groups.md) for your fil
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to create your security group in.
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. Open the **{{ ui-key.yacloud.vpc.label_security-groups }}** tab.
+  1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Create a security group:
 
      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.

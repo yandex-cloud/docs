@@ -95,7 +95,7 @@ Smart Web Security защищает веб-приложения от DDoS-ата
 
     1. Нажмите **Создать сервер**.
 
-        Для работы с прокси-сервером будет создан сервисный аккаунт с ролями `monitoring.editor`, `smart-web-security.admin`, `certificate-manager.admin`, `logging.writer`.
+        Для работы с прокси-сервером будет создан сервисный аккаунт с ролями `monium.editor`, `smart-web-security.admin`, `certificate-manager.admin`, `logging.writer`.
         
         Создание прокси-сервера может занять несколько минут. Дождитесь, когда сервер перейдет в статус `Active`. После этого можно добавить домен.
 

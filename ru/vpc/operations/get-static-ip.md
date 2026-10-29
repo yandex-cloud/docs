@@ -5,7 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Зарезервировать статический публичный IP-адрес
 
-
 Вы можете зарезервировать публичный [статический IP-адрес](../concepts/address.md#public-addresses), чтобы потом использовать его для доступа к облачным ресурсам.
 
 {% note info %}
@@ -23,7 +22,7 @@ description: Следуя данной инструкции, вы сможете
   1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
   1. В открывшемся окне:
-     * В поле **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** выберите зону доступности, в которой нужно зарезервировать адрес.
+     * В поле **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой нужно зарезервировать адрес.
      * (Опционально) В блоке **{{ ui-key.yacloud.vpc.addresses.popup-create_field_advanced }}** включите опции **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** и **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection_jVSCP }}**.
      * (Опционально) Укажите метки.
      * (Опционально) Чтобы добавить DNS-запись, в блоке **{{ ui-key.yacloud.vpc.addresses.label_dns-spec-title }}** нажмите кнопку **{{ ui-key.yacloud.dns.button_add-record }}**. В открывшемся блоке:
@@ -44,7 +43,7 @@ description: Следуя данной инструкции, вы сможете
      yc vpc address create --help
      ```
 
-  1. Зарезервируйте адрес, указав зону доступности:
+  1. Зарезервируйте адрес, указав [зону доступности](../../overview/concepts/geo-scope.md):
 
      ```bash
      yc vpc address create --external-ipv4 zone={{ region-id }}-a --deletion-protection

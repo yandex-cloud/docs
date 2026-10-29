@@ -27,7 +27,7 @@ To give access to Jenkins to the users of your organization:
 
    1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
    1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-   1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
+   1. Click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and do the following in the window that opens:
       1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.saml-title_kyofk }}** single sign-on method.
       1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify a name for your new app: `jenkins-saml`.
 
@@ -88,7 +88,7 @@ After you install the plugin, a new **Security Realm** option, `SAML 2.0`, will 
 
 ### Configure user attributes {#user-attributes}
 
-Add the `preferred_username` attribute to users, which will be used as the username when authenticating to Jenkins. Proceed as follows:
+Add the `preferred_username` attribute to users, which will be used as the username when authenticating to Jenkins. Follow these steps:
 
 {% list tabs group=instructions %}
 
@@ -132,7 +132,7 @@ For your organization's users to be able to authenticate to Jenkins with {{ org-
 
 ## Make sure your application works correctly {#validate}
 
-To make sure both your SAML app and Jenkins integration work correctly, authenticate to Jenkins as one of the users you added to the app. Proceed as follows:
+To make sure both your SAML app and Jenkins integration work correctly, authenticate to Jenkins as one of the users you added to the app. Follow these steps:
 
 1. In your browser, navigate to your Jenkins instance address.
 1. You will be redirected to the {{ yandex-cloud }} authentication page. Specify the email and password for the user you added to the app. The user must also have their email address specified.

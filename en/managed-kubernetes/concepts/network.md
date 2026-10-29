@@ -31,16 +31,16 @@ You can also:
 
 ## Managing the address space {#address-space}
 
-{{ k8s }} clusters that do not use tunnel mode have the following limitations:
-* Ranges of the subnets being created should not overlap with the existing ranges.
-* Only a half of the possible subnet range is available for pods, nodes, and services. This limitation is due to the [{{ vpc-name }}](../../vpc/) specifics to ensure the availability of an unused IP address range for cluster service distribution.
+For {{ k8s }} cluster not using tunnel mode, pod ranges must not overlap with the service ranges, master and node subnets, or other {{ vpc-name }} networks and connected networks.
+
+In case the number of free blocks is not sufficient for new nodes, [add a non-overlapping range](cluster-multi-cidr.md) without stopping or recreating the cluster. Support for multiple ranges is available only in the `RAPID` release channel.
 
 The following subnet ranges are available for the pods, nodes, and services of such clusters:
 * `10.0.0.0/8`
 * `172.16.0.0/12`
 * `192.168.0.0/16`
 
-The node subnet mask and the subnet size for the pods determines the maximum number of nodes in the cluster and the maximum number of pods per node.
+The node subnet mask and the subnet size for the pods determine the maximum number of nodes in the cluster and the maximum number of pods per node.
 
 In addition, {{ k8s }} has a [standard limit](https://kubernetes.io/docs/setup/best-practices/cluster-large/) of 110 pods per node.
 
@@ -51,19 +51,22 @@ For clusters in [tunnel mode](network-policy.md#cilium), the following subnet ra
 
 {% note info %}
 
-For such clusters, limitations on a half of the possible subnet range or the overlapping of ranges do not apply.
+For such clusters, the range overlap limitation does not apply.
 
 {% endnote %}
 
 For example, when [creating a cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) with the following parameters:
 * Tunnel mode is not enabled.
 * Range of IP addresses for pods: `10.1.0.0/16`.
+
+  {% include [cluster-multi-cidr-note](../../_includes/managed-kubernetes/cluster-multi-cidr-note.md) %}
+  
 * Range of IP addresses for services: `10.2.0.0/16`.
 * Node subnet mask: `24`.
 
-The cluster will have:
-* Ranges of IP addresses for nodes: `10.1.128.0/24` – `10.1.255.0/24`.
-* IP addresses for pods on each node: `10.1.128.2` – `10.1.128.255`, `10.1.129.2` – `10.1.129.255`, etc.
+The pod range contains `2^(24 − 16) = 256` `/24` blocks: from `10.1.0.0/24` to `10.1.255.0/24`. This calculation does not consider the possible reservation of blocks by {{ managed-k8s-name }}. During planning, keep [quotas and limits](limits.md) in mind.
+
+Each node gets one unreserved block. For example, if the `10.1.1.0/24` block is allocated to a node, its pods will get addresses from this block, such as `10.1.1.2` and `10.1.1.3`.
 
 ## Node name and FQDN {#hostname}
 

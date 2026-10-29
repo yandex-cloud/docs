@@ -19,6 +19,7 @@ description: Следуя данной инструкции, вы научите
 
 ### Создать новую ВМ с разрешенным доступом к серийной консоли {#turn-on-for-new-instance}
 
+
 Чтобы разрешить доступ к серийной консоли при создании новой виртуальной машины на основе публичного [образа](../images-with-pre-installed-software/get-list.md) из [{{ marketplace-full-name }}](../../../marketplace/index.yaml):
 
 {% list tabs group=instructions %}

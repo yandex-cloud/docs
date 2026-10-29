@@ -34,7 +34,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 * {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* {{ managed-k8s-name }} cluster nodes: Use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Public IP addresses for the {{ managed-k8s-name }} cluster's master and nodes with public access enabled (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 * {{ lockbox-name }} secret: number of stored secret versions and requests to them (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
 
@@ -204,7 +204,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
       1. In the window that opens, select **{{ ui-key.yacloud_components.acl.label.service-accounts }}**.
       1. Select the service account you created earlier.
-      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `{{ roles-lockbox-payloadviewer }}` [role](../../lockbox/security/index.md#lockbox-payloadViewer).
+      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select [`{{ roles-lockbox-payloadviewer }}`](../../lockbox/security/index.md#lockbox-payloadViewer).
       1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
     - CLI {#cli}

@@ -326,7 +326,7 @@ Monium платформа для сбора, хранения и анализа 
 
  - [Блокноты](concepts/visualization/notebooks.md)
 
- - [Контекстные ссылки](concepts/visualization/context-links.md)
+ - [Ссылки](concepts/visualization/context-links.md)
 
 ### Работа с дашбордами
 

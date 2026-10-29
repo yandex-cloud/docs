@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Зашифровать диск
 
+
+
 {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
 
 {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}

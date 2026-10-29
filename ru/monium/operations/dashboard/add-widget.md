@@ -109,26 +109,7 @@ description: Из статьи вы узнаете, как добавить ви
 
 #### Ссылки {#chart-links}
 
-Можно добавить ссылку на внешний ресурс или дашборд.
-
-{% list tabs group=instructions %}
-
-- Интерфейс {{ monium-name }} {#console}
-
-  1. В разделе **{{ ui-key.yacloud_monitoring.component.juggler-modal.form.juggler-links.title }}** нажмите **{{ ui-key.yacloud_monitoring.quicklinks.action.add-link }}**.
-  1. Введите заголовок, который будет отображаться для этой ссылки на графике.
-  1. Выберите **{{ ui-key.yacloud_monitoring.context-links.label.type.url }}** и введите текст ссылки в формате `http(s)://<адрес>`. Можно добавить ссылку на любой сайт или внешний ресурс.
-  1. Выберите **{{ ui-key.yacloud_monitoring.context-links.target.dashboard }}** и укажите:
-     1. Облако и каталог, в котором расположен дашборд. В списке находятся все облака и каталоги, к которым у вас есть доступ.
-     1. Дашборд, который будет открываться по ссылке.
-     1. **{{ ui-key.yacloud_monitoring.wizard.tab.links.add-dialog.field.share-timeframe }}** — график откроется с тем же временным интервалом, который задан на исходном графике.
-  1. Включите или отключите опцию **{{ ui-key.yacloud_monitoring.wizard.tab.links.add-dialog.field.show-in-new-tab }}**.
-
-     Добавленные ссылки появятся на графике вверху справа, в меню.
-
-     ![](../../../_assets/monitoring/operations/dashboard/widget-graph-links.png)
-
-{% endlist %}
+В меню графика можно [добавить ссылку](../../concepts/visualization/context-links.md#dashboard-links) на внешний ресурс или другой дашборд. Для переходов с подстановкой меток выбранной метрики используйте [контекстные ссылки](../../concepts/visualization/context-links.md#context-links).
 
 ## Алерт {#alert}
 

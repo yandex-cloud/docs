@@ -16,7 +16,7 @@
       1. Enable the workload identity federation in the **{{ ui-key.yacloud.k8s.IAMService.section-title_4Cx2E }}** field.
       1. Click **{{ ui-key.yacloud.common.save }}**.
       1. In the **{{ ui-key.yacloud.common.overview }}** cluster tab, under **{{ ui-key.yacloud.k8s.IAMService.section-title_4Cx2E }}**, copy the **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-issuer_iKJcv }}** and **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-jwks-uri_x2AJJ }}** values. You will need them to complete the integration.
-      1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab, then to **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+      1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** tab and select the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** section.
       1. In the node group row, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
       1. Enable the workload identity federation in the **{{ ui-key.yacloud.k8s.IAMService.section-title_4Cx2E }}** field.
       1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -97,7 +97,7 @@
 
           {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-      1. Confirm updating the resources.
+      1. Confirm resource changes.
 
           {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -746,6 +746,6 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
 
  - [Метрики](metrics.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
+ - [Аудитные логи](at-ref.md)
 
  - [История изменений](release-notes.md)

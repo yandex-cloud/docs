@@ -70,7 +70,7 @@ To host a static website in the cloud, [create](../../storage/operations/buckets
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md).
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+  1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, specify the domain name you registered, e.g., `gatsbytest.ru`.
   1. Enable **{{ ui-key.yacloud.storage.form-components.SizeLimitField.field_size-limit-enabled_hPy7f }}** and specify `1 {{ ui-key.yacloud.common.units.label_gigabyte }}` in the fields that appear.
   1. Select the **Public** [access](../../storage/concepts/bucket.md#bucket-access) type for all operations.
@@ -462,8 +462,8 @@ To configure access to your website over a secure protocol, get a TLS certificat
   1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ objstorage-name }}**.
   1. Click the bucket name, `gatsbytest.ru` in our example.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
-  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab.
+  1. Select **{{ ui-key.yacloud.storage.bucket.switch_https }}** in the menu at the top.
   1. Click **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.https.field_source }}** field, select **{{ ui-key.yacloud.storage.bucket.https.value_method-certificate-manager }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.https.field_certificate }}** field, select the certificate from the list that opens.

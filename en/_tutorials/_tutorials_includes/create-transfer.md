@@ -5,7 +5,7 @@
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [transfer](../../data-transfer/concepts/index.md#transfer).
-  1. [Navigate]({{ link-console-main }}/link/data-transfer) to {{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}.
+  1. [Navigate]({{ link-console-main }}/link/data-transfer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
   1. Create a source [endpoint](../../data-transfer/concepts/index.md#endpoint):
      1. In the left-hand panel, select ![endpoint](../../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
      1. Click **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.

@@ -1,13 +1,14 @@
 ---
-title: Assigning access rules for tables in {{ mtr-name }}
-description: Rules define the actions users can perform with tables.
+title: Assigning access rules for tables in {{ mtr-full-name }}
+description: Rules define the actions users can perform with tables and views in {{ mtr-name }}.
 ---
 
 # Assigning access rules for tables in {{ mtr-name }}
 
-Rules define the actions users can perform with tables in a {{ mtr-name }} cluster.
+Rules define the actions users can perform with tables and views (`VIEW`) in a {{ mtr-name }} cluster. For a rule to apply to a view, specify the view name in the table name field, as well as the appropriate catalog and schema.
 
 For each user-table pair, the rules apply as follows:
+
 * Rules are checked in the order of their declaration. The first rule matching the user-table pair applies.
 * If none of the rules match the user-table pair, the user is denied all actions with the table.
 * If no table access rules are set, any user can perform any actions with any table.
@@ -20,9 +21,9 @@ For general information about access rules, see [{#T}](../concepts/access-contro
 You can set table access rules when creating a {{ mtr-name }} cluster.
 
 {% note warning %}
-  
+
 Names of tables and schemas specified in rules are not validated. If a table name or a schema name contains an error, the rule will not apply correctly.
-  
+
 {% endnote %}
 
 {% list tabs group=instructions %}
@@ -43,20 +44,22 @@ Names of tables and schemas specified in rules are not validated. If a table nam
      1. {% include [groups-console](../../_includes/managed-trino/groups-console.md) %}
 
      1. Optionally, in the **{{ ui-key.yacloud.trino.ClusterForm.label_table-privileges_2ikK4 }}** field, select permitted actions with tables:
-        * `SELECT`: Read data.
-        * `INSERT`: Insert data.
-        * `DELETE`: Delete data.
-        * `UPDATE`: Update data.
-        * `OWNERSHIP`: Create and delete a table, change columns, and add comments to a table.
-        * `GRANT_SELECT`: Create `VIEW` and read table data.
+        * `SELECT`: Reading data.
+        * `INSERT`: Inserting data.
+        * `DELETE`: Deleting data.
+        * `UPDATE`: Updating data.
+        * `OWNERSHIP`: Creating, updating, and deleting tables or views. This includes modifying table columns and adding comments.
+        * `GRANT_SELECT`: Using table or view data in views with `SECURITY DEFINER` that are read by other users.
 
-        If you do not select any actions, the rule will prohibit all actions with tables.
+        If you do not select any actions, the rule will prohibit all actions with tables and views.
 
         {% note info %}
 
-        To use the `OWNERSHIP` privilege for the table, you need the `ALL` access level for the catalog containing that table.
+        To use the `OWNERSHIP` privilege for a table or view, you need the `ALL` access level for the catalog containing that object.
 
         {% endnote %}
+
+        {% include notitle [view-creation](../../_includes/managed-trino/access-control-src.md#view-creation) %}
 
      1. Optionally, in the **{{ ui-key.yacloud.trino.ClusterForm.label_filter_ewYvF }}** field, specify a boolean SQL expression for user access to table rows.
 
@@ -128,7 +131,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
            ...
            # Access rule for column N
            - <Access_settings_for_column_N>
-         filter: <SQL_expression>           
+         filter: <SQL_expression>
          groups: [<list_of_group_IDs>]
          users: [<list_of_user_IDs>]
          description: <rule_description>
@@ -144,14 +147,16 @@ Names of tables and schemas specified in rules are not validated. If a table nam
      * `tables`: List of table rules. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `table`, `columns`, `filter`, `groups`, `users`, and `description`.
 
      * `privileges`: List of permitted actions with tables:
-       * `SELECT`: Read data.
-       * `INSERT`: Insert data.
-       * `DELETE`: Delete data.
-       * `UPDATE`: Update data.
-       * `OWNERSHIP`: Create and delete a table, change columns, and add comments to a table.
-       * `GRANT_SELECT`: Create a `VIEW` with table data reads.
+       * `SELECT`: Reading data.
+       * `INSERT`: Inserting data.
+       * `DELETE`: Deleting data.
+       * `UPDATE`: Updating data.
+       * `OWNERSHIP`: Creating, updating, and deleting tables or views. This includes modifying table columns and adding comments.
+       * `GRANT_SELECT`: Using table or view data in views with `SECURITY DEFINER` that are read by other users.
 
        {% include notitle [table-ownership](../../_includes/managed-trino/access-control-src.md#table-ownership) %}
+
+       {% include notitle [view-creation](../../_includes/managed-trino/access-control-src.md#view-creation) %}
 
      * Combined, `catalog`, `schema`, and `table` define the tables the rule will apply to. Each of them is optional.
 
@@ -209,9 +214,9 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 - {{ TF }} {#tf}
 
   1. Create a {{ TF }} configuration file describing your [infrastructure](cluster-create.md).
-  
+
   1. Add the `yandex_trino_access_control` resource with the `tables` rule list to the configuration file.
- 
+
      ```hcl
      resource "yandex_trino_cluster" "<cluster_name>" {
        ...
@@ -242,7 +247,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
              ids         = [
                yandex_trino_catalog.<catalog_1_name>.id,
                yandex_trino_catalog.<catalog_2_name>.id,
-               ... 
+               ...
                yandex_trino_catalog.<catalog_N_name>.id
              ]
              name_regexp = "<regular_expression>"
@@ -270,7 +275,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
              # Access rule for column N
              {
                ...
-             }                       
+             }
            ]
            filter        = "<SQL_expression>"
            users         = ["<list_of_user_IDs>"]
@@ -279,12 +284,12 @@ Names of tables and schemas specified in rules are not validated. If a table nam
          },
          # Rule 2
          {
-           ... 
+           ...
          },
          ...
          # Rule N
          {
-           ... 
+           ...
          }
        ]
        ...
@@ -296,14 +301,16 @@ Names of tables and schemas specified in rules are not validated. If a table nam
      * `tables`: List of table rule sections. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `table`, `columns`, `filter`, `groups`, `users`, and `description`.
 
      * `privileges`: List of permitted actions with tables:
-       * `SELECT`: Read data.
-       * `INSERT`: Insert data.
-       * `DELETE`: Delete data.
-       * `UPDATE`: Update data.
-       * `OWNERSHIP`: Create and delete a table, change columns, and add comments to a table.
-       * `GRANT_SELECT`: Create a `VIEW` with table data reads.
+       * `SELECT`: Reading data.
+       * `INSERT`: Inserting data.
+       * `DELETE`: Deleting data.
+       * `UPDATE`: Updating data.
+       * `OWNERSHIP`: Creating, updating, and deleting tables or views. This includes modifying table columns and adding comments.
+       * `GRANT_SELECT`: Using table or view data in views with `SECURITY DEFINER` that are read by other users.
 
        {% include notitle [table-ownership](../../_includes/managed-trino/access-control-src.md#table-ownership) %}
+
+       {% include notitle [view-creation](../../_includes/managed-trino/access-control-src.md#view-creation) %}
 
      * Combined, `catalog`, `schema`, and `table` define the tables the rule will apply to. Each of them is optional.
 
@@ -345,13 +352,13 @@ Names of tables and schemas specified in rules are not validated. If a table nam
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
   1. Make sure the settings are correct.
-  
+
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-  
-  1. Confirm updating the resources.
-  
+
+  1. Confirm resource changes.
+
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
- 
+
   For more information, see [this {{ TF }} provider guide]({{ tf-provider-mtr-access }}).
 
 - REST API {#api}
@@ -459,14 +466,16 @@ Names of tables and schemas specified in rules are not validated. If a table nam
       * `tables`: List of table rule sections. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `table`, `columns`, `filter`, `groups`, `users`, and `description`.
 
       * `privileges`: List of permitted actions with tables:
-        * `SELECT`: Read data.
-        * `INSERT`: Insert data.
-        * `DELETE`: Delete data.
-        * `UPDATE`: Update data.
-        * `OWNERSHIP`: Create and delete a table, change columns, and add comments to a table.
-        * `GRANT_SELECT`: Create `VIEW` and read table data.
+        * `SELECT`: Reading data.
+        * `INSERT`: Inserting data.
+        * `DELETE`: Deleting data.
+        * `UPDATE`: Updating data.
+        * `OWNERSHIP`: Creating, updating, and deleting tables or views. This includes modifying table columns and adding comments.
+        * `GRANT_SELECT`: Using table or view data in views with `SECURITY DEFINER` that are read by other users.
 
         {% include notitle [table-ownership](../../_includes/managed-trino/access-control-src.md#table-ownership) %}
+
+        {% include notitle [view-creation](../../_includes/managed-trino/access-control-src.md#view-creation) %}
 
      * Combined, `catalog`, `schema`, and `table` define the tables the rule will apply to. Each of them is optional.
 
@@ -628,14 +637,16 @@ Names of tables and schemas specified in rules are not validated. If a table nam
       * `tables`: List of table rule sections. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `table`, `columns`, `filter`, `groups`, `users`, and `description`.
 
       * `privileges`: List of permitted actions with tables:
-        * `SELECT`: Read data.
-        * `INSERT`: Insert data.
-        * `DELETE`: Delete data.
-        * `UPDATE`: Update data.
-        * `OWNERSHIP`: Create and delete a table, change columns, and add comments to a table.
-        * `GRANT_SELECT`: Create a `VIEW` with table data reads.
+        * `SELECT`: Reading data.
+        * `INSERT`: Inserting data.
+        * `DELETE`: Deleting data.
+        * `UPDATE`: Updating data.
+        * `OWNERSHIP`: Creating, updating, and deleting tables or views. This includes modifying table columns and adding comments.
+        * `GRANT_SELECT`: Using table or view data in views with `SECURITY DEFINER` that are read by other users.
 
         {% include notitle [table-ownership](../../_includes/managed-trino/access-control-src.md#table-ownership) %}
+
+        {% include notitle [view-creation](../../_includes/managed-trino/access-control-src.md#view-creation) %}
 
       * Combined, `catalog`, `schema`, and `table` define the tables the rule will apply to. Each of them is optional.
 
@@ -702,16 +713,16 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 You can set or update table access rules for an existing {{ mtr-name }} cluster.
 
 {% note warning %}
-  
+
 Names of tables and schemas specified in rules are not validated. If a table name or a schema name contains an error, the rule will not apply correctly.
-  
+
 {% endnote %}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. Go to **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** → **{{ ui-key.yacloud.trino.label_rbac-table }}**.
@@ -724,20 +735,22 @@ Names of tables and schemas specified in rules are not validated. If a table nam
      1. {% include [groups-console](../../_includes/managed-trino/groups-console.md) %}
 
      1. Optionally, in the **{{ ui-key.yacloud.trino.ClusterForm.label_table-privileges_2ikK4 }}** field, select permitted actions with tables:
-        * `SELECT`: Read data.
-        * `INSERT`: Insert data.
-        * `DELETE`: Delete data.
-        * `UPDATE`: Update data.
-        * `OWNERSHIP`: Create and delete a table, change columns, and add comments to a table.
-        * `GRANT_SELECT`: Create `VIEW` and read table data.
+        * `SELECT`: Reading data.
+        * `INSERT`: Inserting data.
+        * `DELETE`: Deleting data.
+        * `UPDATE`: Updating data.
+        * `OWNERSHIP`: Creating, updating, and deleting tables or views. This includes modifying table columns and adding comments.
+        * `GRANT_SELECT`: Using table or view data in views with `SECURITY DEFINER` that are read by other users.
 
-        If you do not select any actions, the rule will prohibit all actions with tables.
+        If you do not select any actions, the rule will prohibit all actions with tables and views.
 
         {% note info %}
 
-        To use the `OWNERSHIP` privilege for the table, you need the `ALL` access level for the catalog containing that table.
+        To use the `OWNERSHIP` privilege for a table or view, you need the `ALL` access level for the catalog containing that object.
 
         {% endnote %}
+
+        {% include notitle [view-creation](../../_includes/managed-trino/access-control-src.md#view-creation) %}
 
      1. Optionally, in the **{{ ui-key.yacloud.trino.ClusterForm.label_filter_ewYvF }}** field, specify a boolean SQL expression for user access to table rows.
 
@@ -816,7 +829,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
            ...
            # Access rule for column N
            - <Access_settings_for_column_N>
-         filter: <SQL_expression>           
+         filter: <SQL_expression>
          groups: [<list_of_group_IDs>]
          users: [<list_of_user_IDs>]
          description: <rule_description>
@@ -832,14 +845,16 @@ Names of tables and schemas specified in rules are not validated. If a table nam
      * `tables`: List of table rules. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `table`, `columns`, `filter`, `groups`, `users`, and `description`.
 
      * `privileges`: List of permitted actions with tables:
-       * `SELECT`: Read data.
-       * `INSERT`: Insert data.
-       * `DELETE`: Delete data.
-       * `UPDATE`: Update data.
-       * `OWNERSHIP`: Create and delete a table, change columns, and add comments to a table.
-       * `GRANT_SELECT`: Create a `VIEW` with table data reads.
+       * `SELECT`: Reading data.
+       * `INSERT`: Inserting data.
+       * `DELETE`: Deleting data.
+       * `UPDATE`: Updating data.
+       * `OWNERSHIP`: Creating, updating, and deleting tables or views. This includes modifying table columns and adding comments.
+       * `GRANT_SELECT`: Using table or view data in views with `SECURITY DEFINER` that are read by other users.
 
        {% include notitle [table-ownership](../../_includes/managed-trino/access-control-src.md#table-ownership) %}
+
+       {% include notitle [view-creation](../../_includes/managed-trino/access-control-src.md#view-creation) %}
 
      * Combined, `catalog`, `schema`, and `table` define the tables the rule will apply to. Each of them is optional.
 
@@ -899,9 +914,9 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 - {{ TF }} {#tf}
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
-  
+
       To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
-  
+
   1. If you have not set any access rules yet, add the `yandex_trino_access_control` resource containing the `tables` rule list.
 
      ```hcl
@@ -934,7 +949,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
              ids         = [
                yandex_trino_catalog.<catalog_1_name>.id,
                yandex_trino_catalog.<catalog_2_name>.id,
-               ... 
+               ...
                yandex_trino_catalog.<catalog_N_name>.id
              ]
              name_regexp = "<regular_expression>"
@@ -962,7 +977,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
              # Access rule for column N
              {
                ...
-             }                       
+             }
            ]
            filter        = "<SQL_expression>"
            users         = ["<list_of_user_IDs>"]
@@ -971,12 +986,12 @@ Names of tables and schemas specified in rules are not validated. If a table nam
          },
          # Rule 2
          {
-           ... 
+           ...
          },
          ...
          # Rule N
          {
-           ... 
+           ...
          }
        ]
        ...
@@ -988,14 +1003,16 @@ Names of tables and schemas specified in rules are not validated. If a table nam
      * `tables`: List of table rule sections. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `table`, `columns`, `filter`, `groups`, `users`, and `description`.
 
      * `privileges`: List of permitted actions with tables:
-       * `SELECT`: Read data.
-       * `INSERT`: Insert data.
-       * `DELETE`: Delete data.
-       * `UPDATE`: Update data.
-       * `OWNERSHIP`: Create and delete a table, change columns, and add comments to a table.
-       * `GRANT_SELECT`: Create a `VIEW` with table data reads.
+       * `SELECT`: Reading data.
+       * `INSERT`: Inserting data.
+       * `DELETE`: Deleting data.
+       * `UPDATE`: Updating data.
+       * `OWNERSHIP`: Creating, updating, and deleting tables or views. This includes modifying table columns and adding comments.
+       * `GRANT_SELECT`: Using table or view data in views with `SECURITY DEFINER` that are read by other users.
 
        {% include notitle [table-ownership](../../_includes/managed-trino/access-control-src.md#table-ownership) %}
+
+       {% include notitle [view-creation](../../_includes/managed-trino/access-control-src.md#view-creation) %}
 
      * Combined, `catalog`, `schema`, and `table` define the tables the rule will apply to. Each of them is optional.
 
@@ -1043,13 +1060,13 @@ Names of tables and schemas specified in rules are not validated. If a table nam
      * Delete the rules you no longer need.
 
   1. Make sure the settings are correct.
-  
+
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-  
-  1. Confirm updating the resources.
-  
+
+  1. Confirm resource changes.
+
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
- 
+
   For more information, see [this {{ TF }} provider guide]({{ tf-provider-mtr-access }}).
 
 - REST API {#api}
@@ -1153,14 +1170,16 @@ Names of tables and schemas specified in rules are not validated. If a table nam
       * `tables`: List of table rule sections. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `table`, `columns`, `filter`, `groups`, `users`, and `description`.
 
       * `privileges`: List of permitted actions with tables:
-        * `SELECT`: Read data.
-        * `INSERT`: Insert data.
-        * `DELETE`: Delete data.
-        * `UPDATE`: Update data.
-        * `OWNERSHIP`: Create and delete a table, change columns, and add comments to a table.
-        * `GRANT_SELECT`: Create `VIEW` and read table data.
+        * `SELECT`: Reading data.
+        * `INSERT`: Inserting data.
+        * `DELETE`: Deleting data.
+        * `UPDATE`: Updating data.
+        * `OWNERSHIP`: Creating, updating, and deleting tables or views. This includes modifying table columns and adding comments.
+        * `GRANT_SELECT`: Using table or view data in views with `SECURITY DEFINER` that are read by other users.
 
         {% include notitle [table-ownership](../../_includes/managed-trino/access-control-src.md#table-ownership) %}
+
+        {% include notitle [view-creation](../../_includes/managed-trino/access-control-src.md#view-creation) %}
 
       * Combined, `catalog`, `schema`, and `table` define the tables the rule will apply to. Each of them is optional.
 
@@ -1318,7 +1337,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
       Where:
 
       * `cluster_id`: Cluster ID.
-          
+
           You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
       * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
@@ -1349,14 +1368,16 @@ Names of tables and schemas specified in rules are not validated. If a table nam
       * `tables`: List of table rule sections. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `table`, `columns`, `filter`, `groups`, `users`, and `description`.
 
       * `privileges`: List of permitted actions with tables:
-        * `SELECT`: Read data.
-        * `INSERT`: Insert data.
-        * `DELETE`: Delete data.
-        * `UPDATE`: Update data.
-        * `OWNERSHIP`: Create and delete a table, change columns, and add comments to a table.
-        * `GRANT_SELECT`: Create a `VIEW` with table data reads.
+        * `SELECT`: Reading data.
+        * `INSERT`: Inserting data.
+        * `DELETE`: Deleting data.
+        * `UPDATE`: Updating data.
+        * `OWNERSHIP`: Creating, updating, and deleting tables or views. This includes modifying table columns and adding comments.
+        * `GRANT_SELECT`: Using table or view data in views with `SECURITY DEFINER` that are read by other users.
 
         {% include notitle [table-ownership](../../_includes/managed-trino/access-control-src.md#table-ownership) %}
+
+        {% include notitle [view-creation](../../_includes/managed-trino/access-control-src.md#view-creation) %}
 
       * Combined, `catalog`, `schema`, and `table` define the tables the rule will apply to. Each of them is optional.
 
@@ -1546,7 +1567,7 @@ Let’s configure access rules for tables in a {{ TR }} cluster:
                 "access": "ALL",
                 "mask": "'***' || substring(client_phone, -4)"
               }
-            ],            
+            ],
             "filter": "manager_id = current_user",
             "privileges": [
               "SELECT"
@@ -1606,7 +1627,7 @@ Let’s configure access rules for tables in a {{ TR }} cluster:
                 "access": "ALL",
                 "mask": "'***' || substring(client_phone, -4)"
               }
-            ],            
+            ],
             "filter": "manager_id = current_user",
             "privileges": [
               "SELECT"

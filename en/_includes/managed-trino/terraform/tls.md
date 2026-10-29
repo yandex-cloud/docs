@@ -11,7 +11,7 @@ resource "yandex_trino_cluster" "<cluster_name>" {
 Where:
 
 * `tls`: TLS parameters.
-  
+
     {% include notitle [tls](../cluster-settings.md#tls) %}
 
     * `trusted_certificates`: Comma-separated list of certificates.

@@ -6,5 +6,4 @@ noIndex: true
 
 # Справочник инструментов {{ alb-name }} для {{ managed-k8s-name }}
 
-
 {% include [ALB instruments for Kubernetes](../../_includes/application-load-balancer/alb-index.md) %}

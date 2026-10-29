@@ -8,7 +8,6 @@
 
 {% endnote %}
 
-
 После создания [диска](../../concepts/disk.md) вы можете:
 * [Изменить имя и описание диска](#change-disk-name).
 * [Увеличить размер диска](#change-disk-size), в том числе подключенного к [запущенной](../../concepts/vm-statuses.md#list-of-statuses) [виртуальной машине](../../concepts/vm.md).
