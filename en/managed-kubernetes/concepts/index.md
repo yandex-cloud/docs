@@ -111,15 +111,21 @@ You can update the master configuration without stopping your {{ managed-k8s-nam
 
 ## Node group {#node-group}
 
-A _node group_ is a {{ compute-full-name }} [instance group](../../compute/concepts/instance-groups/index.md) in a {{ k8s }} cluster, where VM instances share the same configuration and are used to run the user's containers.
+A _node group_ aggregates a {{ k8s }} cluster's computing resources on which user containers run. The following types of node groups are available:
 
-{% include [node-vm-explained-short](../../_includes/managed-kubernetes/node-vm-explained-short.md) %}
+* A _cloud node group_ is a {{ compute-full-name }} [instance group](../../compute/concepts/instance-groups/index.md), with instances sharing the same configuration. The service creates and manages VM instances, maintains a specified number of nodes, and allows you to set up autoscaling. This is the primary way you [create a node group](../operations/node-group/node-group-create.md).
+
+* An _external node group_ aggregates servers you configure and [connect to a cluster](../operations/external-nodes-connect.md) on your own. These servers reside outside {{ yandex-cloud }}. [Getting external nodes ready and maintaining them](external-nodes.md#responsibility) is up to the user.
+
+* A _{{ baremetal-name }} server node group_ consists of dedicated physical servers sharing the same configuration. When you [create such a group](../operations/baremetal-group/create-baremetal.md), the servers get rented, set up, and connected to the cluster. You do not need to rent and connect each server manually. The servers are displayed in {{ baremetal-name }}, and the group is managed via the management console in {{ managed-k8s-name }}.
+
+The below VM instance, autoscaling, and node template settings apply to cloud groups.
 
 {% include [node-vm-manipulation-warning](../../_includes/managed-kubernetes/node-vm-manipulation-warning.md) %}
 
 See also the [description of instance groups during a zonal incident and mitigation guidelines](../../compute/concepts/instance-groups/zonal-inc/overview.md).
 
-For a node group, you can specify the following settings:
+For a cloud node group, you can specify the following settings:
 * Name and description
 * [{{ k8s }} version](./k8s-supported-versions.md)
 * [Node group cloud labels](../../resource-manager/concepts/labels.md)
@@ -289,7 +295,17 @@ If a pod needs access to resources outside the cluster, its IP address will be r
 
 By default, masquerading is enabled for the entire IP address range except for pod CIDRs and [link-local address](https://en.wikipedia.org/wiki/Link-local_address) CIDRs.
 
-To implement IP masquerading, the `ip-masq-agent` pod is deployed on each cluster node. The settings for this pod are stored in a ConfigMap object called `ip-masq-agent`. If you need to disable pod IP masquerading in a particular direction, e.g., to access the pods over a VPN or [{{ interconnect-full-name }}](../../interconnect/index.yaml), specify these IP address ranges in the `data.config.nonMasqueradeCIDRs` parameter:
+To implement IP masquerading, the `ip-masq-agent` pod is deployed on each cluster node. The settings for this pod are stored in a ConfigMap object called `ip-masq-agent` in the `kube-system` namespace. The `data.config.nonMasqueradeCIDRs` parameter specifies the destination ranges not requiring masquerading, e.g., for accessing pods via a VPN or [{{ interconnect-full-name }}](../../interconnect/index.yaml).
+
+{% note warning %}
+
+If you add custom ranges to `nonMasqueradeCIDRs` or modify other masquerading settings, the manual control mode must be set to `disabled`. In `enforced` mode, the controller overwrites the entire `data.config` with the system template during the next synchronization, meaning user-defined ranges and settings will not be saved. 
+
+{% endnote %}
+
+For information on how to switch modes and modify the ConfigMap, refer to [Configuring masquerading](../operations/network/manage-ip-masq-agent.md#manual-management). In `disabled` mode, you must manually update `nonMasqueradeCIDRs` each time a new pod range is added.
+
+Here is an example of the `nonMasqueradeCIDRs` parameter:
 
 ```yaml
 ...

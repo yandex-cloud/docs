@@ -2,7 +2,6 @@
 
 # Интеграция L7-балансировщика с Cloud CDN и Object Storage
 
-
 В этом руководстве в качестве [бэкенда](../../concepts/backend-group.md#types) L7-балансировщика Yandex Application Load Balancer используется [бакет](../../../storage/concepts/bucket.md) Yandex Object Storage. Запросы пользователей передаются [балансировщику](../../concepts/application-load-balancer.md) через [сеть распространения контента](../../../cdn/concepts/points-of-presence.md) Yandex Cloud CDN, чтобы сократить время доставки контента.
 
 Вы можете создать инфраструктуру для интеграции L7-балансировщика с Cloud CDN и Object Storage с помощью одного из инструментов:

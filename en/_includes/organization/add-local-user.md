@@ -68,13 +68,14 @@
  
      ```hcl
      resource "yandex_organizationmanager_idp_user" "example_user" {
-       userpool_id  = <pool_ID>
+       userpool_id  = "<pool_ID>"
        username     = "<login_and_domain>"
        full_name    = "<name_and_last_name>"
        given_name   = "<name>"
        family_name  = "<last_name>"
        email        = "<email_address>"
        phone_number = "<phone_number>"
+       expires_at   = "2027-01-01T00:00:00Z"
        is_active    = true
        password_spec = {
          password = "<password>"
@@ -93,7 +94,8 @@
      * `phone_number`: User phone number. This is an optional setting.
      * `password`: Password. This is an optional setting. If no password is set, it will be generated automatically. The user must change this password on their first login to {{ yandex-cloud }}.
      * `is_active`: User activation flag. Set to `true` to activate the user.
- 
+     * `expires_at`: Date and time to automatically suspend the account, in RFC 3339 format. This is an optional parameter; replace the example value with the actual date.
+
      For more on the properties of the `yandex_organizationmanager_idp_user` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
  
   1. Create the resources:
@@ -108,6 +110,6 @@
 
 - API {#api}
 
-  Use the [User.Create](../../organization/idp/api-ref/User/create.md) REST API method for the [User](../../organization/idp/api-ref/User/index.md) resource or the [UserService/Create](../../organization/idp/api-ref/grpc/User/create.md) gRPC API call.
+    Use the [create](../../organization/idp/api-ref/User/create.md) REST API method for the [User](../../organization/idp/api-ref/User/index.md) resource or the [UserService/Create](../../organization/idp/api-ref/grpc/User/create.md) gRPC API call.
 
 {% endlist %}

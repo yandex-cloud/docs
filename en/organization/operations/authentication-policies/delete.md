@@ -20,6 +20,10 @@ To delete an authentication policy:
   1. In the row with the authentication policy, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, confirm the deletion.
 
+- API {#api}
+
+    Use the [delete](../../policy/api-ref/AuthenticationPolicyRule/delete.md) REST API method for the [AuthenticationPolicyRule](../../policy/api-ref/AuthenticationPolicyRule/index.md) resource or the [AuthenticationPolicyRuleService/Delete](../../policy/api-ref/grpc/AuthenticationPolicyRule/delete.md) gRPC API call.
+
 {% endlist %}
 
 #### Useful links {#see-also}

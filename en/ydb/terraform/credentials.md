@@ -10,7 +10,7 @@ To authenticate in {{ yandex-cloud }} and manage databases in {{ ydb-short-name 
 You can [create](../../iam/operations/sa/create.md) and set up a service account by following these steps:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
 1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
 1. Enter a name for the service account:
     * The name must be 3 to 63 characters long.
@@ -43,7 +43,7 @@ Where:
 * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
 * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
-Add your credentials to the environment variables:
+Add the credentials to the environment variables:
 
 {% list tabs group=programming_language %}
 

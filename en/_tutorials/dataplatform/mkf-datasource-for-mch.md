@@ -4,7 +4,7 @@ A {{ mch-full-name }} cluster can ingest data from {{ KF }} topics in real time.
 
 To set up data delivery from {{ mkf-full-name }} to {{ mch-name }}:
 
-1. [Set up your infrastructure](#deploy-infrastructure).
+1. [Prepare the infrastructure](#deploy-infrastructure).
 1. [Configure additional settings](#additional-settings).
 1. [Set up {{ KF }} integration for your {{ mch-name }} cluster](#configure-mch-for-kf).
 1. [Create Kafka-engine tables in your {{ mch-name }} cluster](#create-kf-table).
@@ -26,12 +26,12 @@ This tutorial uses a single-host {{ CH }} cluster. If your cluster has more than
 
 ### Required paid resources {#paid-resources}
 
-* {{ mkf-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mkf-name }} clusters: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
 * {{ mch-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
-* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
-## Set up your infrastructure {#deploy-infrastructure}
+## Prepare your infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -190,7 +190,7 @@ Configuration depends on how many {{ mkf-name }} clusters you have:
 
            {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-       1. Confirm updating the resources.
+       1. Confirm resource changes.
 
            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -21,7 +21,7 @@ To give access to Cloud.ru to the users of your organization:
 
     1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
     1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-    1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
+    1. Click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and do the following in the window that opens:
         1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}** single sign-on method.
         1. {% include [org-oidc-app-select-web-type-step](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-step.md) %}
         1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify a name for your new app: `cloud-ru-oidc-app`.
@@ -80,7 +80,7 @@ To give access to Cloud.ru to the users of your organization:
      profile_id: web
      ```
 
-     Save the `id` field value for when you need to create and configure your app.
+     Save the `id` field value: you will need to create and configure your app.
 
   1. Create a secret for your OAuth client:
 
@@ -220,7 +220,7 @@ To configure Cloud.ru integration with the OIDC app you created in {{ org-full-n
        --oauth-client-id <OAuth_client_ID>
      ```
 
-     Save the `secret_value` from the command output: this is the client secret you will need to configure Cloud.ru.
+     Save the `secret_value` from the command output: this is the Client Secret you will need to configure Cloud.ru.
 
 {% endlist %}
 
@@ -316,7 +316,7 @@ To enable your organization's users to authenticate to Cloud.ru using the {{ org
 
 {% note info %}
 
-Users and groups added to an OIDC application can be managed by any user with the `organization-manager.oidcApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-oidcApplications-userAdmin) or higher.
+Users and groups added to an OIDC application can be managed by any user with the `organization-manager.oauthApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-oauthApplications-userAdmin) or higher.
 
 {% endnote %}
 
@@ -395,7 +395,7 @@ Make sure the user's `email` attribute is specified and matches their account em
 
 To make sure both your OIDC app and its integration with Cloud.ru work correctly, authenticate to Cloud.ru as one of the users you added to the app.
 
-Proceed as follows:
+Follow these steps:
 
 1. In your browser, open the Cloud.ru [console](https://console.cloud.ru/) login page.
 1. If you were logged in, log out.

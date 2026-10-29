@@ -602,7 +602,7 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
   1. Click the name of the database.
   1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. Select the group, user, or service account you need to grant access to the database.
-  1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
+  1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles.
   1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -637,7 +637,7 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
 
      Where:
 
-     * `--subject`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
+     * `--subject`: Designation of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
          {% cut "Subject designations" %}
 
@@ -673,7 +673,7 @@ You can grant access to a {{ ydb-name }} database to a user, service account, or
   1. Click the name of the database.
   1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. Select the group, user, or service account you need to grant access to the database.
-  1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
+  1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the roles.
   1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 - {{ yandex-cloud }} CLI {#cli}

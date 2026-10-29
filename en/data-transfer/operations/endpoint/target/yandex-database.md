@@ -5,17 +5,17 @@ description: In this tutorial, you will learn how to set up a {{ ydb-name }} tar
 # Transferring data to a {{ ydb-name }} target endpoint
 
 
-{{ data-transfer-full-name }} enables you to migrate data to a {{ ydb-name }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data to a {{ ydb-name }} database and implement various data transfer, processing, and transformation scenarios. To set up a transfer:
 
-1. [Explore possible data transfer scenarios](#scenarios).
+1. [Review possible data transfer scenarios](#scenarios).
 1. [Configure one of the supported data sources](#supported-sources).
 1. [Prepare the {{ ydb-name }}](#prepare) database for the transfer.
 1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
-1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. Perform required operations with the database and [control the transfer](../../monitoring.md).
-1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
+1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
+1. Perform the required database tasks while [monitoring the transfer status](../../monitoring.md).
+1. If you run into any problems, [check the available solutions](#troubleshooting) for troubleshooting.
 
-## Scenarios for transferring data to {{ ydb-name }} {#scenarios}
+## {{ ydb-name }} data transfer scenarios {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
@@ -54,17 +54,17 @@ For a complete list of supported sources and targets in {{ data-transfer-full-na
 
 ## Configuring the {{ ydb-name }} target endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can configure:
 
-* {{ ydb-full-name }} DB connection settings. These are required parameters.
-* [Additional parameters](#additional-settings).
+* {{ ydb-full-name }} DB connection settings. These settings are required.
+* [Optional settings](#additional-settings).
 
 ### {{ ydb-full-name }} cluster {#managed-service}
 
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you will need the [`ydb.viewer`](../../../../ydb/security/index.md#ydb-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
+To create or edit a managed database endpoint, you will need the [`ydb.viewer`](../../../../ydb/security/index.md#ydb-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder where its cluster resides.
 
 {% endnote %}
 
@@ -153,9 +153,32 @@ Connection to the database with the cluster specified in {{ yandex-cloud }}.
 
 {% endlist %}
 
-After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).
 
-## Troubleshooting data transfer issues {#troubleshooting}
+## Mapping supported data types between DBMS and endpoint {#type-mapping}
+
+#|
+|| **{{ ydb-name }} type** | **Endpoint type** ||
+|| Int64 | int64 ||
+|| Int32 | int32 ||
+|| Int32 | int16 ||
+|| Int32 | int8 ||
+|| Uint64 | uint64 ||
+|| Uint32 | uint32 ||
+|| Uint32 | uint16 ||
+|| Uint8 | uint8 ||
+|| N/A | float ||
+|| Double | double ||
+|| String | string ||
+|| Utf8 | utf8 ||
+|| Bool | boolean ||
+|| Date | date ||
+|| Datetime | datetime ||
+|| Timestamp | timestamp ||
+|| Json | any ||
+|#
+
+## Data transfer troubleshooting {#troubleshooting}
 
 Known issues when using a {{ ydb-name }} endpoint:
 

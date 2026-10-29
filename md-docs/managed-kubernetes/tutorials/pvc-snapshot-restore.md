@@ -2,7 +2,6 @@
 
 # Работа со снапшотами
 
-
 В Managed Service for Kubernetes доступны [снапшоты](../../glossary/snapshot.md) — копии дисков [PersistentVolume](../concepts/volume.md#provisioning-volumes) на определенный момент времени. Подробнее о механизме снапшотов смотрите в [документации Kubernetes](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
 
 Чтобы создать снапшот, а потом восстановить его:

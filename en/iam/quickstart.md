@@ -4,7 +4,7 @@ To get started with {{ iam-short-name }}, add a user to your organization and gr
 
 ## Getting started {#before-you-begin}
 
-1. Log in to the [management console]({{ link-console-main }}). If you have not signed up yet, navigate to the management console and follow the instructions.
+1. Log in to the [management console]({{ link-console-main }}). If you have not signed up yet, navigate to the management console and follow the on-screen instructions.
 1. Make sure that you have the required [roles](./concepts/access-control/roles.md):
 
     1. In the management console, click ![image](../_assets/console-icons/layout-side-content-left.svg) or ![image](../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
@@ -18,7 +18,7 @@ To get started with {{ iam-short-name }}, add a user to your organization and gr
 1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have an `ACTIVE` or `TRIAL_ACTIVE` [billing account](../billing/concepts/billing-account.md). If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 1. If you do not have any users to add to the cloud, you can [create a new Yandex account](https://passport.yandex.ru/registration) and grant this account access to the cloud.
 
-## Add a user with a Yandex account to your organization {#add-organization-member}
+## Add users with a Yandex account to your organization and assign them roles {#add-organization-member-and-assign-roles}
 
 {% list tabs group=instructions %}
 
@@ -32,29 +32,22 @@ To get started with {{ iam-short-name }}, add a user to your organization and gr
 
         {% include [send-invitation](../_includes/organization/send-invitation.md) %}
 
-    1. Click **{{ ui-key.yacloud_components.organization.action_send-invitation_6LqIj }}**.
+    1. To send an invitation, click **{{ ui-key.yacloud_components.organization.action_next }}**. This will open the window for assigning roles and adding users to the group.
+
+    1. {% include [assign-roles-on-invite](../_includes/organization/assign-roles-on-invite.md) %}
+
+        For example, to grant users access to viewing cloud resources in the management console, select the relevant cloud in the **{{ ui-key.yacloud_components.organization.access_label_scope }}** field and specify the `resource-manager.viewer` role when assigning roles.
+
+        To manage a folder, select the relevant folder in the **{{ ui-key.yacloud_components.organization.access_label_scope }}** field and specify the `resource-manager.editor` role when assigning roles.
+
+    1. {% include [add-to-group-on-invite](../_includes/organization/add-to-group-on-invite.md) %}
+
+    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
 The user will be able to log in to the organization upon accepting the invitation via the emailed link and selecting an account for log-in. To access the services enabled for the organization, the users you invited simply need to log in to their Yandex account.
 
-## Assign roles to the user {#assign-role}
-
-To specify which operations the user can perform, assign relevant roles to the user. For example, allow the user to view cloud resources and manage a folder:
-
-{% list tabs group=instructions %}
-
-- Management console {#console}
-
-    1. Assign the user a role in the cloud:
-        
-        {% include [set-accessbinding-user-editor-folder-console](../_includes/resource-manager/set-accessbinding-user-viewer-cloud-console.md) %}
-
-    1. Assign the user a role in the folder:
-
-        {% include [set-accessbinding-user-editor-folder-console](../_includes/resource-manager/set-accessbinding-user-editor-folder-console.md) %}
-
-{% endlist %}
 
 ## Revoke assigned roles {#revoke-roles}
 

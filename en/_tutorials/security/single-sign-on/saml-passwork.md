@@ -21,7 +21,7 @@ To grant access to Passwork to the users of your organization:
 
     1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
     1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-    1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
+    1. Click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and do the following in the window that opens:
         1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.saml-title_kyofk }}** single sign-on method.
         1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify a name for your new app: `passwork-app`.
 
@@ -123,7 +123,7 @@ For the users of your organization to be able to authenticate in Passwork with {
 
 ## Make sure your application works correctly {#validate}
 
-To make sure both your SAML app and Passwork integration work correctly, sign in to Passwork as one of the users you added to the app. Proceed as follows:
+To make sure both your SAML app and Passwork integration work correctly, sign in to Passwork as one of the users you added to the app. Follow these steps:
 
 1. In your browser, navigate to your Passwork instance URL, e.g., `https://my-domain.passwork-cloud.ru`.
 1. If already logged in to Passwork, sign out of your account.

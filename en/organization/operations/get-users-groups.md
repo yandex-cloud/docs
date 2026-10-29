@@ -36,10 +36,10 @@ To view which [groups](../../organization/concepts/groups.md) a specific [user](
   1. Run this command:
 
      ```bash
-     yc organization-manager group list-effective --subject_id <user_ID>
+     yc organization-manager group list-effective --subject-id <user_ID>
      ```
 
-     Where `--subject_id` is the user ID you got in the previous step.
+     Where `--subject-id` is the user ID you got in the previous step.
 
 - API {#api}
 

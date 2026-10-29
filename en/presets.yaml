@@ -470,7 +470,6 @@ default:
           repository:
             name: >-
               cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1789566872190363361228058870643905000661686010862
-            tag: 1.30.4-v1
         php:
           repository:
             name: >-
@@ -2462,6 +2461,12 @@ default:
         label_inherited-subscribers: Default subscribers
         label_subscribers-dialog-header: Adding users
       organization:
+        access_action_add-role: Add role
+        access_action_add-scope: Add resource and role
+        access_label_scope: Resource
+        access_tab_add-to-group: Add to group
+        access_tab_assign-roles: Assign roles
+        action_next: Next
         action_send-invitation_6LqIj: Send invitation
         action:
           add: Add
@@ -4027,6 +4032,9 @@ default:
             count: Number of SAML certificates for federations
           federationUsers:
             count: Number of users in all federations in an organization
+        storage:
+          volume:
+            size-key-value: Storage volume
         vdi:
           desktopCores:
             count: Number of vCPU desktops
@@ -5279,6 +5287,10 @@ default:
             button_attach-to-pool_ak57z: Attach to VM reserve pool
             button_confirm-detach-vm-from-pool_8dze2: Detach
             button_detach-from-pool_wEiB2: Detach from VM reserve pool
+          MaintenancePolicyField:
+            label_maintenance-policy_edr8e: Maintenance policy
+            option_migrate_title_91Mwf: Dynamic migration
+            option_restart_title_7i3QA: Restart
           MaintenanceRescheduleDialog:
             button_reschedule_3SHfY: Reschedule
           PlatformField:
@@ -6304,6 +6316,7 @@ default:
             label_title: Overview
             section_master: Master configuration
           switch_access: Access management
+          switch_cluster-overview: Cluster management
           switch_configuration: ConfigMaps and Secrets
           switch_custom-resources: Custom resources
           switch_events: Events
@@ -6425,6 +6438,8 @@ default:
             label_monitoring: Monitoring
         nodes:
           button_action-uncordon: Uncordon
+          button_create-custom-ng: External
+          button_create-ng: Cloud
           label_node-groups: Node group
           label_nodes: Nodes
         pv:

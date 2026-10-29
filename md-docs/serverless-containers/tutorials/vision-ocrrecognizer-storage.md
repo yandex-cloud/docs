@@ -2,6 +2,7 @@
 
 # Регулярное распознавание изображений и PDF-документов из бакета Object Storage
 
+
 В этом руководстве вы с помощью [Yandex Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/index) настроите автоматическое распознавание изображений в [поддерживаемых форматах](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/index#image-requirements) и PDF-документов, регулярно загружаемых в [бакет](../../storage/concepts/bucket.md) [Yandex Object Storage](../../storage/index.md).
 
 

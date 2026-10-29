@@ -178,7 +178,7 @@ You need to create a connection only when connecting the trail to {{ yq-short-na
     1. In the [management console]({{ link-console-main }}), select `example-folder`.
     1. [Navigate]({{ link-console-main }}/link/audit-trails) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
     1. Select the `logsyq` trail.
-    1. Click **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}**.
+    1. At the top right, click ![cube](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}**.
     1. Create a connection:
         * Select the `bucket-yq-sa` **{{ ui-key.yacloud.common.resource-acl.label_service-account }}**.
         * Leave the other settings at their defaults.

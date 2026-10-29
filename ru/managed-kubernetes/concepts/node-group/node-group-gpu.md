@@ -12,6 +12,7 @@ description: Из статьи вы узнаете про группы узло�
 
 ## Требования {#requirements}
 
+
 В облаке должна быть ненулевая квота GPU.
 
 {% include [compute-gpu-zero-quota](../../../_includes/compute/gpu-zero-quota.md) %}

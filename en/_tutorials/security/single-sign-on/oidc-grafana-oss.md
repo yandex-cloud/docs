@@ -21,7 +21,7 @@ To give access to Grafana OSS to the users of your organization:
 
     1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
     1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-    1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
+    1. Click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and do the following in the window that opens:
         1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}** single sign-on method.
         1. {% include [org-oidc-app-select-web-type-step](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-step.md) %}
         1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify a name for your new app: `grafana-oss-oidc-app`.
@@ -79,7 +79,7 @@ To give access to Grafana OSS to the users of your organization:
      pkce_required: true
      ```
 
-     Save the `id` field value for when you need to create and configure your app.
+     Save the `id` field value: you will need to create and configure your app.
 
   1. Create a secret for your OAuth client:
 
@@ -120,7 +120,7 @@ To give access to Grafana OSS to the users of your organization:
      * `--description`: OIDC app description. This is an optional setting.
      * `--client-id`: OAuth client ID you got in Step 2. This is a required setting.
      * `--authorized-scopes`: Specify the same attributes as when creating the OAuth client.
-     * `--group-distribution-type`: Specify `assigned-groups` to only provide groups added to the application to Grafana OSS.
+     * `--group-distribution-type`: Specify `assigned-groups` to provide to Grafana OSS only the groups added to the application.
 
      Result:
 
@@ -194,7 +194,7 @@ To integrate Grafana OSS with the OIDC app you created in {{ org-full-name }}, c
          - groups
      ```
 
-     Save the `client_id` value: this is the Client ID you will need to configure your Grafana OSS.
+     Save the `client_id` value: this is the Client ID you will need to configure Grafana OSS.
 
   1. Get the OpenID Connect Discovery configuration URL:
 
@@ -218,7 +218,7 @@ To integrate Grafana OSS with the OIDC app you created in {{ org-full-name }}, c
        --oauth-client-id <OAuth_client_ID>
      ```
 
-     Save the `secret_value` from the command output: this is the Client Secret you will need to configure your Grafana OSS.
+     Save the `secret_value` from the command output: this is the Client Secret you will need to configure Grafana OSS.
 
 {% endlist %}
 
@@ -315,7 +315,7 @@ The expression means the user will get the `Editor` role if they belong to the `
 
 The redirect URI you previously specified in {{ org-full-name }} must match the URI that Grafana OSS sends to {{ org-full-name }}.
 
-Proceed as follows:
+Follow these steps:
 
 1. Open the [Grafana configuration file](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#configuration-file-location).
 1. In the `[server]` section, set:
@@ -332,7 +332,7 @@ For your organization's users to be able to authenticate in Grafana OSS with {{ 
 
 {% note info %}
 
-Users and groups added to an OIDC application can be managed by any user with the `organization-manager.oidcApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-oidcApplications-userAdmin) or higher.
+Users and groups added to an OIDC application can be managed by any user with the `organization-manager.oauthApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-oauthApplications-userAdmin) or higher.
 
 {% endnote %}
 
@@ -395,7 +395,7 @@ Add a user to the application:
 
 To make sure both your OIDC app and Grafana OSS integration work correctly, authenticate to Grafana OSS as one of the users you added to the app.
 
-Proceed as follows:
+Follow these steps:
 
 1. In your browser, navigate to the address of your Grafana OSS instance, e.g., `https://your-domain`.
 1. If you were logged in to Grafana OSS, log out.

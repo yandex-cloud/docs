@@ -11,7 +11,7 @@
     1. In the [management console]({{ link-console-main }}), select the folder containing the {{ managed-k8s-name }} cluster.
     1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Select the cluster.
-    1. Select ![image](../../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.k8s.cluster.switch_network }}** on the left and then the **{{ ui-key.yacloud.k8s.network.label_ingress }}** tab on the right. For your `Ingress` resource, follow the L7 load balancer link in the **Load balancer** column.
+    1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_network }}** tab and select **{{ ui-key.yacloud.k8s.network.label_ingress }}**. For your `Ingress` resource, follow the L7 load balancer link in the **Load balancer** column.
     1. Monitor the L7 load balancer's user traffic on the [load balancer statistics](../../../application-load-balancer/operations/application-load-balancer-get-stats.md) charts.
 
 1. Monitor the decrease in traffic on the network load balancer using the `processed_bytes` and `processed_packets` [load balancer metrics](../../../monitoring/metrics-ref/network-load-balancer-ref.md). You can [create a dashboard](../../../monitoring/operations/dashboard/create.md) to visualize these metrics. If there is no load on the network load balancer for a long time, the migration to the L7 load balancer is complete.

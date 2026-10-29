@@ -6,7 +6,6 @@ editable: false
 
 # Квоты и лимиты в {{ compute-name }}
 
-
 {% include [quota-zones-warning](../../_includes/compute/quota-zones-warning.md) %}
 
 {% include [reserved-pools-preview-notice](../../_includes/compute/reserved-pools-preview-notice.md) %}

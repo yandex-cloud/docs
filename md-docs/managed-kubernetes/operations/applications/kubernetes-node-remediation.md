@@ -2,6 +2,7 @@
 
 # Установка Kubernetes Node Remediation
 
+
 [Kubernetes Node Remediation](https://www.medik8s.io/) — это набор операторов Kubernetes, которые обеспечивают автоматическое восстановление неисправных узлов кластера Managed Service for Kubernetes и высокую доступность для stateful-нагрузок.
 
 Решение состоит из двух контроллеров:

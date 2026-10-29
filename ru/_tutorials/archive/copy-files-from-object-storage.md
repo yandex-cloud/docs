@@ -1,5 +1,6 @@
 # Использование {{ objstorage-full-name }} в {{ dataproc-name }}
 
+
 В этом разделе рассмотрены различные способы доступа к объектам из [бакетов](../../storage/concepts/bucket.md) {{ objstorage-name }} для процессов, запущенных на кластерах {{ dataproc-name }}.
 
 {% note info %}

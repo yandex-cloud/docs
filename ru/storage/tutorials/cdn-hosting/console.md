@@ -6,8 +6,6 @@ canonical: '{{ link-docs }}/tutorials/applied/cdn-hosting/console'
 
 # Настройка хостинга статического сайта в бакете {{ objstorage-full-name }} с доступом через {{ cdn-full-name }}
 
-
-
 Чтобы [настроить хостинг](index.md) статического сайта в бакете с доступом через CDN с помощью консоли управления {{ yandex-cloud }}, CLI или API:
 
 {% include [cdn-hosting-console](../../../_tutorials/applied/cdn-hosting-console.md) %}

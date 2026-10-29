@@ -1,5 +1,6 @@
 # Создание группы виртуальных машин с {{ coi }} и несколькими Docker-контейнерами
 
+
 Вы можете создать [группу виртуальных машин](../../compute/concepts/instance-groups/index.md) на базе [образа](../../compute/concepts/image.md) [{{ coi }}](../../cos/concepts/index.md) с несколькими [Docker-контейнерами](/blog/posts/2022/03/docker-containers) внутри.
 
 Для создания Docker-контейнеров будет использоваться [Docker Compose спецификация](../../cos/concepts/coi-specifications.md#compose-spec).

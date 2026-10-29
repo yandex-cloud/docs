@@ -7,7 +7,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
 
-
 После создания [диска](../../concepts/disk.md) вы можете:
 * [Изменить имя и описание диска](#change-disk-name).
 * [Увеличить размер диска](#change-disk-size), в том числе подключенного к [запущенной](../../concepts/vm-statuses.md#list-of-statuses) [виртуальной машине](../../concepts/vm.md).

@@ -56,7 +56,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      Where:
 
      * `--role`: [Role](../../security/index.md#roles-list).
-     * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+     * `--subject`: Designation of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
          {% cut "Subject designations" %}
 
@@ -108,7 +108,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  Use the [updateAccessBindings](../../api-ref/Snapshot/updateAccessBindings.md) REST API method for the [Snapshot](../../api-ref/Snapshot/) resource or the [SnapshotService/UpdateAccessBindings](../../api-ref/grpc/Snapshot/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the [subject](../../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+  Use the [updateAccessBindings](../../api-ref/Snapshot/updateAccessBindings.md) REST API method for the [Snapshot](../../api-ref/Snapshot/) resource or the [SnapshotService/UpdateAccessBindings](../../api-ref/grpc/Snapshot/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify [subject](../../../iam/concepts/access-control/index.md#subject) type and ID in the `subject` property.
 
   {% cut "Subject designations" %}
 
@@ -167,7 +167,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      Where `--access-binding` is the role you are assigning:
 
      * `role`: Role ID.
-     * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+     * `subject`: Designation of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
          {% cut "Indicating a subject" %}
 
@@ -330,7 +330,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  To revoke roles for a disk snapshot, use the [updateAccessBindings](../../api-ref/Snapshot/updateAccessBindings.md) REST API method for the [Snapshot](../../api-ref/Snapshot/) resource or the [SnapshotService/UpdateAccessBindings](../../api-ref/grpc/Snapshot/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the [subject](../../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+  To revoke roles for a disk snapshot, use the [updateAccessBindings](../../api-ref/Snapshot/updateAccessBindings.md) REST API method for the [Snapshot](../../api-ref/Snapshot/) resource or the [SnapshotService/UpdateAccessBindings](../../api-ref/grpc/Snapshot/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify [subject](../../../iam/concepts/access-control/index.md#subject) type and ID in the `subject` property.
 
   {% cut "Subject designations" %}
 

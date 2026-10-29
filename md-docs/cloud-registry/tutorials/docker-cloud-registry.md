@@ -4,6 +4,7 @@
 
 В этом руководстве вы развернете [Docker-образ](../concepts/artifacts/docker.md) из [реестра](../concepts/registry.md) Yandex Cloud Registry и запустите контейнер на [виртуальной машине](../../compute/concepts/vm.md) Yandex Compute Cloud.
 
+
 Чтобы запустить Docker-образ на виртуальной машине:
 
 1. [Подготовьте облако к работе](#before-you-begin).
@@ -341,8 +342,8 @@
   1. Нажмите **Создать сеть**.
   1. Выберите созданную сеть `docker-ycr-network`.
   1. Нажмите кнопку ![image](../../_assets/console-icons/nodes-right.svg) **Создать подсеть**.
-  1. В поле **Имя** укажите `docker-ycr-subnet-ru-central1-b`.
-  1. В поле **Зона доступности** выберите зону доступности `ru-central1-b`.
+  1. В поле **Имя** укажите `docker-ycr-subnet-ru-central1-a`.
+  1. В поле **Зона доступности** выберите зону доступности `ru-central1-a`.
   1. В поле **CIDR** укажите `192.168.1.0/24`.
   1. Нажмите **Создать подсеть**.
 
@@ -366,11 +367,11 @@
 
       Подробнее о команде `yc vpc network create` читайте в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
-  1. Создайте подсеть в [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-b`:
+  1. Создайте подсеть в [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`:
 
       ```bash
-      yc vpc subnet create docker-ycr-subnet-ru-central1-b \
-        --zone ru-central1-b \
+      yc vpc subnet create docker-ycr-subnet-ru-central1-a \
+        --zone ru-central1-a \
         --network-name docker-ycr-network \
         --range 192.168.1.0/24
       ```
@@ -381,9 +382,9 @@
       id: e2li9tcgi7ii********
       folder_id: b1gt6g8ht345********
       created_at: "2023-12-20T20:11:16Z"
-      name: docker-ycr-subnet-ru-central1-b
+      name: docker-ycr-subnet-ru-central1-a
       network_id: enp1gg8kr3pv********
-      zone_id: ru-central1-b
+      zone_id: ru-central1-a
       v4_cidr_blocks:
         - 192.168.1.0/24
       ```
@@ -429,8 +430,8 @@
   ```bash
   yc compute instance create \
     --name docker-vm \
-    --zone ru-central1-b \
-    --network-interface subnet-name=docker-ycr-subnet-ru-central1-b,nat-ip-version=ipv4 \
+    --zone ru-central1-a \
+    --network-interface subnet-name=docker-ycr-subnet-ru-central1-a,nat-ip-version=ipv4 \
     --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2004-lts \
     --ssh-key <путь_к_файлу_открытого_SSH-ключа> \
     --service-account-name docker-puller

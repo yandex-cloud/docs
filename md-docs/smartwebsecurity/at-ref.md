@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Smart Web Security](index.md) > Аудитные логи Audit Trails
+[Документация Yandex Cloud](../index.md) > [Yandex Smart Web Security](index.md) > Аудитные логи
 
 # Справочник аудитных логов Yandex Audit Trails
 

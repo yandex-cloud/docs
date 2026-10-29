@@ -3272,6 +3272,7 @@ default:
         label:
           downsampling-fill: Заполнение
           edit-notify-methods: Редактировать
+          evaluation-delay: Задержка вычисления
           group-by-labels: Разложение по меткам
           notification-method: Способ уведомления
           query-to-check: Запрос для проверки
@@ -3360,6 +3361,10 @@ default:
           execute-query: Выполнить запрос
         button:
           apply-and-parse: Выполнить
+        functions:
+          label:
+            category-COMBINE: Комбинирование
+            category-TRANSFORMATION: Преобразование
         hint:
           search-hotkey: 'Хоткей поиска: Cmd/Ctrl + Enter'
         tokens:
@@ -8026,6 +8031,8 @@ default:
         label_log-type-valkey: Логи Valkey
         label_log-type-valkey-audit: Авторизация и подключения
         local:
+          label_iam_9J4bC: IAM
+          label_password_8Dq2k: Пароль
           valkey_modules_aQacT: Модули
           valkey_search_vfqdy: Search
         ModulesFormCard:

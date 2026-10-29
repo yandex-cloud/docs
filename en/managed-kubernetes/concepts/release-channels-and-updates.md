@@ -24,8 +24,6 @@ Channel | Auto updates | Channel description
 
 _For information on supported {{ k8s }} versions in channels, see [this page](./k8s-supported-versions.md)._
 
-{% include [os-new-version](../../_includes/managed-kubernetes/note-os-new-version.md) %}
-
 ## Updates {#updates}
 
 When a release channel receives an update, you get a notification in the management console. You can install updates automatically or manually.
@@ -45,7 +43,7 @@ The update is performed within the scope of the {{ managed-k8s-name }} cluster's
 Auto updates include new {{ managed-k8s-name }} features, improvements, and fixes as well as {{ k8s }} component fixes.
 
 ||
-|| [Manual](../operations/update-kubernetes.md#cluster-manual-upgrade) | At the user's behest | At any time |
+|| [Manual](../operations/update-kubernetes.md#cluster-manual-upgrade) | At the user's initiative | At any time |
 
 They include {{ k8s }} minor version updates.
 

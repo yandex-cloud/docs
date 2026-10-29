@@ -29,6 +29,34 @@ To edit your organization data:
 
   1. Click **{{ ui-key.yacloud_org.forms.action.save }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. View the command description:
+
+      ```bash
+      yc organization-manager organization update --help
+      ```
+
+  1. Edit organization data:
+
+      ```bash
+      yc organization-manager organization update \
+        --id <organization_ID> \
+        --new-name <technical_name> \
+        --title "<organization_name>" \
+        --description "<organization_description>"
+      ```
+
+      `--id`: [Organization ID](organization-get-id.md). Provide only those of the `--new-name`, `--title`, and `--description` optional parameters that you want to update.
+
+- API {#api}
+
+    Use the [update](../api-ref/Organization/update.md) REST API method for the [Organization](../api-ref/Organization/index.md) resource or the [OrganizationService/Update](../api-ref/grpc/Organization/update.md) gRPC API call.
+
 {% endlist %}
 
 {% include [where-change-billing-info](../../_includes/organization/where-change-billing-info.md) %}

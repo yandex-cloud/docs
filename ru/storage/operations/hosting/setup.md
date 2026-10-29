@@ -5,7 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Настроить хостинг
 
-
 {% include [static-site-information](../../../_includes/storage/static-site-information.md) %}
 
 В бакетах {{ objstorage-name }} поддерживаются:

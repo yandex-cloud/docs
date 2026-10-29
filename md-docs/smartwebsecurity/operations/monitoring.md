@@ -6,11 +6,15 @@
 
 Чтобы посмотреть метрики в интерфейсе Smart Web Security:
 
-1. В [консоли управления](https://console.yandex.cloud) выберите каталог с профилем безопасности.
-1. [Перейдите](https://console.yandex.cloud/link/smartwebsecurity) в сервис **Smart Web Security**.
-1. На панели слева выберите ![display-pulse](../../_assets/console-icons/display-pulse.svg) **Мониторинг**.
-1. Задайте период просмотра метрик.
-1. При необходимости отфильтруйте графики с помощью полей **Балансировщик**, **Профиль безопасности** и **Профиль ARL**.
+Вы можете посмотреть дашборды одним из способов:
+
+* На [странице](https://console.yandex.cloud/link/smartwebsecurity) сервиса Smart Web Security выберите раздел ![display-pulse](../../_assets/console-icons/display-pulse.svg) **Мониторинг**.
+* В разделе **Мониторинг** справа вверху нажмите **Открыть в Monium**. Выберите вкладку:
+  * **Anti-DDoS** — графики профилей безопасности и ARL.
+  * **SolidWall WAF** — графики профиля [SolidWall WAF](../concepts/solidwall-waf.md). 
+* На [странице](https://console.yandex.cloud/link/application-load-balancer) сервиса Application Load Balancer:
+  1. Выберите балансировщик, к которому привязан профиль безопасности.
+  1. Перейдите на вкладку **Мониторинг**, затем на вкладку **Smart Web Security**.
 
 ## Описание дашбордов для мониторинга Smart Web Security {#monitoring-dashboards}
 
@@ -28,7 +32,7 @@
 
 * **Denied by Security Profile RPS** — количество входящих запросов в секунду, которые были проверены и заблокированы профилем безопасности.
 
-   Метрика — `load_balancer.smart_web_security.requests_per_second`, отфильтрованная при помощи метки `antirobot_verdict`=`deny`.
+    Метрика — `load_balancer.smart_web_security.requests_per_second`, отфильтрованная при помощи метки `antirobot_verdict`=`deny`.
 
 * **Redirected to SmartCaptcha RPS** — количество входящих запросов в секунду, направленных в SmartCaptcha для дополнительной верификации.
 
@@ -67,7 +71,9 @@
 
     {% endnote %}
 
+Вы можете комбинировать несколько метрик на одном графике и [настраивать свои дашборды](../../monium/operations/dashboard/create.md) в сервисе Monium.
+
 #### Полезные ссылки {#see-also}
 
-* [Справочник метрик Smart Web Security](../metrics.md)
-* [Дашборд в Monitoring](../../monitoring/concepts/visualization/dashboard.md)
+* [Справочник метрик Yandex Monium](../metrics.md)
+* [Дашборд в Monium](../../monium/concepts/visualization/dashboard.md)

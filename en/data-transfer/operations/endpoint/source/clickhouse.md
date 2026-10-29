@@ -1,21 +1,21 @@
 ---
 title: How to set up a {{ CH }} source endpoint in {{ data-transfer-full-name }}
-description: In this tutorial, you will learn how to configure a {{ CH }} source endpoint when creating or modifying it in {{ data-transfer-full-name }}.
+description: In this tutorial, you will learn how to create and configure an {{ CH }} source endpoint in {{ data-transfer-full-name }}.
 ---
 
 # Transferring data from a {{ CH }} source endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data from a {{ CH }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data from a {{ CH }} database and implement various transfer, processing, and transformation scenarios. To set up a transfer:
 
-1. [Explore possible data transfer scenarios](#scenarios).
+1. [Review possible data transfer scenarios](#scenarios).
 1. [Prepare the {{ CH }}](#prepare) database for the transfer.
 1. [Set up a source endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Set up one of the supported data targets](#supported-targets).
-1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. [Perform the required operations with the database](#db-actions) and [see how the transfer is going](../../monitoring.md).
-1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
+1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
+1. [Perform the required database tasks](#db-actions) while [monitoring the transfer status](../../monitoring.md).
+1. If you run into any problems, [check the available solutions](#troubleshooting) for troubleshooting.
 
-## Scenarios for transferring data from {{ CH }} {#scenarios}
+## {{ CH }} data transfer scenarios {#scenarios}
 
 {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
@@ -29,17 +29,17 @@ For a detailed description of possible {{ data-transfer-full-name }} scenarios, 
 
 ## Configuring the {{ CH }} source endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can configure:
 
-* [{{ mch-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
-* [Additional parameters](#additional-settings).
+* Connection settings for a [{{ mch-full-name }} cluster](#managed-service) or a [custom deployment](#on-premise), including those running on {{ compute-full-name }} VMs. These settings are required.
+* [Optional settings](#additional-settings).
 
 ### {{ mch-name }} cluster {#managed-service}
 
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you will need the [`{{ roles.mch.viewer }}`](../../../../managed-clickhouse/security.md#managed-clickhouse-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
+To create or edit a managed database endpoint, you will need the [`{{ roles.mch.viewer }}`](../../../../managed-clickhouse/security.md#managed-clickhouse-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder where its cluster resides.
 
 {% endnote %}
 
@@ -64,7 +64,7 @@ Connection to the database with the cluster specified in {{ yandex-cloud }}.
 
     {% include [Managed ClickHouse {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/managed-clickhouse-source.md) %}
 
-    Here is an example of the configuration file structure:
+    Configuration file structure example:
 
     
     ```hcl
@@ -122,7 +122,7 @@ Connection to the database with explicitly specified network addresses and ports
 
     {% include [On premise ClickHouse {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse-source.md) %}
 
-    Here is an example of the configuration file structure:
+    Configuration file structure example:
 
     
     ```hcl
@@ -182,9 +182,9 @@ Connection to the database with explicitly specified network addresses and ports
 
     * {% include [exclude_tables](../../../../_includes/data-transfer/fields/clickhouse/ui/exclude-tables.md) %}
 
-    Included and excluded table names must meet the ID naming rules in {{ CH }}. For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/syntax#syntax-identifiers). Escaping double quotes is not required.
+    The names of the tables you include or exclude must follow {{ CH }} identifier naming rules. For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/syntax#syntax-identifiers). Double quote escaping is not required.
 
-    Leave the lists empty to transfer all the tables.
+    To transfer all tables, leave the lists empty.
 
 - CLI {#cli}
 
@@ -194,7 +194,7 @@ Connection to the database with explicitly specified network addresses and ports
 
     * {% include [exclude-table](../../../../_includes/data-transfer/fields/clickhouse/cli/exclude-table.md) %}
 
-    If no lists are specified, data from all tables will be transferred.
+    If no lists are specified, the system will transfer data from all tables.
 
 - {{ TF }} {#tf}
 
@@ -204,7 +204,7 @@ Connection to the database with explicitly specified network addresses and ports
 
     * {% include [exclude_tables](../../../../_includes/data-transfer/fields/clickhouse/terraform/exclude-tables.md) %}
 
-    If no lists are specified, data from all tables will be transferred.
+    If no lists are specified, the system will transfer data from all tables.
 
 - API {#api}
 
@@ -214,11 +214,11 @@ Connection to the database with explicitly specified network addresses and ports
 
     * {% include [excludeTables](../../../../_includes/data-transfer/fields/clickhouse/api/exclude-tables.md) %}
 
-    If no lists are specified, data from all tables will be transferred.
+    If no lists are specified, the system will transfer data from all tables.
 
 {% endlist %}
 
-## Configuring the data target {#supported-targets}
+## Configuring the target {#supported-targets}
 
 Configure the target endpoint:
 
@@ -227,13 +227,40 @@ Configure the target endpoint:
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
-After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).
 
-## Troubleshooting data transfer issues {#troubleshooting}
+## Mapping supported data types between DBMS and endpoint {#type-mapping}
 
-* [New tables cannot be added](#no-new-tables).
+#|
+|| **{{ CH }} type** | **Endpoint type** ||
+|| Int64 | int64 ||
+|| Int32 | int32 ||
+|| Int16 | int16 ||
+|| Int8 | int8 ||
+|| UInt64 | uint64 ||
+|| UInt32 | uint32 ||
+|| UInt16 | uint16 ||
+|| UInt8 | uint8 ||
+|| — | float ||
+|| Float64 | double ||
+|| FixedString
+String | string ||
+|| Enum16
+Enum8
+IPv4
+IPv6 | utf8 ||
+|| — | boolean ||
+|| Date | date ||
+|| DateTime | datetime ||
+|| DateTime64 | timestamp ||
+|| REST... | any ||
+|#
+
+## Data transfer troubleshooting {#troubleshooting}
+
+* [New tables are not added](#no-new-tables).
 * [Data is not transferred](#no-transfer).
-* [Unsupported date range](#date-range).
+* [Date range is not supported](#date-range).
 
 For the full list of recommendations, see [Troubleshooting](../../../troubleshooting/index.md).
 

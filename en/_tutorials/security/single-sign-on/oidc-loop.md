@@ -21,7 +21,7 @@ To provide your organization's users with to Loop:
 
     1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
     1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-    1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
+    1. Click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and do the following in the window that opens:
         1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}** single sign-on method.
         1. {% include [org-oidc-app-select-web-type-step](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-step.md) %}
         1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify a name for your new app: `loop-oidc-app`.
@@ -101,7 +101,7 @@ To add users to a SAML application:
 
 ## Make sure your application works correctly {#validate}
 
-To ensure that your OIDC application and integration with Loop are working correctly, log in to Loop as one of the added users. Proceed as follows:
+To ensure that your OIDC application and integration with Loop are working correctly, log in to Loop as one of the added users. Follow these steps:
 
 1. In your browser, open the login page of your Loop instance: `https://<instance_name>.loop.ru`.
 1. Select login via OpenID Connect.

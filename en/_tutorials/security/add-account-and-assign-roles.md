@@ -30,7 +30,7 @@ Sign up for {{ yandex-cloud }} and create a [billing account](../../billing/conc
 1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create a new account.
 1. On the **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** page, make sure you have a billing account linked and it has the `ACTIVE` or `TRIAL_ACTIVE` [status](../../billing/concepts/billing-account-statuses.md). If you do not have a billing account, [create one](../../billing/quickstart/index.md).
 
-## Set up your infrastructure {#prepare-infrastructure}
+## Prepare your infrastructure {#prepare-infrastructure}
 
 [_Organization_](../../overview/roles-and-resources.md) is a workspace that consolidates various types of {{ yandex-cloud }} resources and users. Any Yandex user can create an organization in {{ org-full-name }}. After you create an organization, you become its [owner](../../organization/security/index.md#organization-manager-organizations-owner) and can manage its settings.
 
@@ -73,27 +73,31 @@ If the user does not need isolated resources, you can grant them access to exist
 
 ## Invite the user to the organization and assign roles {#add-account}
 
+To provide users with access to cloud resources from the management console, assign them the `resource-manager.clouds.member` role for the `testing` cloud. To enable users to manage VMs, assign them the `compute.editor` role for the `test-folder` folder.
+
 {% note tip %}
 
-To make sure the user gets all required permissions the first time they log in, assign roles immediately after sending the invitation. Once the invitation is accepted, you will be able to assign more roles or revoke those already assigned.
+You can also assign other roles depending on the actions you want to allow on folder resources. For the full list of roles, see the [{{ iam-full-name }}](../../iam/roles-reference.md) documentation.
 
 {% endnote %}
-
-### Send an invitation to the user {#send-invitation}
-
-For the user to access {{ yandex-cloud }} resources, invite them to the organization you created:
 
 {% list tabs group=instructions %}
 
 - {{ cloud-center }} UI {#cloud-center}
 
     1. [Navigate]({{ link-org-cloud-center }}) to **{{ org-full-name }}**.
-    1. In the left-hand panel, select ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
+    1. In the left-hand panel, select ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
     1. In the top-right corner, click ![person-plus](../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.page.users.dropdown.button-text }}** and select ![person-planet-earth](../../_assets/console-icons/person-planet-earth.svg) **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
     1. Enter the user's email.
 
         {% include [send-invitation](../../_includes/organization/send-invitation.md) %}
-    1. Click **{{ ui-key.yacloud_components.organization.action_send-invitation_6LqIj }}**.
+    1. Click **{{ ui-key.yacloud_components.organization.action_next }}** to send an invitation. This will open the window for assigning roles and adding users to the group.
+
+    1. {% include [assign-roles-on-invite](../../_includes/organization/assign-roles-on-invite.md) %}
+
+    1. {% include [add-to-group-on-invite](../../_includes/organization/add-to-group-on-invite.md) %}
+
+    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
@@ -134,17 +138,19 @@ To grant access permissions to all organization users in one go, assign the `All
     1. Select a user from the list or use the user search option.
     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `compute.editor` role to manage virtual machines.
 
-       {% note tip %}
+      {% note tip %}
 
-       You can also assign other roles depending on the actions you want to allow on folder resources. For the full list of roles, see the [{{ iam-full-name }}](../../iam/roles-reference.md) documentation.
+      You can also assign other roles depending on the actions you want to allow on folder resources. For the full list of roles, see the [{{ iam-full-name }}](../../iam/roles-reference.md) documentation.
 
-       {% endnote %}
+      {% endnote %}
 
     1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 {% endlist %}
 
 Then instruct the user to complete [these steps](#user-actions).
+
+To assign additional roles or revoke existing ones, use the guides in [{#T}](../../resource-manager/operations/cloud/set-access-bindings.md) and [{#T}](../../resource-manager/operations/folder/set-access-bindings.md).
 
 
 ## User actions {#user-actions}

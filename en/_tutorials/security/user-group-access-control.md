@@ -264,53 +264,30 @@ Assign roles for the clouds to the `developers` user group:
 
 To enable your employees to use {{ yandex-cloud }} resources, add them to the {{ org-full-name }} you created. Then distribute the employees among the previously created user groups.
 
-1. Invite users to an organization:
+{% list tabs group=instructions %}
 
-    {% list tabs group=instructions %}
+- {{ cloud-center }} UI {#cloud-center}
 
-    - {{ cloud-center }} UI {#cloud-center}
+    1. [Navigate]({{ link-org-cloud-center }}) to **{{ org-full-name }}**.
+    1. In the left-hand panel, select ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
+    1. In the top-right corner, click ![person-plus](../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.page.users.dropdown.button-text }}** and select ![person-planet-earth](../../_assets/console-icons/person-planet-earth.svg) **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
+    1. Enter the email addresses of the users you want to invite to the organization, separated by commas. They will belong to the same group.
 
-      1. [Navigate]({{ link-org-cloud-center }}) to **{{ org-full-name }}**.
-      1. In the left-hand panel, select ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
-      1. In the top-right corner, click **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
-      1. Enter the email addresses of the users you want to invite to the organization, separated by commas.
+        {% include [send-invitation](../../_includes/organization/send-invitation.md) %}
+    1. To send invitations, click **{{ ui-key.yacloud_components.organization.action_next }}**. This will open the window for assigning roles and adding users to the group.
 
-          {% include [send-invitation](../../_includes/organization/send-invitation.md) %}
-      1. Click **{{ ui-key.yacloud_components.organization.action_send-invitation_6LqIj }}**.
+    1. {% include [add-to-group-on-invite](../../_includes/organization/add-to-group-on-invite.md) %}
 
-    {% endlist %}
+    1. Repeat these steps for all the groups you created.
 
-    Once the users accept the invitation by clicking the invitation link in the email, they will become [organization members](../../organization/concepts/membership.md) and will be listed in the [**{{ ui-key.yacloud_org.pages.users }}** section]({{ link-org-cloud-center }}/users) in your organization.
+{% endlist %}
 
-    {% note info %}
+Once the users accept the invitation by clicking the invitation link in the email, they will become [organization members](../../organization/concepts/membership.md) and will be listed in the ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}** section in [{{ org-full-name }}]({{ link-org-cloud-center }}/users).
 
-    To access the services enabled for the organization, the users you invited simply need to log in to their Yandex account.
 
-    {% endnote %}
+To access the services enabled for the organization, the users you invited simply need to log in to their Yandex account.
 
-1. Distribute users you added among the previously created groups:
 
-    {% list tabs group=instructions %}
-
-    - {{ cloud-center }} UI {#cloud-center}
-
-      1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
-      1. In the left-hand panel, select ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}** and click the row with the name of the [group](../../organization/concepts/groups.md) you need.
-      1. Navigate to the **{{ ui-key.yacloud_org.entity.group.title_tab-members }}** tab.
-      1. Click **{{ ui-key.yacloud_org.entity.group.action_add-member }}**. In the window that opens:
-
-          1. Select the users. Use search, if required.
-          1. Click **{{ ui-key.yacloud.common.save }}**.
-
-    {% endlist %}
-
-    Distribute all users among the previously created groups based on their tasks.
-
-    {% note info %}
-
-    A user may belong to multiple groups at the same time.
-
-    {% endnote %}
 
 ## Create a production infrastructure {#move-on}
 

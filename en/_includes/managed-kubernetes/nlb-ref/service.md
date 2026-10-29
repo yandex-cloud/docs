@@ -49,6 +49,7 @@ spec:
 name: <string>
 annotations:
   yandex.cloud/load-balancer-type: <string>
+  yandex.cloud/controller-reconcile-mode: <string>
   yandex.cloud/subnet-id: <string>
   yandex.cloud/load-balancer-healthcheck-healthy-threshold: <string>
   yandex.cloud/load-balancer-healthcheck-interval: <string>
@@ -76,6 +77,14 @@ You can add the following annotations to `ObjectMeta`:
   [Load balancer type](../../../network-load-balancer/concepts/nlb-types.md) (by default, with an external IP address).
 
   For a load balancer with an internal IP address, the value is `internal`.
+* **yandex.cloud/controller-reconcile-mode**
+
+  Network load balancer [target group](../../../managed-kubernetes/concepts/load-balancer-target-groups.md) management mode.
+
+  `legacy` for the group comprised of all the cluster nodes, and `v2` for the group of nodes hosting the application pods.
+
+  {% include [load-balancer-v2-availability](../load-balancer-v2-availability.md) %}
+  
 * **yandex.cloud/subnet-id**
 
   ID of the subnet the internal load balancer will get its IP address.

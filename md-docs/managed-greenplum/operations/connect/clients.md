@@ -105,7 +105,12 @@ SELECT version();
 
 ### Подключение с авторизацией через IAM {#iam}
 
-К базе данных в кластере Yandex MPP Analytics for PostgreSQL можно подключиться с помощью [интерфейса командной строки Yandex Cloud (CLI)](../../../cli/quickstart.md#install), используя авторизацию через IAM. Для этого нужно привязать к пользователю Yandex MPP Analytics for PostgreSQL [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport) или [федеративный аккаунт](../../../iam/concepts/users/accounts.md#saml-federation). Подключаться с авторизацией через IAM можно только к кластеру в публичном доступе, при этом использование SSL-сертификата не требуется.
+К базе данных в кластере Yandex MPP Analytics for PostgreSQL можно подключиться с помощью [интерфейса командной строки Yandex Cloud (CLI)](../../../cli/quickstart.md#install), используя авторизацию через IAM. Для этого нужно привязать к пользователю Yandex MPP Analytics for PostgreSQL [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративный аккаунт](../../../iam/concepts/users/accounts.md#saml-federation) или [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md). Подключаться с авторизацией через IAM можно только к кластеру в публичном доступе, при этом использование SSL-сертификата не требуется.
+
+Для подключения через сервисный аккаунт [назначьте](../../../iam/operations/sa/set-access-bindings.md) ему роли:
+
+* [роль](../../security/index.md#managed-greenplum-clusters-connector) `managed-greenplum.clusters.connector` на кластер;
+* [роль](../../../iam/roles-reference.md#iam-serviceAccounts-user) `iam.serviceAccounts.user` или выше. Если необходим доступ для нескольких сервисных аккаунтов, назначьте эту роль на каталог.
 
 Перед подключением установите клиент PostgreSQL:
 
@@ -126,7 +131,7 @@ sudo apt update && sudo apt install --yes postgresql-client
   1. [Включите публичный доступ к кластеру](../update.md#change-public-access).
  
   1. Назначьте роль аккаунту пользователя, который будет подключаться к БД:
-     1. Выберите вкладку **Права доступа** и нажмите кнопку **Назначить роли**.
+     1. Выберите вкладку ![chevron-down](../../../_assets/console-icons/chevron-down.svg) **Другое** → **Права доступа** и нажмите кнопку **Назначить роли**.
      1. Введите электронную почту пользователя, к которой привязан аккаунт.
      1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `managed-greenplum.clusters.connector`.
      1. Нажмите кнопку **Сохранить**.

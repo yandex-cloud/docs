@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Настроить алерты для сервиса
 
-[Алерты](../../monium/concepts/alerting/alert.md) в {{ monium-name }} отслеживают значения метрик {{ sws-name }} и отправляют уведомления при достижении заданных порогов. Способ отправки и получателей задают в [канале уведомлений](../../monium/concepts/alerting/notification-channel.md).
+[Алертинг](../../monium/concepts/alerting/alert.md) позволяет следить за изменениями в метриках и отправлять уведомления, когда показатели достигают критических значений. Изменения в метриках отслеживаются с помощью периодически отправляемых запросов — _алертов_. Когда они достигают пороговых значений, система отправляет уведомление через указанный канал связи. Например, по электронной почте или в мессенджер.
 
 В сервисе {{ sws-name }} доступны метрики скорости входящих запросов:
 
@@ -42,26 +42,16 @@ description: Следуя данной инструкции, вы сможете
 Обозначим буквами количество входящих запросов в секунду:
 
 * `A` — общее количество запросов.
-* `B` — запросов, заблокированных профилем безопасности.
+* `B` — количество запросов, заблокированных профилем безопасности.
 
 Настроим алерты:
 
-* `B` составляет 30% и более от `A` — предупреждение (`Warning`);
-* `B` составляет 50% и более от `A` — критический уровень (`Alarm`).
+* `B` составляет 30% от `A` — предупреждение (`{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}`);
+* `B` составляет 50% от `A` — критический уровень (`{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}`).
 
 ### Создание канала уведомления {#create-channel}
 
-1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите **Алерты и SLO** → **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
-1. Вверху справа нажмите **Создать** → **Канал уведомления**.
-1. Укажите имя канала, метод отправки и получателей.
-
-    {% note info %}
-
-    {% include [notifications-requirements](../../_includes/monium/notifications-requirements.md) %}
-
-    {% endnote %}
-
-1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
+{% include [alerting-create-channel](../../_includes/smartwebsecurity/alerting-create-channel.md) %}
 
 ### Выбор метрик для контроля {#select-metrics}
 
@@ -75,55 +65,45 @@ description: Следуя данной инструкции, вы сможете
 
 ### Создание алерта {#create-alert}
 
-1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите **Алерты и SLO** → **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
-1. Вверху справа нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **Пользовательский**.
+1. [Перейдите]({{ link-monium }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monium }}**.
+1. На панели слева выберите ![shield-exclamation](../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO** → ![megaphone](../../_assets/console-icons/megaphone.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+1. Справа сверху нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.create }}** ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите `{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-custom-title }}`.
 1. Введите название алерта, например, `exceeding-blocked-requests`.
 1. В блоке **{{ ui-key.yacloud_monitoring.alert.title_alerts-config }}** опишите запрос для получения `A`:
 
-   1. В строке запроса укажите общие метки `project`, `cluster`, `service` и добавьте:
+    1. Установите курсор в свободном пространстве в поле правее значка ![request-icon](../../_assets/monium/request-icon.svg) и добавьте параметры:
 
-      * `name` = `load_balancer.smart_web_security.requests_per_second`;
-      * `antirobot_verdict` = `*`;
-      * `load_balancer` = `<имя_балансировщика_нагрузки>`;
-      * `security_profile` = `<идентификатор_профиля_безопасности>`.
-
-   1. В строке ![function](../../_assets/monitoring/function.svg) последовательно добавьте функции:
-
-      * `series_sum()` — суммирует значения выбранных временных рядов.
-      * `replace_nan(0)` — заменяет значения `NaN` нулем.
-
+        * `service` = `Application Load Balancer`;
+        * `name` = `load_balancer.smart_web_security.requests_per_second`;
+        * `antirobot_verdict` = `allow`;
+        * `load_balancer` = `<имя_балансировщика_нагрузки>`.
+    1. Установите курсор в свободном пространстве в поле правее значка ![function](../../_assets/monitoring/function.svg), выберите `{{ ui-key.yacloud_monitoring.querystring.functions.label.category-TRANSFORMATION }}`, затем выберите и задайте функцию для обработки данных `replace_nan(0)` — замена пропусков данных на значение `0`, чтобы график был непрерывным.
 1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}**.
 1. Опишите запрос для получения `B`:
 
-   1. Укажите общие метки `project`, `cluster`, `service` и добавьте:
+    1. Укажите данные для сбора:
 
-      * `name` = `load_balancer.smart_web_security.requests_per_second`;
-      * `antirobot_verdict` = `deny`;
-      * `load_balancer` = `<имя_балансировщика_нагрузки>`;
-      * `security_profile` = `<идентификатор_профиля_безопасности>`.
-
-   1. Последовательно добавьте функции `series_sum()` и `replace_nan(0)`.
-
+        * `service` = `application-load-balancer`;
+        * `name` = `load_balancer.smart_web_security.requests_per_second`;
+        * `antirobot_verdict` = `deny`;
+        * `load_balancer` = `<имя_балансировщика_нагрузки>`.
+    1. Задайте функцию `replace_nan(0)`.
 1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}**.
 1. Опишите запрос `C` для получения доли `B` от `A` в процентах:
 
-   1. Нажмите ![code](../../_assets/console-icons/code.svg), чтобы переключиться в текстовый режим редактирования запроса.
-   1. В строке запроса введите `100 * B / A`.
+    1. Нажмите ![raw](../../_assets/monitoring/raw.svg), чтобы переключиться в текстовый режим редактирования запроса.
+    1. В строке запроса введите `100 * B / A`.
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}** укажите:
 
-1. В блоке **Условия срабатывания** укажите:
-
-     * `Запрос для проверки` — `C`.
-     * `Функция агрегации` — `Все значения`.
-     * `Функция сравнения` — `Больше или равно`.
-     * `Warning` — `30` (предупреждение).
-     * `Alarm` — `50` (критический уровень).
-     * `Окно вычисления` — `30 секунд`.
-     * `Задержка вычисления` — `15 секунд`.
-
-1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.no-data }}** задайте [политики обработки отсутствия данных](../../monium/concepts/alerting/alert.md#no-data-policy) или оставьте значения по умолчанию.
-1. (Опционально) Добавьте [аннотации](../../monium/concepts/alerting/annotation.md) с дополнительной информацией для уведомлений.
-1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** добавьте канал и выберите статусы `Warning` и `Alarm` для отправки уведомлений.
-1. Нажмите **{{ ui-key.yacloud_monitoring.monitoring-alerts.action.calculate-alert }}** и проверьте график, значения запросов и статус алерта.
+    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.query-to-check }}** — `C`.
+    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.evaluation-type }}** — `{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.at-all-times }}`.
+    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}** — `30` (предупреждение).
+    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}** — `50` (критический уровень).
+    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window-key-value }}** — `30s`.
+    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.evaluation-delay }}** — `15s`.
+1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.no-data }}** оставьте значения по умолчанию.
+1. (опционально) В блоке [**{{ ui-key.yacloud_monitoring.monitoring-alerts.title.annotations }}**](../../monium/concepts/alerting/annotation.md) добавьте информацию, которую следует записывать при срабатывании алерта.
+1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** добавьте канал для отправки уведомления.
 1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 ## Алерт о высокой скорости легитимных запросов {#exceeding-speed-requests}
@@ -139,14 +119,14 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы выявить такое превышение скорости, настроим алерты:
 
-* `A` превышает `B` на 30% и более — предупреждение (`Warning`);
-* `A` превышает `B` на 50% и более — критический уровень (`Alarm`).
+* `A` превышает `B` на 30% — предупреждение (`{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}`);
+* `A` превышает `B` на 50% — критический уровень (`{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}`).
 
-### Создание канала уведомления {#create-channel}
+### Создание канала уведомления {#create-channel2}
 
-Используйте существующий канал уведомлений или [создайте новый](../../monium/operations/alert/create-channel.md).
+{% include [alerting-create-channel](../../_includes/smartwebsecurity/alerting-create-channel.md) %}
 
-### Выбор метрик для контроля {#select-metrics}
+### Выбор метрик для контроля {#select-metrics2}
 
 Для сравнения запросов, разрешенных профилями безопасности и ARL, используйте:
 
@@ -156,57 +136,50 @@ description: Следуя данной инструкции, вы сможете
 
 Пример применим при `B > 0`. Если ARL не пропускает ни одного запроса, процент превышения не определен.
 
-### Создание алерта {#create-alert}
+### Создание алерта {#create-alert2}
 
-1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите **Алерты и SLO** → **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
-1. Вверху справа нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **Пользовательский**.
+1. [Перейдите]({{ link-monium }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monium }}**.
+1. На панели слева выберите ![shield-exclamation](../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO** → ![megaphone](../../_assets/console-icons/megaphone.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+1. Справа сверху нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.create }}** ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите `{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-custom-title }}`.
 1. Введите название алерта, например, `inbound-over-ARL`.
 1. В блоке **{{ ui-key.yacloud_monitoring.alert.title_alerts-config }}** опишите запрос для получения `A`:
 
-   1. В строке запроса укажите общие метки `project`, `cluster`, `service` и добавьте:
+    1. Установите курсор в свободном пространстве в поле правее значка ![request-icon](../../_assets/monium/request-icon.svg) и добавьте параметры:
 
-      * `name` = `load_balancer.smart_web_security.requests_per_second`;
-      * `antirobot_verdict` = `allow`;
-      * `load_balancer` = `<имя_балансировщика_нагрузки>`;
-      * `security_profile` = `<идентификатор_профиля_безопасности>`.
+        * `service` = `Application Load Balancer`;
+        * `name` = `load_balancer.smart_web_security.requests_per_second`;
+        * `antirobot_verdict` = `allow`;
+        * `load_balancer` = `<имя_балансировщика_нагрузки>`.
+    1. Установите курсор в свободном пространстве в поле правее значка ![function](../../_assets/monitoring/function.svg) и задайте функции для обработки данных:
 
-   1. В строке ![function](../../_assets/monitoring/function.svg) последовательно добавьте функции:
-
-      * `series_sum()` — суммирует значения выбранных временных рядов.
-      * `replace_nan(0)` — заменяет значения `NaN` нулем.
-
+        * `{{ ui-key.yacloud_monitoring.querystring.functions.label.category-COMBINE }}` → `series_sum()` — сумма значений метрик с разными метками для конкретной точки. В нашем примере метка одна — `antirobot_verdict`, но для других метрик эта функция будет полезна.
+        * `{{ ui-key.yacloud_monitoring.querystring.functions.label.category-TRANSFORMATION }}` → `replace_nan(0)` — замена пропусков данных на значение `0`, чтобы график был непрерывным.
 1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}**.
 1. Опишите запрос для получения `B`:
 
-   1. Укажите общие метки `project`, `cluster`, `service` и добавьте:
+    1. Укажите данные для сбора:
 
-      * `name` = `load_balancer.smart_web_security.arl_requests_per_second`;
-      * `arl_verdict` = `allow`;
-      * `load_balancer` = `<имя_балансировщика_нагрузки>`;
-      * `security_profile` = `<идентификатор_профиля_безопасности>`.
-
-   1. Последовательно добавьте функции `series_sum()` и `replace_nan(0)`.
-
+        * `service` = `application-load-balancer`;
+        * `name` = `load_balancer.smart_web_security.arl_requests_per_second`;
+        * `arl_verdict` = `allow`;
+        * `load_balancer` = `<имя_балансировщика_нагрузки>`.
+    1. Задайте функции `series_sum()` и `replace_nan(0)`.
 1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}**.
-1. Опишите запрос `C` для получения превышения `A` над `B` в процентах:
+1. Опишите запрос `C` для получения разницы между `A` и `B` в процентах:
 
-   1. Нажмите ![code](../../_assets/console-icons/code.svg), чтобы переключиться в текстовый режим редактирования запроса.
-   1. В строке запроса введите `100 * (A - B) / B`.
+    1. Нажмите ![raw](../../_assets/monitoring/raw.svg), чтобы переключиться в текстовый режим редактирования запроса.
+    1. В строке запроса введите `100 * abs(A - B) / B`.
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}** укажите:
 
-1. В блоке **Условия срабатывания** укажите:
-
-     * `Запрос для проверки` — `C`.
-     * `Функция агрегации` — `Все значения`.
-     * `Функция сравнения` — `Больше или равно`.
-     * `Warning` — `30` (предупреждение).
-     * `Alarm` — `50` (критический уровень).
-     * `Окно вычисления` — `30 секунд`.
-     * `Задержка вычисления` — `15 секунд`.
-
-1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.no-data }}** задайте [политики обработки отсутствия данных](../../monium/concepts/alerting/alert.md#no-data-policy) или оставьте значения по умолчанию.
-1. (Опционально) Добавьте [аннотации](../../monium/concepts/alerting/annotation.md) с дополнительной информацией для уведомлений.
-1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** добавьте канал и выберите статусы `Warning` и `Alarm` для отправки уведомлений.
-1. Нажмите **{{ ui-key.yacloud_monitoring.monitoring-alerts.action.calculate-alert }}** и проверьте график, значения запросов и статус алерта.
+     * **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.query-to-check }}** — `C`.
+     * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.evaluation-type }}** — `{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.at-all-times }}`.
+     * **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}** — `30` (предупреждение).
+     * **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}** — `50` (критический уровень).
+     * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window-key-value }}** — `30s`.
+     * **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.evaluation-delay }}** — `15s`.
+1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.no-data }}** оставьте значения по умолчанию.
+1. (опционально) В блоке [**{{ ui-key.yacloud_monitoring.monitoring-alerts.title.annotations }}**](../../monium/concepts/alerting/annotation.md) добавьте информацию, которую следует записывать при срабатывании алерта.
+1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** добавьте канал для отправки уведомления.
 1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 #### Полезные ссылки {#see-also}

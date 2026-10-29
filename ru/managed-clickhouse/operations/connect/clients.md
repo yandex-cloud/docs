@@ -180,6 +180,69 @@ sudo apt update && sudo apt install --yes mysql-client
 
 Как получить FQDN хоста, описано в [инструкции](fqdn.md).
 
+
+### Подключение с аутентификацией через IAM {#iam}
+
+К базе данных {{ CH }} можно подключиться с аутентификацией через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../../iam/concepts/users/accounts.md#saml-federation), [локальных пользователей](../../../iam/concepts/users/accounts.md#local) и [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md). Вместо пароля пользователя в клиенте указывается [IAM-токен](../../../iam/concepts/authorization/iam-token.md).
+
+Для подключения через сервисный аккаунт [назначьте](../../../iam/operations/sa/set-access-bindings.md) ему роли:
+
+* [роль](../../security.md#managed-clickhouse-clusters-connector) `managed-clickhouse.clusters.connector` на кластер;
+* [роль](../../../iam/roles-reference.md#iam-serviceAccounts-user) `iam.serviceAccounts.user` или выше. Если необходим доступ для нескольких сервисных аккаунтов, назначьте эту роль на каталог.
+
+Подготовьте кластер {{ CH }} к подключению:
+
+1. Назначьте роль `managed-clickhouse.clusters.connector` аккаунту, который будет подключаться к БД:
+
+    1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Нажмите на имя нужного кластера.
+    1. Выберите вкладку ![chevron-down](../../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+    1. Введите имя пользователя или электронную почту, к которой привязан аккаунт. Для сервисного аккаунта введите его имя или идентификатор. В результатах поиска выберите найденный аккаунт.
+    1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `managed-clickhouse.clusters.connector`.
+    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
+
+1. Создайте пользователя {{ CH }} со способом аутентификации через IAM и предоставьте ему доступ к нужной БД. Подробнее в разделе [{#T}](../cluster-users.md#adduser).
+
+1. Получите IAM-токен для аккаунта, который будет подключаться к кластеру:
+
+    * [Инструкция](../../../iam/operations/iam-token/create.md) для аккаунта на Яндексе.
+    * [Инструкция](../../../iam/operations/iam-token/create-for-federation.md) для федеративного аккаунта.
+    * [Инструкция](../../../iam/operations/iam-token/create-for-local.md) для локального аккаунта.
+    * [Инструкция](../../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
+
+1. Подключитесь к кластеру:
+
+    {% list tabs %}
+
+    - clickhouse-client {#clickhouse-client-iam}
+
+        ```bash
+        clickhouse-client --host <FQDN_любого_хоста_{{ CH }}> \
+                          --secure \
+                          --user <имя_пользователя> \
+                          --database <имя_БД> \
+                          --port 9440 \
+                          --ask-password
+        ```
+
+        При запросе пароля введите IAM-токен.
+
+    - cURL {#curl-iam}
+
+        ```bash
+        curl --cacert {{ crt-local-dir }}{{ crt-local-file-root }} \
+             --header "X-ClickHouse-User: <имя_пользователя>" \
+             --header "X-ClickHouse-Key: <IAM-токен>" \
+             'https://<FQDN_любого_хоста_{{ CH }}>:8443/?database=<имя_БД>&query=SELECT%20version()'
+        ```
+
+    - JDBC и ODBC {#jdbc-odbc-iam}
+
+        В параметрах подключения в поле пароля укажите IAM-токен. Для SSL добавьте в URL параметр `sslmode=require`.
+
+    {% endlist %}
+
+
 ## Подключение из графических IDE {#ide}
 
 

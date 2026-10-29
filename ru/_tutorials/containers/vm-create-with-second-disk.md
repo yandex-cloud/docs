@@ -1,5 +1,6 @@
 # Создание ВМ с {{ coi }} и дополнительным томом для Docker-контейнера
 
+
 В этой инструкции вы создадите [виртуальную машину](../../compute/concepts/vm.md) из образа [{{ coi }}](../../cos/concepts/index.md), в которой будет [Docker-контейнер](/blog/posts/2022/03/docker-containers) с запущенным MongoDB и подключенным дополнительным [томом](../../container-registry/concepts/docker-volume.md) объемом 10 ГБ.
 
 ## Перед началом работы {#before-you-begin}

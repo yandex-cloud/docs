@@ -5,15 +5,15 @@ description: In this tutorial, you will learn how to set up a {{ MG }} target en
 # Transferring data to a {{ MG }}/{{ SD }} (Managed Service for MongoDB) target endpoint
 
 
-{{ data-transfer-full-name }} enables you to migrate data to a {{ MG }}/{{ SD }} (Managed Service for MongoDB) database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data to a {{ MG }}/{{ SD }} (Managed Service for MongoDB) database and implement various data transfer, processing, and transformation scenarios. To set up a transfer:
 
-1. [Explore possible data transfer scenarios](#scenarios).
+1. [Review possible data transfer scenarios](#scenarios).
 1. [Configure one of the supported data sources](#supported-sources).
 1. [Prepare your {{ MG }}/{{ SD }} (Managed Service for MongoDB) database](#prepare) for the transfer.
 1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
-1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. [Perform the required operations with the database](#db-actions) and [see how the transfer is going](../../monitoring.md).
-1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
+1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
+1. [Perform the required database tasks](#db-actions) while [monitoring the transfer status](../../monitoring.md).
+1. If you run into any problems, [check the available solutions](#troubleshooting) for troubleshooting.
 
 ## Scenarios for transferring data to {{ MG }}/{{ SD }} (Managed Service for MongoDB) {#scenarios}
 
@@ -47,10 +47,10 @@ For a complete list of supported sources and targets in {{ data-transfer-full-na
 
 {% include [MongodDB Version](../../../../_includes/data-transfer/notes/mongodb-version.md) %}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can configure:
 
-* [{{ mmg-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
-* [Additional parameters](#additional-settings).
+* Connection settings for a [{{ mmg-full-name }} cluster](#managed-service) or a [custom deployment](#on-premise), including those running on {{ compute-full-name }} VMs. These settings are required.
+* [Optional settings](#additional-settings).
 
 
 ### {{ mmg-name }} (Managed Service for MongoDB) cluster {#managed-service}
@@ -58,7 +58,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you will need the [`{{ roles.mmg.viewer }}`](../../../../storedoc/security/index.md#mmg-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
+To create or edit a managed database endpoint, you will need the [`{{ roles.mmg.viewer }}`](../../../../storedoc/security/index.md#mmg-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder where its cluster resides.
 
 {% endnote %}
 
@@ -82,7 +82,7 @@ Connection to the database with the cluster specified in {{ yandex-cloud }}.
 
     {% include [Managed MongodDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mongodb.md) %}
 
-    Here is an example of the configuration file structure:
+    Configuration file structure example:
 
     
     ```hcl
@@ -140,7 +140,7 @@ Connection to the database with explicitly specified network addresses and ports
 
     {% include [On premise MongoDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mongodb.md) %}
 
-    Here is an example of the configuration file structure:
+    Configuration file structure example:
 
     
     ```hcl
@@ -223,13 +223,36 @@ Selecting the `DROP` policy will cause the service to delete all the data, inclu
 
 {% endnote %}
 
-After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).
 
 ## Operations with the database during transfer {#db-actions}
 
 {% include [work with db](../../../../_includes/data-transfer/endpoints/sources/mongo-work-with-db.md) %}
 
-## Troubleshooting data transfer issues {#troubleshooting}
+## Mapping supported data types between DBMS and endpoint {#type-mapping}
+
+#|
+|| **{{ MG }} type** | **Endpoint type** ||
+|| bson | int64 ||
+|| bson | int32 ||
+|| bson | int16 ||
+|| bson | int8 ||
+|| bson | uint64 ||
+|| bson | uint32 ||
+|| bson | uint16 ||
+|| bson | uint8 ||
+|| bson | float ||
+|| bson | double ||
+|| bson | string ||
+|| bson | utf8 ||
+|| bson | boolean ||
+|| bson | date ||
+|| bson | datetime ||
+|| bson | timestamp ||
+|| bson | any ||
+|#
+
+## Data transfer troubleshooting {#troubleshooting}
 
 Known issues when using a {{ MG }} endpoint:
 

@@ -13,7 +13,7 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Handling secrets that are available in the public domain
+      - name: Processing secrets that have become publicly available
         href: operations/compromised-credentials.md
       - name: Users
         href: ../organization/operations/manage-users.md
@@ -29,7 +29,7 @@ items:
             href: operations/sa/list-get.md
           - name: Updating a service account
             href: operations/sa/update.md
-          - name: Assigning roles to a service account
+          - name: Assigning a role to a service account
             href: operations/sa/assign-role-for-sa.md
           - name: Setting up service account access permissions
             href: operations/sa/set-access-bindings.md
@@ -1252,4 +1252,6 @@ items:
         href: qa/access.md
       - name: All questions on one page
         href: qa/index.md
+      - name: Troubleshooting
+        href: qa/troubleshooting.md
 path: en/iam/toc.yaml

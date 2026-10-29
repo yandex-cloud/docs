@@ -2,7 +2,6 @@
 
 # Справочник инструментов Application Load Balancer для Managed Service for Kubernetes
 
-
 Чтобы создавать балансировщики нагрузки и управлять ими в кластерах Managed Service for Kubernetes, сервис Application Load Balancer предоставляет следующие инструменты:
 
 * [ALB Ingress-контроллер](ingress-controller/index.md) — для спецификации Kubernetes [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/);

@@ -5,7 +5,7 @@ In {{ ml-platform-name }}, you can use [{{ SPRK }}](../../../managed-spark/) clu
 
 To set up integration with {{ msp-name }} in {{ ml-platform-name }}:
 
-1. [Set up your infrastructure](#infra).
+1. [Prepare the infrastructure](#infra).
 1. [Set up the {{ ml-platform-name }} project](#project).
 1. [Create a {{ msp-name }} cluster and a Spark connector](#create-spark).
 1. [Run your computations](#run-code).
@@ -21,7 +21,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * {{ msp-name }} cluster: computing resources of the cluster components (see [{{ msp-name }} pricing](../../../managed-spark/pricing.md)).
 * NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
-## Set up your infrastructure {#infra}
+## Prepare your infrastructure {#infra}
 
 ### Create a folder {#create-folder}
 
@@ -49,8 +49,8 @@ Create a network the {{ SPRK }} cluster will operate in.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to `data-folder` you [created earlier](#create-folder).
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. In the top-right corner, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter a name for the network: `data-network`.
 
       This will automatically create three subnets in different availability zones.
@@ -65,7 +65,7 @@ Create a network the {{ SPRK }} cluster will operate in.
 
 - Management console {#console}
 
-   1. In `data-folder`, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In `data-folder`, [navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/arrows-opposite-to-dots.svg) **{{ ui-key.yacloud.vpc.switch_gateways }}**.
    1. Click **{{ ui-key.yacloud.common.create }}** and set the gateway parameters:
       1. Name the gateway, e.g., `nat-for-cluster`.
@@ -96,7 +96,7 @@ Create a network the {{ SPRK }} cluster will operate in.
 - Management console {#console}
 
    1. Navigate to `data-folder`.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Name the [service account](../../../iam/concepts/users/service-accounts.md), e.g., `sa-for-spark`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following [roles](../../../iam/concepts/access-control/roles.md) to the service account:

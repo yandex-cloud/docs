@@ -21,7 +21,7 @@ To grant access to Harbor to organization users:
 
     1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
     1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-    1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
+    1. Click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and do the following in the window that opens:
         1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}** single sign-on method.
         1. {% include [org-oidc-app-select-web-type-step](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-step.md) %}
         1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify a name for your new app: `harbor-oidc-app`.
@@ -79,7 +79,7 @@ To grant access to Harbor to organization users:
      pkce_required: true
      ```
 
-     Save the `id` field value for when you need to create and configure your app.
+     Save the `id` field value: you will need to create and configure your app.
 
   1. Create a secret for your OAuth client:
 
@@ -99,7 +99,7 @@ To grant access to Harbor to organization users:
      secret_value: yccs__939233b8ac********
      ```
 
-     Save the `secret_value` field value for when you need to configure Harbor.
+     Save the `secret_value` field value: you will need to configure Harbor.
 
   1. Create an OIDC app:
 
@@ -196,7 +196,7 @@ Check that the Harbor URL (portal and registry) is accessible via HTTPS with a t
          - groups
      ```
 
-     Save the `client_id` value: this is the client ID you need to configure Harbor.
+     Save the `client_id` value: this is the Client ID you will need to configure Harbor.
 
   1. Get the OpenID Connect Discovery configuration URL:
 
@@ -220,7 +220,7 @@ Check that the Harbor URL (portal and registry) is accessible via HTTPS with a t
        --oauth-client-id <OAuth_client_ID>
      ```
 
-     Save the `secret_value` from the command output: this is the client secret you need to configure Harbor.
+     Save the `secret_value` from the command output: this is the Client Secret you will need to configure Harbor.
 
 {% endlist %}
 
@@ -371,7 +371,7 @@ For the organization users to sign in to Harbor through the {{ org-full-name }} 
 
 {% note info %}
 
-Users and groups added to an OIDC application can be managed by any user with the `organization-manager.oidcApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-oidcApplications-userAdmin) or higher.
+Users and groups added to an OIDC application can be managed by any user with the `organization-manager.oauthApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-oauthApplications-userAdmin) or higher.
 
 {% endnote %}
 
@@ -434,7 +434,7 @@ Add a user to the application:
 
 To test the OIDC app and its integration with Harbor, sign in to Harbor as the user you added to the app.
 
-Proceed as follows:
+Follow these steps:
 
 1. In your browser, navigate to your Harbor instance address, e.g., `https://<Harbor_domain>`.
 1. If already signed in, sign out of your account.

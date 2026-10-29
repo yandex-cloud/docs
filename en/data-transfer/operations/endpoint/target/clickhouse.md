@@ -12,10 +12,10 @@ description: In this tutorial, you will learn how to set up a {{ CH }} target en
 1. [Prepare the {{ CH }}](#prepare) database for the transfer.
 1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
-1. Perform required operations with the database and [control the transfer](../../monitoring.md).
+1. Perform the required database tasks while [monitoring the transfer status](../../monitoring.md).
 1. If you run into any problems, [check the available solutions](#troubleshooting) for troubleshooting.
 
-## Scenarios for transferring data to {{ CH }} {#scenarios}
+## {{ CH }} data transfer scenarios {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
     * [Migrating a {{ CH }} cluster](../../../tutorials/managed-clickhouse.md).
@@ -105,7 +105,7 @@ Connection to the database with the cluster specified in {{ yandex-cloud }}.
 
     {% include [Managed ClickHouse {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/managed-clickhouse-target.md) %}
 
-    Here is an example of the configuration file structure:
+    Configuration file structure example:
 
     
     ```hcl
@@ -163,7 +163,7 @@ Connection to the database with explicitly specified network addresses and ports
 
     {% include [On premise ClickHouse {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse-target.md) %}
 
-    Here is an example of the configuration file structure:
+    Configuration file structure example:
 
     
     ```hcl
@@ -181,7 +181,7 @@ Connection to the database with explicitly specified network addresses and ports
                 native_port = "<port_for_native_interface_connection>"
                 shards {
                   name  = "<shard_name>"
-                  hosts = [ "list of shard host IP addresses or FQDNs" ]
+                  hosts = [ "list of IP addresses and FQDNs of shard hosts" ]
                 }
                 tls_mode {
                   enabled {
@@ -259,7 +259,7 @@ Connection to the database with explicitly specified network addresses and ports
 
         * {% include [round_robin](../../../../_includes/data-transfer/fields/clickhouse/terraform/round-robin.md) %}
 
-        You can only specify one of the sharding options: `sharding.column_value_hash.column_name`, `sharding.transfer_id`, `sharding.custom_mapping`, or `sharding.round_robin`. If no sharding option is specified, all data will be transferred to a single shard.
+        You can specify only one sharding option: `sharding.column_value_hash.column_name`, `sharding.transfer_id`, `sharding.custom_mapping`, or `sharding.round_robin`. If no sharding option is specified, the system will transfer all data to a single shard.
 
     * {% include [alter-schema-change-tf](../../../../_includes/data-transfer/fields/alter-schema-change-tf.md) %}
 
@@ -277,39 +277,62 @@ Once you have configured the source and target, [create and launch the transfer]
 
 ## Endpoint setup recommendations {#recommended-settings-queue}
 
-To accelerate the delivery of large volumes of data to {{ CH }} from queues associated with{{ yds-name }} or {{ mkf-name }}, configure endpoints as follows:
+To speed up delivery of large data volumes from {{ yds-name }} or {{ mkf-name }} queues to {{ CH }}, configure the endpoints as follows:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    * If the target {{ CH }} cluster has sharding enabled and the data is migrated into a sharded table, write the data into [local tables](../../../../managed-clickhouse/tutorials/sharding.md#uses), not a distributed one. In the target, select the migrated data from the distributed table. To redefine the write table, specify it in the target settings: **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTargetAdvancedSettings.alt_names.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.AltName.to_name.title }}**.
-    * If in the source you selected JSON in **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}**, then you should specify `UTF-8` instead of `STRING` for string types in the data schema.
-    * If you select **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.add_rest_column.title }}**, your data transfers may slow down.
-    * If you need to migrate multiple topics, in the **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTargetAdvancedSettings.alt_names.title }}** target setting, specify the same {{ CH }} table name for all topic names of the source.
+    * If the target {{ CH }} cluster has sharding enabled and the data is migrated into a sharded table, write the data into [local tables](../../../../managed-clickhouse/tutorials/sharding.md#uses), not a distributed one. In the target, query the migrated data from the distributed table. To override the table used for writing, specify it in the target settings: **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTargetAdvancedSettings.alt_names.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.AltName.to_name.title }}**.
+    * If you chose JSON in the source under **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}**, specify `UTF-8` instead of `STRING` for string types in the data schema.
+    * Selecting **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.add_rest_column.title }}** may slow down your data transfers.
+    * To migrate multiple topics, specify the same {{ CH }} table name for all source topics in the **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTargetAdvancedSettings.alt_names.title }}** target setting.
 
 - CLI {#cli}
 
-    * If the target {{ CH }} cluster has sharding enabled and the data is migrated into a sharded table, write the data into [local tables](../../../../managed-clickhouse/tutorials/sharding.md#uses), not a distributed one. In the target, select the migrated data from the distributed table. To redefine the write table, specify it in the `--alt-name` setting for the target.
-    * If you need to migrate multiple topics, in the `--alt-name` attribute of the target endpoint, specify the same target {{ CH }} table name for all topics of the source.
+    * If the target {{ CH }} cluster has sharding enabled and the data is migrated into a sharded table, write the data into [local tables](../../../../managed-clickhouse/tutorials/sharding.md#uses), not a distributed one. In the target, query the migrated data from the distributed table. To override the table used for writing, specify it in the `--alt-name` target setting.
+    * To migrate multiple topics, specify the same {{ CH }} table name for all source topics in the `--alt-name` target setting.
 
 - {{ TF }} {#tf}
 
-    * If the target {{ CH }} cluster has sharding enabled and the data is migrated into a sharded table, write the data into [local tables](../../../../managed-clickhouse/tutorials/sharding.md#uses), not a distributed one. In the target, select the migrated data from the distributed table. To redefine the write table, specify it in the `alt_names.to_name` setting for the target.
-    * If in the source you selected JSON in `parser.json_parser`:
-      * You should specify `UTF-8` instead of `STRING` for string types in the `parser.json_parser.data_schema` data schema.
-      * The `parser.json_parser.add_rest_column=true` attribute may slow down your transfer.
-    * If you need to migrate multiple topics, in the `alt_names` attribute of the target endpoint, specify the same {{ CH }} table name in `alt_names.to_name` for all topics in `alt_names.from_name`.
+    * If the target {{ CH }} cluster has sharding enabled and the data is migrated into a sharded table, write the data into [local tables](../../../../managed-clickhouse/tutorials/sharding.md#uses), not a distributed one. In the target, query the migrated data from the distributed table. To override the table used for writing, specify it in the `alt_names.to_name` target setting.
+    * If you chose JSON in the source under `parser.json_parser`:
+      * Specify `UTF-8` instead of `STRING` for string types in the `parser.json_parser.data_schema` data schema.
+      * Setting `parser.json_parser.add_rest_column=true` may slow down your transfer.
+    * To migrate multiple topics, specify the same `alt_names.to_name` {{ CH }} table name for all `alt_names.from_name` source topics in the `alt_names` target setting.
 
 - API {#api}
 
-    * If the target {{ CH }} cluster has sharding enabled and the data is migrated into a sharded table, write the data into an [ underlying](../../../../managed-clickhouse/tutorials/sharding.md) table based on the `ReplicatedMergeTree` engine, not a distributed table (`Distributed` engine). In the target, select the migrated data from the distributed table. To redefine the write table, specify it in the `altNames.toName` setting for the target.
-    * If in the source you selected JSON in `parser.jsonParser`:
-      * You should specify `UTF-8` instead of `STRING` for string types in the `parser.jsonParser.dataSchema` data schema.
-      * The `parser.jsonParser.addRestColumn=true` parameter may slow down your transfer.
-    * If you need to migrate multiple topics, in the `altNames` parameter of the target endpoint, specify the same {{ CH }} table name in `altNames.toName` for all topics in `altNames.fromName`.
+    * If sharding is enabled on the target {{ CH }} cluster and you are writing to a sharded table, use the [ underlying](../../../../managed-clickhouse/tutorials/sharding.md) `ReplicatedMergeTree` engine table, rather than the `Distributed` engine table. In the target, query the migrated data from the distributed table. To override the table used for writing, specify it in the `altNames.toName` target setting.
+    * If you chose JSON in the source under `parser.jsonParser`:
+      * Specify `UTF-8` instead of `STRING` for string types in the `parser.jsonParser.dataSchema` data schema.
+      * Setting `parser.jsonParser.addRestColumn=true` may slow down your transfer.
+    * To migrate multiple topics, specify the same `altNames.toName` {{ CH }} table name for all `altNames.fromName` source topics in the `altNames` target setting.
 
 {% endlist %}
+
+## Mapping supported data types between DBMS and endpoint {#type-mapping}
+
+#|
+|| **{{ CH }} type** | **Endpoint type** ||
+|| Int64 | int64 ||
+|| Int32 | int32 ||
+|| Int16 | int16 ||
+|| Int8 | int8 ||
+|| UInt64 | uint64 ||
+|| UInt32 | uint32 ||
+|| UInt16 | uint16 ||
+|| UInt8 | uint8 ||
+|| Float64 | float ||
+|| Float64 | double ||
+|| String | string ||
+|| String | utf8 ||
+|| UInt8 | boolean ||
+|| Date | date ||
+|| DateTime | datetime ||
+|| DateTime64(9) | timestamp ||
+|| String | any ||
+|#
 
 ## Data transfer troubleshooting {#troubleshooting}
 

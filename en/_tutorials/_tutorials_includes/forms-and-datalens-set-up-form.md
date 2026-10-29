@@ -9,7 +9,6 @@ You need an [API key](../../iam/concepts/authorization/api-key.md) to set up int
   1. In the [management console]({{ link-console-main }}), select the relevant folder.
   1. [Navigate]({{ link-console-main }}/link/iam) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Select the `forms-integration` service account.
-  1. Navigate to **{{ ui-key.yacloud.common.overview }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_label_title }}** window that opens, you will see **{{ ui-key.yacloud.iam.folder.service-account.overview.label_id-title }}** and **{{ ui-key.yacloud.iam.folder.service-account.overview.label_secret-key-title }}**. Save them for later.

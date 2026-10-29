@@ -91,6 +91,11 @@ sudo apt update && sudo apt install --yes mysql-client
 
 К базе данных {{ mmy-name }} можно подключиться с помощью [интерфейса командной строки {{ yandex-cloud }} (CLI)](../../../cli/quickstart.md#install), используя аутентификацию через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../../iam/concepts/users/accounts.md#saml-federation), [локальных пользователей](../../../iam/concepts/users/accounts.md#local) и [сервисных аккаунтов](../../../iam/concepts/users/accounts.md#sa) (далее — аккаунты). Подключение с аутентификацией через IAM не требует получения SSL-сертификата или указания FQDN хостов кластера.
 
+Для подключения через сервисный аккаунт [назначьте](../../../iam/operations/sa/set-access-bindings.md) ему роли:
+
+* [роль](../../security/index.md#managed-mysql-clusters-connector) `managed-mysql.clusters.connector` на кластер;
+* [роль](../../../iam/roles-reference.md#iam-serviceAccounts-user) `iam.serviceAccounts.user` или выше. Если необходим доступ для нескольких сервисных аккаунтов, назначьте эту роль на каталог.
+
 Перед подключением:
 
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -117,7 +122,7 @@ sudo apt update && sudo apt install --yes mysql-client
      1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
      1. Повторите операцию для остальных хостов кластера.
   1. Назначьте роль `managed-mysql.clusters.connector` аккаунту, который будет подключаться к БД:
-     1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+     1. Выберите вкладку ![chevron-down](../../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
      1. Если роль выдается аккаунту на Яндексе, федеративному аккаунту или локальному пользователю, введите имя пользователя или электронную почту, к которой привязан аккаунт. Если роль выдается сервисному аккаунту, введите его имя или идентификатор. В результатах поиска выберите найденный аккаунт.
      1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `managed-mysql.clusters.connector`.
      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
@@ -206,7 +211,7 @@ sudo apt update && sudo apt install --yes mysql-client
 
     1. [Перейдите]({{ link-console-main }}/link/managed-mysql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
     1. Нажмите на имя нужного кластера.
-    1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+    1. Выберите вкладку ![chevron-down](../../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
     1. Введите электронную почту пользователя, к которой привязан аккаунт.
     1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role}}** и выберите роль `managed-mysql.clusters.connector`.
     1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.

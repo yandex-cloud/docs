@@ -4,9 +4,9 @@
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-     1. Go to the **{{ ui-key.yacloud.serverless-functions.switch_list }}** section and select the `scan-on-push` function.
-     1. In the window that opens, open **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** and specify the period. The default period is one hour.
+     1. In the [management console]({{ link-console-main }}), select the folder.
+     1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** and select `scan-on-push`.
+     1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** tab and specify a time period. The default period is one hour.
 
    - CLI {#cli}
 
@@ -39,7 +39,7 @@
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the parent folder of the registry containing the Docker image.
-     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+     1. [Navigate]({{ link-console-main }}/link/container-registry) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
      1. Select the registry where you pushed your Docker image.
      1. Open the repository with the Docker image.
      1. Select the relevant Docker image and check the **{{ ui-key.yacloud.cr.image.label_last-scan-time }}** parameter value.

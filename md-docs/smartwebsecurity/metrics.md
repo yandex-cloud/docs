@@ -1,6 +1,6 @@
 [Документация Yandex Cloud](../index.md) > [Yandex Smart Web Security](index.md) > Метрики
 
-# Справочник метрик Smart Web Security
+# Справочник метрик Yandex Monium
 
 В этом разделе описаны метрики Smart Web Security, которые собирает [Yandex Application Load Balancer](../application-load-balancer/index.md). [Просматривать метрики](operations/monitoring.md) можно в разделе **Мониторинг** сервиса Smart Web Security.
 

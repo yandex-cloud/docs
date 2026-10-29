@@ -1,6 +1,5 @@
 # Привязка доменного имени к ВМ с веб-сервером
 
-
 В этом руководстве вы привяжете собственное доменное имя к [виртуальной машине](../../compute/concepts/vm.md) [{{ compute-full-name }}](../../compute/) с веб-сервером.
 
 Виртуальная машина будет создана из публичного образа [LAMP](/marketplace/products/yc/lamp) с предустановленным веб-сервером [Apache HTTP Server](https://httpd.apache.org/). Также для руководства подойдет публичный образ [LEMP](/marketplace/products/yc/lemp) с веб-сервером [NGINX](https://www.nginx.com/).

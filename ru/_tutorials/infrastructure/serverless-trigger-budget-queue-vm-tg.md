@@ -190,8 +190,8 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. На панели слева выберите ![subnets](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
   1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** укажите `sample-subnet-{{ region-id }}-b`.
-  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
+  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** укажите `sample-subnet-{{ region-id }}-a`.
+  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
   1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** выберите облачную сеть `my-sample-network`.
   1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** укажите `192.168.1.0/24`.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
@@ -216,11 +216,11 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
       Подробнее о команде `yc vpc network create` читайте в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
-  1. Создайте подсеть `sample-subnet-{{ region-id }}-b` в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`:
+  1. Создайте подсеть `sample-subnet-{{ region-id }}-a` в зоне доступности `{{ region-id }}-a`:
 
       ```bash
-      yc vpc subnet create sample-subnet-{{ region-id }}-b \
-        --zone {{ region-id }}-b \
+      yc vpc subnet create sample-subnet-{{ region-id }}-a \
+        --zone {{ region-id }}-a \
         --network-name my-sample-network \
         --range 192.168.1.0/24
       ```
@@ -231,9 +231,9 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       id: e2l1ejkvq4jv********
       folder_id: b1g9d2k0itu4********
       created_at: "2024-02-23T18:40:26Z"
-      name: sample-subnet-ru-{{ region-id }}-b
+      name: sample-subnet-ru-{{ region-id }}-a
       network_id: enp2gjcvrd59********
-      zone_id: {{ region-id }}-b
+      zone_id: {{ region-id }}-a
       v4_cidr_blocks:
         - 192.168.1.0/24
       ```
@@ -793,10 +793,10 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**: 
 
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите созданную ранее подсеть `sample-subnet-{{ region-id }}-b`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите созданную ранее подсеть `sample-subnet-{{ region-id }}-a`.
       * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
 
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа к ВМ:
@@ -819,8 +819,8 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
   yc compute instance create \
     --name target-instance-1 \
     --labels target-for-stop=true \
-    --zone {{ region-id }}-b \
-    --network-interface subnet-name=sample-subnet-{{ region-id }}-b,nat-ip-version=ipv4 \
+    --zone {{ region-id }}-a \
+    --network-interface subnet-name=sample-subnet-{{ region-id }}-a,nat-ip-version=ipv4 \
     --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
     --ssh-key ~/.ssh/<имя_ключа>.pub
   ```
@@ -837,7 +837,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
   name: target-instance-1
   labels:
     target-for-stop: "true"
-  zone_id: {{ region-id }}-b
+  zone_id: {{ region-id }}-a
   platform_id: standard-v2
   resources:
     memory: "2147483648"

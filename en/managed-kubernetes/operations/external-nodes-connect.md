@@ -37,8 +37,8 @@ If you plan to use {{ compute-full-name }} VM instances as external nodes, remem
 
 - Management console {#console}
 
-  1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
-  1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}** and then **{{ ui-key.yacloud.k8s.cluster.node-groups.label_type-custom }}**.
+  1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** tab and select the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** section.
+  1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}** and select ![server](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.k8s.nodes.button_create-custom-ng }}**.
   1. Enter a name for the {{ managed-k8s-name }} node group.
   1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_ips }}** field, specify the [IP address](../../vpc/concepts/address.md) of the server you are connecting, available from the {{ managed-k8s-name }} cluster's [cloud network](../../vpc/concepts/network.md#network).
   1. Click **{{ ui-key.yacloud.k8s.node-groups.create.button_add-ip }}** to add more IP addresses as needed.
@@ -76,7 +76,7 @@ If required, you can edit the node group, e.g., add more IP addresses.
 
 - Management console {#console}
 
-  1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab, then **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+  1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** tab and select the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** section.
   1. In the node group row, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the group as needed and click **{{ ui-key.yacloud.common.save }}**.
 
@@ -119,7 +119,7 @@ To run an automated installation:
 
     - Management console {#console}
 
-      1. On the {{ managed-k8s-name }} cluster page, navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab; this will also open the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+      1. On the {{ managed-k8s-name }} cluster page, navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** tab and select the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** section.
       1. In the row of the new node group, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
       1. In the **{{ ui-key.yacloud.k8s.node-group.overview.label_secret }}** field, select the new secret from the drop-down list.
       1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -204,7 +204,7 @@ To check the node status:
 
 - Management console {#console}
 
-  1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
+  1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** tab and select the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** section.
   1. Select the new {{ managed-k8s-name }} node group and navigate to the **{{ ui-key.yacloud.k8s.node-group.overview.label_tab-nodes }}** tab.
   1. Make sure the new {{ managed-k8s-name }} node is now `Ready`.
   1. Open the new node and go to the **{{ ui-key.yacloud.k8s.node.overview.label_events }}** tab.
@@ -235,7 +235,7 @@ To check the node status:
 
 - Management console {#console}
 
-  1. On the {{ managed-k8s-name }} cluster page, navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab; this will also open the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+  1. On the {{ managed-k8s-name }} cluster page, navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** tab and select the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** section.
   1. In the row of the new node group, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Delete the IP addresses of the {{ managed-k8s-name }} nodes you created.
   1. Click **{{ ui-key.yacloud.common.save }}**.

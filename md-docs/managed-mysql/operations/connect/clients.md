@@ -96,6 +96,11 @@ sudo apt update && sudo apt install --yes mysql-client
 
 К базе данных Managed Service for MySQL® можно подключиться с помощью [интерфейса командной строки Yandex Cloud (CLI)](../../../cli/quickstart.md#install), используя аутентификацию через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../../iam/concepts/users/accounts.md#saml-federation), [локальных пользователей](../../../iam/concepts/users/accounts.md#local) и [сервисных аккаунтов](../../../iam/concepts/users/accounts.md#sa) (далее — аккаунты). Подключение с аутентификацией через IAM не требует получения SSL-сертификата или указания FQDN хостов кластера.
 
+Для подключения через сервисный аккаунт [назначьте](../../../iam/operations/sa/set-access-bindings.md) ему роли:
+
+* [роль](../../security/index.md#managed-mysql-clusters-connector) `managed-mysql.clusters.connector` на кластер;
+* [роль](../../../iam/roles-reference.md#iam-serviceAccounts-user) `iam.serviceAccounts.user` или выше. Если необходим доступ для нескольких сервисных аккаунтов, назначьте эту роль на каталог.
+
 Перед подключением:
 
 1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
@@ -124,7 +129,7 @@ sudo apt update && sudo apt install --yes mysql-client
      1. Включите опцию **Публичный доступ**.
      1. Повторите операцию для остальных хостов кластера.
   1. Назначьте роль `managed-mysql.clusters.connector` аккаунту, который будет подключаться к БД:
-     1. Выберите вкладку **Права доступа** и нажмите кнопку **Назначить роли**.
+     1. Выберите вкладку ![chevron-down](../../../_assets/console-icons/chevron-down.svg) **Другое** → **Права доступа** и нажмите кнопку **Назначить роли**.
      1. Если роль выдается аккаунту на Яндексе, федеративному аккаунту или локальному пользователю, введите имя пользователя или электронную почту, к которой привязан аккаунт. Если роль выдается сервисному аккаунту, введите его имя или идентификатор. В результатах поиска выберите найденный аккаунт.
      1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `managed-mysql.clusters.connector`.
      1. Нажмите кнопку **Сохранить**.
@@ -218,7 +223,7 @@ yc managed-mysql connect <имя_или_идентификатор_класте�
 
     1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
     1. Нажмите на имя нужного кластера.
-    1. Выберите вкладку **Права доступа** и нажмите кнопку **Назначить роли**.
+    1. Выберите вкладку ![chevron-down](../../../_assets/console-icons/chevron-down.svg) **Другое** → **Права доступа** и нажмите кнопку **Назначить роли**.
     1. Введите электронную почту пользователя, к которой привязан аккаунт.
     1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `managed-mysql.clusters.connector`.
     1. Нажмите кнопку **Сохранить**.

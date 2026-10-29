@@ -7,7 +7,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
 
-
 Чтобы создать [файловое хранилище](../../concepts/filesystem.md):
 
 {% list tabs group=instructions %}

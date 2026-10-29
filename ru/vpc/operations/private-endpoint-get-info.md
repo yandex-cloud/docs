@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Получить информацию о сервисном подключении
 
-
-
 {% list tabs group=instructions %}
 
 - CLI {#cli}

@@ -1,3 +1,8 @@
+---
+title: Configuring a federated user group mapping
+description: Configure mapping of identity provider groups with {{ org-full-name }} groups via {{ cloud-center }} or Terraform.
+---
+
 # Configuring a federated user group mapping
 
 To configure user access to {{ yandex-cloud }} resources using [group mapping](../concepts/add-federation.md#group-mapping):
@@ -83,7 +88,7 @@ To configure user access to {{ yandex-cloud }} resources using [group mapping](.
 
           Where:
           * `federation_id`: Federation ID.
-          * `internal_group_id`: {{ org-full-name }} group name.
+          * `internal_group_id`: {{ org-full-name }} group ID.
           * `external_group_id`: Name of an identity provider group.
 
           For more on the properties of the `yandex_organizationmanager_group_mapping_item` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item).

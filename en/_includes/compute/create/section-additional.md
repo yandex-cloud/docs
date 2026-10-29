@@ -2,6 +2,7 @@ Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
 
 * Optionally, select or create a [service account](../../../iam/concepts/users/service-accounts.md). With a service account, you can flexibly configure access permissions for your resources.
 * Optionally, enable access to the [serial console](../../../compute/concepts/serial-console.md).
+* Optionally, configure the [maintenance policy](../../../compute/concepts/maintenance-policies.md). In the management console, you can only select the policy type. To configure the wait time before maintenance, use the CLI, {{ TF }}, or API.
 * Optionally, to configure delivering [Linux metrics](../../../monitoring/operations/unified-agent/linux_metrics.md) and any additional metrics from your apps, enable **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}** under **{{ ui-key.yacloud.compute.instances.create.unified-agent }}** and select:
   * **{{ monitoring-full-name }}**: [Install an agent](../../../monitoring/concepts/data-collection/unified-agent/index.md) to collect additional metrics from VM instances and apps.
   * **{{ managed-prometheus-name }}**: [Install and configure an agent](../../../monitoring/operations/prometheus/ingestion/prometheus-agent.md) to collect additional metrics from VM instances and apps in {{ prometheus-name }} format:

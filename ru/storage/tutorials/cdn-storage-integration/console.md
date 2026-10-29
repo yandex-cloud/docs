@@ -6,7 +6,6 @@ canonical: '{{ link-docs }}/tutorials/web/cdn-storage-integration/console'
 
 # Интеграция L7-балансировщика с {{ cdn-short-name }} и {{ objstorage-short-name }} с помощью консоли управления
 
-
 {% note info %}
 
 Для реализации решения вам понадобится домен. В качестве примера будет использовано доменное имя `example.com`.

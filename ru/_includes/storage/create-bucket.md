@@ -1,5 +1,3 @@
-
-
 Чтобы создать [бакет](../../storage/concepts/bucket.md), у вас должна быть _минимальная_ [роль](../../storage/security/#storage-editor) `storage.editor` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 {% list tabs group=instructions %}

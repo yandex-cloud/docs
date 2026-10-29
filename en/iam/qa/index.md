@@ -1,9 +1,9 @@
 ---
-title: Questions and answers about {{ iam-full-name }}
-description: This pages provides answers to questions about {{ iam-name }}.
+title: FAQ about {{ iam-full-name }}
+description: This page covers questions and answers about {{ iam-name }}.
 ---
 
-# Questions and answers about {{ iam-name }}
+# FAQ about {{ iam-name }}
 
 ## General questions {#general-questions}
 
@@ -12,3 +12,7 @@ description: This pages provides answers to questions about {{ iam-name }}.
 ## Logging in and accessing resources {#log-in-and-access}
 
 {% include notitle [access](../../_qa/iam/access.md) %}
+
+## Troubleshooting {#troubleshooting}
+
+{% include notitle [troubleshooting](../../_qa/iam/troubleshooting.md) %}

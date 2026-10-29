@@ -39,6 +39,7 @@ description: Setting up integration between {{ org-full-name }} and external app
     * [SAML](./time/saml-time.md)
     * [OpenID Connect](./time/oidc-time.md)
 * [VK Cloud](./saml-vk-cloud.md)
+* [Warpgate](./oidc-warpgate.md)
 * [Zabbix](./saml-zabbix.md)
 * [Passwork](./saml-passwork.md)
 * [{{ yandex-360 }}](./saml-yandex-360.md)

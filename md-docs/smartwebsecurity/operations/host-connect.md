@@ -19,7 +19,7 @@
 
     {% endnote %}
 
-Для работы с профилем безопасности, который подключается к балансировщику, потребуется сервисный аккаунт с ролями `monitoring.editor`, `smart-web-security.admin`, `certificate-manager.admin` и `logging.writer`. Подробнее в разделе [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
+Для работы с профилем безопасности, который подключается к балансировщику, потребуется сервисный аккаунт с ролями `monium.editor`, `smart-web-security.admin`, `certificate-manager.admin` и `logging.writer`. Подробнее в разделе [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
 
 Чтобы подключить профиль безопасности к виртуальному хосту:
 

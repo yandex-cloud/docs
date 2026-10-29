@@ -15,6 +15,10 @@ items:
         href: operations/node-connect-oslogin.md
       - name: Updating {{ k8s }}
         href: operations/update-kubernetes.md
+      - name: >-
+          Configuring masquerading in clusters with multiple ranges of pod IP
+          addresses
+        href: operations/network/manage-ip-masq-agent.md
       - name: Configuring autoscaling
         href: operations/autoscale.md
       - name: Activating a {{ k8s }} {{ TF }} provider
@@ -101,6 +105,8 @@ items:
         items:
           - name: Granting access to an application running in a {{ k8s }} cluster
             href: operations/create-load-balancer.md
+          - name: Configuring management mode for load balancer target groups
+            href: operations/configure-load-balancer-target-groups.md
           - name: Configuring the Calico network policy controller
             href: operations/calico.md
           - name: Configuring the Cilium network policy controller
@@ -183,6 +189,14 @@ items:
             href: operations/external-nodes-connect-ipsec.md
           - name: Connecting a {{ baremetal-name }} server as an external node
             href: operations/bms-server-connect.md
+      - name: Working with a {{ baremetal-name }} node group
+        items:
+          - name: Creating a node group
+            href: operations/baremetal-group/create-baremetal.md
+          - name: Updating a node group
+            href: operations/baremetal-group/update-baremetal.md
+          - name: Deleting a node group
+            href: operations/baremetal-group/delete-baremetal.md
       - name: Working with {{ k8s }} objects from the management console
         items:
           - name: Connecting to the terminal of a running container
@@ -338,6 +352,8 @@ items:
     items:
       - name: Resource relationships
         href: concepts/index.md
+      - name: Large clusters
+        href: concepts/large-clusters.md
       - name: Release channels and updates
         href: concepts/release-channels-and-updates.md
       - name: Support for {{ k8s }} versions
@@ -372,8 +388,14 @@ items:
             href: concepts/node-group/variables-in-the-template.md
       - name: Networking in {{ managed-k8s-name }}
         href: concepts/network.md
+      - name: Clusters with multiple ranges of pod IP addresses
+        href: concepts/cluster-multi-cidr.md
+      - name: Load balancer target groups
+        href: concepts/load-balancer-target-groups.md
       - name: Network settings and cluster policies
         href: concepts/network-policy.md
+      - name: Clusters without a preinstalled CNI
+        href: concepts/cluster-without-cni.md
       - name: Autoscaling
         href: concepts/autoscale.md
       - name: Audit policy

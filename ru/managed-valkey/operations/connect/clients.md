@@ -155,6 +155,30 @@ description: Следуя данной инструкции, вы сможете
 
 Подробнее о Sentinel читайте в разделе [{#T}](../../concepts/replication.md) и [документации {{ VLK }}](https://valkey.io/topics/sentinel/).
 
+
+### Подключение с аутентификацией через IAM {#iam}
+
+К кластеру {{ VLK }} можно подключиться, используя аутентификацию через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../../iam/concepts/users/accounts.md#saml-federation), [локальных пользователей](../../../iam/concepts/users/accounts.md#local) и [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md).
+
+Для подключения через сервисный аккаунт [назначьте](../../../iam/operations/sa/set-access-bindings.md) ему роли:
+
+* [роль](../../security/index.md#managed-redis-clusters-connector) `managed-redis.clusters.connector` на кластер;
+* [роль](../../../iam/roles-reference.md#iam-serviceAccounts-user) `iam.serviceAccounts.user` или выше. Если необходим доступ для нескольких сервисных аккаунтов, назначьте эту роль на каталог.
+
+Подготовьте кластер {{ VLK }} к подключению:
+
+1. Назначьте роль `managed-redis.clusters.connector` аккаунту, который будет подключаться к кластеру:
+
+    1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. Нажмите на имя нужного кластера.
+    1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+    1. Введите имя пользователя или электронную почту, к которой привязан аккаунт. Для сервисного аккаунта введите его имя или идентификатор. В результатах поиска выберите нужный аккаунт.
+    1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `managed-redis.clusters.connector`.
+    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
+
+1. [Создайте пользователя {{ VLK }}](../user-create.md) со способом авторизации **{{ ui-key.yacloud.redis.local.label_iam_9J4bC }}** и выберите нужный аккаунт.
+
+
 ## Подключение из графических IDE {#connection-ide}
 
 

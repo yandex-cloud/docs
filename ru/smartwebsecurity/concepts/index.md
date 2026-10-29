@@ -19,11 +19,11 @@ description: Что такое {{ sws-full-name }}, какие типы угро
 
 ## Мониторинг и аудит {#monitoring-audit}
 
+[Метрики](../operations/monitoring.md) {{ sws-name }} передаются в сервис [{{ monium-full-name }}](../../monium/index.yaml) и доступны в разделе **{{ ui-key.yacloud.common.monitoring }}** сервиса {{ sws-name }}.
+
 Логи профилей безопасности передаются в [{{ monium-full-name }}](../../monium/), логи прокси-серверов — в [{{ cloud-logging-full-name }}](../../logging/). [Просматривать логи](../operations/configure-logging.md#view-logs) можно в интерфейсе {{ sws-name }} и соответствующего сервиса логирования.
 
-[Метрики](../operations/monitoring.md) доступны в разделе **{{ ui-key.yacloud.common.monitoring }}** сервиса {{ sws-name }}.
-
-Аудитные логи {{ sws-name }} передаются в сервис [{{ at-full-name }}](../../audit-trails/).
+Аудитные логи {{ sws-name }} передаются в сервис [{{ at-full-name }}](../../audit-trails/index.yaml).
 
 {% include [user-data-to-ml](../../_includes/smartwebsecurity/user-data-to-ml.md)%}
 

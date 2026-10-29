@@ -2,6 +2,7 @@
 
 # Создание группы виртуальных машин с Container Optimized Image и несколькими Docker-контейнерами
 
+
 Вы можете создать [группу виртуальных машин](../concepts/instance-groups/index.md) на базе [образа](../concepts/image.md) [Container Optimized Image](../../cos/concepts/index.md) с несколькими [Docker-контейнерами](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers) внутри.
 
 Для создания Docker-контейнеров будет использоваться [Docker Compose спецификация](../../cos/concepts/coi-specifications.md#compose-spec).

@@ -17,8 +17,7 @@
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-      1. [Navigate]({{ link-console-main }}/link/postbox) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
-      1. In the left-hand panel, select ![at](../../../_assets/console-icons/at.svg) **{{ ui-key.yacloud.postbox.label_identities }}** and click **{{ ui-key.yacloud.postbox.button_create-identity }}**.
+      1. [Navigate]({{ link-console-main }}/link/postbox) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}** and click **{{ ui-key.yacloud.postbox.button_create-identity }}**.
       1. In the **{{ ui-key.yacloud.postbox.label_address }}** field, specify the domain you will use to send emails. You can use a domain of any level, as long as you own it.
       1. In the **{{ ui-key.yacloud.postbox.label_configuration-set }}** field, select `postbox-events-config` you previously created.
       1. In the **{{ ui-key.yacloud.postbox.section_dkim }}** field, select `{{ ui-key.yacloud.postbox.label_signing-type-external }}`.

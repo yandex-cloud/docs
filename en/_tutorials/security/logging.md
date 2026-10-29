@@ -86,7 +86,7 @@ To create security groups:
 
   1. Open the [management console]({{ link-console-main }}).
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. Open the **{{ ui-key.yacloud.vpc.label_security-groups }}** tab.
+  1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
   1. Create a security group for the load balancer:
      
      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
@@ -253,7 +253,7 @@ To create an instance group:
 
   1. Open the [management console]({{ link-console-main }}).
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Open the **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}** tab. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
+  1. In the left-hand panel, select **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}** and click **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. Enter the instance group name: `alb-logging-ig`.
   1. In the **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** field, select the account you [previously created](#create-sa).
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select multiple [availability zones](../../overview/concepts/geo-scope.md) to ensure the fault tolerance of your hosting.

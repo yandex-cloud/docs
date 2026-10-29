@@ -21,7 +21,7 @@ You can configure some of the video player parameters in the {{ video-name }} in
   1. Select a channel.
   1. In the ![image](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** tab, select a video.
   1. [Set up](../../video/operations/video/update.md) the video.
-  1. Copy the iframe embedding code on the **html** tab in the **{{ ui-key.yacloud_video.videos.title_past-code }}** section.
+  1. Under **{{ ui-key.yacloud_video.videos.title_past-code }}**, on the `html` tab, cope the `iframe` embed code.
   1. Add the iframe embedding code to your HTML page code.
   1. To provide the video as a URL, copy the link content with settings on the **link** tab.
 

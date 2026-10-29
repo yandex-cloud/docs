@@ -56,7 +56,7 @@ You can use an OpenVPN Access Server installation of your own, an SaaS version, 
 
    1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
    1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-   1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
+   1. Click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and do the following in the window that opens:
       1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.saml-title_kyofk }}** single sign-on method.
       1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify a name for your new app: `ovpn-app`.
 
@@ -145,7 +145,7 @@ For the users of your organization to be able to authenticate in OpenVPN Access 
 
 ## Make sure your application works correctly {#validate}
 
-To make sure your SAML app and OpenVPN Access Server integration work correctly, authenticate to OpenVPN Access Server as one of the users you added to the app. Proceed as follows:
+To make sure your SAML app and OpenVPN Access Server integration work correctly, authenticate to OpenVPN Access Server as one of the users you added to the app. Follow these steps:
 
 1. In your browser, go to the OpenVPN Access Server client interface. Its default address is `https://<server_address>:943/`.
 1. On the authentication page, click **Sign In With SAML**.

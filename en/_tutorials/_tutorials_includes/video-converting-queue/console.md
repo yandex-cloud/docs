@@ -153,7 +153,7 @@ A message queue is processed using a [trigger for {{ message-queue-name }}](../.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** and select the function you created.
   1. Navigate to the **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}** tab.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:

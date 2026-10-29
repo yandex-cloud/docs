@@ -49,7 +49,7 @@ Where:
     Even with deletion protection on, one can still connect to the cluster manually and delete it.
 
 * `version`: {{ TR }} version.
-    
+
     {% include [change-version-note](../change-version-note.md) %}
 
 * `coordinator`: [Coordinator](../../../managed-trino/concepts/index.md#coordinator) configuration.

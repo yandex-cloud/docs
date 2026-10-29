@@ -2,8 +2,6 @@
 
 # Удалить сервисное подключение
 
-
-
 {% list tabs group=instructions %}
 
 - CLI {#cli}

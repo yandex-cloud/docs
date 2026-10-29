@@ -1,5 +1,5 @@
 {% note info %}
 
-After you create a cluster, you can change your {{ TR }} version. You can either upgrade or downgrade the version.
+Once a cluster is created, you can change the {{ TR }} version. You can either upgrade or downgrade the version.
 
 {% endnote %}

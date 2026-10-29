@@ -5,7 +5,7 @@ You can transfer metadata between [{{ dataproc-full-name }} clusters](../../../d
 
 To transfer metadata between {{ dataproc-name }} clusters:
 
-1. [Set up your infrastructure](#infra).
+1. [Prepare the infrastructure](#infra).
 1. [Create a test table](#create-table).
 1. [Export data](#export-data).
 1. [Connect {{ dataproc-name }} to {{ metastore-name }}](#connect).
@@ -40,7 +40,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
 
 
-## Set up your infrastructure {#infra}
+## Prepare your infrastructure {#infra}
 
 {% list tabs group=instructions %}
 
@@ -163,7 +163,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * `folder_id`: Cloud folder ID, same as in the provider settings.
         * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. Learn more about connecting to a {{ dataproc-name }} host over SSH [here](../../../data-proc/operations/connect-ssh.md).
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Validate your {{ TF }} configuration using this command:
 
         ```bash
         terraform validate
@@ -184,47 +184,53 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 In the `dataproc-source` cluster, create a test table named `countries`:
 
-1. In the [management console]({{ link-console-main }}), select the folder.
-1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-1. Open the `dataproc-source` cluster page.
-1. Click the **Zeppelin Web UI** link under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**.
-1. Select **Notebook**, then select ![image](../../../_assets/console-icons/plus.svg) **Create new note**.
-1. In the window that opens, specify the name for the note and click **Create**.
-1. To run a PySpark job, paste a Python script into the input line:
+{% list tabs group=instructions %}
 
-    ```python
-    %pyspark
+- Management console {#console}
 
-    from pyspark.sql.types import *
+  1. In the [management console]({{ link-console-main }}), select the folder.
+  1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+  1. Open the `dataproc-source` cluster page.
+  1. Click the **Zeppelin Web UI** link under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**.
+  1. Select **Notebook**, then select ![image](../../../_assets/console-icons/plus.svg) **Create new note**.
+  1. In the window that opens, specify the name for the note and click **Create**.
+  1. To run a PySpark job, paste a Python script into the input line:
+  
+      ```python
+      %pyspark
+  
+      from pyspark.sql.types import *
+  
+      schema = StructType([StructField('Name', StringType(), True),
+      StructField('Capital', StringType(), True),
+      StructField('Area', IntegerType(), True),
+      StructField('Population', IntegerType(), True)])
+  
+      df = spark.createDataFrame([('Australia', 'Canberra', 7686850, 19731984), ('Austria', 'Vienna', 83855, 7700000)], schema)
+      df.write.mode("overwrite").option("path","s3a://dataproc-bucket/countries").saveAsTable("countries")
+      ```
+  
+  1. Click ![image](../../../_assets/console-icons/play.svg) **Run all paragraphs** and wait until the job is complete.
+  1. Replace the Python code in the input line with this SQL query:
+  
+      ```sql
+      %sql
+  
+      SELECT * FROM countries;
+      ```
+  
+  1. Click ![image](../../../_assets/console-icons/play.svg) **Run all paragraphs**.
+  
+      Result:
+  
+      ```text
+      |   Name    |  Capital |  Area   | Population |
+      | --------- | -------- | ------- | ---------- |
+      | Australia | Canberra | 7686850 | 19731984   |
+      | Austria   | Vienna   | 83855   | 7700000    |
+      ```
 
-    schema = StructType([StructField('Name', StringType(), True),
-    StructField('Capital', StringType(), True),
-    StructField('Area', IntegerType(), True),
-    StructField('Population', IntegerType(), True)])
-
-    df = spark.createDataFrame([('Australia', 'Canberra', 7686850, 19731984), ('Austria', 'Vienna', 83855, 7700000)], schema)
-    df.write.mode("overwrite").option("path","s3a://dataproc-bucket/countries").saveAsTable("countries")
-    ```
-
-1. Click ![image](../../../_assets/console-icons/play.svg) **Run all paragraphs** and wait until the job is complete.
-1. Replace the Python code in the input line with this SQL query:
-
-    ```sql
-    %sql
-
-    SELECT * FROM countries;
-    ```
-
-1. Click ![image](../../../_assets/console-icons/play.svg) **Run all paragraphs**.
-
-    Result:
-
-    ```text
-    |   Name    |  Capital |  Area   | Population |
-    | --------- | -------- | ------- | ---------- |
-    | Australia | Canberra | 7686850 | 19731984   |
-    | Austria   | Vienna   | 83855   | 7700000    |
-    ```
+{% endlist %}
 
 ## Export data {#export-data}
 
@@ -255,50 +261,68 @@ To transfer data from one {{ dataproc-name }} cluster to another, back up the da
 
 ## Connect {{ dataproc-name }} to {{ metastore-name }} {#connect}
 
-1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) with the following parameters:
+{% list tabs group=instructions %}
 
-    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-s3-sa`.
-    * **{{ ui-key.yacloud.mdb.forms.base_field_version }}**: `{{ metastore.integration-version }}`.
-    * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `dataproc-network`.
-    * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}**: `dataproc-subnet`.
-    * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-security-group`.
+- Management console {#console}
 
-1. [Add](../../../data-proc/operations/cluster-update.md) to the `dataproc-target` cluster settings the `spark:spark.hive.metastore.uris` property with the following value: `thrift://<{{ metastore-name }}_cluster_IP_address>:{{ port-metastore }}`.
+  1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) with the following parameters:
 
-    To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** in the management console and then select **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** under **{{ ui-key.yacloud.metastore.label_metastore }}**. Copy the **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}** column value for the cluster in question.
+      * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-s3-sa`.
+      * **{{ ui-key.yacloud.mdb.forms.base_field_version }}**: `{{ metastore.integration-version }}`.
+      * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `dataproc-network`.
+      * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}**: `dataproc-subnet`.
+      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-security-group`.
+
+  1. [Add](../../../data-proc/operations/cluster-update.md) to the `dataproc-target` cluster settings the `spark:spark.hive.metastore.uris` property with the following value: `thrift://<{{ metastore-name }}_cluster_IP_address>:{{ port-metastore }}`.
+
+      To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** in the management console and then select **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** under **{{ ui-key.yacloud.metastore.label_metastore }}**. Copy the **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}** column value for the cluster in question.
+
+{% endlist %}
 
 ## Import data {#import-data}
 
-1. Open the {{ metastore-name }} cluster page.
-1. Click ![image](../../../_assets/console-icons/arrow-down-to-square.svg) **{{ ui-key.yacloud.metastore.action_import }}**.
-1. In the window that opens, specify the `dataproc-bucket` and the `metastore_dump.sql` file.
-1. Click **{{ ui-key.yacloud.metastore.dialog.import-export.action_import }}**.
-1. Wait for the import to complete. You can check the import status on the {{ metastore-name }} cluster page under ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.dataproc.switch_operations }}**.
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. Open the {{ metastore-name }} cluster page.
+  1. Click ![image](../../../_assets/console-icons/arrow-down-to-square.svg) **{{ ui-key.yacloud.metastore.action_import }}**.
+  1. In the window that opens, specify the `dataproc-bucket` and the `metastore_dump.sql` file.
+  1. Click **{{ ui-key.yacloud.metastore.dialog.import-export.action_import }}**.
+  1. Wait for the import to complete. You can check the import status on the {{ metastore-name }} cluster page under ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.dataproc.switch_operations }}**.
+
+{% endlist %}
 
 ## Check the result {#check-result}
 
-1. Open the `dataproc-target` cluster page.
-1. Click the **Zeppelin Web UI** link under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**.
-1. Select **Notebook**, then select ![image](../../../_assets/console-icons/plus.svg) **Create new note**.
-1. In the window that opens, specify the name for the note and click **Create**.
-1. Run the following SQL query:
+{% list tabs group=instructions %}
 
-    ```sql
-    %sql
+- Management console {#console}
 
-    SELECT * FROM countries;
-    ```
+  1. Open the `dataproc-target` cluster page.
+  1. Click the **Zeppelin Web UI** link under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**.
+  1. Select **Notebook**, then select ![image](../../../_assets/console-icons/plus.svg) **Create new note**.
+  1. In the window that opens, specify the name for the note and click **Create**.
+  1. Run the following SQL query:
 
-1. Click ![image](../../../_assets/console-icons/play.svg) **Run all paragraphs**.
+      ```sql
+      %sql
 
-    Result:
+      SELECT * FROM countries;
+      ```
 
-    ```text
-    |   Name    |  Capital |  Area   | Population |
-    | --------- | -------- | ------- | ---------- |
-    | Australia | Canberra | 7686850 | 19731984   |
-    | Austria   | Vienna   | 83855   | 7700000    |
-    ```
+  1. Click ![image](../../../_assets/console-icons/play.svg) **Run all paragraphs**.
+  
+      Result:
+
+      ```text
+      |   Name    |  Capital |  Area   | Population |
+      | --------- | -------- | ------- | ---------- |
+      | Australia | Canberra | 7686850 | 19731984   |
+      | Austria   | Vienna   | 83855   | 7700000    |
+      ```
+
+{% endlist %}
 
 The metadata from the `dataproc-source` cluster was successfully imported into the `dataproc-target` cluster.
 

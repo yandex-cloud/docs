@@ -2,6 +2,7 @@
 
 # Создание ВМ с Container Optimized Image
 
+
 Создайте виртуальную машину из образа [Container Optimized Image](../concepts/index.md) и запустите на ней [Docker-контейнер](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers).
 
 ## Перед началом работы {#before-you-begin}
@@ -70,7 +71,7 @@
      ```bash
      yc compute instance create-with-container \
        --name my-vm \
-       --zone ru-central1-b \
+       --zone ru-central1-a \
        --ssh-key ssh-key.pub \
        --service-account-name <имя_сервисного_аккаунта> \
        --create-boot-disk size=30 \
@@ -86,7 +87,7 @@
 
      Где:
      * `--name` — имя ВМ.
-     * `--zone` — зона доступности.
+     * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md).
      * `--ssh-key` — содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
      * `--service-account-name` — имя сервисного аккаунта, созданного [ранее](#before-you-begin).
      * `--create-boot-disk size` — размер загрузочного диска.
@@ -156,7 +157,7 @@
      yc compute instance create-with-container \
        --coi-spec-file docker-spec.yaml \
        --name my-vm \
-       --zone ru-central1-b \
+       --zone ru-central1-a \
        --ssh-key ssh-key.pub \
        --create-boot-disk size=30 \
        --service-account-name <имя_сервисного_аккаунта> \

@@ -2,6 +2,7 @@
 
 # Автоматизация задач Yandex Query с помощью Yandex Managed Service for Apache Airflow™
 
+
 {% note warning %}
 
 Руководство тестировалось на кластерах с версией Apache Airflow™ ниже 3.0.

@@ -199,6 +199,30 @@ GET foo
 
 Подробнее о Sentinel читайте в разделе [Репликация и персистентность в Yandex Managed Service for Valkey™](../../concepts/replication.md) и [документации Valkey™](https://valkey.io/topics/sentinel/).
 
+
+### Подключение с аутентификацией через IAM {#iam}
+
+К кластеру Valkey™ можно подключиться, используя аутентификацию через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../../iam/concepts/users/accounts.md#saml-federation), [локальных пользователей](../../../iam/concepts/users/accounts.md#local) и [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md).
+
+Для подключения через сервисный аккаунт [назначьте](../../../iam/operations/sa/set-access-bindings.md) ему роли:
+
+* [роль](../../security/index.md#managed-redis-clusters-connector) `managed-redis.clusters.connector` на кластер;
+* [роль](../../../iam/roles-reference.md#iam-serviceAccounts-user) `iam.serviceAccounts.user` или выше. Если необходим доступ для нескольких сервисных аккаунтов, назначьте эту роль на каталог.
+
+Подготовьте кластер Valkey™ к подключению:
+
+1. Назначьте роль `managed-redis.clusters.connector` аккаунту, который будет подключаться к кластеру:
+
+    1. [Перейдите](https://console.yandex.cloud/link/managed-valkey) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+    1. Нажмите на имя нужного кластера.
+    1. Выберите вкладку **Права доступа** и нажмите кнопку **Назначить роли**.
+    1. Введите имя пользователя или электронную почту, к которой привязан аккаунт. Для сервисного аккаунта введите его имя или идентификатор. В результатах поиска выберите нужный аккаунт.
+    1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `managed-redis.clusters.connector`.
+    1. Нажмите кнопку **Сохранить**.
+
+1. [Создайте пользователя Valkey™](../user-create.md) со способом авторизации **IAM** и выберите нужный аккаунт.
+
+
 ## Подключение из графических IDE {#connection-ide}
 
 

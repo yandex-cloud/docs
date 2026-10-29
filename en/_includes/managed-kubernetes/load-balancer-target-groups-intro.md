@@ -1,0 +1,5 @@
+Target group management is configured in [{{ k8s }}](../../managed-kubernetes/concepts/service.md#type)'s `LoadBalancer` type `Service` resource. Based on the service configuration, the {{ managed-k8s-name }} controller automatically creates a [{{ network-load-balancer-name }}](../../network-load-balancer/concepts/index.md) that routes traffic to the cluster nodes.
+
+By default, load balancers use a shared target group that includes all the cluster nodes. The load balancer checks all the cluster nodes for availability, even if the pods of the application it send traffic to are deployed only on some of them.
+
+To reduce the number of nodes to check, you can configure the `v2` [target group management mode](../../managed-kubernetes/concepts/load-balancer-target-groups.md) for your service with `externalTrafficPolicy: Local`. The controller will create for the network load balancer a separate target group with nodes hosting the application pods and will update it as needed. You can set the mode when creating a new service or configure it for an already existing one.

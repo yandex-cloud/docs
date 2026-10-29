@@ -114,6 +114,7 @@
 
 ### Создайте облачную сеть {#create-network}
 
+
 Группа ВМ будет размещена в [облачной сети](../../../vpc/concepts/network.md#network) [Yandex Virtual Private Cloud](../../../vpc/index.md) и ее [подсетях](../../../vpc/concepts/network.md#subnet).
 
 {% list tabs group=instructions %}

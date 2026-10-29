@@ -221,7 +221,7 @@ A {{ org-full-name }} [user pool](../../../organization/concepts/user-pools.md) 
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. In the left-hand panel, select ![userpool](../../../_assets/organization/userpool.svg) **{{ ui-key.yacloud_org.pages.userpools }}**.
-  1. In the top-right corner of the page, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.organization.userpools.action_create-userpool }}**.
+  1. Click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.organization.userpools.action_create-userpool }}**.
   1. Specify a name for the pool, e.g., `netbird-users`, and provide an optional description. The name must be unique within the organization and follow these naming requirements:
      
      {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}

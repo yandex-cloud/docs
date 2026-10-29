@@ -43,3 +43,5 @@
 {% endlist %}
 
 На вкладке **Ключи приложений** можно [создать ключ](../security/application-keys.md#create) для записи телеметрии из приложений и агентов в проект.
+
+Для перехода к связанным ресурсам настройте [быстрые ссылки](../concepts/visualization/context-links.md#quick-links) в меню проекта или [контекстные ссылки](../concepts/visualization/context-links.md#context-links) на графиках.

@@ -1,3 +1,8 @@
+---
+title: Ошибка Not enough resources
+description: Если в зоне доступности не хватает аппаратных ресурсов, создание ВМ может завершиться ошибкой Not enough resources.
+---
+
 # Ошибка Not enough resources
 
 Если в зоне доступности не хватает аппаратных ресурсов, создание ВМ может завершиться ошибкой `Not enough resources`.

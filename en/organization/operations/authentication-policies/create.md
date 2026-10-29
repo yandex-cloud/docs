@@ -33,6 +33,10 @@ To create an authentication policy:
       1. {% include [auth-policy-create-action](../../../_includes/organization/auth-policy-create-action.md) %}
       1. Click **{{ ui-key.yacloud_org.form.auth-policy.create.action.create }}**.
 
+- API {#api}
+
+    Use the [create](../../policy/api-ref/AuthenticationPolicyRule/create.md) REST API method for the [AuthenticationPolicyRule](../../policy/api-ref/AuthenticationPolicyRule/index.md) resource or the [AuthenticationPolicyRuleService/Create](../../policy/api-ref/grpc/AuthenticationPolicyRule/create.md) gRPC API call.
+
 {% endlist %}
 
 #### Useful links {#see-also}

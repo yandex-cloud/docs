@@ -2,7 +2,6 @@
 
 # Перенос данных в Yandex Managed Service for PostgreSQL с использованием Yandex Data Transfer
 
-
 # Перенос данных из Yandex Object Storage в Yandex Managed Service for PostgreSQL с использованием Yandex Data Transfer
 
 

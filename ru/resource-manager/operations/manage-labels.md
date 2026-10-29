@@ -18,7 +18,7 @@ description: Добавление, изменение и удаление мет
   В примере ниже показано добавление метки к виртуальной машине {{ compute-name }}. Аналогично вы можете добавить метку другому ресурсу.
 
   1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../_assets/console-icons/chevron-down.svg) и выберите каталог, в котором находится ВМ.
-  1. [Перейдите]({{ link-console-main }}/link/resource-manager) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. В списке ВМ выберите нужную.
   1. Нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
@@ -88,7 +88,7 @@ description: Добавление, изменение и удаление мет
 
   > ```
   > resource "yandex_lockbox_secret" "my_secret" {
-  >   name   = lockbox-test-secret
+  >   name   = "lockbox-test-secret"
   >   labels = {
   >     label-test-key = "label-test-value"
   >   }
@@ -201,7 +201,7 @@ description: Добавление, изменение и удаление мет
   В примере ниже показано удаление метки виртуальной машины {{ compute-name }}. Аналогично вы можете удалить метку другого ресурса.
 
   1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../_assets/console-icons/chevron-down.svg) и выберите каталог, в котором находится ВМ.
-  1. [Перейдите]({{ link-console-main }}/link/resource-manager) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. В списке ВМ выберите нужную.
   1. Нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.

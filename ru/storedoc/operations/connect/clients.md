@@ -195,7 +195,12 @@ description: Следуя этой инструкции, вы сможете п�
 
 ### Подключение с аутентификацией через IAM {#iam}
 
-Вы можете подключиться к кластеру {{ mmg-name }} с помощью аутентификации через IAM. Для аутентификации используйте [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративный](../../../iam/concepts/users/accounts.md#saml-federation) или [локальный](../../../iam/concepts/users/accounts.md#local) аккаунт.
+Вы можете подключиться к кластеру {{ mmg-name }} с помощью аутентификации через IAM. Для аутентификации используйте [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративный](../../../iam/concepts/users/accounts.md#saml-federation), [локальный](../../../iam/concepts/users/accounts.md#local) или [сервисный](../../../iam/concepts/users/service-accounts.md) аккаунт.
+
+Для подключения через сервисный аккаунт [назначьте](../../../iam/operations/sa/set-access-bindings.md) ему роли:
+
+* [роль](../../security/index.md#managed-mongodb-clusters-connector) `managed-mongodb.clusters.connector` на кластер;
+* [роль](../../../iam/roles-reference.md#iam-serviceAccounts-user) `iam.serviceAccounts.user` или выше. Если необходим доступ для нескольких сервисных аккаунтов, назначьте эту роль на каталог.
 
 Подключение выполняется через MongoDB Shell. О том, как установить утилиту MongoDB Shell, читайте в [инструкции](index.md#mongosh-install).
 
@@ -213,16 +218,16 @@ description: Следуя этой инструкции, вы сможете п�
       1. [Перейдите]({{ link-console-main }}/link/storedoc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
       1. Выберите кластер.
       1. Назначьте аккаунту в {{ yandex-cloud }} роль `managed-mongodb.clusters.connector` на кластер:
-         
-          1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+
+          1. Выберите вкладку ![chevron-down](../../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
           1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
           1. В поле **{{ ui-key.yacloud_components.acl.label.subject }}** выберите аккаунт.
-              
+
               Чтобы найти нужный аккаунт, введите в это поле адрес почты, к которому привязан аккаунт.
-          
+
           1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `managed-mongodb.clusters.connector`.
           1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
-      
+
       1. Создайте пользователя {{ SD }}:
 
           1. Выберите вкладку ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
@@ -230,18 +235,18 @@ description: Следуя этой инструкции, вы сможете п�
           1. Выберите способ авторизации **{{ ui-key.yacloud.mongodb.UserAddDialog.label_iam_ffBD5 }}**.
           1. Выберите аккаунт в {{ yandex-cloud }} с ролью `managed-mongodb.clusters.connector`.
           1. Выберите базы данных и настройте для них [роли](../../concepts/users-and-roles.md):
-          
+
               1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** и выберите базу данных.
               1. Назначьте роли для выбранной базы данных.
-              
+
                   Чтобы назначить роль, нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) и выберите роль.
-          
+
           1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-add_button_add }}**.
 
     {% endlist %}
 
 1. Получите IAM-токен и поместите его в переменную окружения `IAM_TOKEN`:
-    
+
     * [Инструкция](../../../iam/operations/iam-token/create.md) для аккаунта на Яндексе.
     * [Инструкция](../../../iam/operations/iam-token/create-for-federation.md) для федеративного аккаунта.
     * [Инструкция](../../../iam/operations/iam-token/create-for-local.md) для локального аккаунта.
@@ -295,12 +300,12 @@ description: Следуя этой инструкции, вы сможете п�
 ### DataGrip {#datagrip}
 
 1. Создайте источник данных:
-   
+
    1. Выберите в меню **File** → **New** → **Data Source** → **{{ MG }}**.
    1. На вкладке **General**:
-      
+
       1. Укажите параметры подключения:
-         
+
          * **User**, **Password** — имя и пароль пользователя БД;
          * **URL** — строка подключения.
 
@@ -319,9 +324,9 @@ description: Следуя этой инструкции, вы сможете п�
               {% include [see-fdqn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
 
       1. Нажмите ссылку **Download**, чтобы загрузить драйвер соединения.
-   
+
    1. На вкладке **SSH/SSL**:
-      
+
       1. Включите настройку **Use SSL**.
       1. В поле **CA file** укажите путь к файлу [SSL-сертификата для подключения](./index.md#get-ssl-cert).
 
@@ -335,12 +340,12 @@ description: Следуя этой инструкции, вы сможете п�
 Чтобы подключиться к кластеру:
 
 1. Создайте новое соединение с БД:
-   
+
    1. Выберите в меню **База данных** пункт **Новое соединение**.
    1. Выберите из списка БД **{{ MG }}**.
    1. Нажмите кнопку **Далее**.
    1. Настройте параметры подключения на вкладке **Главное**:
-      
+
       1. В блоке **Адрес** переключите **Type** на `URL` и укажите строку подключения.
 
            Для нешардированного кластера:
@@ -359,9 +364,9 @@ description: Следуя этой инструкции, вы сможете п�
 
       1. В списке **Устройство** выберите значение `SCRAM-SHA-256` (тип шифрования пароля при подключении).
       1. В блоке **Полномочия** укажите имя и пароль пользователя БД.
-   
+
    1. На вкладке **SSL**:
-      
+
       1. Включите настройку **Использовать SSL**.
       1. В поле **Корневой сертификат** укажите путь к сохраненному файлу [SSL-сертификата](./index.md#get-ssl-cert).
       1. В блоке **Настройки** включите **Пропустить валидацию имени хоста**.

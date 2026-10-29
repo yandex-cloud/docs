@@ -1,6 +1,6 @@
 Чтобы получать уведомления, пользователь должен:
 
-* иметь роль `monitoring.viewer` на каталог, в котором настроен алерт;
+* иметь [роль](../../monium/security/index.md#monium-viewer) `monium.viewer` на каталог, в котором настроен алерт;
 * в [настройках]({{ link-console-main }}/settings) консоли управления:
-    * включить опцию **{{ ui-key.yacloud_components.settings.label_monitoring-name }}**;
+    * в разделе **Уведомления** на вкладке **Категории** включить опцию **{{ ui-key.yacloud_components.settings.label_monitoring-name }}** для соответствующего метода отправки;
     * указать адрес электронной почты, номер телефона и Telegram-аккаунт или группу.

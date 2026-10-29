@@ -202,8 +202,8 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
   1. Нажмите кнопку **Создать сеть**.
   1. На панели слева выберите ![subnets](../../_assets/vpc/subnets.svg) **Подсети**.
   1. Справа сверху нажмите кнопку **Создать**.
-  1. В поле **Имя** укажите `sample-subnet-ru-central1-b`.
-  1. В поле **Зона доступности** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-b`.
+  1. В поле **Имя** укажите `sample-subnet-ru-central1-a`.
+  1. В поле **Зона доступности** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`.
   1. В поле **Сеть** выберите облачную сеть `my-sample-network`.
   1. В поле **CIDR** укажите `192.168.1.0/24`.
   1. Нажмите кнопку **Создать подсеть**.
@@ -228,11 +228,11 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
       Подробнее о команде `yc vpc network create` читайте в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
-  1. Создайте подсеть `sample-subnet-ru-central1-b` в [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-b`:
+  1. Создайте подсеть `sample-subnet-ru-central1-a` в зоне доступности `ru-central1-a`:
 
       ```bash
-      yc vpc subnet create sample-subnet-ru-central1-b \
-        --zone ru-central1-b \
+      yc vpc subnet create sample-subnet-ru-central1-a \
+        --zone ru-central1-a \
         --network-name my-sample-network \
         --range 192.168.1.0/24
       ```
@@ -243,9 +243,9 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       id: e2l1ejkvq4jv********
       folder_id: b1g9d2k0itu4********
       created_at: "2024-02-23T18:40:26Z"
-      name: sample-subnet-ru-ru-central1-b
+      name: sample-subnet-ru-ru-central1-a
       network_id: enp2gjcvrd59********
-      zone_id: ru-central1-b
+      zone_id: ru-central1-a
       v4_cidr_blocks:
         - 192.168.1.0/24
       ```
@@ -837,10 +837,10 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. Нажмите кнопку **Создать виртуальную машину**.
   1. В блоке **Образ загрузочного диска** выберите [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts).
-  1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-b`.
+  1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`.
   1. В блоке **Сетевые настройки**: 
 
-      * В поле **Подсеть** выберите созданную ранее подсеть `sample-subnet-ru-central1-b`.
+      * В поле **Подсеть** выберите созданную ранее подсеть `sample-subnet-ru-central1-a`.
       * В поле **Публичный IP-адрес** выберите `Автоматически`.
 
   1. В блоке **Доступ** выберите **SSH-ключ** и укажите данные для доступа к ВМ:
@@ -879,8 +879,8 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
   yc compute instance create \
     --name target-instance-1 \
     --labels target-for-stop=true \
-    --zone ru-central1-b \
-    --network-interface subnet-name=sample-subnet-ru-central1-b,nat-ip-version=ipv4 \
+    --zone ru-central1-a \
+    --network-interface subnet-name=sample-subnet-ru-central1-a,nat-ip-version=ipv4 \
     --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
     --ssh-key ~/.ssh/<имя_ключа>.pub
   ```
@@ -897,7 +897,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
   name: target-instance-1
   labels:
     target-for-stop: "true"
-  zone_id: ru-central1-b
+  zone_id: ru-central1-a
   platform_id: standard-v2
   resources:
     memory: "2147483648"

@@ -40,7 +40,7 @@ Create a [cloud network](../../vpc/concepts/network.md) with a [subnet](../../vp
 
   1. In the [management console]({{ link-console-main }}), select the folder to deploy the infrastructure in.
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. In the top-right corner, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter a name for the network. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
@@ -238,7 +238,7 @@ Install [WordPress](/marketplace/products/yc/wordpress-app) using {{ cloud-apps-
       || **VPC subnet** | Yes | — | Subnet to deploy your VM in. ||
       || **Number of vCPUs** | — | `2` | Number of vCPUs. ||
       || **RAM in GB** | — | `2` | RAM in GB. ||
-      || **Guaranteed vCPU share** | — | `100` | Guaranteed vCPU share in %. The possible values are 20%, 50%, or 100%. ||
+      || **Guaranteed vCPU share** | — | `100` | Guaranteed vCPU share in %. Available values: 20%, 50%, or 100%. ||
       || **Public SSH key** | — | — | The key will be added to `authorized_keys` of the WordPress user.
       We recommend specifying a public SSH key to access the VM over SSH. You will need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair by yourself. ||
       || **Disk type** | — | `network-ssd` | Type of disk to attach to the VM. ||

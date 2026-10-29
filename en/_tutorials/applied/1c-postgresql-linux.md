@@ -53,8 +53,8 @@ To create a [cloud network](../../vpc/concepts/network.md) with [subnets](../../
 
   1. In the [management console]({{ link-console-main }}), select the folder where you need to create a cloud network.
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. In the top-right corner, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-  1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter `my-1c-network`.
+  1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter a name for the network: `my-1c-network`.
   1. Enable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 

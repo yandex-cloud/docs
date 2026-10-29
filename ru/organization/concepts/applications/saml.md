@@ -94,11 +94,7 @@ description: В {{ org-full-name }} вы можете аутентифициро
 
 {% include [saml-app-group-assertion](../../../_includes/organization/saml-app-group-assertion.md) %}
 
-Чтобы выбрать, какое значение группы будет передаваться поставщику услуг в атрибуте групп, воспользуйтесь [CLI](../../operations/applications/saml-create.md#setup-attributes) или {{ TF }} и укажите одно из значений:
-
-* `NAME` — имя группы. Используется по умолчанию.
-* `ID` — идентификатор группы.
-* `EXTERNAL_ID` — внешний идентификатор группы.
+Вы можете [выбрать](../../operations/applications/saml-create.md#setup-attributes), какое значение группы будет передаваться поставщику услуг в атрибуте групп: имя (по умолчанию), идентификатор или внешний идентификатор группы.
 
 {% note info %}
 

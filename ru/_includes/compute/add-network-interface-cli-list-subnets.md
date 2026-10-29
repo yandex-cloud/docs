@@ -11,6 +11,6 @@ yc vpc subnet list
 | bucqps2lt75g******** | subnet-{{ region-id }}-a1 | c64pv6m0aqq6******** |                | {{ region-id }}-a | [192.168.1.0/24]  |
 | e2lrucutusnd******** | subnet-{{ region-id }}-a2 | c64pv6m0aqq6******** |                | {{ region-id }}-a | [192.168.2.0/24]  |
 | e2lv9c6aek1d******** | subnet-{{ region-id }}-a3 | c64pv6m0aqq6******** |                | {{ region-id }}-a | [192.168.4.0/24]  |
-| bltign9kcffv******** | default-{{ region-id }}-b | c64pv6m0aqq6******** |                | {{ region-id }}-b | [192.168.3.0/24]  |
+| bltign9kcffv******** | default-{{ region-id }}-a | c64pv6m0aqq6******** |                | {{ region-id }}-a | [192.168.3.0/24]  |
 +----------------------+-----------------------+----------------------+----------------+---------------+-------------------+
 ``` 

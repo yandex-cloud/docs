@@ -33,6 +33,53 @@ description: Следуя данной инструкции, вы сможете
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Для настройки SSPR используйте провайдер {{ yandex-cloud }} версии 0.239.0 или выше.
+
+  1. Откройте конфигурационный файл {{ TF }} и добавьте параметр `sspr_policies` в описание нужной политики MFA — ресурса `yandex_organizationmanager_mfa_enforcement`:
+
+     ```hcl
+     resource "yandex_organizationmanager_mfa_enforcement" "example_mfa_policy" {
+       name            = "<имя_политики>"
+       organization_id = "<идентификатор_организации>"
+       acr_id          = "<тип_фактора_аутентификации>"
+       ttl             = "<время_жизни>"
+       enroll_window   = "<срок_создания>"
+       sspr_policies   = ["two-any", "mfa"]
+     }
+     ```
+
+     `sspr_policies` — список разрешенных [способов сброса пароля](../concepts/sspr.md#reset-methods). Укажите одно или оба значения:
+
+     * `two-any` — подтверждение личности с помощью двух любых факторов MFA.
+     * `mfa` — подтверждение личности с помощью FIDO2-ключа или Passkey с обязательной локальной проверкой пользователя (User Verification), например с помощью PIN-кода или биометрии.
+
+     Чтобы отключить самостоятельный сброс пароля, задайте пустой список: `sspr_policies = []`.
+
+     Сохраните остальные параметры политики без изменений. Подробнее о параметрах ресурса `yandex_organizationmanager_mfa_enforcement` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement).
+
+     Если политика создана не в {{ TF }}, сначала добавьте ее описание в конфигурационный файл с текущими значениями параметров и импортируйте ее в состояние {{ TF }}:
+
+     ```bash
+     terraform init
+     terraform import yandex_organizationmanager_mfa_enforcement.example_mfa_policy <идентификатор_политики>
+     ```
+
+     Если политики MFA еще нет, [создайте](./mfa/create-policy.md) ее и [добавьте пользователей в целевую группу](./mfa/add-users.md).
+
+  1. Примените изменения:
+
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+- API {#api}
+
+    Воспользуйтесь методом REST API [update](../api-ref/MfaEnforcement/update.md) для ресурса [MfaEnforcement](../api-ref/MfaEnforcement/index.md) или вызовом gRPC API [MfaEnforcementService/Update](../api-ref/grpc/MfaEnforcement/update.md).
+
 {% endlist %}
 
 #### Полезные ссылки {#see-also}

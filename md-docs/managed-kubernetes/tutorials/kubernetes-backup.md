@@ -2,7 +2,6 @@
 
 # Резервное копирование кластера Managed Service for Kubernetes в Object Storage
 
-
 Данные в [кластерах Managed Service for Kubernetes](../concepts/index.md#kubernetes-cluster) надежно хранятся и реплицируются в инфраструктуре Yandex Cloud. Однако в любой момент вы можете сделать резервные копии данных из [групп узлов](../concepts/index.md#node-group) кластеров Managed Service for Kubernetes и хранить их в [Yandex Object Storage](../../storage/index.md) или другом хранилище.
 
 Вы можете создавать резервные копии данных из групп узлов кластера Managed Service for Kubernetes с помощью инструмента [Velero](https://velero.io/). Этот инструмент поддерживает работу с [дисками](../../compute/concepts/disk.md) Yandex Cloud с помощью CSI-драйвера Kubernetes, и позволяет создавать моментальные [снимки дисков](../../compute/concepts/snapshot.md) [томов](../concepts/volume.md).

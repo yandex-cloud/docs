@@ -75,6 +75,28 @@ Exceptions prevent an [MFA policy](../../concepts/mfa.md#mfa-policies) from appl
 
   Use the [UpdateExcludedAudience](../../../organization/api-ref/MfaEnforcement/updateExcludedAudience.md) REST API method for the [MfaEnforcement](../../../organization/api-ref/MfaEnforcement/index.md) resource or the [MfaEnforcementService/UpdateExcludedAudience](../../../organization/api-ref/grpc/MfaEnforcement/updateExcludedAudience.md) gRPC API call.
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Add a separate resource for each excluded user or group:
+
+      ```hcl
+      resource "yandex_organizationmanager_mfa_enforcement_excluded_audience" "exception" {
+        mfa_enforcement_id = "<policy_ID>"
+        subject_id        = "<user_or_group_ID>"
+      }
+      ```
+
+      For more information, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement_excluded_audience).
+
+      To remove an exception managed by this configuration, delete the relevant resource section. You do not need to delete the MFA policy itself.
+  1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
 {% endlist %}
 
 ## Viewing a list of exceptions {#list}

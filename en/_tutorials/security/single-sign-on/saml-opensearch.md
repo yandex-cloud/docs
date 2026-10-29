@@ -31,7 +31,7 @@ To give access to {{ mos-name }} to the users of your organization:
 
     1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
     1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-    1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
+    1. Click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and do the following in the window that opens:
         1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.saml-title_kyofk }}** single sign-on method.
         1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify a name for your new app: `opensearch-app`.
         1. Optionally, in the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** field, enter a description for the new app.
@@ -66,7 +66,7 @@ To configure {{ mos-name }} integration with the SAML app you created in {{ org-
 
     To set up a {{ org-full-name }} authentication source:
 
-    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. In the [management console]({{ link-console-main }}), select the folder.
     1. [Navigate]({{ link-console-main }}/link/managed-opensearch) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.opensearch.auth.section_auth }}** tab.
     1. Click **{{ ui-key.yacloud.opensearch.auth.button_settings }}**.
@@ -137,7 +137,7 @@ To configure {{ mos-name }} integration with the SAML app you created in {{ org-
 
 #### Add a user groups attribute {#group-attribute}
 
-{{ OS }} users have to get one of the basic roles upon login. For this to work, the {{ org-full-name }} authentication source must provide in its SAML response a list of user groups that will have roles mapped in {{ OS }}. Proceed as follows:
+{{ OS }} users have to get one of the basic roles upon login. For this to work, the {{ org-full-name }} authentication source must provide in its SAML response a list of user groups that will have roles mapped in {{ OS }}. Follow these steps:
 
 {% list tabs group=instructions %}
 
@@ -166,7 +166,7 @@ For your organization's users to be able to authenticate in {{ OS }} Dashboards 
 
         1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
         1. In the left-hand panel, select ![groups](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}**.
-        1. In the top-right corner of the page, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.entity.group.action_create }}**.
+        1. Click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.entity.group.action_create }}**.
         1. Enter a name, e.g., `opensearch-users`. The group name must exactly match the user group name specified when mapping to the {{ OS }} role.
         1. Click **{{ ui-key.yacloud_org.groups.action_create-group }}**.
         1. Add users to the group:
@@ -196,7 +196,7 @@ For your organization's users to be able to authenticate in {{ OS }} Dashboards 
 
 ## Make sure your application works correctly {#validate}
 
-To make sure both your SAML app and {{ mos-name }} integration work correctly, authenticate to {{ OS }} Dashboards as one of the users you added to the app. Proceed as follows:
+To make sure both your SAML app and {{ mos-name }} integration work correctly, authenticate to {{ OS }} Dashboards as one of the users you added to the app. Follow these steps:
 
 1. In your browser, navigate to the address of your {{ OS }} Dashboards instance.
 1. If logged in to {{ OS }} Dashboards, log out.

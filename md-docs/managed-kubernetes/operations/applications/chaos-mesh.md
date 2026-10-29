@@ -63,7 +63,9 @@
    
    {% endnote %}
 
+
 Актуальную версию Helm-чарта можно посмотреть на [странице приложения](https://yandex.cloud/ru/marketplace/products/yc/chaos-mesh#docker-images).
+
 
 ## Веб-интерфейс и авторизация в Chaos Mesh {#interface-and-authorization}
 

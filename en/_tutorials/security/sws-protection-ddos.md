@@ -102,12 +102,15 @@ To test your security profile, use information from monitoring charts and logs.
   1. Select the ![display-pulse](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** section.
   1. Examine the data displayed on the charts:
      * **Denied by Security Profile RPS**: Number of incoming requests per second the security profile has checked and blocked.
-     * **Redirected to SmartCaptcha RPS**: Number of incoming requests per second routed to {{ captcha-name }} for additional verification.
+     * **Redirected to SmartCaptcha RPS**: Number of incoming requests per second redirected to {{ captcha-name }} for additional verification.
+     * **Redirected to JS challenge RPS**: Number of incoming requests per second redirected to a client-side [JavaScript challenge](../../smartwebsecurity/concepts/rules.md#client-checks).
+     * **Redirected to cookie challenge RPS**: Number of incoming requests per second redirected to a client-side [cookie challenge](../../smartwebsecurity/concepts/rules.md#client-checks).
      * **Denied by ARL Profile RPS**: Number of incoming requests per second exceeding the ARL profile limit and blocked.
+     * **Redirected to SmartCaptcha by ARL Profile RPS**: Number of incoming requests per second redirected by the ARL profile to {{ captcha-name }} for additional verification.
 
 {% endlist %}
 
-For a detailed description of charts, see [{#T}](../../smartwebsecurity/operations/monitoring.md).
+For a description of charts, metrics, and labels, see [{#T}](../../smartwebsecurity/operations/monitoring.md).
 
 ### Logging {#logs}
 
@@ -118,7 +121,7 @@ For a detailed description of charts, see [{#T}](../../smartwebsecurity/operatio
   1. Make sure you have configured [logging](../../smartwebsecurity/operations/configure-logging.md) for the L7 load balancer.
   1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Select the load balancer with an associated security profile.
-  1. Select the ![receipt](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}** section.
+  1. Navigate to the **{{ ui-key.yacloud.common.logs }}** tab.
   1. Select a log display period using one of the available methods, e.g., **Last hour**.
   1. In the **Query** row, specify your query using the [filter expression language](../../logging/concepts/filter.md) and click **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
 
@@ -158,7 +161,7 @@ To protect your service against load bursts, set a request limit in the [ARL (Ad
 
   1. Click **{{ ui-key.yacloud.smart-web-security.arl.label_save-rule }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
-  1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
+  1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Next to `anti-ddos`, click ![options](../../_assets/console-icons/ellipsis.svg) → ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
   1. From the list of ARL profiles, select `anti-ddos-arl`.
   1. Click **{{ ui-key.yacloud.common.save }}**.

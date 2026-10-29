@@ -65,7 +65,7 @@
      1. Укажите параметры подсети:
 
         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** — `bastion-external-segment`.
-        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** — `{{ region-id }}-b`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** — `{{ region-id }}-a`.
         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** — `172.16.17.0/28`.
 
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
@@ -91,7 +91,7 @@
      1. Укажите параметры подсети:
 
         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** — `bastion-internal-segment`.
-        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** — `{{ region-id }}-b`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** — `{{ region-id }}-a`.
         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** — `172.16.16.0/24`.
 
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
@@ -171,7 +171,7 @@
   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
-  1. В открывшемся окне выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
+  1. В открывшемся окне выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
   
 {% endlist %}
@@ -186,7 +186,7 @@
 
   1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![image](../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `NAT-инстанс на основе Ubuntu 22.04 LTS` и выберите публичный образ [NAT-инстанс на основе Ubuntu 22.04 LTS](/marketplace/products/yc/nat-instance-ubuntu-22-04-lts).
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**  настройте первый сетевой интерфейс:
 
       * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — `bastion-external-segment`.
@@ -241,7 +241,7 @@ ssh -i ~/.ssh/<имя_файла_приватного_ключа> bastion@<пу�
 
   1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![image](../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите публичный образ с произвольной операционной системой, например [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** настройте сетевой интерфейс:
 
       * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — `bastion-internal-segment`.

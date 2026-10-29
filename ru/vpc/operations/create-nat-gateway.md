@@ -5,8 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Настроить NAT-шлюз
 
-
-Минимально необходимые [роли](../security/index.md#roles-list) для создания и настройки [NAT-шлюза](../concepts/gateways.md): `vpc.admin` и `vpc.gateways.user`.
+Минимально необходимые [роли](../security/#roles-list) для создания и настройки [NAT-шлюза](../concepts/gateways.md): `vpc.admin` и `vpc.gateways.user`.
 
 Чтобы создать и настроить NAT-шлюз:
 

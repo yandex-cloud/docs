@@ -1,5 +1,11 @@
 # Connecting a {{ baremetal-full-name }} server as an external node to a {{ managed-k8s-full-name }} cluster
 
+{% note tip %}
+
+In the {{ managed-k8s-name }} cluster, you can [create a node group on {{ baremetal-name }} dedicated servers](../../managed-kubernetes/operations/baremetal-group/create-baremetal.md) without pre-leasing the servers. {{ baremetal-extend-managed-k8s-name }} will rent the servers, auto-configure them, and connect them to your cluster.
+
+{% endnote %}
+
 
 {% note info %}
 
@@ -69,7 +75,7 @@ See also [How to cancel a lease and delete resources](#clear-out).
 - Management console {#console}
 
   1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
-  1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}** and then **{{ ui-key.yacloud.k8s.cluster.node-groups.label_type-custom }}**.
+  1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}** and select ![server](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.k8s.cluster.node-groups.label_type-custom }}**.
   1. Enter a name for the {{ managed-k8s-name }} node group.
   1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_ips }}** field, specify the private IP address of the {{ baremetal-name }} server you are connecting.
   1. Click **{{ ui-key.yacloud.common.add }}**.
@@ -113,7 +119,7 @@ To run an automated installation:
 
       1. In the [management console]({{ link-console-main }}), open the {{ managed-k8s-name }} cluster page.
       1. Go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab, then to **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
-      1. In the row of the new node group, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+      1. In the row of the created node group, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
       1. In the **{{ ui-key.yacloud.k8s.node-group.overview.label_secret }}** field, select the name of the new secret from the drop-down list.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -174,10 +180,10 @@ To make sure the {{ baremetal-name }} server is successfully connected:
 
   1. In the [management console]({{ link-console-main }}), open the {{ managed-k8s-name }} cluster page.
   1. Go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab, then to **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
-  1. Select the new {{ managed-k8s-name }} node group and navigate to the **{{ ui-key.yacloud.k8s.node-group.overview.label_tab-nodes }}** tab.
+  1. Select the created {{ managed-k8s-name }} node group and navigate to the **{{ ui-key.yacloud.k8s.node-group.overview.label_tab-nodes }}** tab.
   1. Make sure the new {{ managed-k8s-name }} node is now `Ready`.
   1. Open this node and go to the **{{ ui-key.yacloud.k8s.node.overview.label_events }}** tab.
-  1. Make certain that all server connection steps were successful.
+  1. Make sure all server connection steps have been successful.
 
 {% endlist %}
 

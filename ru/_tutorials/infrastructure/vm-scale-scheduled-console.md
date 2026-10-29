@@ -99,6 +99,7 @@
 
 ### Создайте облачную сеть {#create-network}
 
+
 Группа ВМ будет размещена в [облачной сети](../../vpc/concepts/network.md#network) [{{ vpc-full-name }}](../../vpc/) и ее [подсетях](../../vpc/concepts/network.md#subnet).
 
 {% list tabs group=instructions %}

@@ -32,7 +32,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       1. In the [management console]({{ link-console-main }}), select the folder where you are going to create your infrastructure.
       1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-      1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
       1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `joomla-network`.
       1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, disable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
       1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -204,10 +204,12 @@ Create a new Let's Encrypt® [certificate](../../certificate-manager/concepts/ma
       1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
       1. [Navigate]({{ link-console-main }}/link/certificate-manager) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
       1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}** and select `{{ ui-key.yacloud.certificate-manager.action_request }}`.
-      1. In the window that opens, specify `joomla-cert` in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field.
-      1. In the **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** field, specify your domain name, e.g., `example.com`.
-      1. Select `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}` as the [domain ownership verification type](../../certificate-manager/concepts/challenges.md).
-      1. Click **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
+      1. In the window that opens:
+
+         1. In the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field, specify `joomla-cert`.
+         1. In the **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** field, specify your domain name, e.g., `example.com`.
+         1. Select `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}` as the [domain ownership verification type](../../certificate-manager/concepts/challenges.md).
+         1. Click **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
 
     {% endlist %}
 

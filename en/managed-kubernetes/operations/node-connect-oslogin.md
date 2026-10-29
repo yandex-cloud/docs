@@ -47,7 +47,7 @@ Set up your cluster node for connection:
         1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the {{ managed-k8s-name }} cluster whose node you need access to.
         1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
         1. Select the {{ managed-k8s-name }} cluster.
-        1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab; this will also open the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+        1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_cluster-overview }}** tab and select the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** section.
         1. In the node group row, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
         1. Select **{{ ui-key.yacloud.k8s.node-group.access-method.field_os-login-access-method }}**.
 
@@ -112,7 +112,7 @@ Set up your cluster node for connection:
 
           {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-      1. Confirm updating the resources.
+      1. Confirm resource changes.
 
           {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

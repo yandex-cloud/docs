@@ -65,7 +65,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
       Where:
 
       * `--role`: ID of the role to assign.
-      * `--subject`: [Subject](../../concepts/access-control/index.md#subject) getting the role.
+      * `--subject`: Designation of the [subject](../../concepts/access-control/index.md#subject) the role is assigned to.
 
           {% cut "Subject designations" %}
 
@@ -96,7 +96,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
       * `service_account_id`: ID of the service account to configure access for.
       * `role`: Role.
-      * `members`: Designations of [subjects](../../concepts/access-control/index.md#subject) the role is assigned to.
+      * `members`: Designations of [subjects](../../concepts/access-control/index.md#subject) to assign the role to.
 
           {% cut "Subject designations" %}
 
@@ -170,7 +170,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
       Where:
 
       * `roleId`: Role.
-      * `subject`: [Subject](../../concepts/access-control/index.md#subject) getting the role.
+      * `subject`: [Subject](../../concepts/access-control/index.md#subject) the role is assigned to.
 
           {% cut "Subject designations" %}
 
@@ -237,7 +237,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
       * `service_account_id`: ID of the service account to configure access for.
       * `role`: Role.
-      * `members`: List of users getting the role. Use this format: `userAccount:<user_ID>`.
+      * `members`: List of users the role is assigned to. Use this format: `userAccount:<user_ID>`.
 
       For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
@@ -371,7 +371,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
           {% endnote %}
 
-      * `members`: List of users or service accounts getting the role. Use one of these formats: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: List of users or service accounts the role is assigned to. Use one of these formats: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       {% cut "Example of assigning multiple roles for a service account using {{ TF }}" %}
 
@@ -514,7 +514,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 
       * `service_account_id`: ID of the service account to configure access for.
       * `role`: Role.
-      * `members`: List of users or service accounts getting the role. Use one of these formats: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: List of users or service accounts the role is assigned to. Use one of these formats: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       {% cut "Example of granting permissions to the `test-sa` service account to manage the `my-robot` service account using {{ TF }}" %}
 

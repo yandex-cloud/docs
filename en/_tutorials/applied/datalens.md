@@ -205,7 +205,7 @@ To run the emulator, create a [function](../../functions/concepts/function.md) t
           * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10 {{ ui-key.yacloud.common.units.label_time-sec }}`.
           * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
           * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `my-emulator-function-service-account`.
-
+          
       1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**, specify the following:
 
               Key | Description | Value
@@ -368,7 +368,7 @@ Create a data processing function, test it, and review the result of data proces
           * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10 {{ ui-key.yacloud.common.units.label_time-sec }}`.
           * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
           * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `my-db-function-service-account`.
-
+          
       1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**, specify the following:
 
               Key | Description | Value
@@ -442,7 +442,7 @@ Create a data processing function, test it, and review the result of data proces
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Select the `my-pg-database` cluster.
-  1. In the left-hand menu, select **SQL**.
+  1. Navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_explore-websql }}** tab and click **{{ ui-key.yacloud.mdb.cluster.websql-connections.action_go-to-websql }}**.
   1. In the **Password** field, enter the password you set to access the database and click **Connect**.
   1. Select the `public` folder.
   1. View the data processing result in the `iot_events` and `iot_position` tables.
@@ -497,7 +497,7 @@ Shortly after creating the trigger, you can check how it works.
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Select the `my-pg-database` cluster.
-  1. In the left-hand menu, select **SQL**.
+  1. Navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_explore-websql }}** tab and click **{{ ui-key.yacloud.mdb.cluster.websql-connections.action_go-to-websql }}**.
   1. In the **Password** field, specify the password you set to access the database and click **Connect**.
   1. Select the `public` folder.
   1. View the changes in the `iot_events` table.

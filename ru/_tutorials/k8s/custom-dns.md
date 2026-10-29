@@ -1,6 +1,5 @@
 # Интеграция с корпоративной зоной DNS
 
-
 Чтобы интегрировать [кластер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) с приватной корпоративной [зоной](../../dns/concepts/dns-zone.md) [DNS](../../glossary/dns.md):
 
 1. [Настройте DNS-сервер](#setup-dns).

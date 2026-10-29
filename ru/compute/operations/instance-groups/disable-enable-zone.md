@@ -7,6 +7,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
 
+
 {% include [disable-enable-zone-intro](../../../_includes/instance-groups/disable-enable-zone-intro.md) %}
 
 Подробнее о режиме работы при отключении зоны смотрите на странице [{#T}](../../concepts/instance-groups/disable-enable-zone.md).

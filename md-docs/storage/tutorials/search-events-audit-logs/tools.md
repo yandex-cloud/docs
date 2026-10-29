@@ -2,6 +2,7 @@
 
 # Инструменты для работы с аудитными логами
 
+
 # Инструменты для работы с аудитными логами
 
 Аудитные логи могут загружаться в бакет [Yandex Object Storage](../../index.md), лог-группу [Yandex Cloud Logging](../../../logging/index.md), поток данных [Yandex Data Streams](../../../data-streams/index.md).

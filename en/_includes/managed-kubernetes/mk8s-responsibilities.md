@@ -53,7 +53,7 @@ The user cannot modify the control plane component configuration directly. The e
 
    * `kubelet` and, optionally, `kube-proxy`.
    * Container runtime.
-   * CNI network plugins, such as Calico or Cilium.
+   * CNI network plugins, such as Calico or Cilium, if you selected a pre-installed CNI when creating a cluster.
    * CSI drivers for cloud storage integration.
    * Guest OS (Ubuntu).
 
@@ -61,11 +61,13 @@ The user cannot modify the control plane component configuration directly. The e
 
 * **Integration with other {{ yandex-cloud }} services**: There is interaction with [{{ iam-full-name }}](../../iam/index.yaml), [{{ vpc-full-name }}](../../vpc/index.yaml), and [{{ container-registry-full-name }}](../../container-registry/index.yaml), with encryption via [{{ kms-full-name }}](../../kms/index.yaml).
 
+In a cluster without a pre-installed CNI, {{ yandex-cloud }} manages the master and node groups. The [user](#responsibility) manages the network plugin.
+
 ### System plugins {#system-plugins}
 
 {% note info %}
 
-The user cannot modify or delete system plugins.
+The user cannot modify or delete system plugins managed by {{ yandex-cloud }}.
 
 {% endnote %}
 
@@ -100,6 +102,7 @@ The {{ yandex-cloud }} customer control zone covers:
 * [Access management](#access-control)
 * [Cluster performance analysis](#cluster-monitoring)
 * [Self-managed software version upgrades](#software-updates)
+* [Own CNI network plugin](#responsibility).
 
 ### Cluster configuration {#cluster-config}
 
@@ -182,5 +185,16 @@ The user can:
    * Scan and update container images of user applications.
    * Fix vulnerabilities in user code and dependencies.
    * Apply pod security policies or equivalents to limit pod privileges.
+
+### Own CNI network plugin {#responsibility}
+
+{% include [cluster-without-cni-preview](./cluster-without-cni-preview.md) %}
+
+In a cluster without a preinstalled CNI, the user is responsible for the following:
+
+* Selecting a network plugin.
+* Installing and setting up the plugin before running applications.
+* Updating the plugin.
+* Plugin performance and compatibility with the cluster configuration, including when changing network settings and updating the cluster.
 
 {% include [responsibilities-support](../../_includes/overview/responsibilities-support.md) %}

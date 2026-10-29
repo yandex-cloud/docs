@@ -57,7 +57,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      Where:
 
      * `--role`: [Role](../../security/index.md#roles-list).
-     * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+     * `--subject`: Designation of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
          {% cut "Subject designations" %}
 
@@ -109,7 +109,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  Use the [updateAccessBindings](../../api-ref/Filesystem/updateAccessBindings.md) REST API method for the [Filesystem](../../api-ref/Filesystem/) resource or the [FilesystemService/UpdateAccessBindings](../../api-ref/grpc/Filesystem/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the [subject](../../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+  Use the [updateAccessBindings](../../api-ref/Filesystem/updateAccessBindings.md) REST API method for the [Filesystem](../../api-ref/Filesystem/) resource or the [FilesystemService/UpdateAccessBindings](../../api-ref/grpc/Filesystem/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify [subject](../../../iam/concepts/access-control/index.md#subject) type and ID in the `subject` property.
 
   {% cut "Subject designations" %}
 
@@ -168,9 +168,9 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      Where `--access-binding` is the role you are assigning:
 
      * `role`: Role ID.
-     * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+     * `subject`: Designation of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
-         {% cut "Indicating a subject" %}
+         {% cut "Subject designations" %}
 
          {% include [subjects-designations-cli](../../../_includes/iam/subjects-designations-cli.md) %}
 
@@ -336,7 +336,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  To revoke roles for a file storage, use the [updateAccessBindings](../../api-ref/Filesystem/updateAccessBindings.md) REST API method for the [Filesystem](../../api-ref/Filesystem/) resource or the [FilesystemService/UpdateAccessBindings](../../api-ref/grpc/Filesystem/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the [subject](../../../iam/concepts/access-control/index.md#subject) type and ID under `subject`.
+  To revoke roles for a file storage, use the [updateAccessBindings](../../api-ref/Filesystem/updateAccessBindings.md) REST API method for the [Filesystem](../../api-ref/Filesystem/) resource or the [FilesystemService/UpdateAccessBindings](../../api-ref/grpc/Filesystem/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify [subject](../../../iam/concepts/access-control/index.md#subject) type and ID in the `subject` property.
 
   {% cut "Subject designations" %}
 

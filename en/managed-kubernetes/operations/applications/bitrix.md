@@ -7,33 +7,33 @@ description: Follow this guide to install the Bitrix application in your {{ mana
 
 **Bitrix** is an application that prepares and deploys environments for standard installation of 1C Bitrix products in a {{ managed-k8s-full-name }} cluster.
 
-There are two available environment types:
+It supports two environment types: admin and production.
 
-* Admin environment, where you can:
+#### Admin environment {#admin-environment}
 
-   * Deploy Bitrix products from scratch or from backups.
-   * Modify Bitrix components using the admin panel.
-   * Develop and test your products.
+The admin environment is used for:
 
-   Admin environment supports the following tools:
+* Deployment of Bitrix products from scratch or from a backup.
+* Modification of Bitrix components via the admin panel.
+* Testing and development.
 
-   * Git client.
-   * Running agents in cron jobs.
-   * Queue server.
-   * Sphinx morphological search.
-   * Tools for collecting PHP and Nginx metrics.
+You can also use this environment to install stable versions of Bitrix applications.
 
-   You can set up the environment both from {{ marketplace-full-name }} and using a Helm chart.
+Admin environment supports the following tools:
 
-   You can use the admin environment to install stable versions of Bitrix applications.
+* Git client.
+* Running agents in cron jobs.
+* Queue server.
+* Sphinx morphological search.
+* Tools for collecting PHP and Nginx metrics.
 
-* Production environment, which supports all admin features but does not allow you to modify Bitrix components. There is no admin panel in the production environment.
+You can install the admin environment from {{ marketplace-full-name }} or using a Helm chart.
 
-  Use the production environment for a highly available, fault-tolerant Bitrix installation.
+#### Production environment {#prod-environment}
 
-  To deploy the production environment, you need to prepare your custom images by adding the relevant Bitrix files to the provided base images.
+The production environment is designed for fault-tolerant and highly available Bitrix deployment. It supports all the admin features except for the admin panel and does not allow you to modify Bitrix components.
 
-  You can only deploy the production environment using a Helm chart.
+You can install the production environment only using a Helm chart. Prior to installation, prepare custom images based on those provided and add the necessary Bitrix files to them.
 
 {% note info %}
 
@@ -114,13 +114,13 @@ The admin and production environments share these assets:
 
 ## Installation from {{ marketplace-name }} {#marketplace-install}
 
-1. In the [management console]({{ link-console-main }}), select a folder.
+1. In the [management console]({{ link-console-main }}), select the folder.
 1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Select the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster).
 1. Click the **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) tab and select **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Bitrix](/marketplace/products/yc/bitrix-env) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
-   * **Namespace**: Select the namespace you created earlier for admin environment.
+   * **Namespace**: Select the namespace you created earlier for the admin environment.
    * **Application name**: Specify the application name.
    * **Volume size**: Specify the [volume](../../concepts/volume.md) size for storing Bitrix files, in `Gi`.
    * **Storage class**: Select the storage class for the volume.
@@ -147,27 +147,44 @@ The admin and production environments share these assets:
    * **Use cron to run agents**: Enable to run Bitrix agents on the schedule specified in `ConfigMap` `<app_name>-<namespace_for_admin_environment>-cron`. By default, `ConfigMap` enables running agent jobs every minute, and backup jobs, every 24 hours. You can also add your own schedule.
    * **Use queue server**: Enable to use a queue server (the Bitrix Push and Pull module). The `Deployment` resource for server deployment will start in a separate pod.
    * **Secret key**: If you enabled **Use queue server**, provide the secret key you created previously.
-   * **Use Sphinx**: Enable to use Sphinx, a full-text search engine. The `Deployment` resource for Sphinx deplyment will start in a separate pod.
-   * **Store cache in Redis**: Enable to store Bitrix cache in Redis. In this case, the cluster will have a separate `StatefulSet` in the app’s namespace: `<app_name>-redis-*`. Do not enable this setting in the admin environment as this may lead to degraded performance.
+   * **Use Sphinx**: Enable to use Sphinx, a full-text search engine. The `Deployment` resource for Sphinx deployment will start in a separate pod.
+   * **Use built-in Redis**: Leave this option on to deploy Redis together with the application. In which case the **External Redis host** and **Redis password** fields should remain empty.
+
+     For connection to a separately deployed Redis instance, disable this option and specify the following:
+
+     * **External Redis host**: Specify the address of the server accessible from the application. This is a required setting.
+     * **External Redis port**: Specify the connection port. The default value is `6379`.
+     * **Redis password**: Specify the connection password. Leave this field empty if the server requires no password.
+
+     Redis is used to store sessions regardless of the **Store cache in Redis** option. Disabling the built-in Redis requires a connection to an external one.
+
+   * **Store cache in Redis**: Enable to store Bitrix cache in Redis. We do not recommend enabling this option in the admin environment.
    * **Export PHP metrics**: Select to enable PHP metrics.
    * **Export NGINX metrics**: Select to enable NGINX metrics.
    * **Storage class for S3**: `csi-s3`, default.
    * **S3 key ID**, **S3 secret key**: Specify the ID and secret key of the static key you [got previously](#before-you-begin).
    * **S3 bucket**: Specify the name of the {{ objstorage-name }} bucket you [created previously](#before-you-begin).
    * **SMTP server**, **SMTP port**, **Mailbox user**, **Mailbox password**: Specify the mail server connection properties.
-   * **{{ MY }} host**, **Database user**, **Database user password**, **Database**: Specify properties for connection to the {{ MY }} database in the {{ mmy-name }} MySQL cluster you [created previously](#before-you-begin).
-   * **PHP version**: Specify the PHP version for Bitrix. Available versions: `8.2.30`, `8.3.30`, and `8.4.19`.
+   * **PHP version**: Specify the PHP version for Bitrix. Available versions: `8.2.33`, `8.3.33`, `8.4.25`, and `8.5.10`.
    * **Use bitrixsetup.php**: Select to install Bitrix from scratch.
    * **Use restore.php**: Select to restore Bitrix from a backup.
 
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
-1. Open your project in the browser at the domain name specified in the settings and install Bitrix using the installation wizard.
+1. Open your project in the browser at the domain name specified in the settings and install Bitrix using the installation wizard. When configuring your database, specify the host address, database name, user login and password in the {{ mmy-name }} cluster you [created earlier](#before-you-begin).
 1. Check your [tools for working with Git repositories](#working-with-git).
 
 ## Installation using a Helm chart {#helm-install}
 
 1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
+
+   Additional chart settings and available image tags are listed in `values.yaml`. To print its contents, run this command:
+
+   ```bash
+   helm show values oci://{{ mkt-k8s-key.yc_bitrix-env.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_bitrix-env.helmChart.tag }}
+   ```
+
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the Bitrix admin environment, run this command:
 
@@ -198,11 +215,9 @@ The admin and production environments share these assets:
      --set msmtprc.user="<email_server_user_name>" \
      --set msmtprc.password="<email_server_user_password>" \
      --set push.key="<secret_key_of_Bitrix_Push_server>" \
-     --set-json 'mysql={"host":"<MySQL_host_FQDN>","login":"<MySQL_user_name>","password":"<MySQL_user_password>","database":"<MySQL_database_name>"}' \
      --set certmanager.enabled=false \
      --set tls.existingSecret="<name_of_secret_with_certificate>" \
-     --set features.cache=<use_Redis_cache> .
-     bitrix ./bitrix/
+     bitrix ./bitrix-env/
    ```
 
    When using `certmanager` to issue a certificate, instead of the `tls.existingSecret` and `certmanager.enabled=false` parameters, specify the following ones:
@@ -212,6 +227,8 @@ The admin and production environments share these assets:
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
+   After you have deployed the admin environment, open your project at the specified domain name and install Bitrix using the installation wizard. When configuring your database, specify the parameters for connection to the {{ mmy-name }} cluster [created earlier](#before-you-begin):
+
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the Bitrix production environment, proceed as follows:
    1. If your project is uploaded to a Git repository, clone your repository to the `bitrix` folder:
 
@@ -219,26 +236,24 @@ The admin and production environments share these assets:
        git clone <repository_SSH_URL> bitrix
        ```
 
-   1. Prepare the image of your Bitrix PHP app:
+   1. Prepare the image of your Bitrix PHP app. Use the same `<php_version>` tag at every stage: the chart uses it to figure out the path to the PHP configuration. Make sure the tag contains the full version in `MAJOR.MINOR.PATCH` format, e.g., `8.5.10`.
 
       1. Pull the `bitrix-admin-php` image:
 
          ```shell
-         docker pull {{ mkt-k8s-key.yc_bitrix-env.dockerImages.php.repository.name }}:<PHP_version>
+         docker pull {{ mkt-k8s-key.yc_bitrix-env.dockerImages.php.repository.name }}:<php_version>
          ```
-
-         The possible PHP version values are `8.2.30`, `8.3.30`, and `8.4.19`.
 
       1. Tag the registry you [created earlier](#before-you-begin):
 
          ```shell
-         docker tag {{ mkt-k8s-key.yc_bitrix-env.dockerImages.php.repository.name }}:<PHP_version> {{ registry }}/<registry_ID>/bitrix-env/bitrix/bitrix-admin-php
+         docker tag {{ mkt-k8s-key.yc_bitrix-env.dockerImages.php.repository.name }}:<php_version> {{ registry }}/<registry_ID>/bitrix-env/bitrix/bitrix-admin-php:<php_version>
          ```
 
-      1. In the `bitrix` folder home directory, create a file named `Dockerfile-php` with the following contents:
+      1. In the `bitrix` folder home directory, create a file named `Dockerfile` with the following contents:
 
           ```text
-          FROM {{ registry }}/<registry_ID>/bitrix-env/bitrix/bitrix-admin-php
+          FROM {{ registry }}/<registry_ID>/bitrix-env/bitrix/bitrix-admin-php:<php_version>
           COPY --chown=bitrix:bitrix bitrix/ /home/bitrix/www
           WORKDIR /home/bitrix/www
           ```
@@ -247,18 +262,34 @@ The admin and production environments share these assets:
 
          ```shell
          docker build --platform linux/amd64 \
-             -f Dockerfile-php \
-             -t {{ registry }}/<registry_ID>/bitrix-prod-php \
+             -t {{ registry }}/<registry_ID>/bitrix-prod-php:<php_version> \
              --no-cache .
          ```
 
       1. Push your new image to the registry by running this command:
 
          ```shell
-         docker push {{ registry }}/<registry_ID>/bitrix-prod-php
+         docker push {{ registry }}/<registry_ID>/bitrix-prod-php:<php_version>
          ```
 
-   1. Repeat step 2 to prepare a Bitrix NGINX image, `bitrix-prod-nginx`, based on this image: `{{ mkt-k8s-key.yc_bitrix-env.dockerImages.nginx.repository.name }}:{{ mkt-k8s-key.yc_bitrix-env.dockerImages.nginx.repository.tag }}`.
+   1. Repeat step 2 to prepare a Bitrix NGINX image, `bitrix-prod-nginx`, based on this base image: `{{ mkt-k8s-key.yc_bitrix-env.dockerImages.nginx.repository.name }}:<nginx_version>`.
+
+   1. Prepare the `.settings.php` file with the installed Bitrix product settings. For example, export it from the `php` container of the `<release_name>-<admin_enrivonment_workspace>-main` Deployment pod.
+
+      ```bash
+      kubectl exec \
+        --namespace <namespace_for_admin_environment> \
+        deploy/<release_name>-<namespace_for_admin_environment>-main \
+        -c php -- cat /home/bitrix/www/bitrix/.settings.php > settings.php
+      ```
+
+   1. Create a secret named `bitrix-user-settings` with the `.settings.php` key in the product environment namespace created earlier:
+
+      ```bash
+      kubectl create secret generic bitrix-user-settings \
+        --namespace <namespace_for_production_environment> \
+        --from-file=.settings.php=./settings.php
+      ```
 
    1. Run Helm chart installation:
 
@@ -285,15 +316,12 @@ The admin and production environments share these assets:
          --set msmtprc.user="<email_server_user_name>" \
          --set msmtprc.password="<email_server_user_password>" \
          --set push.key="<secret_key_of_Bitrix_Push_server>" \
-         --set mysql.host="<{{ MY }}_host_FQDN>" \
-         --set mysql.login="<{{ MY }}_user_name>" \
-         --set mysql.password="<{{ MY }}_user_password>" \
-         --set mysql.database="<{{ MY }}_database_name>" \
-         --set php.image="{{ registry }}/<registry_ID>/bitrix-prod-php" \
-         --set nginx.image="{{ registry }}/<registry_ID>/bitrix-prod-nginx" \
+         --set settings.existingSecret="bitrix-user-settings" \
+         --set php.image="{{ registry }}/<registry_ID>/bitrix-prod-php:<php_version>" \
+         --set nginx.image="{{ registry }}/<registry_ID>/bitrix-prod-nginx:<nginx_version>" \
          --set certmanager.enabled=false \
          --set tls.existingSecret="<name_of_secret_with_certificate>" \
-         bitrix ./bitrix/
+         bitrix ./bitrix-env/
        ```
 
        When using `certmanager` to issue a certificate, instead of the `tls.existingSecret` and `certmanager.enabled=false` parameters, specify the following ones:

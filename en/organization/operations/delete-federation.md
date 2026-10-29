@@ -53,4 +53,17 @@ To delete an identity federation:
 
     Use the [Federation.delete](../saml/api-ref/Federation/delete.md) REST API method for the [Federation](../saml/api-ref/Federation/index.md) resource or the [FederationService/Delete](../saml/api-ref/grpc/Federation/delete.md) gRPC API call.
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  1. In the configuration that manages the federation, remove the `yandex_organizationmanager_saml_federation` resource section for the federation, along with its associated references. For more information on the resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_saml_federation).
+  1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      Before confirming, verify that the plan deletes the federation and only the expected associated resources.
+
 {% endlist %}
