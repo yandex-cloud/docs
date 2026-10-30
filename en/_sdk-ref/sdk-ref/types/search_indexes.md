@@ -4,11 +4,11 @@
 
 This class represents a file associated with a search index.
 
-**search\_index\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_indexes.file.SearchIndexFile.search_index_id}
+**search\_index\_id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_indexes.file.SearchIndexFile.search_index_id}
 
 the unique identifier for the search index
 
-**created\_by**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_indexes.file.SearchIndexFile.created_by}
+**created\_by**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_indexes.file.SearchIndexFile.created_by}
 
 the identifier of the user or system that created the file
 
@@ -16,7 +16,7 @@ the identifier of the user or system that created the file
 
 the timestamp when the file was created
 
-**id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_indexes.file.SearchIndexFile.id}
+**id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_indexes.file.SearchIndexFile.id}
 
 yandex\_ai\_studio\_sdk.\_search\_indexes.index\_type.**ProtoSearchIndexTypeTypeT** = *TypeVar(ProtoSearchIndexTypeTypeT, bound=Union)*{#yandex_ai_studio_sdk._search_indexes.index_type.ProtoSearchIndexTypeTypeT}
 
@@ -28,7 +28,7 @@ Invariant [**TypeVar**](https://docs.python.org/3/library/typing.html#typing.Typ
 
 A class for search index types.
 
-**chunking\_strategy**\: *[BaseIndexChunkingStrategy](#yandex_ai_studio_sdk._search_indexes.chunking_strategy.BaseIndexChunkingStrategy) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_indexes.index_type.BaseSearchIndexType.chunking_strategy}
+**chunking\_strategy**\: *[BaseIndexChunkingStrategy](#yandex_ai_studio_sdk._search_indexes.chunking_strategy.BaseIndexChunkingStrategy) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_indexes.index_type.BaseSearchIndexType.chunking_strategy}
 
 the strategy used for chunking the index
 
@@ -36,7 +36,7 @@ the strategy used for chunking the index
 
 A class which represents a text search index type.
 
-**chunking\_strategy**\: *[BaseIndexChunkingStrategy](#yandex_ai_studio_sdk._search_indexes.chunking_strategy.BaseIndexChunkingStrategy) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_indexes.index_type.TextSearchIndexType.chunking_strategy}
+**chunking\_strategy**\: *[BaseIndexChunkingStrategy](#yandex_ai_studio_sdk._search_indexes.chunking_strategy.BaseIndexChunkingStrategy) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_indexes.index_type.TextSearchIndexType.chunking_strategy}
 
 the strategy used for chunking the index
 
@@ -44,15 +44,15 @@ the strategy used for chunking the index
 
 A class which represents a vector search index type.
 
-**doc\_embedder\_uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_indexes.index_type.VectorSearchIndexType.doc_embedder_uri}
+**doc\_embedder\_uri**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_indexes.index_type.VectorSearchIndexType.doc_embedder_uri}
 
 URI for the document embedder
 
-**query\_embedder\_uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_indexes.index_type.VectorSearchIndexType.query_embedder_uri}
+**query\_embedder\_uri**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_indexes.index_type.VectorSearchIndexType.query_embedder_uri}
 
 URI for the query embedder
 
-**chunking\_strategy**\: *[BaseIndexChunkingStrategy](#yandex_ai_studio_sdk._search_indexes.chunking_strategy.BaseIndexChunkingStrategy) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_indexes.index_type.VectorSearchIndexType.chunking_strategy}
+**chunking\_strategy**\: *[BaseIndexChunkingStrategy](#yandex_ai_studio_sdk._search_indexes.chunking_strategy.BaseIndexChunkingStrategy) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_indexes.index_type.VectorSearchIndexType.chunking_strategy}
 
 the strategy used for chunking the index
 
@@ -60,23 +60,23 @@ the strategy used for chunking the index
 
 A class which represents a hybrid search index type combining text and vector search indices.
 
-**text\_search\_index**\: *[TextSearchIndexType](#yandex_ai_studio_sdk._search_indexes.index_type.TextSearchIndexType) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_indexes.index_type.HybridSearchIndexType.text_search_index}
+**text\_search\_index**\: *[TextSearchIndexType](#yandex_ai_studio_sdk._search_indexes.index_type.TextSearchIndexType) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_indexes.index_type.HybridSearchIndexType.text_search_index}
 
 the text search index associated with the hybrid index
 
-**vector\_search\_index**\: *[VectorSearchIndexType](#yandex_ai_studio_sdk._search_indexes.index_type.VectorSearchIndexType) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_indexes.index_type.HybridSearchIndexType.vector_search_index}
+**vector\_search\_index**\: *[VectorSearchIndexType](#yandex_ai_studio_sdk._search_indexes.index_type.VectorSearchIndexType) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_indexes.index_type.HybridSearchIndexType.vector_search_index}
 
 the vector search index associated with the hybrid index
 
-**normalization\_strategy**\: *[IndexNormalizationStrategy](#yandex_ai_studio_sdk._search_indexes.normalization_strategy.IndexNormalizationStrategy) | [str](https://docs.python.org/3/library/stdtypes.html#str) | [int](https://docs.python.org/3/library/functions.html#int) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_indexes.index_type.HybridSearchIndexType.normalization_strategy}
+**normalization\_strategy**\: *[IndexNormalizationStrategy](#yandex_ai_studio_sdk._search_indexes.normalization_strategy.IndexNormalizationStrategy) | [str](https://docs.python.org/3/builtins/stdtypes.html#str) | [int](https://docs.python.org/3/builtins/functions.html#int) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_indexes.index_type.HybridSearchIndexType.normalization_strategy}
 
 the strategy for normalizing index results
 
-**combination\_strategy**\: *[BaseIndexCombinationStrategy](#yandex_ai_studio_sdk._search_indexes.combination_strategy.BaseIndexCombinationStrategy) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_indexes.index_type.HybridSearchIndexType.combination_strategy}
+**combination\_strategy**\: *[BaseIndexCombinationStrategy](#yandex_ai_studio_sdk._search_indexes.combination_strategy.BaseIndexCombinationStrategy) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_indexes.index_type.HybridSearchIndexType.combination_strategy}
 
 the strategy for combining results from different indices
 
-**chunking\_strategy**\: *[BaseIndexChunkingStrategy](#yandex_ai_studio_sdk._search_indexes.chunking_strategy.BaseIndexChunkingStrategy) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_indexes.index_type.HybridSearchIndexType.chunking_strategy}
+**chunking\_strategy**\: *[BaseIndexChunkingStrategy](#yandex_ai_studio_sdk._search_indexes.chunking_strategy.BaseIndexChunkingStrategy) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_indexes.index_type.HybridSearchIndexType.chunking_strategy}
 
 the strategy used for chunking the index
 
@@ -90,11 +90,11 @@ This class implements a static chunking strategy (i.e. a specific strategy with 
 
 It is characterized by maximum chunk size and overlap in tokens.
 
-**max\_chunk\_size\_tokens**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._search_indexes.chunking_strategy.StaticIndexChunkingStrategy.max_chunk_size_tokens}
+**max\_chunk\_size\_tokens**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._search_indexes.chunking_strategy.StaticIndexChunkingStrategy.max_chunk_size_tokens}
 
 the maximum size of each chunk in tokens
 
-**chunk\_overlap\_tokens**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._search_indexes.chunking_strategy.StaticIndexChunkingStrategy.chunk_overlap_tokens}
+**chunk\_overlap\_tokens**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._search_indexes.chunking_strategy.StaticIndexChunkingStrategy.chunk_overlap_tokens}
 
 the number of overlapping tokens between consecutive chunks
 
@@ -104,7 +104,7 @@ A class for index combination strategies.
 
 ## *class* yandex\_ai\_studio\_sdk.\_search\_indexes.combination\_strategy.**MeanIndexEvaluationTechnique**{#yandex_ai_studio_sdk._search_indexes.combination_strategy.MeanIndexEvaluationTechnique}
 
-A class with enumeration for mean index evaluation techniques.
+A class with an enumeration for mean index evaluation techniques.
 
 **MEAN\_EVALUATION\_TECHNIQUE\_UNSPECIFIED** = *0*{#yandex_ai_studio_sdk._search_indexes.combination_strategy.MeanIndexEvaluationTechnique.MEAN_EVALUATION_TECHNIQUE_UNSPECIFIED}
 
@@ -193,11 +193,11 @@ the denominator of a rational number in lowest terms
 
 A class which contains mean index combination strategy with evaluation technique and weights.
 
-**mean\_evaluation\_technique**\: *[MeanIndexEvaluationTechnique](#yandex_ai_studio_sdk._search_indexes.combination_strategy.MeanIndexEvaluationTechnique) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_indexes.combination_strategy.MeanIndexCombinationStrategy.mean_evaluation_technique}
+**mean\_evaluation\_technique**\: *[MeanIndexEvaluationTechnique](#yandex_ai_studio_sdk._search_indexes.combination_strategy.MeanIndexEvaluationTechnique) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_indexes.combination_strategy.MeanIndexCombinationStrategy.mean_evaluation_technique}
 
 the technique used for mean evaluation
 
-**weights**\: *[Collection](https://docs.python.org/3/library/collections.abc.html#collections.abc.Collection)[[float](https://docs.python.org/3/library/functions.html#float)] | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_indexes.combination_strategy.MeanIndexCombinationStrategy.weights}
+**weights**\: *[Collection](https://docs.python.org/3/library/collections.abc.html#collections.abc.Collection)[[float](https://docs.python.org/3/builtins/functions.html#float)] | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_indexes.combination_strategy.MeanIndexCombinationStrategy.weights}
 
 the weights associated with the evaluation technique
 
@@ -207,7 +207,7 @@ the weights associated with the evaluation technique
 || Parameters | 
 
 - **mean\_evaluation\_technique** ([*MeanIndexEvaluationTechnique*](#yandex_ai_studio_sdk._search_indexes.combination_strategy.MeanIndexEvaluationTechnique) *\| None*)
-- **weights** ([*Collection*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Collection)*[*[*float*](https://docs.python.org/3/library/functions.html#float)*] \| None*) ||
+- **weights** ([*Collection*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Collection)*[*[*float*](https://docs.python.org/3/builtins/functions.html#float)*] \| None*) ||
 || Return type | None ||
 |#
 
@@ -215,14 +215,14 @@ the weights associated with the evaluation technique
 
 A class which describes reciprocal rank fusion index combination strategy. Reciprocal rank fusion is a method for combining multiple result sets with different relevance indicators into a single result set.
 
-**k**\: *[int](https://docs.python.org/3/library/functions.html#int) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_indexes.combination_strategy.ReciprocalRankFusionIndexCombinationStrategy.k}
+**k**\: *[int](https://docs.python.org/3/builtins/functions.html#int) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_indexes.combination_strategy.ReciprocalRankFusionIndexCombinationStrategy.k}
 
 the parameter k for RRFscore. Default is 60.
 
 **\_\_init\_\_**(*k=None*){#yandex_ai_studio_sdk._search_indexes.combination_strategy.ReciprocalRankFusionIndexCombinationStrategy.__init__i}
 
 #|
-|| Parameters | **k** ([*int*](https://docs.python.org/3/library/functions.html#int) *\| None*) ||
+|| Parameters | **k** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\| None*) ||
 || Return type | None ||
 |#
 

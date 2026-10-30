@@ -36,7 +36,7 @@ Before submitting your request, decide on the following:
 
 Submitting a request does not provision a cluster automatically. A {{ yandex-cloud }} specialist will contact you using the information you provided to review your requirements and finalize the specs. Once deployed, the cluster will appear in the **{{ ui-key.yacloud.baremetal.label_extend-virtualization }}** subsection, and its servers, in the {{ baremetal-name }} server list.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/extend/virtualization.md)
 * [{#T}](../../concepts/server-configurations.md)

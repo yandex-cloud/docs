@@ -39,9 +39,11 @@ To set up an S3 connection from the notebook code:
         "s3", endpoint_url=ENDPOINT)
     ```
 
-1. Enter the name of the bucket and retrieve a list of objects it contains:
+1. Get a list of objects in the bucket:
 
     ```python
-    for key in s3.list_objects(Bucket='<bucket_name>')['Contents']:
-        print(key['Key'])
+    paginator = s3.get_paginator('list_objects_v2')
+    for page in paginator.paginate(Bucket='<bucket_name>'):
+        for key in page.get('Contents', []):
+            print(key['Key'])
     ```

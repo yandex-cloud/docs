@@ -2,7 +2,7 @@
 
 # Identity Hub Audit Trails Events: UpdateApplicationAssignments
 
-## Event JSON schema {#yandex.cloud.audit.organizationmanager.application.saml.UpdateApplicationAssignments2-schema}
+## Event JSON schema {#yandex.cloud.audit.organizationmanager.application.oauth.UpdateApplicationAssignments2-schema}
 
 ```json
 {
@@ -102,7 +102,7 @@
 }
 ```
 
-## Field description {#yandex.cloud.audit.organizationmanager.application.saml.UpdateApplicationAssignments2}
+## Field description {#yandex.cloud.audit.organizationmanager.application.oauth.UpdateApplicationAssignments2}
 
 #|
 ||Field | Description ||
@@ -131,7 +131,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || error | **[Status](#google.rpc.Status)**
 
 The error result of the operation in case of failure or cancellation. ||
-|| details | **[EventDetails](#yandex.cloud.audit.organizationmanager.application.saml.UpdateApplicationAssignments.EventDetails)** ||
+|| details | **[EventDetails](#yandex.cloud.audit.organizationmanager.application.oauth.UpdateApplicationAssignments.EventDetails)** ||
 || requestParameters | **object** ||
 || response | **object** ||
 |#
@@ -262,18 +262,18 @@ An error message. ||
 A list of messages that carry the error details. ||
 |#
 
-## EventDetails {#yandex.cloud.audit.organizationmanager.application.saml.UpdateApplicationAssignments.EventDetails}
+## EventDetails {#yandex.cloud.audit.organizationmanager.application.oauth.UpdateApplicationAssignments.EventDetails}
 
 #|
 ||Field | Description ||
 || applicationId | **string** ||
 || applicationName | **string** ||
-|| assignmentDeltas[] | **[AssignmentDelta](#yandex.cloud.audit.organizationmanager.application.saml.UpdateApplicationAssignments.AssignmentDelta)**
+|| assignmentDeltas[] | **[AssignmentDelta](#yandex.cloud.audit.organizationmanager.application.oauth.UpdateApplicationAssignments.AssignmentDelta)**
 
 The number of elements must be in the range 1-1000. ||
 |#
 
-## AssignmentDelta {#yandex.cloud.audit.organizationmanager.application.saml.UpdateApplicationAssignments.AssignmentDelta}
+## AssignmentDelta {#yandex.cloud.audit.organizationmanager.application.oauth.UpdateApplicationAssignments.AssignmentDelta}
 
 #|
 ||Field | Description ||
@@ -281,15 +281,15 @@ The number of elements must be in the range 1-1000. ||
 
 - `ADD`
 - `REMOVE` ||
-|| assignment | **[Assignment](#yandex.cloud.audit.organizationmanager.application.saml.UpdateApplicationAssignments.Assignment)** ||
+|| assignment | **[Assignment](#yandex.cloud.audit.organizationmanager.application.oauth.UpdateApplicationAssignments.Assignment)** ||
 |#
 
-## Assignment {#yandex.cloud.audit.organizationmanager.application.saml.UpdateApplicationAssignments.Assignment}
+## Assignment {#yandex.cloud.audit.organizationmanager.application.oauth.UpdateApplicationAssignments.Assignment}
 
 #|
 ||Field | Description ||
 || subjectId | **string**
 
 The maximum string length in characters is 100. ||
-|#rs is 100. ||
+|#0. ||
 |#

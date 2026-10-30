@@ -5,7 +5,7 @@ description: Follow this guide to lease a {{ baremetal-full-name }} server in a 
 
 # Renting a custom-configured server
 
-You can [configure](../../concepts/server-configurations.md#custom) your server yourself. Proceed as follows:
+You can [configure](../../concepts/server-configurations.md#custom) your server yourself. Follow these steps:
 
 ## Getting started {#before-you-begin}
 
@@ -78,4 +78,4 @@ You can [configure](../../concepts/server-configurations.md#custom) your server 
 
 {% endlist %}
 
-As a result, the server [status](../../concepts/servers.md#server-status) will change to `PROVISIONING`. {{ baremetal-full-name }} will need up to five calendar days to create the configuration you requested and start the server, after which its status will change to `RUNNING`.
+As a result, the server [status](../../concepts/servers.md#server-status) will change to `ASSEMBLING`: it will be assembled, installed, and connected to the data center network. The server status will then change to `PROVISIONING` as the server goes through provisioning, and then to `RUNNING`. It may take up to four calendar days in total to assemble and provision a server.

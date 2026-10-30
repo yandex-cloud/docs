@@ -2720,7 +2720,6 @@ The maximum string length in characters is 50. ||
       "diskSize": "string",
       "diskTypeId": "string"
     },
-    "autofailover": "boolean",
     "backupWindowStart": {
       "hours": "integer",
       "minutes": "integer",
@@ -2976,9 +2975,6 @@ Configuration of the connection pooler. ||
 || resources | **[Resources](#yandex.cloud.mdb.postgresql.v1.Resources)**
 
 Resources allocated to PostgreSQL hosts. ||
-|| autofailover | **boolean**
-
-Configuration setting which enables/disables autofailover in cluster. ||
 || backupWindowStart | **[TimeOfDay](#google.type.TimeOfDay)**
 
 Time to start the daily backup, in the UTC timezone. ||
@@ -23287,7 +23283,6 @@ Allows maintenance operations that may cause temporary write unavailability. ||
         "diskSize": "string",
         "diskTypeId": "string"
       },
-      "autofailover": "boolean",
       "backupWindowStart": {
         "hours": "integer",
         "minutes": "integer",
@@ -23752,9 +23747,6 @@ Configuration of the connection pooler. ||
 || resources | **[Resources](#yandex.cloud.mdb.postgresql.v1.Resources2)**
 
 Resources allocated to PostgreSQL hosts. ||
-|| autofailover | **boolean**
-
-Configuration setting which enables/disables autofailover in cluster. ||
 || backupWindowStart | **[TimeOfDay](#google.type.TimeOfDay2)**
 
 Time to start the daily backup, in the UTC timezone. ||

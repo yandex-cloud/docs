@@ -1,20 +1,36 @@
-Роль `ai.editor` позволяет использовать сервисы {{ translate-full-name }}, {{ vision-full-name }}, {{ speechkit-full-name }} и {{ ai-studio-full-name }}.
+Роль `ai.editor` позволяет использовать модели {{ ai-studio-full-name }}, управлять текстовыми агентами, конфигурациями {{ responses-api }} и другими сущностями в {{ ai-studio-full-name }}.
 
-Пользователи с этой ролью могут:
+{% cut "Пользователи с этой ролью могут:" %}
 
 
-* использовать сервис {{ translate-full-name }} для [перевода текста]({{ link-docs-ai }}translate/concepts/);
-* использовать сервис {{ vision-full-name }} для [анализа изображений]({{ link-docs-ai }}vision/concepts/ocr/);
-* использовать сервис {{ speechkit-full-name }} для [распознавания]({{ link-docs-ai }}speechkit/stt/) и [синтеза]({{ link-docs-ai }}speechkit/tts/) речи;
-* просматривать информацию о [моделях генерации текста]({{ link-docs-ai }}ai-studio/concepts/generation/models) {{ ai-studio-full-name }};
-* просматривать информацию о [правилах модерации]({{ link-docs-ai }}ai-studio/concepts/security/guardrails#rules) ответов моделей, а также создавать, применять, изменять и удалять такие правила;
-* использовать [AI-агентов]({{ link-docs-ai }}ai-studio/concepts/agents/), а также модели генерации текста и изображений, модели [векторного представления текста]({{ link-docs-ai }}ai-studio/concepts/embeddings#yandexgpt-embeddings) и [классификаторов]({{ link-docs-ai }}ai-studio/concepts/classifier/models) в сервисе {{ ai-studio-full-name }};
+* просматривать информацию о моделях [генерации текста]({{ link-docs-ai }}ai-studio/concepts/generation/models), генерации изображений, [векторного представления текста]({{ link-docs-ai }}ai-studio/concepts/embeddings#yandexgpt-embeddings) и [классификаторов]({{ link-docs-ai }}ai-studio/concepts/classifier/models) в сервисе {{ ai-studio-full-name }}, а также использовать такие модели;
+* просматривать список [текстовых агентов]({{ link-docs-ai }}ai-studio/concepts/agents/text-agents) в каталоге, информацию о них, их версиях и операциях с ними;
+* создавать, изменять и удалять текстовых агентов;
+* создавать версии текстовых агентов;
+* тестировать в интерфейсе тестирования любую версию текстового агента, в том числе не опубликованную в канале: отправлять агенту сообщения и просматривать события выполнения;
+* просматривать информацию о [каналах публикации текстовых агентов]({{ link-docs-ai }}ai-studio/concepts/agents/text-agents#publication-channels), а также список каналов в каталоге;
+* создавать, изменять и удалять каналы публикации текстовых агентов, приостанавливать и возобновлять их работу;
+* публиковать версии текстовых агентов в каналах;
+* просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к текстовым агентам и каналам публикации текстовых агентов;
+* просматривать информацию о [конфигурациях {{ responses-api }}]({{ link-docs-ai }}ai-studio/operations/generation/create-prompt), а также создавать, использовать, изменять и удалять их;
 * просматривать информацию о загруженных [файлах]({{ link-docs-ai }}ai-studio/concepts/search/vectorstore#file-uploading), а также загружать, изменять, просматривать и удалять такие файлы;
-* просматривать информацию о [поисковых индексах]({{ link-docs-ai }}ai-studio/concepts/search/vectorstore) {{ vector-store-name }}, создавать, изменять и удалять поисковые индексы, а также выполнять поиск по ним;
-* [дообучать]({{ link-docs-ai }}ai-studio/concepts/tuning/#fm-tuning) модели {{ ai-studio-full-name }}, а также создавать, изменять и удалять дообученные модели;
-* просматривать информацию о [датасетах]({{ link-docs-ai }}ai-studio/dataset/api-ref/grpc/), использовать их для дообучения моделей, а также создавать, изменять и удалять датасеты;
-* просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder);
-* просматривать информацию о квотах сервисов [{{ translate-full-name }}]({{ link-docs-ai }}ai-studio/concepts/limits#yandexgpt-quotas), [{{ vision-full-name }}]({{ link-docs-ai }}ai-studio/concepts/limits#yandexgpt-quotas), [{{ speechkit-full-name }}]({{ link-docs-ai }}speechkit/concepts/limits#speechkit-quotas) и [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/limits#yandexgpt-quotas).
+* просматривать информацию о [поисковых индексах]({{ link-docs-ai }}ai-studio/concepts/search/vectorstore), создавать, изменять и удалять поисковые индексы, а также выполнять поиск по ним;
+* просматривать информацию о [правилах модерации]({{ link-docs-ai }}ai-studio/concepts/security/guardrails#rules) моделей, а также создавать, применять, изменять и удалять такие правила;
+* получать список всех [подписок]({{ link-docs-ai }}ai-studio/manage/concepts/subscription#subscription) в облаке;
+* просматривать информацию о своей подписке;
+* покупать, использовать, изменять и удалять свою подписку;
+* сбрасывать окна потребления по любой подписке в облаке;
+* просматривать информацию о [профилях рабочих мест]({{ link-docs-ai }}ai-studio/manage/concepts/#runtime-profile) пользователей и назначенных правах доступа к профилям рабочих мест;
+* использовать и изменять профили рабочих мест пользователей;
+* просматривать информацию о [рабочих местах]({{ link-docs-ai }}ai-studio/manage/concepts/#work-runtime) пользователей и назначенных правах доступа к рабочим местам;
+* создавать рабочие места;
+* использовать свое рабочее место;
+* просматривать информацию о [датасетах]({{ link-docs-ai }}ai-studio/dataset/api-ref/grpc/), а также создавать, использовать, изменять и удалять их.
+* использовать функциональности [распознавания речи]({{ link-docs-ai }}speechkit/stt/), [синтеза речи]({{ link-docs-ai }}speechkit/tts/), [перевода текста]({{ link-docs-ai }}translate/concepts/) и [распознавания текста на изображениях]({{ link-docs-ai }}vision/concepts/ocr/) в сервисе {{ ai-studio-full-name }};
+* просматривать информацию о [квотах]({{ link-docs-ai }}ai-studio/concepts/limits#yandexgpt-quotas) сервиса {{ ai-studio-full-name }};
+* просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 
-Включает разрешения, предоставляемые ролями `ai.viewer`, `ai.translate.user`, `ai.vision.user`, `ai.speechkit-stt.user`, `ai.speechkit-tts.user`, `ai.languageModels.user`, `ai.imageGeneration.user`, `ai.assistants.editor`, `ai.datasets.editor`, `ai.models.editor` и `ai.guardrails.editor`.
+{% endcut %}
+
+Включает разрешения, предоставляемые ролями `ai.viewer`, `ai.speechkit-stt.user`, `ai.speechkit-tts.user`, `ai.vision.user`, `ai.translate.user`, `ai.languageModels.user`, `ai.imageGeneration.user`, `ai.agentChannels.editor`, `ai.canvasAgents.editor`, `ai.assistants.editor`, `ai.datasets.editor`, `ai.models.editor`, `ai.guardrails.editor`, `ai.subscriptions.editor`, `ai.workRuntimes.editor` и `ai.workProfiles.editor`.

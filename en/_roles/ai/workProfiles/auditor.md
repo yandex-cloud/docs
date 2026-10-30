@@ -1,0 +1,1 @@
+The `ai.workProfiles.auditor` role enables viewing the metadata of user [seat profiles]({{ link-docs-ai }}ai-studio/manage/concepts/#runtime-profile) and [access permissions](../../../iam/concepts/access-control/index.md) granted for such profiles.

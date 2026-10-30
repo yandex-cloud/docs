@@ -1,6 +1,6 @@
 # Deleting an access key
 
-If you have an access key for {{ objstorage-name }}, you can delete it. Once you delete the key, the applications that rely on it will lose access to the storage.
+If you have a static access key for {{ objstorage-name }}, you can delete it. Once you delete the key, all applications utilizing it, as well as any temporary STS keys generated on its basis, will lose access to the storage.
 
 {% note warning %}
 
@@ -15,19 +15,21 @@ Deleting an access key is irreversible. Make sure that your apps no longer use t
   1. Get a list of access keys in the project:
 
       ```bash
-      kubectl get apikey -n <project_name>
+      kubectl get accesskey -n <project_name>
       ```
 
   1. Delete an access key:
 
       ```bash
-      kubectl delete apikey <key_name> -n <project_name>
+      kubectl delete accesskey <key_name> -n <project_name>
       ```
 
-  1. Optionally, delete the associated secret:
+      The associated secret is deleted automatically.
+
+  1. Make sure the key has been deleted:
 
       ```bash
-      kubectl delete secret <secret_name> -n <project_name>
+      kubectl get accesskey -n <project_name>
       ```
 
   1. Delete the service account if you no longer need it:

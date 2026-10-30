@@ -8182,7 +8182,6 @@
           "diskSize": "string",
           "diskTypeId": "string"
         },
-        "autofailover": "boolean",
         "backupWindowStart": {
           "hours": "integer",
           "minutes": "integer",
@@ -8553,7 +8552,6 @@ Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `p
 Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`, `postgresqlConfig_19`, `postgresqlConfig_19_1c`. ||
 || poolerConfig | **[ConnectionPoolerConfig](#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig)** ||
 || resources | **[Resources](#yandex.cloud.mdb.postgresql.v1.Resources)** ||
-|| autofailover | **boolean** ||
 || backupWindowStart | **[TimeOfDay](#google.type.TimeOfDay)** ||
 || backupRetainPeriodDays | **string** (int64)
 

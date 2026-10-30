@@ -46,6 +46,8 @@ The maximum string length in characters is 50. ||
 }
 ```
 
+Change freezes temporarily prevent maintenance operations for a specific resource over the time period specified. Use them during business-critical events or periods with limited operational support.
+
 #|
 ||Field | Description ||
 || id | **string**

@@ -39,6 +39,12 @@ Service accounts are used for automation and cross-service communication:
 * Assigning roles to service accounts.
 * Integration with Kubernetes ServiceAccount.
 
+### Backup and recovery {#backup-restore}
+
+{{ iam-name }} data is stored in YDB. Starting with {{ stackland-name }} 26.3, the cluster administrator can back up this database to the `tar.gz` local archive and restore it from the archive using scripts.
+
+During the restoration, the current YDB and its PVC get deleted, and the cluster becomes temporarily unavailable. For detailed requirements and steps, see [Creating a YDB backup](../../operations/iam/ydb-backup.md) and [Restoring a YDB from a backup](../../operations/iam/ydb-restore.md).
+
 ## Getting started {#getting-started}
 
 ### First login {#first-login}

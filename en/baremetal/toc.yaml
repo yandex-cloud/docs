@@ -76,6 +76,8 @@ items:
             href: operations/network-create.md
           - name: Creating a private subnet
             href: operations/subnet-create.md
+          - name: Configuring DNS in a private subnet
+            href: operations/configure-dns.md
           - name: Ordering a dedicated public subnet
             href: operations/reserve-public-subnet.md
           - name: Deleting a dedicated public subnet
@@ -132,6 +134,8 @@ items:
             href: concepts/private-network.md
           - name: DHCP
             href: concepts/dhcp.md
+          - name: DNS in a private network
+            href: concepts/dns.md
           - name: MC-LAG
             href: concepts/mc-lag.md
           - name: Restrictions in {{ baremetal-name }} networks

@@ -1,0 +1,1 @@
+Scope is an API key parameter that restricts the key's use to specific operations in addition to the service account's access permissions. For details, see [{#T}](../../iam/concepts/authorization/api-key.md#scoped-api-keys).

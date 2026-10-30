@@ -34,6 +34,39 @@ You can retrieve environment variables using standard programming language tools
 
 The environment has an SSL certificate available for accessing managed databases from your code. The certificate is stored in the `/usr/local/share/ca-certificates/yandex-internal-ca.crt` file.
 
+## Trusted root certificates {#trusted-certificates}
+
+You can access the trusted certificate system store at `/etc/ssl/certs/ca-certificates.crt`. Apart from the standard public certificate authorities, it includes:
+
+* Russian Trusted Root CA.
+* {{ yandex-cloud }}'s in-house certificate authority.
+
+Trusted certificates are supported in all runtimes (Node.js 22, Python 3.12, PHP 8.2, Go 1.23, Java 21, Kotlin 2.0, .NET Core 8, R 4.3, Bash 22.04 and higher), while trusted certificate system stores, in all runtimes, except for Node.js and Python. For more information on working with trusted certificates in Node.js and Python, see the relevant sections below.
+
+Code that uses a trusted certificate system store trusts the added certificates without any additional settings. You do not need to disable the TLS check. However, if the web site provides an incomplete certificate chain and does not provide an intermediate certificate, you need to add the missing intermediate certificate together with the function code.
+
+### Python {#python-certificates}
+
+The `requests` library verifies certificates against the `certifi` package bundle rather than the system store. In the {{ sf-name }} runtime, this bundle already includes the Russian CA root certificate and {{ yandex-cloud }}'s in-house CA root certificate.
+
+If you specify `requests` or `certifi` in the `requirements.txt` file, a copy of `certifi` will be installed in the function code during the build without any added certificates, and `requests` will use it instead of the preset one. In this case, explicitly specify the runtime bundle using one of these methods:
+
+* Add the `REQUESTS_CA_BUNDLE` function version's [environment variable](../../operations/function/environment-variables-add.md) set to `/function/runtime/yc-ca-bundle.crt`.
+* Provide the bundle under `verify` when calling `requests`:
+
+    ```python
+    import requests
+    requests.get(url, verify="/function/runtime/yc-ca-bundle.crt")
+    ```
+
+### Node.js {#nodejs-certificates}
+
+Node.js does not use a trusted certificate system store; therefore, the runtime uses the `NODE_EXTRA_CA_CERTS` environment variable to provide the bundle path to it.
+
+Do not set `NODE_EXTRA_CA_CERTS` in the function version's environment variables: Node.js reads this variable only when starting a process, and the set value will not apply. However, it will overwrite the value set by the runtime, and the function will stop trusting the added certificates.
+
+To add an additional certificate to Node.js functions, enable it from code using the HTTP client or TLS context parameters.
+
 ## User files {#files}
 
 User files are stored in two directories:

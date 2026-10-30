@@ -75,7 +75,7 @@ Create a cloud network and subnet to connect the {{ compute-name }} VM (VPN serv
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Create a cloud network:
 
-      1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
       1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `sample-network`.
       1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, disable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
       1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.

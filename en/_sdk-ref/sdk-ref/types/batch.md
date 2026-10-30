@@ -4,23 +4,23 @@
 
 BatchTaskInfo(task\_id: ‘str’, operation\_id: ‘str’, folder\_id: ‘str’, model\_uri: ‘str’, source\_dataset\_id: ‘str’, result\_dataset\_id: ‘str | None’, status: ‘BatchTaskStatus’, labels: ‘dict[str, str]’, created\_by: ‘str’, created\_at: ‘datetime’, started\_at: ‘datetime’, finished\_at: ‘datetime’, errors: ‘BatchTaskErrorsInfo’)
 
-**task\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.batch.task_info.BatchTaskInfo.task_id}
+**task\_id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.batch.task_info.BatchTaskInfo.task_id}
 
-**operation\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.batch.task_info.BatchTaskInfo.operation_id}
+**operation\_id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.batch.task_info.BatchTaskInfo.operation_id}
 
-**folder\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.batch.task_info.BatchTaskInfo.folder_id}
+**folder\_id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.batch.task_info.BatchTaskInfo.folder_id}
 
-**model\_uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.batch.task_info.BatchTaskInfo.model_uri}
+**model\_uri**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.batch.task_info.BatchTaskInfo.model_uri}
 
-**source\_dataset\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.batch.task_info.BatchTaskInfo.source_dataset_id}
+**source\_dataset\_id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.batch.task_info.BatchTaskInfo.source_dataset_id}
 
-**result\_dataset\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._types.batch.task_info.BatchTaskInfo.result_dataset_id}
+**result\_dataset\_id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._types.batch.task_info.BatchTaskInfo.result_dataset_id}
 
 **status**\: *[BatchTaskStatus](#yandex_ai_studio_sdk._types.batch.status.BatchTaskStatus)*{#yandex_ai_studio_sdk._types.batch.task_info.BatchTaskInfo.status}
 
-**labels**\: *[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [str](https://docs.python.org/3/library/stdtypes.html#str)*]{#yandex_ai_studio_sdk._types.batch.task_info.BatchTaskInfo.labels}
+**labels**\: *[dict](https://docs.python.org/3/builtins/stdtypes.html#dict)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), [str](https://docs.python.org/3/builtins/stdtypes.html#str)*]{#yandex_ai_studio_sdk._types.batch.task_info.BatchTaskInfo.labels}
 
-**created\_by**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.batch.task_info.BatchTaskInfo.created_by}
+**created\_by**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.batch.task_info.BatchTaskInfo.created_by}
 
 **created\_at**\: *[datetime](https://docs.python.org/3/library/datetime.html#datetime.datetime)*{#yandex_ai_studio_sdk._types.batch.task_info.BatchTaskInfo.created_at}
 
@@ -34,29 +34,29 @@ BatchTaskInfo(task\_id: ‘str’, operation\_id: ‘str’, folder\_id: ‘str�
 
 BatchTaskErrorsInfo(line\_errors: ‘tuple[LineErrorInfo, …]’, batch\_errors: ‘tuple[BatchErrorInfo, …]’)
 
-**line\_errors**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[LineErrorInfo](#yandex_ai_studio_sdk._types.batch.task_info.LineErrorInfo)*]... ,{#yandex_ai_studio_sdk._types.batch.task_info.BatchTaskErrorsInfo.line_errors}
+**line\_errors**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[LineErrorInfo](#yandex_ai_studio_sdk._types.batch.task_info.LineErrorInfo)*]... ,{#yandex_ai_studio_sdk._types.batch.task_info.BatchTaskErrorsInfo.line_errors}
 
-**batch\_errors**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[BatchErrorInfo](#yandex_ai_studio_sdk._types.batch.task_info.BatchErrorInfo)*]... ,{#yandex_ai_studio_sdk._types.batch.task_info.BatchTaskErrorsInfo.batch_errors}
+**batch\_errors**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[BatchErrorInfo](#yandex_ai_studio_sdk._types.batch.task_info.BatchErrorInfo)*]... ,{#yandex_ai_studio_sdk._types.batch.task_info.BatchTaskErrorsInfo.batch_errors}
 
 ## *class* yandex\_ai\_studio\_sdk.\_types.batch.task\_info.**BatchErrorInfo**{#yandex_ai_studio_sdk._types.batch.task_info.BatchErrorInfo}
 
 BatchErrorInfo(batch\_number: ‘int’, first\_line: ‘int’, last\_line: ‘int’, message: ‘str’)
 
-**batch\_number**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._types.batch.task_info.BatchErrorInfo.batch_number}
+**batch\_number**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._types.batch.task_info.BatchErrorInfo.batch_number}
 
-**first\_line**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._types.batch.task_info.BatchErrorInfo.first_line}
+**first\_line**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._types.batch.task_info.BatchErrorInfo.first_line}
 
-**last\_line**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._types.batch.task_info.BatchErrorInfo.last_line}
+**last\_line**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._types.batch.task_info.BatchErrorInfo.last_line}
 
-**message**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.batch.task_info.BatchErrorInfo.message}
+**message**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.batch.task_info.BatchErrorInfo.message}
 
 ## *class* yandex\_ai\_studio\_sdk.\_types.batch.task\_info.**LineErrorInfo**{#yandex_ai_studio_sdk._types.batch.task_info.LineErrorInfo}
 
 LineErrorInfo(line\_number: ‘int’, message: ‘str’)
 
-**line\_number**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._types.batch.task_info.LineErrorInfo.line_number}
+**line\_number**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._types.batch.task_info.LineErrorInfo.line_number}
 
-**message**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.batch.task_info.LineErrorInfo.message}
+**message**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.batch.task_info.LineErrorInfo.message}
 
 ## *class* yandex\_ai\_studio\_sdk.\_types.batch.status.**BatchTaskStatus**{#yandex_ai_studio_sdk._types.batch.status.BatchTaskStatus}
 
@@ -76,23 +76,23 @@ LineErrorInfo(line\_number: ‘int’, message: ‘str’)
 
 **CANCELED** = *6*{#yandex_ai_studio_sdk._types.batch.status.BatchTaskStatus.CANCELED}
 
-*property* **is\_running**\: *[bool](https://docs.python.org/3/library/functions.html#bool)*{#yandex_ai_studio_sdk._types.batch.status.BatchTaskStatus.is_running}
+*property* **is\_running**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool)*{#yandex_ai_studio_sdk._types.batch.status.BatchTaskStatus.is_running}
 
 Check if operation execution is still in progress.
 
-*property* **is\_succeeded**\: *[bool](https://docs.python.org/3/library/functions.html#bool)*{#yandex_ai_studio_sdk._types.batch.status.BatchTaskStatus.is_succeeded}
+*property* **is\_succeeded**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool)*{#yandex_ai_studio_sdk._types.batch.status.BatchTaskStatus.is_succeeded}
 
 Check if operation execution completed successfully.
 
-*property* **is\_failed**\: *[bool](https://docs.python.org/3/library/functions.html#bool)*{#yandex_ai_studio_sdk._types.batch.status.BatchTaskStatus.is_failed}
+*property* **is\_failed**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool)*{#yandex_ai_studio_sdk._types.batch.status.BatchTaskStatus.is_failed}
 
 Check if operation execution failed.
 
-*property* **is\_finished**\: *[bool](https://docs.python.org/3/library/functions.html#bool)*{#yandex_ai_studio_sdk._types.batch.status.BatchTaskStatus.is_finished}
+*property* **is\_finished**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool)*{#yandex_ai_studio_sdk._types.batch.status.BatchTaskStatus.is_finished}
 
 Check if operation execution finished.
 
-*property* **status\_name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.batch.status.BatchTaskStatus.status_name}
+*property* **status\_name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.batch.status.BatchTaskStatus.status_name}
 
 Get operation execution status name.
 

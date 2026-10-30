@@ -5,8 +5,6 @@ description: На странице представлены вопросы и о
 
 # Вопросы и ответы про техническую поддержку {{ yandex-cloud }}
 
-{% include [business-plan-unavailable](../_includes/support/business-plan-unavailable.md) %}
-
 {% note info %}
 
 В этом разделе собраны советы и рекомендации по работе со службой технической поддержки. Для решения проблем, связанных с сервисами {{ yandex-cloud }}, перейдите в [Центр Поддержки]({{ link-console-support }}).

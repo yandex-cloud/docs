@@ -1,21 +1,72 @@
-```yaml
-apiVersion: restcatalog.stackland.yandex.cloud/v1alpha1
-kind: RestCatalogPrincipal
-metadata:
-  name: analytics-service-account    # Catalog user name; unique within the cluster
-spec:
-  catalog: analytics                 # Catalog (RestCatalog.metadata.name) name in the same project
-  principalRoles:                    # Names of user groups from the catalog's declaredPrincipalRoles
-    - analytics-admin
-  credentialsSecretRef:
-    name: analytics-principal-credentials   # Link to secret with OAuth2 credentials
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: analytics-principal-credentials
-type: Opaque
-stringData:
-  clientId: analytics-service-account       # Matches the catalog user name
-  clientSecret: <client_secret>            # Set by administrator
-```
+{% list tabs %}
+
+- Folder
+
+    ```yaml
+    apiVersion: stacklandrestcatalog.stackland.yandex.cloud/v1alpha1
+    kind: StacklandRestCatalogAccessBinding
+    metadata:
+      name: analytics-reader
+    spec:
+      catalogRef: analytics
+      subject:
+        kind: User
+        name: analytics-user
+      catalog:
+        role: reader
+    ```
+
+- Namespace
+
+    ```yaml
+    apiVersion: stacklandrestcatalog.stackland.yandex.cloud/v1alpha1
+    kind: StacklandRestCatalogAccessBinding
+    metadata:
+      name: analytics-reader
+    spec:
+      catalogRef: analytics
+      subject:
+        kind: User
+        name: analytics-user
+      namespace:
+        namespacePath: [sales, reports]
+        role: reader
+    ```
+
+- Table
+
+    ```yaml
+    apiVersion: stacklandrestcatalog.stackland.yandex.cloud/v1alpha1
+    kind: StacklandRestCatalogAccessBinding
+    metadata:
+      name: analytics-reader
+    spec:
+      catalogRef: analytics
+      subject:
+        kind: User
+        name: analytics-user
+      table:
+        namespacePath: [sales, reports]
+        name: orders
+        role: reader
+    ```
+
+- Visualization
+
+    ```yaml
+    apiVersion: stacklandrestcatalog.stackland.yandex.cloud/v1alpha1
+    kind: StacklandRestCatalogAccessBinding
+    metadata:
+      name: analytics-reader
+    spec:
+      catalogRef: analytics
+      subject:
+        kind: User
+        name: analytics-user
+      view:
+        namespacePath: [sales, reports]
+        name: recent_orders
+        role: reader
+    ```
+
+{% endlist %}

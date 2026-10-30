@@ -21,14 +21,32 @@ To grant a user access to a partner's subaccount, [add](#add-user) them to the s
   
   1. Go to [{{ cloud-center }}]({{ link-org-cloud-center }}).
   1. In the top-left corner, click ![chevron-down](../../_assets/console-icons/chevron-down.svg) next to the name of the current organization and select the one you need, e.g., `For subaccount <subaccount_name>`.
-  1. Navigate to the **{{ ui-key.yacloud_org.center-layout.Layout.organization-description_kvoUz }}** tab and click **{{ ui-key.yacloud_org.page.users.dropdown.button-text }}**. 
-  1. From the drop-down list, select **{{ ui-key.yacloud_org.page.users.action.invite-users }}** and enter the user's email address or select **{{ ui-key.yacloud_org.page.users.action.add-userpool-user }}** in the [pool](../../organization/concepts/user-pools.md).
+  1. Navigate to the **{{ ui-key.yacloud_org.center-layout.Layout.organization-description_kvoUz }}** tab and click **{{ ui-key.yacloud_org.page.users.dropdown.button-text }}**.
+  1. Add a user:
+
+     {% list tabs %}
+
+     - Yandex account
+
+       1. From the drop-down list, select **{{ ui-key.yacloud_org.page.users.action.invite-users }}** and enter the user's email address.
+
+       1. Click **{{ ui-key.yacloud_components.organization.action_next }}** to send an invitation. This will open the window for assigning roles to a user.
+
+       1. {% include [assign-roles-on-invite](../../_includes/organization/assign-roles-on-invite.md) %}
+
+       1. Click **{{ ui-key.yacloud.common.save }}**.
+
+     - Local user
+
+        To create a [local user](../../iam/concepts/users/accounts.md#local) in a [pool](../../organization/concepts/user-pools.md), select **{{ ui-key.yacloud_org.page.users.action.add-userpool-user }}** from the drop-down list.
+
+     {% endlist %}
 
 {% endlist %}
 
 ## Assigning roles {#add-access}
 
-After the user has accepted an invitation to an organization, it is time to assign roles:
+Assign roles to local users or update the existing roles of invited users:
 
 {% list tabs group=instructions %}
 

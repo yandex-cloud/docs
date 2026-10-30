@@ -25,7 +25,7 @@ To test delivery without an actual recipient, send an email to one of the [deliv
 1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `postbox.sender` [role](../security/index.md#postbox-sender) to the service account.
 1. Create a key for the service account:
 
-    * [API key](../../iam/operations/authentication/manage-api-keys.md#create-api-key) When creating an API key, set the scope to `yc.postbox.send`. Save the secret key you got in a secure location. You will not be able to view the secret key properties again after you close the window.
+    * [API key](../../iam/operations/authentication/manage-api-keys.md#create-api-key) When creating an API key, set the [scope](*api-key-scope) to `yc.postbox.send`. Save the secret key you got in a secure location. You will not be able to view the secret key properties again after you close the window.
 
     * [Static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key). Save the ID and secret key to a secure location. You will not be able to view the secret key properties again after you close the window.
 
@@ -160,3 +160,5 @@ You can provide the [request](../../postbox/aws-compatible-api/api-ref/send-emai
 {% endcut %}
 
 To use [AWS Signature Version 4](https://docs.amazonaws.cn/en_us/IAM/latest/UserGuide/reference_aws-signing.html) to sign a request, specify the `--aws-sigv4` parameter. To learn how to create a signature by yourself, see [{#T}](../../postbox/aws-compatible-api/signing-requests.md).
+
+[*api-key-scope]: {% include notitle [api-key-scope](../../_popups/iam/api-key-scope.md) %}

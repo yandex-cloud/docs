@@ -766,8 +766,6 @@
 
  - [Резервное копирование](concepts/backups.md)
 
- - [Изменение квотирования ресурсов](concepts/quota-zones.md)
-
  - [Квоты и лимиты](concepts/limits.md)
 
  - [Управление доступом](security/index.md)

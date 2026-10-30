@@ -8,20 +8,20 @@ canonical: '{{ link-docs }}/tutorials/routing/bm-vpc-dns-forwarder'
 
 A {{ baremetal-name }} server connected to a {{ vpc-name }} cloud network via {{ interconnect-full-name }} is outside {{ vpc-name }} and cannot directly access the cloud network's [DNS resolver](../../dns/concepts/dns-resolver.md).
 
-To resolve domain names from [internal {{ yandex-cloud }} DNS zones](../../dns/concepts/dns-zone.md#private-zones) on a {{ baremetal-name }} server, create an [inbound DNS connection](../../dns/concepts/dns-connection.md#dns-inbound) and specify its IP address as the DNS server on your {{ baremetal-name }} server. You do not need to deploy a separate VM with a DNS forwarder.
+To resolve domain names from [internal {{ yandex-cloud }} DNS zones](../../dns/concepts/dns-zone.md#private-zones) on a {{ baremetal-name }} server, create an [inbound DNS connection](../../dns/concepts/dns-connection.md#dns-inbound) in your cloud network and select it in the [DNS settings of the private subnet](../concepts/dns.md). The DNS server address will be provided to the {{ baremetal-name }} server over DHCP. If your private UI does not support DHCP, enter the address manually in the OS. You do not need to deploy a separate VM with a DNS forwarder.
 
-In out example, you will configure resolving of a {{ mpg-full-name }} cluster host's FQDN from a private {{ baremetal-name }} network.
+In our example, you will configure the resolution of a {{ mpg-full-name }} cluster host's FQDN from a private {{ baremetal-name }} network.
 
 To configure DNS name resolution:
 
-1. [Set up your infrastructure](#prepare-infrastructure).
+1. [Prepare the infrastructure](#prepare-infrastructure).
 1. [Create an inbound DNS connection](#create-inbound-endpoint).
 1. [Configure DNS on the {{ baremetal-name }} server](#configure-baremetal).
 1. [Check DNS name resolution](#check-dns).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Set up your infrastructure {#prepare-infrastructure}
+## Prepare your infrastructure {#prepare-infrastructure}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
@@ -60,15 +60,37 @@ When creating a connection:
 1. Select the cloud network connected to the virtual router.
 1. Reserve an internal IP address for the connection in the subnet whose prefix is announced by the virtual router, e.g., `192.168.1.200`.
 1. Wait for the inbound connection to switch its status to `AVAILABLE`.
-1. Save the connection IP address. You will need it to configure the {{ baremetal-name }} server.
+1. Save the connection IP address and name. You will need the name to select a connection in the subnet settings, and the IP address, to check DNS name resolution.
 
 {% note info %}
 
-You can only create one inbound DNS connection per cloud network. If the selected network already has such a connection, use it IP address.
+You can only create one inbound DNS connection per cloud network. If the selected network already has such a connection, use it.
 
 {% endnote %}
 
 ## Configure DNS on the {{ baremetal-name }} server {#configure-baremetal}
+
+### Provide settings over DHCP {#configure-dns-dhcp}
+
+If the server's private UI gets the IP address over DHCP, configure DNS in the private subnet:
+
+1. [Open the subnet's DNS settings](../operations/configure-dns.md#configure-dns) and enable the **DNS server** option.
+1. In the **Domain name server** field, select the inbound DNS connection you created.
+1. You can leave the **Domain name** field blank. In this tutorial, we use a cluster host's full domain name.
+1. Save the changes and wait up to five minutes until the server receives the settings over DHCP.
+1. [Check the DNS settings](../operations/configure-dns.md#check-settings) of the private UI. The IP address of the inbound DNS connection should appear in the `DNS Servers` field. In our example, it is `192.168.1.200`.
+
+{% note info %}
+
+If you used to set up DNS manually following this guide and set `dhcp4-overrides.use-dns: false`, [allow using DNS servers over DHCP](../operations/configure-dns.md#dhcp-options-not-applied). Delete the old `nameservers.addresses` list from the private UI configuration if you do not need it, and apply the changes.
+
+{% endnote %}
+
+### Configure DNS manually {#configure-dns}
+
+If your private UI does not support DHCP, enter the IP address of the inbound DNS connection manually in the DNS settings of your OS. Save the static IP addresses and interface routes.
+
+{% cut "Example of setting up DNS using Netplan" %}
 
 In our example, we use a server running Ubuntu 24.04 and the [Netplan](https://netplan.io/) network configuration.
 
@@ -91,7 +113,7 @@ In our example, we use a server running Ubuntu 24.04 and the [Netplan](https://
     sudo nano /etc/netplan/50-cloud-init.yaml
     ```
 
-1. In the private network interface settings, disable using DNS servers received via DHCP and add the IP address of the inbound DNS connection:
+1. In the private network interface settings, add the IP address of the inbound DNS connection:
 
     ```yaml
     network:
@@ -100,9 +122,6 @@ In our example, we use a server running Ubuntu 24.04 and the [Netplan](https://
         etx1:
           match:
             macaddress: "90:e2:ba:a2:30:de"
-          dhcp4: true
-          dhcp4-overrides:
-            use-dns: false
           set-name: "etx1"
           nameservers:
             addresses:
@@ -116,6 +135,8 @@ In our example, we use a server running Ubuntu 24.04 and the [Netplan](https://
     * Instead of `etx1`: Name of the private server network interface.
     * Instead of `90:e2:ba:a2:30:de`: MAC address of the private network interface.
     * Instead of `192.168.1.200`: Inbound DNS connection's IP address.
+
+    Save the current `dhcp4` value, static addresses to `addresses`, and routes to `routes`.
 
     The `~.` value in the `nameservers.search` parameter routes all DNS queries through the inbound DNS connection.
 
@@ -154,6 +175,8 @@ Do not edit the `/etc/resolv.conf` file manually: `systemd-resolved` can overwri
 
 {% endnote %}
 
+{% endcut %}
+
 ## Check DNS name resolution {#check-dns}
 
 1. Test the accessibility of the inbound DNS connection by sending a query for the cloud resource FQDN to its IP address:
@@ -176,7 +199,8 @@ Do not edit the `/etc/resolv.conf` file manually: `systemd-resolved` can overwri
 
 To suspend your use of resources:
 
-1. Delete the inbound DNS connection's internal IP address from the Netplan configuration on the {{ baremetal-name }} server and apply the changes.
+1. If you provided settings over DHCP, [exclude the inbound DNS connection](../operations/configure-dns.md#disable-dns) from the settings of all private subnets that use it.
+1. If you set up DNS manually, delete the inbound DNS connection's IP address from the Netplan configuration on the {{ baremetal-name }} server and apply the changes.
 1. [Delete the inbound DNS connection](../../dns/operations/connection-inbound-delete.md).
 1. [Delete the reserved internal IP address](../../vpc/operations/private-ip-delete.md).
 1. If you created a {{ mpg-name }} cluster for testing, [delete it](../../managed-postgresql/operations/cluster-delete.md).

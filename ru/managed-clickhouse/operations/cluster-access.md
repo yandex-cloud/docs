@@ -14,6 +14,12 @@ description: Следуя данной инструкции, вы настрои
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера.
+  1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -81,6 +87,15 @@ description: Следуя данной инструкции, вы настрои
 ## Назначить роль {#add-access-binding}
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера.
+  1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+  1. Введите идентификатор аккаунта или электронную почту пользователя, к которой привязан аккаунт.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите нужную роль из списка или воспользуйтесь поиском.
+  1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 - CLI {#cli}
 
@@ -275,6 +290,16 @@ description: Следуя данной инструкции, вы настрои
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера.
+  1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+  1. Введите идентификатор аккаунта или электронную почту пользователя, к которой привязан аккаунт.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите нужную роль из списка или воспользуйтесь поиском.
+  1. Повторите действие для других ролей.
+  1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -309,7 +334,7 @@ description: Следуя данной инструкции, вы настрои
 
       Где `--access-binding` — назначает роль субъекту. Вы можете назначить несколько ролей одновременно, описав каждую в отдельном параметре `--access-binding`.
 
-      * `role` — назначаемая [роль](../security.md#roles-list), например `managed-clickhouse.editor`.
+      * `role` — назначаемая [роль](../security.md#roles-list), например `managed-clickhouse.editor`. Если вы хотите настроить подключение к кластеру через сервисный аккаунт, дополнительно назначьте роль `iam.serviceAccounts.user`.
       * `subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
           Например:
@@ -349,7 +374,7 @@ description: Следуя данной инструкции, вы настрои
       Где:
 
       * `cluster_id` — идентификатор кластера.
-      * `role` — назначаемая [роль](../security.md#roles-list), например `managed-clickhouse.editor`.
+      * `role` — назначаемая [роль](../security.md#roles-list), например `managed-clickhouse.editor`. Если вы хотите настроить подключение к кластеру через сервисный аккаунт, дополнительно назначьте роль `iam.serviceAccounts.user`.
       * `members` — список обозначений [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль.
 
           Например:
@@ -515,6 +540,15 @@ description: Следуя данной инструкции, вы настрои
 ## Отозвать роль {#remove-access-binding}
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера.
+  1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+  1. В строке с нужным аккаунтом нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
+  1. В списке ролей нажмите на значок ![image](../../_assets/console-icons/xmark.svg) рядом с ролью, которую вы хотите отозвать.
+  1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 - CLI {#cli}
 
@@ -693,6 +727,21 @@ description: Следуя данной инструкции, вы настрои
 Чтобы сервисный аккаунт мог просматривать информацию обо всех кластерах {{ mch-name }} в каталоге, но изменять ресурсы только конкретного кластера, выдайте ему роль `managed-clickhouse.viewer` на каталог и роль `managed-clickhouse.editor` на этот кластер:
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. [Перейдите]({{ link-console-main }}/link/access) на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
+  1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.user-accounts }}**.
+  1. Выберите пользователя из списка или воспользуйтесь поиском по пользователям.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `managed-clickhouse.viewer`.
+  1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера.
+  1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+  1. Введите идентификатор сервисного аккаунта.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `managed-clickhouse.editor`.
+  1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 
 - CLI {#cli}
 

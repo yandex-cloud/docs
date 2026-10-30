@@ -10,11 +10,11 @@ This class represents a callable function that can be used by AI models for func
 
 The function tool can be used with both completions and assistants APIs, providing a unified interface for defining external functions that models can invoke during conversations or completion requests.
 
-**name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._tools.tool.FunctionTool.name}
+**name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._tools.tool.FunctionTool.name}
 
 Name of the function
 
-**description**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._tools.tool.FunctionTool.description}
+**description**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._tools.tool.FunctionTool.description}
 
 Optional function description
 
@@ -22,6 +22,6 @@ Optional function description
 
 Function parameters schema
 
-**strict**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._tools.tool.FunctionTool.strict}
+**strict**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._tools.tool.FunctionTool.strict}
 
 Whether to enforce strict parameter validation

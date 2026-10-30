@@ -143,7 +143,13 @@ Creates a Valkey cluster in the specified folder.
       "aof_max_size_percent": "google.protobuf.Int64Value",
       "activedefrag": "google.protobuf.BoolValue",
       "audit_log": "google.protobuf.BoolValue",
-      "rebalance_enabled": "google.protobuf.BoolValue"
+      "rebalance_enabled": "google.protobuf.BoolValue",
+      "hash_max_listpack_entries": "google.protobuf.Int64Value",
+      "hash_max_listpack_value": "google.protobuf.Int64Value",
+      "list_max_listpack_size": "google.protobuf.Int64Value",
+      "set_max_listpack_entries": "google.protobuf.Int64Value",
+      "set_max_listpack_value": "google.protobuf.Int64Value",
+      "zset_max_listpack_value": "google.protobuf.Int64Value"
     },
     "disk_size_autoscaling": {
       "planned_usage_threshold": "google.protobuf.Int64Value",
@@ -184,6 +190,10 @@ Creates a Valkey cluster in the specified folder.
         "down_threshold": "google.protobuf.Int64Value",
         "up_threshold": "google.protobuf.Int64Value"
       }
+    },
+    "monium_logs": {
+      "enabled": "google.protobuf.BoolValue",
+      "project": "string"
     }
   },
   "host_specs": [
@@ -323,7 +333,6 @@ persist data to disk. ||
 Enable FQDN instead of ip ||
 || maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.redis.v1.MaintenanceWindow)**
 
-Deprecated. Use maintenance_windows instead.
 Window of maintenance operations. ||
 || user_specs[] | **[UserSpec](#yandex.cloud.mdb.redis.v1.UserSpec)**
 
@@ -410,6 +419,9 @@ to that edition. ||
 || shard_autoscaling_settings | **[ShardAutoscalingSettings](#yandex.cloud.mdb.redis.v1.ShardAutoscalingSettings)**
 
 Shard autoscaling settings for the cluster. ||
+|| monium_logs | **[MoniumLogs](#yandex.cloud.mdb.redis.v1.MoniumLogs)**
+
+Monium logs shipping settings ||
 |#
 
 ## RedisConfig5_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0}
@@ -915,6 +927,34 @@ Enable/disable audit logs for Valkey ||
 || rebalance_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables automatic slot rebalancing when shards are added or deleted. ||
+|| hash_max_listpack_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Controls max number of entries in hash before conversion from memory-efficient listpack to CPU-efficient hash table.
+
+Acceptable values are 0 to 2048, inclusive. ||
+|| hash_max_listpack_value | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Controls max value size in hash before conversion from memory-efficient listpack to CPU-efficient hash table.
+
+Acceptable values are 0 to 2048, inclusive. ||
+|| list_max_listpack_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Controls max size of a listpack in list before creating a new listpack node. ||
+|| set_max_listpack_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Controls max number of entries in set before conversion from memory-efficient listpack to CPU-efficient hash table.
+
+Acceptable values are 0 to 2048, inclusive. ||
+|| set_max_listpack_value | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Controls max value size in set before conversion from memory-efficient listpack to CPU-efficient hash table.
+
+Acceptable values are 0 to 2048, inclusive. ||
+|| zset_max_listpack_value | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Controls max value size in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist.
+
+Acceptable values are 0 to 2048, inclusive. ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit}
@@ -1069,6 +1109,20 @@ Acceptable values are 0 to 100, inclusive. ||
 Threshold for upscaling
 
 Acceptable values are 0 to 100, inclusive. ||
+|#
+
+## MoniumLogs {#yandex.cloud.mdb.redis.v1.MoniumLogs}
+
+#|
+||Field | Description ||
+|| enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Whether cluster logs are shipped to Monium. If not set, the installation default is used. ||
+|| project | **string**
+
+Monium project to ship cluster logs to. If empty, the default project is used.
+
+The maximum string length in characters is 64. Value must match the regular expression ` [a-zA-Z0-9_.-]* `. ||
 |#
 
 ## HostSpec {#yandex.cloud.mdb.redis.v1.HostSpec}

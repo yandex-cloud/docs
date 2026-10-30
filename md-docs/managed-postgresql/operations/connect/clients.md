@@ -38,7 +38,7 @@ sudo apt update && sudo apt install --yes postgresql-client
             target_session_attrs=read-write"
       ```
 
-      В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>` (пример: `rc1a-goh2a9tr********.mdb.yandexcloud.net`).    
+      В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>` (пример: `rc1a-goh2a9tr********.mdb.yandexcloud.net`).
 
       После выполнения команды введите пароль пользователя для завершения процедуры подключения.
 
@@ -97,7 +97,7 @@ sudo apt update && sudo apt install --yes postgresql-client
            <имя_БД>
      ```
 
-     В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>` (пример: `rc1a-goh2a9tr********.mdb.yandexcloud.net`).     
+     В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>` (пример: `rc1a-goh2a9tr********.mdb.yandexcloud.net`).
 
      После выполнения команды введите пароль пользователя для завершения процедуры подключения.
 
@@ -140,12 +140,7 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 ### Подключение с аутентификацией через IAM {#iam}
 
-К базе данных PostgreSQL можно подключиться с помощью [интерфейса командной строки Yandex Cloud (CLI)](../../../cli/quickstart.md#install), используя аутентификацию через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../../iam/concepts/users/accounts.md#saml-federation), [локальных пользователей](../../../iam/concepts/users/accounts.md#local) и [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md). Подключение с аутентификацией через IAM не требует получения SSL-сертификата или указания FQDN хостов кластера. Публичный доступ к хостам не требуется.
-
-Для подключения через сервисный аккаунт [назначьте](../../../iam/operations/sa/set-access-bindings.md) ему роли:
-
-* [роль](../../security/index.md#managed-postgresql-clusters-connector) `managed-postgresql.clusters.connector` на кластер;
-* [роль](../../../iam/roles-reference.md#iam-serviceAccounts-user) `iam.serviceAccounts.user` или выше. Если необходим доступ для нескольких сервисных аккаунтов, назначьте эту роль на каталог.
+К базе данных PostgreSQL можно подключиться с помощью [интерфейса командной строки Yandex Cloud (CLI)](../../../cli/quickstart.md#install), используя аутентификацию через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../../iam/concepts/users/accounts.md#saml-federation) и [локальных пользователей](../../../iam/concepts/users/accounts.md#local). Подключение с аутентификацией через IAM не требует получения SSL-сертификата или указания FQDN хостов кластера. Публичный доступ к хостам не требуется.
 
 Перед подключением установите клиент PostgreSQL:
 
@@ -162,7 +157,7 @@ sudo apt update && sudo apt install --yes postgresql-client
   1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
   1. Нажмите на имя нужного кластера.
   1. Назначьте роль аккаунту пользователя, который будет подключаться к БД:
-     1. Выберите вкладку ![chevron-down](../../../_assets/console-icons/chevron-down.svg) **Другое** → **Права доступа** и нажмите кнопку **Назначить роли**.
+     1. Выберите вкладку **Права доступа** и нажмите кнопку **Назначить роли**.
      1. Введите электронную почту пользователя, к которой привязан аккаунт.
      1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `managed-postgresql.clusters.connector`.
      1. Нажмите кнопку **Сохранить**.
@@ -213,6 +208,88 @@ sudo apt update && sudo apt install --yes postgresql-client
        --auth-method auth-method-iam \
        --permissions <имя_БД>
      ```
+
+- Terraform {#tf}
+
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+
+      Инструкцию по созданию такого файла читайте в разделе [Создание кластера](../cluster-create.md).
+
+      Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL вы найдете в [документации провайдера Terraform](../../../terraform/resources/mdb_postgresql_cluster.md).
+
+  1. Добавьте ресурс `yandex_mdb_postgresql_cluster_iam_binding`:
+
+     * Для пользователя с аккаунтом на Яндексе или локального пользователя:
+
+        ```hcl
+        ...
+        resource "yandex_mdb_postgresql_cluster_iam_binding" "role-iam-user" {
+          cluster_id = "<идентификатор_кластера>"
+          members = [
+            "userAccount:<идентификатор_пользователя>"
+          ]
+          role = "managed-postgresql.clusters.connector"
+        }
+        ```
+
+     * Для федеративного пользователя:
+
+        ```hcl
+        ...
+        resource "yandex_mdb_postgresql_cluster_iam_binding" "role-iam-user" {
+          cluster_id = "<идентификатор_кластера>"
+          members = [
+            "federatedUser:<идентификатор_пользователя>"
+          ]
+          role = "managed-postgresql.clusters.connector"
+        }
+        ```
+
+  1. Добавьте ресурс `yandex_mdb_postgresql_user`:
+
+        ```hcl
+        ...
+        resource "yandex_mdb_postgresql_user" "iam-user" {
+          cluster_id = "<идентификатор_кластера>"
+          name       = "<идентификатор_пользователя>"
+          auth_method = "AUTH_METHOD_IAM"
+          permission {
+            database_name = "<имя_БД>"
+          }
+        }
+        ```
+
+  1. Проверьте корректность настроек.
+
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+      1. Выполните команду:
+      
+         ```bash
+         terraform validate
+         ```
+      
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Подтвердите изменение ресурсов.
+
+      1. Выполните команду для просмотра планируемых изменений:
+      
+         ```bash
+         terraform plan
+         ```
+      
+         Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
+      
+      1. Если вас устраивают планируемые изменения, внесите их:
+      
+         1. Выполните команду:
+      
+            ```bash
+            terraform apply
+            ```
+      
+         1. Подтвердите изменение ресурсов.
+         1. Дождитесь завершения операции.
 
 - REST API {#api}
 

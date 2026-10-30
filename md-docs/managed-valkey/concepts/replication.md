@@ -79,9 +79,11 @@ Yandex Managed Service for Valkey™ использует стандартную
 
   Когда выполняется `BGREWRITEAOF`, работает `fsync()`. Valkey™ записывает самую короткую последовательность команд, необходимую для восстановления текущего набора данных в памяти. Размер данных регулируется настройкой [aof-rewrite-incremental-fsync](#setting-rewrite-incremental).
 
-* **auto-aof-rewrite-percentage 100**{#setting-rewrite-percentage}
+* **auto-aof-rewrite-percentage**{#setting-rewrite-percentage}
 
-  Размер файла логов AOF должен быть превышен на 100%, чтобы сработала перезапись. Учитывает настройку [**auto-aof-rewrite-min-size**](#setting-rewrite-size) файла логов.
+  Чтобы сработала перезапись файла логов AOF, размер файла должен быть превышен на определенный процент. Это значение зависит от размеров памяти и диска.
+
+  Перезапись срабатывает с учетом настройки [**auto-aof-rewrite-min-size**](#setting-rewrite-size) файла логов. 
 
 * **auto-aof-rewrite-min-size 64mb**{#setting-rewrite-size}
 

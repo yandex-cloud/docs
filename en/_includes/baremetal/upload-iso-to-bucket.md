@@ -14,7 +14,7 @@
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
       1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-      1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+      1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
       1. On the `create bucket` page:
 
           1. Specify a bucket name that meets [these naming conventions](../../storage/concepts/bucket.md#naming).
@@ -103,7 +103,7 @@
 
     - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select a folder.
+      1. In the [management console]({{ link-console-main }}), select the folder.
       1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** and select the bucket.
       1. Click the name of the object with the uploaded ISO image.
       1. In the top-right corner, click ![link](../../_assets/storage/link.svg) **{{ ui-key.yacloud.storage.file.button_generate }}**.

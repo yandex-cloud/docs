@@ -1,0 +1,1 @@
+Роль `ai.workProfiles.auditor` позволяет просматривать метаданные [профилей рабочих мест]({{ link-docs-ai }}ai-studio/manage/concepts/#runtime-profile) пользователей и информацию о назначенных [правах доступа](../../../iam/concepts/access-control/index.md) к таким профилям.

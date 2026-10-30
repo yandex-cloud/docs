@@ -21,6 +21,8 @@ items:
         href: tutorials/install-on-yc-vm.md
       - name: Setting up external access to a pod in a cluster
         href: tutorials/expose-app-domain.md
+      - name: Verifying signatures for custom images
+        href: tutorials/verify-own-image-signatures.md
   - name: Step-by-step guides
     expanded: true
     items:
@@ -36,7 +38,11 @@ items:
             href: operations/iam/connect-saml-federation.md
           - name: Assigning access permissions
             href: operations/iam/assign-role.md
-      - name: Databases
+          - name: Creating a YDB backup
+            href: operations/iam/ydb-backup.md
+          - name: Restoring a YDB from a backup
+            href: operations/iam/ydb-restore.md
+      - name: Databases and analytics
         items:
           - name: '{{ mpg-short-name }}'
             items:
@@ -98,13 +104,13 @@ items:
             items:
               - name: Creating a catalog
                 href: operations/rest-catalog/create-catalog.md
-              - name: Update a folder
+              - name: Updating a catalog
                 href: operations/rest-catalog/edit-catalog.md
-              - name: Creating a catalog user
+              - name: Assigning permissions for a catalog
                 href: operations/rest-catalog/create-principal.md
-              - name: Deleting a catalog user
+              - name: Revoking permissions for a catalog
                 href: operations/rest-catalog/delete-principal.md
-              - name: Deleting a folder
+              - name: Deleting a catalog
                 href: operations/rest-catalog/delete-catalog.md
           - name: Managed Service for Trino
             items:
@@ -116,7 +122,7 @@ items:
                 href: operations/trino/delete-cluster.md
               - name: Creating a catalog
                 href: operations/trino/create-catalog.md
-              - name: Updating catalog settings
+              - name: Editing catalog settings
                 href: operations/trino/edit-catalog.md
               - name: Deleting a folder
                 href: operations/trino/delete-catalog.md
@@ -134,6 +140,28 @@ items:
                 href: operations/ytsaurus/connect-api.md
               - name: Disabling {{ yt-name }}
                 href: operations/ytsaurus/disable.md
+      - name: Orchestrating data
+        items:
+          - name: '{{ maf-name }}'
+            items:
+              - name: Activate {{ maf-name }}
+                href: operations/airflow/enable.md
+              - name: Creating a {{ AF }} cluster
+                href: operations/airflow/create-cluster.md
+              - name: Updating {{ AF }} cluster settings
+                href: operations/airflow/edit-cluster.md
+              - name: Getting {{ AF }} administrator credentials
+                href: operations/airflow/get-admin-credentials.md
+              - name: Opening the {{ AF }} web UI
+                href: operations/airflow/connect-ui.md
+              - name: Pausing or resuming an {{ AF }} cluster
+                href: operations/airflow/pause-resume.md
+              - name: Deleting a cluster {{ AF }}
+                href: operations/airflow/delete-cluster.md
+              - name: Troubleshooting {{ AF }}
+                href: operations/airflow/troubleshooting.md
+              - name: Disabling {{ maf-name }}
+                href: operations/airflow/disable.md
       - name: Buckets
         items:
           - name: Creating a bucket
@@ -196,6 +224,8 @@ items:
             href: operations/policy-manager/apply-mute.md
           - name: Deleting a policy preset
             href: operations/policy-manager/delete-preset.md
+          - name: Viewing vulnerability reports
+            href: operations/policy-manager/view-vulnerability-reports.md
       - name: Projects
         items:
           - name: All guides
@@ -226,6 +256,14 @@ items:
             href: operations/secrets-store/inject-secrets-configmap.md
           - name: Secrets Store diagnostics
             href: operations/secrets-store/troubleshooting.md
+      - name: AI Studio
+        items:
+          - name: Pulling images
+            href: operations/ai-studio/install-images.md
+          - name: Enabling AI Studio
+            href: operations/ai-studio/configure.md
+          - name: Disabling AI Studio
+            href: operations/ai-studio/disable.md
       - name: Disk subsystem
         items:
           - name: Troubleshooting a disk subsystem
@@ -265,7 +303,9 @@ items:
             href: concepts/components/kafka.md
           - name: '{{ mpg-short-name }}'
             href: concepts/components/postgresql.md
-          - name: '{{ mch-short-name }}'
+          - name: '{{ maf-name }}'
+            href: concepts/components/airflow.md
+          - name: '{{ mch-name }}'
             href: concepts/components/clickhouse.md
           - name: '{{ rest-catalog-name }}'
             href: concepts/components/rest-catalog.md
@@ -289,6 +329,8 @@ items:
             href: concepts/components/secrets-store.md
           - name: '{{ speechsense-name }}'
             href: concepts/components/speechsense.md
+          - name: '{{ ai-studio-name }}'
+            href: concepts/components/ai-studio.md
       - name: Cluster monitoring
         items:
           - name: ClickHouse monitoring

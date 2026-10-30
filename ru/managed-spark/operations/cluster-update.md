@@ -456,6 +456,11 @@ keywords:
     1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
     1. Выберите кластер и нажмите **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В блоках **{{ ui-key.yacloud.spark.section_driver }}** и **{{ ui-key.yacloud.spark.section_executor }}** укажите количество экземпляров и [конфигурацию вычислительных ресурсов](../concepts/instance-types.md). Количество экземпляров может быть фиксированным или автомасштабируемым.
+
+    
+    1. Чтобы запускать исполнителей на [прерываемых хостах](../concepts/instance-types.md#preemptible), в блоке **{{ ui-key.yacloud.spark.section_executor }}** включите настройку **{{ ui-key.yacloud.spark.ClusterForm.sections.field_preemptible_dM3qG }}**. Чтобы использовать обычные хосты, выключите настройку.
+
+
     1. Нажмите **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -474,13 +479,16 @@ keywords:
 
     2. Измените конфигурацию драйверов и исполнителей, выполнив команду:
 
+       
        ```bash
        {{ yc-mdb-sp }} cluster update <имя_или_идентификатор_кластера> \
          --driver-preset-id <идентификатор_ресурсов_драйвера> \
          --driver-fixed-size <количество_экземпляров_драйвера> \
          --executor-preset-id <идентификатор_ресурсов_исполнителя> \
          --executor-fixed-size <количество_экземпляров_исполнителя> \
+         --executor-preemptible=<использовать_прерываемые_хосты>
        ```
+
 
        Где:
 
@@ -498,30 +506,39 @@ keywords:
 
        Укажите либо фиксированное количество хостов (`--executor-fixed-size`), либо минимальное и максимальное количество хостов (`--executor-min-size`, `--executor-max-size`) для автоматического масштабирования.  
 
+       
+       * `--executor-preemptible` — использование [прерываемых хостов](../concepts/instance-types.md#preemptible) для исполнителей: `true` — прерываемые хосты, `false` — обычные.
+
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
        Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
 
-    1. Измените конфигурацию драйверов и исполнителей в блоках `driver` и `executor`:
+    1. Измените конфигурацию драйверов и исполнителей в блоках `config.resource_pools.driver` и `config.resource_pools.executor`:
       
+        
         ```hcl
         resource "yandex_spark_cluster" "<имя_кластера>" {
           ...
-          resource_pools = {
-            driver = {
-              resource_preset_id = "<класс_хоста>"
-              size               = <фиксированное_количество_экземпляров>
-            }
-            executor = {
-              resource_preset_id = "<класс_хоста>"
-              size               = <фиксированное_количество_экземпляров>
+          config = {
+            resource_pools = {
+              driver = {
+                resource_preset_id = "<класс_хоста>"
+                size               = <фиксированное_количество_экземпляров>
+              }
+              executor = {
+                resource_preset_id = "<класс_хоста>"
+                size               = <фиксированное_количество_экземпляров>
+                preemptible        = <использовать_прерываемые_хосты>
+              }
             }
           }
           ...
         }
         ```
+
         
         Где:
         
@@ -535,6 +552,11 @@ keywords:
         * `executor` — конфигурация хостов для запуска исполнителей {{ SPRK }}. В этом блоке укажите:
 
           * `resource_preset_id` — [класс хостов](../concepts/instance-types.md).
+
+          
+          * `preemptible` — использование [прерываемых хостов](../concepts/instance-types.md#preemptible) для исполнителей: `true` — прерываемые хосты, `false` — обычные.
+
+
           * `size` — фиксированное количество экземпляров. 
           * `min_size` — минимальное количество хостов, если используется автоматическое масштабирование.
           * `max_size` — максимальное количество хостов, если используется автоматическое масштабирование.
@@ -557,11 +579,12 @@ keywords:
 
     1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
+        
         ```json
         {
           "cluster_id": "<идентификатор_кластера>",
           "update_mask": {
-            "paths": [ 
+            "paths": [
               <список_изменяемых_параметров>
               ]
           },
@@ -577,6 +600,7 @@ keywords:
               },
               "executor": {
                 "resource_preset_id": "<идентификатор_ресурсов_исполнителя>",
+                "preemptible": <использовать_прерываемые_хосты>,
                 "scale_policy": {
                   "auto_scale": {
                     "min_size": "<минимальное_количество_экземпляров_исполнителя>",
@@ -588,6 +612,7 @@ keywords:
           }
         }
         ```
+
 
         Где:
 
@@ -640,6 +665,11 @@ keywords:
                * `executor` — конфигурация хостов для запуска исполнителей {{ SPRK }}.
 
                    * `resource_preset_id` — [класс хостов](../concepts/instance-types.md) исполнителя.
+
+                   
+                   * `preemptible` — использование [прерываемых хостов](../concepts/instance-types.md#preemptible) для исполнителей: `true` — прерываемые хосты, `false` — обычные.
+
+
                    * `scale_policy` — политика масштабирования групп хостов для исполнителя:
 
                        * `fixed_scale` — фиксированная политика масштабирования.

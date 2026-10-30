@@ -3,7 +3,7 @@ title: Pushing a Go module to a {{ cloud-registry-full-name }} registry
 description: Follow this guide to push a Go module to a registry in {{ cloud-registry-full-name }}.
 ---
 
-# Pulling a Go module to the registry
+# Pushing a Go module to a registry
 
 Before pushing, prepare a ZIP archive of your Go module. For more information, see [{#T}](create.md).
 
@@ -23,7 +23,7 @@ Before pushing, prepare a ZIP archive of your Go module. For more information, s
 
     * `--request`: Method.
     * `--user`: Authentication data.
-    * `--header`: API request header. This is an optional setting.
+    * `--header`: API request header. This is an optional parameter.
 
         In the `X-Checksum-SHA256` header, you can specify the hash of the file you are pushing to check the file’s integrity after it is pushed. You can generate the hash, e.g., using this command:
 
@@ -46,6 +46,8 @@ Before pushing, prepare a ZIP archive of your Go module. For more information, s
 
     {% note warning %}
 
-    When publishing a Go module, do not prefix its name with `registry.yandexcloud.net/go/<registry_ID>/`. If your Go module's major version is greater than 1, omit the `/vN` suffix as well; e.g., for a `registry.yandexcloud.net/go/<registry_ID>/sample/module/v4` Go module, use `sample/module` as its name.
+    When publishing a Go module, do not prefix its name with `registry.yandexcloud.net/go/<registry_ID>/`. If your Go module's major version is greater than 1, omit the `/vN` suffix as well. This means, for a `registry.yandexcloud.net/go/<registry_ID>/sample/module/v4` Go module, use `sample/module` as its name.
 
     {% endnote %}
+
+[*api-key-scope]: {% include notitle [api-key-scope](../../../_popups/iam/api-key-scope.md) %}

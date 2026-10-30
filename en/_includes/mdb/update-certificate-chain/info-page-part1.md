@@ -1,0 +1,1 @@
+The TLS certificate chain will be updated in the service clusters associated with the {{ yandex-cloud }} data platform. This change is necessary because the current intermediate certificate expires on June 20, 2027.

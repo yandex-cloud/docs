@@ -44,7 +44,18 @@ editable: false
     "clusterId": "string",
     "clusterName": "string"
   },
-  "requestParameters": "object"
+  "requestParameters": "object",
+  "resourceMetadata": {
+    "path": [
+      {
+        "resourceType": "string",
+        "resourceId": "string",
+        // Includes only one of the fields `resourceName`
+        "resourceName": "string"
+        // end of the list of possible fields
+      }
+    ]
+  }
 }
 ```
 
@@ -78,6 +89,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 The error result of the operation in case of failure or cancellation. ||
 || details | **[GenericEventDetails](#yandex.cloud.audit.mdb.redis.GenericEventDetails)** ||
 || requestParameters | **object** ||
+|| resourceMetadata | **[ResourceMetadata](#yandex.cloud.audit.ResourceMetadata)** ||
 |#
 
 ## DatabaseAuthentication {#yandex.cloud.audit.DatabaseAuthentication}
@@ -137,4 +149,22 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || clusterId | **string** ||
 || clusterName | **string** ||
+|#
+
+## ResourceMetadata {#yandex.cloud.audit.ResourceMetadata}
+
+#|
+||Field | Description ||
+|| path[] | **[Resource](#yandex.cloud.audit.Resource)** ||
+|#
+
+## Resource {#yandex.cloud.audit.Resource}
+
+#|
+||Field | Description ||
+|| resourceType | **string** ||
+|| resourceId | **string** ||
+|| resourceName | **string**
+
+Includes only one of the fields `resourceName`. ||
 |#

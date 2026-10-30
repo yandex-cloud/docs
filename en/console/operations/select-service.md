@@ -27,7 +27,7 @@ In the {{ yandex-cloud }} management console, you can navigate to a desired serv
 
 ### Navigating to a service from the dashboard {#select-service-dashboard}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. In the left-hand panel, click ![image](../../_assets/console-icons/house.svg) **{{ ui-key.yacloud.dashboard.dashboard_j9z5M }}**.
   1. In **{{ ui-key.yacloud.dashboard.DashboardPage.ResourceSearch.placeholder_3my5Y }}**, enter the the name of the service.
   1. Under **{{ ui-key.yacloud.dashboard.DashboardPage.ResourcesSection.title_7kYbU }}**, select the service.
@@ -38,7 +38,7 @@ In the {{ yandex-cloud }} management console, you can navigate to a desired serv
 
 ### Creating a resource using the left-hand panel {#create-resource-panel}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. In the left-hand panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.dashboard.label_create-resource_4KN3M }}**.
   1. Select the resource.
 
@@ -46,7 +46,7 @@ In the {{ yandex-cloud }} management console, you can navigate to a desired serv
 
 ### Creating a resource using the dashboard {#create-resource-dashboard}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. In the left-hand panel, click ![image](../../_assets/console-icons/house.svg) **{{ ui-key.yacloud.dashboard.dashboard_j9z5M }}**.
   1. Click **{{ ui-key.yacloud.dashboard.DashboardPage.ResourcesSection.create-resources_rGA1t }}** ![image](../../_assets/console-icons/plus.svg) to the right.
   1. Select the resource.

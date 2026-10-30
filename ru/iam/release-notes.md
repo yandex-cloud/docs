@@ -5,6 +5,91 @@ description: В разделе представлена история изме�
 
 # История изменений в {{ iam-full-name }}
 
+## Октябрь 2026 {#october-2026}
+
+### Изменения в сервисе {{ iam-name }} {#iam-october-2026}
+
+* [Политики авторизации](concepts/access-control/access-policies.md) перешли на стадию [General Availability](../overview/concepts/launch-stages.md).
+* Исправлено аварийное завершение команды CLI `yc iam revoke-token` после успешного [отзыва IAM-токена](operations/iam-token/revoke-iam-token.md).
+
+### Новые роли {#roles-october-2026}
+
+{% cut "{{ ai-studio-full-name }}" %}
+
+#### ai.subscriptions.admin {#ai-subscriptions-admin}
+
+{% include [ai.subscriptions.admin](../_roles/ai/subscriptions/admin.md) %}
+
+#### ai.subscriptions.auditor {#ai-subscriptions-auditor}
+
+{% include [ai.subscriptions.auditor](../_roles/ai/subscriptions/auditor.md) %}
+
+#### ai.subscriptions.consumer {#ai-subscriptions-consumer}
+
+{% include [ai.subscriptions.consumer](../_roles/ai/subscriptions/consumer.md) %}
+
+#### ai.subscriptions.editor {#ai-subscriptions-editor}
+
+{% include [ai.subscriptions.editor](../_roles/ai/subscriptions/editor.md) %}
+
+#### ai.subscriptions.user {#ai-subscriptions-user}
+
+{% include [ai.subscriptions.user](../_roles/ai/subscriptions/user.md) %}
+
+#### ai.subscriptions.viewer {#ai-subscriptions-viewer}
+
+{% include [ai.subscriptions.viewer](../_roles/ai/subscriptions/viewer.md) %}
+
+#### ai.workProfiles.admin {#ai-workprofiles-admin}
+
+{% include [ai.workProfiles.admin](../_roles/ai/workProfiles/admin.md) %}
+
+#### ai.workProfiles.auditor {#ai-workprofiles-auditor}
+
+{% include [ai.workProfiles.auditor](../_roles/ai/workProfiles/auditor.md) %}
+
+#### ai.workProfiles.editor {#ai-workprofiles-editor}
+
+{% include [ai.workProfiles.editor](../_roles/ai/workProfiles/editor.md) %}
+
+#### ai.workProfiles.user {#ai-workprofiles-user}
+
+{% include [ai.workProfiles.user](../_roles/ai/workProfiles/user.md) %}
+
+#### ai.workProfiles.viewer {#ai-workprofiles-viewer}
+
+{% include [ai.workProfiles.viewer](../_roles/ai/workProfiles/viewer.md) %}
+
+#### ai.workRuntimes.admin {#ai-workruntimes-admin}
+
+{% include [ai.workRuntimes.admin](../_roles/ai/workRuntimes/admin.md) %}
+
+#### ai.workRuntimes.auditor {#ai-workruntimes-auditor}
+
+{% include [ai.workRuntimes.auditor](../_roles/ai/workRuntimes/auditor.md) %}
+
+#### ai.workRuntimes.editor {#ai-workruntimes-editor}
+
+{% include [ai.workRuntimes.editor](../_roles/ai/workRuntimes/editor.md) %}
+
+#### ai.workRuntimes.user {#ai-workruntimes-user}
+
+{% include [ai.workRuntimes.user](../_roles/ai/workRuntimes/user.md) %}
+
+#### ai.workRuntimes.viewer {#ai-workruntimes-viewer}
+
+{% include [ai.workRuntimes.viewer](../_roles/ai/workRuntimes/viewer.md) %}
+
+{% endcut %}
+
+{% cut "{{ container-registry-full-name }}" %}
+
+#### container-registry.registries.forceDeleter {#container-registry-registries-forcedeleter}
+
+{% include [container-registry.registries.forceDeleter](../_roles/container-registry/registries/forceDeleter.md) %}
+
+{% endcut %}
+
 ## Сентябрь 2026 {#september-2026}
 
 ### Изменения в сервисе {{ iam-name }} {#iam-september-2026}

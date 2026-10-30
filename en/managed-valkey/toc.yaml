@@ -51,6 +51,8 @@ items:
                 href: operations/connect/non-sharded-code-examples.md
               - name: Connection examples for sharded clusters
                 href: operations/connect/sharded-code-examples.md
+          - name: Updating a TLS certificate chain
+            href: operations/connect/update-tls-certificates.md
       - name: Databases
         items:
           - name: Queries in {{ websql-full-name }}

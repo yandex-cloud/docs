@@ -2,6 +2,12 @@
 
 # История изменений в Yandex Managed Service for Apache Spark™
 
+
+## Октябрь 2026 {#october-2026}
+
+Добавлена возможность использовать [прерываемые хосты](concepts/instance-types.md#preemptible) для исполнителей.
+
+
 ## Август 2026 {#august-2026}
 
 Добавлена возможность использовать [базовые и пользовательские окружения](operations/environment-create.md) с заданными версиями Apache Spark™ и Python и дополнительными pip- и deb-пакетами.

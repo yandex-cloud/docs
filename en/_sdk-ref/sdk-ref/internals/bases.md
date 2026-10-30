@@ -2,7 +2,7 @@
 
 ## *class* yandex\_ai\_studio\_sdk.\_sdk.**BaseSDK**{#yandex_ai_studio_sdk._sdk.BaseSDK}
 
-The main class that needs to be instantiated to work with SDK.
+The main class that needs to be instantiated to work with the SDK.
 
 **tools**\: *[BaseTools](#yandex_ai_studio_sdk._tools.domain.BaseTools)*{#yandex_ai_studio_sdk._sdk.BaseSDK.tools}
 
@@ -38,7 +38,7 @@ Domain for working with batch tasks
 
 **chat**\: *[BaseChat](#yandex_ai_studio_sdk._chat.BaseChat)*{#yandex_ai_studio_sdk._sdk.BaseSDK.chat}
 
-Domain for working with [Yandex Cloud OpenAI Compatible API](https://aistudio.yandex.ru/docs//ai-studio/concepts/api#openai).
+Domain for working with [Yandex Cloud OpenAI Compatible API](https://aistudio.yandex.ru/docs/ai-studio/concepts/api#openai).
 
 **speechkit**\: *[BaseSpeechKitDomain](#yandex_ai_studio_sdk._speechkit.domain.BaseSpeechKitDomain)*{#yandex_ai_studio_sdk._sdk.BaseSDK.speechkit}
 
@@ -58,8 +58,8 @@ Read more about log\_levels, log\_format, and date\_format in [Python documentat
 || Parameters | 
 
 - **log\_level** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*['CRITICAL', 'FATAL', 'ERROR', 'WARN', 'WARNING', 'INFO', 'DEBUG', 'TRACE'] \| ~typing.Literal['critical', 'fatal', 'error', 'warn', 'warning', 'info', 'debug', 'TRACE'] \| int*) – The logging level to set.
-- **log\_format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – The format of the log messages.
-- **date\_format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – The format for timestamps in log messages. ||
+- **log\_format** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – The format of the log messages.
+- **date\_format** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – The format for timestamps in log messages. ||
 || Returns | The instance of the SDK with logging configured. ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
@@ -68,17 +68,17 @@ Read more about log\_levels, log\_format, and date\_format in [Python documentat
 
 ## *class* yandex\_ai\_studio\_sdk.\_types.model.**BaseModel**{#yandex_ai_studio_sdk._types.model.BaseModel}
 
-*property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.model.BaseModel.uri}
+*property* **uri**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.model.BaseModel.uri}
 
 *property* **config**\: *[ConfigTypeT](../types/other.md#yandex_ai_studio_sdk._types.model_config.ConfigTypeT)*{#yandex_ai_studio_sdk._types.model.BaseModel.config}
 
-*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._types.model.BaseModel.owner}
+*property* **owner**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._types.model.BaseModel.owner}
 
-*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._types.model.BaseModel.name}
+*property* **name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._types.model.BaseModel.name}
 
-*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._types.model.BaseModel.version}
+*property* **version**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._types.model.BaseModel.version}
 
-*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._types.model.BaseModel.fine_tuned}
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._types.model.BaseModel.fine_tuned}
 
 **configure**(*\*\*kwargs*){#yandex_ai_studio_sdk._types.model.BaseModel.configure}
 
@@ -125,16 +125,16 @@ Create a function tool with given parameters.
 #|
 || Parameters | 
 
-- **parameters** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, None \|* [*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\| TypeAliasForwardRef('yandex\_ai\_studio\_sdk.\_types.schemas.JsonArray') \|* [*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, None \|* [*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\| TypeAliasForwardRef('yandex\_ai\_studio\_sdk.\_types.schemas.JsonArray') \| JsonObject]] \|* [*type*](https://docs.python.org/3/library/functions.html#type)) – Function parameters specification. Can be one of: - JSON Schema dict: A dictionary containing a valid JSON schema that describes the function parameters, their types, descriptions, and validation rules. - Pydantic BaseModel class: A class inheriting from pydantic.BaseModel. The JSON schema will be automatically generated from the model definition. - Pydantic dataclass: A dataclass decorated with @pydantic.dataclasses.dataclass. The JSON schema will be automatically generated from the dataclass definition.
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Optional function name. If not provided: - For JSON Schema dict: must be provided explicitly or error will be raised. - For Pydantic models: automatically inferred from the class \_\_name\_\_ attribute.
-- **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Optional function description. If not provided: - For JSON Schema dict: taken from the ‘description’ field in the schema if present. - For Pydantic models: automatically inferred from the class docstring if present.
-- **strict** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Whether to enforce strict parameter validation. When True, the function call will strictly validate that only the defined parameters are provided. ||
+- **parameters** ([*dict*](https://docs.python.org/3/builtins/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*, None \|* [*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*float*](https://docs.python.org/3/builtins/functions.html#float) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int) *\| TypeAliasForwardRef('yandex\_ai\_studio\_sdk.\_types.schemas.JsonArray') \|* [*dict*](https://docs.python.org/3/builtins/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*, None \|* [*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*float*](https://docs.python.org/3/builtins/functions.html#float) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int) *\| TypeAliasForwardRef('yandex\_ai\_studio\_sdk.\_types.schemas.JsonArray') \| JsonObject]] \|* [*type*](https://docs.python.org/3/builtins/functions.html#type)) – Function parameters specification. Can be one of: - JSON Schema dict: A dictionary containing a valid JSON schema that describes the function parameters, their types, descriptions, and validation rules. - Pydantic BaseModel class: A class inheriting from pydantic.BaseModel. The JSON schema will be automatically generated from the model definition. - Pydantic dataclass: A dataclass decorated with @pydantic.dataclasses.dataclass. The JSON schema will be automatically generated from the dataclass definition.
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Optional function name. If not provided: - For JSON Schema dict: must be provided explicitly or an error will be raised. - For Pydantic models: automatically inferred from the class \_\_name\_\_ attribute.
+- **description** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Optional function description. If not provided: - For JSON Schema dict: taken from the ‘description’ field in the schema if present. - For Pydantic models: automatically inferred from the class docstring if present.
+- **strict** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Whether to enforce strict parameter validation. When True, the function call will strictly validate that only the defined parameters are provided. ||
 || Return type | [*FunctionTool*](../types/tools.md#yandex_ai_studio_sdk._tools.tool.FunctionTool) ||
 |#
 
 ## *class* yandex\_ai\_studio\_sdk.\_tools.tool.**BaseTool**{#yandex_ai_studio_sdk._tools.tool.BaseTool}
 
-Сlass for all tools.
+Class for all tools.
 
 This class serves as the foundation for all tool implementations that can be used with AI models.
 
@@ -144,11 +144,11 @@ A tool call returned by models as a result of server-side tool calls.
 
 This class encapsulates the response from language models when they invoke tools during conversation or completion. It contains information about the specific tool that was called, including its unique identifier and the associated function call with parameters and results.
 
-**id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._tools.tool_call.BaseToolCall.id}
+**id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._tools.tool_call.BaseToolCall.id}
 
 Unique tool call identifier
 
-**function**\: *[FunctionCallTypeT](../types/other.md#yandex_ai_studio_sdk._tools.function_call.FunctionCallTypeT) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._tools.tool_call.BaseToolCall.function}
+**function**\: *[FunctionCallTypeT](../types/other.md#yandex_ai_studio_sdk._tools.function_call.FunctionCallTypeT) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._tools.tool_call.BaseToolCall.function}
 
 Function call associated with this tool call
 
@@ -164,7 +164,7 @@ Raises ValueError if the value is not present.
 
 Supporting start and stop arguments is optional, but recommended.
 
-**tool\_calls**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[ToolCallTypeT](../types/other.md#yandex_ai_studio_sdk._tools.tool_call.ToolCallTypeT)*]... ,{#yandex_ai_studio_sdk._tools.tool_call_list.ToolCallList.tool_calls}
+**tool\_calls**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[ToolCallTypeT](../types/other.md#yandex_ai_studio_sdk._tools.tool_call.ToolCallTypeT)*]... ,{#yandex_ai_studio_sdk._tools.tool_call_list.ToolCallList.tool_calls}
 
 Collections of tool calls
 
@@ -174,7 +174,7 @@ Represents a function call returned by models as a result of server-side tool ca
 
 This class encapsulates the details of a function call that was invoked by the model during processing, including the function name and the arguments passed to it.
 
-**name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._tools.function_call.BaseFunctionCall.name}
+**name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._tools.function_call.BaseFunctionCall.name}
 
 Name of the function being called
 
@@ -184,7 +184,7 @@ Arguments passed to the function
 
 ## *class* yandex\_ai\_studio\_sdk.\_models.**BaseModels**{#yandex_ai_studio_sdk._models.BaseModels}
 
-Domain for working with [Yandex Foundation Models](https://yandex.cloud/ru/services/foundation-models).
+Domain for working with [Yandex AI Studio models](https://aistudio.yandex.ru/docs/ai-studio/concepts/generation/).
 
 **completions**\: *[BaseCompletions](#yandex_ai_studio_sdk._models.completions.function.BaseCompletions)*{#yandex_ai_studio_sdk._models.BaseModels.completions}
 
@@ -209,24 +209,24 @@ This method constructs the URI for the model based on the provided name and vers
 #|
 || Parameters | 
 
-- **model\_name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the name or URI of the model to call.
-- **model\_version** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the version of the model to use. Defaults to ‘latest’. ||
+- **model\_name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – the name or URI of the model to call.
+- **model\_version** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – the version of the model to use. Defaults to ‘latest’. ||
 || Return type | [*ModelTypeT*](../types/other.md#yandex_ai_studio_sdk._types.model.ModelTypeT) ||
 |#
 
 ## *class* yandex\_ai\_studio\_sdk.\_models.completions.model.**BaseGPTModel**{#yandex_ai_studio_sdk._models.completions.model.BaseGPTModel}
 
-A class for GPT models providing various functionalities including tuning, and batch processing.
+A class for GPT models providing various functionalities including tuning and batch processing.
 
 **langchain**(*model\_type='chat'*, *timeout=60*){#yandex_ai_studio_sdk._models.completions.model.BaseGPTModel.langchain}
 
-Initializes a langchain model based on the specified model type.
+Initializes a LangChain model based on the specified model type.
 
 #|
 || Parameters | 
 
-- **model\_type** (*Literal['chat']*) – the type of langchain model to initialize. Defaults to **"chat"**.
-- **timeout** ([*int*](https://docs.python.org/3/library/functions.html#int)) – the timeout which sets the default for the langchain model object. Defaults to 60 seconds. ||
+- **model\_type** (*Literal['chat']*) – the type of LangChain model to initialize. Defaults to **"chat"**.
+- **timeout** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) – the timeout which sets the default for the LangChain model object. Defaults to 60 seconds. ||
 || Return type | BaseYandexLanguageModel ||
 |#
 
@@ -237,12 +237,12 @@ Configures the model with specified parameters.
 #|
 || Parameters | 
 
-- **temperature** ([*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a sampling temperature to use - higher values mean more random results. Should be a double number between 0 (inclusive) and 1 (inclusive).
-- **max\_tokens** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a maximum number of tokens to generate in the response.
-- **reasoning\_mode** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*ReasoningMode*](../types/other.md#yandex_ai_studio_sdk._models.completions.config.ReasoningMode) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the mode of reasoning to apply during generation, allowing the model to perform internal reasoning before responding. Read more about possible modes in the [reasoning documentation](https://aistudio.yandex.ru/docs/ai-studio/text-generation/api-ref/TextGeneration/completion#yandex.cloud.ai.foundation_models.v1.ReasoningOptions).
+- **temperature** ([*float*](https://docs.python.org/3/builtins/functions.html#float) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a sampling temperature to use - higher values mean more random results. Should be a double number between 0 (inclusive) and 1 (inclusive).
+- **max\_tokens** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a maximum number of tokens to generate in the response.
+- **reasoning\_mode** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*ReasoningMode*](../types/other.md#yandex_ai_studio_sdk._models.completions.config.ReasoningMode) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the mode of reasoning to apply during generation, allowing the model to perform internal reasoning before responding. Read more about possible modes in the [reasoning documentation](https://aistudio.yandex.ru/docs/ai-studio/text-generation/api-ref/TextGeneration/completion#yandex.cloud.ai.foundation_models.v1.ReasoningOptions).
 - **response\_format** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*['json'] \| ~yandex\_ai\_studio\_sdk.\_types.schemas.JsonSchemaResponseType \| type \| ~yandex\_ai\_studio\_sdk.\_types.misc.Undefined*) – a format of the response returned by the model. Could be a JsonSchema, a JSON string, or a pydantic model. Read more about possible response formats in the [structured output documentation\_BaseGPTModel\_URL](https://aistudio.yandex.ru/docs/ai-studio/concepts/generation/structured-output).
 - **tools** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*FunctionTool*](../types/tools.md#yandex_ai_studio_sdk._tools.tool.FunctionTool)*] \|* [*FunctionTool*](../types/tools.md#yandex_ai_studio_sdk._tools.tool.FunctionTool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – tools to use for completion. Can be a sequence or a single tool.
-- **parallel\_tool\_calls** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – whether to allow parallel calls to tools during completion. Defaults to **true**.
+- **parallel\_tool\_calls** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – whether to allow parallel calls to tools during completion. Defaults to **true**.
 - **tool\_choice** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*['none', 'None', 'NONE', 'auto', 'Auto', 'AUTO', 'required', 'Required', 'REQUIRED'] \| ~yandex\_ai\_studio\_sdk.\_types.tools.function.FunctionDictType \| ~yandex\_ai\_studio\_sdk.\_tools.tool.FunctionTool \| ~yandex\_ai\_studio\_sdk.\_types.misc.Undefined*) – the strategy for choosing tools. There are several ways to configure **tool\_choice** for query processing: - no tools to call (**tool\_choice='none'**); - required to call any tool (**tool\_choice='required'**); - call a specific tool (**tool\_choice={'type': 'function', 'function': {'name': 'another\_calculator'}}** or directly passing a tool object). ||
 || Returns | new model instance with provided configuration. ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
@@ -252,15 +252,15 @@ Configures the model with specified parameters.
 
 *property* **config**\: *[ConfigTypeT](../types/other.md#yandex_ai_studio_sdk._types.model_config.ConfigTypeT)*{#yandex_ai_studio_sdk._models.completions.model.BaseGPTModel.config}
 
-*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._models.completions.model.BaseGPTModel.fine_tuned}
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._models.completions.model.BaseGPTModel.fine_tuned}
 
-*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._models.completions.model.BaseGPTModel.name}
+*property* **name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._models.completions.model.BaseGPTModel.name}
 
-*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._models.completions.model.BaseGPTModel.owner}
+*property* **owner**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._models.completions.model.BaseGPTModel.owner}
 
-*property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._models.completions.model.BaseGPTModel.uri}
+*property* **uri**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._models.completions.model.BaseGPTModel.uri}
 
-*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._models.completions.model.BaseGPTModel.version}
+*property* **version**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._models.completions.model.BaseGPTModel.version}
 
 ## *class* yandex\_ai\_studio\_sdk.\_models.text\_classifiers.function.**BaseTextClassifiers**{#yandex_ai_studio_sdk._models.text_classifiers.function.BaseTextClassifiers}
 
@@ -277,8 +277,8 @@ Constructs the URI for the model based on the provided model’s name and versio
 #|
 || Parameters | 
 
-- **model\_name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the name or URI of the model to call.
-- **model\_version** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the version of the model to be used. Defaults to ‘latest’. ||
+- **model\_name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – the name or URI of the model to call.
+- **model\_version** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – the version of the model to be used. Defaults to ‘latest’. ||
 || Return type | [*ModelTypeT*](../types/other.md#yandex_ai_studio_sdk._types.model.ModelTypeT) ||
 |#
 
@@ -288,17 +288,19 @@ A class for text embeddings models.
 
 It provides the functionality to call a text embeddings model either by a well-known name or a full URI.
 
+See the [available models and URI formats](https://aistudio.yandex.ru/docs/ai-studio/concepts/embeddings#yandexgpt-embeddings) and the [embeddings search example](https://aistudio.yandex.ru/docs/ai-studio/concepts/embeddings#example) in the AI Studio documentation.
+
 **\_\_call\_\_**(*model\_name*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *model\_version='latest'*){#yandex_ai_studio_sdk._models.text_embeddings.function.BaseTextEmbeddings.__call__i}
 
 Call the specified model for text embeddings. It returns an instance of the specified type of the model.
 
-This method constructs the URI for the model based on the provided name and version. If the name contains **\://**, it is treated as a full URI. Otherwise, it looks up the model name in the well-known names dictionary. But after this, in any case, we construct a URI in the form **emb://<folder\_id>/<model>/<version>**.
+If the name contains **\://**, it is used as a full URI. Otherwise, this method resolves the well-known names **doc** and **query** and constructs a URI in the form **emb://<folder\_id>/<model>/<version>**.
 
 #|
 || Parameters | 
 
-- **model\_name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the name or URI of the model to call.
-- **model\_version** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the version of the model to use. Defaults to ‘latest’. ||
+- **model\_name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – the name or URI of the model to call.
+- **model\_version** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – the version of the model to use. Defaults to ‘latest’. ||
 || Return type | [*ModelTypeT*](../types/other.md#yandex_ai_studio_sdk._types.model.ModelTypeT) ||
 |#
 
@@ -323,14 +325,14 @@ Constructs the URI for the model based on the provided model’s name and versio
 #|
 || Parameters | 
 
-- **model\_name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the name or URI of the model to call.
-- **model\_version** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the version of the model to use. Defaults to ‘latest’. ||
+- **model\_name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – the name or URI of the model to call.
+- **model\_version** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – the version of the model to use. Defaults to ‘latest’. ||
 || Return type | [*ModelTypeT*](../types/other.md#yandex_ai_studio_sdk._types.model.ModelTypeT) ||
 |#
 
 ## *class* yandex\_ai\_studio\_sdk.\_files.domain.**BaseFiles**{#yandex_ai_studio_sdk._files.domain.BaseFiles}
 
-Files domain, which contains API for working with files.
+Files domain, which contains an API for working with files.
 
 Provides upload, get and list methods that allow you to work with remote file objects you created earlier. Files are used by search indexes and other domains as input data.
 
@@ -340,7 +342,7 @@ BaseFile(id: ‘str’, \_sdk: ‘BaseSDK’, \_lock: ‘asyncio.Lock’, \_dele
 
 **expiration\_config**\: *[ExpirationConfig](../types/assistants.md#yandex_ai_studio_sdk._types.expiration.ExpirationConfig)*{#yandex_ai_studio_sdk._files.file.BaseFile.expiration_config}
 
-**id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._files.file.BaseFile.id}
+**id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._files.file.BaseFile.id}
 
 ## *class* yandex\_ai\_studio\_sdk.\_search\_api.domain.**BaseSearchAPIDomain**{#yandex_ai_studio_sdk._search_api.domain.BaseSearchAPIDomain}
 
@@ -364,29 +366,29 @@ API for [search by image](https://aistudio.yandex.ru/docs/search-api/concepts/im
 
 **wordstat**\: *[BaseWordstatFunction](#yandex_ai_studio_sdk._search_api.wordstat.function.BaseWordstatFunction)*{#yandex_ai_studio_sdk._search_api.domain.BaseSearchAPIDomain.wordstat}
 
-API for [Wordstat](https://aistudio.yandex.ru/docs/ru/search-api/concepts/wordstat.html) service
+API for [Wordstat](https://aistudio.yandex.ru/docs/search-api/concepts/wordstat) service
 
 ## *class* yandex\_ai\_studio\_sdk.\_search\_api.generative.function.**BaseGenerativeSearchFunction**{#yandex_ai_studio_sdk._search_api.generative.function.BaseGenerativeSearchFunction}
 
-Generative search function for creating search object which provides methods for invoking generative search.
+Generative search function for creating a search object which provides methods for invoking generative search.
 
 **\_\_call\_\_**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *site=Undefined*, *host=Undefined*, *url=Undefined*, *fix\_misspell=Undefined*, *enable\_nrfm\_docs=Undefined*, *search\_filters=Undefined*){#yandex_ai_studio_sdk._search_api.generative.function.BaseGenerativeSearchFunction.__call__i}
 
-Creates generative search object which provides methods for invoking generative search.
+Creates a generative search object which provides methods for invoking generative search.
 
-To learn more about parameters and their formats and possible values, refer to [generative search documentation](https://aistudio.yandex.ru/docs/search-api/concepts/generative-response#body)
+To learn more about parameters and their formats and possible values, refer to [generative search documentation](https://aistudio.yandex.ru/docs/search-api/concepts/generative-response#request)
 
 NB: All of the **site**, **host**, **url** parameters are mutually exclusive.
 
 #|
 || Parameters | 
 
-- **site** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – parameter for limiting search to specific location or list of sites.
-- **host** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – parameter for limiting search to specific location or list of hosts.
-- **url** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – parameter for limiting search to specific location or list of URLs.
-- **fix\_misspell** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – tells to backend to fix or not to fix misspels in queries.
-- **enable\_nrfm\_docs** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – tells to backend to include or not to include pages, which are not available via direct clicks from given sites/hosts/urls to search result.
-- **search\_filters** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*DateFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.DateFilterType) *\|* [*FormatFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.FormatFilterType) *\|* [*LangFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.LangFilterType)*] \|* [*DateFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.DateFilterType) *\|* [*FormatFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.FormatFilterType) *\|* [*LangFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.LangFilterType) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – allows to limit search results with additional filters.
+- **site** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – parameter for limiting search to a specific site or list of sites.
+- **host** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – parameter for limiting search to a specific host or list of hosts.
+- **url** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – parameter for limiting search to a specific URL or list of URLs.
+- **fix\_misspell** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – whether the backend should correct misspellings in queries.
+- **enable\_nrfm\_docs** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – whether the backend should include pages that cannot be reached directly from the specified sites, hosts, or URLs in the search results.
+- **search\_filters** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*DateFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.DateFilterType) *\|* [*FormatFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.FormatFilterType) *\|* [*LangFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.LangFilterType)*] \|* [*DateFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.DateFilterType) *\|* [*FormatFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.FormatFilterType) *\|* [*LangFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.LangFilterType) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – limits search results using additional filters.
 ```python
 >>> date_filter = {'date': '<20250101'}
 >>> format_filter = {'format': 'doc'}
@@ -401,25 +403,25 @@ NB: All of the **site**, **host**, **url** parameters are mutually exclusive.
 
 ## *class* yandex\_ai\_studio\_sdk.\_search\_api.generative.generative.**BaseGenerativeSearch**{#yandex_ai_studio_sdk._search_api.generative.generative.BaseGenerativeSearch}
 
-Generative search class which provides concrete methods for working with Yandex Search API and encapsulates search setting.
+Generative search class which provides concrete methods for working with Yandex Search API and encapsulates search settings.
 
 **configure**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *site=Undefined*, *host=Undefined*, *url=Undefined*, *fix\_misspell=Undefined*, *enable\_nrfm\_docs=Undefined*, *search\_filters=Undefined*){#yandex_ai_studio_sdk._search_api.generative.generative.BaseGenerativeSearch.configure}
 
-Returns the new object with config fields overrode by passed values.
+Returns a new object with configuration fields overridden by the provided values.
 
-To learn more about parameters and their formats and possible values, refer to [generative search documentation](https://aistudio.yandex.ru/docs/search-api/concepts/generative-response#body)
+To learn more about parameters and their formats and possible values, refer to [generative search documentation](https://aistudio.yandex.ru/docs/search-api/concepts/generative-response#request)
 
 NB: All of the **site**, **host**, **url** parameters are mutually exclusive
 
 #|
 || Parameters | 
 
-- **site** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – parameter for limiting search to specific location or list of sites.
-- **host** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – parameter for limiting search to specific location or list of hosts.
-- **url** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – parameter for limiting search to specific location or list of URLs.
-- **fix\_misspell** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – tells to backend to fix or not to fix misspels in queries.
-- **enable\_nrfm\_docs** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – tells to backend to include or not to include pages, which are not available via direct clicks from given sites/hosts/urls to search result.
-- **search\_filters** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*DateFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.DateFilterType) *\|* [*FormatFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.FormatFilterType) *\|* [*LangFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.LangFilterType)*] \|* [*DateFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.DateFilterType) *\|* [*FormatFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.FormatFilterType) *\|* [*LangFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.LangFilterType) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – allows to limit search results with additional filters.
+- **site** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – parameter for limiting search to a specific site or list of sites.
+- **host** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – parameter for limiting search to a specific host or list of hosts.
+- **url** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – parameter for limiting search to a specific URL or list of URLs.
+- **fix\_misspell** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – whether the backend should correct misspellings in queries.
+- **enable\_nrfm\_docs** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – whether the backend should include pages that cannot be reached directly from the specified sites, hosts, or URLs in the search results.
+- **search\_filters** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*DateFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.DateFilterType) *\|* [*FormatFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.FormatFilterType) *\|* [*LangFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.LangFilterType)*] \|* [*DateFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.DateFilterType) *\|* [*FormatFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.FormatFilterType) *\|* [*LangFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.LangFilterType) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – limits search results using additional filters.
 ```python
 >>> date_filter = {'date': '<20250101'}
 >>> format_filter = {'format': 'doc'}
@@ -432,15 +434,15 @@ NB: All of the **site**, **host**, **url** parameters are mutually exclusive
 
 *property* **config**\: *[ConfigTypeT](../types/other.md#yandex_ai_studio_sdk._types.model_config.ConfigTypeT)*{#yandex_ai_studio_sdk._search_api.generative.generative.BaseGenerativeSearch.config}
 
-*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.generative.generative.BaseGenerativeSearch.fine_tuned}
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_api.generative.generative.BaseGenerativeSearch.fine_tuned}
 
-*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.generative.generative.BaseGenerativeSearch.name}
+*property* **name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_api.generative.generative.BaseGenerativeSearch.name}
 
-*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.generative.generative.BaseGenerativeSearch.owner}
+*property* **owner**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_api.generative.generative.BaseGenerativeSearch.owner}
 
-*property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.generative.generative.BaseGenerativeSearch.uri}
+*property* **uri**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.generative.generative.BaseGenerativeSearch.uri}
 
-*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.generative.generative.BaseGenerativeSearch.version}
+*property* **version**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_api.generative.generative.BaseGenerativeSearch.version}
 
 ## *class* yandex\_ai\_studio\_sdk.\_search\_indexes.domain.**BaseSearchIndexes**{#yandex_ai_studio_sdk._search_indexes.domain.BaseSearchIndexes}
 
@@ -452,7 +454,7 @@ This class represents a search index with associated operations.
 
 **expiration\_config**\: *[ExpirationConfig](../types/assistants.md#yandex_ai_studio_sdk._types.expiration.ExpirationConfig)*{#yandex_ai_studio_sdk._search_indexes.search_index.BaseSearchIndex.expiration_config}
 
-**id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_indexes.search_index.BaseSearchIndex.id}
+**id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_indexes.search_index.BaseSearchIndex.id}
 
 ## *class* yandex\_ai\_studio\_sdk.\_datasets.domain.**BaseDatasets**{#yandex_ai_studio_sdk._datasets.domain.BaseDatasets}
 
@@ -489,38 +491,38 @@ Create a new dataset draft from a specified path.
 #|
 || Parameters | 
 
-- **path** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*PathLike*](https://docs.python.org/3/library/os.html#os.PathLike)) – the path to the data file or directory.
-- **task\_type** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the type of task for the dataset.
-- **upload\_format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the format in which the data should be uploaded.
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the name of the dataset.
-- **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a description of the dataset.
-- **metadata** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – metadata associated with the dataset.
-- **labels** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a set of labels for the dataset.
-- **allow\_data\_logging** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a flag indicating if data logging is allowed. ||
+- **path** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*PathLike*](https://docs.python.org/3/library/os.html#os.PathLike)) – the path to the data file or directory.
+- **task\_type** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the type of task for the dataset.
+- **upload\_format** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the format in which the data should be uploaded.
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the name of the dataset.
+- **description** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a description of the dataset.
+- **metadata** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – metadata associated with the dataset.
+- **labels** ([*dict*](https://docs.python.org/3/builtins/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a set of labels for the dataset.
+- **allow\_data\_logging** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a flag indicating if data logging is allowed. ||
 || Return type | [*DatasetDraftT*](../types/other.md#yandex_ai_studio_sdk._datasets.draft.DatasetDraftT) ||
 |#
 
 ## *class* yandex\_ai\_studio\_sdk.\_datasets.dataset.**BaseDataset**{#yandex_ai_studio_sdk._datasets.dataset.BaseDataset}
 
-This class represents methods for operating with datasets.
+This class represents methods for working with datasets.
 
-**folder\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._datasets.dataset.BaseDataset.folder_id}
+**folder\_id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._datasets.dataset.BaseDataset.folder_id}
 
 the ID of the folder which contains the dataset
 
-**name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._datasets.dataset.BaseDataset.name}
+**name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._datasets.dataset.BaseDataset.name}
 
 the name of the dataset
 
-**description**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._datasets.dataset.BaseDataset.description}
+**description**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._datasets.dataset.BaseDataset.description}
 
 a description of the dataset
 
-**metadata**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._datasets.dataset.BaseDataset.metadata}
+**metadata**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._datasets.dataset.BaseDataset.metadata}
 
 metadata associated with the dataset
 
-**created\_by**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._datasets.dataset.BaseDataset.created_by}
+**created\_by**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._datasets.dataset.BaseDataset.created_by}
 
 the user who created the dataset
 
@@ -532,11 +534,11 @@ the timestamp when the dataset was created
 
 the timestamp when the dataset was last updated
 
-**labels**\: *[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [str](https://docs.python.org/3/library/stdtypes.html#str)] | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._datasets.dataset.BaseDataset.labels}
+**labels**\: *[dict](https://docs.python.org/3/builtins/stdtypes.html#dict)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), [str](https://docs.python.org/3/builtins/stdtypes.html#str)] | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._datasets.dataset.BaseDataset.labels}
 
 a dictionary of labels associated with the dataset
 
-**allow\_data\_logging**\: *[bool](https://docs.python.org/3/library/functions.html#bool)*{#yandex_ai_studio_sdk._datasets.dataset.BaseDataset.allow_data_logging}
+**allow\_data\_logging**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool)*{#yandex_ai_studio_sdk._datasets.dataset.BaseDataset.allow_data_logging}
 
 indicates if data logging is allowed for this dataset
 
@@ -544,59 +546,59 @@ indicates if data logging is allowed for this dataset
 
 the current status of the dataset
 
-**task\_type**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._datasets.dataset.BaseDataset.task_type}
+**task\_type**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._datasets.dataset.BaseDataset.task_type}
 
 the type of task associated with the dataset
 
-**rows**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._datasets.dataset.BaseDataset.rows}
+**rows**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._datasets.dataset.BaseDataset.rows}
 
 the number of rows in the dataset
 
-**size\_bytes**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._datasets.dataset.BaseDataset.size_bytes}
+**size\_bytes**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._datasets.dataset.BaseDataset.size_bytes}
 
 the size of the dataset in bytes
 
-**validation\_errors**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[ValidationErrorInfo](../types/datasets.md#yandex_ai_studio_sdk._datasets.dataset.ValidationErrorInfo)*]... ,{#yandex_ai_studio_sdk._datasets.dataset.BaseDataset.validation_errors}
+**validation\_errors**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[ValidationErrorInfo](../types/datasets.md#yandex_ai_studio_sdk._datasets.dataset.ValidationErrorInfo)*]... ,{#yandex_ai_studio_sdk._datasets.dataset.BaseDataset.validation_errors}
 
 a tuple of validation errors associated with the dataset
 
-**id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._datasets.dataset.BaseDataset.id}
+**id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._datasets.dataset.BaseDataset.id}
 
 ## *class* yandex\_ai\_studio\_sdk.\_datasets.draft.**BaseDatasetDraft**{#yandex_ai_studio_sdk._datasets.draft.BaseDatasetDraft}
 
 This class allows users to create a draft representation of a dataset without immediately interacting with the server. This draft serves as a structure for storing configuration settings, enabling users to edit the dataset’s properties before finalizing the upload.
 
-**task\_type**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.BaseDatasetDraft.task_type}
+**task\_type**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.BaseDatasetDraft.task_type}
 
 the type of task associated with the dataset
 
-**path**\: *[PathLike](../types/other.md#yandex_ai_studio_sdk._types.misc.PathLike) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.BaseDatasetDraft.path}
+**path**\: *[PathLike](../types/other.md#yandex_ai_studio_sdk._types.misc.PathLike) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.BaseDatasetDraft.path}
 
 the file path to the dataset
 
-**upload\_format**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.BaseDatasetDraft.upload_format}
+**upload\_format**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.BaseDatasetDraft.upload_format}
 
 the format in which the dataset will be uploaded
 
-**name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.BaseDatasetDraft.name}
+**name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.BaseDatasetDraft.name}
 
 the name of the dataset
 
-**description**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.BaseDatasetDraft.description}
+**description**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.BaseDatasetDraft.description}
 
 a description of the dataset
 
-**metadata**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.BaseDatasetDraft.metadata}
+**metadata**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.BaseDatasetDraft.metadata}
 
 metadata associated with the dataset
 
-**labels**\: *[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [str](https://docs.python.org/3/library/stdtypes.html#str)] | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.BaseDatasetDraft.labels}
+**labels**\: *[dict](https://docs.python.org/3/builtins/stdtypes.html#dict)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), [str](https://docs.python.org/3/builtins/stdtypes.html#str)] | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.BaseDatasetDraft.labels}
 
 labels for categorizing the dataset
 
-**allow\_data\_logging**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.BaseDatasetDraft.allow_data_logging}
+**allow\_data\_logging**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.BaseDatasetDraft.allow_data_logging}
 
-a flag indicating if iyt is allowed to use the dataset to improve the models quality. Default false.
+a flag indicating whether the dataset may be used to improve model quality. Defaults to false.
 
 **configure**(*\*\*kwargs*){#yandex_ai_studio_sdk._datasets.draft.BaseDatasetDraft.configure}
 
@@ -621,15 +623,15 @@ This class serves as the foundation for all model fine-tuning operations, provid
 
 ## *class* yandex\_ai\_studio\_sdk.\_batch.domain.**BaseBatch**{#yandex_ai_studio_sdk._batch.domain.BaseBatch}
 
-Сlass for managing batch operations in Yandex AI Studio SDK.
+Class for managing batch operations in Yandex AI Studio SDK.
 
-For usage examples see [batch example](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/blob/master/examples/{link}/completions/batch.py).
+For usage examples, see [batch example](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/blob/master/examples/{link}/completions/batch.py).
 
 ## *class* yandex\_ai\_studio\_sdk.\_types.batch.operation.**BaseBatchTaskOperation**{#yandex_ai_studio_sdk._types.batch.operation.BaseBatchTaskOperation}
 
-*property* **id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.batch.operation.BaseBatchTaskOperation.id}
+*property* **id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.batch.operation.BaseBatchTaskOperation.id}
 
-*property* **task\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.batch.operation.BaseBatchTaskOperation.task_id}
+*property* **task\_id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.batch.operation.BaseBatchTaskOperation.task_id}
 
 ## *class* yandex\_ai\_studio\_sdk.\_chat.**BaseChat**{#yandex_ai_studio_sdk._chat.BaseChat}
 
@@ -651,15 +653,15 @@ This class provides the core functionality for creating chat model instances and
 
 **\_\_call\_\_**(*model\_name*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *model\_version='latest'*){#yandex_ai_studio_sdk._chat.completions.function.BaseChatCompletions.__call__i}
 
-Create a model instance in selected chat subdomain (completions, embeddings, etc)
+Create a model instance in the selected chat subdomain (completions, embeddings, etc)
 
-Constructs the model URI based on the provided name and version. If the name contains ‘://’, it is treated as a full URI. Otherwise constructs a URI in the form ‘gpt://<folder\_id>/<model>/<version>’.
+Constructs the model URI based on the provided name and version. If the name contains ‘://’, it is treated as a full URI. Otherwise constructs a URI in the form **<prefix>://<folder\_id>/<model>/<version>**, using **gpt** for completions and **emb** for embeddings.
 
 #|
 || Parameters | 
 
-- **model\_name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – The name or URI of the model.
-- **model\_version** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – The version of the model to use. Defaults to ‘latest’. ||
+- **model\_name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – The name or URI of the model.
+- **model\_version** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – The version of the model to use. Defaults to ‘latest’. ||
 || Return type | [*ModelTypeT*](../types/other.md#yandex_ai_studio_sdk._types.model.ModelTypeT) ||
 |#
 
@@ -676,12 +678,12 @@ Configure the model with specified parameters.
 #|
 || Parameters | 
 
-- **temperature** ([*UndefinedOr*](../types/other.md#yandex_ai_studio_sdk._types.misc.UndefinedOr)*[*[*float*](https://docs.python.org/3/library/functions.html#float)*] \| None*) – Sampling temperature (0-1). Higher values produce more random results.
-- **max\_tokens** ([*UndefinedOr*](../types/other.md#yandex_ai_studio_sdk._types.misc.UndefinedOr)*[*[*int*](https://docs.python.org/3/library/functions.html#int)*] \| None*) – Maximum number of tokens to generate in the response.
+- **temperature** ([*UndefinedOr*](../types/other.md#yandex_ai_studio_sdk._types.misc.UndefinedOr)*[*[*float*](https://docs.python.org/3/builtins/functions.html#float)*] \| None*) – Sampling temperature (0-1). Higher values produce more random results.
+- **max\_tokens** ([*UndefinedOr*](../types/other.md#yandex_ai_studio_sdk._types.misc.UndefinedOr)*[*[*int*](https://docs.python.org/3/builtins/functions.html#int)*] \| None*) – Maximum number of tokens to generate in the response.
 - **reasoning\_mode** ([*UndefinedOr*](../types/other.md#yandex_ai_studio_sdk._types.misc.UndefinedOr)*[*[*ChatReasoningModeType*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._chat.completions.config.ChatReasoningModeType)*] \| None*) – Reasoning mode for internal processing before responding.
 - **response\_format** ([*UndefinedOr*](../types/other.md#yandex_ai_studio_sdk._types.misc.UndefinedOr)*[ResponseType] \| None*) – Format of the response (JsonSchema, JSON string, or pydantic model). See [structured output documentation\_BaseChatModel\_URL](https://aistudio.yandex.ru/docs/ai-studio/concepts/generation/structured-output).
 - **tools** ([*UndefinedOr*](../types/other.md#yandex_ai_studio_sdk._types.misc.UndefinedOr)*[Sequence[*[*CompletionTool*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._models.completions.config.CompletionTool)*] \|* [*CompletionTool*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._models.completions.config.CompletionTool)*]*) – Tools available for completion. Can be a sequence or single tool.
-- **parallel\_tool\_calls** ([*UndefinedOr*](../types/other.md#yandex_ai_studio_sdk._types.misc.UndefinedOr)*[*[*bool*](https://docs.python.org/3/library/functions.html#bool)*]*) – Whether to allow parallel tool calls. Defaults to ‘true’.
+- **parallel\_tool\_calls** ([*UndefinedOr*](../types/other.md#yandex_ai_studio_sdk._types.misc.UndefinedOr)*[*[*bool*](https://docs.python.org/3/builtins/functions.html#bool)*]*) – Whether to allow parallel tool calls. Defaults to ‘true’.
 - **tool\_choice** ([*UndefinedOr*](../types/other.md#yandex_ai_studio_sdk._types.misc.UndefinedOr)*[*[*ToolChoiceType*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.tools.tool_choice.ToolChoiceType)*]*) – Strategy for tool selection. There are several ways to configure **tool\_choice** for query processing: - no tools to call (**tool\_choice='none'**); - required to call any tool (**tool\_choice='required'**); - call a specific tool (**tool\_choice={'type': 'function', 'function': {'name': 'another\_calculator'}}** or directly passing a tool object).
 - **extra\_query** ([*UndefinedOr*](../types/other.md#yandex_ai_studio_sdk._types.misc.UndefinedOr)*[*[*QueryType*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._chat.completions.config.QueryType)*]*) – Additional experimental model parameters. ||
 || Return type | Self ||
@@ -689,29 +691,33 @@ Configure the model with specified parameters.
 
 *property* **config**\: *[ConfigTypeT](../types/other.md#yandex_ai_studio_sdk._types.model_config.ConfigTypeT)*{#yandex_ai_studio_sdk._chat.completions.model.BaseChatModel.config}
 
-*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._chat.completions.model.BaseChatModel.fine_tuned}
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._chat.completions.model.BaseChatModel.fine_tuned}
 
-*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._chat.completions.model.BaseChatModel.name}
+*property* **name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._chat.completions.model.BaseChatModel.name}
 
-*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._chat.completions.model.BaseChatModel.owner}
+*property* **owner**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._chat.completions.model.BaseChatModel.owner}
 
-*property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._chat.completions.model.BaseChatModel.uri}
+*property* **uri**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._chat.completions.model.BaseChatModel.uri}
 
-*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._chat.completions.model.BaseChatModel.version}
+*property* **version**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._chat.completions.model.BaseChatModel.version}
 
 ## *class* yandex\_ai\_studio\_sdk.\_chat.text\_embeddings.function.**BaseChatEmbeddings**{#yandex_ai_studio_sdk._chat.text_embeddings.function.BaseChatEmbeddings}
 
+Access text embeddings models through the OpenAI-compatible API.
+
+See the [available models and URI formats](https://aistudio.yandex.ru/docs/ai-studio/concepts/embeddings#yandexgpt-embeddings) and the [embeddings search example](https://aistudio.yandex.ru/docs/ai-studio/concepts/embeddings#example) in the AI Studio documentation.
+
 **\_\_call\_\_**(*model\_name*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *model\_version='latest'*){#yandex_ai_studio_sdk._chat.text_embeddings.function.BaseChatEmbeddings.__call__i}
 
-Create a model instance in selected chat subdomain (completions, embeddings, etc)
+Create a model instance in the selected chat subdomain (completions, embeddings, etc)
 
-Constructs the model URI based on the provided name and version. If the name contains ‘://’, it is treated as a full URI. Otherwise constructs a URI in the form ‘gpt://<folder\_id>/<model>/<version>’.
+Constructs the model URI based on the provided name and version. If the name contains ‘://’, it is treated as a full URI. Otherwise constructs a URI in the form **<prefix>://<folder\_id>/<model>/<version>**, using **gpt** for completions and **emb** for embeddings.
 
 #|
 || Parameters | 
 
-- **model\_name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – The name or URI of the model.
-- **model\_version** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – The version of the model to use. Defaults to ‘latest’. ||
+- **model\_name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – The name or URI of the model.
+- **model\_version** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – The version of the model to use. Defaults to ‘latest’. ||
 || Return type | [*ModelTypeT*](../types/other.md#yandex_ai_studio_sdk._types.model.ModelTypeT) ||
 |#
 
@@ -722,7 +728,7 @@ Constructs the model URI based on the provided name and version. If the name con
 #|
 || Parameters | 
 
-- **dimensions** ([*UndefinedOr*](../types/other.md#yandex_ai_studio_sdk._types.misc.UndefinedOr)*[*[*int*](https://docs.python.org/3/library/functions.html#int)*]*)
+- **dimensions** ([*UndefinedOr*](../types/other.md#yandex_ai_studio_sdk._types.misc.UndefinedOr)*[*[*int*](https://docs.python.org/3/builtins/functions.html#int)*]*)
 - **encoding\_format** ([*UndefinedOr*](../types/other.md#yandex_ai_studio_sdk._types.misc.UndefinedOr)*[*[*EncodingFormatType*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._chat.text_embeddings.config.EncodingFormatType)*]*)
 - **extra\_query** ([*UndefinedOr*](../types/other.md#yandex_ai_studio_sdk._types.misc.UndefinedOr)*[*[*QueryType*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._chat.completions.config.QueryType)*]*) ||
 || Return type | Self ||
@@ -730,96 +736,96 @@ Constructs the model URI based on the provided name and version. If the name con
 
 *property* **config**\: *[ConfigTypeT](../types/other.md#yandex_ai_studio_sdk._types.model_config.ConfigTypeT)*{#yandex_ai_studio_sdk._chat.text_embeddings.model.BaseChatEmbeddingsModel.config}
 
-*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._chat.text_embeddings.model.BaseChatEmbeddingsModel.fine_tuned}
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._chat.text_embeddings.model.BaseChatEmbeddingsModel.fine_tuned}
 
-*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._chat.text_embeddings.model.BaseChatEmbeddingsModel.name}
+*property* **name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._chat.text_embeddings.model.BaseChatEmbeddingsModel.name}
 
-*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._chat.text_embeddings.model.BaseChatEmbeddingsModel.owner}
+*property* **owner**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._chat.text_embeddings.model.BaseChatEmbeddingsModel.owner}
 
-*property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._chat.text_embeddings.model.BaseChatEmbeddingsModel.uri}
+*property* **uri**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._chat.text_embeddings.model.BaseChatEmbeddingsModel.uri}
 
-*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._chat.text_embeddings.model.BaseChatEmbeddingsModel.version}
+*property* **version**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._chat.text_embeddings.model.BaseChatEmbeddingsModel.version}
 
 ## *class* yandex\_ai\_studio\_sdk.\_search\_api.web.function.**BaseWebSearchFunction**{#yandex_ai_studio_sdk._search_api.web.function.BaseWebSearchFunction}
 
-Web search function for creating search object which provides methods for invoking web search.
+Web search function for creating a search object which provides methods for invoking web search.
 
 **\_\_call\_\_**(*search\_type*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *family\_mode=Undefined*, *fix\_typo\_mode=Undefined*, *localization=Undefined*, *sort\_order=Undefined*, *sort\_mode=Undefined*, *group\_mode=Undefined*, *groups\_on\_page=Undefined*, *docs\_in\_group=Undefined*, *max\_passages=Undefined*, *region=Undefined*, *user\_agent=Undefined*, *metadata=Undefined*){#yandex_ai_studio_sdk._search_api.web.function.BaseWebSearchFunction.__call__i}
 
-Creates web search object which provides methods for web search.
+Creates a web search object which provides methods for web search.
 
-To learn more about parameters and their formats and possible values, refer to [web search documentation](https://yandex.cloud/ru/docs/search-api/concepts/web-search#parameters)
+To learn more about parameters and their formats and possible values, refer to [web search documentation](https://aistudio.yandex.ru/docs/search-api/concepts/web-search#parameters)
 
 #|
 || Parameters | 
 
-- **search\_type** ([*SearchType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.SearchType) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*SearchType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.SearchType)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int)) – Search type.
-- **family\_mode** ([*FamilyMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.FamilyMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*FamilyMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.FamilyMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Results filtering.
-- **fix\_typo\_mode** ([*FixTypoMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.FixTypoMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*FixTypoMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.FixTypoMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Search query typo correction setting
-- **localization** ([*Localization*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.Localization) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*Localization*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.Localization)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Search response notifications language. Affects the text in the **found-docs-human** tag and error messages
-- **sort\_order** ([*SortOrder*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.SortOrder) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*SortOrder*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.SortOrder)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Search results sorting order
-- **sort\_mode** ([*SortMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.SortMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*SortMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.SortMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Search results sorting mode rule
-- **group\_mode** ([*GroupMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.GroupMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*GroupMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.GroupMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Result grouping method.
-- **groups\_on\_page** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Maximum number of groups that can be returned per page.
-- **docs\_in\_group** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Maximum number of documents that can be returned per group.
-- **max\_passages** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Maximum number of passages that can be used when generating a document.
-- **region** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Region*](../types/search_api.md#yandex_ai_studio_sdk._search_api.types.Region) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Search country or region ID that affects the document ranking rules.
-- **user\_agent** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – String containing the User-Agent header. Use this parameter to have your search results optimized for a specific device and browser, including mobile search results.
-- **metadata** ([*Mapping*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) ||
+- **search\_type** ([*SearchType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.SearchType) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*SearchType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.SearchType)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int)) – Search type.
+- **family\_mode** ([*FamilyMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.FamilyMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*FamilyMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.FamilyMode)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Results filtering.
+- **fix\_typo\_mode** ([*FixTypoMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.FixTypoMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*FixTypoMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.FixTypoMode)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Search query typo correction setting
+- **localization** ([*Localization*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.Localization) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*Localization*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.Localization)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Search response notifications language. Affects the text in the **found-docs-human** tag and error messages
+- **sort\_order** ([*SortOrder*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.SortOrder) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*SortOrder*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.SortOrder)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Search results sorting order
+- **sort\_mode** ([*SortMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.SortMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*SortMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.SortMode)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Search results sorting mode rule
+- **group\_mode** ([*GroupMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.GroupMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*GroupMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.GroupMode)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Result grouping method.
+- **groups\_on\_page** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Maximum number of groups that can be returned per page.
+- **docs\_in\_group** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Maximum number of documents that can be returned per group.
+- **max\_passages** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Maximum number of passages that can be used when generating a document.
+- **region** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Region*](../types/search_api.md#yandex_ai_studio_sdk._search_api.types.Region) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Search country or region ID that affects the document ranking rules.
+- **user\_agent** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – String containing the User-Agent header. Use this parameter to have your search results optimized for a specific device and browser, including mobile search results.
+- **metadata** ([*Mapping*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) ||
 || Return type | [*WebSearchTypeT*](../types/other.md#yandex_ai_studio_sdk._search_api.web.web.WebSearchTypeT) ||
 |#
 
 ## *class* yandex\_ai\_studio\_sdk.\_search\_api.image.function.**BaseImageSearchFunction**{#yandex_ai_studio_sdk._search_api.image.function.BaseImageSearchFunction}
 
-Image search function for creating search object which provides methods for invoking image search.
+Image search function for creating a search object which provides methods for invoking image search.
 
 **\_\_call\_\_**(*search\_type*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *family\_mode=Undefined*, *fix\_typo\_mode=Undefined*, *format=Undefined*, *size=Undefined*, *orientation=Undefined*, *color=Undefined*, *site=Undefined*, *docs\_on\_page=Undefined*, *user\_agent=Undefined*){#yandex_ai_studio_sdk._search_api.image.function.BaseImageSearchFunction.__call__i}
 
-Creates image search object which provides methods for image search.
+Creates an image search object which provides methods for image search.
 
-To learn more about parameters and their formats and possible values, refer to [image search documentation](https://yandex.cloud/ru/docs/search-api/concepts/image-search#parameters)
+To learn more about parameters and their formats and possible values, refer to [image search documentation](https://aistudio.yandex.ru/docs/search-api/concepts/image-search#search-by-text-query)
 
 #|
 || Parameters | 
 
-- **search\_type** ([*SearchType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.SearchType) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*SearchType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.SearchType)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int)) – Search type.
-- **family\_mode** ([*FamilyMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.FamilyMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*FamilyMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.FamilyMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Results filtering.
-- **fix\_typo\_mode** ([*FixTypoMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.FixTypoMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*FixTypoMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.FixTypoMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Search query typo correction setting.
-- **format** ([*ImageFormat*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.ImageFormat) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*ImageFormat*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.ImageFormat)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Searching for images in a particular format.
-- **size** ([*ImageSize*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.ImageSize) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*ImageSize*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.ImageSize)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Searching for images of a particular size.
-- **orientation** ([*ImageOrientation*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.ImageOrientation) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*ImageOrientation*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.ImageOrientation)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Searching for images with a particular orientation.
-- **color** ([*ImageColor*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.ImageColor) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*ImageColor*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.ImageColor)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Searching for images containing a particular color.
-- **site** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Number of results per search result page.
-- **docs\_on\_page** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Number of results per search result page.
-- **user\_agent** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – String containing the User-Agent header. Use this parameter to have your search results optimized for a specific device and browser, including mobile search results. ||
+- **search\_type** ([*SearchType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.SearchType) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*SearchType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.SearchType)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int)) – Search type.
+- **family\_mode** ([*FamilyMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.FamilyMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*FamilyMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.FamilyMode)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Results filtering.
+- **fix\_typo\_mode** ([*FixTypoMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.FixTypoMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*FixTypoMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.FixTypoMode)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Search query typo correction setting.
+- **format** ([*ImageFormat*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.ImageFormat) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*ImageFormat*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.ImageFormat)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Searching for images in a particular format.
+- **size** ([*ImageSize*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.ImageSize) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*ImageSize*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.ImageSize)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Searching for images of a particular size.
+- **orientation** ([*ImageOrientation*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.ImageOrientation) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*ImageOrientation*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.ImageOrientation)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Searching for images with a particular orientation.
+- **color** ([*ImageColor*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.ImageColor) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*ImageColor*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.ImageColor)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Searching for images containing a particular color.
+- **site** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Restricts the search to the specified website.
+- **docs\_on\_page** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Number of results per search result page.
+- **user\_agent** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – String containing the User-Agent header. Use this parameter to have your search results optimized for a specific device and browser, including mobile search results. ||
 || Return type | [*ImageSearchTypeT*](../types/other.md#yandex_ai_studio_sdk._search_api.image.image.ImageSearchTypeT) ||
 |#
 
 ## *class* yandex\_ai\_studio\_sdk.\_search\_api.by\_image.function.**BaseByImageSearchFunction**{#yandex_ai_studio_sdk._search_api.by_image.function.BaseByImageSearchFunction}
 
-ByImage search function for creating search object which provides methods for invoking by\_image search.
+ByImage search function for creating a search object which provides methods for invoking by\_image search.
 
 **\_\_call\_\_**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *family\_mode=Undefined*, *site=Undefined*){#yandex_ai_studio_sdk._search_api.by_image.function.BaseByImageSearchFunction.__call__i}
 
-Creates by\_image search object which provides methods for search by image.
+Creates a by\_image search object which provides methods for search by image.
 
-To learn more about parameters and their formats and possible values, refer to [search by image documentation](https://yandex.cloud/ru/docs/search-api/concepts/image-search#request-body-by-pic)
+To learn more about parameters and their formats and possible values, refer to [search by image documentation](https://aistudio.yandex.ru/docs/search-api/concepts/image-search#search-by-image)
 
 #|
 || Parameters | 
 
-- **family\_mode** ([*FamilyMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.FamilyMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*FamilyMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.FamilyMode)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Results filtering.
-- **site** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Restricts the search to the specific website. ||
+- **family\_mode** ([*FamilyMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.FamilyMode) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*FamilyMode*](../types/search_api.md#yandex_ai_studio_sdk._search_api.enums.FamilyMode)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Results filtering.
+- **site** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Restricts the search to the specific website. ||
 || Return type | [*ByImageSearchTypeT*](../types/other.md#yandex_ai_studio_sdk._search_api.by_image.by_image.ByImageSearchTypeT) ||
 |#
 
 ## *class* yandex\_ai\_studio\_sdk.\_search\_api.wordstat.function.**BaseWordstatFunction**{#yandex_ai_studio_sdk._search_api.wordstat.function.BaseWordstatFunction}
 
-Wordstat function for creating wordstat object which provides methods for invoking Wordstat service.
+Wordstat function for creating a Wordstat object which provides methods for invoking Wordstat service.
 
 **\_\_call\_\_**(){#yandex_ai_studio_sdk._search_api.wordstat.function.BaseWordstatFunction.__call__i}
 
-Creates Wordstat object which provides methods for invoking [Wordstat service](https://aistudio.yandex.ru/docs/ru/search-api/concepts/wordstat.html).
+Creates a Wordstat object which provides methods for invoking [Wordstat service](https://aistudio.yandex.ru/docs/search-api/concepts/wordstat).
 
 #|
 || Return type | [*WordstatTypeT*](../types/other.md#yandex_ai_studio_sdk._search_api.wordstat.wordstat.WordstatTypeT) ||
@@ -831,7 +837,7 @@ Wordstat class which provides concrete methods for working with Wordstat service
 
 **configure**(){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.configure}
 
-Returns the new object, but actually do nothing.
+Returns a new object without making any configuration changes.
 
 #|
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
@@ -846,8 +852,8 @@ Device type
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.DeviceType.__new__i}
@@ -934,8 +940,8 @@ Requested period type
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.PeriodType.__new__i}
@@ -1020,8 +1026,8 @@ Requested type of regions distribution
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.RegionsDistributionType.__new__i}
@@ -1103,22 +1109,22 @@ the denominator of a rational number in lowest terms
 || Parameters | 
 
 - **sdk** ([*yandex\_ai\_studio\_sdk.\_sdk.BaseSDK*](#yandex_ai_studio_sdk._sdk.BaseSDK))
-- **uri** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **uri** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
 - **config** ([*ConfigTypeT*](../types/other.md#yandex_ai_studio_sdk._types.model_config.ConfigTypeT) *\| None*)
-- **owner** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\| None*) ||
+- **owner** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\| None*) ||
 |#
 
 *property* **config**\: *[ConfigTypeT](../types/other.md#yandex_ai_studio_sdk._types.model_config.ConfigTypeT)*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.config}
 
-*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.fine_tuned}
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.fine_tuned}
 
-*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.name}
+*property* **name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.name}
 
-*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.owner}
+*property* **owner**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.owner}
 
-*property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.uri}
+*property* **uri**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.uri}
 
-*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.version}
+*property* **version**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_api.wordstat.wordstat.BaseWordstat.version}
 
 ## *class* yandex\_ai\_studio\_sdk.\_speechkit.domain.**BaseSpeechKitDomain**{#yandex_ai_studio_sdk._speechkit.domain.BaseSpeechKitDomain}
 
@@ -1133,8 +1139,8 @@ Synonym for [**yandex\_ai\_studio\_sdk.\_speechkit.enums.AudioFormat**](../types
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._speechkit.domain.BaseSpeechKitDomain.AudioFormat.__new__i}
@@ -1209,8 +1215,8 @@ Audio bit depth 16-bit signed little-endian (Linear PCM).
 #|
 || Parameters | 
 
-- **sample\_rate\_hertz** ([*int*](https://docs.python.org/3/library/functions.html#int))
-- **channels** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **sample\_rate\_hertz** ([*int*](https://docs.python.org/3/builtins/functions.html#int))
+- **channels** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 || Return type | [*PCM16*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.PCM16) ||
 |#
 
@@ -1249,41 +1255,41 @@ Synonym for *speech\_to\_text* function
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
 - **sdk** ([*yandex\_ai\_studio\_sdk.\_sdk.BaseSDK*](#yandex_ai_studio_sdk._sdk.BaseSDK)) ||
 |#
 
 ## *class* yandex\_ai\_studio\_sdk.\_speechkit.text\_to\_speech.function.**BaseTextToSpeechFunction**{#yandex_ai_studio_sdk._speechkit.text_to_speech.function.BaseTextToSpeechFunction}
 
-Text to Speech function for creating synthesis object which provides methods for invoking voice synthesizing.
+Text to Speech function for creating a synthesis object which provides methods for invoking voice synthesis.
 
 **\_\_call\_\_**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *loudness\_normalization=Undefined*, *audio\_format=Undefined*, *model=Undefined*, *voice=Undefined*, *role=Undefined*, *speed=Undefined*, *volume=Undefined*, *pitch\_shift=Undefined*, *duration\_ms=Undefined*, *duration\_min\_ms=Undefined*, *duration\_max\_ms=Undefined*, *single\_chunk\_mode=Undefined*){#yandex_ai_studio_sdk._speechkit.text_to_speech.function.BaseTextToSpeechFunction.__call__i}
 
-Creates TextToSpeech object with provides methods for voice synthesizing.
+Creates a TextToSpeech object that provides methods for voice synthesis.
 
-To learn more about parameters and their formats and possible values, refer to [TTS documentation](https://aistudio.yandex.ru/docs/speechkit/stt)
+To learn more about parameters and their formats and possible values, refer to [TTS documentation](https://aistudio.yandex.ru/docs/speechkit/tts)
 
 #|
 || Parameters | 
 
-- **loudness\_normalization** ([*LoudnessNormalization*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.LoudnessNormalization) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*LoudnessNormalization*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.LoudnessNormalization)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Specifies type of loudness normalization. Default: *LUFS*.
-- **audio\_format** ([*AudioFormat*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.AudioFormat) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*AudioFormat*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.AudioFormat)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Specifies output audio format. Default: 22050Hz, linear 16-bit signed little-endian PCM, with WAV header.
-- **model** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – The name of the TTS model to use for synthesis. Currently should be empty. Do not use it.
-- **voice** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – The voice to use for speech synthesis.
-- **role** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – The role or speaking style. Can be used to specify pronunciation character for the speaker.
-- **speed** ([*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Speed multiplier (default: 1.0).
-- **volume** ([*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Volume adjustment: \* For *MAX\_PEAK*\: range is (0, 1], default 0.7. \* For *LUFS*\: range is [-145, 0), default -19.
-- **pitch\_shift** ([*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Pitch adjustment, in Hz, range [-1000, 1000], default 0.
-- **duration\_ms** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Limit audio duration to exact value.
-- **duration\_min\_ms** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Limit the minimum audio duration.
-- **duration\_max\_ms** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Limit the maximum audio duration
-- **single\_chunk\_mode** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Automatically split long text to several utterances and bill accordingly. Some degradation in service quality is possible ||
+- **loudness\_normalization** ([*LoudnessNormalization*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.LoudnessNormalization) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*LoudnessNormalization*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.LoudnessNormalization)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Specifies type of loudness normalization. Default: *LUFS*.
+- **audio\_format** ([*AudioFormat*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.AudioFormat) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*AudioFormat*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.AudioFormat)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Specifies output audio format. Default: 22050Hz, linear 16-bit signed little-endian PCM, with WAV header.
+- **model** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – The name of the TTS model to use for synthesis. Currently should be empty. Do not use it.
+- **voice** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – The voice to use for speech synthesis.
+- **role** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – The role or speaking style. Can be used to specify pronunciation character for the speaker.
+- **speed** ([*float*](https://docs.python.org/3/builtins/functions.html#float) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Speed multiplier (default: 1.0).
+- **volume** ([*float*](https://docs.python.org/3/builtins/functions.html#float) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Volume adjustment: \* For *MAX\_PEAK*\: range is (0, 1], default 0.7. \* For *LUFS*\: range is [-145, 0), default -19.
+- **pitch\_shift** ([*float*](https://docs.python.org/3/builtins/functions.html#float) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Pitch adjustment, in Hz, range [-1000, 1000], default 0.
+- **duration\_ms** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Limit audio duration to exact value.
+- **duration\_min\_ms** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Limit the minimum audio duration.
+- **duration\_max\_ms** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Limit the maximum audio duration
+- **single\_chunk\_mode** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Automatically split long text into several utterances and bill accordingly. Some degradation in service quality is possible ||
 || Return type | [*TextToSpeechTypeT*](../types/other.md#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.TextToSpeechTypeT) ||
 |#
 
 ## *class* yandex\_ai\_studio\_sdk.\_speechkit.text\_to\_speech.tts.**BaseTextToSpeech**{#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech}
 
-Text to Speech class which provides concrete methods for working with SpeechKit TTS API and encapsulates synthesis setting.
+Text to Speech class which provides concrete methods for working with SpeechKit TTS API and encapsulates synthesis settings.
 
 #### *class* **AudioFormat**{#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.AudioFormat}
 
@@ -1294,8 +1300,8 @@ Link to [**yandex\_ai\_studio\_sdk.\_speechkit.enums.AudioFormat**](../types/spe
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.AudioFormat.__new__i}
@@ -1370,8 +1376,8 @@ Audio bit depth 16-bit signed little-endian (Linear PCM).
 #|
 || Parameters | 
 
-- **sample\_rate\_hertz** ([*int*](https://docs.python.org/3/library/functions.html#int))
-- **channels** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **sample\_rate\_hertz** ([*int*](https://docs.python.org/3/builtins/functions.html#int))
+- **channels** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 || Return type | [*PCM16*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.PCM16) ||
 |#
 
@@ -1398,8 +1404,8 @@ Link to [**yandex\_ai\_studio\_sdk.\_speechkit.enums.LoudnessNormalization**](..
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.LoudnessNormalization.__new__i}
@@ -1479,27 +1485,27 @@ The type of normalization based on EBU R 128 recommendation
 
 **configure**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *loudness\_normalization=Undefined*, *audio\_format=Undefined*, *model=Undefined*, *voice=Undefined*, *role=Undefined*, *speed=Undefined*, *volume=Undefined*, *pitch\_shift=Undefined*, *duration\_ms=Undefined*, *duration\_min\_ms=Undefined*, *duration\_max\_ms=Undefined*, *single\_chunk\_mode=Undefined*){#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.configure}
 
-Returns the new object with config fields overrode by passed values.
+Returns a new object with configuration fields overridden by the provided values.
 
-To return set value back to default, pass *None* value.
+To reset a value to its default, pass *None*.
 
-To learn more about parameters and their formats and possible values, refer to [TTS documentation](https://aistudio.yandex.ru/docs/speechkit/stt)
+To learn more about parameters and their formats and possible values, refer to [TTS documentation](https://aistudio.yandex.ru/docs/speechkit/tts)
 
 #|
 || Parameters | 
 
-- **loudness\_normalization** ([*LoudnessNormalization*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.LoudnessNormalization) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*LoudnessNormalization*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.LoudnessNormalization)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Specifies type of loudness normalization. Default: *LUFS*.
-- **audio\_format** ([*AudioFormat*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.AudioFormat) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*AudioFormat*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.AudioFormat)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Specifies output audio format. Default: 22050Hz, linear 16-bit signed little-endian PCM, with WAV header.
-- **model** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – The name of the TTS model to use for synthesis. Currently should be empty. Do not use it.
-- **voice** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – The voice to use for speech synthesis.
-- **role** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – The role or speaking style. Can be used to specify pronunciation character for the speaker.
-- **speed** ([*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Speed multiplier (default: 1.0).
-- **volume** ([*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Volume adjustment: \* For *MAX\_PEAK*\: range is (0, 1], default 0.7. \* For *LUFS*\: range is [-145, 0), default -19.
-- **pitch\_shift** ([*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Pitch adjustment, in Hz, range [-1000, 1000], default 0.
-- **duration\_ms** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Limit audio duration to exact value.
-- **duration\_min\_ms** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Limit the minimum audio duration.
-- **duration\_max\_ms** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Limit the maximum audio duration.
-- **single\_chunk\_mode** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Automatically split long text to several utterances and bill accordingly. Some degradation in service quality is possible ||
+- **loudness\_normalization** ([*LoudnessNormalization*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.LoudnessNormalization) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*LoudnessNormalization*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.LoudnessNormalization)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Specifies type of loudness normalization. Default: *LUFS*.
+- **audio\_format** ([*AudioFormat*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.AudioFormat) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*AudioFormat*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.AudioFormat)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Specifies output audio format. Default: 22050Hz, linear 16-bit signed little-endian PCM, with WAV header.
+- **model** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – The name of the TTS model to use for synthesis. Currently should be empty. Do not use it.
+- **voice** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – The voice to use for speech synthesis.
+- **role** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – The role or speaking style. Can be used to specify pronunciation character for the speaker.
+- **speed** ([*float*](https://docs.python.org/3/builtins/functions.html#float) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Speed multiplier (default: 1.0).
+- **volume** ([*float*](https://docs.python.org/3/builtins/functions.html#float) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Volume adjustment: \* For *MAX\_PEAK*\: range is (0, 1], default 0.7. \* For *LUFS*\: range is [-145, 0), default -19.
+- **pitch\_shift** ([*float*](https://docs.python.org/3/builtins/functions.html#float) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Pitch adjustment, in Hz, range [-1000, 1000], default 0.
+- **duration\_ms** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Limit audio duration to exact value.
+- **duration\_min\_ms** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Limit the minimum audio duration.
+- **duration\_max\_ms** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Limit the maximum audio duration.
+- **single\_chunk\_mode** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Automatically split long text into several utterances and bill accordingly. Some degradation in service quality is possible ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
 
@@ -1508,7 +1514,7 @@ To learn more about parameters and their formats and possible values, refer to [
 Creates a bidirectional stream object for using [Yandex SpeechKit Streaming synthesis](https://aistudio.yandex.ru/docs/speechkit/tts/api/tts-streaming).
 
 #|
-|| Parameters | **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – gRPC timeout in seconds that defines the maximum lifetime of the entire stream. The timeout countdown begins from the moment of the first stream interaction. ||
+|| Parameters | **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – gRPC timeout in seconds that defines the maximum lifetime of the entire stream. The timeout countdown begins from the moment of the first stream interaction. ||
 || Return type | [*TTSBidirectionalStreamTypeT*](../types/other.md#yandex_ai_studio_sdk._speechkit.text_to_speech.bistream.TTSBidirectionalStreamTypeT) ||
 |#
 
@@ -1518,58 +1524,58 @@ Creates a bidirectional stream object for using [Yandex SpeechKit Streaming synt
 || Parameters | 
 
 - **sdk** ([*yandex\_ai\_studio\_sdk.\_sdk.BaseSDK*](#yandex_ai_studio_sdk._sdk.BaseSDK))
-- **uri** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **uri** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
 - **config** ([*ConfigTypeT*](../types/other.md#yandex_ai_studio_sdk._types.model_config.ConfigTypeT) *\| None*)
-- **owner** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\| None*) ||
+- **owner** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\| None*) ||
 |#
 
 *property* **config**\: *[ConfigTypeT](../types/other.md#yandex_ai_studio_sdk._types.model_config.ConfigTypeT)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.config}
 
-*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.fine_tuned}
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.fine_tuned}
 
-*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.name}
+*property* **name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.name}
 
-*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.owner}
+*property* **owner**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.owner}
 
-*property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.uri}
+*property* **uri**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.uri}
 
-*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.version}
+*property* **version**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.BaseTextToSpeech.version}
 
 ## *class* yandex\_ai\_studio\_sdk.\_speechkit.text\_to\_speech.bistream.**BaseTTSBidirectionalStream**{#yandex_ai_studio_sdk._speechkit.text_to_speech.bistream.BaseTTSBidirectionalStream}
 
-Bidirectional SpeechKit TTS API which allows to write requests and read synthesized result in realtime
+Bidirectional SpeechKit TTS API that lets you write requests and read synthesized results in real time
 
 ## *class* yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.function.**BaseSpeechToTextFunction**{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction}
 
-Speech to Text function for creating speech recognition object which provides methods for invoking recognition.
+Speech to Text function for creating a speech recognition object which provides methods for invoking recognition.
 
 **\_\_call\_\_**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *audio\_format*, *model=Undefined*, *language\_codes=Undefined*, *text\_normalization=Undefined*, *eou\_classifier=Undefined*, *recognition\_classifiers=Undefined*, *speech\_analysis=Undefined*, *speaker\_labeling=Undefined*, *llm\_post\_process=Undefined*){#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.__call__i}
 
-Creates SpeechToText object with provides methods for speech recognition.
+Creates a SpeechToText object that provides methods for speech recognition.
 
 To learn more about parameters and their formats and possible values, refer to [STT docs](https://aistudio.yandex.ru/docs/speechkit/stt)
 
 #|
 || Parameters | 
 
-- **audio\_format** ([*AudioFormat*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.AudioFormat) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*AudioFormat*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.AudioFormat)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int)) – Specifies the input audio format.
-- **model** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – The name of the STT model to use for recognition. See the list of available models and versions in the [speech to text documentation](https://aistudio.yandex.ru/docs/speechkit/stt/models).
-- **language\_codes** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*LanguageCode*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.LanguageCode) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*LanguageCode*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.LanguageCode)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – The list of [language codes](https://aistudio.yandex.ru/docs/speechkit/stt/models) to restrict recognition in the case of an automatic model, or a single language code.
-- **text\_normalization** ([*TextNormalization*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.TextNormalization) *\|* [*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – [Text normalization options](https://aistudio.yandex.ru/docs/speechkit/stt/normalization)\:
+- **audio\_format** ([*AudioFormat*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.AudioFormat) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*AudioFormat*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.AudioFormat)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int)) – Specifies the input audio format.
+- **model** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – The name of the STT model to use for recognition. See the list of available models and versions in the [speech to text documentation](https://aistudio.yandex.ru/docs/speechkit/stt/models).
+- **language\_codes** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*LanguageCode*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.LanguageCode) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*LanguageCode*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.LanguageCode)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – The list of [language codes](https://aistudio.yandex.ru/docs/speechkit/stt/models) to restrict recognition in the case of an automatic model, or a single language code.
+- **text\_normalization** ([*TextNormalization*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.TextNormalization) *\|* [*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – [Text normalization options](https://aistudio.yandex.ru/docs/speechkit/stt/normalization)\:
 - **True** — turn on text normalization with default parameters;
 - **False** — turn text normalization off;
 - [**yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.structures.TextNormalization**](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.TextNormalization) instance — text normalization with custom parameters;
 - **None** — for server default.
 
-- **eou\_classifier** ([*EndOfUtteranceClassifier*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceClassifier) *\|* [*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Configuration for [end of utterance detection model](https://aistudio.yandex.ru/docs/speechkit/stt/eou)\:
+- **eou\_classifier** ([*EndOfUtteranceClassifier*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceClassifier) *\|* [*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Configuration for [end of utterance detection model](https://aistudio.yandex.ru/docs/speechkit/stt/eou)\:
 - **True** — use default EOU classifier;
 - **False** — disable EOU classifier (“external EOU classifier” in documentation);
 - [**yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.structures.EndOfUtteranceClassifier**](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceClassifier) instance — use custom EOU classifier settings;
 - **None** — for server default.
 
-- **recognition\_classifiers** ([*RecognitionClassifier*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionClassifier) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*RecognitionClassifier*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionClassifier)*] \|* [*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Classifier or list of [classifiers for speech recognition](https://aistudio.yandex.ru/docs/speechkit/stt/analysis#classifier).
+- **recognition\_classifiers** ([*RecognitionClassifier*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionClassifier) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*RecognitionClassifier*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionClassifier)*] \|* [*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Classifier or list of [classifiers for speech recognition](https://aistudio.yandex.ru/docs/speechkit/stt/analysis#classifier).
 - **speech\_analysis** ([*SpeechAnalysis*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.SpeechAnalysis) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Configuration for [speech analysis over speech recognition](https://aistudio.yandex.ru/docs/speechkit/stt/analysis#statistics).
-- **speaker\_labeling** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Configuration for [speaker labeling](https://aistudio.yandex.ru/docs/speechkit/stt/speaker-labeling).
+- **speaker\_labeling** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Configuration for [speaker labeling](https://aistudio.yandex.ru/docs/speechkit/stt/speaker-labeling).
 - **llm\_post\_process** ([*LLMPostProcessing*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.LLMPostProcessing) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Configuration for [LLM recognition results processing](https://aistudio.yandex.ru/docs/speechkit/stt/llm-results). (Also known as Summarization in earlier documentation.) ||
 || Return type | [*SpeechToTextTypeT*](../types/other.md#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.SpeechToTextTypeT) ||
 |#
@@ -1581,8 +1587,8 @@ To learn more about parameters and their formats and possible values, refer to [
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.AudioFormat.__new__i}
@@ -1657,8 +1663,8 @@ Audio bit depth 16-bit signed little-endian (Linear PCM).
 #|
 || Parameters | 
 
-- **sample\_rate\_hertz** ([*int*](https://docs.python.org/3/library/functions.html#int))
-- **channels** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **sample\_rate\_hertz** ([*int*](https://docs.python.org/3/builtins/functions.html#int))
+- **channels** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 || Return type | [*PCM16*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.PCM16) ||
 |#
 
@@ -1678,9 +1684,9 @@ Data is encoded using the OPUS audio codec and compressed using the OGG containe
 
 #### *class* **EndOfUtteranceClassifier**{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.EndOfUtteranceClassifier}
 
-Class which encapsulates settings [end of utterance classifier](https://aistudio.yandex.ru/docs/speechkit/stt/eou).
+Class which encapsulates settings for an [end of utterance classifier](https://aistudio.yandex.ru/docs/speechkit/stt/eou).
 
-Usage this class object in speech to text configuration turning on default end-of-utterance classification.
+Using an instance of this class in the speech-to-text configuration turns on default end-of-utterance classification.
 
 ```python
 >>> EndOfUtteranceClassifier()
@@ -1702,69 +1708,69 @@ EndOfUtteranceClassifier(sensitivity=Undefined, max_pause_between_words_hint_ms=
 #|
 || Parameters | 
 
-- **sensitivity** ([*EndOfUtteranceSensitivity*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*EndOfUtteranceSensitivity*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
-- **max\_pause\_between\_words\_hint\_ms** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) ||
+- **sensitivity** ([*EndOfUtteranceSensitivity*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*EndOfUtteranceSensitivity*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
+- **max\_pause\_between\_words\_hint\_ms** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) ||
 || Return type | None ||
 |#
 
-**max\_pause\_between\_words\_hint\_ms**\: *[int](https://docs.python.org/3/library/functions.html#int) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.EndOfUtteranceClassifier.max_pause_between_words_hint_ms}
+**max\_pause\_between\_words\_hint\_ms**\: *[int](https://docs.python.org/3/builtins/functions.html#int) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.EndOfUtteranceClassifier.max_pause_between_words_hint_ms}
 
-Hint for max pause between words. SpeechKit EOU detector could use this information to adjust the speed of the EOU detection. For example, a long pause between words will help distinguish between the end of utterance from slow speech like **One <long pause> two <long pause> three**. A short pause can be helpful if the speaker is speaking quickly and does not emphasize pauses between sentences.
+Hint for max pause between words. SpeechKit EOU detector could use this information to adjust the speed of the EOU detection. For example, a long pause between words will help distinguish between the end of an utterance and slow speech like **One <long pause> two <long pause> three**. A short pause can be helpful if the speaker is speaking quickly and does not emphasize pauses between sentences.
 
-**sensitivity**\: *[EndOfUtteranceSensitivity](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity) | [UnknownEnumValue](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)[[EndOfUtteranceSensitivity](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity)] | [str](https://docs.python.org/3/library/stdtypes.html#str) | [int](https://docs.python.org/3/library/functions.html#int) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.EndOfUtteranceClassifier.sensitivity}
+**sensitivity**\: *[EndOfUtteranceSensitivity](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity) | [UnknownEnumValue](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)[[EndOfUtteranceSensitivity](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity)] | [str](https://docs.python.org/3/builtins/stdtypes.html#str) | [int](https://docs.python.org/3/builtins/functions.html#int) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.EndOfUtteranceClassifier.sensitivity}
 
 EOU sensitivity
 
 #### *class* **LLMPostProcessing**{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.LLMPostProcessing}
 
-Class for encapsulating [transcription llm post processing settings](https://aistudio.yandex.ru/docs/speechkit/stt/llm-results)
+Class for encapsulating [transcription LLM postprocessing settings](https://aistudio.yandex.ru/docs/speechkit/stt/llm-results)
 
-You could pass a full model uri:
-
-```python
->>> llm_post_processor = LLMPostProcessing('gpt://<folder_id>/yandexgt/latest')
-```
-
-You could use model name, in this case model uri will be built using configurated folder\_id:
+You could pass a full model URI:
 
 ```python
->>> llm_post_processor = LLMPostProcessing('yandexgt')
+>>> llm_post_processor = LLMPostProcessing('gpt://<folder_id>/yandexgpt/latest')
 ```
 
-You could also pass a model version, which have ‘latest’ by default:
+You can use a model name; in this case, the model URI is built using the configured folder\_id:
 
 ```python
->>> llm_post_processor = LLMPostProcessing('yandexgt', model_version='latest')
+>>> llm_post_processor = LLMPostProcessing('yandexgpt')
 ```
 
-After post processor object creation you should add some instructions into it by using **.with\_instruction** method (which is not mutates the object, but creates a copy):
+You could also pass a model version, which defaults to ‘latest’:
+
+```python
+>>> llm_post_processor = LLMPostProcessing('yandexgpt', model_version='latest')
+```
+
+After creating a postprocessor object, add instructions to it by using the **.with\_instruction** method (which does not mutate the object, but creates a copy):
 
 ```python
 >>> llm_post_processor = llm_post_processor.with_instruction("Make a short review")
 >>> llm_post_processor = llm_post_processor.with_instruction(
-...     "What the conversation topic",
+...     "What is the topic of the conversation?",
 ...     response_format="json"
 ... )
 ```
 
-Created object will looks like this:
+The created object looks like this:
 
 ```python
 >>> llm_post_processor
-LLMPostProcessing(model_name='yandexgt', model_version='latest', ...)
+LLMPostProcessing(model_name='yandexgpt', model_version='latest', ...)
 >>> llm_post_processor
 LLMPostProcessing(..., instructions=(LLMPostProcessingInstruction(...), LLMPostProcessingInstruction(...)))
 ```
 
-You also can use pydantic model or pydantic dataclass as response format.
+You can also use a Pydantic model or Pydantic dataclass as the response format.
 
 **\_\_init\_\_**(*model\_name*, *model\_version='latest'*, *instructions=()*){#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.LLMPostProcessing.__init__i}
 
 #|
 || Parameters | 
 
-- **model\_name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **model\_version** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **model\_name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **model\_version** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
 - **instructions** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*LLMPostProcessingInstruction*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.LLMPostProcessingInstruction)*]*) ||
 || Return type | None ||
 |#
@@ -1773,7 +1779,7 @@ You also can use pydantic model or pydantic dataclass as response format.
 
 A list of instructions to perform with transcription.
 
-**model\_version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)* = *'latest'*{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.LLMPostProcessing.model_version}
+**model\_version**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)* = *'latest'*{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.LLMPostProcessing.model_version}
 
 The version of the model to use. Defaults to ‘latest’
 
@@ -1784,7 +1790,7 @@ Creates a new LLMPostProcessing object, but with given instruction appended.
 #|
 || Parameters | 
 
-- **instruction** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – instruction for model.
+- **instruction** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – instruction for model.
 - **response\_format** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*['json'] \| ~yandex\_ai\_studio\_sdk.\_types.schemas.JsonSchemaResponseType \| type \| None*) – format of the response returned by the model. Format could be described as:
 - *None* for usual text response (default);
 - ’*json*’ string to tell a model to return JSON object;
@@ -1794,9 +1800,9 @@ Creates a new LLMPostProcessing object, but with given instruction appended.
 || Return type | [*LLMPostProcessing*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.LLMPostProcessing) ||
 |#
 
-**model\_name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.LLMPostProcessing.model_name}
+**model\_name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.LLMPostProcessing.model_name}
 
-The [ID of the model](https://aistudio.yandex.ru/docs/foundation-models/concepts/yandexgpt/models) Model name to be used for completion generation; If the name contains ‘://’, it is treated as a full URI. Otherwise constructs a URI in the form ‘gpt://<folder\_id>/<model\_name>/<model\_version>’
+The [ID of the model](https://aistudio.yandex.ru/docs/ai-studio/concepts/generation/models) Model name to be used for completion generation; If the name contains ‘://’, it is treated as a full URI. Otherwise constructs a URI in the form ‘gpt://<folder\_id>/<model\_name>/<model\_version>’
 
 #### *class* **LanguageCode**{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.LanguageCode}
 
@@ -1870,7 +1876,7 @@ Return a centered string of length width.
 
 Padding is done using the specified fill character (default is a space).
 
-**count**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.LanguageCode.count}
+**count**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.LanguageCode.count}
 
 Return the number of non-overlapping occurrences of substring sub in string S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
@@ -1880,7 +1886,7 @@ Return a copy where all tab characters are expanded using spaces.
 
 If tabsize is not given, a tab size of 8 characters is assumed.
 
-**find**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.LanguageCode.find}
+**find**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.LanguageCode.find}
 
 Return the lowest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
@@ -1894,7 +1900,7 @@ This will search for the separator in the string.  If the separator is found, re
 
 If the separator is not found, returns a 3-tuple containing the original string and two empty strings.
 
-**index**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.LanguageCode.index}
+**index**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.LanguageCode.index}
 
 Return the lowest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
@@ -1916,13 +1922,13 @@ Return a copy of the string with leading whitespace removed.
 
 If chars is given and not None, remove characters in chars instead.
 
-**rfind**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.LanguageCode.rfind}
+**rfind**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.LanguageCode.rfind}
 
 Return the highest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
 Return -1 on failure.
 
-**rindex**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.LanguageCode.rindex}
+**rindex**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.LanguageCode.rindex}
 
 Return the highest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
@@ -1976,11 +1982,11 @@ The table must implement lookup/indexing via \_\_getitem\_\_, for instance a dic
 
 Return a copy of the string converted to uppercase.
 
-**startswith**(*prefix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/library/functions.html#bool){#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.LanguageCode.startswith}
+**startswith**(*prefix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/builtins/functions.html#bool){#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.LanguageCode.startswith}
 
 Return True if S starts with the specified prefix, False otherwise. With optional start, test S beginning at that position. With optional end, stop comparing S at that position. prefix can also be a tuple of strings to try.
 
-**endswith**(*suffix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/library/functions.html#bool){#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.LanguageCode.endswith}
+**endswith**(*suffix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/builtins/functions.html#bool){#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.LanguageCode.endswith}
 
 Return True if S ends with the specified suffix, False otherwise. With optional start, test S beginning at that position. With optional end, stop comparing S at that position. suffix can also be a tuple of strings to try.
 
@@ -2074,11 +2080,11 @@ Pad a numeric string with zeros on the left, to fill a field of the given width.
 
 The string is never truncated.
 
-**format**(*\*args*, *\*\*kwargs*) → [str](https://docs.python.org/3/library/stdtypes.html#str){#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.LanguageCode.format}
+**format**(*\*args*, *\*\*kwargs*) → [str](https://docs.python.org/3/builtins/stdtypes.html#str){#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.LanguageCode.format}
 
 Return a formatted version of S, using substitutions from args and kwargs. The substitutions are identified by braces (‘{’ and ‘}’).
 
-**format\_map**(*mapping*) → [str](https://docs.python.org/3/library/stdtypes.html#str){#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.LanguageCode.format_map}
+**format\_map**(*mapping*) → [str](https://docs.python.org/3/builtins/stdtypes.html#str){#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.LanguageCode.format_map}
 
 Return a formatted version of S, using substitutions from mapping. The substitutions are identified by braces (‘{’ and ‘}’).
 
@@ -2171,7 +2177,7 @@ You can pass a string as a trigger:
 RecognitionClassifier(name='insult', triggers=(<RecognitionTriggerType.ON_FINAL: 2>,))
 ```
 
-Or any iterable of strings to declare few triggers:
+Or pass any iterable of strings to declare several triggers:
 
 ```python
 >>> RecognitionClassifier('insult', ['on_final', 'on_partial'])
@@ -2185,14 +2191,14 @@ You could also use alternative constructors when you have only one trigger:
 RecognitionClassifier(name='insult', triggers=(<RecognitionTriggerType.ON_UTTERANCE: 1>,))
 ```
 
-There are special *RecognitionClassifier.WellKnown* enum with well-known classifier names:
+There is a special *RecognitionClassifier.WellKnown* enum with well-known classifier names:
 
 ```python
 >>> RecognitionClassifier(RecognitionClassifier.WellKnown.gender, 'on_final')
 RecognitionClassifier(name=<WellKnownRecognitionClassifiers.gender: 'gender'>, ...)
 ```
 
-On unknown trigger names there will be exception raised:
+An exception is raised for unknown trigger names:
 
 ```python
 >>> RecognitionClassifier('insult', ['on_something'])
@@ -2210,43 +2216,43 @@ alias of [**WellKnownRecognitionClassifiers**](../types/speechkit.md#yandex_ai_s
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **triggers** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*RecognitionTriggerType*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*RecognitionTriggerType*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int)*] \|* [*RecognitionTriggerType*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*RecognitionTriggerType*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **triggers** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*RecognitionTriggerType*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*RecognitionTriggerType*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int)*] \|* [*RecognitionTriggerType*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*RecognitionTriggerType*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 || Return type | None ||
 |#
 
 *classmethod* **on\_final**(*name*){#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.RecognitionClassifier.on_final}
 
-Alternative constructor to use onle ‘on\_final’ trigger
+Alternative constructor to use only ‘on\_final’ trigger
 
 #|
-|| Parameters | **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) ||
+|| Parameters | **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
 
 *classmethod* **on\_partial**(*name*){#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.RecognitionClassifier.on_partial}
 
-Alternative constructor to use onle ‘on\_partial’ trigger
+Alternative constructor to use only ‘on\_partial’ trigger
 
 #|
-|| Parameters | **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) ||
+|| Parameters | **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
 
 *classmethod* **on\_utterance**(*name*){#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.RecognitionClassifier.on_utterance}
 
-Alternative constructor to use onle ‘on\_utterance’ trigger
+Alternative constructor to use only ‘on\_utterance’ trigger
 
 #|
-|| Parameters | **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) ||
+|| Parameters | **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
 
-**name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.RecognitionClassifier.name}
+**name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.RecognitionClassifier.name}
 
 Classifier name.
 
-**triggers**\: *[Sequence](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)[[RecognitionTriggerType](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType) | [UnknownEnumValue](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)[[RecognitionTriggerType](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType)] | [str](https://docs.python.org/3/library/stdtypes.html#str) | [int](https://docs.python.org/3/library/functions.html#int)] | [RecognitionTriggerType](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType) | [UnknownEnumValue](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)[[RecognitionTriggerType](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType)] | [str](https://docs.python.org/3/library/stdtypes.html#str) | [int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.RecognitionClassifier.triggers}
+**triggers**\: *[Sequence](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)[[RecognitionTriggerType](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType) | [UnknownEnumValue](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)[[RecognitionTriggerType](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType)] | [str](https://docs.python.org/3/builtins/stdtypes.html#str) | [int](https://docs.python.org/3/builtins/functions.html#int)] | [RecognitionTriggerType](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType) | [UnknownEnumValue](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)[[RecognitionTriggerType](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType)] | [str](https://docs.python.org/3/builtins/stdtypes.html#str) | [int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.RecognitionClassifier.triggers}
 
 Describes the types of responses to which the classification results will come. Classification responses will follow the responses of the specified types.
 
@@ -2259,29 +2265,29 @@ Class which encapsulates [speech analysis settings](https://aistudio.yandex.ru/d
 #|
 || Parameters | 
 
-- **speaker\_analysis** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
-- **conversation\_analysis** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
-- **descriptive\_statistics\_quantiles** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*float*](https://docs.python.org/3/library/functions.html#float)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) ||
+- **speaker\_analysis** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
+- **conversation\_analysis** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
+- **descriptive\_statistics\_quantiles** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*float*](https://docs.python.org/3/builtins/functions.html#float)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) ||
 || Return type | None ||
 |#
 
-**conversation\_analysis**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.SpeechAnalysis.conversation_analysis}
+**conversation\_analysis**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.SpeechAnalysis.conversation_analysis}
 
 Analyse conversation of two speakers
 
-**descriptive\_statistics\_quantiles**\: *[Sequence](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)[[float](https://docs.python.org/3/library/functions.html#float)] | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.SpeechAnalysis.descriptive_statistics_quantiles}
+**descriptive\_statistics\_quantiles**\: *[Sequence](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)[[float](https://docs.python.org/3/builtins/functions.html#float)] | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.SpeechAnalysis.descriptive_statistics_quantiles}
 
 Quantile levels in range (0, 1) for descriptive statistics
 
-**speaker\_analysis**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.SpeechAnalysis.speaker_analysis}
+**speaker\_analysis**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.SpeechAnalysis.speaker_analysis}
 
 Analyse speech for every speaker
 
 #### *class* **TextNormalization**{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.TextNormalization}
 
-Class which encapsulates [text normaliztion options](https://aistudio.yandex.ru/docs/speechkit/stt/normalization).
+Class which encapsulates [text normalization options](https://aistudio.yandex.ru/docs/speechkit/stt/normalization).
 
-Usage of object of this class itself in speech to text configuration is turning on normalization. Options of this class have different defaults at backend, i.e. some options could turn on the feature and others could turn it off.
+Using an instance of this class in the speech-to-text configuration turns on normalization. The options of this class have different defaults on the backend, i.e. some options can turn on a feature and others can turn it off.
 
 >> TextNormalization() TextNormalization()
 
@@ -2295,21 +2301,21 @@ TextNormalization(phone_formatting=False, profanity_filter=Undefined, literature
 #|
 || Parameters | 
 
-- **phone\_formatting** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
-- **profanity\_filter** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
-- **literature\_text** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) ||
+- **phone\_formatting** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
+- **profanity\_filter** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
+- **literature\_text** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) ||
 || Return type | None ||
 |#
 
-**literature\_text**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.TextNormalization.literature_text}
+**literature\_text**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.TextNormalization.literature_text}
 
 Rewrite text in literature style
 
-**phone\_formatting**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.TextNormalization.phone_formatting}
+**phone\_formatting**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.TextNormalization.phone_formatting}
 
 Phone formatting
 
-**profanity\_filter**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.TextNormalization.profanity_filter}
+**profanity\_filter**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.function.BaseSpeechToTextFunction.TextNormalization.profanity_filter}
 
 Profanity filter
 
@@ -2318,44 +2324,44 @@ Profanity filter
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
 - **sdk** ([*BaseSDK*](#yandex_ai_studio_sdk._sdk.BaseSDK))
 - **parent\_resource** ([*BaseDomain*](#yandex_ai_studio_sdk._types.domain.BaseDomain)) ||
 |#
 
 ## *class* yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.stt.**BaseSpeechToText**{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText}
 
-Speech To Text class which provides concrete methods for working with SpeechKit STT API and incapsulates speech recognition settings.
+Speech To Text class which provides concrete methods for working with SpeechKit STT API and encapsulates speech recognition settings.
 
 **configure**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *audio\_format=Undefined*, *model=Undefined*, *language\_codes=Undefined*, *text\_normalization=Undefined*, *eou\_classifier=Undefined*, *recognition\_classifiers=Undefined*, *speech\_analysis=Undefined*, *speaker\_labeling=Undefined*, *llm\_post\_process=Undefined*){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.configure}
 
-Returns the new object with config fields overrode by passed values.
+Returns a new object with configuration fields overridden by the provided values.
 
-To return set value back to default, pass *None* value.
+To reset a value to its default, pass *None*.
 
 To learn more about parameters and their formats and possible values, refer to [STT documentation](https://aistudio.yandex.ru/docs/speechkit/stt)
 
 #|
 || Parameters | 
 
-- **audio\_format** ([*AudioFormat*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.AudioFormat) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*AudioFormat*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.AudioFormat)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Specifies the input audio format.
-- **model** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – The name of the STT model to use for recognition. See the list of available models and versions [in the documentation](https://aistudio.yandex.ru/docs/speechkit/stt/models).
-- **language\_codes** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*LanguageCode*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.LanguageCode) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*LanguageCode*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.LanguageCode)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – The list of [language codes](https://aistudio.yandex.ru/docs/speechkit/stt/models) to restrict recognition in the case of an automatic model, or a single language code.
-- **text\_normalization** ([*TextNormalization*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.TextNormalization) *\|* [*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – [Text normalization options](https://aistudio.yandex.ru/docs/speechkit/stt/normalization)\:
+- **audio\_format** ([*AudioFormat*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.AudioFormat) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*AudioFormat*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.AudioFormat)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Specifies the input audio format.
+- **model** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – The name of the STT model to use for recognition. See the list of available models and versions [in the documentation](https://aistudio.yandex.ru/docs/speechkit/stt/models).
+- **language\_codes** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*LanguageCode*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.LanguageCode) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*LanguageCode*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.LanguageCode)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – The list of [language codes](https://aistudio.yandex.ru/docs/speechkit/stt/models) to restrict recognition in the case of an automatic model, or a single language code.
+- **text\_normalization** ([*TextNormalization*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.TextNormalization) *\|* [*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – [Text normalization options](https://aistudio.yandex.ru/docs/speechkit/stt/normalization)\:
 - **True** — turn on text normalization with default parameters;
 - **False** — turn text normalization off;
 - [**yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.structures.TextNormalization**](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.TextNormalization) instance — text normalization with custom parameters;
 - **None** — for server default.
 
-- **eou\_classifier** ([*EndOfUtteranceClassifier*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceClassifier) *\|* [*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Configuration for [end of utterance detection model](https://aistudio.yandex.ru/docs/speechkit/stt/eou)\:
+- **eou\_classifier** ([*EndOfUtteranceClassifier*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceClassifier) *\|* [*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Configuration for [end of utterance detection model](https://aistudio.yandex.ru/docs/speechkit/stt/eou)\:
 - **True** — use default EOU classifier;
 - **False** — disable EOU classifier (“external EOU classifier” in documentation);
 - [**yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.structures.EndOfUtteranceClassifier**](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceClassifier) instance — use custom EOU classifier settings;
 - **None** — for server default.
 
-- **recognition\_classifiers** ([*RecognitionClassifier*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionClassifier) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*RecognitionClassifier*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionClassifier)*] \|* [*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Classifier or list of [classifiers for speech recognition](https://aistudio.yandex.ru/docs/speechkit/stt/analysis#classifier).
+- **recognition\_classifiers** ([*RecognitionClassifier*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionClassifier) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*RecognitionClassifier*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionClassifier)*] \|* [*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Classifier or list of [classifiers for speech recognition](https://aistudio.yandex.ru/docs/speechkit/stt/analysis#classifier).
 - **speech\_analysis** ([*SpeechAnalysis*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.SpeechAnalysis) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Configuration for [speech analysis over speech recognition](https://aistudio.yandex.ru/docs/speechkit/stt/analysis#statistics).
-- **speaker\_labeling** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Configuration for [speaker labeling](https://aistudio.yandex.ru/docs/speechkit/stt/speaker-labeling).
+- **speaker\_labeling** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Configuration for [speaker labeling](https://aistudio.yandex.ru/docs/speechkit/stt/speaker-labeling).
 - **llm\_post\_process** ([*LLMPostProcessing*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.LLMPostProcessing) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Configuration for [LLM recognition results processing](https://aistudio.yandex.ru/docs/speechkit/stt/llm-results). (Also known as Summarization in earlier documentation.) ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
@@ -2365,7 +2371,7 @@ To learn more about parameters and their formats and possible values, refer to [
 Creates a bidirectional stream object for using [Yandex SpeechKit Streaming speech recognition](https://aistudio.yandex.ru/docs/speechkit/stt/streaming).
 
 #|
-|| Parameters | **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – GRPC timeout in seconds that defines the maximum lifetime of the entire stream. The timeout countdown begins from the moment of the first stream interaction. ||
+|| Parameters | **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – GRPC timeout in seconds that defines the maximum lifetime of the entire stream. The timeout countdown begins from the moment of the first stream interaction. ||
 || Return type | [*STTBidirectionalStreamTypeT*](../types/other.md#yandex_ai_studio_sdk._speechkit.speech_to_text.bistream.STTBidirectionalStreamTypeT) ||
 |#
 
@@ -2376,8 +2382,8 @@ Creates a bidirectional stream object for using [Yandex SpeechKit Streaming spee
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.AudioFormat.__new__i}
@@ -2452,8 +2458,8 @@ Audio bit depth 16-bit signed little-endian (Linear PCM).
 #|
 || Parameters | 
 
-- **sample\_rate\_hertz** ([*int*](https://docs.python.org/3/library/functions.html#int))
-- **channels** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **sample\_rate\_hertz** ([*int*](https://docs.python.org/3/builtins/functions.html#int))
+- **channels** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 || Return type | [*PCM16*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.PCM16) ||
 |#
 
@@ -2473,9 +2479,9 @@ Data is encoded using the OPUS audio codec and compressed using the OGG containe
 
 #### *class* **EndOfUtteranceClassifier**{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.EndOfUtteranceClassifier}
 
-Class which encapsulates settings [end of utterance classifier](https://aistudio.yandex.ru/docs/speechkit/stt/eou).
+Class which encapsulates settings for an [end of utterance classifier](https://aistudio.yandex.ru/docs/speechkit/stt/eou).
 
-Usage this class object in speech to text configuration turning on default end-of-utterance classification.
+Using an instance of this class in the speech-to-text configuration turns on default end-of-utterance classification.
 
 ```python
 >>> EndOfUtteranceClassifier()
@@ -2497,69 +2503,69 @@ EndOfUtteranceClassifier(sensitivity=Undefined, max_pause_between_words_hint_ms=
 #|
 || Parameters | 
 
-- **sensitivity** ([*EndOfUtteranceSensitivity*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*EndOfUtteranceSensitivity*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
-- **max\_pause\_between\_words\_hint\_ms** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) ||
+- **sensitivity** ([*EndOfUtteranceSensitivity*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*EndOfUtteranceSensitivity*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
+- **max\_pause\_between\_words\_hint\_ms** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) ||
 || Return type | None ||
 |#
 
-**max\_pause\_between\_words\_hint\_ms**\: *[int](https://docs.python.org/3/library/functions.html#int) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.EndOfUtteranceClassifier.max_pause_between_words_hint_ms}
+**max\_pause\_between\_words\_hint\_ms**\: *[int](https://docs.python.org/3/builtins/functions.html#int) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.EndOfUtteranceClassifier.max_pause_between_words_hint_ms}
 
-Hint for max pause between words. SpeechKit EOU detector could use this information to adjust the speed of the EOU detection. For example, a long pause between words will help distinguish between the end of utterance from slow speech like **One <long pause> two <long pause> three**. A short pause can be helpful if the speaker is speaking quickly and does not emphasize pauses between sentences.
+Hint for max pause between words. SpeechKit EOU detector could use this information to adjust the speed of the EOU detection. For example, a long pause between words will help distinguish between the end of an utterance and slow speech like **One <long pause> two <long pause> three**. A short pause can be helpful if the speaker is speaking quickly and does not emphasize pauses between sentences.
 
-**sensitivity**\: *[EndOfUtteranceSensitivity](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity) | [UnknownEnumValue](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)[[EndOfUtteranceSensitivity](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity)] | [str](https://docs.python.org/3/library/stdtypes.html#str) | [int](https://docs.python.org/3/library/functions.html#int) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.EndOfUtteranceClassifier.sensitivity}
+**sensitivity**\: *[EndOfUtteranceSensitivity](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity) | [UnknownEnumValue](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)[[EndOfUtteranceSensitivity](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity)] | [str](https://docs.python.org/3/builtins/stdtypes.html#str) | [int](https://docs.python.org/3/builtins/functions.html#int) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.EndOfUtteranceClassifier.sensitivity}
 
 EOU sensitivity
 
 #### *class* **LLMPostProcessing**{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.LLMPostProcessing}
 
-Class for encapsulating [transcription llm post processing settings](https://aistudio.yandex.ru/docs/speechkit/stt/llm-results)
+Class for encapsulating [transcription LLM postprocessing settings](https://aistudio.yandex.ru/docs/speechkit/stt/llm-results)
 
-You could pass a full model uri:
-
-```python
->>> llm_post_processor = LLMPostProcessing('gpt://<folder_id>/yandexgt/latest')
-```
-
-You could use model name, in this case model uri will be built using configurated folder\_id:
+You could pass a full model URI:
 
 ```python
->>> llm_post_processor = LLMPostProcessing('yandexgt')
+>>> llm_post_processor = LLMPostProcessing('gpt://<folder_id>/yandexgpt/latest')
 ```
 
-You could also pass a model version, which have ‘latest’ by default:
+You can use a model name; in this case, the model URI is built using the configured folder\_id:
 
 ```python
->>> llm_post_processor = LLMPostProcessing('yandexgt', model_version='latest')
+>>> llm_post_processor = LLMPostProcessing('yandexgpt')
 ```
 
-After post processor object creation you should add some instructions into it by using **.with\_instruction** method (which is not mutates the object, but creates a copy):
+You could also pass a model version, which defaults to ‘latest’:
+
+```python
+>>> llm_post_processor = LLMPostProcessing('yandexgpt', model_version='latest')
+```
+
+After creating a postprocessor object, add instructions to it by using the **.with\_instruction** method (which does not mutate the object, but creates a copy):
 
 ```python
 >>> llm_post_processor = llm_post_processor.with_instruction("Make a short review")
 >>> llm_post_processor = llm_post_processor.with_instruction(
-...     "What the conversation topic",
+...     "What is the topic of the conversation?",
 ...     response_format="json"
 ... )
 ```
 
-Created object will looks like this:
+The created object looks like this:
 
 ```python
 >>> llm_post_processor
-LLMPostProcessing(model_name='yandexgt', model_version='latest', ...)
+LLMPostProcessing(model_name='yandexgpt', model_version='latest', ...)
 >>> llm_post_processor
 LLMPostProcessing(..., instructions=(LLMPostProcessingInstruction(...), LLMPostProcessingInstruction(...)))
 ```
 
-You also can use pydantic model or pydantic dataclass as response format.
+You can also use a Pydantic model or Pydantic dataclass as the response format.
 
 **\_\_init\_\_**(*model\_name*, *model\_version='latest'*, *instructions=()*){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.LLMPostProcessing.__init__i}
 
 #|
 || Parameters | 
 
-- **model\_name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **model\_version** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **model\_name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **model\_version** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
 - **instructions** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*LLMPostProcessingInstruction*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.LLMPostProcessingInstruction)*]*) ||
 || Return type | None ||
 |#
@@ -2568,7 +2574,7 @@ You also can use pydantic model or pydantic dataclass as response format.
 
 A list of instructions to perform with transcription.
 
-**model\_version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)* = *'latest'*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.LLMPostProcessing.model_version}
+**model\_version**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)* = *'latest'*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.LLMPostProcessing.model_version}
 
 The version of the model to use. Defaults to ‘latest’
 
@@ -2579,7 +2585,7 @@ Creates a new LLMPostProcessing object, but with given instruction appended.
 #|
 || Parameters | 
 
-- **instruction** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – instruction for model.
+- **instruction** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – instruction for model.
 - **response\_format** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*['json'] \| ~yandex\_ai\_studio\_sdk.\_types.schemas.JsonSchemaResponseType \| type \| None*) – format of the response returned by the model. Format could be described as:
 - *None* for usual text response (default);
 - ’*json*’ string to tell a model to return JSON object;
@@ -2589,9 +2595,9 @@ Creates a new LLMPostProcessing object, but with given instruction appended.
 || Return type | [*LLMPostProcessing*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.LLMPostProcessing) ||
 |#
 
-**model\_name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.LLMPostProcessing.model_name}
+**model\_name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.LLMPostProcessing.model_name}
 
-The [ID of the model](https://aistudio.yandex.ru/docs/foundation-models/concepts/yandexgpt/models) Model name to be used for completion generation; If the name contains ‘://’, it is treated as a full URI. Otherwise constructs a URI in the form ‘gpt://<folder\_id>/<model\_name>/<model\_version>’
+The [ID of the model](https://aistudio.yandex.ru/docs/ai-studio/concepts/generation/models) Model name to be used for completion generation; If the name contains ‘://’, it is treated as a full URI. Otherwise constructs a URI in the form ‘gpt://<folder\_id>/<model\_name>/<model\_version>’
 
 #### *class* **LanguageCode**{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.LanguageCode}
 
@@ -2665,7 +2671,7 @@ Return a centered string of length width.
 
 Padding is done using the specified fill character (default is a space).
 
-**count**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.LanguageCode.count}
+**count**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.LanguageCode.count}
 
 Return the number of non-overlapping occurrences of substring sub in string S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
@@ -2675,7 +2681,7 @@ Return a copy where all tab characters are expanded using spaces.
 
 If tabsize is not given, a tab size of 8 characters is assumed.
 
-**find**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.LanguageCode.find}
+**find**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.LanguageCode.find}
 
 Return the lowest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
@@ -2689,7 +2695,7 @@ This will search for the separator in the string.  If the separator is found, re
 
 If the separator is not found, returns a 3-tuple containing the original string and two empty strings.
 
-**index**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.LanguageCode.index}
+**index**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.LanguageCode.index}
 
 Return the lowest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
@@ -2711,13 +2717,13 @@ Return a copy of the string with leading whitespace removed.
 
 If chars is given and not None, remove characters in chars instead.
 
-**rfind**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.LanguageCode.rfind}
+**rfind**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.LanguageCode.rfind}
 
 Return the highest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
 Return -1 on failure.
 
-**rindex**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.LanguageCode.rindex}
+**rindex**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.LanguageCode.rindex}
 
 Return the highest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
@@ -2771,11 +2777,11 @@ The table must implement lookup/indexing via \_\_getitem\_\_, for instance a dic
 
 Return a copy of the string converted to uppercase.
 
-**startswith**(*prefix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/library/functions.html#bool){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.LanguageCode.startswith}
+**startswith**(*prefix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/builtins/functions.html#bool){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.LanguageCode.startswith}
 
 Return True if S starts with the specified prefix, False otherwise. With optional start, test S beginning at that position. With optional end, stop comparing S at that position. prefix can also be a tuple of strings to try.
 
-**endswith**(*suffix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/library/functions.html#bool){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.LanguageCode.endswith}
+**endswith**(*suffix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/builtins/functions.html#bool){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.LanguageCode.endswith}
 
 Return True if S ends with the specified suffix, False otherwise. With optional start, test S beginning at that position. With optional end, stop comparing S at that position. suffix can also be a tuple of strings to try.
 
@@ -2869,11 +2875,11 @@ Pad a numeric string with zeros on the left, to fill a field of the given width.
 
 The string is never truncated.
 
-**format**(*\*args*, *\*\*kwargs*) → [str](https://docs.python.org/3/library/stdtypes.html#str){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.LanguageCode.format}
+**format**(*\*args*, *\*\*kwargs*) → [str](https://docs.python.org/3/builtins/stdtypes.html#str){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.LanguageCode.format}
 
 Return a formatted version of S, using substitutions from args and kwargs. The substitutions are identified by braces (‘{’ and ‘}’).
 
-**format\_map**(*mapping*) → [str](https://docs.python.org/3/library/stdtypes.html#str){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.LanguageCode.format_map}
+**format\_map**(*mapping*) → [str](https://docs.python.org/3/builtins/stdtypes.html#str){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.LanguageCode.format_map}
 
 Return a formatted version of S, using substitutions from mapping. The substitutions are identified by braces (‘{’ and ‘}’).
 
@@ -2966,7 +2972,7 @@ You can pass a string as a trigger:
 RecognitionClassifier(name='insult', triggers=(<RecognitionTriggerType.ON_FINAL: 2>,))
 ```
 
-Or any iterable of strings to declare few triggers:
+Or pass any iterable of strings to declare several triggers:
 
 ```python
 >>> RecognitionClassifier('insult', ['on_final', 'on_partial'])
@@ -2980,14 +2986,14 @@ You could also use alternative constructors when you have only one trigger:
 RecognitionClassifier(name='insult', triggers=(<RecognitionTriggerType.ON_UTTERANCE: 1>,))
 ```
 
-There are special *RecognitionClassifier.WellKnown* enum with well-known classifier names:
+There is a special *RecognitionClassifier.WellKnown* enum with well-known classifier names:
 
 ```python
 >>> RecognitionClassifier(RecognitionClassifier.WellKnown.gender, 'on_final')
 RecognitionClassifier(name=<WellKnownRecognitionClassifiers.gender: 'gender'>, ...)
 ```
 
-On unknown trigger names there will be exception raised:
+An exception is raised for unknown trigger names:
 
 ```python
 >>> RecognitionClassifier('insult', ['on_something'])
@@ -3005,43 +3011,43 @@ alias of [**WellKnownRecognitionClassifiers**](../types/speechkit.md#yandex_ai_s
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **triggers** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*RecognitionTriggerType*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*RecognitionTriggerType*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int)*] \|* [*RecognitionTriggerType*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*RecognitionTriggerType*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **triggers** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*RecognitionTriggerType*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*RecognitionTriggerType*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int)*] \|* [*RecognitionTriggerType*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType) *\|* [*UnknownEnumValue*](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*RecognitionTriggerType*](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 || Return type | None ||
 |#
 
 *classmethod* **on\_final**(*name*){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.RecognitionClassifier.on_final}
 
-Alternative constructor to use onle ‘on\_final’ trigger
+Alternative constructor to use only ‘on\_final’ trigger
 
 #|
-|| Parameters | **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) ||
+|| Parameters | **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
 
 *classmethod* **on\_partial**(*name*){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.RecognitionClassifier.on_partial}
 
-Alternative constructor to use onle ‘on\_partial’ trigger
+Alternative constructor to use only ‘on\_partial’ trigger
 
 #|
-|| Parameters | **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) ||
+|| Parameters | **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
 
 *classmethod* **on\_utterance**(*name*){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.RecognitionClassifier.on_utterance}
 
-Alternative constructor to use onle ‘on\_utterance’ trigger
+Alternative constructor to use only ‘on\_utterance’ trigger
 
 #|
-|| Parameters | **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) ||
+|| Parameters | **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
 
-**name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.RecognitionClassifier.name}
+**name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.RecognitionClassifier.name}
 
 Classifier name.
 
-**triggers**\: *[Sequence](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)[[RecognitionTriggerType](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType) | [UnknownEnumValue](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)[[RecognitionTriggerType](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType)] | [str](https://docs.python.org/3/library/stdtypes.html#str) | [int](https://docs.python.org/3/library/functions.html#int)] | [RecognitionTriggerType](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType) | [UnknownEnumValue](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)[[RecognitionTriggerType](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType)] | [str](https://docs.python.org/3/library/stdtypes.html#str) | [int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.RecognitionClassifier.triggers}
+**triggers**\: *[Sequence](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)[[RecognitionTriggerType](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType) | [UnknownEnumValue](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)[[RecognitionTriggerType](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType)] | [str](https://docs.python.org/3/builtins/stdtypes.html#str) | [int](https://docs.python.org/3/builtins/functions.html#int)] | [RecognitionTriggerType](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType) | [UnknownEnumValue](../types/other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)[[RecognitionTriggerType](../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType)] | [str](https://docs.python.org/3/builtins/stdtypes.html#str) | [int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.RecognitionClassifier.triggers}
 
 Describes the types of responses to which the classification results will come. Classification responses will follow the responses of the specified types.
 
@@ -3054,29 +3060,29 @@ Class which encapsulates [speech analysis settings](https://aistudio.yandex.ru/d
 #|
 || Parameters | 
 
-- **speaker\_analysis** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
-- **conversation\_analysis** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
-- **descriptive\_statistics\_quantiles** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*float*](https://docs.python.org/3/library/functions.html#float)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) ||
+- **speaker\_analysis** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
+- **conversation\_analysis** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
+- **descriptive\_statistics\_quantiles** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*float*](https://docs.python.org/3/builtins/functions.html#float)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) ||
 || Return type | None ||
 |#
 
-**conversation\_analysis**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.SpeechAnalysis.conversation_analysis}
+**conversation\_analysis**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.SpeechAnalysis.conversation_analysis}
 
 Analyse conversation of two speakers
 
-**descriptive\_statistics\_quantiles**\: *[Sequence](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)[[float](https://docs.python.org/3/library/functions.html#float)] | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.SpeechAnalysis.descriptive_statistics_quantiles}
+**descriptive\_statistics\_quantiles**\: *[Sequence](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)[[float](https://docs.python.org/3/builtins/functions.html#float)] | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.SpeechAnalysis.descriptive_statistics_quantiles}
 
 Quantile levels in range (0, 1) for descriptive statistics
 
-**speaker\_analysis**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.SpeechAnalysis.speaker_analysis}
+**speaker\_analysis**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.SpeechAnalysis.speaker_analysis}
 
 Analyse speech for every speaker
 
 #### *class* **TextNormalization**{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.TextNormalization}
 
-Class which encapsulates [text normaliztion options](https://aistudio.yandex.ru/docs/speechkit/stt/normalization).
+Class which encapsulates [text normalization options](https://aistudio.yandex.ru/docs/speechkit/stt/normalization).
 
-Usage of object of this class itself in speech to text configuration is turning on normalization. Options of this class have different defaults at backend, i.e. some options could turn on the feature and others could turn it off.
+Using an instance of this class in the speech-to-text configuration turns on normalization. The options of this class have different defaults on the backend, i.e. some options can turn on a feature and others can turn it off.
 
 >> TextNormalization() TextNormalization()
 
@@ -3090,21 +3096,21 @@ TextNormalization(phone_formatting=False, profanity_filter=Undefined, literature
 #|
 || Parameters | 
 
-- **phone\_formatting** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
-- **profanity\_filter** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
-- **literature\_text** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) ||
+- **phone\_formatting** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
+- **profanity\_filter** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
+- **literature\_text** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) ||
 || Return type | None ||
 |#
 
-**literature\_text**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.TextNormalization.literature_text}
+**literature\_text**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.TextNormalization.literature_text}
 
 Rewrite text in literature style
 
-**phone\_formatting**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.TextNormalization.phone_formatting}
+**phone\_formatting**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.TextNormalization.phone_formatting}
 
 Phone formatting
 
-**profanity\_filter**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.TextNormalization.profanity_filter}
+**profanity\_filter**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [Undefined](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.TextNormalization.profanity_filter}
 
 Profanity filter
 
@@ -3114,26 +3120,26 @@ Profanity filter
 || Parameters | 
 
 - **sdk** ([*yandex\_ai\_studio\_sdk.\_sdk.BaseSDK*](#yandex_ai_studio_sdk._sdk.BaseSDK))
-- **uri** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **uri** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
 - **config** ([*ConfigTypeT*](../types/other.md#yandex_ai_studio_sdk._types.model_config.ConfigTypeT) *\| None*)
-- **owner** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\| None*) ||
+- **owner** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\| None*) ||
 |#
 
 *property* **config**\: *[ConfigTypeT](../types/other.md#yandex_ai_studio_sdk._types.model_config.ConfigTypeT)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.config}
 
-*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.fine_tuned}
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.fine_tuned}
 
-*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.name}
+*property* **name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.name}
 
-*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.owner}
+*property* **owner**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.owner}
 
-*property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.uri}
+*property* **uri**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.uri}
 
-*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.version}
+*property* **version**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.BaseSpeechToText.version}
 
 ## *class* yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.bistream.**BaseSTTBidirectionalStream**{#yandex_ai_studio_sdk._speechkit.speech_to_text.bistream.BaseSTTBidirectionalStream}
 
-Bidirectional SpeechKit  API which allows to write requests and read synthesized result in realtime
+Bidirectional SpeechKit  API that lets you write requests and read synthesized results in real time
 
 ## *class* yandex\_ai\_studio\_sdk.\_vision.domain.**BaseVisionDomain**{#yandex_ai_studio_sdk._vision.domain.BaseVisionDomain}
 
@@ -3156,8 +3162,8 @@ Refer to [OCR documentation](https://aistudio.yandex.ru/docs/vision/concepts/ocr
 #|
 || Parameters | 
 
-- **language\_codes** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – List of languages to recognize text, in ISO 639-1 format (e.g. **"ru"**, **"en"**). See [supported languages](https://aistudio.yandex.ru/docs/vision/concepts/ocr/supported-languages.html).
-- **model** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Model to use for text recognition. General models: **"page"** (default), **"page-column-sort"**, **"handwritten"**, **"table"**, **"markdown"**, **"math-markdown"**. Document template models: **"passport"**, **"driver-license-front"**, **"driver-license-back"**, **"vehicle-registration-front"**, **"vehicle-registration-back"**, **"license-plates"**. See [models](https://aistudio.yandex.ru/docs/vision/concepts/ocr/#models) and [document recognition](https://aistudio.yandex.ru/docs/vision/concepts/ocr/template-recognition). ||
+- **language\_codes** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – List of languages to recognize text, in ISO 639-1 format (e.g. **"ru"**, **"en"**). See [supported languages](https://aistudio.yandex.ru/docs/vision/concepts/ocr/supported-languages.html).
+- **model** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Model to use for text recognition. General models: **"page"** (default), **"page-column-sort"**, **"handwritten"**, **"table"**, **"markdown"**, **"math-markdown"**. Document template models: **"passport"**, **"driver-license-front"**, **"driver-license-back"**, **"vehicle-registration-front"**, **"vehicle-registration-back"**, **"license-plates"**. See [models](https://aistudio.yandex.ru/docs/vision/concepts/ocr/models) and [document recognition](https://aistudio.yandex.ru/docs/vision/concepts/ocr/models#document-models). ||
 || Return type | [*OCRTypeT*](../types/other.md#yandex_ai_studio_sdk._vision.ocr.ocr.OCRTypeT) ||
 |#
 
@@ -3172,8 +3178,8 @@ Returns the new object with config fields overridden by passed values.
 #|
 || Parameters | 
 
-- **language\_codes** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – List of languages to recognize text, in ISO 639-1 format (e.g. **"ru"**, **"en"**). See [supported languages](https://aistudio.yandex.ru/docs/vision/concepts/ocr/supported-languages.html).
-- **model** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Model to use for text recognition. General models: **"page"** (default), **"page-column-sort"**, **"handwritten"**, **"table"**, **"markdown"**, **"math-markdown"**. Document template models: **"passport"**, **"driver-license-front"**, **"driver-license-back"**, **"vehicle-registration-front"**, **"vehicle-registration-back"**, **"license-plates"**. See [models](https://aistudio.yandex.ru/docs/vision/concepts/ocr/#models) and [document recognition](https://aistudio.yandex.ru/docs/vision/concepts/ocr/template-recognition). ||
+- **language\_codes** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – List of languages to recognize text, in ISO 639-1 format (e.g. **"ru"**, **"en"**). See [supported languages](https://aistudio.yandex.ru/docs/vision/concepts/ocr/supported-languages.html).
+- **model** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Model to use for text recognition. General models: **"page"** (default), **"page-column-sort"**, **"handwritten"**, **"table"**, **"markdown"**, **"math-markdown"**. Document template models: **"passport"**, **"driver-license-front"**, **"driver-license-back"**, **"vehicle-registration-front"**, **"vehicle-registration-back"**, **"license-plates"**. See [models](https://aistudio.yandex.ru/docs/vision/concepts/ocr/models) and [document recognition](https://aistudio.yandex.ru/docs/vision/concepts/ocr/models#document-models). ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
 
@@ -3183,19 +3189,19 @@ Returns the new object with config fields overridden by passed values.
 || Parameters | 
 
 - **sdk** ([*yandex\_ai\_studio\_sdk.\_sdk.BaseSDK*](#yandex_ai_studio_sdk._sdk.BaseSDK))
-- **uri** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **uri** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
 - **config** ([*ConfigTypeT*](../types/other.md#yandex_ai_studio_sdk._types.model_config.ConfigTypeT) *\| None*)
-- **owner** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\| None*) ||
+- **owner** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\| None*) ||
 |#
 
 *property* **config**\: *[ConfigTypeT](../types/other.md#yandex_ai_studio_sdk._types.model_config.ConfigTypeT)*{#yandex_ai_studio_sdk._vision.ocr.ocr.BaseOCR.config}
 
-*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._vision.ocr.ocr.BaseOCR.fine_tuned}
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._vision.ocr.ocr.BaseOCR.fine_tuned}
 
-*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._vision.ocr.ocr.BaseOCR.name}
+*property* **name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._vision.ocr.ocr.BaseOCR.name}
 
-*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._vision.ocr.ocr.BaseOCR.owner}
+*property* **owner**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._vision.ocr.ocr.BaseOCR.owner}
 
-*property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._vision.ocr.ocr.BaseOCR.uri}
+*property* **uri**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._vision.ocr.ocr.BaseOCR.uri}
 
-*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._vision.ocr.ocr.BaseOCR.version}
+*property* **version**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._vision.ocr.ocr.BaseOCR.version}

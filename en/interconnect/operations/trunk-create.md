@@ -18,19 +18,26 @@ Before creating a trunk:
 
 {% list tabs group=instructions %}
 
-- Via support {#support}
+- Management console {#console}
 
-  Create a [support ticket]({{ link-console-support }}) to reserve a port on {{ yandex-cloud }} hardware and create a trunk.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trunk.
+  1. [Navigate]({{ link-console-main }}/link/interconnect) to **{{ interconnect-name }}**.
+  1. In the left-hand panel, select ![pipeline](../../_assets/console-icons/pipeline.svg) **{{ ui-key.yacloud.interconnect.trunk-connection.trunk-connections_kBGNL }}**.
+  1. Click **{{ ui-key.yacloud.interconnect.trunk-connection.TrunkConnectionListScreen.create-support-request_dF6Pd }}**.
 
+      If the folder has trunks already, click the **Contact** link in the info section above the trunk list.
 
+      This will open the **{{ ui-key.support-center.ticket.create.title_create-ticket-page }}** form. It has **{{ interconnect-name }}** and the **{{ ui-key.yacloud.interconnect.trunk-connection.TrunkConnectionListScreen.support-form-topic_8nwBe }}** subject preselected for you.
 
-  Where:
+  1. Write a request to allocate a port on the {{ yandex-cloud }} hardware and create a direct trunk. Specify the following:
 
-  * `client`: Your company name.
-  * `folder-id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) the trunk will be created in.
-  * `point of presence`: [Point of presence code](../concepts/pops.md).
-  * `transceiver type`: [Type of a cross connect transceiver](../concepts/transceivers.md).
-  * `connection capacity`: [Connection capacity](../concepts/capacity.md).
+      * Your company name.
+      * [ID of the folder](../../resource-manager/operations/folder/get-id.md) to create a trunk in.
+      * [Point of presence code](../concepts/pops.md).
+      * [Transceiver type](../concepts/transceivers.md) for cross-connection.
+      * [Connection capacity](../concepts/capacity.md).
+
+  1. Click **{{ ui-key.support-center.ticket.create.action_create-ticket }}**.
 
   Once the trunk is created, support will communicate to you its ID and allocated port details.
 

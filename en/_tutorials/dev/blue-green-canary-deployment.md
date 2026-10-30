@@ -384,7 +384,7 @@ All resources you create will belong to the same [cloud network](../../vpc/conce
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
      1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Select the blue bucket.
-     1. In the top panel, click ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select `index.html` version 1 for uploading.
+     1. In the top panel, click ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select `index.html` version 1 for uploading.
      1. Similarly, upload `index.html` version 2 to the green bucket.
 
    - AWS CLI {#cli}
@@ -872,7 +872,7 @@ To create security groups:
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
   1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. In the top panel, click **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
+  1. Click **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-balancer`.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
 

@@ -4,6 +4,8 @@ When deployed, {{ stackland-name }} assigns a default storage class, the one spe
 
 For databases, the preferred choice is usually SSD or NVMe, and for object storage, HDD. If a component requires a storage class different from the one specified during installation, specify it explicitly in the component configuration.
 
+For a new cluster, specify a storage class in the [component configuration before installation](../../quickstart.md#component-configuration) so that the component immediately creates a PVC with the correct settings.
+
 {% note warning %}
 
 Data is not transferred automatically when changing the storage class.
@@ -26,7 +28,7 @@ Changing the storage class results in PVC re-creation and data loss. Perform the
    kubectl get volumegroups -A -o wide
    ```
 
-For more information about the available storage classes, see [Disk subsystem](../../concepts/components/disk-storage.md#storage-classes).
+For more information about the available storage classes, see the [Disk subsystem](../../concepts/components/disk-storage.md#storage-classes) section.
 
 ## Changing the default storage class {#change-default}
 

@@ -6,15 +6,15 @@
 
 TextMessage(role: ‘str’, text: ‘str’)
 
-**role**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.message.TextMessage.role}
+**role**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.message.TextMessage.role}
 
-**text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.message.TextMessage.text}
+**text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.message.TextMessage.text}
 
 ### *class* yandex\_ai\_studio\_sdk.\_types.message.**TextMessageProtocol**{#yandex_ai_studio_sdk._types.message.TextMessageProtocol}
 
-*property* **role**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.message.TextMessageProtocol.role}
+*property* **role**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.message.TextMessageProtocol.role}
 
-*property* **text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.message.TextMessageProtocol.text}
+*property* **text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.message.TextMessageProtocol.text}
 
 *typeddict* yandex\_ai\_studio\_sdk.\_types.message.**TextMessageDict**{#yandex_ai_studio_sdk._types.message.TextMessageDict}
 
@@ -23,14 +23,14 @@ TextMessage(role: ‘str’, text: ‘str’)
 #|
 || Required Keys | 
 
-- **role** ([**str**](https://docs.python.org/3/library/stdtypes.html#str))
-- **text** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) ||
+- **role** ([**str**](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **text** ([**str**](https://docs.python.org/3/builtins/stdtypes.html#str)) ||
 |#
 
 yandex\_ai\_studio\_sdk.\_types.message.**coerce\_to\_text\_message\_dict**(*message*){#yandex_ai_studio_sdk._types.message.coerce_to_text_message_dict}
 
 #|
-|| Parameters | **message** ([*TextMessage*](#yandex_ai_studio_sdk._types.message.TextMessage) *\|* [*TextMessageDict*](#yandex_ai_studio_sdk._types.message.TextMessageDict) *\|* [*TextMessageProtocol*](#yandex_ai_studio_sdk._types.message.TextMessageProtocol) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str)) ||
+|| Parameters | **message** ([*TextMessage*](#yandex_ai_studio_sdk._types.message.TextMessage) *\|* [*TextMessageDict*](#yandex_ai_studio_sdk._types.message.TextMessageDict) *\|* [*TextMessageProtocol*](#yandex_ai_studio_sdk._types.message.TextMessageProtocol) *\|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) ||
 || Return type | [*TextMessageDict*](#yandex_ai_studio_sdk._types.message.TextMessageDict) ||
 |#
 
@@ -41,7 +41,7 @@ A class with the TypedDict representing the structure of a function result messa
 #|
 || Required Keys | 
 
-- **role** ([**str**](https://docs.python.org/3/library/stdtypes.html#str))
+- **role** ([**str**](https://docs.python.org/3/builtins/stdtypes.html#str))
 - **tool\_results** ([**Iterable**](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)[[**FunctionResultDict**](#yandex_ai_studio_sdk._tools.tool_result.FunctionResultDict)]) ||
 |#
 
@@ -52,9 +52,9 @@ Dictionary structure for function results.
 #|
 || Required Keys | 
 
-- **name** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) – Name of the function
-- **content** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) – Result content
-- **type** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) – Optional result type (default: ‘function’) ||
+- **name** ([**str**](https://docs.python.org/3/builtins/stdtypes.html#str)) – Name of the function
+- **content** ([**str**](https://docs.python.org/3/builtins/stdtypes.html#str)) – Result content
+- **type** ([**str**](https://docs.python.org/3/builtins/stdtypes.html#str)) – Optional result type (default: ‘function’) ||
 |#
 
 *typeddict* yandex\_ai\_studio\_sdk.\_types.tools.function.**FunctionDictType**{#yandex_ai_studio_sdk._types.tools.function.FunctionDictType}
@@ -75,23 +75,23 @@ Dictionary structure for function results.
 #|
 || Required Keys | 
 
-- **name** ([**str**](https://docs.python.org/3/library/stdtypes.html#str))
-- **instruction** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) ||
+- **name** ([**str**](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **instruction** ([**str**](https://docs.python.org/3/builtins/stdtypes.html#str)) ||
 |#
 
 ### *class* yandex\_ai\_studio\_sdk.\_models.completions.token.**Token**{#yandex_ai_studio_sdk._models.completions.token.Token}
 
 This class encapsulates the properties of a token and represents it in a text processing context.
 
-**id**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._models.completions.token.Token.id}
+**id**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._models.completions.token.Token.id}
 
 a unique identifier for the token
 
-**special**\: *[bool](https://docs.python.org/3/library/functions.html#bool)*{#yandex_ai_studio_sdk._models.completions.token.Token.special}
+**special**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool)*{#yandex_ai_studio_sdk._models.completions.token.Token.special}
 
 a flag indicating if the token is a special one
 
-**text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._models.completions.token.Token.text}
+**text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._models.completions.token.Token.text}
 
 the textual representation of the token
 
@@ -106,9 +106,9 @@ Used to represent the result of a function/tool call in chat conversations.
 #|
 || Required Keys | 
 
-- **role** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) – Role of the message (optional)
-- **tool\_call\_id** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) – ID of the tool call this result corresponds to
-- **content** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) – Mixed content including text and/or images ||
+- **role** ([**str**](https://docs.python.org/3/builtins/stdtypes.html#str)) – Role of the message (optional)
+- **tool\_call\_id** ([**str**](https://docs.python.org/3/builtins/stdtypes.html#str)) – ID of the tool call this result corresponds to
+- **content** ([**str**](https://docs.python.org/3/builtins/stdtypes.html#str)) – Mixed content including text and/or images ||
 |#
 
 *typeddict* yandex\_ai\_studio\_sdk.\_chat.completions.message.**MultimodalMessageDict**{#yandex_ai_studio_sdk._chat.completions.message.MultimodalMessageDict}
@@ -120,7 +120,7 @@ Allows passing multiple content types (text and images) in a single message.
 #|
 || Required Keys | 
 
-- **role** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) – Role of the message (optional)
+- **role** ([**str**](https://docs.python.org/3/builtins/stdtypes.html#str)) – Role of the message (optional)
 - **content** ([**Sequence**](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)[[**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**ImageUrlDict**](#yandex_ai_studio_sdk._chat.completions.message.ImageUrlDict), [**TextContent**](#yandex_ai_studio_sdk._chat.completions.message.TextContent)]]) – Mixed content including text and/or images ||
 |#
 
@@ -134,7 +134,7 @@ Used to include text data in multimodal chat messages.
 || Required Keys | 
 
 - **type** ([**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[**'text'**]) – Content type identifier for text
-- **text** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) – Text content ||
+- **text** ([**str**](https://docs.python.org/3/builtins/stdtypes.html#str)) – Text content ||
 |#
 
 *typeddict* yandex\_ai\_studio\_sdk.\_chat.completions.message.**ImageUrlContent**{#yandex_ai_studio_sdk._chat.completions.message.ImageUrlContent}
@@ -157,20 +157,20 @@ Dictionary for passing image URL in multimodal messages.
 #|
 || Required Keys | 
 
-- **url** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) – URL of the image ||
+- **url** ([**str**](https://docs.python.org/3/builtins/stdtypes.html#str)) – URL of the image ||
 |#
 
 ## Image generation messages
 
 ### *class* yandex\_ai\_studio\_sdk.\_models.image\_generation.message.**ImageMessage**{#yandex_ai_studio_sdk._models.image_generation.message.ImageMessage}
 
-This class represents a message for using in image generation models with optional weight field.
+This class represents a message for use in image generation models with an optional weight field.
 
-**text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._models.image_generation.message.ImageMessage.text}
+**text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._models.image_generation.message.ImageMessage.text}
 
-the text content of the message for using in image generation models
+the text content of the message for use in image generation models
 
-**weight**\: *[float](https://docs.python.org/3/library/functions.html#float) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._models.image_generation.message.ImageMessage.weight}
+**weight**\: *[float](https://docs.python.org/3/builtins/functions.html#float) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._models.image_generation.message.ImageMessage.weight}
 
 the weight associated with the message
 
@@ -181,24 +181,24 @@ The class with TypedDict representing the structure of an image message.
 #|
 || Required Keys | 
 
-- **text** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) – the text content of the message for using in image generation models
-- **weight** ([**float**](https://docs.python.org/3/library/functions.html#float)) – the weight associated with the message ||
+- **text** ([**str**](https://docs.python.org/3/builtins/stdtypes.html#str)) – the text content of the message for use in image generation models
+- **weight** ([**float**](https://docs.python.org/3/builtins/functions.html#float)) – the weight associated with the message ||
 |#
 
 ### *class* yandex\_ai\_studio\_sdk.\_models.image\_generation.message.**AnyMessage**{#yandex_ai_studio_sdk._models.image_generation.message.AnyMessage}
 
 The class with a protocol which defines an object with a text field. The protocol can be used to check if an object has a text attribute.
 
-*property* **text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._models.image_generation.message.AnyMessage.text}
+*property* **text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._models.image_generation.message.AnyMessage.text}
 
 yandex\_ai\_studio\_sdk.\_models.image\_generation.message.**ImageMessageType**{#yandex_ai_studio_sdk._models.image_generation.message.ImageMessageType}
 
 type alias for different types of messages that can be processed by image generation models
 
-Alias of [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**ImageMessage**](#yandex_ai_studio_sdk._models.image_generation.message.ImageMessage), [**ImageMessageDict**](#yandex_ai_studio_sdk._models.image_generation.message.ImageMessageDict), [**TextMessage**](#yandex_ai_studio_sdk._types.message.TextMessage), [**AnyMessage**](#yandex_ai_studio_sdk._models.image_generation.message.AnyMessage), [**str**](https://docs.python.org/3/library/stdtypes.html#str)]
+Alias of [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**ImageMessage**](#yandex_ai_studio_sdk._models.image_generation.message.ImageMessage), [**ImageMessageDict**](#yandex_ai_studio_sdk._models.image_generation.message.ImageMessageDict), [**TextMessage**](#yandex_ai_studio_sdk._types.message.TextMessage), [**AnyMessage**](#yandex_ai_studio_sdk._models.image_generation.message.AnyMessage), [**str**](https://docs.python.org/3/builtins/stdtypes.html#str)]
 
 yandex\_ai\_studio\_sdk.\_models.image\_generation.message.**ImageMessageInputType**{#yandex_ai_studio_sdk._models.image_generation.message.ImageMessageInputType}
 
 type alias for input types accepted by the *messages\_to\_proto* function
 
-Alias of [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**ImageMessage**](#yandex_ai_studio_sdk._models.image_generation.message.ImageMessage), [**ImageMessageDict**](#yandex_ai_studio_sdk._models.image_generation.message.ImageMessageDict), [**TextMessage**](#yandex_ai_studio_sdk._types.message.TextMessage), [**AnyMessage**](#yandex_ai_studio_sdk._models.image_generation.message.AnyMessage), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Iterable**](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)[[**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**ImageMessage**](#yandex_ai_studio_sdk._models.image_generation.message.ImageMessage), [**ImageMessageDict**](#yandex_ai_studio_sdk._models.image_generation.message.ImageMessageDict), [**TextMessage**](#yandex_ai_studio_sdk._types.message.TextMessage), [**AnyMessage**](#yandex_ai_studio_sdk._models.image_generation.message.AnyMessage), [**str**](https://docs.python.org/3/library/stdtypes.html#str)]]]
+Alias of [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**ImageMessage**](#yandex_ai_studio_sdk._models.image_generation.message.ImageMessage), [**ImageMessageDict**](#yandex_ai_studio_sdk._models.image_generation.message.ImageMessageDict), [**TextMessage**](#yandex_ai_studio_sdk._types.message.TextMessage), [**AnyMessage**](#yandex_ai_studio_sdk._models.image_generation.message.AnyMessage), [**str**](https://docs.python.org/3/builtins/stdtypes.html#str), [**Iterable**](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)[[**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**ImageMessage**](#yandex_ai_studio_sdk._models.image_generation.message.ImageMessage), [**ImageMessageDict**](#yandex_ai_studio_sdk._models.image_generation.message.ImageMessageDict), [**TextMessage**](#yandex_ai_studio_sdk._types.message.TextMessage), [**AnyMessage**](#yandex_ai_studio_sdk._models.image_generation.message.AnyMessage), [**str**](https://docs.python.org/3/builtins/stdtypes.html#str)]]]

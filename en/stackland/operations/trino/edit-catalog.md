@@ -4,7 +4,7 @@ If you have a [catalog](../../concepts/components/trino.md#catalogs) in your [{{
 
 {% note info %}
 
-When you update a catalog, {{ mtr-name }} recreates the cluster. While the new configuration is being applied, the cluster switches to `Updating`, and active queries get interrupted. For more information, see [Updating a cluster](../../concepts/components/trino.md#cluster-update).
+When you update a catalog, {{ mtr-name }} recreates the cluster. While the system applies the new configuration, the cluster status switches to `Updating` and all active queries are terminated. For more information, see [Updating a cluster](../../concepts/components/trino.md#cluster-update).
 
 {% endnote %}
 
@@ -15,24 +15,20 @@ When you update a catalog, {{ mtr-name }} recreates the cluster. While the new c
   1. Open the `TrinoCatalog` resource file, e.g., using the `open trinocatalog.yaml` command.
   1. Edit the properties of the selected catalog type.
 
-      General properties:
+      For {{ PG }} and {{ CH }} catalogs, you can configure the following properties in the `spec.postgres` and `spec.clickhouse` sections, respectively:
 
-      * `spec.<type>.url`: Data source address
-      * `spec.<type>.additionalProperties`: Advanced connector settings.
+      * `url`: Data source address.
+      * `credentialsSecretRef`: Reference to the Secret with credentials.
+      * `certificateSecretRef`: Reference to the Secret with a TLS certificate.
+      * `additionalProperties`: Additional connector settings.
 
-      For PostgreSQL and ClickHouse catalogs, the following properties are also available:
+      An {{ IBRG }} catalog supports the following properties:
 
-      * `spec.<type>.credentialsSecretRef`: Reference to the Secret with credentials.
-      * `spec.<type>.certificateSecretRef`: Reference to the Secret with a TLS certificate.
+      * `spec.stacklandRestCatalog.catalogRef`: `StacklandRestCatalog` resource name in the same namespace. When selecting a different catalog, make sure it is ready for use and {{ TR }} users have the [access permissions](../rest-catalog/create-principal.md) for it.
+      * `spec.stacklandRestCatalog.useExternalEndpoint`: Using an external catalog address. To set it to `true`, you need to configure [public access](../../concepts/components/rest-catalog.md#endpoints) and fill the `status.externalEndpoint` field for the catalog.
+      * `spec.stacklandRestCatalog.additionalProperties`: [Additional Iceberg settings](../../concepts/components/trino.md#iceberg-settings), i.e., data format and compression, file size, filter requirements for queries, statistics, storage options, and Iceberg view support. Use [this example of creating a catalog](create-catalog.md#cli) to add the properties and edit them as needed. When creating views, specify `SECURITY INVOKER`; for more information, see [Iceberg views](../../concepts/components/trino.md#iceberg-views).
 
-      The `spec.cluster`, `spec.name`, and `spec.type` fields are immutable: `spec.cluster` and `spec.name` make up the resource name (`metadata.name`), and modifying `spec.type` is not supported.
-
-      For Iceberg catalogs, the following properties are also available:
-
-      * `spec.iceberg.rest.warehouse`: REST catalog name.
-      * `spec.iceberg.rest.oauth2`: Authentication parameters (static token or client credentials).
-      * `spec.iceberg.s3`: S3 storage settings.
-      * `spec.iceberg.stacklandStorage.bucketRef`: Link to an {{ objstorage-name }} bucket.
+      There must be a single section with connector settings in the manifest. `spec.type` is not used. The `spec.cluster` and `spec.name` values must match the `metadata.name` resource name in `<spec.name>-<spec.cluster>` format.
 
   1. Apply the manifest: `kubectl apply -f trinocatalog.yaml -n <namespace>`.
 
@@ -49,7 +45,9 @@ When you update a catalog, {{ mtr-name }} recreates the cluster. While the new c
   1. Click **Edit**.
   1. Edit the catalog configuration under **Catalog settings**. The **Name** and **Type** fields are read-only.
 
-      The Secret fields, such as **Password**, **Access token**, **Client secret**, and **Secret access key**, are empty. If you save them as is, the existing Secret values will remain unchanged. Enter a new value to update the secret.
+      For {{ PG }} and {{ CH }}, the **Password** field is empty. If you save it empty, the existing secret value will remain unchanged. Enter a new value to update the Secret.
+
+      For {{ IBRG }}, you can select a different **REST Catalog** in the same namespace and change the **Access method** to **Internal** or **External**. The **External** method is available if the catalog you select has an external address. Make sure users have the [access permissions](../rest-catalog/create-principal.md#console) for the new catalog.
 
       In the **Additional settings** section, the key is read-only for existing rows; you can only change the value. Still, you can add new keys.
 

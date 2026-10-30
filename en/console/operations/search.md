@@ -1,3 +1,8 @@
+---
+title: Using search in the management console
+description: Follow this guide to find cloud resources, docs sections, and reference information.
+---
+
 # Using search in the management console
 
 ## Search for resources and information {#seek}
@@ -23,18 +28,15 @@ You can use the search to find cloud resources, documentation sections, and refe
 
 {% endlist %}
 
-
 ## Search objects and fields {#objects-and-fields}
 
 Folders are searched by certain object types and fields.
-
 
 ### {{ api-gw-full-name }} {#api-gw}
 
 Object type | Fields
 --- | ---
 [API gateway](../../api-gateway/concepts/index.md) | ID, name, labels, description, domain
-
 
 ### {{ alb-full-name }} {#alb}
 
@@ -45,13 +47,11 @@ Object type | Fields
 [Target group](../../application-load-balancer/concepts/target-group.md) | ID, name, labels, description
 [HTTP router](../../application-load-balancer/concepts/http-router.md) | ID, name, labels, description
 
-
 ### {{ at-full-name }} {#at}
 
 Object type | Fields
 --- | ---
 [Trail](../../audit-trails/concepts/trail.md) | ID, name, labels, description
-
 
 ### {{ certificate-manager-full-name }} {#certificate-manager}
 
@@ -59,20 +59,17 @@ Object type | Fields
 --- | ---
 [Certificate](../../certificate-manager/concepts/index.md) | ID, name, domains, labels, description
 
-
 ### {{ backup-full-name }} {#backup}
 
 Object type | Fields
 --- | ---
 [Backup policy](../../backup/concepts/policy.md) | ID, name
 
-
 ### {{ cdn-full-name }} {#cdn}
 
 Object type | Fields
 --- | ---
 [CDN resource](../../cdn/concepts/resource.md) | ID, CNAME, labels
-
 
 ### {{ dns-full-name }} {#dns}
 
@@ -82,7 +79,6 @@ Object type | Fields
 Endpoint | ID, name, labels, description
 Firewall | ID, name, labels, description
 
-
 ### {{ sf-full-name }} {#functions}
 
 Object type | Fields
@@ -91,7 +87,6 @@ Object type | Fields
 [Trigger](../../functions/concepts/trigger/index.md) | ID, name, labels, description
 [Function](../../functions/concepts/function.md) | ID, name, labels, description
 
-
 ### {{ cloud-logging-full-name }} {#logging}
 
 Object type | Fields
@@ -99,20 +94,17 @@ Object type | Fields
 [Log group](../../logging/concepts/log-group.md) | ID, name, labels
 [Log sinks](../../logging/operations/create-sink.md) | ID, name, labels
 
-
 ### {{ postbox-full-name }} {#postbox}
 
 Object type | Fields
 --- | ---
 [Address](../../postbox/concepts/glossary.md#address) | ID, address, labels, description
 
-
 ### {{ cloud-registry-full-name }} {#cloud-registry}
 
 Object type | Fields
 --- | ---
 [Registry](../../cloud-registry/concepts/registry.md) | ID, name, labels, description
-
 
 ### {{ compute-full-name }} {#compute}
 
@@ -131,7 +123,6 @@ Object type | Fields
 [Disk snapshot](../../compute/concepts/snapshot.md) | ID, name, labels, description
 [File storage](../../compute/concepts/filesystem.md) | ID, name, labels, description
 
-
 ### {{ container-registry-full-name }} {#registry}
 
 Object type | Fields
@@ -139,13 +130,11 @@ Object type | Fields
 [Registry](../../container-registry/concepts/registry.md) | ID, name, labels
 [Repository](../../container-registry/concepts/repository.md) | ID, name
 
-
 ### {{ dataproc-full-name }} {#dataproc}
 
 Object type | Fields
 --- | ---
 Cluster | ID, name, labels, description, hosts
-
 
 ### {{ data-transfer-full-name }} {#data-transfer}
 
@@ -154,7 +143,6 @@ Object type | Fields
 [Transfer](../../data-transfer/concepts/index.md#transfer) | ID, name, labels, description
 [Endpoint](../../data-transfer/concepts/index.md#endpoint) | ID, name, labels, description
 
-
 ### {{ iam-full-name }} {#iam}
 
 Object type | Fields
@@ -162,8 +150,21 @@ Object type | Fields
 [Authorized key](../../iam/concepts/authorization/key.md) | ID, description
 [Service account](../../iam/concepts/users/service-accounts.md) | ID, name, labels, description
 [Static access key](../../iam/concepts/authorization/access-key.md) | ID, key ID, description
+[Workload identity federations](../../iam/concepts/workload-identity.md) | ID, name, labels, description
 [API_key](../../iam/concepts/authorization/api-key.md) | ID, description
 
+
+### {{ org-full-name }} {#identity-hub}
+
+Object type | Fields
+--- | ---
+[Identity federation](../../organization/concepts/add-federation.md) | ID, name, labels, description
+[Federation certificate](../../organization/concepts/add-federation.md#build-trust) | ID, name, labels, description
+[User group](../../organization/concepts/groups.md) | ID, name, labels, description
+[OIDC app](../../organization/concepts/applications/oidc.md) | ID, name, labels, description
+[SAML app](../../organization/concepts/applications/saml.md) | ID, name, labels, description
+[SAML signature certificate](../../organization/concepts/applications/saml.md) | ID, name, labels, description
+[User pool](../../organization/concepts/user-pools.md) | ID, name, labels, description
 
 ### {{ kms-full-name }} {#kms}
 
@@ -173,13 +174,11 @@ Object type | Fields
 [Asymmetric encryption key pair](../../kms/concepts/asymmetric-encryption-key.md) | ID, name, labels, description
 [Symmetric key](../../kms/concepts/symmetric-encryption.md) | ID, name, labels, description
 
-
 ### {{ lockbox-full-name }} {#lockbox}
 
 Object type | Fields
 --- | ---
 [Secret](../../lockbox/concepts/secret.md) | ID, name, labels, description
-
 
 ### {{ maf-full-name }} {#maf}
 
@@ -187,13 +186,11 @@ Object type | Fields
 --- | ---
 Cluster | ID, name, labels, description, service account, S3 bucket
 
-
 ### {{ mkf-full-name }} {#mkf}
 
 Object type | Fields
 --- | ---
 Cluster | Private IP address, ID, name, labels, description, users, topics, hosts
-
 
 ### {{ mch-full-name }} {#mch}
 
@@ -201,13 +198,11 @@ Object type | Fields
 --- | ---
 Cluster | Databases, private IP address, ID, name, labels, description, users, hosts
 
-
 ### {{ mgl-full-name }} {#gitlab}
 
 Object type | Fields
 --- | ---
 [Instance](../../managed-gitlab/concepts/index.md) | ID, name, labels, description
-
 
 ### {{ managed-k8s-full-name }} {#k8s}
 
@@ -216,13 +211,11 @@ Object type | Fields
 [Node group](../../managed-kubernetes/concepts/index.md#node-group) | ID, cluster ID, name, labels, description
 Cluster | ID, name, labels, description
 
-
 ### {{ mmy-full-name }} {#mmy}
 
 Object type | Fields
 --- | ---
 Cluster | Databases, private IP address, ID, name, labels, description, users, hosts
-
 
 ### {{ mos-full-name }} {#mos}
 
@@ -230,13 +223,11 @@ Object type | Fields
 --- | ---
 Cluster | Private IP address, ID, name, labels, description, hosts
 
-
 ### {{ mpg-full-name }} {#mpg}
 
 Object type | Fields
 --- | ---
 Cluster | Databases, private IP address, ID, name, labels, description, users, hosts
-
 
 ### {{ mtr-full-name }} {#mtr}
 
@@ -244,13 +235,11 @@ Object type | Fields
 --- | ---
 Cluster | ID, name, labels, description, service account
 
-
 ### {{ mrd-full-name }} {#mrd}
 
 Object type | Fields
 --- | ---
 Cluster | Private IP address, ID, name, labels, description, users, hosts
-
 
 ### {{ ydb-full-name }} {#ydb}
 
@@ -259,13 +248,11 @@ Object type | Fields
 [Database](../../ydb/concepts/resources.md#database) | ID, name, labels, description
 [Backup]({{ ydb.docs }}/devops/backup-and-recovery) | ID, name, labels, description
 
-
 ### {{ message-queue-full-name }} {#message-queue}
 
 Object type | Fields
 --- | ---
 [Message queue](../../message-queue/concepts/queue.md) | ID, name, labels
-
 
 ### {{ metadata-hub-full-name }} {#metadata-hub}
 
@@ -273,13 +260,11 @@ Object type | Fields
 --- | ---
 [Cluster](../../metadata-hub/concepts/metastore.md) | ID, name, labels, description, service account
 
-
 ### {{ mgp-full-name }} {#mgp}
 
 Object type | Fields
 --- | ---
 Cluster | Databases, private IP address, ID, name, labels, description, users, hosts
-
 
 ### {{ network-load-balancer-full-name }} {#nlb}
 
@@ -288,13 +273,11 @@ Object type | Fields
 [Network load balancer](../../network-load-balancer/concepts/index.md) | ID, name, labels, description, private ipv4 address, private ipv6 address, public ipv4 address, public ipv6 address
 [Target group](../../network-load-balancer/concepts/target-resources.md) | ID, name, labels, description
 
-
 ### {{ objstorage-full-name }} {#storage}
 
 Object type | Fields
 --- | ---
 [Bucket](../../storage/concepts/bucket.md) | ID, name, resource ID, labels
-
 
 ### {{ resmgr-full-name }} {#resource-manager}
 
@@ -303,13 +286,11 @@ Object type | Fields
 [Folder](../../resource-manager/concepts/resources-hierarchy.md#folder) | ID, name, labels, description
 [Cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) | ID, name, labels, description
 
-
 ### {{ serverless-containers-full-name }} {#containers}
 
 Object type | Fields
 --- | ---
 [Container](../../serverless-containers/concepts/container.md) | ID, name, labels, description
-
 
 ### {{ sws-full-name }} {#sws}
 
@@ -321,20 +302,17 @@ Object type | Fields
 [Security profile](../../smartwebsecurity/concepts/profiles.md) | ID, name, labels, description
 [List of matches](../../smartwebsecurity/concepts/conditions.md#match-list) | ID, name, labels, description
 
-
 ### {{ captcha-full-name }} {#captcha}
 
 Object type | Fields
 --- | ---
 [Captcha](../../smartcaptcha/concepts/validation.md) | ID, name, labels, description
 
-
 ### {{ mmg-full-name }} {#mmg}
 
 Object type | Fields
 --- | ---
 Cluster | Databases, private IP address, ID, name, labels, description, users, hosts
-
 
 ### {{ vpc-full-name }} {#vpc}
 

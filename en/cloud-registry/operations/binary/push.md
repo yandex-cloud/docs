@@ -30,8 +30,10 @@ description: Follow this guide to push a binary artifact to a registry in {{ clo
         ```
 
     * `--upload-file`: Local path to the file to upload.
-    * The request URL contains the registry URL, the artifact name and version, as well as the file name in the registry. For example:
+    * The request URL contains the registry URL, the artifact name and version, as well as the file name in the registry. Here is an example:
 
         ```bash
         https://{{ cloud-registry }}/binaries/cn15fqbr806r********/sample-package/3.5.4/agent-installer.sh
         ```
+
+[*api-key-scope]: {% include notitle [api-key-scope](../../../_popups/iam/api-key-scope.md) %}

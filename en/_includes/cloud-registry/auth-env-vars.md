@@ -26,6 +26,9 @@ Create the following environment variables depending on the authentication metho
 - API key {#api-key}
 
   1. [Create](../../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key for the [service account](../../iam/concepts/users/service-accounts.md) you are going to use for authentication.
+
+      {% include [api-key-scopes](api-key-scopes.md) %}
+
   1. Create the `REGISTRY_USERNAME` and `REGISTRY_PASSWORD` environment variables:
 
       ```bash

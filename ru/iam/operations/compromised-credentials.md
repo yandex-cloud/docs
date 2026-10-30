@@ -30,8 +30,6 @@ description: Из статьи вы узнаете, какие шаги пред
 
 ### OAuth-токен {#oauth-reissue}
 
-{% include [oauth-token-deprecated-soon](../../_includes/oauth-token-deprecated-soon.md) %}
-
 OAuth-токен можно отозвать. При этом IAM-токены, для получения которых использовался OAuth-токен, продолжат действовать. Поэтому все такие IAM-токены также должны быть отозваны.
 
 Чтобы злоумышленник не смог использовать токен:
@@ -39,6 +37,8 @@ OAuth-токен можно отозвать. При этом IAM-токены, 
 1. [Отзовите](https://id.yandex.ru/personal/data-access) OAuth-токен. Для этого нужно [отозвать](https://yandex.ru/dev/id/doc/dg/oauth/reference/token-invalidate.html) доступ приложения {{ yandex-cloud }}.
 1. [Отзовите](./iam-token/revoke-iam-token.md) все IAM-токены, для получения которых использовался скомпрометированный OAuth-токен.
 1. [Получите новый OAuth-токен]({{ link-cloud-oauth }}).
+
+    {% include [oauth-unavailable](../../_includes/iam/oauth-unavailable.md) %}
 
 ### Авторизованный ключ {#key-reissue}
 

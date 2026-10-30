@@ -2,9 +2,21 @@
 
 # История изменений в Yandex Managed Service for Sharded PostgreSQL
 
+## Октябрь 2026 {#october-2026}
+
+Добавлены практические рекомендации по [восстановлению кластеров при отказе зоны доступности](../architecture/mdb-recovery.md).
+
+## Сентябрь 2026 {#september-2026}
+
+Добавлена возможность задавать предпочтительное время начала [технического обслуживания](concepts/maintenance.md#maintenance-window) кластера.
+
+## Август 2026 {#august-2026}
+
+Добавлены автоматические инспекции кластера: сервис регулярно проверяет кластер, выявляет риски для его доступности и производительности и выдает рекомендации по их устранению. Подробнее в разделе [Инспекции и рекомендации в Managed Service for Sharded PostgreSQL](advisor.md).
+
 ## Июнь 2026 {#jun-2026}
 
-* Сервис Yandex Managed Service for Sharded PostgreSQL перешел на стадию [General Availability](../overview/concepts/launch-stages.md).
+Сервис Yandex Managed Service for Sharded PostgreSQL перешел на стадию [General Availability](../overview/concepts/launch-stages.md).
 
 ## Январь 2026 {#jan-2026}
 

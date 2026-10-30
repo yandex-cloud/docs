@@ -129,7 +129,7 @@ Create and configure a [security group](../../vpc/concepts/security-groups.md).
 - Management console {#console}
 
    1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in the folder where you need to create a security group.
-   1. Open the **{{ ui-key.yacloud.vpc.network.security-groups.label_title }}** tab.
+   1. In the left-hand panel, select **{{ ui-key.yacloud.vpc.network.security-groups.label_title }}**.
    1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
    1. Specify the security group name: `my-rdgw-sg`.
    1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select the network to assign the security group to: `rdgw-network`.

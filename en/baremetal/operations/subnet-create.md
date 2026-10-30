@@ -35,6 +35,12 @@ description: In this tutorial, you will learn how to create a private subnet and
      
          {% include [default-dhcp](../../_includes/baremetal/instruction-steps/default-dhcp.md) %}
 
+     1. Optionally, if DHCP is enabled, configure the [DNS servers and domain name](../concepts/dns.md) to provide to servers within the subnet:
+
+         {% include [configure-dns](../../_includes/baremetal/instruction-steps/configure-dns.md) %}
+
+         To use an incoming DNS connection, first [configure network connectivity](../tutorials/bm-vrf-and-vpc-interconnect.md) between the VRF and the {{ vpc-name }} cloud network, then [create a DNS connection](../../dns/operations/connection-inbound-create.md) in that network. Selecting a DNS server does not create routes or check its availability.
+
   1. Click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
 
 - CLI {#cli}
@@ -42,6 +48,8 @@ description: In this tutorial, you will learn how to create a private subnet and
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To configure DNS, use CLI version `1.37.0` or higher.
 
   1. View the description of the command for creating a [private subnet](../concepts/private-network.md#private-subnet):
 
@@ -57,28 +65,48 @@ description: In this tutorial, you will learn how to create a private subnet and
        --name <private_subnet_name> \
        --description "<private_subnet_description>" \
        --labels <key>=<value> \
-       --vrf-options "vrf-id=<VRF_ID>,vrf-name=<VRF_name>,cidr=<CIDR>,gateway-ip=<gateway_ID_address>,dhcp=[start-ip=<IP_address_range_start>,end-ip=<IP_address_range_end>]"
+       --vrf-options-spec '{
+         vrf-id=<VRF_ID>,
+         cidr=<CIDR>,
+         gateway-ip=<gateway_IP_address>,
+         dhcp-options={
+           start-ip=<IP_address_range_start>,
+           end-ip=<IP_address_range_end>,
+           dns-options={
+             servers=[
+               {server={dns-inbound-endpoint-id=<DNS_connection_ID>}}
+             ],
+             domain-name=example.internal
+           }
+         }
+       }'
      ```
 
      Where:
-     * `--hardware-pool-id`: [Pool](../concepts/servers.md#server-pools) to lease a server from.
+     * `--hardware-pool-id`: [Pool](../concepts/servers.md#server-pools) to lease a server from. This is a required setting.
      * `--name`: Subnet name. The naming requirements are as follows:
        
        {% include [name-format](../../_includes/name-format.md) %}
        
      * `--description`: Subnet description. This is an optional setting.
      * `--labels`: Subnet labels. This is an optional setting.
-     * `--vrf-options`: Routing settings for communication with servers from other pools. This is an optional setting. Possible settings:
+     * `--vrf-options-spec`: Routing settings for communication with servers from other pools. This is an optional setting. Possible settings:
        * `vrf-id`: ID of the [virtual network segment (VRF)](../concepts/private-network.md#vrf-segment).
-       * `vrf-name`: VRF name.
        * `cidr`: Subnet [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
        * `gateway-ip`: Gateway IP address for routing traffic from this subnet to other VRF-connected subnets. This is an optional setting.
      
          {% include [default-gateaway](../../_includes/baremetal/instruction-steps/default-gateaway.md) %}
 
-       * `dhcp`: IP address range for assigning addresses using DHCP to server network interfaces. This is an optional setting.
+       * `dhcp-options`: DHCP settings. If the section is not provided, DHCP in the subnet is disabled. In `start-ip` and `end-ip`, specify the start and end of your IP address range for assigning addresses to server network interfaces.
      
          {% include [default-dhcp](../../_includes/baremetal/instruction-steps/default-dhcp.md) %}
+
+         Under `dns-options`, you can customize [DNS settings](../concepts/dns.md):
+
+         * `servers`: List of DNS servers. For each `server` item, specify either `dns-inbound-endpoint-id`, i.e., the incoming DNS connection ID, or `ip-address`, i.e., the IPv4 address of a custom DNS server, e.g., `{server={ip-address=192.168.10.2}}`. You can specify up to three items, comma-separated. For an inbound DNS connection, [configure network connectivity](./configure-dns.md#before-you-begin) first. You can get the connection ID by running this command: `yc dns inbound-endpoint list`.
+         * `domain-name`: Search domain. This is an optional parameter. Replace `example.internal` with a custom domain, or delete the parameter if you do not need a search domain.
+
+         If you do not need DNS settings, delete the `dns-options` section.
 
 - API {#api}
 
@@ -100,8 +128,12 @@ Create a private subnet with a VRF, CIDR, default gateway, and IP address range:
     --name demo-private-subnet \
     --description "My first private subnet" \
     --labels env=test \
-    --hardware-pool-id ru-central1-m3 \
-    --vrf-options "vrf-id=ly5j5qluq32z********,cidr=10.0.0.0/8,gateway-ip=10.0.0.1,dhcp=[start-ip=10.0.1.2,end-ip=10.0.1.10]"
+    --vrf-options-spec '{
+      vrf-id=ly5j5qluq32z********,
+      cidr=10.0.0.0/8,
+      gateway-ip=10.0.0.1,
+      dhcp-options={start-ip=10.0.1.2,end-ip=10.0.1.10}
+    }'
   ```
 
   Result:  

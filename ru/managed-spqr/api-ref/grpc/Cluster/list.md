@@ -89,7 +89,9 @@ The maximum string length in characters is 1000. ||
               "default_target_session_attrs": "TargetSessionAttrs",
               "default_commit_strategy": "CommitStrategy",
               "allow_postprocessing": "google.protobuf.BoolValue",
-              "auto_route_ro_on_standby": "google.protobuf.BoolValue"
+              "auto_route_ro_on_standby": "google.protobuf.BoolValue",
+              "allow_two_phase_commit": "google.protobuf.BoolValue",
+              "allow_autoprotect_two_phase": "google.protobuf.BoolValue"
             },
             "resources": {
               "resource_preset_id": "string",
@@ -137,7 +139,9 @@ The maximum string length in characters is 1000. ||
               "default_target_session_attrs": "TargetSessionAttrs",
               "default_commit_strategy": "CommitStrategy",
               "allow_postprocessing": "google.protobuf.BoolValue",
-              "auto_route_ro_on_standby": "google.protobuf.BoolValue"
+              "auto_route_ro_on_standby": "google.protobuf.BoolValue",
+              "allow_two_phase_commit": "google.protobuf.BoolValue",
+              "allow_autoprotect_two_phase": "google.protobuf.BoolValue"
             },
             "coordinator": {
               "iteration_timeout": "google.protobuf.Duration",
@@ -423,6 +427,8 @@ Configuration of a SPQR router.
 - `TWO_PC` ||
 || allow_postprocessing | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
 || auto_route_ro_on_standby | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
+|| allow_two_phase_commit | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
+|| allow_autoprotect_two_phase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
 |#
 
 ## Resources {#yandex.cloud.mdb.spqr.v1.Resources}

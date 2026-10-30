@@ -16,6 +16,8 @@ Select the authentication method:
 
     [Create](../../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key for the [service account](../../iam/concepts/users/service-accounts.md) you are going to use for authentication.
 
+    {% include [api-key-scopes](api-key-scopes.md) %}
+
     {% note info %}
 
     The API key maximum [lifetime](../../iam/concepts/authorization/api-key.md#scoped-api-keys) is set manually when you create the key.

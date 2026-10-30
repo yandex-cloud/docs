@@ -57,7 +57,7 @@ Create a virtual network segment (VRF) and a private subnet in the `{{ region-id
   1. In the [management console]({{ link-console-main }}), select the folder where you are going to create your infrastructure.
   1. [Navigate]({{ link-console-main }}/link/baremetal) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. Create a virtual routing and forwarding segment:
-
+        
         1. In the left-hand panel, select ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}** and click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
         1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, name your VRF segment: `my-vrf`.
         1. Click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
@@ -97,7 +97,7 @@ Create a virtual network segment (VRF) and a private subnet in the `{{ region-id
       1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select an image, e.g., `Ubuntu 24.04`.
       1. {% include [server-lease-step8](../../_includes/baremetal/instruction-steps/server-lease-step8.md) %}
       1. Under **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**:
-
+          
           1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select the `subnet-m3` subnet you created earlier.
           1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-no }}`.
 
@@ -129,7 +129,7 @@ Create a cloud network and subnet to connect the {{ compute-name }} VM to.
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Create a cloud network:
 
-      1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
       1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `sample-network`.
 
@@ -139,7 +139,7 @@ Create a cloud network and subnet to connect the {{ compute-name }} VM to.
   1. Create a subnet:
 
       1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-      1. At the top right, click **{{ ui-key.yacloud.vpc.subnetworks.button_action-create }}**.
+      1. Click **{{ ui-key.yacloud.vpc.subnetworks.button_action-create }}**.
       1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** field, specify `subnet-{{ region-id }}-b`.
       1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** field, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
       1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** field, select `sample-network`.
@@ -183,7 +183,7 @@ Create a cloud network and subnet to connect the {{ compute-name }} VM to.
 
 [Check](../../cloud-router/operations/ri-get-info.md) whether the folder contains a suitable virtual router for this scenario.
 
-If there is no suitable router, [create one](../../cloud-router/operations/ri-create.md). Configure it as follows:
+If there is no suitable router, [create one](../../cloud-router/operations/ri-create.md). When creating:
 
 1. Enter the name: `bms-vpc-router`.
 1. In the **{{ ui-key.yacloud.cloud-router.router.networks_fbzKL }}** field, select `sample-network`.

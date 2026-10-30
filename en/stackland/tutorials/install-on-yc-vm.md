@@ -205,7 +205,7 @@ yc compute instance create \
   --core-fraction 100 \
   --labels cluster-name=$CLUSTER_NAME \
   --create-boot-disk name=node1-boot,image-name=stackland-$VERSION,type=network-ssd,size=150,auto-delete=true \
-  --create-disk name=node1-data,type=network-ssd,size=400,device-name=data,auto-delete=true \
+  --create-disk name=node1-data,type=network-ssd,size=800,device-name=data,auto-delete=true \
   --network-interface subnet-name=$SUBNET_NAME,ipv4-address=10.130.0.11,security-group-ids=$SECURITY_GROUP_ID \
   --service-account-name stackland-yc-lb
 ```

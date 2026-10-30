@@ -377,6 +377,8 @@ items:
                 href: api-ref/grpc/Cluster/listShards.md
               - name: AddShard
                 href: api-ref/grpc/Cluster/addShard.md
+              - name: UpdateShard
+                href: api-ref/grpc/Cluster/updateShard.md
               - name: DeleteShard
                 href: api-ref/grpc/Cluster/deleteShard.md
               - name: ListAccessBindings
@@ -517,6 +519,8 @@ items:
                 href: api-ref/Cluster/listShards.md
               - name: AddShard
                 href: api-ref/Cluster/addShard.md
+              - name: UpdateShard
+                href: api-ref/Cluster/updateShard.md
               - name: DeleteShard
                 href: api-ref/Cluster/deleteShard.md
               - name: ListAccessBindings

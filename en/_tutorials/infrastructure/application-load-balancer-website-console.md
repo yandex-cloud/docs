@@ -93,7 +93,7 @@ To create an instance group with the minimum configuration:
 
   1. Open the [management console]({{ link-console-main }}).
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Open the **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}** tab and click **{{ ui-key.yacloud.compute.groups.button_create }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}** and click **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
      * Name the instance group, e.g., `website-vm-group`.
      * Select the [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete VMs in the group, assign the `editor` [role](../../iam/concepts/access-control/roles.md) to the service account. By default, all operations with security groups are performed on behalf of the service account.
@@ -149,7 +149,7 @@ To create a backend group:
 
   1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
   1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. Open the **{{ ui-key.yacloud.alb.label_backend-groups }}** tab.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
   1. Name the backend group, e.g., `website-bg`.
   1. Under **{{ ui-key.yacloud.alb.label_backends }}**, click **{{ ui-key.yacloud.common.add }}**.
@@ -173,7 +173,7 @@ To create an HTTP router and add a route to it:
 
 - Management console {#console}
 
-  1. Open the **{{ ui-key.yacloud.alb.label_http-routers }}** tab.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
   1. Name the router, e.g., `website-router`.
   1. Click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
@@ -194,7 +194,7 @@ To create a load balancer:
 
 - Management console {#console}
 
-  1. Open the **{{ ui-key.yacloud.alb.label_load-balancers }}** tab.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/branches-down.svg) **{{ ui-key.yacloud.alb.label_load-balancers }}**.
   1. Click **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
   1. Name the load balancer, e.g., `website-alb`.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the network your VM group is connected to and the [previously created](#create-security-groups) security group, `alb-sg`.

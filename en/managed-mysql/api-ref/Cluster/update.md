@@ -144,27 +144,37 @@ apiPlayground:
               **enum** (SQLMode)
               Server SQL mode of MySQL.
               See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting) for details.
-              - `ALLOW_INVALID_DATES`: Allow dates where the day or month part is 0. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_allow_invalid_dates).
-              - `ANSI_QUOTES`: Treat `"` as an identifier quote character (like the `` ` `` quote character) rather than as a string quote character. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_ansi_quotes).
-              - `ERROR_FOR_DIVISION_BY_ZERO`: Produce an error for divisions by zero. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_error_for_division_by_zero).
-              - `HIGH_NOT_PRECEDENCE`: Give `NOT` higher precedence in negation than it has in non-high-precedence mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_high_not_precedence).
-              - `IGNORE_SPACE`: Allow spaces between a function name and the `(` character. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_ignore_space).
-              - `NO_AUTO_VALUE_ON_ZERO`: Do not reset the AUTO_INCREMENT column to 0 when inserting 0 into it. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_auto_value_on_zero).
-              - `NO_BACKSLASH_ESCAPES`: Disable the use of the backslash character (`\`) as an escape character within strings. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_backslash_escapes).
-              - `NO_ENGINE_SUBSTITUTION`: Do not substitute the default storage engine when a statement specifies a storage engine that is disabled or not compiled in. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_engine_substitution).
-              - `NO_UNSIGNED_SUBTRACTION`: Disable unsigned subtraction so that subtraction results are always signed. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_unsigned_subtraction).
-              - `NO_ZERO_DATE`: Disable the MySQL-specific date `0000-00-00`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_zero_date).
-              - `NO_ZERO_IN_DATE`: Disable month or day parts of `0` in dates. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_zero_in_date).
-              - `ONLY_FULL_GROUP_BY`: Reject queries for which the select list, `HAVING` condition, or `ORDER BY` list refer to non-aggregated columns that are not named in the `GROUP BY` clause. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_only_full_group_by).
-              - `PAD_CHAR_TO_FULL_LENGTH`: Pad `CHAR` column values with spaces to the full column length when retrieving them. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_pad_char_to_full_length).
-              - `PIPES_AS_CONCAT`: Treat `||` as a string concatenation operator rather than as `OR`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_pipes_as_concat).
-              - `REAL_AS_FLOAT`: Treat `REAL` as a synonym for `FLOAT` rather than `DOUBLE`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_real_as_float).
-              - `STRICT_ALL_TABLES`: Strict mode for all storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_strict_all_tables).
-              - `STRICT_TRANS_TABLES`: Strict mode for transactional storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_strict_trans_tables).
-              - `TIME_TRUNCATE_FRACTIONAL`: Causes fractional seconds to be truncated rather than rounded when inserting into a column that has a data type with a fractional seconds part. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_time_truncate_fractional).
-              - `ANSI`: Equivalent to `REAL_AS_FLOAT`, `PIPES_AS_CONCAT`, `ANSI_QUOTES`, `IGNORE_SPACE`, and `ONLY_FULL_GROUP_BY`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_ansi).
-              - `TRADITIONAL`: Equivalent to `STRICT_TRANS_TABLES`, `STRICT_ALL_TABLES`, `NO_ZERO_IN_DATE`, `NO_ZERO_DATE`, `ERROR_FOR_DIVISION_BY_ZERO`, and `NO_ENGINE_SUBSTITUTION`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_traditional).
-              - `NO_DIR_IN_CREATE`: Prevent the use of `..` in directory paths in `CREATE TABLE` statements. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_dir_in_create).
+              - `ALLOW_INVALID_DATES`: Allow dates where the day or month part is 0. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_allow_invalid_dates).
+              - `ANSI_QUOTES`: Treat `"` as an identifier quote character (like the `` ` `` quote character) rather than as a string quote character. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ansi_quotes).
+              - `ERROR_FOR_DIVISION_BY_ZERO`: Produce an error for divisions by zero. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_error_for_division_by_zero).
+              - `HIGH_NOT_PRECEDENCE`: Give `NOT` higher precedence in negation than it has in non-high-precedence mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_high_not_precedence).
+              - `IGNORE_SPACE`: Allow spaces between a function name and the `(` character. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ignore_space).
+              - `NO_AUTO_VALUE_ON_ZERO`: Do not reset the AUTO_INCREMENT column to 0 when inserting 0 into it. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_auto_value_on_zero).
+              - `NO_BACKSLASH_ESCAPES`: Disable the use of the backslash character (`\`) as an escape character within strings. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_backslash_escapes).
+              - `NO_ENGINE_SUBSTITUTION`: Do not substitute the default storage engine when a statement specifies a storage engine that is disabled or not compiled in. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_engine_substitution).
+              - `NO_UNSIGNED_SUBTRACTION`: Disable unsigned subtraction so that subtraction results are always signed. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_unsigned_subtraction).
+              - `NO_ZERO_DATE`: Disable the MySQL-specific date `0000-00-00`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_zero_date).
+              - `NO_ZERO_IN_DATE`: Disable month or day parts of `0` in dates. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_zero_in_date).
+              - `NO_FIELD_OPTIONS`: Ignore field options in `CREATE TABLE` statements (MySQL 5.7 compatibility). See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_field_options).
+              - `NO_KEY_OPTIONS`: Ignore key options in `CREATE TABLE` statements (MySQL 5.7 compatibility). See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_key_options).
+              - `NO_TABLE_OPTIONS`: Ignore table options in `CREATE TABLE` statements (MySQL 5.7 compatibility). See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_table_options).
+              - `ONLY_FULL_GROUP_BY`: Reject queries for which the select list, `HAVING` condition, or `ORDER BY` list refer to non-aggregated columns that are not named in the `GROUP BY` clause. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_only_full_group_by).
+              - `PAD_CHAR_TO_FULL_LENGTH`: Pad `CHAR` column values with spaces to the full column length when retrieving them. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_pad_char_to_full_length).
+              - `PIPES_AS_CONCAT`: Treat `||` as a string concatenation operator rather than as `OR`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_pipes_as_concat).
+              - `REAL_AS_FLOAT`: Treat `REAL` as a synonym for `FLOAT` rather than `DOUBLE`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_real_as_float).
+              - `STRICT_ALL_TABLES`: Strict mode for all storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_strict_all_tables).
+              - `STRICT_TRANS_TABLES`: Strict mode for transactional storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_strict_trans_tables).
+              - `ANSI`: Equivalent to `REAL_AS_FLOAT`, `PIPES_AS_CONCAT`, `ANSI_QUOTES`, `IGNORE_SPACE`, and `ONLY_FULL_GROUP_BY`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ansi).
+              - `TRADITIONAL`: Equivalent to `STRICT_TRANS_TABLES`, `STRICT_ALL_TABLES`, `NO_ZERO_IN_DATE`, `NO_ZERO_DATE`, `ERROR_FOR_DIVISION_BY_ZERO`, and `NO_AUTO_CREATE_USER`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_traditional).
+              - `DB2`: IBM DB2 compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_db2).
+              - `MAXDB`: SAP MaxDB compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_maxdb).
+              - `MSSQL`: Microsoft SQL Server compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_mssql).
+              - `MYSQL323`: MySQL 3.23 compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_mysql323).
+              - `MYSQL40`: MySQL 4.0 compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_mysql40).
+              - `ORACLE`: Oracle compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_oracle).
+              - `POSTGRESQL`: PostgreSQL compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_postgresql).
+              - `NO_AUTO_CREATE_USER`: Prevent `GRANT` from creating new users implicitly. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_auto_create_user).
+              - `NO_DIR_IN_CREATE`: Prevent the use of `..` in directory paths in `CREATE TABLE` statements. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_dir_in_create).
             type: array
             items:
               type: string
@@ -181,15 +191,25 @@ apiPlayground:
                 - NO_UNSIGNED_SUBTRACTION
                 - NO_ZERO_DATE
                 - NO_ZERO_IN_DATE
+                - NO_FIELD_OPTIONS
+                - NO_KEY_OPTIONS
+                - NO_TABLE_OPTIONS
                 - ONLY_FULL_GROUP_BY
                 - PAD_CHAR_TO_FULL_LENGTH
                 - PIPES_AS_CONCAT
                 - REAL_AS_FLOAT
                 - STRICT_ALL_TABLES
                 - STRICT_TRANS_TABLES
-                - TIME_TRUNCATE_FRACTIONAL
                 - ANSI
                 - TRADITIONAL
+                - DB2
+                - MAXDB
+                - MSSQL
+                - MYSQL323
+                - MYSQL40
+                - ORACLE
+                - POSTGRESQL
+                - NO_AUTO_CREATE_USER
                 - NO_DIR_IN_CREATE
           maxAllowedPacket:
             description: |-
@@ -962,27 +982,37 @@ apiPlayground:
               **enum** (SQLMode)
               Server SQL mode of MySQL.
               See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting) for details.
-              - `ALLOW_INVALID_DATES`: Allow dates where the day or month part is 0. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_allow_invalid_dates).
-              - `ANSI_QUOTES`: Treat `"` as an identifier quote character (like the `` ` `` quote character) rather than as a string quote character. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_ansi_quotes).
-              - `ERROR_FOR_DIVISION_BY_ZERO`: Produce an error for divisions by zero. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_error_for_division_by_zero).
-              - `HIGH_NOT_PRECEDENCE`: Give `NOT` higher precedence in negation than it has in non-high-precedence mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_high_not_precedence).
-              - `IGNORE_SPACE`: Allow spaces between a function name and the `(` character. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_ignore_space).
-              - `NO_AUTO_VALUE_ON_ZERO`: Do not reset the AUTO_INCREMENT column to 0 when inserting 0 into it. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_auto_value_on_zero).
-              - `NO_BACKSLASH_ESCAPES`: Disable the use of the backslash character (`\`) as an escape character within strings. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_backslash_escapes).
-              - `NO_ENGINE_SUBSTITUTION`: Do not substitute the default storage engine when a statement specifies a storage engine that is disabled or not compiled in. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_engine_substitution).
-              - `NO_UNSIGNED_SUBTRACTION`: Disable unsigned subtraction so that subtraction results are always signed. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_unsigned_subtraction).
-              - `NO_ZERO_DATE`: Disable the MySQL-specific date `0000-00-00`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_zero_date).
-              - `NO_ZERO_IN_DATE`: Disable month or day parts of `0` in dates. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_zero_in_date).
-              - `ONLY_FULL_GROUP_BY`: Reject queries for which the select list, `HAVING` condition, or `ORDER BY` list refer to non-aggregated columns that are not named in the `GROUP BY` clause. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_only_full_group_by).
-              - `PAD_CHAR_TO_FULL_LENGTH`: Pad `CHAR` column values with spaces to the full column length when retrieving them. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_pad_char_to_full_length).
-              - `PIPES_AS_CONCAT`: Treat `||` as a string concatenation operator rather than as `OR`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_pipes_as_concat).
-              - `REAL_AS_FLOAT`: Treat `REAL` as a synonym for `FLOAT` rather than `DOUBLE`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_real_as_float).
-              - `STRICT_ALL_TABLES`: Strict mode for all storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_strict_all_tables).
-              - `STRICT_TRANS_TABLES`: Strict mode for transactional storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_strict_trans_tables).
-              - `TIME_TRUNCATE_FRACTIONAL`: Causes fractional seconds to be truncated rather than rounded when inserting into a column that has a data type with a fractional seconds part. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_time_truncate_fractional).
-              - `ANSI`: Equivalent to `REAL_AS_FLOAT`, `PIPES_AS_CONCAT`, `ANSI_QUOTES`, `IGNORE_SPACE`, and `ONLY_FULL_GROUP_BY`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_ansi).
-              - `TRADITIONAL`: Equivalent to `STRICT_TRANS_TABLES`, `STRICT_ALL_TABLES`, `NO_ZERO_IN_DATE`, `NO_ZERO_DATE`, `ERROR_FOR_DIVISION_BY_ZERO`, and `NO_ENGINE_SUBSTITUTION`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_traditional).
-              - `NO_DIR_IN_CREATE`: Prevent the use of `..` in directory paths in `CREATE TABLE` statements. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_dir_in_create).
+              - `ALLOW_INVALID_DATES`: Allow dates where the day or month part is 0. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_allow_invalid_dates).
+              - `ANSI_QUOTES`: Treat `"` as an identifier quote character (like the `` ` `` quote character) rather than as a string quote character. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ansi_quotes).
+              - `ERROR_FOR_DIVISION_BY_ZERO`: Produce an error for divisions by zero. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_error_for_division_by_zero).
+              - `HIGH_NOT_PRECEDENCE`: Give `NOT` higher precedence in negation than it has in non-high-precedence mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_high_not_precedence).
+              - `IGNORE_SPACE`: Allow spaces between a function name and the `(` character. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ignore_space).
+              - `NO_AUTO_VALUE_ON_ZERO`: Do not reset the AUTO_INCREMENT column to 0 when inserting 0 into it. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_auto_value_on_zero).
+              - `NO_BACKSLASH_ESCAPES`: Disable the use of the backslash character (`\`) as an escape character within strings. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_backslash_escapes).
+              - `NO_ENGINE_SUBSTITUTION`: Do not substitute the default storage engine when a statement specifies a storage engine that is disabled or not compiled in. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_engine_substitution).
+              - `NO_UNSIGNED_SUBTRACTION`: Disable unsigned subtraction so that subtraction results are always signed. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_unsigned_subtraction).
+              - `NO_ZERO_DATE`: Disable the MySQL-specific date `0000-00-00`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_zero_date).
+              - `NO_ZERO_IN_DATE`: Disable month or day parts of `0` in dates. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_zero_in_date).
+              - `NO_FIELD_OPTIONS`: Ignore field options in `CREATE TABLE` statements (MySQL 5.7 compatibility). See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_field_options).
+              - `NO_KEY_OPTIONS`: Ignore key options in `CREATE TABLE` statements (MySQL 5.7 compatibility). See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_key_options).
+              - `NO_TABLE_OPTIONS`: Ignore table options in `CREATE TABLE` statements (MySQL 5.7 compatibility). See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_table_options).
+              - `ONLY_FULL_GROUP_BY`: Reject queries for which the select list, `HAVING` condition, or `ORDER BY` list refer to non-aggregated columns that are not named in the `GROUP BY` clause. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_only_full_group_by).
+              - `PAD_CHAR_TO_FULL_LENGTH`: Pad `CHAR` column values with spaces to the full column length when retrieving them. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_pad_char_to_full_length).
+              - `PIPES_AS_CONCAT`: Treat `||` as a string concatenation operator rather than as `OR`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_pipes_as_concat).
+              - `REAL_AS_FLOAT`: Treat `REAL` as a synonym for `FLOAT` rather than `DOUBLE`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_real_as_float).
+              - `STRICT_ALL_TABLES`: Strict mode for all storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_strict_all_tables).
+              - `STRICT_TRANS_TABLES`: Strict mode for transactional storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_strict_trans_tables).
+              - `ANSI`: Equivalent to `REAL_AS_FLOAT`, `PIPES_AS_CONCAT`, `ANSI_QUOTES`, `IGNORE_SPACE`, and `ONLY_FULL_GROUP_BY`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ansi).
+              - `TRADITIONAL`: Equivalent to `STRICT_TRANS_TABLES`, `STRICT_ALL_TABLES`, `NO_ZERO_IN_DATE`, `NO_ZERO_DATE`, `ERROR_FOR_DIVISION_BY_ZERO`, and `NO_AUTO_CREATE_USER`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_traditional).
+              - `DB2`: IBM DB2 compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_db2).
+              - `MAXDB`: SAP MaxDB compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_maxdb).
+              - `MSSQL`: Microsoft SQL Server compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_mssql).
+              - `MYSQL323`: MySQL 3.23 compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_mysql323).
+              - `MYSQL40`: MySQL 4.0 compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_mysql40).
+              - `ORACLE`: Oracle compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_oracle).
+              - `POSTGRESQL`: PostgreSQL compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_postgresql).
+              - `NO_AUTO_CREATE_USER`: Prevent `GRANT` from creating new users implicitly. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_auto_create_user).
+              - `NO_DIR_IN_CREATE`: Prevent the use of `..` in directory paths in `CREATE TABLE` statements. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_dir_in_create).
             type: array
             items:
               type: string
@@ -999,15 +1029,25 @@ apiPlayground:
                 - NO_UNSIGNED_SUBTRACTION
                 - NO_ZERO_DATE
                 - NO_ZERO_IN_DATE
+                - NO_FIELD_OPTIONS
+                - NO_KEY_OPTIONS
+                - NO_TABLE_OPTIONS
                 - ONLY_FULL_GROUP_BY
                 - PAD_CHAR_TO_FULL_LENGTH
                 - PIPES_AS_CONCAT
                 - REAL_AS_FLOAT
                 - STRICT_ALL_TABLES
                 - STRICT_TRANS_TABLES
-                - TIME_TRUNCATE_FRACTIONAL
                 - ANSI
                 - TRADITIONAL
+                - DB2
+                - MAXDB
+                - MSSQL
+                - MYSQL323
+                - MYSQL40
+                - ORACLE
+                - POSTGRESQL
+                - NO_AUTO_CREATE_USER
                 - NO_DIR_IN_CREATE
           maxAllowedPacket:
             description: |-
@@ -1765,27 +1805,37 @@ apiPlayground:
               **enum** (SQLMode)
               Server SQL mode of MySQL.
               For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sql-mode-setting).
-              - `ALLOW_INVALID_DATES`: Allow dates where the day or month part is 0. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_allow_invalid_dates).
-              - `ANSI_QUOTES`: Treat `"` as an identifier quote character (like the `` ` `` quote character) rather than as a string quote character. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_ansi_quotes).
-              - `ERROR_FOR_DIVISION_BY_ZERO`: Produce an error for divisions by zero. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_error_for_division_by_zero).
-              - `HIGH_NOT_PRECEDENCE`: Give `NOT` higher precedence in negation than it has in non-high-precedence mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_high_not_precedence).
-              - `IGNORE_SPACE`: Allow spaces between a function name and the `(` character. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_ignore_space).
-              - `NO_AUTO_VALUE_ON_ZERO`: Do not reset the AUTO_INCREMENT column to 0 when inserting 0 into it. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_auto_value_on_zero).
-              - `NO_BACKSLASH_ESCAPES`: Disable the use of the backslash character (`\`) as an escape character within strings. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_backslash_escapes).
-              - `NO_ENGINE_SUBSTITUTION`: Do not substitute the default storage engine when a statement specifies a storage engine that is disabled or not compiled in. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_engine_substitution).
-              - `NO_UNSIGNED_SUBTRACTION`: Disable unsigned subtraction so that subtraction results are always signed. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_unsigned_subtraction).
-              - `NO_ZERO_DATE`: Disable the MySQL-specific date `0000-00-00`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_zero_date).
-              - `NO_ZERO_IN_DATE`: Disable month or day parts of `0` in dates. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_zero_in_date).
-              - `ONLY_FULL_GROUP_BY`: Reject queries for which the select list, `HAVING` condition, or `ORDER BY` list refer to non-aggregated columns that are not named in the `GROUP BY` clause. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_only_full_group_by).
-              - `PAD_CHAR_TO_FULL_LENGTH`: Pad `CHAR` column values with spaces to the full column length when retrieving them. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_pad_char_to_full_length).
-              - `PIPES_AS_CONCAT`: Treat `||` as a string concatenation operator rather than as `OR`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_pipes_as_concat).
-              - `REAL_AS_FLOAT`: Treat `REAL` as a synonym for `FLOAT` rather than `DOUBLE`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_real_as_float).
-              - `STRICT_ALL_TABLES`: Strict mode for all storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_strict_all_tables).
-              - `STRICT_TRANS_TABLES`: Strict mode for transactional storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_strict_trans_tables).
-              - `TIME_TRUNCATE_FRACTIONAL`: Causes fractional seconds to be truncated rather than rounded when inserting into a column that has a data type with a fractional seconds part. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_time_truncate_fractional).
-              - `ANSI`: Equivalent to `REAL_AS_FLOAT`, `PIPES_AS_CONCAT`, `ANSI_QUOTES`, `IGNORE_SPACE`, and `ONLY_FULL_GROUP_BY`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_ansi).
-              - `TRADITIONAL`: Equivalent to `STRICT_TRANS_TABLES`, `STRICT_ALL_TABLES`, `NO_ZERO_IN_DATE`, `NO_ZERO_DATE`, `ERROR_FOR_DIVISION_BY_ZERO`, and `NO_ENGINE_SUBSTITUTION`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_traditional).
-              - `NO_DIR_IN_CREATE`: Prevent the use of `..` in directory paths in `CREATE TABLE` statements. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_dir_in_create).
+              - `ALLOW_INVALID_DATES`: Allow dates where the day or month part is 0. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_allow_invalid_dates).
+              - `ANSI_QUOTES`: Treat `"` as an identifier quote character (like the `` ` `` quote character) rather than as a string quote character. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ansi_quotes).
+              - `ERROR_FOR_DIVISION_BY_ZERO`: Produce an error for divisions by zero. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_error_for_division_by_zero).
+              - `HIGH_NOT_PRECEDENCE`: Give `NOT` higher precedence in negation than it has in non-high-precedence mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_high_not_precedence).
+              - `IGNORE_SPACE`: Allow spaces between a function name and the `(` character. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ignore_space).
+              - `NO_AUTO_VALUE_ON_ZERO`: Do not reset the AUTO_INCREMENT column to 0 when inserting 0 into it. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_auto_value_on_zero).
+              - `NO_BACKSLASH_ESCAPES`: Disable the use of the backslash character (`\`) as an escape character within strings. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_backslash_escapes).
+              - `NO_ENGINE_SUBSTITUTION`: Do not substitute the default storage engine when a statement specifies a storage engine that is disabled or not compiled in. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_engine_substitution).
+              - `NO_UNSIGNED_SUBTRACTION`: Disable unsigned subtraction so that subtraction results are always signed. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_unsigned_subtraction).
+              - `NO_ZERO_DATE`: Disable the MySQL-specific date `0000-00-00`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_zero_date).
+              - `NO_ZERO_IN_DATE`: Disable month or day parts of `0` in dates. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_zero_in_date).
+              - `NO_FIELD_OPTIONS`: Ignore field options in `CREATE TABLE` statements (MySQL 5.7 compatibility). See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_field_options).
+              - `NO_KEY_OPTIONS`: Ignore key options in `CREATE TABLE` statements (MySQL 5.7 compatibility). See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_key_options).
+              - `NO_TABLE_OPTIONS`: Ignore table options in `CREATE TABLE` statements (MySQL 5.7 compatibility). See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_table_options).
+              - `ONLY_FULL_GROUP_BY`: Reject queries for which the select list, `HAVING` condition, or `ORDER BY` list refer to non-aggregated columns that are not named in the `GROUP BY` clause. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_only_full_group_by).
+              - `PAD_CHAR_TO_FULL_LENGTH`: Pad `CHAR` column values with spaces to the full column length when retrieving them. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_pad_char_to_full_length).
+              - `PIPES_AS_CONCAT`: Treat `||` as a string concatenation operator rather than as `OR`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_pipes_as_concat).
+              - `REAL_AS_FLOAT`: Treat `REAL` as a synonym for `FLOAT` rather than `DOUBLE`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_real_as_float).
+              - `STRICT_ALL_TABLES`: Strict mode for all storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_strict_all_tables).
+              - `STRICT_TRANS_TABLES`: Strict mode for transactional storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_strict_trans_tables).
+              - `ANSI`: Equivalent to `REAL_AS_FLOAT`, `PIPES_AS_CONCAT`, `ANSI_QUOTES`, `IGNORE_SPACE`, and `ONLY_FULL_GROUP_BY`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ansi).
+              - `TRADITIONAL`: Equivalent to `STRICT_TRANS_TABLES`, `STRICT_ALL_TABLES`, `NO_ZERO_IN_DATE`, `NO_ZERO_DATE`, `ERROR_FOR_DIVISION_BY_ZERO`, and `NO_AUTO_CREATE_USER`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_traditional).
+              - `DB2`: IBM DB2 compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_db2).
+              - `MAXDB`: SAP MaxDB compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_maxdb).
+              - `MSSQL`: Microsoft SQL Server compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_mssql).
+              - `MYSQL323`: MySQL 3.23 compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_mysql323).
+              - `MYSQL40`: MySQL 4.0 compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_mysql40).
+              - `ORACLE`: Oracle compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_oracle).
+              - `POSTGRESQL`: PostgreSQL compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_postgresql).
+              - `NO_AUTO_CREATE_USER`: Prevent `GRANT` from creating new users implicitly. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_auto_create_user).
+              - `NO_DIR_IN_CREATE`: Prevent the use of `..` in directory paths in `CREATE TABLE` statements. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_dir_in_create).
             type: array
             items:
               type: string
@@ -1802,15 +1852,25 @@ apiPlayground:
                 - NO_UNSIGNED_SUBTRACTION
                 - NO_ZERO_DATE
                 - NO_ZERO_IN_DATE
+                - NO_FIELD_OPTIONS
+                - NO_KEY_OPTIONS
+                - NO_TABLE_OPTIONS
                 - ONLY_FULL_GROUP_BY
                 - PAD_CHAR_TO_FULL_LENGTH
                 - PIPES_AS_CONCAT
                 - REAL_AS_FLOAT
                 - STRICT_ALL_TABLES
                 - STRICT_TRANS_TABLES
-                - TIME_TRUNCATE_FRACTIONAL
                 - ANSI
                 - TRADITIONAL
+                - DB2
+                - MAXDB
+                - MSSQL
+                - MYSQL323
+                - MYSQL40
+                - ORACLE
+                - POSTGRESQL
+                - NO_AUTO_CREATE_USER
                 - NO_DIR_IN_CREATE
           maxAllowedPacket:
             description: |-

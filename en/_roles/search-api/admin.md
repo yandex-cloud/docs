@@ -1,4 +1,4 @@
 
-The `search-api.admin` role was used by an API that is now deprecated. The role enables viewing {{ search-api }} quotas, as well as information on the relevant cloud and folder.
+The `search-api.admin` role was previously used to work with the now deprecated {{ search-api-full-name }} and enables running search queries via the current version of the {{ search-api-full-name }}.
 
-The `search-api.admin` role should no longer be used.
+The `search-api.admin` role is deprecated and should no longer be used.

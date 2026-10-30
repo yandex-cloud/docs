@@ -15,7 +15,12 @@
 {% endnote %}
 
 
-Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роль [managed-mongodb.restorer](../../iam/roles-reference.md#managed-mongodb-restorer) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
+Если резервная копия и новый кластер находятся в одном каталоге, [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роли [managed-mongodb.editor](../../iam/roles-reference.md#managed-mongodb-editor) и [vpc.user](../../iam/roles-reference.md#vpc-user) или выше.
+
+Если резервная копия и новый кластер находятся в разных каталогах, назначьте аккаунту роли:
+
+* [managed-mongodb.restorer](../../iam/roles-reference.md#managed-mongodb-restorer) или выше на каталог, в котором находится резервная копия;
+* [managed-mongodb.editor](../../iam/roles-reference.md#managed-mongodb-editor) и [vpc.user](../../iam/roles-reference.md#vpc-user) или выше на каталог, в котором находится новый кластер.
 
 
 {% list tabs group=instructions %}

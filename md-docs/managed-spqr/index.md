@@ -390,6 +390,8 @@ SPQR (Stateless Postgres Query Router) — это система горизон�
 
  - [AddShard](api-ref/grpc/Cluster/addShard.md)
 
+ - [UpdateShard](api-ref/grpc/Cluster/updateShard.md)
+
  - [DeleteShard](api-ref/grpc/Cluster/deleteShard.md)
 
  - [ListAccessBindings](api-ref/grpc/Cluster/listAccessBindings.md)
@@ -529,6 +531,8 @@ SPQR (Stateless Postgres Query Router) — это система горизон�
  - [ListShards](api-ref/Cluster/listShards.md)
 
  - [AddShard](api-ref/Cluster/addShard.md)
+
+ - [UpdateShard](api-ref/Cluster/updateShard.md)
 
  - [DeleteShard](api-ref/Cluster/deleteShard.md)
 

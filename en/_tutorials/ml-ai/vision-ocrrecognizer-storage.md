@@ -33,7 +33,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The infrastructure support cost for scheduled image and document recognition includes:
 * Fee for bucket data storage and bucket data operations (see [{{ objstorage-name }} pricing]({{ link-docs }}/storage/pricing)).
 * Fee for using {{ vision-name }} (see [{{ vision-name }} pricing]({{ link-docs-ai }}ai-studio/pricing#rules-image-recognition)).
-* Fee for the container invocation count, computing resources allocated for the application, and outgoing traffic (see [{{ serverless-containers-name }} pricing]({{ link-docs }}/serverless-containers/pricing)).
+* Fee for the number of container invocations, computing resources allocated for the application, and outgoing traffic (see [{{ serverless-containers-name }} pricing]({{ link-docs }}/serverless-containers/pricing)).
 * Fee for storing the [secret]({{ link-docs }}/lockbox/concepts/secret) and operations with it (see [{{ lockbox-name }} pricing]({{ link-docs }}/lockbox/pricing)).
 
 
@@ -44,7 +44,7 @@ The infrastructure support cost for scheduled image and document recognition inc
 To create your infrastructure via {{ TF }}:
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials]({{ link-docs }}/tutorials/infrastructure-management/terraform-quickstart#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
 
-1. Set up your infrastructure description files:
+1.  Set up infrastructure description files:
 
     1. Clone the repository containing the configuration files.
 

@@ -13,14 +13,14 @@ It returns an operation that can be used to track the creation process.
 #|
 || Parameters | 
 
-- **files** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*BaseFile*](../internals/bases.md#yandex_ai_studio_sdk._files.file.BaseFile) *\|* [*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*BaseFile*](../internals/bases.md#yandex_ai_studio_sdk._files.file.BaseFile)*] \|* [*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*) – the files to be indexed.
+- **files** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*BaseFile*](../internals/bases.md#yandex_ai_studio_sdk._files.file.BaseFile) *\|* [*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*BaseFile*](../internals/bases.md#yandex_ai_studio_sdk._files.file.BaseFile)*] \|* [*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*]*) – the files to be indexed.
 - **index\_type** ([*BaseSearchIndexType*](../types/search_indexes.md#yandex_ai_studio_sdk._search_indexes.index_type.BaseSearchIndexType) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the type of the search index.
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the name of the search index.
-- **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a description for the search index.
-- **labels** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a set of labels for the search index.
-- **ttl\_days** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – time-to-live in days for the search index.
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the name of the search index.
+- **description** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a description for the search index.
+- **labels** ([*dict*](https://docs.python.org/3/builtins/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a set of labels for the search index.
+- **ttl\_days** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – time-to-live in days for the search index.
 - **expiration\_policy** ([*ExpirationPolicy*](../types/assistants.md#yandex_ai_studio_sdk._types.expiration.ExpirationPolicy) *\|* [*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*[1, 2] \| ~typing.Literal['STATIC', 'SINCE\_LAST\_ACTIVE'] \| ~typing.Literal['static', 'since\_last\_active'] \| ~yandex\_ai\_studio\_sdk.\_types.misc.Undefined*) – expiration policy for the file. Accepts **static** or **since\_last\_active** strings. Should be defined if **ttl\_days** has been defined, otherwise both parameters should be undefined.
-- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the time to wait for the operation to complete. Defaults to 60 seconds. ||
+- **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – the time to wait for the operation to complete. Defaults to 60 seconds. ||
 || Return type | [*AsyncOperation*](../types/operation.md#yandex_ai_studio_sdk._types.operation.AsyncOperation)[[*AsyncSearchIndex*](#yandex_ai_studio_sdk._search_indexes.search_index.AsyncSearchIndex)] ||
 |#
 
@@ -33,8 +33,8 @@ This method fetches an already created search index using its unique identifier.
 #|
 || Parameters | 
 
-- **search\_index\_id** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the unique identifier of the search index to retrieve.
-- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the time to wait for the operation to complete. Defaults to 60 seconds. ||
+- **search\_index\_id** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – the unique identifier of the search index to retrieve.
+- **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – the time to wait for the operation to complete. Defaults to 60 seconds. ||
 || Return type | [*AsyncSearchIndex*](#yandex_ai_studio_sdk._search_indexes.search_index.AsyncSearchIndex) ||
 |#
 
@@ -47,8 +47,8 @@ This method retrieves a list of search indexes. It continues to fetch search ind
 #|
 || Parameters | 
 
-- **page\_size** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the maximum number of search indexes to return per page.
-- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the time to wait for the operation to complete. Defaults to 60 seconds. ||
+- **page\_size** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the maximum number of search indexes to return per page.
+- **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – the time to wait for the operation to complete. Defaults to 60 seconds. ||
 || Return type | [*AsyncIterator*](https://docs.python.org/3/library/collections.abc.html#collections.abc.AsyncIterator)[[*AsyncSearchIndex*](#yandex_ai_studio_sdk._search_indexes.search_index.AsyncSearchIndex)] ||
 |#
 
@@ -61,12 +61,12 @@ Updates the search index with the provided parameters.
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the name of the search index.
-- **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a description for the search index.
-- **labels** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a set of labels for the search index.
-- **ttl\_days** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – time-to-live in days for the search index.
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the name of the search index.
+- **description** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a description for the search index.
+- **labels** ([*dict*](https://docs.python.org/3/builtins/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a set of labels for the search index.
+- **ttl\_days** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – time-to-live in days for the search index.
 - **expiration\_policy** ([*ExpirationPolicy*](../types/assistants.md#yandex_ai_studio_sdk._types.expiration.ExpirationPolicy) *\|* [*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*[1, 2] \| ~typing.Literal['STATIC', 'SINCE\_LAST\_ACTIVE'] \| ~typing.Literal['static', 'since\_last\_active'] \| ~yandex\_ai\_studio\_sdk.\_types.misc.Undefined*) – expiration policy for the search index.
-- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the time to wait for the update request. Defaults to 60 seconds. ||
+- **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – the time to wait for the update request. Defaults to 60 seconds. ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
 
@@ -75,7 +75,7 @@ Updates the search index with the provided parameters.
 Deletes the search index.
 
 #|
-|| Parameters | **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the time to wait for the delete request. Defaults to 60 seconds. ||
+|| Parameters | **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – the time to wait for the delete request. Defaults to 60 seconds. ||
 || Return type | None ||
 |#
 
@@ -86,8 +86,8 @@ Retrieves a file associated with the search index.
 #|
 || Parameters | 
 
-- **file\_id** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the ID of the file to retrieve.
-- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the time to wait for the get request. Defaults to 60 seconds. ||
+- **file\_id** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – the ID of the file to retrieve.
+- **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – the time to wait for the get request. Defaults to 60 seconds. ||
 || Return type | [*SearchIndexFile*](../types/search_indexes.md#yandex_ai_studio_sdk._search_indexes.file.SearchIndexFile) ||
 |#
 
@@ -98,8 +98,8 @@ Lists all files associated with the search index.
 #|
 || Parameters | 
 
-- **page\_size** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the number of files to retrieve per page.
-- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the time to wait for the list request. Defaults to 60 seconds. ||
+- **page\_size** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the number of files to retrieve per page.
+- **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – the time to wait for the list request. Defaults to 60 seconds. ||
 || Return type | [*AsyncIterator*](https://docs.python.org/3/library/collections.abc.html#collections.abc.AsyncIterator)[[*SearchIndexFile*](../types/search_indexes.md#yandex_ai_studio_sdk._search_indexes.file.SearchIndexFile)] ||
 |#
 
@@ -110,24 +110,24 @@ Adds files to the search index in a deferred manner.
 #|
 || Parameters | 
 
-- **files** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*BaseFile*](../internals/bases.md#yandex_ai_studio_sdk._files.file.BaseFile) *\|* [*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*BaseFile*](../internals/bases.md#yandex_ai_studio_sdk._files.file.BaseFile)*] \|* [*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*) – the files to add to the search index.
-- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the time to wait for the add files request. Defaults to 60 seconds. ||
-|| Return type | [*AsyncOperation*](../types/operation.md#yandex_ai_studio_sdk._types.operation.AsyncOperation)[[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[*SearchIndexFile*](../types/search_indexes.md#yandex_ai_studio_sdk._search_indexes.file.SearchIndexFile), …]] ||
+- **files** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*BaseFile*](../internals/bases.md#yandex_ai_studio_sdk._files.file.BaseFile) *\|* [*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*BaseFile*](../internals/bases.md#yandex_ai_studio_sdk._files.file.BaseFile)*] \|* [*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*]*) – the files to add to the search index.
+- **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – the time to wait for the add files request. Defaults to 60 seconds. ||
+|| Return type | [*AsyncOperation*](../types/operation.md#yandex_ai_studio_sdk._types.operation.AsyncOperation)[[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[*SearchIndexFile*](../types/search_indexes.md#yandex_ai_studio_sdk._search_indexes.file.SearchIndexFile), …]] ||
 |#
 
-**folder\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_indexes.search_index.AsyncSearchIndex.folder_id}
+**folder\_id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_indexes.search_index.AsyncSearchIndex.folder_id}
 
 the ID of the folder
 
-**name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_indexes.search_index.AsyncSearchIndex.name}
+**name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_indexes.search_index.AsyncSearchIndex.name}
 
 the new name for the search index
 
-**description**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_indexes.search_index.AsyncSearchIndex.description}
+**description**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_indexes.search_index.AsyncSearchIndex.description}
 
 the new description for the search index
 
-**created\_by**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_indexes.search_index.AsyncSearchIndex.created_by}
+**created\_by**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_indexes.search_index.AsyncSearchIndex.created_by}
 
 the user who created the search index
 
@@ -135,7 +135,7 @@ the user who created the search index
 
 the timestamp when the search index was created
 
-**updated\_by**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_indexes.search_index.AsyncSearchIndex.updated_by}
+**updated\_by**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_indexes.search_index.AsyncSearchIndex.updated_by}
 
 the user who last updated the search index
 
@@ -147,7 +147,7 @@ the timestamp when the search index was last updated
 
 the expiration date and time of the search index
 
-**labels**\: *[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [str](https://docs.python.org/3/library/stdtypes.html#str)] | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_indexes.search_index.AsyncSearchIndex.labels}
+**labels**\: *[dict](https://docs.python.org/3/builtins/stdtypes.html#dict)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), [str](https://docs.python.org/3/builtins/stdtypes.html#str)] | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_indexes.search_index.AsyncSearchIndex.labels}
 
 a dictionary of labels to associate with the search index
 
@@ -157,4 +157,4 @@ the type of the search index
 
 **expiration\_config**\: *[ExpirationConfig](../types/assistants.md#yandex_ai_studio_sdk._types.expiration.ExpirationConfig)*{#yandex_ai_studio_sdk._search_indexes.search_index.AsyncSearchIndex.expiration_config}
 
-**id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_indexes.search_index.AsyncSearchIndex.id}
+**id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_indexes.search_index.AsyncSearchIndex.id}

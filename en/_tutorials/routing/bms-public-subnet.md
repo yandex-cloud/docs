@@ -114,44 +114,56 @@ Server setup and OS installation may take up to 45 minutes. The server will have
 
 Before configuring the network interface, find out the parameters of the dedicated public subnet the server is connected to: CIDR, default gateway address, and range of available public IP addresses.
 
-1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-1. [Navigate]({{ link-console-main }}/link/baremetal) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-1. In the left-hand panel, select ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.baremetal.label_public-subnets_v16CV }}** and open the `my-public-subnet` information page.
-1. Write down the CIDR values, default gateway address, and range of available public IP addresses.
+{% list tabs group=instructions %}
 
-   For a subnet of size `/29` (eight IP addresses in CIDR):
+- Management console {#console}
 
-   * The first IP address in the range is the subnet address.
-   * The second IP address in the range is the default gateway address.
-   * From the third to second-last one are addresses available for server network interfaces.
-   * The last IP address in the range is the [broadcast](https://en.wikipedia.org/wiki/Broadcast_address) (`broadcast`) address.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
+  1. [Navigate]({{ link-console-main }}/link/baremetal) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. In the left-hand panel, select ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.baremetal.label_public-subnets_v16CV }}** and open the `my-public-subnet` information page.
+  1. Write down the CIDR values, default gateway address, and range of available public IP addresses.
 
-   For example, if the subnet CIDR is `198.51.100.104/29`:
+     For a subnet of size `/29` (eight IP addresses in CIDR):
+  
+     * The first IP address in the range is the subnet address.
+     * The second IP address in the range is the default gateway address.
+     * From the third to the second-to-last one are addresses available for server network interfaces.
+     * The last IP address in the range is the [broadcast](https://en.wikipedia.org/wiki/Broadcast_address) (`broadcast`) address.
+  
+     For example, if the subnet CIDR is `198.51.100.104/29`:
+  
+     * Subnet IP address: `198.51.100.104`.
+     * Default gateway IP address: `198.51.100.105`.
+     * Available addresses: From `198.51.100.106` to `198.51.100.110`.
+     * Broadcast address: `198.51.100.111`.
+  
+     These values ​​will be used in example commands further on in this guide. Replace them with the values you got for your subnet.
 
-   * Subnet IP address: `198.51.100.104`.
-   * Default gateway IP address: `198.51.100.105`.
-   * Available addresses: From `198.51.100.106` to `198.51.100.110`.
-   * Broadcast address: `198.51.100.111`.
-
-   These values ​​will be used in example commands further on in this guide. Replace them with the values you got for your subnet.
+{% endlist %}
 
 ## Connect to the server via the KVM console {#connect-via-kvm}
 
 Before you configure a public IP address, the server is not accessible from the Internet, so you will not be able to connect to it via [SSH](../../compute/operations/vm-connect/ssh.md) or [RDP](../../compute/operations/vm-connect/rdp.md). To connect to the server, use the KVM console.
 
-1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-1. [Navigate]({{ link-console-main }}/link/baremetal) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-1. Next to `my-server`, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.baremetal.label_kvm-console_37Kma }}**.
+{% list tabs group=instructions %}
 
-    A window with a KVM console terminal will open.
+- Management console {#console}
 
-    If the terminal does not appear, try [restarting](../../baremetal/operations/servers/server-stop-and-start.md#restart) the server.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
+  1. [Navigate]({{ link-console-main }}/link/baremetal) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. Next to `my-server`, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.baremetal.label_kvm-console_37Kma }}**.
 
-1. Authenticate to the server using the administrator password saved when renting the server (`root` for Linux, `Administrator` for Windows).
+      A window with a KVM console terminal will open.
 
-    {% include [kvm-paste-tip](../../_includes/baremetal/kvm-paste-tip.md) %}
+      If the terminal does not appear, try [restarting](../../baremetal/operations/servers/server-stop-and-start.md#restart) the server.
 
-    If you did not save the administrator password, you can create a new one as per [this guide](../../baremetal/operations/servers/reset-password.md) or [reinstall](../../baremetal/operations/servers/reinstall-os-from-marketplace.md) the server OS.
+  1. Authenticate to the server using the administrator password saved when renting the server (`root` for Linux, `Administrator` for Windows).
+
+      {% include [kvm-paste-tip](../../_includes/baremetal/kvm-paste-tip.md) %}
+
+      If you did not save the administrator password, you can create a new one as per [this guide](../../baremetal/operations/servers/reset-password.md) or [reinstall](../../baremetal/operations/servers/reinstall-os-from-marketplace.md) the server OS.
+
+{% endlist %}
 
 For more on connecting to a server via the KVM console, see [this section](../../baremetal/operations/servers/server-kvm.md).
 

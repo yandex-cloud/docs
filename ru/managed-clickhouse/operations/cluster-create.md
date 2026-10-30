@@ -336,6 +336,8 @@ description: Следуя данной инструкции, вы сможете
            --admin-password "<пароль_пользователя_admin>"
          ```
 
+         В этом случае не указывайте параметр `--user`.
+
 
       1. Чтобы включить [режим управления базами данных через SQL](./databases.md#sql-database-management):
 
@@ -349,6 +351,8 @@ description: Следуя данной инструкции, вы сможете
            --enable-sql-database-management true \
            --admin-password "<пароль_пользователя_admin>"
          ```
+
+         В этом случае не указывайте параметры `--user` и `--database`.
 
       
       1. Чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md), передайте параметр `--disk-encryption-key-id <идентификатор_ключа_KMS>`.
@@ -630,9 +634,13 @@ description: Следуя данной инструкции, вы сможете
 
           {% include notitle [SQL Management can't be switched off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-          *  {% include notitle [Enable SQL user management with Terraform](../../_includes/mdb/mch/terraform/sql-management-users.md) %}
+          * {% include notitle [Enable SQL user management with Terraform](../../_includes/mdb/mch/terraform/sql-management-users.md) %}
+
+              В этом случае не указывайте ресурс `yandex_mdb_clickhouse_user`.
 
           * {% include notitle [Enable SQL database management with Terraform](../../_includes/mdb/mch/terraform/sql-management-databases.md) %}
+
+              В этом случае не указывайте ресурс `yandex_mdb_clickhouse_database`.
 
        1. Чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md), добавьте параметр `disk_encryption_key_id`:
 
@@ -863,14 +871,14 @@ description: Следуя данной инструкции, вы сможете
 
                     {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-            * `databaseSpecs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной базе данных и имеет следующую структуру:
+            * `databaseSpecs` — настройки баз данных в виде массива элементов. Указывается, если `sqlDatabaseManagement=false`. Каждый элемент соответствует отдельной базе данных и имеет следующую структуру:
 
                 * `name` — имя базы данных.
                 * `engine` — движок базы данных. Возможные значения:
 
                   {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
 
-            * `userSpecs` — настройки пользователей в виде массива элементов. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
+            * `userSpecs` — настройки пользователей в виде массива элементов. Указывается, если `sqlUserManagement=false`. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
 
                 {% include [rest-user-specs](../../_includes/mdb/mch/api/rest-user-specs.md) %}
 
@@ -1115,14 +1123,14 @@ description: Следуя данной инструкции, вы сможете
 
                     {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-            * `database_specs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной базе данных и имеет следующую структуру:
+            * `database_specs` — настройки баз данных в виде массива элементов. Указывается, если `sql_database_management=false`. Каждый элемент соответствует отдельной базе данных и имеет следующую структуру:
 
                 * `name` — имя базы данных.
                 * `engine` — движок базы данных. Возможные значения:
 
                   {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
 
-            * `user_specs` — настройки пользователей в виде массива элементов. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
+            * `user_specs` — настройки пользователей в виде массива элементов. Указывается, если `sql_user_management=false`. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
 
                 {% include [grpc-user-specs](../../_includes/mdb/mch/api/grpc-user-specs.md) %}
 
@@ -1460,6 +1468,8 @@ description: Следуя данной инструкции, вы сможете
            --admin-password "<пароль_пользователя_admin>"
          ```
 
+         В этом случае не указывайте параметр `--user`.
+
 
       1. Чтобы включить [режим управления базами данных через SQL](./databases.md#sql-database-management):
 
@@ -1473,6 +1483,8 @@ description: Следуя данной инструкции, вы сможете
            --enable-sql-database-management true \
            --admin-password "<пароль_пользователя_admin>"
          ```
+
+         В этом случае не указывайте параметры `--user` и `--database`.
 
       
       1. Чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md), передайте параметр `--disk-encryption-key-id <идентификатор_ключа_KMS>`.
@@ -1751,9 +1763,13 @@ description: Следуя данной инструкции, вы сможете
 
           {% include notitle [SQL Management can't be switched off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-          *  {% include notitle [Enable SQL user management with Terraform](../../_includes/mdb/mch/terraform/sql-management-users.md) %}
+          * {% include notitle [Enable SQL user management with Terraform](../../_includes/mdb/mch/terraform/sql-management-users.md) %}
+
+              В этом случае не указывайте ресурс `yandex_mdb_clickhouse_user`.
 
           * {% include notitle [Enable SQL database management with Terraform](../../_includes/mdb/mch/terraform/sql-management-databases.md) %}
+
+              В этом случае не указывайте ресурс `yandex_mdb_clickhouse_database`.
 
        1. Чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md), добавьте параметр `disk_encryption_key_id`:
 
@@ -2000,14 +2016,14 @@ description: Следуя данной инструкции, вы сможете
 
                     {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-            * `databaseSpecs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной базе данных и имеет следующую структуру:
+            * `databaseSpecs` — настройки баз данных в виде массива элементов. Указывается, если `sqlDatabaseManagement=false`. Каждый элемент соответствует отдельной базе данных и имеет следующую структуру:
 
                 * `name` — имя базы данных.
                 * `engine` — движок базы данных. Возможные значения:
 
                   {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
 
-            * `userSpecs` — настройки пользователей в виде массива элементов. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
+            * `userSpecs` — настройки пользователей в виде массива элементов. Указывается, если `sqlUserManagement=false`. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
 
                 {% include [rest-user-specs](../../_includes/mdb/mch/api/rest-user-specs.md) %}
 
@@ -2265,14 +2281,14 @@ description: Следуя данной инструкции, вы сможете
 
                     {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-            * `database_specs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной базе данных и имеет следующую структуру:
+            * `database_specs` — настройки баз данных в виде массива элементов. Указывается, если `sql_database_management=false`. Каждый элемент соответствует отдельной базе данных и имеет следующую структуру:
 
                 * `name` — имя базы данных.
                 * `engine` — движок базы данных. Возможные значения:
 
                   {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
 
-            * `user_specs` — настройки пользователей в виде массива элементов. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
+            * `user_specs` — настройки пользователей в виде массива элементов. Указывается, если `sql_user_management=false`. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
 
                 {% include [grpc-user-specs](../../_includes/mdb/mch/api/grpc-user-specs.md) %}
 

@@ -1,3 +1,4 @@
-The `search-api.executor` role was used by an API that is now deprecated.
 
-The `search-api.executor` role is no longer available.
+The `search-api.executor` role was previously used to work with the now deprecated {{ search-api-full-name }} and enables running search queries via the current version of the {{ search-api-full-name }}.
+
+The `search-api.executor` role is deprecated and should no longer be used.

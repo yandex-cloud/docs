@@ -108,7 +108,7 @@ Return a centered string of length width.
 
 Padding is done using the specified fill character (default is a space).
 
-**count**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.count}
+**count**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.count}
 
 Return the number of non-overlapping occurrences of substring sub in string S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
@@ -118,7 +118,7 @@ Return a copy where all tab characters are expanded using spaces.
 
 If tabsize is not given, a tab size of 8 characters is assumed.
 
-**find**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.find}
+**find**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.find}
 
 Return the lowest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
@@ -132,7 +132,7 @@ This will search for the separator in the string.  If the separator is found, re
 
 If the separator is not found, returns a 3-tuple containing the original string and two empty strings.
 
-**index**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.index}
+**index**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.index}
 
 Return the lowest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
@@ -154,13 +154,13 @@ Return a copy of the string with leading whitespace removed.
 
 If chars is given and not None, remove characters in chars instead.
 
-**rfind**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.rfind}
+**rfind**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.rfind}
 
 Return the highest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
 Return -1 on failure.
 
-**rindex**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.rindex}
+**rindex**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.rindex}
 
 Return the highest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
@@ -214,11 +214,11 @@ The table must implement lookup/indexing via \_\_getitem\_\_, for instance a dic
 
 Return a copy of the string converted to uppercase.
 
-**startswith**(*prefix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/library/functions.html#bool){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.startswith}
+**startswith**(*prefix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/builtins/functions.html#bool){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.startswith}
 
 Return True if S starts with the specified prefix, False otherwise. With optional start, test S beginning at that position. With optional end, stop comparing S at that position. prefix can also be a tuple of strings to try.
 
-**endswith**(*suffix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/library/functions.html#bool){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.endswith}
+**endswith**(*suffix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/builtins/functions.html#bool){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.endswith}
 
 Return True if S ends with the specified suffix, False otherwise. With optional start, test S beginning at that position. With optional end, stop comparing S at that position. suffix can also be a tuple of strings to try.
 
@@ -312,11 +312,11 @@ Pad a numeric string with zeros on the left, to fill a field of the given width.
 
 The string is never truncated.
 
-**format**(*\*args*, *\*\*kwargs*) → [str](https://docs.python.org/3/library/stdtypes.html#str){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.format}
+**format**(*\*args*, *\*\*kwargs*) → [str](https://docs.python.org/3/builtins/stdtypes.html#str){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.format}
 
 Return a formatted version of S, using substitutions from args and kwargs. The substitutions are identified by braces (‘{’ and ‘}’).
 
-**format\_map**(*mapping*) → [str](https://docs.python.org/3/library/stdtypes.html#str){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.format_map}
+**format\_map**(*mapping*) → [str](https://docs.python.org/3/builtins/stdtypes.html#str){#yandex_ai_studio_sdk._chat.completions.config.ChatReasoningMode.format_map}
 
 Return a formatted version of S, using substitutions from mapping. The substitutions are identified by braces (‘{’ and ‘}’).
 
@@ -384,7 +384,7 @@ If there is only one argument, it must be a dictionary mapping Unicode ordinals 
 
 ### *class* yandex\_ai\_studio\_sdk.\_types.misc.**Undefined**{#yandex_ai_studio_sdk._types.misc.Undefined}
 
-Class for making possible to differ None and not-passed default value.
+Class for distinguishing None from an omitted default value.
 
 Sentinel until PEP 0661.
 
@@ -410,31 +410,31 @@ yandex\_ai\_studio\_sdk.\_types.schemas.**JsonVal**{#yandex_ai_studio_sdk._types
 
 Recurrent json object
 
-Alias of [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_ai_studio_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]
+Alias of [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/builtins/constants.html#None), [**bool**](https://docs.python.org/3/builtins/functions.html#bool), [**str**](https://docs.python.org/3/builtins/stdtypes.html#str), [**float**](https://docs.python.org/3/builtins/functions.html#float), [**int**](https://docs.python.org/3/builtins/functions.html#int), [**JsonArray**](#yandex_ai_studio_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]
 
 yandex\_ai\_studio\_sdk.\_types.schemas.**JsonArray**{#yandex_ai_studio_sdk._types.schemas.JsonArray}
 
 Json array
 
-Alias of [**list**](https://docs.python.org/3/library/stdtypes.html#list)[[**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_ai_studio_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]]
+Alias of [**list**](https://docs.python.org/3/builtins/stdtypes.html#list)[[**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/builtins/constants.html#None), [**bool**](https://docs.python.org/3/builtins/functions.html#bool), [**str**](https://docs.python.org/3/builtins/stdtypes.html#str), [**float**](https://docs.python.org/3/builtins/functions.html#float), [**int**](https://docs.python.org/3/builtins/functions.html#int), [**JsonArray**](#yandex_ai_studio_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]]
 
 yandex\_ai\_studio\_sdk.\_types.schemas.**JsonObject**{#yandex_ai_studio_sdk._types.schemas.JsonObject}
 
 Json object
 
-Alias of [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_ai_studio_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]]
+Alias of [**dict**](https://docs.python.org/3/builtins/stdtypes.html#dict)[[**str**](https://docs.python.org/3/builtins/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/builtins/constants.html#None), [**bool**](https://docs.python.org/3/builtins/functions.html#bool), [**str**](https://docs.python.org/3/builtins/stdtypes.html#str), [**float**](https://docs.python.org/3/builtins/functions.html#float), [**int**](https://docs.python.org/3/builtins/functions.html#int), [**JsonArray**](#yandex_ai_studio_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]]
 
 yandex\_ai\_studio\_sdk.\_types.schemas.**JsonSchemaType**{#yandex_ai_studio_sdk._types.schemas.JsonSchemaType}
 
 Type for json schema
 
-Alias of [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_ai_studio_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]]
+Alias of [**dict**](https://docs.python.org/3/builtins/stdtypes.html#dict)[[**str**](https://docs.python.org/3/builtins/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/builtins/constants.html#None), [**bool**](https://docs.python.org/3/builtins/functions.html#bool), [**str**](https://docs.python.org/3/builtins/stdtypes.html#str), [**float**](https://docs.python.org/3/builtins/functions.html#float), [**int**](https://docs.python.org/3/builtins/functions.html#int), [**JsonArray**](#yandex_ai_studio_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]]
 
 yandex\_ai\_studio\_sdk.\_types.schemas.**QueryType**{#yandex_ai_studio_sdk._types.schemas.QueryType}
 
 Type alias for model arguments
 
-Alias of [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_ai_studio_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]]
+Alias of [**dict**](https://docs.python.org/3/builtins/stdtypes.html#dict)[[**str**](https://docs.python.org/3/builtins/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/builtins/constants.html#None), [**bool**](https://docs.python.org/3/builtins/functions.html#bool), [**str**](https://docs.python.org/3/builtins/stdtypes.html#str), [**float**](https://docs.python.org/3/builtins/functions.html#float), [**int**](https://docs.python.org/3/builtins/functions.html#int), [**JsonArray**](#yandex_ai_studio_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]]
 
 *typeddict* yandex\_ai\_studio\_sdk.\_types.schemas.**JsonSchemaResponseType**{#yandex_ai_studio_sdk._types.schemas.JsonSchemaResponseType}
 
@@ -445,22 +445,22 @@ Dict with json schema response settings
 #|
 || Required Keys | 
 
-- **json\_schema** ([**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]]]]) – Field with json schema which describes response format
-- **strict** ([**bool**](https://docs.python.org/3/library/functions.html#bool))
-- **name** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) ||
+- **json\_schema** ([**dict**](https://docs.python.org/3/builtins/stdtypes.html#dict)[[**str**](https://docs.python.org/3/builtins/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/builtins/constants.html#None), [**bool**](https://docs.python.org/3/builtins/functions.html#bool), [**str**](https://docs.python.org/3/builtins/stdtypes.html#str), [**float**](https://docs.python.org/3/builtins/functions.html#float), [**int**](https://docs.python.org/3/builtins/functions.html#int), **TypeAliasForwardRef**, [**dict**](https://docs.python.org/3/builtins/stdtypes.html#dict)[[**str**](https://docs.python.org/3/builtins/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/builtins/constants.html#None), [**bool**](https://docs.python.org/3/builtins/functions.html#bool), [**str**](https://docs.python.org/3/builtins/stdtypes.html#str), [**float**](https://docs.python.org/3/builtins/functions.html#float), [**int**](https://docs.python.org/3/builtins/functions.html#int), **TypeAliasForwardRef**, [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]]]]) – Field with json schema which describes response format
+- **strict** ([**bool**](https://docs.python.org/3/builtins/functions.html#bool))
+- **name** ([**str**](https://docs.python.org/3/builtins/stdtypes.html#str)) ||
 |#
 
 yandex\_ai\_studio\_sdk.\_types.schemas.**ResponseType**{#yandex_ai_studio_sdk._types.schemas.ResponseType}
 
-Types availailable for response format
+Types available for response format
 
-Alias of [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[**'json'**], [**JsonSchemaResponseType**](#yandex_ai_studio_sdk._types.schemas.JsonSchemaResponseType), [**type**](https://docs.python.org/3/library/functions.html#type)]
+Alias of [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**Literal**](https://docs.python.org/3/library/typing.html#typing.Literal)[**'json'**], [**JsonSchemaResponseType**](#yandex_ai_studio_sdk._types.schemas.JsonSchemaResponseType), [**type**](https://docs.python.org/3/builtins/functions.html#type)]
 
 yandex\_ai\_studio\_sdk.\_types.schemas.**ParametersType**{#yandex_ai_studio_sdk._types.schemas.ParametersType}
 
 Types available for function call parameters
 
-Alias of [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), [**JsonArray**](#yandex_ai_studio_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]], [**type**](https://docs.python.org/3/library/functions.html#type)]
+Alias of [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**dict**](https://docs.python.org/3/builtins/stdtypes.html#dict)[[**str**](https://docs.python.org/3/builtins/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/builtins/constants.html#None), [**bool**](https://docs.python.org/3/builtins/functions.html#bool), [**str**](https://docs.python.org/3/builtins/stdtypes.html#str), [**float**](https://docs.python.org/3/builtins/functions.html#float), [**int**](https://docs.python.org/3/builtins/functions.html#int), [**JsonArray**](#yandex_ai_studio_sdk._types.schemas.JsonArray), [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]], [**type**](https://docs.python.org/3/builtins/functions.html#type)]
 
 *typeddict* yandex\_ai\_studio\_sdk.\_types.schemas.**JsonObjectProtoFormat**{#yandex_ai_studio_sdk._types.schemas.JsonObjectProtoFormat}
 
@@ -471,7 +471,7 @@ Bases: [**TypedDict**](https://docs.python.org/3/library/typing.html#typing.Type
 #|
 || Required Keys | 
 
-- **json\_object** ([**bool**](https://docs.python.org/3/library/functions.html#bool)) ||
+- **json\_object** ([**bool**](https://docs.python.org/3/builtins/functions.html#bool)) ||
 |#
 
 *typeddict* yandex\_ai\_studio\_sdk.\_types.schemas.**JsonSchemaProtoFormat**{#yandex_ai_studio_sdk._types.schemas.JsonSchemaProtoFormat}
@@ -483,7 +483,7 @@ Bases: [**TypedDict**](https://docs.python.org/3/library/typing.html#typing.Type
 #|
 || Required Keys | 
 
-- **json\_schema** ([**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]]]]) – Field with json schema which describes response format ||
+- **json\_schema** ([**dict**](https://docs.python.org/3/builtins/stdtypes.html#dict)[[**str**](https://docs.python.org/3/builtins/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/builtins/constants.html#None), [**bool**](https://docs.python.org/3/builtins/functions.html#bool), [**str**](https://docs.python.org/3/builtins/stdtypes.html#str), [**float**](https://docs.python.org/3/builtins/functions.html#float), [**int**](https://docs.python.org/3/builtins/functions.html#int), **TypeAliasForwardRef**, [**dict**](https://docs.python.org/3/builtins/stdtypes.html#dict)[[**str**](https://docs.python.org/3/builtins/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/builtins/constants.html#None), [**bool**](https://docs.python.org/3/builtins/functions.html#bool), [**str**](https://docs.python.org/3/builtins/stdtypes.html#str), [**float**](https://docs.python.org/3/builtins/functions.html#float), [**int**](https://docs.python.org/3/builtins/functions.html#int), **TypeAliasForwardRef**, [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]]]]) – Field with json schema which describes response format ||
 |#
 
 *typeddict* yandex\_ai\_studio\_sdk.\_types.schemas.**EmptyProtoFormat**{#yandex_ai_studio_sdk._types.schemas.EmptyProtoFormat}
@@ -501,9 +501,9 @@ Bases: [**TypedDict**](https://docs.python.org/3/library/typing.html#typing.Type
 #|
 || Required Keys | 
 
-- **schema** ([**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**dict**](https://docs.python.org/3/library/stdtypes.html#dict)[[**str**](https://docs.python.org/3/library/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/library/constants.html#None), [**bool**](https://docs.python.org/3/library/functions.html#bool), [**str**](https://docs.python.org/3/library/stdtypes.html#str), [**float**](https://docs.python.org/3/library/functions.html#float), [**int**](https://docs.python.org/3/library/functions.html#int), **TypeAliasForwardRef**, [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]]]])
-- **strict** ([**bool**](https://docs.python.org/3/library/functions.html#bool))
-- **name** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) ||
+- **schema** ([**dict**](https://docs.python.org/3/builtins/stdtypes.html#dict)[[**str**](https://docs.python.org/3/builtins/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/builtins/constants.html#None), [**bool**](https://docs.python.org/3/builtins/functions.html#bool), [**str**](https://docs.python.org/3/builtins/stdtypes.html#str), [**float**](https://docs.python.org/3/builtins/functions.html#float), [**int**](https://docs.python.org/3/builtins/functions.html#int), **TypeAliasForwardRef**, [**dict**](https://docs.python.org/3/builtins/stdtypes.html#dict)[[**str**](https://docs.python.org/3/builtins/stdtypes.html#str), [**Union**](https://docs.python.org/3/library/typing.html#typing.Union)[[**None**](https://docs.python.org/3/builtins/constants.html#None), [**bool**](https://docs.python.org/3/builtins/functions.html#bool), [**str**](https://docs.python.org/3/builtins/stdtypes.html#str), [**float**](https://docs.python.org/3/builtins/functions.html#float), [**int**](https://docs.python.org/3/builtins/functions.html#int), **TypeAliasForwardRef**, [**JsonObject**](#yandex_ai_studio_sdk._types.schemas.JsonObject)]]]])
+- **strict** ([**bool**](https://docs.python.org/3/builtins/functions.html#bool))
+- **name** ([**str**](https://docs.python.org/3/builtins/stdtypes.html#str)) ||
 |#
 
 *typeddict* yandex\_ai\_studio\_sdk.\_types.schemas.**JsonSchemaParameterType**{#yandex_ai_studio_sdk._types.schemas.JsonSchemaParameterType}
@@ -561,10 +561,10 @@ type alias for completion tools
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\| None*)
-- **parameters** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, None \|* [*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\| TypeAliasForwardRef('yandex\_ai\_studio\_sdk.\_types.schemas.JsonArray') \|* [*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, None \|* [*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\| TypeAliasForwardRef('yandex\_ai\_studio\_sdk.\_types.schemas.JsonArray') \| JsonObject]]*)
-- **strict** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\| None*) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **description** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\| None*)
+- **parameters** ([*dict*](https://docs.python.org/3/builtins/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*, None \|* [*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*float*](https://docs.python.org/3/builtins/functions.html#float) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int) *\| TypeAliasForwardRef('yandex\_ai\_studio\_sdk.\_types.schemas.JsonArray') \|* [*dict*](https://docs.python.org/3/builtins/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*, None \|* [*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*float*](https://docs.python.org/3/builtins/functions.html#float) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int) *\| TypeAliasForwardRef('yandex\_ai\_studio\_sdk.\_types.schemas.JsonArray') \| JsonObject]]*)
+- **strict** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\| None*) ||
 || Return type | None ||
 |#
 
@@ -587,8 +587,8 @@ Example:
 #|
 || Optional Keys | 
 
-- **name** ([**str**](https://docs.python.org/3/library/stdtypes.html#str))
-- **owner** ([**str**](https://docs.python.org/3/library/stdtypes.html#str))
-- **version** ([**str**](https://docs.python.org/3/library/stdtypes.html#str))
-- **fine\_tuned** ([**bool**](https://docs.python.org/3/library/functions.html#bool)) ||
+- **name** ([**str**](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **owner** ([**str**](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **version** ([**str**](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **fine\_tuned** ([**bool**](https://docs.python.org/3/builtins/functions.html#bool)) ||
 |#

@@ -1,4 +1,4 @@
 
-The `search-api.auditor` role was used by an API that is now deprecated. The role enables viewing {{ search-api }} quotas, as well as information on the relevant cloud and folder.
+The `search-api.auditor` role was previously used for working with the now deprecated {{ search-api-full-name }} v1.
 
-The `search-api.auditor` role should no longer be used.
+The `search-api.auditor` role is deprecated and should no longer be used.

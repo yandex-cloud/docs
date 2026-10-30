@@ -938,7 +938,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
   1. In the [management console]({{ link-console-main }}), select the folder where you created the infrastructure.
   1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** and select the function you created.
-  1. Open the ![circle-play](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
+  1. Open the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. Click ![play-fill](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}** and look up the test result.
 
       If the request is successful, the function status will change to `Done` and the output will contain the `200` status code and model response. Here is an example:
@@ -953,7 +953,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Advanced AI agent {#advanced}
 
   1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** and select the function you created.
-  1. Open the ![circle-play](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
+  1. Open the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** field, specify:
 
       ```json
@@ -979,7 +979,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Translator agent {#complex}
 
   1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** and select the function you created.
-  1. Open the ![circle-play](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
+  1. Open the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** field, specify:
 
       ```json

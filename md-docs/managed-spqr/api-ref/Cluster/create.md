@@ -33,7 +33,9 @@ POST https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters
           "defaultTargetSessionAttrs": "string",
           "defaultCommitStrategy": "string",
           "allowPostprocessing": "boolean",
-          "autoRouteRoOnStandby": "boolean"
+          "autoRouteRoOnStandby": "boolean",
+          "allowTwoPhaseCommit": "boolean",
+          "allowAutoprotectTwoPhase": "boolean"
         },
         "resources": {
           "resourcePresetId": "string",
@@ -81,7 +83,9 @@ POST https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters
           "defaultTargetSessionAttrs": "string",
           "defaultCommitStrategy": "string",
           "allowPostprocessing": "boolean",
-          "autoRouteRoOnStandby": "boolean"
+          "autoRouteRoOnStandby": "boolean",
+          "allowTwoPhaseCommit": "boolean",
+          "allowAutoprotectTwoPhase": "boolean"
         },
         "coordinator": {
           "iterationTimeout": "string",
@@ -366,6 +370,8 @@ Configuration of a SPQR router.
 - `TWO_PC` ||
 || allowPostprocessing | **boolean** ||
 || autoRouteRoOnStandby | **boolean** ||
+|| allowTwoPhaseCommit | **boolean** ||
+|| allowAutoprotectTwoPhase | **boolean** ||
 |#
 
 ## Resources {#yandex.cloud.mdb.spqr.v1.Resources}

@@ -16,7 +16,7 @@ editable: false
 * Seats are issued automatically when new users first log in to {{ datalens-full-name }}.
 * [Seats are managed](./settings/seats.md) by the administrator.
 
-The technical support procedure will be as per the selected [{{ yandex-cloud }} support plan]({{ link-docs }}/support/overview).
+The procedure for providing technical support is determined in line with the selected [{{ yandex-cloud }} support plan]({{ link-docs }}/support/overview).
 
 ## Prices for the Russia region {#prices}
 
@@ -48,9 +48,9 @@ The countdown of days until the end of the trial period is shown on the side pan
 
 ## Queries from embedded private objects {#embeds}
 
-The seat count determines the limit on the number of queries from private embedded objects. In {{ datalens-name }}, such objects include:
-* [Private embedded charts](./security/private-embedded-objects.md) (wizard, Editor charts, QL charts).
-* Private embedded dashboards: queries from charts added to the dashboard are aggregated.
+The seat count determines the limit on the number of queries from private embedded objects. Such objects in {{ datalens-name }} include:
+* [Private embedded charts](./security/private-embedded-objects.md) (charts in the Wizard, Editor, and QL charts).
+* Private embedded dashboard: requests from charts added to the dashboard are aggregated.
 * Dashboards published via a [temporary link](./concepts/datalens-temporary-link.md).
 
 There is no limit for regular queries made by users in the {{ datalens-name }} interface, nor for queries to [publicly embedded charts](./concepts/datalens-public.md). {#packet-queries}
@@ -73,7 +73,7 @@ There is no limit for regular queries made by users in the {{ datalens-name }} i
    
    [You can estimate the number of queries from private embedded charts](./settings/seats.md#embedded-queries-count) by enabling [Usage Analytics](./operations/connection/create-usage-tracking.md). If the total number of such queries exceeds the {{ datalens-name }} limit, you may have to purchase more seats.
    
-   If the limit on the number of queries from embedded private charts is exceeded and [auto-purchasing](./settings/seats.md#purchase-automatically) is on, no new seats will be automatically procured.
+   If the **Auto-purchase** [option](./settings/seats.md#purchase-automatically) is enabled, the required seats will be purchased automatically if the remaining limit on requests from private embedded objects drops to 500. Not assigned to anyone, such seats appear in the **Available seats** [list](./settings/seats.md#number-of-seats); assign those seats to your users at any time. Each seat, once purchased, increases the limit by 2,000 requests per month. If the option is disabled, additional seats should be purchased manually.
 
 {% endcut %}
 

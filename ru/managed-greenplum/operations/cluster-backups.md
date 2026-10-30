@@ -276,7 +276,12 @@
 {% endnote %}
 
 
-Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [managed-greenplum.restorer](../../iam/roles-reference.md#managed-greenplum-restorer) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
+Если резервная копия и новый кластер находятся в одном каталоге, [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли [managed-greenplum.editor](../../iam/roles-reference.md#managed-greenplum-editor) и [vpc.user](../../iam/roles-reference.md#vpc-user) или выше.
+
+Если резервная копия и новый кластер находятся в разных каталогах, назначьте аккаунту роли:
+
+* [managed-greenplum.restorer](../../iam/roles-reference.md#managed-greenplum-restorer) или выше на каталог, в котором находится резервная копия;
+* [managed-greenplum.editor](../../iam/roles-reference.md#managed-greenplum-editor) и [vpc.user](../../iam/roles-reference.md#vpc-user) или выше на каталог, в котором находится новый кластер.
 
 
 При восстановлении кластера можно зашифровать диски нового кластера пользовательским ключом KMS. Для этого выберите тип диска `local-ssd` для хостов-мастеров и для хостов-сегментов. Шифрование может незначительно снизить производительность дисковой подсистемы в некоторых сценариях использования. Подробнее об условиях и необходимых правах в разделе [Шифрование дисков](../concepts/storage.md#disk-encryption).

@@ -117,7 +117,7 @@
       После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
       ```
-      yc resource-manager service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
+      yc iam service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
       ```
 
 - API {#api}
@@ -252,7 +252,7 @@
       После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
       ```
-      yc resource-manager service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
+      yc iam service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
       ```
 
 - API {#api}
@@ -409,7 +409,7 @@
       Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
       ```bash
-      yc resource-manager service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
+      yc iam service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
       ```
 
 - API {#api}
@@ -545,7 +545,7 @@
       Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
       ```
-      yc resource-manager service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
+      yc iam service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
       ```
 
 - API {#api}

@@ -50,6 +50,7 @@ The maximum string length in characters is 63. ||
           "backgroundBufferFlushSchedulePoolSize": "string",
           "backgroundMessageBrokerSchedulePoolSize": "string",
           "backgroundCommonPoolSize": "string",
+          "maxBackupsIoThreadPoolSize": "string",
           "dictionariesLazyLoad": "boolean",
           "shutdownWaitUnfinishedQueries": "boolean",
           "shutdownWaitUnfinished": "string",
@@ -98,6 +99,9 @@ The maximum string length in characters is 63. ||
           "queryMetricLogEnabled": "boolean",
           "queryMetricLogRetentionSize": "string",
           "queryMetricLogRetentionTime": "string",
+          "s3queueLogEnabled": "boolean",
+          "s3queueLogRetentionSize": "string",
+          "s3queueLogRetentionTime": "string",
           "automaticallyDetachedDataPartsRetentionTime": "string",
           "manuallyDetachedDataPartsRetentionTime": "string",
           "accessControlImprovements": {
@@ -434,6 +438,7 @@ The maximum string length in characters is 63. ||
           "backgroundBufferFlushSchedulePoolSize": "string",
           "backgroundMessageBrokerSchedulePoolSize": "string",
           "backgroundCommonPoolSize": "string",
+          "maxBackupsIoThreadPoolSize": "string",
           "dictionariesLazyLoad": "boolean",
           "shutdownWaitUnfinishedQueries": "boolean",
           "shutdownWaitUnfinished": "string",
@@ -482,6 +487,9 @@ The maximum string length in characters is 63. ||
           "queryMetricLogEnabled": "boolean",
           "queryMetricLogRetentionSize": "string",
           "queryMetricLogRetentionTime": "string",
+          "s3queueLogEnabled": "boolean",
+          "s3queueLogRetentionSize": "string",
+          "s3queueLogRetentionTime": "string",
           "automaticallyDetachedDataPartsRetentionTime": "string",
           "manuallyDetachedDataPartsRetentionTime": "string",
           "accessControlImprovements": {
@@ -818,6 +826,7 @@ The maximum string length in characters is 63. ||
           "backgroundBufferFlushSchedulePoolSize": "string",
           "backgroundMessageBrokerSchedulePoolSize": "string",
           "backgroundCommonPoolSize": "string",
+          "maxBackupsIoThreadPoolSize": "string",
           "dictionariesLazyLoad": "boolean",
           "shutdownWaitUnfinishedQueries": "boolean",
           "shutdownWaitUnfinished": "string",
@@ -866,6 +875,9 @@ The maximum string length in characters is 63. ||
           "queryMetricLogEnabled": "boolean",
           "queryMetricLogRetentionSize": "string",
           "queryMetricLogRetentionTime": "string",
+          "s3queueLogEnabled": "boolean",
+          "s3queueLogRetentionSize": "string",
+          "s3queueLogRetentionTime": "string",
           "automaticallyDetachedDataPartsRetentionTime": "string",
           "manuallyDetachedDataPartsRetentionTime": "string",
           "accessControlImprovements": {
@@ -1362,6 +1374,13 @@ Default value: **8**.
 Change of the setting is applied with restart on value decrease and without restart on value increase.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_common_pool_size). ||
+|| maxBackupsIoThreadPoolSize | **string** (int64)
+
+The maximum number of threads that will be used for executing **BACKUP** and **RESTORE** requests.
+
+Default value: **64**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/server-settings/settings/max-backups#max_backups_io_thread_pool_size). ||
 || dictionariesLazyLoad | **boolean**
 
 Lazy loading of dictionaries. If enabled, then each dictionary is loaded on the first use. Otherwise, the server loads all dictionaries at startup.
@@ -1703,6 +1722,27 @@ Default value: **536870912** (512 MiB). ||
 
 The maximum time that query_metric_log records will be retained before removal. If set to **0**,
 automatic removal of query_metric_log data based on time is disabled.
+
+Default value: **2592000000** (30 days). ||
+|| s3queueLogEnabled | **boolean**
+
+Enables or disables s3queue_log system table.
+
+Default value: **false**.
+
+Change of the setting is applied with restart.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/system-tables/s3queue_log). ||
+|| s3queueLogRetentionSize | **string** (int64)
+
+The maximum size that s3queue_log can grow to before old data will be removed. If set to **0**,
+automatic removal of s3queue_log data based on size is disabled.
+
+Default value: **536870912** (512 MiB). ||
+|| s3queueLogRetentionTime | **string** (int64)
+
+The maximum time that s3queue_log records will be retained before removal. If set to **0**,
+automatic removal of s3queue_log data based on time is disabled.
 
 Default value: **2592000000** (30 days). ||
 || automaticallyDetachedDataPartsRetentionTime | **string** (int64)

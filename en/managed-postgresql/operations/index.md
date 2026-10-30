@@ -31,6 +31,7 @@ description: This page features step-by-step guides for {{ mpg-name }}.
 * [FQDNs of hosts](connect/fqdn.md)
 * [Connecting from applications](connect/clients.md)
 * [Code examples](connect/code-examples.md)
+* [{#T}](connect/update-tls-certificates.md)
 
 ## Databases {#databases}
 

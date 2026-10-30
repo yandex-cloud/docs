@@ -11,8 +11,8 @@ Fetch a dataset from the server using its ID.
 #|
 || Parameters | 
 
-- **dataset\_id** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the unique identifier of the dataset to fetch.
-- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the time to wait for the request. Defaults to 60 seconds. ||
+- **dataset\_id** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – the unique identifier of the dataset to fetch.
+- **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – the time to wait for the request. Defaults to 60 seconds. ||
 || Return type | [*AsyncDataset*](#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset) ||
 |#
 
@@ -23,10 +23,10 @@ Fetch a list of datasets based on specified filters.
 #|
 || Parameters | 
 
-- **status** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\|* [*DatasetStatus*](../types/datasets.md#yandex_ai_studio_sdk._datasets.status.DatasetStatus) *\|* [*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*DatasetStatus*](../types/datasets.md#yandex_ai_studio_sdk._datasets.status.DatasetStatus)*]*) – the status filter for datasets; can be a single status or an iterable of statuses.
-- **name\_pattern** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a pattern to filter dataset names.
-- **task\_type** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\|* [*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*) – the type of task associated with the datasets; can be a single task type or an iterable of task types.
-- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the time to wait for the request. Defaults to 60 seconds. ||
+- **status** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\|* [*DatasetStatus*](../types/datasets.md#yandex_ai_studio_sdk._datasets.status.DatasetStatus) *\|* [*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*DatasetStatus*](../types/datasets.md#yandex_ai_studio_sdk._datasets.status.DatasetStatus)*]*) – the status filter for datasets; can be a single status or an iterable of statuses.
+- **name\_pattern** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a pattern to filter dataset names.
+- **task\_type** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\|* [*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*]*) – the type of task associated with the datasets; can be a single task type or an iterable of task types.
+- **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – the time to wait for the request. Defaults to 60 seconds. ||
 || Return type | [*AsyncIterator*](https://docs.python.org/3/library/collections.abc.html#collections.abc.AsyncIterator)[[*AsyncDataset*](#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset)] ||
 |#
 
@@ -37,9 +37,9 @@ Fetch available upload formats for a specified task type.
 #|
 || Parameters | 
 
-- **task\_type** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the type of task for which to fetch upload formats.
-- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the time to wait for the request in seconds. Defaults to 60 seconds. ||
-|| Return type | [tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str), …] ||
+- **task\_type** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – the type of task for which to fetch upload formats.
+- **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – the time to wait for the request in seconds. Defaults to 60 seconds. ||
+|| Return type | [tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), …] ||
 |#
 
 *async* **list\_upload\_schemas**(*task\_type*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *timeout=60*){#yandex_ai_studio_sdk._datasets.domain.AsyncDatasets.list_upload_schemas}
@@ -49,9 +49,9 @@ Fetch available upload schemas for a specified task type.
 #|
 || Parameters | 
 
-- **task\_type** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the type of task for which to fetch upload schemas.
-- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the time to wait for the request in seconds. Defaults to 60 seconds. ||
-|| Return type | [tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[*DatasetUploadSchema*](../types/datasets.md#yandex_ai_studio_sdk._datasets.schema.DatasetUploadSchema), …] ||
+- **task\_type** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – the type of task for which to fetch upload schemas.
+- **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – the time to wait for the request in seconds. Defaults to 60 seconds. ||
+|| Return type | [tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[*DatasetUploadSchema*](../types/datasets.md#yandex_ai_studio_sdk._datasets.schema.DatasetUploadSchema), …] ||
 |#
 
 **completions**{#yandex_ai_studio_sdk._datasets.domain.AsyncDatasets.completions}
@@ -65,14 +65,14 @@ Create a new dataset draft from a specified path.
 #|
 || Parameters | 
 
-- **path** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*PathLike*](https://docs.python.org/3/library/os.html#os.PathLike)) – the path to the data file or directory.
-- **task\_type** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the type of task for the dataset.
-- **upload\_format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the format in which the data should be uploaded.
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the name of the dataset.
-- **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a description of the dataset.
-- **metadata** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – metadata associated with the dataset.
-- **labels** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a set of labels for the dataset.
-- **allow\_data\_logging** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a flag indicating if data logging is allowed. ||
+- **path** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*PathLike*](https://docs.python.org/3/library/os.html#os.PathLike)) – the path to the data file or directory.
+- **task\_type** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the type of task for the dataset.
+- **upload\_format** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the format in which the data should be uploaded.
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the name of the dataset.
+- **description** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a description of the dataset.
+- **metadata** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – metadata associated with the dataset.
+- **labels** ([*dict*](https://docs.python.org/3/builtins/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a set of labels for the dataset.
+- **allow\_data\_logging** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a flag indicating if data logging is allowed. ||
 || Return type | [*DatasetDraftT*](../types/other.md#yandex_ai_studio_sdk._datasets.draft.DatasetDraftT) ||
 |#
 
@@ -105,10 +105,10 @@ Updates the dataset with the provided parameters.
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the name for the dataset.
-- **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the description for the dataset.
-- **labels** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a set of labels for the dataset.
-- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the timeout, or the maximum time to wait for the update request. Defaults to 60 seconds. ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the name for the dataset.
+- **description** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the description for the dataset.
+- **labels** ([*dict*](https://docs.python.org/3/builtins/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a set of labels for the dataset.
+- **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – the timeout, or the maximum time to wait for the update request. Defaults to 60 seconds. ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
 
@@ -117,7 +117,7 @@ Updates the dataset with the provided parameters.
 Deletes the dataset.
 
 #|
-|| Parameters | **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the timeout, or maximum time to wait for the delete request. Defaults to 60 seconds. ||
+|| Parameters | **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – the timeout, or maximum time to wait for the delete request. Defaults to 60 seconds. ||
 || Return type | None ||
 |#
 
@@ -126,8 +126,8 @@ Deletes the dataset.
 Retrieve a list of upload formats for the dataset.
 
 #|
-|| Parameters | **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the maximum time to wait for the operation to complete. Defaults to 60 seconds. ||
-|| Return type | [tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str), …] ||
+|| Parameters | **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – the maximum time to wait for the operation to complete. Defaults to 60 seconds. ||
+|| Return type | [tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), …] ||
 |#
 
 *async* **download**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *download\_path*, *timeout=60*, *exist\_ok=False*, *max\_parallel\_downloads=16*){#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset.download}
@@ -137,18 +137,18 @@ Download a dataset to the specified path.
 #|
 || Parameters | 
 
-- **download\_path** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*PathLike*](https://docs.python.org/3/library/os.html#os.PathLike)) – the path where the dataset will be downloaded.
-- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the timeout, or maximum time to wait for the download. Defaults to 60 seconds.
-- **exist\_ok** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) – if **True**, do not raise an error if files already exist. Defaults to False.
-- **max\_parallel\_downloads** ([*int*](https://docs.python.org/3/library/functions.html#int)) – the maximum number of concurrent downloads. ||
-|| Return type | [tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[*Path*](https://docs.python.org/3/library/pathlib.html#pathlib.Path), …] ||
+- **download\_path** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*PathLike*](https://docs.python.org/3/library/os.html#os.PathLike)) – the path where the dataset will be downloaded.
+- **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – the timeout, or maximum time to wait for the download. Defaults to 60 seconds.
+- **exist\_ok** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool)) – if **True**, do not raise an error if files already exist. Defaults to False.
+- **max\_parallel\_downloads** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) – the maximum number of concurrent downloads. ||
+|| Return type | [tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[*Path*](https://docs.python.org/3/library/pathlib.html#pathlib.Path), …] ||
 |#
 
 **read**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *timeout=60*, *batch\_size=Undefined*){#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset.read}
 
-Reads the dataset from backend and yields it records one by one.
+Reads the dataset from backend and yields its records one by one.
 
-This method lazily loads records by chunks, minimizing memory usage for large datasets. The iterator yields dictionaries where keys are field names and values are parsed data.
+This method lazily loads records in chunks, minimizing memory usage for large datasets. The iterator yields dictionaries where keys are field names and values are parsed data.
 
 {% note info  %}
 
@@ -159,29 +159,29 @@ This method creates temporary files in the system’s default temporary director
 #|
 || Parameters | 
 
-- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – Maximum time in seconds for both gRPC and HTTP operations. Includes connection establishment, data transfer, and processing time. Defaults to 60 seconds.
-- **batch\_size** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Number of records to load to memory in one chunk. When UNDEFINED (default), uses backend’s optimal chunk size (typically corresponds to distinct Parquet files storage layout). ||
-|| Yields | Dictionary representing single record with field-value pairs ||
-|| Return type | [*AsyncIterator*](https://docs.python.org/3/library/collections.abc.html#collections.abc.AsyncIterator)[[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[*Any*](https://docs.python.org/3/library/typing.html#typing.Any), [*Any*](https://docs.python.org/3/library/typing.html#typing.Any)]] ||
+- **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – Maximum time in seconds for both gRPC and HTTP operations. Includes connection establishment, data transfer, and processing time. Defaults to 60 seconds.
+- **batch\_size** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Number of records to load into memory in one chunk. When UNDEFINED (default), uses backend’s optimal chunk size (typically corresponds to distinct Parquet files storage layout). ||
+|| Yields | Dictionary representing a single record with field-value pairs ||
+|| Return type | [*AsyncIterator*](https://docs.python.org/3/library/collections.abc.html#collections.abc.AsyncIterator)[[dict](https://docs.python.org/3/builtins/stdtypes.html#dict)[[*Any*](https://docs.python.org/3/library/typing.html#typing.Any), [*Any*](https://docs.python.org/3/library/typing.html#typing.Any)]] ||
 |#
 
-**folder\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset.folder_id}
+**folder\_id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset.folder_id}
 
 the ID of the folder which contains the dataset
 
-**name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset.name}
+**name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset.name}
 
 the name of the dataset
 
-**description**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset.description}
+**description**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset.description}
 
 a description of the dataset
 
-**metadata**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset.metadata}
+**metadata**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset.metadata}
 
 metadata associated with the dataset
 
-**created\_by**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset.created_by}
+**created\_by**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset.created_by}
 
 the user who created the dataset
 
@@ -193,11 +193,11 @@ the timestamp when the dataset was created
 
 the timestamp when the dataset was last updated
 
-**labels**\: *[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [str](https://docs.python.org/3/library/stdtypes.html#str)] | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset.labels}
+**labels**\: *[dict](https://docs.python.org/3/builtins/stdtypes.html#dict)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), [str](https://docs.python.org/3/builtins/stdtypes.html#str)] | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset.labels}
 
 a dictionary of labels associated with the dataset
 
-**allow\_data\_logging**\: *[bool](https://docs.python.org/3/library/functions.html#bool)*{#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset.allow_data_logging}
+**allow\_data\_logging**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool)*{#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset.allow_data_logging}
 
 indicates if data logging is allowed for this dataset
 
@@ -205,23 +205,23 @@ indicates if data logging is allowed for this dataset
 
 the current status of the dataset
 
-**task\_type**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset.task_type}
+**task\_type**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset.task_type}
 
 the type of task associated with the dataset
 
-**rows**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset.rows}
+**rows**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset.rows}
 
 the number of rows in the dataset
 
-**size\_bytes**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset.size_bytes}
+**size\_bytes**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset.size_bytes}
 
 the size of the dataset in bytes
 
-**validation\_errors**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[ValidationErrorInfo](../types/datasets.md#yandex_ai_studio_sdk._datasets.dataset.ValidationErrorInfo)*]... ,{#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset.validation_errors}
+**validation\_errors**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[ValidationErrorInfo](../types/datasets.md#yandex_ai_studio_sdk._datasets.dataset.ValidationErrorInfo)*]... ,{#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset.validation_errors}
 
 a tuple of validation errors associated with the dataset
 
-**id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset.id}
+**id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset.id}
 
 ## *class* yandex\_ai\_studio\_sdk.\_datasets.draft.**AsyncDatasetDraft**{#yandex_ai_studio_sdk._datasets.draft.AsyncDatasetDraft}
 
@@ -234,11 +234,11 @@ Creates a dataset object on the server, uploads data to S3, triggers validation 
 #|
 || Parameters | 
 
-- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the time to wait for the dataset creation operation. Defaults to 60 seconds.
-- **upload\_timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the time to wait for the upload operation. Defaults to 360 seconds.
-- **raise\_on\_validation\_failure** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) – a flag indicating whether to raise an error if validation fails after the upload. Default is True.
-- **chunk\_size** ([*int*](https://docs.python.org/3/library/functions.html#int)) – the size of chunks to use when uploading data. Default is defined by DEFAULT\_CHUNK\_SIZE.
-- **parallelism** ([*int*](https://docs.python.org/3/library/functions.html#int) *\| None*) – the level of parallelism for the upload. Default is None, which means no limit. ||
+- **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – the time to wait for the dataset creation operation. Defaults to 60 seconds.
+- **upload\_timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – the time to wait for the upload operation. Defaults to 360 seconds.
+- **raise\_on\_validation\_failure** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool)) – a flag indicating whether to raise an error if validation fails after the upload. Default is True.
+- **chunk\_size** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) – the size of chunks to use when uploading data. Default is defined by DEFAULT\_CHUNK\_SIZE.
+- **parallelism** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\| None*) – the level of parallelism for the upload. Default is None, which means no limit. ||
 || Return type | [*AsyncOperation*](../types/operation.md#yandex_ai_studio_sdk._types.operation.AsyncOperation)[[*AsyncDataset*](#yandex_ai_studio_sdk._datasets.dataset.AsyncDataset)] ||
 |#
 
@@ -249,19 +249,19 @@ This method also performs the upload operation, but unlike **\_upload\_deferred*
 #|
 || Parameters | 
 
-- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the time to wait for the upload operation. Defaults to 60 seconds.
-- **poll\_timeout** ([*int*](https://docs.python.org/3/library/functions.html#int)) – the time to wait for polling the operation status. Default is defined by DEFAULT\_OPERATION\_POLL\_TIMEOUT.
-- **poll\_interval** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the interval at which to poll for operation status Defaults to 60 seconds).
+- **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – the time to wait for the upload operation. Defaults to 60 seconds.
+- **poll\_timeout** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) – the time to wait for polling the operation status. Default is defined by DEFAULT\_OPERATION\_POLL\_TIMEOUT.
+- **poll\_interval** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – the interval at which to poll for the operation status Defaults to 60 seconds.
 - **kwargs** – additional keyword arguments passed to **\_upload\_deferred**.
-- **upload\_timeout** ([*float*](https://docs.python.org/3/library/functions.html#float))
-- **raise\_on\_validation\_failure** ([*bool*](https://docs.python.org/3/library/functions.html#bool))
-- **chunk\_size** ([*int*](https://docs.python.org/3/library/functions.html#int))
-- **parallelism** ([*int*](https://docs.python.org/3/library/functions.html#int) *\| None*) ||
+- **upload\_timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float))
+- **raise\_on\_validation\_failure** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool))
+- **chunk\_size** ([*int*](https://docs.python.org/3/builtins/functions.html#int))
+- **parallelism** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\| None*) ||
 |#
 
-**allow\_data\_logging**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.AsyncDatasetDraft.allow_data_logging}
+**allow\_data\_logging**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.AsyncDatasetDraft.allow_data_logging}
 
-a flag indicating if iyt is allowed to use the dataset to improve the models quality. Default false.
+a flag indicating whether the dataset may be used to improve model quality. Defaults to false.
 
 **configure**(*\*\*kwargs*){#yandex_ai_studio_sdk._datasets.draft.AsyncDatasetDraft.configure}
 
@@ -270,31 +270,31 @@ a flag indicating if iyt is allowed to use the dataset to improve the models qua
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
 
-**description**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.AsyncDatasetDraft.description}
+**description**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.AsyncDatasetDraft.description}
 
 a description of the dataset
 
-**labels**\: *[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [str](https://docs.python.org/3/library/stdtypes.html#str)] | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.AsyncDatasetDraft.labels}
+**labels**\: *[dict](https://docs.python.org/3/builtins/stdtypes.html#dict)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), [str](https://docs.python.org/3/builtins/stdtypes.html#str)] | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.AsyncDatasetDraft.labels}
 
 labels for categorizing the dataset
 
-**metadata**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.AsyncDatasetDraft.metadata}
+**metadata**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.AsyncDatasetDraft.metadata}
 
 metadata associated with the dataset
 
-**name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.AsyncDatasetDraft.name}
+**name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.AsyncDatasetDraft.name}
 
 the name of the dataset
 
-**path**\: *[PathLike](../types/other.md#yandex_ai_studio_sdk._types.misc.PathLike) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.AsyncDatasetDraft.path}
+**path**\: *[PathLike](../types/other.md#yandex_ai_studio_sdk._types.misc.PathLike) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.AsyncDatasetDraft.path}
 
 the file path to the dataset
 
-**task\_type**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.AsyncDatasetDraft.task_type}
+**task\_type**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.AsyncDatasetDraft.task_type}
 
 the type of task associated with the dataset
 
-**upload\_format**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.AsyncDatasetDraft.upload_format}
+**upload\_format**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._datasets.draft.AsyncDatasetDraft.upload_format}
 
 the format in which the dataset will be uploaded
 
