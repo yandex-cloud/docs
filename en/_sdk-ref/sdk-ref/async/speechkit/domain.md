@@ -27,8 +27,8 @@ Synonym for *speech\_to\_text* function
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._speechkit.domain.AsyncSpeechKitDomain.AudioFormat.__new__i}
@@ -103,8 +103,8 @@ Audio bit depth 16-bit signed little-endian (Linear PCM).
 #|
 || Parameters | 
 
-- **sample\_rate\_hertz** ([*int*](https://docs.python.org/3/library/functions.html#int))
-- **channels** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **sample\_rate\_hertz** ([*int*](https://docs.python.org/3/builtins/functions.html#int))
+- **channels** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 || Return type | [*PCM16*](../../types/speechkit.md#yandex_ai_studio_sdk._speechkit.enums.PCM16) ||
 |#
 
@@ -127,6 +127,6 @@ Data is encoded using the OPUS audio codec and compressed using the OGG containe
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
 - **sdk** ([*yandex\_ai\_studio\_sdk.\_sdk.BaseSDK*](../../internals/bases.md#yandex_ai_studio_sdk._sdk.BaseSDK)) ||
 |#

@@ -19,7 +19,12 @@ description: Вы можете создавать резервные копии 
 {% endnote %}
 
 
-Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [managed-postgresql.restorer](../../iam/roles-reference.md#managed-postgresql-restorer) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
+Если резервная копия и новый кластер находятся в одном каталоге, [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли [managed-postgresql.editor](../../iam/roles-reference.md#managed-postgresql-editor) и [vpc.user](../../iam/roles-reference.md#vpc-user) или выше.
+
+Если резервная копия и новый кластер находятся в разных каталогах, назначьте аккаунту роли:
+
+* [managed-postgresql.restorer](../../iam/roles-reference.md#managed-postgresql-restorer) или выше на каталог, в котором находится резервная копия;
+* [managed-postgresql.editor](../../iam/roles-reference.md#managed-postgresql-editor) и [vpc.user](../../iam/roles-reference.md#vpc-user) или выше на каталог, в котором находится новый кластер.
 
 
 {% include [manual-backup-restore](../../_includes/mdb/mpg/note-warn-restore-manual-backup.md) %}

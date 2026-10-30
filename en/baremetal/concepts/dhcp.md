@@ -1,3 +1,8 @@
+---
+title: DHCP in a {{ baremetal-full-name }} network
+description: Learn how DHCP transmits IP addresses, routes, and DNS settings to the {{ baremetal-name }} servers in public and private subnets.
+---
+
 # DHCP in a {{ baremetal-full-name }} network
 
 In public ([ephemeral](./public-network.md#ephemeral-public-subnet)) and [private](./private-network.md#private-subnet) subnets, you can use [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol) to automatically configure IP addressing parameters on server interfaces. When installing a server OS from {{ marketplace-short-name }} images, configure the DHCP settings on the server's physical interfaces in line with the DHCP settings of the connected subnets. In {{ baremetal-name }} subnets, DHCP is disabled by default. If you selected a dedicated subnet or an ephemeral subnet without DHCP when renting your server, DHCP will also be disabled in the OS image. After installing the OS, you can enable DHCP manually in the OS settings (or via the KVM console if there is no network access), or delete the server and order a new one.
@@ -16,12 +21,14 @@ The following DHCP options are transmitted on public and private networks:
 
 * `1`: Subnet Mask. Subnet mask.
 * `3`: Router. Default gateway. Subnet gateway for public subnets.
-* `6`: Domain Server. DNS server addresses. `77.88.8.8`, `77.88.8.1` for public subnets.
+* `6`: Domain Server. DNS server addresses: `77.88.8.8`, `77.88.8.1` for public subnets, and a [configured list of DNS servers](./dns.md#dns-servers) for private subnets.
+* `15`: Domain Name. Domain name if specified in the private subnet's DNS settings.
 * `51`: Lease Time. The time the address is issued for is 12 hours.
-* `54`: DHCP Server Id: Subnet gateway.
+* `54`: DHCP Server Id, subnet gateway.
 * `58`: Renewal Time. The time after which the client will start re-requesting the address is 5 minutes.
 * `59`: Rebinding Time. The time after which the server will send a broadcast request to update the address is 7 minutes.
-* `121`: Classless Static Route: Static routes in the network. For private subnets, these are `10.0.0.0/8`, `192.168.0.0/16`, and `172.16.0.0/12` through the subnet gateway. Used to access other subnets within VRF.
+* `119`: Domain Search. Search domain if specified in the private subnet's DNS settings.
+* `121`: Classless Static Route, static routes in the network. For private subnets, these are `10.0.0.0/8`, `192.168.0.0/16`, and `172.16.0.0/12` through the subnet gateway. Used to access other subnets within VRF.
 
 ## DHCP in a public network {#dhcp-public}
 
@@ -52,7 +59,7 @@ The server network interface connected to a private network gets an IP address f
 Within a private network, you can manage the DHCP service parameters:
 
 * By default, the DHCP service is disabled in the subnet settings. In this case, IP addresses for servers in a private subnet are assigned statically. When the DHCP service is enabled for a subnet, IP addresses can be assigned for servers automatically. 
-* When configuring the DHCP service for a subnet, you can specify additional parameters.
+* When configuring the DHCP service for a subnet, you can specify the IP address range, [DNS servers, and domain name](./dns.md). You can configure the DNS settings when creating a subnet or [change them later](../operations/configure-dns.md).
 
 The DHCP service can be used in a subnet for only one CIDR, from which an address will be assigned only for the server’s physical interface. If you need to configure DHCP to assign addresses for VMs, you need to configure it on your own, for example, using your own DHCP server.
 

@@ -49,7 +49,7 @@ apiPlayground:
           type:
             description: |-
               **enum** (Type)
-              Required field. Type of the host to be deployed.
+              Type of the host to be deployed.
               - `CLICKHOUSE`: ClickHouse host.
               - `ZOOKEEPER`: ZooKeeper host.
               - `KEEPER`: ClickHouse Keeper host.
@@ -84,8 +84,6 @@ apiPlayground:
               The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
             pattern: '[a-zA-Z0-9_-]*'
             type: string
-        required:
-          - type
 ---
 
 # Managed Service for ClickHouse API, REST: Cluster.AddHosts
@@ -151,7 +149,7 @@ To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.L
 The maximum string length in characters is 50. ||
 || type | **enum** (Type)
 
-Required field. Type of the host to be deployed.
+Type of the host to be deployed.
 
 - `CLICKHOUSE`: ClickHouse host.
 - `ZOOKEEPER`: ZooKeeper host.

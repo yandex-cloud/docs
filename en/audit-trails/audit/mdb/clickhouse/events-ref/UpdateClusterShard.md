@@ -106,6 +106,7 @@ editable: false
               "backgroundBufferFlushSchedulePoolSize": "string",
               "backgroundMessageBrokerSchedulePoolSize": "string",
               "backgroundCommonPoolSize": "string",
+              "maxBackupsIoThreadPoolSize": "string",
               "dictionariesLazyLoad": "boolean",
               "shutdownWaitUnfinishedQueries": "boolean",
               "shutdownWaitUnfinished": "string",
@@ -154,6 +155,9 @@ editable: false
               "queryMetricLogEnabled": "boolean",
               "queryMetricLogRetentionSize": "string",
               "queryMetricLogRetentionTime": "string",
+              "s3queueLogEnabled": "boolean",
+              "s3queueLogRetentionSize": "string",
+              "s3queueLogRetentionTime": "string",
               "automaticallyDetachedDataPartsRetentionTime": "string",
               "manuallyDetachedDataPartsRetentionTime": "string",
               "accessControlImprovements": {
@@ -490,6 +494,7 @@ editable: false
               "backgroundBufferFlushSchedulePoolSize": "string",
               "backgroundMessageBrokerSchedulePoolSize": "string",
               "backgroundCommonPoolSize": "string",
+              "maxBackupsIoThreadPoolSize": "string",
               "dictionariesLazyLoad": "boolean",
               "shutdownWaitUnfinishedQueries": "boolean",
               "shutdownWaitUnfinished": "string",
@@ -538,6 +543,9 @@ editable: false
               "queryMetricLogEnabled": "boolean",
               "queryMetricLogRetentionSize": "string",
               "queryMetricLogRetentionTime": "string",
+              "s3queueLogEnabled": "boolean",
+              "s3queueLogRetentionSize": "string",
+              "s3queueLogRetentionTime": "string",
               "automaticallyDetachedDataPartsRetentionTime": "string",
               "manuallyDetachedDataPartsRetentionTime": "string",
               "accessControlImprovements": {
@@ -874,6 +882,7 @@ editable: false
               "backgroundBufferFlushSchedulePoolSize": "string",
               "backgroundMessageBrokerSchedulePoolSize": "string",
               "backgroundCommonPoolSize": "string",
+              "maxBackupsIoThreadPoolSize": "string",
               "dictionariesLazyLoad": "boolean",
               "shutdownWaitUnfinishedQueries": "boolean",
               "shutdownWaitUnfinished": "string",
@@ -922,6 +931,9 @@ editable: false
               "queryMetricLogEnabled": "boolean",
               "queryMetricLogRetentionSize": "string",
               "queryMetricLogRetentionTime": "string",
+              "s3queueLogEnabled": "boolean",
+              "s3queueLogRetentionSize": "string",
+              "s3queueLogRetentionTime": "string",
               "automaticallyDetachedDataPartsRetentionTime": "string",
               "manuallyDetachedDataPartsRetentionTime": "string",
               "accessControlImprovements": {
@@ -1490,6 +1502,7 @@ A list of messages that carry the error details. ||
 || backgroundBufferFlushSchedulePoolSize | **string** (int64) ||
 || backgroundMessageBrokerSchedulePoolSize | **string** (int64) ||
 || backgroundCommonPoolSize | **string** (int64) ||
+|| maxBackupsIoThreadPoolSize | **string** (int64) ||
 || dictionariesLazyLoad | **boolean** ||
 || shutdownWaitUnfinishedQueries | **boolean** ||
 || shutdownWaitUnfinished | **string** (int64) ||
@@ -1550,6 +1563,9 @@ A list of messages that carry the error details. ||
 || queryMetricLogEnabled | **boolean** ||
 || queryMetricLogRetentionSize | **string** (int64) ||
 || queryMetricLogRetentionTime | **string** (int64) ||
+|| s3queueLogEnabled | **boolean** ||
+|| s3queueLogRetentionSize | **string** (int64) ||
+|| s3queueLogRetentionTime | **string** (int64) ||
 || automaticallyDetachedDataPartsRetentionTime | **string** (int64) ||
 || manuallyDetachedDataPartsRetentionTime | **string** (int64) ||
 || accessControlImprovements | **[AccessControlImprovements](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.AccessControlImprovements)** ||

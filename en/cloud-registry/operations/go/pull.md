@@ -40,6 +40,8 @@ You can pull Go modules using the standard `go` command: your {{ cloud-registry-
 
     - API key {#api-key}
 
+        For authentication with an API key, specify `yc.cloud-registry.artifacts.pull` as the key [scope](*api-key-scope).
+
         Add the following line to the `~/.netrc` file:
 
         ```text
@@ -96,3 +98,5 @@ You can pull Go modules using the standard `go` command: your {{ cloud-registry-
 
 * [{#T}](push.md)
 * [{#T}](create.md)
+
+[*api-key-scope]: {% include notitle [api-key-scope](../../../_popups/iam/api-key-scope.md) %}

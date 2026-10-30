@@ -37,3 +37,5 @@ description: Follow this guide to set up PyPI.
       ```
 
     {% endlist %}
+
+[*api-key-scope]: {% include notitle [api-key-scope](../../../_popups/iam/api-key-scope.md) %}

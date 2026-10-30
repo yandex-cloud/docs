@@ -16,7 +16,6 @@ When creating your billing account, you get the `billing.accounts.owner` role au
 * [Execute API queries](../../../billing/operations/get-charges-via-api.md) to get usage details.
 * [Export details](../../../billing/operations/get-folder-report.md).
 * Create [budgets](../../../billing/concepts/budget.md).
-* [Reserve resource usage](../../../billing/concepts/cvos.md).
 * Top up their [personal account](../../../billing/concepts/personal-account.md) using a bank account.
 * Top up their personal account using a credit or debit card.
 * Link [clouds](../../../resource-manager/concepts/resources-hierarchy.md#cloud) to a billing account.

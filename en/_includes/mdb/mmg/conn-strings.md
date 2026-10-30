@@ -1,6 +1,6 @@
 ## Go {#go}
 
-**Before connecting, install the following dependencies:**
+**Before connecting, install the dependencies:
 
 ```bash
 sudo apt update && sudo apt install --yes golang git && \
@@ -31,7 +31,7 @@ go get go.mongodb.org/mongo-driver/mongo
           DB_HOSTS := []string {"<Yandex_StoreDoc_host_1_FQDN>:27018",
                                 ...,
                                 "<Yandex_StoreDoc_host_N_FQDN>:27018"}
-          const DB_USER = "<DB_username>"
+          const DB_USER = "<DB_user_name>"
           const DB_PASS = "<DB_user_password>"
 
           const CACERT = "/home/<home_directory>/.mongodb/root.crt"
@@ -77,7 +77,7 @@ go get go.mongodb.org/mongo-driver/mongo
           DB_HOSTS := []string {"<Yandex_StoreDoc_host_1_FQDN>:27018",
                                 ...,
                                 "<Yandex_StoreDoc_host_N_FQDN>:27018"}
-          const DB_USER = "<DB_username>"
+          const DB_USER = "<DB_user_name>"
           const DB_PASS = "<DB_user_password>"
 
           url := fmt.Sprintf("mongodb://%s:%s@%s/%s?replicaSet=%s&tls=false",
@@ -118,7 +118,7 @@ go run connect.go
     sudo apt update && sudo apt install --yes default-jdk maven
     ```
 
-1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ SD }} driver can use this certificate for secure connections to the cluster hosts. Set a password in the `-storepass` parameter for storage protection:
+1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so the {{ SD }} driver could use it for secure connections to cluster hosts. Set a password in the `-storepass` parameter to protect the store:
 
     ```bash
     cd ~/.mongodb && \
@@ -128,7 +128,7 @@ go run connect.go
                  --noprompt
     ```
 
-    Where `storepass` is your certificate store password, a minimum of 6 characters.
+    Where `storepass` is your certificate store password, including a minimum of six characters.
 
 1. Create a directory for the Maven project:
 
@@ -312,7 +312,7 @@ go run connect.go
 
 {% include [see-fqdn-host](fqdn-host.md) %}
 
-**Connecting:**
+**Connecting**:
 
 ```bash
 mvn clean package && \
@@ -321,7 +321,7 @@ mvn clean package && \
 
 ## Node.js {#nodejs}
 
-**Before connecting, install the required dependencies**:
+**Before connecting, install the dependencies**:
 
 ```bash
 sudo apt update && sudo apt install --yes nodejs npm && \
@@ -343,7 +343,7 @@ npm install mongodb
     const DB_HOSTS = ['<Yandex_StoreDoc_host_1_FQDN>:27018',
                       ...,
                       '<Yandex_StoreDoc_host_N_FQDN>:27018']
-    const DB_USER  = '<DB_username>'
+    const DB_USER  = '<DB_user_name>'
     const DB_PASS  = '<DB_user_password>'
     const CACERT   = '/home/<home_directory>/.mongodb/root.crt'
 
@@ -381,7 +381,7 @@ npm install mongodb
     const DB_HOSTS = ['<Yandex_StoreDoc_host_1_FQDN>:27018',
                       ...
                       '<Yandex_StoreDoc_host_N_FQDN>:27018']
-    const DB_USER  = '<DB_username>'
+    const DB_USER  = '<DB_user_name>'
     const DB_PASS  = '<DB_user_password>'
 
     const url = util.format('mongodb://%s:%s@%s/', DB_USER, DB_PASS, DB_HOSTS.join(','))
@@ -415,7 +415,7 @@ node app.js
 
 ## PHP {#php}
 
-**Before connecting, install the required dependencies**:
+**Before connecting, install the dependencies**:
 
 ```bash
 sudo apt update && sudo apt install --yes php php-mongodb
@@ -432,7 +432,7 @@ sudo apt update && sudo apt install --yes php php-mongodb
       $DB_RS    = '<replica_set_name>';
       $DB_NAME  = '<DB_name>';
       $DB_HOSTS = '<Yandex_StoreDoc_host_1_FQDN>:27018,...,<Yandex_StoreDoc_host_N_FQDN>:27018';
-      $DB_USER  = '<DB_username>';
+      $DB_USER  = '<DB_user_name>';
       $DB_PASS  = '<DB_user_password>';
       $CACERT   = '/home/<home_directory>/.mongodb/root.crt';
 
@@ -469,7 +469,7 @@ sudo apt update && sudo apt install --yes php php-mongodb
       $DB_RS    = '<replica_set_name>';
       $DB_NAME  = '<DB_name>';
       $DB_HOSTS = '<Yandex_StoreDoc_host_1_FQDN>:27018,...,<Yandex_StoreDoc_host_N_FQDN>:27018';
-      $DB_USER  = '<DB_username>';
+      $DB_USER  = '<DB_user_name>';
       $DB_PASS  = '<DB_user_password>';
 
       $uri = sprintf(
@@ -500,7 +500,7 @@ sudo apt update && sudo apt install --yes php php-mongodb
 
 {% include [see-fqdn-host](fqdn-host.md) %}
 
-**Connecting:**
+**Connecting**:
 
 ```bash
 php connect.php
@@ -508,7 +508,7 @@ php connect.php
 
 ## Python {#python}
 
-**Before connecting, install the required dependencies**:
+**Before connecting, install the dependencies**:
 
 ```bash
 sudo apt update && sudo apt install --yes python3 python3-pip && \
@@ -540,7 +540,7 @@ rs.status().set
           ...,
           '<Yandex_StoreDoc_host_N_FQDN>:27018'
         ])
-    DB_USER = '<DB_username>'
+    DB_USER = '<DB_user_name>'
     DB_PASS = '<DB_user_password>'
 
     url = 'mongodb://{user}:{pw}@{hosts}/?replicaSet={rs}&authSource={auth_src}'.format(
@@ -577,7 +577,7 @@ rs.status().set
           ...,
           '<Yandex_StoreDoc_host_N_FQDN>:27018'
         ])
-    DB_USER = '<DB_username>'
+    DB_USER = '<DB_user_name>'
     DB_PASS = '<DB_user_password>'
 
     url = 'mongodb://{user}:{pw}@{hosts}/?replicaSet={rs}&authSource={auth_src}'.format(

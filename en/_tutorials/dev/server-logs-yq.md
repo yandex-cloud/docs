@@ -42,7 +42,7 @@ To create a bucket:
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+  1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 

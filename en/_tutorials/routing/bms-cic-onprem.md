@@ -3,6 +3,8 @@
 
 In this tutorial, you will set up network connectivity between a {{ baremetal-name }} [server](../../baremetal/concepts/servers.md) located in a [private {{ baremetal-full-name }} subnet](../../baremetal/concepts/private-network.md) and your on-premise resources. Network connectivity will be established using [{{ interconnect-name }}](../../interconnect/index.yaml) and [{{ cr-name }}](../../cloud-router/index.yaml).
 
+{% include [cr-v2-bms-onprem-notice](../../_includes/baremetal/cr-v2-bms-onprem-notice.md) %}
+
 You can see the solution architecture in the diagram below:
 
 ![bms-cic-onprem](../../_assets/tutorials/bms-cic-onprem.svg)
@@ -53,7 +55,7 @@ Create a virtual network segment (VRF) and a private subnet in the `{{ region-id
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are going to create your infrastructure.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
   1. Create a virtual routing and forwarding segment:
 
         1. In the left-hand panel, select ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}** and click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
@@ -149,7 +151,7 @@ A network connectivity check assumes that:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you created the infrastructure.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
   1. Next to `server-m3`, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.baremetal.label_kvm-console_37Kma }}**.
   
       The KVM console terminal window will open, showing a login prompt:
@@ -208,7 +210,7 @@ To stop paying for the resources you created:
     - Management console {#console} 
     
       1. In the [management console]({{ link-console-main }}), select the folder where you created the infrastructure.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+      1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
       1. In the left-hand panel, click ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}** and select `my-vrf`.
       1. Under **{{ ui-key.yacloud.baremetal.title_vrf-interconnect-section }}**, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![CircleXmark](../../_assets/console-icons/circle-xmark.svg) **{{ ui-key.yacloud.baremetal.action_delete-external-connection }}**.
       1. In the window that opens, confirm the deletion.

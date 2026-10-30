@@ -1,0 +1,1 @@
+The `ai.workRuntimes.auditor` role enables viewing the metadata of [user seats]({{ link-docs-ai }}ai-studio/manage/concepts/#work-runtime) and [access permissions](../../../iam/concepts/access-control/index.md) granted for seats.

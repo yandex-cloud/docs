@@ -1,3 +1,3 @@
-In the **{{ ui-key.yacloud.baremetal.field_hardware-pool-id }}** field, select the [pools](../../../baremetal/concepts/servers.md#server-pools) where the subnet will be available.
+Under **{{ ui-key.yacloud.baremetal.field_hardware-pool-id }}**, select one or more [pools](../../../baremetal/concepts/servers.md#server-pools) the subnet will be available in.
 
 {% include [link-public-subnet](link-public-subnet.md) %}

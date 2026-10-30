@@ -28,6 +28,7 @@ description: This page features step-by-step guides for {{ mos-name }}.
 * [Connecting from applications](connect/clients.md)
 * [Code examples](connect/code-examples.md)
 * [{#T}](saml-authentication.md)
+* [{#T}](connect/update-tls-certificates.md)
 
 ## {{ OS }} users
 

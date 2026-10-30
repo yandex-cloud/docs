@@ -4,25 +4,25 @@
 
 ### *class* yandex\_ai\_studio\_sdk.\_speechkit.text\_to\_speech.result.**TextToSpeechResult**{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechResult}
 
-A class representing result of a speech generation request.
+A class representing the result of a speech generation request.
 
-In case of different run modes could contain one chunk of data or several data chunks. Class provides identical interface for both cases.
+Depending on the run mode, the result may contain one chunk of data or several data chunks. The class provides an identical interface for both cases.
 
-Also have a rich representation in Jupyter Notebooks.
+It also has a rich representation in Jupyter notebooks.
 
-**chunks**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[TextToSpeechChunk](#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechChunk)*]... ,{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechResult.chunks}
+**chunks**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[TextToSpeechChunk](#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechChunk)*]... ,{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechResult.chunks}
 
-*property* **data**\: *[bytes](https://docs.python.org/3/library/stdtypes.html#bytes)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechResult.data}
+*property* **data**\: *[bytes](https://docs.python.org/3/builtins/stdtypes.html#bytes)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechResult.data}
 
-*property* **text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechResult.text}
+*property* **text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechResult.text}
 
-*property* **start\_ms**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechResult.start_ms}
+*property* **start\_ms**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechResult.start_ms}
 
-*property* **length\_ms**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechResult.length_ms}
+*property* **length\_ms**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechResult.length_ms}
 
-*property* **end\_ms**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechResult.end_ms}
+*property* **end\_ms**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechResult.end_ms}
 
-*property* **size\_bytes**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechResult.size_bytes}
+*property* **size\_bytes**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechResult.size_bytes}
 
 *property* **audio\_format**\: *[AudioFormat](#yandex_ai_studio_sdk._speechkit.enums.AudioFormat) | [UnknownEnumValue](other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)[[AudioFormat](#yandex_ai_studio_sdk._speechkit.enums.AudioFormat)*]{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechResult.audio_format}
 
@@ -30,89 +30,89 @@ Also have a rich representation in Jupyter Notebooks.
 
 Result chunk of text to speech generation
 
-**data**\: *[bytes](https://docs.python.org/3/library/stdtypes.html#bytes)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechChunk.data}
+**data**\: *[bytes](https://docs.python.org/3/builtins/stdtypes.html#bytes)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechChunk.data}
 
-**text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechChunk.text}
+**text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechChunk.text}
 
-**start\_ms**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechChunk.start_ms}
+**start\_ms**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechChunk.start_ms}
 
-**length\_ms**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechChunk.length_ms}
+**length\_ms**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechChunk.length_ms}
 
-*property* **end\_ms**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechChunk.end_ms}
+*property* **end\_ms**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechChunk.end_ms}
 
-*property* **size\_bytes**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechChunk.size_bytes}
+*property* **size\_bytes**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechChunk.size_bytes}
 
 ## Speech to text
 
 ### *class* yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.result.top\_containers.**Utterance**{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.Utterance}
 
-A class representing result of speech recognition request for one utterance in specific audio channel.
+A class representing the result of a speech recognition request for one utterance in a specific audio channel.
 
-Boundaries of this utterance is determined by end of utterance classifier setting, silence duration between utterances or external **stream.eou()** calls
+The boundaries of this utterance are determined by the end-of-utterance classifier settings, silence duration between utterances or external **stream.eou()** calls
 
-**events**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[SpeechToTextStreamingEvent](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.Utterance.events}
+**events**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[SpeechToTextStreamingEvent](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.Utterance.events}
 
 all events from this utterance for debugging purposes
 
-**classifiers**\: *[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [ClassifierResult](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierResult)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.Utterance.classifiers}
+**classifiers**\: *[dict](https://docs.python.org/3/builtins/stdtypes.html#dict)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), [ClassifierResult](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierResult)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.Utterance.classifiers}
 
 classifier results for this utterance, only on\_utterance classifiers
 
-**speaker\_analysis**\: *[SpeakerAnalysis](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.Utterance.speaker_analysis}
+**speaker\_analysis**\: *[SpeakerAnalysis](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.Utterance.speaker_analysis}
 
-speker analysis for this utterance
+speaker analysis for this utterance
 
 **timespan**\: *[TimeSpan](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.utils.TimeSpan)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.Utterance.timespan}
 
 Utterance time boundaries
 
-**finals**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Alternatives](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternatives)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.Utterance.finals}
+**finals**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[Alternatives](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternatives)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.Utterance.finals}
 
 All final alternatives from this utterance
 
-**final\_refinements**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[FinalRefinement](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.FinalRefinement)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.Utterance.final_refinements}
+**final\_refinements**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[FinalRefinement](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.FinalRefinement)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.Utterance.final_refinements}
 
 All refined final alternatives from this utterance
 
-**final\_classifiers**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[FinalClassifierResult](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier_final.FinalClassifierResult)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.Utterance.final_classifiers}
+**final\_classifiers**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[FinalClassifierResult](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier_final.FinalClassifierResult)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.Utterance.final_classifiers}
 
 classifier results, tied to final event, only on\_final classifiers
 
-*property* **final\_text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.Utterance.final_text}
+*property* **final\_text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.Utterance.final_text}
 
-Joined text of all final events in this utterance`
+Joined text of all final events in this utterance
 
-*property* **final\_refinement\_text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.Utterance.final_refinement_text}
+*property* **final\_refinement\_text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.Utterance.final_refinement_text}
 
 Joined text of all final\_refinement events if there are any
 
-*property* **text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.Utterance.text}
+*property* **text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.Utterance.text}
 
 final\_refinement\_text or final\_text
 
 ### *class* yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.result.top\_containers.**ChannelResult**{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.ChannelResult}
 
-A class representing result of speech recognition request for one audio channel
+A class representing the result of a speech recognition request for one audio channel
 
-**tag**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.ChannelResult.tag}
+**tag**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.ChannelResult.tag}
 
-**utterances**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Utterance](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.Utterance)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.ChannelResult.utterances}
+**utterances**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[Utterance](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.Utterance)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.ChannelResult.utterances}
 
 All utterances from this channel
 
-**speaker\_analysis**\: *[SpeakerAnalysis](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.ChannelResult.speaker_analysis}
+**speaker\_analysis**\: *[SpeakerAnalysis](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.ChannelResult.speaker_analysis}
 
 Speech statistics for this channel with window\_type=TOTAL
 
-*property* **final\_text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.ChannelResult.final_text}
+*property* **final\_text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.ChannelResult.final_text}
 
 Joined text of all final events in this channel
 
-*property* **final\_refinement\_text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.ChannelResult.final_refinement_text}
+*property* **final\_refinement\_text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.ChannelResult.final_refinement_text}
 
 Joined text of all final\_refinement events if there are any
 
-*property* **text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.ChannelResult.text}
+*property* **text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.ChannelResult.text}
 
 final\_refinement\_text or final\_text
 
@@ -126,11 +126,11 @@ Supporting start and stop arguments is optional, but recommended.
 
 ### *class* yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.result.top\_containers.**SpeechToTextResult**{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult}
 
-A class representing result of speech recognition request.
+A class representing the result of a speech recognition request.
 
-Main thing it contains – one or more channel results. In case of one channel, you could use a proxy-properties to access channel result.
+It contains one or more channel results. For a single channel, you can use proxy properties to access the channel result.
 
-Lets assume we have a some speech to text result. It doesn’t matter how I creating it in this example, but I need to do it for doctesting purposes.
+Let’s assume we have a speech-to-text result. How it is created does not matter in this example, but it is needed for doctesting purposes.
 
 ```python
 >>> first_result = ChannelResult(utterances=(), speaker_analysis=None, tag="222_first")
@@ -169,7 +169,7 @@ Traceback (most recent call last):
 ValueError: property proxy ... is not available in case of 2+ channels in result
 ```
 
-And here is example for how to access channel results from result:
+Here is an example of how to access channel results:
 
 We can get it by channel tag:
 
@@ -177,14 +177,14 @@ We can get it by channel tag:
 >>> assert result['222_first'] == result.channels['222_first'] is first_result
 ```
 
-We can access it by channel “index” which we calculate based on alphabetical sorting of channel tags (catch is, usually tags is match indices i.e. when tag==’0’, corresponding index will be also 0, but in this example I intentionally put reversed tags):
+We can access it by channel “index” which we calculate based on alphabetical sorting of channel tags (usually, tags match indices, i.e. when tag==’0’, the corresponding index will be also 0, but in this example I intentionally use reversed tags):
 
 ```python
 >>> assert result[0] == result.get_channel(0) is second_result
 >>> assert result[-1] == result.get_channel(-1) is first_result
 ```
 
-Also you can use slices:
+You can also use slices:
 
 ```python
 >>> assert result[0:2] == (second_result, first_result)
@@ -196,44 +196,44 @@ And you could iterate over channels:
 >>> assert list(result) == [second_result, first_result]
 ```
 
-**unknown\_events**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[SpeechToTextStreamingEvent](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult.unknown_events}
+**unknown\_events**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[SpeechToTextStreamingEvent](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult.unknown_events}
 
-**status\_events**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[SpeechToTextStreamingEvent](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult.status_events}
+**status\_events**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[SpeechToTextStreamingEvent](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult.status_events}
 
-**channels**\: *[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [ChannelResult](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.ChannelResult)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult.channels}
+**channels**\: *[dict](https://docs.python.org/3/builtins/stdtypes.html#dict)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), [ChannelResult](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.ChannelResult)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult.channels}
 
 **get\_channel**(*sequential\_number*){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult.get_channel}
 
-Get channel by it’s sequential number among all channels, sorted by its tags
+Get a channel by its sequential number among all channels, sorted by their tags
 
 #|
-|| Parameters | **sequential\_number** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+|| Parameters | **sequential\_number** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 || Return type | [*ChannelResult*](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.ChannelResult) ||
 |#
 
-*property* **final\_text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult.final_text}
+*property* **final\_text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult.final_text}
 
-Return final text of first channel.
+Return the final text of the first channel.
 
-Raises if result have more than one channel.
+Raises if the result has more than one channel.
 
-*property* **final\_refinement\_text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult.final_refinement_text}
+*property* **final\_refinement\_text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult.final_refinement_text}
 
-Return final text of first channel.
+Return the final text of the first channel.
 
-Raises if result have more than one channel.
+Raises if the result has more than one channel.
 
-*property* **text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult.text}
+*property* **text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult.text}
 
-Return final text of first channel.
+Return the final text of the first channel.
 
-Raises if result have more than one channel.
+Raises if the result has more than one channel.
 
-*property* **speaker\_analysis**\: *[SpeakerAnalysis](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult.speaker_analysis}
+*property* **speaker\_analysis**\: *[SpeakerAnalysis](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult.speaker_analysis}
 
 Return speaker\_analysis for the first channel.
 
-Raises if result have more than one channel.
+Raises if the result has more than one channel.
 
 **count**(*value*) → integer -- return number of occurrences of value{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult.count}
 
@@ -243,23 +243,23 @@ Raises ValueError if the value is not present.
 
 Supporting start and stop arguments is optional, but recommended.
 
-**role**\: *ClassVar[[str](https://docs.python.org/3/library/stdtypes.html#str)*] = *'user'*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult.role}
+**role**\: *ClassVar[[str](https://docs.python.org/3/builtins/stdtypes.html#str)*] = *'user'*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult.role}
 
-Field role is required to be compatible with TextMessage Protocol, to other part of SDK could use this object an input.
+Field role is required to be compatible with TextMessage Protocol, to other parts of the SDK can use this object as input.
 
-**uuid**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult.uuid}
+**uuid**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult.uuid}
 
 Internal session identifier.
 
-**user\_request\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult.user_request_id}
+**user\_request\_id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult.user_request_id}
 
 User session identifier.
 
-**conversation\_analysis**\: *[ConversationAnalysis](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.ConversationAnalysis) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult.conversation_analysis}
+**conversation\_analysis**\: *[ConversationAnalysis](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.ConversationAnalysis) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult.conversation_analysis}
 
 Conversation statistics
 
-**llm\_post\_process\_result**\: *[LLMPostProcessResult](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.llm_post_process_result.LLMPostProcessResult) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult.llm_post_process_result}
+**llm\_post\_process\_result**\: *[LLMPostProcessResult](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.llm_post_process_result.LLMPostProcessResult) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.SpeechToTextResult.llm_post_process_result}
 
 Result of llm post\_process, may be also known as *Summarization* at some old documentation.
 
@@ -267,28 +267,28 @@ Result of llm post\_process, may be also known as *Summarization* at some old do
 
 DeferredSpeechToTextBaseResult(\_sdk: ‘SDKType’, uuid: ‘str’, user\_request\_id: ‘str’, conversation\_analysis: ‘ConversationAnalysis | None’, llm\_post\_process\_result: ‘LLMPostProcessResult | None’, unknown\_events: ‘tuple[SpeechToTextStreamingEvent, …]’, status\_events: ‘tuple[SpeechToTextStreamingEvent, …]’, channels: ‘dict[str, ChannelResult]’, operation\_id: ‘str’)
 
-**operation\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.operation_id}
+**operation\_id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.operation_id}
 
 **count**(*value*) → integer -- return number of occurrences of value{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.count}
 
-*property* **final\_refinement\_text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.final_refinement_text}
+*property* **final\_refinement\_text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.final_refinement_text}
 
-Return final text of first channel.
+Return the final text of the first channel.
 
-Raises if result have more than one channel.
+Raises if the result has more than one channel.
 
-*property* **final\_text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.final_text}
+*property* **final\_text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.final_text}
 
-Return final text of first channel.
+Return the final text of the first channel.
 
-Raises if result have more than one channel.
+Raises if the result has more than one channel.
 
 **get\_channel**(*sequential\_number*){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.get_channel}
 
-Get channel by it’s sequential number among all channels, sorted by its tags
+Get a channel by its sequential number among all channels, sorted by their tags
 
 #|
-|| Parameters | **sequential\_number** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+|| Parameters | **sequential\_number** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 || Return type | [*ChannelResult*](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.ChannelResult) ||
 |#
 
@@ -298,41 +298,41 @@ Raises ValueError if the value is not present.
 
 Supporting start and stop arguments is optional, but recommended.
 
-**role**\: *ClassVar[[str](https://docs.python.org/3/library/stdtypes.html#str)*] = *'user'*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.role}
+**role**\: *ClassVar[[str](https://docs.python.org/3/builtins/stdtypes.html#str)*] = *'user'*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.role}
 
-Field role is required to be compatible with TextMessage Protocol, to other part of SDK could use this object an input.
+Field role is required to be compatible with TextMessage Protocol, to other parts of the SDK can use this object as input.
 
-*property* **speaker\_analysis**\: *[SpeakerAnalysis](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.speaker_analysis}
+*property* **speaker\_analysis**\: *[SpeakerAnalysis](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.speaker_analysis}
 
 Return speaker\_analysis for the first channel.
 
-Raises if result have more than one channel.
+Raises if the result has more than one channel.
 
-*property* **text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.text}
+*property* **text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.text}
 
-Return final text of first channel.
+Return the final text of the first channel.
 
-Raises if result have more than one channel.
+Raises if the result has more than one channel.
 
-**unknown\_events**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[SpeechToTextStreamingEvent](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.unknown_events}
+**unknown\_events**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[SpeechToTextStreamingEvent](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.unknown_events}
 
-**status\_events**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[SpeechToTextStreamingEvent](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.status_events}
+**status\_events**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[SpeechToTextStreamingEvent](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.status_events}
 
-**channels**\: *[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [ChannelResult](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.ChannelResult)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.channels}
+**channels**\: *[dict](https://docs.python.org/3/builtins/stdtypes.html#dict)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), [ChannelResult](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.ChannelResult)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.channels}
 
-**uuid**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.uuid}
+**uuid**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.uuid}
 
 Internal session identifier.
 
-**user\_request\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.user_request_id}
+**user\_request\_id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.user_request_id}
 
 User session identifier.
 
-**conversation\_analysis**\: *[ConversationAnalysis](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.ConversationAnalysis) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.conversation_analysis}
+**conversation\_analysis**\: *[ConversationAnalysis](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.ConversationAnalysis) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.conversation_analysis}
 
 Conversation statistics
 
-**llm\_post\_process\_result**\: *[LLMPostProcessResult](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.llm_post_process_result.LLMPostProcessResult) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.llm_post_process_result}
+**llm\_post\_process\_result**\: *[LLMPostProcessResult](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.llm_post_process_result.LLMPostProcessResult) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextBaseResult.llm_post_process_result}
 
 Result of llm post\_process, may be also known as *Summarization* at some old documentation.
 
@@ -343,30 +343,30 @@ Result of llm post\_process, may be also known as *Summarization* at some old do
 Deletes results of asynchronous recognition.
 
 #|
-|| Parameters | **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) ||
+|| Parameters | **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) ||
 || Return type | None ||
 |#
 
 **count**(*value*) → integer -- return number of occurrences of value{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.count}
 
-*property* **final\_refinement\_text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.final_refinement_text}
+*property* **final\_refinement\_text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.final_refinement_text}
 
-Return final text of first channel.
+Return the final text of the first channel.
 
-Raises if result have more than one channel.
+Raises if the result has more than one channel.
 
-*property* **final\_text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.final_text}
+*property* **final\_text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.final_text}
 
-Return final text of first channel.
+Return the final text of the first channel.
 
-Raises if result have more than one channel.
+Raises if the result has more than one channel.
 
 **get\_channel**(*sequential\_number*){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.get_channel}
 
-Get channel by it’s sequential number among all channels, sorted by its tags
+Get a channel by its sequential number among all channels, sorted by their tags
 
 #|
-|| Parameters | **sequential\_number** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+|| Parameters | **sequential\_number** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 || Return type | [*ChannelResult*](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.ChannelResult) ||
 |#
 
@@ -376,43 +376,43 @@ Raises ValueError if the value is not present.
 
 Supporting start and stop arguments is optional, but recommended.
 
-**role**\: *ClassVar[[str](https://docs.python.org/3/library/stdtypes.html#str)*] = *'user'*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.role}
+**role**\: *ClassVar[[str](https://docs.python.org/3/builtins/stdtypes.html#str)*] = *'user'*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.role}
 
-Field role is required to be compatible with TextMessage Protocol, to other part of SDK could use this object an input.
+Field role is required to be compatible with TextMessage Protocol, to other parts of the SDK can use this object as input.
 
-*property* **speaker\_analysis**\: *[SpeakerAnalysis](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.speaker_analysis}
+*property* **speaker\_analysis**\: *[SpeakerAnalysis](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.speaker_analysis}
 
 Return speaker\_analysis for the first channel.
 
-Raises if result have more than one channel.
+Raises if the result has more than one channel.
 
-*property* **text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.text}
+*property* **text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.text}
 
-Return final text of first channel.
+Return the final text of the first channel.
 
-Raises if result have more than one channel.
+Raises if the result has more than one channel.
 
-**operation\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.operation_id}
+**operation\_id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.operation_id}
 
-**unknown\_events**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[SpeechToTextStreamingEvent](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.unknown_events}
+**unknown\_events**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[SpeechToTextStreamingEvent](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.unknown_events}
 
-**status\_events**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[SpeechToTextStreamingEvent](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.status_events}
+**status\_events**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[SpeechToTextStreamingEvent](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.status_events}
 
-**channels**\: *[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [ChannelResult](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.ChannelResult)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.channels}
+**channels**\: *[dict](https://docs.python.org/3/builtins/stdtypes.html#dict)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), [ChannelResult](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.ChannelResult)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.channels}
 
-**uuid**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.uuid}
+**uuid**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.uuid}
 
 Internal session identifier.
 
-**user\_request\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.user_request_id}
+**user\_request\_id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.user_request_id}
 
 User session identifier.
 
-**conversation\_analysis**\: *[ConversationAnalysis](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.ConversationAnalysis) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.conversation_analysis}
+**conversation\_analysis**\: *[ConversationAnalysis](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.ConversationAnalysis) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.conversation_analysis}
 
 Conversation statistics
 
-**llm\_post\_process\_result**\: *[LLMPostProcessResult](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.llm_post_process_result.LLMPostProcessResult) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.llm_post_process_result}
+**llm\_post\_process\_result**\: *[LLMPostProcessResult](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.llm_post_process_result.LLMPostProcessResult) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.AsyncDeferredSpeechToTextResult.llm_post_process_result}
 
 Result of llm post\_process, may be also known as *Summarization* at some old documentation.
 
@@ -425,28 +425,28 @@ Result of llm post\_process, may be also known as *Summarization* at some old do
 Deletes results of asynchronous recognition.
 
 #|
-|| Parameters | **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) ||
+|| Parameters | **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) ||
 || Return type | None ||
 |#
 
-*property* **final\_refinement\_text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.final_refinement_text}
+*property* **final\_refinement\_text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.final_refinement_text}
 
-Return final text of first channel.
+Return the final text of the first channel.
 
-Raises if result have more than one channel.
+Raises if the result has more than one channel.
 
-*property* **final\_text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.final_text}
+*property* **final\_text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.final_text}
 
-Return final text of first channel.
+Return the final text of the first channel.
 
-Raises if result have more than one channel.
+Raises if the result has more than one channel.
 
 **get\_channel**(*sequential\_number*){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.get_channel}
 
-Get channel by it’s sequential number among all channels, sorted by its tags
+Get a channel by its sequential number among all channels, sorted by their tags
 
 #|
-|| Parameters | **sequential\_number** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+|| Parameters | **sequential\_number** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 || Return type | [*ChannelResult*](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.ChannelResult) ||
 |#
 
@@ -456,43 +456,43 @@ Raises ValueError if the value is not present.
 
 Supporting start and stop arguments is optional, but recommended.
 
-**role**\: *ClassVar[[str](https://docs.python.org/3/library/stdtypes.html#str)*] = *'user'*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.role}
+**role**\: *ClassVar[[str](https://docs.python.org/3/builtins/stdtypes.html#str)*] = *'user'*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.role}
 
-Field role is required to be compatible with TextMessage Protocol, to other part of SDK could use this object an input.
+Field role is required to be compatible with TextMessage Protocol, to other parts of the SDK can use this object as input.
 
-*property* **speaker\_analysis**\: *[SpeakerAnalysis](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.speaker_analysis}
+*property* **speaker\_analysis**\: *[SpeakerAnalysis](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.speaker_analysis}
 
 Return speaker\_analysis for the first channel.
 
-Raises if result have more than one channel.
+Raises if the result has more than one channel.
 
-*property* **text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.text}
+*property* **text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.text}
 
-Return final text of first channel.
+Return the final text of the first channel.
 
-Raises if result have more than one channel.
+Raises if the result has more than one channel.
 
-**operation\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.operation_id}
+**operation\_id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.operation_id}
 
-**unknown\_events**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[SpeechToTextStreamingEvent](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.unknown_events}
+**unknown\_events**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[SpeechToTextStreamingEvent](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.unknown_events}
 
-**status\_events**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[SpeechToTextStreamingEvent](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.status_events}
+**status\_events**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[SpeechToTextStreamingEvent](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.status_events}
 
-**channels**\: *[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [ChannelResult](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.ChannelResult)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.channels}
+**channels**\: *[dict](https://docs.python.org/3/builtins/stdtypes.html#dict)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), [ChannelResult](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.ChannelResult)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.channels}
 
-**uuid**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.uuid}
+**uuid**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.uuid}
 
 Internal session identifier.
 
-**user\_request\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.user_request_id}
+**user\_request\_id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.user_request_id}
 
 User session identifier.
 
-**conversation\_analysis**\: *[ConversationAnalysis](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.ConversationAnalysis) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.conversation_analysis}
+**conversation\_analysis**\: *[ConversationAnalysis](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.ConversationAnalysis) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.conversation_analysis}
 
 Conversation statistics
 
-**llm\_post\_process\_result**\: *[LLMPostProcessResult](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.llm_post_process_result.LLMPostProcessResult) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.llm_post_process_result}
+**llm\_post\_process\_result**\: *[LLMPostProcessResult](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.llm_post_process_result.LLMPostProcessResult) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.llm_post_process_result}
 
 Result of llm post\_process, may be also known as *Summarization* at some old documentation.
 
@@ -598,7 +598,7 @@ Return a centered string of length width.
 
 Padding is done using the specified fill character (default is a space).
 
-**count**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEventType.count}
+**count**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEventType.count}
 
 Return the number of non-overlapping occurrences of substring sub in string S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
@@ -608,7 +608,7 @@ Return a copy where all tab characters are expanded using spaces.
 
 If tabsize is not given, a tab size of 8 characters is assumed.
 
-**find**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEventType.find}
+**find**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEventType.find}
 
 Return the lowest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
@@ -622,7 +622,7 @@ This will search for the separator in the string.  If the separator is found, re
 
 If the separator is not found, returns a 3-tuple containing the original string and two empty strings.
 
-**index**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEventType.index}
+**index**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEventType.index}
 
 Return the lowest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
@@ -644,13 +644,13 @@ Return a copy of the string with leading whitespace removed.
 
 If chars is given and not None, remove characters in chars instead.
 
-**rfind**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEventType.rfind}
+**rfind**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEventType.rfind}
 
 Return the highest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
 Return -1 on failure.
 
-**rindex**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEventType.rindex}
+**rindex**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEventType.rindex}
 
 Return the highest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
@@ -704,11 +704,11 @@ The table must implement lookup/indexing via \_\_getitem\_\_, for instance a dic
 
 Return a copy of the string converted to uppercase.
 
-**startswith**(*prefix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/library/functions.html#bool){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEventType.startswith}
+**startswith**(*prefix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/builtins/functions.html#bool){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEventType.startswith}
 
 Return True if S starts with the specified prefix, False otherwise. With optional start, test S beginning at that position. With optional end, stop comparing S at that position. prefix can also be a tuple of strings to try.
 
-**endswith**(*suffix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/library/functions.html#bool){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEventType.endswith}
+**endswith**(*suffix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/builtins/functions.html#bool){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEventType.endswith}
 
 Return True if S ends with the specified suffix, False otherwise. With optional start, test S beginning at that position. With optional end, stop comparing S at that position. suffix can also be a tuple of strings to try.
 
@@ -802,11 +802,11 @@ Pad a numeric string with zeros on the left, to fill a field of the given width.
 
 The string is never truncated.
 
-**format**(*\*args*, *\*\*kwargs*) → [str](https://docs.python.org/3/library/stdtypes.html#str){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEventType.format}
+**format**(*\*args*, *\*\*kwargs*) → [str](https://docs.python.org/3/builtins/stdtypes.html#str){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEventType.format}
 
 Return a formatted version of S, using substitutions from args and kwargs. The substitutions are identified by braces (‘{’ and ‘}’).
 
-**format\_map**(*mapping*) → [str](https://docs.python.org/3/library/stdtypes.html#str){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEventType.format_map}
+**format\_map**(*mapping*) → [str](https://docs.python.org/3/builtins/stdtypes.html#str){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEventType.format_map}
 
 Return a formatted version of S, using substitutions from mapping. The substitutions are identified by braces (‘{’ and ‘}’).
 
@@ -818,85 +818,85 @@ If there is only one argument, it must be a dictionary mapping Unicode ordinals 
 
 ### *class* yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.result.event.**SpeechToTextStreamingEvent**{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent}
 
-A class representing streaming event of speech recognition request.
+A class representing a streaming event of a speech recognition request.
 
 **event\_type**\: *[SpeechToTextStreamingEventType](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEventType)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.event_type}
 
 str/enum representation of event type
 
-**response\_wall\_time\_ms**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.response_wall_time_ms}
+**response\_wall\_time\_ms**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.response_wall_time_ms}
 
-Wall clock on server side. This is time when server wrote results to stream.
+Wall clock on the server side. This is time when the server wrote results to the stream.
 
 **audio\_cursors**\: *[AudioCursors](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.audio_cursors.AudioCursors)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.audio_cursors}
 
-Progress bar for stream session recognition: how many data we obtained; final and partial times; etc
+Progress bar for stream session recognition: how much data we obtained; final and partial times; etc
 
-**channel\_tag**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.channel_tag}
+**channel\_tag**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.channel_tag}
 
-Tag for distinguish audio channels.
+Tag for distinguishing audio channels.
 
-**partial**\: *[Alternatives](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternatives) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.partial}
+**partial**\: *[Alternatives](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternatives) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.partial}
 
-Partial results, server will send them regularly after enough audio data was received from user. This is the current text estimation from *final\_time\_ms* to *partial\_time\_ms*. Could change after new data will arrive.
+Partial results, server will send them regularly after enough audio data has been received from the user. This is the current text estimation from *final\_time\_ms* to *partial\_time\_ms*. May change when new data arrives.
 
-**final**\: *[Alternatives](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternatives) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.final}
+**final**\: *[Alternatives](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternatives) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.final}
 
 Final results, the recognition is now fixed until *final\_time\_ms*. For now, final is sent only if the EOU event was triggered. This behavior could be changed in future releases.
 
-**final\_refinement**\: *[FinalRefinement](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.FinalRefinement) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.final_refinement}
+**final\_refinement**\: *[FinalRefinement](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.FinalRefinement) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.final_refinement}
 
-For each final, if normalization is enabled, sent the normalized text (or some other advanced post-processing). Final normalization will introduce additional latency.
+For each final, if normalization is enabled, the normalized text is sent (or some other advanced post-processing). Final normalization will introduce additional latency.
 
-**eou\_update\_ms**\: *[float](https://docs.python.org/3/library/functions.html#float) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.eou_update_ms}
+**eou\_update\_ms**\: *[float](https://docs.python.org/3/builtins/functions.html#float) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.eou_update_ms}
 
 After EOU classifier, send the message with final, send the EouUpdate with time of EOU before eou\_update we send final with the same time. there could be several finals before eou update. EOU estimated time.
 
-**status\_code**\: *[StatusCode](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.status_code.StatusCode) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.status_code}
+**status\_code**\: *[StatusCode](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.status_code.StatusCode) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.status_code}
 
-Status messages, send by server with fixed interval (keep-alive).
+Status messages, sent by the server at fixed intervals (keep-alive).
 
-**classifier\_update**\: *[ClassifierUpdate](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierUpdate) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.classifier_update}
+**classifier\_update**\: *[ClassifierUpdate](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierUpdate) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.classifier_update}
 
 Update on result of the triggered classifier.
 
-**speaker\_analysis**\: *[SpeakerAnalysis](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.speaker_analysis}
+**speaker\_analysis**\: *[SpeakerAnalysis](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.speaker_analysis}
 
 Speech statistics for every speaker
 
-*property* **final\_text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.final_text}
+*property* **final\_text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.final_text}
 
 Helper for **result.final.text if result.final else None**
 
-*property* **final\_refinement\_text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.final_refinement_text}
+*property* **final\_refinement\_text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.final_refinement_text}
 
 Helper for **result.final\_refinement.text if result.final\_refinement else None**
 
-*property* **partial\_text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.partial_text}
+*property* **partial\_text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.partial_text}
 
 Helper for **result.partial.text if result.partial else None**
 
-*property* **text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.text}
+*property* **text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.text}
 
-Helper for getting refined, final or partial text if event have any
+Helper for getting refined, final, or partial text if the event has any
 
-**role**\: *ClassVar[[str](https://docs.python.org/3/library/stdtypes.html#str)*] = *'user'*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.role}
+**role**\: *ClassVar[[str](https://docs.python.org/3/builtins/stdtypes.html#str)*] = *'user'*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.role}
 
-Field role is required to be compatible with TextMessage Protocol, to other part of SDK could use this object an input.
+Field role is required to be compatible with TextMessage Protocol, to other parts of the SDK can use this object as input.
 
-**uuid**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.uuid}
+**uuid**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.uuid}
 
 Internal session identifier.
 
-**user\_request\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.user_request_id}
+**user\_request\_id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.user_request_id}
 
 User session identifier.
 
-**conversation\_analysis**\: *[ConversationAnalysis](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.ConversationAnalysis) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.conversation_analysis}
+**conversation\_analysis**\: *[ConversationAnalysis](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.ConversationAnalysis) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.conversation_analysis}
 
 Conversation statistics
 
-**llm\_post\_process\_result**\: *[LLMPostProcessResult](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.llm_post_process_result.LLMPostProcessResult) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.llm_post_process_result}
+**llm\_post\_process\_result**\: *[LLMPostProcessResult](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.llm_post_process_result.LLMPostProcessResult) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent.llm_post_process_result}
 
 Result of llm post\_process, may be also known as *Summarization* at some old documentation.
 
@@ -904,7 +904,7 @@ Result of llm post\_process, may be also known as *Summarization* at some old do
 
 Recognized word
 
-**text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Word.text}
+**text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Word.text}
 
 Word text.
 
@@ -916,19 +916,19 @@ Estimation of word boundaries
 
 Recognition of specific time frame.
 
-**words**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Word](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Word)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternative.words}
+**words**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[Word](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Word)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternative.words}
 
 Words in time frame.
 
-**text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternative.text}
+**text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternative.text}
 
 Text in time frame.
 
-**confidence**\: *[float](https://docs.python.org/3/library/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternative.confidence}
+**confidence**\: *[float](https://docs.python.org/3/builtins/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternative.confidence}
 
-The hypothesis confidence. Currently is not used.
+The hypothesis confidence. Currently not used.
 
-**languages**\: *[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [float](https://docs.python.org/3/library/functions.html#float)] | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternative.languages}
+**languages**\: *[dict](https://docs.python.org/3/builtins/stdtypes.html#dict)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), [float](https://docs.python.org/3/builtins/functions.html#float)] | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternative.languages}
 
 Distribution over possible languages.
 
@@ -940,13 +940,13 @@ alternative’s time frame
 
 BaseAlternatives(alternatives: ‘tuple[Alternative, …]’)
 
-**alternatives**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Alternative](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternative)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.BaseAlternatives.alternatives}
+**alternatives**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[Alternative](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternative)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.BaseAlternatives.alternatives}
 
-*property* **words**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Word](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Word)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.BaseAlternatives.words}
+*property* **words**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[Word](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Word)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.BaseAlternatives.words}
 
 Synonym for .words attribute of first alternative
 
-*property* **text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.BaseAlternatives.text}
+*property* **text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.BaseAlternatives.text}
 
 Synonym for .text attribute of first alternative
 
@@ -954,11 +954,11 @@ Synonym for .text attribute of first alternative
 
 Synonym for .timespan attribute of first alternative
 
-*property* **confidence**\: *[float](https://docs.python.org/3/library/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.BaseAlternatives.confidence}
+*property* **confidence**\: *[float](https://docs.python.org/3/builtins/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.BaseAlternatives.confidence}
 
 Synonym for .confidence attribute of first alternative
 
-*property* **languages**\: *[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [float](https://docs.python.org/3/library/functions.html#float)] | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.BaseAlternatives.languages}
+*property* **languages**\: *[dict](https://docs.python.org/3/builtins/stdtypes.html#dict)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), [float](https://docs.python.org/3/builtins/functions.html#float)] | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.BaseAlternatives.languages}
 
 Synonym for .languages attribute of first alternative
 
@@ -972,9 +972,9 @@ Supporting start and stop arguments is optional, but recommended.
 
 ### *class* yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.result.alternatives.**Alternatives**{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternatives}
 
-Class-wrapper for [**Alternative**](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternative) list, which is allows to use this object not only as list, but as first Alternative.
+Wrapper class for a list of [**Alternative**](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternative) objects, which allows this object to be used both as a list and as the first Alternative.
 
-*property* **confidence**\: *[float](https://docs.python.org/3/library/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternatives.confidence}
+*property* **confidence**\: *[float](https://docs.python.org/3/builtins/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternatives.confidence}
 
 Synonym for .confidence attribute of first alternative
 
@@ -986,11 +986,11 @@ Raises ValueError if the value is not present.
 
 Supporting start and stop arguments is optional, but recommended.
 
-*property* **languages**\: *[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [float](https://docs.python.org/3/library/functions.html#float)] | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternatives.languages}
+*property* **languages**\: *[dict](https://docs.python.org/3/builtins/stdtypes.html#dict)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), [float](https://docs.python.org/3/builtins/functions.html#float)] | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternatives.languages}
 
 Synonym for .languages attribute of first alternative
 
-*property* **text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternatives.text}
+*property* **text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternatives.text}
 
 Synonym for .text attribute of first alternative
 
@@ -998,19 +998,19 @@ Synonym for .text attribute of first alternative
 
 Synonym for .timespan attribute of first alternative
 
-*property* **words**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Word](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Word)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternatives.words}
+*property* **words**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[Word](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Word)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternatives.words}
 
 Synonym for .words attribute of first alternative
 
-**alternatives**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Alternative](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternative)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternatives.alternatives}
+**alternatives**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[Alternative](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternative)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternatives.alternatives}
 
 ### *class* yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.result.alternatives.**FinalRefinement**{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.FinalRefinement}
 
-Class-wrapper for [**Alternative**](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternative) list, which is allows to use this object not only as list, but as first Alternative.
+Wrapper class for a list of [**Alternative**](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternative) objects, which allows this object to be used both as a list and as the first Alternative.
 
-**final\_index**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.FinalRefinement.final_index}
+**final\_index**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.FinalRefinement.final_index}
 
-*property* **confidence**\: *[float](https://docs.python.org/3/library/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.FinalRefinement.confidence}
+*property* **confidence**\: *[float](https://docs.python.org/3/builtins/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.FinalRefinement.confidence}
 
 Synonym for .confidence attribute of first alternative
 
@@ -1022,11 +1022,11 @@ Raises ValueError if the value is not present.
 
 Supporting start and stop arguments is optional, but recommended.
 
-*property* **languages**\: *[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [float](https://docs.python.org/3/library/functions.html#float)] | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.FinalRefinement.languages}
+*property* **languages**\: *[dict](https://docs.python.org/3/builtins/stdtypes.html#dict)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), [float](https://docs.python.org/3/builtins/functions.html#float)] | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.FinalRefinement.languages}
 
 Synonym for .languages attribute of first alternative
 
-*property* **text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.FinalRefinement.text}
+*property* **text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.FinalRefinement.text}
 
 Synonym for .text attribute of first alternative
 
@@ -1034,19 +1034,19 @@ Synonym for .text attribute of first alternative
 
 Synonym for .timespan attribute of first alternative
 
-*property* **words**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Word](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Word)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.FinalRefinement.words}
+*property* **words**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[Word](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Word)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.FinalRefinement.words}
 
 Synonym for .words attribute of first alternative
 
-**alternatives**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Alternative](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternative)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.FinalRefinement.alternatives}
+**alternatives**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[Alternative](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.Alternative)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.alternatives.FinalRefinement.alternatives}
 
 ### *class* yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.structures.**ProtoBasedWithBoolDefault**{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.ProtoBasedWithBoolDefault}
 
 ### *class* yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.structures.**TextNormalization**{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.TextNormalization}
 
-Class which encapsulates [text normaliztion options](https://aistudio.yandex.ru/docs/speechkit/stt/normalization).
+Class which encapsulates [text normalization options](https://aistudio.yandex.ru/docs/speechkit/stt/normalization).
 
-Usage of object of this class itself in speech to text configuration is turning on normalization. Options of this class have different defaults at backend, i.e. some options could turn on the feature and others could turn it off.
+Using an instance of this class in the speech-to-text configuration turns on normalization. The options of this class have different defaults on the backend, i.e. some options can turn on a feature and others can turn it off.
 
 >> TextNormalization() TextNormalization()
 
@@ -1055,15 +1055,15 @@ Usage of object of this class itself in speech to text configuration is turning 
 TextNormalization(phone_formatting=False, profanity_filter=Undefined, literature_text=Undefined)
 ```
 
-**phone\_formatting**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [Undefined](other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.TextNormalization.phone_formatting}
+**phone\_formatting**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [Undefined](other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.TextNormalization.phone_formatting}
 
 Phone formatting
 
-**profanity\_filter**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [Undefined](other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.TextNormalization.profanity_filter}
+**profanity\_filter**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [Undefined](other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.TextNormalization.profanity_filter}
 
 Profanity filter
 
-**literature\_text**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [Undefined](other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.TextNormalization.literature_text}
+**literature\_text**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [Undefined](other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.TextNormalization.literature_text}
 
 Rewrite text in literature style
 
@@ -1072,9 +1072,9 @@ Rewrite text in literature style
 #|
 || Parameters | 
 
-- **phone\_formatting** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](other.md#yandex_ai_studio_sdk._types.misc.Undefined))
-- **profanity\_filter** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](other.md#yandex_ai_studio_sdk._types.misc.Undefined))
-- **literature\_text** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](other.md#yandex_ai_studio_sdk._types.misc.Undefined)) ||
+- **phone\_formatting** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](other.md#yandex_ai_studio_sdk._types.misc.Undefined))
+- **profanity\_filter** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](other.md#yandex_ai_studio_sdk._types.misc.Undefined))
+- **literature\_text** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](other.md#yandex_ai_studio_sdk._types.misc.Undefined)) ||
 || Return type | None ||
 |#
 
@@ -1088,15 +1088,15 @@ Default and more conservative EOU detector.
 
 **HIGH** = *2*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity.HIGH}
 
-A high-sensitive and fast EOU detector, which may produce more false positives.
+A highly sensitive and fast EOU detector, which may produce more false positives.
 
 *classmethod* **Unknown**(*name*, *value*){#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity.Unknown}
 
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity.__new__i}
@@ -1168,9 +1168,9 @@ the denominator of a rational number in lowest terms
 
 ### *class* yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.structures.**EndOfUtteranceClassifier**{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceClassifier}
 
-Class which encapsulates settings [end of utterance classifier](https://aistudio.yandex.ru/docs/speechkit/stt/eou).
+Class which encapsulates settings for an [end of utterance classifier](https://aistudio.yandex.ru/docs/speechkit/stt/eou).
 
-Usage this class object in speech to text configuration turning on default end-of-utterance classification.
+Using an instance of this class in the speech-to-text configuration turns on default end-of-utterance classification.
 
 ```python
 >>> EndOfUtteranceClassifier()
@@ -1187,21 +1187,21 @@ EndOfUtteranceClassifier(sensitivity=<EndOfUtteranceSensitivity.HIGH: 2>, ...)
 EndOfUtteranceClassifier(sensitivity=Undefined, max_pause_between_words_hint_ms=10)
 ```
 
-**sensitivity**\: *[EndOfUtteranceSensitivity](#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity) | [UnknownEnumValue](other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)[[EndOfUtteranceSensitivity](#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity)] | [str](https://docs.python.org/3/library/stdtypes.html#str) | [int](https://docs.python.org/3/library/functions.html#int) | [Undefined](other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceClassifier.sensitivity}
+**sensitivity**\: *[EndOfUtteranceSensitivity](#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity) | [UnknownEnumValue](other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)[[EndOfUtteranceSensitivity](#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity)] | [str](https://docs.python.org/3/builtins/stdtypes.html#str) | [int](https://docs.python.org/3/builtins/functions.html#int) | [Undefined](other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceClassifier.sensitivity}
 
 EOU sensitivity
 
-**max\_pause\_between\_words\_hint\_ms**\: *[int](https://docs.python.org/3/library/functions.html#int) | [Undefined](other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceClassifier.max_pause_between_words_hint_ms}
+**max\_pause\_between\_words\_hint\_ms**\: *[int](https://docs.python.org/3/builtins/functions.html#int) | [Undefined](other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceClassifier.max_pause_between_words_hint_ms}
 
-Hint for max pause between words. SpeechKit EOU detector could use this information to adjust the speed of the EOU detection. For example, a long pause between words will help distinguish between the end of utterance from slow speech like **One <long pause> two <long pause> three**. A short pause can be helpful if the speaker is speaking quickly and does not emphasize pauses between sentences.
+Hint for max pause between words. SpeechKit EOU detector could use this information to adjust the speed of the EOU detection. For example, a long pause between words will help distinguish between the end of an utterance and slow speech like **One <long pause> two <long pause> three**. A short pause can be helpful if the speaker is speaking quickly and does not emphasize pauses between sentences.
 
 **\_\_init\_\_**(*sensitivity=Undefined*, *max\_pause\_between\_words\_hint\_ms=Undefined*){#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceClassifier.__init__i}
 
 #|
 || Parameters | 
 
-- **sensitivity** ([*EndOfUtteranceSensitivity*](#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity) *\|* [*UnknownEnumValue*](other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*EndOfUtteranceSensitivity*](#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](other.md#yandex_ai_studio_sdk._types.misc.Undefined))
-- **max\_pause\_between\_words\_hint\_ms** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](other.md#yandex_ai_studio_sdk._types.misc.Undefined)) ||
+- **sensitivity** ([*EndOfUtteranceSensitivity*](#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity) *\|* [*UnknownEnumValue*](other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*EndOfUtteranceSensitivity*](#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.EndOfUtteranceSensitivity)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](other.md#yandex_ai_studio_sdk._types.misc.Undefined))
+- **max\_pause\_between\_words\_hint\_ms** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](other.md#yandex_ai_studio_sdk._types.misc.Undefined)) ||
 || Return type | None ||
 |#
 
@@ -1226,8 +1226,8 @@ Apply classifier to partial responses.
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType.__new__i}
@@ -1391,7 +1391,7 @@ Return a centered string of length width.
 
 Padding is done using the specified fill character (default is a space).
 
-**count**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.WellKnownRecognitionClassifiers.count}
+**count**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.WellKnownRecognitionClassifiers.count}
 
 Return the number of non-overlapping occurrences of substring sub in string S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
@@ -1401,7 +1401,7 @@ Return a copy where all tab characters are expanded using spaces.
 
 If tabsize is not given, a tab size of 8 characters is assumed.
 
-**find**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.WellKnownRecognitionClassifiers.find}
+**find**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.WellKnownRecognitionClassifiers.find}
 
 Return the lowest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
@@ -1415,7 +1415,7 @@ This will search for the separator in the string.  If the separator is found, re
 
 If the separator is not found, returns a 3-tuple containing the original string and two empty strings.
 
-**index**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.WellKnownRecognitionClassifiers.index}
+**index**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.WellKnownRecognitionClassifiers.index}
 
 Return the lowest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
@@ -1437,13 +1437,13 @@ Return a copy of the string with leading whitespace removed.
 
 If chars is given and not None, remove characters in chars instead.
 
-**rfind**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.WellKnownRecognitionClassifiers.rfind}
+**rfind**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.WellKnownRecognitionClassifiers.rfind}
 
 Return the highest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
 Return -1 on failure.
 
-**rindex**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.WellKnownRecognitionClassifiers.rindex}
+**rindex**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.WellKnownRecognitionClassifiers.rindex}
 
 Return the highest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
@@ -1497,11 +1497,11 @@ The table must implement lookup/indexing via \_\_getitem\_\_, for instance a dic
 
 Return a copy of the string converted to uppercase.
 
-**startswith**(*prefix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/library/functions.html#bool){#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.WellKnownRecognitionClassifiers.startswith}
+**startswith**(*prefix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/builtins/functions.html#bool){#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.WellKnownRecognitionClassifiers.startswith}
 
 Return True if S starts with the specified prefix, False otherwise. With optional start, test S beginning at that position. With optional end, stop comparing S at that position. prefix can also be a tuple of strings to try.
 
-**endswith**(*suffix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/library/functions.html#bool){#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.WellKnownRecognitionClassifiers.endswith}
+**endswith**(*suffix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/builtins/functions.html#bool){#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.WellKnownRecognitionClassifiers.endswith}
 
 Return True if S ends with the specified suffix, False otherwise. With optional start, test S beginning at that position. With optional end, stop comparing S at that position. suffix can also be a tuple of strings to try.
 
@@ -1595,11 +1595,11 @@ Pad a numeric string with zeros on the left, to fill a field of the given width.
 
 The string is never truncated.
 
-**format**(*\*args*, *\*\*kwargs*) → [str](https://docs.python.org/3/library/stdtypes.html#str){#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.WellKnownRecognitionClassifiers.format}
+**format**(*\*args*, *\*\*kwargs*) → [str](https://docs.python.org/3/builtins/stdtypes.html#str){#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.WellKnownRecognitionClassifiers.format}
 
 Return a formatted version of S, using substitutions from args and kwargs. The substitutions are identified by braces (‘{’ and ‘}’).
 
-**format\_map**(*mapping*) → [str](https://docs.python.org/3/library/stdtypes.html#str){#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.WellKnownRecognitionClassifiers.format_map}
+**format\_map**(*mapping*) → [str](https://docs.python.org/3/builtins/stdtypes.html#str){#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.WellKnownRecognitionClassifiers.format_map}
 
 Return a formatted version of S, using substitutions from mapping. The substitutions are identified by braces (‘{’ and ‘}’).
 
@@ -1624,7 +1624,7 @@ You can pass a string as a trigger:
 RecognitionClassifier(name='insult', triggers=(<RecognitionTriggerType.ON_FINAL: 2>,))
 ```
 
-Or any iterable of strings to declare few triggers:
+Or pass any iterable of strings to declare several triggers:
 
 ```python
 >>> RecognitionClassifier('insult', ['on_final', 'on_partial'])
@@ -1638,14 +1638,14 @@ You could also use alternative constructors when you have only one trigger:
 RecognitionClassifier(name='insult', triggers=(<RecognitionTriggerType.ON_UTTERANCE: 1>,))
 ```
 
-There are special *RecognitionClassifier.WellKnown* enum with well-known classifier names:
+There is a special *RecognitionClassifier.WellKnown* enum with well-known classifier names:
 
 ```python
 >>> RecognitionClassifier(RecognitionClassifier.WellKnown.gender, 'on_final')
 RecognitionClassifier(name=<WellKnownRecognitionClassifiers.gender: 'gender'>, ...)
 ```
 
-On unknown trigger names there will be exception raised:
+An exception is raised for unknown trigger names:
 
 ```python
 >>> RecognitionClassifier('insult', ['on_something'])
@@ -1654,11 +1654,11 @@ Traceback (most recent call last):
 ValueError: wrong value "on_something" for use as an alias ...; known values: ('ON_UTTERANCE', ...)
 ```
 
-**name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionClassifier.name}
+**name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionClassifier.name}
 
 Classifier name.
 
-**triggers**\: *[Sequence](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)[[RecognitionTriggerType](#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType) | [UnknownEnumValue](other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)[[RecognitionTriggerType](#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType)] | [str](https://docs.python.org/3/library/stdtypes.html#str) | [int](https://docs.python.org/3/library/functions.html#int)] | [RecognitionTriggerType](#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType) | [UnknownEnumValue](other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)[[RecognitionTriggerType](#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType)] | [str](https://docs.python.org/3/library/stdtypes.html#str) | [int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionClassifier.triggers}
+**triggers**\: *[Sequence](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)[[RecognitionTriggerType](#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType) | [UnknownEnumValue](other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)[[RecognitionTriggerType](#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType)] | [str](https://docs.python.org/3/builtins/stdtypes.html#str) | [int](https://docs.python.org/3/builtins/functions.html#int)] | [RecognitionTriggerType](#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType) | [UnknownEnumValue](other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)[[RecognitionTriggerType](#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType)] | [str](https://docs.python.org/3/builtins/stdtypes.html#str) | [int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionClassifier.triggers}
 
 Describes the types of responses to which the classification results will come. Classification responses will follow the responses of the specified types.
 
@@ -1670,28 +1670,28 @@ alias of [**WellKnownRecognitionClassifiers**](#yandex_ai_studio_sdk._speechkit.
 
 *classmethod* **on\_utterance**(*name*){#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionClassifier.on_utterance}
 
-Alternative constructor to use onle ‘on\_utterance’ trigger
+Alternative constructor to use only ‘on\_utterance’ trigger
 
 #|
-|| Parameters | **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) ||
+|| Parameters | **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
 
 *classmethod* **on\_final**(*name*){#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionClassifier.on_final}
 
-Alternative constructor to use onle ‘on\_final’ trigger
+Alternative constructor to use only ‘on\_final’ trigger
 
 #|
-|| Parameters | **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) ||
+|| Parameters | **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
 
 *classmethod* **on\_partial**(*name*){#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionClassifier.on_partial}
 
-Alternative constructor to use onle ‘on\_partial’ trigger
+Alternative constructor to use only ‘on\_partial’ trigger
 
 #|
-|| Parameters | **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) ||
+|| Parameters | **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
 
@@ -1700,8 +1700,8 @@ Alternative constructor to use onle ‘on\_partial’ trigger
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **triggers** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*RecognitionTriggerType*](#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType) *\|* [*UnknownEnumValue*](other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*RecognitionTriggerType*](#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int)*] \|* [*RecognitionTriggerType*](#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType) *\|* [*UnknownEnumValue*](other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*RecognitionTriggerType*](#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType)*] \|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **triggers** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*RecognitionTriggerType*](#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType) *\|* [*UnknownEnumValue*](other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*RecognitionTriggerType*](#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int)*] \|* [*RecognitionTriggerType*](#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType) *\|* [*UnknownEnumValue*](other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)*[*[*RecognitionTriggerType*](#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.RecognitionTriggerType)*] \|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 || Return type | None ||
 |#
 
@@ -1709,15 +1709,15 @@ Alternative constructor to use onle ‘on\_partial’ trigger
 
 Class which encapsulates [speech analysis settings](https://aistudio.yandex.ru/docs/speechkit/stt/analysis)
 
-**speaker\_analysis**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [Undefined](other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.SpeechAnalysis.speaker_analysis}
+**speaker\_analysis**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [Undefined](other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.SpeechAnalysis.speaker_analysis}
 
 Analyse speech for every speaker
 
-**conversation\_analysis**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [Undefined](other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.SpeechAnalysis.conversation_analysis}
+**conversation\_analysis**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [Undefined](other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.SpeechAnalysis.conversation_analysis}
 
 Analyse conversation of two speakers
 
-**descriptive\_statistics\_quantiles**\: *[Sequence](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)[[float](https://docs.python.org/3/library/functions.html#float)] | [Undefined](other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.SpeechAnalysis.descriptive_statistics_quantiles}
+**descriptive\_statistics\_quantiles**\: *[Sequence](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)[[float](https://docs.python.org/3/builtins/functions.html#float)] | [Undefined](other.md#yandex_ai_studio_sdk._types.misc.Undefined)* = *Undefined*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.SpeechAnalysis.descriptive_statistics_quantiles}
 
 Quantile levels in range (0, 1) for descriptive statistics
 
@@ -1726,21 +1726,21 @@ Quantile levels in range (0, 1) for descriptive statistics
 #|
 || Parameters | 
 
-- **speaker\_analysis** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](other.md#yandex_ai_studio_sdk._types.misc.Undefined))
-- **conversation\_analysis** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](other.md#yandex_ai_studio_sdk._types.misc.Undefined))
-- **descriptive\_statistics\_quantiles** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*float*](https://docs.python.org/3/library/functions.html#float)*] \|* [*Undefined*](other.md#yandex_ai_studio_sdk._types.misc.Undefined)) ||
+- **speaker\_analysis** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](other.md#yandex_ai_studio_sdk._types.misc.Undefined))
+- **conversation\_analysis** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](other.md#yandex_ai_studio_sdk._types.misc.Undefined))
+- **descriptive\_statistics\_quantiles** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*float*](https://docs.python.org/3/builtins/functions.html#float)*] \|* [*Undefined*](other.md#yandex_ai_studio_sdk._types.misc.Undefined)) ||
 || Return type | None ||
 |#
 
 ### *class* yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.structures.**LLMPostProcessingInstruction**{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.LLMPostProcessingInstruction}
 
-Class for encapsulating exactly one post processing settings.
+Class for encapsulating exactly one postprocessing instruction.
 
-**instruction**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.LLMPostProcessingInstruction.instruction}
+**instruction**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.LLMPostProcessingInstruction.instruction}
 
 Instruction for model.
 
-**response\_format**\: *[Literal](https://docs.python.org/3/library/typing.html#typing.Literal)['json'] | [JsonSchemaResponseType](other.md#yandex_ai_studio_sdk._types.schemas.JsonSchemaResponseType) | [type](https://docs.python.org/3/library/functions.html#type) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.LLMPostProcessingInstruction.response_format}
+**response\_format**\: *[Literal](https://docs.python.org/3/library/typing.html#typing.Literal)['json'] | [JsonSchemaResponseType](other.md#yandex_ai_studio_sdk._types.schemas.JsonSchemaResponseType) | [type](https://docs.python.org/3/builtins/functions.html#type) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.LLMPostProcessingInstruction.response_format}
 
 Format of the response returned by the model. Format could be described as:
 
@@ -1754,59 +1754,59 @@ Format of the response returned by the model. Format could be described as:
 #|
 || Parameters | 
 
-- **instruction** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **instruction** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
 - **response\_format** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*['json'] \| ~yandex\_ai\_studio\_sdk.\_types.schemas.JsonSchemaResponseType \| type \| None*) ||
 || Return type | None ||
 |#
 
 ### *class* yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.structures.**LLMPostProcessing**{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.LLMPostProcessing}
 
-Class for encapsulating [transcription llm post processing settings](https://aistudio.yandex.ru/docs/speechkit/stt/llm-results)
+Class for encapsulating [transcription LLM postprocessing settings](https://aistudio.yandex.ru/docs/speechkit/stt/llm-results)
 
-You could pass a full model uri:
-
-```python
->>> llm_post_processor = LLMPostProcessing('gpt://<folder_id>/yandexgt/latest')
-```
-
-You could use model name, in this case model uri will be built using configurated folder\_id:
+You could pass a full model URI:
 
 ```python
->>> llm_post_processor = LLMPostProcessing('yandexgt')
+>>> llm_post_processor = LLMPostProcessing('gpt://<folder_id>/yandexgpt/latest')
 ```
 
-You could also pass a model version, which have ‘latest’ by default:
+You can use a model name; in this case, the model URI is built using the configured folder\_id:
 
 ```python
->>> llm_post_processor = LLMPostProcessing('yandexgt', model_version='latest')
+>>> llm_post_processor = LLMPostProcessing('yandexgpt')
 ```
 
-After post processor object creation you should add some instructions into it by using **.with\_instruction** method (which is not mutates the object, but creates a copy):
+You could also pass a model version, which defaults to ‘latest’:
+
+```python
+>>> llm_post_processor = LLMPostProcessing('yandexgpt', model_version='latest')
+```
+
+After creating a postprocessor object, add instructions to it by using the **.with\_instruction** method (which does not mutate the object, but creates a copy):
 
 ```python
 >>> llm_post_processor = llm_post_processor.with_instruction("Make a short review")
 >>> llm_post_processor = llm_post_processor.with_instruction(
-...     "What the conversation topic",
+...     "What is the topic of the conversation?",
 ...     response_format="json"
 ... )
 ```
 
-Created object will looks like this:
+The created object looks like this:
 
 ```python
 >>> llm_post_processor
-LLMPostProcessing(model_name='yandexgt', model_version='latest', ...)
+LLMPostProcessing(model_name='yandexgpt', model_version='latest', ...)
 >>> llm_post_processor
 LLMPostProcessing(..., instructions=(LLMPostProcessingInstruction(...), LLMPostProcessingInstruction(...)))
 ```
 
-You also can use pydantic model or pydantic dataclass as response format.
+You can also use a Pydantic model or Pydantic dataclass as the response format.
 
-**model\_name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.LLMPostProcessing.model_name}
+**model\_name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.LLMPostProcessing.model_name}
 
-The [ID of the model](https://aistudio.yandex.ru/docs/foundation-models/concepts/yandexgpt/models) Model name to be used for completion generation; If the name contains ‘://’, it is treated as a full URI. Otherwise constructs a URI in the form ‘gpt://<folder\_id>/<model\_name>/<model\_version>’
+The [ID of the model](https://aistudio.yandex.ru/docs/ai-studio/concepts/generation/models) Model name to be used for completion generation; If the name contains ‘://’, it is treated as a full URI. Otherwise constructs a URI in the form ‘gpt://<folder\_id>/<model\_name>/<model\_version>’
 
-**model\_version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)* = *'latest'*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.LLMPostProcessing.model_version}
+**model\_version**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)* = *'latest'*{#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.LLMPostProcessing.model_version}
 
 The version of the model to use. Defaults to ‘latest’
 
@@ -1821,7 +1821,7 @@ Creates a new LLMPostProcessing object, but with given instruction appended.
 #|
 || Parameters | 
 
-- **instruction** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – instruction for model.
+- **instruction** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – instruction for model.
 - **response\_format** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*['json'] \| ~yandex\_ai\_studio\_sdk.\_types.schemas.JsonSchemaResponseType \| type \| None*) – format of the response returned by the model. Format could be described as:
 - *None* for usual text response (default);
 - ’*json*’ string to tell a model to return JSON object;
@@ -1836,8 +1836,8 @@ Creates a new LLMPostProcessing object, but with given instruction appended.
 #|
 || Parameters | 
 
-- **model\_name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **model\_version** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **model\_name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **model\_version** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
 - **instructions** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*LLMPostProcessingInstruction*](#yandex_ai_studio_sdk._speechkit.speech_to_text.structures.LLMPostProcessingInstruction)*]*) ||
 || Return type | None ||
 |#
@@ -1846,37 +1846,37 @@ Creates a new LLMPostProcessing object, but with given instruction appended.
 
 AudioCursors(received\_data\_ms: ‘int’, reset\_time\_ms: ‘int’, partial\_time\_ms: ‘int’, final\_time\_ms: ‘int’, final\_index: ‘int’, eou\_time\_ms: ‘int’)
 
-**received\_data\_ms**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.audio_cursors.AudioCursors.received_data_ms}
+**received\_data\_ms**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.audio_cursors.AudioCursors.received_data_ms}
 
-Amount of audio chunks server received. This cursor is moved after each audio chunk was received by server.
+Number of audio chunks received by the server. This cursor is moved after each audio chunk is received by the server.
 
-**reset\_time\_ms**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.audio_cursors.AudioCursors.reset_time_ms}
+**reset\_time\_ms**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.audio_cursors.AudioCursors.reset_time_ms}
 
 Input stream reset data.
 
-**partial\_time\_ms**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.audio_cursors.AudioCursors.partial_time_ms}
+**partial\_time\_ms**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.audio_cursors.AudioCursors.partial_time_ms}
 
-How much audio was processed. This time includes trimming silences as well. This cursor is moved after server received enough data to update recognition results (includes silence as well).
+How much audio was processed. This time includes trimming silences as well. This cursor is moved after the server receives enough data to update recognition results (includes silence as well).
 
-**final\_time\_ms**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.audio_cursors.AudioCursors.final_time_ms}
+**final\_time\_ms**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.audio_cursors.AudioCursors.final_time_ms}
 
 Time of last final. This cursor is moved when server decides that recognition from start of audio until *final\_time\_ms* will not change anymore. Usually this event is followed by EOU detection. This behavior could change in future.
 
-**final\_index**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.audio_cursors.AudioCursors.final_index}
+**final\_index**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.audio_cursors.AudioCursors.final_index}
 
-This is index of last final server send. Incremented after each new final.
+This is the index of the last final result sent by the server. Incremented after each new final.
 
-**eou\_time\_ms**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.audio_cursors.AudioCursors.eou_time_ms}
+**eou\_time\_ms**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.audio_cursors.AudioCursors.eou_time_ms}
 
-Estimated time of EOU. Cursor is updated after each new EOU is sent. For external classifier this equals to [received\_data\_ms] at the moment EOU event arrives. For internal classifier this is estimation of time. The time is not exact and has the same guarantees as word timings.
+Estimated time of EOU. Cursor is updated after each new EOU is sent. For external classifier this equals [received\_data\_ms] at the moment EOU event arrives. For internal classifier this is an estimate of the time. The time is not exact and has the same guarantees as word timings.
 
 ### *class* yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.result.status\_code.**StatusCode**{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.status_code.StatusCode}
 
 StatusCode(message: ‘str’, code\_type: ‘EnumWithUnknownAlias[CodeType]’)
 
-**message**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.status_code.StatusCode.message}
+**message**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.status_code.StatusCode.message}
 
-Human readable message
+Human-readable message
 
 **code\_type**\: *[CodeType](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.status_code.CodeType) | [UnknownEnumValue](other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue)[[CodeType](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.status_code.CodeType)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.status_code.StatusCode.code_type}
 
@@ -1890,19 +1890,19 @@ All good.
 
 **WARNING** = *2*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.status_code.CodeType.WARNING}
 
-For example, if speech is sent not in real-time or context is unknown and we’ve made fallback.
+For example, if speech is not sent in real time, or the context is unknown and a fallback is used.
 
 **CLOSED** = *3*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.status_code.CodeType.CLOSED}
 
-After session was closed.
+After the session was closed.
 
 *classmethod* **Unknown**(*name*, *value*){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.status_code.CodeType.Unknown}
 
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.status_code.CodeType.__new__i}
@@ -1976,7 +1976,7 @@ the denominator of a rational number in lowest terms
 
 PhraseHighlight(text: ‘str’, timespan: ‘TimeSpan’)
 
-**text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.PhraseHighlight.text}
+**text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.PhraseHighlight.text}
 
 Text transcription of the highlighted audio segment.
 
@@ -1989,7 +1989,7 @@ highlighted audio segment boundaries
 #|
 || Parameters | 
 
-- **text** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **text** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
 - **timespan** ([*TimeSpan*](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.utils.TimeSpan)) ||
 || Return type | None ||
 |#
@@ -1998,23 +1998,23 @@ highlighted audio segment boundaries
 
 ClassifierBase(name: ‘str’, highlights: ‘tuple[PhraseHighlight, …]’, labels: ‘dict[str, float]’, timespan: ‘TimeSpan’)
 
-**name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierBase.name}
+**name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierBase.name}
 
 Name of the triggered classifier.
 
-**highlights**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[PhraseHighlight](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.PhraseHighlight)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierBase.highlights}
+**highlights**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[PhraseHighlight](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.PhraseHighlight)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierBase.highlights}
 
 List of highlights, i.e. parts of phrase that determine the result of the classification
 
-**labels**\: *[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [float](https://docs.python.org/3/library/functions.html#float)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierBase.labels}
+**labels**\: *[dict](https://docs.python.org/3/builtins/stdtypes.html#dict)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), [float](https://docs.python.org/3/builtins/functions.html#float)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierBase.labels}
 
 Classifier predictions
 
 **timespan**\: *[TimeSpan](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.utils.TimeSpan)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierBase.timespan}
 
-Audio segment used for classification boundaries
+Boundaries of the audio segment used for classification
 
-*property* **confidence**\: *[float](https://docs.python.org/3/library/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierBase.confidence}
+*property* **confidence**\: *[float](https://docs.python.org/3/builtins/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierBase.confidence}
 
 Synonym for easy access to ‘confidence’ label if it exists
 
@@ -2023,9 +2023,9 @@ Synonym for easy access to ‘confidence’ label if it exists
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **highlights** ([*tuple*](https://docs.python.org/3/library/stdtypes.html#tuple)*[*[*PhraseHighlight*](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.PhraseHighlight)*, ...]*)
-- **labels** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*,* [*float*](https://docs.python.org/3/library/functions.html#float)*]*)
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **highlights** ([*tuple*](https://docs.python.org/3/builtins/stdtypes.html#tuple)*[*[*PhraseHighlight*](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.PhraseHighlight)*, ...]*)
+- **labels** ([*dict*](https://docs.python.org/3/builtins/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*,* [*float*](https://docs.python.org/3/builtins/functions.html#float)*]*)
 - **timespan** ([*TimeSpan*](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.utils.TimeSpan)) ||
 || Return type | None ||
 |#
@@ -2053,8 +2053,8 @@ The result of applying the classifier to the last partial response.
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierUpdate.WindowType.__new__i}
@@ -2133,33 +2133,33 @@ Response window type.
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **highlights** ([*tuple*](https://docs.python.org/3/library/stdtypes.html#tuple)*[*[*PhraseHighlight*](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.PhraseHighlight)*, ...]*)
-- **labels** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*,* [*float*](https://docs.python.org/3/library/functions.html#float)*]*)
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **highlights** ([*tuple*](https://docs.python.org/3/builtins/stdtypes.html#tuple)*[*[*PhraseHighlight*](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.PhraseHighlight)*, ...]*)
+- **labels** ([*dict*](https://docs.python.org/3/builtins/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*,* [*float*](https://docs.python.org/3/builtins/functions.html#float)*]*)
 - **timespan** ([*TimeSpan*](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.utils.TimeSpan))
 - **window\_type** ([*EnumWithUnknownAlias*](other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.EnumWithUnknownAlias)*[*[*WindowType*](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierUpdate.WindowType)*]*) ||
 || Return type | None ||
 |#
 
-*property* **confidence**\: *[float](https://docs.python.org/3/library/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierUpdate.confidence}
+*property* **confidence**\: *[float](https://docs.python.org/3/builtins/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierUpdate.confidence}
 
 Synonym for easy access to ‘confidence’ label if it exists
 
-**name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierUpdate.name}
+**name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierUpdate.name}
 
 Name of the triggered classifier.
 
-**highlights**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[PhraseHighlight](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.PhraseHighlight)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierUpdate.highlights}
+**highlights**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[PhraseHighlight](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.PhraseHighlight)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierUpdate.highlights}
 
 List of highlights, i.e. parts of phrase that determine the result of the classification
 
-**labels**\: *[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [float](https://docs.python.org/3/library/functions.html#float)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierUpdate.labels}
+**labels**\: *[dict](https://docs.python.org/3/builtins/stdtypes.html#dict)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), [float](https://docs.python.org/3/builtins/functions.html#float)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierUpdate.labels}
 
 Classifier predictions
 
 **timespan**\: *[TimeSpan](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.utils.TimeSpan)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierUpdate.timespan}
 
-Audio segment used for classification boundaries
+Boundaries of the audio segment used for classification
 
 ### *class* yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.result.classifier.**ClassifierResult**{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierResult}
 
@@ -2170,32 +2170,32 @@ Result of a classifier, tied to SpeechToTextResult object hierarchy
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **highlights** ([*tuple*](https://docs.python.org/3/library/stdtypes.html#tuple)*[*[*PhraseHighlight*](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.PhraseHighlight)*, ...]*)
-- **labels** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*,* [*float*](https://docs.python.org/3/library/functions.html#float)*]*)
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **highlights** ([*tuple*](https://docs.python.org/3/builtins/stdtypes.html#tuple)*[*[*PhraseHighlight*](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.PhraseHighlight)*, ...]*)
+- **labels** ([*dict*](https://docs.python.org/3/builtins/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*,* [*float*](https://docs.python.org/3/builtins/functions.html#float)*]*)
 - **timespan** ([*TimeSpan*](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.utils.TimeSpan)) ||
 || Return type | None ||
 |#
 
-*property* **confidence**\: *[float](https://docs.python.org/3/library/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierResult.confidence}
+*property* **confidence**\: *[float](https://docs.python.org/3/builtins/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierResult.confidence}
 
 Synonym for easy access to ‘confidence’ label if it exists
 
-**name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierResult.name}
+**name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierResult.name}
 
 Name of the triggered classifier.
 
-**highlights**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[PhraseHighlight](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.PhraseHighlight)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierResult.highlights}
+**highlights**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[PhraseHighlight](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.PhraseHighlight)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierResult.highlights}
 
 List of highlights, i.e. parts of phrase that determine the result of the classification
 
-**labels**\: *[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [float](https://docs.python.org/3/library/functions.html#float)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierResult.labels}
+**labels**\: *[dict](https://docs.python.org/3/builtins/stdtypes.html#dict)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), [float](https://docs.python.org/3/builtins/functions.html#float)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierResult.labels}
 
 Classifier predictions
 
 **timespan**\: *[TimeSpan](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.utils.TimeSpan)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.ClassifierResult.timespan}
 
-Audio segment used for classification boundaries
+Boundaries of the audio segment used for classification
 
 ### *class* yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.result.classifier\_final.**FinalClassifierResult**{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier_final.FinalClassifierResult}
 
@@ -2210,55 +2210,55 @@ corresponding final event to on\_final classifier result
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **highlights** ([*tuple*](https://docs.python.org/3/library/stdtypes.html#tuple)*[*[*PhraseHighlight*](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.PhraseHighlight)*, ...]*)
-- **labels** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*,* [*float*](https://docs.python.org/3/library/functions.html#float)*]*)
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **highlights** ([*tuple*](https://docs.python.org/3/builtins/stdtypes.html#tuple)*[*[*PhraseHighlight*](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.PhraseHighlight)*, ...]*)
+- **labels** ([*dict*](https://docs.python.org/3/builtins/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*,* [*float*](https://docs.python.org/3/builtins/functions.html#float)*]*)
 - **timespan** ([*TimeSpan*](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.utils.TimeSpan))
 - **final** ([*SpeechToTextStreamingEvent*](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.event.SpeechToTextStreamingEvent)) ||
 || Return type | None ||
 |#
 
-*property* **confidence**\: *[float](https://docs.python.org/3/library/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier_final.FinalClassifierResult.confidence}
+*property* **confidence**\: *[float](https://docs.python.org/3/builtins/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier_final.FinalClassifierResult.confidence}
 
 Synonym for easy access to ‘confidence’ label if it exists
 
-**name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier_final.FinalClassifierResult.name}
+**name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier_final.FinalClassifierResult.name}
 
 Name of the triggered classifier.
 
-**highlights**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[PhraseHighlight](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.PhraseHighlight)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier_final.FinalClassifierResult.highlights}
+**highlights**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[PhraseHighlight](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier.PhraseHighlight)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier_final.FinalClassifierResult.highlights}
 
 List of highlights, i.e. parts of phrase that determine the result of the classification
 
-**labels**\: *[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [float](https://docs.python.org/3/library/functions.html#float)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier_final.FinalClassifierResult.labels}
+**labels**\: *[dict](https://docs.python.org/3/builtins/stdtypes.html#dict)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), [float](https://docs.python.org/3/builtins/functions.html#float)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier_final.FinalClassifierResult.labels}
 
 Classifier predictions
 
 **timespan**\: *[TimeSpan](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.utils.TimeSpan)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.classifier_final.FinalClassifierResult.timespan}
 
-Audio segment used for classification boundaries
+Boundaries of the audio segment used for classification
 
 ### *class* yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.result.descriptive\_statistics.**DescriptiveStatistics**{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.descriptive_statistics.DescriptiveStatistics}
 
 DescriptiveStatistics(min: ‘float’, max: ‘float’, mean: ‘float’, std: ‘float’, quantiles: ‘dict[float, float]’)
 
-**min**\: *[float](https://docs.python.org/3/library/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.descriptive_statistics.DescriptiveStatistics.min}
+**min**\: *[float](https://docs.python.org/3/builtins/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.descriptive_statistics.DescriptiveStatistics.min}
 
 Minimum observed value.
 
-**max**\: *[float](https://docs.python.org/3/library/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.descriptive_statistics.DescriptiveStatistics.max}
+**max**\: *[float](https://docs.python.org/3/builtins/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.descriptive_statistics.DescriptiveStatistics.max}
 
 Maximum observed value.
 
-**mean**\: *[float](https://docs.python.org/3/library/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.descriptive_statistics.DescriptiveStatistics.mean}
+**mean**\: *[float](https://docs.python.org/3/builtins/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.descriptive_statistics.DescriptiveStatistics.mean}
 
 Estimated mean of distribution.
 
-**std**\: *[float](https://docs.python.org/3/library/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.descriptive_statistics.DescriptiveStatistics.std}
+**std**\: *[float](https://docs.python.org/3/builtins/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.descriptive_statistics.DescriptiveStatistics.std}
 
 Estimated standard deviation of distribution.
 
-**quantiles**\: *[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[float](https://docs.python.org/3/library/functions.html#float), [float](https://docs.python.org/3/library/functions.html#float)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.descriptive_statistics.DescriptiveStatistics.quantiles}
+**quantiles**\: *[dict](https://docs.python.org/3/builtins/stdtypes.html#dict)[[float](https://docs.python.org/3/builtins/functions.html#float), [float](https://docs.python.org/3/builtins/functions.html#float)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.descriptive_statistics.DescriptiveStatistics.quantiles}
 
 List of evaluated quantiles.
 
@@ -2281,8 +2281,8 @@ Stats for all received audio
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis.WindowType.__new__i}
@@ -2356,7 +2356,7 @@ the denominator of a rational number in lowest terms
 
 Audio segment boundaries
 
-**speaker\_tag**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis.speaker_tag}
+**speaker\_tag**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis.speaker_tag}
 
 Speaker tag.
 
@@ -2364,27 +2364,27 @@ Speaker tag.
 
 Response window type.
 
-**total\_speech\_ms**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis.total_speech_ms}
+**total\_speech\_ms**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis.total_speech_ms}
 
 Total speech duration.
 
-**speech\_ratio**\: *[float](https://docs.python.org/3/library/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis.speech_ratio}
+**speech\_ratio**\: *[float](https://docs.python.org/3/builtins/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis.speech_ratio}
 
 Speech ratio within audio segment.
 
-**total\_silence\_ms**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis.total_silence_ms}
+**total\_silence\_ms**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis.total_silence_ms}
 
 Total duration of silence.
 
-**silence\_ratio**\: *[float](https://docs.python.org/3/library/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis.silence_ratio}
+**silence\_ratio**\: *[float](https://docs.python.org/3/builtins/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis.silence_ratio}
 
 Silence ratio within audio segment.
 
-**words\_count**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis.words_count}
+**words\_count**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis.words_count}
 
 Number of words in recognized speech.
 
-**letters\_count**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis.letters_count}
+**letters\_count**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis.letters_count}
 
 Number of letters in recognized speech.
 
@@ -2404,7 +2404,7 @@ Descriptive statistics for words per utterance distribution.
 
 Descriptive statistics for letters per utterance distribution.
 
-**utterance\_count**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis.utterance_count}
+**utterance\_count**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis.utterance_count}
 
 Number of utterances
 
@@ -2418,19 +2418,19 @@ Descriptive statistics for utterance duration distribution
 || Parameters | 
 
 - **timespan** ([*TimeSpan*](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.utils.TimeSpan))
-- **speaker\_tag** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **speaker\_tag** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
 - **window\_type** ([*EnumWithUnknownAlias*](other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.EnumWithUnknownAlias)*[*[*WindowType*](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.speaker_analysis.SpeakerAnalysis.WindowType)*]*)
-- **total\_speech\_ms** ([*int*](https://docs.python.org/3/library/functions.html#int))
-- **speech\_ratio** ([*float*](https://docs.python.org/3/library/functions.html#float))
-- **total\_silence\_ms** ([*int*](https://docs.python.org/3/library/functions.html#int))
-- **silence\_ratio** ([*float*](https://docs.python.org/3/library/functions.html#float))
-- **words\_count** ([*int*](https://docs.python.org/3/library/functions.html#int))
-- **letters\_count** ([*int*](https://docs.python.org/3/library/functions.html#int))
+- **total\_speech\_ms** ([*int*](https://docs.python.org/3/builtins/functions.html#int))
+- **speech\_ratio** ([*float*](https://docs.python.org/3/builtins/functions.html#float))
+- **total\_silence\_ms** ([*int*](https://docs.python.org/3/builtins/functions.html#int))
+- **silence\_ratio** ([*float*](https://docs.python.org/3/builtins/functions.html#float))
+- **words\_count** ([*int*](https://docs.python.org/3/builtins/functions.html#int))
+- **letters\_count** ([*int*](https://docs.python.org/3/builtins/functions.html#int))
 - **words\_per\_second** ([*DescriptiveStatistics*](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.descriptive_statistics.DescriptiveStatistics))
 - **letters\_per\_second** ([*DescriptiveStatistics*](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.descriptive_statistics.DescriptiveStatistics))
 - **words\_per\_utterance** ([*DescriptiveStatistics*](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.descriptive_statistics.DescriptiveStatistics))
 - **letters\_per\_utterance** ([*DescriptiveStatistics*](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.descriptive_statistics.DescriptiveStatistics))
-- **utterance\_count** ([*int*](https://docs.python.org/3/library/functions.html#int))
+- **utterance\_count** ([*int*](https://docs.python.org/3/builtins/functions.html#int))
 - **utterance\_duration\_estimation** ([*DescriptiveStatistics*](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.descriptive_statistics.DescriptiveStatistics)) ||
 || Return type | None ||
 |#
@@ -2439,19 +2439,19 @@ Descriptive statistics for utterance duration distribution
 
 Interrupt description
 
-**speaker\_tag**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.InterruptsEvaluation.speaker_tag}
+**speaker\_tag**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.InterruptsEvaluation.speaker_tag}
 
 Speaker tag.
 
-**interrupts\_count**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.InterruptsEvaluation.interrupts_count}
+**interrupts\_count**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.InterruptsEvaluation.interrupts_count}
 
 Number of interrupts made by the speaker.
 
-**interrupts\_duration\_ms**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.InterruptsEvaluation.interrupts_duration_ms}
+**interrupts\_duration\_ms**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.InterruptsEvaluation.interrupts_duration_ms}
 
 Total duration of all interrupts.
 
-**interrupts**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[TimeSpan](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.utils.TimeSpan)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.InterruptsEvaluation.interrupts}
+**interrupts**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[TimeSpan](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.utils.TimeSpan)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.InterruptsEvaluation.interrupts}
 
 Boundaries for every interrupt.
 
@@ -2463,11 +2463,11 @@ Conversation statistics.
 
 Audio segment boundaries
 
-**total\_simultaneous\_silence\_duration\_ms**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.ConversationAnalysis.total_simultaneous_silence_duration_ms}
+**total\_simultaneous\_silence\_duration\_ms**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.ConversationAnalysis.total_simultaneous_silence_duration_ms}
 
 Total simultaneous silence duration.
 
-**total\_simultaneous\_silence\_ratio**\: *[float](https://docs.python.org/3/library/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.ConversationAnalysis.total_simultaneous_silence_ratio}
+**total\_simultaneous\_silence\_ratio**\: *[float](https://docs.python.org/3/builtins/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.ConversationAnalysis.total_simultaneous_silence_ratio}
 
 Simultaneous silence ratio within audio segment.
 
@@ -2475,11 +2475,11 @@ Simultaneous silence ratio within audio segment.
 
 Descriptive statistics for simultaneous silence duration distribution.
 
-**total\_simultaneous\_speech\_duration\_ms**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.ConversationAnalysis.total_simultaneous_speech_duration_ms}
+**total\_simultaneous\_speech\_duration\_ms**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.ConversationAnalysis.total_simultaneous_speech_duration_ms}
 
 Total simultaneous speech duration.
 
-**total\_simultaneous\_speech\_ratio**\: *[float](https://docs.python.org/3/library/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.ConversationAnalysis.total_simultaneous_speech_ratio}
+**total\_simultaneous\_speech\_ratio**\: *[float](https://docs.python.org/3/builtins/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.ConversationAnalysis.total_simultaneous_speech_ratio}
 
 Simultaneous speech ratio within audio segment.
 
@@ -2487,15 +2487,15 @@ Simultaneous speech ratio within audio segment.
 
 Descriptive statistics for simultaneous speech duration distribution.
 
-**speaker\_interrupts**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[InterruptsEvaluation](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.InterruptsEvaluation)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.ConversationAnalysis.speaker_interrupts}
+**speaker\_interrupts**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[InterruptsEvaluation](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.InterruptsEvaluation)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.ConversationAnalysis.speaker_interrupts}
 
 Interrupts description for every speaker.
 
-**total\_speech\_duration\_ms**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.ConversationAnalysis.total_speech_duration_ms}
+**total\_speech\_duration\_ms**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.ConversationAnalysis.total_speech_duration_ms}
 
 Total speech duration, including both simultaneous and separate speech.
 
-**total\_speech\_ratio**\: *[float](https://docs.python.org/3/library/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.ConversationAnalysis.total_speech_ratio}
+**total\_speech\_ratio**\: *[float](https://docs.python.org/3/builtins/functions.html#float)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.conversation_analysis.ConversationAnalysis.total_speech_ratio}
 
 Total speech ratio within audio segment.
 
@@ -2507,15 +2507,15 @@ Result of the LLM postprocessing
 
 A set of statistics describing the number of content tokens used by the completion model.
 
-**texts**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.llm_post_process_result.LLMPostProcessResult.texts}
+**texts**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[str](https://docs.python.org/3/builtins/stdtypes.html#str)*]... ,{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.llm_post_process_result.LLMPostProcessResult.texts}
 
 text results returned by model
 
-**instructions**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str), ...] | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.llm_post_process_result.LLMPostProcessResult.instructions}
+**instructions**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), ...] | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.llm_post_process_result.LLMPostProcessResult.instructions}
 
 instructions given to model
 
-*property* **by\_instructions**\: *[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [str](https://docs.python.org/3/library/stdtypes.html#str)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.llm_post_process_result.LLMPostProcessResult.by_instructions}
+*property* **by\_instructions**\: *[dict](https://docs.python.org/3/builtins/stdtypes.html#dict)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), [str](https://docs.python.org/3/builtins/stdtypes.html#str)*]{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.llm_post_process_result.LLMPostProcessResult.by_instructions}
 
 **count**(*value*) → integer -- return number of occurrences of value{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.llm_post_process_result.LLMPostProcessResult.count}
 
@@ -2529,15 +2529,15 @@ Supporting start and stop arguments is optional, but recommended.
 
 TimeSpan(start\_time\_ms: ‘int’, end\_time\_ms: ‘int’)
 
-**start\_time\_ms**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.utils.TimeSpan.start_time_ms}
+**start\_time\_ms**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.utils.TimeSpan.start_time_ms}
 
 Audio segment start time.
 
-**end\_time\_ms**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.utils.TimeSpan.end_time_ms}
+**end\_time\_ms**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.utils.TimeSpan.end_time_ms}
 
 Audio segment end time.
 
-*property* **length\_ms**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.utils.TimeSpan.length_ms}
+*property* **length\_ms**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.utils.TimeSpan.length_ms}
 
 Return length of given time span in milliseconds
 
@@ -2556,8 +2556,8 @@ Invariant [**TypeVar**](https://docs.python.org/3/library/typing.html#typing.Typ
 #|
 || Parameters | 
 
-- **sample\_rate\_hertz** ([*int*](https://docs.python.org/3/library/functions.html#int))
-- **channels** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **sample\_rate\_hertz** ([*int*](https://docs.python.org/3/builtins/functions.html#int))
+- **channels** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_init\_\_**(*sample\_rate\_hertz*, *channels*){#yandex_ai_studio_sdk._speechkit.enums.PCM16.__init__i}
@@ -2565,13 +2565,13 @@ Invariant [**TypeVar**](https://docs.python.org/3/library/typing.html#typing.Typ
 #|
 || Parameters | 
 
-- **sample\_rate\_hertz** ([*int*](https://docs.python.org/3/library/functions.html#int))
-- **channels** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **sample\_rate\_hertz** ([*int*](https://docs.python.org/3/builtins/functions.html#int))
+- **channels** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
-*property* **sample\_rate\_hertz**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.enums.PCM16.sample_rate_hertz}
+*property* **sample\_rate\_hertz**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.enums.PCM16.sample_rate_hertz}
 
-*property* **channels**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.enums.PCM16.channels}
+*property* **channels**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._speechkit.enums.PCM16.channels}
 
 *property* **value**\: *[Never](https://docs.python.org/3/library/typing.html#typing.Never)*{#yandex_ai_studio_sdk._speechkit.enums.PCM16.value}
 
@@ -2622,7 +2622,7 @@ Returns self, the complex conjugate of any int.
 
 the denominator of a rational number in lowest terms
 
-*property* **enum\_type**\: *[type](https://docs.python.org/3/library/functions.html#type)[[ProtoBasedEnumTypeT](other.md#yandex_ai_studio_sdk._types.enum.ProtoBasedEnumTypeT)*]{#yandex_ai_studio_sdk._speechkit.enums.PCM16.enum_type}
+*property* **enum\_type**\: *[type](https://docs.python.org/3/builtins/functions.html#type)[[ProtoBasedEnumTypeT](other.md#yandex_ai_studio_sdk._types.enum.ProtoBasedEnumTypeT)*]{#yandex_ai_studio_sdk._speechkit.enums.PCM16.enum_type}
 
 **imag**{#yandex_ai_studio_sdk._speechkit.enums.PCM16.imag}
 
@@ -2632,7 +2632,7 @@ the imaginary part of a complex number
 
 Returns True. Exists for duck type compatibility with float.is\_integer.
 
-*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.enums.PCM16.name}
+*property* **name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._speechkit.enums.PCM16.name}
 
 **numerator**{#yandex_ai_studio_sdk._speechkit.enums.PCM16.numerator}
 
@@ -2663,8 +2663,8 @@ Audio bit depth 16-bit signed little-endian (Linear PCM).
 #|
 || Parameters | 
 
-- **sample\_rate\_hertz** ([*int*](https://docs.python.org/3/library/functions.html#int))
-- **channels** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **sample\_rate\_hertz** ([*int*](https://docs.python.org/3/builtins/functions.html#int))
+- **channels** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 || Return type | [*PCM16*](#yandex_ai_studio_sdk._speechkit.enums.PCM16) ||
 |#
 
@@ -2673,8 +2673,8 @@ Audio bit depth 16-bit signed little-endian (Linear PCM).
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._speechkit.enums.AudioFormat.__new__i}
@@ -2759,8 +2759,8 @@ The type of normalization based on EBU R 128 recommendation
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._speechkit.enums.LoudnessNormalization.__new__i}
@@ -2970,7 +2970,7 @@ Return a centered string of length width.
 
 Padding is done using the specified fill character (default is a space).
 
-**count**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._speechkit.enums.LanguageCode.count}
+**count**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._speechkit.enums.LanguageCode.count}
 
 Return the number of non-overlapping occurrences of substring sub in string S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
@@ -2980,7 +2980,7 @@ Return a copy where all tab characters are expanded using spaces.
 
 If tabsize is not given, a tab size of 8 characters is assumed.
 
-**find**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._speechkit.enums.LanguageCode.find}
+**find**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._speechkit.enums.LanguageCode.find}
 
 Return the lowest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
@@ -2994,7 +2994,7 @@ This will search for the separator in the string.  If the separator is found, re
 
 If the separator is not found, returns a 3-tuple containing the original string and two empty strings.
 
-**index**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._speechkit.enums.LanguageCode.index}
+**index**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._speechkit.enums.LanguageCode.index}
 
 Return the lowest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
@@ -3016,13 +3016,13 @@ Return a copy of the string with leading whitespace removed.
 
 If chars is given and not None, remove characters in chars instead.
 
-**rfind**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._speechkit.enums.LanguageCode.rfind}
+**rfind**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._speechkit.enums.LanguageCode.rfind}
 
 Return the highest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
 Return -1 on failure.
 
-**rindex**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/library/functions.html#int){#yandex_ai_studio_sdk._speechkit.enums.LanguageCode.rindex}
+**rindex**(*sub*[, *start*[, *end*]]) → [int](https://docs.python.org/3/builtins/functions.html#int){#yandex_ai_studio_sdk._speechkit.enums.LanguageCode.rindex}
 
 Return the highest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
 
@@ -3076,11 +3076,11 @@ The table must implement lookup/indexing via \_\_getitem\_\_, for instance a dic
 
 Return a copy of the string converted to uppercase.
 
-**startswith**(*prefix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/library/functions.html#bool){#yandex_ai_studio_sdk._speechkit.enums.LanguageCode.startswith}
+**startswith**(*prefix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/builtins/functions.html#bool){#yandex_ai_studio_sdk._speechkit.enums.LanguageCode.startswith}
 
 Return True if S starts with the specified prefix, False otherwise. With optional start, test S beginning at that position. With optional end, stop comparing S at that position. prefix can also be a tuple of strings to try.
 
-**endswith**(*suffix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/library/functions.html#bool){#yandex_ai_studio_sdk._speechkit.enums.LanguageCode.endswith}
+**endswith**(*suffix*[, *start*[, *end*]]) → [bool](https://docs.python.org/3/builtins/functions.html#bool){#yandex_ai_studio_sdk._speechkit.enums.LanguageCode.endswith}
 
 Return True if S ends with the specified suffix, False otherwise. With optional start, test S beginning at that position. With optional end, stop comparing S at that position. suffix can also be a tuple of strings to try.
 
@@ -3174,11 +3174,11 @@ Pad a numeric string with zeros on the left, to fill a field of the given width.
 
 The string is never truncated.
 
-**format**(*\*args*, *\*\*kwargs*) → [str](https://docs.python.org/3/library/stdtypes.html#str){#yandex_ai_studio_sdk._speechkit.enums.LanguageCode.format}
+**format**(*\*args*, *\*\*kwargs*) → [str](https://docs.python.org/3/builtins/stdtypes.html#str){#yandex_ai_studio_sdk._speechkit.enums.LanguageCode.format}
 
 Return a formatted version of S, using substitutions from args and kwargs. The substitutions are identified by braces (‘{’ and ‘}’).
 
-**format\_map**(*mapping*) → [str](https://docs.python.org/3/library/stdtypes.html#str){#yandex_ai_studio_sdk._speechkit.enums.LanguageCode.format_map}
+**format\_map**(*mapping*) → [str](https://docs.python.org/3/builtins/stdtypes.html#str){#yandex_ai_studio_sdk._speechkit.enums.LanguageCode.format_map}
 
 Return a formatted version of S, using substitutions from mapping. The substitutions are identified by braces (‘{’ and ‘}’).
 

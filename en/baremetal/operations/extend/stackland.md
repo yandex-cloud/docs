@@ -87,7 +87,7 @@ If you add previously provisioned servers to the cluster, {{ baremetal-extend-st
 
 It takes time to create servers and get them ready. When the cluster is ready, open its page in the **{{ ui-key.yacloud.baremetal.label_extend-stackland }}** subsection. On the page, you can view the nodes, their roles, configurations, private IP addresses, and the bastion host.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/extend/stackland.md)
 * [Getting started with {{ stackland-name }}](../../../stackland/quickstart.md#prerequisites)

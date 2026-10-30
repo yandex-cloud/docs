@@ -2,7 +2,7 @@
 
 ## *class* yandex\_ai\_studio\_sdk.**AIStudio**{#yandex_ai_studio_sdk.AIStudio}
 
-The main class that needs to be instantiated to work with SDK.
+The main class that needs to be instantiated to work with the SDK.
 
 **tools**\: *[Tools](tools.md#yandex_ai_studio_sdk._tools.domain.Tools)*{#yandex_ai_studio_sdk.AIStudio.tools}
 
@@ -38,7 +38,7 @@ Domain for working with batch tasks
 
 **chat**\: *[Chat](chat/domain.md#yandex_ai_studio_sdk._chat.Chat)*{#yandex_ai_studio_sdk.AIStudio.chat}
 
-Domain for working with [Yandex Cloud OpenAI Compatible API](https://aistudio.yandex.ru/docs//ai-studio/concepts/api#openai).
+Domain for working with [Yandex Cloud OpenAI Compatible API](https://aistudio.yandex.ru/docs/ai-studio/concepts/api#openai).
 
 **speechkit**\: *[SpeechKitDomain](speechkit/domain.md#yandex_ai_studio_sdk._speechkit.domain.SpeechKitDomain)*{#yandex_ai_studio_sdk.AIStudio.speechkit}
 
@@ -50,19 +50,19 @@ Domain for working with [Yandex Vision](https://aistudio.yandex.ru/docs/vision/c
 
 **\_\_init\_\_**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *folder\_id=Undefined*, *endpoint=Undefined*, *auth=Undefined*, *retry\_policy=Undefined*, *yc\_profile=Undefined*, *service\_map=Undefined*, *interceptors=Undefined*, *enable\_server\_data\_logging=Undefined*, *verify=Undefined*){#yandex_ai_studio_sdk.AIStudio.__init__i}
 
-Construct a new asynchronous sdk instance.
+Construct a new asynchronous SDK instance.
 
 #|
 || Parameters | 
 
-- **folder\_id** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – Yandex Cloud folder identifier which will be billed for models usage. In case of default Undefined value, the parameter will be taken from the environment variable **YC\_FOLDER\_ID**.
-- **endpoint** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – domain:port pair for Yandex Cloud API or any other grpc compatible target. In case of **None** passed it turns off service endpoint discovery mechanism and requires **service\_map** to be passed.
-- **auth** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*BaseAuth*](../internals/bases.md#yandex_ai_studio_sdk._auth.BaseAuth) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – string with API Key, IAM token or one of yandex\_ai\_studio\_sdk.auth objects; in case of default Undefined value, the token will be taken from one of the environment variables: **YC\_OAUTH\_TOKEN**, **YC\_TOKEN**, **YC\_IAM\_TOKEN**, or **YC\_API\_KEY**.
-- **service\_map** (*Dict[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*) – a way to redefine endpoints for one or more cloud subservices with a format of dict **{"service\_name": "service\_address"}**.
-- **enable\_server\_data\_logging** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – when passed bool, we will add *x-data-logging-enabled: <value>* to all of requests, which will enable or disable logging of user data on server side. It will do something only on those parts of backends which supports this option.
-- **verify** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*pathlib.Path*](https://docs.python.org/3/library/pathlib.html#pathlib.Path) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*os.PathLike*](https://docs.python.org/3/library/os.html#os.PathLike)) – SSL certificates (a.k.a CA bundle) used to verify the identity of requested hosts. Either *True* (default CA bundle), a path to an SSL certificate file, or *False* (which will disable verification).
+- **folder\_id** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – Yandex Cloud folder identifier which will be billed for model usage. In case of default Undefined value, the parameter will be taken from the environment variable **YC\_FOLDER\_ID**.
+- **endpoint** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – domain:port pair for Yandex Cloud API or any other gRPC-compatible target. Passing **None** turns off the service endpoint discovery mechanism and requires **service\_map** to be passed.
+- **auth** ([*BaseAuth*](../internals/bases.md#yandex_ai_studio_sdk._auth.BaseAuth) *\|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – string with API Key, IAM token or one of yandex\_ai\_studio\_sdk.auth objects; in case of default Undefined value, the token will be taken from one of the environment variables: **YC\_OAUTH\_TOKEN**, **YC\_TOKEN**, **YC\_IAM\_TOKEN**, or **YC\_API\_KEY**.
+- **service\_map** (*Dict[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*]*) – a way to redefine endpoints for one or more cloud subservices with a format of dict **{"service\_name": "service\_address"}**.
+- **enable\_server\_data\_logging** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – when passed a bool, we add *x-data-logging-enabled: <value>* to all requests, which will enable or disable logging of user data on the server side. It will do something only on those parts of backends that support this option.
+- **verify** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\|* [*pathlib.Path*](https://docs.python.org/3/library/pathlib.html#pathlib.Path) *\|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*os.PathLike*](https://docs.python.org/3/library/os.html#os.PathLike)) – SSL certificates (a.k.a. a CA bundle) used to verify the identity of requested hosts. Either *True* (default CA bundle), a path to an SSL certificate file, or *False* (which will disable verification).
 - **retry\_policy** ([*RetryPolicy*](../retry.md#yandex_ai_studio_sdk._retry.RetryPolicy) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
-- **yc\_profile** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
+- **yc\_profile** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
 - **interceptors** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*ClientInterceptor*](https://grpc.github.io/grpc/python/grpc_asyncio.html#grpc.aio.ClientInterceptor)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) ||
 |#
 
@@ -76,8 +76,8 @@ Read more about log\_levels, log\_format, and date\_format in [Python documentat
 || Parameters | 
 
 - **log\_level** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*['CRITICAL', 'FATAL', 'ERROR', 'WARN', 'WARNING', 'INFO', 'DEBUG', 'TRACE'] \| ~typing.Literal['critical', 'fatal', 'error', 'warn', 'warning', 'info', 'debug', 'TRACE'] \| int*) – The logging level to set.
-- **log\_format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – The format of the log messages.
-- **date\_format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – The format for timestamps in log messages. ||
+- **log\_format** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – The format of the log messages.
+- **date\_format** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – The format for timestamps in log messages. ||
 || Returns | The instance of the SDK with logging configured. ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#

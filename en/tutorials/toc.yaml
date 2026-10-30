@@ -1977,10 +1977,6 @@ items:
             href: ml-ai/speechsense/ai-assistant.md
       - name: Using {{ ai-studio-full-name }} generative models
         items:
-          - name: >-
-              Integrating generative models into Visual Studio Code as a coding
-              assistant
-            href: ml-ai/ai-model-ide-integration.md
           - name: Integrating the AI data analyst with {{ data-catalog-name }}
             href: ml-ai/data-catalog-integration.md
           - name: >-

@@ -53,6 +53,8 @@ items:
             href: operations/connect/clients.md
           - name: Code examples
             href: operations/connect/code-examples.md
+          - name: Updating a TLS certificate chain
+            href: operations/connect/update-tls-certificates.md
       - name: Databases
         items:
           - name: SQL queries in {{ websql-full-name }}

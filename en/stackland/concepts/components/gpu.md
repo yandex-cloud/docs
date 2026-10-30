@@ -76,6 +76,29 @@ Kubernetes will automatically place the pod on a node with an available GPU.
 
 ## Configuration {#configuration}
 
+### Enabling GPU support {#enable}
+
+GPU support must be enabled at the cluster deployment stage. By default, the {{ gpu-operator }} component is disabled.
+
+1. When setting up the [initial cluster configuration](../../quickstart.md#configuration), add `gpu` to the `features` list for each GPU-enabled worker node in the `StacklandHostsList` resource. Configuration snippet for a single node:
+
+   ```yaml
+   spec:
+     hosts:
+       - hostname: "gpu1.stackland.internal"
+         role: "worker"
+         features:
+           - gpu
+   ```
+
+1. After deploying the cluster, check the installation status of the component:
+
+   ```bash
+   kubectl get componentinstallation nvidia-gpu-main
+   ```
+
+   Wait for the `PHASE` field to show `Ready` before running GPU workloads.
+
 ### MIG Manager settings {#mig-settings}
 
 ```yaml

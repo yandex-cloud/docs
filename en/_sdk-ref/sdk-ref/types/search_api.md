@@ -1,6 +1,6 @@
 # Yandex Search API
 
-## Generative serch
+## Generative search
 
 *typeddict* yandex\_ai\_studio\_sdk.\_search\_api.generative.config.**DateFilterType**{#yandex_ai_studio_sdk._search_api.generative.config.DateFilterType}
 
@@ -15,7 +15,7 @@ Example:
 #|
 || Required Keys | 
 
-- **date** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) ||
+- **date** ([**str**](https://docs.python.org/3/builtins/stdtypes.html#str)) ||
 |#
 
 *typeddict* yandex\_ai\_studio\_sdk.\_search\_api.generative.config.**FormatFilterType**{#yandex_ai_studio_sdk._search_api.generative.config.FormatFilterType}
@@ -31,7 +31,7 @@ Example:
 #|
 || Required Keys | 
 
-- **format** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) ||
+- **format** ([**str**](https://docs.python.org/3/builtins/stdtypes.html#str)) ||
 |#
 
 *typeddict* yandex\_ai\_studio\_sdk.\_search\_api.generative.config.**LangFilterType**{#yandex_ai_studio_sdk._search_api.generative.config.LangFilterType}
@@ -47,48 +47,48 @@ Example:
 #|
 || Required Keys | 
 
-- **lang** ([**str**](https://docs.python.org/3/library/stdtypes.html#str)) ||
+- **lang** ([**str**](https://docs.python.org/3/builtins/stdtypes.html#str)) ||
 |#
 
 ### *class* yandex\_ai\_studio\_sdk.\_search\_api.generative.config.**GenerativeSearchConfig**{#yandex_ai_studio_sdk._search_api.generative.config.GenerativeSearchConfig}
 
 GenerativeSearchConfig(site: ‘tuple[str, …] | None’ = None, host: ‘tuple[str, …] | None’ = None, url: ‘tuple[str, …] | None’ = None, fix\_misspell: ‘bool | None’ = None, enable\_nrfm\_docs: ‘bool | None’ = None, search\_filters: ‘tuple[FilterType, …] | None’ = None)
 
-**site**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str), ...] | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_api.generative.config.GenerativeSearchConfig.site}
+**site**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), ...] | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_api.generative.config.GenerativeSearchConfig.site}
 
-Parameter for limiting search to specific location or list of sites.
+Parameter for limiting search to a specific site or list of sites.
 
-**host**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str), ...] | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_api.generative.config.GenerativeSearchConfig.host}
+**host**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), ...] | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_api.generative.config.GenerativeSearchConfig.host}
 
-Parameter for limiting search to specific location or list of hosts.
+Parameter for limiting search to a specific host or list of hosts.
 
-**url**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str), ...] | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_api.generative.config.GenerativeSearchConfig.url}
+**url**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), ...] | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_api.generative.config.GenerativeSearchConfig.url}
 
-Parameter for limiting search to specific location or list of urls.
+Parameter for limiting search to a specific URL or list of URLs.
 
-**fix\_misspell**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_api.generative.config.GenerativeSearchConfig.fix_misspell}
+**fix\_misspell**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_api.generative.config.GenerativeSearchConfig.fix_misspell}
 
-tells to backend to fix or not to fix misspels in queries.
+whether the backend should correct misspellings in queries.
 
-**enable\_nrfm\_docs**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_api.generative.config.GenerativeSearchConfig.enable_nrfm_docs}
+**enable\_nrfm\_docs**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_api.generative.config.GenerativeSearchConfig.enable_nrfm_docs}
 
-tells to backend to include or not to include pages, which are not available via direct clicks from given sites/hosts/urls to search result.
+whether the backend should include pages that cannot be reached directly from the specified sites, hosts, or URLs in the search results.
 
-**search\_filters**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[DateFilterType](#yandex_ai_studio_sdk._search_api.generative.config.DateFilterType) | [FormatFilterType](#yandex_ai_studio_sdk._search_api.generative.config.FormatFilterType) | [LangFilterType](#yandex_ai_studio_sdk._search_api.generative.config.LangFilterType), ...] | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_api.generative.config.GenerativeSearchConfig.search_filters}
+**search\_filters**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[DateFilterType](#yandex_ai_studio_sdk._search_api.generative.config.DateFilterType) | [FormatFilterType](#yandex_ai_studio_sdk._search_api.generative.config.FormatFilterType) | [LangFilterType](#yandex_ai_studio_sdk._search_api.generative.config.LangFilterType), ...] | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._search_api.generative.config.GenerativeSearchConfig.search_filters}
 
-allows to limit search results with additional filters.
+limits search results using additional filters.
 
 **\_\_init\_\_**(*site=None*, *host=None*, *url=None*, *fix\_misspell=None*, *enable\_nrfm\_docs=None*, *search\_filters=None*){#yandex_ai_studio_sdk._search_api.generative.config.GenerativeSearchConfig.__init__i}
 
 #|
 || Parameters | 
 
-- **site** ([*tuple*](https://docs.python.org/3/library/stdtypes.html#tuple)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, ...] \| None*)
-- **host** ([*tuple*](https://docs.python.org/3/library/stdtypes.html#tuple)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, ...] \| None*)
-- **url** ([*tuple*](https://docs.python.org/3/library/stdtypes.html#tuple)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, ...] \| None*)
-- **fix\_misspell** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\| None*)
-- **enable\_nrfm\_docs** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\| None*)
-- **search\_filters** ([*tuple*](https://docs.python.org/3/library/stdtypes.html#tuple)*[*[*DateFilterType*](#yandex_ai_studio_sdk._search_api.generative.config.DateFilterType) *\|* [*FormatFilterType*](#yandex_ai_studio_sdk._search_api.generative.config.FormatFilterType) *\|* [*LangFilterType*](#yandex_ai_studio_sdk._search_api.generative.config.LangFilterType)*, ...] \| None*) ||
+- **site** ([*tuple*](https://docs.python.org/3/builtins/stdtypes.html#tuple)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*, ...] \| None*)
+- **host** ([*tuple*](https://docs.python.org/3/builtins/stdtypes.html#tuple)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*, ...] \| None*)
+- **url** ([*tuple*](https://docs.python.org/3/builtins/stdtypes.html#tuple)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*, ...] \| None*)
+- **fix\_misspell** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\| None*)
+- **enable\_nrfm\_docs** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool) *\| None*)
+- **search\_filters** ([*tuple*](https://docs.python.org/3/builtins/stdtypes.html#tuple)*[*[*DateFilterType*](#yandex_ai_studio_sdk._search_api.generative.config.DateFilterType) *\|* [*FormatFilterType*](#yandex_ai_studio_sdk._search_api.generative.config.FormatFilterType) *\|* [*LangFilterType*](#yandex_ai_studio_sdk._search_api.generative.config.LangFilterType)*, ...] \| None*) ||
 || Return type | None ||
 |#
 
@@ -98,15 +98,15 @@ Source document found for user query.
 
 Might be used or not used in generative answer itself.
 
-**url**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.generative.result.SearchSource.url}
+**url**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.generative.result.SearchSource.url}
 
-Url of the document
+URL of the document
 
-**title**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.generative.result.SearchSource.title}
+**title**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.generative.result.SearchSource.title}
 
 Title of the document
 
-**used**\: *[bool](https://docs.python.org/3/library/functions.html#bool)*{#yandex_ai_studio_sdk._search_api.generative.result.SearchSource.used}
+**used**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool)*{#yandex_ai_studio_sdk._search_api.generative.result.SearchSource.used}
 
 Has this source been used in generative answer or not
 
@@ -114,47 +114,47 @@ Has this source been used in generative answer or not
 
 SearchQuery(text: ‘str’, req\_id: ‘str’)
 
-**text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.generative.result.SearchQuery.text}
+**text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.generative.result.SearchQuery.text}
 
 Text of the search query
 
-**req\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.generative.result.SearchQuery.req_id}
+**req\_id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.generative.result.SearchQuery.req_id}
 
-Request id
+Request ID
 
 ### *class* yandex\_ai\_studio\_sdk.\_search\_api.generative.result.**GenerativeSearchResult**{#yandex_ai_studio_sdk._search_api.generative.result.GenerativeSearchResult}
 
 A class representing the result of a generative search request.
 
-**text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.generative.result.GenerativeSearchResult.text}
+**text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.generative.result.GenerativeSearchResult.text}
 
-Generative answer itself. Note that footnotes like **[N]** in the text refers to **GenerativeSearchResult.sources[N]** source.
+Generative answer itself. Note that footnotes like **[N]** in the text refer to **GenerativeSearchResult.sources[N]** source.
 
-**role**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.generative.result.GenerativeSearchResult.role}
+**role**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.generative.result.GenerativeSearchResult.role}
 
 Message sender role; in case of the generative search, model always answers with the “assistant” role.
 
-**fixed\_misspell\_query**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.generative.result.GenerativeSearchResult.fixed_misspell_query}
+**fixed\_misspell\_query**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_api.generative.result.GenerativeSearchResult.fixed_misspell_query}
 
-Fixed query string in case of query was fixed
+Corrected query string, if the query was corrected
 
-**is\_answer\_rejected**\: *[bool](https://docs.python.org/3/library/functions.html#bool)*{#yandex_ai_studio_sdk._search_api.generative.result.GenerativeSearchResult.is_answer_rejected}
+**is\_answer\_rejected**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool)*{#yandex_ai_studio_sdk._search_api.generative.result.GenerativeSearchResult.is_answer_rejected}
 
-Anwer was rejected by some reasons, probably because of the ethics constrictions
+The answer was rejected for some reason, possibly due to ethical restrictions
 
-**is\_bullet\_answer**\: *[bool](https://docs.python.org/3/library/functions.html#bool)*{#yandex_ai_studio_sdk._search_api.generative.result.GenerativeSearchResult.is_bullet_answer}
+**is\_bullet\_answer**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool)*{#yandex_ai_studio_sdk._search_api.generative.result.GenerativeSearchResult.is_bullet_answer}
 
-Model was unable to give good answer and returned bulleted list with some info.
+Model was unable to give a good answer and returned a bulleted list with some info.
 
-**sources**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[SearchSource](#yandex_ai_studio_sdk._search_api.generative.result.SearchSource)*]... ,{#yandex_ai_studio_sdk._search_api.generative.result.GenerativeSearchResult.sources}
+**sources**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[SearchSource](#yandex_ai_studio_sdk._search_api.generative.result.SearchSource)*]... ,{#yandex_ai_studio_sdk._search_api.generative.result.GenerativeSearchResult.sources}
 
 List of documents found by user query; every element number matches with footnotes in the **.text** attribute.
 
-**search\_queries**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[SearchQuery](#yandex_ai_studio_sdk._search_api.generative.result.SearchQuery)*]... ,{#yandex_ai_studio_sdk._search_api.generative.result.GenerativeSearchResult.search_queries}
+**search\_queries**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[SearchQuery](#yandex_ai_studio_sdk._search_api.generative.result.SearchQuery)*]... ,{#yandex_ai_studio_sdk._search_api.generative.result.GenerativeSearchResult.search_queries}
 
 List of search queries sent to model
 
-*property* **content**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.generative.result.GenerativeSearchResult.content}
+*property* **content**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.generative.result.GenerativeSearchResult.content}
 
 Alias to **GenerativeSearchResult.text**.
 
@@ -174,7 +174,7 @@ alias of [**DateFilterType**](#yandex_ai_studio_sdk._search_api.generative.confi
 
 SearchGroup(documents: ‘tuple[XMLSearchDocumentTypeT, …]’)
 
-**documents**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[XMLSearchDocumentTypeT](other.md#yandex_ai_studio_sdk._search_api.types.XMLSearchDocumentTypeT)*]... ,{#yandex_ai_studio_sdk._search_api.types.SearchGroup.documents}
+**documents**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[XMLSearchDocumentTypeT](other.md#yandex_ai_studio_sdk._search_api.types.XMLSearchDocumentTypeT)*]... ,{#yandex_ai_studio_sdk._search_api.types.SearchGroup.documents}
 
 **count**(*value*) → integer -- return number of occurrences of value{#yandex_ai_studio_sdk._search_api.types.SearchGroup.count}
 
@@ -188,11 +188,11 @@ Supporting start and stop arguments is optional, but recommended.
 
 Region(id: ‘str’, label: ‘str’, children: ‘RegionsMapping | None’)
 
-**id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.types.Region.id}
+**id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.types.Region.id}
 
-**label**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.types.Region.label}
+**label**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.types.Region.label}
 
-**children**\: *[RegionsMapping](#yandex_ai_studio_sdk._search_api.types.RegionsMapping) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.types.Region.children}
+**children**\: *[RegionsMapping](#yandex_ai_studio_sdk._search_api.types.RegionsMapping) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_api.types.Region.children}
 
 ### *class* yandex\_ai\_studio\_sdk.\_search\_api.types.**RegionsMapping**{#yandex_ai_studio_sdk._search_api.types.RegionsMapping}
 
@@ -212,9 +212,9 @@ RegionsMapping(\_regions: ‘MappingProxyType[str, Region]’)
 
 **values**() → an object providing a view on D's values{#yandex_ai_studio_sdk._search_api.types.RegionsMapping.values}
 
-**search\_by\_label**(*label\: [str](https://docs.python.org/3/library/stdtypes.html#str)*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *first\: [Literal](https://docs.python.org/3/library/typing.html#typing.Literal)[False] = False*) → [tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Region](#yandex_ai_studio_sdk._search_api.types.Region)]{#yandex_ai_studio_sdk._search_api.types.RegionsMapping.search_by_label}
+**search\_by\_label**(*label\: [str](https://docs.python.org/3/builtins/stdtypes.html#str)*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *first\: [Literal](https://docs.python.org/3/library/typing.html#typing.Literal)[False] = False*) → [tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[Region](#yandex_ai_studio_sdk._search_api.types.Region)]{#yandex_ai_studio_sdk._search_api.types.RegionsMapping.search_by_label}
 
-**search\_by\_label**(*label\: [str](https://docs.python.org/3/library/stdtypes.html#str)*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *first\: [Literal](https://docs.python.org/3/library/typing.html#typing.Literal)[True]*) → [Region](#yandex_ai_studio_sdk._search_api.types.Region) | [None](https://docs.python.org/3/library/constants.html#None)
+**search\_by\_label**(*label\: [str](https://docs.python.org/3/builtins/stdtypes.html#str)*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *first\: [Literal](https://docs.python.org/3/library/typing.html#typing.Literal)[True]*) → [Region](#yandex_ai_studio_sdk._search_api.types.Region) | [None](https://docs.python.org/3/builtins/constants.html#None)
 
 ## Web search
 
@@ -222,19 +222,19 @@ RegionsMapping(\_regions: ‘MappingProxyType[str, Region]’)
 
 WebSearchDocument(url: ‘str | None’, domain: ‘str | None’, modtime: ‘datetime.datetime | None’, title: ‘str | None’, lang: ‘str | None’, extra: ‘NestedDict’, passages: ‘tuple[str, …]’)
 
-**url**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.web.result.WebSearchDocument.url}
+**url**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_api.web.result.WebSearchDocument.url}
 
-**domain**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.web.result.WebSearchDocument.domain}
+**domain**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_api.web.result.WebSearchDocument.domain}
 
-**title**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.web.result.WebSearchDocument.title}
+**title**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_api.web.result.WebSearchDocument.title}
 
-**modtime**\: *[datetime](https://docs.python.org/3/library/datetime.html#datetime.datetime) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.web.result.WebSearchDocument.modtime}
+**modtime**\: *[datetime](https://docs.python.org/3/library/datetime.html#datetime.datetime) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_api.web.result.WebSearchDocument.modtime}
 
-**lang**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.web.result.WebSearchDocument.lang}
+**lang**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_api.web.result.WebSearchDocument.lang}
 
-**extra**\: *[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [str](https://docs.python.org/3/library/stdtypes.html#str) | [NestedDict](other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._search_api.utils.NestedDict)*]{#yandex_ai_studio_sdk._search_api.web.result.WebSearchDocument.extra}
+**extra**\: *[dict](https://docs.python.org/3/builtins/stdtypes.html#dict)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), [str](https://docs.python.org/3/builtins/stdtypes.html#str) | [NestedDict](other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._search_api.utils.NestedDict)*]{#yandex_ai_studio_sdk._search_api.web.result.WebSearchDocument.extra}
 
-**passages**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str)*]... ,{#yandex_ai_studio_sdk._search_api.web.result.WebSearchDocument.passages}
+**passages**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[str](https://docs.python.org/3/builtins/stdtypes.html#str)*]... ,{#yandex_ai_studio_sdk._search_api.web.result.WebSearchDocument.passages}
 
 ## Image search
 
@@ -242,19 +242,19 @@ WebSearchDocument(url: ‘str | None’, domain: ‘str | None’, modtime: ‘d
 
 ImageSearchDocument(url: ‘str | None’, domain: ‘str | None’, modtime: ‘datetime.datetime | None’, width: ‘int | None’, height: ‘int | None’, format: ‘str | None’, extra: ‘NestedDict’)
 
-**width**\: *[int](https://docs.python.org/3/library/functions.html#int) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.image.result.ImageSearchDocument.width}
+**width**\: *[int](https://docs.python.org/3/builtins/functions.html#int) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_api.image.result.ImageSearchDocument.width}
 
-**height**\: *[int](https://docs.python.org/3/library/functions.html#int) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.image.result.ImageSearchDocument.height}
+**height**\: *[int](https://docs.python.org/3/builtins/functions.html#int) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_api.image.result.ImageSearchDocument.height}
 
-**format**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.image.result.ImageSearchDocument.format}
+**format**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_api.image.result.ImageSearchDocument.format}
 
 **extra**\: *[NestedDict](other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._search_api.utils.NestedDict)*{#yandex_ai_studio_sdk._search_api.image.result.ImageSearchDocument.extra}
 
-**url**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.image.result.ImageSearchDocument.url}
+**url**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_api.image.result.ImageSearchDocument.url}
 
-**domain**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.image.result.ImageSearchDocument.domain}
+**domain**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_api.image.result.ImageSearchDocument.domain}
 
-**modtime**\: *[datetime.datetime](https://docs.python.org/3/library/datetime.html#datetime.datetime) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.image.result.ImageSearchDocument.modtime}
+**modtime**\: *[datetime.datetime](https://docs.python.org/3/library/datetime.html#datetime.datetime) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_api.image.result.ImageSearchDocument.modtime}
 
 ## Search by image
 
@@ -262,35 +262,35 @@ ImageSearchDocument(url: ‘str | None’, domain: ‘str | None’, modtime: �
 
 ByImageSearchDocument(url: ‘str’, format: ‘str | None’, width: ‘int’, height: ‘int’, passage: ‘str’, host: ‘str’, page\_title: ‘str’, page\_url: ‘str’)
 
-**url**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.by_image.result.ByImageSearchDocument.url}
+**url**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.by_image.result.ByImageSearchDocument.url}
 
 Image URL.
 
-**format**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.by_image.result.ByImageSearchDocument.format}
+**format**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_api.by_image.result.ByImageSearchDocument.format}
 
 Image format.
 
-**width**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._search_api.by_image.result.ByImageSearchDocument.width}
+**width**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._search_api.by_image.result.ByImageSearchDocument.width}
 
 Image width.
 
-**height**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._search_api.by_image.result.ByImageSearchDocument.height}
+**height**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._search_api.by_image.result.ByImageSearchDocument.height}
 
 Image height.
 
-**passage**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.by_image.result.ByImageSearchDocument.passage}
+**passage**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.by_image.result.ByImageSearchDocument.passage}
 
 Text passage.
 
-**host**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.by_image.result.ByImageSearchDocument.host}
+**host**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.by_image.result.ByImageSearchDocument.host}
 
 Document host.
 
-**page\_title**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.by_image.result.ByImageSearchDocument.page_title}
+**page\_title**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.by_image.result.ByImageSearchDocument.page_title}
 
 Document title.
 
-**page\_url**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.by_image.result.ByImageSearchDocument.page_url}
+**page\_url**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.by_image.result.ByImageSearchDocument.page_url}
 
 Document URL.
 
@@ -330,9 +330,9 @@ DynamicsItem(date: ‘datetime.date’, share: ‘float’, count: ‘int’)
 
 **date**\: *[date](https://docs.python.org/3/library/datetime.html#datetime.date)*{#yandex_ai_studio_sdk._search_api.wordstat.result.DynamicsItem.date}
 
-**share**\: *[float](https://docs.python.org/3/library/functions.html#float)*{#yandex_ai_studio_sdk._search_api.wordstat.result.DynamicsItem.share}
+**share**\: *[float](https://docs.python.org/3/builtins/functions.html#float)*{#yandex_ai_studio_sdk._search_api.wordstat.result.DynamicsItem.share}
 
-**count**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._search_api.wordstat.result.DynamicsItem.count}
+**count**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._search_api.wordstat.result.DynamicsItem.count}
 
 **\_\_init\_\_**(*date*, *share*, *count*){#yandex_ai_studio_sdk._search_api.wordstat.result.DynamicsItem.__init__i}
 
@@ -340,8 +340,8 @@ DynamicsItem(date: ‘datetime.date’, share: ‘float’, count: ‘int’)
 || Parameters | 
 
 - **date** ([*date*](https://docs.python.org/3/library/datetime.html#datetime.date))
-- **share** ([*float*](https://docs.python.org/3/library/functions.html#float))
-- **count** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **share** ([*float*](https://docs.python.org/3/builtins/functions.html#float))
+- **count** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 || Return type | None ||
 |#
 
@@ -349,12 +349,12 @@ DynamicsItem(date: ‘datetime.date’, share: ‘float’, count: ‘int’)
 
 Dynamics(dynamics: ‘tuple[DynamicsItem, …]’)
 
-**dynamics**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[DynamicsItem](#yandex_ai_studio_sdk._search_api.wordstat.result.DynamicsItem)*]... ,{#yandex_ai_studio_sdk._search_api.wordstat.result.Dynamics.dynamics}
+**dynamics**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[DynamicsItem](#yandex_ai_studio_sdk._search_api.wordstat.result.DynamicsItem)*]... ,{#yandex_ai_studio_sdk._search_api.wordstat.result.Dynamics.dynamics}
 
 **\_\_init\_\_**(*dynamics*){#yandex_ai_studio_sdk._search_api.wordstat.result.Dynamics.__init__i}
 
 #|
-|| Parameters | **dynamics** ([*tuple*](https://docs.python.org/3/library/stdtypes.html#tuple)*[*[*DynamicsItem*](#yandex_ai_studio_sdk._search_api.wordstat.result.DynamicsItem)*, ...]*) ||
+|| Parameters | **dynamics** ([*tuple*](https://docs.python.org/3/builtins/stdtypes.html#tuple)*[*[*DynamicsItem*](#yandex_ai_studio_sdk._search_api.wordstat.result.DynamicsItem)*, ...]*) ||
 || Return type | None ||
 |#
 
@@ -370,15 +370,15 @@ Supporting start and stop arguments is optional, but recommended.
 
 RegionItem(region: ‘Region | None’, region\_id: ‘str’, count: ‘int’, share: ‘float’, affinity\_index: ‘float’)
 
-**region**\: *[Region](#yandex_ai_studio_sdk._search_api.types.Region) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionItem.region}
+**region**\: *[Region](#yandex_ai_studio_sdk._search_api.types.Region) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionItem.region}
 
-**region\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionItem.region_id}
+**region\_id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionItem.region_id}
 
-**count**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionItem.count}
+**count**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionItem.count}
 
-**share**\: *[float](https://docs.python.org/3/library/functions.html#float)*{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionItem.share}
+**share**\: *[float](https://docs.python.org/3/builtins/functions.html#float)*{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionItem.share}
 
-**affinity\_index**\: *[float](https://docs.python.org/3/library/functions.html#float)*{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionItem.affinity_index}
+**affinity\_index**\: *[float](https://docs.python.org/3/builtins/functions.html#float)*{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionItem.affinity_index}
 
 **\_\_init\_\_**(*region*, *region\_id*, *count*, *share*, *affinity\_index*){#yandex_ai_studio_sdk._search_api.wordstat.result.RegionItem.__init__i}
 
@@ -386,10 +386,10 @@ RegionItem(region: ‘Region | None’, region\_id: ‘str’, count: ‘int’,
 || Parameters | 
 
 - **region** ([*Region*](#yandex_ai_studio_sdk._search_api.types.Region) *\| None*)
-- **region\_id** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **count** ([*int*](https://docs.python.org/3/library/functions.html#int))
-- **share** ([*float*](https://docs.python.org/3/library/functions.html#float))
-- **affinity\_index** ([*float*](https://docs.python.org/3/library/functions.html#float)) ||
+- **region\_id** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **count** ([*int*](https://docs.python.org/3/builtins/functions.html#int))
+- **share** ([*float*](https://docs.python.org/3/builtins/functions.html#float))
+- **affinity\_index** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) ||
 || Return type | None ||
 |#
 
@@ -397,16 +397,16 @@ RegionItem(region: ‘Region | None’, region\_id: ‘str’, count: ‘int’,
 
 RegionsDistributionContext(resolve\_regions: ‘bool’, regions\_tree: ‘RegionsTree | None’)
 
-**resolve\_regions**\: *[bool](https://docs.python.org/3/library/functions.html#bool)*{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsDistributionContext.resolve_regions}
+**resolve\_regions**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool)*{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsDistributionContext.resolve_regions}
 
-**regions\_tree**\: *[RegionsTree](#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsTree) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsDistributionContext.regions_tree}
+**regions\_tree**\: *[RegionsTree](#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsTree) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsDistributionContext.regions_tree}
 
 **\_\_init\_\_**(*resolve\_regions*, *regions\_tree*){#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsDistributionContext.__init__i}
 
 #|
 || Parameters | 
 
-- **resolve\_regions** ([*bool*](https://docs.python.org/3/library/functions.html#bool))
+- **resolve\_regions** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool))
 - **regions\_tree** ([*RegionsTree*](#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsTree) *\| None*) ||
 || Return type | None ||
 |#
@@ -418,7 +418,7 @@ RegionsDistribution(\_distribution: ‘tuple[RegionItem, …]’)
 **\_\_init\_\_**(*\_distribution*){#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsDistribution.__init__i}
 
 #|
-|| Parameters | **\_distribution** ([*tuple*](https://docs.python.org/3/library/stdtypes.html#tuple)*[*[*RegionItem*](#yandex_ai_studio_sdk._search_api.wordstat.result.RegionItem)*, ...]*) ||
+|| Parameters | **\_distribution** ([*tuple*](https://docs.python.org/3/builtins/stdtypes.html#tuple)*[*[*RegionItem*](#yandex_ai_studio_sdk._search_api.wordstat.result.RegionItem)*, ...]*) ||
 || Return type | None ||
 |#
 
@@ -458,8 +458,8 @@ RegionsTree(\_regions: ‘MappingProxyType[str, Region]’)
 #|
 || Parameters | 
 
-- **label** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **first** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) ||
+- **label** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **first** ([*bool*](https://docs.python.org/3/builtins/functions.html#bool)) ||
 |#
 
 **values**() → an object providing a view on D's values{#yandex_ai_studio_sdk._search_api.wordstat.result.RegionsTree.values}
@@ -487,8 +487,8 @@ Search type.
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.enums.SearchType.__new__i}
@@ -579,8 +579,8 @@ Regardless of a search query, documents of the Adult category and those with pro
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.enums.FamilyMode.__new__i}
@@ -667,8 +667,8 @@ Autocorrection is off.
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.enums.FixTypoMode.__new__i}
@@ -755,8 +755,8 @@ Direct order from most recent to oldest (default).
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.enums.SortOrder.__new__i}
@@ -843,8 +843,8 @@ Sort documents by update time.
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.enums.SortMode.__new__i}
@@ -931,8 +931,8 @@ Grouping by domain. Each group contains documents from one domain.
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.enums.GroupMode.__new__i}
@@ -1023,8 +1023,8 @@ Maximum number of groups that can be returned per page.
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.enums.Localization.__new__i}
@@ -1107,8 +1107,8 @@ Search result format
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.enums.Format.__new__i}
@@ -1197,8 +1197,8 @@ PNG format.
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.enums.ImageFormat.__new__i}
@@ -1287,8 +1287,8 @@ Square aspect ratio.
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.enums.ImageOrientation.__new__i}
@@ -1389,8 +1389,8 @@ Desktop wallpapers.
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.enums.ImageSize.__new__i}
@@ -1511,8 +1511,8 @@ Black is the main color of the image.
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.enums.ImageColor.__new__i}
@@ -1599,8 +1599,8 @@ Device type
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.wordstat.config.DeviceType.__new__i}
@@ -1685,8 +1685,8 @@ Requested period type
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.wordstat.config.PeriodType.__new__i}
@@ -1771,8 +1771,8 @@ Requested type of regions distribution
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
-- **value** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str))
+- **value** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **\_\_new\_\_**(*value*){#yandex_ai_studio_sdk._search_api.wordstat.config.RegionsDistributionType.__new__i}

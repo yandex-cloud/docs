@@ -21,8 +21,8 @@ Constructs the URI for the model based on the provided model’s name and versio
 #|
 || Parameters | 
 
-- **model\_name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the name or URI of the model to call.
-- **model\_version** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the version of the model to use. Defaults to ‘latest’. ||
+- **model\_name** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – the name or URI of the model to call.
+- **model\_version** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – the version of the model to use. Defaults to ‘latest’. ||
 || Return type | [*ModelTypeT*](../../types/other.md#yandex_ai_studio_sdk._types.model.ModelTypeT) ||
 |#
 
@@ -30,7 +30,7 @@ Constructs the URI for the model based on the provided model’s name and versio
 
 ## *class* yandex\_ai\_studio\_sdk.\_models.image\_generation.model.**AsyncImageGenerationModel**{#yandex_ai_studio_sdk._models.image_generation.model.AsyncImageGenerationModel}
 
-A class of the one, concrete model. This model encapsulates the URI and configuration.
+A class for a single, concrete model. This model encapsulates the URI and configuration.
 
 *async* **run\_deferred**(*messages*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *timeout=60*){#yandex_ai_studio_sdk._models.image_generation.model.AsyncImageGenerationModel.run_deferred}
 
@@ -39,8 +39,8 @@ Executes the image generation operation asynchronously and returns an operation 
 #|
 || Parameters | 
 
-- **messages** ([*ImageMessage*](../../types/message.md#yandex_ai_studio_sdk._models.image_generation.message.ImageMessage) *\|* [*ImageMessageDict*](../../types/message.md#yandex_ai_studio_sdk._models.image_generation.message.ImageMessageDict) *\|* [*TextMessage*](../../types/message.md#yandex_ai_studio_sdk._types.message.TextMessage) *\|* [*AnyMessage*](../../types/message.md#yandex_ai_studio_sdk._models.image_generation.message.AnyMessage) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*ImageMessage*](../../types/message.md#yandex_ai_studio_sdk._models.image_generation.message.ImageMessage) *\|* [*ImageMessageDict*](../../types/message.md#yandex_ai_studio_sdk._models.image_generation.message.ImageMessageDict) *\|* [*TextMessage*](../../types/message.md#yandex_ai_studio_sdk._types.message.TextMessage) *\|* [*AnyMessage*](../../types/message.md#yandex_ai_studio_sdk._models.image_generation.message.AnyMessage) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*) – the input messages for image generation.
-- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
+- **messages** ([*ImageMessage*](../../types/message.md#yandex_ai_studio_sdk._models.image_generation.message.ImageMessage) *\|* [*ImageMessageDict*](../../types/message.md#yandex_ai_studio_sdk._models.image_generation.message.ImageMessageDict) *\|* [*TextMessage*](../../types/message.md#yandex_ai_studio_sdk._types.message.TextMessage) *\|* [*AnyMessage*](../../types/message.md#yandex_ai_studio_sdk._models.image_generation.message.AnyMessage) *\|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*ImageMessage*](../../types/message.md#yandex_ai_studio_sdk._models.image_generation.message.ImageMessage) *\|* [*ImageMessageDict*](../../types/message.md#yandex_ai_studio_sdk._models.image_generation.message.ImageMessageDict) *\|* [*TextMessage*](../../types/message.md#yandex_ai_studio_sdk._types.message.TextMessage) *\|* [*AnyMessage*](../../types/message.md#yandex_ai_studio_sdk._models.image_generation.message.AnyMessage) *\|* [*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*]*) – the input messages for image generation.
+- **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – the timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
 || Return type | [*AsyncOperation*](../../types/operation.md#yandex_ai_studio_sdk._types.operation.AsyncOperation)[[*ImageGenerationModelResult*](../../types/model_results.md#yandex_ai_studio_sdk._models.image_generation.result.ImageGenerationModelResult)] ||
 |#
 
@@ -51,8 +51,8 @@ Attaches to an ongoing deferred operation using its operation id.
 #|
 || Parameters | 
 
-- **operation\_id** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the id of the deferred operation to attach to.
-- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
+- **operation\_id** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – the id of the deferred operation to attach to.
+- **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – the timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
 || Return type | *OperationTypeT* ||
 |#
 
@@ -65,19 +65,19 @@ Configures the image generation model with specified parameters and returns the 
 #|
 || Parameters | 
 
-- **seed** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a random seed for generation.
-- **width\_ratio** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the width ratio for the generated image.
-- **height\_ratio** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the height ratio for the generated image.
-- **mime\_type** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the MIME type of the generated image. Read more on what MIME types exist in [the documentation](https://aistudio.yandex.ru/docs/ai-studio/image-generation/api-ref/ImageGenerationAsync/generate). ||
+- **seed** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – a random seed for generation.
+- **width\_ratio** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the width ratio for the generated image.
+- **height\_ratio** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the height ratio for the generated image.
+- **mime\_type** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the MIME type of the generated image. Read more on what MIME types exist in [the documentation](https://aistudio.yandex.ru/docs/ai-studio/image-generation/api-ref/ImageGenerationAsync/generate). ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
 
-*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._models.image_generation.model.AsyncImageGenerationModel.fine_tuned}
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._models.image_generation.model.AsyncImageGenerationModel.fine_tuned}
 
-*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._models.image_generation.model.AsyncImageGenerationModel.name}
+*property* **name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._models.image_generation.model.AsyncImageGenerationModel.name}
 
-*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._models.image_generation.model.AsyncImageGenerationModel.owner}
+*property* **owner**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._models.image_generation.model.AsyncImageGenerationModel.owner}
 
-*property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._models.image_generation.model.AsyncImageGenerationModel.uri}
+*property* **uri**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._models.image_generation.model.AsyncImageGenerationModel.uri}
 
-*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._models.image_generation.model.AsyncImageGenerationModel.version}
+*property* **version**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._models.image_generation.model.AsyncImageGenerationModel.version}

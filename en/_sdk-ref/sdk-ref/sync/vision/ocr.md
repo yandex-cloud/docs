@@ -13,8 +13,8 @@ Refer to [OCR documentation](https://aistudio.yandex.ru/docs/vision/concepts/ocr
 #|
 || Parameters | 
 
-- **language\_codes** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – List of languages to recognize text, in ISO 639-1 format (e.g. **"ru"**, **"en"**). See [supported languages](https://aistudio.yandex.ru/docs/vision/concepts/ocr/supported-languages.html).
-- **model** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Model to use for text recognition. General models: **"page"** (default), **"page-column-sort"**, **"handwritten"**, **"table"**, **"markdown"**, **"math-markdown"**. Document template models: **"passport"**, **"driver-license-front"**, **"driver-license-back"**, **"vehicle-registration-front"**, **"vehicle-registration-back"**, **"license-plates"**. See [models](https://aistudio.yandex.ru/docs/vision/concepts/ocr/#models) and [document recognition](https://aistudio.yandex.ru/docs/vision/concepts/ocr/template-recognition). ||
+- **language\_codes** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*] \|* [*Undefined*](../../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – List of languages to recognize text, in ISO 639-1 format (e.g. **"ru"**, **"en"**). See [supported languages](https://aistudio.yandex.ru/docs/vision/concepts/ocr/supported-languages.html).
+- **model** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Model to use for text recognition. General models: **"page"** (default), **"page-column-sort"**, **"handwritten"**, **"table"**, **"markdown"**, **"math-markdown"**. Document template models: **"passport"**, **"driver-license-front"**, **"driver-license-back"**, **"vehicle-registration-front"**, **"vehicle-registration-back"**, **"license-plates"**. See [models](https://aistudio.yandex.ru/docs/vision/concepts/ocr/models) and [document recognition](https://aistudio.yandex.ru/docs/vision/concepts/ocr/models#document-models). ||
 || Return type | [*OCRTypeT*](../../types/other.md#yandex_ai_studio_sdk._vision.ocr.ocr.OCRTypeT) ||
 |#
 
@@ -29,9 +29,9 @@ OCR class which provides methods for working with Yandex Vision OCR API.
 #|
 || Parameters | 
 
-- **content** ([*bytes*](https://docs.python.org/3/library/stdtypes.html#bytes))
-- **mime\_type** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
-- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) ||
+- **content** ([*bytes*](https://docs.python.org/3/builtins/stdtypes.html#bytes))
+- **mime\_type** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
+- **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) ||
 || Return type | [*OCRResult*](../../types/vision.md#yandex_ai_studio_sdk._vision.ocr.result.OCRResult) ||
 |#
 
@@ -40,9 +40,9 @@ OCR class which provides methods for working with Yandex Vision OCR API.
 #|
 || Parameters | 
 
-- **content** ([*bytes*](https://docs.python.org/3/library/stdtypes.html#bytes))
-- **mime\_type** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
-- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) ||
+- **content** ([*bytes*](https://docs.python.org/3/builtins/stdtypes.html#bytes))
+- **mime\_type** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined))
+- **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) ||
 || Return type | [*Operation*](../../types/operation.md#yandex_ai_studio_sdk._types.operation.Operation)[[*OCRResult*](../../types/vision.md#yandex_ai_studio_sdk._vision.ocr.result.OCRResult)] ||
 |#
 
@@ -53,8 +53,8 @@ Attaches to an ongoing deferred operation using its operation id.
 #|
 || Parameters | 
 
-- **operation\_id** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the id of the deferred operation to attach to.
-- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
+- **operation\_id** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – the id of the deferred operation to attach to.
+- **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – the timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
 || Return type | *OperationTypeT* ||
 |#
 
@@ -67,17 +67,17 @@ Returns the new object with config fields overridden by passed values.
 #|
 || Parameters | 
 
-- **language\_codes** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – List of languages to recognize text, in ISO 639-1 format (e.g. **"ru"**, **"en"**). See [supported languages](https://aistudio.yandex.ru/docs/vision/concepts/ocr/supported-languages.html).
-- **model** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Model to use for text recognition. General models: **"page"** (default), **"page-column-sort"**, **"handwritten"**, **"table"**, **"markdown"**, **"math-markdown"**. Document template models: **"passport"**, **"driver-license-front"**, **"driver-license-back"**, **"vehicle-registration-front"**, **"vehicle-registration-back"**, **"license-plates"**. See [models](https://aistudio.yandex.ru/docs/vision/concepts/ocr/#models) and [document recognition](https://aistudio.yandex.ru/docs/vision/concepts/ocr/template-recognition). ||
+- **language\_codes** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/builtins/stdtypes.html#str)*] \|* [*Undefined*](../../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – List of languages to recognize text, in ISO 639-1 format (e.g. **"ru"**, **"en"**). See [supported languages](https://aistudio.yandex.ru/docs/vision/concepts/ocr/supported-languages.html).
+- **model** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str) *\|* [*Undefined*](../../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Model to use for text recognition. General models: **"page"** (default), **"page-column-sort"**, **"handwritten"**, **"table"**, **"markdown"**, **"math-markdown"**. Document template models: **"passport"**, **"driver-license-front"**, **"driver-license-back"**, **"vehicle-registration-front"**, **"vehicle-registration-back"**, **"license-plates"**. See [models](https://aistudio.yandex.ru/docs/vision/concepts/ocr/models) and [document recognition](https://aistudio.yandex.ru/docs/vision/concepts/ocr/models#document-models). ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
 
-*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._vision.ocr.ocr.OCR.fine_tuned}
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/builtins/functions.html#bool) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._vision.ocr.ocr.OCR.fine_tuned}
 
-*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._vision.ocr.ocr.OCR.name}
+*property* **name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._vision.ocr.ocr.OCR.name}
 
-*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._vision.ocr.ocr.OCR.owner}
+*property* **owner**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._vision.ocr.ocr.OCR.owner}
 
-*property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._vision.ocr.ocr.OCR.uri}
+*property* **uri**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._vision.ocr.ocr.OCR.uri}
 
-*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._vision.ocr.ocr.OCR.version}
+*property* **version**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._vision.ocr.ocr.OCR.version}

@@ -1,11 +1,12 @@
 
-The `ai.assistants.viewer` role enables viewing info on files and {{ vector-store-name }} search indexes as well as conducting searches using these indexes.
+The `ai.assistants.viewer` role enables viewing info on {{ responses-api }} configurations, files, and search indexes, as well as conducting searches using these indexes.
 
 Users with this role can:
 
 
+* View info on [{{ responses-api }} configurations]({{ link-docs-ai }}ai-studio/operations/generation/create-prompt).
 * View info on uploaded [files]({{ link-docs-ai }}ai-studio/concepts/search/vectorstore#file-uploading) and their contents.
-* View info on {{ vector-store-name }} [search indexes]({{ link-docs-ai }}ai-studio/concepts/search/vectorstore) as well as conduct searches using these indexes.
+* View info on [search indexes]({{ link-docs-ai }}ai-studio/concepts/search/vectorstore) as well as conduct searches using these indexes.
 * View info on {{ ai-studio-full-name }} [quotas]({{ link-docs-ai }}ai-studio/concepts/limits#yandexgpt-quotas).
 * View info on the relevant [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud).
 * View info on the relevant [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).

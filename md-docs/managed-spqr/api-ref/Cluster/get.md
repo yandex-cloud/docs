@@ -57,7 +57,9 @@ The maximum string length in characters is 50. ||
           "defaultTargetSessionAttrs": "string",
           "defaultCommitStrategy": "string",
           "allowPostprocessing": "boolean",
-          "autoRouteRoOnStandby": "boolean"
+          "autoRouteRoOnStandby": "boolean",
+          "allowTwoPhaseCommit": "boolean",
+          "allowAutoprotectTwoPhase": "boolean"
         },
         "resources": {
           "resourcePresetId": "string",
@@ -105,7 +107,9 @@ The maximum string length in characters is 50. ||
           "defaultTargetSessionAttrs": "string",
           "defaultCommitStrategy": "string",
           "allowPostprocessing": "boolean",
-          "autoRouteRoOnStandby": "boolean"
+          "autoRouteRoOnStandby": "boolean",
+          "allowTwoPhaseCommit": "boolean",
+          "allowAutoprotectTwoPhase": "boolean"
         },
         "coordinator": {
           "iterationTimeout": "string",
@@ -390,6 +394,8 @@ Configuration of a SPQR router.
 - `TWO_PC` ||
 || allowPostprocessing | **boolean** ||
 || autoRouteRoOnStandby | **boolean** ||
+|| allowTwoPhaseCommit | **boolean** ||
+|| allowAutoprotectTwoPhase | **boolean** ||
 |#
 
 ## Resources {#yandex.cloud.mdb.spqr.v1.Resources}

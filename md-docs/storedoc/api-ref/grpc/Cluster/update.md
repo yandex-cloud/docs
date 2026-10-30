@@ -1283,7 +1283,8 @@ Updates the specified StoreDoc cluster.
           "operation_profiling": {
             "mode": "Mode",
             "slow_op_threshold": "google.protobuf.Int64Value",
-            "slow_op_sample_rate": "google.protobuf.DoubleValue"
+            "slow_op_sample_rate": "google.protobuf.DoubleValue",
+            "filter": "string"
           },
           "net": {
             "max_incoming_connections": "google.protobuf.Int64Value",
@@ -1360,7 +1361,8 @@ Updates the specified StoreDoc cluster.
           },
           "operation_profiling": {
             "mode": "Mode",
-            "slow_op_threshold": "google.protobuf.Int64Value"
+            "slow_op_threshold": "google.protobuf.Int64Value",
+            "filter": "string"
           },
           "net": {
             "max_incoming_connections": "google.protobuf.Int64Value"
@@ -1422,7 +1424,8 @@ Updates the specified StoreDoc cluster.
           "chunk_size": "google.protobuf.Int64Value",
           "operation_profiling": {
             "slow_op_threshold": "google.protobuf.Int64Value",
-            "slow_op_sample_rate": "google.protobuf.DoubleValue"
+            "slow_op_sample_rate": "google.protobuf.DoubleValue",
+            "filter": "string"
           },
           "balancer_config": {
             "secondary_throttle": {
@@ -1484,7 +1487,8 @@ Updates the specified StoreDoc cluster.
           "chunk_size": "google.protobuf.Int64Value",
           "operation_profiling": {
             "slow_op_threshold": "google.protobuf.Int64Value",
-            "slow_op_sample_rate": "google.protobuf.DoubleValue"
+            "slow_op_sample_rate": "google.protobuf.DoubleValue",
+            "filter": "string"
           },
           "balancer_config": {
             "secondary_throttle": {
@@ -1514,7 +1518,8 @@ Updates the specified StoreDoc cluster.
           },
           "operation_profiling": {
             "mode": "Mode",
-            "slow_op_threshold": "google.protobuf.Int64Value"
+            "slow_op_threshold": "google.protobuf.Int64Value",
+            "filter": "string"
           },
           "net": {
             "max_incoming_connections": "google.protobuf.Int64Value"
@@ -1550,6 +1555,10 @@ Updates the specified StoreDoc cluster.
       "target_free_space": "google.protobuf.Int64Value",
       "bloat_percent": "google.protobuf.DoubleValue",
       "compaction_type": "CompactionType"
+    },
+    "monium_logs": {
+      "enabled": "google.protobuf.BoolValue",
+      "project": "string"
     }
   },
   "name": "string",
@@ -1619,7 +1628,6 @@ New name for the cluster.
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.mongodb.v1.MaintenanceWindow)**
 
-Deprecated. Use maintenance_windows instead.
 New maintenance window settings for the cluster. ||
 || security_group_ids[] | **string**
 
@@ -1742,6 +1750,9 @@ Configuration and resource allocation for a StoreDoc cluster. ||
 || autocompact_config | **[AutoCompactConfig](#yandex.cloud.mdb.mongodb.v1.AutoCompactConfig)**
 
 AutoCompact config ||
+|| monium_logs | **[MoniumLogs](#yandex.cloud.mdb.mongodb.v1.MoniumLogs)**
+
+Monium logs shipping settings ||
 |#
 
 ## MongodbSpec3_6 {#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6}
@@ -5276,6 +5287,9 @@ The fraction of slow operations that should be profiled or logged.
 operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
 
 Acceptable values are 0 to 1, inclusive. ||
+|| filter | **string**
+
+Filter for operations to profile or log, specified as a JSON object string. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Network}
@@ -5562,6 +5576,9 @@ for longer than this threshold are considered slow, and are processed by the pro
 running in the SLOW_OP mode. For details see [MongoDB documentation](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpThresholdMs).
 
 Value must be greater than 0. ||
+|| filter | **string**
+
+Filter for operations to profile or log, specified as a JSON object string. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network}
@@ -5773,6 +5790,9 @@ The fraction of slow operations that should be logged.
 operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
 
 Acceptable values are 0 to 1, inclusive. ||
+|| filter | **string**
+
+Filter for operations to log, specified as a JSON object string. ||
 |#
 
 ## BalancerConfig {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.BalancerConfig}
@@ -5873,6 +5893,20 @@ Type of compaction. Either switch primary to run compaction on all hosts or igno
 
 - `COMPACTION_TYPE_IGNORE_PRIMARY`: Run compaction on all hosts except primary.
 - `COMPACTION_TYPE_SWITCH_PRIMARY`: Switch primary to run compaction on all hosts. ||
+|#
+
+## MoniumLogs {#yandex.cloud.mdb.mongodb.v1.MoniumLogs}
+
+#|
+||Field | Description ||
+|| enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Whether cluster logs are shipped to Monium. If not set, the installation default is used. ||
+|| project | **string**
+
+Monium project to ship cluster logs to. If empty, the default project is used.
+
+The maximum string length in characters is 64. Value must match the regular expression ` [a-zA-Z0-9_.-]* `. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.mongodb.v1.MaintenanceWindow}

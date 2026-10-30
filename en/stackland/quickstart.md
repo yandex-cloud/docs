@@ -16,7 +16,7 @@ To deploy {{ stackland-name }}, you need the following minimum infrastructure:
 * Three servers or VMs with 32 vCPUs and 64 GB RAM connected via an L2 network.
 * Each server must have at least two disks: one for the system and the other for the data. The latter stores internal data of {{ stackland-name }} components, database files, {{ objstorage-name }} objects, etc.
 * The minimum system disk size is 150 GB. For servers with the `control-plane` and `combined` roles (see below), you need an SSD or NVMe as the system disk. Servers with the `worker` role can take any system disk type (HDD, SSD, or NVMe).
-* The cluster must have at least 1 TB of total data storage disk capacity.
+* The minimum size of each disk for data storage is 800 GB.
 * Servers need to be able to synchronize time: preferably a local NTP or an NTP web server.
 
 You will also need a computer or jump host to access the cluster from.
@@ -77,13 +77,15 @@ If you are unable to use wildcards, then the following FQDNs must point to the f
 
 ## Initial configuration {#configuration}
 
-Before installing {{ stackland-name }}, describe the new cluster infrastructure in configuration files. {{ stackland-name }} configuration files use the YAML format and Kubernetes resource syntax. You can store the configuration in one or more files. The installer automatically loads all files that end with `.yml` or `.yaml` from the specified directory. To include multiple resources in a single configuration file, use `---` as a separator. We recommend defining each resource in a dedicated file. This helps you manage configuration and track changes more easily.
+Before installing {{ stackland-name }}, describe the new cluster infrastructure in configuration files. {{ stackland-name }} configuration files use the YAML format and Kubernetes resource syntax. You can store the configuration in one or more files. The installer automatically loads all files that end with `.yml` or `.yaml` from the specified directory and its subdirectories. To include multiple resources in a single configuration file, use `---` as a separator. We recommend defining each resource in a dedicated file. This helps you manage configuration and track changes more easily.
 
-No matter how resources are distributed across files, the {{ stackland-name }} configuration consists of three parts:
+No matter how resources are distributed across files, the {{ stackland-name }} configuration includes three required parts:
 
 * **Cluster configuration** (the `StacklandClusterConfig` resource): Includes general cluster settings, such as domain, network ranges, platform parameters, and load balancer settings.
 * **Host configuration** (the `StacklandHostsList` resource): Includes cluster server details, such as host names, roles, and node-specific settings.
 * **Secrets** (the `StacklandSecretsConfig` resource): Includes secrets, such as a license key or an internal CA certificate. Use the `sladm secrets` command to manage this resource.
+
+You can additionally set the [configurations of specific components](#component-configuration), e.g., `StorageConfig`, `MonitoringConfig`, `LoggingConfig`, or `SecretsStoreConfig`. These resources allow you to change component settings before their first installation.
 
 Below is an example of a configuration file (to make it simple, all resources are combined into one file):
 
@@ -156,6 +158,83 @@ sladm secrets update config/secrets.yaml --license-key key.json --regenerate
 ```
 
 This command will generate a new self-signed intermediate CA certificate and key. Use `--regenerate` with caution to avoid losing secrets from clusters you have already deployed.
+
+### Configuring components before installation {#component-configuration}
+
+During the first cluster installation, you can specify your own component settings, e.g., enable [{{ objstorage-name }}](concepts/components/storage.md), change the Prometheus storage size, or select the Loki log retention period. If the component configuration is not specified, it will be set to default.
+
+A component configuration is the YAML manifest of a custom resource containing the `apiVersion`, `kind`, `metadata.name`, and `spec` fields. Only one configuration is allowed for each resource type, and the resource name must be `main`.
+
+{% note info %}
+
+The configuration from your file completely replaces the standard component configuration. Start with the generated template and modify only the values you need to change, preserving the other fields.
+
+{% endnote %}
+
+In the example below, the {{ objstorage-name }} component is enabled during cluster installation. For storage, three servers with SSDs are used. The size of each volume is `500Gi`, while the S3 API cache is `512` MB. Such storage requires at least three nodes with suitable disks and resources: `worker` when roles are separate or `combined` when roles are combined.
+
+Before you start, create configurations for the cluster, hosts, and [secrets](#prepare-secrets) in the `config/` directory.
+
+1. Generate an {{ objstorage-name }} configuration template:
+
+   ```bash
+   sladm config gen-defaults components --filter storage --out-dir config/components
+   ```
+
+   Where:
+
+   * `--filter`: Component names separated by commas, e.g., `storage` for {{ objstorage-name }} or `monitoring,logging,secrets-store` for {{ monitoring-name }}, Logging Stack, and Secrets Store. Without this parameter, or if set to `all`, templates for all components available for the custom configuration are created.
+   * `--out-dir` (`-o`): Template directory. The default value is `./components`. If the directory does not exist, the command will create it.
+
+   The command works without a connection to the cluster and creates the `config/components/storage.yaml` file. Repeated generation to the same directory will overwrite the files with the same names.
+
+1. Edit `config/components/storage.yaml`:
+
+   ```yaml
+   apiVersion: stackland.yandex.cloud/v1alpha1
+   kind: StorageConfig
+   metadata:
+     name: main
+   spec:
+     enabled: true
+     settings:
+       api:
+         s3CacheMB: 512
+       storage:
+         diskType: SSD
+         servers: 3
+         size: 500Gi
+   ```
+
+   Where:
+
+   * `spec.enabled: true`: Enables the component. {{ objstorage-name }} is disabled in the template.
+   * `spec.settings.api.s3CacheMB`: S3 API cache size in RAM, in megabytes.
+   * `spec.settings.storage.diskType`: Disk type for storage, `SSD` or `HDD`.
+   * `spec.settings.storage.servers`: Number of storage servers. Each server is deployed on a separate node.
+   * `spec.settings.storage.size`: PVC size for a storage volume, not the total useful storage capacity. For SSDs, the recommended minimum is `138Gi`.
+
+   Save the required `diskType`, `servers`, and `size` fields: one fragment with `s3CacheMB` is not sufficient for configuring {{ objstorage-name }}.
+
+1. Check the entire configuration directory:
+
+   ```bash
+   sladm validate --config config/
+   ```
+
+   In the `--config` parameter, specify the directory with all configurations: for the cluster, hosts, secrets, and components. You can store component files in subdirectories as in this example.
+
+   Before proceeding with installation, fix any errors the command warns you about.
+
+After a successful check, continue [configuring servers](#server-installation) and [installing the cluster](#installation). Specify the same `config/` directory in the `--config` parameter of the `sladm install` command. The components will be installed with the specified settings.
+
+{% note warning %}
+
+This configuration method is designed for the first installation of a new cluster. Running `sladm install` again does not apply changes from these files to already installed components. For a running cluster, change the settings via the relevant custom resources while factoring in component limitations.
+
+Some fields cannot be changed after the resource is created. For example, specify the size and class of the Prometheus storage in `MonitoringConfig` before installation. For more about the parameters, see the [{{ monitoring-name }}](concepts/components/monitoring.md#configuration) section.
+
+{% endnote %}
 
 ## Pre-configuring servers {#server-installation}
 
@@ -288,7 +367,7 @@ sladm install --config config/ --installation-timeout 2h
 
 If the installation does not complete within the allotted time, re-run it as described above. To speed up the process, use `--ignore-checks`. In most cases, this is enough to complete the installation successfully.
 
-Once the installation is complete, the system will create a context for the `cluster-admin` role in the deployed cluster. It will be created in the local file the `$KUBECONFIG` environment variable (`$HOME/.kube/config` by default) points to. This is a superuser role that allows performing any operations, including destructive ones. If the access to the kubeconfig file is unlimited on the host from which you ran installation, you may want to specify an alternative path to the created `kubeconfig` file using `--kubeconfig-path`:
+Once the installation is complete, the system will create a context for the `cluster-admin` role in the deployed cluster. It will be created in the local file the `$KUBECONFIG` environment variable (`$HOME/.kube/config` by default) points to. This is a superuser role that allows performing any operations, including destructive ones. If access to the `kubeconfig` file is unlimited on the host from which you ran installation, you may want to specify an alternative path to the created `kubeconfig` file using `--kubeconfig-path`:
 
 ```bash
 sladm install \
@@ -314,9 +393,17 @@ Once the cluster is deployed, you can access its various components:
 
 Once you make sure the console is available, create a user on whose behalf you will proceed with configuring, and download its `kubeconfig`.
 
+If you configured {{ objstorage-name }} using the [example above](#component-configuration), check the applied configuration using `kubeconfig` as the cluster administrator:
+
+```bash
+kubectl get storageconfig main -o yaml
+```
+
+Make sure the preconfigured values are set in `spec`: `enabled: true`, `settings.api.s3CacheMB: 512`, `settings.storage.diskType: SSD`, `settings.storage.servers: 3`, and `settings.storage.size: 500Gi`. After successfully installing a component, the `status.phase` field must have the `Ready` value.
+
 ## Installation errors and how to fix them {#troubleshooting}
 
-If the {{ stackland-name }} cluster deployment still fails, resolve the issue and reset all cluster machines to their initial state before re-running the installation. Proceed as follows:
+If the {{ stackland-name }} cluster deployment still fails, resolve the issue and reset all cluster machines to their initial state before re-running the installation. Follow these steps:
 
 * Boot the server from the {{ stackland-name }} installation image.
 * In the menu that opens, select **Reset Talos installation and return to maintenance mode**.

@@ -1,0 +1,1 @@
+Роль `ai.workRuntimes.auditor` позволяет просматривать метаданные [рабочих мест]({{ link-docs-ai }}ai-studio/manage/concepts/#work-runtime) пользователей и информацию о назначенных [правах доступа](../../../iam/concepts/access-control/index.md) к рабочим местам.

@@ -8,7 +8,7 @@ items:
         href: quickstart.md
       - name: Step-by-step guides
         items:
-          - name: Registration
+          - name: Signing up
             href: operations/registration.md
           - name: Creating a product in the partner dashboard
             href: operations/create-product.md
@@ -26,6 +26,8 @@ items:
             href: operations/create-configuration.md
           - name: Product access requests
             href: operations/access-requests.md
+          - name: Creating a private offer
+            href: operations/private-offers.md
       - name: Tutorials
         items:
           - name: Creating a demo {{ cloud-apps-name }} product
@@ -332,6 +334,8 @@ items:
                 href: operations/users/cancel-subscription.md
           - name: Requesting product access
             href: operations/users/access-requests.md
+          - name: Accepting a personalized offer
+            href: operations/users/private-offers.md
       - name: Tutorials
         items:
           - name: All tutorials

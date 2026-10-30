@@ -16,7 +16,6 @@ To use the `billing.accounts.admin` role, you need to assign it for a billing ac
 * [Execute API queries](../../../billing/operations/get-charges-via-api.md) to get usage details.
 * [Export details](../../../billing/operations/get-folder-report.md).
 * Create [budgets](../../../billing/concepts/budget.md).
-* [Reserve resource usage](../../../billing/concepts/cvos.md).
 * Top up their [personal account](../../../billing/concepts/personal-account.md) using a bank account.
 * Link [clouds](../../../resource-manager/concepts/resources-hierarchy.md#cloud) to a billing account.
 * Rename billing accounts.

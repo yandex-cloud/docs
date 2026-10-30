@@ -1,3 +1,8 @@
+---
+title: Custom {{ baremetal-full-name }} server configuration
+description: Select hardware specs for your {{ baremetal-name }} server and find out how to build it and prepare it for operation.
+---
+
 # Custom {{ baremetal-name }} server configuration {#custom}
 
 If looking for particular server hardware specifications, you can build a custom [server configuration](../operations/servers/custom-server-lease.md) by selecting the following:
@@ -16,4 +21,6 @@ As a starting point for your server configuration, you can use a _template_ that
 
 ## Building a server {#assembly}
 
-After you place the order, we start building a server based on your selected configuration. It may take up to four calendar days to build and start such a server. Once the build is complete and the server enters the `RUNNING` [status](./servers.md#server-status), you will get a notification and can start using the server.
+After being ordered, a server with your custom configuration switches to the `ASSEMBLING` [status](./servers.md#server-status), which means it is being assembled, installed, and connected to a network in the data center. Then the server switches to the `PROVISIONING` status, which means it is being prepared for operation. It may take up to four calendar days in total to build and prepare such a server.
+
+You will be notified when the preparation is complete and the server is in the `RUNNING` status, allowing you to use it.

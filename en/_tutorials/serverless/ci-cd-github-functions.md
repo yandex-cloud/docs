@@ -567,7 +567,7 @@ Run the [CI](#run-ci), [CT](#run-ct), and [CD](#run-cd) workflows one by one and
   1. Open the [management console]({{ link-console-main }}).
   1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select `from-github-ci`.
-  1. Navigate to the ![image](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. {% include [testing-function](../_tutorials_includes/ci-cd-github-functions/testing-function.md) %}
 
 {% endlist %}
@@ -596,7 +596,7 @@ Run the [CI](#run-ci), [CT](#run-ct), and [CD](#run-cd) workflows one by one and
   1. Open the [management console]({{ link-console-main }}).
   1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select `from-github-ct`.
-  1. Navigate to the ![image](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. {% include [testing-function](../_tutorials_includes/ci-cd-github-functions/testing-function.md) %}
 
 {% endlist %}
@@ -625,7 +625,7 @@ Run the [CI](#run-ci), [CT](#run-ct), and [CD](#run-cd) workflows one by one and
   1. Open the [management console]({{ link-console-main }}).
   1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select `from-github-cd`.
-  1. Navigate to the ![image](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. {% include [testing-function](../_tutorials_includes/ci-cd-github-functions/testing-function.md) %}
 
 {% endlist %}

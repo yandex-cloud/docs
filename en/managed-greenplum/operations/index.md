@@ -25,6 +25,7 @@ description: This page features step-by-step guides for {{ mgp-name }}.
 * [FQDNs of hosts](./connect/fqdn.md)
 * [Connecting to a cluster from applications](./connect/clients.md)
 * [Code examples for connecting to a cluster](./connect/code-examples.md)
+* [{#T}](./connect/update-tls-certificates.md)
 
 ## Databases {#databases}
 

@@ -13,8 +13,8 @@ Get tuning task by ID.
 #|
 || Parameters | 
 
-- **task\_id** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – Tuning task ID
-- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – The timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
+- **task\_id** ([*str*](https://docs.python.org/3/builtins/stdtypes.html#str)) – Tuning task ID
+- **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – The timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
 || Return type | [*AsyncTuningTask*](../types/tuning.md#yandex_ai_studio_sdk._tuning.tuning_task.AsyncTuningTask) ||
 |#
 
@@ -25,7 +25,7 @@ List tuning tasks.
 #|
 || Parameters | 
 
-- **page\_size** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Number of items per page (optional)
-- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – The timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
+- **page\_size** ([*int*](https://docs.python.org/3/builtins/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – Number of items per page (optional)
+- **timeout** ([*float*](https://docs.python.org/3/builtins/functions.html#float)) – The timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
 || Return type | [*AsyncIterator*](https://docs.python.org/3/library/collections.abc.html#collections.abc.AsyncIterator)[[*AsyncTuningTask*](../types/tuning.md#yandex_ai_studio_sdk._tuning.tuning_task.AsyncTuningTask)] ||
 |#

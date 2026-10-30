@@ -32,15 +32,15 @@ apiPlayground:
             **object** (map<**string**, **string**>)
             Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource.
             For example, "project": "mvp" or "source": "dictionary".
-            The maximum string length in characters for each value is 63. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][0-9a-z_-]* `. Each value must match the regular expression ` [0-9a-z_-]* `. No more than 64 per resource.
+            The maximum string length in characters for each value is 63. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. Each value must match the regular expression ` [-_./\@0-9a-z]* `. No more than 64 per resource.
           type: object
           additionalProperties:
             type: string
-            pattern: '[0-9a-z_-]*'
+            pattern: '[-_./\@0-9a-z]*'
             maxLength: 63
           propertyNames:
             type: string
-            pattern: '[a-z][0-9a-z_-]*'
+            pattern: '[a-z][-_./\@0-9a-z]*'
           maxProperties: 64
         environment:
           description: |-
@@ -1743,6 +1743,14 @@ apiPlayground:
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_common_pool_size).
             type: string
             format: int64
+          maxBackupsIoThreadPoolSize:
+            description: |-
+              **string** (int64)
+              The maximum number of threads that will be used for executing **BACKUP** and **RESTORE** requests.
+              Default value: **64**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/server-settings/settings/max-backups#max_backups_io_thread_pool_size).
+            type: string
+            format: int64
           dictionariesLazyLoad:
             description: |-
               **boolean**
@@ -2172,6 +2180,32 @@ apiPlayground:
               **string** (int64)
               The maximum time that query_metric_log records will be retained before removal. If set to **0**,
               automatic removal of query_metric_log data based on time is disabled.
+              Default value: **2592000000** (30 days).
+            default: '**2592000000** (30 days)'
+            type: string
+            format: int64
+          s3queueLogEnabled:
+            description: |-
+              **boolean**
+              Enables or disables s3queue_log system table.
+              Default value: **false**.
+              Change of the setting is applied with restart.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/system-tables/s3queue_log).
+            type: boolean
+          s3queueLogRetentionSize:
+            description: |-
+              **string** (int64)
+              The maximum size that s3queue_log can grow to before old data will be removed. If set to **0**,
+              automatic removal of s3queue_log data based on size is disabled.
+              Default value: **536870912** (512 MiB).
+            default: '**536870912** (512 MiB)'
+            type: string
+            format: int64
+          s3queueLogRetentionTime:
+            description: |-
+              **string** (int64)
+              The maximum time that s3queue_log records will be retained before removal. If set to **0**,
+              automatic removal of s3queue_log data based on time is disabled.
               Default value: **2592000000** (30 days).
             default: '**2592000000** (30 days)'
             type: string
@@ -4721,7 +4755,7 @@ apiPlayground:
           type:
             description: |-
               **enum** (Type)
-              Required field. Type of the host to be deployed.
+              Type of the host to be deployed.
               - `CLICKHOUSE`: ClickHouse host.
               - `ZOOKEEPER`: ZooKeeper host.
               - `KEEPER`: ClickHouse Keeper host.
@@ -4756,8 +4790,6 @@ apiPlayground:
               The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
             pattern: '[a-zA-Z0-9_-]*'
             type: string
-        required:
-          - type
       AnytimeMaintenanceWindow:
         type: object
         properties: {}
@@ -4955,6 +4987,7 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
         "backgroundBufferFlushSchedulePoolSize": "string",
         "backgroundMessageBrokerSchedulePoolSize": "string",
         "backgroundCommonPoolSize": "string",
+        "maxBackupsIoThreadPoolSize": "string",
         "dictionariesLazyLoad": "boolean",
         "shutdownWaitUnfinishedQueries": "boolean",
         "shutdownWaitUnfinished": "string",
@@ -5003,6 +5036,9 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
         "queryMetricLogEnabled": "boolean",
         "queryMetricLogRetentionSize": "string",
         "queryMetricLogRetentionTime": "string",
+        "s3queueLogEnabled": "boolean",
+        "s3queueLogRetentionSize": "string",
+        "s3queueLogRetentionTime": "string",
         "automaticallyDetachedDataPartsRetentionTime": "string",
         "manuallyDetachedDataPartsRetentionTime": "string",
         "accessControlImprovements": {
@@ -5848,6 +5884,7 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
             "backgroundBufferFlushSchedulePoolSize": "string",
             "backgroundMessageBrokerSchedulePoolSize": "string",
             "backgroundCommonPoolSize": "string",
+            "maxBackupsIoThreadPoolSize": "string",
             "dictionariesLazyLoad": "boolean",
             "shutdownWaitUnfinishedQueries": "boolean",
             "shutdownWaitUnfinished": "string",
@@ -5896,6 +5933,9 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
             "queryMetricLogEnabled": "boolean",
             "queryMetricLogRetentionSize": "string",
             "queryMetricLogRetentionTime": "string",
+            "s3queueLogEnabled": "boolean",
+            "s3queueLogRetentionSize": "string",
+            "s3queueLogRetentionTime": "string",
             "automaticallyDetachedDataPartsRetentionTime": "string",
             "manuallyDetachedDataPartsRetentionTime": "string",
             "accessControlImprovements": {
@@ -6286,7 +6326,7 @@ The maximum string length in characters is 256. ||
 Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource.
 For example, "project": "mvp" or "source": "dictionary".
 
-The maximum string length in characters for each value is 63. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][0-9a-z_-]* `. Each value must match the regular expression ` [0-9a-z_-]* `. No more than 64 per resource. ||
+The maximum string length in characters for each value is 63. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. Each value must match the regular expression ` [-_./\@0-9a-z]* `. No more than 64 per resource. ||
 || environment | **enum** (Environment)
 
 Required field. Deployment environment of the ClickHouse cluster.
@@ -6501,6 +6541,13 @@ Default value: **8**.
 Change of the setting is applied with restart on value decrease and without restart on value increase.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_common_pool_size). ||
+|| maxBackupsIoThreadPoolSize | **string** (int64)
+
+The maximum number of threads that will be used for executing **BACKUP** and **RESTORE** requests.
+
+Default value: **64**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/server-settings/settings/max-backups#max_backups_io_thread_pool_size). ||
 || dictionariesLazyLoad | **boolean**
 
 Lazy loading of dictionaries. If enabled, then each dictionary is loaded on the first use. Otherwise, the server loads all dictionaries at startup.
@@ -6842,6 +6889,27 @@ Default value: **536870912** (512 MiB). ||
 
 The maximum time that query_metric_log records will be retained before removal. If set to **0**,
 automatic removal of query_metric_log data based on time is disabled.
+
+Default value: **2592000000** (30 days). ||
+|| s3queueLogEnabled | **boolean**
+
+Enables or disables s3queue_log system table.
+
+Default value: **false**.
+
+Change of the setting is applied with restart.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/system-tables/s3queue_log). ||
+|| s3queueLogRetentionSize | **string** (int64)
+
+The maximum size that s3queue_log can grow to before old data will be removed. If set to **0**,
+automatic removal of s3queue_log data based on size is disabled.
+
+Default value: **536870912** (512 MiB). ||
+|| s3queueLogRetentionTime | **string** (int64)
+
+The maximum time that s3queue_log records will be retained before removal. If set to **0**,
+automatic removal of s3queue_log data based on time is disabled.
 
 Default value: **2592000000** (30 days). ||
 || automaticallyDetachedDataPartsRetentionTime | **string** (int64)
@@ -10236,7 +10304,7 @@ To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.L
 The maximum string length in characters is 50. ||
 || type | **enum** (Type)
 
-Required field. Type of the host to be deployed.
+Type of the host to be deployed.
 
 - `CLICKHOUSE`: ClickHouse host.
 - `ZOOKEEPER`: ZooKeeper host.

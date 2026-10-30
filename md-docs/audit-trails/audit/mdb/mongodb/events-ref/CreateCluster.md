@@ -3023,7 +3023,8 @@
                 "operationProfiling": {
                   "mode": "string",
                   "slowOpThreshold": "string",
-                  "slowOpSampleRate": "number"
+                  "slowOpSampleRate": "number",
+                  "filter": "string"
                 },
                 "net": {
                   "maxIncomingConnections": "string",
@@ -3098,7 +3099,8 @@
                 "operationProfiling": {
                   "mode": "string",
                   "slowOpThreshold": "string",
-                  "slowOpSampleRate": "number"
+                  "slowOpSampleRate": "number",
+                  "filter": "string"
                 },
                 "net": {
                   "maxIncomingConnections": "string",
@@ -3173,7 +3175,8 @@
                 "operationProfiling": {
                   "mode": "string",
                   "slowOpThreshold": "string",
-                  "slowOpSampleRate": "number"
+                  "slowOpSampleRate": "number",
+                  "filter": "string"
                 },
                 "net": {
                   "maxIncomingConnections": "string",
@@ -3252,7 +3255,8 @@
                 },
                 "operationProfiling": {
                   "mode": "string",
-                  "slowOpThreshold": "string"
+                  "slowOpThreshold": "string",
+                  "filter": "string"
                 },
                 "net": {
                   "maxIncomingConnections": "string"
@@ -3282,7 +3286,8 @@
                 },
                 "operationProfiling": {
                   "mode": "string",
-                  "slowOpThreshold": "string"
+                  "slowOpThreshold": "string",
+                  "filter": "string"
                 },
                 "net": {
                   "maxIncomingConnections": "string"
@@ -3312,7 +3317,8 @@
                 },
                 "operationProfiling": {
                   "mode": "string",
-                  "slowOpThreshold": "string"
+                  "slowOpThreshold": "string",
+                  "filter": "string"
                 },
                 "net": {
                   "maxIncomingConnections": "string"
@@ -3376,7 +3382,8 @@
                 "chunkSize": "string",
                 "operationProfiling": {
                   "slowOpThreshold": "string",
-                  "slowOpSampleRate": "number"
+                  "slowOpSampleRate": "number",
+                  "filter": "string"
                 },
                 "balancerConfig": {
                   "secondaryThrottle": {
@@ -3426,7 +3433,8 @@
                 "chunkSize": "string",
                 "operationProfiling": {
                   "slowOpThreshold": "string",
-                  "slowOpSampleRate": "number"
+                  "slowOpSampleRate": "number",
+                  "filter": "string"
                 },
                 "balancerConfig": {
                   "secondaryThrottle": {
@@ -3476,7 +3484,8 @@
                 "chunkSize": "string",
                 "operationProfiling": {
                   "slowOpThreshold": "string",
-                  "slowOpSampleRate": "number"
+                  "slowOpSampleRate": "number",
+                  "filter": "string"
                 },
                 "balancerConfig": {
                   "secondaryThrottle": {
@@ -3540,7 +3549,8 @@
                 "chunkSize": "string",
                 "operationProfiling": {
                   "slowOpThreshold": "string",
-                  "slowOpSampleRate": "number"
+                  "slowOpSampleRate": "number",
+                  "filter": "string"
                 },
                 "balancerConfig": {
                   "secondaryThrottle": {
@@ -3590,7 +3600,8 @@
                 "chunkSize": "string",
                 "operationProfiling": {
                   "slowOpThreshold": "string",
-                  "slowOpSampleRate": "number"
+                  "slowOpSampleRate": "number",
+                  "filter": "string"
                 },
                 "balancerConfig": {
                   "secondaryThrottle": {
@@ -3640,7 +3651,8 @@
                 "chunkSize": "string",
                 "operationProfiling": {
                   "slowOpThreshold": "string",
-                  "slowOpSampleRate": "number"
+                  "slowOpSampleRate": "number",
+                  "filter": "string"
                 },
                 "balancerConfig": {
                   "secondaryThrottle": {
@@ -3672,7 +3684,8 @@
                 },
                 "operationProfiling": {
                   "mode": "string",
-                  "slowOpThreshold": "string"
+                  "slowOpThreshold": "string",
+                  "filter": "string"
                 },
                 "net": {
                   "maxIncomingConnections": "string"
@@ -3702,7 +3715,8 @@
                 },
                 "operationProfiling": {
                   "mode": "string",
-                  "slowOpThreshold": "string"
+                  "slowOpThreshold": "string",
+                  "filter": "string"
                 },
                 "net": {
                   "maxIncomingConnections": "string"
@@ -3732,7 +3746,8 @@
                 },
                 "operationProfiling": {
                   "mode": "string",
-                  "slowOpThreshold": "string"
+                  "slowOpThreshold": "string",
+                  "filter": "string"
                 },
                 "net": {
                   "maxIncomingConnections": "string"
@@ -3771,7 +3786,11 @@
           "bloatPercent": "number",
           "compactionType": "string"
         },
-        "balancerEnabled": "boolean"
+        "balancerEnabled": "boolean",
+        "moniumLogs": {
+          "enabled": "boolean",
+          "project": "string"
+        }
       },
       "networkId": "string",
       "health": "string",
@@ -4154,6 +4173,7 @@ Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mo
 || fullVersion | **string** ||
 || autocompactConfig | **[AutoCompactConfig](#yandex.cloud.mdb.mongodb.v1.AutoCompactConfig)** ||
 || balancerEnabled | **boolean** ||
+|| moniumLogs | **[MoniumLogs](#yandex.cloud.mdb.mongodb.v1.MoniumLogs)** ||
 |#
 
 ## Mongodb3_6 {#yandex.cloud.mdb.mongodb.v1.Mongodb3_6}
@@ -6725,6 +6745,7 @@ Value must be greater than 0. ||
 || slowOpSampleRate | **number** (double)
 
 Acceptable values are 0 to 1, inclusive. ||
+|| filter | **string** ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Network}
@@ -6909,6 +6930,7 @@ The minimum value is 0. ||
 || slowOpThreshold | **string** (int64)
 
 Value must be greater than 0. ||
+|| filter | **string** ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network}
@@ -7036,6 +7058,7 @@ Value must be greater than 0. ||
 || slowOpSampleRate | **number** (double)
 
 Acceptable values are 0 to 1, inclusive. ||
+|| filter | **string** ||
 |#
 
 ## BalancerConfig {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.BalancerConfig}
@@ -7099,6 +7122,16 @@ Value must be greater than 0. ||
 
 - `COMPACTION_TYPE_IGNORE_PRIMARY`
 - `COMPACTION_TYPE_SWITCH_PRIMARY` ||
+|#
+
+## MoniumLogs {#yandex.cloud.mdb.mongodb.v1.MoniumLogs}
+
+#|
+||Field | Description ||
+|| enabled | **boolean** ||
+|| project | **string**
+
+The maximum string length in characters is 64. Value must match the regular expression ` [a-zA-Z0-9_.-]* `. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.mongodb.v1.MaintenanceWindow}

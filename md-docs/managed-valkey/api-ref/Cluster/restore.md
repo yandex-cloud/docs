@@ -150,7 +150,13 @@ POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters:restore
       "aofMaxSizePercent": "string",
       "activedefrag": "boolean",
       "auditLog": "boolean",
-      "rebalanceEnabled": "boolean"
+      "rebalanceEnabled": "boolean",
+      "hashMaxListpackEntries": "string",
+      "hashMaxListpackValue": "string",
+      "listMaxListpackSize": "string",
+      "setMaxListpackEntries": "string",
+      "setMaxListpackValue": "string",
+      "zsetMaxListpackValue": "string"
     },
     "diskSizeAutoscaling": {
       "plannedUsageThreshold": "string",
@@ -191,6 +197,10 @@ POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters:restore
         "downThreshold": "string",
         "upThreshold": "string"
       }
+    },
+    "moniumLogs": {
+      "enabled": "boolean",
+      "project": "string"
     }
   },
   "hostSpecs": [
@@ -337,7 +347,6 @@ Deletion Protection inhibits deletion of the cluster ||
 Enable FQDN instead of ip ||
 || maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.redis.v1.MaintenanceWindow)**
 
-Deprecated. Use maintenance_windows instead.
 Window of maintenance operations. ||
 || authSentinel | **boolean**
 
@@ -427,6 +436,9 @@ to that edition. ||
 || shardAutoscalingSettings | **[ShardAutoscalingSettings](#yandex.cloud.mdb.redis.v1.ShardAutoscalingSettings)**
 
 Shard autoscaling settings for the cluster. ||
+|| moniumLogs | **[MoniumLogs](#yandex.cloud.mdb.redis.v1.MoniumLogs)**
+
+Monium logs shipping settings ||
 |#
 
 ## RedisConfig5_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0}
@@ -956,6 +968,34 @@ Enable/disable audit logs for Valkey ||
 || rebalanceEnabled | **boolean**
 
 Enables automatic slot rebalancing when shards are added or deleted. ||
+|| hashMaxListpackEntries | **string** (int64)
+
+Controls max number of entries in hash before conversion from memory-efficient listpack to CPU-efficient hash table.
+
+Acceptable values are 0 to 2048, inclusive. ||
+|| hashMaxListpackValue | **string** (int64)
+
+Controls max value size in hash before conversion from memory-efficient listpack to CPU-efficient hash table.
+
+Acceptable values are 0 to 2048, inclusive. ||
+|| listMaxListpackSize | **string** (int64)
+
+Controls max size of a listpack in list before creating a new listpack node. ||
+|| setMaxListpackEntries | **string** (int64)
+
+Controls max number of entries in set before conversion from memory-efficient listpack to CPU-efficient hash table.
+
+Acceptable values are 0 to 2048, inclusive. ||
+|| setMaxListpackValue | **string** (int64)
+
+Controls max value size in set before conversion from memory-efficient listpack to CPU-efficient hash table.
+
+Acceptable values are 0 to 2048, inclusive. ||
+|| zsetMaxListpackValue | **string** (int64)
+
+Controls max value size in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist.
+
+Acceptable values are 0 to 2048, inclusive. ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit}
@@ -1110,6 +1150,20 @@ Acceptable values are 0 to 100, inclusive. ||
 Threshold for upscaling
 
 Acceptable values are 0 to 100, inclusive. ||
+|#
+
+## MoniumLogs {#yandex.cloud.mdb.redis.v1.MoniumLogs}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Whether cluster logs are shipped to Monium. If not set, the installation default is used. ||
+|| project | **string**
+
+Monium project to ship cluster logs to. If empty, the default project is used.
+
+The maximum string length in characters is 64. Value must match the regular expression ` [a-zA-Z0-9_.-]* `. ||
 |#
 
 ## HostSpec {#yandex.cloud.mdb.redis.v1.HostSpec}

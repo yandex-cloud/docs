@@ -46,7 +46,6 @@ Creates a PostgreSQL cluster in the specified folder.
       "disk_size": "int64",
       "disk_type_id": "string"
     },
-    "autofailover": "google.protobuf.BoolValue",
     "backup_window_start": "google.type.TimeOfDay",
     "backup_retain_period_days": "google.protobuf.Int64Value",
     "access": {
@@ -281,7 +280,9 @@ Deprecated. Use maintenance_windows instead. ||
 Deprecated. Use yandex.cloud.mdb.postgresql.v1.BackupRetentionPolicyService.Create to create retention policies instead. ||
 || disk_encryption_key_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
-ID of the key to encrypt cluster disks. ||
+ID of the key to encrypt cluster disks.
+
+Value must match the regular expression ` [a-zA-Z0-9_.-]{0,50} `. ||
 || maintenance_windows | **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)**
 
 Maintenance windows.
@@ -416,9 +417,6 @@ Configuration of the connection pooler. ||
 || resources | **[Resources](#yandex.cloud.mdb.postgresql.v1.Resources)**
 
 Resources allocated to PostgreSQL hosts. ||
-|| autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
-
-Configuration setting which enables/disables autofailover in cluster. ||
 || backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
 
 Time to start the daily backup, in the UTC timezone. ||
@@ -1266,7 +1264,6 @@ Allows maintenance operations that may cause temporary write unavailability. ||
         "disk_size": "int64",
         "disk_type_id": "string"
       },
-      "autofailover": "google.protobuf.BoolValue",
       "backup_window_start": "google.type.TimeOfDay",
       "backup_retain_period_days": "google.protobuf.Int64Value",
       "access": {
@@ -1669,9 +1666,6 @@ Configuration of the connection pooler. ||
 || resources | **[Resources](#yandex.cloud.mdb.postgresql.v1.Resources2)**
 
 Resources allocated to PostgreSQL hosts. ||
-|| autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
-
-Configuration setting which enables/disables autofailover in cluster. ||
 || backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
 
 Time to start the daily backup, in the UTC timezone. ||

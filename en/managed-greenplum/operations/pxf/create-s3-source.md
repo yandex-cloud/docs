@@ -35,7 +35,7 @@ To get started, [create a static access key](../../../iam/operations/authenticat
         
         * In the **Endpoint** field, enter the S3 storage address.
             
-            The default value is `{{ s3-storage-host }}` for {{ objstorage-name }}.
+            The default value is `{{ s3-storage-host }}` for {{ objstorage-name }}. To connect via Private Endpoint, use the `{{ s3-storage-host-pe }}` address.
 
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -68,8 +68,8 @@ To get started, [create a static access key](../../../iam/operations/authenticat
 
         * `cluster-id`: Cluster ID. You can get it with the [list of clusters in the folder](../cluster-list.md#list-cluster).
         * `access-key`, `secret-key`: [ID and contents of the static access key](../../../iam/concepts/authorization/access-key.md).
-        * `endpoint`: S3 storage address. The value for {{ objstorage-name }} is `{{ s3-storage-host }}`. This is the default value.
-        * `fast-upload`: Fast upload of large files to S3 storage. The possible values are:
+        * `endpoint`: S3 storage address. The value for {{ objstorage-name }} is `{{ s3-storage-host }}`. This is the default value. To connect via Private Endpoint, use the `{{ s3-storage-host-pe }}` address.
+        * `fast-upload`: Fast upload of large files to S3 storage. Its possible values are:
             * `true`: Default value. PXF generates files in RAM (if out of RAM, it writes them to disk).
             * `false`: PXF generates files on disk.
 
@@ -106,11 +106,11 @@ To get started, [create a static access key](../../../iam/operations/authenticat
         * `s3`: External data source settings:
 
             * `accessKey`, `secretKey`: [ID and contents of the static access key](../../../iam/concepts/authorization/access-key.md).
-            * `fastUpload`: Fast upload of large files to S3 storage. The possible values are:
+            * `fastUpload`: Fast upload of large files to S3 storage. Its possible values are:
                 * `true`: Default value. PXF generates files in RAM (if out of RAM, it writes them to disk).
                 * `false`: PXF generates files on disk.
 
-            * `endpoint`: S3 storage address. The value for {{ objstorage-name }} is `{{ s3-storage-host }}`. This is the default value.
+            * `endpoint`: S3 storage address. The value for {{ objstorage-name }} is `{{ s3-storage-host }}`. This is the default value. To connect via Private Endpoint, use the `{{ s3-storage-host-pe }}` address.
 
         You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
@@ -155,11 +155,11 @@ To get started, [create a static access key](../../../iam/operations/authenticat
         * `s3`: External data source settings:
 
             * `access_key`, `secret_key`: [ID and contents of the static access key](../../../iam/concepts/authorization/access-key.md).
-            * `fast_upload`: Fast upload of large files to S3 storage. The possible values are:
+            * `fast_upload`: Fast upload of large files to S3 storage. Its possible values are:
                 * `true`: Default value. PXF generates files in RAM (if out of RAM, it writes them to disk).
                 * `false`: PXF generates files on disk.
 
-            * `endpoint`: S3 storage address. The value for {{ objstorage-name }} is `{{ s3-storage-host }}`. This is the default value.
+            * `endpoint`: S3 storage address. The value for {{ objstorage-name }} is `{{ s3-storage-host }}`. This is the default value. To connect via Private Endpoint, use the `{{ s3-storage-host-pe }}` address.
 
         You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 

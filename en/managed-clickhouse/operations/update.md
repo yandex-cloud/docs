@@ -59,7 +59,7 @@ When changing the host class:
 
 * A single-host cluster will be unavailable for a few minutes and all database connections will be dropped.
 * In a multi-host cluster, hosts will be stopped and updated one by one. When stopped, a host will be unavailable for a few minutes.
-* A cluster host with local SSD storage may be unavailable for an extended period of time if data needs to be migrated to another physical server.
+* A cluster host with local SSD storage may be unavailable for an extended period of time in case of data migration to another physical server.
 * Using a [special FQDN](connect/fqdn.md#auto) does not guarantee a stable database connection: user sessions may be terminated.
 
 {% include [instance-type-change](../../_includes/mdb/mch/instance-type-change.md) %}
@@ -321,7 +321,7 @@ You cannot use {{ ZK }} hosts in clusters with {{ CK }} support. For more inform
 
 {% include [note-change-disk-type-data-loss](../../_includes/mdb/mch/note-change-disk-type-data-loss.md) %}
 
-When changing disk type or storage size, a cluster host with local SSD storage may be unavailable for an extended period of time if data needs to be migrated to another physical server.
+When changing the disk type or storage size, a cluster host with local SSD storage may be unavailable for an extended period of time in case of data migration to another physical server.
 
 You can also [change the disk type and storage size for an individual shard](shards.md#shard-update).
 
@@ -829,7 +829,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
 {% endlist %}
 
-## Changing additional cluster settings {#change-additional-settings}
+## Configuring advanced cluster settings {#change-additional-settings}
 
 
 {% list tabs group=instructions %}
@@ -867,7 +867,7 @@ You cannot disable settings for user or database management via SQL once they ar
         {{ yc-mdb-ch }} cluster update --help
         ```
 
-    1. Run the command after providing the list of settings you want to update:
+    1. Run the following command with the list of settings you want to update:
 
         
         ```bash

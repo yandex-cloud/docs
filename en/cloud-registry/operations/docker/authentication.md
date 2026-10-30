@@ -55,6 +55,9 @@ You can get authenticated:
 
   1. If you do not have Docker yet, [install it](installation.md).
   1. [Create](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key for the [service account](../../../iam/concepts/users/service-accounts.md) you are going to use for authentication.
+
+      {% include [api-key-scopes](../../../_includes/cloud-registry/api-key-scopes.md) %}
+
   1. Run this command:
 
       ```bash
@@ -101,7 +104,7 @@ The [{{ yandex-cloud }} CLI](../../../cli/quickstart.md) provides `docker-creden
 
    {% include [credential-helper](../../../_includes/credential-helper.md) %}
 
-1. Make sure Docker is configured.
+1. Make sure Docker is now configured.
 
    The `${HOME}/.docker/config.json` configuration file should now contain this line:
 
@@ -126,3 +129,5 @@ For more information about profile management, see [these {{ yandex-cloud }} CLI
 #### Disabling a credential helper {#ch-not-use}
 
 To stop using a credential helper for authentication, delete the `{{ cloud-registry }}` domain line from the `credHelpers` section in the `${HOME}/.docker/config.json` configuration file.
+
+[*api-key-scope]: {% include notitle [api-key-scope](../../../_popups/iam/api-key-scope.md) %}

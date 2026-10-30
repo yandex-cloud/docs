@@ -2,6 +2,8 @@
 
 Current package version: 0.22.1
 
+For installation, authentication, and usage examples, see the [AI Studio SDK guide](https://aistudio.yandex.ru/docs/ai-studio/sdk/).
+
 - [Authentication in the Yandex AI Studio SDK](auth.md)
 
 # SDK Reference

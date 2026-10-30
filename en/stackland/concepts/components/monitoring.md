@@ -40,6 +40,8 @@ Read more about creating notification channels in [{#T}](../../operations/monito
 
 ## Configuration {#configuration}
 
+To set the {{ monitoring-name }} parameters during the initial cluster installation, e.g., Prometheus storage size and class, prepare `MonitoringConfig` as per [Configuring components before installation](../../quickstart.md#component-configuration).
+
 ### General format {#general}
 
 {% include notitle [YAML-file](../../_includes/yamls/components/monitoringconfig.md) %}

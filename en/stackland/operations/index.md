@@ -6,6 +6,8 @@
 * [Creating a user group](iam/create-group.md)
 * [Connecting a SAML federation](iam/connect-saml-federation.md)
 * [Assigning access permissions](iam/assign-role.md)
+* [Creating a YDB backup](iam/ydb-backup.md)
+* [Restoring a YDB from a backup](iam/ydb-restore.md)
 
 ## Databases {#databases}
 
@@ -49,12 +51,26 @@
 * [Connecting to the HTTP proxy](ytsaurus/connect-api.md)
 * [Disabling {{ yt-name }}](ytsaurus/disable.md)
 
+## Orchestrating data {#airflow}
+
+{{ maf-name }}:
+
+* [Enabling {{ maf-name }}](airflow/enable.md)
+* [Creating an {{ AF }} cluster](airflow/create-cluster.md)
+* [Updating {{ AF }} cluster settings](airflow/edit-cluster.md)
+* [Getting {{ AF }} administrator credentials](airflow/get-admin-credentials.md)
+* [Opening the {{ AF }} web UI](airflow/connect-ui.md)
+* [Pausing or resuming an {{ AF }} cluster](airflow/pause-resume.md)
+* [Deleting an {{ AF }} cluster](airflow/delete-cluster.md)
+* [Troubleshooting {{ AF }}](airflow/troubleshooting.md)
+* [Disabling {{ maf-name }}](airflow/disable.md)
+
 ## {{ rest-catalog-name }} {#rest-catalog}
 
 * [Creating a catalog](rest-catalog/create-catalog.md)
 * [Updating a catalog](rest-catalog/edit-catalog.md)
-* [Creating a catalog user](rest-catalog/create-principal.md)
-* [Deleting a catalog user](rest-catalog/delete-principal.md)
+* [Assigning permissions for a catalog](rest-catalog/create-principal.md)
+* [Revoking permissions for a catalog](rest-catalog/delete-principal.md)
 * [Deleting a catalog](rest-catalog/delete-catalog.md).
 
 ## Buckets {#buckets}
@@ -99,12 +115,19 @@
 * [Activating a policy preset](policy-manager/apply-preset.md)
 * [Deactivating a policy](policy-manager/apply-mute.md)
 * [Deleting a policy preset](policy-manager/delete-preset.md)
+* [Viewing vulnerability reports](policy-manager/view-vulnerability-reports.md)
 
 ## {{ speechsense-name }} {#speechsense}
 
 * [Uploading images](speechsense/install-images.md)
 * [Configuring and activating](#scaling-settings)
 * [Disabling](speechsense/disable.md)
+
+## {{ ai-studio-name }} {#ai-studio}
+
+* [Uploading images](ai-studio/install-images.md)
+* [Enabling {{ ai-studio-name }}](ai-studio/configure.md)
+* [Disabling {{ ai-studio-name }}](ai-studio/disable.md)
 
 ## Projects {#projects}
 

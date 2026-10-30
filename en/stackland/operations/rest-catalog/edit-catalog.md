@@ -1,27 +1,36 @@
-# Updating catalog settings
+# Editing catalog settings
 
-You can edit the settings of an existing [{{ rest-catalog-name }} catalog](../../concepts/components/rest-catalog.md). You cannot edit a catalog's (`metadata.name`) name.
+You can edit the description and deletion protection settings for an existing [{{ rest-catalog-name }}](../../concepts/components/rest-catalog.md). Once a catalog is created, its name (`metadata.name`) and labels (`spec.labels`) cannot be changed.
 
-{% list tabs group=instructions %}
+## Using the CLI {#cli}
 
-- CLI {#cli}
+1. Open the `StacklandRestCatalog` resource to edit it:
 
-  1. Open the `RestCatalog` resource for editing: `kubectl edit restcatalog <catalog name> -n <project name>`.
-  1. Edit the specification parameters and save the file.
+    ```bash
+    kubectl edit stacklandrestcatalog <catalog_name> -n <namespace>
+    ```
 
-  You can also edit and reapply the local manifest: `kubectl apply -f restcatalog.yaml -n <project name>`.
+1. Edit the parameters as needed:
 
+    * `spec.description`: Catalog description of up to 256 characters.
+    * `spec.deletionProtection`: Deletion protection. Use `true` to enable protection or `false` to disable it.
 
-- Management console {#console}
+1. Save your changes.
 
-  1. If you have not opened a project yet, select one.
-  1. In the left-hand menu, select **Iceberg REST Catalog**.
-  1. In the **Catalogs** tab, select the catalog using one of the following methods:
+You can also edit and reapply the local manifest:
 
-      * Click the catalog name and click **Edit** in the card header.
-      * Click **Edit** in the catalog's row.
+```bash
+kubectl apply -f stacklandrestcatalog.yaml -n <namespace>
+```
 
-  1. Edit the fields as needed. The **Name** field is read-only.
-  1. Click **Save**.
+To change access to data, follow [Assigning permissions for a catalog](create-principal.md) and [Revoking permissions for a catalog](delete-principal.md).
 
-{% endlist %}
+## Using the management console {#console}
+
+1. Open the project and select the catalog’s namespace.
+1. In the left-hand menu, select **REST Catalog** → **Catalogs**.
+1. Open the catalog and click **Edit**.
+1. Change the **Description** or toggle **Deletion protection**. The **Name**, **Bucket**, and **Labels** fields are read-only.
+1. Click **Save**.
+
+To change a role or access scope of a user or group, [edit the permission assignment](create-principal.md#edit).

@@ -4,6 +4,8 @@
 
 The components can be enabled and disabled as needed. Managing the components is handled through Component Manager.
 
+To configure component settings during the initial cluster installation, prepare their configurations as per [Configuring components before installation](../../quickstart.md#component-configuration).
+
 ## Main components {#main-components}
 
 ### {{ iam-name }}
@@ -36,7 +38,7 @@ This is a reverse proxy used as an L7 load balancer on pods that implement the b
 
 ### Policy Manager {#policy-manager}
 
-[Policy Manager](policy-manager.md) brings together tools that check Kubernetes resources for compliance with policies and generate reports in [OpenReports](https://openreports.io/docs/api/) format. The current implementation is based on [Kyverno](https://kyverno.io/).
+[Policy Manager](policy-manager.md) checks Kubernetes resources using [Kyverno](https://kyverno.io/) and scans user application images using Trivy Operator. The results are saved to `PolicyReport` and `VulnerabilityReport`. Discovered vulnerabilities do not prevent pods from starting.
 
 ### Secrets Store {#secrets-store}
 
@@ -72,6 +74,10 @@ While {{ stackland-name }} provides ready-to-use dashboards and alerts, you can 
 
 [{{ mpg-name }}](postgresql.md) is an open-source object-relational DBMS. It simplifies database cluster deployment and upgrades, ensures fault-tolerance, and provides tools for backup and monitoring.
 
+### {{ maf-name }} {#airflow}
+
+[{{ maf-name }}](airflow.md) is a workflow orchestration platform that helps you create {{ AF }} clusters, load DAG files from Git or S3-compatible storage, run jobs in individual Kubernetes pods, and store their logs in S3.
+
 ### {{ mkf-name }} {#kafka}
 
 [{{ mkf-name }}](kafka.md) is a message broker that allows you to create {{ KF }} entities, such as clusters, topics, and users through custom resources, e.g., `KafkaCluster`, `KafkaTopic`, and `KafkaUserAccess`, respectively.
@@ -82,7 +88,7 @@ While {{ stackland-name }} provides ready-to-use dashboards and alerts, you can 
 
 ### {{ rest-catalog-name }} {#rest-catalog}
 
-[{{ rest-catalog-name }}](rest-catalog.md) is a metadata catalog for Apache Iceberg tables based on the Iceberg REST Catalog protocol. This component allows you to create catalogs and users with OAuth2 access through custom resources, such as `RestCatalog` and `RestCatalogPrincipal`.
+[{{ rest-catalog-name }}](rest-catalog.md) is a metadata catalog for Apache Iceberg tables based on the Iceberg REST Catalog protocol. Use the `StacklandRestCatalog` resource to create catalogs, and the `StacklandRestCatalogAccessBinding` resource to assign permissions to users, groups, or service accounts. The system automatically provisions the catalog data storage.
 
 ### {{ mtr-name }} {#trino}
 
@@ -90,7 +96,7 @@ While {{ stackland-name }} provides ready-to-use dashboards and alerts, you can 
 
 ### {{ yt-name }} {#ytsaurus}
 
-{{ yt-name }} is a distributed platform for big data storage and processing. This component deploys a single shared {{ YT }} cluster on the platform: MapReduce engine, dynamic tables, the YQL query engine, a web UI, and {{ iam-name }} integration. The list of subcomponents and resources is set via the `YTsaurusConfig` custom resource.
+[{{ yt-name }}](ytsaurus.md) is a distributed platform for big data storage and processing. This component deploys a single shared {{ YT }} cluster on the platform: MapReduce engine, dynamic tables, the YQL query engine, a web UI, and {{ iam-name }} integration. The list of subcomponents and resources is set via the `YTsaurusConfig` custom resource.
 
 ## Modules {#modules}
 
@@ -104,8 +110,10 @@ While {{ stackland-name }} provides ready-to-use dashboards and alerts, you can 
 
 ### {{ model-gallery-name }} {#model-gallery}
 
-{{ model-gallery-name }} is a module for hosting and inferencing large language models and embedding models. It includes a model registry, weight storage, inference queue, and a gRPC server for generative models from the YandexGPT family. Also, this module acts as a single point of access to foundation models for other platform modules. The component does not come with the basic package and requires a separate license.
+[{{ model-gallery-name }}](ai-studio.md#model-gallery-configuration) is a module for running language models and generating embeddings within {{ ai-studio-name }}. You can use its models in your AI agents and assistants. The component does not come with the basic package and requires a separate license.
 
 ### {{ agent-atelier-name }} {#agent-atelier}
 
-{{ agent-atelier-name }} is a module for creating and starting AI agents and assistants. It helps you build workflow-based scenarios, connect tools via the MCP gateway, prepare datasets, and fine-tune models. The module employs {{ model-gallery-name }} as a model source and {{ iam-name }} for access control. The component does not come with the basic package and requires a separate license.
+[{{ agent-atelier-name }}](ai-studio.md#agent-atelier-configuration) is a module for creating and running AI agents and assistants within {{ ai-studio-name }}. It enables you to customize workflows, connect tools, and prepare datasets. {{ agent-atelier-name }} relies on models from {{ model-gallery-name }}. The component does not come with the basic package and requires a separate license.
+
+For infrastructure requirements, dependencies, and settings for both modules, see [{{ ai-studio-name }}](ai-studio.md).

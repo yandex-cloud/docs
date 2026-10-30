@@ -1,6 +1,6 @@
 ---
 title: Step-by-step guides for {{ mch-full-name }}
-description: This page provides a list of step-by-step guides for {{ mch-name }}.
+description: This page features step-by-step guides for {{ mch-name }}.
 ---
 
 # Step-by-step guides for {{ mch-name }}
@@ -30,6 +30,7 @@ description: This page provides a list of step-by-step guides for {{ mch-name }}
 * [FQDNs of {{ CH }} hosts](connect/fqdn.md)
 * [Connecting to a cluster from applications](connect/clients.md)
 * [Code examples for connecting to a cluster](connect/code-examples.md)
+* [{#T}](connect/update-tls-certificates.md)
 
 ## Databases {#databases}
 

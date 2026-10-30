@@ -41,7 +41,7 @@ sudo apt update && sudo apt install --yes postgresql-client
             target_session_attrs=read-write"
       ```
 
-      {% include [host lists](../../../_includes/managed-postgresql/host-list.md) %}    
+      {% include [host lists](../../../_includes/managed-postgresql/host-list.md) %}
 
       После выполнения команды введите пароль пользователя для завершения процедуры подключения.
 
@@ -93,7 +93,7 @@ sudo apt update && sudo apt install --yes postgresql-client
            <имя_БД>
      ```
 
-     {% include [host lists](../../../_includes/managed-postgresql/host-list.md) %}     
+     {% include [host lists](../../../_includes/managed-postgresql/host-list.md) %}
 
      После выполнения команды введите пароль пользователя для завершения процедуры подключения.
 
@@ -136,12 +136,7 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 ### Подключение с аутентификацией через IAM {#iam}
 
-К базе данных {{ PG }} можно подключиться с помощью [интерфейса командной строки {{ yandex-cloud }} (CLI)](../../../cli/quickstart.md#install), используя аутентификацию через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../../iam/concepts/users/accounts.md#saml-federation), [локальных пользователей](../../../iam/concepts/users/accounts.md#local) и [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md). Подключение с аутентификацией через IAM не требует получения SSL-сертификата или указания FQDN хостов кластера. Публичный доступ к хостам не требуется.
-
-Для подключения через сервисный аккаунт [назначьте](../../../iam/operations/sa/set-access-bindings.md) ему роли:
-
-* [роль](../../security/index.md#managed-postgresql-clusters-connector) `managed-postgresql.clusters.connector` на кластер;
-* [роль](../../../iam/roles-reference.md#iam-serviceAccounts-user) `iam.serviceAccounts.user` или выше. Если необходим доступ для нескольких сервисных аккаунтов, назначьте эту роль на каталог.
+К базе данных {{ PG }} можно подключиться с помощью [интерфейса командной строки {{ yandex-cloud }} (CLI)](../../../cli/quickstart.md#install), используя аутентификацию через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../../iam/concepts/users/accounts.md#saml-federation) и [локальных пользователей](../../../iam/concepts/users/accounts.md#local). Подключение с аутентификацией через IAM не требует получения SSL-сертификата или указания FQDN хостов кластера. Публичный доступ к хостам не требуется.
 
 Перед подключением установите клиент {{ PG }}:
 
@@ -158,7 +153,7 @@ sudo apt update && sudo apt install --yes postgresql-client
   1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера.
   1. Назначьте роль аккаунту пользователя, который будет подключаться к БД:
-     1. Выберите вкладку ![chevron-down](../../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+     1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
      1. Введите электронную почту пользователя, к которой привязан аккаунт.
      1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `managed-postgresql.clusters.connector`.
      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
@@ -207,6 +202,64 @@ sudo apt update && sudo apt install --yes postgresql-client
        --auth-method auth-method-iam \
        --permissions <имя_БД>
      ```
+
+- {{ TF }} {#tf}
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+      Инструкцию по созданию такого файла читайте в разделе [Создание кластера](../cluster-create.md).
+
+      Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} вы найдете в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+
+  1. Добавьте ресурс `yandex_mdb_postgresql_cluster_iam_binding`:
+
+     * Для пользователя с аккаунтом на Яндексе или локального пользователя:
+
+        ```hcl
+        ...
+        resource "yandex_mdb_postgresql_cluster_iam_binding" "role-iam-user" {
+          cluster_id = "<идентификатор_кластера>"
+          members = [
+            "userAccount:<идентификатор_пользователя>"
+          ]
+          role = "managed-postgresql.clusters.connector"
+        }
+        ```
+
+     * Для федеративного пользователя:
+
+        ```hcl
+        ...
+        resource "yandex_mdb_postgresql_cluster_iam_binding" "role-iam-user" {
+          cluster_id = "<идентификатор_кластера>"
+          members = [
+            "federatedUser:<идентификатор_пользователя>"
+          ]
+          role = "managed-postgresql.clusters.connector"
+        }
+        ```
+
+  1. Добавьте ресурс `yandex_mdb_postgresql_user`:
+
+        ```hcl
+        ...
+        resource "yandex_mdb_postgresql_user" "iam-user" {
+          cluster_id = "<идентификатор_кластера>"
+          name       = "<идентификатор_пользователя>"
+          auth_method = "AUTH_METHOD_IAM"
+          permission {
+            database_name = "<имя_БД>"
+          }
+        }
+        ```
+
+  1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 

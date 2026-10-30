@@ -12,13 +12,3 @@
     ```
 
     IAM tokens are valid for up to 12 hours.
-
-* Service account [API key](../../iam/operations/authentication/manage-api-keys.md).
-
-    Provide the API key in the `Authorization` header in the following format:
-
-    ```text
-    Authorization: Api-Key <API_key>
-    ```
-
-    {% include [api-keys-disclaimer](../iam/api-keys-disclaimer.md) %}

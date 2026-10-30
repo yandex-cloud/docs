@@ -437,7 +437,7 @@ max(0.2 × RAM available on the segment / number of segments per host), 16384 ×
 
 This parameter sets the amount of memory (in bytes) allocated for storing SQL query text run in each active session. The query text is shown in the `query` field of the `pg_stat_activity` system view. If the query text exceeds the set size, it is truncated.
 
-By increasing the size, you can view longer queries in `pg_stat_activity`; however, it increases the total amount of memory allocated by the server. Memory is individually allocated for each active session; therefore, consider the maximum number of cluster connections when setting a value.
+By increasing the size, you can view longer queries in `pg_stat_activity`; however, it increases the total amount of memory allocated by the server. Memory is individually allocated for each active session; therefore, consider the maximum number of cluster connections when selecting the value.
 
 {% include [automatic-cluster-restart](../note-automatic-cluster-restart.md) %}
 

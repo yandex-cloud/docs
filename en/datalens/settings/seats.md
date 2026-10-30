@@ -36,7 +36,10 @@ On this tab, the administrator can do the following:
 
 Seats are issued automatically to all users upon first login to {{ datalens-name }}. First, new users get seats from among the available, i.e., unassigned ones.
 
-By default, the **Purchase automatically** option is enabled for seats. Therefore, if an instance has no available seats left, a seat will be automatically purchased and assigned to every new user on their login to {{ datalens-name }}. Automatic purchase of seats does not apply when the limit on the [number of queries from private embedded objects](#packet-queries) is exceeded. In this case, additional seats are purchased manually.
+By default, the **Purchase automatically** option is enabled for seats. It triggers in two cases:
+
+* **New user**. If an instance has no available seats left, a seat will be automatically purchased and assigned to every new user on login.
+* **Exceeding the limit on queries from embedded private objects**. When the remaining limit on requests from private embedded objects drops to 500, additional seats are purchased automatically. Not assigned to anyone, they appear in the **Available seats** [list](#number-of-seats); each seat increases the limit by 2,000 requests per month.
 
 The administrator can disable the automatic seat purchase option if required. In which case the administrator becomes fully responsible for purchasing and assigning seats to new users: they can either [increase the number of seats](#number-of-seats) in an instance (to maintain the number of available seats) or [manually issue seats](#manual-assignment) to new users.
 
@@ -81,6 +84,8 @@ The following limits apply: 2,000 queries from private embedded charts per seat 
    > 2,000 queries x Number of seats
 
 Only successfully completed queries for chart rendering data are counted. If multiple queries are required to render a single chart, they are counted as one query. For more information, see the [pricing policy](../pricing.md#packet-queries).
+
+If the **Auto-purchase** [option](#purchase-automatically) is enabled: when the remaining limit on requests from private embedded objects drops to 500, the required seats will be purchased automatically, and processing requests from embedded objects will remain uninterrupted. If disabled, exceeding the limit may get requests blocked.
 
 You can [estimate the number of queries from private embedded charts](#embedded-queries-count) by enabling [Usage Analytics](../operations/connection/create-usage-tracking.md).
 

@@ -15,15 +15,25 @@ You can lease a new dedicated public subnet or convert an existing [ephemeral pu
 
 - Management console {#console}
 
+  {% note info %}
+
+  The minimum rent period for a public subnet is one month from the order date.
+
+  {% endnote %}
+
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to reserve a [dedicated public subnet](../concepts/public-network.md#public-subnet).
   1. [Navigate]({{ link-console-main }}/link/baremetal) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.baremetal.label_public-subnets_v16CV }}**.
-  1. At the top right, click **{{ ui-key.yacloud.baremetal.label_create-public-subnet-full }}**.
+  1. Click **{{ ui-key.yacloud.baremetal.label_create-public-subnet-full }}** at the top of the page.
   1. In the **{{ ui-key.yacloud.baremetal.field_zone-id }}** field, select the [availability zone](../../overview/concepts/geo-scope.md) where the subnet will be available.
   1. {% include [reserve-priv-subnet-step-1](../../_includes/baremetal/instruction-steps/reserve-priv-subnet-step-1.md) %}
-  1. Select the size of the subnet you want to order.
-  
-      In the management console, you can only order subnets of size `/29` (six available IP addresses) and `/28` (14 available IP addresses). If you need a larger public subnet, [contact]({{ link-console-support }}/tickets/create) support to request it.
+  1. In the table, select the size of the subnet you want to order.
+
+     * `/28`: 16 IP addresses, 14 of which are available for use.
+     * `/29`: 8 IP addresses, 6 of which are available for use.
+
+     If you need a larger public subnet, [contact]({{ link-console-support }}/tickets/create) support to request it.
+
   1. {% include [reserve-priv-subnet-step-2](../../_includes/baremetal/instruction-steps/reserve-priv-subnet-step-2.md) %}
   1. Click **{{ ui-key.yacloud.baremetal.label_create-public-subnet }}**.
 
@@ -43,7 +53,7 @@ You can lease a new dedicated public subnet or convert an existing [ephemeral pu
      
      ```bash
      yc baremetal public-subnet create \
-       --hardware-pool-id <pool> \
+       --hardware-pool-ids <pool_1_ID>,<pool_2_ID>,... \
        --prefix-length 29 \
        --name <public_subnet_name> \
        --description "<public_subnet_description>" \
@@ -51,7 +61,7 @@ You can lease a new dedicated public subnet or convert an existing [ephemeral pu
      ```
 
      Where:
-     * `--hardware-pool-id`: [Pools](../concepts/servers.md#server-pools) where the subnet will be available.
+     * `--hardware-pool-ids`: IDs of the [pools](../concepts/servers.md#server-pools) where the subnet will be available.
 
        {% include [link-public-subnet](../../_includes/baremetal/instruction-steps/link-public-subnet.md) %}
 
@@ -106,7 +116,7 @@ You can only convert an ephemeral public subnet to a dedicated public subnet of 
      yc baremetal public-subnet update \
        --id <ephemeral_public_subnet_ID> \
        --type dedicated \
-       --hardware-pool-id <pool> \
+       --hardware-pool-ids <pool_1_ID>,<pool_2_ID>,... \
        --name <public_subnet_name> \
        --description "<public_subnet_description>" \
        --labels <key>=<value>
@@ -115,7 +125,7 @@ You can only convert an ephemeral public subnet to a dedicated public subnet of 
      Where:
      * `--id`: ID of the ephemeral public subnet.
      * `--type`: Type to transform the subnet into.
-     * `--hardware-pool-id`: [Pools](../concepts/servers.md#server-pools) where the subnet will be available.
+     * `--hardware-pool-ids`: IDs of the [pools](../concepts/servers.md#server-pools) where the subnet will be available.
 
        {% include [link-public-subnet](../../_includes/baremetal/instruction-steps/link-public-subnet.md) %}
      
@@ -125,7 +135,55 @@ You can only convert an ephemeral public subnet to a dedicated public subnet of 
 
 - API {#api}
 
-  To convert an ephemeral public subnet to a dedicated one, use the [update](../api-ref/PublicSubnet/update.md) REST API method for the [PublicSubnet](../api-ref/PublicSubnet/index.md) resource or the [PublicSubnetService/Update](../api-ref/grpc/PublicSubnet/update.md) gRPC API call.
+    To convert an ephemeral public subnet to a dedicated one, use the [update](../api-ref/PublicSubnet/update.md) REST API method for the [PublicSubnet](../api-ref/PublicSubnet/index.md) resource or the [PublicSubnetService/Update](../api-ref/grpc/PublicSubnet/update.md) gRPC API call.
+
+{% endlist %}
+
+### Updating the pools of a dedicated public subnet {#change-hardware-pools}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the folder containing the dedicated public subnet in question.
+  1. [Navigate]({{ link-console-main }}/link/baremetal) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. In the left-hand panel, select ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.baremetal.label_public-subnets_v16CV }}**.
+  1. Select the public subnet in question.
+  1. Click ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** at the top right.
+  1. In the **{{ ui-key.yacloud.baremetal.field_hardware-pool-id }}** field, select the pools where you need the subnet to be available.
+
+     You cannot change the public subnet's availability zone.
+
+  1. Click **{{ ui-key.yacloud.baremetal.action_save-changes }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. View the description of the command for updating the public subnet:
+
+     ```bash
+     yc baremetal public-subnet update --help
+     ```
+
+  1. Update the list of pools:
+
+     ```bash
+     yc baremetal public-subnet update \
+       --id <public_subnet_ID> \
+       --hardware-pool-ids <pool_1_ID>,<pool_2_ID>,...
+     ```
+
+     Where:
+
+     * `--id`: Public subnet ID.
+     * `--hardware-pool-ids`: Full new list of IDs of the [pools](../concepts/servers.md#server-pools) where the subnet needs to be available.
+
+- API {#api}
+
+    To update the pool list, use the [update](../api-ref/PublicSubnet/update.md) REST API method for the [PublicSubnet](../api-ref/PublicSubnet/index.md) resource or the [PublicSubnetService/Update](../api-ref/grpc/PublicSubnet/update.md) gRPC API call. Provide a new list of IDs in the `hardwarePoolIds` field and add `hardwarePoolIds` to the `updateMask` field.
 
 {% endlist %}
 
@@ -141,7 +199,7 @@ Lease a new dedicated public subnet of the `/29` size:
 
   ```bash
   yc baremetal public-subnet create \
-    --hardware-pool-id ru-central1-m3 \
+    --hardware-pool-ids ru-central1-m3,ru-central1-m4 \
     --prefix-length 29 \
     --name demo-public-subnet \
     --description "My first public subnet" \
@@ -159,6 +217,7 @@ Lease a new dedicated public subnet of the `/29` size:
   zone_id: ru-central1-m
   hardware_pool_ids:
     - ru-central1-m3
+    - ru-central1-m4
   type: DEDICATED
   prefix_length: "29"
   cidr: 94.139.248.184/29
@@ -179,7 +238,8 @@ Lease a new dedicated public subnet of the `/29` size:
       "name": "new-public-subnet",
       "description": "New public subnet",
       "hardwarePoolIds": [
-        "ru-central1-m3"
+        "ru-central1-m3",
+        "ru-central1-m4"
       ],
       "prefixLength": "29",
       "labels": {
@@ -219,7 +279,10 @@ Lease a new dedicated public subnet of the `/29` size:
       "name": "new-public-subnet",
       "description": "New public subnet",
       "zoneId": "ru-central1-m",
-      "hardwarePoolId": "ru-central1-m3",
+      "hardwarePoolIds": [
+        "ru-central1-m3",
+        "ru-central1-m4"
+      ],
       "type": "EPHEMERAL",
       "prefixLength": "29",
       "cidr": "10.0.*.*/29",
@@ -255,6 +318,7 @@ Change the public subnet type from `ephemeral` to `dedicated`:
   yc baremetal public-subnet update \
     --id ly5vr6tugxk7******** \
     --type dedicated \
+    --hardware-pool-ids ru-central1-m3,ru-central1-m4 \
     --description "Transformed dedicated public subnet"
   ```
 
@@ -269,6 +333,7 @@ Change the public subnet type from `ephemeral` to `dedicated`:
   zone_id: ru-central1-m
   hardware_pool_ids:
     - ru-central1-m3
+    - ru-central1-m4
   type: DEDICATED
   prefix_length: "29"
   cidr: 94.139.248.184/29
@@ -284,7 +349,7 @@ Change the public subnet type from `ephemeral` to `dedicated`:
     -d '{
       "updateMask": "type,hardwarePoolIds,name,description",
       "type": "DEDICATED",
-      "hardwarePoolIds": ["ru-central1-m3"],
+      "hardwarePoolIds": ["ru-central1-m3", "ru-central1-m4"],
       "name": "transformed-public-subnet",
       "description": "Transformed dedicated public subnet"
     }' \
@@ -318,7 +383,10 @@ Change the public subnet type from `ephemeral` to `dedicated`:
       "name": "new-public-subnet",
       "description": "New public subnet",
       "zoneId": "ru-central1-m",
-      "hardwarePoolId": "ru-central1-m3",
+      "hardwarePoolIds": [
+        "ru-central1-m3",
+        "ru-central1-m4"
+      ],
       "type": "DEDICATED",
       "prefixLength": "29",
       "cidr": "10.0.*.*/29",

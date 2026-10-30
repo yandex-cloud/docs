@@ -22,6 +22,24 @@ You can [view](#get-client-stat) detailed information on how the customers are u
 
     {% list tabs group=details %}
 
+    - Workspaces {#instances}
+
+      You can view the usage details for one or more clouds, [workspaces](../../organization/concepts/organization.md#service-management), and additional agreements, e.g., adjustments and [CVoS](../../billing/concepts/cvos.md).
+        
+      By default, the displayed information covers all clouds, workspaces, and additional agreements associated with your billing account. To filter this view, select specific clouds, services, and additional agreements in the **All workspaces** list.
+
+      1. In the **All workspaces** list, select a cloud, service, or additional agreements.
+      1. Set up data filtering:
+         * **Grouping**: By days, weeks, or months.
+         * **Products**: By specific products.
+         * **Labels**: By specific labels.
+         * **Subaccounts**: By specific subaccounts.
+
+      {% note info %}
+
+      If a cloud was previously linked to another billing account, consider the period when viewing usage details: details are available to the current billing account for the time starting when the new account was linked. For usage prior to the link, details are available to the previous account.
+
+      {% endnote %}
 
     - Cloud folders {#folders}
 

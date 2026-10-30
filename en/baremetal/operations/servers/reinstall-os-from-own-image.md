@@ -106,19 +106,30 @@ To create a {{ baremetal-name }} image from your ISO image and deploy it on the 
 
     {% endlist %}
 
-    Depending on your server configuration, you may need to manually select the boot device or enable `UEFI` mode in [BIOS](https://en.wikipedia.org/wiki/BIOS). For instance, on a server with the `BA-i201-H` configuration, you must boot from a CD drive in UEFI mode for UEFI-based OS installations.
-1. To boot the server from the selected ISO image:
+1. To boot the server from the selected ISO image, select one of the methods:
 
-    1. Click **Reboot to CD-ROM** in the top-right corner of the KVM console.
-    1. During server boot, press **F11** or **Del** when the [POST](https://en.wikipedia.org/wiki/Power-on_self-test) screen appears. You will see the following message: `Entering Setup...`.
-    1. Wait for the BIOS menu to appear, then navigate to the **Save & Exit** section using the **←** and **→** keys.
-    1. In the **Boot Override** section, use the **↑** and **↓** keys to select `UEFI: AMI Virtual CDROM0 1.00`, then press **Enter**.
+    {% list tabs %}
 
-        If there is no such option in the **Boot Override** section, go to **Boot** settings and add it under **UEFI Boot Drive BBS Priorities**.
+    - Using the **Reboot to CD-ROM** button
 
-    The server will restart and boot from the virtual CD drive in `UEFI` mode.
+      Click **Reboot to CD-ROM** in the top-right corner of the KVM console.
 
-    {% include [bios-settings-warning](../../../_includes/baremetal/bios-settings-warning.md) %}
+      The server will restart and boot from the virtual CD drive in `UEFI` mode.
+
+    - Using BIOS
+
+      Using this approach, you can forcibly select boot media and `UEFI` mode in [BIOS](https://en.wikipedia.org/wiki/BIOS). For instance, on a server with the `BA-i201-H` configuration, you must boot from a CD drive in UEFI mode for UEFI-based OS installations.
+
+      1. [Restart the server](./server-stop-and-start.md#restart).
+      1. During server boot, press **F11** or **Del** when the [POST](https://en.wikipedia.org/wiki/Power-on_self-test) screen appears. You will see the following message: `Entering Setup...`.
+      1. Wait for the BIOS menu to appear, then navigate to the **Save & Exit** section using the **←** and **→** keys.
+      1. In the **Boot Override** section, use the **↑** and **↓** keys to select `UEFI: AMI Virtual CDROM0 1.00`, then press **Enter**.
+
+          If there is no such option in the **Boot Override** section, go to **Boot** settings and add it under **UEFI Boot Drive BBS Priorities**.
+
+      {% include [bios-settings-warning](../../../_includes/baremetal/bios-settings-warning.md) %}
+
+    {% endlist %}
 
 ## Configure the basic OS settings {#basic-setup}
 

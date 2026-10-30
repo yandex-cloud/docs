@@ -41,6 +41,34 @@ The container image files and directories are readable on the virtual environmen
 
 The file system is stored in RAM. Data written to the file system is not saved when a container instance is stopped.
 
+## Trusted root certificates {#trusted-certificates}
+
+In the container, a custom Docker image with its own set of certificates is executed. The service does not additionally add any root certificates to the container. If the code needs to trust certificates from the Russian Trusted Root CA or the {{ yandex-cloud }} internal certification authority, you must add them during the Docker image build process.
+
+Example for Docker images based on Debian or Ubuntu:
+
+```dockerfile
+RUN apt-get update && apt-get install -y ca-certificates curl \
+ && curl -fsSL https://gu-st.ru/content/Other/doc/russiantrustedca.pem \
+      -o /usr/local/share/ca-certificates/russian-trusted-root-ca.crt \
+ && curl -fsSL https://storage.yandexcloud.net/cloud-certs/CA.pem \
+      -o /usr/local/share/ca-certificates/yandex-internal-ca.crt \
+ && update-ca-certificates
+```
+
+Example for Docker images based on Alpine:
+
+```dockerfile
+RUN apk add --no-cache ca-certificates curl \
+ && curl -fsSL https://gu-st.ru/content/Other/doc/russiantrustedca.pem \
+      -o /usr/local/share/ca-certificates/russian-trusted-root-ca.crt \
+ && curl -fsSL https://storage.yandexcloud.net/cloud-certs/CA.pem \
+      -o /usr/local/share/ca-certificates/yandex-internal-ca.crt \
+ && update-ca-certificates
+```
+
+If the website provides an incomplete chain of certificates and does not give the intermediate certificate, you need to add the missing intermediate certificate to the Docker image just like the root certificate.
+
 ## Container instance resources {#resource}
 
 ### CPU {#cpu}

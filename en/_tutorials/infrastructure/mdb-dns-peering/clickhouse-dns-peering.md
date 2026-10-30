@@ -15,11 +15,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* {{ mch-name }} cluster fee: use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../../managed-clickhouse/pricing.md)).
-* VM fee: use of computing resources, storage, and, optionally, a public IP address (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
-* DNS zone and DNS query fee (see [{{ dns-name }} pricing](../../../dns/pricing.md)).
+* {{ mch-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../../managed-clickhouse/pricing.md)).
+* VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
+* Public DNS requests and DNS zones (see [{{ dns-name }} pricing](../../../dns/pricing.md)).
 
 
 ## Getting started {#before-you-begin}

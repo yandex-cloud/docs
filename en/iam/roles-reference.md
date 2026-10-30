@@ -390,7 +390,92 @@ For more information, see [{#T}](../certificate-manager/security/index.md).
 
 {% include [serverless-mcpGateways-admin](../_roles/serverless/mcpGateways/admin.md) %}
 
+#### serverless.workflows.auditor {#serverless-workflows-auditor}
+
+{% include [serverless.workflows.auditor](../_roles/serverless/workflows/auditor.md) %}
+
+#### serverless.workflows.viewer {#serverless-workflows-viewer}
+
+{% include [serverless.workflows.viewer](../_roles/serverless/workflows/viewer.md) %}
+
+#### serverless.workflows.executor {#serverless-workflows-executor}
+
+{% include [serverless.workflows.executor](../_roles/serverless/workflows/executor.md) %}
+
+#### serverless.workflows.editor {#serverless-workflows-editor}
+
+{% include [serverless.workflows.editor](../_roles/serverless/workflows/editor.md) %}
+
+#### serverless.workflows.admin {#serverless-workflows-admin}
+
+{% include [serverless.workflows.admin](../_roles/serverless/workflows/admin.md) %}
+
+#### ai.subscriptions.auditor {#ai-subscriptions-auditor}
+
+{% include [ai.subscriptions.auditor](../_roles/ai/subscriptions/auditor.md) %}
+
+#### ai.subscriptions.viewer {#ai-subscriptions-viewer}
+
+{% include [ai.subscriptions.viewer](../_roles/ai/subscriptions/viewer.md) %}
+
+#### ai.subscriptions.user {#ai-subscriptions-user}
+
+{% include [ai.subscriptions.user](../_roles/ai/subscriptions/user.md) %}
+
+#### ai.subscriptions.consumer {#ai-subscriptions-consumer}
+
+{% include [ai.subscriptions.consumer](../_roles/ai/subscriptions/consumer.md) %}
+
+#### ai.subscriptions.editor {#ai-subscriptions-editor}
+
+{% include [ai.subscriptions.editor](../_roles/ai/subscriptions/editor.md) %}
+
+#### ai.subscriptions.admin {#ai-subscriptions-admin}
+
+{% include [ai.subscriptions.admin](../_roles/ai/subscriptions/admin.md) %}
+
+#### ai.workRuntimes.auditor {#ai-workRuntimes-auditor}
+
+{% include [ai.workRuntimes.auditor](../_roles/ai/workRuntimes/auditor.md) %}
+
+#### ai.workRuntimes.viewer {#ai-workRuntimes-viewer}
+
+{% include [ai.workRuntimes.viewer](../_roles/ai/workRuntimes/viewer.md) %}
+
+#### ai.workRuntimes.user {#ai-workRuntimes-user}
+
+{% include [ai.workRuntimes.user](../_roles/ai/workRuntimes/user.md) %}
+
+#### ai.workRuntimes.editor {#ai-workRuntimes-editor}
+
+{% include [ai.workRuntimes.editor](../_roles/ai/workRuntimes/editor.md) %}
+
+#### ai.workRuntimes.admin {#ai-workRuntimes-admin}
+
+{% include [ai.workRuntimes.admin](../_roles/ai/workRuntimes/admin.md) %}
+
+#### ai.workProfiles.auditor {#ai-workProfiles-auditor}
+
+{% include [ai.workProfiles.auditor](../_roles/ai/workProfiles/auditor.md) %}
+
+#### ai.workProfiles.viewer {#ai-workProfiles-viewer}
+
+{% include [ai.workProfiles.viewer](../_roles/ai/workProfiles/viewer.md) %}
+
+#### ai.workProfiles.user {#ai-workProfiles-user}
+
+{% include [ai.workProfiles.user](../_roles/ai/workProfiles/user.md) %}
+
+#### ai.workProfiles.editor {#ai-workProfiles-editor}
+
+{% include [ai.workProfiles.editor](../_roles/ai/workProfiles/editor.md) %}
+
+#### ai.workProfiles.admin {#ai-workProfiles-admin}
+
+{% include [ai.workProfiles.admin](../_roles/ai/workProfiles/admin.md) %}
+
 For more information, see [Access management in {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/security/index).
+
 
 
 ## {{ backup-full-name }} {#backup-roles}
@@ -2871,31 +2956,6 @@ For more information, see [{#T}](../serverless-containers/security/index.md).
 {% include [serverless.eventrouter.admin](../_roles/serverless/eventrouter/admin.md) %}
 
 Learn more in [Access management in {{ er-name }}](../serverless-integrations/security/eventrouter.md).
-
-### {{ sw-full-name }} service roles {#workflows-roles}
-
-#### serverless.workflows.auditor {#serverless-workflows-auditor}
-
-{% include [serverless.workflows.auditor](../_roles/serverless/workflows/auditor.md) %}
-
-#### serverless.workflows.viewer {#serverless-workflows-viewer}
-
-{% include [serverless.workflows.viewer](../_roles/serverless/workflows/viewer.md) %}
-
-#### serverless.workflows.executor {#serverless-workflows-executor}
-
-{% include [serverless.workflows.executor](../_roles/serverless/workflows/executor.md) %}
-
-#### serverless.workflows.editor {#serverless-workflows-editor}
-
-{% include [serverless.workflows.editor](../_roles/serverless/workflows/editor.md) %}
-
-#### serverless.workflows.admin {#serverless-workflows-admin}
-
-{% include [serverless.workflows.admin](../_roles/serverless/workflows/admin.md) %}
-
-Learn more in [Access management in {{ sw-name }}]({{ link-docs-ai }}ai-studio/security/index#workflows-roles).
-
 
 ## {{ yandex-siem-full-name }} {#yandex-siem-roles}
 

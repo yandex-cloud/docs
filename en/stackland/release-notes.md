@@ -1,3 +1,144 @@
+# What's new in {{ stackland-name }} 26.3.0
+
+In {{ stackland-name }} 26.3.0, we added managed {{ AF }} clusters, scanning images for vulnerabilities, and {{ iam-name }} data backups. Expanded the {{ objstorage-name }} and {{ rest-catalog-name }} features, upgraded {{ ai-studio-name }} to _generic 2.0_.
+
+## Important updates
+
+* Updated the [{{ rest-catalog-name }}](concepts/components/rest-catalog.md) model: now the `StacklandRestCatalog` and `StacklandRestCatalogAccessBinding` resources are used instead of `RestCatalog` and `RestCatalogPrincipal`. Use the updated manifests from our guides to create catalogs and assign permissions.
+* Updated the `TrinoCatalog` format: the `spec.type` field was deleted; for the Iceberg catalog, `spec.stacklandRestCatalog` is used instead of `spec.iceberg`. Update your {{ mtr-name }} connection manifests.
+* Now you can manage an {{ objstorage-name }} bucket's settings by declaring them in the `Bucket` resource. Changes of these settings via the S3 API are replaced by manifest values. Deleting a field from the manifest resets the setting to its default or clears it. For more information, see [Additional bucket settings](concepts/components/storage.md#bucket-settings).
+* Prior to upgrading {{ stackland-name }} to version 26.4.0 or higher, you will need to migrate the internal {{ objstorage-name }} service database (metabase) from PostgreSQL 15 to PostgreSQL 17. This requirement does not apply to custom {{ mpg-name }} clusters: updating the PostgreSQL major version is not supported for them yet. In version 26.3.0, upgrading the metabase is optional. For new {{ objstorage-name }} installations, PostgreSQL 17 is used automatically. You can learn about the preparation process and restrictions when the metabase is under maintenance in [this upgrade guide](operations/cluster/upgrade-cluster.md#storage-postgresql-upgrade).
+* When [assigning permissions](operations/iam/assign-role.md) via Kubernetes resources, e.g., `AccessBinding` or `ClusterAccessBinding`, the role is bound to the unique ID of a user or user group in {{ iam-name }}. Changing `spec.subject` does not result in transferring the role to a different user. You need to delete the permission assignment resource and create a new one. If you delete a user or user group and recreate it under the same name, the old permissions will not be restored automatically.
+* For new installations, increased the default size of each {{ iam-name }} storage disk from 10 to 100 GiB. Take this into account when planning your disk space usage.
+* The `sladm pull` and `sladm copy` commands now require the `--config` parameter with the path to the cluster configuration file or folder.
+
+## New features
+
+### {{ maf-name }}
+
+Added the {{ maf-name }} component for task orchestration and data processing. {{ AF }} 3.1.8 is supported. Now you can create and configure clusters using the `AirflowCluster` resource.
+
+Main features:
+
+* Importing DAG files from a Git repository or S3-compatible storage.
+* Storing task logs in a built-in {{ objstorage-name }} or external S3 storage.
+* Installing additional Python and Debian packages, including from private repositories.
+* Pausing and resuming a cluster, protection against accidental deletion.
+
+### {{ ai-studio-name }}
+
+Added the [{{ ai-studio-name }} generic 2.0](concepts/components/ai-studio.md) release to the platform for local deployment. Added the following features:
+
+* Code Interpreter in {{ agent-atelier-name }}: Code execution in isolated sessions. You can set the inactive session retention period and maximum session duration.
+* Multimodal Gemma 3 27B and Qwen 3.6 35B models in {{ model-gallery-name }}: Processing queries containing images.
+* Text recognition (OCR) you can enable regardless of language models.
+
+Code Interpreter, new multimodal models, and OCR are enabled separately. You need GPUs for models and OCR. You can select nodes for their location and set CPU and memory. Learn how to enable them in [this guide on setting up {{ ai-studio-name }}](operations/ai-studio/configure.md).
+
+### Policy Manager: Image scanning
+
+[Policy Manager](concepts/components/policy-manager.md) now enables scanning custom application images for known vulnerabilities. You can get the results in the management console and in Kubernetes reports. Detected vulnerabilities do not block starting up and restarting pods.
+
+OS and Java library package vulnerability bases are included in the distribution; therefore, scanning is available in isolated runtimes without internet access.
+
+You can set up the re-scanning period, number of concurrent checks, timeout, and exceptions by namespace. Scanning is disabled by default. You can enable it in the Policy Manager settings. You can specify your custom registry for updating vulnerability bases regardless of the platform version.
+
+### {{ iam-name }}: Backup and recovery
+
+Added the option to [create a {{ iam-name }} database backup](operations/iam/ydb-backup.md) in YDB and [restore it](operations/iam/ydb-restore.md) from a local archive. The `ydb-backup.sh` and `ydb-restore.sh` scripts are available for operations.
+
+Restoring a database replaces the current data with the backup data and requires a maintenance window, as the cluster becomes unavailable during this operation.
+
+### Configuring components before installation
+
+Added the option to [configure components at the cluster's first installation](quickstart.md#component-configuration), e.g., connect {{ objstorage-name }}, select the Prometheus storage size, or set the Loki log retention period.
+
+The `sladm config gen-defaults components` command generates configuration templates. You can edit and provide them with the cluster configuration. The `sladm validate` command validates the settings before installation.
+
+### Verifying signatures for images
+
+Added verification of signatures for the platform's container images when installing or uploading to nodes. The administrator can check the presence of images and trusted signatures in the registry beforehand by running the `sladm images verify` command. This can also be done when preparing for installation without internet access.
+
+## Improvements
+
+### {{ iam-name }}
+
+* When assigning permissions via Kubernetes resources, you can specify a user by their ID or name with the federation ID. Thus you can distinguish between users with the same names in different federations.
+* At installation, you can specify the disk type for the {{ iam-name }} storage: SSD, NVMe, or HDD.
+
+### {{ objstorage-name }}
+
+* Upgraded {{ objstorage-name }} to version `26.3.9-stackland`.
+* Added [temporary STS access keys](operations/storage/create-accesskey.md#create-sts-key) with a limited validity period and access policy.
+* Extended the [bucket settings](concepts/components/storage.md#bucket-settings), which now include a size limit, versioning, labels, ACL, S3 access policies, lifecycle rules, and object version deletion protection using Object Lock.
+* In `StorageConfig`, you can configure CPU, memory, and the service volume size. For more information, see [Configuration](concepts/components/storage.md#configuration).
+* Bucket creation, update, and deletion errors are shown as separate statuses describing the cause.
+
+### {{ rest-catalog-name }} and {{ mtr-name }}
+
+* For the Iceberg catalog, an {{ objstorage-name }} bucket is created automatically with the option to configure access to it.
+* Permissions for the catalog, Iceberg namespace, table, and view can be [assigned to {{ iam-name }} users, user groups, and service accounts](operations/rest-catalog/create-principal.md).
+* You can [connect the catalog to {{ mtr-name }} by name](operations/trino/create-catalog.md) via `spec.stacklandRestCatalog` without manually setting up addresses and credentials for the storage. When running requests, the permissions of a logged-in user or service account are factored in.
+* Added support for {{ mtr-name }} connection under a service account with an IAM token.
+* {{ TR }} upgraded to version 483.
+
+### {{ mch-name }}
+
+Enhanced the security of [backups](operations/clickhouse/new-copy.md) when replication is delayed or individual cluster replicas are not available.
+
+### {{ yt-name }}
+
+[{{ yt-name }}](concepts/components/ytsaurus.md) upgraded to version 25.4.1.
+
+### Resource configuration and component availability
+
+* Extended the CPU and memory settings for DNS, {{ iam-name }}, the license server, Logging Stack, and {{ monitoring-name }}.
+* Increased availability of the management console, {{ iam-name }}, and Ingress during scheduled node maintenance.
+
+### Network
+
+Added support for an HTTP proxy to access the {{ yandex-cloud }} API when managing network load balancers. This setting allows you to work with load balancers when you can only access the API from the cluster using a proxy.
+
+### Management console
+
+* In the management console, moved modules with a separate license to the **Modules** section, while the other platform components are available in the **Components** section.
+* Added `Job` deletion from the management console, including bulk deletion.
+* Updated the dialogs for connecting to {{ mpg-name }}, {{ mch-name }}, and {{ mkf-name }}: after selecting the connection parameters, you get the guides and code samples for different programming languages.
+* You can select a new {{ CH }} version in the {{ mch-name }} cluster edit form. The form verifies the update's validity and prohibits version downgrading.
+* The node page correctly shows the full disk space size, as well as the size of and used up space in the ephemeral storage.
+* In the permission assignment list, added search by access subject name and navigation to linked users and groups.
+
+## Fixed issues
+
+### {{ ai-studio-name }}
+
+Fixed the authorization errors when starting Workflows and calling MCP tools in {{ agent-atelier-name }}.
+
+### Databases and analytics
+
+* In the management console, you can restore a {{ mch-name }} cluster from a backup after deleting the initial cluster.
+* The {{ mch-name }} cluster status does not show readiness until {{ CK }} start is complete.
+* When editing {{ mpg-name }} users and databases, as well as {{ mch-name }} users and roles via the management console, fields missing in the form are saved, including labels and annotations.
+* Fixed authentication via the {{ TR }} CLI.
+* Fixed the CORS errors when using {{ datalens-name }} with {{ objstorage-name }}.
+
+### {{ objstorage-name }}
+
+* Restored the operation of signed URLs for accessing objects.
+* Fixed object filtering in a bucket in the management console.
+* You can now delete a `Bucket` resource with an invalid name if you did not create the bucket in the storage.
+* Fixed the {{ objstorage-name }} expansion errors when adding new nodes.
+
+### Access management
+
+* Excluded the possibility of issuing access keys for another user's service account.
+* Fixed the checks for resource permissions in the management console.
+* Logging out on the authentication page now terminates an {{ iam-name }} session.
+
+### Projects
+
+Fixed the processing of namespace re-creation for a project: now you can only create a namespace with the same name after completing deletion of the old one.
+
 # What's new in {{ stackland-name }} 26.2.2
 
 {{ stackland-name }} version 26.2.2 is mostly a maintenance release delivering bug fixes for the installer, licensing, {{ ai-studio-name }} components, and monitoring.
@@ -8,18 +149,22 @@
 
 Upgrading clusters installed prior to the introduction of licensing (versions earlier than 26.1.5 and 26.2.0) is no longer blocked by license validation checks. These clusters are now automatically recognized and will continue to operate normally both during license validation and during upgrades.
 
+Extended the license verification for new installations: in online mode, the absence of a {{ stackland-name }} license now results in an error instead of further installation.
+
 ### {{ ai-studio-name }}
 
 The [{{ model-gallery-name }}](concepts/components/overview.md#model-gallery) and [{{ agent-atelier-name }}](concepts/components/overview.md#agent-atelier) components have been migrated to the Contour ingress controller to replace ingress-nginx. For more on ingress migration, see [{#T}](operations/cluster/upgrade-cluster.md).
 
 ### Interface
 
-The {{ stackland-name }} management console now supports management for both the [{{ rest-catalog-name }}](concepts/components/overview.md#rest-catalog) and [{{ mtr-name }}](concepts/components/overview.md#trino) components.
+Now you can correctly enable and disable the [{{ mtr-name }}](concepts/components/overview.md#trino) component in the {{ stackland-name }} management console.
 
 ### Installation and upgrades
 
 * `sladm` now checks node DNS names when validating the configuration: if no `installationIp` is specified for a host, its `hostname` cannot be a part of the cluster’s `baseDomain`. This prevents naming conflicts during DNS resolution upon installation.
-* [`sladm diag`](operations/troubleshooting.md) now gathers an expanded range of diagnostic information.
+* Before installation, `sladm` verifies that each Cilium L2 LoadBalancer IP address range is available from the network of at least one node. Configuration errors are detected before installation.
+* [`sladm diag`](operations/troubleshooting.md) now gathers an expanded range of diagnostic information, including data on deleted nodes from Kubernetes events. These events record disk cleanup results and the node's IP address, if the latter is known.
+* Migration compatibility with the current cluster version is taken into account when selecting an upgrade version. Incompatible migration is blocked before running an upgrade.
 
 ## Fixed issues
 
@@ -27,6 +172,10 @@ The {{ stackland-name }} management console now supports management for both the
 
 * Resolved an issue where the installation crashed at the `helm install` stage due to the use of an incorrect release name in the status check.
 * Restored support for the `minimal` image set during upgrades. Upgrades no longer fail when updating kubelet images and those of its associated components. Added a check to verify the local registry on each node contains a complete set of images before restarting a cluster upgrade in air-gapped installations.
+* Increased the acceptable time period without any progress when uploading images from five minutes to one hour. It reduces the possibility of errors when uploading large AI/ML images via slow connections.
+* The Talos version match check at installation is only performed in air-gapped installations. In clusters with internet access, version mismatch does not block installation anymore: required images are uploaded during the installation.
+* Increased the tolerance of the initial `etcd` configuration: if the service goes into the `Failed` state, `sladm` automatically restarts the control-plane node, making up to three attempts. If the temporary `FailedPrecondition` error occurs, the `etcd` configuration re-runs instead of completing the installation with an error.
+* The Cilium L2 LoadBalancer now only announces VIP addresses from worker and combined nodes. Nodes only with the control-plane role do not pull in the traffic they cannot handle anymore.
 
 ### Certificates and Ingress
 
@@ -34,6 +183,7 @@ Ingress annotations now correctly override the class specified in `ClusterIssuer
 
 ### {{ ai-studio-name }}
 
+* Fixed TLS certificate generation for {{ model-gallery-name }} and {{ agent-atelier-name }} and the automatic synchronization of the relevant secret across namespaces. This eliminates TLS errors when accessing these services.
 * The Responses endpoint (`/v1/responses`, `/v1/files`, and `/v1/vector_stores`) now has a dedicated Ingress controller. This ensures its availability does not depend on the FOMO API endpoints (`/v1/chat/completions`, `/v1/embeddings`, and `/v1/models`).
 * Vector search in Responses now uses the folder ID mapped to the {{ agent-atelier-name }} namespace, eliminating errors when working with multiple folders.
 

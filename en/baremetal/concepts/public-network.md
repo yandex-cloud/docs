@@ -15,7 +15,7 @@ An _ephemeral public subnet_ is a public subnet of the `/31` size that is random
 
 Ephemeral public subnets are assigned to servers with **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** set to `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` in their network parameters.
 
-When leasing a {{ baremetal-name }} server, you can enable the [DHCP server](./dhcp.md#dhcp-ephemeral-public-subnet) in an ephemeral public subnet. To do this, enable **{{ ui-key.yacloud.baremetal.label_public-ip-via-dhcp }}**. Otherwise, the DHCP server in this subnet will be disabled. You will not be able to reconfigure the DHCP server in such a subnet later.
+When leasing a {{ baremetal-name }} server, you can enable the [DHCP server](./dhcp.md#dhcp-ephemeral-public-subnet) in an ephemeral public subnet. Do it by enabling **{{ ui-key.yacloud.baremetal.label_public-ip-via-dhcp }}**. Otherwise, the DHCP server in this subnet will be disabled. You will not be able to reconfigure the DHCP server in such a subnet later.
 
 {% include [public-subnet-cidr-details](../../_includes/baremetal/public-subnet-cidr-details.md) %}
 
@@ -29,7 +29,9 @@ If the ephemeral public subnet has not been assigned to any server within one mo
 
 A _dedicated public subnet_ is a public subnet made up of an IP address range that will be available to your servers in the selected [pools](./servers.md#server-pools). The IP address range is assigned to the dedicated public subnet automatically.
 
-A dedicated public subnet may contain servers located in different server pools at the same time. Moreover, case such servers retain [OSI](https://en.wikipedia.org/wiki/OSI_model) L2 network connectivity between them in the public subnet.
+You can [update](../operations/reserve-public-subnet.md#change-hardware-pools) the list of pools after you create a subnet.
+
+A dedicated public subnet may contain servers located in different pools at the same time. Moreover, case such servers retain [OSI](https://en.wikipedia.org/wiki/OSI_model) L2 network connectivity between them in the public subnet.
 
 You can [order](../operations/reserve-public-subnet.md) a dedicated public subnet in the following sizes:
 
@@ -68,19 +70,19 @@ Within a dedicated public subnet range, IP addresses are distributed as follows:
 
 - Subnets of size `/31`
 
-  * First IP address in the range is the default gateway address.
-  * Second IP address in the range is the address available for assignment to the network interface.
+  * The first IP address in the range is the default gateway address.
+  * The second IP address in the range is the address available for assignment to the network interface.
 
   {% include [public-subnet-cidr-31-example](../../_includes/baremetal/public-subnet-cidr-31-example.md) %}
 
 - Subnets of size `/29` or more
 
-  * First IP address in the range is the subnet address.
-  * Second IP address in the range is the default gateway address.
-  * Third to second-last addresses in the range are addresses available for assignment to network interfaces.
-  * Last IP address in the range is the [broadcast](https://en.wikipedia.org/wiki/Broadcast_address) (`broadcast`) address.
+  * The first IP address in the range is the subnet address.
+  * The second IP address in the range is the default gateway address.
+  * From the third to the second-to-last one are addresses available for network interfaces.
+  * The last IP address in the range is the [broadcast](https://en.wikipedia.org/wiki/Broadcast_address) (`broadcast`) address.
 
-  For example:
+  Here is an example:
 
   * Subnet CIDR: `198.51.100.104/29`.
   * Subnet IP address: `198.51.100.104`.

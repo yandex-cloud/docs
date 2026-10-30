@@ -40,15 +40,15 @@ the dataset is in the process of being deleted
 
 This class represents information about a validation error.
 
-**error**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._datasets.dataset.ValidationErrorInfo.error}
+**error**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._datasets.dataset.ValidationErrorInfo.error}
 
 the error message
 
-**description**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._datasets.dataset.ValidationErrorInfo.description}
+**description**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._datasets.dataset.ValidationErrorInfo.description}
 
 a description of the error
 
-**rows**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[int](https://docs.python.org/3/library/functions.html#int)*]... ,{#yandex_ai_studio_sdk._datasets.dataset.ValidationErrorInfo.rows}
+**rows**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[int](https://docs.python.org/3/builtins/functions.html#int)*]... ,{#yandex_ai_studio_sdk._datasets.dataset.ValidationErrorInfo.rows}
 
 a tuple of row numbers associated with the error
 
@@ -56,15 +56,15 @@ a tuple of row numbers associated with the error
 
 This class represents the schema for uploading datasets.
 
-**task\_type**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._datasets.schema.DatasetUploadSchema.task_type}
+**task\_type**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._datasets.schema.DatasetUploadSchema.task_type}
 
 the type of task associated with the dataset
 
-**upload\_format**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._datasets.schema.DatasetUploadSchema.upload_format}
+**upload\_format**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._datasets.schema.DatasetUploadSchema.upload_format}
 
 the format in which the dataset is uploaded
 
-**raw\_schema**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._datasets.schema.DatasetUploadSchema.raw_schema}
+**raw\_schema**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._datasets.schema.DatasetUploadSchema.raw_schema}
 
 the raw schema definition in string format
 

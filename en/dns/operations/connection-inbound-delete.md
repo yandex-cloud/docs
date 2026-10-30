@@ -5,6 +5,8 @@ description: Follow this guide to delete an inbound DNS connection.
 
 # Deleting an inbound DNS connection
 
+If the DNS settings of private {{ baremetal-name }} subnets use an inbound DNS connection, first [exclude it from the settings](../../baremetal/operations/configure-dns.md#disable-dns) of all such subnets. You cannot delete a connection while used by at least one subnet.
+
 To delete an [inbound DNS connection](../concepts/dns-connection.md#dns-inbound):
 
 {% list tabs group=instructions %}

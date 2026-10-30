@@ -1,3 +1,8 @@
+---
+title: Servers in {{ baremetal-full-name }}
+description: Learn about rental options, network interfaces, statuses, and quarantine for {{ baremetal-name }} servers.
+---
+
 # Servers
 
 A {{ baremetal-name }} server is a physical server connected to the [network](./network.md) via two or more 1 Gbps, 10 Gbps, or 25 Gbps [network interfaces](#network-interfaces). Its hardware and network resources are physically isolated and can be accessed only by their lessee.
@@ -72,18 +77,21 @@ You can [attach](../operations/servers/set-up-tagged-vlan.md) several [private s
 
 A server can have one of the following statuses:
 
-* `PROVISIONING`: Server is being prepared to be issued to the user. You get your stock configuration server within anywhere from 30 seconds to several minutes. A custom-configured server takes up to four calendar days to be built and started.
-* `RUNNING`: Rented server is fully available to the user. In this status, the server's power supply can be turned on or off.
-* `STARTING`: Server is being powered up.
+* `ASSEMBLING`: Server in your [custom configuration](./server-custom-configurations.md) is being assembled, installed, and connected to a network in the data center.
+* `PROVISIONING`: Server is being prepared to be issued to the user.
+* `RUNNING`: Server is up and running, fully available to the user.
 * `STOPPING`: Server is being powered down.
+* `STOPPED`: Server is off.
+* `STARTING`: Server is being powered up.
 * `RESTARTING`: Server is rebooting.
 * `REINSTALLING`: Server operating system is being reinstalled.
 * `UPDATING`: Server or network settings are being updated.
-* `QUARANTINING`: Server is being [quarantined](#quarantine).
-* `QUARANTINED`: Server is quarantined. Users cannot access quarantined servers over the network or through a KVM console.
-* `RETURNING_FROM_QUARANTINE`: Server is returning from quarantine, with access being restored over the network and through a KVM console.
-* `DELETING`: Server deletion is in progress. It may take several hours to completely delete the server and wipe all disks.
+* `MAINTENANCE`: Server is currently under maintenance.
+* `QUARANTINED`: Server is [quarantined](#quarantine). Users cannot access quarantined servers over the network or through a KVM console.
+* `DELETING`: Server deletion is in progress. The time required to clean up all server disks depends on their number and capacity.
 * `ERROR`: Error has occurred, the KVM console is unavailable. Contact [support]({{ link-console-support }}).
+
+`ASSEMBLING` and `PROVISIONING` a custom configuration server may take up to four calendar days in total.
 
 ## Quarantine {#quarantine}
 
@@ -93,9 +101,9 @@ At any time during the quarantine period, you can restore the server for further
 
 {% note info %}
 
-Servers with the `QUARANTINING`, `QUARANTINED`, `RETURNING_FROM_QUARANTINE`, or `DELETING` status are counted towards the [total quota](./limits.md) for the number of servers.
+Servers with the `QUARANTINED` or `DELETING` status are counted towards the [total quota](./limits.md) for the number of servers.
 
-Servers with the `QUARANTINING`, `QUARANTINED`, `RETURNING_FROM_QUARANTINE`, or `DELETING` status are not billable.
+Servers with the `QUARANTINED` or `DELETING` status are not billable.
 
 If a server is restored for further use during the quarantine period, its quarantine time will be included into the paid rent period. 
 

@@ -48,8 +48,8 @@ To create a new subnet with DHCP settings, follow these steps:
 - Management console {#console}
 
   To create a subnet:
-  1. Open the **{{ vpc-name }}** section in the folder where you want to create a subnet.
-  1. Click `ad-network`.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Select the `ad-network` cloud network.
   1. Click **Add subnet**.
   1. Fill out the form:
       * Enter the subnet name: `test-subnet-1`. Select the availability zone: `{{ region-id }}-a`.

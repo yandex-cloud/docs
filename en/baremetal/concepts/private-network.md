@@ -88,6 +88,8 @@ The number of static routes per cloud is limited by [quotas](./limits.md#baremet
 
 To set up network connectivity between {{ baremetal-name }} [servers](./servers.md), {{ vpc-name }} private [subnets](../../vpc/concepts/network.md#subnet), and private subnets in the on-premise infrastructure, use [{{ interconnect-full-name }}](../../interconnect/concepts/priv-con.md).
 
+{% include [cr-v2-bms-onprem-notice](../../_includes/baremetal/cr-v2-bms-onprem-notice.md) %}
+
 [Static routes](#static-routes) created in the VRF can be announced in {{ vpc-name }}. For that, make sure the **{{ ui-key.yacloud.baremetal.vrfs.VrfStaticRoutesField.column_is-console-enabled_hiCs9 }}** option is on in the VRF when [configuring](../operations/create-static-route.md) the static route.
 
 #### Useful links {#see-also}

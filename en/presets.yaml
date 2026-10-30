@@ -9,7 +9,6 @@ default:
   AF: Apache Airflow™
   agent-core-name: Agent Core
   agents-atelier-name: Agent Atelier
-  ai-playground: AI Playground
   ai-search-name: AI Search
   ai-studio-full-name: Yandex Cloud AI Studio
   ai-studio-name: AI Studio
@@ -654,7 +653,6 @@ default:
   objstorage-sftps-gateway-version: '1.0'
   objstorage-short-name: Object Storage
   ocr-max-filesize: 10 MB
-  openai: OpenAI
   oracle:
     docs: https://docs.oracle.com/en/database/oracle/oracle-database/19
   org-full-name: Yandex Identity Hub
@@ -1295,6 +1293,7 @@ default:
   s3-storage-host-cli: storage.yandexcloud.net
   s3-storage-host-doc-files: storage.yandexcloud.net/doc-files
   s3-storage-host-mch: storage.yandexcloud.net/managed-clickhouse
+  s3-storage-host-pe: storage.pe.yandexcloud.net
   s3-storage-host-ru: storage.yandexcloud.net
   s3-web-host: website.yandexcloud.net
   saml-limit-display-name: 64 characters
@@ -2012,6 +2011,7 @@ default:
   tracker-short-name: Tracker
   translate-full-name: Yandex Translate
   translate-name: Translate
+  translate-short-name: Translate
   trino-service-address: 10.248.0.0/13
   tts-v3-count: 250 characters
   tts-v3-time: 24 seconds
@@ -4538,6 +4538,7 @@ default:
         action_reboot-server: Reboot
         action_reinstall-server-os: Re-install
         action_reinstall-server-os-menu: Re-install OS
+        action_save-changes: Save changes
         action_server-prolongate-ended-rent: Recover
         action_stop-prolongation-server: Disable autorenewal
         action_stop-prolongation-server-dialog: Disable
@@ -6260,7 +6261,9 @@ default:
           point-of-presence_265QN: Point of presence
           trunk-connections_kBGNL: Trunk connections
           TrunkConnectionListScreen:
+            create-support-request_dF6Pd: Create support request
             create-trunk-connection_oUuYo: Create trunk connection
+            support-form-topic_8nwBe: '[CIC] Create trunk connection'
         vlan-id_2wghK: VLAN ID
       iot:
         button_add-alias: Add alias
@@ -6713,6 +6716,7 @@ default:
         button_use: Use
         label_available-products: Application available for installation
         label_licenses: Subscriptions
+        label_private-offers: Offers
         label_product-access-request: Access requests
         label_product-access-request-status-approved: Approved
         label_product-filter-search-placeholder: Product search
@@ -6722,6 +6726,15 @@ default:
         section_tariff-section: Pricing method
         title_product-request-messages: Message about request
         title_request-access-to-product-dialog: Request for product access
+      marketplace:
+        privateOfferCardFooter:
+          action_accept: Accept offer
+        privateOfferOverviewScreen:
+          field_acceptance-deadline: Offer expires
+        privateOfferStatusInfo:
+          label_status-pending: Awaiting acceptance
+        productDetailView:
+          tab_personal-terms: Personal terms
       mdb:
         AuthMethodColumn:
           value_iam_boWet: IAM
@@ -10093,7 +10106,6 @@ default:
   v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
   vc-name: VibeCraft
-  vector-store-name: Vector Store
   video-full-name: Yandex Cloud Video
   video-name: Cloud Video
   video-player-name: Cloud Video Player

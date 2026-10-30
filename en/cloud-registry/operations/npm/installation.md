@@ -37,7 +37,7 @@ To do the setting up:
               always-auth=true
               ```
 
-        - IAM_token
+        - IAM token
 
           1. Get an [IAM token](../../../iam/concepts/authorization/iam-token.md) for the [Yandex account](../../../iam/operations/iam-token/create.md) or [service account](../../../iam/operations/iam-token/create-for-sa.md) you are going to use for authentication.
           1. Create the `NPM_AUTH` environment variable:
@@ -59,6 +59,9 @@ To do the setting up:
         - API key (Base64)
 
           1. [Create](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key for the [service account](../../../iam/concepts/users/service-accounts.md) you are going to use for authentication.
+
+              {% include [api-key-scopes](../../../_includes/cloud-registry/api-key-scopes.md) %}
+
           1. Create the `NPM_AUTH` environment variable:
 
               ```bash
@@ -76,3 +79,5 @@ To do the setting up:
               ```
 
         {% endlist %}
+
+[*api-key-scope]: {% include notitle [api-key-scope](../../../_popups/iam/api-key-scope.md) %}

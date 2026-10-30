@@ -183,64 +183,59 @@ sudo apt update && sudo apt install --yes mysql-client
 
 ### Подключение с аутентификацией через IAM {#iam}
 
-К базе данных {{ CH }} можно подключиться с аутентификацией через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../../iam/concepts/users/accounts.md#saml-federation), [локальных пользователей](../../../iam/concepts/users/accounts.md#local) и [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md). Вместо пароля пользователя в клиенте указывается [IAM-токен](../../../iam/concepts/authorization/iam-token.md).
+К базе данных {{ CH }} можно подключиться с помощью [интерфейса командной строки {{ yandex-cloud }} (CLI)](../../../cli/quickstart.md#install) или [clickhouse-client](#clickhouse-client), используя аутентификацию через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../../iam/concepts/users/accounts.md#saml-federation) или [локальных пользователей](../../../iam/concepts/users/accounts.md#local).
 
-Для подключения через сервисный аккаунт [назначьте](../../../iam/operations/sa/set-access-bindings.md) ему роли:
+Чтобы подключиться к БД {{ CH }} с аутентификацией через IAM:
 
-* [роль](../../security.md#managed-clickhouse-clusters-connector) `managed-clickhouse.clusters.connector` на кластер;
-* [роль](../../../iam/roles-reference.md#iam-serviceAccounts-user) `iam.serviceAccounts.user` или выше. Если необходим доступ для нескольких сервисных аккаунтов, назначьте эту роль на каталог.
+1. [Установите и настройте клиент {{ CH }}](#clickhouse-client).
+1. Для доступа к кластеру [назначьте роль](../cluster-access.md#add-access-binding) `managed-clickhouse.clusters.connector` аккаунту пользователя, который будет подключаться к БД. Если вы хотите настроить подключение к кластеру через сервисный аккаунт, дополнительно назначьте роль `iam.serviceAccounts.user`.
+1. [Создайте пользователя {{ CH }}](../cluster-users.md#adduser) с аутентификацией через IAM и укажите аккаунт, которому была назначена роль `managed-clickhouse.clusters.connector`.
+1. Подключитесь к БД {{ CH }}:
 
-Подготовьте кластер {{ CH }} к подключению:
+   {% list tabs group=instructions %}
 
-1. Назначьте роль `managed-clickhouse.clusters.connector` аккаунту, который будет подключаться к БД:
+   - CLI {#cli}
 
-    1. [Перейдите]({{ link-console-main }}/link/managed-clickhouse) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера.
-    1. Выберите вкладку ![chevron-down](../../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
-    1. Введите имя пользователя или электронную почту, к которой привязан аккаунт. Для сервисного аккаунта введите его имя или идентификатор. В результатах поиска выберите найденный аккаунт.
-    1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `managed-clickhouse.clusters.connector`.
-    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
-
-1. Создайте пользователя {{ CH }} со способом аутентификации через IAM и предоставьте ему доступ к нужной БД. Подробнее в разделе [{#T}](../cluster-users.md#adduser).
-
-1. Получите IAM-токен для аккаунта, который будет подключаться к кластеру:
-
-    * [Инструкция](../../../iam/operations/iam-token/create.md) для аккаунта на Яндексе.
-    * [Инструкция](../../../iam/operations/iam-token/create-for-federation.md) для федеративного аккаунта.
-    * [Инструкция](../../../iam/operations/iam-token/create-for-local.md) для локального аккаунта.
-    * [Инструкция](../../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
-
-1. Подключитесь к кластеру:
-
-    {% list tabs %}
-
-    - clickhouse-client {#clickhouse-client-iam}
+     1. Для доступа к кластеру дополнительно назначьте роль `managed-clickhouse.viewer` аккаунту пользователя, который будет подключаться к БД.
+     1. Выполните команду:
 
         ```bash
-        clickhouse-client --host <FQDN_любого_хоста_{{ CH }}> \
-                          --secure \
-                          --user <имя_пользователя> \
-                          --database <имя_БД> \
-                          --port 9440 \
-                          --ask-password
+        {{ yc-mdb-ch }} connect <имя_или_идентификатор_кластера> --db <имя_БД>
         ```
 
-        При запросе пароля введите IAM-токен.
+     Подключение этим способом не требует указания FQDN хостов кластера.
 
-    - cURL {#curl-iam}
+   - clickhouse-client {#client}
 
-        ```bash
-        curl --cacert {{ crt-local-dir }}{{ crt-local-file-root }} \
-             --header "X-ClickHouse-User: <имя_пользователя>" \
-             --header "X-ClickHouse-Key: <IAM-токен>" \
-             'https://<FQDN_любого_хоста_{{ CH }}>:8443/?database=<имя_БД>&query=SELECT%20version()'
-        ```
+     1. [Получите IAM-токен](../../../iam/operations/iam-token/create.md) для аккаунта, которому ранее был выдан доступ к кластеру.
+     1. Выполните команду:
 
-    - JDBC и ODBC {#jdbc-odbc-iam}
+        * Для подключения без SSL:
 
-        В параметрах подключения в поле пароля укажите IAM-токен. Для SSL добавьте в URL параметр `sslmode=require`.
+           ```bash
+           clickhouse-client --host <FQDN_любого_хоста_{{ CH }}> \
+                      --user <идентификатор_аккаунта_или_электронная_почта> \
+                      --database <имя_БД> \
+                      --port 9000 \
+                      --ask-password
+           ```
 
-    {% endlist %}
+        * Для подключения с SSL:
+
+           ```bash
+           clickhouse-client --host <FQDN_любого_хоста_{{ CH }}> \
+                  --secure \
+                  --user <идентификатор_аккаунта_или_электронная_почта> \
+                  --database <имя_БД> \
+                  --port {{ port-mch-cli }} \
+                  --ask-password
+           ```
+
+        В качестве имени пользователя укажите идентификатор аккаунта или электронную почту пользователя, к которой привязан аккаунт, а в качестве пароля — полученный IAM-токен.
+
+        Как получить FQDN хоста, описано в [инструкции](fqdn.md).
+
+   {% endlist %}
 
 
 ## Подключение из графических IDE {#ide}
@@ -251,6 +246,16 @@ sudo apt update && sudo apt install --yes mysql-client
 Подключаться из графических IDE можно только к хостам кластера в публичном доступе с использованием SSL-сертификата.
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
+
+{% note tip %}
+
+Вы можете подключаться из графических IDE с помощью аутентификации через IAM. Для этого:
+
+1. [Настройте подключение](#iam).
+1. [Получите IAM-токен](../../../iam/operations/iam-token/create.md) для аккаунта, которому было настроено подключение через IAM.
+1. При подключении укажите в качестве имени пользователя идентификатор аккаунта, а в качестве пароля — полученный IAM-токен.
+
+{% endnote %}
 
 ### DataGrip {#datagrip}
 
@@ -287,6 +292,17 @@ sudo apt update && sudo apt install --yes mysql-client
             * `sslrootcert:<полный_путь_к_сохраненному_файлу_корневого_SSL-сертификата_включая_имя_файла>`.
 1. Нажмите кнопку **Тест соединения ...** для проверки подключения. При успешном подключении будет выведен статус подключения, информация о СУБД и драйвере.
 1. Нажмите кнопку **Готово**, чтобы сохранить настройки соединения с БД.
+
+### Подключение с аутентификацией через IAM {#ide-iam}
+
+Подключение доступно для [аккаунтов {{ yandex-cloud }}](../../../iam/concepts/users/accounts.md) и не требует указания FQDN хостов кластера.
+
+Чтобы подключиться к БД {{ CH }}:
+
+1. Для доступа к кластеру [назначьте роль](../cluster-access.md#add-access-binding) `managed-clickhouse.clusters.connector` аккаунту пользователя, который будет подключаться к БД.
+1. [Создайте пользователя {{ CH }}](../cluster-users.md#adduser) с аутентификацией через IAM и укажите аккаунт, которому была назначена роль `managed-clickhouse.clusters.connector`.
+1. [Получите IAM-токен](../../../iam/operations/iam-token/create.md) для аккаунта, которому было настроено подключение через IAM.
+1. При подключении в [DataGrip](#datagrip) или [DBeaver](#dbeaver) укажите в качестве имени пользователя идентификатор аккаунта или электронную почту пользователя, к которой привязан аккаунт, а в качестве пароля — полученный IAM-токен.
 
 
 ## Подключение из браузера {#browser}

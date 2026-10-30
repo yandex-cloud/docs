@@ -10,7 +10,7 @@
 
 * [How do I get started with {{ mch-short-name }}?](#quickstart)
 
-* [How many database hosts can there be in a cluster?](#how-many-hosts)
+* [How many database hosts can a cluster contain?](#how-many-hosts)
 
 * [How can I access a running database host?](#db-access)
 

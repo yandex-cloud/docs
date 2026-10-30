@@ -1,4 +1,4 @@
-To use the `billing.accounts.editor` role, you need to assign it for a billing account. It enables you to get payment invoices, redeem promo codes, link clouds and services to your billing account, create details export and budgets, generate reconciliation reports, and reserve resources.
+To use the `billing.accounts.editor` role, you need to assign it for a billing account. It enables you to get payment invoices, redeem promo codes, link clouds and services to your billing account, create details export and budgets, as well as generate reconciliation reports.
 
 {% cut "In {{ billing-name }}, users with this role can:" %}
 
@@ -14,7 +14,6 @@ To use the `billing.accounts.editor` role, you need to assign it for a billing a
 * [Execute API queries](../../../billing/operations/get-charges-via-api.md) to get usage details.
 * [Export details](../../../billing/operations/get-folder-report.md).
 * Create [budgets](../../../billing/concepts/budget.md).
-* [Reserve resource usage](../../../billing/concepts/cvos.md).
 * Top up their [personal account](../../../billing/concepts/personal-account.md) using a bank account.
 * Link [clouds](../../../resource-manager/concepts/resources-hierarchy.md#cloud) to a billing account.
 * Rename billing accounts.

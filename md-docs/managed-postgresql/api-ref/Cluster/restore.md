@@ -2712,7 +2712,6 @@ POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters:restore
       "diskSize": "string",
       "diskTypeId": "string"
     },
-    "autofailover": "boolean",
     "backupWindowStart": {
       "hours": "integer",
       "minutes": "integer",
@@ -3977,7 +3976,9 @@ Host groups hosting VMs of the cluster. ||
 Deprecated. Use maintenance_windows instead. ||
 || diskEncryptionKeyId | **string**
 
-ID of the key to encrypt cluster disks. ||
+ID of the key to encrypt cluster disks.
+
+Value must match the regular expression ` [a-zA-Z0-9_.-]{0,50} `. ||
 || maintenanceWindows | **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)**
 
 Maintenance windows.
@@ -4112,9 +4113,6 @@ Configuration of the connection pooler. ||
 || resources | **[Resources](#yandex.cloud.mdb.postgresql.v1.Resources)**
 
 Resources allocated to PostgreSQL hosts. ||
-|| autofailover | **boolean**
-
-Configuration setting which enables/disables autofailover in cluster. ||
 || backupWindowStart | **[TimeOfDay](#google.type.TimeOfDay)**
 
 Time to start the daily backup, in the UTC timezone. ||
@@ -29633,7 +29631,6 @@ Allows maintenance operations that may cause temporary write unavailability. ||
         "diskSize": "string",
         "diskTypeId": "string"
       },
-      "autofailover": "boolean",
       "backupWindowStart": {
         "hours": "integer",
         "minutes": "integer",
@@ -30058,9 +30055,6 @@ Configuration of the connection pooler. ||
 || resources | **[Resources](#yandex.cloud.mdb.postgresql.v1.Resources2)**
 
 Resources allocated to PostgreSQL hosts. ||
-|| autofailover | **boolean**
-
-Configuration setting which enables/disables autofailover in cluster. ||
 || backupWindowStart | **[TimeOfDay](#google.type.TimeOfDay2)**
 
 Time to start the daily backup, in the UTC timezone. ||

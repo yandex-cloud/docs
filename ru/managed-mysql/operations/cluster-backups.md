@@ -312,7 +312,12 @@ description: Вы можете создавать резервные копии 
 {% endnote %}
 
 
-Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [managed-mysql.restorer](../../iam/roles-reference.md#managed-mysql-restorer) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
+Если резервная копия и новый кластер находятся в одном каталоге, [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли [managed-mysql.editor](../../iam/roles-reference.md#managed-mysql-editor) и [vpc.user](../../iam/roles-reference.md#vpc-user) или выше.
+
+Если резервная копия и новый кластер находятся в разных каталогах, назначьте аккаунту роли:
+
+* [managed-mysql.restorer](../../iam/roles-reference.md#managed-mysql-restorer) или выше на каталог, в котором находится резервная копия;
+* [managed-mysql.editor](../../iam/roles-reference.md#managed-mysql-editor) и [vpc.user](../../iam/roles-reference.md#vpc-user) или выше на каталог, в котором находится новый кластер.
 
 
 {% list tabs group=instructions %}

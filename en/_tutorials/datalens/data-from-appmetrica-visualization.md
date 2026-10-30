@@ -4,9 +4,9 @@
 You can visualize and explore AppMetrica data in {{ datalens-full-name }} using the following methods:
 
 * Direct access.
-   {{ datalens-name }} connects directly to AppMetrica. This method is the easiest and fastest but supports a [limited](../../datalens/function-ref/availability.md) set of functions.
+  {{ datalens-name }} connects directly to AppMetrica. This method is the easiest and fastest but supports a [limited](../../datalens/function-ref/availability.md) set of functions.
 * Real-time export of data from AppMetrica to {{ mch-name }}.
-   Raw data is available and you can use pre-aggregation and post-processing at the database level. To implement this option, [set up data export](https://yandex.ru/support/metrica/{{ lang }}/uploading-data/cloud) and [create a connection](../../datalens/operations/connection/create-clickhouse.md) from {{ datalens-name }} to the {{ CH }} database.
+  Raw data is available and you can use pre-aggregation and post-processing at the database level. To implement this option, [set up data export](https://yandex.ru/support/metrica/{{ lang }}/uploading-data/cloud) and [create a connection](../../datalens/operations/connection/create-clickhouse.md) from {{ datalens-name }} to the {{ CH }} database.
 
 In this tutorial, we use direct access. An application added to [AppMetrica](https://appmetrica.yandex.com) will be used as the data source. You can view a list of applications available to you under [Applications](https://appmetrica.yandex.com/application/list).
 
@@ -35,31 +35,31 @@ This step is available to users who have an app in AppMetrica. If you do not hav
 1. In the left-hand panel, select ![image](../../_assets/console-icons/thunderbolt.svg) **Connections** and click **Create connection**.
 1. Select **AppMetrica** as the connection type.
 
-   ![image](../../_assets/datalens/solution-06/03-choose-appmetrica.png)
+    ![image](../../_assets/datalens/solution-06/03-choose-appmetrica.png)
 
 1. Enter `My AppMetrica` for the connection name and click **Get token**.
 
-   ![image](../../_assets/datalens/solution-06/get-token.png)
+    ![image](../../_assets/datalens/solution-06/get-token.png)
 
-   If this is your first connection to an AppMetrica app, grant the required permissions to the service.
+    If this is your first connection to an AppMetrica app, grant the required permissions to the service.
 
 1. Select the app from the drop-down list.
 
-   ![image](../../_assets/datalens/solution-06/select-an-app.png)
+    ![image](../../_assets/datalens/solution-06/select-an-app.png)
 
 1. Set up your connection:
 
-   ![image](../../_assets/datalens/solution-06/specify-fields.png)
+    ![image](../../_assets/datalens/solution-06/specify-fields.png)
 
-   1. Set the data accuracy (sampling rate). You can change the accuracy after you create the connection.
-   1. Select the **Direct access** connection type.
-   1. Enable **Automatically create a dashboard on this connection**.
+    1. Set the data accuracy (sampling rate). You can change the accuracy after you create the connection.
+    1. Select the **Direct access** connection type.
+    1. Enable **Automatically create a dashboard on this connection**.
 
 1. In the top-right corner, click **Create**.
 
-   Once the connection is created, a folder containing a dashboard and a set of datasets and charts will open.
+    Once the connection is created, a folder containing a dashboard and a set of datasets and charts will open.
 
-   {% include [datalens-appmetrica-note](../../_includes/datalens/datalens-appmetrica-note.md) %}
+    {% include [datalens-appmetrica-note](../../_includes/datalens/datalens-appmetrica-note.md) %}
 
 ## Edit the standard dashboard {#edit-dashboard}
 
@@ -75,17 +75,17 @@ You can edit the standard [dashboard](../../datalens/concepts/dashboard.md) howe
 
 1. Click **Edit** in the top-right corner.
 
-   ![image](../../_assets/datalens/solution-06/05-edit-dashboard.png)
+    ![image](../../_assets/datalens/solution-06/05-edit-dashboard.png)
 
 1. To delete the **Click dynamics** widget, click ![image](../../_assets/console-icons/xmark.svg) in the top-right corner.
 
-   ![image](../../_assets/datalens/solution-06/06-specify-widgets.png)
+    ![image](../../_assets/datalens/solution-06/06-specify-widgets.png)
 
 1. To resize the **Installation dynamics** widget, drag it by the bottom-right corner.
 
 1. Click **Save** in the top-right corner to save the dashboard.
 
-   ![image](../../_assets/datalens/solution-06/07-save-dashboard.png)
+     ![image](../../_assets/datalens/solution-06/07-save-dashboard.png)
 
 You can edit any chart on the dashboard. For example, change the visualization type for the **Ad networks** chart from **Attracting users**.
 

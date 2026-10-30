@@ -22,4 +22,20 @@ The Yubikey licensing model uses a hardware authentication device to limit the m
 
 ## Prices {#pricing}
 
-You can get the cost info for {{ sk-hybrid-name }} with any licensing model upon request. 
+You can get the cost info for {{ sk-hybrid-name }} with any licensing model upon request.
+
+::: page-constructor
+blocks:
+  - type: 'content-layout-block'
+    size: 's'
+    textContent:
+      title:
+        text: 'Find out the service pricing'
+        textSize: 'xs'
+      text: 'Let us know about your use cases and preferred licensing model, and we will deliver a tailored proposal.'
+      buttons:
+        - text: 'Contact us'
+          theme: 'action'
+          size: 'm'
+          url: '#contact-form'
+:::

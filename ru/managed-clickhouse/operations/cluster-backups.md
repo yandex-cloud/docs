@@ -114,10 +114,14 @@ description: Вы можете создавать резервные копии 
 Из резервной копии вы можете восстановить как отдельный [шард](../concepts/sharding.md), так и весь кластер целиком.
 
 
-Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли:
+Если резервная копия и новый кластер находятся в одном каталоге, [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли [managed-clickhouse.editor](../../iam/roles-reference.md#managed-clickhouse-editor) и [vpc.user](../../iam/roles-reference.md#vpc-user) или выше.
 
-* [managed-clickhouse.restorer](../../iam/roles-reference.md#managed-clickhouse-restorer) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
-* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше, если вы восстанавливаете из резервной копии кластер с привязкой к [сервисному аккаунту](../../iam/concepts/users/service-accounts.md).
+Для восстановления из резервной копии кластера с привязкой к [сервисному аккаунту](../../iam/concepts/users/service-accounts.md) назначьте аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+
+Если резервная копия и новый кластер находятся в разных каталогах, назначьте аккаунту роли:
+
+* [managed-clickhouse.restorer](../../iam/roles-reference.md#managed-clickhouse-restorer) или выше на каталог, в котором находится резервная копия;
+* [managed-clickhouse.editor](../../iam/roles-reference.md#managed-clickhouse-editor) и [vpc.user](../../iam/roles-reference.md#vpc-user) или выше на каталог, в котором находится новый кластер.
 
 
 {% include [mch-mergetree-conversion](../../_includes/mdb/mch-restore-tables-conversion-alert.md) %}

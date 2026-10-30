@@ -51,6 +51,8 @@ items:
             href: operations/connect/code-examples.md
           - name: Configuring SAML authentication
             href: operations/saml-authentication.md
+          - name: Updating a TLS certificate chain
+            href: operations/connect/update-tls-certificates.md
       - name: User management
         href: operations/cluster-users.md
       - name: Logs and monitoring

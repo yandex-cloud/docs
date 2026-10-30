@@ -38,6 +38,39 @@ spec:
   releaseChannel: "stable"  # or "alpha"
 ```
 
+## Preparing Object Storage for an upgrade to version 26.4 or higher {#storage-postgresql-upgrade}
+
+If your cluster uses {{ objstorage-name }} with a PostgreSQL 15 metabase, migrate the metabase to PostgreSQL 17 before upgrading {{ stackland-name }} to version 26.4.0 or higher. You can keep PostgreSQL 15 for version 26.3. For new {{ objstorage-name }} installations, PostgreSQL 17 is enabled automatically.
+
+{% note warning %}
+
+During a metabase upgrade, the S3 API is unavailable. Select a maintenance window suitable for applications utilizing {{ objstorage-name }}. The metabase upgrade begins after explicitly confirmed by the administrator.
+
+{% endnote %}
+
+1. If a cluster upgrade has already been initiated, check the reason for having it blocked:
+
+    ```bash
+    kubectl get targetinstallationstate main -o yaml
+    ```
+
+    If your metabase requires an upgrade, the resource switches to `status.phase: Blocked`, and `status.message` shows a message indicating that PostgreSQL 17 is required.
+
+1. At the selected maintenance time, confirm the metabase upgrade:
+
+    ```bash
+    kubectl annotate storageconfig main \
+      stackland.yandex.cloud/approve-postgres-upgrade=true --overwrite
+    ```
+
+1. Track the {{ objstorage-name }} state:
+
+    ```bash
+    kubectl get storageconfig main -o yaml
+    ```
+
+    After a successful upgrade, the storage becomes `Ready` again, and the confirmation annotation is automatically removed. Verify that your applications can access the S3 API. If blocked due to the incorrect metabase version, the cluster upgrade will resume automatically.
+
 ## Before upgrading to 27.x {#pre-upgrade-27}
 
 {{ stackland-name }} 26.2 introduced a new Contour-based Ingress controller deprecating the legacy implementation based on ingress-nginx. {{ stackland-name }} 27 will completely remove ingress-nginx from the distribution, and this serves as prior notice of these plans. In {{ stackland-name }} 26 releases, ingress-nginx remains available for custom workloads, but you must migrate to the new controller before upgrading to {{ stackland-name }} 27.
@@ -314,6 +347,7 @@ The `status` field displays:
 * `currentVersion`: Currently installed version.
 * `phase`: Upgrade stage:
     * `Pending`: Upgrade awaiting start.
+    * `Blocked`: Upgrade awaiting compliance with mandatory prerequisites. The reason is specified in `message`.
     * `Running`: Upgrade in progress.
     * `Completed`: Upgrade completed.
     * `Failed`: Upgrade failed.

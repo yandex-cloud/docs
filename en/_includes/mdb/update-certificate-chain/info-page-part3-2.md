@@ -1,0 +1,1 @@
+If the client has not been configured to trust the new certificate chain, it will be unable to establish a TLS connection to the cluster after maintenance.

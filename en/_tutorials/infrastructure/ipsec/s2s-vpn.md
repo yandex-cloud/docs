@@ -126,7 +126,7 @@ Create a [cloud network](../../../vpc/concepts/network.md) to host the VM.
 - Management console {#console}
 
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `s2s-vpn-network`.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, disable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.

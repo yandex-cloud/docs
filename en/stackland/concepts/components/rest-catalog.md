@@ -1,84 +1,86 @@
 # {{ rest-catalog-name }} {#rest-catalog}
 
-{{ rest-catalog-name }} is a REST catalog for {{ IBRG }} tables compatible with the Iceberg REST Catalog API. This component allows you to manage catalogs, table namespaces, and data access by leveraging the following custom resources:
+{{ rest-catalog-name }} is a REST catalog for {{ IBRG }} tables compatible with the Iceberg REST Catalog API. This component allows you to create catalogs and manage access to data through custom resources:
 
-* `RestCatalog` to create an Iceberg REST catalog.
-* `RestCatalogPrincipal` to create principals for access to the Iceberg REST Catalog API.
+* `StacklandRestCatalog`: For creating a catalog.
+* `StacklandRestCatalogAccessBinding`: For granting access permissions to users, groups, and service accounts.
+
+You can [connect your catalog to {{ mtr-name }}](../../operations/trino/create-catalog.md) by specifying its name. The connection and storage access settings are configured automatically.
 
 ## Catalog {#catalog}
 
-A catalog is described by the `RestCatalog` resource and defines where to store table data and which access model to apply. The operator configures the actual catalog state to match the one described in the resource specification.
-
-Each catalog is associated with an [{{ objstorage-name }} bucket](storage.md): the `spec.stacklandStorage.bucketRef` property refers to an existing `Bucket` resource. All allowed storage paths defined in `spec.allowedLocations` must reside within that bucket.
+A `StacklandRestCatalog` resource describes a catalog. For storing table data, a separate bucket in [{{ objstorage-name }}](storage.md) and an access key for it are created automatically. No need to select a bucket and configure access to it.
 
 Main specification properties:
 
-* `allowedLocations`: List of S3 paths allowed for table data storage. Specify at least one path.
-* `stacklandStorage.bucketRef`: Name of the bucket where catalog data is stored.
-* `defaultBaseLocation`: Default base path for table data. It must be included in `allowedLocations`. If not set, the first item from `allowedLocations` is used.
-* `defaultNamespace`: Default namespace for tables (array of path segments).
-* `properties`: Additional catalog properties in `key – value` format.
-* `deletionProtection`: Optional catalog deletion protection. The default value is `false`. If `true`, the catalog cannot be deleted until this flag is removed.
+* `description`: Description of the catalog up to 256 characters long. This is an optional parameter.
+* `labels`: Catalog labels in `key – value` format. These are set when the catalog is created and cannot be changed.
+* `deletionProtection`: Catalog deletion protection. The default value is `false`. If `true`, the catalog cannot be deleted until this protection is disabled.
 
-The folder name matches the `metadata.name` property of the `RestCatalog` resource. A cluster may only have one catalog with the specified name.
+The catalog name is specified in `metadata.name` and must be unique within the namespace. The name must begin with a Latin letter, contain only lowercase Latin letters, digits, and hyphens, end with a letter or digit, and be maximum 63 characters long.
 
-## User groups and catalog roles {#roles}
+## Catalog roles {#roles}
 
-The catalog access model uses a dual structure comprising user groups and catalog roles.
+Permissions are assigned using the `StacklandRestCatalogAccessBinding` resource. A single assignment links a single user, group, or service account with a single role in the selected resource.
 
-User groups are defined in the `spec.declaredPrincipalRoles` property. Each group is a name of a role managed by the operator. Groups are used in catalog roles and when granting access to principals.
+The `spec.catalogRef` setting refers to `StacklandRestCatalog` in the same namespace. The role scope is specified by one of the following settings:
 
-Catalog roles are specified in the `spec.catalogRoles` property. Each role defines a scope and its associated privileges. Four scope types are supported:
+* `catalog`: Entire catalog.
+* `namespace`: Iceberg table namespace. The path is specified as an array of `namespacePath` segments.
+* `table`: Table. The `namespacePath` and table `name` are specified.
+* `view`: View. The `namespacePath` and view `name` are specified.
 
-* `catalog`: Privileges at the catalog level.
-* `namespace`: Privileges at the namespace level.
-* `table`: Privileges at the table level.
-* `view`: Privileges at the view level.
+For the scope selected in the `role` setting, specify one of these roles:
 
-You can associate a catalog role with one or more user groups via the `principalRoles` parameter. The names you specify in that property must match the names in `declaredPrincipalRoles`.
+#|
+|| **Role** | **Permissions** ||
+|| `auditor`, `viewer` | Viewing information about resources and assigned permissions. ||
+|| `reader` | Permissions of the `viewer` role; reading table and view data. ||
+|| `writer` | Permissions of the `reader` role; writing data into existing tables and replacing existing views. ||
+|| `editor` | Permissions of the `writer` role; creating, updating, and deleting objects in the selected scope. ||
+|| `admin` | Permissions of the `editor` role; assigning and revoking access permissions in the selected scope. ||
+|#
+
+For an additional role or another scope, select a separate designation.
+
+Related guides: [Assigning permissions for a catalog](../../operations/rest-catalog/create-principal.md), [Editing permission assignment](../../operations/rest-catalog/create-principal.md#edit), [Revoking permissions for a catalog](../../operations/rest-catalog/delete-principal.md).
 
 ## Catalog users {#principals}
 
-A catalog user is described by the `RestCatalogPrincipal` resource and represents a principal for access to the Iceberg REST Catalog API via OAuth2.
+Access for the catalog is provided to existing {{ iam-name }} users, groups, and service accounts. No need to create separate catalog accounts and OAuth2 secrets.
 
-Main specification properties:
+The role subject is specified in `spec.subject` of the `StacklandRestCatalogAccessBinding` resource:
 
-* `catalog`: Name of the catalog the user is associated with. The value must match the `metadata.name` property of the `RestCatalog` resource in the same project.
-* `principalRoles`: List of user groups from the catalog’s `declaredPrincipalRoles` property. Specify at least one group.
-* `credentialsSecretRef`: Optional reference to a Kubernetes Secret with OAuth2 credentials. It not set, the secret will be created automatically and its name will be specified in `status.credentialsSecretName`.
+* `kind: User`: User. Specify their `name` or `id`.
+* `kind: Group`: User group. Specify its `name`.
+* `kind: ServiceAccount`: Kubernetes service account. Specify its `name` and `namespace`.
 
-Kubernetes Secrets use these two fields to store credentials: `clientId` and `clientSecret`. The `clientId` value matches the principal name. The `clientSecret` property is used to obtain an OAuth2 token for access to the Iceberg REST Catalog API.
+In the management console, you can assign permissions to users and groups. To assign permissions to a service account, use the [CLI](../../operations/rest-catalog/create-principal.md#cli).
+
+When running queries via {{ TR }}, the permissions of the user or service account that logged in to {{ TR }} are used. [{{ TR }} access rules](trino.md#access-control) are also accounted for.
 
 ## Statuses {#status}
 
-The `status.phase` field of the `RestCatalog` resource indicates the current catalog status:
+The `status.phase` field of the `StacklandRestCatalog` resource indicates the current catalog status:
 
-* `pending`: Catalog is being created or waiting for dependencies.
+* `pending`: Catalog is being created or awaiting the required resources to be ready.
 * `ready`: Catalog is ready for use.
-* `failed`: There is an error. Fix the configuration or external conditions.
+* `failed`: Error. See `status.conditions` for details.
 * `deleting`: Catalog is being deleted.
-* `pendingResources`: Catalog is available, but the required namespaces, tables, or views do not exist in Iceberg yet, so granting privileges to roles is deferred.
 
-The `status.phase` field of the `RestCatalogPrincipal` resource indicates the current status of the catalog user:
+See the `status.phase` field of the `StacklandRestCatalogAccessBinding` resource for the permission assignment status. In addition to these statuses, it can take the `pendingResources` value, which means the assignment is awaiting the required Iceberg namespace, table, or view to appear.
 
-* `pending`: Principal is being created or waiting for dependencies.
-* `ready`: Principal is synchronized with the catalog.
-* `failed`: There is an error. Fix the configuration or external conditions.
-* `deleting`: Principal is being deleted.
-* `pendingResources`: Principal is awaiting a role not declared in the catalog.
+In the management console, the catalog status is displayed in the catalog list and in the catalog card. You can view permission assignments on the **Access** tab. If the catalog or assignment are not ready, open their **Statuses** tab to view the reason and error description.
 
 ## Connection endpoints {#endpoints}
 
-The `RestCatalog` resource status sets endpoints for client connections.
+You can view addresses for client connections in the `StacklandRestCatalog` resource status:
 
-Internal endpoints:
+* `status.endpoint`: Internal address of the Iceberg REST Catalog API.
+* `status.externalEndpoint`: External address available when public access is enabled.
 
-* `endpoint`: Internal URI of the Iceberg REST Catalog API.
-* `oauth2TokenEndpoint`: Endpoint for obtaining an OAuth2 token internally.
+In the management console, you can see addresses on the **General** tab. The **Connect** button opens instructions for clients and becomes available when the catalog is ready and has a connection address.
 
-External endpoints appear only if public access is configured for the component:
+To enable public access, set `spec.settings.restCatalog.publicAccess.enabled: true` in the `StacklandRestCatalogConfig` resource.
 
-* `externalEndpoint`: Catalog public URI.
-* `externalOAuth2TokenEndpoint`: Endpoint for obtaining an OAuth2 token externally.
-
-To enable public access, set `spec.settings.rest-catalog.ingress.enabled: true` in the `IcebergRestCatalogConfig` resource.
+When connecting to {{ TR }}, the internal address is used by default. To select an external address, set `spec.stacklandRestCatalog.useExternalEndpoint: true` in the `TrinoCatalog` resource.

@@ -28,3 +28,5 @@ description: Follow this guide to configure Maven.
         <password>${env.REGISTRY_PASSWORD}</password>
     </server>
     ```
+
+[*api-key-scope]: {% include notitle [api-key-scope](../../../_popups/iam/api-key-scope.md) %}

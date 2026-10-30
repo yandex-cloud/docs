@@ -52,6 +52,5 @@ description: Various use cases for machine learning and artificial intelligence 
 
 ## Using {{ ai-studio-full-name }} generative neural networks {#generative-neuronets}
 
-* [{#T}](ai-model-ide-integration.md)
 * [{#T}](data-catalog-integration.md)
 * [{#T}](../dataplatform/valkey-rag-search.md)

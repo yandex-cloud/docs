@@ -282,3 +282,5 @@ Where:
 * [{#T}](installation.md)
 * [{#T}](push.md)
 * [{#T}](examples.md)
+
+[*api-key-scope]: {% include notitle [api-key-scope](../../../_popups/iam/api-key-scope.md) %}

@@ -7,6 +7,10 @@ description: В разделе представлена история изме�
 # История изменений в {{ org-full-name }}
 
 
+## Октябрь 2026 {#october-2026}
+
+* [Политики аутентификации](concepts/authentication-policy.md) перешли на стадию [General Availability](../overview/concepts/launch-stages.md).
+
 ## Сентябрь 2026 {#september-2026}
 
 * Добавлена возможность задавать [адреса перенаправления](concepts/applications/oidc.md#oidc-post-logout-redirect-uri) пользователей после выхода из OAuth-клиента.

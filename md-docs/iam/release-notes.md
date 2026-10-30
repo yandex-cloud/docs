@@ -2,6 +2,175 @@
 
 # История изменений в Yandex Identity and Access Management
 
+## Октябрь 2026 {#october-2026}
+
+### Изменения в сервисе Identity and Access Management {#iam-october-2026}
+
+* [Политики авторизации](concepts/access-control/access-policies.md) перешли на стадию [General Availability](../overview/concepts/launch-stages.md).
+* Исправлено аварийное завершение команды CLI `yc iam revoke-token` после успешного [отзыва IAM-токена](operations/iam-token/revoke-iam-token.md).
+
+### Новые роли {#roles-october-2026}
+
+{% cut "Yandex AI Studio" %}
+
+#### ai.subscriptions.admin {#ai-subscriptions-admin}
+
+Роль `ai.subscriptions.admin` позволяет управлять подписками пользователей в облаке.
+
+Пользователи с этой ролью могут:
+
+* получать список всех [подписок](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/subscription#subscription) в [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и просматривать информацию о них;
+* покупать, изменять и удалять подписки, в том числе подписки других пользователей;
+* сбрасывать окна потребления по любой подписке в облаке;
+* использовать свою подписку.
+
+Включает разрешения, предоставляемые ролью `ai.subscriptions.editor`.
+
+#### ai.subscriptions.auditor {#ai-subscriptions-auditor}
+
+Роль `ai.subscriptions.auditor` позволяет пользователю просматривать метаданные своей [подписки](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/subscription#subscription).
+
+#### ai.subscriptions.consumer {#ai-subscriptions-consumer}
+
+Роль `ai.subscriptions.consumer` позволяет пользователю просматривать информацию о своей [подписке](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/subscription#subscription), использовать ее, а также сбрасывать окна потребления по ней.
+
+Включает разрешения, предоставляемые ролью `ai.subscriptions.user`.
+
+#### ai.subscriptions.editor {#ai-subscriptions-editor}
+
+Роль `ai.subscriptions.editor` позволяет пользователю управлять своей подпиской.
+
+Пользователи с этой ролью могут:
+
+* получать список всех [подписок](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/subscription#subscription) в [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud);
+* просматривать информацию о своей подписке;
+* покупать, использовать, изменять и удалять свою подписку;
+* сбрасывать окна потребления по любой подписке в облаке.
+
+Включает разрешения, предоставляемые ролью `ai.subscriptions.user`.
+
+#### ai.subscriptions.user {#ai-subscriptions-user}
+
+Роль `ai.subscriptions.user` позволяет пользователю просматривать информацию о своей [подписке](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/subscription#subscription) и использовать ее.
+
+Включает разрешения, предоставляемые ролью `ai.subscriptions.viewer`.
+
+#### ai.subscriptions.viewer {#ai-subscriptions-viewer}
+
+Роль `ai.subscriptions.viewer` позволяет пользователю просматривать информацию о своей [подписке](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/subscription#subscription).
+
+Включает разрешения, предоставляемые ролью `ai.subscriptions.auditor`.
+
+#### ai.workProfiles.admin {#ai-workprofiles-admin}
+
+Роль `ai.workProfiles.admin` позволяет управлять профилями рабочих мест пользователей и доступом к ним.
+
+Пользователи с этой ролью могут:
+
+* просматривать информацию о [профилях рабочих мест](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#runtime-profile) пользователей;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к профилям рабочих мест пользователей и изменять такие права доступа;
+* создавать, использовать, изменять и удалять профили рабочих мест пользователей.
+
+Включает разрешения, предоставляемые ролью `ai.workProfiles.editor`.
+
+#### ai.workProfiles.auditor {#ai-workprofiles-auditor}
+
+Роль `ai.workProfiles.auditor` позволяет просматривать метаданные [профилей рабочих мест](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#runtime-profile) пользователей и информацию о назначенных [правах доступа](concepts/access-control/index.md) к таким профилям.
+
+#### ai.workProfiles.editor {#ai-workprofiles-editor}
+
+Роль `ai.workProfiles.editor` позволяет использовать и изменять профили рабочих мест пользователей.
+
+Пользователи с этой ролью могут:
+
+* просматривать информацию о [профилях рабочих мест](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#runtime-profile) пользователей;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к профилям рабочих мест пользователей;
+* использовать и изменять профили рабочих мест пользователей.
+
+Включает разрешения, предоставляемые ролью `ai.workProfiles.user`.
+
+#### ai.workProfiles.user {#ai-workprofiles-user}
+
+Роль `ai.workProfiles.user` позволяет использовать профили рабочих мест пользователей.
+
+Пользователи с этой ролью могут:
+
+* просматривать информацию о [профилях рабочих мест](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#runtime-profile) пользователей;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к профилям рабочих мест пользователей;
+* использовать профили рабочих мест пользователей.
+
+Включает разрешения, предоставляемые ролью `ai.workProfiles.viewer`.
+
+#### ai.workProfiles.viewer {#ai-workprofiles-viewer}
+
+Роль `ai.workProfiles.viewer` позволяет просматривать информацию о [профилях рабочих мест](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#runtime-profile) пользователей и назначенных [правах доступа](concepts/access-control/index.md) к таким профилям.
+
+Включает разрешения, предоставляемые ролью `ai.workProfiles.auditor`.
+
+#### ai.workRuntimes.admin {#ai-workruntimes-admin}
+
+Роль `ai.workRuntimes.admin` позволяет управлять рабочими местами пользователей и доступом к ним.
+
+Пользователи с этой ролью могут:
+
+* просматривать информацию о [рабочих местах](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#work-runtime) пользователей;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к рабочим местам пользователей и изменять такие права доступа;
+* создавать и удалять рабочие места;
+* использовать свое рабочее место.
+
+Включает разрешения, предоставляемые ролью `ai.workRuntimes.editor`.
+
+#### ai.workRuntimes.auditor {#ai-workruntimes-auditor}
+
+Роль `ai.workRuntimes.auditor` позволяет просматривать метаданные [рабочих мест](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#work-runtime) пользователей и информацию о назначенных [правах доступа](concepts/access-control/index.md) к рабочим местам.
+
+#### ai.workRuntimes.editor {#ai-workruntimes-editor}
+
+Роль `ai.workRuntimes.editor` позволяет пользователю создавать рабочие места и использовать свое рабочее место.
+
+Пользователи с этой ролью могут:
+
+* просматривать информацию о [рабочих местах](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#work-runtime) пользователей;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к рабочим местам пользователей;
+* создавать рабочие места;
+* использовать свое рабочее место.
+
+Включает разрешения, предоставляемые ролью `ai.workRuntimes.user`.
+
+#### ai.workRuntimes.user {#ai-workruntimes-user}
+
+Роль `ai.workRuntimes.user` позволяет пользователю использовать свое рабочее место.
+
+Пользователи с этой ролью могут:
+
+* просматривать информацию о [рабочих местах](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#work-runtime) пользователей;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к рабочим местам пользователей;
+* использовать свое рабочее место.
+
+Включает разрешения, предоставляемые ролью `ai.workRuntimes.viewer`.
+
+#### ai.workRuntimes.viewer {#ai-workruntimes-viewer}
+
+Роль `ai.workRuntimes.viewer` позволяет просматривать информацию о [рабочих местах](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#work-runtime) пользователей и назначенных [правах доступа](concepts/access-control/index.md) к рабочим местам.
+
+Включает разрешения, предоставляемые ролью `ai.workRuntimes.auditor`.
+
+{% endcut %}
+
+{% cut "Yandex Container Registry" %}
+
+#### container-registry.registries.forceDeleter {#container-registry-registries-forcedeleter}
+
+Роль `container-registry.registries.forceDeleter` позволяет удалять реестры вместе со всеми хранящимися в них Docker-образами.
+
+{% note info %}
+
+Роль `container-registry.registries.forceDeleter` не входит в состав ролей `container-registry.admin` и `resource-manager.clouds.owner` и должна назначаться отдельно.
+
+{% endnote %}
+
+{% endcut %}
+
 ## Сентябрь 2026 {#september-2026}
 
 ### Изменения в сервисе Identity and Access Management {#iam-september-2026}
@@ -15,98 +184,117 @@
 
 #### ai.agentChannels.admin {#ai-agentchannels-admin}
 
-Роль `ai.agentChannels.admin` позволяет управлять [каналами публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels) и назначать права доступа к ним.
+Роль `ai.agentChannels.admin` позволяет управлять каналами публикации текстовых агентов и правами доступа к ним.
 
 Пользователи с этой ролью могут:
-* создавать, изменять и удалять каналы публикации текстовых агентов;
-* приостанавливать и возобновлять работу каналов публикации текстовых агентов;
+
+
+* просматривать информацию о [каналах публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels), а также создавать, изменять и удалять каналы публикации текстовых агентов, приостанавливать и возобновлять их работу;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к каналам публикации текстовых агентов и изменять такие права доступа;
 * публиковать версии текстовых агентов в каналах;
-* назначать и отзывать права доступа к каналам публикации текстовых агентов;
-* просматривать информацию о каналах публикации текстовых агентов;
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
 
 Включает разрешения, предоставляемые ролью `ai.agentChannels.editor`.
 
 #### ai.agentChannels.auditor {#ai-agentchannels-auditor}
 
-Роль `ai.agentChannels.auditor` позволяет просматривать метаданные [каналов публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels).
+Роль `ai.agentChannels.auditor` позволяет просматривать метаданные каналов публикации текстовых агентов.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о каналах публикации текстовых агентов, а также список каналов в каталоге;
-* просматривать права доступа, назначенные на каналы публикации текстовых агентов;
+
+
+* просматривать информацию о [каналах публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels), а также список каналов в каталоге;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к каналам публикации текстовых агентов;
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
 
 #### ai.agentChannels.editor {#ai-agentchannels-editor}
 
-Роль `ai.agentChannels.editor` позволяет создавать [каналы публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels) и публиковать в них версии агентов.
+Роль `ai.agentChannels.editor` позволяет управлять каналами публикации текстовых агентов и публиковать в них версии агентов.
 
 Пользователи с этой ролью могут:
-* создавать, изменять и удалять каналы публикации текстовых агентов;
-* приостанавливать и возобновлять работу каналов публикации текстовых агентов;
+
+
+* просматривать информацию о [каналах публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels) и назначенных [правах доступа](concepts/access-control/index.md) к ним;
+* создавать, изменять и удалять каналы публикации текстовых агентов, приостанавливать и возобновлять их работу;
 * публиковать версии текстовых агентов в каналах;
-* просматривать информацию о каналах публикации текстовых агентов и назначенных на них правах доступа;
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
 
 Включает разрешения, предоставляемые ролью `ai.agentChannels.viewer`.
 
 #### ai.agentChannels.viewer {#ai-agentchannels-viewer}
 
-Роль `ai.agentChannels.viewer` позволяет просматривать [каналы публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels).
+Роль `ai.agentChannels.viewer` позволяет просматривать каналы публикации текстовых агентов.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о каналах публикации текстовых агентов, а также список каналов в каталоге;
-* просматривать права доступа, назначенные на каналы публикации текстовых агентов;
+
+
+* просматривать информацию о [каналах публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels), а также список каналов в каталоге;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к каналам публикации текстовых агентов;
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
 
 Включает разрешения, предоставляемые ролью `ai.agentChannels.auditor`.
 
 #### ai.canvasAgents.admin {#ai-canvasagents-admin}
 
-Роль `ai.canvasAgents.admin` позволяет создавать [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents), управлять ими и назначать права доступа к ним.
+Роль `ai.canvasAgents.admin` позволяет управлять текстовыми агентами и правами доступа к ним.
 
 Пользователи с этой ролью могут:
+
+
+* просматривать список [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents) в каталоге, информацию о них, их версиях и операциях с ними;
 * создавать, изменять и удалять текстовых агентов;
 * создавать версии текстовых агентов;
-* тестировать в интерфейсе тестирования любую версию текстового агента, в том числе не опубликованную в канале;
-* назначать и отзывать права доступа к текстовым агентам;
-* просматривать информацию о текстовых агентах, их версиях и операциях с ними;
+* тестировать в интерфейсе тестирования любую версию текстового агента, в том числе не опубликованную в канале: отправлять агенту сообщения и просматривать события выполнения;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к текстовым агентам и изменять такие права доступа;
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
 
 Включает разрешения, предоставляемые ролью `ai.canvasAgents.editor`.
 
 #### ai.canvasAgents.auditor {#ai-canvasagents-auditor}
 
-Роль `ai.canvasAgents.auditor` позволяет просматривать метаданные [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents).
+Роль `ai.canvasAgents.auditor` позволяет просматривать метаданные текстовых агентов.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о текстовых агентах и их версиях, а также список текстовых агентов в каталоге;
+
+
+* просматривать список [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents) в каталоге, информацию о них и их версиях;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к текстовым агентам;
 * просматривать список асинхронных операций с текстовыми агентами;
-* просматривать права доступа, назначенные на текстовых агентов;
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
 
 #### ai.canvasAgents.editor {#ai-canvasagents-editor}
 
-Роль `ai.canvasAgents.editor` позволяет создавать [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents), управлять ими и тестировать их в интерфейсе тестирования.
+Роль `ai.canvasAgents.editor` позволяет управлять текстовыми агентами и тестировать их в интерфейсе тестирования.
 
 Пользователи с этой ролью могут:
+
+
+* просматривать список [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents) в каталоге, информацию о них, их версиях и операциях с ними;
 * создавать, изменять и удалять текстовых агентов;
 * создавать версии текстовых агентов;
 * тестировать в интерфейсе тестирования любую версию текстового агента, в том числе не опубликованную в канале: отправлять агенту сообщения и просматривать события выполнения;
-* просматривать информацию о текстовых агентах, их версиях и операциях с ними;
-* просматривать права доступа, назначенные на текстовых агентов;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к текстовым агентам;
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
 
 Включает разрешения, предоставляемые ролью `ai.canvasAgents.viewer`.
 
 #### ai.canvasAgents.viewer {#ai-canvasagents-viewer}
 
-Роль `ai.canvasAgents.viewer` позволяет просматривать [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents).
+Роль `ai.canvasAgents.viewer` позволяет просматривать текстовых агентов.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о текстовых агентах и их версиях, а также список текстовых агентов в каталоге;
+
+
+* просматривать список [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents) в каталоге, информацию о них и их версиях;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к текстовым агентам;
 * просматривать список асинхронных операций с текстовыми агентами;
-* просматривать права доступа, назначенные на текстовых агентов;
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
 
 Включает разрешения, предоставляемые ролью `ai.canvasAgents.auditor`.
 
@@ -649,27 +837,27 @@
 
 #### ai.guardrails.admin {#ai-guardrails-admin}
 
-Роль `ai.guardrails.admin` позволяет просматривать информацию о [правилах модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) ответов моделей, а также создавать, применять, изменять и удалять такие правила.
+Роль `ai.guardrails.admin` позволяет просматривать информацию о [правилах модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) моделей, а также создавать, применять, изменять и удалять такие правила.
 
 Включает разрешения, предоставляемые ролью `ai.guardrails.editor`.
 
 #### ai.guardrails.auditor {#ai-guardrails-auditor}
 
-Роль `ai.guardrails.auditor` позволяет просматривать метаданные [правил модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) ответов моделей.
+Роль `ai.guardrails.auditor` позволяет просматривать метаданные [правил модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) моделей.
 
 #### ai.guardrails.editor {#ai-guardrails-editor}
 
-Роль `ai.guardrails.editor` позволяет просматривать информацию о [правилах модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) ответов моделей, а также создавать, применять, изменять и удалять такие правила.
+Роль `ai.guardrails.editor` позволяет просматривать информацию о [правилах модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) моделей, а также создавать, применять, изменять и удалять такие правила.
 
 Включает разрешения, предоставляемые ролями `ai.guardrails.viewer` и `ai.guardrails.user`.
 
 #### ai.guardrails.user {#ai-guardrails-user}
 
-Роль `ai.guardrails.user` позволяет применять [правила модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) ответов моделей и просматривать метаданные таких правил.
+Роль `ai.guardrails.user` позволяет применять [правила модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) моделей и просматривать метаданные таких правил.
 
 #### ai.guardrails.viewer {#ai-guardrails-viewer}
 
-Роль `ai.guardrails.viewer` позволяет просматривать информацию о [правилах модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) ответов моделей.
+Роль `ai.guardrails.viewer` позволяет просматривать информацию о [правилах модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) моделей.
 
 Включает разрешения, предоставляемые ролью `ai.guardrails.auditor`.
 

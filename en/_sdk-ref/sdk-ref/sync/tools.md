@@ -26,11 +26,11 @@ A tool call returned by models as a result of server-side tool calls.
 
 This class encapsulates the response from language models when they invoke tools during conversation or completion. It contains information about the specific tool that was called, including its unique identifier and the associated function call with parameters and results.
 
-**id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._tools.tool_call.ToolCall.id}
+**id**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._tools.tool_call.ToolCall.id}
 
 Unique tool call identifier
 
-**function**\: *[FunctionCallTypeT](../types/other.md#yandex_ai_studio_sdk._tools.function_call.FunctionCallTypeT) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._tools.tool_call.ToolCall.function}
+**function**\: *[FunctionCallTypeT](../types/other.md#yandex_ai_studio_sdk._tools.function_call.FunctionCallTypeT) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._tools.tool_call.ToolCall.function}
 
 Function call associated with this tool call
 
@@ -40,7 +40,7 @@ Represents a function call returned by models as a result of server-side tool ca
 
 This class encapsulates the details of a function call that was invoked by the model during processing, including the function name and the arguments passed to it.
 
-**name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._tools.function_call.FunctionCall.name}
+**name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._tools.function_call.FunctionCall.name}
 
 Name of the function being called
 

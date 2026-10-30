@@ -6,7 +6,7 @@
 
 Recognition result containing all recognized pages.
 
-**pages**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[TextAnnotation](#yandex_ai_studio_sdk._vision.ocr.text_annotation.TextAnnotation)*]... ,{#yandex_ai_studio_sdk._vision.ocr.result.OCRResult.pages}
+**pages**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[TextAnnotation](#yandex_ai_studio_sdk._vision.ocr.text_annotation.TextAnnotation)*]... ,{#yandex_ai_studio_sdk._vision.ocr.result.OCRResult.pages}
 
 **count**(*value*) → integer -- return number of occurrences of value{#yandex_ai_studio_sdk._vision.ocr.result.OCRResult.count}
 
@@ -20,49 +20,49 @@ Supporting start and stop arguments is optional, but recommended.
 
 Context carrying the page number for a single-page recognition response.
 
-**page**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.PageContext.page}
+**page**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.PageContext.page}
 
 ### *class* yandex\_ai\_studio\_sdk.\_vision.ocr.text\_annotation.**TextAnnotation**{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TextAnnotation}
 
 Full text recognition result for a single page.
 
-**page**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TextAnnotation.page}
+**page**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TextAnnotation.page}
 
 Page number (0-indexed) in a multi-page document (e.g. PDF). Always 0 for images.
 
-**width**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TextAnnotation.width}
+**width**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TextAnnotation.width}
 
 Page width in pixels.
 
-**height**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TextAnnotation.height}
+**height**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TextAnnotation.height}
 
 Page height in pixels.
 
-**rotate**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TextAnnotation.rotate}
+**rotate**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TextAnnotation.rotate}
 
 Page rotation angle in degrees (0, 90, 180, 270).
 
-**full\_text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TextAnnotation.full_text}
+**full\_text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TextAnnotation.full_text}
 
 Full recognized text of the page.
 
-**markdown**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TextAnnotation.markdown}
+**markdown**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TextAnnotation.markdown}
 
 Full text in Markdown format (available for **markdown** and **math-markdown** models).
 
-**blocks**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Block](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Block)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TextAnnotation.blocks}
+**blocks**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[Block](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Block)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TextAnnotation.blocks}
 
 Recognized text blocks.
 
-**entities**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Entity](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Entity)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TextAnnotation.entities}
+**entities**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[Entity](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Entity)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TextAnnotation.entities}
 
 Recognized named entities.
 
-**tables**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Table](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Table)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TextAnnotation.tables}
+**tables**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[Table](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Table)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TextAnnotation.tables}
 
 Recognized tables.
 
-**pictures**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Picture](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Picture)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TextAnnotation.pictures}
+**pictures**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[Picture](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Picture)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TextAnnotation.pictures}
 
 Detected pictures.
 
@@ -70,17 +70,17 @@ Detected pictures.
 
 Context carrying recognized entities for entity-index resolution.
 
-**entities**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Entity](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Entity)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.EntitiesContext.entities}
+**entities**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[Entity](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Entity)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.EntitiesContext.entities}
 
 ### *class* yandex\_ai\_studio\_sdk.\_vision.ocr.text\_annotation.**Vertex**{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Vertex}
 
 A point on the image in pixels.
 
-**x**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Vertex.x}
+**x**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Vertex.x}
 
 Alias for field number 0
 
-**y**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Vertex.y}
+**y**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Vertex.y}
 
 Alias for field number 1
 
@@ -91,8 +91,8 @@ Create new instance of Vertex(x, y)
 #|
 || Parameters | 
 
-- **x** ([*int*](https://docs.python.org/3/library/functions.html#int))
-- **y** ([*int*](https://docs.python.org/3/library/functions.html#int)) ||
+- **x** ([*int*](https://docs.python.org/3/builtins/functions.html#int))
+- **y** ([*int*](https://docs.python.org/3/builtins/functions.html#int)) ||
 |#
 
 **count**(*value*, *<span title="Positional-only parameter separator (PEP 570)">/</span>*){#yandex_ai_studio_sdk._vision.ocr.text_annotation.Vertex.count}
@@ -109,11 +109,11 @@ Raises ValueError if the value is not present.
 
 A named entity recognized in the text.
 
-**name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Entity.name}
+**name**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Entity.name}
 
 Entity type name (e.g. **"name"**, **"date"**).
 
-**text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Entity.text}
+**text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Entity.text}
 
 Recognized entity text.
 
@@ -121,15 +121,15 @@ Recognized entity text.
 
 A single recognized word.
 
-**bounding\_box**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Vertex](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Vertex)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Word.bounding_box}
+**bounding\_box**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[Vertex](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Vertex)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Word.bounding_box}
 
 Bounding polygon of the word as an ordered tuple of vertices.
 
-**text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Word.text}
+**text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Word.text}
 
 Recognized word text.
 
-**entity**\: *[Entity](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Entity) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Word.entity}
+**entity**\: *[Entity](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Entity) | [None](https://docs.python.org/3/builtins/constants.html#None)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Word.entity}
 
 Named entity this word belongs to, or **None**.
 
@@ -137,19 +137,19 @@ Named entity this word belongs to, or **None**.
 
 A line of recognized text. Iterates over its words.
 
-**bounding\_box**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Vertex](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Vertex)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Line.bounding_box}
+**bounding\_box**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[Vertex](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Vertex)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Line.bounding_box}
 
 Bounding polygon of the line as an ordered tuple of vertices.
 
-**text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Line.text}
+**text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Line.text}
 
 Recognized text of the line.
 
-**words**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Word](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Word)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Line.words}
+**words**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[Word](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Word)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Line.words}
 
 Words in this line.
 
-**orientation**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Line.orientation}
+**orientation**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Line.orientation}
 
 Rotation angle of the line in degrees (0, 90, 180, 270).
 
@@ -165,23 +165,23 @@ Supporting start and stop arguments is optional, but recommended.
 
 A block of recognized text. Iterates over its lines.
 
-**bounding\_box**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Vertex](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Vertex)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Block.bounding_box}
+**bounding\_box**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[Vertex](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Vertex)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Block.bounding_box}
 
 Bounding polygon of the block as an ordered tuple of vertices.
 
-**lines**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Line](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Line)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Block.lines}
+**lines**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[Line](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Line)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Block.lines}
 
 Lines in this block.
 
-**languages**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Block.languages}
+**languages**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[str](https://docs.python.org/3/builtins/stdtypes.html#str)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Block.languages}
 
 Languages detected in this block.
 
-**layout\_type**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Block.layout_type}
+**layout\_type**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Block.layout_type}
 
 Layout type of this block as a lowercase string (e.g. **'text'**, **'header'**).
 
-*property* **text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Block.text}
+*property* **text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Block.text}
 
 Full text of the block as a concatenation of its lines.
 
@@ -197,27 +197,27 @@ Supporting start and stop arguments is optional, but recommended.
 
 A cell in a recognized table.
 
-**bounding\_box**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Vertex](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Vertex)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TableCell.bounding_box}
+**bounding\_box**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[Vertex](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Vertex)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TableCell.bounding_box}
 
 Bounding polygon of the cell as an ordered tuple of vertices.
 
-**row\_index**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TableCell.row_index}
+**row\_index**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TableCell.row_index}
 
 Row index (0-based).
 
-**column\_index**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TableCell.column_index}
+**column\_index**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TableCell.column_index}
 
 Column index (0-based).
 
-**column\_span**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TableCell.column_span}
+**column\_span**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TableCell.column_span}
 
 Number of columns this cell spans.
 
-**row\_span**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TableCell.row_span}
+**row\_span**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TableCell.row_span}
 
 Number of rows this cell spans.
 
-**text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TableCell.text}
+**text**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.TableCell.text}
 
 Text content of the cell.
 
@@ -225,19 +225,19 @@ Text content of the cell.
 
 A recognized table. Iterates over its cells.
 
-**bounding\_box**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Vertex](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Vertex)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Table.bounding_box}
+**bounding\_box**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[Vertex](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Vertex)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Table.bounding_box}
 
 Bounding polygon of the table as an ordered tuple of vertices.
 
-**row\_count**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Table.row_count}
+**row\_count**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Table.row_count}
 
 Number of rows.
 
-**column\_count**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Table.column_count}
+**column\_count**\: *[int](https://docs.python.org/3/builtins/functions.html#int)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Table.column_count}
 
 Number of columns.
 
-**cells**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[TableCell](#yandex_ai_studio_sdk._vision.ocr.text_annotation.TableCell)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Table.cells}
+**cells**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[TableCell](#yandex_ai_studio_sdk._vision.ocr.text_annotation.TableCell)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Table.cells}
 
 Table cells.
 
@@ -253,11 +253,11 @@ Supporting start and stop arguments is optional, but recommended.
 
 A picture location detected in the document.
 
-**bounding\_box**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Vertex](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Vertex)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Picture.bounding_box}
+**bounding\_box**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[Vertex](#yandex_ai_studio_sdk._vision.ocr.text_annotation.Vertex)*]... ,{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Picture.bounding_box}
 
 Bounding polygon of the picture as an ordered tuple of vertices.
 
-**score**\: *[float](https://docs.python.org/3/library/functions.html#float)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Picture.score}
+**score**\: *[float](https://docs.python.org/3/builtins/functions.html#float)*{#yandex_ai_studio_sdk._vision.ocr.text_annotation.Picture.score}
 
 Confidence score of the detection.
 
@@ -265,11 +265,11 @@ Confidence score of the detection.
 
 Object to hold OCR run configuration.
 
-**language\_codes**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[str](https://docs.python.org/3/library/stdtypes.html#str), ...] | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._vision.ocr.config.OCRConfig.language_codes}
+**language\_codes**\: *[tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[str](https://docs.python.org/3/builtins/stdtypes.html#str), ...] | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._vision.ocr.config.OCRConfig.language_codes}
 
 List of languages to recognize text, in ISO 639-1 format (e.g. **"ru"**, **"en"**). See [supported languages](https://aistudio.yandex.ru/docs/vision/concepts/ocr/supported-languages.html).
 
-**model**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_ai_studio_sdk._vision.ocr.config.OCRConfig.model}
+**model**\: *[str](https://docs.python.org/3/builtins/stdtypes.html#str) | [None](https://docs.python.org/3/builtins/constants.html#None)* = *None*{#yandex_ai_studio_sdk._vision.ocr.config.OCRConfig.model}
 
 Model to use for text recognition.
 
@@ -291,4 +291,4 @@ Document template recognition models:
 - **"vehicle-registration-back"**\: Vehicle registration certificate, back side.
 - **"license-plates"**\: All license plates visible in the image.
 
-See [models](https://aistudio.yandex.ru/docs/vision/concepts/ocr/#models) and [document recognition](https://aistudio.yandex.ru/docs/vision/concepts/ocr/template-recognition) for more details.
+See [models](https://aistudio.yandex.ru/docs/vision/concepts/ocr/models) and [document recognition](https://aistudio.yandex.ru/docs/vision/concepts/ocr/models#document-models) for more details.

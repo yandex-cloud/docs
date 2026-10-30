@@ -4,6 +4,20 @@ description: Changelog, updates, and version history for the {{ yandex-cloud }} 
 editable: false
 ---
 
+## 0.243.0 (October 30, 2026)
+
+##### BUG FIXES:
+* storage: fix test sweeper cleanup of locked object versions and delete markers
+
+
+
+## 0.242.0 (October 29, 2026)
+
+##### FEATURES:
+* cic: add the `yandex_cic_private_connection` resource and data source, and the `yandex_cic_public_connection`, `yandex_cic_trunk_connection`, `yandex_cic_partner`, and `yandex_cic_point_of_presence` data sources
+
+
+
 ## 0.241.0 (October 28, 2026)
 
 ##### WARNING:

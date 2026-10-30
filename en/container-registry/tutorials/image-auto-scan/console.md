@@ -128,7 +128,7 @@ In {{ sf-name }}, create a function named `scan-on-push` that will run a Docker 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your function.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. Name the function `scan-on-push` and provide a description.
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -227,7 +227,7 @@ Create a trigger that will invoke your function when creating a Docker image [ta
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Navigate to the **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}** tab.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:

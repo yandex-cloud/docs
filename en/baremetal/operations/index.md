@@ -38,6 +38,7 @@ description: In this article, you will learn how to work with {{ baremetal-full-
 
 * [{#T}](./network-create.md)
 * [{#T}](./subnet-create.md)
+* [{#T}](./configure-dns.md)
 * [{#T}](./reserve-public-subnet.md)
 * [{#T}](./delete-public-subnet.md)
 * [{#T}](./create-vpc-connection.md)

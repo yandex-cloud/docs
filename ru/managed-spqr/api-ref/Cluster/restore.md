@@ -190,6 +190,12 @@ apiPlayground:
           autoRouteRoOnStandby:
             description: '**boolean**'
             type: boolean
+          allowTwoPhaseCommit:
+            description: '**boolean**'
+            type: boolean
+          allowAutoprotectTwoPhase:
+            description: '**boolean**'
+            type: boolean
       Resources:
         type: object
         properties:
@@ -648,7 +654,9 @@ POST https://{{ api-host-mdb }}/managed-spqr/v1/clusters:restore
           "defaultTargetSessionAttrs": "string",
           "defaultCommitStrategy": "string",
           "allowPostprocessing": "boolean",
-          "autoRouteRoOnStandby": "boolean"
+          "autoRouteRoOnStandby": "boolean",
+          "allowTwoPhaseCommit": "boolean",
+          "allowAutoprotectTwoPhase": "boolean"
         },
         "resources": {
           "resourcePresetId": "string",
@@ -696,7 +704,9 @@ POST https://{{ api-host-mdb }}/managed-spqr/v1/clusters:restore
           "defaultTargetSessionAttrs": "string",
           "defaultCommitStrategy": "string",
           "allowPostprocessing": "boolean",
-          "autoRouteRoOnStandby": "boolean"
+          "autoRouteRoOnStandby": "boolean",
+          "allowTwoPhaseCommit": "boolean",
+          "allowAutoprotectTwoPhase": "boolean"
         },
         "coordinator": {
           "iterationTimeout": "string",
@@ -950,6 +960,8 @@ Configuration of a SPQR router.
 - `TWO_PC` ||
 || allowPostprocessing | **boolean** ||
 || autoRouteRoOnStandby | **boolean** ||
+|| allowTwoPhaseCommit | **boolean** ||
+|| allowAutoprotectTwoPhase | **boolean** ||
 |#
 
 ## Resources {#yandex.cloud.mdb.spqr.v1.Resources}

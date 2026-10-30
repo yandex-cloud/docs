@@ -21,7 +21,7 @@ description: 'Follow this guide to get information about the {{ baremetal-full-n
           * In the **Interface 1** section, information about the server's [public network](../../concepts/public-network.md), including the ID, type, and CIDR of the public subnet, default gateway address, and [MAC address](https://en.wikipedia.org/wiki/MAC_address) of the network interface in the public network.
           * In the **Interface 2** section, information about the server's [private network](../../concepts/private-network.md), including the [private subnet](../../concepts/private-network.md#private-subnet), as well as the private IP and MAC address of the network interface in the private network.
 
-      * Under **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}**, information about the terms of server lease, including lease period/duration and auto-renewal.
+      * Under **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}**, information about the terms of server rent, including rent period/duration and auto-renewal.
       * Under **{{ ui-key.yacloud.baremetal.title_section-backup }}** and **{{ ui-key.yacloud.baremetal.title_section-accesses }}**, information about the server's connection to [{{ backup-full-name }}](../../../backup/index.yaml) and public SSH key of the root user, respectively.
 
 - CLI {#cli}
@@ -169,12 +169,22 @@ Get information about the server:
   * `zoneId`: Availability zone ID.
   * `hardwarePoolId`: Server [pool](../../concepts/servers.md#server-pools) ID.
   * `status`: Server status. The possible values are:
-    * `PROVISIONING`: Server is waiting to be allocated from the hardware pool.
-    * `RUNNING`: Server is running normally.
-    * `STOPPED`: Server is stopped.
-    * `ERROR`: Server encountered an issue and is unavailable.
+    * `ASSEMBLING`: Server in your [custom configuration](../../concepts/server-custom-configurations.md) is being assembled in the data center.
+    * `PROVISIONING`: Server is being prepared to be issued to the user.
+    * `RUNNING`: Server is up and running, fully available to the user.
+    * `STOPPING`: Server is being powered down.
+    * `STOPPED`: Server is off.
+    * `STARTING`: Server is being powered up.
+    * `RESTARTING`: Server is rebooting.
+    * `REINSTALLING`: Server operating system is being reinstalled.
+    * `UPDATING`: Server or network settings are being updated.
+    * `MAINTENANCE`: Server is currently under maintenance.
+    * `QUARANTINED`: Server is [quarantined](../../concepts/servers.md#quarantine). Users cannot access quarantined servers over the network or through a KVM console.
     * `DELETING`: Server deletion is in progress.
-    * `REINSTALLING`: Reinstalling server OS.
+    * `ERROR`: Error has occurred, the KVM console is unavailable. Contact [support]({{ link-console-support }}).
+
+    For details, see [{#T}](../../concepts/servers.md#server-status).
+
   * `configurationId`: [Server configuration](../../concepts/server-configurations.md) ID.
   * `osSettings`: Server OS settings. This is an optional field. It will be empty if the server is created without an OS.
   * `networkInterfaces`: Network interfaces connected to the server.

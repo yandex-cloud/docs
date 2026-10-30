@@ -1,5 +1,6 @@
 Пример структуры конфигурационного файла:
 
+
 ```hcl
 resource "yandex_spark_cluster" "<имя_кластера>" {
   description         = "<описание_кластера>"
@@ -26,6 +27,7 @@ resource "yandex_spark_cluster" "<имя_кластера>" {
       executor = {
         resource_preset_id = "<класс_хоста>"
         size               = <фиксированное_количество_экземпляров>
+        preemptible        = <использовать_прерываемые_хосты>
       }
     }
     spark_version = "<версия_Apache_Spark>"
@@ -50,6 +52,7 @@ resource "yandex_vpc_subnet" "<имя_подсети>" {
 }
 ```
 
+
 Где:
 
 * (Опционально) `description` — описание кластера.
@@ -69,6 +72,10 @@ resource "yandex_vpc_subnet" "<имя_подсети>" {
 
   * [Класс хостов](../../../../managed-spark/concepts/instance-types.md) в параметре `resource_preset_id`.
   * Количество экземпляров. Укажите фиксированное количество в параметре `size` или минимальное и максимальное количество для автомасштабирования в параметрах `min_size` и `max_size`.
+
+  
+  * (Опционально) `preemptible` — использование [прерываемых хостов](../../../../managed-spark/concepts/instance-types.md#preemptible): `true` — прерываемые хосты, `false` — обычные. По умолчанию — `false`.
+
 
 * (Опционально) `spark_version` — версия {{ SPRK }}.
 

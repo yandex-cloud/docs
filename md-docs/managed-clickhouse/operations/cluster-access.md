@@ -11,6 +11,12 @@
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера.
+  1. Выберите вкладку **Права доступа**.
+
 - CLI {#cli}
 
   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
@@ -90,6 +96,15 @@
 ## Назначить роль {#add-access-binding}
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера.
+  1. Выберите вкладку **Права доступа** и нажмите кнопку **Назначить роли**.
+  1. Введите идентификатор аккаунта или электронную почту пользователя, к которой привязан аккаунт.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите нужную роль из списка или воспользуйтесь поиском.
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
@@ -412,6 +427,16 @@
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера.
+  1. Выберите вкладку **Права доступа** и нажмите кнопку **Назначить роли**.
+  1. Введите идентификатор аккаунта или электронную почту пользователя, к которой привязан аккаунт.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите нужную роль из списка или воспользуйтесь поиском.
+  1. Повторите действие для других ролей.
+  1. Нажмите кнопку **Сохранить**.
+
 - CLI {#cli}
 
   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
@@ -448,7 +473,7 @@
 
       Где `--access-binding` — назначает роль субъекту. Вы можете назначить несколько ролей одновременно, описав каждую в отдельном параметре `--access-binding`.
 
-      * `role` — назначаемая [роль](../security.md#roles-list), например `managed-clickhouse.editor`.
+      * `role` — назначаемая [роль](../security.md#roles-list), например `managed-clickhouse.editor`. Если вы хотите настроить подключение к кластеру через сервисный аккаунт, дополнительно назначьте роль `iam.serviceAccounts.user`.
       * `subject` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
           Например:
@@ -511,7 +536,7 @@
       Где:
 
       * `cluster_id` — идентификатор кластера.
-      * `role` — назначаемая [роль](../security.md#roles-list), например `managed-clickhouse.editor`.
+      * `role` — назначаемая [роль](../security.md#roles-list), например `managed-clickhouse.editor`. Если вы хотите настроить подключение к кластеру через сервисный аккаунт, дополнительно назначьте роль `iam.serviceAccounts.user`.
       * `members` — список обозначений [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль.
 
           Например:
@@ -780,6 +805,15 @@
 ## Отозвать роль {#remove-access-binding}
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера.
+  1. Выберите вкладку **Права доступа**.
+  1. В строке с нужным аккаунтом нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Изменить роли**.
+  1. В списке ролей нажмите на значок ![image](../../_assets/console-icons/xmark.svg) рядом с ролью, которую вы хотите отозвать.
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
@@ -1063,6 +1097,21 @@
 Чтобы сервисный аккаунт мог просматривать информацию обо всех кластерах Managed Service for ClickHouse® в каталоге, но изменять ресурсы только конкретного кластера, выдайте ему роль `managed-clickhouse.viewer` на каталог и роль `managed-clickhouse.editor` на этот кластер:
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. [Перейдите](https://console.yandex.cloud/link/access) на вкладку **Права доступа**.
+  1. Нажмите кнопку **Настроить доступ**.
+  1. В открывшемся окне выберите раздел **Пользовательские аккаунты**.
+  1. Выберите пользователя из списка или воспользуйтесь поиском по пользователям.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `managed-clickhouse.viewer`.
+  1. Нажмите кнопку **Сохранить**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера.
+  1. Выберите вкладку **Права доступа** и нажмите кнопку **Назначить роли**.
+  1. Введите идентификатор сервисного аккаунта.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `managed-clickhouse.editor`.
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 

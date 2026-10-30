@@ -30,6 +30,7 @@ Creates a ClickHouse cluster in the specified folder.
         "background_buffer_flush_schedule_pool_size": "google.protobuf.Int64Value",
         "background_message_broker_schedule_pool_size": "google.protobuf.Int64Value",
         "background_common_pool_size": "google.protobuf.Int64Value",
+        "max_backups_io_thread_pool_size": "google.protobuf.Int64Value",
         "dictionaries_lazy_load": "google.protobuf.BoolValue",
         "shutdown_wait_unfinished_queries": "google.protobuf.BoolValue",
         "shutdown_wait_unfinished": "google.protobuf.Int64Value",
@@ -78,6 +79,9 @@ Creates a ClickHouse cluster in the specified folder.
         "query_metric_log_enabled": "google.protobuf.BoolValue",
         "query_metric_log_retention_size": "google.protobuf.Int64Value",
         "query_metric_log_retention_time": "google.protobuf.Int64Value",
+        "s3queue_log_enabled": "google.protobuf.BoolValue",
+        "s3queue_log_retention_size": "google.protobuf.Int64Value",
+        "s3queue_log_retention_time": "google.protobuf.Int64Value",
         "automatically_detached_data_parts_retention_time": "google.protobuf.Int64Value",
         "manually_detached_data_parts_retention_time": "google.protobuf.Int64Value",
         "access_control_improvements": {
@@ -918,6 +922,7 @@ Creates a ClickHouse cluster in the specified folder.
             "background_buffer_flush_schedule_pool_size": "google.protobuf.Int64Value",
             "background_message_broker_schedule_pool_size": "google.protobuf.Int64Value",
             "background_common_pool_size": "google.protobuf.Int64Value",
+            "max_backups_io_thread_pool_size": "google.protobuf.Int64Value",
             "dictionaries_lazy_load": "google.protobuf.BoolValue",
             "shutdown_wait_unfinished_queries": "google.protobuf.BoolValue",
             "shutdown_wait_unfinished": "google.protobuf.Int64Value",
@@ -966,6 +971,9 @@ Creates a ClickHouse cluster in the specified folder.
             "query_metric_log_enabled": "google.protobuf.BoolValue",
             "query_metric_log_retention_size": "google.protobuf.Int64Value",
             "query_metric_log_retention_time": "google.protobuf.Int64Value",
+            "s3queue_log_enabled": "google.protobuf.BoolValue",
+            "s3queue_log_retention_size": "google.protobuf.Int64Value",
+            "s3queue_log_retention_time": "google.protobuf.Int64Value",
             "automatically_detached_data_parts_retention_time": "google.protobuf.Int64Value",
             "manually_detached_data_parts_retention_time": "google.protobuf.Int64Value",
             "access_control_improvements": {
@@ -1351,7 +1359,7 @@ The maximum string length in characters is 256. ||
 Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource.
 For example, "project": "mvp" or "source": "dictionary".
 
-The maximum string length in characters for each value is 63. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][0-9a-z_-]* `. Each value must match the regular expression ` [0-9a-z_-]* `. No more than 64 per resource. ||
+The maximum string length in characters for each value is 63. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. Each value must match the regular expression ` [-_./\@0-9a-z]* `. No more than 64 per resource. ||
 || environment | enum **Environment**
 
 Required field. Deployment environment of the ClickHouse cluster.
@@ -1566,6 +1574,13 @@ Default value: **8**.
 Change of the setting is applied with restart on value decrease and without restart on value increase.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_common_pool_size). ||
+|| max_backups_io_thread_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum number of threads that will be used for executing **BACKUP** and **RESTORE** requests.
+
+Default value: **64**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/reference/settings/server-settings/settings/max-backups#max_backups_io_thread_pool_size). ||
 || dictionaries_lazy_load | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Lazy loading of dictionaries. If enabled, then each dictionary is loaded on the first use. Otherwise, the server loads all dictionaries at startup.
@@ -1907,6 +1922,27 @@ Default value: **536870912** (512 MiB). ||
 
 The maximum time that query_metric_log records will be retained before removal. If set to **0**,
 automatic removal of query_metric_log data based on time is disabled.
+
+Default value: **2592000000** (30 days). ||
+|| s3queue_log_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables or disables s3queue_log system table.
+
+Default value: **false**.
+
+Change of the setting is applied with restart.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/system-tables/s3queue_log). ||
+|| s3queue_log_retention_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum size that s3queue_log can grow to before old data will be removed. If set to **0**,
+automatic removal of s3queue_log data based on size is disabled.
+
+Default value: **536870912** (512 MiB). ||
+|| s3queue_log_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum time that s3queue_log records will be retained before removal. If set to **0**,
+automatic removal of s3queue_log data based on time is disabled.
 
 Default value: **2592000000** (30 days). ||
 || automatically_detached_data_parts_retention_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
@@ -5277,7 +5313,7 @@ To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.L
 The maximum string length in characters is 50. ||
 || type | enum **Type**
 
-Required field. Type of the host to be deployed.
+Type of the host to be deployed.
 
 - `CLICKHOUSE`: ClickHouse host.
 - `ZOOKEEPER`: ZooKeeper host.

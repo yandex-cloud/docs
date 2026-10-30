@@ -10,7 +10,6 @@ default:
   AF: Apache Airflow™
   agent-core-name: Agent Core
   agents-atelier-name: Agent Atelier
-  ai-playground: AI Playground
   ai-search-name: AI Search
   ai-studio-full-name: Yandex AI Studio
   ai-studio-name: AI Studio
@@ -8541,6 +8540,8 @@ default:
             title_dependencies-type_wJq6n: Способ настройки ПО
             title_software-configuration-type-environment_wJq6n: Окружение
             title_software-configuration-type-packages_wJq6n: Пакеты вручную
+          sections:
+            field_preemptible_dM3qG: Прерываемый
         EnvironmentActions:
           button_action-copy_dFws4: Создать копию окружения
           button_action-delete_kqb63: Удалить
@@ -10892,7 +10893,6 @@ default:
   v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
   vc-name: VibeCraft
-  vector-store-name: Vector Store
   video-full-name: Yandex Cloud Video
   video-name: Cloud Video
   video-player-name: Cloud Video Player

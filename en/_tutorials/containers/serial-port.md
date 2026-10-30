@@ -185,10 +185,17 @@ Once created, the VM will appear in the VM list under **{{ ui-key.yacloud.iam.fo
 ## Check the result {#check-result}
 
 To check whether you correctly configured data output from the Docker container to the serial port:
-1. In the [management console]({{ link-console-main }}), select the relevant folder.
-1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-1. Click the VM name: `coi-vm-with-sp`.
-1. Under **{{ ui-key.yacloud.compute.instance.switch_service-console }}**, select the `COM2` port. In a few minutes, the screen will display `Hello world!`.
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the relevant folder.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Click the VM name: `coi-vm-with-sp`.
+  1. Under **{{ ui-key.yacloud.compute.instance.switch_service-console }}**, select the `COM2` port. In a few minutes, the screen will display `Hello world!`.
+
+{% endlist %}
 
 For more information about working with VMs, see [our step-by-step guides](../../compute/operations/index.md).
 

@@ -50,7 +50,7 @@ The AI assistant can [fix](#query-fix) and [optimize](#query-opt) SQL queries fr
 1. In the left-hand panel, select ![sparkles-fill](../../_assets/console-icons/sparkles-fill.svg) **AI assistant**. The AI assistant window will open.
 1. Type `Fix errors in this query` and click ![arrow-up](../../_assets/console-icons/arrow-up.svg).
   
-    This will create a new [chat](#chats) where the AI assistant will help you correct the SQL query from the [query editor](query-executor.md). If no query is present in the editor, the assistant will prompt you to enter the SQL query you want fixed.
+    This will create a new [chat](#chats) where the AI assistant will help you correct the SQL query from the [query editor](query-executor.md). If there is no query in the editor, the assistant will prompt you to enter the SQL query you want fixed.
 
 ### Optimizing {#query-opt}
 

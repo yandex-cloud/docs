@@ -1,23 +1,30 @@
-# Deleting a catalog user
+# Revoking permissions for a folder
 
-If you have an [{{ rest-catalog-name }} catalog](../../concepts/components/rest-catalog.md) user in your [project](../projects/create-project.md), you can delete it.
+To revoke permissions for [{{ rest-catalog-name }}](../../concepts/components/rest-catalog.md), delete the relevant `StacklandRestCatalogAccessBinding` resource.
 
-{% list tabs group=instructions %}
+Deleting the assignment does not delete a user, user group, or service account. Permissions granted by other assignments remain in place.
 
-- CLI {#cli}
+## Using the CLI {#cli}
 
-  1. Find the name of the user in the list of project users: `kubectl get RestCatalogPrincipal -n <project name>`.
-  1. Delete the user's resource: `kubectl delete RestCatalogPrincipal <user name> -n <project name>`.
+1. Find the assignment in the list. Check the folder, assignee, and role:
 
+    ```bash
+    kubectl get stacklandrestcatalogaccessbinding -n <namespace>
+    kubectl get stacklandrestcatalogaccessbinding <assignment_name> -n <namespace> -o yaml
+    ```
 
-- Management console {#console}
+1. Delete the permission assignment:
 
-  1. If you have not opened a project yet, select one.
-  1. In the left-hand menu, select **Iceberg REST Catalog**.
-  1. In the **Catalogs** tab, select the catalog.
-  1. Go to the **Users** tab.
-  1. Select the user.
-  1. Click **Delete**.
-  1. Confirm the deletion.
+    ```bash
+    kubectl delete stacklandrestcatalogaccessbinding <assignment_name> -n <namespace>
+    ```
 
-{% endlist %}
+## Using the management console {#console}
+
+1. Open the project and select the catalog’s namespace.
+1. In the left-hand menu, select **REST Catalog** → **Catalogs**.
+1. Open the catalog and go to the **Access** tab.
+1. Open the assignment in question. Check the assignee, purpose, and access tier.
+1. Click **Revoke access** and confirm the action.
+
+The assignment remains in the `deleting` state in the list until the revocation is complete. If the operation cannot complete, check the reason in the **States** tab of the assignment.

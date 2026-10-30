@@ -1291,7 +1291,8 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters
           "operationProfiling": {
             "mode": "string",
             "slowOpThreshold": "string",
-            "slowOpSampleRate": "number"
+            "slowOpSampleRate": "number",
+            "filter": "string"
           },
           "net": {
             "maxIncomingConnections": "string",
@@ -1368,7 +1369,8 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters
           },
           "operationProfiling": {
             "mode": "string",
-            "slowOpThreshold": "string"
+            "slowOpThreshold": "string",
+            "filter": "string"
           },
           "net": {
             "maxIncomingConnections": "string"
@@ -1430,7 +1432,8 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters
           "chunkSize": "string",
           "operationProfiling": {
             "slowOpThreshold": "string",
-            "slowOpSampleRate": "number"
+            "slowOpSampleRate": "number",
+            "filter": "string"
           },
           "balancerConfig": {
             "secondaryThrottle": {
@@ -1492,7 +1495,8 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters
           "chunkSize": "string",
           "operationProfiling": {
             "slowOpThreshold": "string",
-            "slowOpSampleRate": "number"
+            "slowOpSampleRate": "number",
+            "filter": "string"
           },
           "balancerConfig": {
             "secondaryThrottle": {
@@ -1522,7 +1526,8 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters
           },
           "operationProfiling": {
             "mode": "string",
-            "slowOpThreshold": "string"
+            "slowOpThreshold": "string",
+            "filter": "string"
           },
           "net": {
             "maxIncomingConnections": "string"
@@ -1558,6 +1563,10 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters
       "targetFreeSpace": "string",
       "bloatPercent": "number",
       "compactionType": "string"
+    },
+    "moniumLogs": {
+      "enabled": "boolean",
+      "project": "string"
     }
   },
   "databaseSpecs": [
@@ -1707,7 +1716,6 @@ User security groups ||
 Deletion Protection inhibits deletion of the cluster ||
 || maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.mongodb.v1.MaintenanceWindow)**
 
-Deprecated. Use maintenance_windows instead.
 Maintenance window settings for the cluster. ||
 || diskEncryptionKeyId | **string**
 
@@ -1827,6 +1835,9 @@ Configuration and resource allocation for a StoreDoc cluster. ||
 || autocompactConfig | **[AutoCompactConfig](#yandex.cloud.mdb.mongodb.v1.AutoCompactConfig)**
 
 AutoCompact config ||
+|| moniumLogs | **[MoniumLogs](#yandex.cloud.mdb.mongodb.v1.MoniumLogs)**
+
+Monium logs shipping settings ||
 |#
 
 ## MongodbSpec3_6 {#yandex.cloud.mdb.mongodb.v1.MongodbSpec3_6}
@@ -5385,6 +5396,9 @@ The fraction of slow operations that should be profiled or logged.
 operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
 
 Acceptable values are 0 to 1, inclusive. ||
+|| filter | **string**
+
+Filter for operations to profile or log, specified as a JSON object string. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Network}
@@ -5671,6 +5685,9 @@ for longer than this threshold are considered slow, and are processed by the pro
 running in the SLOW_OP mode. For details see [MongoDB documentation](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpThresholdMs).
 
 Value must be greater than 0. ||
+|| filter | **string**
+
+Filter for operations to profile or log, specified as a JSON object string. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network}
@@ -5882,6 +5899,9 @@ The fraction of slow operations that should be logged.
 operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
 
 Acceptable values are 0 to 1, inclusive. ||
+|| filter | **string**
+
+Filter for operations to log, specified as a JSON object string. ||
 |#
 
 ## BalancerConfig {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.BalancerConfig}
@@ -5982,6 +6002,20 @@ Type of compaction. Either switch primary to run compaction on all hosts or igno
 
 - `COMPACTION_TYPE_IGNORE_PRIMARY`: Run compaction on all hosts except primary.
 - `COMPACTION_TYPE_SWITCH_PRIMARY`: Switch primary to run compaction on all hosts. ||
+|#
+
+## MoniumLogs {#yandex.cloud.mdb.mongodb.v1.MoniumLogs}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Whether cluster logs are shipped to Monium. If not set, the installation default is used. ||
+|| project | **string**
+
+Monium project to ship cluster logs to. If empty, the default project is used.
+
+The maximum string length in characters is 64. Value must match the regular expression ` [a-zA-Z0-9_.-]* `. ||
 |#
 
 ## DatabaseSpec {#yandex.cloud.mdb.mongodb.v1.DatabaseSpec}

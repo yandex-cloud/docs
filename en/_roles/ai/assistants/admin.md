@@ -1,12 +1,12 @@
 
-The `ai.assistants.admin` role enables using AI agents as well as managing files and {{ vector-store-name }} search indexes.
+The `ai.assistants.admin` role enables managing {{ responses-api }} configurations, files, and search indexes.
 
 Users with this role can:
 
 
-* Use [AI agents]({{ link-docs-ai }}ai-studio/concepts/agents/).
-* View info on uploaded files as well as create, update, view, and delete them.
-* View info on {{ vector-store-name }} [search indexes]({{ link-docs-ai }}ai-studio/concepts/search/vectorstore), create, modify, and delete them, as well as conduct searches using these indexes.
+* View info on [{{ responses-api }} configurations]({{ link-docs-ai }}ai-studio/operations/generation/create-prompt), as well as create, use, modify, and delete them.
+* View info on uploaded [files]({{ link-docs-ai }}ai-studio/concepts/search/vectorstore#file-uploading) as well as create, update, view, and delete them.
+* View info on [search indexes]({{ link-docs-ai }}ai-studio/concepts/search/vectorstore), create, modify, and delete them, as well as conduct searches using these indexes.
 * View info on {{ ai-studio-full-name }} [quotas]({{ link-docs-ai }}ai-studio/concepts/limits#yandexgpt-quotas).
 * View info on the relevant [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud).
 * View info on the relevant [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).

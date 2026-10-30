@@ -56,7 +56,7 @@ The total number of queries from all private charts in an instance per month mus
 
 > 2,000 queries x Number of seats
 
-If you exceed this limit, you will need to purchase additional seats. If the limit on the number of queries from embedded private charts is exceeded and [auto-purchasing](../../datalens/settings/seats.md#purchase-automatically) is on, no new seats will be automatically procured.
+If you exceed this limit, you will need additional seats. With [auto-purchase](../../datalens/settings/seats.md#purchase-automatically) enabled, the required seats will be purchased automatically once the remaining limit on requests from private embedded objects drops to 500; such seats are not assigned to anyone and appear as available. If the option is disabled, purchase the needed seats manually.
 
 ### How can I track the number of queries from embedded private objects? {#statistics}
 
@@ -64,7 +64,7 @@ To estimate the number of queries from embedded private objects, use the [Usage 
 
 ### What if I need more queries from embedded private objects? {#more-queries}
 
-If your current number of seats is not enough to cover the required number of queries from embedded private objects, you will need to purchase more seats.
+If your current number of seats does not cover the required volume of requests from private embedded objects, purchase additional seats. You can do this manually or, alternatively, you can automate this with the **Auto-purchase** [option](../../datalens/settings/seats.md#purchase-automatically): when the remaining limit on requests from private embedded objects drops to 500, the required seats will be purchased automatically, and assigning them to users is optional.
 
 ### I only have one seat, but my embedded private objects generate more than 2,000 queries per month. Is this still free? {#individual-more-queries}
 

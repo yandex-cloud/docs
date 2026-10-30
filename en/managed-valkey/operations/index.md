@@ -29,6 +29,7 @@ description: This page features step-by-step guides for {{ mrd-name }}.
 
   * [Connecting to a non-sharded cluster](connect/non-sharded-code-examples.md)
   * [Connecting to a sharded cluster](connect/sharded-code-examples.md)
+* [{#T}](./connect/update-tls-certificates.md)
 
 
 ## Databases {#databases}

@@ -1,3 +1,3 @@
-Роль `serverless.mcpGateways.editor` позволяет создавать, изменять и удалять [MCP-серверы]({{ link-docs-ai }}ai-studio/concepts/mcp-hub/#servers), просматривать информацию о них и назначенных [правах доступа](../../../iam/concepts/access-control/roles.md) к ним.
+Роль `serverless.mcpGateways.editor` позволяет создавать, изменять и удалять [MCP-серверы]({{ link-docs-ai }}ai-studio/concepts/mcp-hub/#servers), просматривать информацию о них и назначенных [правах доступа](../../../iam/concepts/access-control/roles.md) к ним, а также о [квотах]({{ link-docs-ai }}ai-studio/concepts/limits#yandexgpt-quotas) на использование MCP-серверов.
 
 Включает разрешения, предоставляемые ролью `serverless.mcpGateways.viewer`.

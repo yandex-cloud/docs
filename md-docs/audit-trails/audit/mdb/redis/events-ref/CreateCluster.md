@@ -398,7 +398,13 @@
             "aofMaxSizePercent": "string",
             "activedefrag": "boolean",
             "auditLog": "boolean",
-            "rebalanceEnabled": "boolean"
+            "rebalanceEnabled": "boolean",
+            "hashMaxListpackEntries": "string",
+            "hashMaxListpackValue": "string",
+            "listMaxListpackSize": "string",
+            "setMaxListpackEntries": "string",
+            "setMaxListpackValue": "string",
+            "zsetMaxListpackValue": "string"
           },
           "userConfig": {
             "maxmemoryPolicy": "string",
@@ -434,7 +440,13 @@
             "aofMaxSizePercent": "string",
             "activedefrag": "boolean",
             "auditLog": "boolean",
-            "rebalanceEnabled": "boolean"
+            "rebalanceEnabled": "boolean",
+            "hashMaxListpackEntries": "string",
+            "hashMaxListpackValue": "string",
+            "listMaxListpackSize": "string",
+            "setMaxListpackEntries": "string",
+            "setMaxListpackValue": "string",
+            "zsetMaxListpackValue": "string"
           },
           "defaultConfig": {
             "maxmemoryPolicy": "string",
@@ -470,7 +482,13 @@
             "aofMaxSizePercent": "string",
             "activedefrag": "boolean",
             "auditLog": "boolean",
-            "rebalanceEnabled": "boolean"
+            "rebalanceEnabled": "boolean",
+            "hashMaxListpackEntries": "string",
+            "hashMaxListpackValue": "string",
+            "listMaxListpackSize": "string",
+            "setMaxListpackEntries": "string",
+            "setMaxListpackValue": "string",
+            "zsetMaxListpackValue": "string"
           }
         },
         "diskSizeAutoscaling": {
@@ -513,6 +531,10 @@
             "downThreshold": "string",
             "upThreshold": "string"
           }
+        },
+        "moniumLogs": {
+          "enabled": "boolean",
+          "project": "string"
         }
       },
       "networkId": "string",
@@ -881,6 +903,7 @@ Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConf
 || fullVersion | **string** ||
 || tieredStorageEnabled | **boolean** ||
 || shardAutoscalingSettings | **[ShardAutoscalingSettings](#yandex.cloud.mdb.redis.v1.ShardAutoscalingSettings)** ||
+|| moniumLogs | **[MoniumLogs](#yandex.cloud.mdb.redis.v1.MoniumLogs)** ||
 |#
 
 ## RedisConfigSet5_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfigSet5_0}
@@ -1228,6 +1251,22 @@ Acceptable values are 1 to 99, inclusive. ||
 || activedefrag | **boolean** ||
 || auditLog | **boolean** ||
 || rebalanceEnabled | **boolean** ||
+|| hashMaxListpackEntries | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
+|| hashMaxListpackValue | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
+|| listMaxListpackSize | **string** (int64) ||
+|| setMaxListpackEntries | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
+|| setMaxListpackValue | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
+|| zsetMaxListpackValue | **string** (int64)
+
+Acceptable values are 0 to 2048, inclusive. ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit}
@@ -1323,6 +1362,16 @@ Acceptable values are 0 to 100, inclusive. ||
 || upThreshold | **string** (int64)
 
 Acceptable values are 0 to 100, inclusive. ||
+|#
+
+## MoniumLogs {#yandex.cloud.mdb.redis.v1.MoniumLogs}
+
+#|
+||Field | Description ||
+|| enabled | **boolean** ||
+|| project | **string**
+
+The maximum string length in characters is 64. Value must match the regular expression ` [a-zA-Z0-9_.-]* `. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.redis.v1.MaintenanceWindow}

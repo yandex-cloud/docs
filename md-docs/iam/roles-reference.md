@@ -71,63 +71,135 @@
 
 #### ai.auditor {#ai-auditor}
 
-Роль `ai.auditor` позволяет просматривать информацию о квотах сервисов [Yandex Translate](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas), [Yandex Vision OCR](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas), [Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/concepts/limits#speechkit-quotas) и [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas), о загруженных [файлах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore#file-uploading), [поисковых индексах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore) Vector Store, [датасетах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/resources/dataset) и [моделях генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models) Yandex AI Studio, просматривать метаданные [правил модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) ответов моделей, а также информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+Роль `ai.auditor` позволяет просматривать информацию о моделях генерации текста и правилах модерации моделей, о текстовых агентах и каналах публикации текстовых агентов, а также о конфигурациях Responses API, подписках и других сущностях в Yandex AI Studio.
+
+{% cut "Пользователи с этой ролью могут:" %}
 
 
-Включает разрешения, предоставляемые ролями `ai.assistants.auditor`, `ai.datasets.auditor`, `ai.models.auditor` и `ai.guardrails.auditor`.
+* просматривать метаданные [моделей генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models);
+* просматривать список [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents) в каталоге, информацию о них, их версиях и операциях с ними;
+* просматривать информацию о [каналах публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels), а также список каналов в каталоге;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к текстовым агентам и каналам публикации текстовых агентов;
+* просматривать информацию о [конфигурациях Responses API](https://aistudio.yandex.ru/docs/ru/ai-studio/operations/generation/create-prompt), загруженных [файлах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore#file-uploading) и [поисковых индексах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore);
+* просматривать метаданные [правил модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) моделей;
+* просматривать метаданные своей [подписки](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/subscription#subscription);
+* просматривать метаданные [профилей рабочих мест](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#runtime-profile) пользователей и назначенные права доступа к таким профилям;
+* просматривать метаданные [рабочих мест](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#work-runtime) пользователей и назначенные права доступа к рабочим местам;
+* просматривать метаданные [датасетов](https://aistudio.yandex.ru/docs/ru/ai-studio/dataset/api-ref/grpc/);
+* просматривать информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas) сервиса Yandex AI Studio;
+* просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+
+{% endcut %}
+
+Включает разрешения, предоставляемые ролями `ai.agentChannels.auditor`, `ai.canvasAgents.auditor`, `ai.assistants.auditor`, `ai.datasets.auditor`, `ai.models.auditor`, `ai.guardrails.auditor`, `ai.subscriptions.auditor`, `ai.workProfiles.auditor` и `ai.workRuntimes.auditor`.
 
 #### ai.viewer {#ai-viewer}
 
-Роль `ai.viewer` позволяет просматривать информацию о квотах сервисов [Yandex Translate](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas), [Yandex Vision OCR](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas), [Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/concepts/limits#speechkit-quotas) и [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas), о [моделях генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models), о [правилах модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) ответов моделей, о [датасетах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/resources/dataset), загруженных [файлах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore#file-uploading) и [поисковых индексах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore) Vector Store в Yandex AI Studio, выполнять чтение таких файлов и поиск по таким индексам, а также просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+Роль `ai.viewer` позволяет просматривать информацию о моделях генерации текста и правилах модерации моделей, о текстовых агентах и каналах публикации текстовых агентов, а также о конфигурациях Responses API, подписках и других сущностях в Yandex AI Studio.
+
+{% cut "Пользователи с этой ролью могут:" %}
 
 
-Включает разрешения, предоставляемые ролями `ai.auditor`, `ai.assistants.viewer`, `ai.datasets.viewer`, `ai.models.viewer` и `ai.guardrails.viewer`.
+* просматривать информацию о [моделях генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models);
+* просматривать список [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents) в каталоге, информацию о них, их версиях и операциях с ними;
+* просматривать информацию о [каналах публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels), а также список каналов в каталоге;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к текстовым агентам и каналам публикации текстовых агентов;
+* просматривать информацию о [конфигурациях Responses API](https://aistudio.yandex.ru/docs/ru/ai-studio/operations/generation/create-prompt);
+* просматривать информацию о загруженных [файлах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore#file-uploading) и содержимое таких файлов;
+* просматривать информацию о [поисковых индексах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore), а также выполнять поиск по таким индексам;
+* просматривать информацию о [правилах модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) моделей;
+* просматривать информацию о своей [подписке](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/subscription#subscription);
+* просматривать информацию о [профилях рабочих мест](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#runtime-profile) пользователей и назначенных правах доступа к таким профилям;
+* просматривать информацию о [рабочих местах](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#work-runtime) пользователей и назначенных правах доступа к рабочим местам;
+* просматривать информацию о [датасетах](https://aistudio.yandex.ru/docs/ru/ai-studio/dataset/api-ref/grpc/);
+* просматривать информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas) сервиса Yandex AI Studio;
+* просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+
+{% endcut %}
+
+Включает разрешения, предоставляемые ролями `ai.auditor`, `ai.agentChannels.viewer`, `ai.canvasAgents.viewer`, `ai.assistants.viewer`, `ai.datasets.viewer`, `ai.models.viewer`, `ai.guardrails.viewer`, `ai.subscriptions.viewer`, `ai.workRuntimes.viewer` и `ai.workProfiles.viewer`.
 
 #### ai.editor {#ai-editor}
 
-Роль `ai.editor` позволяет использовать сервисы Yandex Translate, Yandex Vision OCR, Yandex SpeechKit и Yandex AI Studio.
+Роль `ai.editor` позволяет использовать модели Yandex AI Studio, управлять текстовыми агентами, конфигурациями Responses API и другими сущностями в Yandex AI Studio.
 
-Пользователи с этой ролью могут:
+{% cut "Пользователи с этой ролью могут:" %}
 
 
-* использовать сервис Yandex Translate для [перевода текста](https://aistudio.yandex.ru/docs/ru/translate/concepts/);
-* использовать сервис Yandex Vision OCR для [анализа изображений](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/);
-* использовать сервис Yandex SpeechKit для [распознавания](https://aistudio.yandex.ru/docs/ru/speechkit/stt/) и [синтеза](https://aistudio.yandex.ru/docs/ru/speechkit/tts/) речи;
-* просматривать информацию о [моделях генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models) Yandex AI Studio;
-* просматривать информацию о [правилах модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) ответов моделей, а также создавать, применять, изменять и удалять такие правила;
-* использовать [AI-агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/), а также модели генерации текста и изображений, модели [векторного представления текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/embeddings#yandexgpt-embeddings) и [классификаторов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/classifier/models) в сервисе Yandex AI Studio;
+* просматривать информацию о моделях [генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models), генерации изображений, [векторного представления текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/embeddings#yandexgpt-embeddings) и [классификаторов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/classifier/models) в сервисе Yandex AI Studio, а также использовать такие модели;
+* просматривать список [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents) в каталоге, информацию о них, их версиях и операциях с ними;
+* создавать, изменять и удалять текстовых агентов;
+* создавать версии текстовых агентов;
+* тестировать в интерфейсе тестирования любую версию текстового агента, в том числе не опубликованную в канале: отправлять агенту сообщения и просматривать события выполнения;
+* просматривать информацию о [каналах публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels), а также список каналов в каталоге;
+* создавать, изменять и удалять каналы публикации текстовых агентов, приостанавливать и возобновлять их работу;
+* публиковать версии текстовых агентов в каналах;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к текстовым агентам и каналам публикации текстовых агентов;
+* просматривать информацию о [конфигурациях Responses API](https://aistudio.yandex.ru/docs/ru/ai-studio/operations/generation/create-prompt), а также создавать, использовать, изменять и удалять их;
 * просматривать информацию о загруженных [файлах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore#file-uploading), а также загружать, изменять, просматривать и удалять такие файлы;
-* просматривать информацию о [поисковых индексах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore) Vector Store, создавать, изменять и удалять поисковые индексы, а также выполнять поиск по ним;
-* [дообучать](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/tuning/#fm-tuning) модели Yandex AI Studio, а также создавать, изменять и удалять дообученные модели;
-* просматривать информацию о [датасетах](https://aistudio.yandex.ru/docs/ru/ai-studio/dataset/api-ref/grpc/), использовать их для дообучения моделей, а также создавать, изменять и удалять датасеты;
-* просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder);
-* просматривать информацию о квотах сервисов [Yandex Translate](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas), [Yandex Vision OCR](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas), [Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/concepts/limits#speechkit-quotas) и [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas).
+* просматривать информацию о [поисковых индексах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore), создавать, изменять и удалять поисковые индексы, а также выполнять поиск по ним;
+* просматривать информацию о [правилах модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) моделей, а также создавать, применять, изменять и удалять такие правила;
+* получать список всех [подписок](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/subscription#subscription) в облаке;
+* просматривать информацию о своей подписке;
+* покупать, использовать, изменять и удалять свою подписку;
+* сбрасывать окна потребления по любой подписке в облаке;
+* просматривать информацию о [профилях рабочих мест](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#runtime-profile) пользователей и назначенных правах доступа к профилям рабочих мест;
+* использовать и изменять профили рабочих мест пользователей;
+* просматривать информацию о [рабочих местах](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#work-runtime) пользователей и назначенных правах доступа к рабочим местам;
+* создавать рабочие места;
+* использовать свое рабочее место;
+* просматривать информацию о [датасетах](https://aistudio.yandex.ru/docs/ru/ai-studio/dataset/api-ref/grpc/), а также создавать, использовать, изменять и удалять их.
+* использовать функциональности [распознавания речи](https://aistudio.yandex.ru/docs/ru/speechkit/stt/), [синтеза речи](https://aistudio.yandex.ru/docs/ru/speechkit/tts/), [перевода текста](https://aistudio.yandex.ru/docs/ru/translate/concepts/) и [распознавания текста на изображениях](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/) в сервисе Yandex AI Studio;
+* просматривать информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas) сервиса Yandex AI Studio;
+* просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
 
 
-Включает разрешения, предоставляемые ролями `ai.viewer`, `ai.translate.user`, `ai.vision.user`, `ai.speechkit-stt.user`, `ai.speechkit-tts.user`, `ai.languageModels.user`, `ai.imageGeneration.user`, `ai.assistants.editor`, `ai.datasets.editor`, `ai.models.editor` и `ai.guardrails.editor`.
+{% endcut %}
+
+Включает разрешения, предоставляемые ролями `ai.viewer`, `ai.speechkit-stt.user`, `ai.speechkit-tts.user`, `ai.vision.user`, `ai.translate.user`, `ai.languageModels.user`, `ai.imageGeneration.user`, `ai.agentChannels.editor`, `ai.canvasAgents.editor`, `ai.assistants.editor`, `ai.datasets.editor`, `ai.models.editor`, `ai.guardrails.editor`, `ai.subscriptions.editor`, `ai.workRuntimes.editor` и `ai.workProfiles.editor`.
 
 #### ai.admin {#ai-admin}
 
-Роль `ai.admin` позволяет использовать сервисы Yandex Translate, Yandex Vision OCR, Yandex SpeechKit и Yandex AI Studio.
+Роль `ai.admin` позволяет использовать модели Yandex AI Studio, управлять подписками, текстовыми агентами, конфигурациями Responses API и другими сущностями и доступом к ним в Yandex AI Studio.
 
-Пользователи с этой ролью могут:
+{% cut "Пользователи с этой ролью могут:" %}
 
 
-* использовать сервис Yandex Translate для [перевода текста](https://aistudio.yandex.ru/docs/ru/translate/concepts/);
-* использовать сервис Yandex Vision OCR для [анализа изображений](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/);
-* использовать сервис Yandex SpeechKit для [распознавания](https://aistudio.yandex.ru/docs/ru/speechkit/stt/) и [синтеза](https://aistudio.yandex.ru/docs/ru/speechkit/tts/) речи;
-* просматривать информацию о [моделях генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models) Yandex AI Studio;
-* просматривать информацию о [правилах модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) ответов моделей, а также создавать, применять, изменять и удалять такие правила;
-* использовать [AI-агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/), а также модели генерации текста и изображений, модели [векторного представления текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/embeddings#yandexgpt-embeddings) и [классификаторов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/classifier/models) в сервисе Yandex AI Studio;
+* просматривать информацию о моделях [генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models), генерации изображений, [векторного представления текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/embeddings#yandexgpt-embeddings) и [классификаторов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/classifier/models) в сервисе Yandex AI Studio, а также использовать такие модели;
+* просматривать список [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents) в каталоге, информацию о них, их версиях и операциях с ними;
+* создавать, изменять и удалять текстовых агентов;
+* создавать версии текстовых агентов;
+* тестировать в интерфейсе тестирования любую версию текстового агента, в том числе не опубликованную в канале: отправлять агенту сообщения и просматривать события выполнения;
+* просматривать информацию о [каналах публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels), а также список каналов в каталоге;
+* создавать, изменять и удалять каналы публикации текстовых агентов, приостанавливать и возобновлять их работу;
+* публиковать версии текстовых агентов в каналах;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к текстовым агентам и каналам публикации текстовых агентов, а также изменять такие права доступа;
+* просматривать информацию о [конфигурациях Responses API](https://aistudio.yandex.ru/docs/ru/ai-studio/operations/generation/create-prompt), а также создавать, использовать, изменять и удалять их;
 * просматривать информацию о загруженных [файлах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore#file-uploading), а также загружать, изменять, просматривать и удалять такие файлы;
-* просматривать информацию о [поисковых индексах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore) Vector Store, создавать, изменять и удалять поисковые индексы, а также выполнять поиск по ним;
-* [дообучать](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/tuning/#fm-tuning) модели Yandex AI Studio, а также создавать, изменять и удалять дообученные модели;
-* просматривать информацию о [датасетах](https://aistudio.yandex.ru/docs/ru/ai-studio/dataset/api-ref/grpc/), использовать их для дообучения моделей, а также создавать, изменять и удалять датасеты;
-* просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder);
-* просматривать информацию о квотах сервисов [Yandex Translate](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas), [Yandex Vision OCR](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas), [Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/concepts/limits#speechkit-quotas) и [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas).
+* просматривать информацию о [поисковых индексах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore), создавать, изменять и удалять поисковые индексы, а также выполнять поиск по ним;
+* просматривать информацию о [правилах модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) моделей, а также создавать, применять, изменять и удалять такие правила;
+* получать список всех [подписок](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/subscription#subscription) в облаке и просматривать информацию о них;
+* покупать, изменять и удалять подписки, в том числе подписки других пользователей;
+* сбрасывать окна потребления по любой подписке в облаке;
+* использовать свою подписку;
+* просматривать информацию о [профилях рабочих мест](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#runtime-profile) пользователей;
+* просматривать информацию о назначенных правах доступа к профилям рабочих мест пользователей и изменять такие права доступа;
+* создавать, использовать, изменять и удалять профили рабочих мест пользователей;
+* просматривать информацию о [рабочих местах](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#work-runtime) пользователей;
+* просматривать информацию о назначенных правах доступа к рабочим местам пользователей и изменять такие права доступа;
+* создавать и удалять рабочие места;
+* использовать свое рабочее место;
+* просматривать информацию о [датасетах](https://aistudio.yandex.ru/docs/ru/ai-studio/dataset/api-ref/grpc/), а также создавать, использовать, изменять и удалять их;
+* использовать функциональности [распознавания речи](https://aistudio.yandex.ru/docs/ru/speechkit/stt/), [синтеза речи](https://aistudio.yandex.ru/docs/ru/speechkit/tts/), [перевода текста](https://aistudio.yandex.ru/docs/ru/translate/concepts/) и [распознавания текста на изображениях](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/) в сервисе Yandex AI Studio;
+* просматривать информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas) сервиса Yandex AI Studio;
+* просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
 
 
-Включает разрешения, предоставляемые ролями `ai.editor`, `ai.assistants.admin`, `ai.datasets.admin`, `ai.models.admin` и `ai.guardrails.admin`.
+{% endcut %}
+
+Включает разрешения, предоставляемые ролями `ai.editor`, `ai.agentChannels.admin`, `ai.canvasAgents.admin`, `ai.assistants.admin`, `ai.datasets.admin`, `ai.models.admin`, `ai.guardrails.admin`, `ai.subscriptions.admin`, `ai.workRuntimes.admin` и `ai.workProfiles.admin`.
 
 
 ## Партнерская программа Yandex Cloud {#partner-program}
@@ -256,7 +328,7 @@
 
 #### billing.accounts.editor {#billing-accounts-editor}
 
-Роль `billing.accounts.editor` назначается на платежный аккаунт. Позволяет получать счета на оплату, активировать промокоды, привязывать облака и сервисы к платежному аккаунту, создавать экспорт детализации, создавать бюджеты, генерировать акты сверки и резервировать ресурсы.
+Роль `billing.accounts.editor` назначается на платежный аккаунт. Позволяет получать счета на оплату, активировать промокоды, привязывать облака и сервисы к платежному аккаунту, создавать экспорт детализации, создавать бюджеты и генерировать акты сверки.
 
 {% cut "В сервисе Yandex Cloud Billing пользователи с этой ролью могут:" %}
 
@@ -575,29 +647,54 @@
 
 #### ai.playground.user {#ai-playground-user}
 
-Роль `ai.playground.user` позволяет создавать эксперименты, получать список всех доступных моделей и использовать их в AI Playground в консоли управления Yandex Cloud. Для работы с поисковыми индексами в консоли управления дополнительно необходима роль `ai.assistants.editor`.
+Роль `ai.playground.user` позволяет создавать запросы в Playground, получать список всех доступных моделей и использовать их в Playground Yandex AI Studio.
+
+{% cut "Пользователи с этой ролью могут:" %}
+
+
+* просматривать информацию о [конфигурациях Responses API](https://aistudio.yandex.ru/docs/ru/ai-studio/operations/generation/create-prompt), а также создавать, использовать, изменять и удалять такие конфигурации;
+* просматривать информацию о загруженных [файлах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore#file-uploading) и содержимое таких файлов;
+* просматривать информацию о [поисковых индексах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore), а также выполнять поиск по таким индексам;
+* просматривать информацию о [моделях генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models) Yandex AI Studio и использовать такие модели;
+* просматривать информацию о моделях генерации изображений Yandex AI Studio и использовать такие модели;
+* просматривать информацию о моделях [векторного представления текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/embeddings#yandexgpt-embeddings) Yandex AI Studio и использовать такие модели;
+* просматривать информацию о моделях [классификаторов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/classifier/models) Yandex AI Studio и использовать такие модели;
+* использовать функциональность [перевода текста](https://aistudio.yandex.ru/docs/ru/translate/concepts/) в Yandex AI Studio;
+* использовать функциональность [распознавания текста на изображениях](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/) в Yandex AI Studio;
+* использовать функциональность [распознавания](https://aistudio.yandex.ru/docs/ru/speechkit/stt/) и [синтеза](https://aistudio.yandex.ru/docs/ru/speechkit/tts/) речи в Yandex AI Studio;
+* просматривать информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas) сервиса Yandex AI Studio;
+* просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud);
+* просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+
+{% endcut %}
+
+Включает разрешения, предоставляемые ролями `ai.assistants.viewer`, `ai.models.user`, `ai.imageGeneration.user`, `ai.languageModels.user`, `ai.speechkit-stt.user`, `ai.speechkit-tts.user`, `ai.translate.user` и `ai.vision.user`.
+
+Чтобы управлять поисковыми индексами в Playground, дополнительно необходима роль `ai.assistants.editor`.
 
 #### ai.languageModels.user {#languageModels-user}
 
-Роль `ai.languageModels.user` позволяет использовать модели [генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models), [векторного представления текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/embeddings#yandexgpt-embeddings) и [классификаторов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/classifier/models) в сервисе Yandex AI Studio, а также просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas) сервиса.
+Роль `ai.languageModels.user` позволяет использовать модели генерации текста, модели [векторного представления текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/embeddings#yandexgpt-embeddings) и [классификаторов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/classifier/models) в сервисе Yandex AI Studio, а также просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas) сервиса.
 
 #### ai.imageGeneration.user {#imageGeneration-user}
 
-Роль `ai.imageGeneration.user` позволяет использовать модели генерации изображений YandexART в сервисе Yandex AI Studio, а также просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas) сервиса.
+Роль `ai.imageGeneration.user` позволяет использовать модели генерации изображений в сервисе Yandex AI Studio, а также просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas) сервиса.
 
 #### ai.assistants.auditor {#ai-assistants-auditor}
 
-Роль `ai.assistants.auditor` позволяет просматривать информацию о загруженных [файлах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore#file-uploading) и [поисковых индексах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore) Vector Store, а также о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas) сервиса Yandex AI Studio, об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+Роль `ai.assistants.auditor` позволяет просматривать информацию о [конфигурациях Responses API](https://aistudio.yandex.ru/docs/ru/ai-studio/operations/generation/create-prompt), загруженных [файлах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore#file-uploading) и [поисковых индексах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore), о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas) сервиса Yandex AI Studio, а также об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
 
 #### ai.assistants.viewer {#ai-assistants-viewer}
 
-Роль `ai.assistants.viewer` позволяет просматривать информацию о файлах и поисковых индексах Vector Store, а также выполнять поиск по таким индексам.
+Роль `ai.assistants.viewer` позволяет просматривать информацию о конфигурациях Responses API, файлах и поисковых индексах, а также выполнять поиск по таким индексам.
 
 Пользователи с этой ролью могут:
 
 
+* просматривать информацию о [конфигурациях Responses API](https://aistudio.yandex.ru/docs/ru/ai-studio/operations/generation/create-prompt);
 * просматривать информацию о загруженных [файлах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore#file-uploading) и содержимое таких файлов;
-* просматривать информацию о [поисковых индексах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore) Vector Store, а также выполнять поиск по таким индексам;
+* просматривать информацию о [поисковых индексах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore), а также выполнять поиск по таким индексам;
 * просматривать информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas) сервиса Yandex AI Studio;
 * просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
@@ -607,14 +704,14 @@
 
 #### ai.assistants.editor {#ai-assistants-editor}
 
-Роль `ai.assistants.editor` позволяет использовать AI-агентов, а также управлять файлами и поисковыми индексами Vector Store.
+Роль `ai.assistants.editor` позволяет управлять конфигурациями Responses API, файлами и поисковыми индексами.
 
 Пользователи с этой ролью могут:
 
 
-* использовать [AI-агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/);
+* просматривать информацию о [конфигурациях Responses API](https://aistudio.yandex.ru/docs/ru/ai-studio/operations/generation/create-prompt), а также создавать, использовать, изменять и удалять их;
 * просматривать информацию о загруженных [файлах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore#file-uploading), а также загружать, изменять, просматривать и удалять такие файлы;
-* просматривать информацию о [поисковых индексах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore) Vector Store, создавать, изменять и удалять поисковые индексы, а также выполнять поиск по ним;
+* просматривать информацию о [поисковых индексах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore), создавать, изменять и удалять поисковые индексы, а также выполнять поиск по ним;
 * просматривать информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas) сервиса Yandex AI Studio;
 * просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
@@ -624,14 +721,14 @@
 
 #### ai.assistants.admin {#ai-assistants-admin}
 
-Роль `ai.assistants.admin` позволяет использовать AI-агентов, а также управлять файлами и поисковыми индексами Vector Store.
+Роль `ai.assistants.admin` позволяет управлять конфигурациями Responses API, файлами и поисковыми индексами.
 
 Пользователи с этой ролью могут:
 
 
-* использовать [AI-агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/);
+* просматривать информацию о [конфигурациях Responses API](https://aistudio.yandex.ru/docs/ru/ai-studio/operations/generation/create-prompt), а также создавать, использовать, изменять и удалять их;
 * просматривать информацию о загруженных [файлах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore#file-uploading), а также загружать, изменять, просматривать и удалять такие файлы;
-* просматривать информацию о [поисковых индексах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore) Vector Store, создавать, изменять и удалять поисковые индексы, а также выполнять поиск по ним;
+* просматривать информацию о [поисковых индексах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/vectorstore), создавать, изменять и удалять поисковые индексы, а также выполнять поиск по ним;
 * просматривать информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas) сервиса Yandex AI Studio;
 * просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
@@ -641,98 +738,117 @@
 
 #### ai.canvasAgents.auditor {#ai-canvasagents-auditor}
 
-Роль `ai.canvasAgents.auditor` позволяет просматривать метаданные [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents).
+Роль `ai.canvasAgents.auditor` позволяет просматривать метаданные текстовых агентов.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о текстовых агентах и их версиях, а также список текстовых агентов в каталоге;
+
+
+* просматривать список [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents) в каталоге, информацию о них и их версиях;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к текстовым агентам;
 * просматривать список асинхронных операций с текстовыми агентами;
-* просматривать права доступа, назначенные на текстовых агентов;
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
 
 #### ai.canvasAgents.viewer {#ai-canvasagents-viewer}
 
-Роль `ai.canvasAgents.viewer` позволяет просматривать [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents).
+Роль `ai.canvasAgents.viewer` позволяет просматривать текстовых агентов.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о текстовых агентах и их версиях, а также список текстовых агентов в каталоге;
+
+
+* просматривать список [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents) в каталоге, информацию о них и их версиях;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к текстовым агентам;
 * просматривать список асинхронных операций с текстовыми агентами;
-* просматривать права доступа, назначенные на текстовых агентов;
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
 
 Включает разрешения, предоставляемые ролью `ai.canvasAgents.auditor`.
 
 #### ai.canvasAgents.editor {#ai-canvasagents-editor}
 
-Роль `ai.canvasAgents.editor` позволяет создавать [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents), управлять ими и тестировать их в интерфейсе тестирования.
+Роль `ai.canvasAgents.editor` позволяет управлять текстовыми агентами и тестировать их в интерфейсе тестирования.
 
 Пользователи с этой ролью могут:
+
+
+* просматривать список [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents) в каталоге, информацию о них, их версиях и операциях с ними;
 * создавать, изменять и удалять текстовых агентов;
 * создавать версии текстовых агентов;
 * тестировать в интерфейсе тестирования любую версию текстового агента, в том числе не опубликованную в канале: отправлять агенту сообщения и просматривать события выполнения;
-* просматривать информацию о текстовых агентах, их версиях и операциях с ними;
-* просматривать права доступа, назначенные на текстовых агентов;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к текстовым агентам;
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
 
 Включает разрешения, предоставляемые ролью `ai.canvasAgents.viewer`.
 
 #### ai.canvasAgents.admin {#ai-canvasagents-admin}
 
-Роль `ai.canvasAgents.admin` позволяет создавать [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents), управлять ими и назначать права доступа к ним.
+Роль `ai.canvasAgents.admin` позволяет управлять текстовыми агентами и правами доступа к ним.
 
 Пользователи с этой ролью могут:
+
+
+* просматривать список [текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents) в каталоге, информацию о них, их версиях и операциях с ними;
 * создавать, изменять и удалять текстовых агентов;
 * создавать версии текстовых агентов;
-* тестировать в интерфейсе тестирования любую версию текстового агента, в том числе не опубликованную в канале;
-* назначать и отзывать права доступа к текстовым агентам;
-* просматривать информацию о текстовых агентах, их версиях и операциях с ними;
+* тестировать в интерфейсе тестирования любую версию текстового агента, в том числе не опубликованную в канале: отправлять агенту сообщения и просматривать события выполнения;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к текстовым агентам и изменять такие права доступа;
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
 
 Включает разрешения, предоставляемые ролью `ai.canvasAgents.editor`.
 
 #### ai.agentChannels.auditor {#ai-agentchannels-auditor}
 
-Роль `ai.agentChannels.auditor` позволяет просматривать метаданные [каналов публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels).
+Роль `ai.agentChannels.auditor` позволяет просматривать метаданные каналов публикации текстовых агентов.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о каналах публикации текстовых агентов, а также список каналов в каталоге;
-* просматривать права доступа, назначенные на каналы публикации текстовых агентов;
+
+
+* просматривать информацию о [каналах публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels), а также список каналов в каталоге;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к каналам публикации текстовых агентов;
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
 
 #### ai.agentChannels.viewer {#ai-agentchannels-viewer}
 
-Роль `ai.agentChannels.viewer` позволяет просматривать [каналы публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels).
+Роль `ai.agentChannels.viewer` позволяет просматривать каналы публикации текстовых агентов.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о каналах публикации текстовых агентов, а также список каналов в каталоге;
-* просматривать права доступа, назначенные на каналы публикации текстовых агентов;
+
+
+* просматривать информацию о [каналах публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels), а также список каналов в каталоге;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к каналам публикации текстовых агентов;
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
 
 Включает разрешения, предоставляемые ролью `ai.agentChannels.auditor`.
 
 #### ai.agentChannels.editor {#ai-agentchannels-editor}
 
-Роль `ai.agentChannels.editor` позволяет создавать [каналы публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels) и публиковать в них версии агентов.
+Роль `ai.agentChannels.editor` позволяет управлять каналами публикации текстовых агентов и публиковать в них версии агентов.
 
 Пользователи с этой ролью могут:
-* создавать, изменять и удалять каналы публикации текстовых агентов;
-* приостанавливать и возобновлять работу каналов публикации текстовых агентов;
+
+
+* просматривать информацию о [каналах публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels) и назначенных [правах доступа](concepts/access-control/index.md) к ним;
+* создавать, изменять и удалять каналы публикации текстовых агентов, приостанавливать и возобновлять их работу;
 * публиковать версии текстовых агентов в каналах;
-* просматривать информацию о каналах публикации текстовых агентов и назначенных на них правах доступа;
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
 
 Включает разрешения, предоставляемые ролью `ai.agentChannels.viewer`.
 
 #### ai.agentChannels.admin {#ai-agentchannels-admin}
 
-Роль `ai.agentChannels.admin` позволяет управлять [каналами публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels) и назначать права доступа к ним.
+Роль `ai.agentChannels.admin` позволяет управлять каналами публикации текстовых агентов и правами доступа к ним.
 
 Пользователи с этой ролью могут:
-* создавать, изменять и удалять каналы публикации текстовых агентов;
-* приостанавливать и возобновлять работу каналов публикации текстовых агентов;
+
+
+* просматривать информацию о [каналах публикации текстовых агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels), а также создавать, изменять и удалять каналы публикации текстовых агентов, приостанавливать и возобновлять их работу;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к каналам публикации текстовых агентов и изменять такие права доступа;
 * публиковать версии текстовых агентов в каналах;
-* назначать и отзывать права доступа к каналам публикации текстовых агентов;
-* просматривать информацию о каналах публикации текстовых агентов;
 * просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
 
 Включает разрешения, предоставляемые ролью `ai.agentChannels.editor`.
 
@@ -748,19 +864,19 @@
 
 #### ai.datasets.user {#ai-datasets-user}
 
-Роль `ai.datasets.user` позволяет просматривать информацию о [датасетах](https://aistudio.yandex.ru/docs/ru/ai-studio/dataset/api-ref/grpc/) и использовать их для [дообучения](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/tuning/#fm-tuning) моделей в AI Studio.
+Роль `ai.datasets.user` позволяет просматривать информацию о [датасетах](https://aistudio.yandex.ru/docs/ru/ai-studio/dataset/api-ref/grpc/) и использовать их.
 
 Включает разрешения, предоставляемые ролью `ai.datasets.viewer`.
 
 #### ai.datasets.editor {#ai-datasets-editor}
 
-Роль `ai.datasets.editor` позволяет просматривать информацию о [датасетах](https://aistudio.yandex.ru/docs/ru/ai-studio/dataset/api-ref/grpc/), создавать, изменять и удалять датасеты, а также использовать их для [дообучения](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/tuning/#fm-tuning) моделей в AI Studio.
+Роль `ai.datasets.editor` позволяет просматривать информацию о [датасетах](https://aistudio.yandex.ru/docs/ru/ai-studio/dataset/api-ref/grpc/), а также создавать, использовать, изменять и удалять их.
 
 Включает разрешения, предоставляемые ролью `ai.datasets.user`.
 
 #### ai.datasets.admin {#ai-datasets-admin}
 
-Роль `ai.datasets.admin` позволяет просматривать информацию о [датасетах](https://aistudio.yandex.ru/docs/ru/ai-studio/dataset/api-ref/grpc/), создавать, изменять и удалять датасеты, а также использовать их для [дообучения](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/tuning/#fm-tuning) моделей в AI Studio.
+Роль `ai.datasets.admin` позволяет просматривать информацию о [датасетах](https://aistudio.yandex.ru/docs/ru/ai-studio/dataset/api-ref/grpc/), а также создавать, использовать, изменять и удалять их.
 
 Включает разрешения, предоставляемые ролью `ai.datasets.editor`.
 
@@ -776,87 +892,85 @@
 
 #### ai.models.user {#ai-models-user}
 
-Роль `ai.models.user` позволяет использовать AI-агентов и модели генерации текста и изображений, векторного представления текста и классификаторов в Yandex AI Studio, а также использовать сервисы Yandex Translate, Yandex Vision OCR и Yandex SpeechKit.
+Роль `ai.models.user` позволяет использовать конфигурации Responses API, обращаться к моделям генерации текста и изображений, векторного представления текста и классификаторов, а также использовать функциональности распознавания и синтеза речи, распознавания текста на изображениях и перевода текста в Yandex AI Studio.
 
 Пользователи с этой ролью могут:
 
 
 * просматривать информацию о [моделях генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models) Yandex AI Studio;
-* использовать [AI-агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/), а также модели генерации текста и изображений, модели [векторного представления текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/embeddings#yandexgpt-embeddings) и [классификаторов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/classifier/models) в сервисе Yandex AI Studio;
-* использовать сервис Yandex Translate для [перевода текста](https://aistudio.yandex.ru/docs/ru/translate/concepts/);
-* использовать сервис Yandex Vision OCR для [анализа изображений](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/);
-* использовать сервис Yandex SpeechKit для [распознавания](https://aistudio.yandex.ru/docs/ru/speechkit/stt/) и [синтеза](https://aistudio.yandex.ru/docs/ru/speechkit/tts/) речи.
+* использовать [конфигурации Responses API](https://aistudio.yandex.ru/docs/ru/ai-studio/operations/generation/create-prompt), а также модели генерации текста и изображений, модели [векторного представления текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/embeddings#yandexgpt-embeddings) и [классификаторов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/classifier/models) в Yandex AI Studio;
+* использовать функциональность [перевода текста](https://aistudio.yandex.ru/docs/ru/translate/concepts/) в Yandex AI Studio;
+* использовать функциональность [распознавания текста на изображениях](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/) в Yandex AI Studio;
+* использовать функциональность [распознавания](https://aistudio.yandex.ru/docs/ru/speechkit/stt/) и [синтеза](https://aistudio.yandex.ru/docs/ru/speechkit/tts/) речи в Yandex AI Studio.
 
 
 Включает разрешения, предоставляемые ролью `ai.models.viewer`.
 
 #### ai.models.editor {#ai-models-editor}
 
-Роль `ai.models.editor` позволяет управлять дообучением моделей Yandex AI Studio, а также использовать сервисы Yandex Translate, Yandex Vision OCR, Yandex SpeechKit и Yandex AI Studio.
+Роль `ai.models.editor` позволяет использовать конфигурации Responses API, обращаться к моделям генерации текста и изображений, векторного представления текста и классификаторов, а также использовать функциональности распознавания и синтеза речи, распознавания текста на изображениях и перевода текста в Yandex AI Studio.
 
 Пользователи с этой ролью могут:
 
 
 * просматривать информацию о [моделях генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models) Yandex AI Studio;
-* [дообучать](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/tuning/#fm-tuning) модели Yandex AI Studio, а также создавать, изменять и удалять дообученные модели;
-* использовать [AI-агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/), а также модели генерации текста и изображений, модели [векторного представления текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/embeddings#yandexgpt-embeddings) и [классификаторов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/classifier/models) в сервисе Yandex AI Studio;
-* использовать сервис Yandex Translate для [перевода текста](https://aistudio.yandex.ru/docs/ru/translate/concepts/);
-* использовать сервис Yandex Vision OCR для [анализа изображений](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/);
-* использовать сервис Yandex SpeechKit для [распознавания](https://aistudio.yandex.ru/docs/ru/speechkit/stt/) и [синтеза](https://aistudio.yandex.ru/docs/ru/speechkit/tts/) речи.
+* использовать [конфигурации Responses API](https://aistudio.yandex.ru/docs/ru/ai-studio/operations/generation/create-prompt), а также модели генерации текста и изображений, модели [векторного представления текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/embeddings#yandexgpt-embeddings) и [классификаторов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/classifier/models) в Yandex AI Studio;
+* использовать функциональность [перевода текста](https://aistudio.yandex.ru/docs/ru/translate/concepts/) в Yandex AI Studio;
+* использовать функциональность [распознавания текста на изображениях](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/) в Yandex AI Studio;
+* использовать функциональность [распознавания](https://aistudio.yandex.ru/docs/ru/speechkit/stt/) и [синтеза](https://aistudio.yandex.ru/docs/ru/speechkit/tts/) речи в Yandex AI Studio.
 
 
 Включает разрешения, предоставляемые ролью `ai.models.user`.
 
 #### ai.models.admin {#ai-models-admin}
 
-Роль `ai.models.admin` позволяет управлять дообучением моделей Yandex AI Studio, а также использовать сервисы Yandex Translate, Yandex Vision OCR, Yandex SpeechKit и Yandex AI Studio.
+Роль `ai.models.admin` позволяет использовать конфигурации Responses API, обращаться к моделям генерации текста и изображений, векторного представления текста и классификаторов, а также использовать функциональности распознавания и синтеза речи, распознавания текста на изображениях и перевода текста в Yandex AI Studio.
 
 Пользователи с этой ролью могут:
 
 
 * просматривать информацию о [моделях генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models) Yandex AI Studio;
-* [дообучать](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/tuning/#fm-tuning) модели Yandex AI Studio, а также создавать, изменять и удалять дообученные модели;
-* использовать [AI-агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/), а также модели генерации текста и изображений, модели [векторного представления текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/embeddings#yandexgpt-embeddings) и [классификаторов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/classifier/models) в сервисе Yandex AI Studio;
-* использовать сервис Yandex Translate для [перевода текста](https://aistudio.yandex.ru/docs/ru//translate/concepts/);
-* использовать сервис Yandex Vision OCR для [анализа изображений](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/);
-* использовать сервис Yandex SpeechKit для [распознавания](https://aistudio.yandex.ru/docs/ru/speechkit/stt/) и [синтеза](https://aistudio.yandex.ru/docs/ru/speechkit/tts/) речи.
+* использовать [конфигурации Responses API](https://aistudio.yandex.ru/docs/ru/ai-studio/operations/generation/create-prompt), а также модели генерации текста и изображений, модели [векторного представления текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/embeddings#yandexgpt-embeddings) и [классификаторов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/classifier/models) в Yandex AI Studio;
+* использовать функциональность [перевода текста](https://aistudio.yandex.ru/docs/ru/translate/concepts/) в Yandex AI Studio;
+* использовать функциональность [распознавания текста на изображениях](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/) в Yandex AI Studio;
+* использовать функциональность [распознавания](https://aistudio.yandex.ru/docs/ru/speechkit/stt/) и [синтеза](https://aistudio.yandex.ru/docs/ru/speechkit/tts/) речи в Yandex AI Studio.
 
 
 Включает разрешения, предоставляемые ролью `ai.models.editor`.
 
 #### ai.guardrails.auditor {#ai-guardrails-auditor}
 
-Роль `ai.guardrails.auditor` позволяет просматривать метаданные [правил модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) ответов моделей.
+Роль `ai.guardrails.auditor` позволяет просматривать метаданные [правил модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) моделей.
 
 #### ai.guardrails.viewer {#ai-guardrails-viewer}
 
-Роль `ai.guardrails.viewer` позволяет просматривать информацию о [правилах модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) ответов моделей.
+Роль `ai.guardrails.viewer` позволяет просматривать информацию о [правилах модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) моделей.
 
 Включает разрешения, предоставляемые ролью `ai.guardrails.auditor`.
 
 #### ai.guardrails.user {#ai-guardrails-user}
 
-Роль `ai.guardrails.user` позволяет применять [правила модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) ответов моделей и просматривать метаданные таких правил.
+Роль `ai.guardrails.user` позволяет применять [правила модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) моделей и просматривать метаданные таких правил.
 
 #### ai.guardrails.editor {#ai-guardrails-editor}
 
-Роль `ai.guardrails.editor` позволяет просматривать информацию о [правилах модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) ответов моделей, а также создавать, применять, изменять и удалять такие правила.
+Роль `ai.guardrails.editor` позволяет просматривать информацию о [правилах модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) моделей, а также создавать, применять, изменять и удалять такие правила.
 
 Включает разрешения, предоставляемые ролями `ai.guardrails.viewer` и `ai.guardrails.user`.
 
 #### ai.guardrails.admin {#ai-guardrails-admin}
 
-Роль `ai.guardrails.admin` позволяет просматривать информацию о [правилах модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) ответов моделей, а также создавать, применять, изменять и удалять такие правила.
+Роль `ai.guardrails.admin` позволяет просматривать информацию о [правилах модерации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/security/guardrails#rules) моделей, а также создавать, применять, изменять и удалять такие правила.
 
 Включает разрешения, предоставляемые ролью `ai.guardrails.editor`.
 
 #### serverless.mcpGateways.auditor {#serverless-mcpGateways-auditor}
 
-Роль `serverless.mcpGateways.auditor` позволяет просматривать информацию об [MCP-серверах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/mcp-hub/#servers) и назначенных [правах доступа](concepts/access-control/roles.md) к ним.
+Роль `serverless.mcpGateways.auditor` позволяет просматривать информацию об [MCP-серверах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/mcp-hub/#servers) и назначенных [правах доступа](concepts/access-control/roles.md) к ним, а также о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas) на использование MCP-серверов.
 
 #### serverless.mcpGateways.viewer {#serverless-mcpGateways-viewer}
 
-Роль `serverless.mcpGateways.viewer` позволяет просматривать информацию об [MCP-серверах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/mcp-hub/#servers) и назначенных [правах доступа](concepts/access-control/roles.md) к ним.
+Роль `serverless.mcpGateways.viewer` позволяет просматривать информацию об [MCP-серверах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/mcp-hub/#servers) и назначенных [правах доступа](concepts/access-control/roles.md) к ним, а также о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas) на использование MCP-серверов.
 
 Включает разрешения, предоставляемые ролью `serverless.mcpGateways.auditor`.
 
@@ -870,7 +984,7 @@
 
 #### serverless.mcpGateways.editor {#serverless-mcpGateways-editor}
 
-Роль `serverless.mcpGateways.editor` позволяет создавать, изменять и удалять [MCP-серверы](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/mcp-hub/#servers), просматривать информацию о них и назначенных [правах доступа](concepts/access-control/roles.md) к ним.
+Роль `serverless.mcpGateways.editor` позволяет создавать, изменять и удалять [MCP-серверы](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/mcp-hub/#servers), просматривать информацию о них и назначенных [правах доступа](concepts/access-control/roles.md) к ним, а также о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas) на использование MCP-серверов.
 
 Включает разрешения, предоставляемые ролью `serverless.mcpGateways.viewer`.
 
@@ -883,6 +997,7 @@
 
 * просматривать информацию об [MCP-серверах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/mcp-hub/#servers), а также создавать, изменять и удалять их;
 * просматривать информацию о назначенных [правах доступа](concepts/access-control/roles.md) к MCP-серверам, а также изменять такие права доступа;
+* просматривать информацию о [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits#yandexgpt-quotas) на использование MCP-серверов;
 * обращаться через MCP Hub к MCP-серверам, в том числе внешним.
 
 
@@ -934,6 +1049,148 @@
 
 
 Включает разрешения, предоставляемые ролью `serverless.workflows.editor`.
+
+#### ai.subscriptions.auditor {#ai-subscriptions-auditor}
+
+Роль `ai.subscriptions.auditor` позволяет пользователю просматривать метаданные своей [подписки](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/subscription#subscription).
+
+#### ai.subscriptions.viewer {#ai-subscriptions-viewer}
+
+Роль `ai.subscriptions.viewer` позволяет пользователю просматривать информацию о своей [подписке](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/subscription#subscription).
+
+Включает разрешения, предоставляемые ролью `ai.subscriptions.auditor`.
+
+#### ai.subscriptions.user {#ai-subscriptions-user}
+
+Роль `ai.subscriptions.user` позволяет пользователю просматривать информацию о своей [подписке](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/subscription#subscription) и использовать ее.
+
+Включает разрешения, предоставляемые ролью `ai.subscriptions.viewer`.
+
+#### ai.subscriptions.consumer {#ai-subscriptions-consumer}
+
+Роль `ai.subscriptions.consumer` позволяет пользователю просматривать информацию о своей [подписке](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/subscription#subscription), использовать ее, а также сбрасывать окна потребления по ней.
+
+Включает разрешения, предоставляемые ролью `ai.subscriptions.user`.
+
+#### ai.subscriptions.editor {#ai-subscriptions-editor}
+
+Роль `ai.subscriptions.editor` позволяет пользователю управлять своей подпиской.
+
+Пользователи с этой ролью могут:
+
+* получать список всех [подписок](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/subscription#subscription) в [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud);
+* просматривать информацию о своей подписке;
+* покупать, использовать, изменять и удалять свою подписку;
+* сбрасывать окна потребления по любой подписке в облаке.
+
+Включает разрешения, предоставляемые ролью `ai.subscriptions.user`.
+
+#### ai.subscriptions.admin {#ai-subscriptions-admin}
+
+Роль `ai.subscriptions.admin` позволяет управлять подписками пользователей в облаке.
+
+Пользователи с этой ролью могут:
+
+* получать список всех [подписок](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/subscription#subscription) в [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и просматривать информацию о них;
+* покупать, изменять и удалять подписки, в том числе подписки других пользователей;
+* сбрасывать окна потребления по любой подписке в облаке;
+* использовать свою подписку.
+
+Включает разрешения, предоставляемые ролью `ai.subscriptions.editor`.
+
+#### ai.workRuntimes.auditor {#ai-workRuntimes-auditor}
+
+Роль `ai.workRuntimes.auditor` позволяет просматривать метаданные [рабочих мест](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#work-runtime) пользователей и информацию о назначенных [правах доступа](concepts/access-control/index.md) к рабочим местам.
+
+#### ai.workRuntimes.viewer {#ai-workRuntimes-viewer}
+
+Роль `ai.workRuntimes.viewer` позволяет просматривать информацию о [рабочих местах](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#work-runtime) пользователей и назначенных [правах доступа](concepts/access-control/index.md) к рабочим местам.
+
+Включает разрешения, предоставляемые ролью `ai.workRuntimes.auditor`.
+
+#### ai.workRuntimes.user {#ai-workRuntimes-user}
+
+Роль `ai.workRuntimes.user` позволяет пользователю использовать свое рабочее место.
+
+Пользователи с этой ролью могут:
+
+* просматривать информацию о [рабочих местах](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#work-runtime) пользователей;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к рабочим местам пользователей;
+* использовать свое рабочее место.
+
+Включает разрешения, предоставляемые ролью `ai.workRuntimes.viewer`.
+
+#### ai.workRuntimes.editor {#ai-workRuntimes-editor}
+
+Роль `ai.workRuntimes.editor` позволяет пользователю создавать рабочие места и использовать свое рабочее место.
+
+Пользователи с этой ролью могут:
+
+* просматривать информацию о [рабочих местах](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#work-runtime) пользователей;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к рабочим местам пользователей;
+* создавать рабочие места;
+* использовать свое рабочее место.
+
+Включает разрешения, предоставляемые ролью `ai.workRuntimes.user`.
+
+#### ai.workRuntimes.admin {#ai-workRuntimes-admin}
+
+Роль `ai.workRuntimes.admin` позволяет управлять рабочими местами пользователей и доступом к ним.
+
+Пользователи с этой ролью могут:
+
+* просматривать информацию о [рабочих местах](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#work-runtime) пользователей;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к рабочим местам пользователей и изменять такие права доступа;
+* создавать и удалять рабочие места;
+* использовать свое рабочее место.
+
+Включает разрешения, предоставляемые ролью `ai.workRuntimes.editor`.
+
+#### ai.workProfiles.auditor {#ai-workProfiles-auditor}
+
+Роль `ai.workProfiles.auditor` позволяет просматривать метаданные [профилей рабочих мест](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#runtime-profile) пользователей и информацию о назначенных [правах доступа](concepts/access-control/index.md) к таким профилям.
+
+#### ai.workProfiles.viewer {#ai-workProfiles-viewer}
+
+Роль `ai.workProfiles.viewer` позволяет просматривать информацию о [профилях рабочих мест](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#runtime-profile) пользователей и назначенных [правах доступа](concepts/access-control/index.md) к таким профилям.
+
+Включает разрешения, предоставляемые ролью `ai.workProfiles.auditor`.
+
+#### ai.workProfiles.user {#ai-workProfiles-user}
+
+Роль `ai.workProfiles.user` позволяет использовать профили рабочих мест пользователей.
+
+Пользователи с этой ролью могут:
+
+* просматривать информацию о [профилях рабочих мест](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#runtime-profile) пользователей;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к профилям рабочих мест пользователей;
+* использовать профили рабочих мест пользователей.
+
+Включает разрешения, предоставляемые ролью `ai.workProfiles.viewer`.
+
+#### ai.workProfiles.editor {#ai-workProfiles-editor}
+
+Роль `ai.workProfiles.editor` позволяет использовать и изменять профили рабочих мест пользователей.
+
+Пользователи с этой ролью могут:
+
+* просматривать информацию о [профилях рабочих мест](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#runtime-profile) пользователей;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к профилям рабочих мест пользователей;
+* использовать и изменять профили рабочих мест пользователей.
+
+Включает разрешения, предоставляемые ролью `ai.workProfiles.user`.
+
+#### ai.workProfiles.admin {#ai-workProfiles-admin}
+
+Роль `ai.workProfiles.admin` позволяет управлять профилями рабочих мест пользователей и доступом к ним.
+
+Пользователи с этой ролью могут:
+
+* просматривать информацию о [профилях рабочих мест](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/#runtime-profile) пользователей;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к профилям рабочих мест пользователей и изменять такие права доступа;
+* создавать, использовать, изменять и удалять профили рабочих мест пользователей.
+
+Включает разрешения, предоставляемые ролью `ai.workProfiles.editor`.
 
 Подробнее в [Управление доступом в Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/security/index).
 
@@ -1564,7 +1821,7 @@
 
 #### billing.accounts.editor {#billing-accounts-editor}
 
-Роль `billing.accounts.editor` назначается на платежный аккаунт. Позволяет получать счета на оплату, активировать промокоды, привязывать облака и сервисы к платежному аккаунту, создавать экспорт детализации, создавать бюджеты, генерировать акты сверки и резервировать ресурсы.
+Роль `billing.accounts.editor` назначается на платежный аккаунт. Позволяет получать счета на оплату, активировать промокоды, привязывать облака и сервисы к платежному аккаунту, создавать экспорт детализации, создавать бюджеты и генерировать акты сверки.
 
 {% cut "В сервисе Yandex Cloud Billing пользователи с этой ролью могут:" %}
 
@@ -4386,7 +4643,7 @@
 * просматривать список групп, в которые входит тот или иной пользователь, а также список пользователей, которые входят в ту или иную группу;
 * просматривать информацию о [refresh-токенах](concepts/authorization/refresh-token.md) пользователей организации, а также о настройках refresh-токенов в организации;
 * просматривать информацию о квотах сервиса Yandex Identity Hub;
-* просматривать информацию о действующем [тарифном плане](../support/pricing.md#prices) технической поддержки;
+* просматривать информацию о действующем [тарифном плане](../support/pricing.md#effective-plans) технической поддержки;
 * просматривать список [обращений](../support/overview.md) в техническую поддержку и информацию о них, а также создавать такие обращения, оставлять в них комментарии и вложения и закрывать их.
 
 {% endcut %}
@@ -4430,7 +4687,7 @@
 * просматривать информацию о [refresh-токенах](concepts/authorization/refresh-token.md) пользователей организации, а также о настройках refresh-токенов в организации;
 * просматривать [сессии](../organization/concepts/sessions.md) федеративных и локальных пользователей;
 * просматривать информацию о квотах сервиса Yandex Identity Hub;
-* просматривать информацию о действующем [тарифном плане](../support/pricing.md#prices) технической поддержки;
+* просматривать информацию о действующем [тарифном плане](../support/pricing.md#effective-plans) технической поддержки;
 * просматривать список [обращений](../support/overview.md) в техническую поддержку и информацию о них, а также создавать такие обращения, оставлять в них комментарии и вложения и закрывать их.
 
 {% endcut %}
@@ -4485,7 +4742,7 @@
 * просматривать информацию о refresh-токенах пользователей организации и отзывать такие refresh-токены;
 * просматривать и завершать [сессии](../organization/concepts/sessions.md) федеративных и локальных пользователей;
 * просматривать информацию о квотах сервиса Yandex Identity Hub;
-* просматривать информацию о действующем [тарифном плане](../support/pricing.md#prices) технической поддержки;
+* просматривать информацию о действующем [тарифном плане](../support/pricing.md#effective-plans) технической поддержки;
 * просматривать список [обращений](../support/overview.md) в техническую поддержку и информацию о них, а также создавать такие обращения, оставлять в них комментарии и вложения и закрывать их.
 
 {% endcut %}
@@ -4550,7 +4807,7 @@
 * просматривать информацию о refresh-токенах пользователей организации и отзывать такие refresh-токены;
 * просматривать и завершать [сессии](../organization/concepts/sessions.md) федеративных и локальных пользователей;
 * просматривать информацию о квотах сервиса Yandex Identity Hub;
-* просматривать информацию о действующем [тарифном плане](../support/pricing.md#prices) технической поддержки;
+* просматривать информацию о действующем [тарифном плане](../support/pricing.md#effective-plans) технической поддержки;
 * просматривать список [обращений](../support/overview.md) в техническую поддержку и информацию о них, а также создавать такие обращения, оставлять в них комментарии и вложения и закрывать их;
 * просматривать, создавать, изменять и удалять репозитории SourceCraft;
 * читать файлы из репозитория SourceCraft;
@@ -7279,35 +7536,35 @@
 
 #### search-api.executor {#search-api-executor}
 
-Роль `search-api.executor` использовалась для работы с устаревшим API сервиса.
+Роль `search-api.executor` использовалась для работы с устаревшим Yandex Search API v1 и позволяет выполнять поисковые запросы с помощью актуальной версии Yandex Search API.
 
-Роль `search-api.executor` устарела и больше не используется.
+Роль `search-api.executor` устарела и не должна использоваться.
 
 #### search-api.webSearch.user {#search-api-webSearch-user}
 
-Роль `search-api.webSearch.user` позволяет выполнять поисковые запросы в сервисе Yandex Search API, а также просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](https://aistudio.yandex.ru/docs/ru/search-api/concepts/limits#search-api-quotas) сервиса Yandex Search API.
+Роль `search-api.webSearch.user` позволяет выполнять [поисковые запросы](https://aistudio.yandex.ru/docs/ru/search-api/quickstart/) с помощью Yandex Search API, а также просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](https://aistudio.yandex.ru/docs/ru/search-api/concepts/limits#search-api-quotas) Yandex Search API.
 
 #### search-api.auditor {#search-api-auditor}
 
-Роль `search-api.auditor` использовалась для работы с устаревшим API сервиса и позволяет просматривать информацию о квотах сервиса Yandex Search API, а также об облаке и каталоге.
+Роль `search-api.auditor` использовалась для работы с устаревшим Yandex Search API v1.
 
 Роль `search-api.auditor` устарела и не должна использоваться.
 
 #### search-api.viewer {#search-api-viewer}
 
-Роль `search-api.viewer` использовалась для работы с устаревшим API сервиса и позволяет просматривать информацию о квотах сервиса Yandex Search API, а также об облаке и каталоге.
+Роль `search-api.viewer` использовалась для работы с устаревшим Yandex Search API v1.
 
 Роль `search-api.viewer` устарела и не должна использоваться.
 
 #### search-api.editor {#search-api-editor}
 
-Роль `search-api.editor` использовалась для работы с устаревшим API сервиса и позволяет просматривать информацию о квотах сервиса Yandex Search API, а также об облаке и каталоге.
+Роль `search-api.editor` использовалась для работы с устаревшим Yandex Search API v1 и позволяет выполнять поисковые запросы с помощью актуальной версии Yandex Search API.
 
 Роль `search-api.editor` устарела и не должна использоваться.
 
 #### search-api.admin {#search-api-admin}
 
-Роль `search-api.admin` использовалась для работы с устаревшим API сервиса и позволяет просматривать информацию о квотах сервиса Yandex Search API, а также об облаке и каталоге.
+Роль `search-api.admin` использовалась для работы с устаревшим Yandex Search API v1 и позволяет выполнять поисковые запросы с помощью актуальной версии Yandex Search API.
 
 Роль `search-api.admin` устарела и не должна использоваться.
 
@@ -8082,11 +8339,11 @@
 
 #### ai.speechkit-stt.user {#ai-speechkit-stt-user}
 
-Роль `ai.speechkit-stt.user` позволяет использовать сервис Yandex SpeechKit для [распознавания](https://aistudio.yandex.ru/docs/ru/speechkit/stt/) речи, а также просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](https://aistudio.yandex.ru/docs/ru/speechkit/concepts/limits#speechkit-quotas) сервиса.
+Роль `ai.speechkit-stt.user` позволяет использовать функциональность [распознавания речи](https://aistudio.yandex.ru/docs/ru/speechkit/stt/) в сервисе Yandex AI Studio, а также просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](https://aistudio.yandex.ru/docs/ru/speechkit/concepts/limits#speechkit-quotas) сервиса.
 
 #### ai.speechkit-tts.user {#ai-speechkit-tts-user}
 
-Роль `ai.speechkit-tts.user` позволяет использовать сервис Yandex SpeechKit для [синтеза](https://aistudio.yandex.ru/docs/ru/speechkit/tts/) речи, а также просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](https://aistudio.yandex.ru/docs/ru/speechkit/concepts/limits#speechkit-quotas) сервиса.
+Роль `ai.speechkit-tts.user` позволяет использовать функциональность [синтеза речи](https://aistudio.yandex.ru/docs/ru/speechkit/tts/) в сервисе Yandex AI Studio, а также просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](https://aistudio.yandex.ru/docs/ru/speechkit/concepts/limits#speechkit-quotas) сервиса.
 
 Подробнее в [Управление доступом в SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/security/index).
 
@@ -8138,7 +8395,7 @@
 
 #### ai.translate.user {#translate-user}
 
-Роль `ai.translate.user` позволяет использовать сервис Yandex Translate для [перевода текста](https://aistudio.yandex.ru/docs/ru/translate/concepts/), а также просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) сервиса.
+Роль `ai.translate.user` позволяет использовать функциональность [перевода текста](https://aistudio.yandex.ru/docs/ru/translate/concepts/) в сервисе Yandex AI Studio, а также просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) сервиса.
 
 Подробнее в [Управление доступом в Translate](https://aistudio.yandex.ru/docs/ru/translate/security/index).
 
@@ -8412,7 +8669,7 @@
 
 #### ai.vision.user {#vision-user}
 
-Роль `ai.vision.user` позволяет использовать сервис Yandex Vision OCR для [анализа изображений](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/), а также просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) сервиса.
+Роль `ai.vision.user` позволяет использовать функциональность [распознавания текста](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/) на изображениях в сервисе Yandex AI Studio, а также просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/limits) сервиса.
 
 Подробнее в [Управление доступом в Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/security/index).
 

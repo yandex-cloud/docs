@@ -8,7 +8,6 @@ description: Follow this guide to create a product in the {{ marketplace-full-na
 You can add different types of products to {{ marketplace-short-name }}:
   * Products for {{ compute-full-name }}: Upload an image based on [Linux](../concepts/compute-product.md#create).
   * Products for {{ managed-k8s-full-name }}: Upload a helm chart and all the docker images it contains to the {{ yandex-cloud }} [registry](../../container-registry/concepts/registry.md). Read more in [{#T}](../concepts/kubernetes-product.md).
-  * {{ cloud-apps-name }} products: Create a configuration. Read more in [{#T}](create-configuration.md).
 
 ## Apply for product approval {#create-prod}
 

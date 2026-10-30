@@ -163,7 +163,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
      1. Open the [management console]({{ link-console-main }}).
      1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-     1. Open the **Security groups** tab.
+     1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
      1. Create a security group for the load balancer:
         1. Click **Create group**.
         1. Enter the group **Name**: `sg-autoscale`.
@@ -177,10 +177,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
            Inbound | healthchecks | 80 | TCP | Load balancer health checks | —
 
            1. Select the **Egress** or **Ingress** tab.
-           1. Click **Add rule**.
+           1. Click **Add**.
            1. In the **Port range** field of the window that opens, specify a port or range of ports open for inbound or outbound traffic.
            1. In the **Protocol** field, specify the protocol or leave **Any** to allow traffic over any protocol.
-           1. In the **Purpose** or **Source** field, select the rule purpose:
+           1. In the **Destination name** or **Source** field, select the scope of the rule:
               * **CIDR**: Rule will apply to the range of [IP addresses](../../vpc/concepts/address.md). In the **CIDR blocks** field, specify the CIDR ranges of the source or destination subnets. To add more CIDRs, click **Add CIDR**.
               * **Security group**: Rule will apply to the VMs from the current group or the selected security group.
               * **Load balancer health checks**: Rule allowing a load balancer to health-check VMs.

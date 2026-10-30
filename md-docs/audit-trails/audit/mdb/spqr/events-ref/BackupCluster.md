@@ -117,7 +117,9 @@
               "defaultTargetSessionAttrs": "string",
               "defaultCommitStrategy": "string",
               "allowPostprocessing": "boolean",
-              "autoRouteRoOnStandby": "boolean"
+              "autoRouteRoOnStandby": "boolean",
+              "allowTwoPhaseCommit": "boolean",
+              "allowAutoprotectTwoPhase": "boolean"
             },
             "resources": {
               "resourcePresetId": "string",
@@ -165,7 +167,9 @@
               "defaultTargetSessionAttrs": "string",
               "defaultCommitStrategy": "string",
               "allowPostprocessing": "boolean",
-              "autoRouteRoOnStandby": "boolean"
+              "autoRouteRoOnStandby": "boolean",
+              "allowTwoPhaseCommit": "boolean",
+              "allowAutoprotectTwoPhase": "boolean"
             },
             "coordinator": {
               "iterationTimeout": "string",
@@ -568,6 +572,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 - `TWO_PC` ||
 || allowPostprocessing | **boolean** ||
 || autoRouteRoOnStandby | **boolean** ||
+|| allowTwoPhaseCommit | **boolean** ||
+|| allowAutoprotectTwoPhase | **boolean** ||
 |#
 
 ## Resources {#yandex.cloud.mdb.spqr.v1.Resources}

@@ -106,7 +106,7 @@ The instance group will reside in the [{{ vpc-full-name }}](../../vpc/) [network
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `vm-scale-scheduled-network`.
   1. Select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.

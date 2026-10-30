@@ -27,6 +27,18 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
+{% note tip %}
+
+В {{ TF }} есть следующие типы ресурсов для назначения ролей, например, на каталог:
+
+* [yandex_resourcemanager_folder_iam_member](../../../terraform/resources/resourcemanager_folder_iam_member.md) — одна роль одному субъекту.
+* [yandex_resourcemanager_folder_iam_binding](../../../terraform/resources/resourcemanager_folder_iam_binding.md) — все субъекты для одной роли, список которых заменяется при обновлении.
+* [yandex_resourcemanager_folder_iam_policy](../../../terraform/resources/resourcemanager_folder_iam_policy.md) — все назначенные роли на ресурс с заменой текущих.
+
+Рекомендуется использовать `iam_member`. Этот способ позволяет назначить одну роль одному субъекту, не меняя остальные назначенные роли. Не комбинируйте разные типы ресурсов для управления одними и теми же ролями и субъектами.
+
+{% endnote %}
+
 ## Назначить роль на каталог или облако {#cloud-or-folder}
 
 {% list tabs group=instructions %}
@@ -125,9 +137,9 @@ description: Следуя данной инструкции, вы сможете
 
       Где:
 
-      * `cloud_id` — идентификатор облака. Получить список доступных облаков можно с помощью команды [CLI](../../../cli/quickstart.md): `yc resource-manager cloud list`. Обязательный параметр.
-      * `folder_id` — идентификатор каталога. Получить список доступных каталогов можно с помощью команды [CLI](../../../cli/quickstart.md): `yc resource-manager cloud list`. Обязательный параметр.
-      * `role` — роль, которую нужно назначить. Перечень ролей можно получить с помощью команды [CLI](../../../cli/quickstart.md): `yc iam role list`. В одном ресурсе можно назначить только одну роль. Обязательный параметр.
+      * `cloud_id` — [идентификатор облака](../../../resource-manager/operations/cloud/get-id.md). Обязательный параметр.
+      * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md). Обязательный параметр.
+      * `role` — идентификатор назначаемой [роли](../../roles-reference.md). В одном ресурсе можно назначить только одну роль. Обязательный параметр.
       * `member` — обозначение [субъекта](../../concepts/access-control/index.md#subject), которому назначается роль. Обязательный параметр.
 
           {% cut "Обозначения субъектов" %}
@@ -142,7 +154,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      После этого в организации будут созданы нужные ресурсы.
+      После этого субъектам будут назначены роли на указанное облако или каталог.
 
 - API {#api}
 
@@ -252,7 +264,7 @@ description: Следуя данной инструкции, вы сможете
       Пример структуры конфигурационного файла:
 
       ```hcl
-      resource "yandex_organizationmanager_organization_iam_binding" "<название_ресурса>" {
+      resource "yandex_organizationmanager_organization_iam_member" "<название_ресурса>" {
         organization_id = "<идентификатор_организации>"
         role            = "<роль>"
         member          = "<тип_субъекта>:<идентификатор_субъекта>"
@@ -262,7 +274,7 @@ description: Следуя данной инструкции, вы сможете
       Где:
 
       * `organization_id` — [идентификатор](../../../organization/operations/organization-get-id.md) организации. Обязательный параметр.
-      * `role` — назначаемая роль. Для каждой роли можно использовать только один ресурс `yandex_organizationmanager_organization_iam_binding`. Обязательный параметр.
+      * `role` — назначаемая роль. В одном ресурсе `yandex_organizationmanager_organization_iam_member` можно назначить одну роль одному субъекту. Обязательный параметр.
       * `member` — обозначение [субъекта](../../concepts/access-control/index.md#subject), которому назначается роль. Обязательный параметр.
 
           {% cut "Обозначения субъектов" %}
@@ -271,17 +283,13 @@ description: Следуя данной инструкции, вы сможете
 
           {% endcut %}
 
-      Подробнее читайте в [документации провайдера]({{ tf-provider-link }}).
+      Подробнее читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_member).
 
   1. Создайте ресурсы:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      После этого в организации будут созданы нужные ресурсы. Проверить их создание можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
-
-      ```bash
-      yc organization-manager organization list-access-bindings <имя_или_идентификатор_организации>
-      ```
+      После этого субъекту будет назначена роль на организацию. Чтобы проверить назначение, воспользуйтесь [инструкцией](get-assigned-roles.md).
 
 - API {#api}
 
@@ -378,10 +386,10 @@ description: Следуя данной инструкции, вы сможете
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   Чтобы назначить роль на организацию:
+   Например, чтобы назначить роль на каталог:
 
    1. Получите [идентификатор пользователя](../../../organization/operations/users-get.md), [сервисного аккаунта](../sa/get-id.md) или группы пользователей, которым назначаете роль.
-   1. Опишите в конфигурационном файле ресурс с ролью на организацию.
+   1. Опишите в конфигурационном файле ресурс с ролью на каталог.
 
       Пример структуры конфигурационного файла для назначения роли на каталог:
 
@@ -396,7 +404,7 @@ description: Следуя данной инструкции, вы сможете
       Где:
 
       * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md). Обязательный параметр.
-      * `role` — назначаемая роль. Для каждой роли можно использовать только один ресурс `yandex_organizationmanager_organization_iam_binding`. Обязательный параметр.
+      * `role` — назначаемая роль. В одном ресурсе `yandex_resourcemanager_folder_iam_member` можно назначить одну роль одному субъекту. Обязательный параметр.
       * `member` — обозначение [субъекта](../../concepts/access-control/index.md#subject), которому назначается роль. Обязательный параметр.
 
           {% cut "Обозначения субъектов" %}
@@ -405,13 +413,13 @@ description: Следуя данной инструкции, вы сможете
 
           {% endcut %}
 
-      Подробнее читайте в [документации провайдера]({{ tf-provider-link }}).
+      Подробнее читайте в [документации провайдера]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
 
   1. Создайте ресурсы:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      После этого в организации будут созданы нужные ресурсы. Проверить их создание можно в [консоли управления]({{ link-console-main }}) или с помощью команд CLI.
+      После этого субъекту будет назначена роль на каталог. Чтобы проверить назначение, воспользуйтесь [инструкцией](get-assigned-roles.md).
 
 - API {#api}
 
@@ -501,14 +509,14 @@ description: Следуя данной инструкции, вы сможете
 
           {% endcut %}
 
-      Для каждой роли передайте отдельный параметр `--access-binding`. Например, чтобы назначить несколько ролей сервисному аккаунту на виртуальную машину:
+      Для каждой роли передайте отдельный параметр `--access-binding`. Например, чтобы назначить несколько ролей субъекту на виртуальную машину:
 
       ```bash
       yc compute instance set-access-bindings \
          --id ins672qpemb4******** \
-         --access-binding role=compute.disks.user,subject=<тип_субъекта>:aje8m5luj4qf******** \
-         --access-binding role=compute.images.user,subject=<тип_субъекта>:aje8m5luj4qf******** \
-         --access-binding role=compute.operator,subject=<тип_субъекта>:aje8m5luj4qf********
+         --access-binding role=compute.disks.user,subject=<тип_субъекта>:<идентификатор_субъекта> \
+         --access-binding role=compute.images.user,subject=<тип_субъекта>:<идентификатор_субъекта> \
+         --access-binding role=compute.operator,subject=<тип_субъекта>:<идентификатор_субъекта>
       ```
 
 - {{ TF }} {#tf}
@@ -517,33 +525,27 @@ description: Следуя данной инструкции, вы сможете
 
   1. Опишите в конфигурационном файле параметры назначаемых ролей.
 
-      Пример структуры конфигурационного файла для назначения нескольких ролей на облако:
+      Пример структуры конфигурационного файла для назначения двух разных ролей одному субъекту на облако:
 
       ```hcl
       resource "yandex_resourcemanager_cloud_iam_member" "cloud_member_1" {
         cloud_id = "<идентификатор_облака>"
         role     = "<роль_1>"
-        members  = ["<тип_субъекта_1>:<идентификатор_субъекта_1>",
-                    "<тип_субъекта_2>:<идентификатор_субъекта_2>",
-                    ...,
-                    "<тип_субъекта_n>:<идентификатор_субъекта_n>"]
+        member   = "<тип_субъекта>:<идентификатор_субъекта>"
       }
 
       resource "yandex_resourcemanager_cloud_iam_member" "cloud_member_2" {
-        cloud_id  = "<идентификатор_облака>"
-        role      = "<роль_2>"
-        members   = ["<тип_субъекта_1>:<идентификатор_субъекта_1>",
-                    "<тип_субъекта_2>:<идентификатор_субъекта_2>",
-                    ...,
-                    "<тип_субъекта_n>:<идентификатор_субъекта_n>"]
+        cloud_id = "<идентификатор_облака>"
+        role     = "<роль_2>"
+        member   = "<тип_субъекта>:<идентификатор_субъекта>"
       }
       ```
 
       Где:
 
-      * `cloud_id` — идентификатор облака. Получить список доступных облаков можно с помощью команды [CLI](../../../cli/quickstart.md): `yc resource-manager cloud list`. Обязательный параметр.
-      * `role` — роль, которую нужно назначить. Перечень ролей можно получить с помощью команды [CLI](../../../cli/quickstart.md): `yc iam role list`. В одном ресурсе `yandex_resourcemanager_cloud_iam_member` можно назначить только одну роль. Обязательный параметр.
-      * `members` — обозначения [субъектов](../../concepts/access-control/index.md#subject), которым назначается роль. Обязательный параметр.
+      * `cloud_id` — [идентификатор облака](../../../resource-manager/operations/cloud/get-id.md). Обязательный параметр.
+      * `role` — идентификатор назначаемой [роли](../../roles-reference.md). В одном ресурсе `yandex_resourcemanager_cloud_iam_member` можно назначить только одну роль. Обязательный параметр.
+      * `member` — обозначение [субъекта](../../concepts/access-control/index.md#subject), которому назначается роль. В примере обе роли назначаются одному субъекту. Чтобы назначить роль другому субъекту, добавьте отдельный ресурс `yandex_resourcemanager_cloud_iam_member`. Обязательный параметр.
 
           {% cut "Обозначения субъектов" %}
 
@@ -557,7 +559,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      После этого в организации будут созданы нужные ресурсы.
+      После этого субъекту будут назначены указанные роли на облако.
 
 - API {#api}
 

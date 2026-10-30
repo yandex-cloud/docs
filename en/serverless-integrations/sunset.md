@@ -29,7 +29,7 @@ The {{ si-full-name }} decommissioning process will follow these three stages:
 
 * **September 15, 2026**: {{ er-name }} switches to read-only mode. You will no longer be able to create new buses, connectors, and rules.
 
-* **December 8, 2026**: Full {{ si-full-name }} decommissioning. Access to the interface will be disabled for all users.
+* **October 8, 2026**: Full {{ si-full-name }} decommissioning. Access to the interface will be disabled for all users.
 
 ## What happens to your data {#data}
 

@@ -7,4 +7,4 @@ description: In this tutorial, you will learn how to configure Postfix on a VM i
 
 {% include [postfix-integration](../../_tutorials/serverless/postfix-integration.md) %}
 
-
+[*api-key-scope]: {% include notitle [api-key-scope](../../_popups/iam/api-key-scope.md) %}

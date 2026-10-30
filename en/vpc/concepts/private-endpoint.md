@@ -44,14 +44,14 @@ Currently, you can create service connections for the following cloud services:
 | **Service name** | **Service type** | **Access policy** | **Creation method** | **PE record** | **Primary record** |
 | --- | --- | --- | --- | --- | --- |
 | [{{ objstorage-short-name }}](../../storage/) | yandex.cloud.storage | [Yes](#s3-policy) | [Management console, CLI, {{ TF }}](../operations/private-endpoint-create.md) | `storage.pe.yandexcloud.net` | `storage.yandexcloud.net` |
-| [{{ cloud-registry-name }}](../../cloud-registry) | yandex.cloud.registry | No | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `registry.pe.yandexcloud.net` | `registry.yandexcloud.net` |
-| [{{ ai-studio-name }}]({{ link-docs-ai }}ai-studio/concepts/) | yandex.cloud.ai-studio | No | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `ai.pe.api.cloud.yandex.net` | `ai.api.cloud.yandex.net` |
-| [{{ ai-studio-name }} Apps]({{ link-docs-ai }}ai-studio/concepts/) | yandex.cloud.ai-studio.apps | No | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `apps.ai.pe.api.cloud.yandex.net` | `apps.ai.api.cloud.yandex.net` |
-| [AI Studio MCP Gateway](https://aistudio.yandex.ru/docs/ai-studio/mcp-gateway/api-ref/) | yandex.cloud.mcp-gateway | No | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `*.mcpgw.serverless.pe.yandexcloud.net` | `*.mcpgw.serverless.yandexcloud.net` |
-| [{{ mtr-name }}](../../managed-trino) | yandex.cloud.managed-trino | No | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `trino.pe.yandexcloud.net`, `*.trino.pe.yandexcloud.net` | - |
-| [{{ serverless-containers-name }}](../../serverless-containers) | yandex.cloud.serverless-containers | No | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `*.containers.pe.yandexcloud.net` | `*.containers.yandexcloud.net` |
-| [{{ sf-name }}](../../functions) | yandex.cloud.serverless-functions | No | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `functions.pe.yandexcloud.net` | `functions.yandexcloud.net` |
-| Public API Gateway | yandex.cloud.api | No | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `-` | `*.api.cloud.yandex.net` |
+| [{{ cloud-registry-name }}](../../cloud-registry) | yandex.cloud.registry | None | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `registry.pe.yandexcloud.net` | `registry.yandexcloud.net` |
+| [{{ ai-studio-name }}]({{ link-docs-ai }}ai-studio/concepts/) | yandex.cloud.ai-studio | None | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `ai.pe.api.cloud.yandex.net` | `ai.api.cloud.yandex.net` |
+| [{{ ai-studio-name }} Apps]({{ link-docs-ai }}ai-studio/concepts/) | yandex.cloud.ai-studio.apps | None | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `apps.ai.pe.api.cloud.yandex.net` | `apps.ai.api.cloud.yandex.net` |
+| [AI Studio MCP Gateway](https://aistudio.yandex.ru/docs/ai-studio/mcp-gateway/api-ref/) | yandex.cloud.mcp-gateway | None | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `*.mcpgw.serverless.pe.yandexcloud.net` | `*.mcpgw.serverless.yandexcloud.net` |
+| [{{ mtr-name }}](../../managed-trino) | yandex.cloud.managed-trino | None | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `trino.pe.yandexcloud.net`, `*.trino.pe.yandexcloud.net` | - |
+| [{{ serverless-containers-name }}](../../serverless-containers) | yandex.cloud.serverless-containers | None | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `*.containers.pe.yandexcloud.net` | `*.containers.yandexcloud.net` |
+| [{{ sf-name }}](../../functions) | yandex.cloud.serverless-functions | None | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `functions.pe.yandexcloud.net` | `functions.yandexcloud.net` |
+| Public API Gateway | yandex.cloud.api | None | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `-` | `*.api.cloud.yandex.net` |
 
 ## How to use certain types of service connections {#pe-notes2}
 

@@ -32,7 +32,7 @@ description: Следуя данной инструкции, вы сможете
       yc iam refresh-token revoke --help
       ```
   1. Если вы хотите отозвать определенные refresh-токены, [получите](./list.md) их идентификаторы.
-  1. Чтобы отозвать refresh-токен или несколько refresh-токенов пользователя, выполните команду:
+  1. Чтобы отозвать refresh-токен или несколько refresh-токенов пользователя, выберите один из способов:
 
       {% note warning %}
 
@@ -42,14 +42,27 @@ description: Следуя данной инструкции, вы сможете
 
       {% endnote %}
 
-      ```bash
-      yc iam refresh-token revoke \
-        --refresh-token <тело_refresh-токена_в_stdin>
-        --refresh-token-id <идентификатор_refresh-токена> \
-        --subject-id <идентификатор_пользователя> \
-        --client-id <идентификатор_OAuth-приложения> \
-        --client-instance-info <версия_OAuth-приложения>
-      ```
+      * По токену, переданному через стандартный поток ввода (`stdin`):
+
+          ```bash
+          yc iam refresh-token revoke --refresh-token <путь_к_файлу_с_телом_токена>
+          ```
+
+      * По идентификатору токена:
+
+          ```bash
+          yc iam refresh-token revoke \
+            --refresh-token-id <идентификатор_refresh-токена>
+          ```
+
+      * По сочетанию пользователя, OAuth-приложения и версии приложения:
+
+          ```bash
+          yc iam refresh-token revoke \
+            --subject-id <идентификатор_пользователя> \
+            --client-id <идентификатор_OAuth-приложения> \
+            --client-instance-info <версия_OAuth-приложения>
+          ```
 
       Где:
 

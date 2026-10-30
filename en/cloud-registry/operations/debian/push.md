@@ -1,5 +1,5 @@
 ---
-title: Pushing a Debian package to a {{ cloud-registry-full-name }} registry
+title: Pushing a Debian package to a {{ cloud-registry-full-name }}
 description: Follow this guide to push a Debian package to a registry in {{ cloud-registry-full-name }}.
 ---
 
@@ -7,7 +7,7 @@ description: Follow this guide to push a Debian package to a registry in {{ clou
 
 This guide describes how to push a [Debian package](../../concepts/artifacts/debian.md) to a [local registry](../../concepts/registry.md#local-registry).
 
-To push a Debian package to the registry, you need the `cloud-registry.artifacts.pusher` [role](../../security/index.md#cloud-registry-artifacts-pusher) or higher.
+To push a Debian package to a registry, you need the `cloud-registry.artifacts.pusher` [role](../../security/index.md#cloud-registry-artifacts-pusher) or higher.
 
 {% list tabs group=debian_tools %}
 
@@ -15,7 +15,7 @@ To push a Debian package to the registry, you need the `cloud-registry.artifacts
 
     1. {% include [auth-env-vars](../../../_includes/cloud-registry/auth-env-vars.md) %}
 
-    1. Push the project using an HTTP request:
+    1. Run this HTTP request to push your package:
 
         ```bash
         curl \
@@ -66,7 +66,7 @@ To push a Debian package to the registry, you need the `cloud-registry.artifacts
       dput ycr <package>.changes
       ```
 
-      Where `<package>.changes` is the package changes file generated during the build.
+      Where `<package>.changes` is the package change file generated during the compilation.
 
 {% endlist %}
 
@@ -74,3 +74,5 @@ To push a Debian package to the registry, you need the `cloud-registry.artifacts
 
 * [{#T}](installation.md)
 * [{#T}](pull.md)
+
+[*api-key-scope]: {% include notitle [api-key-scope](../../../_popups/iam/api-key-scope.md) %}

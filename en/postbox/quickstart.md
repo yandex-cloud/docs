@@ -12,7 +12,7 @@ Use this guide to create your address and send a verification email.
 1. Create a key for the service account:
 
    * To send an email using the AWS CLI, [create](../iam/operations/authentication/manage-access-keys.md#create-access-key) a static access key. Save the ID and secret key to a secure location. You will not be able to view the secret key properties again after you close the window.
-   * To send an email via SMTP, [create](../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key. When creating an API key, set the scope to `yc.postbox.send`. Save the secret key you got in a secure location. You will not be able to view the secret key properties again after you close the window.
+   * To send an email via SMTP, [create](../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key. When creating an API key, set the [scope](*api-key-scope) to `yc.postbox.send`. Save the secret key you got in a secure location. You will not be able to view the secret key properties again after you close the window.
 
 ## Create an address {#create-address}
 
@@ -30,7 +30,7 @@ Use this guide to create your address and send a verification email.
 
 {% endlist %}
 
-## Verify your domain ownership {#verify-domain}
+## Pass domain ownership verification {#verify-domain}
 
 {% include [check-domain-intro](../_includes/postbox/check-domain-intro.md) %}
 
@@ -64,3 +64,5 @@ You can send a test email using the [AWS CLI](#aws-cli-send) or from your email 
 
 * [{#T}](concepts/notification.md)
 * [{#T}](operations/send-email.md)
+
+[*api-key-scope]: {% include notitle [api-key-scope](../_popups/iam/api-key-scope.md) %}
